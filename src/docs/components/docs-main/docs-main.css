@@ -1,0 +1,8 @@
+.docs-main {
+  main > p:last-child {
+    display: none;
+  }
+  main > hr:last-of-type {
+    display: none;
+  }
+}

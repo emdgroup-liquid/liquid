@@ -1,0 +1,110 @@
+{
+  "name": "@emdgroup-liquid/liquid",
+  "version": "0.0.1",
+  "description": "Beautiful, accessible and versatile UI components",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:emdgroup-liquid/liquid.git"
+  },
+  "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/liquid/liquid.esm.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs && npm run build:styles",
+    "build:docs": "stencil build --config=stencil.config.docs.ts && npx @11ty/eleventy",
+    "build:styles": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css && postcss 'src/liquid/components/**/*[!.shadow].css' --no-map -d dist/css/ && cat dist/css/*.css > dist/css/liquid.css",
+    "build:styles:docs": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
+    "start": "npm run serve & stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts & npx @11ty/eleventy --watch & npm run watch:global_styles && fg",
+    "serve": "nc -z 127.0.0.1 8080 &>/dev/null && exit 0 || live-server --port=8080 dist_docs --no-browser",
+    "lint": "npm run lint:ts && npm run lint:eslint && npm run lint:styles",
+    "lint:eslint": "eslint .",
+    "lint:ts": "tsc --noemit -p tsconfig.docs.json",
+    "lint:styles": "stylelint ./src/**/*css",
+    "test": "stencil test --spec --e2e --screenshot --coverage && npm run test:a11y",
+    "test:e2e": "stencil test --e2e --screenshot",
+    "test:unit": "stencil test --spec --coverage",
+    "test:a11y": "jest --config=jest.config.js",
+    "test:watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "watch:global_styles": "chokidar src/liquid/global/**/*.css -c 'npm run build:styles:docs'"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.0.1"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@babel/core": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.8",
+    "@babel/eslint-plugin": "^7.13.0",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@stencil/eslint-plugin": "^0.3.1",
+    "@stencil/postcss": "^2.0.0",
+    "@types/jest": "^26.0.20",
+    "@types/puppeteer": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "chokidar-cli": "^2.1.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "husky": "^5.1.3",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "jest-pa11y": "^1.1.5",
+    "lint-staged": "^10.5.4",
+    "live-server": "^1.2.1",
+    "pa11y": "^5.3.0",
+    "polyserve": "^0.27.15",
+    "postcss": "^8.2.7",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.5",
+    "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1",
+    "puppeteer": "^5.4.1",
+    "semantic-release": "^17.4.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-declaration-strict-value": "^1.7.9",
+    "stylelint-high-performance-animation": "^1.5.2",
+    "stylelint-use-nesting": "^3.0.0",
+    "ts-jest": "^26.5.3",
+    "typescript": "^4.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-push": "sh scripts/lintbranchname.sh"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all",
+    "not IE 11"
+  ]
+}

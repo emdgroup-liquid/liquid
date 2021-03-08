@@ -1,0 +1,8 @@
+{
+  "runners": ["axe"],
+  "standard": "WCAG2AAA",
+  "includeWarnings": true,
+  "includeNotices": true,
+  "rootElement": "#main",
+  "hideElements": "pre[class^='language'],iframe"
+}

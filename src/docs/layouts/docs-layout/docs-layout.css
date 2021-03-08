@@ -1,0 +1,7 @@
+.docs-layout {
+  display: grid;
+
+  .docs-nav {
+    height: 100%;
+  }
+}

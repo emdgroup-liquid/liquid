@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@font-face {
+  font-family: 'MWeb';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://lds.merck.design/static/MerckWeb-Regular-800387f97bc69c019861992f882b7db7.woff2')
+    format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --lds-font-body: 'Lato', sans-serif;
+  --lds-font-display: 'MWeb', sans-serif;
+}

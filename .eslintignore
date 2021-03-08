@@ -1,0 +1,8 @@
+node_modules
+dist
+dist_docs
+coverage
+components.d.ts
+
+# otherwise ignored for whatever reason
+!.eleventy.js

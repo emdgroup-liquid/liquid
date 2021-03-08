@@ -1,0 +1,13 @@
+.docs-nav {
+  display: block;
+  background: sandybrown;
+
+  ul {
+    list-style: none;
+  }
+
+  a[href='.'] {
+    text-decoration: none;
+    pointer-events: none;
+  }
+}

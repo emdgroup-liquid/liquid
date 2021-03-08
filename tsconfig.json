@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2017"],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2017",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./src/liquid"],
+  "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]
+}
