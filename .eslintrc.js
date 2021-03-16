@@ -9,7 +9,11 @@ const commonTSConfig = {
   plugins: ['@typescript-eslint', 'promise'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/no-extra-semi': 0,
     '@stencil/strict-boolean-conditions': 0,
+    '@stencil/element-type': 0,
+    'react/jsx-no-bind': 0,
   },
 }
 
@@ -25,6 +29,10 @@ module.exports = {
   overrides: [
     {
       ...commonTSConfig,
+      files: ['*.ts'],
+    },
+    {
+      ...commonTSConfig,
       files: ['src/liquid/**/*.ts', 'src/liquid/**/*.tsx'],
       parserOptions: {
         project: ['./tsconfig.json'],
@@ -32,15 +40,20 @@ module.exports = {
     },
     {
       ...commonTSConfig,
-      files: ['src/docs/**/*.ts', 'src/docs/**/*.tsx'],
+      files: [
+        'src/docs/**/*.ts',
+        'src/docs/**/*.tsx',
+        'src/liquid/**/test/*.ts',
+      ],
       parserOptions: {
         project: ['./tsconfig.docs.json'],
       },
     },
-    {
-      ...commonTSConfig,
-      files: ['stencil.config*.ts', './src/test/**/*.ts'],
-    },
   ],
   plugins: ['@babel'],
+  settings: {
+    react: {
+      version: '0',
+    },
+  },
 }

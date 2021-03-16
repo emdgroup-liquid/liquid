@@ -1,0 +1,48 @@
+@define-mixin docs-switch-theme-light {
+  .docs-switch-theme__btn {
+    circle {
+      stroke: var(--ld-col-rblck-default);
+    }
+    path {
+      fill: var(--ld-col-rblck-default);
+    }
+  }
+}
+@define-mixin docs-switch-theme-dark {
+  .docs-switch-theme__btn {
+    circle {
+      stroke: var(--ld-col-wht);
+    }
+    path {
+      fill: var(--ld-col-wht);
+    }
+  }
+}
+
+@mixin docs-switch-theme-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-switch-theme-dark;
+}
+.docs-theme-dark {
+  @mixin docs-switch-theme-dark;
+}
+.docs-theme-light {
+  @mixin docs-switch-theme-light;
+}
+
+.docs-switch-theme__btn {
+  display: flex;
+  align-items: center;
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  color: inherit;
+
+  svg {
+    margin-right: var(--ld-sp-6);
+  }
+}

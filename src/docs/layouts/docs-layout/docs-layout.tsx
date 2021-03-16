@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h, Host } from '@stencil/core'
 
 /** @internal **/
 @Component({
@@ -9,9 +9,9 @@ import { Component, h } from '@stencil/core'
 export class DocsNav {
   render(): HTMLDivElement {
     return (
-      <div class="docs-layout">
+      <Host class="docs-layout">
         <slot></slot>
-      </div>
+      </Host>
     )
   }
 }

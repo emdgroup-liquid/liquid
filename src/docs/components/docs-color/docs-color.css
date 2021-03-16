@@ -1,0 +1,11 @@
+:host > div {
+  display: flex;
+  align-items: center;
+}
+
+.docs-color__preview {
+  display: inline-flex;
+  width: 10rem;
+  margin-right: 1rem;
+  height: 2rem;
+}

@@ -1,0 +1,23 @@
+.docs-nav-backdrop {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: var(--ld-col-rblck-default);
+  opacity: 0;
+
+  @media (max-width: 48rem) {
+    transition: opacity 0.2s linear, visibility 0s 0.2s linear;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.docs-nav-backdrop__a {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  touch-action: manipulation;
+}

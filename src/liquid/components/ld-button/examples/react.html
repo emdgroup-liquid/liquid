@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Example in React</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
+    />
+    <link rel="stylesheet" href="/dist/build/liquid.css" />
+    <script src="/dist/build/liquid.esm.js" type="module"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script type="module">
+    import { React, ReactDOM } from 'https://unpkg.com/es-react'
+    const h = React.createElement
+
+    class Counter extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          count: 0,
+        }
+      }
+      increment() {
+        this.setState({
+          count: this.state.count + 1,
+        })
+      }
+      render() {
+        return h(
+          'ld-button',
+          { onClick: this.increment.bind(this) },
+          `I have been clicked ${this.state.count} times.`
+        )
+      }
+    }
+
+    ReactDOM.render(h(Counter), document.getElementById('app'))
+  </script>
+</html>

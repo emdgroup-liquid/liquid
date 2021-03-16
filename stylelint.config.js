@@ -11,14 +11,21 @@ module.exports = {
     'color-no-invalid-hex': true,
     'csstools/use-nesting': true,
     'declaration-block-trailing-semicolon': null,
-    'plugin/no-low-performance-animation-properties': true,
+    'plugin/no-low-performance-animation-properties': {
+      ignoreProperties: ['visibility'],
+    },
     'scale-unlimited/declaration-strict-value': [
       ['/color/', 'font-size'],
       {
-        ignoreKeywords: 'transparent',
+        ignoreValues: ['inherit', 'transparent'],
         disableFix: true,
       },
     ],
     'selector-no-qualifying-type': null,
+    'at-rule-no-unknown': [
+      {
+        ignoreAtRules: ['/^define-mixin/'],
+      },
+    ],
   },
 }

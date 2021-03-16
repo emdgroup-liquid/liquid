@@ -1,2 +1,5 @@
-@import 'fonts.css';
-@import 'colors.css';
+@import 'fonts/fonts.css';
+@import 'typography/typography.css';
+@import 'colors/colors.css';
+@import 'shadows/shadows.css';
+@import 'spacings/spacings.css';

@@ -1,6 +1,55 @@
+@define-mixin docs-nav-theme-light {
+  .docs-nav__content {
+    background-color: var(--ld-col-bg-lg);
+    box-shadow: 1px 0 0 0 var(--ld-col-rblck1);
+  }
+  .docs-nav::before {
+    background-color: var(--ld-col-bg-lg);
+  }
+  .docs-nav__section {
+    border-bottom-color: var(--ld-col-rblck1);
+  }
+}
+@define-mixin docs-nav-theme-dark {
+  .docs-nav__content {
+    background-color: var(--ld-col-rblck-default);
+    box-shadow: 1px 0 0 0 var(--ld-col-rblck4);
+  }
+  .docs-nav::before {
+    background-color: var(--ld-col-rblck-default);
+  }
+  .docs-nav__section {
+    border-bottom-color: var(--ld-col-rblck5);
+  }
+}
+
+@mixin docs-nav-theme-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-nav-theme-dark;
+}
+.docs-theme-dark {
+  @mixin docs-nav-theme-dark;
+}
+.docs-theme-light {
+  @mixin docs-nav-theme-light;
+}
+
 .docs-nav {
-  display: block;
-  background: sandybrown;
+  overscroll-behavior: contain;
+  overflow: hidden auto;
+  z-index: 1;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: fixed;
+    height: 100%;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: calc(50vw - var(--docs-max-width) / 2 + 2rem);
+  }
 
   ul {
     list-style: none;
@@ -10,4 +59,44 @@
     text-decoration: none;
     pointer-events: none;
   }
+
+  .docs-switch-theme {
+    margin-bottom: var(--ld-sp-16);
+    display: block;
+  }
+}
+
+.docs-nav__content {
+  width: var(--docs-nav-width);
+  position: fixed;
+  height: 100%;
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+  padding: var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-32);
+
+  @media (max-width: 48rem) {
+    position: fixed;
+  }
+}
+
+.docs-nav__section {
+  padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-24) 0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+.docs-nav__li {
+  margin-top: var(--ld-sp-12);
+}
+.docs-nav__nav > ul > li:first-of-type {
+  margin-top: 0;
 }

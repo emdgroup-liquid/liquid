@@ -1,0 +1,91 @@
+.docs-search {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0s 0.2s linear;
+}
+
+.docs-search--active {
+  transition: opacity 0.2s linear;
+  opacity: 1;
+  visibility: visible;
+}
+
+.docs-search__backdrop {
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--ld-col-rblck-default);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.docs-search__content {
+  min-width: 18rem;
+  max-width: 30rem;
+  width: calc(100% - var(--ld-sp-40));
+  height: 75vh;
+  pointer-events: none;
+}
+
+.docs-search__input {
+  width: 100%;
+  padding: var(--ld-sp-8) var(--ld-sp-16);
+  pointer-events: all;
+}
+
+.docs-search__results {
+  background-color: var(--ld-col-wht);
+  pointer-events: all;
+  list-style: none;
+  max-height: calc(100% - var(--ld-sp-40));
+  overflow: hidden auto;
+  border-bottom-left-radius: var(--ld-sp-4);
+  border-bottom-right-radius: var(--ld-sp-4);
+  padding: var(--ld-sp-2);
+}
+
+.docs-search__result {
+  font: var(--ld-typo-body-m);
+
+  a {
+    text-decoration: none;
+    color: var(--ld-col-rblck-default);
+    display: block;
+    padding: var(--ld-sp-16);
+  }
+}
+
+.docs-search__result-crumbs {
+  display: block;
+}
+
+.docs-search__result-crumb:not(:last-of-type) {
+  margin-right: var(--ld-sp-4);
+
+  &::after {
+    content: '';
+    background-image: url('/dist/build/assets/chevron.svg');
+    background-repeat: no-repeat;
+    width: 0.8rem;
+    height: 1.375rem;
+    margin-left: var(--ld-sp-12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

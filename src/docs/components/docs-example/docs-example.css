@@ -1,0 +1,54 @@
+@define-mixin docs-example-theme-light {
+  .docs-example__tools {
+    background-color: var(--ld-col-bg-g);
+    border-color: var(--ld-col-rblck1);
+  }
+}
+@define-mixin docs-example-theme-dark {
+  .docs-example__tools {
+    background-color: var(--ld-col-rblck4);
+    border-color: var(--ld-col-rblck4);
+  }
+}
+
+@mixin docs-example-theme-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-example-theme-dark;
+}
+.docs-theme-dark {
+  @mixin docs-example-theme-dark;
+}
+.docs-theme-light {
+  @mixin docs-example-theme-light;
+}
+
+.docs-example {
+  display: block;
+}
+
+.docs-example__code {
+  border-bottom-left-radius: var(--ld-sp-12);
+  border-bottom-right-radius: var(--ld-sp-12);
+  overflow: hidden;
+}
+
+.docs-example__tools {
+  height: 3rem;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.docs-example__show {
+  background-color: var(--ld-col-bg-lg);
+  color: var(--ld-col-rblck-default);
+  border: 1px solid var(--ld-col-rblck1);
+  border-bottom-width: 0;
+  border-top-left-radius: var(--ld-sp-12);
+  border-top-right-radius: var(--ld-sp-12);
+  padding: var(--ld-sp-24) var(--ld-sp-32);
+
+  @media (max-width: 48rem) {
+    padding: var(--ld-sp-24);
+  }
+}

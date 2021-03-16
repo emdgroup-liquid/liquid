@@ -1,0 +1,10 @@
+.docs-btn-open-nav {
+  a {
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  @media (min-width: 48rem) {
+    display: none;
+  }
+}
