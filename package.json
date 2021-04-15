@@ -19,30 +19,38 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build --docs && npm run build:styles",
-    "build:docs": "stencil build --config=stencil.config.docs.ts && npx @11ty/eleventy",
-    "build:styles": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css && postcss 'src/liquid/components/**/*[!.shadow].css' --no-map -d dist/css/ && rm dist/css/liquid.css ; cat dist/css/*.css > dist/css/liquid.css",
+    "build": "run-s build:stencil:components build:styles",
+    "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:docs",
+    "build:eleventy": "npx @11ty/eleventy",
+    "build:stencil:components": "stencil build",
+    "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
+    "build:styles": "run-p build:styles:liquid:*",
+    "build:styles:liquid:components": "postcss 'src/liquid/components/**/*[!.shadow].css' --no-map -d dist/css/ && rm dist/css/liquid.css ; cat dist/css/*.css > dist/css/liquid.css",
+    "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
     "generate": "stencil generate",
-    "lint": "npm run lint:ts && npm run lint:eslint && npm run lint:styles",
+    "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
     "lint:ts": "tsc --noemit -p tsconfig.docs.json",
     "optimise_svg_icons": "ts-node scripts/optimiseSVGIcons.ts",
-    "start": "npm run serve & stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts & npm run build:styles:docs:docs & npx @11ty/eleventy --watch & npm run watch:global_styles:liquid & npm run watch:global_styles:docs && fg",
-    "serve": "nc -z 127.0.0.1 8080 &>/dev/null && exit 0 || live-server --port=8080 dist_docs --no-browser",
-    "test": "stencil test --spec --e2e --screenshot --coverage && npm run test:a11y",
+    "start": "run-p serve build:styles:docs:docs watch:**",
+    "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser",
+    "test": "run-p test:stencil test:a11y",
+    "test:stencil": "stencil test --spec --e2e --screenshot --coverage",
     "test:a11y": "jest --config=jest.config.js",
     "test:e2e": "stencil test --e2e --screenshot",
     "test:unit": "stencil test --spec --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "update_design_tokens": "dotenv -e .env -- ts-node scripts/updateDesignTokens.ts",
-    "watch:global_styles:liquid": "chokidar src/liquid/global/**/*.css -c 'npm run build:styles:docs:liquid'",
-    "watch:global_styles:docs": "chokidar src/docs/global/**/*.css -c 'npm run build:styles:docs:docs'"
+    "watch:eleventy": "npx @11ty/eleventy --watch",
+    "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'npm run build:styles:docs:liquid'",
+    "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'npm run build:styles:docs:docs'",
+    "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts"
   },
   "dependencies": {
-    "@stencil/core": "^2.4.0"
+    "@stencil/core": "^2.5.0"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
@@ -80,6 +88,7 @@
     "live-server": "^1.2.1",
     "markdown-it-anchor": "^7.1.0",
     "node-fetch": "^2.6.1",
+    "npm-run-all": "^4.1.5",
     "pa11y": "^5.3.0",
     "polyserve": "^0.27.15",
     "postcss": "^8.2.7",
@@ -102,14 +111,19 @@
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.2",
+    "validate-branch-name": "^1.0.6",
     "wicg-inert": "^3.1.1"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
-      "pre-push": "sh scripts/lintbranchname.sh"
+      "pre-push": "validate-branch-name"
     }
+  },
+  "validate-branch-name": {
+    "pattern": "^((feat|fix|hotfix|build|chore|ci|docs|style|refactor|perf|test)\\/([a-z0-9._-]+)|develop|main|rc)$",
+    "errorMsg": "There's something wrong with your branch name. Please check CONTRIBUTING.md for valid branch names, rename your branch and try again."
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [

@@ -3,7 +3,7 @@ import { Component, h } from '@stencil/core'
 @Component({
   tag: 'ld-button',
   styleUrl: 'ld-button.css',
-  shadow: true,
+  shadow: false,
 })
 export class LdButton {
   render() {

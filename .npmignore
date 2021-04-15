@@ -4,8 +4,10 @@ screenshot
 scripts
 src
 .babelrc.json
+.dockerignore
 .editorconfig
 .eleventy.js
+.env
 .eslintignore
 .eslintrc.js
 .github
@@ -13,10 +15,16 @@ src
 .npmignore
 .prettierrc
 .releaserc.js
+CODE_OF_CONDUCT.md
 commitlint.config.js
+CONTRIBUTING.md
+dependabot.yml
+Dockerfile
 globals.d.ts
 jest.config.js
 pa11y.json
+postcss.config.docs.js
+postcss.config.js
 stencil.config.docs.ts
 stencil.config.ts
 stylelint.config.js
