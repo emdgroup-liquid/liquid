@@ -38,7 +38,7 @@
     "watch:global_styles": "chokidar src/liquid/global/**/*.css -c 'npm run build:styles:docs'"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.5.1"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
