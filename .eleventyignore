@@ -1,1 +1,10 @@
+.github
+.stencil
+.stencil
+coverage
+dist
+dist_docs
+node_modules
+screenshot
+scripts
 src/docs

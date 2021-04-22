@@ -6,7 +6,7 @@ import { fetchIcon } from './fetchIcon'
   assetsDirs: ['assets'],
   tag: 'ld-icon',
   styleUrl: 'ld-icon.css',
-  shadow: true,
+  shadow: false,
 })
 export class LdIcon {
   /** The icon name. */
@@ -15,8 +15,8 @@ export class LdIcon {
   /** (optional) Set to true for a filled icon. */
   @Prop() filled: boolean = null
 
-  /** (optional) Sets both width and height. */
-  @Prop() size = 'var(--ld-sp-24)'
+  /** Size of the icon. */
+  @Prop() size?: 'sm' | 'lg'
 
   @State() private svg: string
 
@@ -25,7 +25,6 @@ export class LdIcon {
   private async loadIconPathData(): Promise<void> {
     const { name, filled } = this
 
-    console.log('Build', Build)
     if ((!Build.isBrowser && !Build.isTesting) || !name) {
       return
     }
@@ -38,14 +37,14 @@ export class LdIcon {
   }
 
   render() {
+    let cl = 'ld-icon'
+    if (this.size) cl += ` ld-icon--${this.size}`
+
     return (
-      <Host role="presentation">
-        <div
-          style={{ width: this.size, height: this.size }}
-          innerHTML={this.svg}
-        >
+      <Host>
+        <span class={cl} role="presentation" innerHTML={this.svg}>
           {!this.name && <slot></slot>}
-        </div>
+        </span>
       </Host>
     )
   }

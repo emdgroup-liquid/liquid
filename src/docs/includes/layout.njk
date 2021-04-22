@@ -1,0 +1,122 @@
+---
+title: Liquid
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquid{% if title %} – {% endif %}{% if title == 'Liquid' %}Documentation{% else %}{{ title }}{% endif %}</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <meta name="msapplication-TileColor" content="#eb3c96">
+  <meta name="theme-color" content="#ffffff">
+
+  <script>
+    __docsSearchIndex__ = [
+    {%- for item in collections.all -%}
+      {%- if not item.data.excludeFromSitemap %}
+        {%- if item.data.title or item.data.renderData.title %}
+          {%- if 'Liquid' not in item.data.title -%}
+            {
+              title: '{{ item.data.title or item.data.renderData.title }}',
+              tags: '{{ item.data.tags }}',
+              url: '{{ item.url }}',
+              headings: '{{ item.data.content | toc | safe | striptags(true) }}',
+              breadcrumbs: [
+                {% set navPages = collections.all | eleventyNavigationBreadcrumb(item.data.title or item.data.renderData.title) %}
+                {% macro renderBreadcrumb(entry) -%}
+                  '{{ entry.title }}',
+                {%- endmacro %}
+                {%- if navPages.length -%}
+                  {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}
+                  '{{ item.data.title or item.data.renderData.title }}'
+                {%- endif -%}
+              ]
+            }{{ '' if loop.last else ',' }}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor %}
+    ]
+  </script>
+
+  <link rel="stylesheet" href="/docs.css">
+  <link rel="stylesheet" href="/dist/build/liquid.css">
+  <script type="module" src="/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/dist/build/liquid.js"></script>
+</head>
+<body>
+  <script>
+    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var isDark = storedThemePref === 'dark' ? true : false
+    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
+    document.body.classList.remove(
+      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
+    )
+  </script>
+  <docs-layout id="docs-layout" style="visibility: hidden">
+    <docs-topbar></docs-topbar>
+
+    <docs-nav>
+      {% set navPages = collections.all | eleventyNavigation %}
+      {% macro renderNavListItem(entry) -%}
+        <li class="docs-nav__li{% if entry.url in page.url %} docs-nav__li--active{% endif %}">
+          {%- if entry.children.length -%}
+            <details{% if entry.url in page.url %} open{% endif %}>
+              <summary aria-label="{{ entry.title }}">{{ entry.title }}</summary>
+              <ul>
+                {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+              </ul>
+            </details>
+          {%- else -%}
+            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+          {%- endif -%}
+        </li>
+      {%- endmacro %}
+
+      <ul>
+        {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
+      </ul>
+    </docs-nav>
+
+    <docs-nav-backdrop></docs-nav-backdrop>
+
+    <docs-btn-toggle-nav></docs-btn-toggle-nav>
+
+    {% if content | toc %}
+      <docs-toc style="order: 2;">
+        {{ content | toc | safe }}
+      </docs-toc>
+    {% endif %}
+
+    <docs-main id="main">
+      <header>
+        {%- if 'Liquid' not in title -%}
+          <docs-breadcrumbs>
+            {% set navPages = collections.all | eleventyNavigationBreadcrumb(title) %}
+            {% macro renderBreadcrumb(entry) -%}
+              <li>
+                <a>{{ entry.title }}</a>
+              </li>
+            {%- endmacro %}
+            {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}
+            <li>
+              <a href="{{ './' | url }}" aria-current="page">{{ title }}</a>
+            </li>
+          </docs-breadcrumbs>
+        {%- endif -%}
+        <docs-edit-on-github path="{{ page.inputPath }}"></docs-edit-on-github>
+      </header>
+      {{ content | safe }}
+    </docs-main>
+
+  </docs-layout>
+  <docs-search></docs-search>
+</body>
+</html>

@@ -1,4 +1,374 @@
-.ld-button {
-  color: var(--ld-col-rb-default);
+ld-button {
+  display: inline-flex;
+}
+
+.ld-button:not(.hydrated),
+.ld-button.hydrated > button {
+  --ld-size-icon-sm: 1rem;
+  --ld-size-icon-md: 1.25rem;
+  --ld-size-icon-lg: 1.5rem;
+  --ld-padding-md: 0.625rem;
+  --ld-gap-lg: 0.625rem;
   font: var(--ld-typo-body-m);
+  border: 0;
+  padding: var(--ld-padding-md) var(--ld-padding-md);
+  border-radius: var(--ld-sp-4);
+  display: inline-flex;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  color: var(--ld-col-wht);
+  /*-webkit-tap-highlight-color: transparent;*/
+
+  &:active,
+  &:active:focus-visible {
+    color: var(--ld-col-wht);
+  }
+
+  &:disabled:not(.ld-button--ghost) {
+    box-shadow: inset 0px 0px 0px 2px var(--ld-col-disabled);
+    color: var(--ld-col-disabled);
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ld-icon {
+    line-height: 0;
+  }
+
+  .ld-icon,
+  .ld-icon svg {
+    width: var(--ld-size-icon-md);
+    height: var(--ld-size-icon-md);
+  }
+
+  &.ld-button--sm:not(.hydrated),
+  &.ld-button--sm.hydrated > button {
+    min-height: 2rem;
+    min-width: 2rem;
+    padding: var(--ld-sp-8) var(--ld-sp-8);
+    font: var(--ld-typo-body-s);
+
+    .ld-button__content {
+      gap: var(--ld-sp-6);
+    }
+
+    .ld-icon,
+    .ld-icon svg {
+      width: var(--ld-size-icon-sm);
+      height: var(--ld-size-icon-sm);
+    }
+  }
+
+  &.ld-button--lg:not(.hydrated),
+  &.ld-button--lg.hydrated > button {
+    min-height: 3.125rem;
+    min-width: 3.125rem;
+    padding: var(--ld-sp-12) var(--ld-sp-12);
+    font: var(--ld-typo-body-l);
+
+    .ld-button__content {
+      gap: var(--ld-gap-lg);
+    }
+
+    .ld-icon,
+    .ld-icon svg {
+      width: var(--ld-size-icon-lg);
+      height: var(--ld-size-icon-lg);
+    }
+  }
+
+  &.ld-button--align-text-right {
+    .ld-button__content {
+      text-align: right;
+    }
+  }
+
+  &.ld-button--align-text-left {
+    .ld-button__content {
+      text-align: left;
+    }
+  }
+
+  &.ld-button--justify-start {
+    .ld-button__content {
+      justify-content: flex-start;
+    }
+  }
+
+  &.ld-button--justify-end {
+    .ld-button__content {
+      justify-content: flex-end;
+    }
+  }
+
+  &.ld-button--justify-between {
+    .ld-button__content {
+      justify-content: space-between;
+    }
+  }
+}
+
+.ld-button:not(.hydrated),
+[class*='ld-theme'] .ld-button:not(.hydrated),
+.ld-button.hydrated > button,
+[class*='ld-theme'] .ld-button.hydrated > button {
+  &.ld-button--highlight {
+    background-color: var(--ld-col-vy-default);
+    color: var(--ld-col-rblck-default);
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-vy-focus);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-vy-hover);
+      }
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-vy-active);
+      color: var(--ld-col-wht);
+    }
+  }
+
+  &.ld-button--danger {
+    background-color: var(--ld-col-rr-default);
+    color: var(--ld-col-wht);
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-rr-focus);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-rr-hover);
+        color: var(--ld-col-wht);
+      }
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-rr-active);
+      color: var(--ld-col-wht);
+    }
+  }
+
+  &.ld-button--secondary {
+    :not(:disabled) & {
+      background-color: var(--ld-col-wht);
+    }
+  }
+
+  &.ld-button--ghost {
+    :not(:disabled) & {
+      background-color: transparent;
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-bg-g);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-bg-g);
+      }
+    }
+  }
+
+  &.ld-button--highlight,
+  &.ld-button--secondary,
+  &.ld-button--ghost,
+  &.ld-button--danger {
+    &:disabled,
+    &:disabled:hover,
+    &:disabled:focus,
+    &:disabled:active {
+      background-color: transparent;
+      color: var(--ld-col-disabled);
+    }
+
+    @media (hover: hover) {
+      &:disabled:hover {
+        background-color: transparent;
+        color: var(--ld-col-disabled);
+      }
+    }
+  }
+
+  ld-button & {
+    width: 100%;
+  }
+}
+
+.ld-button.ld-button--secondary {
+  &:not(:disabled) {
+    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rblck1);
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
+    }
+    &:focus:focus-visible {
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
+    }
+  }
+
+  .ld-theme-ocean &,
+  [class*='ld-theme'] .ld-theme-ocean & {
+    &:not(:disabled) {
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
+      }
+      &:focus:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
+      }
+    }
+  }
+
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-shake & {
+    &:not(:disabled) {
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp5);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp55);
+      }
+      &:focus:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp3);
+      }
+    }
+  }
+
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
+    &:not(:disabled) {
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg5);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg6);
+      }
+      &:focus:focus-visible {
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg3);
+      }
+    }
+  }
+}
+
+.ld-button.ld-button--secondary,
+.ld-button.ld-button--ghost {
+  &:not(:disabled) {
+    color: var(--ld-col-rblck-default);
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--ld-col-rb5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      color: var(--ld-col-rb55);
+    }
+    &:focus:focus-visible {
+      color: var(--ld-col-rb3);
+    }
+  }
+
+  .ld-theme-ocean &,
+  [class*='ld-theme'] .ld-theme-ocean & {
+    @media (hover: hover) {
+      &:hover {
+        color: var(--ld-col-rb5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      color: var(--ld-col-rb55);
+    }
+    &:focus:focus-visible {
+      color: var(--ld-col-rb3);
+    }
+  }
+
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-bubblegum & {
+    color: var(--ld-col-rp6);
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--ld-col-rp5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      color: var(--ld-col-rp55);
+    }
+    &:focus:focus-visible {
+      color: var(--ld-col-rp3);
+    }
+  }
+
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
+    @media (hover: hover) {
+      &:hover {
+        color: var(--ld-col-rg5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      color: var(--ld-col-rg6);
+    }
+    &:focus:focus-visible {
+      color: var(--ld-col-rg3);
+    }
+  }
+}
+
+.ld-button__content {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--ld-sp-8);
+  align-items: center;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: 900;
+  line-height: 1;
 }

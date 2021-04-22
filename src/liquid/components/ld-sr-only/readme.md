@@ -14,7 +14,7 @@ Utilities for improving accessibility with screen readers.
 
 Use sr-only to hide an element visually without hiding it from screen readers:
 
-{% example %}
+{% example 'html', false, true %}
 <ld-sr-only>Hello screen reader</ld-sr-only>
 {% endexample %}
 
@@ -23,26 +23,29 @@ Use sr-only to hide an element visually without hiding it from screen readers:
 The CSS class sr-only works the same way as its web component counterpart, except that it can be applied to an HTML element directly while the web component wraps the element which needs to be only screen reader visible:
 
 <link rel="stylesheet" href="ld-sr-only.css">
-{% example %}
+{% example 'html', false, true %}
 <span class="ld-sr-only">Hello screen reader</span>
 {% endexample %}
 
-These are the styles applied with screen-reader-only:
-
-|              |                  |
-|--------------|------------------|
-| position     | absolute         |
-| width        | 1px              |
-| height       | 1px              |
-| padding      | 0                |
-| margin       | -1px             |
-| overflow     | hidden           |
-| clip         | rect(0, 0, 0, 0) |
-| white-space  | nowrap           |
-| border-width | 0                | 
-
 <!-- Auto Generated Below -->
 
+
+## Dependencies
+
+### Used by
+
+ - docs-copy-to-cb
+ - docs-pick-theme
+ - docs-toggle-code
+
+### Graph
+```mermaid
+graph TD;
+  docs-copy-to-cb --> ld-sr-only
+  docs-pick-theme --> ld-sr-only
+  docs-toggle-code --> ld-sr-only
+  style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

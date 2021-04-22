@@ -42,12 +42,15 @@
 }
 .ld-heading--xb1 {
   font: var(--ld-typo-xb1);
+  text-transform: uppercase;
 }
 .ld-heading--xb2 {
   font: var(--ld-typo-xb2);
+  text-transform: uppercase;
 }
 .ld-heading--xb3 {
   font: var(--ld-typo-xb3);
+  text-transform: uppercase;
 }
 .ld-heading--xh1 {
   font: var(--ld-typo-xh1);

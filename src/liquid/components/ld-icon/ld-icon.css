@@ -1,7 +1,28 @@
-:host {
+.ld-icon {
+  --ld-size-sm: 1rem;
+  --ld-size-md: 1.25rem;
+  --ld-size-lg: 1.5rem;
   display: inline-flex;
+  width: var(--ld-size-md);
+  height: var(--ld-size-md);
 
   > div {
     display: inline-flex;
   }
+
+  svg {
+    width: var(--ld-size-md);
+    height: var(--ld-size-md);
+  }
+}
+
+.ld-icon--sm,
+.ld-icon--sm svg {
+  width: var(--ld-size-sm);
+  height: var(--ld-size-sm);
+}
+.ld-icon--lg,
+.ld-icon--lg svg {
+  width: var(--ld-size-lg);
+  height: var(--ld-size-lg);
 }

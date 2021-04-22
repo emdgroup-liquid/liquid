@@ -1,4 +1,4 @@
-@define-mixin docs-btn-search-theme-light {
+@define-mixin docs-btn-search-ui-light {
   .docs-btn-search__magnifier {
     stroke: var(--ld-col-rblck-default);
   }
@@ -6,7 +6,7 @@
     fill: var(--ld-col-rblck-default);
   }
 }
-@define-mixin docs-btn-search-theme-dark {
+@define-mixin docs-btn-search-ui-dark {
   .docs-btn-search__magnifier {
     stroke: var(--ld-col-wht);
   }
@@ -15,16 +15,16 @@
   }
 }
 
-@mixin docs-btn-search-theme-light;
+@mixin docs-btn-search-ui-light;
 
 @media (prefers-color-scheme: dark) {
-  @mixin docs-btn-search-theme-dark;
+  @mixin docs-btn-search-ui-dark;
 }
-.docs-theme-dark {
-  @mixin docs-btn-search-theme-dark;
+.docs-ui-dark {
+  @mixin docs-btn-search-ui-dark;
 }
-.docs-theme-light {
-  @mixin docs-btn-search-theme-light;
+.docs-ui-light {
+  @mixin docs-btn-search-ui-light;
 }
 
 .docs-btn-search__btn {

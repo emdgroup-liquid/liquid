@@ -1,4 +1,4 @@
-/* stylelint-disable no-duplicate-selectors, no-descending-specificity */
+/* stylelint-disable no-duplicate-selectors */
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,300;1,700&display=swap');
 
@@ -68,7 +68,7 @@ code .highlight-line:before {
 
 /* ------------------------------------- Colors ------------------------------------- */
 
-@define-mixin docs-code-theme-light {
+@define-mixin docs-code-ui-light {
   code[class*='language-'],
   pre[class*='language-'] {
     color: var(--ld-col-rblck-default);
@@ -118,7 +118,7 @@ code .highlight-line:before {
   }
 }
 
-@define-mixin docs-code-theme-dark {
+@define-mixin docs-code-ui-dark {
   code[class*='language-'],
   pre[class*='language-'] {
     color: var(--ld-col-wht);
@@ -168,13 +168,13 @@ code .highlight-line:before {
   }
 }
 
-@mixin docs-code-theme-light;
+@mixin docs-code-ui-light;
 @media (prefers-color-scheme: dark) {
-  @mixin docs-code-theme-dark;
+  @mixin docs-code-ui-dark;
 }
-.docs-theme-light {
-  @mixin docs-code-theme-light;
+.docs-ui-light {
+  @mixin docs-code-ui-light;
 }
-.docs-theme-dark {
-  @mixin docs-code-theme-dark;
+.docs-ui-dark {
+  @mixin docs-code-ui-dark;
 }

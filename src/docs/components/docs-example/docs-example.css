@@ -1,26 +1,36 @@
-@define-mixin docs-example-theme-light {
+@define-mixin docs-example-ui-light {
   .docs-example__tools {
     background-color: var(--ld-col-bg-g);
     border-color: var(--ld-col-rblck1);
+    stroke: var(--ld-col-rblck-default);
+
+    .ld-button {
+      filter: none;
+    }
   }
 }
-@define-mixin docs-example-theme-dark {
+@define-mixin docs-example-ui-dark {
   .docs-example__tools {
     background-color: var(--ld-col-rblck4);
     border-color: var(--ld-col-rblck4);
+    stroke: var(--ld-col-wht);
+
+    .ld-button {
+      filter: invert(1) hue-rotate(180deg);
+    }
   }
 }
 
-@mixin docs-example-theme-light;
+@mixin docs-example-ui-light;
 
 @media (prefers-color-scheme: dark) {
-  @mixin docs-example-theme-dark;
+  @mixin docs-example-ui-dark;
 }
-.docs-theme-dark {
-  @mixin docs-example-theme-dark;
+.docs-ui-dark {
+  @mixin docs-example-ui-dark;
 }
-.docs-theme-light {
-  @mixin docs-example-theme-light;
+.docs-ui-light {
+  @mixin docs-example-ui-light;
 }
 
 .docs-example {
@@ -31,12 +41,23 @@
   border-bottom-left-radius: var(--ld-sp-12);
   border-bottom-right-radius: var(--ld-sp-12);
   overflow: hidden;
+  display: none;
 }
 
 .docs-example__tools {
+  padding: 0 var(--ld-sp-12);
   height: 3rem;
   border-style: solid;
   border-width: 1px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom-left-radius: var(--ld-sp-12);
+  border-bottom-right-radius: var(--ld-sp-12);
+
+  .docs-pick-theme {
+    margin-right: auto;
+  }
 }
 
 .docs-example__show {
@@ -46,9 +67,36 @@
   border-bottom-width: 0;
   border-top-left-radius: var(--ld-sp-12);
   border-top-right-radius: var(--ld-sp-12);
-  padding: var(--ld-sp-24) var(--ld-sp-32);
+  padding: 0 var(--ld-sp-8) var(--ld-sp-24);
 
   @media (max-width: 48rem) {
-    padding: var(--ld-sp-24);
+    padding: 0 0 var(--ld-sp-24);
+  }
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-evenly;
+
+    > * {
+      margin: var(--ld-sp-24) var(--ld-sp-24) 0;
+    }
+  }
+}
+.docs-example__show--stacked {
+  > div {
+    flex-direction: column;
+  }
+}
+
+.docs-example--code-visible {
+  .docs-example__tools {
+    border-radius: 0;
+  }
+
+  .docs-example__code {
+    display: block;
   }
 }

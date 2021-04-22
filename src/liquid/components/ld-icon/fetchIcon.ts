@@ -17,8 +17,7 @@ export async function fetchIcon(
     )
       .then((resp) => resp.text())
       .catch((err) => {
-        console.error('err', err)
-        console.error(`"${icon}" is not a valid name`)
+        console.error(`"${icon}" is not a valid name`, err)
         return ''
       })
   }

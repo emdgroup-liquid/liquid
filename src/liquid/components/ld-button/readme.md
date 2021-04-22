@@ -9,43 +9,283 @@ permalink: liquid/components/ld-button/
 
 # Button
 
+Buttons are used for triggering important user actions. A button text should be speaking 
+in the sense of the user’s understanding, rather than in the system’s language.
+Icon-buttons without visual text should contain a screen-reader-only text.
+
+---
+
 ## Web component
 
 {% example %}
-<ld-button>Hello liquid</ld-button>
+<ld-button>Text</ld-button>
+{% endexample %}
+
+### Disabled
+
+{% example %}
+<ld-button disabled>Text</ld-button>
+{% endexample %}
+
+The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
+Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports 
+the disabled attribute natively), it is applied just in case you use a [custom tag](#with-custom-tag) such as 
+an anchor.  
+Note that if you are using a custom tag and the element does not support the `disabled` 
+attribute natively, you will have to take care of preventing the default behavior of the element yourself 
+(i.e. using `event.preventDefault()` inside your custom event handlers).
+
+### Highlighted
+
+{% example %}
+<ld-button mode="highlight">Text</ld-button>
+
+<ld-button mode="highlight" disabled>Text</ld-button>
+{% endexample %}
+
+### Secondary
+
+{% example %}
+<ld-button mode="secondary">Text</ld-button>
+
+<ld-button mode="secondary" disabled>Text</ld-button>
+{% endexample %}
+
+### Ghost
+
+{% example %}
+<ld-button mode="ghost">Text</ld-button>
+
+<ld-button mode="ghost" disabled>Text</ld-button>
+{% endexample %}
+
+### Danger
+
+{% example %}
+<ld-button mode="danger">Text</ld-button>
+
+<ld-button mode="danger" disabled>Text</ld-button>
+{% endexample %}
+
+### Different sizes
+
+{% example %}
+<ld-button size="sm">Text</ld-button>
+
+<ld-button>Text</ld-button>
+
+<ld-button size="lg">Text</ld-button>
 {% endexample %}
 
 ### With icon
 
 {% example %}
-<ld-button>Hello icon
-<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <path d="M6 12.892v1.011c-2.564-.248-4.8-.99-4.8-2.303 0-1.649 3.525-2.4 6.8-2.4s6.8.751 6.8 2.4c0 1.313-2.236 2.055-4.8 2.303V16l-1.2-1L7 13.5 8.8 12l1.2-1v1.892c2.498-.26 3.8-.955 3.8-1.292 0-.418-1.974-1.4-5.8-1.4s-5.8.982-5.8 1.4c0 .337 1.302 1.031 3.8 1.292zM16 9a27.203 27.203 0 0 0-8-1 27.239 27.239 0 0 0-8 1V0a27.239 27.239 0 0 0 8 1 27.203 27.203 0 0 0 8-1zM1 7.677c.406-.095.824-.173 1.245-.244L4.3 5.24a.27.27 0 0 1 .4 0 .27.27 0 0 0 .4 0l2.017-2.152a.27.27 0 0 1 .381-.018l2.03 1.804a.269.269 0 0 0 .35.01l1.226-.824a.27.27 0 0 1 .37.028L15 7.488V1.324a25.579 25.579 0 0 1-3.739.55.983.983 0 0 1 .239.627 1 1 0 0 1-2 0 .973.973 0 0 1 .176-.534C9.046 1.99 8.47 2 8 2a32.844 32.844 0 0 1-7-.677zM8 7a37.148 37.148 0 0 1 5.449.383l-2.257-2.178-.689.46a1.268 1.268 0 0 1-1.64-.043l-1.5-1.334L5.83 5.924a1.28 1.28 0 0 1-.93.405 1.244 1.244 0 0 1-.23-.022l-.85.906A39.883 39.883 0 0 1 8 7z"/>
-</svg>
+<ld-button size="sm">
+  <ld-icon name="placeholder"></ld-icon>
+  <ld-sr-only>Text</ld-sr-only>
+</ld-button>
+
+<ld-button>
+  <ld-icon name="placeholder"></ld-icon>
+  <ld-sr-only>Text</ld-sr-only>
+</ld-button>
+
+<ld-button size="lg">
+  <ld-icon name="placeholder"></ld-icon>
+  <ld-sr-only>Text</ld-sr-only>
+</ld-button>
+
+<ld-button mode="highlight" size="sm">
+  <ld-icon name="placeholder"></ld-icon>
+  Text
+</ld-button>
+
+<ld-button mode="danger">
+  Text
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+
+<ld-button mode="secondary" size="lg">
+  <ld-icon name="placeholder"></ld-icon>
+  Text
+</ld-button>
+{% endexample %}
+
+### With custom width
+
+{% example %}
+<ld-button style="width: 18rem">
+  Text
+</ld-button>
+
+<ld-button style="width: 18rem">
+  <ld-icon name="placeholder"></ld-icon>
+  Text
+</ld-button>
+{% endexample %}
+
+### Justify content
+
+{% example %}
+<ld-button style="width: 8rem" justify-content="center">
+  Text
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+
+<ld-button style="width: 8rem" justify-content="start">
+  Text
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+
+<ld-button style="width: 8rem" justify-content="end">
+  Text
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+
+<ld-button style="width: 8rem" justify-content="between">
+  Text
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+{% endexample %}
+
+### With way too much content
+
+> ⚠️ Don't do this! Put the description in a label outside of the button instead.
+
+{% example %}
+<ld-button>
+  Almost before we knew it, we had left the ground.
+  A shining crescent far beneath the flying vessel.
+  Then came the night of the first falling star.
+</ld-button>
+
+<ld-button align-text="left">
+  <ld-icon name="placeholder"></ld-icon>
+  Almost before we knew it, we had left the ground. 
+  A shining crescent far beneath the flying vessel. 
+  Then came the night of the first falling star.
+</ld-button>
+
+<ld-button align-text="right">
+  Almost before we knew it, we had left the ground. 
+  A shining crescent far beneath the flying vessel. 
+  Then came the night of the first falling star.
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+{% endexample %}
+
+### Passing down attributes
+
+Use the `attrs` prop to pass custom attributes to the root child element of the 
+web component as a JSON string.  
+
+{% example 'html', false, true %}
+<ld-button attrs='{ "type": "reset" }'>
+  Text
+</ld-button>
+{% endexample %}
+
+### With custom tag
+
+Using a custom tag may be usefull, if you need something that looks like a button, 
+but doesn't really act like a button. For instance an anchor:
+
+{% example 'html', false, true %}
+<ld-button tag="a" attrs='{ "href": "#", "target": "_blank", "rel": "noreferrer noopener" }'>
+  Text
 </ld-button>
 {% endexample %}
 
 ## CSS component
 
+If you'd rather like to use the CSS component on a regular button element, inspect and 
+copy the markup and CSS classes from the examples above. You will be able to achieve 
+pretty much the same result. Here are some examples:
+
 <link rel="stylesheet" href="ld-button.css">
 {% example %}
-<button class="ld-button">Hello liquid</button>
+<button class="ld-button ld-theme-bg-primary ld-button--sm">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--highlight">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--secondary ld-button--lg" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--secondary ld-button--sm">
+  <span class="ld-button__content">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <title>Text</title>
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button class="ld-button ld-button--ghost">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+    Text
+  </span>
+</button>
+
+<button class="ld-button ld-button--danger ld-button--lg">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
 {% endexample %}
 
-## Example usage
-
-### Vue
-
-{% source 'src/liquid/components/ld-button/examples/vue.html' 'js' 'true' %}
-<iframe id="example-vue" title="Example Vue" width="100%" style="height:2rem" src="examples/vue/"></iframe>
-
-### React
-
-{% source 'src/liquid/components/ld-button/examples/react.html' 'js' 'true' %}
-<iframe id="example-react" title="Example React" width="100%" style="height:2rem" src="examples/react/"></iframe>
 
 <!-- Auto Generated Below -->
 
+
+## Properties
+
+| Property         | Attribute         | Description                                          | Type                                                | Default     |
+| ---------------- | ----------------- | ---------------------------------------------------- | --------------------------------------------------- | ----------- |
+| `alignText`      | `align-text`      | Align text.                                          | `"left" \| "right"`                                 | `undefined` |
+| `attrs`          | `attrs`           | Attributes to be attached to rendered element child. | `string`                                            | `undefined` |
+| `disabled`       | `disabled`        | Disabled state of the button.                        | `boolean`                                           | `false`     |
+| `justifyContent` | `justify-content` | Justify content.                                     | `"between" \| "end" \| "start"`                     | `undefined` |
+| `mode`           | `mode`            | Highlight mode.                                      | `"danger" \| "ghost" \| "highlight" \| "secondary"` | `undefined` |
+| `size`           | `size`            | Size of the button.                                  | `"lg" \| "sm"`                                      | `undefined` |
+| `tag`            | `tag`             | Tag.                                                 | `string`                                            | `'button'`  |
+
+
+## Dependencies
+
+### Used by
+
+ - docs-copy-to-cb
+ - docs-edit-on-github
+ - docs-toggle-code
+
+### Graph
+```mermaid
+graph TD;
+  docs-copy-to-cb --> ld-button
+  docs-edit-on-github --> ld-button
+  docs-toggle-code --> ld-button
+  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

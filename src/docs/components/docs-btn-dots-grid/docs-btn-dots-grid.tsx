@@ -19,6 +19,7 @@ export class DocsBtnDotsGrid {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <title>Digital Hub</title>
             <rect width="4" height="4" rx="2" fill="white" />
             <rect y="8" width="4" height="4" rx="2" fill="white" />
             <rect y="16" width="4" height="4" rx="2" fill="white" />

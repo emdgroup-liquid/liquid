@@ -14,7 +14,8 @@
     "jsxFactory": "h",
     "baseUrl": ".",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "include": ["./src/liquid"],
   "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]

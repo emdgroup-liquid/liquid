@@ -10,9 +10,6 @@ export class DocsToc {
   @Element() el: HTMLElement
   @State() headings: HTMLElement[]
 
-  private prefersReducedMotion = window.matchMedia('(prefers-reduced-motion)')
-    .matches
-
   private createObserver(links) {
     const options = {
       rootMargin: '-60px 0px -70% 0px',
@@ -47,8 +44,9 @@ export class DocsToc {
     links.map((link) => {
       const href = link.getAttribute('href')
       link.classList.remove('docs-toc__link--is-active')
-      if (href === `#${visibleId}`)
+      if (href === `#${visibleId}`) {
         link.classList.add('docs-toc__link--is-active')
+      }
     })
   }
 
@@ -57,6 +55,10 @@ export class DocsToc {
     if ((ev.target as HTMLElement).tagName !== 'A') return
 
     ev.preventDefault()
+    this.el
+      .querySelector('.docs-toc__link--is-active')
+      ?.classList.remove('docs-toc__link--is-active')
+    ev.target.classList.add('docs-toc__link--is-active')
     const id = ev.target.getAttribute('href').replace('#', '')
     const heading = this.headings.find(
       (heading) => heading.getAttribute('id') === id
@@ -65,14 +67,17 @@ export class DocsToc {
     heading.focus()
 
     window.scroll({
-      behavior: this.prefersReducedMotion ? undefined : 'smooth',
       top: heading.offsetTop - 80,
     })
   }
 
   componentWillLoad() {
     // Generating a list of heading links
-    this.headings = Array.from(document.querySelectorAll('h1, h2, h3'))
+    this.headings = Array.from(
+      document.querySelectorAll(
+        '#main > main > h1, #main > main > h2, #main > main > h3'
+      )
+    )
 
     // Adding an Intersection Observer
     const links = Array.from(this.el.querySelectorAll('a'))

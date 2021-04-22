@@ -42,9 +42,11 @@ body {
 
   &[inert] {
     .docs-topbar,
+    .docs-nav,
     .docs-nav::before,
     .docs-nav__content,
     .docs-toc,
+    .docs-btn-toggle-nav,
     .docs-main {
       filter: blur(0.25rem);
     }
@@ -91,6 +93,15 @@ body {
       pointer-events: auto;
       visibility: visible;
       opacity: 0.5;
+    }
+
+    ~ .docs-btn-toggle-nav {
+      .docs-btn-toggle-nav__close {
+        display: inline-flex;
+      }
+      .docs-btn-toggle-nav__open {
+        display: none;
+      }
     }
   }
 }

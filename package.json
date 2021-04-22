@@ -35,14 +35,16 @@
     "lint:styles": "stylelint ./src/**/*css",
     "lint:ts": "tsc --noemit -p tsconfig.docs.json",
     "optimise_svg_icons": "ts-node scripts/optimiseSVGIcons.ts",
-    "start": "run-p serve build:styles:docs:docs watch:**",
-    "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser",
+    "start": "run-p serve build:styles:docs:docs watch:** start:info",
+    "start:info": "echo 'serving on http://localhost:8080'",
+    "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser --quiet",
     "test": "run-p test:stencil test:a11y",
     "test:stencil": "stencil test --spec --e2e --screenshot --coverage",
-    "test:a11y": "jest --config=jest.config.js",
+    "test:a11y": "jest --config=jest.config.a11y.js",
     "test:e2e": "stencil test --e2e --screenshot",
     "test:unit": "stencil test --spec --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll",
+    "test:compare_screenshots": "live-server --port=4000 screenshot --quiet --mount=/node_modules:./node_modules",
     "update_design_tokens": "dotenv -e .env -- ts-node scripts/updateDesignTokens.ts",
     "watch:eleventy": "npx @11ty/eleventy --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'npm run build:styles:docs:liquid'",
@@ -50,7 +52,7 @@
     "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts"
   },
   "dependencies": {
-    "@stencil/core": "^2.5.0"
+    "@stencil/core": "^2.5.1"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
@@ -73,6 +75,7 @@
     "chokidar-cli": "^2.1.0",
     "cssnano": "^4.1.10",
     "dotenv-cli": "^4.0.0",
+    "eleventy-plugin-markdown-shortcode": "^1.1.0",
     "eleventy-plugin-toc": "^1.1.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",

@@ -1,5 +1,5 @@
 ---
 layout: layout.njk
-title: Liquid ⚗️
 ---
-# {{ title }}
+
+{% markdown '/README.md' %}

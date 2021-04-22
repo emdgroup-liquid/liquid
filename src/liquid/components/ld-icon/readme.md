@@ -12,14 +12,28 @@ permalink: liquid/components/ld-icon/
 ## Web component
 
 {% example %}
-<ld-icon name="alarm"></ld-icon>
+<ld-icon name="placeholder"></ld-icon>
+{% endexample %}
+
+{% example %}
+<ld-icon name="placasdfasdfasdfeholder"></ld-icon>
+{% endexample %}
+
+### Different sizes
+
+{% example %}
+<ld-icon name="placeholder" size="sm"></ld-icon>
+
+<ld-icon name="placeholder"></ld-icon>
+
+<ld-icon name="placeholder" size="lg"></ld-icon>
 {% endexample %}
 
 ### With custom SVG icon
 
 {% example %}
 <ld-icon>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6 12.892v1.011c-2.564-.248-4.8-.99-4.8-2.303 0-1.649 3.525-2.4 6.8-2.4s6.8.751 6.8 2.4c0 1.313-2.236 2.055-4.8 2.303V16l-1.2-1L7 13.5 8.8 12l1.2-1v1.892c2.498-.26 3.8-.955 3.8-1.292 0-.418-1.974-1.4-5.8-1.4s-5.8.982-5.8 1.4c0 .337 1.302 1.031 3.8 1.292zM16 9a27.203 27.203 0 0 0-8-1 27.239 27.239 0 0 0-8 1V0a27.239 27.239 0 0 0 8 1 27.203 27.203 0 0 0 8-1zM1 7.677c.406-.095.824-.173 1.245-.244L4.3 5.24a.27.27 0 0 1 .4 0 .27.27 0 0 0 .4 0l2.017-2.152a.27.27 0 0 1 .381-.018l2.03 1.804a.269.269 0 0 0 .35.01l1.226-.824a.27.27 0 0 1 .37.028L15 7.488V1.324a25.579 25.579 0 0 1-3.739.55.983.983 0 0 1 .239.627 1 1 0 0 1-2 0 .973.973 0 0 1 .176-.534C9.046 1.99 8.47 2 8 2a32.844 32.844 0 0 1-7-.677zM8 7a37.148 37.148 0 0 1 5.449.383l-2.257-2.178-.689.46a1.268 1.268 0 0 1-1.64-.043l-1.5-1.334L5.83 5.924a1.28 1.28 0 0 1-.93.405 1.244 1.244 0 0 1-.23-.022l-.85.906A39.883 39.883 0 0 1 8 7z"/></svg>
+<svg viewBox="0 0 24 24"><path fill="currentcolor" d="M16.48 20.335a3.622 3.622 0 01-7.244 0h7.244zm2.748-6.48l2.024 1.94c.297.284.464.677.464 1.088v.801c0 .833-.675 1.51-1.508 1.51h-14.7A1.51 1.51 0 014 17.683v-.76c0-.434.188-.848.516-1.134l1.922-1.683c.328-.286.516-.7.516-1.135V8.858a5.878 5.878 0 013.498-5.37c.556-.249.931-.78.931-1.39v-.622a1.476 1.476 0 112.952 0v.622c0 .61.375 1.141.931 1.39 2.06.918 3.5 2.97 3.5 5.37v3.908c0 .411.167.805.463 1.09z" fill-rule="evenodd"/></svg>
 </ld-icon>
 {% endexample %}
 
@@ -29,11 +43,11 @@ permalink: liquid/components/ld-icon/
 
 ## Properties
 
-| Property | Attribute | Description                               | Type      | Default             |
-| -------- | --------- | ----------------------------------------- | --------- | ------------------- |
-| `filled` | `filled`  | (optional) Set to true for a filled icon. | `boolean` | `null`              |
-| `name`   | `name`    | The icon name.                            | `string`  | `null`              |
-| `size`   | `size`    | (optional) Sets both width and height.    | `string`  | `'var(--ld-sp-24)'` |
+| Property | Attribute | Description                               | Type           | Default     |
+| -------- | --------- | ----------------------------------------- | -------------- | ----------- |
+| `filled` | `filled`  | (optional) Set to true for a filled icon. | `boolean`      | `null`      |
+| `name`   | `name`    | The icon name.                            | `string`       | `null`      |
+| `size`   | `size`    | Size of the icon.                         | `"lg" \| "sm"` | `undefined` |
 
 
 ## Slots
@@ -42,6 +56,23 @@ permalink: liquid/components/ld-icon/
 | ---- | ---------------------------------------------------------- |
 |      | (optional) Custom SVG icon (only valid without name prop). |
 
+
+## Dependencies
+
+### Used by
+
+ - docs-copy-to-cb
+ - docs-edit-on-github
+ - docs-toggle-code
+
+### Graph
+```mermaid
+graph TD;
+  docs-copy-to-cb --> ld-icon
+  docs-edit-on-github --> ld-icon
+  docs-toggle-code --> ld-icon
+  style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

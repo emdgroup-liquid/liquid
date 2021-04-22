@@ -6,8 +6,118 @@ function pxToRem(px: string | number) {
   return parseInt(px + '') / 16 + 'rem'
 }
 
-function rgbToHex(r, g, b) {
-  return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+function relRGBToAbsRGB(fill) {
+  const r = Math.round(fill.color.r * 255)
+  const g = Math.round(fill.color.g * 255)
+  const b = Math.round(fill.color.b * 255)
+  const a = Math.round((fill.opacity || 1) * 100) / 100
+  return `rgba(${r}, ${g}, ${b}, ${a})`
+}
+
+function parseThemes(items) {
+  const themes = {}
+
+  for (const item of items) {
+    if (['Bubblegum', 'Ocean', 'Shake', 'Solvent', 'Tea'].includes(item.name)) {
+      const themeName = item.name.toLowerCase()
+      themes[themeName] = {}
+
+      const themeItems = item.children
+      for (const themeItem of themeItems) {
+        let colorName
+        if (themeItem.name.indexOf('Primary') !== -1) {
+          colorName = 'bg-primary'
+        }
+        if (themeItem.name.indexOf('Drop-Shadow Color') !== -1) {
+          colorName = 'bg-secondary'
+        }
+        if (themeItem.name.indexOf('Accent') !== -1) {
+          colorName = 'accent'
+        }
+        if (themeItem.name.indexOf('Highlight') !== -1) {
+          colorName = 'highlight'
+        }
+        themes[themeName][colorName] = relRGBToAbsRGB(themeItem.fills[0])
+      }
+      continue
+    }
+  }
+
+  return themes
+}
+
+function parseVariants(items) {
+  const variants = {}
+
+  function addCol(colorBaseName, themeItem) {
+    variants[
+      themeItem.name.indexOf('Primary') === 0
+        ? `${colorBaseName}-primary`
+        : `${colorBaseName}-${themeItem.name.split('_')[0].toLowerCase()}`
+    ] = relRGBToAbsRGB(themeItem.fills[0])
+  }
+
+  for (const item of items) {
+    if (item.name.indexOf('Vibrant') === 0 || item.name.indexOf('Rich') === 0) {
+      let colorBaseName
+      switch (item.name) {
+        case 'RichBlack':
+          colorBaseName = 'rblck'
+          break
+        case 'RichBlue':
+          colorBaseName = 'rb'
+          break
+        case 'RichGreen':
+          colorBaseName = 'rg'
+          break
+        case 'RichPurple':
+          colorBaseName = 'rp'
+          break
+        case 'RichRed':
+          colorBaseName = 'rr'
+          break
+        case 'VibrantCyan':
+          colorBaseName = 'vc'
+          break
+        case 'VibrantGreen':
+          colorBaseName = 'vg'
+          break
+        case 'VibrantMagenta':
+          colorBaseName = 'vm'
+          break
+        case 'VibrantYellow':
+          colorBaseName = 'vy'
+          break
+      }
+
+      for (const themeItem of item.children) {
+        if (themeItem.children) {
+          for (const child of themeItem.children) {
+            addCol(colorBaseName, child)
+          }
+        } else {
+          addCol(colorBaseName, themeItem)
+        }
+      }
+    }
+
+    if (item.name === 'Disabled Color') {
+      const themeItems = item.children
+      for (const themeItem of themeItems) {
+        let colorName
+        if (themeItem.name === 'Disabled Color') {
+          colorName = 'disabled'
+        }
+        if (themeItem.name === 'Disabled On Brand Color') {
+          colorName = 'disabled-on-primary'
+        }
+        variants[colorName] = relRGBToAbsRGB(themeItem.fills[0])
+      }
+      continue
+    }
+  }
+
+  return variants
 }
 
 function parseShadows(items) {
@@ -36,11 +146,8 @@ function parseColors(items) {
 
   for (const item of items) {
     if (item.fills?.length) {
-      const rgbColor = item.fills[0].color
-      colors[item.name.split('_')[0].toLowerCase()] = rgbToHex(
-        Math.round(rgbColor.r * 255),
-        Math.round(rgbColor.g * 255),
-        Math.round(rgbColor.b * 255)
+      colors[item.name.split('_')[0].toLowerCase()] = relRGBToAbsRGB(
+        item.fills[0]
       )
     }
   }
@@ -109,15 +216,23 @@ async function getTokensFromFigma(figmaId = '5UbVMMa68tkeSlrNWgZw93') {
   })[0].children
 
   const tokens = {
+    themes: parseThemes(
+      figmaData.find((child) => child.name.indexOf('Themes') === 0).children
+    ),
     shadows: parseShadows(
       figmaData.find((child) => child.name === 'Shadows').children
     ),
     spacings: parseSpacings(
       figmaData.find((child) => child.name === 'Spacings').children
     ),
-    colors: parseColors(
-      figmaData.find((child) => child.name === 'Accessible Colors').children
-    ),
+    colors: {
+      ...parseVariants(
+        figmaData.find((child) => child.name.indexOf('Themes') === 0).children
+      ),
+      ...parseColors(
+        figmaData.find((child) => child.name === 'Accessible Colors').children
+      ),
+    },
     typography: parseTypography(
       figmaData.find((child) => child.name === 'Headlines').children,
       figmaData.find((child) => child.name === 'Paragraphs').children
@@ -140,24 +255,40 @@ function generateShadows(tokens) {
   )
 }
 
-function generateColors(tokens) {
+function generateColors(tokensColors, tokensThemes) {
+  const lines = []
+
+  // Basic colors
+  Object.keys(tokensColors).forEach((key) => {
+    const val = tokensColors[key]
+    if (key.includes('/default')) {
+      lines.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
+      lines.push(
+        `  --ld-col-${key.slice(0, -'x/default'.length)}-default: ${val};`
+      )
+    } else {
+      lines.push(`  --ld-col-${key}: ${val};`)
+    }
+  })
+  // Theme specific colors
+  Object.keys(tokensThemes).forEach((key) => {
+    const val = tokensThemes[key]
+    if (['bubblegum', 'ocean', 'shake', 'solvent', 'tea'].includes(key)) {
+      Object.keys(val).forEach((itemName) => {
+        const itemValue = val[itemName]
+        lines.push(`  --ld-thm-${key}-${itemName}: ${itemValue};`)
+      })
+    } else if (key === 'disabled' || key === 'variants') {
+      Object.keys(val).forEach((itemName) => {
+        const itemValue = val[itemName]
+        lines.push(`  --ld-col-${itemName}: ${itemValue};`)
+      })
+    }
+  })
+
   return writeFile(
     './src/liquid/global/styles/colors/colors.css',
-    '/* autogenerated */\n:root {\n' +
-      Object.keys(tokens)
-        .sort()
-        .map((key) => {
-          const val = tokens[key]
-          if (key.includes('/default')) {
-            return (
-              `  --ld-col-${key.split('/default')[0]}: ${val};\n` +
-              `  --ld-col-${key.slice(0, -'x/default'.length)}-default: ${val};`
-            )
-          }
-          return `  --ld-col-${key}: ${val};`
-        })
-        .join('\n') +
-      '\n}\n',
+    ['/* autogenerated */', ':root {', ...lines.sort(), '}', ''].join('\n'),
     'utf8'
   )
 }
@@ -185,9 +316,9 @@ function generateTypography(tokens) {
         .sort()
         .map((key) => {
           const val = tokens.display[key]
-          return `  --ld-typo-${key}: ${val.fontSize} / ${
-            val.lineHeight
-          } var(--ld-font-${val.fontFamiliy === 'Lato' ? 'body' : 'display'});`
+          return `  --ld-typo-${key}: ${val.fontSize} / ${val.lineHeight} '${
+            val.fontFamiliy === 'Lato' ? 'Lato' : 'MWeb'
+          }', Helvetica, Arial, sans-serif;`
         })
         .join('\n') +
       '\n' +
@@ -195,7 +326,7 @@ function generateTypography(tokens) {
         .sort()
         .map((key) => {
           const val = tokens.body[key]
-          return `  --ld-typo-${key}: ${val.fontSize} / ${val.lineHeight} var(--ld-font-body);`
+          return `  --ld-typo-${key}: ${val.fontSize} / ${val.lineHeight} 'Lato', Helvetica, Arial, sans-serif;`
         })
         .join('\n') +
       '\n}\n',
@@ -206,16 +337,25 @@ function generateTypography(tokens) {
 function generateCSSTokenFiles(tokenCollection) {
   return Promise.all([
     generateShadows(tokenCollection.shadows),
-    generateColors(tokenCollection.colors),
+    generateColors(tokenCollection.colors, tokenCollection.themes),
     generateSpacings(tokenCollection.spacings),
     generateTypography(tokenCollection.typography),
   ])
+}
+
+function generateJSONTokenFile(tokenCollection) {
+  return writeFile(
+    './dist/css/design-tokens.json',
+    JSON.stringify(tokenCollection, null, 2),
+    'utf8'
+  )
 }
 
 // eslint-disable-next-line @typescript-eslint/no-extra-semi
 ;(async () => {
   try {
     const tokenCollection = await getTokensFromFigma()
+    await generateJSONTokenFile(tokenCollection)
     await generateCSSTokenFiles(tokenCollection)
   } catch (err) {
     console.error('error', err)

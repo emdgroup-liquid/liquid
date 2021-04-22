@@ -1,3 +1,8 @@
+docs-breadcrumbs,
+.docs-breadcrumbs {
+  width: 100%;
+}
+
 .docs-breadcrumbs__list {
   display: flex;
   flex-wrap: wrap;
@@ -17,5 +22,11 @@
       align-items: center;
       justify-content: center;
     }
+  }
+
+  a:not([href]),
+  a[href='.'] {
+    cursor: default;
+    pointer-events: none;
   }
 }

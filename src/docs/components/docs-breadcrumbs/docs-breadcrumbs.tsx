@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core'
+import { Component, h, Host } from '@stencil/core'
 
 /** @internal **/
 @Component({
@@ -10,11 +10,13 @@ import { Component, h } from '@stencil/core'
 export class DocsBreadcrumbs {
   render() {
     return (
-      <nav class="docs-breadcrumbs" aria-label="Breadcrumbs">
-        <ol class="docs-breadcrumbs__list">
-          <slot></slot>
-        </ol>
-      </nav>
+      <Host class="docs-breadcrumbs">
+        <nav aria-label="Breadcrumbs">
+          <ol class="docs-breadcrumbs__list">
+            <slot></slot>
+          </ol>
+        </nav>
+      </Host>
     )
   }
 }

@@ -10,6 +10,7 @@ module.exports = {
     'color-hex-length': 'long',
     'color-no-invalid-hex': true,
     'csstools/use-nesting': true,
+    'no-descending-specificity': null,
     'declaration-block-trailing-semicolon': null,
     'plugin/no-low-performance-animation-properties': {
       ignoreProperties: ['visibility'],
@@ -22,6 +23,11 @@ module.exports = {
       },
     ],
     'selector-no-qualifying-type': null,
+    'selector-type-no-unknown': [
+      {
+        ignoreNamespaces: ['/^ld-/', '/^docs-/'],
+      },
+    ],
     'at-rule-no-unknown': [
       {
         ignoreAtRules: ['/^define-mixin/'],

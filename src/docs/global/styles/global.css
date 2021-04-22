@@ -1,7 +1,7 @@
 @import 'reset.css';
 @import 'code.css';
 
-@define-mixin docs-theme-light {
+@define-mixin docs-ui-light {
   background-color: var(--ld-col-wht);
   color: var(--ld-col-rblck-default);
 
@@ -9,7 +9,7 @@
     background-color: var(--ld-col-wht);
   }
 }
-@define-mixin docs-theme-dark {
+@define-mixin docs-ui-dark {
   background-color: var(--ld-col-rblck5);
   color: var(--ld-col-wht);
 
@@ -18,15 +18,15 @@
   }
 }
 
-@mixin docs-theme-light;
+@mixin docs-ui-light;
 @media (prefers-color-scheme: dark) {
   html {
-    @mixin docs-theme-dark;
+    @mixin docs-ui-dark;
   }
 }
-.docs-theme-light {
-  @mixin docs-theme-light;
+.docs-ui-light {
+  @mixin docs-ui-light;
 }
-.docs-theme-dark {
-  @mixin docs-theme-dark;
+.docs-ui-dark {
+  @mixin docs-ui-dark;
 }

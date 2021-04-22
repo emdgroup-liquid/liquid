@@ -37,7 +37,7 @@ export class LdHeading {
     | 'xh6'
 
   /**
-   * The aria-label prop. This prop is required if you're using a b1 to b6 visual level:
+   * **This prop is required if you're using a b1 to b6 or xb1 to xb3 visual level**:
    * Since b1 to b6 headings are uppercase headings, screen readers need to be served a
    * (non-uppercase) aria-label (otherwise they will read out the heading letter by letter).
    */
@@ -45,7 +45,7 @@ export class LdHeading {
 
   private validateLevel(newValue: number) {
     if (![1, 2, 3, 4, 5, 6].includes(newValue)) {
-      throw new TypeError('level prop invalid')
+      throw new TypeError(`ld-heading level prop invalid; got ${newValue}`)
     }
   }
 
@@ -76,13 +76,15 @@ export class LdHeading {
         'xh6',
       ].includes(newValue)
     ) {
-      throw new TypeError('visualLevel prop invalid')
+      throw new TypeError(
+        `ld-heading visualLevel prop invalid; got ${newValue}`
+      )
     }
 
     const isBHeading = this.visualLevel?.indexOf('b') === 0
     if (isBHeading && !this.ariaLabel) {
       throw new TypeError(
-        'heading with visualLevel prop b* requires an ariaLabel prop'
+        'ld-heading with visualLevel prop b* requires an ariaLabel prop'
       )
     }
   }
