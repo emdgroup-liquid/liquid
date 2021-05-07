@@ -16,6 +16,14 @@ export const config: Config = {
     {
       type: 'docs-readme',
     },
+    {
+      type: 'docs-vscode',
+      file: 'tmp/web-components.html-data.json',
+    },
+    {
+      type: 'docs-json',
+      file: 'dist/web-components.json',
+    },
   ],
   plugins: [postcss(postcssConfig)],
   testing: {

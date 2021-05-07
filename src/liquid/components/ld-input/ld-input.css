@@ -1,0 +1,67 @@
+.ld-input {
+  --ld-input-padding: 0.4375rem 0.875rem 0.5rem;
+  padding: var(--ld-input-padding);
+  background-color: var(--ld-col-bg-g);
+  border: 0;
+  border-radius: var(--ld-sp-4);
+  font: var(--ld-typo-body-m);
+  color: var(--ld-col-rblck-default);
+  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
+  max-width: 100%;
+
+  &::placeholder {
+    color: var(--ld-col-rblck4);
+  }
+
+  .ld-label & {
+    width: 100%;
+  }
+}
+
+.ld-input--light {
+  background-color: var(--ld-col-wht);
+}
+
+:where(.ld-input:not(:disabled)) {
+  &:hover {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
+  }
+}
+
+:where(.ld-input) {
+  &:disabled {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
+    color: var(--ld-col-rblck2);
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+    background-color: var(--ld-col-wht);
+
+    .ld-theme-solvent &,
+    .ld-theme-bubblegum &,
+    .ld-theme-shake {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+    }
+    .ld-theme-tea & {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+    }
+  }
+}
+
+.ld-input--invalid {
+  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+
+  &:where(:not(:focus)) {
+    color: var(--ld-col-rr-default);
+    background-color: var(--ld-col-rr1);
+
+    &::placeholder {
+      color: var(--ld-col-rr3);
+    }
+  }
+}

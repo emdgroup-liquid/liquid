@@ -103,9 +103,7 @@ Almost before we knew it, we had left the ground.
 
 ## CSS component
 
-If you'd rather like to use the CSS component, inspect and copy the markup and CSS classes 
-from the examples above. You will be able to achieve pretty much the same result. 
-Here are some examples:
+If you'd rather like to use the CSS component, inspect and copy the markup and CSS classes from the examples above. You will be able to achieve pretty much the same result. Here are some examples:
 
 {% example "html", true %}
 <h1 class="ld-heading ld-heading--h1">
@@ -126,7 +124,7 @@ Here are some examples:
 | Property             | Attribute      | Description                                                                                                                                                                                                                                                 | Type                                                                                                                                                                            | Default     |
 | -------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `ariaLabel`          | `aria-label`   | **This prop is required if you're using a b1 to b6 or xb1 to xb3 visual level**: Since b1 to b6 headings are uppercase headings, screen readers need to be served a (non-uppercase) aria-label (otherwise they will read out the heading letter by letter). | `string`                                                                                                                                                                        | `undefined` |
-| `level` _(required)_ | `level`        | The heading level.                                                                                                                                                                                                                                          | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                                                                                    | `undefined` |
+| `level` _(required)_ | `level`        | The heading level.                                                                                                                                                                                                                                          | `"1" \| "2" \| "3" \| "4" \| "5" \| "6" \| 1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                                          | `undefined` |
 | `visualLevel`        | `visual-level` | The heading style. Overrides the style inferred from the heading level.                                                                                                                                                                                     | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6"` | `undefined` |
 
 

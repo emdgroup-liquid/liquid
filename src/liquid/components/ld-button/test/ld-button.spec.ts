@@ -23,8 +23,8 @@ describe('ld-button', () => {
       html: `<ld-button disabled>Text</ld-button>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-button disabled="">
-        <button class="ld-button ld-theme-bg-primary" disabled="">
+      <ld-button disabled>
+        <button aria-disabled class="ld-button ld-theme-bg-primary" disabled>
           <span class="ld-button__content">
             Text
           </span>
@@ -137,42 +137,14 @@ describe('ld-button', () => {
       </ld-button>
     `)
   })
-  it('passes down attributes', async () => {
+  it('as anchor', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button attrs='{ "type": "reset" }'>Text</ld-button>`,
+      html: `<ld-button href="#" target="_blank">Text</ld-button>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-button attrs='{ "type": "reset" }'>
-        <button type="reset" class="ld-button ld-theme-bg-primary">
-          <span class="ld-button__content">
-            Text
-          </span>
-        </button>
-      </ld-button>
-    `)
-  })
-  it('passes down invalid attributes', async () => {
-    try {
-      await newSpecPage({
-        components: [LdButton],
-        html: `<ld-button attrs='{ "asdfasd" }'>Text</ld-button>`,
-      })
-      expect(true).toBe(false)
-    } catch (err) {
-      expect(err).toStrictEqual(
-        TypeError('ld-button attrs prop invalid; got { "asdfasd" }')
-      )
-    }
-  })
-  it('uses custom tag', async () => {
-    const page = await newSpecPage({
-      components: [LdButton],
-      html: `<ld-button tag="a" attrs='{ "href": "#" }'>Text</ld-button>`,
-    })
-    expect(page.root).toEqualHtml(`
-      <ld-button attrs='{ "href": "#" }' tag="a">
-        <a class="ld-button ld-theme-bg-primary" href="#">
+      <ld-button href="#" target="_blank">
+        <a class="ld-button ld-theme-bg-primary" href="#" target="_blank" rel="noreferrer noopener">
           <span class="ld-button__content">
             Text
           </span>

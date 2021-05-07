@@ -1,25 +1,19 @@
 const { readFileSync } = require('fs')
 const { join } = require('path')
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
-const markdownShortcode = require('eleventy-plugin-markdown-shortcode')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addWatchTarget('./README.md')
-  eleventyConfig.addPlugin(markdownShortcode, {
-    html: true,
-    linkify: true,
-  })
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ['h2', 'h3'],
     wrapperClass: 'docs-toc__nav',
   })
   eleventyConfig.addPlugin(syntaxHighlight, {
-    alwaysWrapLineHighlights: true,
+    alwaysWrapLineHighlights: false,
   })
   const highlighter = eleventyConfig.markdownHighlighter
   eleventyConfig.addMarkdownHighlighter((str, language) => {
@@ -56,12 +50,14 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode(
     'example',
-    function (code, lang = 'html', stacked, opened) {
+    function (code, lang = 'html', stacked, opened, heighlight) {
       let output = `<docs-example code="${encodeURIComponent(code.trim())}" ${
         stacked ? 'stacked' : ''
       } ${opened ? 'opened' : ''}>\n`
       output += `<div slot="code">\n\n`
-      output += `\`\`\`${lang} \n${code.trim()}\n\`\`\``
+      output += `\`\`\`${lang}${
+        heighlight ? '/' + heighlight : ''
+      } \n${code.trim()}\n\`\`\``
       output += '\n</div>'
       output += '<div slot="show">'
       output += code.trim()

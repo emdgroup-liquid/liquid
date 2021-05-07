@@ -7,7 +7,7 @@ import { Component, h, Prop } from '@stencil/core'
 })
 export class LdHeading {
   /** The heading level. */
-  @Prop() level!: 1 | 2 | 3 | 4 | 5 | 6
+  @Prop() level!: 1 | 2 | 3 | 4 | 5 | 6 | '1' | '2' | '3' | '4' | '5' | '6'
 
   /**
    * The heading style. Overrides the style inferred from the heading level.
@@ -43,8 +43,8 @@ export class LdHeading {
    */
   @Prop() ariaLabel: string | undefined
 
-  private validateLevel(newValue: number) {
-    if (![1, 2, 3, 4, 5, 6].includes(newValue)) {
+  private validateLevel(newValue: number | string) {
+    if (![1, 2, 3, 4, 5, 6].includes(parseInt(newValue + '', 10))) {
       throw new TypeError(`ld-heading level prop invalid; got ${newValue}`)
     }
   }

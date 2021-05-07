@@ -5,6 +5,7 @@
     box-shadow: 0 0 0 2px var(--ld-col-rblck1);
 
     &:focus:focus-visible {
+      color: var(--ld-col-rblck-default);
       background-color: var(--ld-col-bg-g);
       box-shadow: 0 0 0 2px var(--ld-col-rblck-default);
     }
@@ -30,6 +31,7 @@
     box-shadow: 0 0 0 2px var(--ld-col-rblck4);
 
     &:focus:focus-visible {
+      color: var(--ld-col-wht);
       background-color: var(--ld-col-rblck4);
       box-shadow: 0 0 0 2px var(--ld-col-wht);
     }

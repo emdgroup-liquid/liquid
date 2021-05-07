@@ -40,18 +40,6 @@ body {
     visibility: visible !important;
   }
 
-  &[inert] {
-    .docs-topbar,
-    .docs-nav,
-    .docs-nav::before,
-    .docs-nav__content,
-    .docs-toc,
-    .docs-btn-toggle-nav,
-    .docs-main {
-      filter: blur(0.25rem);
-    }
-  }
-
   &::before {
     content: '';
     position: fixed;

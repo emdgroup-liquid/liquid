@@ -7,6 +7,7 @@ docs-breadcrumbs,
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  font: var(--ld-typo-body-s);
 
   li:not(:last-of-type) {
     margin-right: var(--ld-sp-8);

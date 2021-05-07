@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const nodeFetch = require('node-fetch')
-const { writeFile } = require('fs').promises
+const { writeFile, mkdir } = require('fs').promises
 
 function pxToRem(px: string | number) {
   return parseInt(px + '') / 16 + 'rem'
@@ -344,10 +344,12 @@ function generateCSSTokenFiles(tokenCollection) {
 }
 
 function generateJSONTokenFile(tokenCollection) {
-  return writeFile(
-    './dist/css/design-tokens.json',
-    JSON.stringify(tokenCollection, null, 2),
-    'utf8'
+  return mkdir('./dist/css/', { recursive: true }).then(() =>
+    writeFile(
+      './dist/css/design-tokens.json',
+      JSON.stringify(tokenCollection, null, 2),
+      'utf8'
+    )
   )
 }
 

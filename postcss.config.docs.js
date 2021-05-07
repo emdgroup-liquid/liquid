@@ -7,7 +7,11 @@ module.exports = {
   plugins: [
     postcssMixins(),
     postcssNested(),
-    postcssPresetEnv(),
+    postcssPresetEnv({
+      features: {
+        'focus-visible-pseudo-class': false,
+      },
+    }),
     postcssImport(),
   ],
 }

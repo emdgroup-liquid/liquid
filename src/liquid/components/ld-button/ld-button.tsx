@@ -1,5 +1,9 @@
 import '../../components' // type definitions for type checking and intelliSense
 import { Component, h, Prop, Element } from '@stencil/core'
+import { cloneAttributes } from '../../utils/cloneAttributes'
+import { JSXBase } from '@stencil/core/internal'
+import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
+import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
 
 @Component({
   tag: 'ld-button',
@@ -24,25 +28,19 @@ export class LdButton {
   /** Justify content. */
   @Prop() justifyContent: 'start' | 'end' | 'between'
 
-  /** Tag. */
-  @Prop() tag = 'button'
+  /**
+   * Transforms the button to an anchor element.
+   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
+   * for more information on the `href` attribute.
+   */
+  @Prop() href?: string
 
-  /** Attributes to be attached to rendered element child. */
-  @Prop() attrs?: string
-
-  componentDidRender() {
-    if (this.attrs) {
-      try {
-        const parsedAttrs = JSON.parse(this.attrs)
-        Object.keys(parsedAttrs).forEach((key) => {
-          const value = parsedAttrs[key]
-          this.el.children[0].setAttribute(key, value)
-        })
-      } catch (err) {
-        throw new TypeError(`ld-button attrs prop invalid; got ${this.attrs}`)
-      }
-    }
-  }
+  /**
+   * The `target` attributed can be used in conjunction with the `href` attribute.
+   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
+   * for more information on the `target` attribute.
+   */
+  @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   render() {
     let cl = 'ld-button ld-theme-bg-primary'
@@ -51,10 +49,20 @@ export class LdButton {
     if (this.alignText) cl += ` ld-button--align-text-${this.alignText}`
     if (this.justifyContent) cl += ` ld-button--justify-${this.justifyContent}`
 
-    const Tag = this.tag
+    const Tag = this.href ? 'a' : 'button'
 
     return (
-      <Tag class={cl} disabled={this.disabled} aria-disabled={this.disabled}>
+      <Tag
+        class={cl}
+        disabled={this.disabled}
+        aria-disabled={this.disabled}
+        href={this.href}
+        target={this.target}
+        rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        {...(this.href
+          ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
+          : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(this.el))}
+      >
         <span class="ld-button__content">
           <slot />
         </span>

@@ -66,8 +66,3 @@ td,
 th {
   padding: 0;
 }
-
-/* custom */
-:focus:not(:focus-visible) {
-  outline: none;
-}

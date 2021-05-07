@@ -2,6 +2,7 @@ const commonTSConfig = {
   extends: [
     'prettier',
     'eslint:recommended',
+    'plugin:compat/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@stencil/recommended',
   ],
@@ -13,6 +14,7 @@ const commonTSConfig = {
     '@typescript-eslint/no-extra-semi': 0,
     '@stencil/strict-boolean-conditions': 0,
     '@stencil/element-type': 0,
+    '@stencil/decorators-style': 0,
     'react/jsx-no-bind': 0,
   },
 }

@@ -4,6 +4,7 @@
 @import 'shadows/shadows.css';
 @import 'spacings/spacings.css';
 @import 'themes/themes.css';
+@import 'focus/focus.css';
 
 /*
 @media (prefers-reduced-motion: no-preference) {

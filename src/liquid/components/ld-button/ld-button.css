@@ -28,9 +28,12 @@ ld-button {
     color: var(--ld-col-wht);
   }
 
-  &:disabled:not(.ld-button--ghost) {
-    box-shadow: inset 0px 0px 0px 2px var(--ld-col-disabled);
+  &:disabled {
     color: var(--ld-col-disabled);
+
+    &:not(.ld-button--ghost) {
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-disabled);
+    }
   }
 
   &:not(:disabled) {
@@ -184,6 +187,7 @@ ld-button {
     }
   }
 
+  &:disabled,
   &.ld-button--highlight,
   &.ld-button--secondary,
   &.ld-button--ghost,

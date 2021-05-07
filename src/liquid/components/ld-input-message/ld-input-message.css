@@ -1,0 +1,14 @@
+.ld-input-message {
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.ld-input-message--error {
+  color: var(--ld-col-rr-default);
+}
+
+.ld-input-message__icon {
+  transform: translateY(0.2rem);
+  margin-right: var(--ld-sp-6);
+  flex-shrink: 0;
+}

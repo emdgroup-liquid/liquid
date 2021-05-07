@@ -8,6 +8,7 @@ import { NavEventType } from '../../utils/eventTypes'
   tag: 'docs-nav',
   styleUrl: 'docs-nav.css',
   shadow: false,
+  assetsDirs: ['assets'],
 })
 export class DocsNav {
   @State() isNavOpen = false

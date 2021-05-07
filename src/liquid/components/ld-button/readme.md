@@ -9,8 +9,7 @@ permalink: liquid/components/ld-button/
 
 # Button
 
-Buttons are used for triggering important user actions. A button text should be speaking 
-in the sense of the user’s understanding, rather than in the system’s language.
+Buttons are used for triggering important user actions. A button text should be speaking in the sense of the user’s understanding, rather than in the system’s language.
 Icon-buttons without visual text should contain a screen-reader-only text.
 
 ---
@@ -28,12 +27,9 @@ Icon-buttons without visual text should contain a screen-reader-only text.
 {% endexample %}
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
-Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports 
-the disabled attribute natively), it is applied just in case you use a [custom tag](#with-custom-tag) such as 
-an anchor.  
-Note that if you are using a custom tag and the element does not support the `disabled` 
-attribute natively, you will have to take care of preventing the default behavior of the element yourself 
-(i.e. using `event.preventDefault()` inside your custom event handlers).
+Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an [anchor button](#anchor-button).
+ 
+**Note:** If you are [using the button as an anchor](#anchor-button) (applying the `href` attribute), the `disabled` attribute is not supported natively, so you will have to take care of preventing the default behavior of the element yourself (i.e. using `event.preventDefault()` inside your custom event handlers).
 
 ### Highlighted
 
@@ -174,35 +170,20 @@ attribute natively, you will have to take care of preventing the default behavio
 </ld-button>
 {% endexample %}
 
-### Passing down attributes
-
-Use the `attrs` prop to pass custom attributes to the root child element of the 
-web component as a JSON string.  
+### Anchor button
 
 {% example 'html', false, true %}
-<ld-button attrs='{ "type": "reset" }'>
+<ld-button href="#" target="_blank">
   Text
 </ld-button>
 {% endexample %}
 
-### With custom tag
-
-Using a custom tag may be usefull, if you need something that looks like a button, 
-but doesn't really act like a button. For instance an anchor:
-
-{% example 'html', false, true %}
-<ld-button tag="a" attrs='{ "href": "#", "target": "_blank", "rel": "noreferrer noopener" }'>
-  Text
-</ld-button>
-{% endexample %}
+> __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
 
 ## CSS component
 
-If you'd rather like to use the CSS component on a regular button element, inspect and 
-copy the markup and CSS classes from the examples above. You will be able to achieve 
-pretty much the same result. Here are some examples:
+If you'd rather like to use the CSS component on a regular button element, inspect and copy the markup and CSS classes from the examples above. You will be able to achieve pretty much the same result. Here are some examples:
 
-<link rel="stylesheet" href="ld-button.css">
 {% example %}
 <button class="ld-button ld-theme-bg-primary ld-button--sm">
   <span class="ld-button__content">Text</span>
@@ -259,15 +240,15 @@ pretty much the same result. Here are some examples:
 
 ## Properties
 
-| Property         | Attribute         | Description                                          | Type                                                | Default     |
-| ---------------- | ----------------- | ---------------------------------------------------- | --------------------------------------------------- | ----------- |
-| `alignText`      | `align-text`      | Align text.                                          | `"left" \| "right"`                                 | `undefined` |
-| `attrs`          | `attrs`           | Attributes to be attached to rendered element child. | `string`                                            | `undefined` |
-| `disabled`       | `disabled`        | Disabled state of the button.                        | `boolean`                                           | `false`     |
-| `justifyContent` | `justify-content` | Justify content.                                     | `"between" \| "end" \| "start"`                     | `undefined` |
-| `mode`           | `mode`            | Highlight mode.                                      | `"danger" \| "ghost" \| "highlight" \| "secondary"` | `undefined` |
-| `size`           | `size`            | Size of the button.                                  | `"lg" \| "sm"`                                      | `undefined` |
-| `tag`            | `tag`             | Tag.                                                 | `string`                                            | `'button'`  |
+| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------- |
+| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                 | `undefined` |
+| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                           | `false`     |
+| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                            | `undefined` |
+| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                     | `undefined` |
+| `mode`           | `mode`            | Highlight mode.                                                                                                                                                                                                       | `"danger" \| "ghost" \| "highlight" \| "secondary"` | `undefined` |
+| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                      | `undefined` |
+| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`        | `undefined` |
 
 
 ## Dependencies

@@ -65,6 +65,10 @@ code .highlight-line:before {
   text-align: right;
   width: 2.4em;
 }
+.highlight-line.highlight-line-active {
+  border-radius: var(--ld-sp-4);
+  padding-right: var(--ld-sp-8);
+}
 
 /* ------------------------------------- Colors ------------------------------------- */
 
@@ -116,6 +120,9 @@ code .highlight-line:before {
     border-right: 1px solid var(--ld-col-rblck1);
     color: var(--ld-col-rblck2);
   }
+  .highlight-line.highlight-line-active {
+    background-color: var(--ld-col-vy-default);
+  }
 }
 
 @define-mixin docs-code-ui-dark {
@@ -165,6 +172,9 @@ code .highlight-line:before {
   code .highlight-line:before {
     border-right: 1px solid var(--ld-col-rblck5);
     color: var(--ld-col-rblck4);
+  }
+  .highlight-line.highlight-line-active {
+    background-color: var(--ld-col-vy-default);
   }
 }
 
