@@ -136,8 +136,8 @@ When displaying input messages conditionally (i.e. an error message becomes visi
   const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
   const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
-  async function validateInput(ldInput, ldInputMessage) {
-    const value = await ldInput.getValue()
+  function validateInput(ldInput, ldInputMessage) {
+    value = ldInput.value
     if (!value) {
       ldInput.setAttribute('invalid', 'true')
       ldInputMessage.setAttribute('covert', 'false')
@@ -171,19 +171,7 @@ When displaying input messages conditionally (i.e. an error message becomes visi
 | --------- | --------- | ---------------------------------------------------------------------------------- | ------------------- | ----------- |
 | `invalid` | `invalid` | Set this property to `true` in order to mark the field visually as invalid.        | `boolean`           | `undefined` |
 | `mode`    | `mode`    | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'dark'`    |
-
-
-## Methods
-
-### `getValue() => Promise<string>`
-
-Returns input value.
-
-#### Returns
-
-Type: `Promise<string>`
-
-
+| `value`   | `value`   | The input value.                                                                   | `string`            | `undefined` |
 
 
 ----------------------------------------------

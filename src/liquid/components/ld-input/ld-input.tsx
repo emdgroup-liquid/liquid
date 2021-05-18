@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
@@ -17,6 +17,9 @@ export class LdInput {
   /** Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. */
   @Prop() mode: 'light' | 'dark' = 'dark'
 
+  /** The input value. */
+  @Prop({ mutable: true }) value: string
+
   /** Set this property to `true` in order to mark the field visually as invalid. */
   @Prop() invalid: false
 
@@ -33,10 +36,8 @@ export class LdInput {
     })
   }
 
-  /** Returns input value. */
-  @Method()
-  getValue() {
-    return Promise.resolve(this.input.value)
+  private handleInput() {
+    this.value = this.input.value
   }
 
   render() {
@@ -48,9 +49,11 @@ export class LdInput {
       <input
         ref={(el) => (this.input = el as HTMLInputElement)}
         class={cl}
+        onInput={this.handleInput.bind(this)}
         onBlur={this.handleBlur.bind(this)}
         onFocus={this.handleFocus.bind(this)}
         {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
+        value={this.value}
       />
     )
   }
