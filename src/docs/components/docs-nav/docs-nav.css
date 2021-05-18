@@ -61,8 +61,8 @@
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 900;
-    display: block;
-    padding: var(--ld-sp-24) 0 var(--ld-sp-6);
+    display: inline-block;
+    margin: var(--ld-sp-24) 0 var(--ld-sp-6);
   }
 
   .docs-switch-dark-light {

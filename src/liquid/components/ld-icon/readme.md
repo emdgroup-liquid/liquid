@@ -15,10 +15,6 @@ permalink: liquid/components/ld-icon/
 <ld-icon name="placeholder"></ld-icon>
 {% endexample %}
 
-{% example %}
-<ld-icon name="placasdfasdfasdfeholder"></ld-icon>
-{% endexample %}
-
 ### Different sizes
 
 {% example %}
