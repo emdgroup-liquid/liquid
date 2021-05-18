@@ -28,8 +28,16 @@ Icon-buttons without visual text should contain a screen-reader-only text.
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
 Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an [anchor button](#anchor-button).
- 
-**Note:** If you are [using the button as an anchor](#anchor-button) (applying the `href` attribute), the `disabled` attribute is not supported natively, so you will have to take care of preventing the default behavior of the element yourself (i.e. using `event.preventDefault()` inside your custom event handlers).
+
+**If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
+
+{% example %}
+<ld-button aria-disabled>Text</ld-button>
+{% endexample %}
+
+> **Note:** Using `aria-disabled` alone does not disable user interactions on the button. You will have to prevent default behaviours with JavaScript event handlers (i.e. with `event.preventDefault()`).
+
+> **Note:** If you are [using the button as an anchor](#anchor-button) (applying the `href` attribute), the `disabled` attribute is not supported natively, so you will have to take care of preventing the default behavior of the element yourself (i.e. using `event.preventDefault()` inside your custom event handlers).
 
 ### Highlighted
 

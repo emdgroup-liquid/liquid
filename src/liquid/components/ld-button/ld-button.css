@@ -28,7 +28,8 @@ ld-button {
     color: var(--ld-col-wht);
   }
 
-  &:disabled {
+  &:disabled,
+  &[aria-disabled] {
     color: var(--ld-col-disabled);
 
     &:not(.ld-button--ghost) {
@@ -36,7 +37,7 @@ ld-button {
     }
   }
 
-  &:not(:disabled) {
+  &:not(:disabled):not([aria-disabled]) {
     cursor: pointer;
   }
 
@@ -165,13 +166,15 @@ ld-button {
   }
 
   &.ld-button--secondary {
-    :not(:disabled) & {
+    :not(:disabled) &,
+    :not([aria-disabled]) & {
       background-color: var(--ld-col-wht);
     }
   }
 
   &.ld-button--ghost {
-    :not(:disabled) & {
+    :not(:disabled) &,
+    :not([aria-disabled]) & {
       background-color: transparent;
     }
 
@@ -188,20 +191,26 @@ ld-button {
   }
 
   &:disabled,
+  &[aria-disabled],
   &.ld-button--highlight,
   &.ld-button--secondary,
   &.ld-button--ghost,
   &.ld-button--danger {
     &:disabled,
+    &[aria-disabled],
     &:disabled:hover,
+    &[aria-disabled]:hover,
     &:disabled:focus,
-    &:disabled:active {
+    &[aria-disabled]:focus,
+    &:disabled:active,
+    &[aria-disabled]:active {
       background-color: transparent;
       color: var(--ld-col-disabled);
     }
 
     @media (hover: hover) {
-      &:disabled:hover {
+      &:disabled:hover,
+      &[aria-disabled]:hover {
         background-color: transparent;
         color: var(--ld-col-disabled);
       }
@@ -214,7 +223,7 @@ ld-button {
 }
 
 .ld-button.ld-button--secondary {
-  &:not(:disabled) {
+  &:not(:disabled):not([aria-disabled]) {
     box-shadow: inset 0px 0px 0px 2px var(--ld-col-rblck1);
 
     @media (hover: hover) {
@@ -233,7 +242,7 @@ ld-button {
 
   .ld-theme-ocean &,
   [class*='ld-theme'] .ld-theme-ocean & {
-    &:not(:disabled) {
+    &:not(:disabled):not([aria-disabled]) {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
@@ -255,7 +264,7 @@ ld-button {
   [class*='ld-theme'] .ld-theme-solvent &,
   [class*='ld-theme'] .ld-theme-bubblegum &,
   [class*='ld-theme'] .ld-theme-shake & {
-    &:not(:disabled) {
+    &:not(:disabled):not([aria-disabled]) {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp5);
@@ -273,7 +282,7 @@ ld-button {
 
   .ld-theme-tea &,
   [class*='ld-theme'] .ld-theme-tea & {
-    &:not(:disabled) {
+    &:not(:disabled):not([aria-disabled]) {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg5);
@@ -292,7 +301,7 @@ ld-button {
 
 .ld-button.ld-button--secondary,
 .ld-button.ld-button--ghost {
-  &:not(:disabled) {
+  &:not(:disabled):not([aria-disabled]) {
     color: var(--ld-col-rblck-default);
 
     @media (hover: hover) {

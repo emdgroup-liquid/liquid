@@ -35,7 +35,7 @@ describe('ld-button', () => {
         }/liquid/components/ld-button/`,
         {
           browser,
-          page: page,
+          page,
           ...pa11yConfig,
         }
       )
