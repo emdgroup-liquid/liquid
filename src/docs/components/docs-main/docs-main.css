@@ -7,7 +7,8 @@
     main {
       #properties + table td {
         &:first-of-type,
-        &:nth-of-type(2) {
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
           code {
             box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
             background-color: var(--ld-col-bg-lg);
@@ -44,6 +45,7 @@
         }
       }
 
+      > #methods ~ h3,
       > p {
         > code {
           background-color: var(--ld-col-bg-lg);
@@ -88,7 +90,8 @@
     main {
       #properties + table td {
         &:first-of-type,
-        &:nth-of-type(2) {
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
           code {
             box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
             background-color: var(--ld-col-rblck4);
@@ -125,6 +128,7 @@
         }
       }
 
+      > #methods ~ h3,
       > p {
         > code {
           background-color: var(--ld-col-rblck4);
@@ -150,8 +154,8 @@
 
       > blockquote {
         color: var(--ld-col-rblck-default);
-        background-color: var(--ld-col-vy4);
-        border-left: solid var(--ld-sp-6) var(--ld-col-vy3);
+        background-color: var(--ld-col-vy3);
+        border-left: solid var(--ld-sp-6) var(--ld-col-vy4);
 
         code {
           background-color: var(--ld-col-vy3);
@@ -335,7 +339,8 @@
       th {
         /* props and attributes */
         &:first-of-type,
-        &:nth-of-type(2) {
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
           width: var(--table-cell-width-sm);
           word-break: break-all;
 
@@ -437,6 +442,18 @@
         &:nth-of-type(3) {
           width: var(--table-cell-width);
         }
+      }
+    }
+
+    > #methods {
+      ~ h3 code {
+        font: var(--ld-typo-body-s);
+        font-weight: 400;
+        font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono',
+          monospace;
+        padding: var(--ld-sp-4) var(--ld-sp-6);
+        border-radius: var(--ld-sp-2);
+        display: inline-flex;
       }
     }
 

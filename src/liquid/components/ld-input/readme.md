@@ -70,7 +70,7 @@ Please reffer to the [ld-label](/liquid/components/ld-label/) docs for more info
 
 #### On input message width and placement
 
-By default, the input field stretches to the maximum width of its wrapping label, which in turn stretches to the width of its content (the computed width of the `ld-input-message` component). So, if you want to set certain constraints on the width of the all three components, you can do so by setting the constraint on the wrapping element – the `ld-label` component.
+By default, the input field stretches to the maximum width of its wrapping label, which in turn stretches to the width of its content (the computed width of the `ld-input-message` component). So, if you want to set certain constraints on the width of all three components, you can do so by setting the constraint on the wrapping element – the `ld-label` component.
 
 {% example %}
 <ld-label>

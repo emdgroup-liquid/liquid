@@ -93,7 +93,8 @@ type LiquidElements<T> = {
   }
 }
 
-declare global {   namespace JSX {
+declare global {
+  namespace JSX {
     interface IntrinsicElements extends LiquidElements<LocalJSX.IntrinsicElements> {}
   }
 }
