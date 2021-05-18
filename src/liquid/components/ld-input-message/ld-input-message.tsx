@@ -38,7 +38,7 @@ export class LdInputMessage {
           src={getAssetPath(`./assets/${this.mode}.svg`)}
         />
         <span aria-live="assertive">
-          <span aria-hidden={this.covert}>
+          <span aria-hidden={this.covert ? 'true' : undefined}>
             <slot></slot>
           </span>
         </span>
