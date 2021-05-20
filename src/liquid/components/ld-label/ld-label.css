@@ -1,6 +1,6 @@
 .ld-label {
   font: var(--ld-typo-label-s);
-  display: inline-flex;
+  display: inline-grid;
   flex-direction: column;
   gap: var(--ld-sp-6);
   max-width: 100%;

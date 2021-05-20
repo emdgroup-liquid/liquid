@@ -63,6 +63,15 @@
     font-weight: 900;
     display: inline-block;
     margin: var(--ld-sp-24) 0 var(--ld-sp-6);
+
+    @media (hover: none) {
+      outline: none;
+    }
+
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
 
   .docs-switch-dark-light {

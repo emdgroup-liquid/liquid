@@ -243,7 +243,7 @@ The `ld-input` component does not provide any properties or methods for validati
       } else {
         window.alert('Form is invalid.')
       }
-    })
+    }, 10)
   })
 </script>
 {% endexample %}

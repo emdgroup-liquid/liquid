@@ -35,12 +35,13 @@
   display: flex;
   align-items: center;
   appearance: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background-color: transparent;
   cursor: pointer;
   border: 0;
   padding: 0;
   color: inherit;
+  font: var(--ld-typo-body-s);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   svg {
     margin-right: var(--ld-sp-6);

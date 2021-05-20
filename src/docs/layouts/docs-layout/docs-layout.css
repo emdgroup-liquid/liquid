@@ -1,5 +1,6 @@
 body {
   overscroll-behavior-x: none;
+  -webkit-text-size-adjust: none;
 }
 
 .docs-main {
