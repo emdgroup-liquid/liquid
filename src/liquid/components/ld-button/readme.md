@@ -32,12 +32,14 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-button aria-disabled>Text</ld-button>
+<ld-button id="disabled-button" aria-disabled onclick="() => { console.log('click') }">Text</ld-button>
+<script>
+  document.getElementById('disabled-button').addEventListener('click', () => { window.alert('click') })
+  // The event handler won't be called.
+</script>
 {% endexample %}
 
-> **Note:** Using `aria-disabled` alone does not disable user interactions on the button. You will have to prevent default behaviours with JavaScript event handlers (i.e. with `event.preventDefault()`).
-
-> **Note:** If you are [using the button as an anchor](#anchor-button) (applying the `href` attribute), the `disabled` attribute is not supported natively, so you will have to take care of preventing the default behavior of the element yourself (i.e. using `event.preventDefault()` inside your custom event handlers).
+> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler calling `event.preventDefault()` and `event.stopImmediatePropagation()`.
 
 ### Highlighted
 
@@ -152,9 +154,11 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </ld-button>
 {% endexample %}
 
-### With way too much content
+### Multi-line
 
-> ⚠️ Don't do this! Put the description in a label outside of the button instead.
+> **Note**: You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+
+You can align the text inside the button using the `align-text` propperty.
 
 {% example %}
 <ld-button>

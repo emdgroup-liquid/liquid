@@ -44,7 +44,6 @@
 
 .docs-search__input {
   width: 100%;
-  padding: var(--ld-sp-8) var(--ld-sp-16);
   pointer-events: all;
 }
 

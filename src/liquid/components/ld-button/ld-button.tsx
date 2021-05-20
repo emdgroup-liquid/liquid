@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checking and intelliSense
-import { Component, h, Prop, Element } from '@stencil/core'
+import { Component, h, Host, Prop, Element } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
@@ -12,6 +12,8 @@ import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
 })
 export class LdButton {
   @Element() el: HTMLElement
+
+  private button!: HTMLElement
 
   /** Disabled state of the button. */
   @Prop() disabled = false
@@ -42,8 +44,15 @@ export class LdButton {
    */
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
+  private handleClick(ev) {
+    if (this.button.getAttribute('aria-disabled')) {
+      ev.preventDefault()
+      ev.stopImmediatePropagation()
+    }
+  }
+
   render() {
-    let cl = 'ld-button ld-theme-bg-primary'
+    let cl = 'ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive'
     if (this.size) cl += ` ld-button--${this.size}`
     if (this.mode) cl += ` ld-button--${this.mode}`
     if (this.alignText) cl += ` ld-button--align-text-${this.alignText}`
@@ -52,21 +61,27 @@ export class LdButton {
     const Tag = this.href ? 'a' : 'button'
 
     return (
-      <Tag
-        class={cl}
-        disabled={this.disabled}
-        aria-disabled={this.disabled}
-        href={this.href}
-        target={this.target}
-        rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        {...(this.href
-          ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
-          : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(this.el))}
-      >
-        <span class="ld-button__content">
-          <slot />
-        </span>
-      </Tag>
+      <Host>
+        <Tag
+          ref={(el) => (this.button = el as HTMLElement)}
+          onClick={this.handleClick.bind(this)}
+          class={cl}
+          disabled={this.disabled}
+          aria-disabled={this.disabled}
+          href={this.href}
+          target={this.target}
+          rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+          {...(this.href
+            ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
+            : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(
+                this.el
+              ))}
+        >
+          <span class="ld-button__content">
+            <slot />
+          </span>
+        </Tag>
+      </Host>
     )
   }
 }

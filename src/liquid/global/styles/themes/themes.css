@@ -28,7 +28,11 @@
 [class*='ld-theme'] .ld-theme-ocean .ld-theme-bg-primary {
   background-color: var(--ld-thm-ocean-bg-primary);
   color: var(--ld-col-wht);
+}
 
+.ld-theme-bg-primary--interactive,
+.ld-theme-ocean .ld-theme-bg-primary--interactive,
+[class*='ld-theme'] .ld-theme-ocean .ld-theme-bg-primary--interactive {
   &:focus:focus-visible {
     background-color: var(--ld-col-rb-focus);
     color: var(--ld-thm-ocean-bg-secondary);
@@ -55,7 +59,11 @@
 [class*='ld-theme'] .ld-theme-ocean .ld-theme-accent {
   background-color: var(--ld-thm-ocean-accent);
   color: var(--ld-col-vc6);
+}
 
+.ld-theme-accent--interactive,
+.ld-theme-ocean .ld-theme-accent--interactive,
+[class*='ld-theme'] .ld-theme-ocean .ld-theme-accent--interactive {
   &:focus:focus-visible {
     background-color: var(--ld-col-vc-focus);
   }
@@ -82,7 +90,9 @@
 [class*='ld-theme'] .ld-theme-bubblegum {
   .ld-theme-bg-primary {
     background-color: var(--ld-thm-bubblegum-bg-primary);
+  }
 
+  .ld-theme-bg-primary--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-rp-focus);
       color: var(--ld-thm-bubblegum-bg-secondary);
@@ -109,7 +119,9 @@
   .ld-theme-accent {
     background-color: var(--ld-thm-bubblegum-accent);
     color: var(--ld-col-vc6);
+  }
 
+  .ld-theme-accent--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-vc-focus);
     }
@@ -137,7 +149,9 @@
 [class*='ld-theme'] .ld-theme-shake {
   .ld-theme-bg-primary {
     background-color: var(--ld-thm-shake-bg-primary);
+  }
 
+  .ld-theme-bg-primary--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-rp-focus);
       color: var(--ld-thm-shake-bg-secondary);
@@ -164,7 +178,9 @@
   .ld-theme-accent {
     background-color: var(--ld-thm-shake-accent);
     color: var(--ld-col-vm6);
+  }
 
+  .ld-theme-accent--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-vm-focus);
     }
@@ -192,7 +208,9 @@
 [class*='ld-theme'] .ld-theme-solvent {
   .ld-theme-bg-primary {
     background-color: var(--ld-thm-solvent-bg-primary);
+  }
 
+  .ld-theme-bg-primary--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-rp-focus);
       color: var(--ld-thm-solvent-bg-secondary);
@@ -219,7 +237,9 @@
   .ld-theme-accent {
     background-color: var(--ld-thm-solvent-accent);
     color: var(--ld-col-vg6);
+  }
 
+  .ld-theme-accent--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-vg-focus);
     }
@@ -247,7 +267,9 @@
 [class*='ld-theme'] .ld-theme-tea {
   .ld-theme-bg-primary {
     background-color: var(--ld-thm-tea-bg-primary);
+  }
 
+  .ld-theme-bg-primary--interactive {
     @media (hover: hover) {
       &:hover {
         background-color: var(--ld-col-rg-hover);
@@ -273,7 +295,9 @@
   .ld-theme-accent {
     background-color: var(--ld-thm-solvent-accent);
     color: var(--ld-col-vg6);
+  }
 
+  .ld-theme-accent--interactive {
     &:focus:focus-visible {
       background-color: var(--ld-col-vg-focus);
     }

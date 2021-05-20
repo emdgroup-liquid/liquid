@@ -25,6 +25,15 @@ permalink: liquid/components/ld-input/
 <ld-input disabled value="Value"></ld-input>
 {% endexample %}
 
+**If you want the input to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
+
+{% example %}
+<ld-input placeholder="Placeholder" aria-disabled></ld-input>
+<ld-input aria-disabled value="Value"></ld-input>
+{% endexample %}
+
+> **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input  by resetting the input to its previous value on each input event.
+
 ### Light mode
 
 {% example %}
@@ -88,13 +97,77 @@ By default, the input field stretches to the maximum width of its wrapping label
 
 When displaying input messages conditionally (i.e. an error message becomes visible as soon as an input has been interacted with, but the value is still invalid) you should try to position UI elements in a way that prevents [layout shifts](https://web.dev/cls/). For instance, you can “reserve space” for your messages and then make them appear in the reserved space without pushing other content to the bottom (i.e. using `position: absolute` or some “flexy” layout). Needless to say, results look best if you keep the messages short.
 
-### Example vanilla JS form validation
+### With type search
+
+{% example %}
+<ld-input placeholder="Search" type="search"></ld-input>
+{% endexample %}
+
+### With slotted elements
+
+You can use [slots](#slots) in order to add static or interactive elements, such as icons or buttons into the input component.
+
+#### With icon
+
+{% example %}
+<ld-input placeholder="Placeholder">
+  <ld-icon name="placeholder" size="sm" slot="item-end"></ld-icon>
+</ld-input>
+  <ld-input placeholder="Placeholder">
+<ld-icon name="placeholder" size="sm" slot="item-start"></ld-icon>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-icon name="placeholder" size="sm" slot="item-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="item-end"></ld-icon>
+</ld-input>
+{% endexample %}
+
+#### With button
+
+{% example %}
+<ld-input placeholder="Placeholder">
+  <ld-button mode="ghost" slot="item-end">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button mode="ghost" slot="item-start">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button mode="ghost" slot="item-start">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+  <ld-button mode="ghost" slot="item-end">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button slot="item-end">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button slot="item-end">
+    search <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button size="sm" slot="item-end">
+    search <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+{% endexample %}
+
+### Input validation
+
+The `ld-input` component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/liquid/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
 
 {% example %}
 <style>
 #example-form {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 1rem;
   width: 100%;
 }
@@ -105,9 +178,9 @@ When displaying input messages conditionally (i.e. an error message becomes visi
 #example-form ld-button {
   margin-bottom: 1.6rem;
 }
-@media (max-width: 52rem) {
-  #example-form > * {
-    width: 100%;
+@media (min-width: 52rem) {
+  #example-form {
+    grid-auto-flow: column;
   }
 }
 #example-form ld-input-message {
@@ -136,15 +209,17 @@ When displaying input messages conditionally (i.e. an error message becomes visi
   const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
   const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
+  const submitButton = document.querySelector('#example-form ld-button')
   function validateInput(ldInput, ldInputMessage) {
     value = ldInput.value
     if (!value) {
       ldInput.setAttribute('invalid', 'true')
       ldInputMessage.setAttribute('covert', 'false')
-    } else {
-      ldInput.removeAttribute('invalid')
-      ldInputMessage.setAttribute('covert', 'true')
+      return false
     }
+    ldInput.removeAttribute('invalid')
+    ldInputMessage.setAttribute('covert', 'true')
+    return true
   }
   username.addEventListener('input', ev => {
     validateInput(username, usernameErrorMessage)
@@ -152,11 +227,23 @@ When displaying input messages conditionally (i.e. an error message becomes visi
   username.addEventListener('blur', ev => {
     validateInput(username, usernameErrorMessage)
   })
+  password.addEventListener('input', ev => {
+    validateInput(password, passwordErrorMessage)
+  })
   password.addEventListener('blur', ev => {
     validateInput(password, passwordErrorMessage)
   })
-  password.addEventListener('input', ev => {
-    validateInput(password, passwordErrorMessage)
+  submitButton.addEventListener('click', ev => {
+    ev.preventDefault()
+    const isUsernameValid = validateInput(username, usernameErrorMessage)
+    const isPasswordValid = validateInput(password, passwordErrorMessage)
+    setTimeout(() => {
+      if (isUsernameValid && isPasswordValid) {
+        window.alert('Form submitted.')
+      } else {
+        window.alert('Form is invalid.')
+      }
+    })
   })
 </script>
 {% endexample %}
@@ -167,12 +254,35 @@ When displaying input messages conditionally (i.e. an error message becomes visi
 
 ## Properties
 
-| Property  | Attribute | Description                                                                        | Type                | Default     |
-| --------- | --------- | ---------------------------------------------------------------------------------- | ------------------- | ----------- |
-| `invalid` | `invalid` | Set this property to `true` in order to mark the field visually as invalid.        | `boolean`           | `undefined` |
-| `mode`    | `mode`    | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'dark'`    |
-| `value`   | `value`   | The input value.                                                                   | `string`            | `undefined` |
+| Property      | Attribute     | Description                                                                        | Type                | Default     |
+| ------------- | ------------- | ---------------------------------------------------------------------------------- | ------------------- | ----------- |
+| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.        | `boolean`           | `undefined` |
+| `mode`        | `mode`        | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'dark'`    |
+| `placeholder` | `placeholder` | The input placeholder.                                                             | `string`            | `undefined` |
+| `type`        | `type`        | The input type.                                                                    | `string`            | `undefined` |
+| `value`       | `value`       | The input value.                                                                   | `string`            | `undefined` |
 
+
+## Slots
+
+| Slot           | Description                                                                                                                                                                                                                                                                                                                                                           |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"item-end"`   | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the start of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right. |
+| `"item-start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
+
+
+## Dependencies
+
+### Used by
+
+ - docs-search
+
+### Graph
+```mermaid
+graph TD;
+  docs-search --> ld-input
+  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

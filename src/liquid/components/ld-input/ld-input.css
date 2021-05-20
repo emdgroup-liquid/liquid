@@ -1,16 +1,135 @@
+:where(.ld-input) {
+  width: 12rem;
+}
+
 .ld-input {
-  --ld-input-padding: 0.4375rem 0.875rem 0.5rem;
-  padding: var(--ld-input-padding);
+  --ld-input-padding-x: 0.625rem;
+  --ld-input-padding-top: 0.625rem;
+  --ld-input-padding-bottom: 0.6875rem;
+  --ld-input-max-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
   background-color: var(--ld-col-bg-g);
-  border: 0;
-  border-radius: var(--ld-sp-4);
-  font: var(--ld-typo-body-m);
   color: var(--ld-col-rblck-default);
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
   max-width: 100%;
+  border-radius: var(--ld-sp-4);
 
-  &::placeholder {
-    color: var(--ld-col-rblck4);
+  > :where(:not(input)) {
+    user-select: none;
+  }
+
+  > :where(:not(input):first-child) {
+    margin-left: var(--ld-sp-12);
+  }
+
+  > :where(:not(input):last-child) {
+    margin-right: var(--ld-sp-12);
+  }
+
+  > input {
+    padding: var(--ld-input-padding-top) var(--ld-input-padding-x)
+      var(--ld-input-padding-bottom);
+    font: var(--ld-typo-body-m);
+    line-height: 1;
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    border-radius: var(--ld-sp-4);
+    max-height: var(--ld-input-max-height);
+    -webkit-appearance: none;
+
+    &::placeholder {
+      color: var(--ld-col-rblck4);
+    }
+
+    &[type='search'] {
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  }
+
+  > ld-button,
+  > .ld-button {
+    background-color: transparent;
+
+    &:first-child,
+    &:first-child > button {
+      margin-left: 0;
+
+      &:not(.ld-button--sm) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &.ld-button--sm {
+        margin-left: var(--ld-sp-4);
+      }
+    }
+
+    &:last-child,
+    &:last-child > button {
+      margin-right: 0;
+
+      &:not(.ld-button--sm) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &.ld-button--sm {
+        margin-right: var(--ld-sp-4);
+      }
+    }
+
+    &[mode='ghost'],
+    &.ld-button--ghost {
+      &:first-child {
+        margin-right: calc(-1 * var(--ld-input-padding-x));
+      }
+
+      &:last-child {
+        margin-left: calc(-1 * var(--ld-input-padding-x));
+      }
+    }
+  }
+  > ld-button.hydrated > button.ld-button--ghost,
+  > button.ld-button.ld-button--ghost {
+    @media (hover: hover) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    &:active,
+    &:active:focus-visible,
+    &:focus:focus-visible {
+      background-color: transparent;
+    }
+  }
+
+  > ld-icon,
+  > .ld-icon {
+    color: var(--ld-col-rb-default);
+    display: inline-flex;
+  }
+
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake & {
+    > ld-icon,
+    > .ld-icon {
+      color: var(--ld-col-rp-default);
+    }
+  }
+
+  .ld-theme-tea & {
+    > ld-icon,
+    > .ld-icon {
+      color: var(--ld-col-rg-default);
+    }
   }
 
   .ld-label & {
@@ -22,29 +141,40 @@
   background-color: var(--ld-col-wht);
 }
 
-:where(.ld-input:not(:disabled)) {
+:where(.ld-input:not([disabled]:not([aria-disabled]))) {
   &:hover {
     box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
   }
 }
 
 :where(.ld-input) {
-  &:disabled {
+  &[disabled],
+  &[aria-disabled] {
     box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
-    color: var(--ld-col-rblck2);
 
-    &::placeholder {
-      opacity: 0.5;
+    > input {
+      color: var(--ld-col-rblck2);
+      caret-color: transparent;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
     }
   }
-  &:focus {
-    outline: none;
+  &:focus-within {
     box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
-    background-color: var(--ld-col-wht);
+
+    &:not([disabled]):not([aria-disabled]) {
+      background-color: var(--ld-col-wht);
+    }
+
+    > input {
+      outline: none;
+    }
 
     .ld-theme-solvent &,
     .ld-theme-bubblegum &,
-    .ld-theme-shake {
+    .ld-theme-shake & {
       box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
     }
     .ld-theme-tea & {

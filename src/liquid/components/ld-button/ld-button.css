@@ -1,12 +1,11 @@
-ld-button {
+:where(ld-button) {
   display: inline-flex;
 }
 
-.ld-button:not(.hydrated),
-.ld-button.hydrated > button {
-  --ld-size-icon-sm: 1rem;
-  --ld-size-icon-md: 1.25rem;
-  --ld-size-icon-lg: 1.5rem;
+:where(.ld-button) {
+  --ld-icon-size-sm: 1rem;
+  --ld-icon-size-md: 1.25rem;
+  --ld-icon-size-lg: 1.5rem;
   --ld-padding-md: 0.625rem;
   --ld-gap-lg: 0.625rem;
   font: var(--ld-typo-body-m);
@@ -19,9 +18,8 @@ ld-button {
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
-  -webkit-touch-callout: none;
   color: var(--ld-col-wht);
-  /*-webkit-tap-highlight-color: transparent;*/
+  -webkit-touch-callout: none;
 
   &:active,
   &:active:focus-visible {
@@ -47,12 +45,11 @@ ld-button {
 
   .ld-icon,
   .ld-icon svg {
-    width: var(--ld-size-icon-md);
-    height: var(--ld-size-icon-md);
+    width: var(--ld-icon-size-md);
+    height: var(--ld-icon-size-md);
   }
 
-  &.ld-button--sm:not(.hydrated),
-  &.ld-button--sm.hydrated > button {
+  &.ld-button--sm {
     min-height: 2rem;
     min-width: 2rem;
     padding: var(--ld-sp-8) var(--ld-sp-8);
@@ -64,13 +61,12 @@ ld-button {
 
     .ld-icon,
     .ld-icon svg {
-      width: var(--ld-size-icon-sm);
-      height: var(--ld-size-icon-sm);
+      width: var(--ld-icon-size-sm);
+      height: var(--ld-icon-size-sm);
     }
   }
 
-  &.ld-button--lg:not(.hydrated),
-  &.ld-button--lg.hydrated > button {
+  &.ld-button--lg {
     min-height: 3.125rem;
     min-width: 3.125rem;
     padding: var(--ld-sp-12) var(--ld-sp-12);
@@ -82,8 +78,8 @@ ld-button {
 
     .ld-icon,
     .ld-icon svg {
-      width: var(--ld-size-icon-lg);
-      height: var(--ld-size-icon-lg);
+      width: var(--ld-icon-size-lg);
+      height: var(--ld-icon-size-lg);
     }
   }
 
@@ -118,10 +114,8 @@ ld-button {
   }
 }
 
-.ld-button:not(.hydrated),
-[class*='ld-theme'] .ld-button:not(.hydrated),
-.ld-button.hydrated > button,
-[class*='ld-theme'] .ld-button.hydrated > button {
+.ld-button,
+[class*='ld-theme'] .ld-button {
   &.ld-button--highlight {
     background-color: var(--ld-col-vy-default);
     color: var(--ld-col-rblck-default);
@@ -225,18 +219,23 @@ ld-button {
 .ld-button.ld-button--secondary {
   &:not(:disabled):not([aria-disabled]) {
     box-shadow: inset 0px 0px 0px 2px var(--ld-col-rblck1);
+    color: var(--ld-col-rblck-default);
 
     @media (hover: hover) {
       &:hover {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
+        color: var(--ld-col-rb5);
       }
     }
     &:active,
     &:active:focus-visible {
       box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
+      color: var(--ld-col-rb55);
     }
     &:focus:focus-visible {
       box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
+      color: var(--ld-col-rb4);
+      background-color: transparent;
     }
   }
 
@@ -246,14 +245,17 @@ ld-button {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
+          color: var(--ld-col-rb5);
         }
       }
       &:active,
       &:active:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
+        color: var(--ld-col-rb55);
       }
       &:focus:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
+        color: var(--ld-col-rb4);
       }
     }
   }
@@ -268,14 +270,17 @@ ld-button {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp5);
+          color: var(--ld-col-rp5);
         }
       }
       &:active,
       &:active:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp55);
+        color: var(--ld-col-rp55);
       }
       &:focus:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp3);
+        color: var(--ld-col-rp4);
       }
     }
   }
@@ -286,20 +291,22 @@ ld-button {
       @media (hover: hover) {
         &:hover {
           box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg5);
+          color: var(--ld-col-rg5);
         }
       }
       &:active,
       &:active:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg6);
+        color: var(--ld-col-rg6);
       }
       &:focus:focus-visible {
         box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg3);
+        color: var(--ld-col-rg4);
       }
     }
   }
 }
 
-.ld-button.ld-button--secondary,
 .ld-button.ld-button--ghost {
   &:not(:disabled):not([aria-disabled]) {
     color: var(--ld-col-rblck-default);
@@ -315,22 +322,25 @@ ld-button {
     }
     &:focus:focus-visible {
       color: var(--ld-col-rb3);
+      background-color: transparent;
     }
   }
 
   .ld-theme-ocean &,
   [class*='ld-theme'] .ld-theme-ocean & {
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rb5);
+    &:not(:disabled):not([aria-disabled]) {
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-col-rb5);
+        }
       }
-    }
-    &:active,
-    &:active:focus-visible {
-      color: var(--ld-col-rb55);
-    }
-    &:focus:focus-visible {
-      color: var(--ld-col-rb3);
+      &:active,
+      &:active:focus-visible {
+        color: var(--ld-col-rb55);
+      }
+      &:focus:focus-visible {
+        color: var(--ld-col-rb3);
+      }
     }
   }
 
@@ -340,40 +350,44 @@ ld-button {
   [class*='ld-theme'] .ld-theme-solvent &,
   [class*='ld-theme'] .ld-theme-shake &,
   [class*='ld-theme'] .ld-theme-bubblegum & {
-    color: var(--ld-col-rp6);
+    &:not(:disabled):not([aria-disabled]) {
+      color: var(--ld-col-rp6);
 
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rp5);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-col-rp5);
+        }
       }
-    }
-    &:active,
-    &:active:focus-visible {
-      color: var(--ld-col-rp55);
-    }
-    &:focus:focus-visible {
-      color: var(--ld-col-rp3);
+      &:active,
+      &:active:focus-visible {
+        color: var(--ld-col-rp55);
+      }
+      &:focus:focus-visible {
+        color: var(--ld-col-rp3);
+      }
     }
   }
 
   .ld-theme-tea &,
   [class*='ld-theme'] .ld-theme-tea & {
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rg5);
+    &:not(:disabled):not([aria-disabled]) {
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-col-rg5);
+        }
       }
-    }
-    &:active,
-    &:active:focus-visible {
-      color: var(--ld-col-rg6);
-    }
-    &:focus:focus-visible {
-      color: var(--ld-col-rg3);
+      &:active,
+      &:active:focus-visible {
+        color: var(--ld-col-rg6);
+      }
+      &:focus:focus-visible {
+        color: var(--ld-col-rg3);
+      }
     }
   }
 }
 
-.ld-button__content {
+:where(.ld-button__content) {
   display: grid;
   grid-auto-flow: column;
   gap: var(--ld-sp-8);

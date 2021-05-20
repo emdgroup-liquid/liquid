@@ -1,3 +1,4 @@
+import '../../../components' // type definitions for type checking and intelliSense
 import 'wicg-inert'
 import { Component, h, Listen, State, Host } from '@stencil/core'
 import Fuse from 'fuse.js'
@@ -19,7 +20,7 @@ interface SearchResult {
   shadow: false,
 })
 export class DocsSearch {
-  private searchInput!: HTMLInputElement
+  private searchInput!: HTMLLdInputElement
   private fuse: Fuse<SearchResult>
 
   @State() results: Fuse.FuseResult<SearchResult>[] = []
@@ -101,15 +102,16 @@ export class DocsSearch {
       >
         <div class="docs-search__content">
           <form role="search" autocomplete="off">
-            <input
+            <ld-input
               onInput={this.handleChange.bind(this)}
               placeholder="Search in documentation..."
               class="docs-search__input"
               id="docs-search-input"
-              ref={(el) => (this.searchInput = el as HTMLInputElement)}
+              ref={(el) => (this.searchInput = el as HTMLLdInputElement)}
               type="search"
+              mode="light"
               spellcheck="false"
-            />
+            ></ld-input>
           </form>
           {this.results.length ? (
             <ol class="docs-search__results" aria-label="Search results">

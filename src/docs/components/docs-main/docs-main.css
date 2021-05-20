@@ -5,51 +5,27 @@
     }
 
     main {
+      > p,
+      > #properties + table,
+      > #events + table,
+      > #slots + table {
+        code {
+          box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
+          background-color: var(--ld-col-bg-lg);
+        }
+      }
+
       #properties + table td {
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
           code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
-            background-color: var(--ld-col-bg-lg);
-
             &:not(:last-child) {
               color: var(--ld-col-rb1);
               background-color: var(--ld-col-rb-default);
               box-shadow: inset 0 0 0 1px var(--ld-col-rb6);
             }
           }
-        }
-        &:nth-of-type(3) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
-            background-color: var(--ld-col-bg-lg);
-          }
-        }
-      }
-
-      #events + table td {
-        &:first-of-type,
-        &:nth-of-type(3) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
-            background-color: var(--ld-col-bg-lg);
-          }
-        }
-
-        &:nth-of-type(2) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck1);
-            background-color: var(--ld-col-bg-lg);
-          }
-        }
-      }
-
-      > #methods ~ h3,
-      > p {
-        > code {
-          background-color: var(--ld-col-bg-lg);
-          box-shadow: 0 0 0 1px var(--ld-col-rblck1);
         }
       }
 
@@ -78,6 +54,10 @@
           background-color: var(--ld-col-vy3);
         }
       }
+
+      > pre {
+        border-color: var(--ld-col-rblck1);
+      }
     }
   }
 }
@@ -88,51 +68,27 @@
     }
 
     main {
+      > p,
+      > #properties + table,
+      > #events + table,
+      > #slots + table {
+        code {
+          box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
+          background-color: var(--ld-col-rblck4);
+        }
+      }
+
       #properties + table td {
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
           code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
-            background-color: var(--ld-col-rblck4);
-
             &:not(:last-child) {
               color: var(--ld-col-rb1);
               background-color: var(--ld-col-rb-default);
               box-shadow: inset 0 0 0 1px var(--ld-col-rb3);
             }
           }
-        }
-        &:nth-of-type(3) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
-            background-color: var(--ld-col-rblck4);
-          }
-        }
-      }
-
-      #events + table td {
-        &:first-of-type,
-        &:nth-of-type(3) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
-            background-color: var(--ld-col-rblck4);
-          }
-        }
-
-        &:nth-of-type(2) {
-          code {
-            box-shadow: inset 0 0 0 1px var(--ld-col-rblck3);
-            background-color: var(--ld-col-rblck4);
-          }
-        }
-      }
-
-      > #methods ~ h3,
-      > p {
-        > code {
-          background-color: var(--ld-col-rblck4);
-          box-shadow: 0 0 0 1px var(--ld-col-rblck3);
         }
       }
 
@@ -161,6 +117,10 @@
           background-color: var(--ld-col-vy3);
         }
       }
+
+      > pre {
+        border-color: var(--ld-col-rblck-default);
+      }
     }
   }
 }
@@ -178,6 +138,10 @@
 }
 
 .docs-main {
+  --ld-typo-code-s: 0.875rem / 176% 'Source Code Pro', Consolas, Monaco,
+    'Ubuntu Mono', monospace;
+  --ld-typo-code-m: 1rem / 160% 'Source Code Pro', Consolas, Monaco,
+    'Ubuntu Mono', monospace;
   padding: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-40);
 
   main {
@@ -196,6 +160,7 @@
       font: var(--ld-typo-body-m);
 
       > code {
+        display: inline-flex;
         padding: 0 var(--ld-sp-4);
         border-radius: var(--ld-sp-2);
         margin: 0 var(--ld-sp-4);
@@ -203,8 +168,14 @@
     }
 
     > p > a,
-    > table a {
+    > table a,
+    > blockquote a {
       text-decoration: underline;
+
+      code {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
     }
 
     > hr {
@@ -329,12 +300,6 @@
     > #properties + table {
       --table-min-width: 72rem;
 
-      thead,
-      tbody {
-        min-width: var(--table-min-width);
-        display: block !important;
-      }
-
       td,
       th {
         /* props and attributes */
@@ -343,11 +308,9 @@
         &:nth-of-type(4) {
           width: var(--table-cell-width-sm);
           word-break: break-all;
+          flex-shrink: 0;
 
           code {
-            transform: translateY(-0.25rem);
-            padding: var(--ld-sp-4) var(--ld-sp-6);
-            border-radius: var(--ld-sp-2);
             display: inline-grid;
             grid-auto-flow: column;
             gap: var(--ld-sp-4);
@@ -377,14 +340,7 @@
 
         /* description */
         &:nth-of-type(3) {
-          font: var(--ld-typo-body-m);
           width: var(--table-cell-width-lg);
-          transform: translateY(-0.1875rem);
-
-          code {
-            padding: 0 var(--ld-sp-6);
-            border-radius: var(--ld-sp-2);
-          }
         }
 
         /* type */
@@ -402,40 +358,18 @@
     > #events + table {
       --table-min-width: 64rem;
 
-      thead,
-      tbody {
-        min-width: var(--table-min-width);
-        display: block !important;
-      }
-
       td,
       th {
         /* props and attributes */
         &:first-of-type,
         &:nth-of-type(3) {
           width: var(--table-cell-width-sm);
-          word-break: break-all;
-
-          code {
-            transform: translateY(-0.25rem);
-            padding: var(--ld-sp-4) var(--ld-sp-6);
-            border-radius: var(--ld-sp-2);
-            display: inline-grid;
-            grid-auto-flow: column;
-            gap: var(--ld-sp-4);
-          }
         }
 
         /* description */
         &:nth-of-type(2) {
-          font: var(--ld-typo-body-m);
           width: var(--table-cell-width-lg);
           transform: translateY(-0.1875rem);
-
-          code {
-            padding: 0 var(--ld-sp-6);
-            border-radius: var(--ld-sp-2);
-          }
         }
 
         /* type */
@@ -457,6 +391,38 @@
       }
     }
 
+    > #slots + table {
+      --table-min-width: 50rem;
+
+      td,
+      th {
+        /* props and attributes */
+        &:first-of-type {
+          width: var(--table-cell-width-sm);
+          word-break: break-all;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    > #properties + table,
+    > #events + table,
+    > #slots + table {
+      font: var(--ld-typo-body-m);
+
+      thead,
+      tbody {
+        min-width: var(--table-min-width);
+        display: block !important;
+      }
+
+      code {
+        display: inline-flex;
+        padding: 0 var(--ld-sp-6);
+        border-radius: var(--ld-sp-2);
+      }
+    }
+
     > blockquote {
       padding: var(--ld-sp-8) var(--ld-sp-24) var(--ld-sp-12) var(--ld-sp-24);
 
@@ -470,11 +436,16 @@
         margin: 0 var(--ld-sp-4);
       }
     }
+
+    > pre {
+      border-radius: var(--ld-sp-12);
+      border-style: solid;
+      border-width: 1px;
+    }
   }
 
   code {
-    font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono', monospace;
-    font-size: var(--ld-typo-body-s);
+    font: var(--ld-typo-code-s);
   }
 
   @media (max-width: 48rem) {
