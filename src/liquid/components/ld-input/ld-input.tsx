@@ -9,12 +9,12 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
  * and the `ld-input-message` component. See examples in the docs for a better
  * understanding on how they can be used together.
  *
- * @slot item-start - The purpose of this slot is to add icons or buttons
+ * @slot start - The purpose of this slot is to add icons or buttons
  * to the input, __justifying the item to the end of the component__.
  * Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component.
  * If you choose to place something different into the slot, you will probably
  * need to adjust some styles on the slotted item in order to make it fit right.
- * @slot item-end - The purpose of this slot is to add icons or buttons
+ * @slot end - The purpose of this slot is to add icons or buttons
  * to the input, __justifying the item to the start of the component__.
  * Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component.
  * If you choose to place something different into the slot, you will probably
@@ -78,16 +78,18 @@ export class LdInput {
 
     return (
       <Host class={cl} onClick={this.handleClick.bind(this)}>
-        <slot name="item-start"></slot>
+        <slot name="start"></slot>
         <input
           ref={(el) => (this.input = el as HTMLInputElement)}
           onInput={this.handleInput.bind(this)}
+          placeholder={this.placeholder}
+          type={this.type}
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus.bind(this)}
           {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           value={this.value}
         />
-        <slot name="item-end"></slot>
+        <slot name="end"></slot>
       </Host>
     )
   }

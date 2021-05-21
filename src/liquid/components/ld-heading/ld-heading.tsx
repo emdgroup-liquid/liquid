@@ -1,4 +1,8 @@
-import { Component, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
+import { cloneAttributes } from '../../utils/cloneAttributes'
+import { JSXBase } from '@stencil/core/internal'
+import HeadingHTMLAttributes = JSXBase.HTMLAttributes
+import { applyPropAliases } from '../../utils/applyPropAliases'
 
 @Component({
   tag: 'ld-heading',
@@ -6,13 +10,18 @@ import { Component, h, Prop } from '@stencil/core'
   shadow: false,
 })
 export class LdHeading {
+  @Element() el: HTMLHeadingElement
+
   /** The heading level. */
   @Prop() level!: 1 | 2 | 3 | 4 | 5 | 6 | '1' | '2' | '3' | '4' | '5' | '6'
 
   /**
    * The heading style. Overrides the style inferred from the heading level.
    */
-  @Prop() visualLevel:
+  @Prop({
+    mutable: true,
+  })
+  visualLevel:
     | undefined
     | 'h1'
     | 'h2'
@@ -41,7 +50,8 @@ export class LdHeading {
    * Since b1 to b6 headings are uppercase headings, screen readers need to be served a
    * (non-uppercase) aria-label (otherwise they will read out the heading letter by letter).
    */
-  @Prop() ariaLabel: string | undefined
+  @Prop({ mutable: true })
+  ariaLabel: string | undefined
 
   private validateLevel(newValue: number | string) {
     if (![1, 2, 3, 4, 5, 6].includes(parseInt(newValue + '', 10))) {
@@ -90,6 +100,8 @@ export class LdHeading {
   }
 
   componentWillLoad() {
+    applyPropAliases.apply(this)
+
     this.validateLevel(this.level)
     this.validateVisualLevel(this.visualLevel)
   }
@@ -99,7 +111,11 @@ export class LdHeading {
     const cl = `ld-heading ld-heading--${this.visualLevel || 'h' + this.level}`
 
     return (
-      <HTag class={cl} aria-label={this.ariaLabel}>
+      <HTag
+        class={cl}
+        aria-label={this.ariaLabel}
+        {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
+      >
         <slot></slot>
       </HTag>
     )

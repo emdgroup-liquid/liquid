@@ -110,7 +110,7 @@ export class DocsSearch {
               ref={(el) => (this.searchInput = el as HTMLLdInputElement)}
               type="search"
               mode="light"
-              spellcheck="false"
+              spellcheck={false}
             ></ld-input>
           </form>
           {this.results.length ? (

@@ -15,6 +15,7 @@ const commonTSConfig = {
     '@stencil/strict-boolean-conditions': 0,
     '@stencil/element-type': 0,
     '@stencil/decorators-style': 0,
+    '@stencil/strict-mutable': 0,
     'react/jsx-no-bind': 0,
   },
 }

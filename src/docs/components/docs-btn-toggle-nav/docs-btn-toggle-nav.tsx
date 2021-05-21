@@ -34,7 +34,6 @@ export class DocsBtnToggleNav {
     passive: false,
   })
   handleKeyDown(ev: KeyboardEvent) {
-    console.info('ev.key', ev.key)
     if (ev.key === ' ') {
       ev.stopImmediatePropagation()
       ev.preventDefault()

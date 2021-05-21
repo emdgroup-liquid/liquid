@@ -4,6 +4,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
 import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
+import { applyPropAliases } from '../../utils/applyPropAliases'
 
 @Component({
   tag: 'ld-button',
@@ -25,10 +26,10 @@ export class LdButton {
   @Prop() mode?: 'highlight' | 'secondary' | 'ghost' | 'danger'
 
   /** Align text. */
-  @Prop() alignText: 'left' | 'right'
+  @Prop({ mutable: true }) alignText: 'left' | 'right'
 
   /** Justify content. */
-  @Prop() justifyContent: 'start' | 'end' | 'between'
+  @Prop({ mutable: true }) justifyContent: 'start' | 'end' | 'between'
 
   /**
    * Transforms the button to an anchor element.
@@ -49,6 +50,10 @@ export class LdButton {
       ev.preventDefault()
       ev.stopImmediatePropagation()
     }
+  }
+
+  componentWillLoad() {
+    applyPropAliases.apply(this)
   }
 
   render() {
