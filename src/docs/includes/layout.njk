@@ -69,7 +69,9 @@ title: Liquid
         <li class="docs-nav__li{% if entry.url in page.url %} docs-nav__li--active{% endif %}">
           {%- if entry.children.length -%}
             <details{% if entry.url in page.url %} open{% endif %}>
-              <summary aria-label="{{ entry.title }}">{{ entry.title }}</summary>
+              <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower }}">
+                <a href="{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
+              </summary>
               <ul>
                 {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
               </ul>
@@ -102,7 +104,7 @@ title: Liquid
             {% set navPages = collections.all | eleventyNavigationBreadcrumb(title) %}
             {% macro renderBreadcrumb(entry) -%}
               <li>
-                <a>{{ entry.title }}</a>
+                <a href="{{ entry.url }}">{{ entry.title }}</a>
               </li>
             {%- endmacro %}
             {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}

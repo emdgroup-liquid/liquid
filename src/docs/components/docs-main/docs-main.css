@@ -267,13 +267,9 @@
         border-bottom: solid 0.0625rem var(--ld-col-rblck2);
       }
 
-      tbody {
-        padding-top: var(--ld-sp-16);
-      }
-
       tr {
         display: flex;
-        margin-bottom: var(--ld-sp-16);
+        margin-top: var(--ld-sp-16);
       }
       tbody tr:nth-child(odd) {
         background-color: var(--sensitive-grey-dark);
@@ -425,6 +421,14 @@
         display: inline-flex;
         padding: 0 var(--ld-sp-6);
         border-radius: var(--ld-sp-2);
+      }
+    }
+
+    > #components ~ #status ~ table {
+      td,
+      th {
+        width: var(--table-cell-width-sm);
+        flex-shrink: 0;
       }
     }
 

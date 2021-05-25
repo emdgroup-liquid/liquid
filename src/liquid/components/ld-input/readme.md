@@ -28,8 +28,8 @@ permalink: liquid/components/ld-input/
 **If you want the input to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-input placeholder="Placeholder" aria-disabled></ld-input>
-<ld-input aria-disabled value="Value"></ld-input>
+<ld-input placeholder="Placeholder" aria-disabled="true"></ld-input>
+<ld-input aria-disabled="true" value="Value"></ld-input>
 {% endexample %}
 
 > **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input  by resetting the input to its previous value on each input event.
@@ -111,14 +111,17 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder">
-  <ld-icon name="placeholder" size="sm" slot="item-end"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
 </ld-input>
   <ld-input placeholder="Placeholder">
-<ld-icon name="placeholder" size="sm" slot="item-start"></ld-icon>
+<ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
 </ld-input>
 <ld-input placeholder="Placeholder">
-  <ld-icon name="placeholder" size="sm" slot="item-start"></ld-icon>
-  <ld-icon name="placeholder" size="sm" slot="item-end"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+</ld-input>
+<ld-input placeholder="Placeholder" disabled>
+  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
 </ld-input>
 {% endexample %}
 
@@ -126,35 +129,45 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="item-end">
+  <ld-button mode="ghost" slot="end">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="item-start">
+  <ld-button mode="ghost" slot="start">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="item-start">
+  <ld-button mode="ghost" slot="start">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="item-end">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
-  </ld-button>
-</ld-input>
-<ld-input placeholder="Placeholder">
-  <ld-button slot="item-end">
+  <ld-button mode="ghost" slot="end">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
 <ld-input placeholder="Placeholder">
-  <ld-button slot="item-end">
+  <ld-button slot="end">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder">
+  <ld-button slot="end">
     search <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
 <ld-input placeholder="Placeholder">
-  <ld-button size="sm" slot="item-end">
+  <ld-button size="sm" slot="end">
+    search <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder" disabled>
+  <ld-button mode="ghost" slot="end" disabled>
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+<ld-input placeholder="Placeholder" disabled>
+  <ld-button size="sm" slot="end" disabled>
     search <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
@@ -164,7 +177,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder">
-  <span slot="item-end">🤓</span>
+  <span slot="end">🤓</span>
 </ld-input>
 {% endexample %}
 
@@ -256,6 +269,56 @@ The `ld-input` component does not provide any properties or methods for validati
 </script>
 {% endexample %}
 
+## CSS component
+
+If you'd rather like to use the CSS component, inspect and copy the markup and CSS classes from the examples above (you might want to replace the wrapping `ld-` element with a `div`, while keeping the CSS classes). You will be able to achieve pretty much the same result. Here are some examples:
+
+{% example %}
+<div class="ld-input ld-input--dark">
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input ld-input--dark">
+  <input placeholder="Placeholder">
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</div>
+
+<div class="ld-input ld-input--dark" disabled>
+  <input placeholder="Placeholder" disabled>
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</div>
+
+<label class="ld-label" style="width: 20rem">
+  Email Address
+  <div class="ld-input ld-input--dark ld-input--invalid ld-input--dirty">
+    <input placeholder="jane.doe@example.com">
+  </div>
+  <span class="hydrated">
+    <span class="ld-input-message ld-input-message--error">
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <title>Error</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+        <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span aria-live="assertive"><span>The email address is invalid.</span></span>
+    </span>
+  </span>
+</label>
+{% endexample %}
+
 
 <!-- Auto Generated Below -->
 
@@ -278,6 +341,19 @@ The `ld-input` component does not provide any properties or methods for validati
 | `"end"`   | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the start of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right. |
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
 
+
+## Dependencies
+
+### Used by
+
+ - docs-search
+
+### Graph
+```mermaid
+graph TD;
+  docs-search --> ld-input
+  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

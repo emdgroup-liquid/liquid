@@ -128,6 +128,19 @@ If you'd rather like to use the CSS component, inspect and copy the markup and C
 | `visualLevel`        | `visual-level` | The heading style. Overrides the style inferred from the heading level.                                                                                                                                                                                     | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6"` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - docs-nav
+
+### Graph
+```mermaid
+graph TD;
+  docs-nav --> ld-heading
+  style ld-heading fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

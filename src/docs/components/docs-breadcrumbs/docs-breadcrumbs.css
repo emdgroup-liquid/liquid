@@ -1,5 +1,6 @@
 docs-breadcrumbs,
 .docs-breadcrumbs {
+  min-height: 1.75rem;
   width: 100%;
 }
 

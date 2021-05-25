@@ -32,7 +32,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-button id="disabled-button" aria-disabled onclick="() => { console.log('click') }">Text</ld-button>
+<ld-button id="disabled-button" aria-disabled="true" onclick="() => { console.log('click') }">Text</ld-button>
 <script>
   document.getElementById('disabled-button').addEventListener('click', () => { window.alert('click') })
   // The event handler won't be called.
@@ -197,19 +197,19 @@ You can align the text inside the button using the `align-text` propperty.
 If you'd rather like to use the CSS component on a regular button element, inspect and copy the markup and CSS classes from the examples above. You will be able to achieve pretty much the same result. Here are some examples:
 
 {% example %}
-<button class="ld-button ld-theme-bg-primary ld-button--sm">
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
   <span class="ld-button__content">Text</span>
 </button>
 
-<button class="ld-button ld-button--highlight">
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--highlight">
   <span class="ld-button__content">Text</span>
 </button>
 
-<button class="ld-button ld-button--secondary ld-button--lg" disabled>
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--secondary ld-button--lg" disabled>
   <span class="ld-button__content">Text</span>
 </button>
 
-<button class="ld-button ld-button--secondary ld-button--sm">
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--secondary ld-button--sm">
   <span class="ld-button__content">
     <span class="ld-icon">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,7 +221,7 @@ If you'd rather like to use the CSS component on a regular button element, inspe
   </span>
 </button>
 
-<button class="ld-button ld-button--ghost">
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--ghost">
   <span class="ld-button__content">
     <span class="ld-icon" role="presentation">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +233,7 @@ If you'd rather like to use the CSS component on a regular button element, inspe
   </span>
 </button>
 
-<button class="ld-button ld-button--danger ld-button--lg">
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--danger ld-button--lg">
   <span class="ld-button__content">
     Text
     <span class="ld-icon" role="presentation">
@@ -262,6 +262,23 @@ If you'd rather like to use the CSS component on a regular button element, inspe
 | `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                      | `undefined` |
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`        | `undefined` |
 
+
+## Dependencies
+
+### Used by
+
+ - docs-copy-to-cb
+ - docs-edit-on-github
+ - docs-toggle-code
+
+### Graph
+```mermaid
+graph TD;
+  docs-copy-to-cb --> ld-button
+  docs-edit-on-github --> ld-button
+  docs-toggle-code --> ld-button
+  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

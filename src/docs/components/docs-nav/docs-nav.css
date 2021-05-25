@@ -111,29 +111,29 @@
 .docs-nav__nav {
   padding-left: var(--ld-sp-40);
 
-  summary {
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: var(--ld-sp-24);
-      height: var(--ld-sp-24);
-      transform: translate(-170%, -15%);
-    }
-  }
-
-  summary[aria-label='Components']::before {
-    background-image: url('/dist/build/assets/components.svg');
-  }
-
-  summary[aria-label='Global']::before {
-    background-image: url('/dist/build/assets/global.svg');
-  }
-
   > ul > li:first-of-type {
     margin-top: 0;
   }
+}
+
+.docs-nav__summary {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: var(--ld-sp-24);
+    height: var(--ld-sp-24);
+    transform: translate(-170%, -15%);
+  }
+}
+
+.docs-nav__summary--components::before {
+  background-image: url('/dist/build/assets/components.svg');
+}
+
+.docs-nav__summary--global::before {
+  background-image: url('/dist/build/assets/global.svg');
 }
 
 .docs-nav__li {

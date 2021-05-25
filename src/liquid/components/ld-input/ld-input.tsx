@@ -68,6 +68,7 @@ export class LdInput {
 
   private handleClick(ev) {
     if (ev.target.closest('.ld-button')) return
+    if (ev.target.tagname === 'INPUT') return
     this.input.focus()
   }
 

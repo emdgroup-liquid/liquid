@@ -36,7 +36,7 @@ module.exports = {
     'scale-unlimited/declaration-strict-value': [
       ['/color/', 'font-size'],
       {
-        ignoreValues: ['inherit', 'transparent'],
+        ignoreValues: ['inherit', 'transparent', 'currentColor'],
         disableFix: true,
       },
     ],

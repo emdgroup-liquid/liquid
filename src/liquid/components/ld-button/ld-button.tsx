@@ -72,7 +72,7 @@ export class LdButton {
           onClick={this.handleClick.bind(this)}
           class={cl}
           disabled={this.disabled}
-          aria-disabled={this.disabled}
+          aria-disabled={this.disabled ? 'true' : undefined}
           href={this.href}
           target={this.target}
           rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
