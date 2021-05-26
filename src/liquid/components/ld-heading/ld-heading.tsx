@@ -46,20 +46,23 @@ export class LdHeading {
     | 'xh6'
 
   /**
-   * **This prop is required if you're using a b1 to b6 or xb1 to xb3 visual level**:
    * Since b1 to b6 headings are uppercase headings, screen readers need to be served a
    * (non-uppercase) aria-label (otherwise they will read out the heading letter by letter).
+   * If you're using a b1 to b6 or xb1 to xb3 visual level heading, an aria-label will be
+   * set automatically on the heading element. The component will use the inner HTML for the
+   * label implicitly. If you want to set an aria-label explicitly (such as when you have
+   * inner HTML that should not be part of the label), you can use this property.
    */
-  @Prop({ mutable: true })
-  ariaLabel: string | undefined
+  @Prop()
+  ariaLabel: string
 
-  private validateLevel(newValue: number | string) {
-    if (![1, 2, 3, 4, 5, 6].includes(parseInt(newValue + '', 10))) {
-      throw new TypeError(`ld-heading level prop invalid; got ${newValue}`)
+  private validateLevel() {
+    if (![1, 2, 3, 4, 5, 6].includes(parseInt(this.level + '', 10))) {
+      throw new TypeError(`ld-heading level prop invalid; got ${this.level}`)
     }
   }
 
-  private validateVisualLevel(newValue: undefined | string) {
+  private validateVisualLevel() {
     if (
       ![
         undefined,
@@ -84,17 +87,23 @@ export class LdHeading {
         'xh4',
         'xh5',
         'xh6',
-      ].includes(newValue)
+      ].includes(this.visualLevel)
     ) {
       throw new TypeError(
-        `ld-heading visualLevel prop invalid; got ${newValue}`
+        `ld-heading visualLevel prop invalid; got ${this.visualLevel}`
       )
     }
+  }
 
-    const isBHeading = this.visualLevel?.indexOf('b') === 0
-    if (isBHeading && !this.ariaLabel) {
-      throw new TypeError(
-        'ld-heading with visualLevel prop b* requires an ariaLabel prop'
+  private applyAriaLabel() {
+    const isBHeading =
+      this.visualLevel?.indexOf('b') === 0 ||
+      this.visualLevel?.indexOf('xb') === 0
+    if (isBHeading) {
+      const heading = this.el.querySelector('.ld-heading')
+      heading.setAttribute(
+        'aria-label',
+        this.ariaLabel || heading.innerHTML.trim()
       )
     }
   }
@@ -102,8 +111,12 @@ export class LdHeading {
   componentWillLoad() {
     applyPropAliases.apply(this)
 
-    this.validateLevel(this.level)
-    this.validateVisualLevel(this.visualLevel)
+    this.validateLevel()
+    this.validateVisualLevel()
+  }
+
+  componentDidRender() {
+    this.applyAriaLabel()
   }
 
   render() {
@@ -113,7 +126,6 @@ export class LdHeading {
     return (
       <HTag
         class={cl}
-        aria-label={this.ariaLabel}
         {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
       >
         <slot></slot>
