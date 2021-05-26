@@ -14,16 +14,30 @@ Icon-buttons without visual text should contain a screen-reader-only text.
 
 ---
 
-## Web component
+## Examples
+
+### Primary
 
 {% example %}
 <ld-button>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### Disabled
 
 {% example %}
 <ld-button disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
@@ -32,14 +46,29 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-button id="disabled-button" aria-disabled="true" onclick="() => { console.log('click') }">Text</ld-button>
+<ld-button id="disabled-button" aria-disabled="true">Text</ld-button>
 <script>
   document.getElementById('disabled-button').addEventListener('click', () => { window.alert('click') })
   // The event handler won't be called.
 </script>
+
+<!-- CSS component -->
+
+<button id="disabled-button-2" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" aria-disabled="true">
+  <span class="ld-button__content">Text</span>
+</button>
+<script>
+  // When using the CSS component, you will need to prevent the default behaviour of the button yourself.
+  document.getElementById('disabled-button-2').addEventListener('click', (ev) => {
+    console.info('preventing default behaviour')
+    ev.preventDefault()
+    ev.stopImmediatePropagation()
+  })
+</script>
+
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler calling `event.preventDefault()` and `event.stopImmediatePropagation()`.
+> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
 
 ### Highlighted
 
@@ -47,6 +76,16 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button mode="highlight">Text</ld-button>
 
 <ld-button mode="highlight" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--highlight">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--highlight" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### Secondary
@@ -55,6 +94,16 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button mode="secondary">Text</ld-button>
 
 <ld-button mode="secondary" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--secondary">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--secondary" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### Ghost
@@ -63,6 +112,16 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button mode="ghost">Text</ld-button>
 
 <ld-button mode="ghost" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--ghost">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--ghost" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### Danger
@@ -71,6 +130,16 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button mode="danger">Text</ld-button>
 
 <ld-button mode="danger" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--danger">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-button--danger" disabled>
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### Different sizes
@@ -81,6 +150,20 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button>Text</ld-button>
 
 <ld-button size="lg">Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--lg">
+  <span class="ld-button__content">Text</span>
+</button>
 {% endexample %}
 
 ### With icon
@@ -115,9 +198,82 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   <ld-icon name="placeholder"></ld-icon>
   Text
 </ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--lg">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button class="ld-button ld-button--highlight ld-button--sm">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+    Text
+  </span>
+</button>
+
+<button class="ld-button ld-button--danger">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button class="ld-button ld-button--secondary ld-button--lg">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+    Text
+  </span>
+</button>
 {% endexample %}
 
 ### With custom width
+
+To give a button a custom width, simply assign the `width` or `min-width` CSS properties to the element, use other techniques (`grid`, `flex` etc.) on the wrapping element or apply utility classes (i.e. from [Tailwind](https://tailwindcss.com/), if that's your tool of choice) on the element. In the following examples we use inline styles:
 
 {% example %}
 <ld-button style="width: 18rem">
@@ -128,6 +284,24 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   <ld-icon name="placeholder"></ld-icon>
   Text
 </ld-button>
+
+<!-- CSS component -->
+
+<button style="width: 18rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">Text</span>
+</button>
+
+<button style="width: 18rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+    Text
+  </span>
+</button>
 {% endexample %}
 
 ### Justify content
@@ -152,6 +326,56 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   Text
   <ld-icon name="placeholder"></ld-icon>
 </ld-button>
+
+<!-- CSS component -->
+
+<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-start">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-end">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
+
+<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-between">
+  <span class="ld-button__content">
+    Text
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
 {% endexample %}
 
 ### Multi-line
@@ -180,6 +404,44 @@ You can align the text inside the button using the `align-text` propperty.
   Then came the night of the first falling star.
   <ld-icon name="placeholder"></ld-icon>
 </ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+  <span class="ld-button__content">
+    Almost before we knew it, we had left the ground. 
+    A shining crescent far beneath the flying vessel. 
+    Then came the night of the first falling star.
+  </span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--align-text-left">
+  <span class="ld-button__content">
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+    Almost before we knew it, we had left the ground. 
+    A shining crescent far beneath the flying vessel. 
+    Then came the night of the first falling star.
+  </span>
+</button>
+
+<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--align-text-right">
+  <span class="ld-button__content">
+    Almost before we knew it, we had left the ground. 
+    A shining crescent far beneath the flying vessel. 
+    Then came the night of the first falling star.
+    <span class="ld-icon" role="presentation">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </span>
+</button>
 {% endexample %}
 
 ### Anchor button
@@ -188,63 +450,15 @@ You can align the text inside the button using the `align-text` propperty.
 <ld-button href="#" target="_blank">
   Text
 </ld-button>
+
+<!-- CSS component -->
+
+<a class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" href="#" target="_blank" rel="noreferrer noopener"><span class="ld-button__content">
+  Text
+</span></a>
 {% endexample %}
 
-> __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
-
-## CSS component
-
-If you'd rather like to use the CSS component on a regular button element, inspect and copy the markup and CSS classes from the examples above. You will be able to achieve pretty much the same result. Here are some examples:
-
-{% example %}
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
-  <span class="ld-button__content">Text</span>
-</button>
-
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--highlight">
-  <span class="ld-button__content">Text</span>
-</button>
-
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--secondary ld-button--lg" disabled>
-  <span class="ld-button__content">Text</span>
-</button>
-
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--secondary ld-button--sm">
-  <span class="ld-button__content">
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <title>Text</title>
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </span>
-</button>
-
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--ghost">
-  <span class="ld-button__content">
-    <span class="ld-icon" role="presentation">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-    Text
-  </span>
-</button>
-
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--danger ld-button--lg">
-  <span class="ld-button__content">
-    Text
-    <span class="ld-icon" role="presentation">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </span>
-</button>
-{% endexample %}
+> __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
 
 
 <!-- Auto Generated Below -->

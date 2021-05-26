@@ -1,0 +1,93 @@
+@define-mixin docs-web-css-switch-ui-light {
+  .docs-web-css-switch button {
+    background-color: var(--ld-col-bg-g);
+
+    &:focus:focus-visible {
+      .docs-web-css-switch__option:not(.docs-web-css-switch__option--active) {
+        color: var(--ld-col-rb5);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      .docs-web-css-switch__option:not(.docs-web-css-switch__option--active) {
+        color: var(--ld-col-rb55);
+        background-color: transparent;
+      }
+    }
+  }
+  .docs-web-css-switch__option {
+    color: var(--ld-col-rblck4);
+
+    &:hover:not(.docs-web-css-switch__option--active) {
+      color: var(--ld-col-rb5);
+    }
+  }
+
+  .docs-web-css-switch__option--active {
+    background-color: var(--ld-col-wht);
+    color: var(--ld-col-rblck-default);
+  }
+}
+@define-mixin docs-web-css-switch-ui-dark {
+  .docs-web-css-switch button {
+    background-color: var(--ld-col-rblck5);
+
+    &:focus:focus-visible {
+      .docs-web-css-switch__option:not(.docs-web-css-switch__option--active) {
+        color: var(--ld-col-rb3);
+        background-color: var(--ld-col-rblck-default);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      .docs-web-css-switch__option:not(.docs-web-css-switch__option--active) {
+        color: var(--ld-col-rb2);
+        background-color: var(--ld-col-rblck-default);
+      }
+    }
+  }
+  .docs-web-css-switch__option {
+    color: var(--ld-col-rblck2);
+
+    &:hover:not(.docs-web-css-switch__option--active) {
+      color: var(--ld-col-rb3);
+    }
+  }
+
+  .docs-web-css-switch__option--active {
+    background-color: var(--ld-col-rblck2);
+    color: var(--ld-col-rblck-default);
+  }
+}
+
+@mixin docs-web-css-switch-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-web-css-switch-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-web-css-switch-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-web-css-switch-ui-light;
+}
+
+.docs-web-css-switch button {
+  --switch-transition-duration: 0s;
+  font: var(--ld-typo-body-s);
+  font-weight: 900;
+  border-radius: var(--ld-sp-4);
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+}
+
+.docs-web-css-switch__option {
+  position: relative;
+  padding: var(--ld-sp-4) var(--ld-sp-16) var(--ld-sp-2);
+  z-index: 0;
+}

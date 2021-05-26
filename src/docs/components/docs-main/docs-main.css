@@ -447,7 +447,7 @@
     }
 
     > pre {
-      border-radius: var(--ld-sp-12);
+      border-radius: var(--ld-sp-8);
       border-style: solid;
       border-width: 1px;
     }

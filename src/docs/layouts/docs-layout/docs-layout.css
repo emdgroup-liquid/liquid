@@ -51,7 +51,7 @@ body {
     z-index: -1;
   }
 
-  a {
+  :where(a) {
     text-decoration: none;
     color: inherit;
   }

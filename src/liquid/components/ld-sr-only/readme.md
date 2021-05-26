@@ -37,6 +37,7 @@ The CSS class sr-only works the same way as its web component counterpart, excep
  - docs-copy-to-cb
  - docs-pick-theme
  - docs-toggle-code
+ - docs-web-css-switch
 
 ### Graph
 ```mermaid
@@ -44,6 +45,7 @@ graph TD;
   docs-copy-to-cb --> ld-sr-only
   docs-pick-theme --> ld-sr-only
   docs-toggle-code --> ld-sr-only
+  docs-web-css-switch --> ld-sr-only
   style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

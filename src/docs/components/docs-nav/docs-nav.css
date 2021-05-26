@@ -132,7 +132,8 @@
   background-image: url('/dist/build/assets/components.svg');
 }
 
-.docs-nav__summary--global::before {
+.docs-nav__summary--global::before,
+.docs-nav__summary--globals::before {
   background-image: url('/dist/build/assets/global.svg');
 }
 

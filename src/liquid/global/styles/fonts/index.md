@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Fonts
-  parent: Global
+  parent: Globals
 layout: layout.njk
 title: Fonts
 permalink: liquid/global/fonts/

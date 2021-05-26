@@ -13,7 +13,9 @@ Headings are used as an introduction into a topic and for visual differentiation
 
 ---
 
-## Web component
+## Examples
+
+### With heading level
 
 {% example "html", true %}
 <ld-heading level="1">
@@ -39,6 +41,32 @@ Headings are used as an introduction into a topic and for visual differentiation
 <ld-heading level="6">
   Almost before we knew it, we had left the ground.
 </ld-heading>
+
+<!-- CSS component -->
+
+<h1 class="ld-heading ld-heading--h1">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-heading ld-heading--h2">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-heading ld-heading--h3">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h4 class="ld-heading ld-heading--h4">
+  Almost before we knew it, we had left the ground.
+</h4>
+
+<h5 class="ld-heading ld-heading--h5">
+  Almost before we knew it, we had left the ground.
+</h5>
+
+<h6 class="ld-heading ld-heading--h6">
+  Almost before we knew it, we had left the ground.
+</h6>
 {% endexample %}
 
 ### With deviating visual level `b*`
@@ -67,6 +95,32 @@ Almost before we knew it, we had left the ground.
 <ld-heading level="6" visual-level="b6" aria-label="Almost before we knew it, we had left the ground.">
   Almost before we knew it, we had left the ground.
 </ld-heading>
+
+<!-- CSS component -->
+
+<h1 class="ld-heading ld-heading--b1" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-heading ld-heading--b2" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-heading ld-heading--b3" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h4 class="ld-heading ld-heading--b4" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h4>
+
+<h5 class="ld-heading ld-heading--b5" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h5>
+
+<h6 class="ld-heading ld-heading--b6" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h6>
 {% endexample %}
 
 ### With deviating visual level `xh*`
@@ -83,6 +137,20 @@ Almost before we knew it, we had left the ground.
 <ld-heading level="3" visual-level="xh3">
   Almost before we knew it, we had left the ground.
 </ld-heading>
+
+<!-- CSS component -->
+
+<h1 class="ld-heading ld-heading--xh1">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-heading ld-heading--xh2">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-heading ld-heading--xh3">
+  Almost before we knew it, we had left the ground.
+</h3>
 {% endexample %}
 
 ### With deviating visual level `xb*`
@@ -99,20 +167,20 @@ Almost before we knew it, we had left the ground.
 <ld-heading level="3" visual-level="xb3" aria-label="Almost before we knew it, we had left the ground.">
   Almost before we knew it, we had left the ground.
 </ld-heading>
-{% endexample %}
 
-## CSS component
+<!-- CSS component -->
 
-If you'd rather like to use the CSS component, inspect and copy the markup and CSS classes from the examples above. You will be able to achieve pretty much the same result. Here are some examples:
-
-{% example "html", true %}
-<h1 class="ld-heading ld-heading--h1">
+<h1 class="ld-heading ld-heading--xb1" aria-label="Almost before we knew it, we had left the ground.">
   Almost before we knew it, we had left the ground.
 </h1>
 
-<h2 class="ld-heading ld-heading--xb3" aria-label="Almost before we knew it, we had left the ground.">
+<h2 class="ld-heading ld-heading--xb2" aria-label="Almost before we knew it, we had left the ground.">
   Almost before we knew it, we had left the ground.
 </h2>
+
+<h3 class="ld-heading ld-heading--xb3" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h3>
 {% endexample %}
 
 

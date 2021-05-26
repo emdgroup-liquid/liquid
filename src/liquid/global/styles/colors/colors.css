@@ -2,7 +2,6 @@
 :root {
   --ld-col-bg-g: rgba(232, 232, 243, 1);
   --ld-col-bg-lg: rgba(248, 248, 252, 1);
-  --ld-col-disabled-on-primary: rgba(220, 220, 232, 0.2);
   --ld-col-disabled: rgba(220, 220, 232, 1);
   --ld-col-rb-active: rgba(8, 53, 88, 1);
   --ld-col-rb-default: rgba(15, 105, 175, 1);
@@ -15,11 +14,11 @@
   --ld-col-rb55: rgba(21, 71, 109, 1);
   --ld-col-rb5: rgba(15, 105, 175, 1);
   --ld-col-rb6: rgba(8, 53, 88, 1);
-  --ld-col-rblck-active: rgba(63, 63, 75, 1);
+  --ld-col-rblck-active: rgba(9, 23, 52, 1);
   --ld-col-rblck-default: rgba(9, 23, 52, 1);
-  --ld-col-rblck-focus: rgba(180, 180, 193, 1);
-  --ld-col-rblck-hover: rgba(97, 97, 112, 1);
-  --ld-col-rblck-primary: rgba(140, 140, 155, 1);
+  --ld-col-rblck-focus: rgba(140, 140, 155, 1);
+  --ld-col-rblck-hover: rgba(63, 63, 75, 1);
+  --ld-col-rblck-primary: rgba(97, 97, 112, 1);
   --ld-col-rblck1: rgba(220, 220, 232, 1);
   --ld-col-rblck2: rgba(180, 180, 193, 1);
   --ld-col-rblck3: rgba(140, 140, 155, 1);
@@ -27,13 +26,13 @@
   --ld-col-rblck5: rgba(63, 63, 75, 1);
   --ld-col-rblck6: rgba(9, 23, 52, 1);
   --ld-col-rg-active: rgba(5, 46, 28, 1);
-  --ld-col-rg-default: rgba(20, 155, 95, 1);
+  --ld-col-rg-default: rgba(1, 136, 76, 1);
   --ld-col-rg-focus: rgba(69, 174, 127, 1);
   --ld-col-rg-hover: rgba(17, 86, 55, 1);
   --ld-col-rg1: rgba(244, 251, 248, 1);
-  --ld-col-rg2: rgba(113, 212, 167, 1);
+  --ld-col-rg2: rgba(132, 202, 171, 1);
   --ld-col-rg3: rgba(69, 174, 127, 1);
-  --ld-col-rg4: rgba(20, 155, 95, 1);
+  --ld-col-rg4: rgba(1, 136, 76, 1);
   --ld-col-rg5: rgba(17, 86, 55, 1);
   --ld-col-rg6: rgba(5, 46, 28, 1);
   --ld-col-rp-active: rgba(40, 25, 73, 1);
@@ -41,7 +40,7 @@
   --ld-col-rp-focus: rgba(151, 115, 225, 1);
   --ld-col-rp-hover: rgba(60, 34, 116, 1);
   --ld-col-rp1: rgba(250, 247, 255, 1);
-  --ld-col-rp2: rgba(187, 159, 248, 1);
+  --ld-col-rp2: rgba(186, 163, 237, 1);
   --ld-col-rp3: rgba(151, 115, 225, 1);
   --ld-col-rp4: rgba(113, 78, 187, 1);
   --ld-col-rp55: rgba(60, 34, 116, 1);
@@ -70,10 +69,10 @@
   --ld-col-vc6: rgba(12, 52, 61, 1);
   --ld-col-vg-active: rgba(93, 118, 41, 1);
   --ld-col-vg-default: rgba(165, 205, 80, 1);
-  --ld-col-vg-focus: rgba(203, 240, 124, 1);
+  --ld-col-vg-focus: rgba(207, 232, 154, 1);
   --ld-col-vg-hover: rgba(127, 166, 46, 1);
   --ld-col-vg1: rgba(250, 253, 242, 1);
-  --ld-col-vg2: rgba(203, 240, 124, 1);
+  --ld-col-vg2: rgba(207, 232, 154, 1);
   --ld-col-vg3: rgba(165, 205, 80, 1);
   --ld-col-vg4: rgba(127, 166, 46, 1);
   --ld-col-vg5: rgba(93, 118, 41, 1);
@@ -88,7 +87,7 @@
   --ld-col-vm4: rgba(185, 54, 121, 1);
   --ld-col-vm5: rgba(137, 25, 82, 1);
   --ld-col-vm6: rgba(72, 4, 39, 1);
-  --ld-col-vy-active: rgba(153, 92, 0, 1);
+  --ld-col-vy-active: rgba(128, 78, 3, 1);
   --ld-col-vy-default: rgba(255, 200, 50, 1);
   --ld-col-vy-focus: rgba(255, 222, 132, 1);
   --ld-col-vy-hover: rgba(191, 140, 0, 1);
@@ -96,8 +95,8 @@
   --ld-col-vy2: rgba(255, 222, 132, 1);
   --ld-col-vy3: rgba(255, 200, 50, 1);
   --ld-col-vy4: rgba(191, 140, 0, 1);
-  --ld-col-vy5: rgba(153, 92, 0, 1);
-  --ld-col-vy6: rgba(102, 61, 0, 1);
+  --ld-col-vy5: rgba(128, 78, 3, 1);
+  --ld-col-vy6: rgba(61, 40, 10, 1);
   --ld-col-wht: rgba(255, 255, 255, 1);
   --ld-thm-bubblegum-accent: rgba(45, 190, 205, 1);
   --ld-thm-bubblegum-bg-primary: rgba(80, 50, 145, 1);
@@ -116,7 +115,7 @@
   --ld-thm-solvent-bg-secondary: rgba(40, 25, 73, 1);
   --ld-thm-solvent-highlight: rgba(255, 200, 50, 1);
   --ld-thm-tea-accent: rgba(165, 205, 80, 1);
-  --ld-thm-tea-bg-primary: rgba(20, 155, 95, 1);
+  --ld-thm-tea-bg-primary: rgba(1, 136, 76, 1);
   --ld-thm-tea-bg-secondary: rgba(5, 46, 28, 1);
   --ld-thm-tea-highlight: rgba(255, 200, 50, 1);
 }

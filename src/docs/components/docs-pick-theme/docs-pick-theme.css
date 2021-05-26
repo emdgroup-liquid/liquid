@@ -3,6 +3,7 @@
   grid-auto-flow: column;
   gap: var(--ld-sp-8);
   border: 0;
+  padding: 0 var(--ld-sp-4);
 }
 
 .docs-pick-theme__label {

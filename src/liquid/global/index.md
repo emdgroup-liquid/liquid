@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
-  key: Global
+  key: Globals
   order: 1
 layout: layout.njk
-title: Components
+title: Globals
 permalink: liquid/global/
 ---
 
-# Global
+# Globals

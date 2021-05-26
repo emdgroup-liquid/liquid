@@ -9,8 +9,11 @@ import { ThemeName } from '../../../liquid/types/theme'
   shadow: false,
 })
 export class DocsExample {
-  /** Code encoded as URI component. */
+  /** Web component markup encoded as URI component. */
   @Prop() code!: string
+
+  /** CSS component markup encoded as URI component. */
+  @Prop() codeCssComponent: string
 
   /** Stack examples (use display block). */
   @Prop() stacked = false
@@ -24,6 +27,9 @@ export class DocsExample {
   /** Is code toggled to be visible */
   @State() isCodeVisible = this.opened
 
+  /** Is web component visible (as opposed to the css component version) */
+  @State() isWebComponent = true
+
   @Listen('pickTheme')
   handlePickTheme(event: CustomEvent<ThemeName>) {
     this.currentTheme = event.detail
@@ -34,7 +40,22 @@ export class DocsExample {
     this.isCodeVisible = event.detail
   }
 
+  @Listen('switchComponent')
+  handleSwitchComponent(event: CustomEvent<boolean>) {
+    this.isWebComponent = event.detail
+  }
+
   render() {
+    let cl = 'docs-example'
+    if (this.isCodeVisible) {
+      cl += ' docs-example--code-visible'
+    }
+    if (this.isWebComponent) {
+      cl += ' docs-example--web-component'
+    } else {
+      cl += ' docs-example--css-component'
+    }
+
     let clShow = 'docs-example__show'
     if (this.currentTheme) {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
@@ -42,21 +63,20 @@ export class DocsExample {
     if (this.stacked) clShow += ' docs-example__show--stacked'
 
     return (
-      <Host
-        class={`docs-example${
-          this.isCodeVisible ? ' docs-example--code-visible' : ''
-        }`}
-      >
+      <Host class={cl}>
         <div class={clShow}>
           <slot name="show"></slot>
+          <slot name="showCssComponent"></slot>
         </div>
         <div class="docs-example__tools">
+          {this.codeCssComponent && <docs-web-css-switch></docs-web-css-switch>}
           <docs-pick-theme />
           <docs-copy-to-cb textToCopy={decodeURIComponent(this.code)} />
           <docs-toggle-code isOn={this.isCodeVisible} />
         </div>
         <div class="docs-example__code">
           <slot name="code"></slot>
+          <slot name="codeCssComponent"></slot>
         </div>
       </Host>
     )

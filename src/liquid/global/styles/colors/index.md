@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Colors
-  parent: Global
+  parent: Globals
 layout: layout.njk
 title: Colors
 permalink: liquid/global/colors/

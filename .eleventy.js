@@ -50,18 +50,53 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode(
     'example',
-    function (code, lang = 'html', stacked, opened, heighlight) {
-      let output = `<docs-example code="${encodeURIComponent(code.trim())}" ${
-        stacked ? 'stacked' : ''
-      } ${opened ? 'opened' : ''}>\n`
+    function (
+      code,
+      lang = 'html',
+      stacked,
+      opened,
+      heighlight,
+      heighlightCssComponent
+    ) {
+      const [codeWebComponent, codeCssComponent] = code
+        .split('<!-- CSS component -->')
+        .map((c) => c.trim())
+      let output = '<docs-example '
+      output += `code="${encodeURIComponent(codeWebComponent)}" `
+
+      if (codeCssComponent) {
+        output += `code-css-component="${encodeURIComponent(
+          codeCssComponent
+        )}" `
+      }
+
+      output += `${stacked ? 'stacked' : ''} ${opened ? 'opened' : ''}>\n`
       output += `<div slot="code">\n\n`
       output += `\`\`\`${lang}${
         heighlight ? '/' + heighlight : ''
-      } \n${code.trim()}\n\`\`\``
+      } \n${codeWebComponent}\n\`\`\``
       output += '\n</div>'
-      output += '<div slot="show">'
-      output += code.trim()
-      output += '</div>'
+
+      if (codeCssComponent) {
+        output += `<div slot="codeCssComponent">\n\n`
+        output += `\`\`\`${lang}${
+          heighlightCssComponent ? '/' + heighlightCssComponent : ''
+        } \n${codeCssComponent.trim()}\n\`\`\``
+        output += '\n</div>'
+      }
+
+      output += `<div slot="show">${codeWebComponent.replaceAll(
+        /\n\n/g,
+        '\n'
+      )}</div>`
+
+      if (codeCssComponent) {
+        output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(
+          /\n\n/g,
+          '\n'
+        )}</div>`
+      }
+
       output += '</docs-example>'
       return output
     }

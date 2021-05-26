@@ -1,6 +1,10 @@
 @define-mixin docs-example-ui-light {
+  .docs-example__code {
+    background-color: var(--ld-col-bg-lg);
+  }
+
   .docs-example__tools {
-    background-color: var(--ld-col-bg-g);
+    background-color: var(--ld-col-rblck1);
     border-color: var(--ld-col-rblck1);
     stroke: var(--ld-col-rblck-default);
 
@@ -10,6 +14,10 @@
   }
 }
 @define-mixin docs-example-ui-dark {
+  .docs-example__code {
+    background-color: var(--ld-col-rblck-default);
+  }
+
   .docs-example__tools {
     background-color: var(--ld-col-rblck4);
     border-color: var(--ld-col-rblck4);
@@ -38,25 +46,29 @@
 }
 
 .docs-example__code {
-  border-bottom-left-radius: var(--ld-sp-12);
-  border-bottom-right-radius: var(--ld-sp-12);
+  border-bottom-left-radius: var(--ld-sp-8);
+  border-bottom-right-radius: var(--ld-sp-8);
   overflow: hidden;
   display: none;
 }
 
 .docs-example__tools {
-  padding: 0 var(--ld-sp-12);
+  padding: 0 var(--ld-sp-8);
   height: 3rem;
   border-style: solid;
   border-width: 1px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom-left-radius: var(--ld-sp-12);
-  border-bottom-right-radius: var(--ld-sp-12);
+  border-bottom-left-radius: var(--ld-sp-8);
+  border-bottom-right-radius: var(--ld-sp-8);
 
-  .docs-pick-theme {
+  .docs-web-css-switch {
     margin-right: auto;
+  }
+
+  > :not(:first-child) {
+    margin-left: var(--ld-sp-12);
   }
 }
 
@@ -65,8 +77,8 @@
   color: var(--ld-col-rblck-default);
   border: 1px solid var(--ld-col-rblck1);
   border-bottom-width: 0;
-  border-top-left-radius: var(--ld-sp-12);
-  border-top-right-radius: var(--ld-sp-12);
+  border-top-left-radius: var(--ld-sp-8);
+  border-top-right-radius: var(--ld-sp-8);
   padding: 0 var(--ld-sp-8) var(--ld-sp-24);
 
   @media (max-width: 48rem) {
@@ -98,5 +110,19 @@
 
   .docs-example__code {
     display: block;
+  }
+}
+
+.docs-example--web-component {
+  [slot='showCssComponent'],
+  [slot='codeCssComponent'] {
+    display: none;
+  }
+}
+
+.docs-example--css-component {
+  [slot='show'],
+  [slot='code'] {
+    display: none;
   }
 }
