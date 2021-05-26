@@ -12,13 +12,20 @@
   border: 0;
   padding: var(--ld-padding-md) var(--ld-padding-md);
   border-radius: var(--ld-sp-4);
-  display: inline-flex;
   min-height: 2.5rem;
   min-width: 2.5rem;
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-col-wht);
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--ld-sp-8);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: 900;
+  line-height: 1;
   -webkit-touch-callout: none;
 
   &:active,
@@ -54,10 +61,9 @@
     min-width: 2rem;
     padding: var(--ld-sp-8) var(--ld-sp-8);
     font: var(--ld-typo-body-s);
-
-    .ld-button__content {
-      gap: var(--ld-sp-6);
-    }
+    font-weight: 900;
+    line-height: 1;
+    gap: var(--ld-sp-6);
 
     .ld-icon,
     .ld-icon svg {
@@ -71,10 +77,9 @@
     min-width: 3.125rem;
     padding: var(--ld-sp-12) var(--ld-sp-12);
     font: var(--ld-typo-body-l);
-
-    .ld-button__content {
-      gap: var(--ld-gap-lg);
-    }
+    font-weight: 900;
+    line-height: 1;
+    gap: var(--ld-gap-lg);
 
     .ld-icon,
     .ld-icon svg {
@@ -84,33 +89,23 @@
   }
 
   &.ld-button--align-text-right {
-    .ld-button__content {
-      text-align: right;
-    }
+    text-align: right;
   }
 
   &.ld-button--align-text-left {
-    .ld-button__content {
-      text-align: left;
-    }
+    text-align: left;
   }
 
   &.ld-button--justify-start {
-    .ld-button__content {
-      justify-content: flex-start;
-    }
+    justify-content: flex-start;
   }
 
   &.ld-button--justify-end {
-    .ld-button__content {
-      justify-content: flex-end;
-    }
+    justify-content: flex-end;
   }
 
   &.ld-button--justify-between {
-    .ld-button__content {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
   }
 }
 
@@ -385,17 +380,4 @@
       }
     }
   }
-}
-
-:where(.ld-button__content) {
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--ld-sp-8);
-  align-items: center;
-  width: 100%;
-  align-self: center;
-  text-align: center;
-  justify-content: center;
-  font-weight: 900;
-  line-height: 1;
 }

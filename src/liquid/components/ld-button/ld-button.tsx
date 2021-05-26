@@ -82,9 +82,7 @@ export class LdButton {
                 this.el
               ))}
         >
-          <span class="ld-button__content">
-            <slot />
-          </span>
+          <slot />
         </Tag>
       </Host>
     )

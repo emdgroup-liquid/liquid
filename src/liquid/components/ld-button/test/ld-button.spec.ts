@@ -10,9 +10,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button>
         <button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -25,9 +23,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button disabled>
         <button aria-disabled="true" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" disabled>
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -40,9 +36,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button mode="highlight">
         <button class="ld-button ld-button--highlight ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -55,9 +49,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button mode="secondary">
         <button class="ld-button ld-button--secondary ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -70,9 +62,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button mode="ghost">
         <button class="ld-button ld-button--ghost ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -85,9 +75,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button mode="danger">
         <button class="ld-button ld-button--danger ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -100,9 +88,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button size="sm">
         <button class="ld-button ld-button--sm ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -115,9 +101,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button justify-content="end">
         <button class="ld-button ld-button--justify-end ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -130,9 +114,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button align-text="right">
         <button class="ld-button ld-button--align-text-right ld-theme-bg-primary ld-theme-bg-primary--interactive">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </button>
       </ld-button>
     `)
@@ -145,9 +127,7 @@ describe('ld-button', () => {
     expect(page.root).toEqualHtml(`
       <ld-button href="#" target="_blank">
         <a class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" href="#" target="_blank" rel="noreferrer noopener">
-          <span class="ld-button__content">
-            Text
-          </span>
+          Text
         </a>
       </ld-button>
     `)
