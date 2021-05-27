@@ -77,7 +77,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 {% example "html", true %}
 <ld-heading level="1" visual-level="b1">
-Almost before we knew it, we had left the ground.
+  Almost before we knew it, we had left the ground.
 </ld-heading>
 
 <ld-heading level="2" visual-level="b2">

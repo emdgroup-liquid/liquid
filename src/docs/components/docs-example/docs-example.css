@@ -53,6 +53,7 @@
 }
 
 .docs-example__tools-scroll-container {
+  position: relative;
   overflow: auto;
   display: flex;
   width: 100%;
@@ -70,18 +71,15 @@
   flex-grow: 1;
 
   .docs-switch-web-css {
-    margin-right: auto;
+    margin-right: var(--ld-sp-24);
     flex-shrink: 0;
-  }
-
-  > :not(:first-child) {
-    margin-left: var(--ld-sp-12);
   }
 
   .docs-example__tool-buttons {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-left: auto;
 
     > :not(:first-child) {
       margin-left: var(--ld-sp-12);

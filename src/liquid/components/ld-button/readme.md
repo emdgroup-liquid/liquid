@@ -23,9 +23,7 @@ Icon-buttons without visual text should contain a screen-reader-only text.
 
 <!-- CSS component -->
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
-  Text
-</button>
+<button class="ld-button">Text</button>
 {% endexample %}
 
 ### Disabled
@@ -35,9 +33,7 @@ Icon-buttons without visual text should contain a screen-reader-only text.
 
 <!-- CSS component -->
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" disabled>
-  Text
-</button>
+<button class="ld-button" disabled>Text</button>
 {% endexample %}
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
@@ -54,7 +50,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button id="disabled-button-2" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" aria-disabled="true">
+<button id="disabled-button-2" class="ld-button" aria-disabled="true">
   Text
 </button>
 <script>
@@ -79,13 +75,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-button--highlight">
-  Text
-</button>
+<button class="ld-button ld-button--highlight">Text</button>
 
-<button class="ld-button ld-button--highlight" disabled>
-  Text
-</button>
+<button class="ld-button ld-button--highlight" disabled>Text</button>
 {% endexample %}
 
 ### Secondary
@@ -97,13 +89,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-button--secondary">
-  Text
-</button>
+<button class="ld-button ld-button--secondary">Text</button>
 
-<button class="ld-button ld-button--secondary" disabled>
-  Text
-</button>
+<button class="ld-button ld-button--secondary" disabled>Text</button>
 {% endexample %}
 
 ### Ghost
@@ -115,13 +103,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-button--ghost">
-  Text
-</button>
+<button class="ld-button ld-button--ghost">Text</button>
 
-<button class="ld-button ld-button--ghost" disabled>
-  Text
-</button>
+<button class="ld-button ld-button--ghost" disabled>Text</button>
 {% endexample %}
 
 ### Danger
@@ -133,13 +117,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-button--danger">
-  Text
-</button>
+<button class="ld-button ld-button--danger">Text</button>
 
-<button class="ld-button ld-button--danger" disabled>
-  Text
-</button>
+<button class="ld-button ld-button--danger" disabled>Text</button>
 {% endexample %}
 
 ### Different sizes
@@ -153,17 +133,11 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
-  Text
-</button>
+<button class="ld-button ld-button--sm">Text</button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
-  Text
-</button>
+<button class="ld-button">Text</button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--lg">
-  Text
-</button>
+<button class="ld-button ld-button--lg">Text</button>
 {% endexample %}
 
 ### With icon
@@ -201,7 +175,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <!-- CSS component -->
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--sm">
+<button class="ld-button ld-button--sm">
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -210,7 +184,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   </span>
 </button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+<button class="ld-button">
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -219,7 +193,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   </span>
 </button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--lg">
+<button class="ld-button ld-button--lg">
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -275,11 +249,11 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 
 <!-- CSS component -->
 
-<button style="width: 18rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+<button style="width: 18rem" class="ld-button">
   Text
 </button>
 
-<button style="width: 18rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+<button style="width: 18rem" class="ld-button">
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -315,7 +289,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 
 <!-- CSS component -->
 
-<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+<button style="width: 8rem" class="ld-button">
   Text
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -325,7 +299,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   </span>
 </button>
 
-<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-start">
+<button style="width: 8rem" class="ld-button ld-button--justify-start">
   Text
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -335,7 +309,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   </span>
 </button>
 
-<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-end">
+<button style="width: 8rem" class="ld-button ld-button--justify-end">
   Text
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -345,7 +319,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   </span>
 </button>
 
-<button style="width: 8rem" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--justify-between">
+<button style="width: 8rem" class="ld-button ld-button--justify-between">
   Text
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -385,13 +359,13 @@ You can align the text inside the button using the `align-text` propperty.
 
 <!-- CSS component -->
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive">
+<button class="ld-button">
   Almost before we knew it, we had left the ground. 
   A shining crescent far beneath the flying vessel. 
   Then came the night of the first falling star.
 </button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--align-text-left">
+<button class="ld-button ld-button--align-text-left">
   <span class="ld-icon" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -403,7 +377,7 @@ You can align the text inside the button using the `align-text` propperty.
   Then came the night of the first falling star.
 </button>
 
-<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive ld-button--align-text-right">
+<button class="ld-button ld-button--align-text-right">
   Almost before we knew it, we had left the ground. 
   A shining crescent far beneath the flying vessel. 
   Then came the night of the first falling star.
@@ -419,15 +393,11 @@ You can align the text inside the button using the `align-text` propperty.
 ### Anchor button
 
 {% example 'html', false, true %}
-<ld-button href="#" target="_blank">
-  Text
-</ld-button>
+<ld-button href="#" target="_blank">Text</ld-button>
 
 <!-- CSS component -->
 
-<a class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive" href="#" target="_blank" rel="noreferrer noopener">
-  Text
-</a>
+<a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">Text</a>
 {% endexample %}
 
 > __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)

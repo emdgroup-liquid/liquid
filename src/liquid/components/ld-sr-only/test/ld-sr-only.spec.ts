@@ -9,9 +9,6 @@ describe('ld-sr-only', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-sr-only class="ld-sr-only">
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
         Hello screen reader
       </ld-sr-only>
     `)

@@ -57,7 +57,7 @@ export class LdButton {
   }
 
   render() {
-    let cl = 'ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive'
+    let cl = 'ld-button'
     if (this.size) cl += ` ld-button--${this.size}`
     if (this.mode) cl += ` ld-button--${this.mode}`
     if (this.alignText) cl += ` ld-button--align-text-${this.alignText}`

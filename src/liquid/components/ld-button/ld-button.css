@@ -109,6 +109,149 @@
   }
 }
 
+/* .ld-theme-ocean -> default */
+.ld-button,
+.ld-theme-ocean .ld-button,
+[class*='ld-theme'] .ld-theme-ocean .ld-button {
+  background-color: var(--ld-thm-ocean-bg-primary);
+  color: var(--ld-col-wht);
+
+  &:focus:focus-visible {
+    background-color: var(--ld-col-rb-focus);
+    color: var(--ld-thm-ocean-bg-secondary);
+  }
+
+  &:hover {
+    background-color: var(--ld-col-rb-hover);
+    color: var(--ld-col-wht);
+  }
+
+  &:active,
+  &:active:focus-visible {
+    background-color: var(--ld-col-rb-active);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--ld-col-disabled);
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum {
+  .ld-button {
+    background-color: var(--ld-thm-bubblegum-bg-primary);
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-rp-focus);
+      color: var(--ld-thm-bubblegum-bg-secondary);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-rp-hover);
+        color: var(--ld-col-wht);
+      }
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-rp-active);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--ld-col-disabled);
+    }
+  }
+}
+
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake {
+  .ld-button {
+    background-color: var(--ld-thm-shake-bg-primary);
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-rp-focus);
+      color: var(--ld-thm-shake-bg-secondary);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-rp-hover);
+        color: var(--ld-col-wht);
+      }
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-rp-active);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--ld-col-disabled);
+    }
+  }
+}
+
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  .ld-button {
+    background-color: var(--ld-thm-solvent-bg-primary);
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-rp-focus);
+      color: var(--ld-thm-solvent-bg-secondary);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-rp-hover);
+        color: var(--ld-col-wht);
+      }
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-rp-active);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--ld-col-disabled);
+    }
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  .ld-button {
+    background-color: var(--ld-thm-tea-bg-primary);
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-rg-hover);
+      }
+    }
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-rg-focus);
+      color: var(--ld-thm-tea-bg-secondary);
+    }
+
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-rg-active);
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var(--ld-col-disabled);
+    }
+  }
+}
+
 .ld-button,
 [class*='ld-theme'] .ld-button {
   &.ld-button--highlight {

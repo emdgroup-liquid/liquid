@@ -159,7 +159,7 @@ describe('ld-button', () => {
         const modeModifier = mode ? ` ld-button--${mode}` : ''
         it(`css component default theme-${theme}${modeStr}`, async () => {
           const page = await getPageWithContent(
-            `<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -167,7 +167,7 @@ describe('ld-button', () => {
         })
         it(`css component hover theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.hover('.ld-button')
@@ -176,7 +176,7 @@ describe('ld-button', () => {
         })
         it(`css component focus theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -185,7 +185,7 @@ describe('ld-button', () => {
         })
         it(`css component active theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -197,7 +197,7 @@ describe('ld-button', () => {
         // Disabled CSS component
         it(`css component disabled theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button disabled class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button disabled class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -205,7 +205,7 @@ describe('ld-button', () => {
         })
         it(`css component disabled hover theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button disabled class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button disabled class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.hover('.ld-button')
@@ -214,7 +214,7 @@ describe('ld-button', () => {
         })
         it(`css component disabled focus theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button disabled class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button disabled class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -223,7 +223,7 @@ describe('ld-button', () => {
         })
         it(`css component disabled active theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button disabled class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button disabled class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -235,7 +235,7 @@ describe('ld-button', () => {
         // Aria-disabled CSS component
         it(`css component aria-disabled theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button aria-disabled="true" class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -243,7 +243,7 @@ describe('ld-button', () => {
         })
         it(`css component aria-disabled hover theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button aria-disabled="true" class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.hover('.ld-button')
@@ -252,7 +252,7 @@ describe('ld-button', () => {
         })
         it(`css component aria-disabled focus theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button aria-disabled="true" class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -261,7 +261,7 @@ describe('ld-button', () => {
         })
         it(`css component aria-disabled active theme-${theme}`, async () => {
           const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button ld-theme-bg-primary ld-theme-bg-primary--interactive${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
+            `<button aria-disabled="true" class="ld-button${modeModifier}"><span class="ld-button__content">Text${cssIconComponent}</span></button>`,
             theme
           )
           await page.keyboard.press('Tab')

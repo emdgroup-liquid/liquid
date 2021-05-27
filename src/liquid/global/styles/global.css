@@ -3,14 +3,4 @@
 @import 'colors/colors.css';
 @import 'shadows/shadows.css';
 @import 'spacings/spacings.css';
-@import 'themes/themes.css';
 @import 'focus/focus.css';
-
-/*
-@media (prefers-reduced-motion: no-preference) {
-  :focus {
-    transition: outline-offset 0.25s ease;
-    outline-offset: 5px;
-  }
-}
-*/
