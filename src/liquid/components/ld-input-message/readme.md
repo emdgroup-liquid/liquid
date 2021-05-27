@@ -11,29 +11,17 @@ permalink: liquid/components/ld-input-message/
 
 This component is meant to be used in conjunction with the [`ld-input`](/liquid/components/ld-input/) and the [`ld-label`](/liquid/components/ld-label/) component. Please reffer to the [`ld-input`](/liquid/components/ld-input/) docs for further usage examples.
 
-## Web component
+> **Note**: If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) for this matter.
+
+## Examples
 
 ### As error message
 
 {% example %}
 <ld-input-message>This field is required.</ld-input-message>
-{% endexample %}
 
-### As info message
+<!-- CSS component -->
 
-{% example %}
-<ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
-{% endexample %}
-
-## CSS component
-
-If you prefer to use a CSS component, import the necessary CSS and implement your markup as follows.
-
-> **Note**: If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) for this matter.
-
-### As error message
-
-{% example %}
 <span class="ld-input-message ld-input-message--error">
   <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
@@ -47,6 +35,10 @@ If you prefer to use a CSS component, import the necessary CSS and implement you
 ### As info message
 
 {% example %}
+<ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
+
+<!-- CSS component -->
+
 <span class="ld-input-message ld-input-message--info">
   <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
@@ -56,6 +48,7 @@ If you prefer to use a CSS component, import the necessary CSS and implement you
   This field will destroy itself on form submission.
 </span>
 {% endexample %}
+
 
 <!-- Auto Generated Below -->
 

@@ -1,3 +1,7 @@
+ld-label {
+  line-height: 1;
+}
+
 .ld-label {
   font: var(--ld-typo-label-s);
   display: inline-grid;

@@ -86,5 +86,45 @@
 .ld-heading--xh4,
 .ld-heading--xh5,
 .ld-heading--xh6 {
-  font-weight: 900;
+  font-weight: 700;
+}
+
+:where(ld-heading[visual-level='b1']),
+:where(ld-heading[visual-level='b2']),
+:where(ld-heading[visual-level='b3']),
+:where(ld-heading[visual-level='b4']),
+:where(ld-heading[visual-level='b5']),
+:where(ld-heading[visual-level='b6']),
+:where(ld-heading[visual-level='xb1']),
+:where(ld-heading[visual-level='xb2']),
+:where(ld-heading[visual-level='xb3']),
+:where(:not(ld-heading) > .ld-heading--b1),
+:where(:not(ld-heading) > .ld-heading--b2),
+:where(:not(ld-heading) > .ld-heading--b3),
+:where(:not(ld-heading) > .ld-heading--b4),
+:where(:not(ld-heading) > .ld-heading--b5),
+:where(:not(ld-heading) > .ld-heading--b6),
+:where(:not(ld-heading) > .ld-heading--xb1),
+:where(:not(ld-heading) > .ld-heading--xb2),
+:where(:not(ld-heading) > .ld-heading--xb3) {
+  color: var(--ld-col-rb-default);
+
+  :where(.ld-theme-ocean) &,
+  :where([class*='ld-theme'] .ld-theme-ocean) & {
+    color: var(--ld-col-rb-default);
+  }
+
+  :where(.ld-theme-solvent) &,
+  :where([class*='ld-theme'] .ld-theme-solvent) &,
+  :where(.ld-theme-bubblegum) &,
+  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
+  :where(.ld-theme-shake) &,
+  :where([class*='ld-theme'] .ld-theme-shake) & {
+    color: var(--ld-col-rp-default);
+  }
+
+  :where(.ld-theme-tea) &,
+  :where([class*='ld-theme'] .ld-theme-tea) & {
+    color: var(--ld-col-rg-default);
+  }
 }

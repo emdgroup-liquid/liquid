@@ -68,11 +68,17 @@ export class DocsExample {
           <slot name="show"></slot>
           <slot name="showCssComponent"></slot>
         </div>
-        <div class="docs-example__tools">
-          {this.codeCssComponent && <docs-web-css-switch></docs-web-css-switch>}
-          <docs-pick-theme />
-          <docs-copy-to-cb textToCopy={decodeURIComponent(this.code)} />
-          <docs-toggle-code isOn={this.isCodeVisible} />
+        <div class="docs-example__tools-scroll-container">
+          <div class="docs-example__tools">
+            {this.codeCssComponent && (
+              <docs-switch-web-css></docs-switch-web-css>
+            )}
+            <div class="docs-example__tool-buttons">
+              <docs-pick-theme />
+              <docs-copy-to-cb textToCopy={decodeURIComponent(this.code)} />
+              <docs-toggle-code isOn={this.isCodeVisible} />
+            </div>
+          </div>
         </div>
         <div class="docs-example__code">
           <slot name="code"></slot>

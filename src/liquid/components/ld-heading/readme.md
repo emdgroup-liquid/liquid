@@ -9,7 +9,11 @@ permalink: liquid/components/ld-heading/
 
 # Heading
 
-Headings are used as an introduction into a topic and for visual differentiation between content blocks. Headlines require hierarchies and a placement conform with these.
+Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
+
+> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+> 
+> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `visual-level` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
 
 ---
 
@@ -183,6 +187,52 @@ Almost before we knew it, we had left the ground.
 </h3>
 {% endexample %}
 
+## Heading colors
+
+You may have noticed that all `b*` and `xb*` headings use a color given by the current theme, while all `h*` and `xh*` headings inherit their color. While this is the default behaviour, you can still apply a different color on both types of headings. This may be usefull, if, for instance, you need to display a `b1` heading in "vibrant yellow" on top of a background using a "rich color".
+
+> **Note**: With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as [insufficiant contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+
+Here are some examples on how you can apply different colors on headings:
+
+{% example "html", true %}
+<style>
+.heading-example { color: var(--ld-col-vy-default); }
+.heading-example-2 { color: var(--ld-col-rr-default); }
+</style>
+
+<ld-heading level="1" visual-level="b1" class="heading-example">
+  Almost before we knew it, we had left the ground.
+</ld-heading>
+
+<ld-heading level="2" visual-level="h1" class="heading-example-2">
+  Almost before we knew it, we had left the ground.
+</ld-heading>
+
+<ld-heading level="3" visual-level="h2" style="color: var(--ld-col-vc-default)">
+  Almost before we knew it, we had left the ground.
+</ld-heading>
+
+<!-- CSS component -->
+
+<style>
+.heading-example { color: var(--ld-col-vy-default); }
+.heading-example-2 { color: var(--ld-col-rr-default); }
+</style>
+
+<h1 class="ld-heading ld-heading--b1 heading-example" aria-label="Almost before we knew it, we had left the ground.">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-heading ld-heading--h1 heading-example-2">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-heading ld-heading--h2" style="color: var(--ld-col-vc-default)">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+{% endexample %}
 
 <!-- Auto Generated Below -->
 
@@ -200,7 +250,7 @@ Almost before we knew it, we had left the ground.
 
 ### Used by
 
-- docs-nav
+ - docs-nav
 
 ### Graph
 ```mermaid

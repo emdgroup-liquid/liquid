@@ -52,23 +52,40 @@
   display: none;
 }
 
+.docs-example__tools-scroll-container {
+  overflow: auto;
+  display: flex;
+  width: 100%;
+}
+
 .docs-example__tools {
-  padding: 0 var(--ld-sp-8);
-  height: 3rem;
+  padding: var(--ld-sp-8);
   border-style: solid;
   border-width: 1px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   border-bottom-left-radius: var(--ld-sp-8);
   border-bottom-right-radius: var(--ld-sp-8);
+  flex-grow: 1;
 
-  .docs-web-css-switch {
+  .docs-switch-web-css {
     margin-right: auto;
+    flex-shrink: 0;
   }
 
   > :not(:first-child) {
     margin-left: var(--ld-sp-12);
+  }
+
+  .docs-example__tool-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    > :not(:first-child) {
+      margin-left: var(--ld-sp-12);
+    }
   }
 }
 
@@ -80,6 +97,7 @@
   border-top-left-radius: var(--ld-sp-8);
   border-top-right-radius: var(--ld-sp-8);
   padding: 0 var(--ld-sp-8) var(--ld-sp-24);
+  overflow: hidden;
 
   @media (max-width: 48rem) {
     padding: 0 0 var(--ld-sp-24);
@@ -89,8 +107,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    width: 100%;
     justify-content: space-evenly;
+    width: 100%;
 
     > * {
       margin: var(--ld-sp-24) var(--ld-sp-24) 0;

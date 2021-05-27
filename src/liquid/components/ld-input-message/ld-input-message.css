@@ -1,6 +1,6 @@
 .ld-input-message {
-  display: inline-flex;
-  align-items: flex-start;
+  display: inline-grid;
+  grid-auto-flow: column;
 }
 
 .ld-input-message--error {
@@ -8,7 +8,7 @@
 }
 
 .ld-input-message__icon {
-  transform: translateY(0.2rem);
+  transform: translateY(0.075rem);
+  margin-top: var(--ld-sp-2);
   margin-right: var(--ld-sp-6);
-  flex-shrink: 0;
 }
