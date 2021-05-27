@@ -197,40 +197,30 @@ Here are some examples on how you can apply different colors on headings:
 
 {% example "html", true %}
 <style>
-.heading-example { color: var(--ld-col-vy-default); }
-.heading-example-2 { color: var(--ld-col-rr-default); }
+.custom-color { color: var(--ld-col-vm-default); }
 </style>
 
-<ld-heading level="1" visual-level="b1" class="heading-example">
+<ld-heading level="1" visual-level="b1" class="custom-color">
   Almost before we knew it, we had left the ground.
 </ld-heading>
 
-<ld-heading level="2" visual-level="h1" class="heading-example-2">
-  Almost before we knew it, we had left the ground.
-</ld-heading>
-
-<ld-heading level="3" visual-level="h2" style="color: var(--ld-col-vc-default)">
+<ld-heading level="2" visual-level="h1" style="color: var(--ld-col-vc-default)">
   Almost before we knew it, we had left the ground.
 </ld-heading>
 
 <!-- CSS component -->
 
 <style>
-.heading-example { color: var(--ld-col-vy-default); }
-.heading-example-2 { color: var(--ld-col-rr-default); }
+.custom-color { color: var(--ld-col-vm-default); }
 </style>
 
-<h1 class="ld-heading ld-heading--b1 heading-example" aria-label="Almost before we knew it, we had left the ground.">
+<h1 class="ld-heading ld-heading--b1 custom-color" aria-label="Almost before we knew it, we had left the ground.">
   Almost before we knew it, we had left the ground.
 </h1>
 
-<h2 class="ld-heading ld-heading--h1 heading-example-2">
+<h2 class="ld-heading ld-heading--h1" style="color: var(--ld-col-vc-default)">
   Almost before we knew it, we had left the ground.
 </h2>
-
-<h3 class="ld-heading ld-heading--h2" style="color: var(--ld-col-vc-default)">
-  Almost before we knew it, we had left the ground.
-</h3>
 
 {% endexample %}
 
