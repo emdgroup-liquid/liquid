@@ -127,9 +127,11 @@
       background-color: var(--ld-col-rb-focus);
       color: var(--ld-thm-ocean-bg-secondary);
     }
-    &:where(:hover) {
-      background-color: var(--ld-col-rb-hover);
-      color: var(--ld-col-wht);
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--ld-col-rb-hover);
+        color: var(--ld-col-wht);
+      }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
