@@ -30,6 +30,7 @@
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
+    "deploy_to_preview": "aws s3 cp ./dist_docs s3://tmp-liquid-docs --recursive",
     "generate": "stencil generate",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",

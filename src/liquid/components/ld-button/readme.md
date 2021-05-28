@@ -150,7 +150,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--danger" disabled>Text</button>
 {% endexample %}
 
-### Different sizes
+### Sizes
 
 {% example %}
 <ld-button size="sm">Text</ld-button>
@@ -172,18 +172,15 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% example %}
 <ld-button size="sm">
-  <ld-icon name="placeholder"></ld-icon>
-  <ld-sr-only>Text</ld-sr-only>
+  <ld-icon name="placeholder" aria-label="Text"></ld-icon>
 </ld-button>
 
 <ld-button>
-  <ld-icon name="placeholder"></ld-icon>
-  <ld-sr-only>Text</ld-sr-only>
+  <ld-icon name="placeholder" aria-label="Text"></ld-icon>
 </ld-button>
 
 <ld-button size="lg">
-  <ld-icon name="placeholder"></ld-icon>
-  <ld-sr-only>Text</ld-sr-only>
+  <ld-icon name="placeholder" aria-label="Text"></ld-icon>
 </ld-button>
 
 <ld-button mode="highlight" size="sm">
@@ -204,8 +201,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <!-- CSS component -->
 
 <button class="ld-button ld-button--sm">
-  <span class="ld-icon" role="presentation">
+  <span class="ld-icon">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -213,8 +211,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </button>
 
 <button class="ld-button">
-  <span class="ld-icon" role="presentation">
+  <span class="ld-icon">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -222,8 +221,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </button>
 
 <button class="ld-button ld-button--lg">
-  <span class="ld-icon" role="presentation">
+  <span class="ld-icon">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>

@@ -60,7 +60,7 @@
     font: var(--ld-typo-label-s);
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 700;
     display: inline-block;
     margin: var(--ld-sp-24) 0 var(--ld-sp-6);
 
@@ -142,5 +142,5 @@
 }
 
 .docs-nav__li--active > a {
-  font-weight: 900;
+  font-weight: 700;
 }

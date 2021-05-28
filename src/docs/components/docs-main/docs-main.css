@@ -235,7 +235,7 @@
     > h4,
     > h5,
     > h6 {
-      font-weight: 900;
+      font-weight: 700;
 
       > code {
         font-size: inherit;
@@ -302,7 +302,7 @@
 
       b,
       strong {
-        font-weight: 900;
+        font-weight: 700;
       }
     }
 

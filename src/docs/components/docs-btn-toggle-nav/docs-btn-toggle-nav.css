@@ -11,6 +11,14 @@
     box-shadow: var(--ld-shadow-sticky);
     color: var(--ld-col-vm-default);
 
+    &:focus:focus-visible {
+      box-shadow: var(--ld-shadow-hover);
+      color: var(--ld-col-vm2);
+
+      rect {
+        fill: var(--ld-col-vm6);
+      }
+    }
     @media (hover: hover) {
       &:hover {
         box-shadow: var(--ld-shadow-hover);
@@ -22,15 +30,6 @@
     &:active:focus-visible {
       box-shadow: var(--ld-shadow-active);
       color: var(--ld-col-vm5);
-    }
-
-    &:focus:focus-visible {
-      box-shadow: var(--ld-shadow-hover);
-      color: var(--ld-col-vm2);
-
-      rect {
-        fill: var(--ld-col-vm6);
-      }
     }
   }
 

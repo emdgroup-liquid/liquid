@@ -42,7 +42,7 @@
   color: var(--ld-col-wht);
 
   b {
-    font-weight: 900;
+    font-weight: 700;
     margin-right: var(--ld-sp-8);
   }
 }
