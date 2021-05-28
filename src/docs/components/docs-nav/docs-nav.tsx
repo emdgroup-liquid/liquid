@@ -32,6 +32,18 @@ export class DocsNav {
     }
   }
 
+  /**
+   * This click handler is needed on mobile safari.
+   * @param ev
+   */
+  @Listen('click', { capture: false })
+  handleClick(ev) {
+    const closestLink = ev.target.closest('a')
+    if (closestLink) {
+      window.location.href = closestLink.href
+    }
+  }
+
   componentDidLoad() {
     eventBus.on(NavEventType.open, this.onNavOpen.bind(this))
     eventBus.on(NavEventType.close, this.onNavClose.bind(this))

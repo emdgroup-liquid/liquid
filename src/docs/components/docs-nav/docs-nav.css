@@ -56,13 +56,20 @@
     list-style: none;
   }
 
+  details[open] summary::after {
+    transform: rotate(90deg);
+  }
+
   summary {
+    position: relative;
     font: var(--ld-typo-label-s);
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 700;
     display: inline-block;
     margin: var(--ld-sp-24) 0 var(--ld-sp-6);
+    width: 100%;
+    user-select: none;
 
     @media (hover: none) {
       outline: none;
@@ -71,6 +78,21 @@
     &::marker,
     &::-webkit-details-marker {
       display: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: var(--ld-sp-2);
+      background-image: url('/dist/build/assets/chevron.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 0.8rem;
+      height: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
