@@ -53,6 +53,10 @@ title: Liquid
 </head>
 <body>
   <script>
+    if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+      document.body.classList.add('sarari')
+    }
+
     var storedThemePref = window.localStorage.getItem('docs-theme')
     var isDark = storedThemePref === 'dark' ? true : false
     document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
