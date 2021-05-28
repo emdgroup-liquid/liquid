@@ -55,6 +55,7 @@ module.exports = function (eleventyConfig) {
       lang = 'html',
       stacked,
       opened,
+      brand,
       heighlight,
       heighlightCssComponent
     ) {
@@ -70,7 +71,10 @@ module.exports = function (eleventyConfig) {
         )}" `
       }
 
-      output += `${stacked ? 'stacked' : ''} ${opened ? 'opened' : ''}>\n`
+      output += `${stacked ? ' stacked' : ''}`
+      output += `${opened ? ' opened' : ''}`
+      output += `${brand ? ' brand' : ''}`
+      output += '>\n'
       output += `<div slot="code">\n\n`
       output += `\`\`\`${lang}${
         heighlight ? '/' + heighlight : ''

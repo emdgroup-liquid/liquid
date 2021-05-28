@@ -66,20 +66,6 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 > **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
 
-### Highlighted
-
-{% example %}
-<ld-button mode="highlight">Text</ld-button>
-
-<ld-button mode="highlight" disabled>Text</ld-button>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--highlight">Text</button>
-
-<button class="ld-button ld-button--highlight" disabled>Text</button>
-{% endexample %}
-
 ### Secondary
 
 {% example %}
@@ -94,6 +80,34 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--secondary" disabled>Text</button>
 {% endexample %}
 
+### On brand color
+
+{% example 'html', false, false, true %}
+<ld-button mode="on-brand-color">Text</ld-button>
+
+<ld-button mode="on-brand-color" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--on-brand-color">Text</button>
+
+<button class="ld-button ld-button--on-brand-color" disabled>Text</button>
+{% endexample %}
+
+### Secondary on brand color
+
+{% example 'html', false, false, true %}
+<ld-button mode="secondary-on-brand-color">Text</ld-button>
+
+<ld-button mode="secondary-on-brand-color" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--secondary-on-brand-color">Text</button>
+
+<button class="ld-button ld-button--secondary-on-brand-color" disabled>Text</button>
+{% endexample %}
+
 ### Ghost
 
 {% example %}
@@ -106,6 +120,20 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--ghost">Text</button>
 
 <button class="ld-button ld-button--ghost" disabled>Text</button>
+{% endexample %}
+
+### Highlight
+
+{% example %}
+<ld-button mode="highlight">Text</ld-button>
+
+<ld-button mode="highlight" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--highlight">Text</button>
+
+<button class="ld-button ld-button--highlight" disabled>Text</button>
 {% endexample %}
 
 ### Danger
@@ -235,33 +263,22 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### With custom width
 
-To give a button a custom width, simply assign the `width` or `min-width` CSS properties to the element, use other techniques (`grid`, `flex` etc.) on the wrapping element or apply utility classes (i.e. from [Tailwind](https://tailwindcss.com/), if that's your tool of choice) on the element. In the following examples we use inline styles:
+To give a button a custom width, simply assign the `width` or `min-width` CSS properties to the element, use other techniques (`grid`, `flex` etc.) on the wrapping element or apply utility classes (i.e. from [Tailwind](https://tailwindcss.com/), if that's your tool of choice) on the element.
 
 {% example %}
-<ld-button style="width: 18rem">
-  Text
-</ld-button>
+<ld-button style="width: 18rem">Text</ld-button>
 
-<ld-button style="width: 18rem">
-  <ld-icon name="placeholder"></ld-icon>
-  Text
-</ld-button>
+<div style="display: inline-grid; width: 18rem">
+  <ld-button>Text</ld-button>
+</div>
 
 <!-- CSS component -->
 
-<button style="width: 18rem" class="ld-button">
-  Text
-</button>
+<button class="ld-button" style="width: 18rem">Text</button>
 
-<button style="width: 18rem" class="ld-button">
-  <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-  Text
-</button>
+<div style="display: inline-grid; width: 18rem">
+  <button class="ld-button">Text</button>
+</div>
 {% endexample %}
 
 ### Justify content
@@ -408,33 +425,16 @@ You can align the text inside the button using the `align-text` propperty.
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                | Default     |
-| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------- |
-| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                 | `undefined` |
-| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                           | `false`     |
-| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                            | `undefined` |
-| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                     | `undefined` |
-| `mode`           | `mode`            | Highlight mode.                                                                                                                                                                                                       | `"danger" \| "ghost" \| "highlight" \| "secondary"` | `undefined` |
-| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                      | `undefined` |
-| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`        | `undefined` |
+| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                                                                  | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
+| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                                                                   | `undefined` |
+| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                                                                             | `false`     |
+| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                                              | `undefined` |
+| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                                       | `undefined` |
+| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "on-brand-color" \| "secondary" \| "secondary-on-brand-color"` | `undefined` |
+| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
+| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
 
-
-## Dependencies
-
-### Used by
-
- - docs-copy-to-cb
- - docs-edit-on-github
- - docs-toggle-code
-
-### Graph
-```mermaid
-graph TD;
-  docs-copy-to-cb --> ld-button
-  docs-edit-on-github --> ld-button
-  docs-toggle-code --> ld-button
-  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

@@ -119,6 +119,22 @@
   }
 }
 
+.docs-example__show--brand {
+  border-color: transparent;
+
+  &.ld-theme-ocean {
+    background-color: var(--ld-col-rb-default);
+  }
+  &.ld-theme-solvent,
+  &.ld-theme-bubblegum,
+  &.ld-theme-shake {
+    background-color: var(--ld-col-rp-default);
+  }
+  &.ld-theme-tea {
+    background-color: var(--ld-col-rg-default);
+  }
+}
+
 .docs-example--code-visible {
   .docs-example__tools {
     border-radius: 0;

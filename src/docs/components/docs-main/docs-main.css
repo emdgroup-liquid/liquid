@@ -264,16 +264,23 @@
       display: block;
       padding-bottom: var(--ld-sp-24);
 
-      thead {
-        border-bottom: solid 0.0625rem var(--ld-col-rblck2);
-      }
-
       tr {
         display: flex;
         margin-top: var(--ld-sp-16);
       }
       tbody tr:nth-child(odd) {
         background-color: var(--sensitive-grey-dark);
+      }
+
+      thead {
+        border-bottom: solid 0.0625rem var(--ld-col-rblck2);
+
+        tr {
+          margin-top: 0;
+        }
+        th {
+          padding-top: 0;
+        }
       }
 
       th {

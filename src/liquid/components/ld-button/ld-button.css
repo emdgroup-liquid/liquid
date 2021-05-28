@@ -1,5 +1,9 @@
 :where(ld-button) {
   display: inline-flex;
+
+  > :where(.ld-button) {
+    width: 100%;
+  }
 }
 
 :where(.ld-button) {
@@ -24,240 +28,215 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
   -webkit-touch-callout: none;
 
-  &:active,
-  &:active:focus-visible {
-    color: var(--ld-col-wht);
+  &:where(:disabled),
+  &:where([aria-disabled]) {
+    opacity: 0.2;
   }
 
-  &:disabled,
-  &[aria-disabled] {
-    color: var(--ld-col-disabled);
-
-    &:not(.ld-button--ghost) {
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-disabled);
-    }
-  }
-
-  &:not(:disabled):not([aria-disabled]) {
+  &:where(:not(:disabled):not([aria-disabled])) {
     cursor: pointer;
   }
 
-  ld-icon {
+  :where(ld-icon) {
     line-height: 0;
   }
 
-  .ld-icon,
-  .ld-icon svg {
+  :where(.ld-icon),
+  :where(.ld-icon svg) {
     width: var(--ld-icon-size-md);
     height: var(--ld-icon-size-md);
   }
 
-  &.ld-button--sm {
+  &:where(.ld-button--sm) {
     min-height: 2rem;
     min-width: 2rem;
     padding: var(--ld-sp-8) var(--ld-sp-8);
     font: var(--ld-typo-body-s);
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1;
     gap: var(--ld-sp-6);
 
     .ld-icon,
-    .ld-icon svg {
+    .ld-icon :where(svg) {
       width: var(--ld-icon-size-sm);
       height: var(--ld-icon-size-sm);
     }
   }
 
-  &.ld-button--lg {
+  &:where(.ld-button--lg) {
     min-height: 3.125rem;
     min-width: 3.125rem;
     padding: var(--ld-sp-12) var(--ld-sp-12);
     font: var(--ld-typo-body-l);
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1;
     gap: var(--ld-gap-lg);
 
     .ld-icon,
-    .ld-icon svg {
+    .ld-icon :where(svg) {
       width: var(--ld-icon-size-lg);
       height: var(--ld-icon-size-lg);
     }
   }
 
-  &.ld-button--align-text-right {
+  &:where(.ld-button--align-text-right) {
     text-align: right;
   }
 
-  &.ld-button--align-text-left {
+  &:where(.ld-button--align-text-left) {
     text-align: left;
   }
 
-  &.ld-button--justify-start {
+  &:where(.ld-button--justify-start) {
     justify-content: flex-start;
   }
 
-  &.ld-button--justify-end {
+  &:where(.ld-button--justify-end) {
     justify-content: flex-end;
   }
 
-  &.ld-button--justify-between {
+  &:where(.ld-button--justify-between) {
     justify-content: space-between;
   }
 }
 
 /* .ld-theme-ocean -> default */
-.ld-button,
-.ld-theme-ocean .ld-button,
-[class*='ld-theme'] .ld-theme-ocean .ld-button {
+:where(.ld-button),
+:where(.ld-theme-ocean .ld-button),
+:where([class*='ld-theme'] .ld-theme-ocean .ld-button) {
   background-color: var(--ld-thm-ocean-bg-primary);
   color: var(--ld-col-wht);
 
-  &:focus:focus-visible {
-    background-color: var(--ld-col-rb-focus);
-    color: var(--ld-thm-ocean-bg-secondary);
-  }
+  &:where(:not(:disabled):not([aria-disabled])) {
+    &:where(:focus:focus-visible) {
+      background-color: var(--ld-col-rb-focus);
+      color: var(--ld-thm-ocean-bg-secondary);
+    }
 
-  &:hover {
-    background-color: var(--ld-col-rb-hover);
-    color: var(--ld-col-wht);
-  }
+    &:where(:hover) {
+      background-color: var(--ld-col-rb-hover);
+      color: var(--ld-col-wht);
+    }
 
-  &:active,
-  &:active:focus-visible {
-    background-color: var(--ld-col-rb-active);
-  }
-
-  &:disabled {
-    background-color: transparent;
-    color: var(--ld-col-disabled);
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(--ld-col-rb-active);
+    }
   }
 }
 
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-button {
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  :where(.ld-button) {
     background-color: var(--ld-thm-bubblegum-bg-primary);
 
-    &:focus:focus-visible {
-      background-color: var(--ld-col-rp-focus);
-      color: var(--ld-thm-bubblegum-bg-secondary);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--ld-col-rp-hover);
-        color: var(--ld-col-wht);
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
+      &:focus:focus-visible {
+        background-color: var(--ld-col-rp-focus);
+        color: var(--ld-thm-bubblegum-bg-secondary);
       }
-    }
 
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-rp-active);
-    }
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--ld-col-rp-hover);
+          color: var(--ld-col-wht);
+        }
+      }
 
-    &:disabled {
-      background-color: transparent;
-      color: var(--ld-col-disabled);
+      &:active,
+      &:active:focus-visible {
+        background-color: var(--ld-col-rp-active);
+      }
     }
   }
 }
 
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake {
-  .ld-button {
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  :where(.ld-button) {
     background-color: var(--ld-thm-shake-bg-primary);
 
-    &:focus:focus-visible {
-      background-color: var(--ld-col-rp-focus);
-      color: var(--ld-thm-shake-bg-secondary);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--ld-col-rp-hover);
-        color: var(--ld-col-wht);
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
+      &:focus:focus-visible {
+        background-color: var(--ld-col-rp-focus);
+        color: var(--ld-thm-shake-bg-secondary);
       }
-    }
 
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-rp-active);
-    }
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--ld-col-rp-hover);
+          color: var(--ld-col-wht);
+        }
+      }
 
-    &:disabled {
-      background-color: transparent;
-      color: var(--ld-col-disabled);
+      &:active,
+      &:active:focus-visible {
+        background-color: var(--ld-col-rp-active);
+      }
     }
   }
 }
 
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  .ld-button {
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  :where(.ld-button) {
     background-color: var(--ld-thm-solvent-bg-primary);
 
-    &:focus:focus-visible {
-      background-color: var(--ld-col-rp-focus);
-      color: var(--ld-thm-solvent-bg-secondary);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--ld-col-rp-hover);
-        color: var(--ld-col-wht);
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
+      &:focus:focus-visible {
+        background-color: var(--ld-col-rp-focus);
+        color: var(--ld-thm-solvent-bg-secondary);
       }
-    }
 
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-rp-active);
-    }
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--ld-col-rp-hover);
+          color: var(--ld-col-wht);
+        }
+      }
 
-    &:disabled {
-      background-color: transparent;
-      color: var(--ld-col-disabled);
+      &:active,
+      &:active:focus-visible {
+        background-color: var(--ld-col-rp-active);
+      }
     }
   }
 }
 
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
-  .ld-button {
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  :where(.ld-button) {
     background-color: var(--ld-thm-tea-bg-primary);
 
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--ld-col-rg-hover);
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--ld-col-rg-hover);
+        }
       }
-    }
 
-    &:focus:focus-visible {
-      background-color: var(--ld-col-rg-focus);
-      color: var(--ld-thm-tea-bg-secondary);
-    }
+      &:focus:focus-visible {
+        background-color: var(--ld-col-rg-focus);
+        color: var(--ld-thm-tea-bg-secondary);
+      }
 
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-rg-active);
-    }
-
-    &:disabled {
-      background-color: transparent;
-      color: var(--ld-col-disabled);
+      &:active,
+      &:active:focus-visible {
+        background-color: var(--ld-col-rg-active);
+      }
     }
   }
 }
 
-.ld-button,
-[class*='ld-theme'] .ld-button {
-  &.ld-button--highlight {
-    background-color: var(--ld-col-vy-default);
-    color: var(--ld-col-rblck-default);
+.ld-button--highlight {
+  background-color: var(--ld-col-vy-default);
+  color: var(--ld-col-rblck-default);
 
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:focus:focus-visible {
       background-color: var(--ld-col-vy-focus);
     }
@@ -274,11 +253,13 @@
       color: var(--ld-col-wht);
     }
   }
+}
 
-  &.ld-button--danger {
-    background-color: var(--ld-col-rr-default);
-    color: var(--ld-col-wht);
+.ld-button--danger {
+  background-color: var(--ld-col-rr-default);
+  color: var(--ld-col-wht);
 
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:focus:focus-visible {
       background-color: var(--ld-col-rr-focus);
     }
@@ -296,231 +277,228 @@
       color: var(--ld-col-wht);
     }
   }
+}
 
-  &.ld-button--secondary {
-    :not(:disabled) &,
-    :not([aria-disabled]) & {
-      background-color: var(--ld-col-wht);
-    }
-  }
+.ld-button--secondary,
+.ld-button--ghost {
+  color: var(--ld-col-rb-default);
+  background-color: transparent;
 
-  &.ld-button--ghost {
-    :not(:disabled) &,
-    :not([aria-disabled]) & {
-      background-color: transparent;
-    }
-
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-bg-g);
-    }
-
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
     @media (hover: hover) {
       &:hover {
+        color: var(--ld-col-rb-hover);
         background-color: var(--ld-col-bg-g);
       }
     }
-  }
 
-  &:disabled,
-  &[aria-disabled],
-  &.ld-button--highlight,
-  &.ld-button--secondary,
-  &.ld-button--ghost,
-  &.ld-button--danger {
-    &:disabled,
-    &[aria-disabled],
-    &:disabled:hover,
-    &[aria-disabled]:hover,
-    &:disabled:focus,
-    &[aria-disabled]:focus,
-    &:disabled:active,
-    &[aria-disabled]:active {
-      background-color: transparent;
-      color: var(--ld-col-disabled);
-    }
-
-    @media (hover: hover) {
-      &:disabled:hover,
-      &[aria-disabled]:hover {
-        background-color: transparent;
-        color: var(--ld-col-disabled);
-      }
-    }
-  }
-
-  ld-button & {
-    width: 100%;
-  }
-}
-
-.ld-button.ld-button--secondary {
-  &:not(:disabled):not([aria-disabled]) {
-    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rblck1);
-    color: var(--ld-col-rblck-default);
-
-    @media (hover: hover) {
-      &:hover {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
-        color: var(--ld-col-rb5);
-      }
-    }
     &:active,
     &:active:focus-visible {
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
-      color: var(--ld-col-rb55);
+      color: var(--ld-col-rb-active);
+      background-color: var(--ld-col-rblck1);
     }
+
     &:focus:focus-visible {
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
-      color: var(--ld-col-rb4);
-      background-color: transparent;
+      color: var(--ld-col-rb-focus);
     }
   }
 
-  .ld-theme-ocean &,
-  [class*='ld-theme'] .ld-theme-ocean & {
-    &:not(:disabled):not([aria-disabled]) {
-      @media (hover: hover) {
-        &:hover {
-          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb5);
-          color: var(--ld-col-rb5);
-        }
-      }
-      &:active,
-      &:active:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb55);
-        color: var(--ld-col-rb55);
-      }
-      &:focus:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb3);
-        color: var(--ld-col-rb4);
-      }
-    }
-  }
+  :where(.ld-theme-solvent) &,
+  :where(.ld-theme-bubblegum) &,
+  :where(.ld-theme-shake) &,
+  :where([class*='ld-theme'] .ld-theme-solvent) &,
+  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
+  :where([class*='ld-theme'] .ld-theme-shake) & {
+    color: var(--ld-col-rp-default);
 
-  .ld-theme-solvent &,
-  .ld-theme-bubblegum &,
-  .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-solvent &,
-  [class*='ld-theme'] .ld-theme-bubblegum &,
-  [class*='ld-theme'] .ld-theme-shake & {
-    &:not(:disabled):not([aria-disabled]) {
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
       @media (hover: hover) {
         &:hover {
-          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp5);
-          color: var(--ld-col-rp5);
+          color: var(--ld-col-rp-hover);
         }
       }
+
       &:active,
       &:active:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp55);
-        color: var(--ld-col-rp55);
+        color: var(--ld-col-rp-active);
       }
+
       &:focus:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp3);
-        color: var(--ld-col-rp4);
+        color: var(--ld-col-rp-focus);
       }
     }
   }
 
-  .ld-theme-tea &,
-  [class*='ld-theme'] .ld-theme-tea & {
-    &:not(:disabled):not([aria-disabled]) {
+  :where(.ld-theme-tea) &,
+  :where([class*='ld-theme'] .ld-theme-tea) & {
+    color: var(--ld-col-rg-default);
+
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
       @media (hover: hover) {
         &:hover {
-          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg5);
-          color: var(--ld-col-rg5);
+          color: var(--ld-col-rg-hover);
         }
       }
+
       &:active,
       &:active:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg6);
-        color: var(--ld-col-rg6);
+        color: var(--ld-col-rg-active);
       }
+
       &:focus:focus-visible {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg3);
-        color: var(--ld-col-rg4);
+        color: var(--ld-col-rg-focus);
       }
     }
   }
 }
 
-.ld-button.ld-button--ghost {
-  &:not(:disabled):not([aria-disabled]) {
-    color: var(--ld-col-rblck-default);
+.ld-button--secondary {
+  box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-default);
 
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
     @media (hover: hover) {
       &:hover {
-        color: var(--ld-col-rb5);
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-hover);
       }
     }
     &:active,
     &:active:focus-visible {
-      color: var(--ld-col-rb55);
+      box-shadow: inset 0px 0px 0px 2px var(var(--ld-col-rb-active));
     }
     &:focus:focus-visible {
-      color: var(--ld-col-rb3);
-      background-color: transparent;
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-focus);
     }
   }
 
-  .ld-theme-ocean &,
-  [class*='ld-theme'] .ld-theme-ocean & {
-    &:not(:disabled):not([aria-disabled]) {
+  :where(.ld-theme-solvent) &,
+  :where(.ld-theme-bubblegum) &,
+  :where(.ld-theme-shake) &,
+  :where([class*='ld-theme'] .ld-theme-solvent) &,
+  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
+  :where([class*='ld-theme'] .ld-theme-shake) & {
+    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-default);
+
+    &:where(&:not(:disabled):not([aria-disabled])) {
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rb5);
+          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-hover);
         }
       }
       &:active,
       &:active:focus-visible {
-        color: var(--ld-col-rb55);
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-active);
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rb3);
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-focus);
       }
     }
   }
 
-  .ld-theme-solvent &,
-  .ld-theme-bubblegum &,
-  .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-solvent &,
-  [class*='ld-theme'] .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-bubblegum & {
-    &:not(:disabled):not([aria-disabled]) {
-      color: var(--ld-col-rp6);
+  :where(.ld-theme-tea) &,
+  :where([class*='ld-theme'] .ld-theme-tea) & {
+    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-default);
 
+    &:where(&:not(:disabled):not([aria-disabled])) {
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rp5);
+          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-hover);
         }
       }
       &:active,
       &:active:focus-visible {
-        color: var(--ld-col-rp55);
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-active);
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rp3);
+        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-focus);
+      }
+    }
+  }
+}
+
+.ld-button--on-brand-color {
+  --ld-col-ob-wht-active: rgba(255, 255, 255, 0.5);
+  --ld-col-ob-wht-hover: rgba(255, 255, 255, 0.7);
+  --ld-col-ob-wht-focus: rgba(255, 255, 255, 0.9);
+  background-color: var(--ld-col-wht);
+  color: var(--ld-col-rb-default);
+
+  &:where(&:not(:disabled):not([aria-disabled])) {
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-ob-wht-hover);
+        color: var(--ld-col-rb-default);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-ob-wht-active);
+    }
+    &:focus:focus-visible {
+      background-color: var(--ld-col-ob-wht-focus);
+      color: var(--ld-col-rb-focus);
+    }
+  }
+
+  :where(.ld-theme-tea) &,
+  :where([class*='ld-theme'] .ld-theme-tea) & {
+    color: var(--ld-col-rg-default);
+
+    &:where(&:not(:disabled):not([aria-disabled])) {
+      &:focus:focus-visible {
+        color: var(--ld-col-rg-focus);
       }
     }
   }
 
-  .ld-theme-tea &,
-  [class*='ld-theme'] .ld-theme-tea & {
-    &:not(:disabled):not([aria-disabled]) {
+  :where(.ld-theme-solvent) &,
+  :where(.ld-theme-bubblegum) &,
+  :where(.ld-theme-shake) &,
+  :where([class*='ld-theme'] .ld-theme-solvent) &,
+  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
+  :where([class*='ld-theme'] .ld-theme-shake) & {
+    color: var(--ld-col-rp-default);
+
+    &:where(&:not(:disabled):not([aria-disabled])) {
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rg5);
+          color: var(--ld-col-rp-default);
         }
       }
       &:active,
       &:active:focus-visible {
-        color: var(--ld-col-rg6);
+        color: var(--ld-col-rp-default);
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rg3);
+        color: var(--ld-col-rp-focus);
       }
+    }
+  }
+}
+
+.ld-button--secondary-on-brand-color {
+  --ld-col-sob-wht-active: rgba(255, 255, 255, 0.8);
+  --ld-col-sob-wht-active-bg: rgba(255, 255, 255, 0.1);
+  --ld-col-sob-wht-hover-bg: rgba(255, 255, 255, 0.2);
+  --ld-col-sob-wht-focus: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  color: var(--ld-col-wht);
+  box-shadow: inset 0px 0px 0px 2px var(--ld-col-wht);
+
+  &:where(&:not(:disabled):not([aria-disabled])) {
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-col-sob-wht-hover-bg);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-sob-wht-active-bg);
+      color: var(--ld-col-sob-wht-active);
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-sob-wht-active);
+    }
+    &:focus:focus-visible {
+      color: var(--ld-col-sob-wht-focus);
+      box-shadow: inset 0px 0px 0px 2px var(--ld-col-sob-wht-focus);
     }
   }
 }

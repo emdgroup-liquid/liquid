@@ -17,7 +17,7 @@ If you have a suggestion for a new component not listed here, create an [issue o
 
 | Component                                  | Design            | Development        |
 |--------------------------------------------|-------------------|--------------------|
-| [ld-button](./ld-button/)                  | in progress       | on hold            |
+| [ld-button](./ld-button/)                  | done              | done               |
 | [ld-heading](./ld-heading/)                | done              | done               |
 | [ld-icon](./ld-icon/)                      | in progress       | on hold            |
 | [ld-input](./ld-input/)                    | done              | in progress        |

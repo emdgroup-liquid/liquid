@@ -54,6 +54,32 @@ describe('ld-button', () => {
       </ld-button>
     `)
   })
+  it('on-brand-color', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button mode="on-brand-color">Text</ld-button>`,
+    })
+    expect(page.root).toEqualHtml(`
+      <ld-button mode="on-brand-color">
+        <button class="ld-button ld-button--on-brand-color">
+          Text
+        </button>
+      </ld-button>
+    `)
+  })
+  it('secondary-on-brand-color', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button mode="secondary-on-brand-color">Text</ld-button>`,
+    })
+    expect(page.root).toEqualHtml(`
+      <ld-button mode="secondary-on-brand-color">
+        <button class="ld-button ld-button--secondary-on-brand-color">
+          Text
+        </button>
+      </ld-button>
+    `)
+  })
   it('ghost', async () => {
     const page = await newSpecPage({
       components: [LdButton],
@@ -131,5 +157,29 @@ describe('ld-button', () => {
         </a>
       </ld-button>
     `)
+  })
+  it('allows adding click handlers', async () => {
+    const handlers = {
+      onClick() {
+        return
+      },
+    }
+
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button>Text</ld-button>`,
+    })
+    const ldButton = page.root
+    const button = ldButton.querySelector('button')
+
+    const spyClick = jest.spyOn(handlers, 'onClick')
+    ldButton.addEventListener('click', handlers.onClick)
+    await new Promise((resolve) => setTimeout(resolve))
+    await button.dispatchEvent(
+      new Event('click', { bubbles: true, cancelable: true })
+    )
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+    expect(spyClick).toHaveBeenCalled()
   })
 })

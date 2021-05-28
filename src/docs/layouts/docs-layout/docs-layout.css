@@ -51,7 +51,7 @@ body {
     z-index: -1;
   }
 
-  :where(a) {
+  :where(a):not([class*='ld-']) {
     text-decoration: none;
     color: inherit;
   }

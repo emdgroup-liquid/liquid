@@ -21,6 +21,9 @@ export class DocsExample {
   /** Opens code view on initial load. */
   @Prop() opened = false
 
+  /** Themed background. */
+  @Prop() brand = false
+
   /** Current theme. */
   @State() currentTheme: ThemeName = ThemeName.ocean
 
@@ -61,6 +64,7 @@ export class DocsExample {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }
     if (this.stacked) clShow += ' docs-example__show--stacked'
+    if (this.brand) clShow += ' docs-example__show--brand'
 
     return (
       <Host class={cl}>
@@ -75,7 +79,11 @@ export class DocsExample {
             )}
             <div class="docs-example__tool-buttons">
               <docs-pick-theme />
-              <docs-copy-to-cb textToCopy={decodeURIComponent(this.code)} />
+              <docs-copy-to-cb
+                textToCopy={decodeURIComponent(
+                  this.isWebComponent ? this.code : this.codeCssComponent
+                )}
+              />
               <docs-toggle-code isOn={this.isCodeVisible} />
             </div>
           </div>

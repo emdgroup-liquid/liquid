@@ -6,7 +6,7 @@
 
 > ⚠️  **Important**: Liquid is currently in its early development stage and subject to major changes.
 
-Liquid is a UI component library based on the [Liquid Design System](https://lds.merck.design/), focusing on accessibility and interoperability. It's built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
+Liquid is a UI component library based on the [Liquid Design System](https://lds.merck.design/), focusing on accessibility and interoperability. It's built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
 ## Install
 

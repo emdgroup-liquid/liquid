@@ -22,8 +22,14 @@ export class LdButton {
   /** Size of the button. */
   @Prop() size?: 'sm' | 'lg'
 
-  /** Highlight mode. */
-  @Prop() mode?: 'highlight' | 'secondary' | 'ghost' | 'danger'
+  /** Display mode. */
+  @Prop() mode?:
+    | 'highlight'
+    | 'secondary'
+    | 'ghost'
+    | 'danger'
+    | 'on-brand-color'
+    | 'secondary-on-brand-color'
 
   /** Align text. */
   @Prop({ mutable: true }) alignText: 'left' | 'right'
