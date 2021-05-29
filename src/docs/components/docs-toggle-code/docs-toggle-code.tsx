@@ -24,7 +24,7 @@ export class DocsToggleCode {
     return (
       <ld-button
         role="switch"
-        aria-checked={this.isOn}
+        aria-checked={this.isOn ? 'true' : 'false'}
         class="docs-toggle-code"
         mode={this.isOn ? undefined : 'ghost'}
         size="sm"
