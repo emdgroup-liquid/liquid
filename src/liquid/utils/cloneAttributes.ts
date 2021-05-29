@@ -12,11 +12,7 @@ export function cloneAttributes<T = HTMLAttributes | NamedNodeMap>(el: {
   })
   return Object.values(<T>attrClone).reduce((acc: T, attr: Attr): T => {
     if (!attr.name) return acc
-    if (attr.value === 'false') {
-      acc[attr.name] = false
-    } else {
-      acc[attr.name] = attr.value || true
-    }
+    acc[attr.name] = attr.value || true
     return acc
   }, {})
 }
