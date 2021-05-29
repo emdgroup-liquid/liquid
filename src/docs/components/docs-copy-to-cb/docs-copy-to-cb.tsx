@@ -1,5 +1,5 @@
 import '../../../components' // type definitions for intelliSense
-import { Component, h, Listen, Prop, State } from '@stencil/core'
+import { Component, Element, h, Listen, Prop, State } from '@stencil/core'
 
 /** @internal **/
 @Component({
@@ -8,20 +8,40 @@ import { Component, h, Listen, Prop, State } from '@stencil/core'
   shadow: false,
 })
 export class DocsCopyToCb {
-  @State() copyTimeout: number | undefined
+  @Element() el: HTMLElement
 
   /** Text to be copied to clipboard */
   @Prop() textToCopy!: string
+
+  @State() copyTimeout: number | undefined
 
   private clearCopyTimeout() {
     window.clearTimeout(this.copyTimeout)
     this.copyTimeout = undefined
   }
 
+  private async copyToClipboard(textToCopy) {
+    // navigator clipboard api needs a secure context (https)
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(textToCopy)
+    } else {
+      // text area method
+      const textArea = document.createElement('textarea')
+      textArea.value = textToCopy
+      textArea.classList.add('ld-sr-only')
+      document.body.appendChild(textArea)
+      textArea.focus()
+      textArea.select()
+      await document.execCommand('copy')
+      textArea.remove()
+      this.el.querySelector('button').focus()
+    }
+  }
+
   @Listen('click', { capture: true })
   handleClick(ev) {
     ev.preventDefault()
-    navigator.clipboard.writeText(this.textToCopy)
+    this.copyToClipboard(this.textToCopy)
     const timeoutID = window.setTimeout(this.clearCopyTimeout.bind(this), 500)
     this.copyTimeout = timeoutID
   }
