@@ -3,9 +3,12 @@
     background-color: var(--ld-col-bg-lg);
   }
 
-  .docs-example__tools {
+  .docs-example__tools-scroll-container {
     background-color: var(--ld-col-rblck1);
     border-color: var(--ld-col-rblck1);
+  }
+
+  .docs-example__tools {
     stroke: var(--ld-col-rblck-default);
 
     .ld-button {
@@ -18,9 +21,12 @@
     background-color: var(--ld-col-rblck-default);
   }
 
-  .docs-example__tools {
+  .docs-example__tools-scroll-container {
     background-color: var(--ld-col-rblck4);
     border-color: var(--ld-col-rblck4);
+  }
+
+  .docs-example__tools {
     stroke: var(--ld-col-wht);
 
     .ld-button {
@@ -46,10 +52,15 @@
 }
 
 .docs-example__code {
-  border-bottom-left-radius: var(--ld-sp-8);
-  border-bottom-right-radius: var(--ld-sp-8);
   overflow: hidden;
   display: none;
+  border-bottom-left-radius: var(--ld-sp-8);
+  border-bottom-right-radius: var(--ld-sp-8);
+
+  pre {
+    border-bottom-left-radius: var(--ld-sp-8);
+    border-bottom-right-radius: var(--ld-sp-8);
+  }
 }
 
 .docs-example__tools-scroll-container {
@@ -57,17 +68,17 @@
   overflow: auto;
   display: flex;
   width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-left-radius: var(--ld-sp-8);
+  border-bottom-right-radius: var(--ld-sp-8);
 }
 
 .docs-example__tools {
   padding: var(--ld-sp-8);
-  border-style: solid;
-  border-width: 1px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom-left-radius: var(--ld-sp-8);
-  border-bottom-right-radius: var(--ld-sp-8);
   flex-grow: 1;
 
   .docs-switch-web-css {
@@ -136,7 +147,7 @@
 }
 
 .docs-example--code-visible {
-  .docs-example__tools {
+  .docs-example__tools-scroll-container {
     border-radius: 0;
   }
 
