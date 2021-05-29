@@ -52,7 +52,8 @@ export class LdButton {
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   private handleClick(ev) {
-    if (this.button.getAttribute('aria-disabled')) {
+    const ariaDisabled = this.button.getAttribute('aria-disabled')
+    if (ariaDisabled && ariaDisabled !== 'false') {
       ev.preventDefault()
       ev.stopImmediatePropagation()
     }
