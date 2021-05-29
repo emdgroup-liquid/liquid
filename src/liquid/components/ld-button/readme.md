@@ -9,8 +9,8 @@ permalink: liquid/components/ld-button/
 
 # Button
 
-Buttons are used for triggering important user actions. A button text should be speaking in the sense of the user’s understanding, rather than in the system’s language.
-Icon-buttons without visual text should contain a screen-reader-only text.
+Buttons are used for triggering events on the user interface. A button's text should express what the button does.
+Icon-buttons without visual text should contain a screen-reader-only text, have an aria-label, a `title` element within the svg icon or an `alt` text on an `img` element.
 
 ---
 
@@ -435,23 +435,6 @@ You can align the text inside the button using the `align-text` propperty.
 | `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
 
-
-## Dependencies
-
-### Used by
-
- - docs-copy-to-cb
- - docs-edit-on-github
- - docs-toggle-code
-
-### Graph
-```mermaid
-graph TD;
-  docs-copy-to-cb --> ld-button
-  docs-edit-on-github --> ld-button
-  docs-toggle-code --> ld-button
-  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

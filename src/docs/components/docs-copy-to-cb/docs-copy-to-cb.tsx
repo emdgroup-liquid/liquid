@@ -30,11 +30,11 @@ export class DocsCopyToCb {
       textArea.value = textToCopy
       textArea.classList.add('ld-sr-only')
       document.body.appendChild(textArea)
-      textArea.focus()
+      textArea.focus({ preventScroll: true })
       textArea.select()
       await document.execCommand('copy')
       textArea.remove()
-      this.el.querySelector('button').focus()
+      this.el.querySelector('button').focus({ preventScroll: true })
     }
   }
 
