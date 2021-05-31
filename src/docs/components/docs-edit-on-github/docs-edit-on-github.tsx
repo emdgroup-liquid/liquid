@@ -16,7 +16,7 @@ export class DocsEditOnGithub {
       <Host class="docs-edit-on-github">
         <ld-button
           size="sm"
-          href={`https://github.com/emdgroup-liquid/liquid/blob/main/${this.path}`}
+          href={`https://github.com/emdgroup-liquid/liquid/blob/develop/${this.path}`}
           target="_blank"
         >
           <ld-icon>
