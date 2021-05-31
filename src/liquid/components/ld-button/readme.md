@@ -10,7 +10,7 @@ permalink: liquid/components/ld-button/
 # Button
 
 Buttons are used for triggering events on the user interface. A button's text should express what the button does.
-Icon-buttons without visual text should contain a screen-reader-only text, have an aria-label, a `title` element within the svg icon or an `alt` text on an `img` element.
+Icon-buttons without visual text should either contain a [screen-reader-only](/liquid/components/ld-sr-only/) text, have an `aria-label`, a `title` element within the svg icon or an `alt` text on an image icon within the button.
 
 ---
 
