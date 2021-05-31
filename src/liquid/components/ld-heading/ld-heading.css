@@ -98,6 +98,15 @@
 :where(ld-heading[visual-level='xb1']),
 :where(ld-heading[visual-level='xb2']),
 :where(ld-heading[visual-level='xb3']),
+:where(ld-heading[visuallevel='b1']),
+:where(ld-heading[visuallevel='b2']),
+:where(ld-heading[visuallevel='b3']),
+:where(ld-heading[visuallevel='b4']),
+:where(ld-heading[visuallevel='b5']),
+:where(ld-heading[visuallevel='b6']),
+:where(ld-heading[visuallevel='xb1']),
+:where(ld-heading[visuallevel='xb2']),
+:where(ld-heading[visuallevel='xb3']),
 :where(:not(ld-heading) > .ld-heading--b1),
 :where(:not(ld-heading) > .ld-heading--b2),
 :where(:not(ld-heading) > .ld-heading--b3),
@@ -109,22 +118,22 @@
 :where(:not(ld-heading) > .ld-heading--xb3) {
   color: var(--ld-col-rb-default);
 
-  :where(.ld-theme-ocean) &,
-  :where([class*='ld-theme'] .ld-theme-ocean) & {
+  .ld-theme-ocean &,
+  [class*='ld-theme'] .ld-theme-ocean & {
     color: var(--ld-col-rb-default);
   }
 
-  :where(.ld-theme-solvent) &,
-  :where([class*='ld-theme'] .ld-theme-solvent) &,
-  :where(.ld-theme-bubblegum) &,
-  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
-  :where(.ld-theme-shake) &,
-  :where([class*='ld-theme'] .ld-theme-shake) & {
+  .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-shake & {
     color: var(--ld-col-rp-default);
   }
 
-  :where(.ld-theme-tea) &,
-  :where([class*='ld-theme'] .ld-theme-tea) & {
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
     color: var(--ld-col-rg-default);
   }
 }
