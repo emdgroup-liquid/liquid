@@ -1,4 +1,4 @@
-:where(ld-button) {
+ld-button {
   display: inline-flex;
 
   > :where(.ld-button) {
@@ -6,7 +6,7 @@
   }
 }
 
-:where(.ld-button) {
+.ld-button {
   --ld-icon-size-sm: 1rem;
   --ld-icon-size-md: 1.25rem;
   --ld-icon-size-lg: 1.5rem;
@@ -127,9 +127,9 @@
 }
 
 /* .ld-theme-ocean -> default */
-:where(.ld-button),
-:where(.ld-theme-ocean .ld-button),
-:where([class*='ld-theme'] .ld-theme-ocean .ld-button) {
+.ld-button,
+.ld-theme-ocean .ld-button,
+[class*='ld-theme'] .ld-theme-ocean .ld-button {
   background-color: var(--ld-thm-ocean-bg-primary);
   color: var(--ld-col-wht);
 
@@ -152,12 +152,12 @@
   }
 }
 
-:where(.ld-theme-bubblegum),
-:where([class*='ld-theme'] .ld-theme-bubblegum),
-:where(.ld-theme-shake),
-:where([class*='ld-theme'] .ld-theme-shake),
-:where(.ld-theme-solvent),
-:where([class*='ld-theme'] .ld-theme-solvent) {
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum,
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake,
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
   :where(.ld-button) {
     background-color: var(--ld-thm-solvent-bg-primary);
 
@@ -181,8 +181,8 @@
   }
 }
 
-:where(.ld-theme-tea),
-:where([class*='ld-theme'] .ld-theme-tea) {
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
   :where(.ld-button) {
     background-color: var(--ld-thm-tea-bg-primary);
 
@@ -205,7 +205,9 @@
   }
 }
 
-.ld-button--highlight {
+.ld-button--highlight,
+[class*='ld-theme'] .ld-button--highlight,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--highlight {
   background-color: var(--ld-col-vy-default);
   color: var(--ld-col-vy6);
 
@@ -226,7 +228,9 @@
   }
 }
 
-.ld-button--danger {
+.ld-button--danger,
+[class*='ld-theme'] .ld-button--danger,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--danger {
   background-color: var(--ld-col-rr-default);
   color: var(--ld-col-wht);
 
@@ -249,7 +253,11 @@
 }
 
 .ld-button--secondary,
-.ld-button--ghost {
+[class*='ld-theme'] .ld-button--secondary,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--secondary,
+.ld-button--ghost,
+[class*='ld-theme'] .ld-button--ghost,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--ghost {
   color: var(--ld-col-rb-default);
   background-color: transparent;
 
@@ -269,13 +277,16 @@
       background-color: var(--ld-col-rblck1);
     }
   }
+}
 
-  :where(.ld-theme-solvent) &,
-  :where(.ld-theme-bubblegum) &,
-  :where(.ld-theme-shake) &,
-  :where([class*='ld-theme'] .ld-theme-solvent) &,
-  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
-  :where([class*='ld-theme'] .ld-theme-shake) & {
+.ld-button--secondary,
+.ld-button--ghost {
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-shake & {
     color: var(--ld-col-rp-default);
 
     &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -294,8 +305,8 @@
     }
   }
 
-  :where(.ld-theme-tea) &,
-  :where([class*='ld-theme'] .ld-theme-tea) & {
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
     color: var(--ld-col-rg-default);
 
     &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -315,7 +326,9 @@
   }
 }
 
-.ld-button--secondary {
+.ld-button--secondary,
+[class*='ld-theme'] .ld-button--secondary,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--secondary {
   box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-default);
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -332,13 +345,15 @@
       box-shadow: inset 0px 0px 0px 2px var(var(--ld-col-rb-active));
     }
   }
+}
 
-  :where(.ld-theme-solvent) &,
-  :where(.ld-theme-bubblegum) &,
-  :where(.ld-theme-shake) &,
-  :where([class*='ld-theme'] .ld-theme-solvent) &,
-  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
-  :where([class*='ld-theme'] .ld-theme-shake) & {
+.ld-button--secondary {
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-shake & {
     box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-default);
 
     &:where(&:not(:disabled):not([aria-disabled])) {
@@ -357,8 +372,8 @@
     }
   }
 
-  :where(.ld-theme-tea) &,
-  :where([class*='ld-theme'] .ld-theme-tea) & {
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
     box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-default);
 
     &:where(&:not(:disabled):not([aria-disabled])) {
@@ -378,22 +393,21 @@
   }
 }
 
-.ld-button--on-brand-color {
+.ld-button--on-brand-color,
+[class*='ld-theme'] .ld-button--on-brand-color,
+[class*='ld-theme'] [class*='ld-theme'] .ld-button--on-brand-color {
   --ld-col-ob-wht-active: rgba(255, 255, 255, 0.5);
   --ld-col-ob-wht-hover: rgba(255, 255, 255, 0.7);
   --ld-col-ob-wht-focus: rgba(255, 255, 255, 0.9);
   background-color: var(--ld-col-wht);
-  color: var(--ld-col-rb-default);
 
   &:where(&:not(:disabled):not([aria-disabled])) {
     &:focus:focus-visible {
       background-color: var(--ld-col-ob-wht-focus);
-      color: var(--ld-col-rb-focus);
     }
     @media (hover: hover) {
       &:hover {
         background-color: var(--ld-col-ob-wht-hover);
-        color: var(--ld-col-rb-default);
       }
     }
     &:active,
@@ -401,9 +415,23 @@
       background-color: var(--ld-col-ob-wht-active);
     }
   }
+}
 
-  :where(.ld-theme-tea) &,
-  :where([class*='ld-theme'] .ld-theme-tea) & {
+.ld-button--on-brand-color,
+.ld-theme-ocean .ld-button--on-brand-color,
+[class*='ld-theme'] .ld-theme-ocean .ld-button--on-brand-color {
+  color: var(--ld-col-rb-default);
+
+  &:where(&:not(:disabled):not([aria-disabled])) {
+    &:focus:focus-visible {
+      color: var(--ld-col-rb-focus);
+    }
+  }
+}
+
+.ld-button--on-brand-color {
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
     color: var(--ld-col-rg-default);
 
     &:where(&:not(:disabled):not([aria-disabled])) {
@@ -413,24 +441,15 @@
     }
   }
 
-  :where(.ld-theme-solvent) &,
-  :where(.ld-theme-bubblegum) &,
-  :where(.ld-theme-shake) &,
-  :where([class*='ld-theme'] .ld-theme-solvent) &,
-  :where([class*='ld-theme'] .ld-theme-bubblegum) &,
-  :where([class*='ld-theme'] .ld-theme-shake) & {
+  .ld-theme-solvent &,
+  .ld-theme-bubblegum &,
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-shake & {
     color: var(--ld-col-rp-default);
 
     &:where(&:not(:disabled):not([aria-disabled])) {
-      @media (hover: hover) {
-        &:hover {
-          color: var(--ld-col-rp-default);
-        }
-      }
-      &:active,
-      &:active:focus-visible {
-        color: var(--ld-col-rp-default);
-      }
       &:focus:focus-visible {
         color: var(--ld-col-rp-focus);
       }
@@ -438,7 +457,8 @@
   }
 }
 
-.ld-button--secondary-on-brand-color {
+.ld-button--secondary-on-brand-color,
+[class*='ld-theme'] .ld-button--secondary-on-brand-color {
   --ld-col-sob-wht-active: rgba(255, 255, 255, 0.8);
   --ld-col-sob-wht-active-bg: rgba(255, 255, 255, 0.1);
   --ld-col-sob-wht-hover-bg: rgba(255, 255, 255, 0.2);
