@@ -1,0 +1,299 @@
+{
+  "themes": {
+    "bubblegum": {
+      "bg-secondary": "rgba(40, 25, 73, 1)",
+      "bg-primary": "rgba(80, 50, 145, 1)",
+      "accent": "rgba(45, 190, 205, 1)",
+      "highlight": "rgba(255, 200, 50, 1)"
+    },
+    "solvent": {
+      "bg-secondary": "rgba(40, 25, 73, 1)",
+      "bg-primary": "rgba(80, 50, 145, 1)",
+      "accent": "rgba(165, 205, 80, 1)",
+      "highlight": "rgba(255, 200, 50, 1)"
+    },
+    "ocean": {
+      "bg-secondary": "rgba(8, 53, 88, 1)",
+      "bg-primary": "rgba(15, 105, 175, 1)",
+      "accent": "rgba(45, 190, 205, 1)",
+      "highlight": "rgba(255, 200, 50, 1)"
+    },
+    "tea": {
+      "bg-secondary": "rgba(5, 46, 28, 1)",
+      "bg-primary": "rgba(1, 136, 76, 1)",
+      "accent": "rgba(165, 205, 80, 1)",
+      "highlight": "rgba(255, 200, 50, 1)"
+    },
+    "shake": {
+      "bg-secondary": "rgba(40, 25, 73, 1)",
+      "bg-primary": "rgba(80, 50, 145, 1)",
+      "accent": "rgba(235, 60, 150, 1)",
+      "highlight": "rgba(255, 200, 50, 1)"
+    }
+  },
+  "shadows": {
+    "stacked": "0rem 0.125rem 0.25rem rgba(9, 23, 52, 0.15), 0rem -0.0625rem 0.0625rem rgba(9, 23, 52, 0.05)",
+    "sticky": "0rem 0rem 0.25rem rgba(9, 23, 52, 0.15), 0rem 0.75rem 1.25rem rgba(9, 23, 52, 0.15)",
+    "hover": "0rem 0rem 0.25rem rgba(9, 23, 52, 0.15), 0rem 1rem 2rem rgba(9, 23, 52, 0.15)",
+    "active": "0rem 0rem 0.25rem rgba(9, 23, 52, 0.15), 0rem 1.5rem 2.5rem rgba(9, 23, 52, 0.15)"
+  },
+  "spacings": {
+    "1": "0.0625rem",
+    "2": "0.125rem",
+    "4": "0.25rem",
+    "6": "0.375rem",
+    "8": "0.5rem",
+    "12": "0.75rem",
+    "16": "1rem",
+    "24": "1.5rem",
+    "32": "2rem",
+    "40": "2.5rem"
+  },
+  "colors": {
+    "vc-hover": "rgba(33, 129, 150, 1)",
+    "vc-focus": "rgba(100, 211, 222, 1)",
+    "vc-active": "rgba(12, 56, 61, 1)",
+    "rb-hover": "rgba(21, 71, 109, 1)",
+    "rb-focus": "rgba(73, 159, 225, 1)",
+    "rb-active": "rgba(8, 53, 88, 1)",
+    "rg-hover": "rgba(17, 86, 55, 1)",
+    "rg-focus": "rgba(69, 174, 127, 1)",
+    "rg-active": "rgba(5, 46, 28, 1)",
+    "rp-hover": "rgba(60, 34, 116, 1)",
+    "rp-focus": "rgba(151, 115, 225, 1)",
+    "rp-active": "rgba(40, 25, 73, 1)",
+    "vm-hover": "rgba(185, 54, 121, 1)",
+    "vm-focus": "rgba(255, 141, 200, 1)",
+    "vm-active": "rgba(85, 18, 52, 1)",
+    "vg-hover": "rgba(127, 166, 46, 1)",
+    "vg-focus": "rgba(207, 232, 154, 1)",
+    "vg-active": "rgba(38, 56, 0, 1)",
+    "vy-hover": "rgba(191, 140, 0, 1)",
+    "vy-focus": "rgba(255, 222, 132, 1)",
+    "vy-active": "rgba(61, 40, 10, 1)",
+    "rr-hover": "rgba(115, 40, 58, 1)",
+    "rr-focus": "rgba(252, 82, 124, 1)",
+    "rr-active": "rgba(75, 5, 23, 1)",
+    "rr-primary": "rgba(230, 30, 80, 1)",
+    "rblck-hover": "rgba(63, 63, 75, 1)",
+    "rblck-focus": "rgba(140, 140, 155, 1)",
+    "rblck-active": "rgba(9, 23, 52, 1)",
+    "rblck-primary": "rgba(97, 97, 112, 1)",
+    "disabled": "rgba(220, 220, 232, 1)",
+    "vm4": "rgba(185, 54, 121, 1)",
+    "vm5": "rgba(137, 25, 82, 1)",
+    "vm6": "rgba(85, 18, 52, 1)",
+    "vm3/default": "rgba(235, 60, 150, 1)",
+    "vm2": "rgba(255, 141, 200, 1)",
+    "vm1": "rgba(255, 245, 250, 1)",
+    "rb6": "rgba(8, 53, 88, 1)",
+    "rp55": "rgba(60, 34, 116, 1)",
+    "rb55": "rgba(21, 71, 109, 1)",
+    "rb5/default": "rgba(15, 105, 175, 1)",
+    "rb4": "rgba(33, 134, 211, 1)",
+    "rb3": "rgba(73, 159, 225, 1)",
+    "rb2": "rgba(129, 187, 233, 1)",
+    "rb1": "rgba(244, 250, 255, 1)",
+    "rr6": "rgba(75, 5, 23, 1)",
+    "rr5": "rgba(115, 40, 58, 1)",
+    "rr4/default": "rgba(230, 30, 80, 1)",
+    "rr3": "rgba(252, 82, 124, 1)",
+    "rr2": "rgba(255, 146, 173, 1)",
+    "rr1": "rgba(255, 246, 248, 1)",
+    "rblck6/default": "rgba(9, 23, 52, 1)",
+    "rblck5": "rgba(63, 63, 75, 1)",
+    "rblck4": "rgba(97, 97, 112, 1)",
+    "rblck3": "rgba(140, 140, 155, 1)",
+    "rblck2": "rgba(180, 180, 193, 1)",
+    "rblck1": "rgba(220, 220, 232, 1)",
+    "rp6": "rgba(40, 25, 73, 1)",
+    "rp5/default": "rgba(80, 50, 145, 1)",
+    "rp4": "rgba(113, 78, 187, 1)",
+    "rp3": "rgba(151, 115, 225, 1)",
+    "rp2": "rgba(186, 163, 237, 1)",
+    "rp1": "rgba(250, 247, 255, 1)",
+    "vg6": "rgba(38, 56, 0, 1)",
+    "vg5": "rgba(93, 118, 41, 1)",
+    "vg4": "rgba(127, 166, 46, 1)",
+    "vg3/default": "rgba(165, 205, 80, 1)",
+    "vg2": "rgba(207, 232, 154, 1)",
+    "vg1": "rgba(250, 253, 242, 1)",
+    "vy6": "rgba(61, 40, 10, 1)",
+    "vy5": "rgba(128, 78, 3, 1)",
+    "vy4": "rgba(191, 140, 0, 1)",
+    "vy3/default": "rgba(255, 200, 50, 1)",
+    "vy2": "rgba(255, 222, 132, 1)",
+    "vy1": "rgba(254, 251, 245, 1)",
+    "bg-g": "rgba(232, 232, 243, 1)",
+    "bg-lg": "rgba(248, 248, 252, 1)",
+    "wht": "rgba(255, 255, 255, 1)",
+    "rg6": "rgba(5, 46, 28, 1)",
+    "rg5": "rgba(17, 86, 55, 1)",
+    "rg4/default": "rgba(1, 136, 76, 1)",
+    "rg3": "rgba(69, 174, 127, 1)",
+    "rg2": "rgba(132, 202, 171, 1)",
+    "rg1": "rgba(244, 251, 248, 1)",
+    "vc6": "rgba(12, 56, 61, 1)",
+    "vc5": "rgba(24, 88, 108, 1)",
+    "vc4": "rgba(33, 129, 150, 1)",
+    "vc3/default": "rgba(45, 190, 205, 1)",
+    "vc2": "rgba(100, 211, 222, 1)",
+    "vc1": "rgba(248, 253, 254, 1)"
+  },
+  "typography": {
+    "display": {
+      "xh1": {
+        "fontSize": "5.75rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xh2": {
+        "fontSize": "4.5rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xh3": {
+        "fontSize": "4rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xh4": {
+        "fontSize": "3rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xh5": {
+        "fontSize": "2.5rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xh6": {
+        "fontSize": "2.25rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h1": {
+        "fontSize": "2rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h2": {
+        "fontSize": "1.625rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h3": {
+        "fontSize": "1.375rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h4": {
+        "fontSize": "1.125rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h5": {
+        "fontSize": "1rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "h6": {
+        "fontSize": "0.875rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "Lato"
+      },
+      "xb1": {
+        "fontSize": "5.75rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "xb2": {
+        "fontSize": "4.5rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "xb3": {
+        "fontSize": "4rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b1": {
+        "fontSize": "3rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b2": {
+        "fontSize": "2.5rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b3": {
+        "fontSize": "2.25rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b4": {
+        "fontSize": "2rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b5": {
+        "fontSize": "1.625rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      },
+      "b6": {
+        "fontSize": "1.375rem",
+        "lineHeight": "120%",
+        "fontFamiliy": "MWeb"
+      }
+    },
+    "body": {
+      "body-xs": {
+        "fontSize": "0.75rem",
+        "lineHeight": "180%",
+        "fontFamiliy": "Lato"
+      },
+      "body-s": {
+        "fontSize": "0.875rem",
+        "lineHeight": "176%",
+        "fontFamiliy": "Lato"
+      },
+      "body-m": {
+        "fontSize": "1rem",
+        "lineHeight": "160%",
+        "fontFamiliy": "Lato"
+      },
+      "body-l": {
+        "fontSize": "1.125rem",
+        "lineHeight": "160%",
+        "fontFamiliy": "Lato"
+      },
+      "body-xl": {
+        "fontSize": "1.375rem",
+        "lineHeight": "160%",
+        "fontFamiliy": "Lato"
+      },
+      "cap-l": {
+        "fontSize": "1.25rem",
+        "lineHeight": "140%",
+        "fontFamiliy": "Lato"
+      },
+      "cap-m": {
+        "fontSize": "0.875rem",
+        "lineHeight": "140%",
+        "fontFamiliy": "Lato"
+      },
+      "label-m": {
+        "fontSize": "1rem",
+        "lineHeight": "140%",
+        "fontFamiliy": "Lato"
+      },
+      "label-s": {
+        "fontSize": "0.875rem",
+        "lineHeight": "140%",
+        "fontFamiliy": "Lato"
+      }
+    }
+  }
+}

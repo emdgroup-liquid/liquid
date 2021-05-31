@@ -344,12 +344,10 @@ function generateCSSTokenFiles(tokenCollection) {
 }
 
 function generateJSONTokenFile(tokenCollection) {
-  return mkdir('./dist/css/', { recursive: true }).then(() =>
-    writeFile(
-      './dist/css/design-tokens.json',
-      JSON.stringify(tokenCollection, null, 2),
-      'utf8'
-    )
+  writeFile(
+    './src/liquid/global/styles/design-tokens.json',
+    JSON.stringify(tokenCollection, null, 2),
+    'utf8'
   )
 }
 
