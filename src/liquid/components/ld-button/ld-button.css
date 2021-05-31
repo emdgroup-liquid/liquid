@@ -264,6 +264,7 @@ ld-button {
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:focus:focus-visible {
       color: var(--ld-col-rb-focus);
+      background-color: var(--ld-col-bg-g);
     }
     @media (hover: hover) {
       &:hover {
