@@ -24,6 +24,9 @@ export class DocsExample {
   /** Themed background. */
   @Prop() brand = false
 
+  /** Enables theme switch. */
+  @Prop() themable = false
+
   /** Current theme. */
   @State() currentTheme: ThemeName = ThemeName.ocean
 
@@ -60,7 +63,7 @@ export class DocsExample {
     }
 
     let clShow = 'docs-example__show'
-    if (this.currentTheme) {
+    if (this.themable && this.currentTheme) {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }
     if (this.stacked) clShow += ' docs-example__show--stacked'
@@ -78,7 +81,7 @@ export class DocsExample {
               <docs-switch-web-css></docs-switch-web-css>
             )}
             <div class="docs-example__tool-buttons">
-              <docs-pick-theme />
+              {this.themable && <docs-pick-theme />}
               <docs-copy-to-cb
                 textToCopy={decodeURIComponent(
                   this.isWebComponent ? this.code : this.codeCssComponent
