@@ -71,18 +71,20 @@ export class DocsToc {
     })
   }
 
-  componentWillLoad() {
+  componentDidRender() {
     // Generating a list of heading links
-    this.headings = Array.from(
-      document.querySelectorAll(
-        '#main > main > h1, #main > main > h2, #main > main > h3'
+    setTimeout(() => {
+      this.headings = Array.from(
+        document.querySelectorAll(
+          '#main > main > h1, #main > main > h2, #main > main > h3'
+        )
       )
-    )
 
-    // Adding an Intersection Observer
-    const links = Array.from(this.el.querySelectorAll('a'))
-    const observer = this.createObserver(links)
-    this.headings.map((heading) => observer.observe(heading))
+      // Adding an Intersection Observer
+      const links = Array.from(this.el.querySelectorAll('a'))
+      const observer = this.createObserver(links)
+      this.headings.map((heading) => observer.observe(heading))
+    })
   }
 
   render() {

@@ -9,7 +9,7 @@ import { Component, h, Prop, getAssetPath } from '@stencil/core'
 })
 export class LdInputMessage {
   /** Input message mode. */
-  @Prop() mode: 'error' | 'info' = 'error'
+  @Prop() mode: 'error' | 'info' | 'valid' = 'error'
 
   /**
    * This property does **not** change the visual appearance of the input message.

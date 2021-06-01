@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
@@ -74,11 +74,11 @@ export class LdInput {
 
   render() {
     let cl = 'ld-input'
-    cl += ` ld-input--${this.mode}`
+    if (this.mode === 'light') cl += ' ld-input--light'
     if (this.invalid) cl += ' ld-input--invalid'
 
     return (
-      <Host class={cl} onClick={this.handleClick.bind(this)}>
+      <div class={cl} onClick={this.handleClick.bind(this)}>
         <slot name="start"></slot>
         <input
           ref={(el) => (this.input = el as HTMLInputElement)}
@@ -90,8 +90,13 @@ export class LdInput {
           {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           value={this.value}
         />
+        {this.type === 'file' && (
+          <span class="ld-input__placeholder">
+            {this.input?.value || this.placeholder}
+          </span>
+        )}
         <slot name="end"></slot>
-      </Host>
+      </div>
     )
   }
 }

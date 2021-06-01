@@ -9,43 +9,223 @@ permalink: liquid/components/ld-input/
 
 # ld-input
 
+The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.
+
+This component can be used in conjunction with the [`ld-label`](/liquid/components/ld-label/) and the [`ld-input-message`](/liquid/components/ld-input-message/) component.
+
 ---
 
-## Web component
+## Examples
+
+### Default
 
 {% example %}
 <ld-input placeholder="Placeholder"></ld-input>
+
 <ld-input value="Value"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input">
+  <input placeholder="Placeholder" value="Value">
+</div>
 {% endexample %}
 
 ### Disabled
 
 {% example %}
 <ld-input placeholder="Placeholder" disabled></ld-input>
+
 <ld-input disabled value="Value"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" disabled>
+</div>
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" value="Value" disabled>
+</div>
 {% endexample %}
 
 **If you want the input to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
 <ld-input placeholder="Placeholder" aria-disabled="true"></ld-input>
+
 <ld-input aria-disabled="true" value="Value"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" aria-disabled="true" id="focusable-disabled-input-1">
+</div>
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" value="Value" aria-disabled="true" id="focusable-disabled-input-2">
+</div>
+
+<!-- Example code for input prevention on aria-disabled input elements -->
+<script>
+  const inputs = document.querySelectorAll('#focusable-disabled-input-1, #focusable-disabled-input-2')
+  Array.from(inputs).forEach(input => {
+    const initialValue = input.value
+    input.addEventListener('input', () => {
+      input.value = initialValue
+    })
+  })
+</script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input  by resetting the input to its previous value on each input event.
+> **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of `ld-input` with `aria-disabled`, you will have to prevent the default behaviour of the input element yourself. 
 
-### Light mode
+### Mode light
 
 {% example %}
 <ld-input mode="light" placeholder="Placeholder"></ld-input>
-<ld-input mode="light" value="Value"></ld-input>
+
+<ld-input mode="light" placeholder="Placeholder" disabled></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input ld-input--light">
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input ld-input--light" disabled>
+  <input placeholder="Placeholder" disabled>
+</div>
 {% endexample %}
 
-### Light mode, disabled
+### Invalid
 
 {% example %}
-<ld-input mode="light" disabled placeholder="Placeholder"></ld-input>
-<ld-input mode="light" disabled value="Value"></ld-input>
+<ld-input invalid placeholder="Placeholder"></ld-input>
+
+<ld-input invalid placeholder="Placeholder" disabled></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input ld-input--invalid">
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input ld-input--invalid" disabled>
+  <input placeholder="Placeholder" disabled>
+</div>
+{% endexample %}
+
+### Type password
+
+{% example %}
+<ld-input placeholder="Password" type="password" min="0"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Password" type="password" min="0">
+</div>
+{% endexample %}
+
+### Type number
+
+{% example %}
+<ld-input placeholder="Your age in years" type="number" min="0"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your age in years" type="number" min="0">
+</div>
+{% endexample %}
+
+### Type tel
+
+Triggers a telephone keypad in some devices with dynamic keypads.
+
+{% example %}
+<ld-input placeholder="Your phone number" type="tel"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your phone number" type="tel">
+</div>
+{% endexample %}
+
+### Type search
+
+{% example %}
+<ld-input placeholder="Search" type="search"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Search" type="search">
+</div>
+{% endexample %}
+
+### Type date
+
+{% example %}
+<ld-input placeholder="Birthday" type="date" value="2017-06-01"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Birthday" type="date" value="2017-06-01">
+</div>
+{% endexample %}
+
+### Type time
+
+{% example %}
+<ld-input placeholder="Time of reservation" type="time" value="13:30"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Time of reservation" type="time" value="13:30">
+</div>
+{% endexample %}
+
+### Type email
+
+Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
+
+{% example %}
+<ld-input placeholder="Your email address" type="email"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your email address" type="email">
+</div>
+{% endexample %}
+
+### Type url
+
+Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
+
+{% example %}
+<ld-input placeholder="Your website URL" type="url"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your website URL" type="url">
+</div>
+{% endexample %}
+
+### Type file
+
+{% example %}
+<ld-input placeholder="Your profile image" type="file"></ld-input>
 {% endexample %}
 
 ### With label
@@ -53,8 +233,17 @@ permalink: liquid/components/ld-input/
 {% example %}
 <ld-label>
   Email Address
-  <ld-input placeholder="jane.doe@example.com"></ld-input>
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+</label>
 {% endexample %}
 
 Please reffer to the [ld-label](/liquid/components/ld-label/) docs for more information on the label component.
@@ -62,18 +251,54 @@ Please reffer to the [ld-label](/liquid/components/ld-label/) docs for more info
 ### With label and input message
 
 {% example %}
-<div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%;">
+<div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
   <ld-label>
     Email Address
-    <ld-input invalid placeholder="jane.doe@example.com" value="yolo"></ld-input>
+    <ld-input invalid placeholder="jane.doe@example.com" value="yolo" type="email"></ld-input>
     <ld-input-message>The email address is invalid.</ld-input-message>
   </ld-label>
 
   <ld-label>
     Password
-    <ld-input type="password" value="asdf1234" type password></ld-input>
+    <ld-input type="password" value="asdf1234"></ld-input>
     <ld-input-message mode="info">Use at least one special character (~!@#$%^&*_-+=|\(){}[]:;<>,.?/)</ld-input-message>
   </ld-label>
+</div>
+
+<!-- CSS component -->
+
+<div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
+  <label class="ld-label">
+    Email Address
+    <div class="ld-input ld-input--invalid">
+      <input placeholder="jane.doe@example.com" value="yolo" type="email">
+    </div>
+    <span class="ld-input-message ld-input-message--error">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+        <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      The email address is invalid.
+    </span>
+  </label>
+  
+  <label class="ld-label">
+    Password
+    <div class="ld-input">
+      <input type="password" value="asdf1234">
+    </div>
+    <span class="ld-input-message">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+        <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
+      </svg>
+      Use at least one special character (~!@#$%^&*_-+=|\(){}[]:;<>,.?/)
+    </span>
+  </label>
 </div>
 {% endexample %}
 
@@ -84,24 +309,52 @@ By default, the input field stretches to the maximum width of its wrapping label
 {% example %}
 <ld-label>
   Email Address
-  <ld-input placeholder="jane.doe@example.com"></ld-input>
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
   <ld-input-message mode="info">This info message is extremely long and makes all three components (the label, the input and itself) grow horizontaly.</ld-input-message>
 </ld-label>
 
 <ld-label style="max-width: 20rem">
   Email Address
-  <ld-input placeholder="jane.doe@example.com"></ld-input>
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
   <ld-input-message mode="info">This info message is also extremely long, but since the label has a max width, all three components (the label, the input and itself) can take only the maximum width of the label.</ld-input-message>
 </ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+  <span class="ld-input-message">
+    <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+      <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
+    </svg>
+    This info message is extremely long and makes all three components (the label, the input and itself) grow horizontaly.
+  </span>
+</label>
+
+<label class="ld-label" style="max-width: 20rem">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+  <span class="ld-input-message">
+    <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+      <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
+    </svg>
+    This info message is also extremely long, but since the label has a max width, all three components (the label, the input and itself) can take only the maximum width of the label.
+  </span>
+</label>
 {% endexample %}
 
 When displaying input messages conditionally (i.e. an error message becomes visible as soon as an input has been interacted with, but the value is still invalid) you should try to position UI elements in a way that prevents [layout shifts](https://web.dev/cls/). For instance, you can “reserve space” for your messages and then make them appear in the reserved space without pushing other content to the bottom (i.e. using `position: absolute` or some “flexy” layout). Needless to say, results look best if you keep the messages short.
-
-### With type search
-
-{% example %}
-<ld-input placeholder="Search" type="search"></ld-input>
-{% endexample %}
 
 ### With slotted elements
 
@@ -111,66 +364,240 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder">
-  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+  <ld-icon name="placeholder" slot="end"></ld-icon>
 </ld-input>
-  <ld-input placeholder="Placeholder">
-<ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
-</ld-input>
+
 <ld-input placeholder="Placeholder">
-  <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
-  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+  <ld-icon name="placeholder" slot="start"></ld-icon>
 </ld-input>
+
+<ld-input placeholder="Placeholder">
+  <ld-icon name="placeholder" slot="start"></ld-icon>
+  <ld-icon name="placeholder" slot="end"></ld-icon>
+</ld-input>
+
 <ld-input placeholder="Placeholder" disabled>
-  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+  <ld-icon name="placeholder" slot="end"></ld-icon>
 </ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</div>
+
+<div class="ld-input">
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input">
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+  <input placeholder="Placeholder">
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</div>
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" disabled>
+  <span class="ld-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Text</title>
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</div>
 {% endexample %}
+
+> **Note**: The web component `ld-input` listens for `click` events on the contained `ld-icon` component and automatically focuses the input field on icon click. The CSS component version of `ld-input` doesn't do that.
 
 #### With button
 
 {% example %}
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="end">
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="start">
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="start">
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="end">
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
+<ld-input placeholder="Placeholder">
+  <ld-button slot="end" aria-label="Submit">
+    <ld-icon name="placeholder" size="sm"></ld-icon>
+  </ld-button>
+</ld-input>
+
 <ld-input placeholder="Placeholder">
   <ld-button slot="end">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    Submit <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
-<ld-input placeholder="Placeholder">
-  <ld-button slot="end">
-    search <ld-icon name="placeholder" size="sm"></ld-icon>
-  </ld-button>
-</ld-input>
+
 <ld-input placeholder="Placeholder">
   <ld-button size="sm" slot="end">
-    search <ld-icon name="placeholder" size="sm"></ld-icon>
+    Submit <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
 <ld-input placeholder="Placeholder" disabled>
-  <ld-button mode="ghost" slot="end" disabled>
+  <ld-button mode="ghost" slot="end" disabled aria-label="Submit">
     <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
 <ld-input placeholder="Placeholder" disabled>
   <ld-button size="sm" slot="end" disabled>
-    search <ld-icon name="placeholder" size="sm"></ld-icon>
+    Submit <ld-icon name="placeholder" size="sm"></ld-icon>
   </ld-button>
 </ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <button class="ld-button ld-button--ghost" aria-label="Submit">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input">
+  <button class="ld-button ld-button--ghost" aria-label="Submit">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+  <input placeholder="Placeholder">
+</div>
+
+<div class="ld-input">
+  <button class="ld-button ld-button--ghost" aria-label="Submit">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+  <input placeholder="Placeholder">
+  <button class="ld-button ld-button--ghost" aria-label="Submit">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <button class="ld-button" aria-label="Submit">
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <button class="ld-button">
+    Submit
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <button class="ld-button ld-button--sm">
+    Submit
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" disabled>
+  <button class="ld-button ld-button--ghost" aria-label="Submit" disabled>
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<div class="ld-input" disabled>
+  <input placeholder="Placeholder" disabled>
+  <button class="ld-button ld-button--sm" disabled>
+    Submit
+    <span class="ld-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+      </svg>
+    </span>
+  </button>
+</div>
 {% endexample %}
 
 #### With custom component
@@ -179,11 +606,18 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <ld-input placeholder="Placeholder">
   <span slot="end">🤓</span>
 </ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Placeholder">
+  <span>🤓</span>
+</div>
 {% endexample %}
 
 ### Input validation
 
-The `ld-input` component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/liquid/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
+The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/liquid/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
 
 {% example %}
 <style>
@@ -269,56 +703,6 @@ The `ld-input` component does not provide any properties or methods for validati
 </script>
 {% endexample %}
 
-## CSS component
-
-If you'd rather like to use the CSS component, inspect and copy the markup and CSS classes from the examples above (you might want to replace the wrapping `ld-` element with a `div`, while keeping the CSS classes). You will be able to achieve pretty much the same result. Here are some examples:
-
-{% example %}
-<div class="ld-input ld-input--dark">
-  <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--dark">
-  <input placeholder="Placeholder">
-  <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
-<div class="ld-input ld-input--dark" disabled>
-  <input placeholder="Placeholder" disabled>
-  <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
-<label class="ld-label" style="width: 20rem">
-  Email Address
-  <div class="ld-input ld-input--dark ld-input--invalid ld-input--dirty">
-    <input placeholder="jane.doe@example.com">
-  </div>
-  <span class="hydrated">
-    <span class="ld-input-message ld-input-message--error">
-      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <title>Error</title>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
-        <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span aria-live="assertive"><span>The email address is invalid.</span></span>
-    </span>
-  </span>
-</label>
-{% endexample %}
-
 
 <!-- Auto Generated Below -->
 
@@ -341,19 +725,6 @@ If you'd rather like to use the CSS component, inspect and copy the markup and C
 | `"end"`   | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the start of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right. |
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
 
-
-## Dependencies
-
-### Used by
-
- - docs-search
-
-### Graph
-```mermaid
-graph TD;
-  docs-search --> ld-input
-  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

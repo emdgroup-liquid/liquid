@@ -1,6 +1,12 @@
 .ld-input-message {
-  display: inline-grid;
-  grid-auto-flow: column;
+  display: inline-flex;
+  align-items: flex-start;
+  font: var(--ld-typo-body-s);
+  line-height: 1.5;
+}
+
+.ld-input-message--valid {
+  color: var(--ld-col-rg-default);
 }
 
 .ld-input-message--error {
@@ -8,7 +14,8 @@
 }
 
 .ld-input-message__icon {
-  transform: translateY(0.075rem);
+  transform: translateY(0.1rem);
   margin-top: var(--ld-sp-2);
   margin-right: var(--ld-sp-6);
+  flex-shrink: 0;
 }

@@ -8,6 +8,7 @@ ld-label {
   flex-direction: column;
   gap: var(--ld-sp-6);
   max-width: 100%;
+  align-self: flex-start;
 
   ld-label & {
     width: 100%;

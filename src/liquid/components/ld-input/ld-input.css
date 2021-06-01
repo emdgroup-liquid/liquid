@@ -4,11 +4,17 @@
 }
 */
 
+ld-input {
+  border-radius: var(--ld-sp-4);
+}
+
 .ld-input {
   --ld-input-padding-x: 0.625rem;
   --ld-input-padding-top: 0.625rem;
   --ld-input-padding-bottom: 0.6875rem;
   --ld-input-max-height: 2.5rem;
+  --ld-input-transparent: rgba(255, 255, 255, 0);
+  position: relative;
   display: inline-flex;
   align-items: center;
   background-color: var(--ld-col-bg-g);
@@ -17,17 +23,18 @@
   max-width: 100%;
   border-radius: var(--ld-sp-4);
   line-height: 1;
+  min-height: var(--ld-sp-40);
 
   > :where(:not(input)) {
     user-select: none;
   }
 
   > :where(:not(input):first-child) {
-    margin-left: var(--ld-sp-12);
+    margin-left: var(--ld-input-padding-x);
   }
 
   > :where(:not(input):last-child) {
-    margin-right: var(--ld-sp-12);
+    margin-right: var(--ld-input-padding-x);
   }
 
   > input {
@@ -35,15 +42,34 @@
       var(--ld-input-padding-bottom);
     font: var(--ld-typo-body-m);
     line-height: 1;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0);
     width: 100%;
     border: 0;
     border-radius: var(--ld-sp-4);
     max-height: var(--ld-input-max-height);
+    outline: none;
     -webkit-appearance: none;
 
     &::placeholder {
       color: var(--ld-col-rblck4);
+    }
+
+    &[type='file'] {
+      opacity: 0;
+
+      &::-webkit-file-upload-button {
+        display: none;
+      }
+    }
+
+    &[type='number'] {
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
 
     &[type='search'] {
@@ -58,7 +84,8 @@
 
   > ld-button,
   > .ld-button {
-    background-color: transparent;
+    background-color: var(--ld-input-transparent);
+    flex-shrink: 0;
 
     &:first-child,
     &:first-child > button {
@@ -101,6 +128,7 @@
       }
     }
   }
+
   > ld-button.hydrated > button.ld-button--ghost,
   > button.ld-button.ld-button--ghost {
     @media (hover: hover) {
@@ -123,14 +151,18 @@
 
   .ld-theme-solvent &,
   .ld-theme-bubblegum &,
-  .ld-theme-shake & {
+  .ld-theme-shake &,
+  [class*='ld-theme'] .ld-theme-solvent &,
+  [class*='ld-theme'] .ld-theme-bubblegum &,
+  [class*='ld-theme'] .ld-theme-shake & {
     > ld-icon,
     > .ld-icon {
       color: var(--ld-col-rp-default);
     }
   }
 
-  .ld-theme-tea & {
+  .ld-theme-tea &,
+  [class*='ld-theme'] .ld-theme-tea & {
     > ld-icon,
     > .ld-icon {
       color: var(--ld-col-rg-default);
@@ -146,20 +178,56 @@
   background-color: var(--ld-col-wht);
 }
 
-:where(.ld-input:not([disabled]:not([aria-disabled]))) {
-  &:hover {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
+:not([disabled]) {
+  > .ld-input:not(.ld-input--invalid) {
+    &:focus-within {
+      .ld-theme-ocean &,
+      [class*='ld-theme'] .ld-theme-ocean & {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+      }
+      .ld-theme-solvent &,
+      .ld-theme-bubblegum &,
+      .ld-theme-shake &,
+      [class*='ld-theme'] .ld-theme-solvent &,
+      [class*='ld-theme'] .ld-theme-bubblegum &,
+      [class*='ld-theme'] .ld-theme-shake & {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+      }
+      .ld-theme-tea &,
+      [class*='ld-theme'] .ld-theme-tea & {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+      }
+    }
+  }
+  > .ld-input.ld-input--invalid {
+    &:focus-within {
+      background-color: var(--ld-col-wht);
+    }
+  }
+
+  &:not([aria-disabled]) {
+    > .ld-input:not(.ld-input--invalid):not([aria-disabled]):not([disabled]) {
+      @media (hover: hover) {
+        &:hover:not(:focus-within) {
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
+        }
+      }
+    }
   }
 }
 
-:where(.ld-input) {
+ld-input,
+.ld-input {
   &[disabled],
   &[aria-disabled] {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
-    background-color: transparent;
-    color: var(--ld-col-rblck1);
+    &.ld-input,
+    .ld-input {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
+      color: var(--ld-col-rblck2);
+      background-color: var(--ld-input-transparent);
+    }
 
-    > input {
+    input {
       color: currentColor;
       caret-color: transparent;
 
@@ -168,44 +236,67 @@
       }
     }
 
-    [class*='ld-theme'] & {
-      > ld-icon,
-      > .ld-icon {
+    ld-icon,
+    .ld-icon {
+      color: currentColor;
+    }
+
+    [class*='ld-theme'] &,
+    [class*='ld-theme'] [class*='ld-theme'] & {
+      ld-icon,
+      .ld-icon {
         color: currentColor;
       }
     }
   }
-  &:focus-within {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+}
 
-    &:not([disabled]):not([aria-disabled]) {
-      background-color: var(--ld-col-wht);
-    }
+:not([disabled]):not([aria-disabled]),
+[class*='ld-theme'] :not([disabled]):not([aria-disabled]),
+[class*='ld-theme'] [class*='ld-theme'] :not([disabled]):not([aria-disabled]) {
+  > .ld-input--invalid:not([disabled]):not([aria-disabled]) {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
 
     > input {
-      outline: none;
+      color: var(--ld-col-rr-default);
+
+      &::placeholder {
+        color: var(--ld-col-rr3);
+      }
     }
 
-    .ld-theme-solvent &,
-    .ld-theme-bubblegum &,
-    .ld-theme-shake & {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+    &:where(:not(:focus)) {
+      background-color: var(--ld-col-rr1);
+      color: var(--ld-col-rr-default);
     }
-    .ld-theme-tea & {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+
+    &:focus-within {
+      background-color: var(--ld-col-wht);
+
+      > input {
+        color: var(--ld-col-rblck-default);
+      }
+    }
+
+    &:where(:not([disabled]):not([aria-disabled])) {
+      .ld-input__placeholder {
+        color: var(--ld-col-rr3);
+      }
     }
   }
 }
 
-.ld-input--invalid {
-  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+:where(.ld-input__placeholder) {
+  pointer-events: none;
+  position: absolute;
+  color: var(--ld-col-rblck4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  right: var(--ld-input-padding-x);
+  left: var(--ld-input-padding-x);
 
-  &:where(:not(:focus)) {
-    color: var(--ld-col-rr-default);
-    background-color: var(--ld-col-rr1);
-
-    &::placeholder {
-      color: var(--ld-col-rr3);
-    }
+  [disabled] & {
+    opacity: 0.25;
   }
 }

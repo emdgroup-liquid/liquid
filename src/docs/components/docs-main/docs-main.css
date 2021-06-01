@@ -235,6 +235,7 @@
     > h4,
     > h5,
     > h6 {
+      position: relative;
       font-weight: 700;
 
       > code {
@@ -473,4 +474,47 @@
 
 #properties + table::after {
   content: '* required';
+}
+
+.header-anchor {
+  left: 0;
+  transform: translateX(-100%);
+  position: absolute;
+  text-align: right;
+
+  @media screen and (max-width: 48rem) {
+    left: unset;
+    position: relative;
+    width: auto;
+  }
+}
+
+.header-anchor__symbol {
+  visibility: hidden;
+  padding-right: var(--ld-sp-8);
+
+  h1:hover &,
+  h2:hover &,
+  h3:hover &,
+  h4:hover &,
+  h5:hover &,
+  h6:hover &,
+  .header-anchor:focus & {
+    visibility: visible;
+  }
+
+  @media screen and (max-width: 48rem) and (hover: none) {
+    visibility: inherit;
+    padding-right: 0;
+
+    h1:hover &,
+    h2:hover &,
+    h3:hover &,
+    h4:hover &,
+    h5:hover &,
+    h6:hover &,
+    .header-anchor:focus & {
+      visibility: inherit;
+    }
+  }
 }
