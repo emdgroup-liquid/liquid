@@ -237,6 +237,7 @@
     > h6 {
       position: relative;
       font-weight: 700;
+      outline: none;
 
       > code {
         font-size: inherit;
