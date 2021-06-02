@@ -286,15 +286,19 @@ ld-input,
   }
 }
 
-:where(.ld-input__placeholder) {
-  pointer-events: none;
+.ld-input__placeholder {
   position: absolute;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  pointer-events: none;
   color: var(--ld-col-rblck4);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   right: var(--ld-input-padding-x);
   left: var(--ld-input-padding-x);
+  margin-right: 0;
 
   [disabled] & {
     opacity: 0.25;
