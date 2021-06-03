@@ -151,6 +151,10 @@ body:not(.safari) {
   }
 }
 
+.docs-nav__summary--liquid::before {
+  background-image: url('/dist/build/assets/liquid.svg');
+}
+
 .docs-nav__summary--components::before {
   background-image: url('/dist/build/assets/components.svg');
 }

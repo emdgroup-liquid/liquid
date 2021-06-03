@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Screen Readers
-permalink: liquid/components/ld-sr-only/
+permalink: components/ld-sr-only/
 ---
 
 # Screen Readers

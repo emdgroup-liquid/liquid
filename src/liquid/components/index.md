@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
   key: Components
-  order: 2
+  order: 3
 layout: layout.njk
 title: Components
-permalink: liquid/components/
+permalink: components/
 ---
 
 # Components

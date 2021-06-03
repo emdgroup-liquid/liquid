@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Globals
 layout: layout.njk
 title: Shadows
-permalink: liquid/global/shadows/
+permalink: global/shadows/
 ---
 
 # Shadows

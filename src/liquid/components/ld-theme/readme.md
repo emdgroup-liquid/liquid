@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Theme
-permalink: liquid/components/ld-theme/
+permalink: components/ld-theme/
 ---
 
 # Theme

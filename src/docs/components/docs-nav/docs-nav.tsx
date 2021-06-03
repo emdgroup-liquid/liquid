@@ -54,11 +54,6 @@ export class DocsNav {
       <Host class="docs-nav" id="sidenav-open">
         <div class="docs-nav__content">
           <div class="docs-nav__section">
-            <ld-heading level={1} visualLevel="h5">
-              Liquid Design System
-            </ld-heading>
-          </div>
-          <div class="docs-nav__section">
             <docs-switch-dark-light />
             <docs-btn-search></docs-btn-search>
           </div>

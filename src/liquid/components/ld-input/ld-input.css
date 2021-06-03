@@ -6,6 +6,10 @@
 
 ld-input {
   border-radius: var(--ld-sp-4);
+
+  > .ld-input {
+    width: 100%;
+  }
 }
 
 .ld-input {

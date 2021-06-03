@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Icon
-permalink: liquid/components/ld-icon/
+permalink: components/ld-icon/
 ---
 
 # Icon

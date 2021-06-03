@@ -20,7 +20,7 @@ export class DocsTopbar {
               role="presentation"
             />
             <h1 class="docs-topbar__headline">
-              <b>Liquid</b>
+              <b>Liquid Oxygen</b> Documentation
             </h1>
           </a>
         </div>

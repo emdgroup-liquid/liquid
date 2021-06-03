@@ -4,14 +4,14 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Input
-permalink: liquid/components/ld-input/
+permalink: components/ld-input/
 ---
 
 # ld-input
 
 The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.
 
-This component can be used in conjunction with the [`ld-label`](/liquid/components/ld-label/) and the [`ld-input-message`](/liquid/components/ld-input-message/) component.
+This component can be used in conjunction with the [`ld-label`](/components/ld-label/) and the [`ld-input-message`](/components/ld-input-message/) component.
 
 ---
 
@@ -242,7 +242,7 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 </label>
 {% endexample %}
 
-Please reffer to the [ld-label](/liquid/components/ld-label/) docs for more information on the label component.
+Please reffer to the [ld-label](/components/ld-label/) docs for more information on the label component.
 
 ### With label and input message
 
@@ -613,7 +613,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 ### Input validation
 
-The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/liquid/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
+The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
 
 {% example %}
 <style>

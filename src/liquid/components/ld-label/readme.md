@@ -4,12 +4,12 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Label
-permalink: liquid/components/ld-label/
+permalink: components/ld-label/
 ---
 
 # ld-label
 
-This component is meant to be used in conjunction with the [`ld-input`](/liquid/components/ld-input/) and [`ld-input-message`](/liquid/components/ld-input-message/) component. Please reffer to the [`ld-input`](/liquid/components/ld-input/) docs for further usage examples.
+This component is meant to be used in conjunction with the [`ld-input`](/components/ld-input/) and [`ld-input-message`](/components/ld-input-message/) component. Please reffer to the [`ld-input`](/components/ld-input/) docs for further usage examples.
 
 ## Example
 

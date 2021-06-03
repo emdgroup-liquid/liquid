@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Components
 layout: layout.njk
 title: Heading
-permalink: liquid/components/ld-heading/
+permalink: components/ld-heading/
 ---
 
 # Heading

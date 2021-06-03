@@ -30,6 +30,8 @@
       }
 
       > p > a,
+      > ul a,
+      > ol a,
       > table a {
         color: var(--ld-col-vc4);
 
@@ -94,6 +96,8 @@
       }
 
       > p > a,
+      > ol a,
+      > ul a,
       > table a {
         color: var(--ld-col-vc2);
 
@@ -157,10 +161,12 @@
       }
     }
 
-    > p {
+    > p,
+    > ol,
+    > ul {
       font: var(--ld-typo-body-m);
 
-      > code {
+      code {
         display: inline-flex;
         padding: 0 var(--ld-sp-4);
         border-radius: var(--ld-sp-2);
@@ -170,6 +176,8 @@
 
     > p > a,
     > table a,
+    > ol a,
+    > ul a,
     > blockquote a {
       text-decoration: underline;
 
@@ -247,10 +255,12 @@
 
     > ul,
     > ol {
-      list-style-position: inside;
+      padding-left: var(--ld-sp-16);
 
-      > li > p {
-        display: inline;
+      > li {
+        > p {
+          display: inline;
+        }
       }
     }
 
@@ -522,4 +532,8 @@
       visibility: inherit;
     }
   }
+}
+
+.docs-main__header-image {
+  max-width: 32rem;
 }

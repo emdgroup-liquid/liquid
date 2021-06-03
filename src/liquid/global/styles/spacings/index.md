@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Globals
 layout: layout.njk
 title: Spacings
-permalink: liquid/global/spacings/
+permalink: global/spacings/
 ---
 
 # Spacings

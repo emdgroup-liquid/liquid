@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Globals
 layout: layout.njk
 title: Typography
-permalink: liquid/global/typography/
+permalink: global/typography/
 ---
 
 # Typography

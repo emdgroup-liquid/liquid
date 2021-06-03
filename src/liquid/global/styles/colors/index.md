@@ -4,12 +4,12 @@ eleventyNavigation:
   parent: Globals
 layout: layout.njk
 title: Colors
-permalink: liquid/global/colors/
+permalink: global/colors/
 ---
 
 # Colors
 
 > **Work in progress**<br>
-> TODO: Document liquid color palette (replace list below with a structured list divided by rich and vibrand colors), color usage rules, dos and don'ts, add copy to clipboard functionality.
+> TODO: Document Liquid color palette (replace list below with a structured list divided by rich and vibrand colors), color usage rules, dos and don'ts, add copy to clipboard functionality.
 
 {% tokens-colors %}
