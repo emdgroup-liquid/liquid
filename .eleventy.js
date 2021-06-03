@@ -93,7 +93,7 @@ module.exports = function (eleventyConfig) {
       lang = 'html',
       stacked,
       opened,
-      brand,
+      background,
       themable = true,
       heighlight,
       heighlightCssComponent
@@ -112,7 +112,9 @@ module.exports = function (eleventyConfig) {
 
       output += `${stacked ? ' stacked' : ''}`
       output += `${opened ? ' opened' : ''}`
-      output += `${brand ? ' brand' : ''}`
+      if (background) {
+        output += ` background="${background}"`
+      }
       output += `${themable ? ' themable' : ''}`
       output += '>\n'
       output += `<div slot="code">\n\n`

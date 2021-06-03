@@ -21,8 +21,8 @@ export class DocsExample {
   /** Opens code view on initial load. */
   @Prop() opened = false
 
-  /** Themed background. */
-  @Prop() brand = false
+  /** Background color mode. */
+  @Prop() background: 'brand' | 'light'
 
   /** Enables theme switch. */
   @Prop() themable = false
@@ -67,7 +67,7 @@ export class DocsExample {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }
     if (this.stacked) clShow += ' docs-example__show--stacked'
-    if (this.brand) clShow += ' docs-example__show--brand'
+    if (this.background) clShow += ` docs-example__show--${this.background}`
 
     return (
       <Host class={cl}>

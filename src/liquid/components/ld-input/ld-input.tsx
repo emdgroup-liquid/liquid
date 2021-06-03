@@ -31,7 +31,7 @@ export class LdInput {
   private input!: HTMLInputElement
 
   /** Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. */
-  @Prop() mode: 'light' | 'dark' = 'dark'
+  @Prop() mode: 'light' | 'dark' = 'light'
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) value: string

@@ -19,6 +19,8 @@ This component can be used in conjunction with the [`ld-label`](/liquid/componen
 
 ### Default
 
+By default, the `ld-input` component is of [type `text`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text).
+
 {% example %}
 <ld-input placeholder="Placeholder"></ld-input>
 
@@ -84,20 +86,20 @@ This component can be used in conjunction with the [`ld-label`](/liquid/componen
 
 > **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of `ld-input` with `aria-disabled`, you will have to prevent the default behaviour of the input element yourself. 
 
-### Mode light
+### Mode dark
 
-{% example %}
-<ld-input mode="light" placeholder="Placeholder"></ld-input>
+{% example 'html', false, false, 'light' %}
+<ld-input mode="dark" placeholder="Placeholder"></ld-input>
 
-<ld-input mode="light" placeholder="Placeholder" disabled></ld-input>
+<ld-input mode="dark" placeholder="Placeholder" disabled></ld-input>
 
 <!-- CSS component -->
 
-<div class="ld-input ld-input--light">
+<div class="ld-input ld-input--dark">
   <input placeholder="Placeholder">
 </div>
 
-<div class="ld-input ld-input--light" disabled>
+<div class="ld-input ld-input--dark" disabled>
   <input placeholder="Placeholder" disabled>
 </div>
 {% endexample %}
@@ -114,56 +116,6 @@ This component can be used in conjunction with the [`ld-label`](/liquid/componen
 </div>
 {% endexample %}
 
-### Type password
-
-{% example %}
-<ld-input placeholder="Password" type="password" min="0"></ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Password" type="password" min="0">
-</div>
-{% endexample %}
-
-### Type number
-
-{% example %}
-<ld-input placeholder="Your age in years" type="number" min="0"></ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Your age in years" type="number" min="0">
-</div>
-{% endexample %}
-
-### Type tel
-
-Triggers a telephone keypad in some devices with dynamic keypads.
-
-{% example %}
-<ld-input placeholder="Your phone number" type="tel"></ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Your phone number" type="tel">
-</div>
-{% endexample %}
-
-### Type search
-
-{% example %}
-<ld-input placeholder="Search" type="search"></ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Search" type="search">
-</div>
-{% endexample %}
-
 ### Type date
 
 {% example %}
@@ -173,18 +125,6 @@ Triggers a telephone keypad in some devices with dynamic keypads.
 
 <div class="ld-input">
   <input placeholder="Birthday" type="date" value="2017-06-01">
-</div>
-{% endexample %}
-
-### Type time
-
-{% example %}
-<ld-input placeholder="Time of reservation" type="time" value="13:30"></ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Time of reservation" type="time" value="13:30">
 </div>
 {% endexample %}
 
@@ -202,6 +142,74 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 </div>
 {% endexample %}
 
+### Type file
+
+{% example %}
+<ld-input placeholder="Your profile image" type="file"></ld-input>
+{% endexample %}
+
+### Type number
+
+{% example %}
+<ld-input placeholder="Your age in years" type="number" min="0"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your age in years" type="number" min="0">
+</div>
+{% endexample %}
+
+### Type password
+
+{% example %}
+<ld-input placeholder="Password" type="password" min="0"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Password" type="password" min="0">
+</div>
+{% endexample %}
+
+### Type search
+
+{% example %}
+<ld-input placeholder="Search" type="search"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Search" type="search">
+</div>
+{% endexample %}
+
+### Type tel
+
+Triggers a telephone keypad in some devices with dynamic keypads.
+
+{% example %}
+<ld-input placeholder="Your phone number" type="tel"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Your phone number" type="tel">
+</div>
+{% endexample %}
+
+### Type time
+
+{% example %}
+<ld-input placeholder="Time of reservation" type="time" value="13:30"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Time of reservation" type="time" value="13:30">
+</div>
+{% endexample %}
+
 ### Type url
 
 Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
@@ -214,12 +222,6 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 <div class="ld-input">
   <input placeholder="Your website URL" type="url">
 </div>
-{% endexample %}
-
-### Type file
-
-{% example %}
-<ld-input placeholder="Your profile image" type="file"></ld-input>
 {% endexample %}
 
 ### With label
@@ -706,7 +708,7 @@ The `ld-input` web component does not provide any properties or methods for vali
 | Property      | Attribute     | Description                                                                        | Type                | Default     |
 | ------------- | ------------- | ---------------------------------------------------------------------------------- | ------------------- | ----------- |
 | `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.        | `boolean`           | `undefined` |
-| `mode`        | `mode`        | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'dark'`    |
+| `mode`        | `mode`        | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'light'`   |
 | `placeholder` | `placeholder` | The input placeholder.                                                             | `string`            | `undefined` |
 | `type`        | `type`        | The input type.                                                                    | `string`            | `undefined` |
 | `value`       | `value`       | The input value.                                                                   | `string`            | `undefined` |

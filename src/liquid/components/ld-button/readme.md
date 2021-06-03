@@ -82,7 +82,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### On brand color
 
-{% example 'html', false, false, true %}
+{% example 'html', false, false, 'brand' %}
 <ld-button mode="on-brand-color">Text</ld-button>
 
 <ld-button mode="on-brand-color" disabled>Text</ld-button>
@@ -96,7 +96,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### Secondary on brand color
 
-{% example 'html', false, false, true %}
+{% example 'html', false, false, 'brand' %}
 <ld-button mode="secondary-on-brand-color">Text</ld-button>
 
 <ld-button mode="secondary-on-brand-color" disabled>Text</ld-button>

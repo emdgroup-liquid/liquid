@@ -146,6 +146,10 @@
   }
 }
 
+.docs-example__show--light {
+  background-color: var(--ld-col-wht);
+}
+
 .docs-example--code-visible {
   .docs-example__tools-scroll-container {
     border-radius: 0;
