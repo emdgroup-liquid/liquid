@@ -279,10 +279,11 @@ Before creating enhancement suggestions, please check [this list](#before-submit
 #### Before submitting an enhancement suggestion
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in [existing issues](https://github.com/emdgroup-liquid/liquid/issues)**
-  to see if a similar enhancement has already been suggested. If it has **and the issue is still open**,
-  upvote the suggested enhancement or add a comment, if you think it contains
-  relevant information which will help drive it forward, instead of opening a new one.
+* **Perform a search in [existing issues](https://github.com/emdgroup-liquid/liquid/issues)** to see if a similar enhancement has already been suggested. If it has **and the issue is still open**, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one.
+
+#### How do I vote on an existing enhancement suggestion?
+
+Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue is:open sort:reactions-+1-desc` or `is:issue is:open sort:reactions--1-desc` as issue search queries).
 
 #### How do I submit a (good) enhancement suggestion?
 
