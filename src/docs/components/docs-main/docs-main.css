@@ -504,7 +504,11 @@
     visibility: visible;
   }
 
-  @media screen and (max-width: 48rem) and (hover: none) {
+  @media screen and (hover: none) {
+    visibility: inherit;
+  }
+
+  @media screen and (max-width: 48rem) {
     visibility: inherit;
     padding-right: 0;
 
