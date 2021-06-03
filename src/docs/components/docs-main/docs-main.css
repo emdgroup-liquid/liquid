@@ -503,6 +503,11 @@
 .header-anchor__symbol {
   visibility: hidden;
   padding-right: var(--ld-sp-8);
+  opacity: 0.25;
+
+  &:hover {
+    opacity: 1;
+  }
 
   h1:hover &,
   h2:hover &,
@@ -511,7 +516,11 @@
   h5:hover &,
   h6:hover &,
   .header-anchor:focus & {
-    visibility: visible;
+    visibility: inherit;
+  }
+
+  .header-anchor:focus & {
+    opacity: 1;
   }
 
   @media screen and (hover: none) {
@@ -521,6 +530,7 @@
   @media screen and (max-width: 48rem) {
     visibility: inherit;
     padding-right: 0;
+    opacity: 0.25;
 
     h1:hover &,
     h2:hover &,
@@ -530,6 +540,10 @@
     h6:hover &,
     .header-anchor:focus & {
       visibility: inherit;
+    }
+
+    .header-anchor:focus & {
+      opacity: 1;
     }
   }
 }
