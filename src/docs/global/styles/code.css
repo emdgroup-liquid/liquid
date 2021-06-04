@@ -66,7 +66,7 @@ code .highlight-line:before {
   width: 2.4em;
 }
 .highlight-line.highlight-line-active {
-  border-radius: var(--ld-sp-4);
+  border-radius: var(--ld-br-m);
   padding-right: var(--ld-sp-8);
 }
 

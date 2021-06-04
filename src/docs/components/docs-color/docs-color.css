@@ -1,11 +1,59 @@
-:host > div {
-  display: flex;
-  align-items: center;
+@define-mixin docs-color-ui-light {
+  .docs-color {
+    border-color: var(--ld-col-rblck1);
+  }
+}
+@define-mixin docs-color-ui-dark {
+  .docs-color {
+    border-color: var(--ld-col-rblck4);
+  }
 }
 
-.docs-color__preview {
+@mixin docs-color-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-color-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-color-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-color-ui-light;
+}
+
+.docs-color {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 1px;
+  color: var(--ld-col-rblck-default);
+
+  &:first-of-type {
+    border-top-left-radius: var(--ld-br-l);
+    border-top-right-radius: var(--ld-br-l);
+  }
+  &:last-of-type {
+    border-bottom-left-radius: var(--ld-br-l);
+    border-bottom-right-radius: var(--ld-br-l);
+  }
+  &:not(:first-of-type) {
+    border-top-width: 0;
+  }
+  &:not(:last-of-type) {
+    border-bottom-width: 0;
+  }
+}
+
+.docs-color--dark {
+  color: var(--ld-col-wht);
+}
+
+.docs-color__var {
   display: inline-flex;
-  width: 10rem;
-  margin-right: 1rem;
-  height: 2rem;
+  width: 100%;
+  font: var(--ld-typo-body-s);
+  font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono', monospace;
+  padding: var(--ld-sp-8) var(--ld-sp-16);
 }

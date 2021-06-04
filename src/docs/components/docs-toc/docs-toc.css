@@ -36,7 +36,7 @@
     width: 0.1875rem;
     display: block;
     transform: translateY(-0.4rem);
-    border-radius: 1rem;
+    border-radius: var(--ld-br-full);
   }
 
   ol {
@@ -59,7 +59,7 @@
       width: 0.1875rem;
       display: block;
       transform: translateY(-0.4rem);
-      border-radius: 1rem;
+      border-radius: var(--ld-br-full);
     }
 
     &.docs-toc__link--is-active,

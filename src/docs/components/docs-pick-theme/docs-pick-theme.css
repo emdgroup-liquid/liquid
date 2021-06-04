@@ -11,7 +11,7 @@
   width: var(--ld-sp-16);
   height: var(--ld-sp-16);
   display: inline-flex;
-  border-radius: 100%;
+  border-radius: var(--ld-br-full);
   cursor: pointer;
 
   &::before,
@@ -20,7 +20,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 100%;
+    border-radius: var(--ld-br-full);
     z-index: 0;
     opacity: 0.2;
   }

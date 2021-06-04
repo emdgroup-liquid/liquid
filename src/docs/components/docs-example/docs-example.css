@@ -54,12 +54,12 @@
 .docs-example__code {
   overflow: hidden;
   display: none;
-  border-bottom-left-radius: var(--ld-sp-8);
-  border-bottom-right-radius: var(--ld-sp-8);
+  border-bottom-left-radius: var(--ld-br-l);
+  border-bottom-right-radius: var(--ld-br-l);
 
   pre {
-    border-bottom-left-radius: var(--ld-sp-8);
-    border-bottom-right-radius: var(--ld-sp-8);
+    border-bottom-left-radius: var(--ld-br-l);
+    border-bottom-right-radius: var(--ld-br-l);
   }
 }
 
@@ -70,8 +70,8 @@
   width: 100%;
   border-style: solid;
   border-width: 1px;
-  border-bottom-left-radius: var(--ld-sp-8);
-  border-bottom-right-radius: var(--ld-sp-8);
+  border-bottom-left-radius: var(--ld-br-l);
+  border-bottom-right-radius: var(--ld-br-l);
 }
 
 .docs-example__tools {
@@ -103,8 +103,8 @@
   color: var(--ld-col-rblck-default);
   border: 1px solid var(--ld-col-rblck1);
   border-bottom-width: 0;
-  border-top-left-radius: var(--ld-sp-8);
-  border-top-right-radius: var(--ld-sp-8);
+  border-top-left-radius: var(--ld-br-l);
+  border-top-right-radius: var(--ld-br-l);
   padding: 0 var(--ld-sp-8) var(--ld-sp-24);
   overflow: hidden;
 

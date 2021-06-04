@@ -2,5 +2,6 @@
 @import 'typography/typography.css';
 @import 'colors/colors.css';
 @import 'shadows/shadows.css';
+@import 'border-radius/border-radius.css';
 @import 'spacings/spacings.css';
 @import 'focus/focus.css';

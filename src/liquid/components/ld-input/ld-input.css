@@ -5,7 +5,7 @@
 */
 
 ld-input {
-  border-radius: var(--ld-sp-4);
+  border-radius: var(--ld-br-m);
 
   > .ld-input {
     width: 100%;
@@ -25,7 +25,7 @@ ld-input {
   color: var(--ld-col-rblck-default);
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
   max-width: 100%;
-  border-radius: var(--ld-sp-4);
+  border-radius: var(--ld-br-m);
   line-height: 1;
   min-height: var(--ld-sp-40);
 
@@ -49,7 +49,7 @@ ld-input {
     background-color: rgba(255, 255, 255, 0);
     width: 100%;
     border: 0;
-    border-radius: var(--ld-sp-4);
+    border-radius: var(--ld-br-m);
     max-height: var(--ld-input-max-height);
     outline: none;
     -webkit-appearance: none;

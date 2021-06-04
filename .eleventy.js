@@ -65,27 +65,7 @@ module.exports = function (eleventyConfig) {
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
 
-  // Custom short codes
-  eleventyConfig.addShortcode('tokens-colors', function () {
-    let output = ''
-
-    let code = readFileSync(
-      join(__dirname, './src/liquid/global/styles/colors/colors.css'),
-      {
-        encoding: 'utf8',
-      }
-    )
-    code.split('\n').forEach((line) => {
-      if (line.indexOf('  --') === 0) {
-        output += `<docs-color var="${line
-          .split(':')[0]
-          .trim()}" description="${line.trim()}"></docs-color>\n\n`
-      }
-    })
-
-    return output
-  })
-
+  // Code example short codes
   eleventyConfig.addPairedShortcode(
     'example',
     function (

@@ -78,7 +78,7 @@
 .docs-switch-web-css button {
   font: var(--ld-typo-body-s);
   font-weight: 700;
-  border-radius: var(--ld-sp-4);
+  border-radius: var(--ld-br-m);
   display: flex;
   align-items: stretch;
   position: relative;

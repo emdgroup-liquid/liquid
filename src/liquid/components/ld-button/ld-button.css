@@ -25,7 +25,7 @@ ld-button {
   font: var(--ld-typo-body-m);
   border: 0;
   padding: var(--ld-padding-md-y) var(--ld-padding-md-x);
-  border-radius: var(--ld-sp-4);
+  border-radius: var(--ld-br-m);
   min-height: 2.5rem;
   min-width: 2.5rem;
   text-decoration: none;

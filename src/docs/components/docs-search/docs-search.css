@@ -53,8 +53,8 @@
   list-style: none;
   max-height: calc(100% - var(--ld-sp-40));
   overflow: hidden auto;
-  border-bottom-left-radius: var(--ld-sp-4);
-  border-bottom-right-radius: var(--ld-sp-4);
+  border-bottom-left-radius: var(--ld-br-m);
+  border-bottom-right-radius: var(--ld-br-m);
   padding: var(--ld-sp-2);
 }
 

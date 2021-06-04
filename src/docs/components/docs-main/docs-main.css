@@ -169,8 +169,7 @@
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-4);
-        border-radius: var(--ld-sp-2);
-        margin: 0 var(--ld-sp-4);
+        border-radius: var(--ld-br-s);
       }
     }
 
@@ -184,6 +183,7 @@
       code {
         background-color: transparent !important;
         box-shadow: none !important;
+        padding: 0;
       }
     }
 
@@ -407,7 +407,7 @@
         font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono',
           monospace;
         padding: var(--ld-sp-4) var(--ld-sp-6);
-        border-radius: var(--ld-sp-2);
+        border-radius: var(--ld-br-s);
         display: inline-flex;
       }
     }
@@ -440,7 +440,7 @@
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-6);
-        border-radius: var(--ld-sp-2);
+        border-radius: var(--ld-br-s);
       }
     }
 
@@ -461,13 +461,13 @@
 
       code {
         padding: 0 var(--ld-sp-4);
-        border-radius: var(--ld-sp-2);
+        border-radius: var(--ld-br-s);
         margin: 0 var(--ld-sp-4);
       }
     }
 
     > pre {
-      border-radius: var(--ld-sp-8);
+      border-radius: var(--ld-br-l);
       border-style: solid;
       border-width: 1px;
     }
