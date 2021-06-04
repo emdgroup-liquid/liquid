@@ -29,6 +29,8 @@
   border-style: solid;
   border-width: 1px;
   color: var(--ld-col-rblck-default);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 
   &:first-of-type {
     border-top-left-radius: var(--ld-br-l);
@@ -48,12 +50,29 @@
 
 .docs-color--dark {
   color: var(--ld-col-wht);
+
+  .docs-copy-to-cb {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
 
-.docs-color__var {
+.docs-color__var,
+.docs-color__val {
+  scroll-snap-align: start;
   display: inline-flex;
-  width: 100%;
+  align-items: center;
+  width: 50%;
+  min-width: 20rem;
   font: var(--ld-typo-body-s);
   font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono', monospace;
-  padding: var(--ld-sp-8) var(--ld-sp-16);
+  flex-shrink: 0;
+  padding: var(--ld-sp-8);
+
+  .docs-copy-to-cb {
+    margin-right: var(--ld-sp-8);
+  }
+}
+
+.docs-color__val {
+  padding-left: 0;
 }

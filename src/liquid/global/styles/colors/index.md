@@ -9,8 +9,7 @@ permalink: global/colors/
 
 # Colors
 
-> **Work in progress**<br>
-> TODO: Document Liquid color palette (replace list below with a structured list divided by rich and vibrand colors), color usage rules, dos and don'ts, add copy to clipboard functionality.
+All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](/liquid/getting-started/#import-stylesheets).
 
 ## White and Liquid Black
 
@@ -110,7 +109,7 @@ permalink: global/colors/
 <docs-color var="--ld-col-vy5"></docs-color>
 <docs-color var="--ld-col-vy6"></docs-color>
 
-## Theme pallets
+## Theme palettes
 
 ### Bubblegum
 

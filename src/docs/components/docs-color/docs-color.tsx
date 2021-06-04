@@ -12,6 +12,7 @@ export class MyComponent {
   /** CSS variable name */
   @Prop() var: string
 
+  @State() val: string
   @State() dark: boolean
 
   private isDark(color) {
@@ -35,7 +36,7 @@ export class MyComponent {
 
   componentDidRender() {
     const color = getComputedStyle(this.el).getPropertyValue('background-color')
-    console.info(this.var, color)
+    this.val = color
     this.dark = this.isDark(color)
   }
 
@@ -45,7 +46,14 @@ export class MyComponent {
 
     return (
       <Host class={cl} style={{ background: `var(${this.var})` }}>
-        <span class="docs-color__var">{this.var}</span>
+        <span class="docs-color__var">
+          <docs-copy-to-cb textToCopy={this.var} />
+          {this.var}
+        </span>
+        <span class="docs-color__val">
+          <docs-copy-to-cb textToCopy={this.val} />
+          {this.val}
+        </span>
       </Host>
     )
   }
