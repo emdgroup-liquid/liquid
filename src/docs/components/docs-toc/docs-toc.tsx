@@ -75,9 +75,7 @@ export class DocsToc {
     // Generating a list of heading links
     setTimeout(() => {
       this.headings = Array.from(
-        document.querySelectorAll(
-          '#main > main > h1, #main > main > h2, #main > main > h3'
-        )
+        document.querySelectorAll('#main > h1, #main > h2, #main > h3')
       )
 
       // Adding an Intersection Observer
