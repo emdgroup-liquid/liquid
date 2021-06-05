@@ -36,8 +36,10 @@ export class MyComponent {
 
   componentDidRender() {
     const color = getComputedStyle(this.el).getPropertyValue('background-color')
-    this.val = color
-    this.dark = this.isDark(color)
+    setTimeout(() => {
+      this.val = color
+      this.dark = this.isDark(color)
+    })
   }
 
   render() {

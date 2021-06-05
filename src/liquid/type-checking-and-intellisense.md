@@ -56,4 +56,4 @@ The format of the referenced JSON file, which includes type information about ea
 
 [Some efforts](https://youtrack.jetbrains.com/issue/WEB-39620) are also being made to enable intellisense for Web Components in Intellij editors, but we are not there yet.
 
-<docs-page-nav prev-title="Getting started" prev-href="/liquid/getting-started/" next-title="Server side rendering" next-href="/liquid/server-side-rendering/"></docs-page-nav>
+<docs-page-nav prev-title="Getting started" prev-href="/liquid/getting-started/" next-title="Server-side rendering" next-href="/liquid/server-side-rendering/"></docs-page-nav>

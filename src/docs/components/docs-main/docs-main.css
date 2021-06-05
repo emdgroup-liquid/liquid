@@ -480,6 +480,10 @@
   @media (max-width: 48rem) {
     grid-area: stack;
     padding: var(--ld-sp-24) var(--ld-sp-24);
+
+    main {
+      padding-bottom: var(--ld-sp-40);
+    }
   }
 }
 

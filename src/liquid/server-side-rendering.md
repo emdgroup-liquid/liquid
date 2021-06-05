@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
-  key: Server Side Rendering
+  key: Server-side Rendering
   parent: Liquid
   order: 3
 layout: layout.njk
-title: Server Side Rendering
+title: Server-side Rendering
 permalink: liquid/server-side-rendering/
 ---
 
@@ -40,21 +40,18 @@ For instance in [Next.js](https://nextjs.org/), even after conditionally definin
 
 You can work around this issue by conditionally passing handlers to the component:
 ```jsx
-<ld-button onClick={process.browser ? handleClick : undefined}>click me</ld-button>
+<ld-button onClick={typeof window === 'undefined' ? undefined : handleClick}>click me</ld-button>
 ```
 
 For convenience, you can create a conditional object which holds all your handlers on client-side and then reference your handlers via that object:
 
-```js
-const methods = process.browser ? {
-  handleClick: () => { /* ... */ }
-} : {}
-```
-
 ```jsx
-<ld-button onClick={methods.handleClick}>click me</ld-button>
+const methods = typeof window === 'undefined' ? {} : {
+  handleClick: () => { /* ... */ }
+}
+return (
+  <ld-button onClick={methods.handleClick}>click me</ld-button>
+)
 ```
-
-Please note that the issue described above is Next.js specific, so you'll have to handle it in your app, if you are using Next.js.
 
 <docs-page-nav prev-title="Type checking and intellisense" prev-href="/liquid/type-checking-and-intellisense/"></docs-page-nav>
