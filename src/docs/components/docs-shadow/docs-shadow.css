@@ -27,7 +27,7 @@
   align-items: center;
   overflow: hidden;
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--ld-sp-1);
   color: var(--ld-col-rblck-default);
   background-color: var(--ld-col-wht);
   padding: var(--ld-sp-16) var(--ld-sp-16) 4rem;

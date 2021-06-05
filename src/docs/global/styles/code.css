@@ -117,7 +117,7 @@ code .highlight-line:before {
     color: var(--ld-col-rp4);
   }
   code .highlight-line:before {
-    border-right: 1px solid var(--ld-col-rblck1);
+    border-right: var(--ld-sp-1) solid var(--ld-col-rblck1);
     color: var(--ld-col-rblck2);
   }
   .highlight-line.highlight-line-active {
@@ -170,7 +170,7 @@ code .highlight-line:before {
     color: var(--ld-col-rp2);
   }
   code .highlight-line:before {
-    border-right: 1px solid var(--ld-col-rblck5);
+    border-right: var(--ld-sp-1) solid var(--ld-col-rblck5);
     color: var(--ld-col-rblck4);
   }
   .highlight-line.highlight-line-active {

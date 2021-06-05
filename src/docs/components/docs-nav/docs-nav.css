@@ -1,7 +1,7 @@
 @define-mixin docs-nav-ui-light {
   .docs-nav__content {
     background-color: var(--ld-col-bg-lg);
-    box-shadow: 1px 0 0 0 var(--ld-col-rblck1);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck1);
   }
   .docs-nav::before {
     background-color: var(--ld-col-bg-lg);
@@ -13,7 +13,7 @@
 @define-mixin docs-nav-ui-dark {
   .docs-nav__content {
     background-color: var(--ld-col-rblck-default);
-    box-shadow: 1px 0 0 0 var(--ld-col-rblck4);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck4);
   }
   .docs-nav::before {
     background-color: var(--ld-col-rblck-default);
@@ -82,7 +82,7 @@
 .docs-nav__section {
   padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-24) 0;
   border-bottom-style: solid;
-  border-bottom-width: 1px;
+  border-bottom-width: var(--ld-sp-1);
 
   &:first-of-type {
     padding-top: 0;

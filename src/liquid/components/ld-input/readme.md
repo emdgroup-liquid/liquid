@@ -722,19 +722,6 @@ The `ld-input` web component does not provide any properties or methods for vali
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
 
 
-## Dependencies
-
-### Used by
-
- - docs-search
-
-### Graph
-```mermaid
-graph TD;
-  docs-search --> ld-input
-  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -69,7 +69,7 @@
   display: flex;
   width: 100%;
   border-style: solid;
-  border-width: 1px;
+  border-width: var(--ld-sp-1);
   border-bottom-left-radius: var(--ld-br-l);
   border-bottom-right-radius: var(--ld-br-l);
 }
@@ -101,7 +101,7 @@
 .docs-example__show {
   background-color: var(--ld-col-bg-lg);
   color: var(--ld-col-rblck-default);
-  border: 1px solid var(--ld-col-rblck1);
+  border: var(--ld-sp-1) solid var(--ld-col-rblck1);
   border-bottom-width: 0;
   border-top-left-radius: var(--ld-br-l);
   border-top-right-radius: var(--ld-br-l);

@@ -1,27 +1,27 @@
-@define-mixin docs-color-ui-light {
-  .docs-color {
+@define-mixin docs-spacing-ui-light {
+  .docs-spacing {
     border-color: var(--ld-col-rblck1);
   }
 }
-@define-mixin docs-color-ui-dark {
-  .docs-color {
+@define-mixin docs-spacing-ui-dark {
+  .docs-spacing {
     border-color: var(--ld-col-rblck4);
   }
 }
 
-@mixin docs-color-ui-light;
+@mixin docs-spacing-ui-light;
 
 @media (prefers-color-scheme: dark) {
-  @mixin docs-color-ui-dark;
+  @mixin docs-spacing-ui-dark;
 }
 .docs-ui-dark {
-  @mixin docs-color-ui-dark;
+  @mixin docs-spacing-ui-dark;
 }
 .docs-ui-light {
-  @mixin docs-color-ui-light;
+  @mixin docs-spacing-ui-light;
 }
 
-.docs-color {
+.docs-spacing {
   display: flex;
   width: 100%;
   align-items: center;
@@ -29,8 +29,9 @@
   border-style: solid;
   border-width: var(--ld-sp-1);
   color: var(--ld-col-rblck-default);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  background-color: var(--ld-col-wht);
+  padding: var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-8);
+  min-height: 6rem;
 
   &:first-of-type {
     border-top-left-radius: var(--ld-br-l);
@@ -48,25 +49,14 @@
   }
 }
 
-.docs-color--dark {
-  color: var(--ld-col-wht);
-
-  .docs-copy-to-cb {
-    filter: invert(1) hue-rotate(180deg);
-  }
-}
-
-.docs-color__var,
-.docs-color__val {
-  scroll-snap-align: start;
-  display: inline-flex;
+.docs-spacing__var,
+.docs-spacing__val {
+  display: flex;
+  border-radius: var(--ld-br-l);
   align-items: center;
-  width: 50%;
-  min-width: 20rem;
   font: var(--ld-typo-body-s);
   font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono', monospace;
   flex-shrink: 0;
-  padding: var(--ld-sp-8);
   white-space: nowrap;
 
   .docs-copy-to-cb {
@@ -74,6 +64,16 @@
   }
 }
 
-.docs-color__val {
-  padding-left: 0;
+.docs-spacing__var {
+  width: 9rem;
+}
+
+.docs-spacing__val {
+  color: var(--ld-col-rblck3);
+  width: 6.5rem;
+}
+
+.docs-spacing__vis {
+  display: inline-flex;
+  background-color: var(--ld-col-vm-default);
 }

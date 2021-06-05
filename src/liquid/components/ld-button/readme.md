@@ -436,25 +436,6 @@ You can align the text inside the button using the `align-text` propperty.
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
 
 
-## Dependencies
-
-### Used by
-
- - docs-copy-to-cb
- - docs-edit-on-github
- - docs-page-nav
- - docs-toggle-code
-
-### Graph
-```mermaid
-graph TD;
-  docs-copy-to-cb --> ld-button
-  docs-edit-on-github --> ld-button
-  docs-page-nav --> ld-button
-  docs-toggle-code --> ld-button
-  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
