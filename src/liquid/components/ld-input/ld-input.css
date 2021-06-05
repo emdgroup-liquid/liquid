@@ -21,7 +21,7 @@ ld-input {
   position: relative;
   display: inline-flex;
   align-items: center;
-  background-color: var(--ld-col-bg-g);
+  background-color: var(--ld-col-wht);
   color: var(--ld-col-rblck-default);
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
   max-width: 100%;
@@ -178,8 +178,8 @@ ld-input {
   }
 }
 
-.ld-input--light {
-  background-color: var(--ld-col-wht);
+.ld-input--dark {
+  background-color: var(--ld-col-bg-g);
 }
 
 :not([disabled]) {

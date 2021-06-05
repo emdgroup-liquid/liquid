@@ -6,4 +6,5 @@ module.exports = {
   ...pa11yPreset,
   testEnvironment: 'node',
   testMatch: ['**/?(*.)+(a11y).ts'],
+  testTimeout: 30000,
 }

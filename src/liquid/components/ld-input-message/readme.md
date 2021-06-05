@@ -11,13 +11,15 @@ permalink: components/ld-input-message/
 
 This component is meant to be used in conjunction with the [`ld-input`](/components/ld-input/) and the [`ld-label`](/components/ld-label/) component. Please reffer to the [`ld-input`](/components/ld-input/) docs for further usage examples.
 
+> **Note**: The `ld-input-message` with a mode other than `"info"` is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 
+
 > **Note**: If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) for this matter.
 
 ## Examples
 
 ### As error message
 
-{% example %}
+{% example 'html', false, false, 'light' %}
 <ld-input-message>This field is required.</ld-input-message>
 
 <!-- CSS component -->
@@ -35,7 +37,7 @@ This component is meant to be used in conjunction with the [`ld-input`](/compone
 
 ### As info message
 
-{% example %}
+{% example 'html', false, false, 'light' %}
 <ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
 
 <!-- CSS component -->
@@ -53,7 +55,7 @@ This component is meant to be used in conjunction with the [`ld-input`](/compone
 
 ### As success message
 
-{% example %}
+{% example 'html', false, false, 'light' %}
 <ld-input-message mode="valid">That's correct!</ld-input-message>
 
 <!-- CSS component -->

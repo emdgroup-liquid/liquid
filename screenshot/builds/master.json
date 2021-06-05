@@ -1,8 +1,8 @@
 {
-  "id": "20210529154524",
-  "message": "Build: 2021-05-29 15:45:24",
+  "id": "20210605221705",
+  "message": "Build: 2021-06-05 22:17:05",
   "appNamespace": "liquid",
-  "timestamp": 1622295924218,
+  "timestamp": 1622924225355,
   "screenshots": [
     {
       "id": "c5c7582a",
@@ -2593,7 +2593,7 @@
     },
     {
       "id": "3cb49448",
-      "image": "f006daadb8ff3ec9fbec86b0266ddd74.png",
+      "image": "b94815bff537e67e732c1a47d8575557.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost css component focus theme-none",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2606,7 +2606,7 @@
     },
     {
       "id": "79dddcd4",
-      "image": "f006daadb8ff3ec9fbec86b0266ddd74.png",
+      "image": "b94815bff537e67e732c1a47d8575557.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost css component focus theme-ocean",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2619,7 +2619,7 @@
     },
     {
       "id": "5375ef9e",
-      "image": "045b58706fa819565250478534607569.png",
+      "image": "e8bdfab35ccc3eb56e337eafc311758f.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost css component focus theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2866,7 +2866,7 @@
     },
     {
       "id": "b0fe24fa",
-      "image": "f006daadb8ff3ec9fbec86b0266ddd74.png",
+      "image": "b94815bff537e67e732c1a47d8575557.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost focus theme-none",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2879,7 +2879,7 @@
     },
     {
       "id": "f48f036f",
-      "image": "f006daadb8ff3ec9fbec86b0266ddd74.png",
+      "image": "b94815bff537e67e732c1a47d8575557.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost focus theme-ocean",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2892,7 +2892,7 @@
     },
     {
       "id": "723b93fb",
-      "image": "045b58706fa819565250478534607569.png",
+      "image": "e8bdfab35ccc3eb56e337eafc311758f.png",
       "userAgent": "default",
       "desc": "ld-button themed ghost focus theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -4569,7 +4569,7 @@
     },
     {
       "id": "a7183b80",
-      "image": "20ebb313631bc1971be4cda997af6082.png",
+      "image": "26d82ef589a1e76a054656d52fbb8e71.png",
       "userAgent": "default",
       "desc": "ld-button themed on-brand-color css component hover theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -4842,7 +4842,7 @@
     },
     {
       "id": "3e71d8a1",
-      "image": "20ebb313631bc1971be4cda997af6082.png",
+      "image": "26d82ef589a1e76a054656d52fbb8e71.png",
       "userAgent": "default",
       "desc": "ld-button themed on-brand-color hover theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5440,7 +5440,7 @@
     },
     {
       "id": "14c085e8",
-      "image": "a85f9d5d5bfc1fa543dc2e8d946554ee.png",
+      "image": "77c976c6f47a85f7b7ec24455270176b.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary css component focus theme-none",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5453,7 +5453,7 @@
     },
     {
       "id": "4a6dd728",
-      "image": "a85f9d5d5bfc1fa543dc2e8d946554ee.png",
+      "image": "77c976c6f47a85f7b7ec24455270176b.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary css component focus theme-ocean",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5466,7 +5466,7 @@
     },
     {
       "id": "80e51209",
-      "image": "8a1a2a191e8b1d290c24daa84517e509.png",
+      "image": "ee87d2cdc3ad2b4c9ecff04c0c26fd64.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary css component focus theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5713,7 +5713,7 @@
     },
     {
       "id": "267c9873",
-      "image": "a85f9d5d5bfc1fa543dc2e8d946554ee.png",
+      "image": "77c976c6f47a85f7b7ec24455270176b.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary focus theme-none",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5726,7 +5726,7 @@
     },
     {
       "id": "ce93f285",
-      "image": "a85f9d5d5bfc1fa543dc2e8d946554ee.png",
+      "image": "77c976c6f47a85f7b7ec24455270176b.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary focus theme-ocean",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -5739,7 +5739,7 @@
     },
     {
       "id": "93771139",
-      "image": "8a1a2a191e8b1d290c24daa84517e509.png",
+      "image": "ee87d2cdc3ad2b4c9ecff04c0c26fd64.png",
       "userAgent": "default",
       "desc": "ld-button themed secondary focus theme-tea",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -6727,7 +6727,7 @@
     },
     {
       "id": "0fbffd84",
-      "image": "b31fe3e712fe82063ab6ddc417697216.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6740,7 +6740,7 @@
     },
     {
       "id": "54343564",
-      "image": "66aa1a38316699b38ae996644fe64f98.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6753,7 +6753,7 @@
     },
     {
       "id": "d6d172ea",
-      "image": "66aa1a38316699b38ae996644fe64f98.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6766,7 +6766,7 @@
     },
     {
       "id": "02497ef3",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6779,7 +6779,7 @@
     },
     {
       "id": "a42c28cd",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6792,7 +6792,7 @@
     },
     {
       "id": "7ea4fce1",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6805,7 +6805,7 @@
     },
     {
       "id": "3cc4be24",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6818,7 +6818,7 @@
     },
     {
       "id": "2e7a9a7a",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6831,7 +6831,7 @@
     },
     {
       "id": "d6417f2c",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6844,7 +6844,7 @@
     },
     {
       "id": "303f84a7",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6857,7 +6857,7 @@
     },
     {
       "id": "23fedcd4",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6870,7 +6870,7 @@
     },
     {
       "id": "e67cb1ad",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component aria-disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6883,7 +6883,7 @@
     },
     {
       "id": "7ebee264",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "a5378c305769c9a47bbc915aa6cd4352.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component default theme-bubblegum dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6896,7 +6896,7 @@
     },
     {
       "id": "fd58fe9d",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "a5378c305769c9a47bbc915aa6cd4352.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component default theme-none dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6909,7 +6909,7 @@
     },
     {
       "id": "fdf19e9e",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "a5378c305769c9a47bbc915aa6cd4352.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component default theme-ocean dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6922,7 +6922,7 @@
     },
     {
       "id": "c031a919",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6935,7 +6935,7 @@
     },
     {
       "id": "96aa1da0",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6948,7 +6948,7 @@
     },
     {
       "id": "04207b15",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6961,7 +6961,7 @@
     },
     {
       "id": "fd3bf92a",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6974,7 +6974,7 @@
     },
     {
       "id": "0ea35f89",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -6987,7 +6987,7 @@
     },
     {
       "id": "df715b4a",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7000,7 +7000,7 @@
     },
     {
       "id": "a97a14c8",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7013,7 +7013,7 @@
     },
     {
       "id": "59d65104",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7026,7 +7026,7 @@
     },
     {
       "id": "bb811317",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7039,7 +7039,7 @@
     },
     {
       "id": "08826b73",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7052,7 +7052,7 @@
     },
     {
       "id": "97602d67",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7065,7 +7065,7 @@
     },
     {
       "id": "52bbc83d",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7078,7 +7078,7 @@
     },
     {
       "id": "cec459c6",
-      "image": "265fd0388d60fd768e6c2c81ec45f7ad.png",
+      "image": "8b5d784885104f0e3fc1778b9085d29f.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7091,7 +7091,7 @@
     },
     {
       "id": "70ff96cd",
-      "image": "acdbef1d1200ea2ff7c630a05cd5e6ac.png",
+      "image": "8b5d784885104f0e3fc1778b9085d29f.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7104,7 +7104,7 @@
     },
     {
       "id": "782d3a7f",
-      "image": "acdbef1d1200ea2ff7c630a05cd5e6ac.png",
+      "image": "8b5d784885104f0e3fc1778b9085d29f.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7117,7 +7117,7 @@
     },
     {
       "id": "b2da4750",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "6c6c9ada7f2ba675d4b5d59de859bdea.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7130,7 +7130,7 @@
     },
     {
       "id": "3f18ee8d",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "6c6c9ada7f2ba675d4b5d59de859bdea.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7143,7 +7143,7 @@
     },
     {
       "id": "59bec6c0",
-      "image": "8bc7b9a7cfa773e4f8d2341a250fed8f.png",
+      "image": "6c6c9ada7f2ba675d4b5d59de859bdea.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7156,7 +7156,7 @@
     },
     {
       "id": "d6c19abd",
-      "image": "afd5d233d2b8d205cd9a36de242f23e5.png",
+      "image": "6a52836670e0a051fc1b3fe3f3f7c7bb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component with value theme-bubblegum dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7169,7 +7169,7 @@
     },
     {
       "id": "6920e6e6",
-      "image": "afd5d233d2b8d205cd9a36de242f23e5.png",
+      "image": "6a52836670e0a051fc1b3fe3f3f7c7bb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component with value theme-none dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7182,7 +7182,7 @@
     },
     {
       "id": "42b800d9",
-      "image": "afd5d233d2b8d205cd9a36de242f23e5.png",
+      "image": "6a52836670e0a051fc1b3fe3f3f7c7bb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark css component with value theme-ocean dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7195,7 +7195,7 @@
     },
     {
       "id": "3d476e00",
-      "image": "51f86e6ea3ef28220beb553e7a8dc145.png",
+      "image": "1e680639d38bf8f34acb9579758d091a.png",
       "userAgent": "default",
       "desc": "ld-input themed dark default theme-bubblegum dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7208,7 +7208,7 @@
     },
     {
       "id": "af536ce8",
-      "image": "f8b1ed657788a73910e4c5cbdcd932bc.png",
+      "image": "d10de192daf0f208f3e9e989862a0bdb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark default theme-none dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7221,7 +7221,7 @@
     },
     {
       "id": "16f37570",
-      "image": "f8b1ed657788a73910e4c5cbdcd932bc.png",
+      "image": "d10de192daf0f208f3e9e989862a0bdb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark default theme-ocean dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7234,7 +7234,7 @@
     },
     {
       "id": "b0fd34f9",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7247,7 +7247,7 @@
     },
     {
       "id": "4eb8f1a3",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7260,7 +7260,7 @@
     },
     {
       "id": "ccc8868f",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7273,7 +7273,7 @@
     },
     {
       "id": "c158e6ee",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7286,7 +7286,7 @@
     },
     {
       "id": "79742431",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7299,7 +7299,7 @@
     },
     {
       "id": "1859ca50",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7312,7 +7312,7 @@
     },
     {
       "id": "991c4004",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7325,7 +7325,7 @@
     },
     {
       "id": "349696fd",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7338,7 +7338,7 @@
     },
     {
       "id": "308070d7",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed dark disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7351,7 +7351,7 @@
     },
     {
       "id": "52a7f108",
-      "image": "915270beaa191df99c32c5d8fd13e1cd.png",
+      "image": "79a9c504ed3cb6032c413ce51d15d594.png",
       "userAgent": "default",
       "desc": "ld-input themed dark focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7364,7 +7364,7 @@
     },
     {
       "id": "cec39fbd",
-      "image": "86d3b953e8aaba7209cc0de621fa79df.png",
+      "image": "ebbd17d35ce7b50cc1d863def9061dcb.png",
       "userAgent": "default",
       "desc": "ld-input themed dark focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7377,7 +7377,7 @@
     },
     {
       "id": "863f2027",
-      "image": "86d3b953e8aaba7209cc0de621fa79df.png",
+      "image": "1fe06ba9b58a5f2244ee2a40a97c7d8d.png",
       "userAgent": "default",
       "desc": "ld-input themed dark focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7390,7 +7390,7 @@
     },
     {
       "id": "067715da",
-      "image": "a3e3e4df7bc935b3be408cafe2914117.png",
+      "image": "0ad69c957ae336c805a5b86688414105.png",
       "userAgent": "default",
       "desc": "ld-input themed dark with value theme-bubblegum dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7403,7 +7403,7 @@
     },
     {
       "id": "a322dfe5",
-      "image": "6e54821265979967dde1b504126e2fd7.png",
+      "image": "f228dcf3f5a194175c7bea20724b35ca.png",
       "userAgent": "default",
       "desc": "ld-input themed dark with value theme-none dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7416,7 +7416,7 @@
     },
     {
       "id": "bba46c5c",
-      "image": "6e54821265979967dde1b504126e2fd7.png",
+      "image": "f228dcf3f5a194175c7bea20724b35ca.png",
       "userAgent": "default",
       "desc": "ld-input themed dark with value theme-ocean dark",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7429,7 +7429,7 @@
     },
     {
       "id": "fcb83214",
-      "image": "b31fe3e712fe82063ab6ddc417697216.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7442,7 +7442,7 @@
     },
     {
       "id": "0f8635ae",
-      "image": "66aa1a38316699b38ae996644fe64f98.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7455,7 +7455,7 @@
     },
     {
       "id": "44cc554a",
-      "image": "66aa1a38316699b38ae996644fe64f98.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7468,7 +7468,7 @@
     },
     {
       "id": "878b9f6c",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7481,7 +7481,7 @@
     },
     {
       "id": "856a7543",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7494,7 +7494,7 @@
     },
     {
       "id": "772fdf7a",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7507,7 +7507,7 @@
     },
     {
       "id": "9b62d904",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7520,7 +7520,7 @@
     },
     {
       "id": "3696194c",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7533,7 +7533,7 @@
     },
     {
       "id": "1df32b81",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7546,7 +7546,7 @@
     },
     {
       "id": "fcbc1e18",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7559,7 +7559,7 @@
     },
     {
       "id": "aa3a76c0",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7572,7 +7572,7 @@
     },
     {
       "id": "6a7d5a15",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component aria-disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7585,7 +7585,7 @@
     },
     {
       "id": "91358832",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "642ab7a77312248229ccf729d71a3dc5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component default theme-bubblegum light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7598,7 +7598,7 @@
     },
     {
       "id": "6a10ebbf",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "642ab7a77312248229ccf729d71a3dc5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component default theme-none light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7611,7 +7611,7 @@
     },
     {
       "id": "971385d8",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "642ab7a77312248229ccf729d71a3dc5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component default theme-ocean light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7624,7 +7624,7 @@
     },
     {
       "id": "8ae701be",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7637,7 +7637,7 @@
     },
     {
       "id": "02b90382",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7650,7 +7650,7 @@
     },
     {
       "id": "9fae2c0b",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7663,7 +7663,7 @@
     },
     {
       "id": "6af7e9b0",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7676,7 +7676,7 @@
     },
     {
       "id": "d4f5906c",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7689,7 +7689,7 @@
     },
     {
       "id": "4de5b505",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7702,7 +7702,7 @@
     },
     {
       "id": "63e64414",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7715,7 +7715,7 @@
     },
     {
       "id": "c563179c",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7728,7 +7728,7 @@
     },
     {
       "id": "1c35b4fc",
-      "image": "fb10ce8d9908822cce7884db3e0980f0.png",
+      "image": "499d5fd6bb0dd888f1859230972f3b98.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7741,7 +7741,7 @@
     },
     {
       "id": "56bd348d",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7754,7 +7754,7 @@
     },
     {
       "id": "514c217a",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7767,7 +7767,7 @@
     },
     {
       "id": "4229ae21",
-      "image": "0a9f13f3ae2290a33afa9cc63c558012.png",
+      "image": "53e2e91bac73722062a52995466c9cd7.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7780,7 +7780,7 @@
     },
     {
       "id": "9f1962b8",
-      "image": "265fd0388d60fd768e6c2c81ec45f7ad.png",
+      "image": "2fb3bc1a419283fa181867fa4b7b4a4b.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7793,7 +7793,7 @@
     },
     {
       "id": "306ca608",
-      "image": "acdbef1d1200ea2ff7c630a05cd5e6ac.png",
+      "image": "2fb3bc1a419283fa181867fa4b7b4a4b.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7806,7 +7806,7 @@
     },
     {
       "id": "fcb8b163",
-      "image": "acdbef1d1200ea2ff7c630a05cd5e6ac.png",
+      "image": "2fb3bc1a419283fa181867fa4b7b4a4b.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7819,7 +7819,7 @@
     },
     {
       "id": "6b846d16",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "240a07d9ab3013f9d71ed13eb03b7da5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component hover theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7832,7 +7832,7 @@
     },
     {
       "id": "af57b8f0",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "240a07d9ab3013f9d71ed13eb03b7da5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component hover theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7845,7 +7845,7 @@
     },
     {
       "id": "50cfaa65",
-      "image": "28542719562b9e84916c7d81f5452385.png",
+      "image": "240a07d9ab3013f9d71ed13eb03b7da5.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component hover theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7858,7 +7858,7 @@
     },
     {
       "id": "1be51f46",
-      "image": "2480145c8954f15e34efbc2d6511d60b.png",
+      "image": "e0fbf7d4cb00da6cc0ca972441de4102.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component with value theme-bubblegum light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7871,7 +7871,7 @@
     },
     {
       "id": "f5119cc7",
-      "image": "2480145c8954f15e34efbc2d6511d60b.png",
+      "image": "e0fbf7d4cb00da6cc0ca972441de4102.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component with value theme-none light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7884,7 +7884,7 @@
     },
     {
       "id": "dde165f8",
-      "image": "2480145c8954f15e34efbc2d6511d60b.png",
+      "image": "e0fbf7d4cb00da6cc0ca972441de4102.png",
       "userAgent": "default",
       "desc": "ld-input themed light css component with value theme-ocean light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7897,7 +7897,7 @@
     },
     {
       "id": "c2317e4b",
-      "image": "1dcba8d9b5bf96e5a6fa4cf73e946a4a.png",
+      "image": "e1446eccb97e4ae83ce48e77c76d8cdd.png",
       "userAgent": "default",
       "desc": "ld-input themed light default theme-bubblegum light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7910,7 +7910,7 @@
     },
     {
       "id": "4dac862a",
-      "image": "9429d7813ed9452f66a1a540318eac7b.png",
+      "image": "146c18c58ba9e9dc3417a27e99bab7c0.png",
       "userAgent": "default",
       "desc": "ld-input themed light default theme-none light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7923,7 +7923,7 @@
     },
     {
       "id": "9dfa7f8b",
-      "image": "9429d7813ed9452f66a1a540318eac7b.png",
+      "image": "146c18c58ba9e9dc3417a27e99bab7c0.png",
       "userAgent": "default",
       "desc": "ld-input themed light default theme-ocean light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7936,7 +7936,7 @@
     },
     {
       "id": "6438a9a4",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7949,7 +7949,7 @@
     },
     {
       "id": "a57af74f",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7962,7 +7962,7 @@
     },
     {
       "id": "0c8282ed",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7975,7 +7975,7 @@
     },
     {
       "id": "e9716f89",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -7988,7 +7988,7 @@
     },
     {
       "id": "88f3da0e",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8001,7 +8001,7 @@
     },
     {
       "id": "60e66083",
-      "image": "426eacaa432d10f0a512b1f81ba095cc.png",
+      "image": "eb7c492fca7e09a0b941ebeff07a2ac9.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8014,7 +8014,7 @@
     },
     {
       "id": "3f69bacb",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled with value theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8027,7 +8027,7 @@
     },
     {
       "id": "34ca9bdc",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled with value theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8040,7 +8040,7 @@
     },
     {
       "id": "58be7967",
-      "image": "23696f28d56e026b4916322e06e24e14.png",
+      "image": "64995501a601c28f0f7b6bf455969000.png",
       "userAgent": "default",
       "desc": "ld-input themed light disabled with value theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8053,7 +8053,7 @@
     },
     {
       "id": "fb7d7e9b",
-      "image": "915270beaa191df99c32c5d8fd13e1cd.png",
+      "image": "6c2e73a81b09413fccddeb4b08eae50e.png",
       "userAgent": "default",
       "desc": "ld-input themed light focus theme-bubblegum",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8066,7 +8066,7 @@
     },
     {
       "id": "60a50202",
-      "image": "86d3b953e8aaba7209cc0de621fa79df.png",
+      "image": "6fe17a27568896dcc07d052cd494bdf1.png",
       "userAgent": "default",
       "desc": "ld-input themed light focus theme-none",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8079,7 +8079,7 @@
     },
     {
       "id": "029d0080",
-      "image": "86d3b953e8aaba7209cc0de621fa79df.png",
+      "image": "0248feedbc8245adddc1deb824d7c8f2.png",
       "userAgent": "default",
       "desc": "ld-input themed light focus theme-ocean",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8092,7 +8092,7 @@
     },
     {
       "id": "89516cc5",
-      "image": "8b8ed0130133080d907066102d3128a3.png",
+      "image": "c39e90629390f70e481746ec70e0948e.png",
       "userAgent": "default",
       "desc": "ld-input themed light with value theme-bubblegum light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8105,7 +8105,7 @@
     },
     {
       "id": "0821a1cb",
-      "image": "bb1668bcee82b3e06c175035c4287d64.png",
+      "image": "5da2a28f102f6b7c9b2d9a5d84b3951f.png",
       "userAgent": "default",
       "desc": "ld-input themed light with value theme-none light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -8118,7 +8118,7 @@
     },
     {
       "id": "e9980ca4",
-      "image": "bb1668bcee82b3e06c175035c4287d64.png",
+      "image": "5da2a28f102f6b7c9b2d9a5d84b3951f.png",
       "userAgent": "default",
       "desc": "ld-input themed light with value theme-ocean light",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",

@@ -2,14 +2,16 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
 
 describe('ld-input', () => {
-  it('renders as dark input by default', async () => {
+  it('renders', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input ld-input--dark">
-        <input>
+      <ld-input>
+        <div class="ld-input">
+          <input>
+        </div>
       </ld-input>
     `)
   })
@@ -19,19 +21,23 @@ describe('ld-input', () => {
       html: `<ld-input mode="dark"></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input mode="dark" class="ld-input ld-input--dark">
-        <input>
+      <ld-input mode="dark">
+        <div class="ld-input ld-input--dark">
+          <input>
+        </div>
       </ld-input>
     `)
   })
-  it('renders as light input with prop mode set to "light"', async () => {
+  it('renders as default input with prop mode set to "light"', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input mode="light"></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input mode="light" class="ld-input ld-input--light">
-        <input>
+      <ld-input mode="light">
+        <div class="ld-input">
+          <input>
+        </div>
       </ld-input>
     `)
   })
@@ -41,8 +47,10 @@ describe('ld-input', () => {
       html: `<ld-input value="yada-yada"></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input value="yada-yada" class="ld-input ld-input--dark">
-        <input value="yada-yada">
+      <ld-input value="yada-yada">
+        <div class="ld-input">
+          <input value="yada-yada">
+        </div>
       </ld-input>
     `)
   })
@@ -63,8 +71,10 @@ describe('ld-input', () => {
     expect(ldInput.value).toBe('yoda-yoda')
 
     expect(page.root).toEqualHtml(`
-      <ld-input value="yoda-yoda" class="ld-input ld-input--dark">
-        <input value="yoda-yoda">
+      <ld-input value="yoda-yoda">
+        <div class="ld-input">
+          <input value="yoda-yoda">
+        </div>
       </ld-input>
     `)
   })
@@ -103,11 +113,13 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="start">hi</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input ld-input--dark">
-        <span slot="start">
-          hi
-        </span>
-        <input>
+      <ld-input>
+        <div class="ld-input">
+          <span slot="start">
+            hi
+          </span>
+          <input>
+        </div>
       </ld-input>
     `)
   })
@@ -117,11 +129,13 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="end">hello</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input ld-input--dark">
-        <input>
-        <span slot="end">
-          hello
-        </span>
+      <ld-input>
+        <div class="ld-input">
+          <input>
+          <span slot="end">
+            hello
+          </span>
+        </div>
       </ld-input>
     `)
   })
@@ -131,14 +145,16 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="start">hi</span><span slot="end">hello</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input ld-input--dark">
-        <span slot="start">
-          hi
-        </span>
-        <input>
-        <span slot="end">
-          hello
-        </span>
+      <ld-input>
+        <div class="ld-input">
+          <span slot="start">
+            hi
+          </span>
+          <input>
+          <span slot="end">
+            hello
+          </span>
+        </div>
       </ld-input>
     `)
   })

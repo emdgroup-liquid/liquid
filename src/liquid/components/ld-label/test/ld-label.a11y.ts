@@ -2,21 +2,25 @@ import 'globals'
 import pa11yConfig from '../../../../../pa11y.json'
 import pa11y from 'pa11y'
 import puppeteer from 'puppeteer'
-import { startServer } from 'polyserve'
+import liveServer from 'live-server'
 import { join } from 'path'
 
 describe('ld-label', () => {
   let server, browser, page
 
   beforeAll(async function () {
-    server = await startServer({
+    server = await liveServer.start({
+      port: 0,
       root: join(process.cwd(), 'dist_docs'),
+      open: false,
+      ignore: '*',
     })
   })
 
   afterAll(async function () {
     if (server) {
       await new Promise((resolve) => {
+        liveServer.watcher.close()
         server.close(resolve)
       })
     }
@@ -30,7 +34,7 @@ describe('ld-label', () => {
   it('is accessible', async () => {
     try {
       const result = await pa11y(
-        `http://localhost:${server.address().port}/liquid/components/ld-label/`,
+        `http://localhost:${server.address().port}/components/ld-label/`,
         {
           browser,
           page,

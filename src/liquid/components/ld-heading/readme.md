@@ -204,7 +204,7 @@ Here are some examples on how you can apply different colors on headings:
   Almost before we knew it, we had left the ground.
 </ld-heading>
 
-<ld-heading level="2" visual-level="h1" style="color: var(--ld-col-vc-default)">
+<ld-heading level="2" visual-level="h1" style="color: var(--ld-col-vc4)">
   Almost before we knew it, we had left the ground.
 </ld-heading>
 
@@ -218,7 +218,7 @@ Here are some examples on how you can apply different colors on headings:
   Almost before we knew it, we had left the ground.
 </h1>
 
-<h2 class="ld-heading ld-heading--h1" style="color: var(--ld-col-vc-default)">
+<h2 class="ld-heading ld-heading--h1" style="color: var(--ld-col-vc4)">
   Almost before we knew it, we had left the ground.
 </h2>
 

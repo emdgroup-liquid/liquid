@@ -97,7 +97,6 @@
     "node-fetch": "^2.6.1",
     "npm-run-all": "^4.1.5",
     "pa11y": "^5.3.0",
-    "polyserve": "^0.27.15",
     "postcss": "^8.2.7",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",

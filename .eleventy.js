@@ -44,8 +44,7 @@ module.exports = function (eleventyConfig) {
         ],
       }),
       Object.assign(new state.Token('html_block', '', 0), {
-        content:
-          '<span aria-label="Direct link" class="header-anchor__symbol">#</span>',
+        content: '<span aria-label="" class="header-anchor__symbol">#</span>',
       }),
       new state.Token('link_close', 'a', -1),
     ]

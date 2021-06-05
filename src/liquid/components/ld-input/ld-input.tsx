@@ -59,11 +59,11 @@ export class LdInput {
   }
 
   private handleInput() {
-    if (this.input.getAttribute('aria-disabled')) {
-      this.input.value = this.value || ''
+    if (!this.input.getAttribute('aria-disabled')) {
+      this.value = this.input.value
       return
     }
-    this.value = this.input.value
+    this.input.value = this.value || ''
   }
 
   private handleClick(ev) {
@@ -74,7 +74,7 @@ export class LdInput {
 
   render() {
     let cl = 'ld-input'
-    if (this.mode === 'light') cl += ' ld-input--light'
+    if (this.mode === 'dark') cl += ' ld-input--dark'
     if (this.invalid) cl += ' ld-input--invalid'
 
     return (
