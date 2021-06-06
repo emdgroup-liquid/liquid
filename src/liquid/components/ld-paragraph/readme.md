@@ -15,16 +15,32 @@ Paragraphs are usually represented in visual media as blocks of text separated f
 
 ## Examples
 
+### Default paragraph
+
+{% example "html", true %}
+<ld-paragraph>
+  Almost before we knew it, we had left the ground.
+</ld-paragraph>
+
+<!-- CSS component -->
+
+<p class="ld-paragraph">
+  Almost before we knew it, we had left the ground.
+</p>
+{% endexample %}
+
+### Sizes
+
 {% example "html", true %}
 <ld-paragraph size="xs">
-Almost before we knew it, we had left the ground.
+  Almost before we knew it, we had left the ground.
 </ld-paragraph>
 
 <ld-paragraph size="s">
   Almost before we knew it, we had left the ground.
 </ld-paragraph>
 
-<ld-paragraph>
+<ld-paragraph> <!-- or <ld-paragraph size="m"> -->
   Almost before we knew it, we had left the ground.
 </ld-paragraph>
 
@@ -46,7 +62,7 @@ Almost before we knew it, we had left the ground.
   Almost before we knew it, we had left the ground.
 </p>
 
-<p class="ld-paragraph">
+<p class="ld-paragraph"> <!-- or <p class="ld-paragraph ld-paragraph--m"> -->
   Almost before we knew it, we had left the ground.
 </p>
 

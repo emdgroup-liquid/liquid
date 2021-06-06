@@ -19,11 +19,14 @@ If you have a suggestion for a new component not listed here, create an [issue o
 |--------------------------------------------|-------------------|--------------------|
 | [ld-button](./ld-button/)                  | done              | done               |
 | [ld-heading](./ld-heading/)                | done              | done               |
+| [ld-paragraph](./ld-paragraph/)            | done              | done               |
 | [ld-icon](./ld-icon/)                      | in progress       | on hold            |
-| [ld-input](./ld-input/)                    | done              | in progress        |
+| [ld-input](./ld-input/)                    | done              | done               |
 | [ld-input-message](./ld-input-message/)    | done              | done               |
 | [ld-label](./ld-label/)                    | done              | done               |
 | [ld-sr-only](./ld-sr-only/)                | not needed        | done               |
-| ld-checkbox                                | done              | todo               |
+| [ld-checkbox](./ld-checkbox)               | done              | in progress        |
 | ld-radio                                   | done              | todo               |
 | ld-select                                  | in progress       | todo               |
+| ld-textarea                                | done              | todo               |
+| ld-pattern                                 | done              | todo               |
