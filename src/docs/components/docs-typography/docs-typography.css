@@ -29,8 +29,8 @@
   border-style: solid;
   border-width: var(--ld-sp-1);
   color: var(--ld-col-rblck-default);
-  background-color: var(--ld-col-wht);
-  padding: var(--ld-sp-8) var(--ld-sp-16) var(--ld-sp-40) var(--ld-sp-8);
+  background-color: var(--ld-col-bg-g);
+  padding: var(--ld-sp-8) var(--ld-sp-8) var(--ld-sp-40);
 
   &:first-of-type {
     border-top-left-radius: var(--ld-br-l);
@@ -67,8 +67,12 @@
   color: var(--ld-col-rblck3);
 }
 
-.docs-spacing__val,
+.docs-spacing__val {
+  padding-left: var(--ld-sp-8);
+}
 .docs-typography__vis {
   display: block;
-  padding-left: var(--ld-sp-8);
+  background-color: var(--ld-col-wht);
+  padding: var(--ld-sp-16) var(--ld-sp-8);
+  border-radius: var(--ld-br-s);
 }

@@ -75,55 +75,57 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ### With deviating visual level `b*`
 
+`b*` headings should be only a couple of words long.
+
 {% example "html", true %}
 <ld-heading level="1" visual-level="b1">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="2" visual-level="b2">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="3" visual-level="b3">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="4" visual-level="b4">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="5" visual-level="b5">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="6" visual-level="b6">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <!-- CSS component -->
 
-<h1 class="ld-heading ld-heading--b1" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h1 class="ld-heading ld-heading--b1" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h1>
 
-<h2 class="ld-heading ld-heading--b2" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h2 class="ld-heading ld-heading--b2" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h2>
 
-<h3 class="ld-heading ld-heading--b3" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h3 class="ld-heading ld-heading--b3" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h3>
 
-<h4 class="ld-heading ld-heading--b4" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h4 class="ld-heading ld-heading--b4" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h4>
 
-<h5 class="ld-heading ld-heading--b5" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h5 class="ld-heading ld-heading--b5" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h5>
 
-<h6 class="ld-heading ld-heading--b6" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h6 class="ld-heading ld-heading--b6" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h6>
 {% endexample %}
 
@@ -159,31 +161,33 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ### With deviating visual level `xb*`
 
+`xb*` headings should be only a couple of words long.
+
 {% example "html", true %}
 <ld-heading level="1" visual-level="xb1">
-  Almost before we knew it, we had left the ground.
+  Lipsum
 </ld-heading>
 
 <ld-heading level="2" visual-level="xb2">
-  Almost before we knew it, we had left the ground.
+  Lipsum
 </ld-heading>
 
 <ld-heading level="3" visual-level="xb3">
-  Almost before we knew it, we had left the ground.
+  Lipsum
 </ld-heading>
 
 <!-- CSS component -->
 
-<h1 class="ld-heading ld-heading--xb1" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h1 class="ld-heading ld-heading--xb1" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h1>
 
-<h2 class="ld-heading ld-heading--xb2" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h2 class="ld-heading ld-heading--xb2" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h2>
 
-<h3 class="ld-heading ld-heading--xb3" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h3 class="ld-heading ld-heading--xb3" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h3>
 {% endexample %}
 
@@ -201,7 +205,7 @@ Here are some examples on how you can apply different colors on headings:
 </style>
 
 <ld-heading level="1" visual-level="b1" class="custom-color">
-  Almost before we knew it, we had left the ground.
+  Lorem ipsum
 </ld-heading>
 
 <ld-heading level="2" visual-level="h1" style="color: var(--ld-col-vc4)">
@@ -214,8 +218,8 @@ Here are some examples on how you can apply different colors on headings:
 .custom-color { color: var(--ld-col-vm-default); }
 </style>
 
-<h1 class="ld-heading ld-heading--b1 custom-color" aria-label="Almost before we knew it, we had left the ground.">
-  Almost before we knew it, we had left the ground.
+<h1 class="ld-heading ld-heading--b1 custom-color" aria-label="Lorem ipsum">
+  Lorem ipsum
 </h1>
 
 <h2 class="ld-heading ld-heading--h1" style="color: var(--ld-col-vc4)">
