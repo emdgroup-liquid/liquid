@@ -77,7 +77,7 @@ title: Liquid
                 <a href="{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
               </summary>
               <ul>
-                {%- if entry.title == 'Components' -%}
+                {%- if (entry.title == 'Components') or (entry.title == 'Globals') -%}
                   {%- for child in entry.children|sort(false, true, 'title') %}{{ renderNavListItem(child) }}{% endfor -%}
                 {%- else -%}
                   {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
