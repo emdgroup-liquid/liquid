@@ -72,7 +72,7 @@ title: Liquid
       {% macro renderNavListItem(entry) -%}
         <li class="docs-nav__li{% if entry.url in page.url %} docs-nav__li--active{% endif %}">
           {%- if entry.children.length -%}
-            <details{% if entry.url in page.url %} open{% endif %}>
+            <details{% if ((entry.url == '/') and (('liquid/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
               <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower }}">
                 <a href="{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
               </summary>
