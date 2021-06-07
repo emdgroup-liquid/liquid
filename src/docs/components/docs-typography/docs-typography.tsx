@@ -24,7 +24,7 @@ export class DocsTypography {
           <docs-copy-to-cb textToCopy={this.var} />
           {this.var}
         </span>
-        <span class="docs-spacing__val">{this.val}</span>
+        <span class="docs-typography__val">{this.val}</span>
         <span
           class="docs-typography__vis"
           style={{ [this.prop]: `var(${this.var})` }}
