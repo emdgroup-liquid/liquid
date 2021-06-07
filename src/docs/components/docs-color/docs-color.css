@@ -1,11 +1,27 @@
 @define-mixin docs-color-ui-light {
   .docs-color {
     border-color: var(--ld-col-rblck1);
+
+    &.docs-color--transparent {
+      color: var(--ld-col-rblck-default);
+
+      .docs-copy-to-cb {
+        filter: none;
+      }
+    }
   }
 }
 @define-mixin docs-color-ui-dark {
   .docs-color {
     border-color: var(--ld-col-rblck4);
+
+    &.docs-color--transparent {
+      color: var(--ld-col-wht);
+
+      .docs-copy-to-cb {
+        filter: invert(1) hue-rotate(180deg);
+      }
+    }
   }
 }
 

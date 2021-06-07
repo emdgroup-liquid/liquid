@@ -103,7 +103,7 @@ code .highlight-line:before {
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: var(--ld-col-vg4);
+    color: var(--ld-col-rg4);
   }
   .token.atrule,
   .token.attr-value,

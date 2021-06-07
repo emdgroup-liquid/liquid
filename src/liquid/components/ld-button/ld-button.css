@@ -264,18 +264,18 @@ ld-button {
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:focus:focus-visible {
       color: var(--ld-col-rb-focus);
-      background-color: var(--ld-col-bg-g);
+      background-color: transparent;
     }
     @media (hover: hover) {
       &:hover {
         color: var(--ld-col-rb-hover);
-        background-color: var(--ld-col-bg-g);
+        background-color: var(--ld-col-rb-a01);
       }
     }
     &:active,
     &:active:focus-visible {
       color: var(--ld-col-rb-active);
-      background-color: var(--ld-col-rblck1);
+      background-color: var(--ld-col-rb-a02);
     }
   }
 }
@@ -297,11 +297,13 @@ ld-button {
       @media (hover: hover) {
         &:hover {
           color: var(--ld-col-rp-hover);
+          background-color: var(--ld-col-rp-a01);
         }
       }
       &:active,
       &:active:focus-visible {
         color: var(--ld-col-rp-active);
+        background-color: var(--ld-col-rp-a02);
       }
     }
   }
@@ -317,11 +319,13 @@ ld-button {
       @media (hover: hover) {
         &:hover {
           color: var(--ld-col-rg-hover);
+          background-color: var(--ld-col-rg-a01);
         }
       }
       &:active,
       &:active:focus-visible {
         color: var(--ld-col-rg-active);
+        background-color: var(--ld-col-rg-a02);
       }
     }
   }

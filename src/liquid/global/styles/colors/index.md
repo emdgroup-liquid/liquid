@@ -33,6 +33,8 @@ All colors listed below are available as global CSS custom properties after [imp
 
 ## Rich colors
 
+Use rich colors for the structure of interfaces, actionable items, and validation. Colors in the `1` to `3` ranges have a [WCAG AA contrast ratio](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) above 4.5:1 against white or range `1` backgrounds.
+
 ### Rich Blue
 
 <docs-color var="--ld-col-rb1"></docs-color>
@@ -108,6 +110,27 @@ All colors listed below are available as global CSS custom properties after [imp
 <docs-color var="--ld-col-vy4"></docs-color>
 <docs-color var="--ld-col-vy5"></docs-color>
 <docs-color var="--ld-col-vy6"></docs-color>
+
+## Transparent colors
+
+<docs-color is-transparent var="--ld-col-rblck-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-rblck-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-rb-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-rb-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-rg-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-rg-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-rp-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-rp-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-rr-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-rr-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-vc-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-vc-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-vg-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-vg-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-vm-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-vm-a02"></docs-color>
+<docs-color is-transparent var="--ld-col-vy-a01"></docs-color>
+<docs-color is-transparent var="--ld-col-vy-a02"></docs-color>
 
 ## Theme palettes
 

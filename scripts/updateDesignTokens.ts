@@ -263,8 +263,13 @@ function generateColors(tokensColors, tokensThemes) {
     const val = tokensColors[key]
     if (key.includes('/default')) {
       lines.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
+      const colorKey = key.slice(0, -'x/default'.length)
+      lines.push(`  --ld-col-${colorKey}-default: ${val};`)
       lines.push(
-        `  --ld-col-${key.slice(0, -'x/default'.length)}-default: ${val};`
+        `  --ld-col-${colorKey}-a01: ${val.replace(', 1)', ', 0.1)')};`
+      )
+      lines.push(
+        `  --ld-col-${colorKey}-a02: ${val.replace(', 1)', ', 0.2)')};`
       )
     } else {
       lines.push(`  --ld-col-${key}: ${val};`)
