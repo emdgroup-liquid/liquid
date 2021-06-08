@@ -1,10 +1,10 @@
 ---
 eleventyNavigation:
-  key: Getting Started
+  key: Getting started
   parent: Liquid
   order: 1
 layout: layout.njk
-title: Getting Started
+title: Getting started
 permalink: liquid/getting-started/
 ---
 

@@ -7,7 +7,7 @@ title: Button
 permalink: components/ld-button/
 ---
 
-# Button
+# ld-button
 
 Buttons allow a user to trigger events on the user interface. A button's text should express what the button does.
 Icon-buttons without visual text should either contain a [screen-reader-only](/components/ld-sr-only/) text, have an `aria-label`, a `title` element within the svg icon or an `alt` text on an image icon within the button.
@@ -64,7 +64,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
 
 ### Secondary
 
@@ -435,6 +435,25 @@ You can align the text inside the button using the `align-text` propperty.
 | `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
 
+
+## Dependencies
+
+### Used by
+
+ - docs-copy-to-cb
+ - docs-edit-on-github
+ - docs-page-nav
+ - docs-toggle-code
+
+### Graph
+```mermaid
+graph TD;
+  docs-copy-to-cb --> ld-button
+  docs-edit-on-github --> ld-button
+  docs-page-nav --> ld-button
+  docs-toggle-code --> ld-button
+  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

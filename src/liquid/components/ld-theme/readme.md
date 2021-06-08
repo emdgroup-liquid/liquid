@@ -7,9 +7,11 @@ title: Theme
 permalink: components/ld-theme/
 ---
 
-# Theme
+# ld-theme
 
 Liquid comes with multiple themes for theming its UI components. Most of the examples in the documentation have a theme switch built in, which you can use to switch between the available themes. In the following examples this switch is turned off. Instead, the examples show how you can apply a theme yourself.
+
+---
 
 ## How to apply a theme
 

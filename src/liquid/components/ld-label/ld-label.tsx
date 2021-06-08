@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
@@ -12,10 +12,20 @@ import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
 export class LdLabel {
   @Element() el: HTMLLabelElement
 
+  /** Relative position to labeled element. Default is top. */
+  @Prop() position: 'left' | 'right'
+
+  /** Size of the label. Default is small. */
+  @Prop() size: 'm'
+
   render() {
+    let cl = 'ld-label'
+    if (this.position) cl += ` ld-label--${this.position}`
+    if (this.size) cl += ` ld-label--${this.size}`
+
     return (
       <label
-        class="ld-label"
+        class={cl}
         {...cloneAttributes<LabelHTMLAttributes<HTMLLabelElement>>(this.el)}
       >
         <slot></slot>

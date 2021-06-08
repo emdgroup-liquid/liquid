@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
@@ -30,8 +30,8 @@ export class LdInput {
 
   private input!: HTMLInputElement
 
-  /** Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. */
-  @Prop() mode: 'light' | 'dark' = 'light'
+  /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
+  @Prop() tone: 'dark'
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) value: string
@@ -46,7 +46,6 @@ export class LdInput {
   @Prop() type: string
 
   private handleBlur(ev) {
-    this.el.classList.add('ld-input--dirty')
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
@@ -74,11 +73,11 @@ export class LdInput {
 
   render() {
     let cl = 'ld-input'
-    if (this.mode === 'dark') cl += ' ld-input--dark'
+    if (this.tone) cl += ` ld-input--${this.tone}`
     if (this.invalid) cl += ' ld-input--invalid'
 
     return (
-      <div class={cl} onClick={this.handleClick.bind(this)}>
+      <Host class={cl} onClick={this.handleClick.bind(this)}>
         <slot name="start"></slot>
         <input
           ref={(el) => (this.input = el as HTMLInputElement)}
@@ -96,7 +95,7 @@ export class LdInput {
           </span>
         )}
         <slot name="end"></slot>
-      </div>
+      </Host>
     )
   }
 }

@@ -9,7 +9,7 @@ permalink: components/ld-label/
 
 # ld-label
 
-This component is meant to be used in conjunction with the [`ld-input`](/components/ld-input/) and [`ld-input-message`](/components/ld-input-message/) component. Please reffer to the [`ld-input`](/components/ld-input/) docs for further usage examples.
+This component is meant to be used in conjunction with form input components, such as the [`ld-input`](/components/ld-input/) component, and the [`ld-input-message`](/components/ld-input-message/) component.
 
 ## Example
 
@@ -21,8 +21,88 @@ This component is meant to be used in conjunction with the [`ld-input`](/compone
 <label class="ld-label">Email Address</label>
 {% endexample %}
 
+### Size
+
+The default size is small. You can use a slightly bigger label (size medium) by applying the `size="m"` property.
+
+{% example %}
+<ld-label size="m">
+  Email Address
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--m">
+  Email Address
+</label>
+{% endexample %}
+
+### Position
+
+#### Top (default position)
+
+{% example %}
+<ld-label>
+  Email Address
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+</label>
+{% endexample %}
+
+#### Left
+
+{% example %}
+<ld-label position="left">
+  Email Address
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--left">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+</label>
+{% endexample %}
+
+#### Right
+
+{% example %}
+<ld-label position="right">
+  Email Address
+  <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--right">
+  Email Address
+  <div class="ld-input">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+</label>
+{% endexample %}
+
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property   | Attribute  | Description                                           | Type                | Default     |
+| ---------- | ---------- | ----------------------------------------------------- | ------------------- | ----------- |
+| `position` | `position` | Relative position to labeled element. Default is top. | `"left" \| "right"` | `undefined` |
+| `size`     | `size`     | Size of the label. Default is small.                  | `"m"`               | `undefined` |
 
 
 ----------------------------------------------

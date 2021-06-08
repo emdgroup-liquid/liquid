@@ -7,7 +7,7 @@ title: Heading
 permalink: components/ld-heading/
 ---
 
-# Heading
+# ld-heading
 
 Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
 

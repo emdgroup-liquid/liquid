@@ -109,7 +109,6 @@ export class DocsSearch {
               id="docs-search-input"
               ref={(el) => (this.searchInput = el as HTMLLdInputElement)}
               type="search"
-              mode="light"
               spellcheck={false}
             ></ld-input>
           </form>

@@ -65,11 +65,18 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 <!-- CSS component -->
 
 <div class="ld-input" disabled>
-  <input placeholder="Placeholder" aria-disabled="true" id="focusable-disabled-input-1">
+  <input
+    placeholder="Placeholder"
+    aria-disabled="true"
+    id="focusable-disabled-input-1">
 </div>
 
 <div class="ld-input" disabled>
-  <input placeholder="Placeholder" value="Value" aria-disabled="true" id="focusable-disabled-input-2">
+  <input
+    placeholder="Placeholder"
+    value="Value"
+    aria-disabled="true"
+    id="focusable-disabled-input-2">
 </div>
 
 <!-- Example code for input prevention on aria-disabled input elements -->
@@ -86,12 +93,14 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 > **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of `ld-input` with `aria-disabled`, you will have to prevent the default behaviour of the input element yourself. 
 
-### Mode dark
+### Dark
+
+> **Note**: Dark tone inputs should only be used on white backgrounds.
 
 {% example 'html', false, false, 'light' %}
-<ld-input mode="dark" placeholder="Placeholder"></ld-input>
+<ld-input tone="dark" placeholder="Placeholder"></ld-input>
 
-<ld-input mode="dark" placeholder="Placeholder" disabled></ld-input>
+<ld-input tone="dark" placeholder="Placeholder" disabled></ld-input>
 
 <!-- CSS component -->
 
@@ -613,7 +622,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 ### Input validation
 
-The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement form validation with vanilla JS:
+The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
 
 {% example %}
 <style>
@@ -627,7 +636,7 @@ The `ld-input` web component does not provide any properties or methods for vali
   flex: 1 0 auto;
 }
 #example-form ld-button {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.7rem;
 }
 @media (min-width: 52rem) {
   #example-form {
@@ -705,13 +714,13 @@ The `ld-input` web component does not provide any properties or methods for vali
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                        | Type                | Default     |
-| ------------- | ------------- | ---------------------------------------------------------------------------------- | ------------------- | ----------- |
-| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.        | `boolean`           | `undefined` |
-| `mode`        | `mode`        | Input mode. Use `'dark'` on white backgrounds, use `'light'` on other backgrounds. | `"dark" \| "light"` | `'light'`   |
-| `placeholder` | `placeholder` | The input placeholder.                                                             | `string`            | `undefined` |
-| `type`        | `type`        | The input type.                                                                    | `string`            | `undefined` |
-| `value`       | `value`       | The input value.                                                                   | `string`            | `undefined` |
+| Property      | Attribute     | Description                                                                 | Type      | Default     |
+| ------------- | ------------- | --------------------------------------------------------------------------- | --------- | ----------- |
+| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid. | `boolean` | `undefined` |
+| `placeholder` | `placeholder` | The input placeholder.                                                      | `string`  | `undefined` |
+| `tone`        | `tone`        | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`  | `undefined` |
+| `type`        | `type`        | The input type.                                                             | `string`  | `undefined` |
+| `value`       | `value`       | The input value.                                                            | `string`  | `undefined` |
 
 
 ## Slots
@@ -721,6 +730,19 @@ The `ld-input` web component does not provide any properties or methods for vali
 | `"end"`   | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the start of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right. |
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
 
+
+## Dependencies
+
+### Used by
+
+ - docs-search
+
+### Graph
+```mermaid
+graph TD;
+  docs-search --> ld-input
+  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

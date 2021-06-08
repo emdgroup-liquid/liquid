@@ -291,7 +291,7 @@
       },
       "label-s": {
         "fontSize": "0.875rem",
-        "lineHeight": "140%",
+        "lineHeight": "120%",
         "fontFamiliy": "Lato"
       }
     }

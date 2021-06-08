@@ -7,7 +7,7 @@ title: Paragraph
 permalink: components/ld-paragraph/
 ---
 
-# Paragraph
+# ld-paragraph
 
 Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation.
 

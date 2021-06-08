@@ -123,7 +123,7 @@
     content: '';
     position: absolute;
     right: 0;
-    top: var(--ld-sp-2);
+    top: calc(-1 * var(--ld-sp-1));
     background-image: url('/dist/build/assets/chevron.svg');
     background-repeat: no-repeat;
     background-position: center;

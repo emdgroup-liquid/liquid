@@ -8,36 +8,19 @@ describe('ld-input', () => {
       html: `<ld-input></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input>
-        <div class="ld-input">
-          <input>
-        </div>
+      <ld-input class="ld-input">
+        <input>
       </ld-input>
     `)
   })
-  it('renders as dark input with prop mode set to "dark"', async () => {
+  it('renders as dark input with prop tone set to "dark"', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input mode="dark"></ld-input>`,
+      html: `<ld-input tone="dark"></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input mode="dark">
-        <div class="ld-input ld-input--dark">
-          <input>
-        </div>
-      </ld-input>
-    `)
-  })
-  it('renders as default input with prop mode set to "light"', async () => {
-    const page = await newSpecPage({
-      components: [LdInput],
-      html: `<ld-input mode="light"></ld-input>`,
-    })
-    expect(page.root).toEqualHtml(`
-      <ld-input mode="light">
-        <div class="ld-input">
-          <input>
-        </div>
+      <ld-input tone="dark" class="ld-input ld-input--dark">
+        <input>
       </ld-input>
     `)
   })
@@ -47,10 +30,8 @@ describe('ld-input', () => {
       html: `<ld-input value="yada-yada"></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input value="yada-yada">
-        <div class="ld-input">
-          <input value="yada-yada">
-        </div>
+      <ld-input value="yada-yada" class="ld-input">
+        <input value="yada-yada">
       </ld-input>
     `)
   })
@@ -71,10 +52,8 @@ describe('ld-input', () => {
     expect(ldInput.value).toBe('yoda-yoda')
 
     expect(page.root).toEqualHtml(`
-      <ld-input value="yoda-yoda">
-        <div class="ld-input">
-          <input value="yoda-yoda">
-        </div>
+      <ld-input value="yoda-yoda" class="ld-input">
+        <input value="yoda-yoda">
       </ld-input>
     `)
   })
@@ -113,13 +92,11 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="start">hi</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input>
-        <div class="ld-input">
-          <span slot="start">
-            hi
-          </span>
-          <input>
-        </div>
+      <ld-input class="ld-input">
+        <span slot="start">
+          hi
+        </span>
+        <input>
       </ld-input>
     `)
   })
@@ -129,13 +106,11 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="end">hello</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input>
-        <div class="ld-input">
-          <input>
-          <span slot="end">
-            hello
-          </span>
-        </div>
+      <ld-input class="ld-input">
+        <input>
+        <span slot="end">
+          hello
+        </span>
       </ld-input>
     `)
   })
@@ -145,16 +120,14 @@ describe('ld-input', () => {
       html: `<ld-input><span slot="start">hi</span><span slot="end">hello</span></ld-input>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-input>
-        <div class="ld-input">
-          <span slot="start">
-            hi
-          </span>
-          <input>
-          <span slot="end">
-            hello
-          </span>
-        </div>
+      <ld-input class="ld-input">
+        <span slot="start">
+          hi
+        </span>
+        <input>
+        <span slot="end">
+          hello
+        </span>
       </ld-input>
     `)
   })
