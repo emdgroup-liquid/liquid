@@ -3,6 +3,7 @@ import { Component, h, Host, Listen, State } from '@stencil/core'
 
 @Component({
   tag: 'ld-sr-live',
+  styleUrl: 'ld-sr-live.css',
   shadow: false,
 })
 export class LdSrLive {

@@ -385,7 +385,7 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
 
 {% example %}
 <ld-label position="right" size="m">
-  I have read the terms of service.
+  I have read the terms of service.*
   <ld-checkbox></ld-checkbox>
 </ld-label>
 
@@ -536,7 +536,7 @@ The `ld-checkbox` web component provides a low level API for integrating the com
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
     I have read the terms of service.*
-    <ld-checkbox mode="highlight" required></ld-checkbox>
+    <ld-checkbox required></ld-checkbox>
     <ld-input-message visible="false">To proceed, you must except the terms of service.</ld-input-message>
   </ld-label>
   <ld-label position="right" size="m">
@@ -552,7 +552,6 @@ The `ld-checkbox` web component provides a low level API for integrating the com
   const termsConfirmationErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
   function validateInput(ldCheckbox, ldInputMessage) {
-    console.info('ldCheckbox', ldCheckbox.checked)
     value = ldCheckbox.checked
     if (!value) {
       ldCheckbox.setAttribute('invalid', 'true')

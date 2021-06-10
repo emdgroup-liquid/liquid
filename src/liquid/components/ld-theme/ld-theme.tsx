@@ -3,6 +3,7 @@ import { Component, h, Host, Prop } from '@stencil/core'
 
 @Component({
   tag: 'ld-theme',
+  styleUrl: 'ld-theme.css',
   shadow: false,
 })
 export class LdTheme {
