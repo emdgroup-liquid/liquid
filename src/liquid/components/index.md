@@ -25,8 +25,9 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-input-message](./ld-input-message/)    | done              | done               |
 | [ld-label](./ld-label/)                    | done              | done               |
 | [ld-sr-only](./ld-sr-only/)                | not needed        | done               |
+| [ld-sr-live](./ld-sr-live/)                | not needed        | in progress        |
 | [ld-checkbox](./ld-checkbox)               | done              | done               |
-| [ld-radio](./ld-radio)                     | done              | in progress        |
+| [ld-radio](./ld-radio)                     | done              | done               |
 | ld-select                                  | in progress       | todo               |
 | ld-textarea                                | done              | todo               |
 | ld-pattern                                 | done              | todo               |
