@@ -174,32 +174,32 @@
       },
       "h1": {
         "fontSize": "2rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "h2": {
         "fontSize": "1.625rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "h3": {
         "fontSize": "1.375rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "h4": {
         "fontSize": "1.125rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "h5": {
         "fontSize": "1rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "h6": {
         "fontSize": "0.875rem",
-        "lineHeight": "120%",
+        "lineHeight": "140%",
         "fontFamiliy": "Lato"
       },
       "xb1": {
@@ -219,32 +219,32 @@
       },
       "b1": {
         "fontSize": "3rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       },
       "b2": {
         "fontSize": "2.5rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       },
       "b3": {
         "fontSize": "2.25rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       },
       "b4": {
         "fontSize": "2rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       },
       "b5": {
         "fontSize": "1.625rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       },
       "b6": {
         "fontSize": "1.375rem",
-        "lineHeight": "100%",
+        "lineHeight": "120%",
         "fontFamiliy": "MWeb"
       }
     },
