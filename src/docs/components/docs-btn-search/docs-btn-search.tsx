@@ -22,6 +22,14 @@ export class DocsBtnSearch {
   })
   handleKeyDown(ev: KeyboardEvent) {
     if (ev.key === 'S') {
+      if (
+        ['input', 'textarea'].includes(
+          document.activeElement?.tagName.toLowerCase()
+        )
+      ) {
+        return
+      }
+      if (document.activeElement?.tagName === 'textarea') return
       eventBus.emit(SearchEventType.open)
     }
   }
