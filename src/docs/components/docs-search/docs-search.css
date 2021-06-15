@@ -55,7 +55,6 @@
   overflow: hidden auto;
   border-bottom-left-radius: var(--ld-br-m);
   border-bottom-right-radius: var(--ld-br-m);
-  padding: var(--ld-sp-2);
 }
 
 .docs-search__result {

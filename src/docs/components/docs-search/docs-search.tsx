@@ -103,6 +103,8 @@ export class DocsSearch {
         <div class="docs-search__content">
           <form role="search" autocomplete="off">
             <ld-input
+              aria-expanded={this.results.length ? 'true' : 'false'}
+              aria-controls="docs-search-results-list"
               onInput={this.handleChange.bind(this)}
               placeholder="Search in documentation..."
               class="docs-search__input"
@@ -112,27 +114,31 @@ export class DocsSearch {
               spellcheck={false}
             ></ld-input>
           </form>
-          {this.results.length ? (
-            <ol class="docs-search__results" aria-label="Search results">
-              {this.results.map((result) => {
-                if (!result.item.breadcrumbs.length) return ''
-                return (
-                  <li class="docs-search__result" key={result.refIndex}>
-                    <a href={result.item.url}>
-                      <b>{result.item.title}</b>
-                      <span class="docs-search__result-crumbs">
-                        {result.item.breadcrumbs.map((crumb) => (
-                          <span class="docs-search__result-crumb">{crumb}</span>
-                        ))}
-                      </span>
-                    </a>
-                  </li>
-                )
-              })}
-            </ol>
-          ) : (
-            ''
-          )}
+          <ol
+            id="docs-search-results-list"
+            class="docs-search__results"
+            aria-label="Search results"
+          >
+            {this.results.length
+              ? this.results.map((result) => {
+                  if (!result.item.breadcrumbs.length) return ''
+                  return (
+                    <li class="docs-search__result" key={result.refIndex}>
+                      <a href={result.item.url}>
+                        <b>{result.item.title}</b>
+                        <span class="docs-search__result-crumbs">
+                          {result.item.breadcrumbs.map((crumb) => (
+                            <span class="docs-search__result-crumb">
+                              {crumb}
+                            </span>
+                          ))}
+                        </span>
+                      </a>
+                    </li>
+                  )
+                })
+              : ''}
+          </ol>
         </div>
         <button
           id="docs-search-backdrop"

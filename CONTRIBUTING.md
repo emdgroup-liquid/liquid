@@ -122,10 +122,9 @@ Some things are not linted but still are important:
 - We prefix Liquid components with `ld-` and docs components with `docs-`.
 - We use [BEM](http://getbem.com/introduction/) as a methodology for organizing CSS rules.
 - We use relative length units in CSS, mostly `rem`; absolute length units should be avoided (borders and outlines may count as an exception to the rule).
-- We mostly do not make use of shadow dom because it introduces quirks in regard to accessibiliy, makes pure CSS theming difficult, does not allow for a straight forward customization and
-makes it hard to purge unused CSS; hense we depend on namespacing.
-- Components which **do** use shadow dom should have their CSS file suffixed with .shadow.css so that PostCSS is aware of it and does not include them into the liquid.css dist file.
-- When ever possible, try to provide CSS components alongside Web components using the same CSS file; again, prefix the classes with `ld-`, use BEM and do **not** use shadow dom. Here is an example: 
+- We mostly do not make use of Shadow DOM because it introduces quirks in regard to accessibiliy, makes pure CSS theming difficult, does not allow for a straight forward customization and makes it hard to purge unused CSS; hense we depend on namespacing. Though, not using Shadow DOM comes as well with disadvanteges we cannot neglegt: When rendering a `<slot>` with Shadow DOM disabled, Stencil needs to move slotted content around in the DOM, which is costly (performance-wise). Therefore, if a Web Component is using slots, but not Shadow DOM, it should at least come with a CSS Component fallback for cases where performance matters; if it is not possible to mimic the Web Component with a CSS counterpart, we use Shadow DOM.
+- Components which **do** use Shadow DOM should have their CSS file suffixed with .shadow.css so that PostCSS is aware of it and does not include them into the liquid.css dist file.
+- When ever possible, try to provide CSS components alongside Web components using the same CSS file; again, prefix the classes with `ld-`, use BEM and do **not** use Shadow DOM. Here is an example: 
   ```tsx
   import { Component, h } from '@stencil/core'
   @Component({

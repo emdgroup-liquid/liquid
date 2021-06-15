@@ -29,7 +29,7 @@ export class MyComponent {
     return hsp <= 127.5
   }
 
-  componentDidRender() {
+  componentDidLoad() {
     const color = getComputedStyle(this.el).getPropertyValue('background-color')
     setTimeout(() => {
       this.val = color

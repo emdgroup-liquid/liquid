@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Server-side rendering
   parent: Liquid
-  order: 3
+  order: 4
 layout: layout.njk
 title: Server-side rendering
 permalink: liquid/server-side-rendering/

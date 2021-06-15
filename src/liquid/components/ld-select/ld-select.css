@@ -1,0 +1,9 @@
+.ld-select__popper {
+  z-index: 1;
+  visibility: hidden;
+  position: absolute;
+}
+
+.ld-select__popper--expanded {
+  visibility: inherit;
+}

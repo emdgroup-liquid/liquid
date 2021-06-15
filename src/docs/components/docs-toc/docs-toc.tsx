@@ -71,7 +71,7 @@ export class DocsToc {
     })
   }
 
-  componentDidRender() {
+  componentDidLoad() {
     // Generating a list of heading links
     setTimeout(() => {
       this.headings = Array.from(

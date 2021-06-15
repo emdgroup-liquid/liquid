@@ -9,7 +9,7 @@ import { Component, Element, h, Host } from '@stencil/core'
 export class DocsNav {
   @Element() el: HTMLElement
 
-  componentDidRender() {
+  componentDidLoad() {
     this.el.querySelectorAll('#properties + table code').forEach((code) => {
       code.innerHTML = code.innerHTML.replace(/\\\|/g, '|')
     })
