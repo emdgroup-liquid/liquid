@@ -273,16 +273,21 @@ This section guides you through submitting an enhancement suggestion for Liquid,
 
 Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md).
 
-> **Note:** If you find a **Closed** issue that seems like it is proposing the same thing that you'd like to propose, open a new issue and include a link to the original issue in the body of your new one. **Please don't comment on closed issues.** Instead, create a new feature request. If you prefer to discuss with others before, you can start a discussion on[GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+> **Note:** This repository is using __lodash style issue management for enhancements__. This means:
+> 
+> - Feature requests are closed issues with `feature` label and `votes needed` label.
+> - Bugs are open issues tagged with the `bug` label.
+> 
+> View the enhancement backlog [here](https://github.com/emdgroup-liquid/liquid/issues?utf8=✓&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+). Upvote the top comment of an issue with 👍 if you want the enhancement to be prioritised higher.
 
 #### Before submitting an enhancement suggestion
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in [existing issues](https://github.com/emdgroup-liquid/liquid/issues)** to see if a similar enhancement has already been suggested. If it has **and the issue is still open**, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one.
+* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?utf8=✓&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **votes needed** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
 #### How do I vote on an existing enhancement suggestion?
 
-Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue is:open sort:reactions-+1-desc` or `is:issue is:open sort:reactions--1-desc` as issue search queries).
+Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:needs-votes sort:reactions-+1-desc ` as the issue search query).
 
 #### How do I submit a (good) enhancement suggestion?
 
@@ -368,4 +373,5 @@ This section lists the labels we use in order to help us track and manage issues
 | stale                    | There's been no activity for 60 days. The issue will be closed after 2 weeks unless active again. |
 | umbrella issue           | An umbrella issue contains multiple issues and needs to be split into separate issues eventually. |
 | upstream                 | Used to label issues which require a fix upstream (fixing an issue of a dependency). |
+| votes needed             | Enhancement suggestion which needs votes, before it gets addressed by the contributors. |
 | won't fix                | This will not be worked on. |
