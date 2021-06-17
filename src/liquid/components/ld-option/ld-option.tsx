@@ -14,21 +14,35 @@ export class LdOption {
    * should this option be selected. If this attribute is omitted, the value is taken
    * from the text content of the option element.
    */
-  @Prop({ mutable: true }) value: string
+  @Prop({ mutable: true, reflect: true }) value: string
 
   /**
    * If present, this boolean attribute indicates that the option is selected.
    */
   @Prop({ mutable: true, reflect: true }) selected: false
 
+  private handleInput(ev) {
+    this.selected = ev.target.checked
+  }
+
   componentWillLoad() {
-    if (typeof this.value === 'undefined') this.value = this.el.innerText
+    if (typeof this.value === 'undefined') {
+      setTimeout(() => {
+        this.value = this.el.innerText
+      })
+    }
   }
 
   render() {
     return (
       <Host class="ld-option" role="option" tabindex="-1">
-        <slot></slot>
+        <ld-label position="right" size="m">
+          <ld-checkbox
+            checked={this.selected}
+            onInput={this.handleInput.bind(this)}
+          ></ld-checkbox>
+          <slot></slot>
+        </ld-label>
       </Host>
     )
   }

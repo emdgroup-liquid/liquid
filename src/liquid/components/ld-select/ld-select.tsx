@@ -1,5 +1,14 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop, State, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import type {
   Instance as PopperInstance,
   StrictModifiers,
@@ -7,6 +16,7 @@ import type {
 import { createPopper } from '@popperjs/core/lib/popper-lite.js'
 import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js'
 import flip from '@popperjs/core/lib/modifiers/flip.js'
+import offset from '@popperjs/core/lib/modifiers/offset.js'
 import { makeInert, unmakeInert } from '../../utils/makeInert'
 import { LdOption } from '../ld-option/ld-option'
 
@@ -30,15 +40,18 @@ export class LdSelect {
   /** Multiselect mode. */
   @Prop() multiple = false
 
-  /** Used as trigger button label in multiselect mode. */
-  @Prop() label: string
+  /**
+   * Used as trigger button label in multiselect mode
+   * and in single select mode if nothing is selected.
+   */
+  @Prop() placeholder: string
 
   /** Used to specify the name of the control. */
   @Prop() name: string
 
   @State() expanded = false
 
-  @State() selected: string[] = []
+  @State() selected: LdOption[] = []
 
   @Watch('expanded')
   updateInert() {
@@ -49,12 +62,17 @@ export class LdSelect {
     }
   }
 
+  private updatePopper() {
+    offset.options = { offset: [0, -21] }
+    this.popper.update()
+  }
+
   private initPopper() {
     this.popper = createPopper<StrictModifiers>(
       this.selectRef,
       this.popperRef,
       {
-        modifiers: [preventOverflow, flip],
+        modifiers: [preventOverflow, flip, offset],
         placement: 'bottom-start',
       }
     )
@@ -80,33 +98,35 @@ export class LdSelect {
     })
 
     setTimeout(() => {
-      this.selected = ((childrenArr as unknown[]) as LdOption[])
-        .filter((child) => child.selected)
-        .map((child) => child.value)
-      if (!this.multiple && !this.selected.length) {
-        this.selected = [childrenArr[0].textContent]
-      }
+      this.selected = ((childrenArr as unknown[]) as LdOption[]).filter(
+        (child) => child.selected
+      )
     })
   }
 
   private togglePopper() {
     this.expanded = !this.expanded
-  }
 
-  private handleClick(ev) {
-    ev.preventDefault()
-
-    if (!this.popper) this.initPopper()
-
-    const target = ev.target
-    if (target.closest('.ld-select__btn-trigger')) {
-      this.togglePopper()
+    if (this.expanded) {
+      this.updatePopper()
     }
   }
 
   private handleSlotChange() {
     this.initOptions()
     this.updateInert()
+  }
+
+  private handleInput(ev) {
+    if (!this.multiple) {
+      Array.from(this.el.querySelectorAll('ld-option')).forEach((option) => {
+        if (option !== ev.target.closest('ld-option')) {
+          option.selected = false
+        }
+      })
+      this.togglePopper()
+    }
+    this.initOptions()
   }
 
   private handleKeyDown(ev: KeyboardEvent) {
@@ -172,6 +192,25 @@ export class LdSelect {
     // with the string of characters typed.
   }
 
+  @Listen('click', {
+    target: 'window',
+  })
+  handleClick(ev) {
+    const target = ev.target
+
+    if (target.closest('ld-select') !== this.el) {
+      this.expanded = false
+      return
+    }
+
+    if (!this.popper) this.initPopper()
+
+    if (target.closest('.ld-select__btn-trigger')) {
+      ev.preventDefault()
+      this.togglePopper()
+    }
+  }
+
   componentDidLoad() {
     this.initOptions()
     this.updateInert()
@@ -193,11 +232,7 @@ export class LdSelect {
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
 
     return (
-      <Host
-        class="ld-select"
-        onKeyDown={this.handleKeyDown.bind(this)}
-        onClick={this.handleClick.bind(this)}
-      >
+      <Host class="ld-select" onKeyDown={this.handleKeyDown.bind(this)}>
         <div
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
@@ -207,12 +242,16 @@ export class LdSelect {
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
           >
-            {this.multiple ? this.label : this.selected[0]}
+            {this.multiple
+              ? this.placeholder
+              : ((this.selected[0] as unknown) as HTMLElement)?.textContent ||
+                this.placeholder}
           </button>
         </div>
         <ul
           role="listbox"
           class={popperCl}
+          onInput={this.handleInput.bind(this)}
           ref={(el) => (this.popperRef = el as HTMLElement)}
         >
           <slot></slot>

@@ -105,6 +105,19 @@ The default size is small. You can use a slightly bigger label (size medium) by 
 | `size`     | `size`     | Size of the label. Default is small.                  | `"m"`               | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-option](../ld-option)
+
+### Graph
+```mermaid
+graph TD;
+  ld-option --> ld-label
+  style ld-label fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

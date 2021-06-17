@@ -5,7 +5,8 @@ ld-label {
 .ld-label {
   font: var(--ld-typo-label-s);
   display: inline-grid;
-  gap: var(--ld-sp-6);
+  row-gap: var(--ld-sp-6);
+  column-gap: 0;
   max-width: 100%;
   align-self: flex-start;
 
@@ -18,11 +19,14 @@ ld-label {
 .ld-label--right {
   justify-content: flex-start;
   align-items: center;
+  column-gap: var(--ld-sp-6);
+  row-gap: 0;
 
   > ld-input-message,
   > .ld-input-message {
     order: 0;
     grid-area: message;
+    margin-top: var(--ld-sp-4);
   }
 
   > :not(ld-input-message):not(.ld-input-message) {
