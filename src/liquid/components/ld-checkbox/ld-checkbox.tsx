@@ -60,9 +60,9 @@ export class LdCheckbox {
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus.bind(this)}
           type="checkbox"
+          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           disabled={this.disabled}
           checked={this.checked}
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
         />
         <svg
           class="ld-checkbox__check"

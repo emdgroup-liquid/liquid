@@ -60,9 +60,9 @@ export class LdRadio {
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus.bind(this)}
           type="radio"
+          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           disabled={this.disabled}
           checked={this.checked}
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
         />
         <div class="ld-radio__dot"></div>
         <div class="ld-radio__box"></div>
