@@ -11,12 +11,16 @@ permalink: liquid/server-side-rendering/
 
 # Server-side rendering
 
-Custom elements should be defined on client-side only. Make sure you implement a condition which checks for the environment such as the following ones:
+Custom elements should be defined on client-side only. There are a couple of things you can do to ensure this.
+
+You can implement a condition which checks for the environment such as the following one:
 
 ```js
 import { defineCustomElements } from '@emdgroup-liquid/liquid'
 
-if (typeof window !== 'undefined') defineCustomElements()
+if (typeof window !== 'undefined') {
+  defineCustomElements()
+}
 ```
 
 You can also import the components you use on client side only, if you want to leverage code splitting and lazy loading:
@@ -30,24 +34,12 @@ if (typeof window !== 'undefined') {
 }
 ```
 
-## Known issues and workarounds
-
-If you run into warnings or errors mentioning **hydration** or some sort of client-server missmatch, it has most likely to do with code being executed on server-side which should be executed on client-side only.
-
-For instance in [Next.js](https://nextjs.org/), even after conditionally defining custom elements on client-side only, you may run into a warning such as this one:
-
-> Warning: Extra attributes from the server `yada-yada`
-
-Or this one:
-
-> Did not expect server HTML to contain a `<some-element>` in `<ld-something>`.
-
-You can work around most of such issues by delaying the `defineCustomElements` call until the next event loop by wrapping it in a `setTimeout`:
+If you have lifecycle hooks to your disposal for running code on the client side only, you should use these. For instance, in React based applications you can use the [effect hook](https://reactjs.org/docs/hooks-effect.html) for this purpose:
 
 ```js
-if (typeof window !== 'undefined') {
-  setTimeout(() => {
-    defineCustomElements()
-  })
-}
+useEffect(()=>{
+  defineCustomElements()
+}, [])
 ```
+
+<docs-page-nav prev-href="/liquid/type-checking-and-intellisense/"></docs-page-nav>

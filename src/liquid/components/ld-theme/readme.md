@@ -17,7 +17,7 @@ Liquid comes with multiple themes for theming its UI components. Most of the exa
 
 You apply a theme by wrapping whatever needs to be themed in an `ld-theme` component, or an element with a CSS theme class.
 
-{% example 'html', false, false, false, false %}
+{% example 'html', false, true, false, false %}
 <ld-theme name="bubblegum">
   <ld-button>Text</ld-button>
 </ld-theme>
@@ -33,7 +33,7 @@ You apply a theme by wrapping whatever needs to be themed in an `ld-theme` compo
 
 In rare cases you will want to have a theming element wrapped by another theming element. Liquid supports a one level theme inception, which should be sufficiant for most edge cases. You can **not** wrap a theme in a theme in a theme... So, here is an example of a one level theme inception:
 
-{% example 'html', false, false, false, false %}
+{% example 'html', false, true, false, false %}
 <ld-theme name="bubblegum">
   <ld-theme name="tea">
     <ld-button>Text</ld-button>

@@ -175,6 +175,47 @@ code .highlight-line:before {
   }
   .highlight-line.highlight-line-active {
     background-color: var(--ld-col-vy-default);
+    color: var(--ld-col-rblck-default);
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata,
+    .token.punctuation {
+      color: var(--ld-col-rblck4);
+    }
+    .token.property,
+    .token.tag,
+    .token.constant,
+    .token.symbol,
+    .token.boolean,
+    .token.deleted {
+      color: var(--ld-col-vm4);
+    }
+    .token.number,
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+      color: var(--ld-col-rg4);
+    }
+    .token.atrule,
+    .token.attr-value,
+    .token.function,
+    .token.class-name {
+      color: var(--ld-col-vc4);
+    }
+    .token.keyword,
+    .token.regex,
+    .token.important {
+      color: var(--ld-col-rp4);
+    }
+    code .highlight-line:before {
+      border-right: var(--ld-sp-1) solid var(--ld-col-rblck1);
+      color: var(--ld-col-rblck2);
+    }
   }
 }
 
