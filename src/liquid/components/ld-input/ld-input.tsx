@@ -2,6 +2,7 @@ import '../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
+import TextareaHTMLAttributes = JSXBase.TextareaHTMLAttributes
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 
 /**
@@ -28,7 +29,7 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 export class LdInput {
   @Element() el: HTMLInputElement
 
-  private input!: HTMLInputElement
+  private input!: HTMLInputElement | HTMLTextAreaElement
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
@@ -44,6 +45,12 @@ export class LdInput {
 
   /** The input type. */
   @Prop() type: string
+
+  /**
+   * Uses textarea instead of input internally. Setting this attribute to true
+   * disables the attribute type and both slots.
+   */
+  @Prop() multiline: boolean
 
   private handleBlur(ev) {
     setTimeout(() => {
@@ -75,6 +82,29 @@ export class LdInput {
     let cl = 'ld-input'
     if (this.tone) cl += ` ld-input--${this.tone}`
     if (this.invalid) cl += ' ld-input--invalid'
+
+    if (this.multiline) {
+      return (
+        <Host class={cl} onClick={this.handleClick.bind(this)}>
+          <textarea
+            ref={(el) => (this.input = el as HTMLTextAreaElement)}
+            onInput={this.handleInput.bind(this)}
+            placeholder={this.placeholder}
+            onBlur={this.handleBlur.bind(this)}
+            onFocus={this.handleFocus.bind(this)}
+            {...cloneAttributes<TextareaHTMLAttributes<HTMLInputElement>>(
+              this.el
+            )}
+            value={this.value}
+          />
+          {this.type === 'file' && (
+            <span class="ld-input__placeholder">
+              {this.input?.value || this.placeholder}
+            </span>
+          )}
+        </Host>
+      )
+    }
 
     return (
       <Host class={cl} onClick={this.handleClick.bind(this)}>

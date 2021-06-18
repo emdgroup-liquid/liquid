@@ -29,19 +29,24 @@ ld-input {
   line-height: 1;
   min-height: var(--ld-sp-40);
 
-  > :where(:not(input)) {
+  > :where(:not(input):not(textarea)) {
     user-select: none;
   }
 
-  > :where(:not(input):first-child) {
+  > :where(:not(input):not(textarea):first-child) {
     margin-left: var(--ld-input-padding-x);
   }
 
-  > :where(:not(input):last-child) {
+  > :where(:not(input):not(textarea):last-child) {
     margin-right: var(--ld-input-padding-x);
   }
 
   > input {
+    max-height: var(--ld-input-max-height);
+  }
+
+  > input,
+  > textarea {
     padding: var(--ld-input-padding-top) var(--ld-input-padding-x)
       var(--ld-input-padding-bottom);
     font: var(--ld-typo-body-m);
@@ -50,7 +55,6 @@ ld-input {
     width: 100%;
     border: 0;
     border-radius: var(--ld-br-m);
-    max-height: var(--ld-input-max-height);
     outline: none;
     -webkit-appearance: none;
 
@@ -235,7 +239,8 @@ ld-input,
       background-color: var(--ld-input-transparent);
     }
 
-    input {
+    input,
+    textarea {
       color: currentColor;
       caret-color: transparent;
 
@@ -265,7 +270,8 @@ ld-input,
   > .ld-input--invalid:not([disabled]):not([aria-disabled]) {
     box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
 
-    > input {
+    > input,
+    > textarea {
       color: var(--ld-col-rr-default);
 
       &::placeholder {
@@ -281,7 +287,8 @@ ld-input,
     &:focus-within {
       background-color: var(--ld-col-wht);
 
-      > input {
+      > input,
+      > textarea {
         color: var(--ld-col-rblck-default);
       }
     }
