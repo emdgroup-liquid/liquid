@@ -15,8 +15,6 @@ Use the `ld-sr-live` component in your application to **conviniently trigger inf
 
 ## How it works
 
-> TODO: Document usage of the component.
-
 Add the component to your application, preferably close after the opening `<body>` tag. The component is invisible as it uses the [`ld-sr-only` class](/components/ld-sr-only/). It listens to two [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`, the `ldSrLiveInfo` and the `ldSrLiveAlert` event. As soon as one of those events reaches the `window`, the component updates the content of one of two contained [`aria-live` reagions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions), either the one with `role="status"` or the one with `role="alert"`, depending on the event. For the content it uses the value of `event.detail`. The "politeness setting" is set to `polite`, meaning that the screen reader delays new messages until it has finished announcing the current ones. Here is an example on how you can trigger an event including an info message that will be spoken by a screen reader:
 
 ```js
