@@ -201,6 +201,10 @@ ld-input {
       [class*='ld-theme'] .ld-theme-tea & {
         box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
       }
+
+      &.ld-input--dark {
+        background-color: var(--ld-col-wht);
+      }
     }
   }
   > .ld-input.ld-input--invalid {
