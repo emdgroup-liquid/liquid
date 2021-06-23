@@ -1,3 +1,7 @@
+:where(ld-paragraph) {
+  display: block;
+}
+
 .ld-paragraph {
   font: var(--ld-typo-body-m);
 }
