@@ -1,3 +1,7 @@
+:where(ld-heading) {
+  display: block;
+}
+
 .ld-heading--h1 {
   font: var(--ld-typo-h1);
 }
