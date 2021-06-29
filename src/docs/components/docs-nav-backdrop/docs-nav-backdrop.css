@@ -5,6 +5,7 @@
   touch-action: manipulation;
   background-color: var(--ld-col-rblck-default);
   opacity: 0;
+  z-index: 1;
 
   @media (max-width: 48rem) {
     transition: opacity 0.2s linear, visibility 0s 0.2s linear;
