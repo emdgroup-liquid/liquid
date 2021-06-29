@@ -9,17 +9,40 @@ permalink: global/shadows/
 
 # Shadows
 
-All box-shadows listed below are available as global CSS custom properties after [importing Liquid stylesheets](/liquid/getting-started/#import-stylesheets).
+All shadows listed below are available as global CSS custom properties after [importing Liquid stylesheets](/liquid/getting-started/#import-stylesheets).
 
-## Active
+## Box shadows
+
+### Active
 
 <docs-shadow var="--ld-shadow-active"></docs-shadow>
-## Hover
+
+### Hover
 
 <docs-shadow var="--ld-shadow-hover"></docs-shadow>
-## Stacked
+
+### Stacked
 
 <docs-shadow var="--ld-shadow-stacked"></docs-shadow>
-## Sticky
+
+### Sticky
 
 <docs-shadow var="--ld-shadow-sticky"></docs-shadow>
+
+## Drop-shadows (CSS filter)
+
+### Active
+
+<docs-shadow filter var="--ld-drop-shadow-active"></docs-shadow>
+
+### Hover
+
+<docs-shadow filter var="--ld-drop-shadow-hover"></docs-shadow>
+
+### Stacked
+
+<docs-shadow filter var="--ld-drop-shadow-stacked"></docs-shadow>
+
+### Sticky
+
+<docs-shadow filter var="--ld-drop-shadow-sticky"></docs-shadow>

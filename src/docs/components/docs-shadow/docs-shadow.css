@@ -58,6 +58,7 @@
   flex-shrink: 0;
   white-space: nowrap;
   padding: var(--ld-sp-8);
+  background-color: var(--ld-col-wht);
 
   .docs-copy-to-cb {
     margin-right: var(--ld-sp-8);

@@ -4,4 +4,8 @@
   --ld-shadow-hover: 0rem 0rem 0.25rem rgba(9, 23, 52, 0.15), 0rem 1rem 2rem rgba(9, 23, 52, 0.15);
   --ld-shadow-stacked: 0rem 0.125rem 0.25rem rgba(9, 23, 52, 0.15), 0rem -0.0625rem 0.0625rem rgba(9, 23, 52, 0.05);
   --ld-shadow-sticky: 0rem 0rem 0.25rem rgba(9, 23, 52, 0.15), 0rem 0.75rem 1.25rem rgba(9, 23, 52, 0.15);
+  --ld-drop-shadow-active: drop-shadow(0rem 0rem 0.25rem rgba(9, 23, 52, 0.15)) drop-shadow(0rem 1.5rem 2.5rem rgba(9, 23, 52, 0.15));
+  --ld-drop-shadow-hover: drop-shadow(0rem 0rem 0.25rem rgba(9, 23, 52, 0.15)) drop-shadow(0rem 1rem 2rem rgba(9, 23, 52, 0.15));
+  --ld-drop-shadow-stacked: drop-shadow(0rem 0.125rem 0.25rem rgba(9, 23, 52, 0.15)) drop-shadow(0rem -0.0625rem 0.0625rem rgba(9, 23, 52, 0.05));
+  --ld-drop-shadow-sticky: drop-shadow(0rem 0rem 0.25rem rgba(9, 23, 52, 0.15)) drop-shadow(0rem 0.75rem 1.25rem rgba(9, 23, 52, 0.15));
 }

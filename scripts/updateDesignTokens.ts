@@ -242,6 +242,18 @@ async function getTokensFromFigma(figmaId = '5UbVMMa68tkeSlrNWgZw93') {
   return tokens
 }
 
+function boxShadowToDropShadow(boxShadow: string): string {
+  const shadows = boxShadow.replace('), ', ')| ').split('| ')
+  return shadows
+    .map((shadow) => {
+      const [offsetX, offsetY, blurRadius, ...color] = shadow.split(' ')
+      return `drop-shadow(${offsetX} ${offsetY} ${blurRadius} ${color.join(
+        ' '
+      )})`
+    })
+    .join(' ')
+}
+
 function generateShadows(tokens) {
   return writeFile(
     './src/liquid/global/styles/shadows/shadows.css',
@@ -249,6 +261,14 @@ function generateShadows(tokens) {
       Object.keys(tokens)
         .sort()
         .map((key) => `  --ld-shadow-${key}: ${tokens[key]};`)
+        .join('\n') +
+      '\n' +
+      Object.keys(tokens)
+        .sort()
+        .map(
+          (key) =>
+            `  --ld-drop-shadow-${key}: ${boxShadowToDropShadow(tokens[key])};`
+        )
         .join('\n') +
       '\n}\n',
     'utf8'
