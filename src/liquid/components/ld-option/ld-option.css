@@ -8,6 +8,7 @@
   user-select: none;
   touch-action: manipulation;
   border: 0;
+  outline: none;
   -webkit-touch-callout: none;
 
   [data-popper-placement*='bottom'] & {
@@ -40,6 +41,18 @@
   &[aria-disabled='true'] {
     color: var(--ld-col-disabled);
   }
+
+  /* Pseudo element for focus outline */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: var(--ld-br-m);
+    pointer-events: none;
+  }
 }
 
 .ld-option__check {
@@ -53,6 +66,10 @@
 .ld-option,
 .ld-theme-ocean .ld-option,
 [class*='ld-theme'] .ld-theme-ocean .ld-option {
+  &:where(:focus:focus-visible):before {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+  }
+
   &:where(:not([disabled]):not([aria-disabled='true'])) {
     .ld-option__check {
       color: var(--ld-thm-ocean-bg-primary);
@@ -80,6 +97,10 @@
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
   :where(.ld-option) {
+    &:where(:focus:focus-visible):before {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+    }
+
     &:where(:not([disabled]):not([aria-disabled='true'])) {
       .ld-option__check {
         color: var(--ld-thm-solvent-bg-primary);
@@ -104,6 +125,10 @@
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
   :where(.ld-option) {
+    &:where(:focus:focus-visible):before {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
+    }
+
     &:where(:not([disabled]):not([aria-disabled='true'])) {
       .ld-option__check {
         color: var(--ld-thm-tea-bg-primary);

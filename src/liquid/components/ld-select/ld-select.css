@@ -11,6 +11,7 @@
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
+  outline: none;
   padding: var(--ld-sp-8) var(--ld-sp-12);
   border-radius: var(--ld-br-m);
   min-height: 2.5rem;
@@ -39,12 +40,46 @@
   }
 }
 
+/* .ld-theme-ocean -> default */
+.ld-select__btn-trigger,
+.ld-theme-ocean .ld-select__btn-trigger,
+[class*='ld-theme'] .ld-theme-ocean .ld-select__btn-trigger {
+  &:where(:focus:focus-visible) {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum,
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake,
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  :where(.ld-select__btn-trigger) {
+    &:where(:focus:focus-visible) {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+    }
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  :where(.ld-select__btn-trigger) {
+    &:where(:focus:focus-visible) {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
+    }
+  }
+}
+
 .ld-select--expanded {
   z-index: 2147483647;
 
   .ld-select__btn-trigger {
     z-index: 2;
-    box-shadow: none;
+
+    &:not(:focus:focus-visible) {
+      box-shadow: none;
+    }
   }
 }
 
