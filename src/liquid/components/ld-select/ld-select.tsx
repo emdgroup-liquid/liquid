@@ -175,9 +175,9 @@ export class LdSelect {
               )
             }
             if (!optionToFocus) {
-              optionToFocus = this.popperRef.querySelector('ld-option')
+              optionToFocus = this.triggerRef
             }
-            if (optionToFocus) optionToFocus.focus()
+            optionToFocus.focus()
           })
         }
         break
@@ -185,18 +185,35 @@ export class LdSelect {
       case 'ArrowUp':
         // Move focus to the previous option.
         ev.preventDefault()
-        if (document.activeElement.previousElementSibling) {
-          ;(document.activeElement
-            .previousElementSibling as HTMLElement)?.focus()
-        } else {
-          if (this.popperRef.dataset.popperPlacement.includes('top')) {
-            if (document.activeElement === this.triggerRef) {
-              const options = this.popperRef.querySelectorAll('ld-option')
-              options[options.length - 1]?.focus()
-            }
+        if (this.expanded) {
+          if (document.activeElement.previousElementSibling) {
+            ;(document.activeElement
+              .previousElementSibling as HTMLElement)?.focus()
           } else {
-            this.triggerRef.focus()
+            if (this.popperRef.dataset.popperPlacement.includes('top')) {
+              if (document.activeElement === this.triggerRef) {
+                const options = this.popperRef.querySelectorAll('ld-option')
+                options[options.length - 1]?.focus()
+              }
+            } else {
+              this.triggerRef.focus()
+            }
           }
+        } else {
+          this.handleTriggerClick()
+          setTimeout(() => {
+            // If selected in single select mode, focus selected
+            let optionToFocus
+            if (!this.multiple) {
+              optionToFocus = this.popperRef.querySelector(
+                'ld-option[aria-selected="true"]'
+              )
+            }
+            if (!optionToFocus) {
+              optionToFocus = this.triggerRef
+            }
+            optionToFocus.focus()
+          })
         }
         break
       case 'Home':
