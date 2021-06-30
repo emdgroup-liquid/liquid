@@ -1,3 +1,131 @@
 .ld-option {
-  display: block;
+  display: flex;
+  position: relative;
+  background-color: var(--ld-col-wht);
+  padding: var(--ld-sp-8) var(--ld-sp-12);
+  font: var(--ld-typo-label-m);
+  min-height: 2.5rem;
+  user-select: none;
+  touch-action: manipulation;
+  border: 0;
+  -webkit-touch-callout: none;
+
+  [data-popper-placement*='bottom'] & {
+    &:first-of-type {
+      border-top: solid var(--ld-col-rblck1) 1px;
+    }
+    &:last-of-type {
+      border-bottom-left-radius: var(--ld-br-m);
+      border-bottom-right-radius: var(--ld-br-m);
+    }
+  }
+  [data-popper-placement*='top'] & {
+    &:last-of-type {
+      border-bottom: solid var(--ld-col-rblck1) 1px;
+    }
+    &:first-of-type {
+      border-top-left-radius: var(--ld-br-m);
+      border-top-right-radius: var(--ld-br-m);
+    }
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: solid var(--ld-col-rblck1) 1px;
+  }
+
+  &:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  &[aria-disabled='true'] {
+    color: var(--ld-col-disabled);
+  }
+}
+
+.ld-option__check {
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: var(--ld-sp-4);
+  transform: translateX(calc(-1 * var(--ld-sp-2)));
+}
+
+/* .ld-theme-ocean -> default */
+.ld-option,
+.ld-theme-ocean .ld-option,
+[class*='ld-theme'] .ld-theme-ocean .ld-option {
+  &:where(:not([disabled]):not([aria-disabled='true'])) {
+    .ld-option__check {
+      color: var(--ld-thm-ocean-bg-primary);
+    }
+
+    &:where(:focus:focus-visible) {
+      background-color: var(--ld-col-rb1);
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--ld-col-rb1);
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(--ld-col-rb1);
+    }
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum,
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake,
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  :where(.ld-option) {
+    &:where(:not([disabled]):not([aria-disabled='true'])) {
+      .ld-option__check {
+        color: var(--ld-thm-solvent-bg-primary);
+      }
+
+      &:where(:focus:focus-visible) {
+        background-color: var(--ld-col-rp1);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          background-color: var(--ld-col-rp1);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        background-color: var(--ld-col-rp1);
+      }
+    }
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  :where(.ld-option) {
+    &:where(:not([disabled]):not([aria-disabled='true'])) {
+      .ld-option__check {
+        color: var(--ld-thm-tea-bg-primary);
+      }
+
+      &:where(:focus:focus-visible) {
+        background-color: var(--ld-col-rg1);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          background-color: var(--ld-col-rg1);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        background-color: var(--ld-col-rg1);
+      }
+    }
+  }
+}
+
+.ld-option__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

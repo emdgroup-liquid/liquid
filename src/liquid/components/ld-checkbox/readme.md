@@ -596,19 +596,6 @@ The `ld-checkbox` web component provides a low level API for integrating the com
 | `tone`     | `tone`     | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
 
 
-## Dependencies
-
-### Used by
-
- - [ld-option](../ld-option)
-
-### Graph
-```mermaid
-graph TD;
-  ld-option --> ld-checkbox
-  style ld-checkbox fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

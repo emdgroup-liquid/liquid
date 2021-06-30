@@ -16,26 +16,18 @@ permalink: components/ld-select/
 ### Single select mode
 
 {% example %}
-<ld-select placeholder="Pick a fruit">
+<ld-select placeholder="Pick a fruit" style="width: 12rem;">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
 </ld-select>
-
-<script>
-function change() {
-  const newItem = document.createElement("ld-option")
-  newItem.innerText = 'Orange'
-  document.querySelector('ld-select ul').appendChild(newItem)
-}
-</script>
-<button onclick="change()">change</button>
 {% endexample %}
 
 ### Multiple select mode
 
 {% example %}
-<ld-select placeholder="Pick a fruit" multiple>
+<ld-select placeholder="Pick a fruit" multiple style="width: 12rem;">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>

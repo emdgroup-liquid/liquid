@@ -16,7 +16,7 @@ import type {
 import { createPopper } from '@popperjs/core/lib/popper-lite.js'
 import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js'
 import flip from '@popperjs/core/lib/modifiers/flip.js'
-import offset from '@popperjs/core/lib/modifiers/offset.js'
+// import offset from '@popperjs/core/lib/modifiers/offset.js'
 import { makeInert, unmakeInert } from '../../utils/makeInert'
 import { LdOption } from '../ld-option/ld-option'
 
@@ -33,6 +33,7 @@ export class LdSelect {
   @Element() el: HTMLElement
 
   private selectRef!: HTMLElement
+  private triggerRef!: HTMLElement
   private popperRef!: HTMLElement
   private popper: PopperInstance
   private observer: MutationObserver
@@ -62,9 +63,17 @@ export class LdSelect {
     }
   }
 
+  private updatePopperWidth() {
+    this.popperRef.style.setProperty(
+      'width',
+      `${this.selectRef.getBoundingClientRect().width}px`
+    )
+  }
+
   private updatePopper() {
-    offset.options = { offset: [0, -21] }
+    // offset.options = { offset: [0, -21] }
     this.popper.update()
+    this.updatePopperWidth()
   }
 
   private initPopper() {
@@ -72,7 +81,7 @@ export class LdSelect {
       this.selectRef,
       this.popperRef,
       {
-        modifiers: [preventOverflow, flip, offset],
+        modifiers: [preventOverflow, flip /*, offset*/],
         placement: 'bottom-start',
       }
     )
@@ -105,10 +114,13 @@ export class LdSelect {
   }
 
   private togglePopper() {
+    console.info('toggle popper')
     this.expanded = !this.expanded
 
     if (this.expanded) {
       this.updatePopper()
+    } else {
+      this.triggerRef.focus()
     }
   }
 
@@ -117,13 +129,21 @@ export class LdSelect {
     this.updateInert()
   }
 
-  private handleInput(ev) {
+  @Listen('resize', { target: 'window', passive: true })
+  handleWindowResize() {
+    this.updatePopperWidth()
+  }
+
+  @Listen('ldOptionSelect', { passive: true })
+  handleSelect(ev: CustomEvent<boolean>) {
     if (!this.multiple) {
-      Array.from(this.el.querySelectorAll('ld-option')).forEach((option) => {
-        if (option !== ev.target.closest('ld-option')) {
-          option.selected = false
+      Array.from(this.popperRef.querySelectorAll('ld-option')).forEach(
+        (option) => {
+          if (option !== (ev.target as HTMLElement).closest('ld-option')) {
+            option.selected = false
+          }
         }
-      })
+      )
       this.togglePopper()
     }
     this.initOptions()
@@ -131,43 +151,111 @@ export class LdSelect {
 
   private handleKeyDown(ev: KeyboardEvent) {
     switch (ev.key) {
-      case 'ArrowDown':
-        // TODO: Move focus to the next option.
+      case 'ArrowDown': {
+        // Move focus to the next option.
         ev.preventDefault()
-        console.log('ArrowDown pressed')
+        if (this.expanded) {
+          if (document.activeElement.nextElementSibling) {
+            ;(document.activeElement.nextElementSibling as HTMLElement)?.focus()
+          } else {
+            if (this.popperRef.dataset.popperPlacement.includes('top')) {
+              this.triggerRef.focus()
+            } else if (document.activeElement === this.triggerRef) {
+              this.popperRef.querySelector('ld-option')?.focus()
+            }
+          }
+        } else {
+          this.handleTriggerClick()
+          setTimeout(() => {
+            // If selected in single select mode, focus selected
+            let optionToFocus
+            if (!this.multiple) {
+              optionToFocus = this.popperRef.querySelector(
+                'ld-option[aria-selected="true"]'
+              )
+            }
+            if (!optionToFocus) {
+              optionToFocus = this.popperRef.querySelector('ld-option')
+            }
+            if (optionToFocus) optionToFocus.focus()
+          })
+        }
         break
+      }
       case 'ArrowUp':
-        // TODO: Move focus to the previous option.
+        // Move focus to the previous option.
         ev.preventDefault()
-        console.log('ArrowUp pressed')
+        if (document.activeElement.previousElementSibling) {
+          ;(document.activeElement
+            .previousElementSibling as HTMLElement)?.focus()
+        } else {
+          if (this.popperRef.dataset.popperPlacement.includes('top')) {
+            if (document.activeElement === this.triggerRef) {
+              const options = this.popperRef.querySelectorAll('ld-option')
+              options[options.length - 1]?.focus()
+            }
+          } else {
+            this.triggerRef.focus()
+          }
+        }
         break
       case 'Home':
-        // TODO: Move focus to the first option.
-        ev.preventDefault()
-        console.log('Home pressed')
+        // Move focus to the first option.
+        if (this.expanded) {
+          ev.preventDefault()
+          if (this.popperRef.dataset.popperPlacement.includes('top')) {
+            this.popperRef.querySelector('ld-option')?.focus()
+          } else {
+            this.triggerRef.focus()
+          }
+        }
         break
       case 'End':
-        // TODO: Move focus to the last option.
-        ev.preventDefault()
-        console.log('End pressed')
+        // Move focus to the last option.
+        if (this.expanded) {
+          ev.preventDefault()
+          if (this.popperRef.dataset.popperPlacement.includes('top')) {
+            this.triggerRef.focus()
+          } else {
+            const options = this.popperRef.querySelectorAll('ld-option')
+            options[options.length - 1]?.focus()
+          }
+        }
         break
       case ' ':
-        // TODO: If expanded: Select focused option, close (if single select).
+        // If expanded: Select focused option, close (if single select).
         // If not expanded: Toggle popper.
         ev.preventDefault()
         ev.stopImmediatePropagation()
         if (this.expanded) {
-          console.log(
-            'Space pressed. Select focused option, close (if single select)'
-          )
+          if (document.activeElement === this.triggerRef) {
+            this.handleTriggerClick()
+          }
         } else {
-          this.togglePopper()
+          this.handleTriggerClick()
+          setTimeout(() => {
+            // If selected in single select mode, focus selected
+            let optionToFocus
+            if (!this.multiple) {
+              optionToFocus = this.popperRef.querySelector(
+                'ld-option[aria-selected="true"]'
+              )
+              if (!optionToFocus) {
+                optionToFocus = this.popperRef.querySelector('ld-option')
+              }
+            } else {
+              optionToFocus = this.triggerRef
+            }
+            if (optionToFocus) optionToFocus.focus()
+          })
         }
         break
       case 'Enter':
-        // TODO: If expanded: Select focused option, close (if single select).
+        // If expanded and trigger element is focused: Toggle popper.
         ev.preventDefault()
-        console.log('Enter pressed')
+        if (this.expanded && document.activeElement === this.triggerRef) {
+          this.togglePopper()
+        }
         break
       case 'Escape':
         // If expanded: Toggle popper.
@@ -194,21 +282,19 @@ export class LdSelect {
 
   @Listen('click', {
     target: 'window',
+    passive: true,
   })
-  handleClick(ev) {
-    const target = ev.target
-
-    if (target.closest('ld-select') !== this.el) {
+  handleClickOutside(ev) {
+    if (ev.target.closest('ld-select') !== this.el) {
       this.expanded = false
-      return
     }
+  }
 
+  private handleTriggerClick(ev?: Event) {
     if (!this.popper) this.initPopper()
 
-    if (target.closest('.ld-select__btn-trigger')) {
-      ev.preventDefault()
-      this.togglePopper()
-    }
+    if (ev) ev.preventDefault()
+    this.togglePopper()
   }
 
   componentDidLoad() {
@@ -228,19 +314,24 @@ export class LdSelect {
   }
 
   render() {
+    let cl = 'ld-select'
+    if (this.expanded) cl += ' ld-select--expanded'
+
     let popperCl = 'ld-select__popper'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
 
     return (
-      <Host class="ld-select" onKeyDown={this.handleKeyDown.bind(this)}>
+      <Host class={cl} onKeyDown={this.handleKeyDown.bind(this)}>
         <div
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
         >
           <button
+            onClick={this.handleTriggerClick.bind(this)}
             class="ld-select__btn-trigger"
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
+            ref={(el) => (this.triggerRef = el as HTMLElement)}
           >
             {this.multiple
               ? this.placeholder
@@ -251,7 +342,6 @@ export class LdSelect {
         <ul
           role="listbox"
           class={popperCl}
-          onInput={this.handleInput.bind(this)}
           ref={(el) => (this.popperRef = el as HTMLElement)}
         >
           <slot></slot>
