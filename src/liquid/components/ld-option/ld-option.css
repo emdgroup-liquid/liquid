@@ -12,18 +12,12 @@
   -webkit-touch-callout: none;
 
   [data-popper-placement*='bottom'] & {
-    &:first-of-type {
-      border-top: solid var(--ld-col-rblck1) 1px;
-    }
     &:last-of-type {
       border-bottom-left-radius: var(--ld-br-m);
       border-bottom-right-radius: var(--ld-br-m);
     }
   }
   [data-popper-placement*='top'] & {
-    &:last-of-type {
-      border-bottom: solid var(--ld-col-rblck1) 1px;
-    }
     &:first-of-type {
       border-top-left-radius: var(--ld-br-m);
       border-top-right-radius: var(--ld-br-m);

@@ -35,6 +35,7 @@ export class LdSelect {
   private selectRef!: HTMLElement
   private triggerRef!: HTMLElement
   private popperRef!: HTMLElement
+  private scrollContainerRef!: HTMLElement
   private popper: PopperInstance
   private observer: MutationObserver
 
@@ -80,6 +81,7 @@ export class LdSelect {
     this.popper = createPopper<StrictModifiers>(
       this.selectRef,
       this.popperRef,
+      // portal,
       {
         modifiers: [preventOverflow, flip /*, offset*/],
         placement: 'bottom-start',
@@ -89,7 +91,7 @@ export class LdSelect {
   }
 
   private initOptions() {
-    const children = this.popperRef.children
+    const children = this.scrollContainerRef.children
     if (!children.length) {
       throw new TypeError(
         `ld-select requires at least one ld-option element as a child, but found none.`
@@ -114,7 +116,6 @@ export class LdSelect {
   }
 
   private togglePopper() {
-    console.info('toggle popper')
     this.expanded = !this.expanded
 
     if (this.expanded) {
@@ -149,12 +150,59 @@ export class LdSelect {
     this.initOptions()
   }
 
+  private expandAndFocus() {
+    this.handleTriggerClick()
+    setTimeout(() => {
+      // If selected in single select mode, focus selected
+      let optionToFocus
+      if (!this.multiple) {
+        optionToFocus = this.popperRef.querySelector(
+          'ld-option[aria-selected="true"]'
+        )
+      }
+      if (!optionToFocus) {
+        optionToFocus = this.triggerRef
+      }
+      optionToFocus.focus()
+    })
+  }
+
+  private handleHome(ev) {
+    // Move focus to the first option.
+    if (this.expanded) {
+      ev.preventDefault()
+      if (this.popperRef.dataset.popperPlacement.includes('top')) {
+        this.popperRef.querySelector('ld-option')?.focus()
+      } else {
+        this.triggerRef.focus()
+      }
+    }
+  }
+
+  private handleEnd(ev) {
+    // Move focus to the last option.
+    if (this.expanded) {
+      ev.preventDefault()
+      if (this.popperRef.dataset.popperPlacement.includes('top')) {
+        this.triggerRef.focus()
+      } else {
+        const options = this.popperRef.querySelectorAll('ld-option')
+        options[options.length - 1]?.focus()
+      }
+    }
+  }
+
   private handleKeyDown(ev: KeyboardEvent) {
     switch (ev.key) {
       case 'ArrowDown': {
         // Move focus to the next option.
         ev.preventDefault()
         if (this.expanded) {
+          if (ev.metaKey) {
+            this.handleEnd(ev)
+            return
+          }
+
           if (document.activeElement.nextElementSibling) {
             ;(document.activeElement.nextElementSibling as HTMLElement)?.focus()
           } else {
@@ -165,20 +213,7 @@ export class LdSelect {
             }
           }
         } else {
-          this.handleTriggerClick()
-          setTimeout(() => {
-            // If selected in single select mode, focus selected
-            let optionToFocus
-            if (!this.multiple) {
-              optionToFocus = this.popperRef.querySelector(
-                'ld-option[aria-selected="true"]'
-              )
-            }
-            if (!optionToFocus) {
-              optionToFocus = this.triggerRef
-            }
-            optionToFocus.focus()
-          })
+          this.expandAndFocus()
         }
         break
       }
@@ -186,6 +221,11 @@ export class LdSelect {
         // Move focus to the previous option.
         ev.preventDefault()
         if (this.expanded) {
+          if (ev.metaKey) {
+            this.handleHome(ev)
+            return
+          }
+
           if (document.activeElement.previousElementSibling) {
             ;(document.activeElement
               .previousElementSibling as HTMLElement)?.focus()
@@ -200,44 +240,14 @@ export class LdSelect {
             }
           }
         } else {
-          this.handleTriggerClick()
-          setTimeout(() => {
-            // If selected in single select mode, focus selected
-            let optionToFocus
-            if (!this.multiple) {
-              optionToFocus = this.popperRef.querySelector(
-                'ld-option[aria-selected="true"]'
-              )
-            }
-            if (!optionToFocus) {
-              optionToFocus = this.triggerRef
-            }
-            optionToFocus.focus()
-          })
+          this.expandAndFocus()
         }
         break
       case 'Home':
-        // Move focus to the first option.
-        if (this.expanded) {
-          ev.preventDefault()
-          if (this.popperRef.dataset.popperPlacement.includes('top')) {
-            this.popperRef.querySelector('ld-option')?.focus()
-          } else {
-            this.triggerRef.focus()
-          }
-        }
+        this.handleHome(ev)
         break
       case 'End':
-        // Move focus to the last option.
-        if (this.expanded) {
-          ev.preventDefault()
-          if (this.popperRef.dataset.popperPlacement.includes('top')) {
-            this.triggerRef.focus()
-          } else {
-            const options = this.popperRef.querySelectorAll('ld-option')
-            options[options.length - 1]?.focus()
-          }
-        }
+        this.handleEnd(ev)
         break
       case ' ':
         // If expanded: Select focused option, close (if single select).
@@ -356,13 +366,18 @@ export class LdSelect {
                 this.placeholder}
           </button>
         </div>
-        <ul
+        <div
           role="listbox"
           class={popperCl}
           ref={(el) => (this.popperRef = el as HTMLElement)}
         >
-          <slot></slot>
-        </ul>
+          <div
+            ref={(el) => (this.scrollContainerRef = el as HTMLElement)}
+            class="ld-select__scroll-container"
+          >
+            <slot></slot>
+          </div>
+        </div>
       </Host>
     )
   }
