@@ -1,6 +1,7 @@
 .ld-option {
   display: flex;
   position: relative;
+  color: var(--ld-col-rblck-default);
   background-color: var(--ld-col-wht);
   padding: var(--ld-sp-8) var(--ld-sp-12);
   font: var(--ld-typo-label-m);

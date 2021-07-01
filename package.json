@@ -56,8 +56,8 @@
     "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts"
   },
   "dependencies": {
-    "@popperjs/core": "^2.9.2",
-    "@stencil/core": "^2.5.1"
+    "@stencil/core": "^2.5.1",
+    "tether": "^2.0.0"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {

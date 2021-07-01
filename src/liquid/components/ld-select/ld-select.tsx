@@ -9,14 +9,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import type {
-  Instance as PopperInstance,
-  StrictModifiers,
-} from '@popperjs/core'
-import { createPopper } from '@popperjs/core/lib/popper-lite.js'
-import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js'
-import flip from '@popperjs/core/lib/modifiers/flip.js'
-// import offset from '@popperjs/core/lib/modifiers/offset.js'
+import Tether from 'tether'
 import { makeInert, unmakeInert } from '../../utils/makeInert'
 import { LdOption } from '../ld-option/ld-option'
 
@@ -36,7 +29,7 @@ export class LdSelect {
   private triggerRef!: HTMLElement
   private popperRef!: HTMLElement
   private scrollContainerRef!: HTMLElement
-  private popper: PopperInstance
+  private popper: Tether
   private observer: MutationObserver
 
   /** Multiselect mode. */
@@ -72,21 +65,25 @@ export class LdSelect {
   }
 
   private updatePopper() {
-    // offset.options = { offset: [0, -21] }
-    this.popper.update()
+    this.popper.position()
     this.updatePopperWidth()
   }
 
   private initPopper() {
-    this.popper = createPopper<StrictModifiers>(
-      this.selectRef,
-      this.popperRef,
-      // portal,
-      {
-        modifiers: [preventOverflow, flip /*, offset*/],
-        placement: 'bottom-start',
-      }
-    )
+    this.popper = new Tether({
+      element: this.popperRef,
+      target: this.selectRef,
+      attachment: 'top left',
+      targetAttachment: 'bottom left',
+      constraints: [
+        {
+          to: 'window',
+          attachment: 'together none',
+          pin: true,
+        },
+      ],
+    })
+
     this.popperRef.classList.add('ld-select__popper--initialized')
   }
 
@@ -135,9 +132,16 @@ export class LdSelect {
     this.updatePopperWidth()
   }
 
-  @Listen('ldOptionSelect', { passive: true })
+  @Listen('ldOptionSelect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
+    if (
+      (ev.target as HTMLElement).closest('[role="listbox"]') !== this.popperRef
+    ) {
+      return
+    }
+
     if (!this.multiple) {
+      // Deselect currently selected option, if it's not the target option.
       Array.from(this.popperRef.querySelectorAll('ld-option')).forEach(
         (option) => {
           if (option !== (ev.target as HTMLElement).closest('ld-option')) {
@@ -171,7 +175,10 @@ export class LdSelect {
     // Move focus to the first option.
     if (this.expanded) {
       ev.preventDefault()
-      if (this.popperRef.dataset.popperPlacement.includes('top')) {
+      if (
+        this.popperRef.classList.contains('tether-target-attached-top') ||
+        this.popperRef.classList.contains('tether-pinned-bottom')
+      ) {
         this.popperRef.querySelector('ld-option')?.focus()
       } else {
         this.triggerRef.focus()
@@ -183,7 +190,10 @@ export class LdSelect {
     // Move focus to the last option.
     if (this.expanded) {
       ev.preventDefault()
-      if (this.popperRef.dataset.popperPlacement.includes('top')) {
+      if (
+        this.popperRef.classList.contains('tether-target-attached-top') ||
+        this.popperRef.classList.contains('tether-pinned-bottom')
+      ) {
         this.triggerRef.focus()
       } else {
         const options = this.popperRef.querySelectorAll('ld-option')
@@ -192,7 +202,15 @@ export class LdSelect {
     }
   }
 
-  private handleKeyDown(ev: KeyboardEvent) {
+  @Listen('keydown', { passive: false, target: 'window' })
+  handleKeyDown(ev: KeyboardEvent) {
+    if (
+      document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
+      document.activeElement.closest('ld-select') !== this.el
+    ) {
+      return
+    }
+
     switch (ev.key) {
       case 'ArrowDown': {
         // Move focus to the next option.
@@ -203,10 +221,18 @@ export class LdSelect {
             return
           }
 
-          if (document.activeElement.nextElementSibling) {
+          if (
+            document.activeElement.nextElementSibling &&
+            document.activeElement.nextElementSibling.classList.contains(
+              'ld-option'
+            )
+          ) {
             ;(document.activeElement.nextElementSibling as HTMLElement)?.focus()
           } else {
-            if (this.popperRef.dataset.popperPlacement.includes('top')) {
+            if (
+              this.popperRef.classList.contains('tether-target-attached-top') ||
+              this.popperRef.classList.contains('tether-pinned-bottom')
+            ) {
               this.triggerRef.focus()
             } else if (document.activeElement === this.triggerRef) {
               this.popperRef.querySelector('ld-option')?.focus()
@@ -226,11 +252,19 @@ export class LdSelect {
             return
           }
 
-          if (document.activeElement.previousElementSibling) {
+          if (
+            document.activeElement.previousElementSibling &&
+            document.activeElement.previousElementSibling.classList.contains(
+              'ld-option'
+            )
+          ) {
             ;(document.activeElement
               .previousElementSibling as HTMLElement)?.focus()
           } else {
-            if (this.popperRef.dataset.popperPlacement.includes('top')) {
+            if (
+              this.popperRef.classList.contains('tether-target-attached-top') ||
+              this.popperRef.classList.contains('tether-pinned-bottom')
+            ) {
               if (document.activeElement === this.triggerRef) {
                 const options = this.popperRef.querySelectorAll('ld-option')
                 options[options.length - 1]?.focus()
@@ -312,7 +346,10 @@ export class LdSelect {
     passive: true,
   })
   handleClickOutside(ev) {
-    if (ev.target.closest('ld-select') !== this.el) {
+    if (
+      ev.target.closest('ld-select') !== this.el &&
+      ev.target.closest('[role="listbox"]') !== this.popperRef
+    ) {
       this.expanded = false
     }
   }
@@ -348,7 +385,7 @@ export class LdSelect {
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
 
     return (
-      <Host class={cl} onKeyDown={this.handleKeyDown.bind(this)}>
+      <Host class={cl}>
         <div
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
