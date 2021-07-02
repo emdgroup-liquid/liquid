@@ -412,6 +412,14 @@ export class LdSelect {
     let popperCl = 'ld-select__popper'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
 
+    let triggerIconCl = 'ld-select__btn-trigger-icon'
+    if (this.expanded) triggerIconCl += ' ld-select__btn-trigger-icon--rotated'
+
+    const triggerText = this.multiple
+      ? this.placeholder
+      : ((this.selected[0] as unknown) as HTMLElement)?.textContent ||
+        this.placeholder
+
     return (
       <Host class={cl}>
         <div
@@ -425,10 +433,23 @@ export class LdSelect {
             aria-expanded={this.expanded ? 'true' : 'false'}
             ref={(el) => (this.triggerRef = el as HTMLElement)}
           >
-            {this.multiple
-              ? this.placeholder
-              : ((this.selected[0] as unknown) as HTMLElement)?.textContent ||
-                this.placeholder}
+            <span class="ld-select__btn-trigger-text" title={triggerText}>
+              {triggerText}
+            </span>
+            <svg
+              class={triggerIconCl}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 16 16"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M3 6l5 4 5-4"
+              />
+            </svg>
           </button>
         </div>
         <div

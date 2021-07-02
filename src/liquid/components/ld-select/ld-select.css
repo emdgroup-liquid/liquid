@@ -13,6 +13,9 @@
 
 .ld-select__btn-trigger {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font: var(--ld-typo-body-m);
   border: 0;
   outline: none;
@@ -55,12 +58,33 @@
   }
 }
 
+.ld-select__btn-trigger-text {
+  padding-right: var(--ld-sp-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-select__btn-trigger-icon {
+  width: var(--ld-sp-16);
+  height: var(--ld-sp-16);
+  flex-shrink: 0;
+}
+
+.ld-select__btn-trigger-icon--rotated {
+  transform-origin: center;
+  transform: rotate(180deg);
+}
+
 /* .ld-theme-ocean -> default */
 .ld-select__btn-trigger,
 .ld-theme-ocean .ld-select__btn-trigger,
 [class*='ld-theme'] .ld-theme-ocean .ld-select__btn-trigger {
   &:where(:focus:focus-visible) {
     box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+  }
+  .ld-select__btn-trigger-icon {
+    color: var(--ld-thm-ocean-bg-primary);
   }
 }
 
@@ -75,6 +99,9 @@
       box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
     }
   }
+  .ld-select__btn-trigger-icon {
+    color: var(--ld-col-rp-default);
+  }
 }
 
 .ld-theme-tea,
@@ -83,6 +110,9 @@
     &:where(:focus:focus-visible) {
       box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
     }
+  }
+  .ld-select__btn-trigger-icon {
+    color: var(--ld-thm-tea-bg-primary);
   }
 }
 

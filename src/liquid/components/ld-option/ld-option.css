@@ -6,6 +6,7 @@
   padding: var(--ld-sp-8) var(--ld-sp-12);
   font: var(--ld-typo-label-m);
   min-height: 2.5rem;
+  white-space: nowrap;
   user-select: none;
   touch-action: manipulation;
   border: 0;

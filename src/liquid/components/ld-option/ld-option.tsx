@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   Listen,
+  State,
 } from '@stencil/core'
 
 @Component({
@@ -17,6 +18,8 @@ import {
 })
 export class LdOption {
   @Element() el: HTMLElement
+
+  private optionLabelRef!: HTMLElement
 
   /**
    * The content of this attribute represents the value to be submitted with the form,
@@ -39,6 +42,8 @@ export class LdOption {
    * Emitted on either selection or de-selection of the option.
    */
   @Event() ldOptionSelect: EventEmitter<boolean>
+
+  @State() title: string
 
   private handleClick() {
     if (this.disabled) {
@@ -64,6 +69,12 @@ export class LdOption {
         this.value = this.el.innerText
       })
     }
+  }
+
+  componentDidLoad() {
+    setTimeout(() => {
+      this.title = this.optionLabelRef.innerHTML
+    })
   }
 
   render() {
@@ -93,7 +104,11 @@ export class LdOption {
             stroke-linejoin="round"
           />
         </svg>
-        <span class="ld-option__label">
+        <span
+          ref={(el) => (this.optionLabelRef = el as HTMLElement)}
+          class="ld-option__label"
+          title={this.title}
+        >
           <slot></slot>
         </span>
       </Host>
