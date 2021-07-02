@@ -78,7 +78,7 @@ export class LdSelect {
       constraints: [
         {
           to: 'window',
-          attachment: 'together none',
+          // attachment: 'together none', // Enables flipping on scroll.
           pin: true,
         },
       ],
@@ -116,8 +116,10 @@ export class LdSelect {
     this.expanded = !this.expanded
 
     if (this.expanded) {
+      this.popper.enable()
       this.updatePopper()
     } else {
+      this.popper.disable()
       this.triggerRef.focus()
     }
   }
@@ -368,6 +370,16 @@ export class LdSelect {
     ) {
       this.expanded = false
     }
+  }
+
+  // Mobile Safari in some cases does not react to click events on elements
+  // which are not interactive. But it does to touch events.
+  @Listen('touchend', {
+    target: 'window',
+    passive: true,
+  })
+  handleTouchOutside(ev) {
+    this.handleClickOutside(ev)
   }
 
   private handleTriggerClick(ev?: Event) {
