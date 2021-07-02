@@ -127,6 +127,15 @@ export class LdSelect {
     this.updateInert()
   }
 
+  private clearSelection() {
+    Array.from(this.popperRef.querySelectorAll('ld-option')).forEach(
+      (option) => {
+        option.selected = false
+      }
+    )
+    this.selected = []
+  }
+
   @Listen('resize', { target: 'window', passive: true })
   handleWindowResize() {
     this.updatePopperWidth()
@@ -332,6 +341,13 @@ export class LdSelect {
           ev.preventDefault()
           ev.stopImmediatePropagation()
         }
+        break
+      case '-':
+        // Clear selection.
+        ev.preventDefault()
+        ev.stopImmediatePropagation()
+        this.clearSelection()
+        this.triggerRef.focus()
         break
     }
 
