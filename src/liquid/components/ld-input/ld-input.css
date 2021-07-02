@@ -213,7 +213,7 @@ ld-input {
 }
 
 .ld-input--dark {
-  background-color: var(--ld-col-bg-g);
+  background-color: var(--ld-col-bg-lg);
 }
 
 :not([disabled]) {
