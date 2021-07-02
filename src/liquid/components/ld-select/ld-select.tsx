@@ -48,6 +48,8 @@ export class LdSelect {
 
   @State() selected: LdOption[] = []
 
+  @State() themeCl: string
+
   @Watch('expanded')
   updateInert() {
     if (this.expanded) {
@@ -64,9 +66,19 @@ export class LdSelect {
     )
   }
 
+  private updatePopperTheme() {
+    const themeEl = this.el.closest('[class*="ld-theme-"]')
+    if (!themeEl) return
+
+    this.themeCl = Array.from(themeEl.classList).find(
+      (cl) => cl.indexOf('ld-theme-') === 0
+    )
+  }
+
   private updatePopper() {
     this.popper.position()
     this.updatePopperWidth()
+    this.updatePopperTheme()
   }
 
   private initPopper() {
@@ -411,6 +423,7 @@ export class LdSelect {
 
     let popperCl = 'ld-select__popper'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
+    if (this.themeCl) popperCl += ` ${this.themeCl}`
 
     let triggerIconCl = 'ld-select__btn-trigger-icon'
     if (this.expanded) triggerIconCl += ' ld-select__btn-trigger-icon--rotated'
