@@ -29,6 +29,7 @@ export class LdSelect {
   private triggerRef!: HTMLElement
   private popperRef!: HTMLElement
   private scrollContainerRef!: HTMLElement
+  private btnClearRef: HTMLButtonElement
   private popper: Tether
   private observer: MutationObserver
 
@@ -234,6 +235,13 @@ export class LdSelect {
       return
     }
 
+    if (
+      document.activeElement === this.btnClearRef &&
+      (ev.key === ' ' || ev.key === 'Enter')
+    ) {
+      return
+    }
+
     switch (ev.key) {
       case 'ArrowDown': {
         // Move focus to the next option.
@@ -401,6 +409,12 @@ export class LdSelect {
     this.togglePopper()
   }
 
+  private handleClearClick(ev: MouseEvent) {
+    ev.preventDefault()
+    ev.stopImmediatePropagation()
+    this.clearSelection()
+  }
+
   componentDidLoad() {
     this.initOptions()
     this.updateInert()
@@ -439,18 +453,52 @@ export class LdSelect {
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
         >
-          <button
-            onClick={this.handleTriggerClick.bind(this)}
+          <div
             class="ld-select__btn-trigger"
+            role="button"
+            tabindex="0"
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
+            onClick={this.handleTriggerClick.bind(this)}
             ref={(el) => (this.triggerRef = el as HTMLElement)}
           >
             <span class="ld-select__btn-trigger-text" title={triggerText}>
               {triggerText}
             </span>
+
+            {this.multiple && (
+              <button
+                class="ld-select__btn-clear"
+                onClick={this.handleClearClick.bind(this)}
+                ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
+              >
+                <svg
+                  class="ld-select__btn-clear-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 21 20"
+                >
+                  <title>Clear selection</title>
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M10 20a10 10 0 100-20 10 10 0 000 20z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    stroke="#fff"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6.67 6.67l6.67 6.66M6.67 13.33l6.67-6.66"
+                  />
+                </svg>
+              </button>
+            )}
+
             <svg
               class={triggerIconCl}
+              role={'presentation'}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 16 16"
@@ -463,7 +511,7 @@ export class LdSelect {
                 d="M3 6l5 4 5-4"
               />
             </svg>
-          </button>
+          </div>
         </div>
         <div
           role="listbox"

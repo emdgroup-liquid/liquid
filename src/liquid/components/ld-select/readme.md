@@ -27,6 +27,8 @@ permalink: components/ld-select/
   <ld-option value="blueberry">Blueberry</ld-option>
   <ld-option value="peach">Peach</ld-option>
   <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
   <ld-option value="pear">Pear</ld-option>
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
@@ -47,6 +49,8 @@ permalink: components/ld-select/
   <ld-option value="blueberry">Blueberry</ld-option>
   <ld-option value="peach">Peach</ld-option>
   <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
   <ld-option value="pear">Pear</ld-option>
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>

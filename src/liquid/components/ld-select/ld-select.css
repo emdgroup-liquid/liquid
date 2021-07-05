@@ -15,7 +15,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   font: var(--ld-typo-body-m);
   border: 0;
   outline: none;
@@ -63,6 +63,28 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: auto;
+}
+
+.ld-select__btn-clear {
+  border: 0;
+  outline: none;
+  padding: 0;
+  border-radius: var(--ld-br-full);
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: transparent;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  margin-right: var(--ld-sp-6);
+  line-height: 0;
+}
+
+.ld-select__btn-clear-icon {
+  --ld-select-btn-clear-size: 1.25rem;
+  width: var(--ld-select-btn-clear-size);
+  height: var(--ld-select-btn-clear-size);
 }
 
 .ld-select__btn-trigger-icon {
@@ -83,8 +105,27 @@
   &:where(:focus:focus-visible) {
     box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
   }
+
+  .ld-select__btn-clear,
   .ld-select__btn-trigger-icon {
     color: var(--ld-thm-ocean-bg-primary);
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    .ld-select__btn-clear {
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rb-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rb-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rb-active);
+      }
+    }
   }
 }
 
@@ -99,8 +140,27 @@
       box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
     }
   }
+
+  .ld-select__btn-clear,
   .ld-select__btn-trigger-icon {
     color: var(--ld-col-rp-default);
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    .ld-select__btn-clear {
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rp-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rp-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rp-active);
+      }
+    }
   }
 }
 
@@ -111,8 +171,27 @@
       box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
     }
   }
+
+  .ld-select__btn-clear,
   .ld-select__btn-trigger-icon {
     color: var(--ld-thm-tea-bg-primary);
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    .ld-select__btn-clear {
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rg-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rg-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rg-active);
+      }
+    }
   }
 }
 
