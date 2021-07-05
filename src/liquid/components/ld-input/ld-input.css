@@ -106,6 +106,10 @@ ld-input {
     }
   }
 
+  > textarea {
+    height: 100%;
+  }
+
   > ld-button,
   > .ld-button {
     background-color: var(--ld-input-transparent);
