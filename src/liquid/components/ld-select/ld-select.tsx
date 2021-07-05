@@ -29,6 +29,7 @@ export class LdSelect {
   private triggerRef!: HTMLElement
   private popperRef!: HTMLElement
   private scrollContainerRef!: HTMLElement
+  private shadowRef!: HTMLElement
   private btnClearRef: HTMLButtonElement
   private popper: Tether
   private observer: MutationObserver
@@ -67,18 +68,28 @@ export class LdSelect {
     )
   }
 
+  private updatePopperShadowHeight() {
+    this.shadowRef.style.setProperty(
+      'height',
+      `calc(100% + ${this.triggerRef.getBoundingClientRect().height}px)`
+    )
+  }
+
   private updatePopperTheme() {
     const themeEl = this.el.closest('[class*="ld-theme-"]')
     if (!themeEl) return
 
-    this.themeCl = Array.from(themeEl.classList).find(
-      (cl) => cl.indexOf('ld-theme-') === 0
-    )
+    setTimeout(() => {
+      this.themeCl = Array.from(themeEl.classList).find(
+        (cl) => cl.indexOf('ld-theme-') === 0
+      )
+    })
   }
 
   private updatePopper() {
     this.popper.position()
     this.updatePopperWidth()
+    this.updatePopperShadowHeight()
     this.updatePopperTheme()
   }
 
@@ -91,7 +102,6 @@ export class LdSelect {
       constraints: [
         {
           to: 'window',
-          // attachment: 'together none', // Enables flipping on scroll.
           pin: true,
         },
       ],
@@ -110,6 +120,7 @@ export class LdSelect {
 
     const childrenArr = Array.from(children)
     childrenArr.forEach((child) => {
+      if (child === this.shadowRef) return
       const tag = child.tagName.toLowerCase()
       if (tag !== 'ld-option') {
         throw new TypeError(
@@ -130,7 +141,6 @@ export class LdSelect {
 
     if (this.expanded) {
       this.popper.enable()
-      this.updatePopper()
     } else {
       this.popper.disable()
       this.triggerRef.focus()
@@ -201,7 +211,7 @@ export class LdSelect {
       ev.preventDefault()
       if (
         this.popperRef.classList.contains('tether-target-attached-top') ||
-        this.popperRef.classList.contains('tether-pinned-bottom')
+        this.popperRef.classList.contains('tether-pinned')
       ) {
         this.popperRef.querySelector('ld-option')?.focus()
       } else {
@@ -216,7 +226,7 @@ export class LdSelect {
       ev.preventDefault()
       if (
         this.popperRef.classList.contains('tether-target-attached-top') ||
-        this.popperRef.classList.contains('tether-pinned-bottom')
+        this.popperRef.classList.contains('tether-pinned')
       ) {
         this.triggerRef.focus()
       } else {
@@ -242,9 +252,20 @@ export class LdSelect {
       return
     }
 
+    if (
+      document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
+      document.activeElement.classList.contains(
+        'ld-select__btn-clear-single'
+      ) &&
+      (ev.key === ' ' || ev.key === 'Enter')
+    ) {
+      return
+    }
+
     switch (ev.key) {
       case 'ArrowDown': {
-        // Move focus to the next option.
+        // If not expanded, expand popper.
+        // If expanded, move focus to the next option.
         ev.preventDefault()
         if (this.expanded) {
           if (ev.metaKey) {
@@ -260,12 +281,7 @@ export class LdSelect {
           ) {
             ;(document.activeElement.nextElementSibling as HTMLElement)?.focus()
           } else {
-            if (
-              this.popperRef.classList.contains('tether-target-attached-top') ||
-              this.popperRef.classList.contains('tether-pinned-bottom')
-            ) {
-              this.triggerRef.focus()
-            } else if (document.activeElement === this.triggerRef) {
+            if (document.activeElement === this.triggerRef) {
               this.popperRef.querySelector('ld-option')?.focus()
             }
           }
@@ -275,7 +291,9 @@ export class LdSelect {
         break
       }
       case 'ArrowUp':
-        // Move focus to the previous option.
+        // If not expanded, expand popper.
+        // If expanded, move focus to the previous option.
+        // If the first option is focused, focus the trigger button.
         ev.preventDefault()
         if (this.expanded) {
           if (ev.metaKey) {
@@ -292,15 +310,12 @@ export class LdSelect {
             ;(document.activeElement
               .previousElementSibling as HTMLElement)?.focus()
           } else {
-            if (
-              this.popperRef.classList.contains('tether-target-attached-top') ||
-              this.popperRef.classList.contains('tether-pinned-bottom')
+            if (document.activeElement === this.triggerRef && !this.expanded) {
+              this.popperRef.querySelector('ld-option')?.focus()
+            } else if (
+              document.activeElement ===
+              this.popperRef.querySelector('ld-option')
             ) {
-              if (document.activeElement === this.triggerRef) {
-                const options = this.popperRef.querySelectorAll('ld-option')
-                options[options.length - 1]?.focus()
-              }
-            } else {
               this.triggerRef.focus()
             }
           }
@@ -343,7 +358,7 @@ export class LdSelect {
         }
         break
       case 'Enter':
-        // If expanded and trigger element is focused: Toggle popper.
+        // If expanded and trigger button is focused: Toggle popper.
         ev.preventDefault()
         if (this.expanded && document.activeElement === this.triggerRef) {
           this.togglePopper()
@@ -413,6 +428,15 @@ export class LdSelect {
     ev.preventDefault()
     ev.stopImmediatePropagation()
     this.clearSelection()
+    this.triggerRef.focus()
+  }
+
+  private handleClearSingleClick(ev: MouseEvent, option: LdOption) {
+    ev.preventDefault()
+    ev.stopImmediatePropagation()
+    ;((option as unknown) as HTMLElement).dispatchEvent(
+      new KeyboardEvent('keydown', { key: ' ' })
+    )
   }
 
   componentDidLoad() {
@@ -424,6 +448,15 @@ export class LdSelect {
       subtree: true,
       childList: true,
     })
+  }
+
+  componentDidUpdate() {
+    if (this.expanded) {
+      this.updatePopper()
+      setTimeout(() => {
+        this.updatePopper()
+      })
+    }
   }
 
   disconnectedCallback() {
@@ -462,11 +495,60 @@ export class LdSelect {
             onClick={this.handleTriggerClick.bind(this)}
             ref={(el) => (this.triggerRef = el as HTMLElement)}
           >
-            <span class="ld-select__btn-trigger-text" title={triggerText}>
-              {triggerText}
-            </span>
+            {this.multiple && this.selected.length ? (
+              <ul
+                class="ld-select__selection-list"
+                aria-label="Selected options"
+              >
+                {this.selected.map((option, index) => {
+                  const labelText = ((option as unknown) as HTMLElement)
+                    .textContent
+                  return (
+                    <li key={index} class="ld-select__selection-list-item">
+                      <label class="ld-select__selection-label">
+                        <span
+                          class="ld-select__selection-label-text"
+                          title={labelText}
+                        >
+                          {labelText}
+                        </span>
 
-            {this.multiple && (
+                        <button
+                          class="ld-select__btn-clear-single"
+                          onClick={(ev) => {
+                            this.handleClearSingleClick.call(this, ev, option)
+                          }}
+                        >
+                          <svg
+                            class="ld-select__btn-clear-single-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 12 12"
+                          >
+                            <title>Clear</title>
+                            <path
+                              stroke="#fff"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M2 2l8 8M2 10l8-8"
+                            />
+                          </svg>
+                        </button>
+
+                        <span class="ld-select__selection-label-bg"></span>
+                      </label>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : (
+              <span class="ld-select__btn-trigger-text" title={triggerText}>
+                {triggerText}
+              </span>
+            )}
+
+            {this.selected?.length && this.multiple ? (
               <button
                 class="ld-select__btn-clear"
                 onClick={this.handleClearClick.bind(this)}
@@ -494,6 +576,8 @@ export class LdSelect {
                   />
                 </svg>
               </button>
+            ) : (
+              ''
             )}
 
             <svg
@@ -519,10 +603,14 @@ export class LdSelect {
           ref={(el) => (this.popperRef = el as HTMLElement)}
         >
           <div
-            ref={(el) => (this.scrollContainerRef = el as HTMLElement)}
             class="ld-select__scroll-container"
+            ref={(el) => (this.scrollContainerRef = el as HTMLElement)}
           >
             <slot></slot>
+            <div
+              class="ld-select__shadow"
+              ref={(el) => (this.shadowRef = el as HTMLElement)}
+            ></div>
           </div>
         </div>
       </Host>

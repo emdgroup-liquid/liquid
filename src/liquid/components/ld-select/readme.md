@@ -16,7 +16,7 @@ permalink: components/ld-select/
 ### Single select mode
 
 {% example %}
-<ld-select placeholder="Pick a fruit" style="width: 12rem;">
+<ld-select placeholder="Pick a fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -38,7 +38,7 @@ permalink: components/ld-select/
 ### Multiple select mode
 
 {% example %}
-<ld-select placeholder="Pick a fruit" multiple style="width: 12rem;">
+<ld-select placeholder="Pick a fruit" multiple>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
