@@ -14,9 +14,9 @@ export class DocsPickTheme {
   /** Theme pick change event. */
   @Event() pickTheme: EventEmitter<'' | ThemeName>
 
-  private handleChange(event) {
-    this.pickTheme.emit(event.target.value)
-    this.currentTheme = event.target.value
+  private handleChange(ev) {
+    this.pickTheme.emit(ev.detail[0])
+    this.currentTheme = ev.detail[0]
   }
 
   private themes = [
@@ -36,24 +36,37 @@ export class DocsPickTheme {
               <legend>Pick a theme</legend>
             </ld-sr-only>
 
-            {this.themes.map((theme) => (
-              <label
-                class={`docs-pick-theme__label docs-pick-theme__label--${theme.toLowerCase()}${
-                  this.currentTheme === theme
-                    ? ' docs-pick-theme__label--checked'
-                    : ''
-                }`}
-              >
-                <ld-sr-only>{theme.toLowerCase()}</ld-sr-only>
-                <input
-                  onInput={(event) => this.handleChange(event)}
-                  type="radio"
-                  name="theme"
-                  value={theme}
-                  checked={this.currentTheme === theme}
-                />
-              </label>
-            ))}
+            <ld-select
+              class="docs-pick-theme__select"
+              onInput={this.handleChange.bind(this)}
+              preventDeselection
+            >
+              {this.themes.map((theme) => (
+                <ld-option
+                  value={theme.toLowerCase()}
+                  class="docs-pick-theme__option"
+                  selected={theme === this.currentTheme}
+                >
+                  {theme.toLowerCase()}
+                </ld-option>
+                // <label
+                //   class={`docs-pick-theme__label docs-pick-theme__label--${theme.toLowerCase()}${
+                //     this.currentTheme === theme
+                //       ? ' docs-pick-theme__label--checked'
+                //       : ''
+                //   }`}
+                // >
+                //   <ld-sr-only>{theme.toLowerCase()}</ld-sr-only>
+                //   <input
+                //     onInput={(event) => this.handleChange(event)}
+                //     type="radio"
+                //     name="theme"
+                //     value={theme}
+                //     checked={this.currentTheme === theme}
+                //   />
+                // </label>
+              ))}
+            </ld-select>
           </fieldset>
         </form>
       </Host>

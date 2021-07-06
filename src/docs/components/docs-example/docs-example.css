@@ -88,9 +88,10 @@
 
   .docs-example__tool-buttons {
     display: flex;
+    flex: 1 0;
     align-items: center;
     justify-content: flex-end;
-    margin-left: auto;
+    /*margin: -0.5rem 0;*/
 
     > :not(:first-child) {
       margin-left: var(--ld-sp-12);

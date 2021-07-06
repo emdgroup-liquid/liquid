@@ -4,14 +4,17 @@ import {
   Element,
   h,
   Host,
+  Event,
   Listen,
   Prop,
   State,
   Watch,
+  EventEmitter,
 } from '@stencil/core'
 import Tether from 'tether'
 import { makeInert, unmakeInert } from '../../utils/makeInert'
 import { LdOption } from '../ld-option/ld-option'
+import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
  * @slot select - the select trigger slot
@@ -46,6 +49,14 @@ export class LdSelect {
   /** Used to specify the name of the control. */
   @Prop() name: string
 
+  /**
+   * Prevents a state with no options selected after
+   * initial selection in single select mode.
+   */
+  @Prop() preventDeselection = false
+
+  @State() initialized = false
+
   @State() expanded = false
 
   @State() selected: LdOption[] = []
@@ -60,6 +71,33 @@ export class LdSelect {
       makeInert(this.popperRef)
     }
   }
+
+  @Watch('selected')
+  emitEvents(newSelection: LdOption[], oldSelection: LdOption[]) {
+    if (!this.initialized) return
+
+    const newValues = newSelection.map((option) => option.value)
+    const oldValues = oldSelection.map((option) => option.value)
+    if (JSON.stringify(newValues) === JSON.stringify(oldValues)) return
+
+    this.input.emit(newValues)
+    this.change.emit(newValues)
+  }
+
+  /**
+   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
+   */
+  @Event() change: EventEmitter<string[]>
+
+  /**
+   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
+   */
+  @Event() input: EventEmitter<string[]>
+
+  /**
+   * Emitted with an array of selected values when the select component looses focus.
+   */
+  @Event({ bubbles: false }) blur: EventEmitter<string[]>
 
   private updatePopperWidth() {
     this.popperRef.style.setProperty(
@@ -126,6 +164,10 @@ export class LdSelect {
         throw new TypeError(
           `ld-select accepts only ld-option elements as children, but found a "${tag}" element.`
         )
+      } else {
+        if (this.preventDeselection && !this.multiple) {
+          child.setAttribute('prevent-deselection', 'true')
+        }
       }
     })
 
@@ -164,6 +206,7 @@ export class LdSelect {
   @Listen('resize', { target: 'window', passive: true })
   handleWindowResize() {
     this.updatePopperWidth()
+    this.updatePopperShadowHeight()
   }
 
   @Listen('ldOptionSelect', { target: 'window', passive: true })
@@ -417,6 +460,40 @@ export class LdSelect {
     this.handleClickOutside(ev)
   }
 
+  @Listen('blur', {
+    target: 'window',
+    capture: true,
+  })
+  handleBlur(ev) {
+    if (!ev.target?.closest) {
+      return
+    }
+
+    // Ignore blur events outside the select component.
+    const target = ev.target as HTMLElement
+    if (
+      target.closest('[role="listbox"]') !== this.popperRef &&
+      target.closest('ld-select') !== this.el
+    ) {
+      return
+    }
+
+    // Stop event propagation if the related target / focus is within the select component.
+    if (
+      ev.relatedTarget &&
+      ((ev.relatedTarget as HTMLElement).classList.contains('ld-option') ||
+        (ev.relatedTarget as HTMLElement).closest('ld-select') === this.el)
+    ) {
+      ev.stopImmediatePropagation()
+    }
+
+    // Re-dispatch blur events emitted within popper on the select component.
+    if (target.closest('[role="listbox"]') === this.popperRef) {
+      const evRedispatched = new FocusEvent(ev.type, ev)
+      this.el.dispatchEvent(evRedispatched)
+    }
+  }
+
   private handleTriggerClick(ev?: Event) {
     if (!this.popper) this.initPopper()
 
@@ -439,6 +516,10 @@ export class LdSelect {
     )
   }
 
+  componentWillLoad() {
+    applyPropAliases.apply(this)
+  }
+
   componentDidLoad() {
     this.initOptions()
     this.updateInert()
@@ -447,6 +528,10 @@ export class LdSelect {
     this.observer.observe(this.popperRef, {
       subtree: true,
       childList: true,
+    })
+
+    setTimeout(() => {
+      this.initialized = true
     })
   }
 

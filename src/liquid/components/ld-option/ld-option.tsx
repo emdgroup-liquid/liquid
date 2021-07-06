@@ -10,6 +10,7 @@ import {
   Listen,
   State,
 } from '@stencil/core'
+import { applyPropAliases } from '../../utils/applyPropAliases'
 
 @Component({
   tag: 'ld-option',
@@ -34,6 +35,11 @@ export class LdOption {
   @Prop({ mutable: true, reflect: true }) selected = false
 
   /**
+   * Prevents deselection of a selected option using a repeated mouse or keyboard interaction.
+   */
+  @Prop() preventDeselection = false
+
+  /**
    * Disables the option.
    */
   @Prop() disabled = false
@@ -50,7 +56,10 @@ export class LdOption {
       return
     }
 
-    this.selected = !this.selected
+    if (!this.selected || !this.preventDeselection) {
+      this.selected = !this.selected
+    }
+
     this.ldOptionSelect.emit(this.selected)
   }
 
@@ -64,6 +73,8 @@ export class LdOption {
   }
 
   componentWillLoad() {
+    applyPropAliases.apply(this)
+
     if (typeof this.value === 'undefined') {
       setTimeout(() => {
         this.value = this.el.innerText

@@ -1,11 +1,13 @@
 :root {
   --ld-select-popper-max-height: calc(100vh - 1.25rem);
   --ld-select-min-width: 12rem;
+  --ld-select-min-height: 2.5rem;
 }
 
 :where(.ld-select) {
   display: inline-flex;
   min-width: var(--ld-select-min-width);
+  min-height: var(--ld-select-min-height);
 }
 
 .ld-select__select,
@@ -23,10 +25,10 @@
   outline: none;
   padding: var(--ld-sp-8) var(--ld-sp-12);
   border-radius: var(--ld-br-m);
-  min-height: 2.5rem;
-  min-width: 2.5rem;
+  height: 100%;
   user-select: none;
   touch-action: manipulation;
+  color: var(--ld-col-rblck-default);
   background-color: var(--ld-col-wht);
   line-height: 1;
   text-align: left;
@@ -66,10 +68,14 @@
 }
 
 .ld-select__btn-trigger-text {
-  padding-right: var(--ld-sp-8);
+  display: table; /* Aligns text vertically, no matter which container height. */
+  font: var(--ld-typo-label-m);
+  padding: var(--ld-sp-6) var(--ld-sp-8) var(--ld-sp-6) 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  height: calc(100% + var(--ld-sp-12));
+  margin: calc(-1 * var(--ld-sp-6)) 0;
 }
 
 .ld-select__selection-list {
