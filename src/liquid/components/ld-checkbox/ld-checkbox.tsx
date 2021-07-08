@@ -40,7 +40,7 @@ export class LdCheckbox {
   }
 
   private handleClick(ev) {
-    if (ev.target.getAttribute('aria-disabled')) {
+    if (ev.target.getAttribute('aria-disabled') === 'true') {
       ev.preventDefault()
       return
     }

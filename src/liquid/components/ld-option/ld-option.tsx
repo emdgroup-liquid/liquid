@@ -84,7 +84,7 @@ export class LdOption {
 
   componentDidLoad() {
     setTimeout(() => {
-      this.title = this.optionLabelRef.innerHTML
+      this.title = this.optionLabelRef.innerText
     })
   }
 

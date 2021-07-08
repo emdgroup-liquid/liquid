@@ -26,7 +26,7 @@
     }
 
     &:where(:disabled),
-    &:where([aria-disabled]) {
+    &:where([aria-disabled='true']) {
       ~ .ld-radio__dot {
         background-color: var(--ld-col-rblck2);
       }

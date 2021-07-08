@@ -43,7 +43,7 @@ ld-button {
   -webkit-touch-callout: none;
 
   &:where(:disabled),
-  &:where([aria-disabled]) {
+  &:where([aria-disabled='true']) {
     opacity: 0.2;
   }
 

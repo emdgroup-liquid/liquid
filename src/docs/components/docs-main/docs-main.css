@@ -152,6 +152,7 @@
   --ld-typo-code-m: 1rem / 160% 'Source Code Pro', Consolas, Monaco,
     'Ubuntu Mono', monospace;
   padding: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-40);
+  min-width: 20rem;
 
   main {
     > header,

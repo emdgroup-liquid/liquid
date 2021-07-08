@@ -11,7 +11,8 @@
   .docs-example__tools {
     stroke: var(--ld-col-rblck-default);
 
-    .ld-button {
+    .ld-button,
+    .ld-select__btn-trigger {
       filter: none;
     }
   }
@@ -29,8 +30,15 @@
   .docs-example__tools {
     stroke: var(--ld-col-wht);
 
-    .ld-button {
+    .ld-button,
+    .ld-select__btn-trigger {
       filter: invert(1) hue-rotate(180deg);
+
+      &:focus:focus-visible:not(:active) {
+        .ld-icon {
+          filter: invert(1) hue-rotate(180deg);
+        }
+      }
     }
   }
 }

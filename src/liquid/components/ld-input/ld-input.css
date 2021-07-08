@@ -251,8 +251,8 @@ ld-input {
     }
   }
 
-  &:not([aria-disabled]) {
-    > .ld-input:not(.ld-input--invalid):not([aria-disabled]):not([disabled]) {
+  &:not([aria-disabled='true']) {
+    > .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not([disabled]) {
       @media (hover: hover) {
         &:hover:not(:focus-within) {
           box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
@@ -265,7 +265,7 @@ ld-input {
 ld-input,
 .ld-input {
   &[disabled],
-  &[aria-disabled] {
+  &[aria-disabled='true'] {
     &.ld-input,
     .ld-input {
       box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
@@ -309,10 +309,12 @@ ld-input,
   }
 }
 
-:not([disabled]):not([aria-disabled]),
-[class*='ld-theme'] :not([disabled]):not([aria-disabled]),
-[class*='ld-theme'] [class*='ld-theme'] :not([disabled]):not([aria-disabled]) {
-  > .ld-input--invalid:not([disabled]):not([aria-disabled]) {
+:not([disabled]):not([aria-disabled='true']),
+[class*='ld-theme'] :not([disabled]):not([aria-disabled='true']),
+[class*='ld-theme']
+  [class*='ld-theme']
+  :not([disabled]):not([aria-disabled='true']) {
+  > .ld-input--invalid:not([disabled]):not([aria-disabled='true']) {
     box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
 
     > input,
@@ -345,7 +347,7 @@ ld-input,
       }
     }
 
-    &:where(:not([disabled]):not([aria-disabled])) {
+    &:where(:not([disabled]):not([aria-disabled='true'])) {
       .ld-input__placeholder {
         color: var(--ld-col-rr3);
       }

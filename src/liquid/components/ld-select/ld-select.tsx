@@ -12,13 +12,12 @@ import {
   EventEmitter,
 } from '@stencil/core'
 import Tether from 'tether'
-import { makeInert, unmakeInert } from '../../utils/makeInert'
 import { LdOption } from '../ld-option/ld-option'
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
- * @slot select - the select trigger slot
- * @slot popper - the select popper slot
+ * @slot - the default slot contains the select options
+ * @slot icon - replaces caret with custom trigger button icon
  */
 @Component({
   tag: 'ld-select',
@@ -37,9 +36,6 @@ export class LdSelect {
   private popper: Tether
   private observer: MutationObserver
 
-  /** Multiselect mode. */
-  @Prop() multiple = false
-
   /**
    * Used as trigger button label in multiselect mode
    * and in single select mode if nothing is selected.
@@ -49,11 +45,35 @@ export class LdSelect {
   /** Used to specify the name of the control. */
   @Prop() name: string
 
+  /** Multiselect mode. */
+  @Prop() multiple = false
+
+  /** Disabled state of the component. */
+  @Prop() disabled = false
+
   /**
    * Prevents a state with no options selected after
    * initial selection in single select mode.
    */
   @Prop() preventDeselection = false
+
+  // prettier-ignore
+  /**
+   * Display mode.
+   */
+  @Prop() mode?:
+    // default
+    | 'detached' // = default  + small gap between trigger button and popper
+    | 'inline' //   = detached + minumum trigger button width
+    | 'ghost' //    = inline   + transparent background and borders
+
+  /** Attached as CSS class to the select popper element. */
+  @Prop() popperClass: string
+
+  /**
+   * Stringified tether options object to be merged with the default options.
+   */
+  @Prop() tetherOptions = '{}'
 
   @State() initialized = false
 
@@ -63,14 +83,7 @@ export class LdSelect {
 
   @State() themeCl: string
 
-  @Watch('expanded')
-  updateInert() {
-    if (this.expanded) {
-      unmakeInert(this.popperRef)
-    } else {
-      makeInert(this.popperRef)
-    }
-  }
+  @State() ariaDisabled = false
 
   @Watch('selected')
   emitEvents(newSelection: LdOption[], oldSelection: LdOption[]) {
@@ -132,17 +145,30 @@ export class LdSelect {
   }
 
   private initPopper() {
+    let customTetherOptions = {}
+    try {
+      customTetherOptions = JSON.parse(this.tetherOptions)
+    } catch (err) {
+      console.error(
+        'Failed parsing custom Tether options in ld-select component; using default options.',
+        err
+      )
+    }
+
     this.popper = new Tether({
+      classPrefix: 'ld-tether',
       element: this.popperRef,
       target: this.selectRef,
       attachment: 'top left',
       targetAttachment: 'bottom left',
+      offset: this.mode ? '-4px 0' : '0 0',
       constraints: [
         {
           to: 'window',
           pin: true,
         },
       ],
+      ...customTetherOptions,
     })
 
     this.popperRef.classList.add('ld-select__popper--initialized')
@@ -191,7 +217,6 @@ export class LdSelect {
 
   private handleSlotChange() {
     this.initOptions()
-    this.updateInert()
   }
 
   private clearSelection() {
@@ -205,6 +230,8 @@ export class LdSelect {
 
   @Listen('resize', { target: 'window', passive: true })
   handleWindowResize() {
+    if (this.disabled || this.ariaDisabled) return // this is for a minor performance optimization only
+
     this.updatePopperWidth()
     this.updatePopperShadowHeight()
   }
@@ -281,6 +308,8 @@ export class LdSelect {
 
   @Listen('keydown', { passive: false, target: 'window' })
   handleKeyDown(ev: KeyboardEvent) {
+    if (this.disabled || this.ariaDisabled) return
+
     if (
       document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
       document.activeElement.closest('ld-select') !== this.el
@@ -384,15 +413,12 @@ export class LdSelect {
         } else {
           this.handleTriggerClick()
           setTimeout(() => {
-            // If selected in single select mode, focus selected
+            // If selected in single select mode, focus selected.
             let optionToFocus
             if (!this.multiple) {
               optionToFocus = this.popperRef.querySelector(
                 'ld-option[aria-selected="true"]'
               )
-              if (!optionToFocus) {
-                optionToFocus = this.popperRef.querySelector('ld-option')
-              }
             } else {
               optionToFocus = this.triggerRef
             }
@@ -495,15 +521,21 @@ export class LdSelect {
   }
 
   private handleTriggerClick(ev?: Event) {
+    if (ev) ev.preventDefault()
+
+    if (this.disabled || this.ariaDisabled) return
+
     if (!this.popper) this.initPopper()
 
-    if (ev) ev.preventDefault()
     this.togglePopper()
   }
 
   private handleClearClick(ev: MouseEvent) {
     ev.preventDefault()
     ev.stopImmediatePropagation()
+
+    if (this.disabled || this.ariaDisabled) return
+
     this.clearSelection()
     this.triggerRef.focus()
   }
@@ -511,6 +543,8 @@ export class LdSelect {
   private handleClearSingleClick(ev: MouseEvent, option: LdOption) {
     ev.preventDefault()
     ev.stopImmediatePropagation()
+
+    if (this.disabled || this.ariaDisabled) return
     ;((option as unknown) as HTMLElement).dispatchEvent(
       new KeyboardEvent('keydown', { key: ' ' })
     )
@@ -518,11 +552,14 @@ export class LdSelect {
 
   componentWillLoad() {
     applyPropAliases.apply(this)
+
+    if (this.el.getAttribute('aria-disabled') === 'true') {
+      this.ariaDisabled = true
+    }
   }
 
   componentDidLoad() {
     this.initOptions()
-    this.updateInert()
 
     this.observer = new MutationObserver(this.handleSlotChange.bind(this))
     this.observer.observe(this.popperRef, {
@@ -550,15 +587,34 @@ export class LdSelect {
   }
 
   render() {
+    // Endable detached mode if any display mode is set.
+    const detached = !!this.mode
+
+    // Implicitly enable inline mode if ghost mode is enabled.
+    const inline = this.mode === 'inline' || this.mode === 'ghost'
+
+    // Disallow ghost in combination with multiple select mode.
+    const ghost = !this.multiple && this.mode === 'ghost'
+
     let cl = 'ld-select'
     if (this.expanded) cl += ' ld-select--expanded'
+    if (detached) cl += ' ld-select--detached'
+    if (inline) cl += ' ld-select--inline'
+    if (ghost) cl += ' ld-select--ghost'
 
-    let popperCl = 'ld-select__popper'
-    if (this.expanded) popperCl += ' ld-select__popper--expanded'
-    if (this.themeCl) popperCl += ` ${this.themeCl}`
+    let triggerCl = 'ld-select__btn-trigger'
+    if (detached) triggerCl += ' ld-select__btn-trigger--detached'
+    if (inline) triggerCl += ' ld-select__btn-trigger--inline'
+    if (ghost) triggerCl += ' ld-select__btn-trigger--ghost'
 
     let triggerIconCl = 'ld-select__btn-trigger-icon'
     if (this.expanded) triggerIconCl += ' ld-select__btn-trigger-icon--rotated'
+
+    let popperCl = 'ld-select__popper'
+    if (detached) popperCl += ' ld-select__popper--detached'
+    if (this.expanded) popperCl += ' ld-select__popper--expanded'
+    if (this.themeCl) popperCl += ` ${this.themeCl}`
+    if (this.popperClass) popperCl += ` ${this.popperClass}`
 
     const triggerText = this.multiple
       ? this.placeholder
@@ -566,15 +622,18 @@ export class LdSelect {
         this.placeholder
 
     return (
-      <Host class={cl}>
+      <Host class={cl} disabled={this.disabled}>
         <div
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
         >
           <div
-            class="ld-select__btn-trigger"
+            class={triggerCl}
             role="button"
-            tabindex="0"
+            tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
+            aria-disabled={
+              this.disabled || this.ariaDisabled ? 'true' : 'false'
+            }
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
             onClick={this.handleTriggerClick.bind(this)}
@@ -599,6 +658,11 @@ export class LdSelect {
                         </span>
 
                         <button
+                          disabled={
+                            this.disabled || this.ariaDisabled
+                              ? true
+                              : undefined
+                          }
                           class="ld-select__btn-clear-single"
                           onClick={(ev) => {
                             this.handleClearSingleClick.call(this, ev, option)
@@ -636,6 +700,7 @@ export class LdSelect {
             {this.selected?.length && this.multiple ? (
               <button
                 class="ld-select__btn-clear"
+                disabled={this.disabled || this.ariaDisabled ? true : undefined}
                 onClick={this.handleClearClick.bind(this)}
                 ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
               >
@@ -665,6 +730,8 @@ export class LdSelect {
               ''
             )}
 
+            <slot></slot>
+            <slot name="icon"></slot>
             <svg
               class={triggerIconCl}
               role={'presentation'}

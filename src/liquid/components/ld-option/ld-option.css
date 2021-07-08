@@ -67,7 +67,7 @@
   }
 
   &:where(:not([disabled]):not([aria-disabled='true'])) {
-    .ld-option__check {
+    :where(.ld-option__check) {
       color: var(--ld-thm-ocean-bg-primary);
     }
 
@@ -98,7 +98,7 @@
     }
 
     &:where(:not([disabled]):not([aria-disabled='true'])) {
-      .ld-option__check {
+      :where(.ld-option__check) {
         color: var(--ld-thm-solvent-bg-primary);
       }
 
@@ -126,7 +126,7 @@
     }
 
     &:where(:not([disabled]):not([aria-disabled='true'])) {
-      .ld-option__check {
+      :where(.ld-option__check) {
         color: var(--ld-thm-tea-bg-primary);
       }
 

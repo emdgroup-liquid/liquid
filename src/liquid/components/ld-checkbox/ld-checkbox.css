@@ -25,7 +25,7 @@
     }
 
     &:where(:disabled),
-    &:where([aria-disabled]) {
+    &:where([aria-disabled='true']) {
       ~ .ld-checkbox__check {
         color: var(--ld-col-rblck2);
       }

@@ -1,14 +1,22 @@
+:where(ld-icon) {
+  display: inline-grid;
+  place-content: center;
+}
+
 :where(.ld-icon) {
   --ld-size-sm: 1rem;
   --ld-size-md: 1.25rem;
   --ld-size-lg: 1.5rem;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: var(--ld-size-md);
   height: var(--ld-size-md);
 
   :where(svg) {
     width: var(--ld-size-md);
     height: var(--ld-size-md);
+    flex-shrink: 0;
   }
 }
 

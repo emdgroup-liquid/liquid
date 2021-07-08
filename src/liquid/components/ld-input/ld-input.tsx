@@ -65,7 +65,7 @@ export class LdInput {
   }
 
   private handleInput() {
-    if (!this.input.getAttribute('aria-disabled')) {
+    if (!(this.input.getAttribute('aria-disabled') === 'true')) {
       this.value = this.input.value
       return
     }
