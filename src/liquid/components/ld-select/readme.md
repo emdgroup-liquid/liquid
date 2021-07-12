@@ -209,6 +209,45 @@ permalink: components/ld-select/
 </ld-select>
 {% endexample %}
 
+### Invalid
+
+{% example %}
+<ld-select placeholder="Pick a fruit" invalid>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" multiple invalid>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+{% endexample %}
 
 ### Detached
 
@@ -284,6 +323,7 @@ permalink: components/ld-select/
 | Property             | Attribute             | Description                                                                                        | Type                                | Default     |
 | -------------------- | --------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
 | `disabled`           | `disabled`            | Disabled state of the component.                                                                   | `boolean`                           | `false`     |
+| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                       | `boolean`                           | `false`     |
 | `mode`               | `mode`                | Display mode.                                                                                      | `"detached" \| "ghost" \| "inline"` | `undefined` |
 | `multiple`           | `multiple`            | Multiselect mode.                                                                                  | `boolean`                           | `false`     |
 | `name`               | `name`                | Used to specify the name of the control.                                                           | `string`                            | `undefined` |

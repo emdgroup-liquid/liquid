@@ -45,6 +45,11 @@ export class LdOption {
   @Prop() disabled = false
 
   /**
+   * If true the option displays a checkbox, either checked or unchecked, instead of a simple check icon.
+   */
+  @Prop() checkbox = false
+
+  /**
    * Emitted on either selection or de-selection of the option.
    */
   @Event() ldOptionSelect: EventEmitter<boolean>
@@ -98,23 +103,34 @@ export class LdOption {
         onClick={this.handleClick.bind(this)}
         tabindex="-1"
       >
-        <svg
-          style={{ visibility: this.selected ? 'inherit' : 'hidden' }}
-          class="ld-option__check"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15 7L8.40795 13L5 9.63964"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+        {this.checkbox ? (
+          <ld-checkbox
+            role="presentation"
+            class="ld-option__checkbox"
+            checked={this.selected}
+            disabled={this.disabled}
+          ></ld-checkbox>
+        ) : (
+          <svg
+            role={'presentation'}
+            class="ld-option__check"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              style={{ visibility: this.selected ? 'inherit' : 'hidden' }}
+              d="M15 7L8.40795 13L5 9.63964"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        )}
+
         <span
           ref={(el) => (this.optionLabelRef = el as HTMLElement)}
           class="ld-option__label"

@@ -51,6 +51,9 @@ export class LdSelect {
   /** Disabled state of the component. */
   @Prop() disabled = false
 
+  /** Set this property to `true` in order to mark the select visually as invalid. */
+  @Prop() invalid = false
+
   /**
    * Prevents a state with no options selected after
    * initial selection in single select mode.
@@ -178,7 +181,7 @@ export class LdSelect {
     const children = this.scrollContainerRef.children
     if (!children.length) {
       throw new TypeError(
-        `ld-select requires at least one ld-option element as a child, but found none.`
+        'ld-select requires at least one ld-option element as a child, but found none.'
       )
     }
 
@@ -190,10 +193,10 @@ export class LdSelect {
         throw new TypeError(
           `ld-select accepts only ld-option elements as children, but found a "${tag}" element.`
         )
-      } else {
-        if (this.preventDeselection && !this.multiple) {
-          child.setAttribute('prevent-deselection', 'true')
-        }
+      } else if (this.multiple) {
+        child.setAttribute('checkbox', 'true')
+      } else if (this.preventDeselection) {
+        child.setAttribute('prevent-deselection', 'true')
       }
     })
 
@@ -244,7 +247,10 @@ export class LdSelect {
       return
     }
 
-    if (!this.multiple) {
+    if (this.multiple) {
+      // Focus the option, that has been (de-)selected.
+      ;(ev.target as HTMLElement).closest('ld-option').focus()
+    } else {
       // Deselect currently selected option, if it's not the target option.
       Array.from(this.popperRef.querySelectorAll('ld-option')).forEach(
         (option) => {
@@ -597,12 +603,14 @@ export class LdSelect {
     const ghost = !this.multiple && this.mode === 'ghost'
 
     let cl = 'ld-select'
+    if (this.invalid) cl += ' ld-select--invalid'
     if (this.expanded) cl += ' ld-select--expanded'
     if (detached) cl += ' ld-select--detached'
     if (inline) cl += ' ld-select--inline'
     if (ghost) cl += ' ld-select--ghost'
 
     let triggerCl = 'ld-select__btn-trigger'
+    if (this.invalid) triggerCl += ' ld-select__btn-trigger--invalid'
     if (detached) triggerCl += ' ld-select__btn-trigger--detached'
     if (inline) triggerCl += ' ld-select__btn-trigger--inline'
     if (ghost) triggerCl += ' ld-select__btn-trigger--ghost'
@@ -611,6 +619,7 @@ export class LdSelect {
     if (this.expanded) triggerIconCl += ' ld-select__btn-trigger-icon--rotated'
 
     let popperCl = 'ld-select__popper'
+    if (this.invalid) popperCl += ' ld-select__popper--invalid'
     if (detached) popperCl += ' ld-select__popper--detached'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
     if (this.themeCl) popperCl += ` ${this.themeCl}`

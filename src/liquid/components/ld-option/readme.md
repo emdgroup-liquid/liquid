@@ -9,6 +9,7 @@
 
 | Property             | Attribute             | Description                                                                                                                                                                                                     | Type      | Default     |
 | -------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `checkbox`           | `checkbox`            | If true the option displays a checkbox, either checked or unchecked, instead of a simple check icon.                                                                                                            | `boolean` | `false`     |
 | `disabled`           | `disabled`            | Disables the option.                                                                                                                                                                                            | `boolean` | `false`     |
 | `preventDeselection` | `prevent-deselection` | Prevents deselection of a selected option using a repeated mouse or keyboard interaction.                                                                                                                       | `boolean` | `false`     |
 | `selected`           | `selected`            | If present, this boolean attribute indicates that the option is selected.                                                                                                                                       | `boolean` | `false`     |
@@ -21,6 +22,19 @@
 | ---------------- | ---------------------------------------------------------- | ---------------------- |
 | `ldOptionSelect` | Emitted on either selection or de-selection of the option. | `CustomEvent<boolean>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [ld-checkbox](../ld-checkbox)
+
+### Graph
+```mermaid
+graph TD;
+  ld-option --> ld-checkbox
+  style ld-option fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

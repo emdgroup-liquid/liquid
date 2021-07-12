@@ -51,11 +51,20 @@
   }
 }
 
-.ld-option__check {
+.ld-option__check,
+.ld-option__checkbox {
   align-self: center;
   flex-shrink: 0;
-  margin-right: var(--ld-sp-4);
   transform: translateX(calc(-1 * var(--ld-sp-2)));
+}
+
+.ld-option__check {
+  margin-right: var(--ld-sp-4);
+}
+
+.ld-option__checkbox {
+  margin-left: var(--ld-sp-2);
+  margin-right: var(--ld-sp-6);
 }
 
 /* .ld-theme-ocean -> default */
@@ -73,15 +82,27 @@
 
     &:where(:focus:focus-visible) {
       background-color: var(--ld-col-rb1);
+
+      :where(.ld-option__check) {
+        color: var(--ld-col-rb-focus);
+      }
     }
     @media (hover: hover) {
       &:where(:hover) {
         background-color: var(--ld-col-rb1);
+
+        :where(.ld-option__check) {
+          color: var(--ld-col-rb-hover);
+        }
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
       background-color: var(--ld-col-rb1);
+
+      :where(.ld-option__check) {
+        color: var(--ld-col-rb-active);
+      }
     }
   }
 }
@@ -99,20 +120,32 @@
 
     &:where(:not([disabled]):not([aria-disabled='true'])) {
       :where(.ld-option__check) {
-        color: var(--ld-thm-solvent-bg-primary);
+        color: var(--ld-col-rp-default);
       }
 
       &:where(:focus:focus-visible) {
         background-color: var(--ld-col-rp1);
+
+        :where(.ld-option__check) {
+          color: var(--ld-col-rp-focus);
+        }
       }
       @media (hover: hover) {
         &:where(:hover) {
           background-color: var(--ld-col-rp1);
+
+          :where(.ld-option__check) {
+            color: var(--ld-col-rp-hover);
+          }
         }
       }
       &:where(:active),
       &:where(:active:focus-visible) {
         background-color: var(--ld-col-rp1);
+
+        :where(.ld-option__check) {
+          color: var(--ld-col-rp-active);
+        }
       }
     }
   }
@@ -132,15 +165,27 @@
 
       &:where(:focus:focus-visible) {
         background-color: var(--ld-col-rg1);
+
+        :where(.ld-option__check) {
+          color: var(--ld-col-rg-focus);
+        }
       }
       @media (hover: hover) {
         &:where(:hover) {
           background-color: var(--ld-col-rg1);
+
+          :where(.ld-option__check) {
+            color: var(--ld-col-rg-hover);
+          }
         }
       }
       &:where(:active),
       &:where(:active:focus-visible) {
         background-color: var(--ld-col-rg1);
+
+        :where(.ld-option__check) {
+          color: var(--ld-col-rg-active);
+        }
       }
     }
   }

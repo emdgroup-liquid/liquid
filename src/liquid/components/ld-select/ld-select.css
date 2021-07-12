@@ -44,6 +44,43 @@
     }
   }
 
+  &:where(.ld-select__btn-trigger--invalid) {
+    &:where(:not(:focus:focus-visible)) {
+      background-color: var(--ld-col-rr1);
+      color: var(--ld-col-rr-default);
+    }
+
+    &:where(:not(.ld-select__btn-trigger--ghost)) {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+    }
+
+    .ld-select__btn-trigger-icon {
+      color: var(--ld-col-rr-default);
+    }
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        .ld-select__btn-trigger-icon,
+        [slot='icon'] {
+          color: var(--ld-col-rr-hover);
+        }
+      }
+    }
+    &:where(:focus:focus-visible) {
+      .ld-select__btn-trigger-icon,
+      [slot='icon'] {
+        color: var(--ld-col-rr-focus);
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      .ld-select__btn-trigger-icon,
+      [slot='icon'] {
+        color: var(--ld-col-rr-active);
+      }
+    }
+  }
+
   &:where([aria-expanded='true']) {
     z-index: 2;
 
@@ -58,7 +95,9 @@
 
   &:where(:not([aria-disabled='true'])) {
     cursor: pointer;
+  }
 
+  &:where(:not([aria-disabled='true']):not(.ld-select__btn-trigger--invalid)) {
     @media (hover: hover) {
       &:hover:not(:focus) {
         box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
@@ -88,6 +127,8 @@
   white-space: nowrap;
   height: calc(100% + var(--ld-sp-12));
   margin: calc(-1 * var(--ld-sp-6)) 0;
+  display: flex;
+  align-items: center;
 
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {
     color: var(--ld-col-rblck1);
@@ -209,7 +250,7 @@
 :not([class*='ld-theme']),
 .ld-theme-ocean,
 [class*='ld-theme'] .ld-theme-ocean {
-  :where(.ld-select:not([disabled])) {
+  :where(.ld-select:not([disabled]):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
       &:where(:focus:focus-visible) {
         box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
@@ -218,8 +259,43 @@
   }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true'])) {
+    .ld-select__selection-label-bg {
+      background-color: var(--ld-thm-ocean-bg-primary);
+    }
+
+    .ld-select__btn-clear-single {
+      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
+        background-color: var(--ld-col-rb-focus);
+      }
+
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        + .ld-select__selection-label-bg {
+          background-color: var(--ld-col-rb-active);
+        }
+      }
+    }
+
+    .ld-select__btn-clear {
+      color: var(--ld-thm-ocean-bg-primary);
+
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rb-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rb-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rb-active);
+      }
+    }
+  }
+
+  :where(.ld-select:not([disabled]):not([aria-disabled='true']):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
-      .ld-select__btn-clear,
       .ld-select__btn-trigger-icon,
       [slot='icon'] {
         color: var(--ld-thm-ocean-bg-primary);
@@ -256,38 +332,6 @@
           color: var(--ld-col-rb-active);
         }
       }
-
-      .ld-select__selection-label-bg {
-        background-color: var(--ld-thm-ocean-bg-primary);
-      }
-    }
-
-    .ld-select__btn-clear {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rb-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-col-rb-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-col-rb-active);
-      }
-    }
-
-    .ld-select__btn-clear-single {
-      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
-        background-color: var(--ld-col-rb-focus);
-      }
-
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        + .ld-select__selection-label-bg {
-          background-color: var(--ld-col-rb-active);
-        }
-      }
     }
   }
 }
@@ -298,7 +342,7 @@
 [class*='ld-theme'] .ld-theme-shake,
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
-  :where(.ld-select:not([disabled])) {
+  :where(.ld-select:not([disabled]):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
       &:where(:focus:focus-visible) {
         box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
@@ -307,8 +351,43 @@
   }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true'])) {
+    .ld-select__selection-label-bg {
+      background-color: var(--ld-col-rp-default);
+    }
+
+    .ld-select__btn-clear-single {
+      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
+        background-color: var(--ld-col-rp-focus);
+      }
+
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        + .ld-select__selection-label-bg {
+          background-color: var(--ld-col-rp-active);
+        }
+      }
+    }
+
+    .ld-select__btn-clear {
+      color: var(--ld-col-rp-default);
+
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rp-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rp-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rp-active);
+      }
+    }
+  }
+
+  :where(.ld-select:not([disabled]):not([aria-disabled='true']):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
-      .ld-select__btn-clear,
       .ld-select__btn-trigger-icon,
       [slot='icon'] {
         color: var(--ld-col-rp-default);
@@ -343,45 +422,13 @@
           color: var(--ld-col-rp-active);
         }
       }
-
-      .ld-select__selection-label-bg {
-        background-color: var(--ld-col-rp-default);
-      }
-    }
-
-    .ld-select__btn-clear {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rp-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-col-rp-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-col-rp-active);
-      }
-    }
-
-    .ld-select__btn-clear-single {
-      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
-        background-color: var(--ld-col-rp-focus);
-      }
-
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        + .ld-select__selection-label-bg {
-          background-color: var(--ld-col-rp-active);
-        }
-      }
     }
   }
 }
 
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
-  :where(.ld-select:not([disabled])) {
+  :where(.ld-select:not([disabled]):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
       &:where(:focus:focus-visible) {
         box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
@@ -390,6 +437,42 @@
   }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true'])) {
+    .ld-select__selection-label-bg {
+      background-color: var(--ld-thm-tea-bg-primary);
+    }
+
+    .ld-select__btn-clear-single {
+      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
+        background-color: var(--ld-col-rg-focus);
+      }
+
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        + .ld-select__selection-label-bg {
+          background-color: var(--ld-col-rg-active);
+        }
+      }
+    }
+
+    .ld-select__btn-clear {
+      color: var(--ld-thm-tea-bg-primary);
+
+      &:where(:focus:focus-visible) {
+        color: var(--ld-col-rg-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          color: var(--ld-col-rg-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        color: var(--ld-col-rg-active);
+      }
+    }
+  }
+
+  :where(.ld-select:not([disabled]):not([aria-disabled='true']):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
       .ld-select__btn-clear,
       .ld-select__btn-trigger-icon,
@@ -424,38 +507,6 @@
         .ld-select__btn-trigger-icon,
         [slot='icon'] {
           color: var(--ld-col-rg-active);
-        }
-      }
-
-      .ld-select__selection-label-bg {
-        background-color: var(--ld-thm-tea-bg-primary);
-      }
-    }
-
-    .ld-select__btn-clear {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rg-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-col-rg-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-col-rg-active);
-      }
-    }
-
-    .ld-select__btn-clear-single {
-      &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
-        background-color: var(--ld-col-rg-focus);
-      }
-
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        + .ld-select__selection-label-bg {
-          background-color: var(--ld-col-rg-active);
         }
       }
     }
