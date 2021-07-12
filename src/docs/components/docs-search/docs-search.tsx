@@ -1,6 +1,6 @@
 import '../../../components' // type definitions for type checking and intelliSense
 import 'wicg-inert'
-import { Component, h, Listen, State, Host } from '@stencil/core'
+import { Component, h, Listen, State, Host, getAssetPath } from '@stencil/core'
 import Fuse from 'fuse.js'
 import eventBus from '../../utils/eventBus'
 import { SearchEventType } from '../../utils/eventTypes'
@@ -18,6 +18,7 @@ interface SearchResult {
   tag: 'docs-search',
   styleUrl: 'docs-search.css',
   shadow: false,
+  assetsDirs: ['assets'],
 })
 export class DocsSearch {
   private searchInput!: HTMLLdInputElement
@@ -103,6 +104,7 @@ export class DocsSearch {
         <div class="docs-search__content">
           <form role="search" autocomplete="off">
             <ld-input
+              size="lg"
               aria-expanded={this.results.length ? 'true' : 'false'}
               aria-controls="docs-search-results-list"
               onInput={this.handleChange.bind(this)}
@@ -112,11 +114,21 @@ export class DocsSearch {
               ref={(el) => (this.searchInput = el as HTMLLdInputElement)}
               type="search"
               spellcheck={false}
-            ></ld-input>
+            >
+              <img
+                class="docs-search__input-icon"
+                slot="start"
+                src={getAssetPath('./assets/magnifier.svg')}
+                alt=""
+                role="presentation"
+              />
+            </ld-input>
           </form>
           <ol
             id="docs-search-results-list"
-            class="docs-search__results"
+            class={`docs-search__results${
+              this.results.length ? ' docs-search__results--expanded' : ''
+            }`}
             aria-label="Search results"
           >
             {this.results.length

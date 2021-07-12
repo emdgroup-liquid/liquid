@@ -7,24 +7,24 @@ ld-button {
 }
 
 .ld-button {
-  --ld-icon-size-sm: 1rem;
-  --ld-icon-size-md: 1.25rem;
-  --ld-icon-size-lg: 1.5rem;
-  --ld-padding-sm-x: 0.625rem;
-  --ld-padding-sm-y: 0.5rem;
-  --ld-padding-md-x: 0.875rem;
-  --ld-padding-md-y: 0.625rem;
-  --ld-padding-lg-x: 1.3125rem;
-  --ld-padding-lg-y: 0.75rem;
-  --ld-gap-sm: 0.625rem;
-  --ld-gap-md: 0.875rem;
-  --ld-gap-lg: 1.1875rem;
-  --ld-icon-margin-x-sm: -0.125rem;
-  --ld-icon-margin-x-md: -0.25rem;
-  --ld-icon-margin-x-lg: -0.5rem;
+  --ld-button-icon-size-sm: 1rem;
+  --ld-button-icon-size-md: 1.25rem;
+  --ld-button-icon-size-lg: 1.5rem;
+  --ld-button-icon-margin-x-sm: -0.125rem;
+  --ld-button-icon-margin-x-md: -0.25rem;
+  --ld-button-icon-margin-x-lg: -0.5rem;
+  --ld-button-padding-sm-x: 0.625rem;
+  --ld-button-padding-sm-y: 0.5rem;
+  --ld-button-padding-md-x: 0.875rem;
+  --ld-button-padding-md-y: 0.625rem;
+  --ld-button-padding-lg-x: 1.3125rem;
+  --ld-button-padding-lg-y: 0.75rem;
+  --ld-button-gap-sm: 0.625rem;
+  --ld-button-gap-md: 0.875rem;
+  --ld-button-gap-lg: 1.1875rem;
   font: var(--ld-typo-body-m);
   border: 0;
-  padding: var(--ld-padding-md-y) var(--ld-padding-md-x);
+  padding: var(--ld-button-padding-md-y) var(--ld-button-padding-md-x);
   border-radius: var(--ld-br-m);
   min-height: 2.5rem;
   min-width: 2.5rem;
@@ -34,7 +34,7 @@ ld-button {
   color: var(--ld-col-wht);
   display: grid;
   grid-auto-flow: column;
-  gap: var(--ld-gap-md);
+  gap: var(--ld-button-gap-md);
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -55,53 +55,59 @@ ld-button {
     line-height: 0;
   }
 
+  ld-icon,
   :where(.ld-icon),
   :where(.ld-icon svg) {
-    width: var(--ld-icon-size-md);
-    height: var(--ld-icon-size-md);
+    width: var(--ld-button-icon-size-md);
+    height: var(--ld-button-icon-size-md);
   }
 
-  :where(.ld-icon) {
-    margin: auto var(--ld-icon-margin-x-md);
+  > ld-icon,
+  > .ld-icon {
+    margin: auto var(--ld-button-icon-margin-x-md);
   }
 
   &:where(.ld-button--sm) {
     min-height: 2rem;
     min-width: 2rem;
-    padding: var(--ld-padding-sm-y) var(--ld-padding-sm-x);
+    padding: var(--ld-button-padding-sm-y) var(--ld-button-padding-sm-x);
     font: var(--ld-typo-body-s);
     font-weight: 700;
     line-height: 1;
-    gap: var(--ld-gap-sm);
+    gap: var(--ld-button-gap-sm);
 
-    :where(.ld-icon) {
-      margin: auto var(--ld-icon-margin-x-sm);
+    > ld-icon,
+    > .ld-icon {
+      margin: auto var(--ld-button-icon-margin-x-sm);
     }
 
+    ld-icon,
     .ld-icon,
     .ld-icon :where(svg) {
-      width: var(--ld-icon-size-sm);
-      height: var(--ld-icon-size-sm);
+      width: var(--ld-button-icon-size-sm);
+      height: var(--ld-button-icon-size-sm);
     }
   }
 
   &:where(.ld-button--lg) {
     min-height: 3.125rem;
     min-width: 3.125rem;
-    padding: var(--ld-padding-lg-y) var(--ld-padding-lg-x);
+    padding: var(--ld-button-padding-lg-y) var(--ld-button-padding-lg-x);
     font: var(--ld-typo-body-l);
     font-weight: 700;
     line-height: 1;
-    gap: var(--ld-gap-lg);
+    gap: var(--ld-button-gap-lg);
 
-    :where(.ld-icon) {
-      margin: auto var(--ld-icon-margin-x-lg);
+    > ld-icon,
+    > .ld-icon {
+      margin: auto var(--ld-button-icon-margin-x-lg);
     }
 
+    ld-icon,
     .ld-icon,
     .ld-icon :where(svg) {
-      width: var(--ld-icon-size-lg);
-      height: var(--ld-icon-size-lg);
+      width: var(--ld-button-icon-size-lg);
+      height: var(--ld-button-icon-size-lg);
     }
   }
 

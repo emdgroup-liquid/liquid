@@ -46,6 +46,9 @@ export class LdInput {
   /** The input type. */
   @Prop() type: string
 
+  /** Size of the input. */
+  @Prop() size?: 'sm' | 'lg'
+
   /**
    * Uses textarea instead of input internally. Setting this attribute to true
    * disables the attribute type and both slots.
@@ -80,6 +83,7 @@ export class LdInput {
 
   render() {
     let cl = 'ld-input'
+    if (this.size) cl += ` ld-input--${this.size}`
     if (this.tone) cl += ` ld-input--${this.tone}`
     if (this.invalid) cl += ' ld-input--invalid'
 

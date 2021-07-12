@@ -150,7 +150,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--danger" disabled>Text</button>
 {% endexample %}
 
-### Sizes
+### Size
 
 {% example %}
 <ld-button size="sm">Text</ld-button>
