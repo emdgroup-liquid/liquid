@@ -730,7 +730,7 @@ The `ld-input` web component does not provide any properties or methods for vali
 
 | Property      | Attribute     | Description                                                                                                           | Type      | Default     |
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean` | `undefined` |
+| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean` | `false`     |
 | `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean` | `undefined` |
 | `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`  | `undefined` |
 | `tone`        | `tone`        | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`  | `undefined` |
