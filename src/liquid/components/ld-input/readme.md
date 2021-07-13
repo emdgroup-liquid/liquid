@@ -128,23 +128,11 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 ### Type date
 
 {% example %}
-<ld-input placeholder="Birthday" type="date" value="2017-06-01" size="sm"></ld-input>
-
 <ld-input placeholder="Birthday" type="date" value="2017-06-01"></ld-input>
-
-<ld-input placeholder="Birthday" type="date" value="2017-06-01" size="lg"></ld-input>
 
 <!-- CSS component -->
 
-<div class="ld-input ld-input--sm">
-  <input placeholder="Birthday" type="date" value="2017-06-01">
-</div>
-
 <div class="ld-input">
-  <input placeholder="Birthday" type="date" value="2017-06-01">
-</div>
-
-<div class="ld-input ld-input--lg">
   <input placeholder="Birthday" type="date" value="2017-06-01">
 </div>
 {% endexample %}
@@ -222,23 +210,11 @@ Triggers a telephone keypad in some devices with dynamic keypads.
 ### Type time
 
 {% example %}
-<ld-input placeholder="Time of reservation" type="time" value="13:30" size="sm"></ld-input>
-
 <ld-input placeholder="Time of reservation" type="time" value="13:30"></ld-input>
-
-<ld-input placeholder="Time of reservation" type="time" value="13:30" size="lg"></ld-input>
 
 <!-- CSS component -->
 
-<div class="ld-input ld-input--sm">
-  <input placeholder="Time of reservation" type="time" value="13:30">
-</div>
-
 <div class="ld-input">
-  <input placeholder="Time of reservation" type="time" value="13:30">
-</div>
-
-<div class="ld-input ld-input--lg">
   <input placeholder="Time of reservation" type="time" value="13:30">
 </div>
 {% endexample %}

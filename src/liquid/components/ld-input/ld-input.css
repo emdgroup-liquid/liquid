@@ -72,9 +72,14 @@ ld-input {
 
   > input {
     max-height: var(--ld-input-max-height-md);
+    align-self: stretch;
 
     &[type='file'] {
       opacity: 0;
+
+      &:not(:disabled):not([aria-disabled='true']) {
+        cursor: pointer;
+      }
 
       &::-webkit-file-upload-button {
         display: none;
