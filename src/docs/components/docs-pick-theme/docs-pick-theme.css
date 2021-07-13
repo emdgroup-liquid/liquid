@@ -110,6 +110,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--ld-col-rp-hover);
+        background-color: var(--ld-col-rp1);
 
         .docs-pick-theme__option-pattern-primary {
           fill: var(--ld-col-rp-hover);
@@ -166,6 +167,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--ld-col-rp-hover);
+        background-color: var(--ld-col-rp1);
 
         .docs-pick-theme__option-pattern-primary {
           fill: var(--ld-col-rp-hover);
@@ -222,6 +224,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--ld-col-rp-hover);
+        background-color: var(--ld-col-rp1);
 
         .docs-pick-theme__option-pattern-primary {
           fill: var(--ld-col-rp-hover);
@@ -278,6 +281,7 @@
     @media (hover: hover) {
       &:hover {
         color: var(--ld-col-rg-hover);
+        background-color: var(--ld-col-rg1);
 
         .docs-pick-theme__option-pattern-primary {
           fill: var(--ld-col-rg-hover);
