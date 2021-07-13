@@ -1,12 +1,22 @@
 :root {
   --ld-select-popper-max-height: calc(100vh - 1.25rem);
   --ld-select-min-width: 12rem;
-  --ld-select-min-height: 2.5rem;
+  --ld-select-min-height-sm: 2rem;
+  --ld-select-min-height-md: 2.5rem;
+  --ld-select-min-height-lg: 3.125rem;
 }
 
 :where(.ld-select) {
   display: inline-flex;
-  min-height: var(--ld-select-min-height);
+  min-height: var(--ld-select-min-height-md);
+}
+
+:where(.ld-select--sm) {
+  min-height: var(--ld-select-min-height-sm);
+}
+
+:where(.ld-select--lg) {
+  min-height: var(--ld-select-min-height-lg);
 }
 
 :where(.ld-select:not(.ld-select--inline):not(.ld-select--ghost)) {
@@ -26,7 +36,7 @@
   font: var(--ld-typo-body-m);
   border: 0;
   outline: none;
-  padding: var(--ld-sp-8) var(--ld-sp-12);
+  padding: var(--ld-sp-4) var(--ld-sp-12);
   border-radius: var(--ld-br-m);
   height: 100%;
   user-select: none;
@@ -129,6 +139,16 @@
   margin: calc(-1 * var(--ld-sp-6)) 0;
   display: flex;
   align-items: center;
+
+  .ld-select--sm & {
+    font: var(--ld-typo-body-s);
+    line-height: 1;
+  }
+
+  .ld-select--lg & {
+    font: var(--ld-typo-body-l);
+    line-height: 1;
+  }
 
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {
     color: var(--ld-col-rblck1);
@@ -543,12 +563,24 @@
     display: block;
     position: absolute;
     width: 100%;
-    height: calc(100% + 2.5rem);
+    height: calc(100% + var(--ld-select-min-height-md));
     box-shadow: var(--ld-shadow-sticky);
     border-radius: var(--ld-br-m);
     pointer-events: none;
     background-color: var(--ld-col-wht);
     z-index: -1;
+  }
+
+  &:where(.ld-select__popper--sm) {
+    :where(.ld-select__shadow) {
+      height: calc(100% + var(--ld-select-min-height-sm));
+    }
+  }
+
+  &:where(.ld-select__popper--lg) {
+    :where(.ld-select__shadow) {
+      height: calc(100% + var(--ld-select-min-height-lg));
+    }
   }
 
   &:where(.ld-tether-pinned) {

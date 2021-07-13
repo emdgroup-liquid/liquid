@@ -315,6 +315,118 @@ permalink: components/ld-select/
 </ld-select>
 {% endexample %}
 
+### Size
+
+{% example %}
+<ld-select placeholder="Pick a fruit" size="sm">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick a fruit">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick a fruit" size="lg">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" multiple size="sm">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" multiple>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" multiple size="lg">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+{% endexample %}
+
 <!-- Auto Generated Below -->
 
 
@@ -330,6 +442,7 @@ permalink: components/ld-select/
 | `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected. | `string`                            | `undefined` |
 | `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                | `string`                            | `undefined` |
 | `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.           | `boolean`                           | `false`     |
+| `size`               | `size`                | Size of the select trigger button.                                                                 | `"lg" \| "sm"`                      | `undefined` |
 | `tetherOptions`      | `tether-options`      | Stringified tether options object to be merged with the default options.                           | `string`                            | `'{}'`      |
 
 

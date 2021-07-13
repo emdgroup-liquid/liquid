@@ -70,6 +70,9 @@ export class LdSelect {
     | 'inline' //   = detached + minumum trigger button width
     | 'ghost' //    = inline   + transparent background and borders
 
+  /** Size of the select trigger button. */
+  @Prop() size?: 'sm' | 'lg'
+
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass: string
 
@@ -603,6 +606,7 @@ export class LdSelect {
     const ghost = !this.multiple && this.mode === 'ghost'
 
     let cl = 'ld-select'
+    if (this.size) cl += ` ld-select--${this.size}`
     if (this.invalid) cl += ' ld-select--invalid'
     if (this.expanded) cl += ' ld-select--expanded'
     if (detached) cl += ' ld-select--detached'
@@ -622,6 +626,7 @@ export class LdSelect {
     if (this.invalid) popperCl += ' ld-select__popper--invalid'
     if (detached) popperCl += ' ld-select__popper--detached'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
+    if (this.size) cl += ` ld-select__popper--${this.size}`
     if (this.themeCl) popperCl += ` ${this.themeCl}`
     if (this.popperClass) popperCl += ` ${this.popperClass}`
 
