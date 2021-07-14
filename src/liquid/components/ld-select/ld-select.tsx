@@ -634,6 +634,15 @@ export class LdSelect {
 
     return (
       <Host class={cl} disabled={this.disabled}>
+        {this.name
+          ? this.selected.map((selected) => (
+              <input
+                type="hidden"
+                name={this.name}
+                value={selected.value}
+              ></input>
+            ))
+          : ''}
         <div
           class="ld-select__select"
           ref={(el) => (this.selectRef = el as HTMLElement)}
