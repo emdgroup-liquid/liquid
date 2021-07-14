@@ -30,7 +30,6 @@
   border-radius: var(--ld-br-m);
   line-height: 1;
   min-height: var(--ld-input-min-height-md);
-  width: var(--ld-input-width);
 
   &::before {
     content: '';
