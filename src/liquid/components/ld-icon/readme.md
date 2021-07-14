@@ -9,7 +9,7 @@ permalink: components/ld-icon/
 
 # ld-icon
 
-## Web component
+## Web Component
 
 {% example %}
 <ld-icon name="placeholder"></ld-icon>

@@ -457,14 +457,11 @@ export class LdSelect {
           ev.stopImmediatePropagation()
         }
         break
-      case '-':
-        // Clear selection.
-        ev.preventDefault()
-        ev.stopImmediatePropagation()
-        this.clearSelection()
-        this.triggerRef.focus()
-        break
     }
+
+    // TODO: implement Shift+Up and Shift+Down selection for multiple mode
+    // Holding down the Shift key and then using the Up and Down cursor keys
+    // increases or decreases the range of items selected.
 
     // TODO: implement type-ahead
     // Type a character: focus moves to the next item with a name that starts with the typed character.
@@ -619,8 +616,8 @@ export class LdSelect {
     if (inline) triggerCl += ' ld-select__btn-trigger--inline'
     if (ghost) triggerCl += ' ld-select__btn-trigger--ghost'
 
-    let triggerIconCl = 'ld-select__btn-trigger-icon'
-    if (this.expanded) triggerIconCl += ' ld-select__btn-trigger-icon--rotated'
+    let triggerIconCl = 'ld-select__icon'
+    if (this.expanded) triggerIconCl += ' ld-select__icon--rotated'
 
     let popperCl = 'ld-select__popper'
     if (this.invalid) popperCl += ' ld-select__popper--invalid'
@@ -750,7 +747,6 @@ export class LdSelect {
               class={triggerIconCl}
               role={'presentation'}
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 16 16"
             >
               <path

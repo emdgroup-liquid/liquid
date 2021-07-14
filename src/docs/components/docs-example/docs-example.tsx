@@ -9,7 +9,7 @@ import { ThemeName } from '../../../liquid/types/theme'
   shadow: false,
 })
 export class DocsExample {
-  /** Web component markup encoded as URI component. */
+  /** Web Component markup encoded as URI component. */
   @Prop() code!: string
 
   /** CSS component markup encoded as URI component. */
@@ -33,7 +33,7 @@ export class DocsExample {
   /** Is code toggled to be visible */
   @State() isCodeVisible = this.opened
 
-  /** Is web component visible (as opposed to the css component version) */
+  /** Is Web Component visible (as opposed to the css component version) */
   @State() isWebComponent = true
 
   @Listen('pickTheme')

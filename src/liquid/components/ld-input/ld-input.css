@@ -1,17 +1,3 @@
-/*
-:where(.ld-input) {
-  width: 12rem;
-}
-*/
-
-ld-input {
-  border-radius: var(--ld-br-m);
-
-  > .ld-input {
-    width: 100%;
-  }
-}
-
 .ld-input {
   --ld-input-padding-x-sm: 0.5rem;
   --ld-input-padding-x-md: 0.625rem;
@@ -44,6 +30,7 @@ ld-input {
   border-radius: var(--ld-br-m);
   line-height: 1;
   min-height: var(--ld-input-min-height-md);
+  width: var(--ld-input-width);
 
   &::before {
     content: '';
@@ -405,6 +392,14 @@ ld-input {
   }
 
   .ld-label & {
+    width: 100%;
+  }
+}
+
+:where(ld-input) {
+  border-radius: var(--ld-br-m);
+
+  > .ld-input {
     width: 100%;
   }
 }

@@ -568,7 +568,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 {% endexample %}
 
-> **Note**: The web component `ld-input` listens for `click` events on the contained `ld-icon` component and automatically focuses the input field on icon click. The CSS component version of `ld-input` doesn't do that.
+> **Note**: The Web Component `ld-input` listens for `click` events on the contained `ld-icon` component and automatically focuses the input field on icon click. The CSS component version of `ld-input` doesn't do that.
 
 #### With button
 
@@ -967,7 +967,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 ### Input validation
 
-The `ld-input` web component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
 
 {% example %}
 <style>

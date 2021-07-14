@@ -25,7 +25,7 @@ There are a few points to concider, when deciding on one of the two options or a
 
 1. **Convenience**: Most Liquid Web Components are much more "compact" when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from [type checking and intellisense](/liquid/type-checking-and-intellisense/).
 
-2. **Accessibility**: Some components handle accessibility issues under the hood. For instance, the [`ld-heading`](/components/ld-heading/) component applies an `aria-label` automatically when used with uppercase heading levels. With CSS components you have to deal with such things yourself.
+2. **Accessibility**: Some components handle accessibility issues under the hood. For instance, the [`ld-heading`](/components/ld-heading/) component applies an `aria-label` automatically when used with uppercase heading levels. With CSS Components you have to deal with such things yourself.
 
 3. **Functionality / feature set**: We always try to offer both, a Web Component and an equivalent CSS Component, but it is not always possible to achieve the same feature set when not having JavaScript to our disposal. CSS can do only so much. Therefore, some more complex components offer more features as Web Components, while coming with a lighweight / less feature rich CSS Component fallback. 
 

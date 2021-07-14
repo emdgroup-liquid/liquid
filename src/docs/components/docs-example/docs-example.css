@@ -48,11 +48,11 @@
 @media (prefers-color-scheme: dark) {
   @mixin docs-example-ui-dark;
 }
-.docs-ui-dark {
-  @mixin docs-example-ui-dark;
-}
 .docs-ui-light {
   @mixin docs-example-ui-light;
+}
+.docs-ui-dark {
+  @mixin docs-example-ui-dark;
 }
 
 .docs-example {

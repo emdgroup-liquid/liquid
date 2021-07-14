@@ -11,7 +11,7 @@ permalink: components/ld-sr-only/
 
 Use `ld-sr-only` to hide an element visually without hiding it from screen readers.
 
-The CSS class `ld-sr-only` works the same way as its web component counterpart, except that it can be applied to an HTML element directly while the web component wraps the element which needs to be only screen reader visible.
+The CSS class `ld-sr-only` works the same way as its Web Component counterpart, except that it can be applied to an HTML element directly while the Web Component wraps the element which needs to be only screen reader visible.
 
 ---
 

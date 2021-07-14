@@ -16,7 +16,7 @@ import {
   shadow: false,
 })
 export class DocsSwitchWebCss {
-  /** On stands for web component; off stands for CSS component */
+  /** On stands for Web Component; off stands for CSS component */
   @Prop({ mutable: true }) isOn = true
 
   /** Theme select change event. */

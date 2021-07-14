@@ -33,6 +33,43 @@ permalink: components/ld-select/
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- CSS component -->
+
+<div class='ld-select'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
 
 ### Multiple select mode
@@ -131,6 +168,43 @@ permalink: components/ld-select/
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- CSS component -->
+
+<div class='ld-select'>
+  <select name="fruits" disabled>
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
 
 **If you want the select to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
@@ -207,12 +281,51 @@ permalink: components/ld-select/
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- CSS component -->
+
+<div class='ld-select'>
+  <select name="fruits" aria-disabled="true">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
+
+> **Note**: When aria-disabled is applied on the Web Component, it will prevent user interaction. With the CSS Component version on the other hand, after applying aria-disabled on the select element, you will need to take care of preventing its default behaviour yourself.
 
 ### Invalid
 
 {% example %}
-<ld-select placeholder="Pick a fruit" invalid>
+<ld-select placeholder="Pick a fruit" invalid mode="detached">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -247,6 +360,43 @@ permalink: components/ld-select/
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- CSS component -->
+
+<div class='ld-select ld-select--invalid'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
 
 ### Detached
@@ -425,6 +575,114 @@ permalink: components/ld-select/
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+
+<!-- CSS component -->
+
+<div class='ld-select ld-select--sm'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
+
+<div class='ld-select'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
+
+<div class='ld-select ld-select--lg'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <svg
+    role="presentation"
+    class="ld-select__icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="M3 6l5 4 5-4"
+    />
+  </svg>
+</div>
 {% endexample %}
 
 <!-- Auto Generated Below -->
