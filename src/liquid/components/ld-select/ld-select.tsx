@@ -73,6 +73,9 @@ export class LdSelect {
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'
 
+  // TODO: implement compact mode
+  // Constrain the display
+
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass: string
 
@@ -91,6 +94,10 @@ export class LdSelect {
 
   @State() ariaDisabled = false
 
+  @State() typeAheadQuery: string
+
+  @State() typeAheadTimeout: number
+
   @Watch('selected')
   emitEvents(newSelection: LdOption[], oldSelection: LdOption[]) {
     if (!this.initialized) return
@@ -101,6 +108,30 @@ export class LdSelect {
 
     this.input.emit(newValues)
     this.change.emit(newValues)
+  }
+
+  @Watch('typeAheadQuery')
+  handleTypeAhead(newQuery?: string) {
+    if (!newQuery) return
+
+    const options = Array.from(this.popperRef.querySelectorAll('ld-option'))
+    const values = options.map((option) => option.value)
+    let index = values.findIndex(
+      (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
+    )
+    if (index > -1) {
+      options[index].focus()
+      return
+    }
+
+    index = [newQuery, ...values]
+      .sort()
+      .findIndex(
+        (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
+      )
+    if (index > 0) {
+      options[index - 1].focus()
+    }
   }
 
   /**
@@ -315,6 +346,38 @@ export class LdSelect {
     }
   }
 
+  private selectAndFocus(ev, option) {
+    if (!option) return
+
+    if (this.multiple && ev.shiftKey) {
+      if (
+        document.activeElement?.classList.contains('ld-option') &&
+        document.activeElement.getAttribute('aria-selected') !== 'true'
+      ) {
+        document.activeElement.dispatchEvent(
+          new KeyboardEvent('keydown', { key: ' ' })
+        )
+      }
+      option.focus()
+      if (option.getAttribute('aria-selected') !== 'true') {
+        option.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
+      }
+    } else {
+      option.focus()
+    }
+  }
+
+  private typeAhead(key: string) {
+    // Type a character: focus moves to the next item with a name that starts with the typed character.
+    // Type multiple characters in rapid succession: focus moves to the next item with a name that starts
+    // with the string of characters typed.
+    window.clearTimeout(this.typeAheadTimeout)
+    this.typeAheadQuery = (this.typeAheadQuery || '') + key
+    this.typeAheadTimeout = window.setTimeout(() => {
+      this.typeAheadQuery = ''
+    }, 500)
+  }
+
   @Listen('keydown', { passive: false, target: 'window' })
   handleKeyDown(ev: KeyboardEvent) {
     if (this.disabled || this.ariaDisabled) return
@@ -347,6 +410,9 @@ export class LdSelect {
       case 'ArrowDown': {
         // If not expanded, expand popper.
         // If expanded, move focus to the next option.
+        // If shift is pressed, select the next option.
+        // Holding down the Shift key and then using the Down cursor keys
+        // increases the range of items selected.
         ev.preventDefault()
         if (this.expanded) {
           if (ev.metaKey) {
@@ -354,18 +420,19 @@ export class LdSelect {
             return
           }
 
+          let nextOption
           if (
-            document.activeElement.nextElementSibling &&
-            document.activeElement.nextElementSibling.classList.contains(
+            document.activeElement.nextElementSibling?.classList.contains(
               'ld-option'
             )
           ) {
-            ;(document.activeElement.nextElementSibling as HTMLElement)?.focus()
+            nextOption = document.activeElement.nextElementSibling
           } else {
             if (document.activeElement === this.triggerRef) {
-              this.popperRef.querySelector('ld-option')?.focus()
+              nextOption = this.popperRef.querySelector('ld-option')
             }
           }
+          this.selectAndFocus(ev, nextOption)
         } else {
           this.expandAndFocus()
         }
@@ -375,6 +442,8 @@ export class LdSelect {
         // If not expanded, expand popper.
         // If expanded, move focus to the previous option.
         // If the first option is focused, focus the trigger button.
+        // Holding down the Shift key and then using the Up cursor keys
+        // increases the range of items selected.
         ev.preventDefault()
         if (this.expanded) {
           if (ev.metaKey) {
@@ -382,17 +451,16 @@ export class LdSelect {
             return
           }
 
+          let prevOption
           if (
-            document.activeElement.previousElementSibling &&
-            document.activeElement.previousElementSibling.classList.contains(
+            document.activeElement.previousElementSibling?.classList.contains(
               'ld-option'
             )
           ) {
-            ;(document.activeElement
-              .previousElementSibling as HTMLElement)?.focus()
+            prevOption = document.activeElement.previousElementSibling
           } else {
             if (document.activeElement === this.triggerRef && !this.expanded) {
-              this.popperRef.querySelector('ld-option')?.focus()
+              prevOption = this.popperRef.querySelector('ld-option')
             } else if (
               document.activeElement ===
               this.popperRef.querySelector('ld-option')
@@ -400,6 +468,7 @@ export class LdSelect {
               this.triggerRef.focus()
             }
           }
+          this.selectAndFocus(ev, prevOption)
         } else {
           this.expandAndFocus()
         }
@@ -457,16 +526,13 @@ export class LdSelect {
           ev.stopImmediatePropagation()
         }
         break
+      default:
+        if (this.expanded) {
+          ev.preventDefault()
+          ev.stopImmediatePropagation()
+          this.typeAhead(ev.key)
+        }
     }
-
-    // TODO: implement Shift+Up and Shift+Down selection for multiple mode
-    // Holding down the Shift key and then using the Up and Down cursor keys
-    // increases or decreases the range of items selected.
-
-    // TODO: implement type-ahead
-    // Type a character: focus moves to the next item with a name that starts with the typed character.
-    // Type multiple characters in rapid succession: focus moves to the next item with a name that starts
-    // with the string of characters typed.
   }
 
   @Listen('click', {
@@ -588,6 +654,7 @@ export class LdSelect {
   }
 
   disconnectedCallback() {
+    window.clearTimeout(this.typeAheadTimeout)
     if (this.popper) this.popper.destroy()
     if (this.observer) this.observer.disconnect()
   }

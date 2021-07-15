@@ -16,7 +16,7 @@ permalink: components/ld-select/
 ### Single select mode
 
 {% example %}
-<ld-select placeholder="Pick a fruit">
+<ld-select placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -75,7 +75,7 @@ permalink: components/ld-select/
 ### Multiple select mode
 
 {% example %}
-<ld-select placeholder="Pick some fruits" multiple>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -97,7 +97,7 @@ permalink: components/ld-select/
 ### Disabled
 
 {% example %}
-<ld-select placeholder="Pick a fruit" disabled>
+<ld-select placeholder="Pick a fruit" name="fruit" disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -115,7 +115,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple disabled>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -133,7 +133,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick a fruit" disabled>
+<ld-select placeholder="Pick a fruit" name="fruit" disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -151,7 +151,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple disabled>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple disabled>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -210,7 +210,7 @@ permalink: components/ld-select/
 **If you want the select to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-select placeholder="Pick a fruit" aria-disabled="true">
+<ld-select placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -228,7 +228,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple aria-disabled="true">
+<ld-select placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -246,7 +246,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick a fruit" aria-disabled="true">
+<ld-select placeholder="Pick a fruit" name="fruit" aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -264,7 +264,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple aria-disabled="true">
+<ld-select placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -325,7 +325,7 @@ permalink: components/ld-select/
 ### Invalid
 
 {% example %}
-<ld-select placeholder="Pick a fruit" invalid mode="detached">
+<ld-select placeholder="Pick a fruit" name="fruit" invalid mode="detached">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -343,7 +343,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple invalid>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple invalid>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -402,7 +402,7 @@ permalink: components/ld-select/
 ### Detached
 
 {% example %}
-<ld-select placeholder="Pick a fruit" mode="detached">
+<ld-select placeholder="Pick a fruit" name="fruit" mode="detached">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -424,7 +424,7 @@ permalink: components/ld-select/
 ### Inline
 
 {% example %}
-<ld-select placeholder="Pick a fruit" mode="inline">
+<ld-select placeholder="Pick a fruit" name="fruit" mode="inline">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -446,7 +446,7 @@ permalink: components/ld-select/
 ### Ghost
 
 {% example %}
-<ld-select placeholder="Pick a fruit" mode="ghost">
+<ld-select placeholder="Pick a fruit" name="fruit" mode="ghost">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -468,7 +468,7 @@ permalink: components/ld-select/
 ### Size
 
 {% example %}
-<ld-select placeholder="Pick a fruit" size="sm">
+<ld-select placeholder="Pick a fruit" name="fruit" size="sm">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -486,7 +486,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick a fruit">
+<ld-select placeholder="Pick a fruit" name="fruit">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -504,7 +504,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick a fruit" size="lg">
+<ld-select placeholder="Pick a fruit" name="fruit" size="lg">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -522,7 +522,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple size="sm">
+<ld-select placeholder="Pick some fruits" name="fruits" multiple size="sm">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -540,7 +540,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -558,7 +558,7 @@ permalink: components/ld-select/
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select placeholder="Pick some fruits" multiple size="lg">
+<ld-select placeholder="Pick some fruits" name="fruits" multiple size="lg">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
