@@ -474,6 +474,13 @@
       }
     }
   }
+  :where(.ld-select:not(ld-select)):not(.ld-select--invalid) {
+    :where(select:not(:disabled)) {
+      &:where(:focus:focus-visible) {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+      }
+    }
+  }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true'])) {
     .ld-select__selection-label-bg {
@@ -512,39 +519,53 @@
   }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true']):not(.ld-select--invalid)) {
+    &.ld-select--ghost {
+      :where(select:not(:disabled)),
+      :where(.ld-select__btn-trigger) {
+        @media (hover: hover) {
+          &:where(:hover:not(:focus)) {
+            background-color: var(--ld-col-rp-a01);
+          }
+        }
+        &:where(:active),
+        &:where(:active:focus-visible) {
+          background-color: var(--ld-col-rp-a02);
+        }
+      }
+    }
+
+    :where(select:not(:disabled)),
     :where(.ld-select__btn-trigger) {
       .ld-select__icon,
+      + .ld-select__icon,
       [slot='icon'] {
         color: var(--ld-col-rp-default);
       }
 
-      &:where(:focus:focus-visible) {
-        .ld-select__icon,
-        [slot='icon'] {
-          color: var(--ld-col-rp-focus);
-        }
-      }
       @media (hover: hover) {
         &:where(:hover) {
-          &.ld-select__btn-trigger--ghost:not(:focus) {
-            background-color: var(--ld-col-rp-a01);
-          }
-
           .ld-select__icon,
+          + .ld-select__icon,
           [slot='icon'] {
             color: var(--ld-col-rp-hover);
           }
         }
       }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        &:where(.ld-select__btn-trigger--ghost) {
-          background-color: var(--ld-col-rp-a02);
-        }
+      &:where(:focus:focus-visible) {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
 
         .ld-select__icon,
+        + .ld-select__icon,
         [slot='icon'] {
-          color: var(--ld-col-rp-active);
+          color: var(--ld-col-rp-focus);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        .ld-select__icon,
+        + .ld-select__icon,
+        [slot='icon'] {
+          color: var(--ld-col-rb-active);
         }
       }
     }
@@ -555,6 +576,13 @@
 [class*='ld-theme'] .ld-theme-tea {
   :where(.ld-select:not([disabled]):not(.ld-select--invalid)) {
     :where(.ld-select__btn-trigger) {
+      &:where(:focus:focus-visible) {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
+      }
+    }
+  }
+  :where(.ld-select:not(ld-select)):not(.ld-select--invalid) {
+    :where(select:not(:disabled)) {
       &:where(:focus:focus-visible) {
         box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
       }
@@ -598,38 +626,51 @@
   }
 
   :where(.ld-select:not([disabled]):not([aria-disabled='true']):not(.ld-select--invalid)) {
+    &.ld-select--ghost {
+      :where(select:not(:disabled)),
+      :where(.ld-select__btn-trigger) {
+        @media (hover: hover) {
+          &:where(:hover:not(:focus)) {
+            background-color: var(--ld-col-rg-a01);
+          }
+        }
+        &:where(:active),
+        &:where(:active:focus-visible) {
+          background-color: var(--ld-col-rg-a02);
+        }
+      }
+    }
+
+    :where(select:not(:disabled)),
     :where(.ld-select__btn-trigger) {
-      .ld-select__btn-clear,
       .ld-select__icon,
+      + .ld-select__icon,
       [slot='icon'] {
         color: var(--ld-thm-tea-bg-primary);
       }
 
-      &:where(:focus:focus-visible) {
-        .ld-select__icon,
-        [slot='icon'] {
-          color: var(--ld-col-rg-focus);
-        }
-      }
       @media (hover: hover) {
         &:where(:hover) {
-          &.ld-select__btn-trigger--ghost:not(:focus) {
-            background-color: var(--ld-col-rg-a01);
-          }
-
           .ld-select__icon,
+          + .ld-select__icon,
           [slot='icon'] {
             color: var(--ld-col-rg-hover);
           }
         }
       }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        &:where(.ld-select__btn-trigger--ghost) {
-          background-color: var(--ld-col-rg-a02);
-        }
+      &:where(:focus:focus-visible) {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
 
         .ld-select__icon,
+        + .ld-select__icon,
+        [slot='icon'] {
+          color: var(--ld-col-rg-focus);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        .ld-select__icon,
+        + .ld-select__icon,
         [slot='icon'] {
           color: var(--ld-col-rg-active);
         }
