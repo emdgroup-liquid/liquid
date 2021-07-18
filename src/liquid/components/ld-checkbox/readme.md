@@ -600,12 +600,12 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 
 ### Used by
 
- - [ld-option](../ld-option)
+ - [ld-option-internal](../ld-option)
 
 ### Graph
 ```mermaid
 graph TD;
-  ld-option --> ld-checkbox
+  ld-option-internal --> ld-checkbox
   style ld-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

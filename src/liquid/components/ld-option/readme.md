@@ -32,8 +32,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  ld-option --> ld-checkbox
-  style ld-option fill:#f9f,stroke:#333,stroke-width:4px
+  ld-option-internal --> ld-checkbox
+  style ld-option-internal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

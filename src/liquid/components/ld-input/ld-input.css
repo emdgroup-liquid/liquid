@@ -581,3 +581,7 @@ ld-input,
     opacity: 0.25;
   }
 }
+
+.ld-select__slot-container {
+  display: none;
+}

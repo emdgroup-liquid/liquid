@@ -698,12 +698,14 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 | -------------------- | --------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
 | `disabled`           | `disabled`            | Disabled state of the component.                                                                   | `boolean`                           | `false`     |
 | `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                       | `boolean`                           | `false`     |
+| `key`                | `key`                 | for tracking the nodes identity when working with lists                                            | `any`                               | `undefined` |
 | `mode`               | `mode`                | Display mode.                                                                                      | `"detached" \| "ghost" \| "inline"` | `undefined` |
 | `multiple`           | `multiple`            | Multiselect mode.                                                                                  | `boolean`                           | `false`     |
 | `name`               | `name`                | Used to specify the name of the control.                                                           | `string`                            | `undefined` |
 | `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected. | `string`                            | `undefined` |
 | `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                | `string`                            | `undefined` |
 | `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.           | `boolean`                           | `false`     |
+| `ref`                | `ref`                 | reference to component                                                                             | `any`                               | `undefined` |
 | `size`               | `size`                | Size of the select trigger button.                                                                 | `"lg" \| "sm"`                      | `undefined` |
 | `tetherOptions`      | `tether-options`      | Stringified tether options object to be merged with the default options.                           | `string`                            | `'{}'`      |
 

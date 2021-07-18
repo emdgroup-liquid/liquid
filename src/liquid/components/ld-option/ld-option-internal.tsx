@@ -13,11 +13,11 @@ import {
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
 @Component({
-  tag: 'ld-option',
-  styleUrl: 'ld-option.css',
+  tag: 'ld-option-internal',
+  styleUrl: 'ld-option-internal.css',
   shadow: false,
 })
-export class LdOption {
+export class LdOptionInternal {
   @Element() el: HTMLElement
 
   private optionLabelRef!: HTMLElement
@@ -96,7 +96,7 @@ export class LdOption {
   render() {
     return (
       <Host
-        class="ld-option"
+        class="ld-option-internal"
         role="option"
         aria-selected={this.selected ? 'true' : 'false'}
         aria-disabled={this.disabled ? 'true' : 'false'}
@@ -106,14 +106,14 @@ export class LdOption {
         {this.checkbox ? (
           <ld-checkbox
             role="presentation"
-            class="ld-option__checkbox"
+            class="ld-option-internal__checkbox"
             checked={this.selected}
             disabled={this.disabled}
           ></ld-checkbox>
         ) : (
           <svg
             role={'presentation'}
-            class="ld-option__check"
+            class="ld-option-internal__check"
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -133,7 +133,7 @@ export class LdOption {
 
         <span
           ref={(el) => (this.optionLabelRef = el as HTMLElement)}
-          class="ld-option__label"
+          class="ld-option-internal__label"
           title={this.title}
         >
           <slot></slot>
