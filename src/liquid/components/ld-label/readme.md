@@ -99,10 +99,12 @@ The default size is small. You can use a slightly bigger label (size medium) by 
 
 ## Properties
 
-| Property   | Attribute  | Description                                           | Type                | Default     |
-| ---------- | ---------- | ----------------------------------------------------- | ------------------- | ----------- |
-| `position` | `position` | Relative position to labeled element. Default is top. | `"left" \| "right"` | `undefined` |
-| `size`     | `size`     | Size of the label. Default is small.                  | `"m"`               | `undefined` |
+| Property   | Attribute  | Description                                              | Type                | Default     |
+| ---------- | ---------- | -------------------------------------------------------- | ------------------- | ----------- |
+| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number`  | `undefined` |
+| `position` | `position` | Relative position to labeled element. Default is top.    | `"left" \| "right"` | `undefined` |
+| `ref`      | `ref`      | reference to component                                   | `any`               | `undefined` |
+| `size`     | `size`     | Size of the label. Default is small.                     | `"m"`               | `undefined` |
 
 
 ----------------------------------------------

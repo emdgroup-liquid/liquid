@@ -51,11 +51,13 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 ## Properties
 
-| Property | Attribute | Description                               | Type           | Default     |
-| -------- | --------- | ----------------------------------------- | -------------- | ----------- |
-| `filled` | `filled`  | (optional) Set to true for a filled icon. | `boolean`      | `null`      |
-| `name`   | `name`    | The icon name.                            | `string`       | `null`      |
-| `size`   | `size`    | Size of the icon.                         | `"lg" \| "sm"` | `undefined` |
+| Property | Attribute | Description                                              | Type               | Default     |
+| -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `filled` | `filled`  | (optional) Set to true for a filled icon.                | `boolean`          | `null`      |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `name`   | `name`    | The icon name.                                           | `string`           | `null`      |
+| `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
+| `size`   | `size`    | Size of the icon.                                        | `"lg" \| "sm"`     | `undefined` |
 
 
 ## Slots

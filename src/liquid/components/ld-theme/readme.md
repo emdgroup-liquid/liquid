@@ -55,9 +55,11 @@ In rare cases you will want to have a theming element wrapped by another theming
 
 ## Properties
 
-| Property | Attribute | Description     | Type                                                      | Default   |
-| -------- | --------- | --------------- | --------------------------------------------------------- | --------- |
-| `name`   | `name`    | The theme name. | `"bubblegum" \| "ocean" \| "shake" \| "solvent" \| "tea"` | `'ocean'` |
+| Property | Attribute | Description                                              | Type                                                      | Default     |
+| -------- | --------- | -------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number`                                        | `undefined` |
+| `name`   | `name`    | The theme name.                                          | `"bubblegum" \| "ocean" \| "shake" \| "solvent" \| "tea"` | `'ocean'`   |
+| `ref`    | `ref`     | reference to component                                   | `any`                                                     | `undefined` |
 
 
 ----------------------------------------------

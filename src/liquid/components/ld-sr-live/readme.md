@@ -83,6 +83,13 @@ formAlert.addEventListener('submit', ev => {
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description            | Type  | Default     |
+| -------- | --------- | ---------------------- | ----- | ----------- |
+| `ref`    | `ref`     | reference to component | `any` | `undefined` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

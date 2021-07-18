@@ -19,7 +19,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
  * @slot - the default slot contains the select options
  * @slot icon - replaces caret with custom trigger button icon
  * @virtualProp ref - reference to component
- * @virtualProp key - for tracking the nodes identity when working with lists
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
   tag: 'ld-select',

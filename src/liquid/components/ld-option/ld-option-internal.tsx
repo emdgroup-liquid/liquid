@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
+/** @internal **/
 @Component({
   tag: 'ld-option-internal',
   styleUrl: 'ld-option-internal.css',

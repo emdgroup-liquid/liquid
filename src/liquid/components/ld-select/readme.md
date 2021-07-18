@@ -698,7 +698,7 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 | -------------------- | --------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
 | `disabled`           | `disabled`            | Disabled state of the component.                                                                   | `boolean`                           | `false`     |
 | `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                       | `boolean`                           | `false`     |
-| `key`                | `key`                 | for tracking the nodes identity when working with lists                                            | `any`                               | `undefined` |
+| `key`                | `key`                 | for tracking the node's identity when working with lists                                           | `string \| number`                  | `undefined` |
 | `mode`               | `mode`                | Display mode.                                                                                      | `"detached" \| "ghost" \| "inline"` | `undefined` |
 | `multiple`           | `multiple`            | Multiselect mode.                                                                                  | `boolean`                           | `false`     |
 | `name`               | `name`                | Used to specify the name of the control.                                                           | `string`                            | `undefined` |

@@ -20,6 +20,8 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
  * Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component.
  * If you choose to place something different into the slot, you will probably
  * need to adjust some styles on the slotted item in order to make it fit right.
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
 @Component({
   tag: 'ld-input',

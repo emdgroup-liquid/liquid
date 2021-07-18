@@ -365,7 +365,9 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 | `checked`  | `checked`  | The input value.                                                            | `boolean`                 | `undefined` |
 | `disabled` | `disabled` | Disabled state of the radio.                                                | `boolean`                 | `false`     |
 | `invalid`  | `invalid`  | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
 | `mode`     | `mode`     | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
+| `ref`      | `ref`      | reference to component                                                      | `any`                     | `undefined` |
 | `tone`     | `tone`     | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
 
 

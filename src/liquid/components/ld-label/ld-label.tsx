@@ -4,6 +4,10 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ */
 @Component({
   tag: 'ld-label',
   styleUrl: 'ld-label.css',

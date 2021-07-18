@@ -4,6 +4,10 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import ParagraphHTMLAttributes = JSXBase.HTMLAttributes
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ */
 @Component({
   tag: 'ld-paragraph',
   styleUrl: 'ld-paragraph.css',

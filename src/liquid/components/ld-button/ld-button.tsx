@@ -6,6 +6,10 @@ import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
 import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ */
 @Component({
   tag: 'ld-button',
   styleUrl: 'ld-button.css',

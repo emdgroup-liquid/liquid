@@ -1,6 +1,9 @@
 import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Listen, State } from '@stencil/core'
 
+/**
+ * @virtualProp ref - reference to component
+ */
 @Component({
   tag: 'ld-sr-live',
   styleUrl: 'ld-sr-live.css',

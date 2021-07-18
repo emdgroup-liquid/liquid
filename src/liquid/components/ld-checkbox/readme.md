@@ -592,7 +592,9 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `checked`  | `checked`  | The input value.                                                               | `boolean`                 | `undefined` |
 | `disabled` | `disabled` | Disabled state of the checkbox.                                                | `boolean`                 | `false`     |
 | `invalid`  | `invalid`  | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`                 | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists                       | `string \| number`        | `undefined` |
 | `mode`     | `mode`     | Display mode.                                                                  | `"danger" \| "highlight"` | `undefined` |
+| `ref`      | `ref`      | reference to component                                                         | `any`                     | `undefined` |
 | `tone`     | `tone`     | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
 
 
@@ -600,7 +602,7 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 
 ### Used by
 
- - [ld-option-internal](../ld-option)
+ - ld-option-internal
 
 ### Graph
 ```mermaid

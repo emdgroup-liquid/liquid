@@ -29,6 +29,14 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description                                              | Type               | Default     |
+| -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

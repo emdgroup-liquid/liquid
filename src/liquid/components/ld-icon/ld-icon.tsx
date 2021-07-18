@@ -1,7 +1,11 @@
 import { Build, Component, Host, h, Prop, State, Watch } from '@stencil/core'
 import { fetchIcon } from './fetchIcon'
 
-/** @slot - (optional) Custom SVG icon (only valid without name prop). */
+/**
+ * @slot - (optional) Custom SVG icon (only valid without name prop).
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ */
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-icon',

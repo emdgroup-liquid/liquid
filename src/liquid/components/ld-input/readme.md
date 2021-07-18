@@ -1059,15 +1059,17 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                                                           | Type           | Default     |
-| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
-| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`      | `false`     |
-| `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`      | `undefined` |
-| `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`       | `undefined` |
-| `size`        | `size`        | Size of the input.                                                                                                    | `"lg" \| "sm"` | `undefined` |
-| `tone`        | `tone`        | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`       | `undefined` |
-| `type`        | `type`        | The input type.                                                                                                       | `string`       | `undefined` |
-| `value`       | `value`       | The input value.                                                                                                      | `string`       | `undefined` |
+| Property      | Attribute     | Description                                                                                                           | Type               | Default     |
+| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `false`     |
+| `key`         | `key`         | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
+| `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
+| `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`           | `undefined` |
+| `ref`         | `ref`         | reference to component                                                                                                | `any`              | `undefined` |
+| `size`        | `size`        | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |
+| `tone`        | `tone`        | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`           | `undefined` |
+| `type`        | `type`        | The input type.                                                                                                       | `string`           | `undefined` |
+| `value`       | `value`       | The input value.                                                                                                      | `string`           | `undefined` |
 
 
 ## Slots

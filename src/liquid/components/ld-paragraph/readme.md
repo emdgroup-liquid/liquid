@@ -81,9 +81,11 @@ Paragraphs are usually represented in visual media as blocks of text separated f
 
 ## Properties
 
-| Property | Attribute | Description                        | Type                                | Default |
-| -------- | --------- | ---------------------------------- | ----------------------------------- | ------- |
-| `size`   | `size`    | Defines font size and line height. | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `'m'`   |
+| Property | Attribute | Description                                              | Type                                | Default     |
+| -------- | --------- | -------------------------------------------------------- | ----------------------------------- | ----------- |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number`                  | `undefined` |
+| `ref`    | `ref`     | reference to component                                   | `any`                               | `undefined` |
+| `size`   | `size`    | Defines font size and line height.                       | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `'m'`       |
 
 
 ----------------------------------------------

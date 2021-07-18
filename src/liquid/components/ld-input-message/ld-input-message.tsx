@@ -1,6 +1,10 @@
 import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Prop, getAssetPath } from '@stencil/core'
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ */
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-input-message',
