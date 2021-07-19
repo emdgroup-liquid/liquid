@@ -98,6 +98,28 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 </ld-select>
 {% endexample %}
 
+#### Max rows
+
+{% example %}
+<ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="2">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach" selected>Peach</ld-option>
+  <ld-option value="grape" selected>Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear" selected>Pear</ld-option>
+  <ld-option value="pineapple" selected>Pineapple</ld-option>
+  <ld-option value="plum" selected>Plum</ld-option>
+</ld-select>
+{% endexample %}
+
 ### Disabled
 
 {% example %}
@@ -694,20 +716,21 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 
 ## Properties
 
-| Property             | Attribute             | Description                                                                                        | Type                                | Default     |
-| -------------------- | --------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
-| `disabled`           | `disabled`            | Disabled state of the component.                                                                   | `boolean`                           | `false`     |
-| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                       | `boolean`                           | `false`     |
-| `key`                | `key`                 | for tracking the node's identity when working with lists                                           | `string \| number`                  | `undefined` |
-| `mode`               | `mode`                | Display mode.                                                                                      | `"detached" \| "ghost" \| "inline"` | `undefined` |
-| `multiple`           | `multiple`            | Multiselect mode.                                                                                  | `boolean`                           | `false`     |
-| `name`               | `name`                | Used to specify the name of the control.                                                           | `string`                            | `undefined` |
-| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected. | `string`                            | `undefined` |
-| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                | `string`                            | `undefined` |
-| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.           | `boolean`                           | `false`     |
-| `ref`                | `ref`                 | reference to component                                                                             | `any`                               | `undefined` |
-| `size`               | `size`                | Size of the select trigger button.                                                                 | `"lg" \| "sm"`                      | `undefined` |
-| `tetherOptions`      | `tether-options`      | Stringified tether options object to be merged with the default options.                           | `string`                            | `'{}'`      |
+| Property             | Attribute             | Description                                                                                                | Type                                | Default     |
+| -------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
+| `disabled`           | `disabled`            | Disabled state of the component.                                                                           | `boolean`                           | `false`     |
+| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                               | `boolean`                           | `false`     |
+| `key`                | `key`                 | for tracking the node's identity when working with lists                                                   | `string \| number`                  | `undefined` |
+| `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator. | `number`                            | `undefined` |
+| `mode`               | `mode`                | Display mode.                                                                                              | `"detached" \| "ghost" \| "inline"` | `undefined` |
+| `multiple`           | `multiple`            | Multiselect mode.                                                                                          | `boolean`                           | `false`     |
+| `name`               | `name`                | Used to specify the name of the control.                                                                   | `string`                            | `undefined` |
+| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected.         | `string`                            | `undefined` |
+| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                        | `string`                            | `undefined` |
+| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                   | `boolean`                           | `false`     |
+| `ref`                | `ref`                 | reference to component                                                                                     | `any`                               | `undefined` |
+| `size`               | `size`                | Size of the select trigger button.                                                                         | `"lg" \| "sm"`                      | `undefined` |
+| `tetherOptions`      | `tether-options`      | Stringified tether options object to be merged with the default options.                                   | `string`                            | `'{}'`      |
 
 
 ## Events

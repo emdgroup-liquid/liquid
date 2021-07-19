@@ -31,6 +31,7 @@ export class LdSelect {
 
   private selectRef!: HTMLElement
   private triggerRef!: HTMLElement
+  private selectionListRef!: HTMLElement
   private slotContainerRef!: HTMLElement
   private internalOptionsContainerRef!: HTMLElement
   private popperRef!: HTMLElement
@@ -76,8 +77,11 @@ export class LdSelect {
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'
 
-  // TODO: implement compact mode
-  // Constrain the display
+  /**
+   * Constrains the height of the trigger button by replacing overflowing selection
+   * with a "+X more" indicator.
+   */
+  @Prop() maxRows?: number
 
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass: string
@@ -102,6 +106,8 @@ export class LdSelect {
   @State() typeAheadTimeout: number
 
   @State() internalOptionsHTML: string
+
+  @State() hasMore = false
 
   @Watch('selected')
   emitEvents(
@@ -158,6 +164,93 @@ export class LdSelect {
    * Emitted with an array of selected values when the select component looses focus.
    */
   @Event({ bubbles: false }) blur: EventEmitter<string[]>
+
+  private updateTriggerMoreIndicator(refresh = false) {
+    if (!this.multiple) return
+
+    if (!this.maxRows || this.maxRows < 0) {
+      return
+    }
+
+    if (refresh) this.hasMore = false
+
+    window.requestAnimationFrame(() => {
+      if (!this.selectionListRef) return
+
+      const selectionListItems = Array.from(
+        this.selectionListRef.querySelectorAll(
+          '.ld-select__selection-list-item'
+        )
+      )
+
+      if (!this.hasMore) {
+        // reset
+        this.selectionListRef
+          .querySelector('.ld-select__selection-list-more')
+          ?.remove()
+        selectionListItems.forEach((el) => {
+          el.classList.remove('ld-select__selection-list-item--overflowing')
+        })
+      }
+
+      // If overflowing, hide overflowing and show "+X" indicator
+      if (
+        this.selectionListRef.scrollHeight > this.selectionListRef.clientHeight
+      ) {
+        let moreItem
+        if (!this.hasMore) {
+          moreItem = document.createElement('li')
+          moreItem.classList.add('ld-select__selection-list-more')
+          this.selectionListRef.prepend(moreItem)
+        } else {
+          moreItem = this.selectionListRef.querySelector(
+            '.ld-select__selection-list-more'
+          )
+        }
+        this.hasMore = true
+
+        const maxOffset = this.maxRows * 1.75 * 16
+
+        let overflowingTotal = 0
+        selectionListItems.forEach((el) => {
+          const overflowing = overflowingTotal
+            ? true
+            : (el as HTMLElement).offsetTop >= maxOffset
+          el.classList[overflowing ? 'add' : 'remove'](
+            'ld-select__selection-list-item--overflowing'
+          )
+          if (overflowing) overflowingTotal++
+        })
+
+        const hideLastVisibleIfMoreIndicatorOverflowing = () => {
+          moreItem = this.selectionListRef.querySelector(
+            '.ld-select__selection-list-more'
+          )
+          moreItem.innerText = `+${overflowingTotal}`
+          if (moreItem.offsetTop < maxOffset) {
+            return
+          }
+
+          const notOverflowing = Array.from(
+            this.selectionListRef.querySelectorAll(
+              '.ld-select__selection-list-item:not(.ld-select__selection-list-item--overflowing)'
+            )
+          )
+          const [lastNotOverflowing] = notOverflowing.slice(-1)
+          lastNotOverflowing.classList.add(
+            'ld-select__selection-list-item--overflowing'
+          )
+          overflowingTotal++
+          moreItem.innerText = `+${overflowingTotal}`
+
+          window.requestAnimationFrame(() => {
+            hideLastVisibleIfMoreIndicatorOverflowing()
+          })
+        }
+        hideLastVisibleIfMoreIndicatorOverflowing()
+      }
+    })
+  }
 
   private updatePopperWidth() {
     this.popperRef.style.setProperty(
@@ -225,9 +318,11 @@ export class LdSelect {
     const initialized = this.initialized
     let children
     if (!initialized) {
-      children = this.slotContainerRef.children
+      children = this.slotContainerRef.querySelectorAll('ld-option')
     } else {
-      children = this.internalOptionsContainerRef.children
+      children = this.internalOptionsContainerRef.querySelectorAll(
+        'ld-option-internal'
+      )
     }
 
     if (!children.length) {
@@ -262,13 +357,13 @@ export class LdSelect {
       }
       this.selected = childrenArr
         .filter((child) => {
-          const selectedAttr = child.getAttribute('selected')
-          return selectedAttr !== null && selectedAttr !== 'false'
+          return ((child as unknown) as LdOptionInternal).selected
         })
         .map((child) => ({
           value: child.getAttribute('value'),
           text: child.innerText,
         }))
+      this.updateTriggerMoreIndicator(true)
     })
   }
 
@@ -320,6 +415,7 @@ export class LdSelect {
     if (this.disabled || this.ariaDisabled) return // this is for a minor performance optimization only
 
     this.updatePopperWidth()
+    this.updateTriggerMoreIndicator(true)
     this.updatePopperShadowHeight()
   }
 
@@ -675,14 +771,19 @@ export class LdSelect {
     this.triggerRef.focus()
   }
 
-  private handleClearSingleClick(ev: MouseEvent, option: LdOptionInternal) {
+  private handleClearSingleClick(ev: MouseEvent, optionValue) {
     ev.preventDefault()
     ev.stopImmediatePropagation()
 
     if (this.disabled || this.ariaDisabled) return
-    ;((option as unknown) as HTMLElement).dispatchEvent(
-      new KeyboardEvent('keydown', { key: ' ' })
+
+    this.selected = this.selected.filter(
+      (selection) => selection.value !== optionValue
     )
+
+    this.popperRef
+      .querySelector(`ld-option-internal[value='${optionValue}']`)
+      .dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
   }
 
   componentWillLoad() {
@@ -793,10 +894,21 @@ export class LdSelect {
               <ul
                 class="ld-select__selection-list"
                 aria-label="Selected options"
+                ref={(el) => (this.selectionListRef = el as HTMLElement)}
+                style={{
+                  maxHeight:
+                    this.maxRows && this.maxRows > 0
+                      ? `${this.maxRows * 1.75}rem`
+                      : undefined,
+                }}
               >
                 {this.selected.map((selection, index) => {
                   return (
-                    <li key={index} class="ld-select__selection-list-item">
+                    <li
+                      key={index}
+                      class="ld-select__selection-list-item"
+                      style={{ order: index + 1 + '' }}
+                    >
                       <label class="ld-select__selection-label">
                         <span
                           class="ld-select__selection-label-text"
@@ -816,7 +928,7 @@ export class LdSelect {
                             this.handleClearSingleClick.call(
                               this,
                               ev,
-                              selection
+                              selection.value
                             )
                           }}
                         >
@@ -862,7 +974,7 @@ export class LdSelect {
                   fill="none"
                   viewBox="0 0 21 20"
                 >
-                  <title>Clear selection</title>
+                  <title>Clear all</title>
                   <path
                     fill="currentColor"
                     fill-rule="evenodd"
