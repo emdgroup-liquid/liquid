@@ -16,7 +16,7 @@
     padding: var(--ld-sp-8);
   }
 
-  .ld-select__btn-trigger-text {
+  .ld-select__btn-trigger-text-wrapper {
     display: none;
   }
 }

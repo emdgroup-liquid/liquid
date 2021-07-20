@@ -13,18 +13,18 @@ ld-button {
   --ld-button-icon-margin-x-sm: -0.125rem;
   --ld-button-icon-margin-x-md: -0.25rem;
   --ld-button-icon-margin-x-lg: -0.5rem;
-  --ld-button-padding-sm-x: 0.625rem;
-  --ld-button-padding-sm-y: 0.5rem;
-  --ld-button-padding-md-x: 0.875rem;
-  --ld-button-padding-md-y: 0.625rem;
-  --ld-button-padding-lg-x: 1.3125rem;
-  --ld-button-padding-lg-y: 0.75rem;
+  --ld-button-padding-x-sm: 0.625rem;
+  --ld-button-padding-y-sm: 0.5rem;
+  --ld-button-padding-x-md: 0.875rem;
+  --ld-button-padding-y-md: 0.625rem;
+  --ld-button-padding-x-lg: 1.3125rem;
+  --ld-button-padding-y-lg: 0.75rem;
   --ld-button-gap-sm: 0.625rem;
   --ld-button-gap-md: 0.875rem;
   --ld-button-gap-lg: 1.1875rem;
   font: var(--ld-typo-body-m);
   border: 0;
-  padding: var(--ld-button-padding-md-y) var(--ld-button-padding-md-x);
+  padding: var(--ld-button-padding-y-md) var(--ld-button-padding-x-md);
   border-radius: var(--ld-br-m);
   min-height: 2.5rem;
   min-width: 2.5rem;
@@ -70,7 +70,7 @@ ld-button {
   &:where(.ld-button--sm) {
     min-height: 2rem;
     min-width: 2rem;
-    padding: var(--ld-button-padding-sm-y) var(--ld-button-padding-sm-x);
+    padding: var(--ld-button-padding-y-sm) var(--ld-button-padding-x-sm);
     font: var(--ld-typo-body-s);
     font-weight: 700;
     line-height: 1;
@@ -92,7 +92,7 @@ ld-button {
   &:where(.ld-button--lg) {
     min-height: 3.125rem;
     min-width: 3.125rem;
-    padding: var(--ld-button-padding-lg-y) var(--ld-button-padding-lg-x);
+    padding: var(--ld-button-padding-y-lg) var(--ld-button-padding-x-lg);
     font: var(--ld-typo-body-l);
     font-weight: 700;
     line-height: 1;

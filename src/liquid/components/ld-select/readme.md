@@ -98,10 +98,81 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 </ld-select>
 {% endexample %}
 
-#### Max rows
+#### Width
+
+You may have noticed, that in multiple mode the component grows horizontally with the number of selected options. You can prevent this behaviour by either applying a `width` or a `max-width` style on the `ld-select` element:
 
 {% example %}
-<ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="2">
+<style>
+.my-select-width {
+  width: 14rem;
+}
+.my-select-max-width {
+  max-width: 24rem;
+}
+</style>
+
+<ld-select class="my-select-width" placeholder="Pick some fruits" name="fruits" multiple>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach" selected>Peach</ld-option>
+  <ld-option value="grape" selected>Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear" selected>Pear</ld-option>
+  <ld-option value="pineapple" selected>Pineapple</ld-option>
+  <ld-option value="plum" selected>Plum</ld-option>
+</ld-select>
+
+<ld-select class="my-select-max-width" placeholder="Pick some fruits" name="fruits" multiple>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach" selected>Peach</ld-option>
+  <ld-option value="grape" selected>Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear" selected>Pear</ld-option>
+  <ld-option value="pineapple" selected>Pineapple</ld-option>
+  <ld-option value="plum" selected>Plum</ld-option>
+</ld-select>
+{% endexample %}
+
+#### Max rows
+
+If you have limited vertical space (this may especially be the case on mobile devices), you can define a maximum of available rows of the select trigger element, which displays the current selection. 
+
+{% example %}
+<ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="1" style="width: 14rem">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry" selected>Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach" selected>Peach</ld-option>
+  <ld-option value="grape" selected>Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear" selected>Pear</ld-option>
+  <ld-option value="pineapple" selected>Pineapple</ld-option>
+  <ld-option value="plum" selected>Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 24rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry" selected>Strawberry</ld-option>
@@ -351,7 +422,7 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 ### Invalid
 
 {% example %}
-<ld-select placeholder="Pick a fruit" name="fruit" invalid mode="detached">
+<ld-select placeholder="Pick a fruit" name="fruit" invalid>
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -427,6 +498,8 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 
 ### Detached
 
+In detached mode the component positions the popper element with a small vertical offset, effectively rendering a small gap between trigger button and popper element.
+
 {% example %}
 <ld-select placeholder="Pick a fruit" name="fruit" mode="detached">
   <ld-option value="apple">Apple</ld-option>
@@ -449,8 +522,46 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 
 ### Inline
 
+In inline mode, while the popper element has a minimum width, the component's trigger button width is defined by its content. Though you can still apply a `width` or `min-width` style on the trigger button, if you need to.
+
 {% example %}
 <ld-select placeholder="Pick a fruit" name="fruit" mode="inline">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" name="fruits" multiple mode="inline">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select placeholder="Pick some fruits" name="fruits" multiple mode="inline" style="width: 6.9375rem" max-rows="1">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana">Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
@@ -470,6 +581,8 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 {% endexample %}
 
 ### Ghost
+
+In ghost mode the component works the same way as it does in inline mode while additionally rendering the background of the trigger button transparently. This mode is **not** combinable with the multiple select mode, because otherwise too many elements would potentially "loosely fly around" without any container establishing a connection between the elements.
 
 {% example %}
 <ld-select placeholder="Pick a fruit" name="fruit" mode="ghost">
@@ -602,7 +715,6 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-
 <!-- CSS component -->
 
 <div class='ld-select ld-select--sm'>
@@ -708,6 +820,152 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
       d="M3 6l5 4 5-4"
     />
   </svg>
+</div>
+{% endexample %}
+
+### With custom trigger button icon
+
+For both, the ld-select Web Component and the CSS Component, you can use a custom trigger button icon in place of the default caret. If you want to apply theme colors, with the icon reacting to pseudo classes such as `:hover`, `:active` and `:focus`, use [`currentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword) on your icon.
+
+{% example %}
+<ld-select placeholder="Pick a fruit" name="fruit" size="sm">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+  <ld-icon slot="icon" name="placeholder"></ld-icon>
+</ld-select>
+
+<ld-select placeholder="Pick a fruit" name="fruit">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+  <ld-icon slot="icon" name="placeholder"></ld-icon>
+</ld-select>
+
+<ld-select placeholder="Pick a fruit" name="fruit" size="lg">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+  <ld-icon slot="icon" name="placeholder"></ld-icon>
+</ld-select>
+
+<!-- CSS component -->
+
+<div class='ld-select ld-select--sm'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <span class="ld-icon" role="presentation">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+    </svg>
+  </span>
+</div>
+
+<div class='ld-select'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <span class="ld-icon" role="presentation">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+    </svg>
+  </span>
+</div>
+
+<div class='ld-select ld-select--lg'>
+  <select name="fruits">
+    <option value="">Pick a fruit</option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="strawberry">Strawberry</option>
+    <option value="watermelon" disabled>Watermelon</option>
+    <option value="honeymelon">Honeymelon</option>
+    <option value="rasberry">Rasberry</option>
+    <option value="cherry">Cherry</option>
+    <option value="blueberry">Blueberry</option>
+    <option value="peach">Peach</option>
+    <option value="grape">Grape</option>
+    <option value="fuyu persimmon">Fuyu Persimmon</option>
+    <option value="monstera deliciosa">Monstera Deliciosa</option>
+    <option value="pear">Pear</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="plum">Plum</option>
+  </select>
+  <span class="ld-icon" role="presentation">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+    </svg>
+  </span>
 </div>
 {% endexample %}
 

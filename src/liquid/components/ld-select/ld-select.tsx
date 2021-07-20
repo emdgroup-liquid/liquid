@@ -863,7 +863,7 @@ export class LdSelect {
     if (this.invalid) popperCl += ' ld-select__popper--invalid'
     if (detached) popperCl += ' ld-select__popper--detached'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
-    if (this.size) cl += ` ld-select__popper--${this.size}`
+    if (this.size) popperCl += ` ld-select__popper--${this.size}`
     if (this.themeCl) popperCl += ` ${this.themeCl}`
     if (this.popperClass) popperCl += ` ${this.popperClass}`
 
