@@ -971,8 +971,11 @@ export class LdSelect {
                 })}
               </ul>
             ) : (
-              <span class="ld-select__btn-trigger-text" title={triggerText}>
-                {triggerText}
+              <span
+                class="ld-select__btn-trigger-text-wrapper"
+                title={triggerText}
+              >
+                <span class="ld-select__btn-trigger-text">{triggerText}</span>
               </span>
             )}
 
