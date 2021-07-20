@@ -283,6 +283,7 @@
   padding: var(--ld-sp-4) var(--ld-sp-6);
   border-radius: var(--ld-br-m);
   margin-right: var(--ld-sp-4);
+  margin-bottom: var(--ld-sp-4);
 
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {
     background-color: var(--ld-col-rblck1);
