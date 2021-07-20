@@ -316,7 +316,6 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
   <ld-button>Submit</ld-button>
 </form>
 <script>
-  const form = document.getElementById('example-form')
   const orangeRadio = document.querySelector('#example-form ld-label:first-of-type ld-radio')
   const bananaRadio = document.querySelector('#example-form ld-label:last-of-type ld-radio')
   const orangeMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
@@ -350,7 +349,7 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
       } else {
         window.alert('Form is invalid.')
       }
-    }, 10)
+    }, 100)
   })
 </script>
 {% endexample %}

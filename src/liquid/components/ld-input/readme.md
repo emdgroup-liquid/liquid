@@ -1009,7 +1009,6 @@ The `ld-input` Web Component does not provide any properties or methods for vali
   <ld-button>Submit</ld-button>
 </form>
 <script>
-  const form = document.getElementById('example-form')
   const username = document.querySelector('#example-form ld-label:first-of-type ld-input')
   const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
@@ -1048,7 +1047,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
       } else {
         window.alert('Form is invalid.')
       }
-    }, 10)
+    }, 100)
   })
 </script>
 {% endexample %}

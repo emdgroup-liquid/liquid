@@ -547,7 +547,6 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
   <ld-button>Submit</ld-button>
 </form>
 <script>
-  const form = document.getElementById('example-form')
   const termsConfirmation = document.querySelector('#example-form ld-label:first-of-type ld-checkbox')
   const termsConfirmationErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
@@ -577,7 +576,7 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
       } else {
         window.alert('Form is invalid.')
       }
-    }, 10)
+    }, 100)
   })
 </script>
 {% endexample %}

@@ -161,6 +161,11 @@ export class LdSelect {
   @Event() input: EventEmitter<string[]>
 
   /**
+   * Emitted with an array of selected values when the select component gets focus.
+   */
+  @Event({ bubbles: false }) focus: EventEmitter<string[]>
+
+  /**
    * Emitted with an array of selected values when the select component looses focus.
    */
   @Event({ bubbles: false }) blur: EventEmitter<string[]>
@@ -694,7 +699,6 @@ export class LdSelect {
 
   @Listen('click', {
     target: 'window',
-    passive: true,
   })
   handleClickOutside(ev) {
     if (
@@ -702,6 +706,11 @@ export class LdSelect {
       ev.target.closest('[role="listbox"]') !== this.popperRef
     ) {
       this.expanded = false
+    }
+
+    if (ev.target.closest('ld-label')?.querySelector('ld-select') === this.el) {
+      ev.preventDefault()
+      this.triggerRef.focus()
     }
   }
 
@@ -742,12 +751,8 @@ export class LdSelect {
         (ev.relatedTarget as HTMLElement).closest('ld-select') === this.el)
     ) {
       ev.stopImmediatePropagation()
-    }
-
-    // Re-dispatch blur events emitted within popper on the select component.
-    if (target.closest('[role="listbox"]') === this.popperRef) {
-      const evRedispatched = new FocusEvent(ev.type, ev)
-      this.el.dispatchEvent(evRedispatched)
+    } else if (ev instanceof FocusEvent) {
+      this.blur.emit(this.selected.map((option) => option.value))
     }
   }
 
@@ -759,6 +764,15 @@ export class LdSelect {
     if (!this.popper) this.initPopper()
 
     this.togglePopper()
+  }
+
+  private handleTriggerFocus(ev: FocusEvent) {
+    if (
+      (ev.relatedTarget as HTMLElement)?.closest('[role="listbox"]') !==
+      this.popperRef
+    ) {
+      this.focus.emit(this.selected.map((option) => option.value))
+    }
   }
 
   private handleClearClick(ev: MouseEvent) {
@@ -888,6 +902,7 @@ export class LdSelect {
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
             onClick={this.handleTriggerClick.bind(this)}
+            onFocus={this.handleTriggerFocus.bind(this)}
             ref={(el) => (this.triggerRef = el as HTMLElement)}
           >
             {this.multiple && this.selected.length ? (
