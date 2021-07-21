@@ -14,12 +14,12 @@ describe('ld-heading', () => {
     `)
   })
   it('throws if no level is provided', async () => {
+    expect.assertions(1)
     try {
       await newSpecPage({
         components: [LdHeading],
         html: `<ld-heading>Text</ld-heading>`,
       })
-      expect(true).toBe(false)
     } catch (err) {
       expect(err).toStrictEqual(
         TypeError('ld-heading level prop invalid; got undefined')

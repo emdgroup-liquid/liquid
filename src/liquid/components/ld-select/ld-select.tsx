@@ -81,15 +81,15 @@ export class LdSelect {
    * Constrains the height of the trigger button by replacing overflowing selection
    * with a "+X more" indicator.
    */
-  @Prop() maxRows?: number
+  @Prop({ mutable: true }) maxRows?: number
 
   /** Attached as CSS class to the select popper element. */
-  @Prop() popperClass: string
+  @Prop({ mutable: true }) popperClass: string
 
   /**
    * Stringified tether options object to be merged with the default options.
    */
-  @Prop() tetherOptions = '{}'
+  @Prop({ mutable: true }) tetherOptions = '{}'
 
   @State() initialized = false
 
@@ -294,9 +294,9 @@ export class LdSelect {
     try {
       customTetherOptions = JSON.parse(this.tetherOptions)
     } catch (err) {
-      console.error(
-        'Failed parsing custom Tether options in ld-select component; using default options.',
-        err
+      throw new TypeError(
+        `ld-select failed parsing custom Tether options with JSON.parse.\n` +
+          err.toString()
       )
     }
 
@@ -820,9 +820,6 @@ export class LdSelect {
   componentDidUpdate() {
     if (this.expanded) {
       this.updatePopper()
-      setTimeout(() => {
-        this.updatePopper()
-      })
     }
   }
 
