@@ -171,28 +171,6 @@ describe('ld-select', () => {
     expect(spyBlur).toHaveBeenCalledTimes(1)
   })
 
-  it('uses checkboxes on options in multiple mode', async () => {
-    const page = await newSpecPage({
-      components: [LdSelect],
-      html: `
-        <ld-select placeholder="Pick a fruit" name="fruit" multiple>
-          <ld-option value="apple">Apple</ld-option>
-          <ld-option value="banana">Banana</ld-option>
-        </ld-select>
-      `,
-    })
-
-    await triggerPopper(page)
-
-    const body = page.body
-    const popper = body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
-
-    expect(internalOptions.length).toEqual(2)
-    expect(internalOptions[0].getAttribute('checkbox')).toEqual('true')
-    expect(internalOptions[1].getAttribute('checkbox')).toEqual('true')
-  })
-
   it('passes down prop selected option prop to internal options', async () => {
     const page = await newSpecPage({
       components: [LdSelect],
@@ -215,7 +193,7 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).toEqual('true')
   })
 
-  it('passes down prop preventDeselection to internal options', async () => {
+  it('sets prevent deselection class on popper element', async () => {
     const page = await newSpecPage({
       components: [LdSelect],
       html: `
@@ -230,14 +208,30 @@ describe('ld-select', () => {
 
     const body = page.body
     const popper = body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
 
-    expect(internalOptions.length).toEqual(2)
-    expect(internalOptions[0].getAttribute('prevent-deselection')).toEqual(
-      'true'
-    )
-    expect(internalOptions[1].getAttribute('prevent-deselection')).toEqual(
-      'true'
-    )
+    expect(
+      popper.classList.contains('ld-select__popper--prevent-deselection')
+    ).toBeTruthy()
+  })
+
+  it('sets multiple class on popper element', async () => {
+    const page = await newSpecPage({
+      components: [LdSelect],
+      html: `
+        <ld-select placeholder="Pick some fruits" name="fruits" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopper(page)
+
+    const body = page.body
+    const popper = body.querySelector('.ld-select__popper')
+
+    expect(
+      popper.classList.contains('ld-select__popper--multiple')
+    ).toBeTruthy()
   })
 })

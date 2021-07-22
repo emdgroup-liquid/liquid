@@ -346,10 +346,6 @@ export class LdSelect {
           throw new TypeError(
             `ld-select accepts only ld-option elements as children, but found a "${tag}" element.`
           )
-        } else if (this.multiple) {
-          child.setAttribute('checkbox', 'true')
-        } else if (this.preventDeselection) {
-          child.setAttribute('prevent-deselection', 'true')
         }
       })
     }
@@ -859,10 +855,14 @@ export class LdSelect {
     let popperCl = 'ld-select__popper'
     if (this.invalid) popperCl += ' ld-select__popper--invalid'
     if (detached) popperCl += ' ld-select__popper--detached'
+    if (this.multiple) popperCl += ' ld-select__popper--multiple'
     if (this.expanded) popperCl += ' ld-select__popper--expanded'
     if (this.size) popperCl += ` ld-select__popper--${this.size}`
     if (this.themeCl) popperCl += ` ${this.themeCl}`
     if (this.popperClass) popperCl += ` ${this.popperClass}`
+    if (this.preventDeselection) {
+      popperCl += ' ld-select__popper--prevent-deselection'
+    }
 
     const triggerText = this.multiple
       ? this.placeholder

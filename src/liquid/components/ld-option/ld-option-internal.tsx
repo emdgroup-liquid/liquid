@@ -36,19 +36,9 @@ export class LdOptionInternal {
   @Prop({ mutable: true, reflect: true }) selected = false
 
   /**
-   * Prevents deselection of a selected option using a repeated mouse or keyboard interaction.
-   */
-  @Prop() preventDeselection = false
-
-  /**
    * Disables the option.
    */
   @Prop() disabled = false
-
-  /**
-   * If true the option displays a checkbox, either checked or unchecked, instead of a simple check icon.
-   */
-  @Prop() checkbox = false
 
   /**
    * Emitted on either selection or de-selection of the option.
@@ -62,9 +52,14 @@ export class LdOptionInternal {
       return
     }
 
-    if (!this.selected || !this.preventDeselection) {
-      this.selected = !this.selected
+    if (
+      this.selected &&
+      this.el.closest('.ld-select__popper--prevent-deselection')
+    ) {
+      return
     }
+
+    this.selected = !this.selected
 
     this.ldOptionSelect.emit(this.selected)
   }
@@ -104,33 +99,30 @@ export class LdOptionInternal {
         onClick={this.handleClick.bind(this)}
         tabindex="-1"
       >
-        {this.checkbox ? (
-          <ld-checkbox
-            role="presentation"
-            class="ld-option-internal__checkbox"
-            checked={this.selected}
-            disabled={this.disabled}
-          ></ld-checkbox>
-        ) : (
-          <svg
-            role={'presentation'}
-            class="ld-option-internal__check"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              style={{ visibility: this.selected ? 'inherit' : 'hidden' }}
-              d="M15 7L8.40795 13L5 9.63964"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        )}
+        <ld-checkbox
+          role="presentation"
+          class="ld-option-internal__checkbox"
+          checked={this.selected}
+          disabled={this.disabled}
+        ></ld-checkbox>
+        <svg
+          role={'presentation'}
+          class="ld-option-internal__check"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            style={{ visibility: this.selected ? 'inherit' : 'hidden' }}
+            d="M15 7L8.40795 13L5 9.63964"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
 
         <span
           ref={(el) => (this.optionLabelRef = el as HTMLElement)}

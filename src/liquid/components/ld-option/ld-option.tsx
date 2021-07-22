@@ -27,19 +27,9 @@ export class LdOption {
   @Prop() selected = false
 
   /**
-   * Prevents deselection of a selected option using a repeated mouse or keyboard interaction.
-   */
-  @Prop() preventDeselection = false
-
-  /**
    * Disables the option.
    */
   @Prop() disabled = false
-
-  /**
-   * If true the option displays a checkbox, either checked or unchecked, instead of a simple check icon.
-   */
-  @Prop() checkbox = false
 
   componentWillLoad() {
     applyPropAliases.apply(this)

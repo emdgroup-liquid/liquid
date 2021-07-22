@@ -76,6 +76,30 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
 </div>
 {% endexample %}
 
+#### Prevent deselection
+
+You can prevent a state with no options selected after initial selection in single select mode.
+
+{% example %}
+<ld-select placeholder="Pick a fruit" name="fruit" prevent-deselection>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+{% endexample %}
+
 ### Multiple select mode
 
 {% example %}
