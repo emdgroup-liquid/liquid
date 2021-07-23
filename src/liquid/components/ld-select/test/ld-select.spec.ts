@@ -288,41 +288,6 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
   })
 
-  it('sets prevent deselection class on popper element', async () => {
-    const page = await newSpecPage({
-      components: [LdSelect, LdOption, LdOptionInternal],
-      html: `
-        <ld-select placeholder="Pick a fruit" name="fruit" prevent-deselection>
-          <ld-option value="apple">Apple</ld-option>
-          <ld-option value="banana">Banana</ld-option>
-        </ld-select>
-      `,
-    })
-
-    await triggerPopper(page)
-
-    const body = page.body
-    const popper = await body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
-
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
-
-    await internalOptions[0].click()
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
-
-    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
-
-    await internalOptions[0].click()
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
-
-    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
-  })
-
   it('sets multiple class on popper element', async () => {
     const page = await newSpecPage({
       components: [LdSelect, LdOption, LdOptionInternal],
