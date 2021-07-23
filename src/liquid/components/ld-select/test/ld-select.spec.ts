@@ -231,6 +231,63 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
   })
 
+  it('deselects a selected option if another option is selected in single select mode', async () => {
+    const page = await newSpecPage({
+      components: [LdSelect, LdOption, LdOptionInternal],
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple" selected>Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopper(page)
+
+    const body = page.body
+    const popper = await body.querySelector('.ld-select__popper')
+    const internalOptions = popper.querySelectorAll('ld-option-internal')
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    await internalOptions[1].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
+  })
+
+  it('does not deselect a selected option if another option is selected in multiple select mode', async () => {
+    const page = await newSpecPage({
+      components: [LdSelect, LdOption, LdOptionInternal],
+      html: `
+        <ld-select placeholder="Pick some fruits" name="fruits" multiple>
+          <ld-option value="apple" selected>Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopper(page)
+
+    const body = page.body
+    const popper = await body.querySelector('.ld-select__popper')
+    const internalOptions = popper.querySelectorAll('ld-option-internal')
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    internalOptions[1].focus = jest.fn()
+    await internalOptions[1].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
+  })
+
   it('sets prevent deselection class on popper element', async () => {
     const page = await newSpecPage({
       components: [LdSelect, LdOption, LdOptionInternal],
