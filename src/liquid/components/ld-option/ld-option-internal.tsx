@@ -21,8 +21,6 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 export class LdOptionInternal {
   @Element() el: HTMLElement
 
-  private optionLabelRef!: HTMLElement
-
   /**
    * The content of this attribute represents the value to be submitted with the form,
    * should this option be selected. If this attribute is omitted, the value is taken
@@ -77,16 +75,10 @@ export class LdOptionInternal {
     applyPropAliases.apply(this)
 
     if (typeof this.value === 'undefined') {
-      setTimeout(() => {
+      window.requestAnimationFrame(() => {
         this.value = this.el.innerText
       })
     }
-  }
-
-  componentDidLoad() {
-    setTimeout(() => {
-      this.title = this.optionLabelRef.innerText
-    })
   }
 
   render() {
@@ -124,11 +116,7 @@ export class LdOptionInternal {
           />
         </svg>
 
-        <span
-          ref={(el) => (this.optionLabelRef = el as HTMLElement)}
-          class="ld-option-internal__label"
-          title={this.title}
-        >
+        <span class="ld-option-internal__label" title={this.title}>
           <slot></slot>
         </span>
       </Host>

@@ -1,13 +1,16 @@
 import MutationObserver from 'mutation-observer'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
+import { LdOption } from '../../ld-option/ld-option'
+import { LdOptionInternal } from '../../ld-option/ld-option-internal'
 
 global.MutationObserver = MutationObserver
 
 async function triggerPopper(page) {
   const ldSelect = page.root
   const triggerButton = ldSelect.querySelector('.ld-select__btn-trigger')
-  await triggerButton.dispatchEvent(new Event('click'))
+  triggerButton.focus = jest.fn()
+  await triggerButton.click()
   await page.waitForChanges()
   await new Promise((resolve) => setTimeout(resolve))
   await page.waitForChanges()
@@ -16,7 +19,7 @@ async function triggerPopper(page) {
 describe('ld-select', () => {
   it('renders popper element with copies of slotted options', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit">
           <ld-option value="apple">Apple</ld-option>
@@ -37,7 +40,7 @@ describe('ld-select', () => {
     await new Promise((resolve) => setTimeout(resolve))
 
     const body = page.body
-    const popper = body.querySelector('.ld-select__popper')
+    const popper = await body.querySelector('.ld-select__popper')
     const slottedOptions = ldSelect.querySelectorAll('ld-option')
     const internalOptions = popper.querySelectorAll('ld-option-internal')
 
@@ -54,7 +57,7 @@ describe('ld-select', () => {
     expect.assertions(1)
     try {
       const page = await newSpecPage({
-        components: [LdSelect],
+        components: [LdSelect, LdOption, LdOptionInternal],
         html: '<ld-select placeholder="Pick a fruit" name="fruit"></ld-select>',
       })
 
@@ -72,7 +75,7 @@ describe('ld-select', () => {
   //   expect.assertions(1)
   //   try {
   //     const page = await newSpecPage({
-  //       components: [LdSelect],
+  //       components: [LdSelect, LdOption, LdOptionInternal],
   //       html: `
   //         <ld-select placeholder="Pick a fruit" name="fruit">
   //           <ld-option value="apple">Apple</ld-option>
@@ -95,7 +98,7 @@ describe('ld-select', () => {
   //   expect.assertions(1)
   //   try {
   //     const page = await newSpecPage({
-  //       components: [LdSelect],
+  //       components: [LdSelect, LdOption, LdOptionInternal],
   //       html: `
   //         <ld-select placeholder="Pick a fruit" name="fruit" tetherOptions="asdf">
   //           <ld-option value="apple">Apple</ld-option>
@@ -114,7 +117,7 @@ describe('ld-select', () => {
 
   it('applies size prop', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit" size="sm">
           <ld-option value="apple">Apple</ld-option>
@@ -131,13 +134,13 @@ describe('ld-select', () => {
     await triggerPopper(page)
 
     const body = page.body
-    const popper = body.querySelector('.ld-select__popper')
+    const popper = await body.querySelector('.ld-select__popper')
     expect(popper.classList.contains('ld-select__popper--sm')).toBeTruthy()
   })
 
   it('emits focus and blur event', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit" size="sm">
           <ld-option value="apple">Apple</ld-option>
@@ -173,7 +176,7 @@ describe('ld-select', () => {
 
   it('passes down prop selected option prop to internal options', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit">
           <ld-option value="apple">Apple</ld-option>
@@ -185,17 +188,52 @@ describe('ld-select', () => {
     await triggerPopper(page)
 
     const body = page.body
-    const popper = body.querySelector('.ld-select__popper')
+    const popper = await body.querySelector('.ld-select__popper')
     const internalOptions = popper.querySelectorAll('ld-option-internal')
 
     expect(internalOptions.length).toEqual(2)
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).toEqual('true')
+    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
+  })
+
+  it('allows selecting and deselecting an option', async () => {
+    const page = await newSpecPage({
+      components: [LdSelect, LdOption, LdOptionInternal],
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopper(page)
+
+    const body = page.body
+    const popper = await body.querySelector('.ld-select__popper')
+    const internalOptions = popper.querySelectorAll('ld-option-internal')
+
+    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    await internalOptions[0].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    await internalOptions[0].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
   })
 
   it('sets prevent deselection class on popper element', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick a fruit" name="fruit" prevent-deselection>
           <ld-option value="apple">Apple</ld-option>
@@ -207,16 +245,30 @@ describe('ld-select', () => {
     await triggerPopper(page)
 
     const body = page.body
-    const popper = body.querySelector('.ld-select__popper')
+    const popper = await body.querySelector('.ld-select__popper')
+    const internalOptions = popper.querySelectorAll('ld-option-internal')
 
-    expect(
-      popper.classList.contains('ld-select__popper--prevent-deselection')
-    ).toBeTruthy()
+    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    await internalOptions[0].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+
+    await internalOptions[0].click()
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
   })
 
   it('sets multiple class on popper element', async () => {
     const page = await newSpecPage({
-      components: [LdSelect],
+      components: [LdSelect, LdOption, LdOptionInternal],
       html: `
         <ld-select placeholder="Pick some fruits" name="fruits" multiple>
           <ld-option value="apple">Apple</ld-option>
