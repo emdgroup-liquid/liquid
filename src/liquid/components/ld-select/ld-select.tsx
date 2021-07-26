@@ -422,6 +422,7 @@ export class LdSelect {
 
   @Listen('ldOptionSelect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
+    // Ignore events which or not fired on current instance.
     if (
       (ev.target as HTMLElement).closest('[role="listbox"]') !== this.popperRef
     ) {
@@ -459,7 +460,7 @@ export class LdSelect {
       let optionToFocus
       if (!this.multiple) {
         optionToFocus = this.popperRef.querySelector(
-          'ld-option[aria-selected="true"]'
+          'ld-option-internal[aria-selected="true"]'
         )
       }
       if (!optionToFocus) {
@@ -471,36 +472,32 @@ export class LdSelect {
 
   private handleHome(ev) {
     // Move focus to the first option.
-    if (this.expanded) {
-      ev.preventDefault()
-      if (
-        this.popperRef.classList.contains('tether-target-attached-top') ||
-        this.popperRef.classList.contains('tether-pinned')
-      ) {
-        ;((this.popperRef.querySelector(
-          'ld-option-internal'
-        ) as unknown) as HTMLOptionElement)?.focus()
-      } else {
-        this.triggerRef.focus()
-      }
+    ev.preventDefault()
+    if (
+      this.popperRef.classList.contains('tether-target-attached-top') ||
+      this.popperRef.classList.contains('tether-pinned')
+    ) {
+      ;((this.popperRef.querySelector(
+        'ld-option-internal'
+      ) as unknown) as HTMLOptionElement)?.focus()
+    } else {
+      this.triggerRef.focus()
     }
   }
 
   private handleEnd(ev) {
     // Move focus to the last option.
-    if (this.expanded) {
-      ev.preventDefault()
-      if (
-        this.popperRef.classList.contains('tether-target-attached-top') ||
-        this.popperRef.classList.contains('tether-pinned')
-      ) {
-        this.triggerRef.focus()
-      } else {
-        const options = (Array.from(
-          this.popperRef.querySelectorAll('ld-option-internal')
-        ) as unknown) as HTMLOptionElement[]
-        options[options.length - 1]?.focus()
-      }
+    ev.preventDefault()
+    if (
+      this.popperRef.classList.contains('tether-target-attached-top') ||
+      this.popperRef.classList.contains('tether-pinned')
+    ) {
+      this.triggerRef.focus()
+    } else {
+      const options = (Array.from(
+        this.popperRef.querySelectorAll('ld-option-internal')
+      ) as unknown) as HTMLOptionElement[]
+      options[options.length - 1]?.focus()
     }
   }
 
@@ -540,6 +537,7 @@ export class LdSelect {
   handleKeyDown(ev: KeyboardEvent) {
     if (this.disabled || this.ariaDisabled) return
 
+    // Ignore events if current instance has no focus.
     if (
       document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
       document.activeElement.closest('ld-select') !== this.el
@@ -547,6 +545,7 @@ export class LdSelect {
       return
     }
 
+    // If the clear button is focused, ignore Enter and Space key events.
     if (
       document.activeElement === this.btnClearRef &&
       (ev.key === ' ' || ev.key === 'Enter')
@@ -554,6 +553,8 @@ export class LdSelect {
       return
     }
 
+    // If an option is focused, ignore Enter and Space key events
+    // (the internal option component will dispatch its own event on selection).
     if (
       document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
       document.activeElement.classList.contains(
@@ -632,10 +633,14 @@ export class LdSelect {
         }
         break
       case 'Home':
-        this.handleHome(ev)
+        if (this.expanded) {
+          this.handleHome(ev)
+        }
         break
       case 'End':
-        this.handleEnd(ev)
+        if (this.expanded) {
+          this.handleEnd(ev)
+        }
         break
       case ' ':
         // If expanded: Select focused option, close (if single select).
@@ -647,19 +652,7 @@ export class LdSelect {
             this.handleTriggerClick()
           }
         } else {
-          this.handleTriggerClick()
-          setTimeout(() => {
-            // If selected in single select mode, focus selected.
-            let optionToFocus
-            if (!this.multiple) {
-              optionToFocus = this.popperRef.querySelector(
-                'ld-option[aria-selected="true"]'
-              )
-            } else {
-              optionToFocus = this.triggerRef
-            }
-            if (optionToFocus) optionToFocus.focus()
-          })
+          this.expandAndFocus()
         }
         break
       case 'Enter':
