@@ -140,11 +140,14 @@ export class LdSelect {
       return
     }
 
-    index = [newQuery, ...values]
-      .sort()
-      .findIndex(
-        (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
-      )
+    index = 0
+    for (let i = 0; i < values.length; i++) {
+      if (newQuery.toLowerCase() < values[i].toLowerCase()) {
+        index = i + 1
+        break
+      }
+    }
+
     if (index > 0) {
       options[index - 1].focus()
     }

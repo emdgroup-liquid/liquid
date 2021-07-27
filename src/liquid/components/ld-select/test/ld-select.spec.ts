@@ -1308,6 +1308,32 @@ describe('ld-select', () => {
     expect(spyFocusPine).toHaveBeenCalledTimes(1)
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(1)
+
+    await new Promise((resolve) => setTimeout(resolve, 600))
+
+    doc.activeElement = btnTrigger
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'i' }))
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(spyFocusAppl).toHaveBeenCalledTimes(0)
+    expect(spyFocusPear).toHaveBeenCalledTimes(3)
+    expect(spyFocusPine).toHaveBeenCalledTimes(1)
+    expect(spyFocusBana).toHaveBeenCalledTimes(0)
+    expect(spyFocusPlum).toHaveBeenCalledTimes(1)
+
+    await new Promise((resolve) => setTimeout(resolve, 600))
+
+    doc.activeElement = btnTrigger
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'z' }))
+    await page.waitForChanges()
+    await new Promise((resolve) => setTimeout(resolve))
+
+    expect(spyFocusAppl).toHaveBeenCalledTimes(0)
+    expect(spyFocusPear).toHaveBeenCalledTimes(3)
+    expect(spyFocusPine).toHaveBeenCalledTimes(1)
+    expect(spyFocusBana).toHaveBeenCalledTimes(0)
+    expect(spyFocusPlum).toHaveBeenCalledTimes(1)
   })
 
   // TODO: Write tests for disabled and aria-disabled ld-select
