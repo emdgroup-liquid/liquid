@@ -471,16 +471,9 @@ export class LdSelect {
   }
 
   private handleHome(ev) {
-    // Move focus to the first option.
+    // Move focus to the trigger button.
     ev.preventDefault()
-    if (
-      this.popperRef.classList.contains('tether-target-attached-top') ||
-      this.popperRef.classList.contains('tether-pinned')
-    ) {
-      ;((this.popperRef.querySelector(
-        'ld-option-internal'
-      ) as unknown) as HTMLOptionElement)?.focus()
-    } else {
+    if (document.activeElement !== this.triggerRef) {
       this.triggerRef.focus()
     }
   }
@@ -488,15 +481,10 @@ export class LdSelect {
   private handleEnd(ev) {
     // Move focus to the last option.
     ev.preventDefault()
-    if (
-      this.popperRef.classList.contains('tether-target-attached-top') ||
-      this.popperRef.classList.contains('tether-pinned')
-    ) {
-      this.triggerRef.focus()
-    } else {
-      const options = (Array.from(
-        this.popperRef.querySelectorAll('ld-option-internal')
-      ) as unknown) as HTMLOptionElement[]
+    const options = (Array.from(
+      this.popperRef.querySelectorAll('ld-option-internal')
+    ) as unknown) as HTMLOptionElement[]
+    if (document.activeElement !== options[options.length - 1]) {
       options[options.length - 1]?.focus()
     }
   }
@@ -573,65 +561,68 @@ export class LdSelect {
         // Holding down the Shift key and then using the Down cursor keys
         // increases the range of items selected.
         ev.preventDefault()
-        if (this.expanded) {
-          if (ev.metaKey) {
-            this.handleEnd(ev)
-            return
-          }
-
-          let nextOption
-          if (
-            document.activeElement.nextElementSibling?.classList.contains(
-              'ld-option-internal'
-            )
-          ) {
-            nextOption = document.activeElement.nextElementSibling
-          } else {
-            if (document.activeElement === this.triggerRef) {
-              nextOption = this.popperRef.querySelector('ld-option-internal')
-            }
-          }
-          this.selectAndFocus(ev, nextOption)
-        } else {
+        if (!this.expanded) {
           this.expandAndFocus()
+          return
         }
+
+        if (ev.metaKey) {
+          this.handleEnd(ev)
+          return
+        }
+
+        let nextOption
+        if (
+          document.activeElement.nextElementSibling?.classList.contains(
+            'ld-option-internal'
+          )
+        ) {
+          nextOption = document.activeElement.nextElementSibling
+        } else {
+          if (document.activeElement === this.triggerRef) {
+            nextOption = this.popperRef.querySelector('ld-option-internal')
+          }
+        }
+        this.selectAndFocus(ev, nextOption)
         break
       }
-      case 'ArrowUp':
+      case 'ArrowUp': {
         // If not expanded, expand popper.
         // If expanded, move focus to the previous option.
         // If the first option is focused, focus the trigger button.
         // Holding down the Shift key and then using the Up cursor keys
         // increases the range of items selected.
         ev.preventDefault()
-        if (this.expanded) {
-          if (ev.metaKey) {
-            this.handleHome(ev)
-            return
-          }
-
-          let prevOption
-          if (
-            document.activeElement.previousElementSibling?.classList.contains(
-              'ld-option-internal'
-            )
-          ) {
-            prevOption = document.activeElement.previousElementSibling
-          } else {
-            if (document.activeElement === this.triggerRef && !this.expanded) {
-              prevOption = this.popperRef.querySelector('ld-option-internal')
-            } else if (
-              document.activeElement ===
-              this.popperRef.querySelector('ld-option-internal')
-            ) {
-              this.triggerRef.focus()
-            }
-          }
-          this.selectAndFocus(ev, prevOption)
-        } else {
+        if (!this.expanded) {
           this.expandAndFocus()
+          return
         }
+
+        if (ev.metaKey) {
+          this.handleHome(ev)
+          return
+        }
+
+        let prevOption
+        if (
+          document.activeElement.previousElementSibling?.classList.contains(
+            'ld-option-internal'
+          )
+        ) {
+          prevOption = document.activeElement.previousElementSibling
+        } else {
+          if (document.activeElement === this.triggerRef && !this.expanded) {
+            prevOption = this.popperRef.querySelector('ld-option-internal')
+          } else if (
+            document.activeElement ===
+            this.popperRef.querySelector('ld-option-internal')
+          ) {
+            this.triggerRef.focus()
+          }
+        }
+        this.selectAndFocus(ev, prevOption)
         break
+      }
       case 'Home':
         if (this.expanded) {
           this.handleHome(ev)
@@ -740,8 +731,11 @@ export class LdSelect {
         (ev.relatedTarget as HTMLElement).closest('ld-select') === this.el)
     ) {
       ev.stopImmediatePropagation()
-    } else if (ev instanceof FocusEvent) {
-      this.blur.emit(this.selected.map((option) => option.value))
+    } else {
+      // The next condition is similar to `ev instanceof FocusEvent`, thought it works in test env.
+      if (ev.detail === 0) {
+        this.blur.emit(this.selected.map((option) => option.value))
+      }
     }
   }
 
