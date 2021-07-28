@@ -9,8 +9,6 @@ permalink: components/ld-select/
 
 # ld-select
 
-> 🚧 **Attention**: This component is work in progress. 🚧
-
 The `ld-select` component represents a control that provides a menu of options. This control can be used in forms to accept a selection of these options from the user.
 
 The feature set of the `ld-select` Web Component differs from its CSS Component counterpart. While the first offers more display and input modes, the latter is a lightweight alternative, which only styles the native HTML select element.

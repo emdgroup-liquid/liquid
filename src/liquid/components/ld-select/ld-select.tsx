@@ -173,10 +173,16 @@ export class LdSelect {
    */
   @Event({ bubbles: false }) blur: EventEmitter<string[]>
 
+  private isOverflowing() {
+    return (
+      this.selectionListRef.scrollHeight > this.selectionListRef.clientHeight
+    )
+  }
+
   private updateTriggerMoreIndicator(refresh = false) {
     if (!this.multiple) return
 
-    if (!this.maxRows || this.maxRows < 0) {
+    if (!this.maxRows) {
       return
     }
 
@@ -202,9 +208,7 @@ export class LdSelect {
       }
 
       // If overflowing, hide overflowing and show "+X" indicator
-      if (
-        this.selectionListRef.scrollHeight > this.selectionListRef.clientHeight
-      ) {
+      if (this.isOverflowing()) {
         let moreItem
         if (!this.hasMore) {
           moreItem = document.createElement('li')
@@ -279,9 +283,11 @@ export class LdSelect {
     if (!themeEl) return
 
     setTimeout(() => {
-      this.themeCl = Array.from(themeEl.classList).find(
-        (cl) => cl.indexOf('ld-theme-') === 0
-      )
+      // Array.from(themeEl.classList).find doesn't work in JSDom for some reason.
+      this.themeCl = themeEl.classList
+        .toString()
+        .split(' ')
+        .find((cl) => cl.indexOf('ld-theme-') === 0)
     })
   }
 
@@ -294,14 +300,7 @@ export class LdSelect {
 
   private initPopper() {
     let customTetherOptions = {}
-    try {
-      customTetherOptions = JSON.parse(this.tetherOptions)
-    } catch (err) {
-      throw new TypeError(
-        `ld-select failed parsing custom Tether options with JSON.parse.\n` +
-          err.toString()
-      )
-    }
+    customTetherOptions = JSON.parse(this.tetherOptions)
 
     this.popper = new Tether({
       classPrefix: 'ld-tether',
@@ -340,18 +339,6 @@ export class LdSelect {
     }
 
     const childrenArr = Array.from(children) as HTMLElement[]
-
-    if (!initialized) {
-      childrenArr.forEach((child) => {
-        if (child === this.shadowRef) return
-        const tag = child.tagName.toLowerCase()
-        if (tag !== 'ld-option') {
-          throw new TypeError(
-            `ld-select accepts only ld-option elements as children, but found a "${tag}" element.`
-          )
-        }
-      })
-    }
 
     setTimeout(() => {
       if (!initialized) {
@@ -425,18 +412,14 @@ export class LdSelect {
 
   @Listen('ldOptionSelect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
-    // Ignore events which or not fired on current instance.
-    if (
-      (ev.target as HTMLElement).closest('[role="listbox"]') !== this.popperRef
-    ) {
-      return
-    }
+    const target = ev.target as HTMLElement
+
+    // Ignore events which are not fired on current instance.
+    if (target.closest('[role="listbox"]') !== this.popperRef) return
 
     if (this.multiple) {
       // Focus the option, that has been (de-)selected.
-      ;((ev.target as HTMLElement).closest(
-        'ld-option-internal'
-      ) as HTMLElement).focus()
+      target.closest('ld-option-internal').focus()
     } else {
       // Deselect currently selected option, if it's not the target option.
       ;((Array.from(
@@ -444,7 +427,7 @@ export class LdSelect {
       ) as unknown) as HTMLOptionElement[]).forEach((option) => {
         if (
           option !==
-          (((ev.target as HTMLElement).closest(
+          ((target.closest(
             'ld-option-internal'
           ) as unknown) as HTMLOptionElement)
         ) {
@@ -488,7 +471,7 @@ export class LdSelect {
       this.popperRef.querySelectorAll('ld-option-internal')
     ) as unknown) as HTMLOptionElement[]
     if (document.activeElement !== options[options.length - 1]) {
-      options[options.length - 1]?.focus()
+      options[options.length - 1].focus()
     }
   }
 
@@ -606,24 +589,21 @@ export class LdSelect {
           return
         }
 
-        let prevOption
         if (
           document.activeElement.previousElementSibling?.classList.contains(
             'ld-option-internal'
           )
         ) {
-          prevOption = document.activeElement.previousElementSibling
-        } else {
-          if (document.activeElement === this.triggerRef && !this.expanded) {
-            prevOption = this.popperRef.querySelector('ld-option-internal')
-          } else if (
-            document.activeElement ===
-            this.popperRef.querySelector('ld-option-internal')
-          ) {
-            this.triggerRef.focus()
-          }
+          this.selectAndFocus(ev, document.activeElement.previousElementSibling)
+          return
         }
-        this.selectAndFocus(ev, prevOption)
+
+        if (
+          document.activeElement ===
+          this.popperRef.querySelector('ld-option-internal')
+        ) {
+          this.triggerRef.focus()
+        }
         break
       }
       case 'Home':
@@ -637,15 +617,10 @@ export class LdSelect {
         }
         break
       case ' ':
-        // If expanded: Select focused option, close (if single select).
         // If not expanded: Toggle popper.
         ev.preventDefault()
         ev.stopImmediatePropagation()
-        if (this.expanded) {
-          if (document.activeElement === this.triggerRef) {
-            this.handleTriggerClick()
-          }
-        } else {
+        if (!this.expanded) {
           this.expandAndFocus()
         }
         break
@@ -657,7 +632,7 @@ export class LdSelect {
         }
         break
       case 'Escape':
-        // If expanded: Toggle popper.
+        // If expanded: Close popper.
         if (this.expanded) {
           ev.preventDefault()
           ev.stopImmediatePropagation()
