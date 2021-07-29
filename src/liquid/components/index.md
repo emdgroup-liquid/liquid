@@ -28,7 +28,6 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-sr-live](./ld-sr-live/)                | not needed        | done               |
 | [ld-checkbox](./ld-checkbox)               | done              | done               |
 | [ld-radio](./ld-radio)                     | done              | done               |
-| [ld-select](./ld-select)                   | in progress       | in progress        |
-| [ld-option](./ld-option)                   | in progress       | in progress        |
-| ld-textarea                                | done              | todo               |
+| [ld-select](./ld-select)                   | done              | done               |
+| [ld-option](./ld-option)                   | done              | done               |
 | ld-pattern                                 | done              | todo               |
