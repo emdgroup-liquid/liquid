@@ -863,6 +863,7 @@ export class LdSelect {
             }
             aria-haspopup="listbox"
             aria-expanded={this.expanded ? 'true' : 'false'}
+            aria-label={triggerText}
             onClick={this.handleTriggerClick.bind(this)}
             onFocus={this.handleTriggerFocus.bind(this)}
             ref={(el) => (this.triggerRef = el as HTMLElement)}

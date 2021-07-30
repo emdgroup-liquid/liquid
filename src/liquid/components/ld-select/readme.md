@@ -1078,7 +1078,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <ld-option value="pineapple">Pineapple</ld-option>
     <ld-option value="plum">Plum</ld-option>
   </ld-select>
-  <ld-input-message>Not available today.</ld-input-message>
+  <ld-input-message mode="info">Not available today.</ld-input-message>
 </ld-label>
 
 <!-- CSS component -->

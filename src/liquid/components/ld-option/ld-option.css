@@ -51,6 +51,15 @@
   }
 }
 
+.ld-option-internal__checkbox-wrapper {
+  display: inline-flex;
+  flex-shrink: 0;
+
+  .ld-select__popper:not(.ld-select__popper--multiple) & {
+    display: none;
+  }
+}
+
 .ld-option-internal__check,
 .ld-option-internal__checkbox {
   align-self: center;
@@ -69,10 +78,6 @@
 .ld-option-internal__checkbox {
   margin-left: var(--ld-sp-2);
   margin-right: var(--ld-sp-6);
-
-  .ld-select__popper:not(.ld-select__popper--multiple) & {
-    display: none;
-  }
 }
 
 /* .ld-theme-ocean -> default */

@@ -91,12 +91,13 @@ export class LdOptionInternal {
         onClick={this.handleClick.bind(this)}
         tabindex="-1"
       >
-        <ld-checkbox
-          role="presentation"
-          class="ld-option-internal__checkbox"
-          checked={this.selected}
-          disabled={this.disabled}
-        ></ld-checkbox>
+        <div class="ld-option-internal__checkbox-wrapper" role="presentation">
+          <ld-checkbox
+            class="ld-option-internal__checkbox"
+            checked={this.selected}
+            disabled={this.disabled}
+          ></ld-checkbox>
+        </div>
         <svg
           role={'presentation'}
           class="ld-option-internal__check"
