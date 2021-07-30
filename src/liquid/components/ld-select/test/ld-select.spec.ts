@@ -45,7 +45,7 @@ describe('ld-select', () => {
     expect(ldSelect.classList.contains('ld-select--expanded')).toBeFalsy()
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
-    await btnTrigger.dispatchEvent(new Event('click'))
+    btnTrigger.dispatchEvent(new Event('click'))
     await page.waitForChanges()
     await new Promise((resolve) => setTimeout(resolve))
 
@@ -141,37 +141,35 @@ describe('ld-select', () => {
     const spyFocus = jest.spyOn(fruitHandlers, 'onFocus')
     ldSelectFruit.addEventListener('focus', fruitHandlers.onFocus)
 
-    await window.dispatchEvent(new Event('focus'))
+    window.dispatchEvent(new Event('focus'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyFocus).toHaveBeenCalledTimes(0)
 
-    await btnTriggerVegetable.dispatchEvent(new Event('focus'))
+    btnTriggerVegetable.dispatchEvent(new Event('focus'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyFocus).toHaveBeenCalledTimes(0)
 
-    await btnTriggerFruit.dispatchEvent(new Event('focus'))
+    btnTriggerFruit.dispatchEvent(new Event('focus'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyFocus).toHaveBeenCalledTimes(1)
 
     const spyBlur = jest.spyOn(fruitHandlers, 'onBlur')
     ldSelectFruit.addEventListener('blur', fruitHandlers.onBlur)
 
-    await window.dispatchEvent(new Event('blur', { bubbles: true }))
+    window.dispatchEvent(new Event('blur', { bubbles: true }))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyBlur).toHaveBeenCalledTimes(0)
 
-    await btnTriggerVegetable.dispatchEvent(
-      new Event('blur', { bubbles: true })
-    )
+    btnTriggerVegetable.dispatchEvent(new Event('blur', { bubbles: true }))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyBlur).toHaveBeenCalledTimes(0)
 
-    await btnTriggerFruit.dispatchEvent(new Event('blur', { bubbles: true }))
+    btnTriggerFruit.dispatchEvent(new Event('blur', { bubbles: true }))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyBlur).toHaveBeenCalledTimes(1)
 
     btnTriggerFruit['focus'] = jest.fn(focusManager.focus)
-    await btnTriggerFruit.dispatchEvent(new Event('click'))
+    btnTriggerFruit.dispatchEvent(new Event('click'))
     await page.waitForChanges()
     await new Promise((resolve) => setTimeout(resolve))
     await page.waitForChanges()
