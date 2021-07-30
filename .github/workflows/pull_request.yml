@@ -26,11 +26,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Lint source files
-        run: npm run lint
-
       - name: Build
         run: npm run build
+
+      - name: Lint source files
+        run: npm run lint
 
       - name: Run unit tests
         run: npm run test:unit
