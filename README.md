@@ -10,6 +10,6 @@ Liquid is a UI component library based on the [Liquid Design System](https://lds
 
 [//]: # "---"
 
-Read the [developer docs](http://tmp-liquid-docs.s3-website-eu-west-1.amazonaws.com).
+Read the [developer docs](https://emdgroup-liquid.github.io/liquid/).
 
 If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](CONTRIBUTING.md).
