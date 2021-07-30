@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const nodeFetch = require('node-fetch')
-const { writeFile, mkdir } = require('fs').promises
+const { writeFile } = require('fs').promises
 
 function pxToRem(px: string | number) {
   return parseInt(px + '') / 16 + 'rem'
