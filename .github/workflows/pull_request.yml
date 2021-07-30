@@ -38,8 +38,8 @@ jobs:
       - name: Run e2e tests
         run: npm run test:e2e
 
-      - name: Build docs
-        run: npm run build:docs
+      #- name: Build docs
+      #  run: npm run build:docs
 
       #- name: Run a11y tests
       #  run: npm run test:a11y
