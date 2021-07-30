@@ -179,15 +179,15 @@ Headings are used as an introduction into a topic or a content section and for v
 <!-- CSS component -->
 
 <h1 class="ld-heading ld-heading--xb1" aria-label="Lorem ipsum">
-  Lorem ipsum
+  Lipsum
 </h1>
 
 <h2 class="ld-heading ld-heading--xb2" aria-label="Lorem ipsum">
-  Lorem ipsum
+  Lipsum
 </h2>
 
 <h3 class="ld-heading ld-heading--xb3" aria-label="Lorem ipsum">
-  Lorem ipsum
+  Lipsum
 </h3>
 {% endexample %}
 

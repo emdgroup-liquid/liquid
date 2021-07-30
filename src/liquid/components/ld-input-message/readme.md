@@ -9,7 +9,7 @@ permalink: components/ld-input-message/
 
 # ld-input-message
 
-This component is meant to be used in conjunction with the [`ld-input`](/components/ld-input/) and the [`ld-label`](/components/ld-label/) component. Please reffer to the [`ld-input`](/components/ld-input/) docs for further usage examples.
+This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 
 > **Note**: The `ld-input-message` with a mode other than `"info"` is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 
 

@@ -106,7 +106,7 @@
 
   &::after {
     content: '';
-    background-image: url('/dist/build/assets/chevron.svg');
+    background-image: url('dist/build/assets/chevron.svg');
     background-repeat: no-repeat;
     width: 0.8rem;
     height: 1.375rem;

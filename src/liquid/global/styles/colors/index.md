@@ -9,7 +9,7 @@ permalink: global/colors/
 
 # Colors
 
-All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](/liquid/getting-started/#import-stylesheets).
+All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](liquid/getting-started/#import-stylesheets).
 
 ## White and Liquid Black
 

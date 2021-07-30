@@ -66,4 +66,4 @@ return (
 )
 ```
 
-<docs-page-nav prev-href="/liquid/type-checking-and-intellisense/"></docs-page-nav>
+<docs-page-nav prev-href="liquid/type-checking-and-intellisense/"></docs-page-nav>

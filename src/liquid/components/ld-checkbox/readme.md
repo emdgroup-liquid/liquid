@@ -11,7 +11,7 @@ permalink: components/ld-checkbox/
 
 A checkbox allows the user to select and deselect single values.
 
-This component can be used in conjunction with the [`ld-label`](/components/ld-label/) and the [`ld-input-message`](/components/ld-input-message/) component.
+This component can be used in conjunction with the [`ld-label`](components/ld-label/) and the [`ld-input-message`](components/ld-input-message/) component.
 
 ---
 
@@ -416,7 +416,7 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
 </label>
 {% endexample %}
 
-Please reffer to the [ld-label](/components/ld-label/) docs for more information on the label component.
+Please reffer to the [ld-label](components/ld-label/) docs for more information on the label component.
 
 ### With label and input message
 
@@ -508,7 +508,7 @@ Please reffer to the [ld-label](/components/ld-label/) docs for more information
 
 ### Input validation
 
-The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
 
 {% example %}
 <style>

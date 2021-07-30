@@ -11,7 +11,7 @@ permalink: components/ld-radio/
 
 The `ld-radio` component is meant to be used in **radio groups** — collections of radio buttons describing a set of related options (i.e. using a [`fieldset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset) and a [`legend`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)). Only one radio button in a given group can be selected at the same time.
 
-This component can be used in conjunction with the [`ld-label`](/components/ld-label/) and the [`ld-input-message`](/components/ld-input-message/) component.
+This component can be used in conjunction with the [`ld-label`](components/ld-label/) and the [`ld-input-message`](components/ld-input-message/) component.
 
 ---
 
@@ -218,7 +218,7 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
 </label>
 {% endexample %}
 
-Please reffer to the [ld-label](/components/ld-label/) docs for more information on the label component.
+Please reffer to the [ld-label](components/ld-label/) docs for more information on the label component.
 
 ### With label and input message
 
@@ -276,7 +276,7 @@ Please reffer to the [ld-label](/components/ld-label/) docs for more information
 
 ### Input validation
 
-The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](/components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
 
 {% example %}
 <style>

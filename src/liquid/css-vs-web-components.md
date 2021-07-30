@@ -10,7 +10,7 @@ permalink: liquid/css-vs-web-components/
 
 # CSS vs. Web Components
 
-Liquid ships both, CSS Components and Web Components. For instance, you can use the [`ld-button`](/components/ld-button/) Web Component or its CSS Component counterpart:
+Liquid ships both, CSS Components and Web Components. For instance, you can use the [`ld-button`](components/ld-button/) Web Component or its CSS Component counterpart:
 
 {% example 'html', false, true %}
 <ld-button>Text</ld-button>
@@ -23,9 +23,9 @@ Both look the same, so which one should you use?
 
 There are a few points to concider, when deciding on one of the two options or a mix of both:
 
-1. **Convenience**: Most Liquid Web Components are much more "compact" when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from [type checking and intellisense](/liquid/type-checking-and-intellisense/).
+1. **Convenience**: Most Liquid Web Components are much more "compact" when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from [type checking and intellisense](liquid/type-checking-and-intellisense/).
 
-2. **Accessibility**: Some components handle accessibility issues under the hood. For instance, the [`ld-heading`](/components/ld-heading/) component applies an `aria-label` automatically when used with uppercase heading levels. With CSS Components you have to deal with such things yourself.
+2. **Accessibility**: Some components handle accessibility issues under the hood. For instance, the [`ld-heading`](components/ld-heading/) component applies an `aria-label` automatically when used with uppercase heading levels. With CSS Components you have to deal with such things yourself.
 
 3. **Functionality / feature set**: We always try to offer both, a Web Component and an equivalent CSS Component, but it is not always possible to achieve the same feature set when not having JavaScript to our disposal. CSS can do only so much. Therefore, some more complex components offer more features as Web Components, while coming with a lighweight / less feature rich CSS Component fallback. 
 
@@ -33,4 +33,4 @@ There are a few points to concider, when deciding on one of the two options or a
 
 With all that in mind, you'll need to make a choice case by case.
 
-<docs-page-nav prev-href="/liquid/getting-started/" next-title="Type checking and intellisense" next-href="/liquid/type-checking-and-intellisense/"></docs-page-nav>
+<docs-page-nav prev-href="liquid/getting-started/" next-title="Type checking and intellisense" next-href="liquid/type-checking-and-intellisense/"></docs-page-nav>

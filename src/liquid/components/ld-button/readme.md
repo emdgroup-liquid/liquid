@@ -10,7 +10,7 @@ permalink: components/ld-button/
 # ld-button
 
 Buttons allow a user to trigger events on the user interface. A button's text should express what the button does.
-Icon-buttons without visual text should either contain a [screen-reader-only](/components/ld-sr-only/) text, have an `aria-label`, a `title` element within the svg icon or an `alt` text on an image icon within the button.
+Icon-buttons without visual text should either contain a [screen-reader-only](components/ld-sr-only/) text, have an `aria-label`, a `title` element within the svg icon or an `alt` text on an image icon within the button.
 
 ---
 

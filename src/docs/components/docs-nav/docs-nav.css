@@ -124,7 +124,7 @@
     position: absolute;
     right: 0;
     top: calc(-1 * var(--ld-sp-1));
-    background-image: url('/dist/build/assets/chevron.svg');
+    background-image: url('dist/build/assets/chevron.svg');
     background-repeat: no-repeat;
     background-position: center;
     width: 0.8rem;
@@ -152,16 +152,16 @@ body:not(.safari) {
 }
 
 .docs-nav__summary--liquid::before {
-  background-image: url('/dist/build/assets/liquid.svg');
+  background-image: url('dist/build/assets/liquid.svg');
 }
 
 .docs-nav__summary--components::before {
-  background-image: url('/dist/build/assets/components.svg');
+  background-image: url('dist/build/assets/components.svg');
 }
 
 .docs-nav__summary--global::before,
 .docs-nav__summary--globals::before {
-  background-image: url('/dist/build/assets/global.svg');
+  background-image: url('dist/build/assets/global.svg');
 }
 
 .docs-nav__li {

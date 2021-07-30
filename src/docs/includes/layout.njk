@@ -5,15 +5,16 @@ title: Liquid
 <!doctype html>
 <html lang="en">
 <head>
+  <base href="{{ env.base }}/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid{% if title %} – {% endif %}{% if title == 'Liquid' %}Documentation{% else %}{{ title }}{% endif %}</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-  <link rel="manifest" href="/assets/site.webmanifest">
-  <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ env.base }}/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ env.base }}/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ env.base }}/assets/favicon-16x16.png">
+  <link rel="manifest" href="{{ env.base }}/assets/site.webmanifest">
+  <link rel="mask-icon" href="{{ env.base }}/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
 
@@ -26,7 +27,7 @@ title: Liquid
             {
               title: '{{ item.data.title or item.data.renderData.title }}',
               tags: '{{ item.data.tags }}',
-              url: '{{ item.url }}',
+              url: '{{ env.base }}{{ item.url }}',
               headings: '{{ item.data.content | toc | safe | striptags(true) }}',
               breadcrumbs: [
                 {% set navPages = collections.all | eleventyNavigationBreadcrumb(item.data.title or item.data.renderData.title) %}
@@ -46,10 +47,10 @@ title: Liquid
     ]
   </script>
 
-  <link rel="stylesheet" href="/docs.css">
-  <link rel="stylesheet" href="/dist/build/liquid.css">
-  <script type="module" src="/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="{{ env.base }}/docs.css">
+  <link rel="stylesheet" href="{{ env.base }}/dist/build/liquid.css">
+  <script type="module" src="{{ env.base }}/dist/build/liquid.esm.js"></script>
+  <script nomodule src="{{ env.base }}/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -75,7 +76,7 @@ title: Liquid
             {%- if entry.children.length -%}
               <details{% if ((entry.url == '/') and (('liquid/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
                 <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower }}">
-                  <a href="{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
+                  <a href="{{ env.base }}{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
                 </summary>
                 <ul>
                   {%- if (entry.title == 'Components') or (entry.title == 'Globals') -%}
@@ -86,7 +87,7 @@ title: Liquid
                 </ul>
               </details>
             {%- else -%}
-              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+              <a href="{{ env.base }}{{ entry.url | url }}">{{ entry.title }}</a>
             {%- endif -%}
           </li>
         {%- endif -%}
@@ -114,12 +115,12 @@ title: Liquid
             {% set navPages = collections.all | eleventyNavigationBreadcrumb(title) %}
             {% macro renderBreadcrumb(entry) -%}
               <li>
-                <a href="{{ entry.url }}">{{ entry.title }}</a>
+                <a href="{{ env.base }}{{ entry.url }}">{{ entry.title }}</a>
               </li>
             {%- endmacro %}
             {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}
             <li>
-              <a href="{{ './' | url }}" aria-current="page">{{ title }}</a>
+              <a href="{{ env.base }}{{ page.url }}" aria-current="page">{{ title }}</a>
             </li>
           </docs-breadcrumbs>
         {%- endif -%}

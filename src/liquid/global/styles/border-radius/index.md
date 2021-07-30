@@ -11,7 +11,7 @@ permalink: global/border-radius/
 
 Global CSS custom properties for border-radius contribute to maintaining a consistent component look and feel.
 
-All border-radii listed below are available as global CSS custom properties after [importing Liquid stylesheets](/liquid/getting-started/#import-stylesheets).
+All border-radii listed below are available as global CSS custom properties after [importing Liquid stylesheets](liquid/getting-started/#import-stylesheets).
 
 <docs-border-radius var="--ld-br-s"></docs-border-radius>
 <docs-border-radius var="--ld-br-m"></docs-border-radius>

@@ -9,7 +9,7 @@ permalink: components/ld-label/
 
 # ld-label
 
-This component is meant to be used in conjunction with form input components, such as the [`ld-input`](/components/ld-input/) component, and the [`ld-input-message`](/components/ld-input-message/) component.
+This component is meant to be used in conjunction with form input components, such as the [`ld-input`](components/ld-input/) component, and the [`ld-input-message`](components/ld-input-message/) component.
 
 ## Example
 
