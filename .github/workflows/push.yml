@@ -1,0 +1,116 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - main
+      - rc
+      - develop
+
+jobs:
+  test:
+    name: Test with Node v${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [15]
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node v${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint source files
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - name: Build docs
+        run: npm run build:docs
+
+      - name: Run a11y tests
+        run: npm run test:a11y
+
+      - name: Archive docs artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist_docs
+          path: dist_docs
+          retention-days: 1
+
+  document:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc' || github.ref == 'refs/heads/develop'
+    name: Deploy dist_docs to GitHub pages
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download docs artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist_docs
+          path: dist_docs
+
+      - name: Deploy docs
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: dist_docs
+
+  release:
+    if: github.ref == 'refs/heads/main'
+    name: npm publish / GitHub release
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Build
+        run: npm run build
+
+      - name: Semantic Release
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

@@ -1,9 +1,5 @@
 name: CI/CD
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [pull_request]
 
 jobs:
   test:
@@ -26,6 +22,7 @@ jobs:
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
+
       - name: Cache Node modules
         uses: actions/cache@v2
         with:
@@ -33,6 +30,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm install
 
@@ -54,34 +52,7 @@ jobs:
       - name: Run a11y tests
         run: npm run test:a11y
 
-  release:
-    if: github.ref == 'refs/heads/main'
-    name: npm publish / GitHub release
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v1
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Comment on test coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
         with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install
-        run: npm ci
-        env:
-          CI: true
-
-      - name: Build
-        run: npm run build
-
-      - name: Semantic Release
-        if: success()
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+          lcov-file: ./coverage/lcov.info
