@@ -1,0 +1,23 @@
+:where(ld-paragraph) {
+  display: block;
+}
+
+.ld-paragraph {
+  font: var(--ld-typo-body-m);
+}
+
+.ld-paragraph--l {
+  font: var(--ld-typo-body-l);
+}
+
+.ld-paragraph--s {
+  font: var(--ld-typo-body-s);
+}
+
+.ld-paragraph--xl {
+  font: var(--ld-typo-body-xl);
+}
+
+.ld-paragraph--xs {
+  font: var(--ld-typo-body-xs);
+}

@@ -1,0 +1,504 @@
+.ld-radio {
+  --ld-radio-size: 1.25rem;
+  --ld-radio-dot-size: 0.625rem;
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--ld-radio-size);
+  height: var(--ld-radio-size);
+  min-width: auto !important;
+
+  input {
+    appearance: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    &:checked {
+      ~ .ld-radio__dot {
+        visibility: inherit;
+      }
+    }
+
+    &:where(:disabled),
+    &:where([aria-disabled='true']) {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-rblck2);
+      }
+      ~ .ld-radio__box {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
+      }
+
+      &:checked {
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rblck1);
+        }
+      }
+    }
+
+    &:where(:not(:disabled):not([aria-disabled='true'])) {
+      cursor: pointer;
+    }
+  }
+}
+
+.ld-radio__dot {
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  width: var(--ld-radio-dot-size);
+  height: var(--ld-radio-dot-size);
+}
+
+.ld-radio__box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck4);
+}
+
+.ld-radio,
+.ld-radio__dot,
+.ld-radio__box {
+  border-radius: var(--ld-br-full);
+}
+
+/* .ld-theme-ocean -> default */
+.ld-radio,
+.ld-theme-ocean .ld-radio,
+[class*='ld-theme'] .ld-theme-ocean .ld-radio {
+  :where(input:not(:disabled):not(input[aria-disabled='true'])) {
+    ~ .ld-radio__box {
+      background-color: var(--ld-col-wht);
+    }
+  }
+  &.ld-radio--dark {
+    &:hover {
+      input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rblck1);
+        }
+      }
+    }
+
+    input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-bg-g);
+      }
+
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rblck2);
+        }
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      :where(input:not(:disabled):not(input[aria-disabled='true']))
+        ~ .ld-radio__box {
+        background-color: var(--ld-col-bg-lg);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-hover);
+      }
+
+      :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-bg-lg);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rb-hover);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-hover);
+        }
+      }
+    }
+  }
+
+  input:where(:not(:disabled):not([aria-disabled='true'])) {
+    ~ .ld-radio__dot {
+      background-color: var(--ld-col-rb-active);
+    }
+    ~ .ld-radio__box {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+    }
+
+    &:focus:focus-visible {
+      ~ .ld-radio__box {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-focus);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-bg-g);
+        box-shadow: inset 0 0 0 0.1rem var(var(--ld-col-rb-active));
+      }
+    }
+
+    &:checked {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-wht);
+      }
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-rb-default);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-rb-active);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rb-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-focus);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-bg-g);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rb-active);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-active);
+        }
+      }
+    }
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum,
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake,
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  :where(.ld-radio) {
+    @media (hover: hover) {
+      &:hover {
+        :where(input:not(:disabled):not(input[aria-disabled='true']))
+          ~ .ld-radio__box {
+          background-color: var(--ld-col-bg-lg);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-hover);
+        }
+
+        :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-bg-lg);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rp-hover);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-hover);
+          }
+        }
+      }
+    }
+
+    input:where(:not(:disabled):not([aria-disabled='true'])) {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-rp-active);
+      }
+      ~ .ld-radio__box {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-radio__box {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-bg-g);
+          box-shadow: inset 0 0 0 0.1rem var(var(--ld-col-rp-active));
+        }
+      }
+
+      &:checked {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-wht);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rp-default);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+        }
+
+        &:focus:focus-visible {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-rp-active);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rp-focus);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
+          }
+        }
+        &:active,
+        &:active:focus-visible {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-bg-g);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rp-active);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-active);
+          }
+        }
+      }
+    }
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  :where(.ld-radio) {
+    @media (hover: hover) {
+      &:hover {
+        :where(input:not(:disabled):not(input[aria-disabled='true']))
+          ~ .ld-radio__box {
+          background-color: var(--ld-col-bg-lg);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-hover);
+        }
+
+        :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-bg-lg);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rg-hover);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-hover);
+          }
+        }
+      }
+    }
+
+    input:where(:not(:disabled):not([aria-disabled='true'])) {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-rg-active);
+      }
+      ~ .ld-radio__box {
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-radio__box {
+          background-color: transparent;
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-focus);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-bg-g);
+          box-shadow: inset 0 0 0 0.1rem var(var(--ld-col-rg-active));
+        }
+      }
+
+      &:checked {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-wht);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rg-default);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+        }
+
+        &:focus:focus-visible {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-rg-active);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rg-focus);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-focus);
+          }
+        }
+        &:active,
+        &:active:focus-visible {
+          ~ .ld-radio__dot {
+            background-color: var(--ld-col-bg-g);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-col-rg-active);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-active);
+          }
+        }
+      }
+    }
+  }
+}
+
+.ld-radio--highlight,
+[class*='ld-theme'] .ld-radio--highlight,
+[class*='ld-theme'] [class*='ld-theme'] .ld-radio--highlight {
+  @media (hover: hover) {
+    &:hover {
+      :where(input:not(:disabled):not(input[aria-disabled='true']))
+        ~ .ld-radio__box {
+        background-color: var(--ld-col-bg-lg);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-hover);
+      }
+
+      :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-vy-active);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-vy-hover);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-hover);
+        }
+      }
+    }
+  }
+
+  input:where(:not(:disabled):not([aria-disabled='true'])) {
+    ~ .ld-radio__dot {
+      background-color: var(--ld-col-vy-active);
+    }
+    ~ .ld-radio__box {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-default);
+    }
+
+    &:focus:focus-visible {
+      ~ .ld-radio__box {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-focus);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-bg-g);
+        box-shadow: inset 0 0 0 0.1rem var(var(--ld-col-vy-active));
+      }
+    }
+
+    &:checked {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-vy-active);
+      }
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-vy-default);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-default);
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-vy-active);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-vy-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-focus);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-vy4);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-vy-active);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-vy-active);
+        }
+      }
+    }
+  }
+}
+
+.ld-radio--invalid,
+[class*='ld-theme'] .ld-radio--invalid,
+[class*='ld-theme'] [class*='ld-theme'] .ld-radio--invalid,
+.ld-radio--danger,
+[class*='ld-theme'] .ld-radio--danger,
+[class*='ld-theme'] [class*='ld-theme'] .ld-radio--danger {
+  :where(input:not(:disabled):not(input[aria-disabled='true'])) {
+    ~ .ld-radio__box {
+      background-color: var(--ld-col-rr1);
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      :where(input:not(:disabled):not(input[aria-disabled='true']))
+        ~ .ld-radio__box {
+        background-color: var(--ld-col-rr1);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-hover);
+      }
+
+      :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-bg-lg);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rr-hover);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-hover);
+        }
+      }
+    }
+  }
+
+  input:where(:not(:disabled):not([aria-disabled='true'])) {
+    ~ .ld-radio__dot {
+      background-color: var(--ld-col-rr-active);
+    }
+    ~ .ld-radio__box {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+    }
+
+    &:focus:focus-visible {
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-rr1);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-focus);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-rr1);
+        box-shadow: inset 0 0 0 0.1rem var(var(--ld-col-rr-active));
+      }
+    }
+
+    &:checked {
+      ~ .ld-radio__dot {
+        background-color: var(--ld-col-wht);
+      }
+      ~ .ld-radio__box {
+        background-color: var(--ld-col-rr-default);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-rr-active);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rr-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-focus);
+        }
+      }
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__dot {
+          background-color: var(--ld-col-bg-g);
+        }
+        ~ .ld-radio__box {
+          background-color: var(--ld-col-rr-active);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-active);
+        }
+      }
+    }
+  }
+}

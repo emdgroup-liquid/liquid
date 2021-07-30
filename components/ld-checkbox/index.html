@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquid – Checkbox</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <meta name="msapplication-TileColor" content="#eb3c96">
+  <meta name="theme-color" content="#ffffff">
+
+  <script>
+    __docsSearchIndex__ = [{
+              title: 'Components',
+              tags: '',
+              url: '/components/',
+              headings: 'Status',
+              breadcrumbs: [
+                
+                ]
+            },{
+              title: 'Button',
+              tags: '',
+              url: '/components/ld-button/',
+              headings: 'ExamplesPrimaryDisabledSecondaryOn brand colorSecondary on brand colorGhostHighlightDangerSizeWith iconWith custom widthJustify contentMulti-lineAnchor buttonProperties',
+              breadcrumbs: [
+                
+                'Components','Button']
+            },{
+              title: 'Checkbox',
+              tags: '',
+              url: '/components/ld-checkbox/',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesDependenciesUsed byGraph',
+              breadcrumbs: [
+                
+                'Components','Checkbox']
+            },{
+              title: 'Heading',
+              tags: '',
+              url: '/components/ld-heading/',
+              headings: 'ExamplesWith heading levelWith deviating visual level b*With deviating visual level xh*With deviating visual level xb*Heading colorsProperties',
+              breadcrumbs: [
+                
+                'Components','Heading']
+            },{
+              title: 'Icon',
+              tags: '',
+              url: '/components/ld-icon/',
+              headings: 'Web ComponentDifferent sizesColorWith custom SVG iconPropertiesSlots',
+              breadcrumbs: [
+                
+                'Components','Icon']
+            },{
+              title: 'Input Message',
+              tags: '',
+              url: '/components/ld-input-message/',
+              headings: 'ExamplesAs error messageAs info messageAs success messageProperties',
+              breadcrumbs: [
+                
+                'Components','Input Message']
+            },{
+              title: 'Input',
+              tags: '',
+              url: '/components/ld-input/',
+              headings: 'ExamplesDefaultDisabledDarkInvalidType dateType emailType fileType numberType passwordType searchType telType timeType urlMultiline (as textarea)SizeWith labelWith label and input messageWith slotted elementsInput validationPropertiesSlots',
+              breadcrumbs: [
+                
+                'Components','Input']
+            },{
+              title: 'Label',
+              tags: '',
+              url: '/components/ld-label/',
+              headings: 'ExampleSizePositionProperties',
+              breadcrumbs: [
+                
+                'Components','Label']
+            },{
+              title: 'Paragraph',
+              tags: '',
+              url: '/components/ld-paragraph/',
+              headings: 'ExamplesDefault paragraphSizesProperties',
+              breadcrumbs: [
+                
+                'Components','Paragraph']
+            },{
+              title: 'Radio Button',
+              tags: '',
+              url: '/components/ld-radio/',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationProperties',
+              breadcrumbs: [
+                
+                'Components','Radio Button']
+            },{
+              title: 'Select',
+              tags: '',
+              url: '/components/ld-select/',
+              headings: 'ExamplesSingle select modeMultiple select modeDisabledInvalidDetachedInlineGhostSizeWith custom trigger button iconWith labelWith label and input messageInput validationPropertiesEventsSlots',
+              breadcrumbs: [
+                
+                'Components','Select']
+            },{
+              title: 'Screen Reader Live',
+              tags: '',
+              url: '/components/ld-sr-live/',
+              headings: 'How it worksExampleProperties',
+              breadcrumbs: [
+                
+                'Components','Screen Reader Live']
+            },{
+              title: 'Screen Reader Only',
+              tags: '',
+              url: '/components/ld-sr-only/',
+              headings: 'ExamplesProperties',
+              breadcrumbs: [
+                
+                'Components','Screen Reader Only']
+            },{
+              title: 'Theme',
+              tags: '',
+              url: '/components/ld-theme/',
+              headings: 'How to apply a themeTheme inceptionProperties',
+              breadcrumbs: [
+                
+                'Components','Theme']
+            },{
+              title: 'CSS vs. Web Components',
+              tags: '',
+              url: '/liquid/css-vs-web-components/',
+              headings: 'When to use what',
+              breadcrumbs: [
+                
+                'Liquid','CSS vs. Web Components']
+            },{
+              title: 'Getting started',
+              tags: '',
+              url: '/liquid/getting-started/',
+              headings: 'Import and register Web Componentsself-lazy-loading bundlecustom-elements bundleImport stylesheets',
+              breadcrumbs: [
+                
+                'Liquid','Getting started']
+            },{
+              title: 'Globals',
+              tags: '',
+              url: '/global/',
+              headings: '',
+              breadcrumbs: [
+                
+                ]
+            },{
+              title: 'Border-radius',
+              tags: '',
+              url: '/global/border-radius/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Border-radius']
+            },{
+              title: 'Colors',
+              tags: '',
+              url: '/global/colors/',
+              headings: 'White and Liquid BlackGrey scale colorsBackground grey scale colorsForeground grey scale colorsRich colorsRich BlueRich GreenRich PurpleRich RedVibrant colorsVibrant CyanVibrant GreenVibrant MagentaVibrant YellowTransparent colorsTheme palettesBubblegumOceanShakeSolventTea',
+              breadcrumbs: [
+                
+                'Globals','Colors']
+            },{
+              title: 'Focus',
+              tags: '',
+              url: '/global/focus/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Focus']
+            },{
+              title: 'Fonts',
+              tags: '',
+              url: '/global/fonts/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Fonts']
+            },{
+              title: 'Shadows',
+              tags: '',
+              url: '/global/shadows/',
+              headings: 'Box shadowsActiveHoverStackedStickyDrop-shadows (CSS filter)ActiveHoverStackedSticky',
+              breadcrumbs: [
+                
+                'Globals','Shadows']
+            },{
+              title: 'Spacings',
+              tags: '',
+              url: '/global/spacings/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Spacings']
+            },{
+              title: 'Typography',
+              tags: '',
+              url: '/global/typography/',
+              headings: 'Available CSS custom properties',
+              breadcrumbs: [
+                
+                'Globals','Typography']
+            },{
+              title: 'Server-side rendering',
+              tags: '',
+              url: '/liquid/server-side-rendering/',
+              headings: 'Known issues and workarounds',
+              breadcrumbs: [
+                
+                'Liquid','Server-side rendering']
+            },{
+              title: 'Type checking and intellisense',
+              tags: '',
+              url: '/liquid/type-checking-and-intellisense/',
+              headings: 'With JSXWith vanilla HTML',
+              breadcrumbs: [
+                
+                'Liquid','Type checking and intellisense']
+            }
+    ]
+  </script>
+
+  <link rel="stylesheet" href="/docs.css">
+  <link rel="stylesheet" href="/dist/build/liquid.css">
+  <script type="module" src="/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/dist/build/liquid.js"></script>
+</head>
+<body>
+  <script>
+    if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+      document.body.classList.add('sarari')
+    }
+
+    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var isDark = storedThemePref === 'dark' ? true : false
+    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
+    document.body.classList.remove(
+      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
+    )
+  </script>
+  <docs-layout id="docs-layout" style="visibility: hidden">
+    <docs-topbar></docs-topbar>
+
+    <docs-nav>
+      
+      
+
+      <ul>
+          <li class="docs-nav__li docs-nav__li--active"><details>
+                <summary class="docs-nav__summary docs-nav__summary--liquid">
+                  <a href="/"><span aria-label="Liquid">Liquid</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/liquid/getting-started/">Getting started</a></li>
+          <li class="docs-nav__li"><a href="/liquid/css-vs-web-components/">CSS vs. Web Components</a></li>
+          <li class="docs-nav__li"><a href="/liquid/type-checking-and-intellisense/">Type checking and intellisense</a></li>
+          <li class="docs-nav__li"><a href="/liquid/server-side-rendering/">Server-side rendering</a></li></ul>
+              </details></li>
+          <li class="docs-nav__li"><details>
+                <summary class="docs-nav__summary docs-nav__summary--globals">
+                  <a href="/global/"><span aria-label="Globals">Globals</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/global/border-radius/">Border-radius</a></li>
+          <li class="docs-nav__li"><a href="/global/colors/">Colors</a></li>
+          <li class="docs-nav__li"><a href="/global/focus/">Focus</a></li>
+          <li class="docs-nav__li"><a href="/global/fonts/">Fonts</a></li>
+          <li class="docs-nav__li"><a href="/global/shadows/">Shadows</a></li>
+          <li class="docs-nav__li"><a href="/global/spacings/">Spacings</a></li>
+          <li class="docs-nav__li"><a href="/global/typography/">Typography</a></li></ul>
+              </details></li>
+          <li class="docs-nav__li docs-nav__li--active"><details open>
+                <summary class="docs-nav__summary docs-nav__summary--components">
+                  <a href="/components/"><span aria-label="Components">Components</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/components/ld-button/">Button</a></li>
+          <li class="docs-nav__li docs-nav__li--active"><a href="/components/ld-checkbox/">Checkbox</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-heading/">Heading</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-icon/">Icon</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-input/">Input</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-input-message/">Input Message</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-label/">Label</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-paragraph/">Paragraph</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-radio/">Radio Button</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-sr-live/">Screen Reader Live</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-sr-only/">Screen Reader Only</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-select/">Select</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-theme/">Theme</a></li></ul>
+              </details></li></ul>
+    </docs-nav>
+
+    <docs-nav-backdrop></docs-nav-backdrop>
+
+    <docs-btn-toggle-nav></docs-btn-toggle-nav>
+
+    
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav">
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#primary">Primary</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#dark">Dark</a></li><li><a href="#highlight">Highlight</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#danger">Danger</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#graph">Graph</a></li></ol></li></ol></nav>
+      </docs-toc>
+    
+
+    <docs-main>
+      <header><docs-breadcrumbs>
+            
+            <li>
+                <a href="/components/">Components</a>
+              </li><li>
+              <a href="./" aria-current="page">Checkbox</a>
+            </li>
+          </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/components/ld-checkbox/readme.md"></docs-edit-on-github>
+      </header>
+      <h1 id="ld-checkbox">ld-checkbox <a class="header-anchor" href="#ld-checkbox"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>A checkbox allows the user to select and deselect single values.</p>
+<p>This component can be used in conjunction with the <a href="/components/ld-label/"><code>ld-label</code></a> and the <a href="/components/ld-input-message/"><code>ld-input-message</code></a> component.</p>
+<hr>
+<h2 id="examples">Examples <a class="header-anchor" href="#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="primary">Primary <a class="header-anchor" href="#primary"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-checkbox%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<h3 id="disabled">Disabled <a class="header-anchor" href="#disabled"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-checkbox%20disabled%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20disabled%20checked%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%20checked%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">disabled</span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox disabled></ld-checkbox>
+<ld-checkbox disabled checked></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox">
+  <input type="checkbox" disabled checked>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<p><strong>If you want the checkbox to stay focusable</strong> even if it is disabled, use <code>aria-disabled</code> in place of <code>disabled</code>:</p>
+<docs-example code="%3Cld-checkbox%20aria-disabled%3D%22true%22%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20aria-disabled%3D%22true%22%20checked%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22checkbox%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20id%3D%22focusable-disabled-checkbox-1%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22checkbox%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20checked%0A%20%20%20%20id%3D%22focusable-disabled-checkbox-2%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3C!--%20Example%20code%20for%20input%20prevention%20on%20aria-disabled%20checkbox%20elements%20--%3E%0A%3Cscript%3E%0A%20%20const%20inputs%20%3D%20document.querySelectorAll('%23focusable-disabled-checkbox-1%2C%20%23focusable-disabled-checkbox-2')%0A%20%20Array.from(inputs).forEach(input%20%3D%3E%20%7B%0A%20%20%20%20input.addEventListener('click'%2C%20(ev)%20%3D%3E%20%7B%0A%20%20%20%20%20%20ev.preventDefault()%0A%20%20%20%20%7D)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-checkbox-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">checked</span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-checkbox-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Example code for input prevention on aria-disabled checkbox elements --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">const</span> inputs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'#focusable-disabled-checkbox-1, #focusable-disabled-checkbox-2'</span><span class="token punctuation">)</span><br>  Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">input</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    input<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">ev</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      ev<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox aria-disabled="true"></ld-checkbox>
+<ld-checkbox aria-disabled="true" checked></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox">
+  <input
+    type="checkbox"
+    aria-disabled="true"
+    id="focusable-disabled-checkbox-1">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox">
+  <input
+    type="checkbox"
+    aria-disabled="true"
+    checked
+    id="focusable-disabled-checkbox-2">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<!-- Example code for input prevention on aria-disabled checkbox elements -->
+<script>
+  const inputs = document.querySelectorAll('#focusable-disabled-checkbox-1, #focusable-disabled-checkbox-2')
+  Array.from(inputs).forEach(input => {
+    input.addEventListener('click', (ev) => {
+      ev.preventDefault()
+    })
+  })
+</script></div></docs-example>
+<blockquote>
+<p><strong>Note:</strong> When <code>aria-disabled</code> is applied on the checkbox, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the checkbox yourself.</p>
+</blockquote>
+<h3 id="dark">Dark <a class="header-anchor" href="#dark"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<blockquote>
+<p><strong>Note</strong>: Dark tone checkboxes should only be used on white backgrounds.</p>
+</blockquote>
+<docs-example code="%3Cld-checkbox%20tone%3D%22dark%22%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20tone%3D%22dark%22%20disabled%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--dark%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--dark%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  background="light" themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">tone</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">tone</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox tone="dark"></ld-checkbox>
+<ld-checkbox tone="dark" disabled></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox ld-checkbox--dark">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox ld-checkbox--dark">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<h3 id="highlight">Highlight <a class="header-anchor" href="#highlight"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-checkbox%20mode%3D%22highlight%22%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20mode%3D%22highlight%22%20disabled%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--highlight%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--highlight%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>highlight<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>highlight<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--highlight<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--highlight<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox mode="highlight"></ld-checkbox>
+<ld-checkbox mode="highlight" disabled></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox ld-checkbox--highlight">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox ld-checkbox--highlight">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<h3 id="invalid">Invalid <a class="header-anchor" href="#invalid"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-checkbox%20invalid%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20invalid%20disabled%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--invalid%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--invalid%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">invalid</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">invalid</span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--invalid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--invalid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox invalid></ld-checkbox>
+<ld-checkbox invalid disabled></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox ld-checkbox--invalid">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox ld-checkbox--invalid">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<h3 id="danger">Danger <a class="header-anchor" href="#danger"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The checkbox in mode &quot;danger&quot; looks and behaves the same as a checkbox with the <a href="#invalid"><code>invalid</code></a> property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.</p>
+<docs-example code="%3Cld-checkbox%20mode%3D%22danger%22%3E%3C%2Fld-checkbox%3E%0A%0A%3Cld-checkbox%20mode%3D%22danger%22%20disabled%3E%3C%2Fld-checkbox%3E" code-css-component="%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--danger%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--danger%22%3E%0A%20%20%3Cinput%20type%3D%22checkbox%22%20disabled%3E%0A%20%20%3Csvg%0A%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20width%3D%2214%22%0A%20%20%20%20height%3D%2214%22%0A%20%20%20%20fill%3D%22none%22%0A%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>danger<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--danger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--danger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>    <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>    <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>    <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>    <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>  <span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>      <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-checkbox mode="danger"></ld-checkbox>
+<ld-checkbox mode="danger" disabled></ld-checkbox></div><div slot="showCssComponent"><div class="ld-checkbox ld-checkbox--danger">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+<div class="ld-checkbox ld-checkbox--danger">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div></div></docs-example>
+<h3 id="with-label">With label <a class="header-anchor" href="#with-label"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%3Cld-checkbox%3E%3C%2Fld-checkbox%3E%0A%3C%2Fld-label%3E" code-css-component="%3Clabel%20class%3D%22ld-label%20ld-label--right%20ld-label--m%22%3E%0A%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%20%20%3Cinput%20type%3D%22checkbox%22%20required%3E%0A%20%20%20%20%3Csvg%0A%20%20%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20%20%20width%3D%2214%22%0A%20%20%20%20%20%20height%3D%2214%22%0A%20%20%20%20%20%20fill%3D%22none%22%0A%20%20%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20%20%3E%0A%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Flabel%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  I have read the terms of service.*<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-label ld-label--right ld-label--m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  I have read the terms of service.*<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>      <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>      <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>      <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>      <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>      <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>    <span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>        <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>        <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>        <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>        <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>        <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>      <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-label position="right" size="m">
+  I have read the terms of service.*
+  <ld-checkbox></ld-checkbox>
+</ld-label></div><div slot="showCssComponent"><label class="ld-label ld-label--right ld-label--m">
+  I have read the terms of service.*
+  <div class="ld-checkbox">
+    <input type="checkbox" required>
+    <svg
+      class="ld-checkbox__check"
+      width="14"
+      height="14"
+      fill="none"
+      viewBox="0 0 14 14"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 4L5.40795 10L2 6.63964"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <div class="ld-checkbox__box"></div>
+  </div>
+</label></div></docs-example>
+<p>Please reffer to the <a href="/components/ld-label/">ld-label</a> docs for more information on the label component.</p>
+<h3 id="with-label-and-input-message">With label and input message <a class="header-anchor" href="#with-label-and-input-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cdiv%20style%3D%22display%3A%20grid%3B%20gap%3A%202rem%3B%20grid-template-columns%3A%20repeat(auto-fit%2C%20minmax(12rem%2C%201fr))%3B%20width%3A%20100%25%22%3E%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%20%20%3Cld-checkbox%20invalid%20required%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%3ETo%20proceed%2C%20you%20must%20except%20the%20terms%20of%20service.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I'd%20like%20to%20receive%20a%20weekly%20newsletter.%0A%20%20%20%20%3Cld-checkbox%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%20mode%3D%22info%22%3EYou%20may%20unsubscribe%20at%20any%20given%20time.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%3C%2Fdiv%3E" code-css-component="%3Cdiv%20style%3D%22display%3A%20grid%3B%20gap%3A%202rem%3B%20grid-template-columns%3A%20repeat(auto-fit%2C%20minmax(12rem%2C%201fr))%3B%20width%3A%20100%25%22%3E%0A%20%20%3Clabel%20class%3D%22ld-label%20ld-label--right%20ld-label--m%22%3E%0A%20%20%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%20%20%3Cdiv%20class%3D%22ld-checkbox%20ld-checkbox--invalid%22%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22checkbox%22%20required%3E%0A%20%20%20%20%20%20%3Csvg%0A%20%20%20%20%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20%20%20%20%20width%3D%2214%22%0A%20%20%20%20%20%20%20%20height%3D%2214%22%0A%20%20%20%20%20%20%20%20fill%3D%22none%22%0A%20%20%20%20%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%3C%2Fsvg%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3Cspan%20class%3D%22ld-input-message%20ld-input-message--error%22%3E%0A%20%20%20%20%20%20%3C!--%20Note%20that%20you%20can%20use%20an%20img%20element%20with%20the%20class%20ld-input-message__icon%20here%20as%20well.%20--%3E%0A%20%20%20%20%20%20%3Csvg%20class%3D%22ld-input-message__icon%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7%2014C10.866%2014%2014%2010.866%2014%207C14%203.13401%2010.866%200%207%200C3.13401%200%200%203.13401%200%207C0%2010.866%203.13401%2014%207%2014Z%22%20fill%3D%22%23E61E50%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M4.66675%204.66699L9.33341%209.33366%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M4.66675%209.33301L9.33341%204.66634%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fsvg%3E%0A%20%20%20%20%20%20To%20proceed%2C%20you%20must%20except%20the%20terms%20of%20service.%0A%20%20%20%20%3C%2Fspan%3E%0A%20%20%3C%2Flabel%3E%0A%20%20%0A%20%20%3Clabel%20class%3D%22ld-label%20ld-label--right%20ld-label--m%22%3E%0A%20%20%20%20I'd%20like%20to%20receive%20a%20weekly%20newsletter.%0A%20%20%20%20%3Cdiv%20class%3D%22ld-checkbox%22%3E%0A%20%20%20%20%20%20%3Cinput%20type%3D%22checkbox%22%3E%0A%20%20%20%20%20%20%3Csvg%0A%20%20%20%20%20%20%20%20class%3D%22ld-checkbox__check%22%0A%20%20%20%20%20%20%20%20width%3D%2214%22%0A%20%20%20%20%20%20%20%20height%3D%2214%22%0A%20%20%20%20%20%20%20%20fill%3D%22none%22%0A%20%20%20%20%20%20%20%20viewBox%3D%220%200%2014%2014%22%0A%20%20%20%20%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%20%3Cpath%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M12%204L5.40795%2010L2%206.63964%22%0A%20%20%20%20%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%20%20%20%20%2F%3E%0A%20%20%20%20%20%20%3C%2Fsvg%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22ld-checkbox__box%22%3E%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3Cspan%20class%3D%22ld-input-message%22%3E%0A%20%20%20%20%20%20%3C!--%20Note%20that%20you%20can%20use%20an%20img%20element%20with%20the%20class%20ld-input-message__icon%20here%20as%20well.%20--%3E%0A%20%20%20%20%20%20%3Csvg%20class%3D%22ld-input-message__icon%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7%2014C10.866%2014%2014%2010.866%2014%207C14%203.13401%2010.866%200%207%200C3.13401%200%200%203.13401%200%207C0%2010.866%203.13401%2014%207%2014Z%22%20fill%3D%22%23FFC832%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.18234%2011.0254C6.79228%2011.0254%206.48657%2010.9147%206.26518%2010.6933C6.0438%2010.472%205.93311%2010.1662%205.93311%209.77618V6.12335C5.93311%205.99685%206.0069%205.93359%206.15449%205.93359H6.89771C7.28776%205.93359%207.59348%206.04428%207.81487%206.26567C8.03625%206.48705%208.14694%206.79277%208.14694%207.18283V10.8357C8.14694%2010.9622%208.07315%2011.0254%207.92556%2011.0254H7.18234Z%22%20fill%3D%22%23091734%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%226.99977%22%20cy%3D%223.80007%22%20rx%3D%221.06667%22%20ry%3D%221.06667%22%20fill%3D%22%23091734%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fsvg%3E%0A%20%20%20%20%20%20You%20may%20unsubscribe%20at%20any%20given%20time.%0A%20%20%20%20%3C%2Fspan%3E%0A%20%20%3C%2Flabel%3E%0A%3C%2Fdiv%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span> <span class="token property">gap</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span> <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>auto-fit<span class="token punctuation">,</span> <span class="token function">minmax</span><span class="token punctuation">(</span>12rem<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I have read the terms of service.*<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">invalid</span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span><span class="token punctuation">></span></span>To proceed, you must except the terms of service.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I'd like to receive a weekly newsletter.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>You may unsubscribe at any given time.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span> <span class="token property">gap</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span> <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>auto-fit<span class="token punctuation">,</span> <span class="token function">minmax</span><span class="token punctuation">(</span>12rem<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-label ld-label--right ld-label--m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I have read the terms of service.*<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox ld-checkbox--invalid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>        <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>        <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>      <span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>          <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>        <span class="token punctuation">/></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-input-message ld-input-message--error<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token comment">&lt;!-- Note that you can use an img element with the class ld-input-message__icon here as well. --></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-input-message__icon<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">fill-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">clip-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#E61E50<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M4.66675 4.66699L9.33341 9.33366<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M4.66675 9.33301L9.33341 4.66634<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>      To proceed, you must except the terms of service.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><br>  <br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-label ld-label--right ld-label--m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I'd like to receive a weekly newsletter.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><br>        <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__check<span class="token punctuation">"</span></span><br>        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><br>        <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span><br>        <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><br>      <span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>          <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M12 4L5.40795 10L2 6.63964<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-linecap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>          <span class="token attr-name">stroke-linejoin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round<span class="token punctuation">"</span></span><br>        <span class="token punctuation">/></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-checkbox__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-input-message<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token comment">&lt;!-- Note that you can use an img element with the class ld-input-message__icon here as well. --></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-input-message__icon<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>14<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 14 14<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">fill-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">clip-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#FFC832<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">fill-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">clip-rule</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>evenodd<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#091734<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ellipse</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>6.99977<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3.80007<span class="token punctuation">"</span></span> <span class="token attr-name">rx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.06667<span class="token punctuation">"</span></span> <span class="token attr-name">ry</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.06667<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#091734<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br>      You may unsubscribe at any given time.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
+  <ld-label position="right" size="m">
+    I have read the terms of service.*
+    <ld-checkbox invalid required></ld-checkbox>
+    <ld-input-message>To proceed, you must except the terms of service.</ld-input-message>
+  </ld-label>
+  <ld-label position="right" size="m">
+    I'd like to receive a weekly newsletter.
+    <ld-checkbox></ld-checkbox>
+    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
+  </ld-label>
+</div></div><div slot="showCssComponent"><div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
+  <label class="ld-label ld-label--right ld-label--m">
+    I have read the terms of service.*
+    <div class="ld-checkbox ld-checkbox--invalid">
+      <input type="checkbox" required>
+      <svg
+        class="ld-checkbox__check"
+        width="14"
+        height="14"
+        fill="none"
+        viewBox="0 0 14 14"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 4L5.40795 10L2 6.63964"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div class="ld-checkbox__box"></div>
+    </div>
+    <span class="ld-input-message ld-input-message--error">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+        <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      To proceed, you must except the terms of service.
+    </span>
+  </label>
+  <label class="ld-label ld-label--right ld-label--m">
+    I'd like to receive a weekly newsletter.
+    <div class="ld-checkbox">
+      <input type="checkbox">
+      <svg
+        class="ld-checkbox__check"
+        width="14"
+        height="14"
+        fill="none"
+        viewBox="0 0 14 14"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 4L5.40795 10L2 6.63964"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div class="ld-checkbox__box"></div>
+    </div>
+    <span class="ld-input-message">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+        <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
+      </svg>
+      You may unsubscribe at any given time.
+    </span>
+  </label>
+</div></div></docs-example>
+<h3 id="input-validation">Input validation <a class="header-anchor" href="#input-validation"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <code>ld-checkbox</code> Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events and setting error / info messages via the <a href="/components/ld-input-message/"><code>ld-input-message</code></a> component. The following is an example on how you could implement input validation with vanilla JS:</p>
+<docs-example code="%3Cstyle%3E%0A%23example-form%20%7B%0A%20%20display%3A%20grid%3B%0A%20%20gap%3A%201rem%3B%0A%20%20width%3A%20100%25%3B%0A%7D%0A%23example-form%20%3E%20*%20%7B%0A%20%20align-self%3A%20flex-start%3B%0A%20%20flex%3A%201%200%20auto%3B%0A%7D%0A%40media%20(min-width%3A%2052rem)%20%7B%0A%20%20%23example-form%20%7B%0A%20%20%20%20grid-auto-flow%3A%20column%3B%0A%20%20%7D%0A%7D%0A%23example-form%20ld-label%3Afirst-of-type%20ld-input-message%20%7B%0A%20%20visibility%3A%20hidden%3B%0A%7D%0A%23example-form%20ld-label%3Afirst-of-type%20ld-input-message%5Bcovert%3D%22false%22%5D%20%7B%0A%20%20visibility%3A%20inherit%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Cform%20id%3D%22example-form%22%20novalidate%3E%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%20%20%3Cld-checkbox%20required%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%20visible%3D%22false%22%3ETo%20proceed%2C%20you%20must%20except%20the%20terms%20of%20service.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I'd%20like%20to%20receive%20a%20weekly%20newsletter.%0A%20%20%20%20%3Cld-checkbox%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%20mode%3D%22info%22%3EYou%20may%20unsubscribe%20at%20any%20given%20time.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-button%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fform%3E%0A%3Cscript%3E%0A%20%20const%20termsConfirmation%20%3D%20document.querySelector('%23example-form%20ld-label%3Afirst-of-type%20ld-checkbox')%0A%20%20const%20termsConfirmationErrorMessage%20%3D%20document.querySelector('%23example-form%20ld-label%3Afirst-of-type%20ld-input-message')%0A%20%20const%20submitButton%20%3D%20document.querySelector('%23example-form%20ld-button')%0A%20%20function%20validateInput(ldCheckbox%2C%20ldInputMessage)%20%7B%0A%20%20%20%20value%20%3D%20ldCheckbox.checked%0A%20%20%20%20if%20(!value)%20%7B%0A%20%20%20%20%20%20ldCheckbox.setAttribute('invalid'%2C%20'true')%0A%20%20%20%20%20%20ldInputMessage.setAttribute('covert'%2C%20'false')%0A%20%20%20%20%20%20return%20false%0A%20%20%20%20%7D%0A%20%20%20%20ldCheckbox.removeAttribute('invalid')%0A%20%20%20%20ldInputMessage.setAttribute('covert'%2C%20'true')%0A%20%20%20%20return%20true%0A%20%20%7D%0A%20%20termsConfirmation.addEventListener('input'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20validateInput(termsConfirmation%2C%20termsConfirmationErrorMessage)%0A%20%20%7D)%0A%20%20termsConfirmation.addEventListener('blur'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20validateInput(termsConfirmation%2C%20termsConfirmationErrorMessage)%0A%20%20%7D)%0A%20%20submitButton.addEventListener('click'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20ev.preventDefault()%0A%20%20%20%20const%20isTermsConfirmationValid%20%3D%20validateInput(termsConfirmation%2C%20termsConfirmationErrorMessage)%0A%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20if%20(isTermsConfirmationValid)%20%7B%0A%20%20%20%20%20%20%20%20window.alert('Form%20submitted.')%0A%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20window.alert('Form%20is%20invalid.')%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%20100)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br><span class="token selector">#example-form</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">gap</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">#example-form > *</span> <span class="token punctuation">{</span><br>  <span class="token property">align-self</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span><br>  <span class="token property">flex</span><span class="token punctuation">:</span> 1 0 auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 52rem<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">#example-form</span> <span class="token punctuation">{</span><br>    <span class="token property">grid-auto-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token selector">#example-form ld-label:first-of-type ld-input-message</span> <span class="token punctuation">{</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">#example-form ld-label:first-of-type ld-input-message[covert="false"]</span> <span class="token punctuation">{</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-form<span class="token punctuation">"</span></span> <span class="token attr-name">novalidate</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I have read the terms of service.*<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">visible</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>To proceed, you must except the terms of service.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I'd like to receive a weekly newsletter.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>You may unsubscribe at any given time.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">const</span> termsConfirmation <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form ld-label:first-of-type ld-checkbox'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> termsConfirmationErrorMessage <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form ld-label:first-of-type ld-input-message'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> submitButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form ld-button'</span><span class="token punctuation">)</span><br>  <span class="token keyword">function</span> <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token parameter">ldCheckbox<span class="token punctuation">,</span> ldInputMessage</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    value <span class="token operator">=</span> ldCheckbox<span class="token punctuation">.</span>checked<br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      ldCheckbox<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><br>      ldInputMessage<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'covert'</span><span class="token punctuation">,</span> <span class="token string">'false'</span><span class="token punctuation">)</span><br>      <span class="token keyword">return</span> <span class="token boolean">false</span><br>    <span class="token punctuation">}</span><br>    ldCheckbox<span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><br>    ldInputMessage<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'covert'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><br>    <span class="token keyword">return</span> <span class="token boolean">true</span><br>  <span class="token punctuation">}</span><br>  termsConfirmation<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">validateInput</span><span class="token punctuation">(</span>termsConfirmation<span class="token punctuation">,</span> termsConfirmationErrorMessage<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  termsConfirmation<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">validateInput</span><span class="token punctuation">(</span>termsConfirmation<span class="token punctuation">,</span> termsConfirmationErrorMessage<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  submitButton<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    ev<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">const</span> isTermsConfirmationValid <span class="token operator">=</span> <span class="token function">validateInput</span><span class="token punctuation">(</span>termsConfirmation<span class="token punctuation">,</span> termsConfirmationErrorMessage<span class="token punctuation">)</span><br>    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>isTermsConfirmationValid<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Form submitted.'</span><span class="token punctuation">)</span><br>      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Form is invalid.'</span><span class="token punctuation">)</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><style>
+#example-form {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+#example-form > * {
+  align-self: flex-start;
+  flex: 1 0 auto;
+}
+@media (min-width: 52rem) {
+  #example-form {
+    grid-auto-flow: column;
+  }
+}
+#example-form ld-label:first-of-type ld-input-message {
+  visibility: hidden;
+}
+#example-form ld-label:first-of-type ld-input-message[covert="false"] {
+  visibility: inherit;
+}
+</style>
+<form id="example-form" novalidate>
+  <ld-label position="right" size="m">
+    I have read the terms of service.*
+    <ld-checkbox required></ld-checkbox>
+    <ld-input-message visible="false">To proceed, you must except the terms of service.</ld-input-message>
+  </ld-label>
+  <ld-label position="right" size="m">
+    I'd like to receive a weekly newsletter.
+    <ld-checkbox></ld-checkbox>
+    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
+  </ld-label>
+  <ld-button>Submit</ld-button>
+</form>
+<script>
+  const termsConfirmation = document.querySelector('#example-form ld-label:first-of-type ld-checkbox')
+  const termsConfirmationErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
+  const submitButton = document.querySelector('#example-form ld-button')
+  function validateInput(ldCheckbox, ldInputMessage) {
+    value = ldCheckbox.checked
+    if (!value) {
+      ldCheckbox.setAttribute('invalid', 'true')
+      ldInputMessage.setAttribute('covert', 'false')
+      return false
+    }
+    ldCheckbox.removeAttribute('invalid')
+    ldInputMessage.setAttribute('covert', 'true')
+    return true
+  }
+  termsConfirmation.addEventListener('input', ev => {
+    validateInput(termsConfirmation, termsConfirmationErrorMessage)
+  })
+  termsConfirmation.addEventListener('blur', ev => {
+    validateInput(termsConfirmation, termsConfirmationErrorMessage)
+  })
+  submitButton.addEventListener('click', ev => {
+    ev.preventDefault()
+    const isTermsConfirmationValid = validateInput(termsConfirmation, termsConfirmationErrorMessage)
+    setTimeout(() => {
+      if (isTermsConfirmationValid) {
+        window.alert('Form submitted.')
+      } else {
+        window.alert('Form is invalid.')
+      }
+    }, 100)
+  })
+</script></div></docs-example>
+<!-- Auto Generated Below -->
+<h2 id="properties">Properties <a class="header-anchor" href="#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>checked</code></td>
+<td><code>checked</code></td>
+<td>The input value.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td><code>disabled</code></td>
+<td>Disabled state of the checkbox.</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>invalid</code></td>
+<td><code>invalid</code></td>
+<td>Set this property to <code>true</code> in order to mark the checkbox visually as invalid.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>key</code></td>
+<td>for tracking the node's identity when working with lists</td>
+<td><code>string \| number</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>mode</code></td>
+<td>Display mode.</td>
+<td><code>&quot;danger&quot; \| &quot;highlight&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td><code>ref</code></td>
+<td>reference to component</td>
+<td><code>any</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>tone</code></td>
+<td><code>tone</code></td>
+<td>Checkbox tone. Use <code>'dark'</code> on white backgrounds. Default is a light tone.</td>
+<td><code>&quot;dark&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dependencies">Dependencies <a class="header-anchor" href="#dependencies"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="used-by">Used by <a class="header-anchor" href="#used-by"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<ul>
+<li>ld-option-internal</li>
+</ul>
+<h3 id="graph">Graph <a class="header-anchor" href="#graph"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<pre class="mermaid">graph TD;
+  ld-option-internal --> ld-checkbox
+  style ld-checkbox fill:#f9f,stroke:#333,stroke-width:4px
+</pre>
+<hr>
+<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+
+    </docs-main>
+
+  </docs-layout>
+  <docs-search></docs-search>
+</body>
+</html>

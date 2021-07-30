@@ -1,0 +1,21 @@
+.ld-input-message {
+  display: inline-flex;
+  align-items: flex-start;
+  font: var(--ld-typo-body-s);
+  line-height: 1.5;
+}
+
+.ld-input-message--valid {
+  color: var(--ld-col-rg-default);
+}
+
+.ld-input-message--error {
+  color: var(--ld-col-rr-default);
+}
+
+.ld-input-message__icon {
+  transform: translateY(0.1rem);
+  margin-top: var(--ld-sp-2);
+  margin-right: var(--ld-sp-6);
+  flex-shrink: 0;
+}

@@ -1,0 +1,343 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquid – Type checking and intellisense</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="manifest" href="/assets/site.webmanifest">
+  <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <meta name="msapplication-TileColor" content="#eb3c96">
+  <meta name="theme-color" content="#ffffff">
+
+  <script>
+    __docsSearchIndex__ = [{
+              title: 'Components',
+              tags: '',
+              url: '/components/',
+              headings: 'Status',
+              breadcrumbs: [
+                
+                ]
+            },{
+              title: 'Button',
+              tags: '',
+              url: '/components/ld-button/',
+              headings: 'ExamplesPrimaryDisabledSecondaryOn brand colorSecondary on brand colorGhostHighlightDangerSizeWith iconWith custom widthJustify contentMulti-lineAnchor buttonProperties',
+              breadcrumbs: [
+                
+                'Components','Button']
+            },{
+              title: 'Checkbox',
+              tags: '',
+              url: '/components/ld-checkbox/',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesDependenciesUsed byGraph',
+              breadcrumbs: [
+                
+                'Components','Checkbox']
+            },{
+              title: 'Heading',
+              tags: '',
+              url: '/components/ld-heading/',
+              headings: 'ExamplesWith heading levelWith deviating visual level b*With deviating visual level xh*With deviating visual level xb*Heading colorsProperties',
+              breadcrumbs: [
+                
+                'Components','Heading']
+            },{
+              title: 'Icon',
+              tags: '',
+              url: '/components/ld-icon/',
+              headings: 'Web ComponentDifferent sizesColorWith custom SVG iconPropertiesSlots',
+              breadcrumbs: [
+                
+                'Components','Icon']
+            },{
+              title: 'Input Message',
+              tags: '',
+              url: '/components/ld-input-message/',
+              headings: 'ExamplesAs error messageAs info messageAs success messageProperties',
+              breadcrumbs: [
+                
+                'Components','Input Message']
+            },{
+              title: 'Input',
+              tags: '',
+              url: '/components/ld-input/',
+              headings: 'ExamplesDefaultDisabledDarkInvalidType dateType emailType fileType numberType passwordType searchType telType timeType urlMultiline (as textarea)SizeWith labelWith label and input messageWith slotted elementsInput validationPropertiesSlots',
+              breadcrumbs: [
+                
+                'Components','Input']
+            },{
+              title: 'Label',
+              tags: '',
+              url: '/components/ld-label/',
+              headings: 'ExampleSizePositionProperties',
+              breadcrumbs: [
+                
+                'Components','Label']
+            },{
+              title: 'Paragraph',
+              tags: '',
+              url: '/components/ld-paragraph/',
+              headings: 'ExamplesDefault paragraphSizesProperties',
+              breadcrumbs: [
+                
+                'Components','Paragraph']
+            },{
+              title: 'Radio Button',
+              tags: '',
+              url: '/components/ld-radio/',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationProperties',
+              breadcrumbs: [
+                
+                'Components','Radio Button']
+            },{
+              title: 'Select',
+              tags: '',
+              url: '/components/ld-select/',
+              headings: 'ExamplesSingle select modeMultiple select modeDisabledInvalidDetachedInlineGhostSizeWith custom trigger button iconWith labelWith label and input messageInput validationPropertiesEventsSlots',
+              breadcrumbs: [
+                
+                'Components','Select']
+            },{
+              title: 'Screen Reader Live',
+              tags: '',
+              url: '/components/ld-sr-live/',
+              headings: 'How it worksExampleProperties',
+              breadcrumbs: [
+                
+                'Components','Screen Reader Live']
+            },{
+              title: 'Screen Reader Only',
+              tags: '',
+              url: '/components/ld-sr-only/',
+              headings: 'ExamplesProperties',
+              breadcrumbs: [
+                
+                'Components','Screen Reader Only']
+            },{
+              title: 'Theme',
+              tags: '',
+              url: '/components/ld-theme/',
+              headings: 'How to apply a themeTheme inceptionProperties',
+              breadcrumbs: [
+                
+                'Components','Theme']
+            },{
+              title: 'CSS vs. Web Components',
+              tags: '',
+              url: '/liquid/css-vs-web-components/',
+              headings: 'When to use what',
+              breadcrumbs: [
+                
+                'Liquid','CSS vs. Web Components']
+            },{
+              title: 'Getting started',
+              tags: '',
+              url: '/liquid/getting-started/',
+              headings: 'Import and register Web Componentsself-lazy-loading bundlecustom-elements bundleImport stylesheets',
+              breadcrumbs: [
+                
+                'Liquid','Getting started']
+            },{
+              title: 'Globals',
+              tags: '',
+              url: '/global/',
+              headings: '',
+              breadcrumbs: [
+                
+                ]
+            },{
+              title: 'Border-radius',
+              tags: '',
+              url: '/global/border-radius/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Border-radius']
+            },{
+              title: 'Colors',
+              tags: '',
+              url: '/global/colors/',
+              headings: 'White and Liquid BlackGrey scale colorsBackground grey scale colorsForeground grey scale colorsRich colorsRich BlueRich GreenRich PurpleRich RedVibrant colorsVibrant CyanVibrant GreenVibrant MagentaVibrant YellowTransparent colorsTheme palettesBubblegumOceanShakeSolventTea',
+              breadcrumbs: [
+                
+                'Globals','Colors']
+            },{
+              title: 'Focus',
+              tags: '',
+              url: '/global/focus/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Focus']
+            },{
+              title: 'Fonts',
+              tags: '',
+              url: '/global/fonts/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Fonts']
+            },{
+              title: 'Shadows',
+              tags: '',
+              url: '/global/shadows/',
+              headings: 'Box shadowsActiveHoverStackedStickyDrop-shadows (CSS filter)ActiveHoverStackedSticky',
+              breadcrumbs: [
+                
+                'Globals','Shadows']
+            },{
+              title: 'Spacings',
+              tags: '',
+              url: '/global/spacings/',
+              headings: '',
+              breadcrumbs: [
+                
+                'Globals','Spacings']
+            },{
+              title: 'Typography',
+              tags: '',
+              url: '/global/typography/',
+              headings: 'Available CSS custom properties',
+              breadcrumbs: [
+                
+                'Globals','Typography']
+            },{
+              title: 'Server-side rendering',
+              tags: '',
+              url: '/liquid/server-side-rendering/',
+              headings: 'Known issues and workarounds',
+              breadcrumbs: [
+                
+                'Liquid','Server-side rendering']
+            },{
+              title: 'Type checking and intellisense',
+              tags: '',
+              url: '/liquid/type-checking-and-intellisense/',
+              headings: 'With JSXWith vanilla HTML',
+              breadcrumbs: [
+                
+                'Liquid','Type checking and intellisense']
+            }
+    ]
+  </script>
+
+  <link rel="stylesheet" href="/docs.css">
+  <link rel="stylesheet" href="/dist/build/liquid.css">
+  <script type="module" src="/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/dist/build/liquid.js"></script>
+</head>
+<body>
+  <script>
+    if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+      document.body.classList.add('sarari')
+    }
+
+    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var isDark = storedThemePref === 'dark' ? true : false
+    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
+    document.body.classList.remove(
+      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
+    )
+  </script>
+  <docs-layout id="docs-layout" style="visibility: hidden">
+    <docs-topbar></docs-topbar>
+
+    <docs-nav>
+      
+      
+
+      <ul>
+          <li class="docs-nav__li docs-nav__li--active"><details open>
+                <summary class="docs-nav__summary docs-nav__summary--liquid">
+                  <a href="/"><span aria-label="Liquid">Liquid</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/liquid/getting-started/">Getting started</a></li>
+          <li class="docs-nav__li"><a href="/liquid/css-vs-web-components/">CSS vs. Web Components</a></li>
+          <li class="docs-nav__li docs-nav__li--active"><a href="/liquid/type-checking-and-intellisense/">Type checking and intellisense</a></li>
+          <li class="docs-nav__li"><a href="/liquid/server-side-rendering/">Server-side rendering</a></li></ul>
+              </details></li>
+          <li class="docs-nav__li"><details>
+                <summary class="docs-nav__summary docs-nav__summary--globals">
+                  <a href="/global/"><span aria-label="Globals">Globals</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/global/border-radius/">Border-radius</a></li>
+          <li class="docs-nav__li"><a href="/global/colors/">Colors</a></li>
+          <li class="docs-nav__li"><a href="/global/focus/">Focus</a></li>
+          <li class="docs-nav__li"><a href="/global/fonts/">Fonts</a></li>
+          <li class="docs-nav__li"><a href="/global/shadows/">Shadows</a></li>
+          <li class="docs-nav__li"><a href="/global/spacings/">Spacings</a></li>
+          <li class="docs-nav__li"><a href="/global/typography/">Typography</a></li></ul>
+              </details></li>
+          <li class="docs-nav__li"><details>
+                <summary class="docs-nav__summary docs-nav__summary--components">
+                  <a href="/components/"><span aria-label="Components">Components</span></a>
+                </summary>
+                <ul>
+          <li class="docs-nav__li"><a href="/components/ld-button/">Button</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-checkbox/">Checkbox</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-heading/">Heading</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-icon/">Icon</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-input/">Input</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-input-message/">Input Message</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-label/">Label</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-paragraph/">Paragraph</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-radio/">Radio Button</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-sr-live/">Screen Reader Live</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-sr-only/">Screen Reader Only</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-select/">Select</a></li>
+          <li class="docs-nav__li"><a href="/components/ld-theme/">Theme</a></li></ul>
+              </details></li></ul>
+    </docs-nav>
+
+    <docs-nav-backdrop></docs-nav-backdrop>
+
+    <docs-btn-toggle-nav></docs-btn-toggle-nav>
+
+    
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav">
+        <ol><li><a href="#with-jsx">With JSX</a></li><li><a href="#with-vanilla-html">With vanilla HTML</a></li></ol></nav>
+      </docs-toc>
+    
+
+    <docs-main>
+      <header><docs-breadcrumbs>
+            
+            <li>
+                <a href="/">Liquid</a>
+              </li><li>
+              <a href="./" aria-current="page">Type checking and intellisense</a>
+            </li>
+          </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/type-checking-and-intellisense.md"></docs-edit-on-github>
+      </header>
+      <h1 id="type-checking-and-intellisense">Type checking and intellisense <a class="header-anchor" href="#type-checking-and-intellisense"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Liquid comes with Typescript type definitions and hense allows for type checking and intellisense. Both is currently supported in JSX and plain HTML only and an additional setup step is required.</p>
+<h2 id="with-jsx">With JSX <a class="header-anchor" href="#with-jsx"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Typescript checks expressions in JSX. Since it does not “know about” Liquid Web Components, it will “complain” as soon as it “sees” one with an error message like the following:</p>
+<blockquote>
+<p>Property 'ld-button' does not exist on type 'JSX.IntrinsicElements'</p>
+</blockquote>
+<p>In order to let Typescript “know about” Liquid Web Components, you'll have to decalare a JSX namespace including all Liquid components:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">JSX</span> <span class="token keyword">as</span> LocalJSX <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> HTMLAttributes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span> <span class="token comment">// or from 'vue'</span><br><br><span class="token keyword">type</span> <span class="token class-name">LiquidElements<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span><br>  Omit<span class="token operator">&lt;</span>HTMLAttributes<span class="token punctuation">,</span> <span class="token string">'className'</span><span class="token operator">></span> <span class="token operator">&amp;</span> <span class="token punctuation">{</span><br>    <span class="token keyword">class</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">declare</span> global <span class="token punctuation">{</span><br>  <span class="token keyword">namespace</span> <span class="token constant">JSX</span> <span class="token punctuation">{</span><br>    <span class="token keyword">interface</span> <span class="token class-name">IntrinsicElements</span> <span class="token keyword">extends</span> <span class="token class-name">LiquidElements<span class="token operator">&lt;</span>LocalJSX<span class="token punctuation">.</span>IntrinsicElements<span class="token operator">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Learn more about JSX in Typescript in the <a href="https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking">Typescript docs</a>.</p>
+<h2 id="with-vanilla-html">With vanilla HTML <a class="header-anchor" href="#with-vanilla-html"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Type checking is not yet supported in vanilla HTML, but intellisense can be enabled in Visual Studio Code by adding the <a href="https://code.visualstudio.com/api/extension-guides/custom-data-extension">custom data</a> setting to <code>.vscode/settings.json</code> in the root directory of your project:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"html.customData"</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>    <span class="token string">"./node_modules/@emdgroup-liquid/liquid/dist/web-components.html-data.json"</span><br>  <span class="token punctuation">]</span><br><span class="token punctuation">}</span></code></pre>
+<p>The format of the referenced JSON file, which includes type information about each Web Component, doesn't follow a common standard, but is Visual Studio Code specific. Discussions on a standard, which eventually will lead to support in more editors, is (at the time of writing) <a href="https://github.com/WICG/webcomponents/issues/776">still ongoing</a>. Probably due to the fact that there is no standard yet, VS Code extensions are not yet making use of the custom data feature. Hense intellisense is not yet working in Vue templates, Svelte markup etc.</p>
+<p><a href="https://youtrack.jetbrains.com/issue/WEB-39620">Some efforts</a> are also being made to enable intellisense for Web Components in Intellij editors, but we are not there yet.</p>
+<p><docs-page-nav prev-href="/liquid/css-vs-web-components/" next-title="Server-side rendering" next-href="/liquid/server-side-rendering/"></docs-page-nav></p>
+
+    </docs-main>
+
+  </docs-layout>
+  <docs-search></docs-search>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var E;!function(E){E.bubblegum="BUBBLEGUM",E.ocean="OCEAN",E.shake="SHAKE",E.solvent="SOLVENT",E.tea="TEA"}(E||(E={}));export{E as T}

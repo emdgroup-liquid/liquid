@@ -1,0 +1,1 @@
+import{r as s,h as t,H as r}from"./p-375b7112.js";const e=class{constructor(t){s(this,t),this.name="ocean"}render(){return t(r,{class:`ld-theme-${this.name}`},t("slot",null))}};e.style="";export{e as ld_theme}
