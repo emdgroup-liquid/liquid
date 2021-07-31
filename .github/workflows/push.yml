@@ -58,6 +58,11 @@ jobs:
           path: dist_docs
           retention-days: 1
 
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
   document:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc' || github.ref == 'refs/heads/develop'
     name: Deploy dist_docs to GitHub pages
