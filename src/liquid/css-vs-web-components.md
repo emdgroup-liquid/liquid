@@ -33,4 +33,4 @@ There are a few points to concider, when deciding on one of the two options or a
 
 With all that in mind, you'll need to make a choice case by case.
 
-<docs-page-nav prev-href="liquid/getting-started/" next-title="Type checking and intellisense" next-href="liquid/type-checking-and-intellisense/"></docs-page-nav>
+<docs-page-nav prev-href="liquid/getting-started/" next-title="Component assets" next-href="liquid/components-assets/"></docs-page-nav>
