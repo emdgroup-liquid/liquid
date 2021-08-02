@@ -21,7 +21,6 @@ export class LdSrLive {
     passive: true,
   })
   handleInfo(event: CustomEvent<string>) {
-    console.log('Received the custom ldSrLiveInfo event: ', event.detail)
     // MAGIC: the second “pseudo-empty” string contains a zero width space, which is required
     // in order to repeat an alert message, without altering the printed message displayed on the screen.
     this.infoSuffix = this.infoSuffix ? '' : '​'
@@ -34,7 +33,6 @@ export class LdSrLive {
     passive: true,
   })
   handleAlert(event: CustomEvent<string>) {
-    console.log('Received the custom ldSrLiveAlert event: ', event.detail)
     // MAGIC: the second “pseudo-empty” string contains a zero width space, which is required
     // in order to repeat an alert message, without altering the printed message displayed on the screen.
     this.alertSuffix = this.alertSuffix ? '' : '​'
