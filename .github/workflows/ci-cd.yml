@@ -1,10 +1,5 @@
 name: CI/CD
-on:
-  push:
-    branches:
-      - main
-      - rc
-      - develop
+on: [push, pull_request]
 
 jobs:
   test:
@@ -29,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: npm run build
@@ -51,7 +46,21 @@ jobs:
       #- name: Run a11y tests
       #  run: npm run test:a11y
 
-      - name: Archive docs artifacts
+      - name: Comment on test coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          lcov-file: ./coverage/lcov.info
+
+      - name: Archive dist artifacts
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
+      - name: Archive dist_docs artifacts
+        if: github.ref == 'refs/heads/develop'
         uses: actions/upload-artifact@v2
         with:
           name: dist_docs
@@ -59,12 +68,13 @@ jobs:
           retention-days: 1
 
       - name: Coveralls
+        if: github.ref == 'refs/heads/develop'
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   document:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc' || github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop'
     name: Deploy dist_docs to GitHub pages
     needs: test
     runs-on: ubuntu-latest
@@ -73,7 +83,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
 
-      - name: Download docs artifacts
+      - name: Download dist_docs artifacts
         uses: actions/download-artifact@v2
         with:
           name: dist_docs
@@ -86,7 +96,7 @@ jobs:
           folder: dist_docs
 
   release:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
     name: npm publish / GitHub release
     needs: test
     runs-on: ubuntu-latest
@@ -102,17 +112,20 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install
-        run: npm ci
+        run: yarn install --frozen-lockfile
         env:
           CI: true
 
-      - name: Build
-        run: npm run build
+      - name: Download dist artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
 
       - name: Semantic Release
         if: success()
+        run: npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
