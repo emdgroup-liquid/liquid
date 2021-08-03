@@ -1,7 +1,7 @@
 # Liquid
 
 [![Join us on GitHub discussions](https://img.shields.io/badge/Join%20us-on%20GitHub%20discussions-blue?style=flat&color=0F69AF)](https://github.com/emdgroup-liquid/liquid/discussions)
-[![Join us on Teams](https://teams.microsoft.com/l/channel/19%3a65402255fa9843b98d97b4b52625295e%40thread.tacv2/Liquid%2520Design%2520System?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9)
+[![Join us on Teams](https://img.shields.io/badge/Join%20us-on%20Teams-blue?style=flat&color=503291)](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat&color=B93679)](https://github.com/semantic-release/semantic-release)
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=develop)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=develop)
 
