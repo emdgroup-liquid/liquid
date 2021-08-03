@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git@github.com:emdgroup-liquid/liquid.git"
   },
+  "engines": {
+    "node": ">=15.5.0",
+    "yarn": ">=1.22.10"
+  },
   "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
