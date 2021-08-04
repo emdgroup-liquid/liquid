@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Host, Listen, State, Watch } from '@stencil/core'
+import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
 
 type Notification = {
   type: 'info' | 'warn' | 'error'
@@ -16,6 +16,11 @@ const FADE_TRANSITION_DURATION = 200
   shadow: false,
 })
 export class LdNotification {
+  /**
+   * Notification placement within the screen.
+   */
+  @Prop() placement: 'top' | 'bottom' = 'top'
+
   @State() queue: Notification[] = []
   @State() queueDismissed: Notification[] = []
 
@@ -141,10 +146,14 @@ export class LdNotification {
       </svg>
     `
 
+    let cl = 'ld-notification'
+    cl += ` ld-notification--${this.placement}`
+
     return (
       <Host
-        class="ld-notifcation"
+        class={cl}
         role="region"
+        aria-label="Notifications"
         aria-live="polite"
         aria-relevant="additions"
       >

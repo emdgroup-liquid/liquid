@@ -32,13 +32,62 @@ dispatchEvent(new CustomEvent('ldNotification', {
 
 ## Notification timeout
 
+While notifications with type `'error'` do not time out, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object: 
+
+```js
+dispatchEvent(new CustomEvent('ldNotification', {
+  detail: {
+    content: 'Here is a message for you.',
+    type: 'info',
+    timeout: 8000, // in milliseconds
+  }
+}))
+```
+
+If you want to prevent a notification of type `'info'` and `'warn'` from timing out, use the timeout value `0`:
+
+```js
+dispatchEvent(new CustomEvent('ldNotification', {
+  detail: {
+    content: 'Here is a message for you.',
+    type: 'info',
+    timeout: 0, // notification will not time out
+  }
+}))
+```
+
 ## Notification content
+
+The examples above used simple text as content for the notification. But you can also use an HTML string containing links and other components:
+
+ ```js
+dispatchEvent(new CustomEvent('ldNotification', {
+  detail: {
+    content: '<ld-icon name="placeholder"></ld-icon> A notification with an icon.',
+    type: 'info',
+  }
+}))
+```
 
 ## Redundant notifications handling
 
+If a notification event is triggered containing the same content and type as another notification which already is queued for notification display, the event is ignored. If you still need to trigger another notification with the same content, you can append a zero-space character to your content.
+
 ## Dismissing current notificaiton
 
+You can dismiss the current notification programmatically by dispatching the `ldNotificationDismiss` event on the `window`:
+
+```js
+dispatchEvent(new CustomEvent('ldNotificationDismiss'))
+```
+
 ## Clearing all notifications
+
+You can dismiss all notifications programmatically by dispatching the `ldNotificationClear` event on the `window`:
+
+```js
+dispatchEvent(new CustomEvent('ldNotificationClear'))
+```
 
 ## Examples
 
@@ -55,7 +104,7 @@ The examples below illustrate how you can trigger notifications using different 
 }
 </style>
 
-<ld-notification></ld-notification>
+<ld-notification placement="bottom"></ld-notification>
 
 <form class="notification-form" id="form-info">
   <ld-label>
@@ -183,6 +232,13 @@ formClear.addEventListener('submit', ev => {
 {% endexample %}
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property    | Attribute   | Description                               | Type                | Default |
+| ----------- | ----------- | ----------------------------------------- | ------------------- | ------- |
+| `placement` | `placement` | Notification placement within the screen. | `"bottom" \| "top"` | `'top'` |
 
 
 ----------------------------------------------
