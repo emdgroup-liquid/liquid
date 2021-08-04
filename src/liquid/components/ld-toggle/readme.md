@@ -1,0 +1,186 @@
+---
+eleventyNavigation:
+  key: Toggle
+  parent: Components
+layout: layout.njk
+title: Toggle
+permalink: components/ld-toggle/
+---
+
+# ld-toggle
+
+A toggle allows the user to select and deselect single values.
+
+This component can be used in conjunction with the [`ld-label`](components/ld-label/) and the [`ld-input-message`](components/ld-input-message/) component.
+
+---
+
+## Examples
+
+### Primary
+
+{% example %}
+<ld-toggle></ld-toggle>
+
+<!-- CSS component -->
+
+<button type="button" class="ld-toggle">
+  <span class="ld-toggle__knob"></span>
+</div>
+{% endexample %}
+
+### Large
+
+{% example %}
+<ld-toggle mode="large"></ld-toggle>
+
+<!-- CSS component -->
+
+<button type="button" class="ld-toggle ld-toggle--large">
+  <span class="ld-toggle__knob"></span>
+</button>
+{% endexample %}
+
+### Disabled
+
+{% example %}
+<ld-toggle disabled></ld-toggle>
+
+<ld-toggle disabled checked></ld-toggle>
+
+<!-- CSS component -->
+
+<button type="button" class="ld-toggle" disabled>
+  <span class="ld-toggle__knob"></span>
+</button>
+
+<button type="button" class="ld-toggle" disabled aria-checked="true">
+  <span class="ld-toggle__knob"></span>
+</button>
+{% endexample %}
+
+**If you want the toggle to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
+
+{% example %}
+<ld-toggle aria-disabled="true"></ld-toggle>
+
+<ld-toggle aria-disabled="true" checked></ld-toggle>
+
+<!-- CSS component -->
+
+<button type="button" class="ld-toggle" aria-disabled="true" id="focusable-disabled-toggle-1">
+  <span class="ld-toggle__knob"></span>
+</button>
+
+<button type="button" class="ld-toggle" aria-disabled="true" aria-checked="true" id="focusable-disabled-toggle-2">
+  <span class="ld-toggle__knob"></span>
+</button>
+
+<!-- Example code for input prevention on aria-disabled toggle elements -->
+<script>
+  const inputs = document.querySelectorAll('#focusable-disabled-toggle-1, #focusable-disabled-toggle-2')
+  Array.from(inputs).forEach(input => {
+    input.addEventListener('click', (ev) => {
+      ev.preventDefault()
+    })
+  })
+</script>
+
+{% endexample %}
+
+> **Note:** When `aria-disabled` is applied on the toggle, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the toggle yourself.
+
+### With label
+
+{% example %}
+<ld-label position="right" size="m">
+I have read the terms of service.\*
+<ld-toggle></ld-toggle>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--right ld-label--m">
+  I have read the terms of service.*
+  <button type="button" class="ld-toggle" required>
+    <span class="ld-toggle__knob"></span>
+  </button>
+</label>
+{% endexample %}
+
+Please refer to the [ld-label](components/ld-label/) docs for more information on the label component.
+
+### With label and input message
+
+{% example %}
+
+<div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
+  <ld-label position="right" size="m">
+    I have read the terms of service.*
+    <ld-toggle invalid required></ld-toggle>
+    <ld-input-message>To proceed, you must except the terms of service.</ld-input-message>
+  </ld-label>
+
+  <ld-label position="right" size="m">
+    I'd like to receive a weekly newsletter.
+    <ld-toggle></ld-toggle>
+    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
+  </ld-label>
+</div>
+
+<!-- CSS component -->
+
+<div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
+  <label class="ld-label ld-label--right ld-label--m">
+    I have read the terms of service.*
+    <button type="button" class="ld-toggle ld-toggle--invalid" required>
+      <span class="ld-toggle__knob"></span>
+    </button>
+    <span class="ld-input-message ld-input-message--error">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+        <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      To proceed, you must except the terms of service.
+    </span>
+  </label>
+  
+  <label class="ld-label ld-label--right ld-label--m">
+    I'd like to receive a weekly newsletter.
+    <button type="button" class="ld-toggle">
+      <span class="ld-toggle__knob"></span>
+    </button>
+    <span class="ld-input-message">
+      <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
+      <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+        <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
+      </svg>
+      You may unsubscribe at any given time.
+    </span>
+  </label>
+</div>
+{% endexample %}
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property   | Attribute  | Description                                                                  | Type                 | Default     |
+| ---------- | ---------- | ---------------------------------------------------------------------------- | -------------------- | ----------- |
+| `checked`  | `checked`  | The input value.                                                             | `boolean`            | `undefined` |
+| `disabled` | `disabled` | Disabled state of the toggle.                                                | `boolean`            | `false`     |
+| `invalid`  | `invalid`  | Set this property to `true` in order to mark the toggle visually as invalid. | `boolean`            | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists                     | `string \| number`   | `undefined` |
+| `mode`     | `mode`     | Display mode.                                                                | `"large" \| "small"` | `undefined` |
+| `ref`      | `ref`      | reference to component                                                       | `any`                | `undefined` |
+| `tone`     | `tone`     | Toggle tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`             | `undefined` |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

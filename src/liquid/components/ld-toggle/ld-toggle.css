@@ -1,0 +1,83 @@
+.ld-toggle {
+  background-color: var(--ld-col-rblck4);
+  border-radius: 1rem;
+  border: 0;
+  display: inline-flex;
+  height: 2rem;
+  padding: 0;
+  position: relative;
+  width: 3.375rem;
+
+  &:where(:disabled, [aria-disabled='true']) {
+    background-color: var(--ld-col-bg-g);
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    cursor: pointer;
+  }
+
+  .ld-toggle__knob {
+    background-color: var(--ld-col-wht);
+    border-radius: 50%;
+    display: inline-block;
+    height: 1.75rem;
+    margin: 2px;
+    pointer-events: none;
+    transition: transform 200ms ease-in-out;
+    width: 1.75rem;
+  }
+
+  &:where([aria-checked='true']) {
+    .ld-toggle__knob {
+      transform: translateX(calc(1.375rem));
+    }
+  }
+}
+
+.ld-toggle--large {
+  border-radius: 1.25rem;
+  height: 2.5rem;
+  width: 4.1875rem;
+
+  .ld-toggle__knob {
+    height: 2.125rem;
+    margin: 3px;
+    width: 2.125rem;
+  }
+
+  &:where([aria-checked='true']) {
+    .ld-toggle__knob {
+      transform: translateX(calc(1.6875rem));
+    }
+  }
+}
+
+.ld-toggle--invalid {
+  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+}
+
+/* .ld-theme-ocean -> default */
+.ld-toggle,
+.ld-theme-ocean .ld-toggle,
+[class*='ld-theme'] .ld-theme-ocean .ld-toggle {
+  &:where([aria-checked='true']) {
+    background-color: var(--ld-thm-ocean-bg-primary);
+
+    &:where(:disabled, [aria-disabled='true']) {
+      background-color: rgb(160, 203, 236);
+    }
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  :where(.ld-toggle) {
+    &:where([aria-checked='true']) {
+      background-color: var(--ld-thm-tea-bg-primary);
+
+      &:where(:disabled, [aria-disabled='true']) {
+        background-color: rgb(173, 214, 196);
+      }
+    }
+  }
+}
