@@ -10,6 +10,26 @@
   font: var(--ld-typo-body-s);
 }
 
+@keyframes ld-notification-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ld-notification-fade-out {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: none;
+    opacity: 0;
+  }
+}
+
 .ld-notification__item {
   position: absolute;
   transform-origin: center;
@@ -22,6 +42,10 @@
   display: flex;
   justify-content: space-between;
   transition: transform 0.2s ease, opacity 0.2s linear;
+
+  &:where(:not(.ld-notification__item--dismissed)) {
+    animation: ld-notification-fade-in 0.2s linear;
+  }
 
   &:nth-last-of-type(n + 4) {
     display: none;
@@ -47,6 +71,11 @@
   &:nth-last-of-type(4) {
     opacity: 0.25;
     transform: scale(0.925) translateY(75%);
+  }
+
+  &.ld-notification__item--dismissed {
+    opacity: 0;
+    animation: ld-notification-fade-out 0.2s linear forwards;
   }
 }
 

@@ -9,6 +9,8 @@ permalink: components/ld-notification/
 
 # ld-notification
 
+> **Note**: 🚧 This component is work in progress.
+
 Use the `ld-notification` component in your application to display popup notifications.
 
 ---
@@ -27,6 +29,16 @@ dispatchEvent(new CustomEvent('ldNotification', {
 ```
 
 > **Note**: You should not use more than one `ld-notification` component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?
+
+## Notification timeout
+
+## Notification content
+
+## Redundant notifications handling
+
+## Dismissing current notificaiton
+
+## Clearing all notifications
 
 ## Examples
 
@@ -55,7 +67,7 @@ The examples below illustrate how you can trigger notifications using different 
 
 <form class="notification-form" id="form-warn">
   <ld-label>
-    Alert message
+    Warning
     <ld-input id="input-warn" value="I warn you!"></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
@@ -83,6 +95,14 @@ The examples below illustrate how you can trigger notifications using different 
     <ld-input id="input-error" value="Ooops."></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
+</form>
+
+<form id="form-dismiss">
+  <ld-button type="submit">Dismiss current notification</ld-button>
+</form>
+
+<form id="form-clear">
+  <ld-button type="submit">Clear all notifications</ld-button>
 </form>
 
 <script>
@@ -146,6 +166,18 @@ formError.addEventListener('submit', ev => {
       type: 'error',
     }
   }))
+})
+
+const formDismiss = document.getElementById('form-dismiss')
+formDismiss.addEventListener('submit', ev => {
+  ev.preventDefault()
+  dispatchEvent(new CustomEvent('ldNotificationDismiss'))
+})
+
+const formClear = document.getElementById('form-clear')
+formClear.addEventListener('submit', ev => {
+  ev.preventDefault()
+  dispatchEvent(new CustomEvent('ldNotificationClear'))
 })
 </script>
 {% endexample %}

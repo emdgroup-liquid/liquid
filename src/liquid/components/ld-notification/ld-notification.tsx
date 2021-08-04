@@ -8,6 +8,7 @@ type Notification = {
 }
 
 const DEFAULT_NOTIFICATION_TIMEOUT = 6000
+const FADE_TRANSITION_DURATION = 200
 
 @Component({
   tag: 'ld-notification',
@@ -16,8 +17,11 @@ const DEFAULT_NOTIFICATION_TIMEOUT = 6000
 })
 export class LdNotification {
   @State() queue: Notification[] = []
+  @State() queueDismissed: Notification[] = []
 
   @State() dismissTimeout: number
+
+  @State() fadeoutTimeouts: number[] = []
 
   @State() currentNotification?: Notification
 
@@ -30,7 +34,7 @@ export class LdNotification {
     if (this.currentNotification.timeout === 0) return
 
     this.dismissTimeout = window.setTimeout(() => {
-      this.queue = this.queue.slice(0, -1)
+      this.handleNotificationDismiss()
     }, this.currentNotification.timeout || DEFAULT_NOTIFICATION_TIMEOUT)
   }
 
@@ -75,8 +79,18 @@ export class LdNotification {
     passive: true,
   })
   handleNotificationDismiss() {
-    this.queue = this.queue.slice(0, -1)
+    if (!this.currentNotification) return
+
+    this.queueDismissed.unshift(this.queue.pop())
+    this.queueDismissed = [...this.queueDismissed]
+    this.queue = [...this.queue]
     this.currentNotification = this.queue[this.queue.length - 1]
+
+    this.fadeoutTimeouts.push(
+      window.setTimeout(() => {
+        this.queueDismissed = this.queueDismissed.slice(0, -1)
+      }, FADE_TRANSITION_DURATION)
+    )
   }
 
   @Listen('ldNotificationClear', {
@@ -84,15 +98,49 @@ export class LdNotification {
     passive: true,
   })
   handleNotificationClear() {
+    this.queueDismissed = [...this.queue]
     this.queue = []
     this.currentNotification = undefined
+    this.fadeoutTimeouts.forEach((timeoutId) => clearTimeout(timeoutId))
+    this.fadeoutTimeouts.push(
+      window.setTimeout(() => {
+        this.queueDismissed = []
+      }, FADE_TRANSITION_DURATION)
+    )
   }
 
   disconnectedCallback() {
     clearTimeout(this.dismissTimeout)
+    this.fadeoutTimeouts.forEach((timeoutId) => clearTimeout(timeoutId))
   }
 
   render() {
+    const dismissIcon = `
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Dismiss</title>
+        <path
+          d="M6 6L18 18"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M6 18L18 6"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    `
+
     return (
       <Host
         class="ld-notifcation"
@@ -113,31 +161,24 @@ export class LdNotification {
             <button
               class="ld-notification__btn-dismiss"
               onClick={this.handleNotificationDismiss.bind(this)}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Dismiss</title>
-                <path
-                  d="M6 6L18 18"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M6 18L18 6"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
+              innerHTML={dismissIcon}
+            ></button>
+          </div>
+        ))}
+        {this.queueDismissed.map((notification, index) => (
+          <div
+            aria-hidden="true"
+            class={`ld-notification__item ld-notification__item--dismissed ld-notification__item--${notification.type}`}
+            key={index}
+          >
+            <div
+              class="ld-notification__item-content"
+              innerHTML={notification.content}
+            ></div>
+            <div
+              class="ld-notification__btn-dismiss"
+              innerHTML={dismissIcon}
+            ></div>
           </div>
         ))}
       </Host>
