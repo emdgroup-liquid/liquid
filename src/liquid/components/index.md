@@ -29,5 +29,5 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-checkbox](./ld-checkbox)               | done              | done               |
 | [ld-radio](./ld-radio)                     | done              | done               |
 | [ld-select](./ld-select)                   | done              | done               |
-| [ld-option](./ld-option)                   | done              | done               |
+| [ld-notification](./ld-notification)       | done              | in progress        |
 | ld-pattern                                 | done              | todo               |
