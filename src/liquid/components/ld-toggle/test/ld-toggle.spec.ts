@@ -9,6 +9,7 @@ describe('ld-toggle', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
   it('allows for disable', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
@@ -16,6 +17,7 @@ describe('ld-toggle', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
   it('updates checked prop on checked value change', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
@@ -33,6 +35,7 @@ describe('ld-toggle', () => {
 
     expect(page.root).toMatchSnapshot()
   })
+
   it('emits focus and blur event', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
@@ -61,5 +64,41 @@ describe('ld-toggle', () => {
     await button.dispatchEvent(new Event('blur'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyBlur).toHaveBeenCalled()
+  })
+
+  it('does not prevent button value changes without an aria-disabled attribute', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+
+    expect(ldToggle.checked).toBe(undefined)
+
+    const button = ldToggle.querySelector('button')
+
+    await button.dispatchEvent(new Event('click'))
+    await page.waitForChanges()
+
+    expect(button).toEqualAttribute('aria-checked', 'true')
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('prevents button value changes with an aria-disabled attribute', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle aria-disabled="true"></ld-toggle>`,
+    })
+    const ldToggle = page.root
+
+    expect(ldToggle.checked).toBe(undefined)
+
+    const button = ldToggle.querySelector('button')
+
+    await button.dispatchEvent(new Event('click'))
+    await page.waitForChanges()
+
+    expect(button).toEqualAttribute('aria-checked', 'false')
+    expect(page.root).toMatchSnapshot()
   })
 })

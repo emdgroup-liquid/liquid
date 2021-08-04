@@ -8,6 +8,22 @@ exports[`ld-toggle allows for disable 1`] = `
 </ld-toggle>
 `;
 
+exports[`ld-toggle does not prevent button value changes without an aria-disabled attribute 1`] = `
+<ld-toggle checked="">
+  <button aria-checked="true" class="ld-toggle ld-toggle--small" type="button">
+    <span class="ld-toggle__knob"></span>
+  </button>
+</ld-toggle>
+`;
+
+exports[`ld-toggle prevents button value changes with an aria-disabled attribute 1`] = `
+<ld-toggle aria-disabled="true">
+  <button aria-checked="false" aria-disabled="true" class="ld-toggle ld-toggle--small" type="button">
+    <span class="ld-toggle__knob"></span>
+  </button>
+</ld-toggle>
+`;
+
 exports[`ld-toggle renders correctly 1`] = `
 <ld-toggle>
   <button aria-checked="false" class="ld-toggle ld-toggle--small" type="button">

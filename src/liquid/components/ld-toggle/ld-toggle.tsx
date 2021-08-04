@@ -1,8 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
-import { JSXBase } from '@stencil/core/internal'
-import InputHTMLAttributes = JSXBase.InputHTMLAttributes
-import { cloneAttributes } from '../../utils/cloneAttributes'
+import { Component, Element, h, Prop } from '@stencil/core'
 
 /**
  * @virtualProp ref - reference to component
@@ -19,11 +16,11 @@ export class LdToggle {
   /** Display mode. */
   @Prop() mode?: 'small' | 'large'
 
-  /** Toggle tone. Use `'dark'` on white backgrounds. Default is a light tone. */
-  @Prop() tone: 'dark'
-
   /** Disabled state of the toggle. */
   @Prop() disabled = false
+
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) checked: boolean
@@ -60,7 +57,6 @@ export class LdToggle {
       this.mode === 'large' ? 'ld-toggle--large' : 'ld-toggle--small',
     ]
 
-    if (this.tone) classNames.push(`ld-toggle--${this.tone}`)
     if (this.invalid) classNames.push('ld-toggle--invalid')
 
     return classNames.join(' ')
@@ -68,22 +64,18 @@ export class LdToggle {
 
   render() {
     return (
-      <Host>
-        <button
-          aria-checked={this.checked ? 'true' : 'false'}
-          class={this.getClassNames()}
-          onClick={this.handleClick.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
-          type="button"
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(
-            this.element
-          )}
-          disabled={this.disabled}
-        >
-          <span class="ld-toggle__knob" />
-        </button>
-      </Host>
+      <button
+        aria-checked={this.checked ? 'true' : 'false'}
+        aria-disabled={this.ariaDisabled}
+        class={this.getClassNames()}
+        onClick={this.handleClick.bind(this)}
+        onBlur={this.handleBlur.bind(this)}
+        onFocus={this.handleFocus.bind(this)}
+        type="button"
+        disabled={this.disabled}
+      >
+        <span class="ld-toggle__knob" />
+      </button>
     )
   }
 }

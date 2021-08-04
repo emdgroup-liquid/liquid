@@ -167,20 +167,18 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property   | Attribute  | Description                                                                  | Type                 | Default     |
-| ---------- | ---------- | ---------------------------------------------------------------------------- | -------------------- | ----------- |
-| `checked`  | `checked`  | The input value.                                                             | `boolean`            | `undefined` |
-| `disabled` | `disabled` | Disabled state of the toggle.                                                | `boolean`            | `false`     |
-| `invalid`  | `invalid`  | Set this property to `true` in order to mark the toggle visually as invalid. | `boolean`            | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists                     | `string \| number`   | `undefined` |
-| `mode`     | `mode`     | Display mode.                                                                | `"large" \| "small"` | `undefined` |
-| `ref`      | `ref`      | reference to component                                                       | `any`                | `undefined` |
-| `tone`     | `tone`     | Toggle tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`             | `undefined` |
+| Property       | Attribute       | Description                                                                  | Type                 | Default     |
+| -------------- | --------------- | ---------------------------------------------------------------------------- | -------------------- | ----------- |
+| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                      | `string`             | `undefined` |
+| `checked`      | `checked`       | The input value.                                                             | `boolean`            | `undefined` |
+| `disabled`     | `disabled`      | Disabled state of the toggle.                                                | `boolean`            | `false`     |
+| `invalid`      | `invalid`       | Set this property to `true` in order to mark the toggle visually as invalid. | `boolean`            | `undefined` |
+| `key`          | `key`           | for tracking the node's identity when working with lists                     | `string \| number`   | `undefined` |
+| `mode`         | `mode`          | Display mode.                                                                | `"large" \| "small"` | `undefined` |
+| `ref`          | `ref`           | reference to component                                                       | `any`                | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
