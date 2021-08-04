@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-toggle allows for disable 1`] = `
+<ld-toggle disabled="">
+  <button aria-checked="false" class="ld-toggle ld-toggle--small" disabled="" type="button">
+    <span class="ld-toggle__knob"></span>
+  </button>
+</ld-toggle>
+`;
+
+exports[`ld-toggle renders correctly 1`] = `
+<ld-toggle>
+  <button aria-checked="false" class="ld-toggle ld-toggle--small" type="button">
+    <span class="ld-toggle__knob"></span>
+  </button>
+</ld-toggle>
+`;
+
+exports[`ld-toggle updates checked prop on checked value change 1`] = `
+<ld-toggle checked="">
+  <button aria-checked="true" class="ld-toggle ld-toggle--small" type="button">
+    <span class="ld-toggle__knob"></span>
+  </button>
+</ld-toggle>
+`;

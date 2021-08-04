@@ -80,7 +80,6 @@ export class LdToggle {
             this.element
           )}
           disabled={this.disabled}
-          checked={this.checked}
         >
           <span class="ld-toggle__knob" />
         </button>

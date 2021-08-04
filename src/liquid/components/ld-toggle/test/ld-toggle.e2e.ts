@@ -28,26 +28,6 @@ const checkedStates = [false, true]
 
 const allowableMismatchedRatio = 0.02
 
-const checkAndBox = `
-  <svg
-    class="ld-toggle__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-toggle__box"></div>
-`
-
 describe('ld-toggle', () => {
   for (const tone of tones) {
     const toneStr = tone ? ` ${tone}` : ''
@@ -55,6 +35,9 @@ describe('ld-toggle', () => {
       for (const theme of themes) {
         for (const checkedState of checkedStates) {
           const checkedStateStr = checkedState ? ' checked' : ''
+          const checkedStateButtonStr = checkedState
+            ? ' aria-checked="true"'
+            : ''
 
           // Themed
           it(`default theme-${theme}${toneStr}${checkedStateStr}`, async () => {
@@ -117,9 +100,9 @@ describe('ld-toggle', () => {
           const toneModifier = tone ? ` ld-toggle--${tone}` : ''
           it(`css component default theme-${theme}${toneStr}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr}></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr}>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             const results = await page.compareScreenshot()
@@ -127,9 +110,9 @@ describe('ld-toggle', () => {
           })
           it(`css component hover theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr}></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr}>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.hover('.ld-toggle')
@@ -138,9 +121,9 @@ describe('ld-toggle', () => {
           })
           it(`css component focus theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr}></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr}>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.keyboard.press('Tab')
@@ -151,9 +134,9 @@ describe('ld-toggle', () => {
           // Disabled CSS component
           it(`css component disabled theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr} disabled></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} disabled>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             const results = await page.compareScreenshot()
@@ -161,9 +144,9 @@ describe('ld-toggle', () => {
           })
           it(`css component disabled hover theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}" disabled>
-                <input type="toggle" ${checkedStateStr} disabled></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} disabled>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.hover('.ld-toggle')
@@ -172,9 +155,9 @@ describe('ld-toggle', () => {
           })
           it(`css component disabled focus theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr} disabled></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} disabled>
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.keyboard.press('Tab')
@@ -185,9 +168,9 @@ describe('ld-toggle', () => {
           // Aria-disabled CSS component
           it(`css component aria-disabled theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} aria-disabled="true">
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             const results = await page.compareScreenshot()
@@ -195,9 +178,9 @@ describe('ld-toggle', () => {
           })
           it(`css component aria-disabled hover theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}" aria-disabled="true">
-                <input type="toggle" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} aria-disabled="true">
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.hover('.ld-toggle')
@@ -206,9 +189,9 @@ describe('ld-toggle', () => {
           })
           it(`css component aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
             const page = await getPageWithContent(
-              `<div class="ld-toggle${toneModifier}">
-                <input type="toggle" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
-              </div>`,
+              `<button type="button" class="ld-toggle${toneModifier}"${checkedStateButtonStr} aria-disabled="true">
+                <span class="ld-toggle__knob"></span>
+              </button>`,
               theme
             )
             await page.keyboard.press('Tab')
@@ -221,32 +204,33 @@ describe('ld-toggle', () => {
   }
 
   describe('aria-disabled', () => {
-    it('does not prevent input value changes without an aria-disabled attribute', async () => {
+    // Q: Aren't those actually unit tests?
+    it('does not prevent button value changes without an aria-disabled attribute', async () => {
       const page = await getPageWithContent(`<ld-toggle></ld-toggle>`)
       const ldToggle = await page.find('ld-toggle')
-      const input = await ldToggle.find('input')
+      const button = await ldToggle.find('button')
 
-      await input.press('Space')
+      await button.press('Space')
 
       await page.waitForChanges()
 
-      const checked = await input.getProperty('checked')
-      expect(checked).toBe(true)
+      const checked = await button.getAttribute('aria-checked')
+      expect(checked).toBe('true')
     })
 
-    it('prevents input value changes with an aria-disabled attribute', async () => {
+    it('prevents button value changes with an aria-disabled attribute', async () => {
       const page = await getPageWithContent(
         `<ld-toggle aria-disabled="true"></ld-toggle>`
       )
       const ldToggle = await page.find('ld-toggle')
-      const input = await ldToggle.find('input')
+      const button = await ldToggle.find('button')
 
-      await input.press('Space')
+      await button.press('Space')
 
       await page.waitForChanges()
 
-      const checked = await input.getProperty('checked')
-      expect(checked).toBe(false)
+      const checked = await button.getAttribute('aria-checked')
+      expect(checked).toBe('false')
     })
   })
 })
