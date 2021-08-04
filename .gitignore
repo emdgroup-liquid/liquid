@@ -27,3 +27,5 @@ UserInterfaceState.xcuserstate
 .env*
 
 src/**/components.d.ts
+
+.husky

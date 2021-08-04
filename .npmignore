@@ -1,4 +1,5 @@
 .github
+.husky
 coverage
 tmp
 screenshot
