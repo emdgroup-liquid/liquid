@@ -24,7 +24,8 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- CSS component -->
 
-<button type="button" class="ld-toggle">
+<div class="ld-toggle">
+  <input type="checkbox" />
   <span class="ld-toggle__knob"></span>
 </div>
 {% endexample %}
@@ -36,9 +37,10 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- CSS component -->
 
-<button type="button" class="ld-toggle ld-toggle--large">
+<div class="ld-toggle ld-toggle--large">
+  <input type="checkbox" />
   <span class="ld-toggle__knob"></span>
-</button>
+</div>
 {% endexample %}
 
 ### Disabled
@@ -50,13 +52,15 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- CSS component -->
 
-<button type="button" class="ld-toggle" disabled>
+<div class="ld-toggle">
+  <input type="checkbox" disabled />
   <span class="ld-toggle__knob"></span>
-</button>
+</div>
 
-<button type="button" class="ld-toggle" disabled aria-checked="true">
+<div class="ld-toggle">
+  <input type="checkbox" disabled checked />
   <span class="ld-toggle__knob"></span>
-</button>
+</div>
 {% endexample %}
 
 **If you want the toggle to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
@@ -68,13 +72,15 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- CSS component -->
 
-<button type="button" class="ld-toggle" aria-disabled="true" id="focusable-disabled-toggle-1">
+<div class="ld-toggle">
+  <input type="checkbox" aria-disabled="true" id="focusable-disabled-toggle-1" />
   <span class="ld-toggle__knob"></span>
-</button>
+</div>
 
-<button type="button" class="ld-toggle" aria-disabled="true" aria-checked="true" id="focusable-disabled-toggle-2">
+<div class="ld-toggle">
+  <input type="checkbox" aria-disabled="true" checked id="focusable-disabled-toggle-2" />
   <span class="ld-toggle__knob"></span>
-</button>
+</div>
 
 <!-- Example code for input prevention on aria-disabled toggle elements -->
 <script>
@@ -102,9 +108,10 @@ I have read the terms of service.\*
 
 <label class="ld-label ld-label--right ld-label--m">
   I have read the terms of service.*
-  <button type="button" class="ld-toggle" required>
+  <div class="ld-toggle">
+  <input type="checkbox" required />
     <span class="ld-toggle__knob"></span>
-  </button>
+  </div>
 </label>
 {% endexample %}
 
@@ -117,7 +124,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
   <ld-label position="right" size="m">
     I have read the terms of service.*
-    <ld-toggle invalid required></ld-toggle>
+    <ld-toggle required></ld-toggle>
     <ld-input-message>To proceed, you must except the terms of service.</ld-input-message>
   </ld-label>
 
@@ -133,9 +140,10 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
   <label class="ld-label ld-label--right ld-label--m">
     I have read the terms of service.*
-    <button type="button" class="ld-toggle ld-toggle--invalid" required>
+    <div class="ld-toggle">
+      <input type="checkbox" required />
       <span class="ld-toggle__knob"></span>
-    </button>
+    </div>
     <span class="ld-input-message ld-input-message--error">
       <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
       <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,9 +157,10 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
   
   <label class="ld-label ld-label--right ld-label--m">
     I'd like to receive a weekly newsletter.
-    <button type="button" class="ld-toggle">
+    <div class="ld-toggle">
+      <input type="checkbox" />
       <span class="ld-toggle__knob"></span>
-    </button>
+    </div>
     <span class="ld-input-message">
       <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
       <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -167,6 +176,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute       | Description                                                                  | Type                 | Default     |
@@ -178,7 +188,9 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `key`          | `key`           | for tracking the node's identity when working with lists                     | `string \| number`   | `undefined` |
 | `mode`         | `mode`          | Display mode.                                                                | `"large" \| "small"` | `undefined` |
 | `ref`          | `ref`           | reference to component                                                       | `any`                | `undefined` |
+| `required`     | `required`      | Set this property to `true` in order to mark the toggle as required.         | `boolean`            | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

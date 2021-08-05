@@ -30,7 +30,6 @@ describe('ld-toggle', () => {
     for (const theme of themes) {
       for (const checkedState of checkedStates) {
         const checkedStateStr = checkedState ? ' checked' : ''
-        const checkedStateButtonStr = checkedState ? ' aria-checked="true"' : ''
 
         // Themed
         it(`default theme-${theme}${checkedStateStr}`, async () => {
@@ -92,30 +91,21 @@ describe('ld-toggle', () => {
         // Themed CSS component
         it(`css component default theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr}>
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
-        })
-        it(`css component hover theme-${theme}${checkedStateStr}`, async () => {
-          const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr}>
-                <span class="ld-toggle__knob"></span>
-              </button>`,
-            theme
-          )
-          await page.hover('.ld-toggle')
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`css component focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr}>
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -126,30 +116,21 @@ describe('ld-toggle', () => {
         // Disabled CSS component
         it(`css component disabled theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} disabled>
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
-        })
-        it(`css component disabled hover theme-${theme}${checkedStateStr}`, async () => {
-          const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} disabled>
-                <span class="ld-toggle__knob"></span>
-              </button>`,
-            theme
-          )
-          await page.hover('.ld-toggle')
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`css component disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} disabled>
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -160,30 +141,21 @@ describe('ld-toggle', () => {
         // Aria-disabled CSS component
         it(`css component aria-disabled theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} aria-disabled="true">
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
-        })
-        it(`css component aria-disabled hover theme-${theme}${checkedStateStr}`, async () => {
-          const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} aria-disabled="true">
-                <span class="ld-toggle__knob"></span>
-              </button>`,
-            theme
-          )
-          await page.hover('.ld-toggle')
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`css component aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<button type="button" class="ld-toggle"${checkedStateButtonStr} aria-disabled="true">
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
-              </button>`,
+              </div>`,
             theme
           )
           await page.keyboard.press('Tab')

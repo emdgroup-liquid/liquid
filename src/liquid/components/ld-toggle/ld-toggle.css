@@ -4,22 +4,36 @@
   --ld-toggle-inner-space: 0.125rem;
 
   align-items: center;
-  background-color: var(--ld-col-rblck4);
-  border-radius: var(--ld-br-full);
-  border: 0;
   display: flex;
   height: var(--ld-toggle-height);
-  padding: 0;
+  min-width: auto !important;
+  position: relative;
   transition: background-color 200ms ease-in-out;
   width: var(--ld-toggle-width);
 
-  &:disabled,
-  &[aria-disabled='true'] {
-    background-color: var(--ld-col-bg-g);
-  }
+  input {
+    background-color: var(--ld-col-rblck4);
+    border-radius: var(--ld-br-full);
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 
-  &:not(:disabled):not([aria-disabled='true']) {
-    cursor: pointer;
+    &:not(:disabled):not([aria-disabled='true']) {
+      cursor: pointer;
+    }
+
+    &:checked ~ .ld-toggle__knob {
+      transform: translateX(
+        calc(var(--ld-toggle-width) - var(--ld-toggle-height))
+      );
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      background-color: var(--ld-col-bg-g);
+    }
   }
 
   .ld-toggle__knob {
@@ -31,14 +45,7 @@
     pointer-events: none;
     transition: transform 200ms ease-in-out;
     width: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
-  }
-
-  &[aria-checked='true'] {
-    .ld-toggle__knob {
-      transform: translateX(
-        calc(var(--ld-toggle-width) - var(--ld-toggle-height))
-      );
-    }
+    z-index: 1;
   }
 }
 
@@ -48,7 +55,8 @@
   --ld-toggle-inner-space: 0.1875rem;
 }
 
-.ld-toggle--invalid {
+.ld-toggle input:invalid,
+.ld-toggle--invalid input {
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
 }
 
@@ -56,20 +64,22 @@
 .ld-toggle,
 .ld-theme-ocean .ld-toggle,
 [class*='ld-theme'] .ld-theme-ocean .ld-toggle {
-  &[aria-checked='true'] {
-    background-color: var(--ld-thm-ocean-bg-primary);
+  input {
+    &:checked {
+      background-color: var(--ld-thm-ocean-bg-primary);
 
-    &:disabled,
-    &[aria-disabled='true'] {
-      background-color: rgb(160, 203, 236);
+      &:disabled,
+      &[aria-disabled='true'] {
+        background-color: rgb(160, 203, 236);
+      }
     }
   }
 }
 
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
-  .ld-toggle {
-    &[aria-checked='true'] {
+  .ld-toggle input {
+    &:checked {
       background-color: var(--ld-thm-tea-bg-primary);
 
       &:disabled,
@@ -82,8 +92,8 @@
 
 .ld-theme-bubblegum,
 [class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-toggle {
-    &[aria-checked='true'] {
+  .ld-toggle input {
+    &:checked {
       background-color: var(--ld-thm-bubblegum-bg-primary);
 
       &:disabled,
@@ -96,8 +106,8 @@
 
 .ld-theme-shake,
 [class*='ld-theme'] .ld-theme-shake {
-  .ld-toggle {
-    &[aria-checked='true'] {
+  .ld-toggle input {
+    &:checked {
       background-color: var(--ld-thm-shake-bg-primary);
 
       &:disabled,
@@ -110,8 +120,8 @@
 
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
-  .ld-toggle {
-    &[aria-checked='true'] {
+  .ld-toggle input {
+    &:checked {
       background-color: var(--ld-thm-solvent-bg-primary);
 
       &:disabled,
