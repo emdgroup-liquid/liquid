@@ -8,6 +8,8 @@
   height: var(--ld-toggle-height);
   min-width: auto !important;
   position: relative;
+  /* animations triggered by user interactions on single component instances are probably not a performance issue */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
   transition: background-color 200ms ease-in-out;
   width: var(--ld-toggle-width);
 
@@ -24,10 +26,20 @@
       cursor: pointer;
     }
 
-    &:checked ~ .ld-toggle__knob {
-      transform: translateX(
-        calc(var(--ld-toggle-width) - var(--ld-toggle-height))
-      );
+    &:checked {
+      ~ .ld-toggle__knob {
+        transform: translateX(
+          calc(var(--ld-toggle-width) - var(--ld-toggle-height))
+        );
+      }
+
+      ~ .ld-toggle__icon-start {
+        color: var(--ld-col-wht);
+      }
+
+      ~ .ld-toggle__icon-end {
+        color: var(--ld-col-rblck6);
+      }
     }
 
     &:disabled,
@@ -55,6 +67,10 @@
   --ld-toggle-inner-space: 0.1875rem;
 }
 
+.ld-toggle--with-icons {
+  --ld-toggle-width: 6rem;
+}
+
 .ld-toggle input:invalid,
 .ld-toggle--invalid input {
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
@@ -74,6 +90,33 @@
       }
     }
   }
+}
+
+.ld-toggle__icon-start,
+.ld-toggle__icon-end {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem;
+  pointer-events: none;
+  position: absolute;
+  /* animations triggered by user interactions on single component instances are probably not a performance issue */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: color 200ms ease-in-out;
+  z-index: 1;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.ld-toggle__icon-start {
+  color: var(--ld-col-rblck6);
+  left: 0;
+}
+
+.ld-toggle__icon-end {
+  color: var(--ld-col-wht);
+  right: 0;
 }
 
 .ld-theme-tea,

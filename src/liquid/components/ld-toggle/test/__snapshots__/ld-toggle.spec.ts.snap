@@ -1,35 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-toggle allows for disable 1`] = `
-<ld-toggle class="ld-toggle ld-toggle--small" disabled="">
-  <input disabled="" type="checkbox">
-  <span class="ld-toggle__knob"></span>
-</ld-toggle>
-`;
-
-exports[`ld-toggle does not prevent input value changes without an aria-disabled attribute 1`] = `
-<ld-toggle checked="" class="ld-toggle ld-toggle--small">
-  <input checked="" type="checkbox">
-  <span class="ld-toggle__knob"></span>
-</ld-toggle>
-`;
-
 exports[`ld-toggle prevents input value changes with an aria-disabled attribute 1`] = `
-<ld-toggle aria-disabled="true" class="ld-toggle ld-toggle--small">
+<ld-toggle aria-disabled="true" class="ld-toggle">
+  <!---->
   <input aria-disabled="true" type="checkbox">
   <span class="ld-toggle__knob"></span>
 </ld-toggle>
 `;
 
-exports[`ld-toggle renders correctly 1`] = `
-<ld-toggle class="ld-toggle ld-toggle--small">
+exports[`ld-toggle renders default 1`] = `
+<ld-toggle class="ld-toggle">
+  <!---->
   <input type="checkbox">
   <span class="ld-toggle__knob"></span>
 </ld-toggle>
 `;
 
+exports[`ld-toggle renders disabled state 1`] = `
+<ld-toggle class="ld-toggle" disabled="">
+  <!---->
+  <input disabled="" type="checkbox">
+  <span class="ld-toggle__knob"></span>
+</ld-toggle>
+`;
+
+exports[`ld-toggle renders large mode 1`] = `
+<ld-toggle class="ld-toggle ld-toggle--large" mode="large">
+  <!---->
+  <input type="checkbox">
+  <span class="ld-toggle__knob"></span>
+</ld-toggle>
+`;
+
+exports[`ld-toggle renders large mode, if with icons 1`] = `
+<ld-toggle class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+  <!---->
+  <input type="checkbox">
+  <span class="ld-toggle__knob"></span>
+  <div class="ld-toggle__icon-start">
+    <ld-icon name="placeholder" size="sm" slot="icon-start">
+      <!---->
+      <span class="ld-icon ld-icon--sm" role="presentation">
+        Not Found
+      </span>
+    </ld-icon>
+  </div>
+  <div class="ld-toggle__icon-end">
+    <ld-icon name="placeholder" size="sm" slot="icon-end">
+      <!---->
+      <span class="ld-icon ld-icon--sm" role="presentation">
+        Not Found
+      </span>
+    </ld-icon>
+  </div>
+</ld-toggle>
+`;
+
+exports[`ld-toggle renders with icons 1`] = `
+<ld-toggle class="ld-toggle ld-toggle--large ld-toggle--with-icons" mode="large">
+  <!---->
+  <input type="checkbox">
+  <span class="ld-toggle__knob"></span>
+  <div class="ld-toggle__icon-start">
+    <ld-icon name="placeholder" size="sm" slot="icon-start">
+      <!---->
+      <span class="ld-icon ld-icon--sm" role="presentation">
+        Not Found
+      </span>
+    </ld-icon>
+  </div>
+  <div class="ld-toggle__icon-end">
+    <ld-icon name="placeholder" size="sm" slot="icon-end">
+      <!---->
+      <span class="ld-icon ld-icon--sm" role="presentation">
+        Not Found
+      </span>
+    </ld-icon>
+  </div>
+</ld-toggle>
+`;
+
 exports[`ld-toggle updates checked prop on checked value change 1`] = `
-<ld-toggle checked="" class="ld-toggle ld-toggle--small">
+<ld-toggle checked="" class="ld-toggle">
+  <!---->
   <input checked="" type="checkbox">
   <span class="ld-toggle__knob"></span>
 </ld-toggle>

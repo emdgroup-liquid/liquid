@@ -96,12 +96,54 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 > **Note:** When `aria-disabled` is applied on the toggle, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the toggle yourself.
 
+### With Icons
+
+{% example %}
+<ld-toggle mode="large">
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle checked>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<!-- CSS component -->
+
+<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+  <input type="checkbox" />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+  <input type="checkbox" checked />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+{% endexample %}
+
 ### With label
 
 {% example %}
 <ld-label position="right" size="m">
-I have read the terms of service.\*
-<ld-toggle></ld-toggle>
+  I have read the terms of service.*
+  <ld-toggle></ld-toggle>
 </ld-label>
 
 <!-- CSS component -->
@@ -109,7 +151,7 @@ I have read the terms of service.\*
 <label class="ld-label ld-label--right ld-label--m">
   I have read the terms of service.*
   <div class="ld-toggle">
-  <input type="checkbox" required />
+    <input type="checkbox" required />
     <span class="ld-toggle__knob"></span>
   </div>
 </label>

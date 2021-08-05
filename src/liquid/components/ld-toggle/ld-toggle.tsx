@@ -12,6 +12,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core'
 })
 export class LdToggle {
   @Element() element: HTMLElement
+  private hasIcons: boolean
 
   /** Display mode. */
   @Prop() mode?: 'small' | 'large'
@@ -31,6 +32,12 @@ export class LdToggle {
   /** Set this property to `true` in order to mark the toggle as required. */
   @Prop() required: false
 
+  componentWillLoad() {
+    this.hasIcons =
+      !!this.element.querySelector('[slot="icon-start"]') ||
+      !!this.element.querySelector('[slot="icon-end"]')
+  }
+
   private handleBlur(event) {
     setTimeout(() => {
       this.element.dispatchEvent(event)
@@ -49,17 +56,26 @@ export class LdToggle {
       return
     }
 
-    this.checked = !event.target.checked
+    this.checked = event.target.checked
   }
 
   // TODO: memoized functions possible? simplify syntax, move to utils
   private getClassNames = () => {
-    const classNames = [
-      'ld-toggle',
-      this.mode === 'large' ? 'ld-toggle--large' : 'ld-toggle--small',
-    ]
+    const classNames = ['ld-toggle']
 
-    if (this.invalid) classNames.push('ld-toggle--invalid')
+    if (this.mode === 'large') {
+      classNames.push('ld-toggle--large')
+    }
+    if (this.invalid) {
+      classNames.push('ld-toggle--invalid')
+    }
+    if (this.hasIcons) {
+      classNames.push(
+        this.mode === 'large'
+          ? 'ld-toggle--with-icons'
+          : 'ld-toggle--large ld-toggle--with-icons'
+      )
+    }
 
     return classNames.join(' ')
   }
@@ -78,6 +94,16 @@ export class LdToggle {
           type="checkbox"
         />
         <span class="ld-toggle__knob" />
+        {this.hasIcons && (
+          <div class="ld-toggle__icon-start">
+            <slot name="icon-start" />
+          </div>
+        )}
+        {this.hasIcons && (
+          <div class="ld-toggle__icon-end">
+            <slot name="icon-end" />
+          </div>
+        )}
       </Host>
     )
   }
