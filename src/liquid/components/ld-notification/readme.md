@@ -78,7 +78,7 @@ dispatchEvent(new CustomEvent('ldNotification', {
 }))
 ```
 
-### Timeout handlint for queued notifications
+### Timeout handling for queued notifications
 
 If a notification gets queued behind another notification, its timeout is reset to its initial value and on pause.
 
