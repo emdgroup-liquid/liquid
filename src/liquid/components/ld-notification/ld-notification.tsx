@@ -2,7 +2,7 @@ import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
 
 type Notification = {
-  type: 'info' | 'warn' | 'error'
+  type: 'info' | 'warn' | 'alert'
   content: string
   timeout?: number
 }
@@ -24,9 +24,9 @@ export class LdNotification {
   @State() queue: Notification[] = []
   @State() queueDismissed: Notification[] = []
 
-  @State() dismissTimeout: number
+  @State() dismissTimeout: NodeJS.Timeout | null
 
-  @State() fadeoutTimeouts: number[] = []
+  @State() fadeoutTimeouts: (NodeJS.Timeout | null)[] = []
 
   @State() currentNotification?: Notification
 
@@ -35,10 +35,10 @@ export class LdNotification {
     clearTimeout(this.dismissTimeout)
 
     if (!this.currentNotification) return
-    if (this.currentNotification.type === 'error') return
+    if (this.currentNotification.type === 'alert') return
     if (this.currentNotification.timeout === 0) return
 
-    this.dismissTimeout = window.setTimeout(() => {
+    this.dismissTimeout = setTimeout(() => {
       this.handleNotificationDismiss()
     }, this.currentNotification.timeout || DEFAULT_NOTIFICATION_TIMEOUT)
   }
@@ -60,14 +60,14 @@ export class LdNotification {
     if (inQueue) return
 
     // Insert by relevance, whith error notifications being more relevant than non-error notifications.
-    if (newNotification.type === 'error') {
+    if (newNotification.type === 'alert') {
       this.queue = [...this.queue, newNotification]
       this.currentNotification = newNotification
       return
     }
 
     const firstErrorNotificationIndex = this.queue.findIndex(
-      (notification) => notification.type === 'error'
+      (notification) => notification.type === 'alert'
     )
     if (firstErrorNotificationIndex === -1) {
       this.queue = [...this.queue, newNotification]
@@ -92,7 +92,7 @@ export class LdNotification {
     this.currentNotification = this.queue[this.queue.length - 1]
 
     this.fadeoutTimeouts.push(
-      window.setTimeout(() => {
+      setTimeout(() => {
         this.queueDismissed = this.queueDismissed.slice(0, -1)
       }, FADE_TRANSITION_DURATION)
     )
@@ -108,7 +108,7 @@ export class LdNotification {
     this.currentNotification = undefined
     this.fadeoutTimeouts.forEach((timeoutId) => clearTimeout(timeoutId))
     this.fadeoutTimeouts.push(
-      window.setTimeout(() => {
+      setTimeout(() => {
         this.queueDismissed = []
       }, FADE_TRANSITION_DURATION)
     )
@@ -150,13 +150,7 @@ export class LdNotification {
     cl += ` ld-notification--${this.placement}`
 
     return (
-      <Host
-        class={cl}
-        role="region"
-        aria-label="Notifications"
-        aria-live="polite"
-        aria-relevant="additions"
-      >
+      <Host class={cl} role="region" aria-label="Notifications">
         {this.queue.map((notification, index) => (
           <div
             class={`ld-notification__item ld-notification__item--${notification.type}`}
@@ -165,7 +159,7 @@ export class LdNotification {
             <div
               class="ld-notification__item-content"
               innerHTML={notification.content}
-              role={notification.type === 'error' ? 'alert' : 'status'}
+              role={notification.type === 'alert' ? 'alert' : 'status'}
             ></div>
             <button
               class="ld-notification__btn-dismiss"

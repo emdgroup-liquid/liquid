@@ -17,22 +17,42 @@ Use the `ld-notification` component in your application to display popup notific
 
 ## How it works
 
-Add the component to your application, preferably close after the opening `<body>` tag. The component is invisible as long as no new notifications are triggered. It listens to three [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`: the `ldNotification` the `ldNotificationDismiss` and the `ldNotificationClear` event. As soon as one of those events reaches the `window`, the component either queues and displays new notifications or removes queued notifications from its queue. The content and type of each notification is set via the `event.detail` property. Here is an example on how you can trigger a notification  containing an error message:
+Add the component to your application, preferably close after the opening `<body>` tag. The component is invisible as long as no new notifications are triggered. It listens to three [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`: the `ldNotification` the `ldNotificationDismiss` and the `ldNotificationClear` event. As soon as one of those events reaches the `window`, the component either queues and displays new notifications or removes queued notifications from its queue. The content and type of each notification is set via the `event.detail` property. Here is an example on how you can trigger a notification containing an alert message:
 
 ```js
 dispatchEvent(new CustomEvent('ldNotification', {
   detail: {
     content: 'Something went wrong.',
-    type: 'error',
+    type: 'alert',
   }
 }))
 ```
 
 > **Note**: You should not use more than one `ld-notification` component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?
 
+## Accessibility
+
+Each notification item that appears on the screen has either the ARIA role `status` or `alert`, so that assistive technology should announce the notification content to the user.
+
+Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons etc. Thus, we recommend you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they
+
+- Disappear automatically
+- Can’t be easily accessed with the keyboard
+- Might appear outside the proximity of the user’s current focus
+
+### Notifications with interactive content
+
+Make sure that users can accomplish the interaction in the notification another way, since an interaction element within a notification may be difficult to access for some users.
+
+If you really do want to include an interaction element within a notification, [make sure the notification doesn't time out](components/ld-notification/#preventing-a-timeout) so that the user has enough time to navigate to and interact with the notification.
+
+## Notification hierarchy
+
+Notifications of type `'alert'` take precedence of notifications of type `'info'` and `'warn'`, which means that if a notification of type `'info'` or `'warn'` is fired after a notification of type `'alert'` and the notification of type `'alert'` has not been dismissed yet, the potentially less important notifications gets placed behind the notification of type `'alert'`. Other than that most recent notifications take precedence of older notifications, pushing the older ones back in the queue and resetting and pausing their timeouts.
+
 ## Notification timeout
 
-While notifications with type `'error'` do not time out, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object: 
+While notifications with type `'alert'` do not time out, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object: 
 
 ```js
 dispatchEvent(new CustomEvent('ldNotification', {
@@ -43,6 +63,8 @@ dispatchEvent(new CustomEvent('ldNotification', {
   }
 }))
 ```
+
+### Preventing a timeout
 
 If you want to prevent a notification of type `'info'` and `'warn'` from timing out, use the timeout value `0`:
 
@@ -55,6 +77,10 @@ dispatchEvent(new CustomEvent('ldNotification', {
   }
 }))
 ```
+
+### Timeout handlint for queued notifications
+
+If a notification gets queued behind another notification, its timeout is reset to its initial value and on pause.
 
 ## Notification content
 
@@ -69,11 +95,15 @@ dispatchEvent(new CustomEvent('ldNotification', {
 }))
 ```
 
-## Redundant notifications handling
+### Redundant notifications handling
 
 If a notification event is triggered containing the same content and type as another notification which already is queued for notification display, the event is ignored. If you still need to trigger another notification with the same content, you can append a zero-space character to your content.
 
-## Dismissing current notificaiton
+## Dismissing notificaitons
+
+While the user can dismiss the currently displayed notification by pressing the cross button on the notification, there also exist ways to programmatically dismiss notifications.
+
+### Dismissing current notificaiton
 
 You can dismiss the current notification programmatically by dispatching the `ldNotificationDismiss` event on the `window`:
 
@@ -81,7 +111,7 @@ You can dismiss the current notification programmatically by dispatching the `ld
 dispatchEvent(new CustomEvent('ldNotificationDismiss'))
 ```
 
-## Clearing all notifications
+### Clearing all notifications
 
 You can dismiss all notifications programmatically by dispatching the `ldNotificationClear` event on the `window`:
 
@@ -138,10 +168,10 @@ The examples below illustrate how you can trigger notifications using different 
   <ld-button type="submit">Submit</ld-button>
 </form>
 
-<form class="notification-form" id="form-error">
+<form class="notification-form" id="form-alert">
   <ld-label>
-    Error message
-    <ld-input id="input-error" value="Ooops."></ld-input>
+    alert message
+    <ld-input id="input-alert" value="Ooops."></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
@@ -205,14 +235,14 @@ formInfoNoTimeout.addEventListener('submit', ev => {
   }))
 })
 
-const formError = document.getElementById('form-error')
-const inputError = document.getElementById('input-error')
-formError.addEventListener('submit', ev => {
+const formAlert = document.getElementById('form-alert')
+const inputAlert = document.getElementById('input-alert')
+formAlert.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotification', {
     detail: {
-      content: inputError.value || '',
-      type: 'error',
+      content: inputAlert.value || '',
+      type: 'alert',
     }
   }))
 })

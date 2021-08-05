@@ -40,6 +40,9 @@
   width: fit-content;
   min-width: 19rem;
   max-width: calc(90% - 1rem);
+  max-height: 80vh;
+  min-height: 2.5rem;
+  overflow-y: auto;
   border-radius: var(--ld-br-m);
   display: flex;
   justify-content: space-between;
@@ -118,7 +121,7 @@
   background-color: var(--ld-col-vy-default);
   color: var(--ld-col-rblck-default);
 }
-.ld-notification__item--error {
+.ld-notification__item--alert {
   background-color: var(--ld-col-rr-default);
   color: var(--ld-col-wht);
 }
@@ -133,7 +136,7 @@
   grid-auto-flow: column;
   align-items: center;
   gap: var(--ld-sp-12);
-  padding: var(--ld-sp-8) var(--ld-sp-12);
+  padding: var(--ld-sp-6) var(--ld-sp-12) var(--ld-sp-8);
 }
 
 .ld-notification__btn-dismiss {
