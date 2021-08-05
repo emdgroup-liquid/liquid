@@ -86,7 +86,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: rgb(160, 203, 236);
+        background-color: var(--ld-col-rb2);
       }
     }
   }
@@ -127,7 +127,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: rgb(173, 214, 196);
+        background-color: var(--ld-col-rg2);
       }
     }
   }
@@ -141,7 +141,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: rgb(172, 152, 216);
+        background-color: var(--ld-col-rp2);
       }
     }
   }
@@ -155,7 +155,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: rgb(172, 152, 216);
+        background-color: var(--ld-col-rp2);
       }
     }
   }
@@ -169,7 +169,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: rgb(172, 152, 216);
+        background-color: var(--ld-col-rp2);
       }
     }
   }
