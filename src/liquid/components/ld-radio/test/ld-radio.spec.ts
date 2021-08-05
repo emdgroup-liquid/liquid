@@ -79,7 +79,7 @@ describe('ld-radio', () => {
     expect(input.checked).toBe(false)
 
     input.checked = true
-    await input.dispatchEvent(new Event('click'))
+    input.dispatchEvent(new Event('click'))
     await page.waitForChanges()
     expect(ldCheckbox.checked).toBe(true)
 
@@ -110,13 +110,13 @@ describe('ld-radio', () => {
 
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldCheckbox.addEventListener('focus', handlers.onFocus)
-    await input.dispatchEvent(new Event('focus'))
+    input.dispatchEvent(new Event('focus'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
     ldCheckbox.addEventListener('blur', handlers.onBlur)
-    await input.dispatchEvent(new Event('blur'))
+    input.dispatchEvent(new Event('blur'))
     await new Promise((resolve) => setTimeout(resolve))
     expect(spyBlur).toHaveBeenCalled()
   })
