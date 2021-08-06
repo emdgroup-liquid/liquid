@@ -34,17 +34,25 @@
       }
 
       ~ .ld-toggle__icon-start {
-        color: var(--ld-col-wht);
+        color: var(--ld-col-rblck6);
       }
 
       ~ .ld-toggle__icon-end {
-        color: var(--ld-col-rblck6);
+        color: var(--ld-col-wht);
       }
     }
 
     &:disabled,
     &[aria-disabled='true'] {
       background-color: var(--ld-col-bg-g);
+
+      &:checked ~ .ld-toggle__icon-start {
+        color: var(--ld-col-rblck4);
+      }
+
+      &:not(:checked) ~ .ld-toggle__icon-end {
+        color: var(--ld-col-rblck4);
+      }
     }
   }
 
@@ -69,6 +77,19 @@
 
 .ld-toggle--with-icons {
   --ld-toggle-width: 6rem;
+
+  input {
+    background-color: var(--ld-col-rblck1) !important;
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      background-color: var(--ld-col-bg-g) !important;
+
+      ~ .ld-toggle__knob {
+        background-color: var(--ld-col-wht);
+      }
+    }
+  }
 }
 
 .ld-toggle input:invalid,
@@ -90,6 +111,10 @@
       }
     }
   }
+
+  &--with-icons .ld-toggle__knob {
+    background-color: var(--ld-thm-ocean-bg-primary);
+  }
 }
 
 .ld-toggle__icon-start,
@@ -110,67 +135,91 @@
 }
 
 .ld-toggle__icon-start {
-  color: var(--ld-col-rblck6);
+  color: var(--ld-col-wht);
   left: 0;
 }
 
 .ld-toggle__icon-end {
-  color: var(--ld-col-wht);
+  color: var(--ld-col-rblck6);
   right: 0;
 }
 
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
-  .ld-toggle input {
-    &:checked {
-      background-color: var(--ld-thm-tea-bg-primary);
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-tea-bg-primary);
 
-      &:disabled,
-      &[aria-disabled='true'] {
-        background-color: var(--ld-col-rg2);
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rg2);
+        }
       }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-tea-bg-primary);
     }
   }
 }
 
 .ld-theme-bubblegum,
 [class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-toggle input {
-    &:checked {
-      background-color: var(--ld-thm-bubblegum-bg-primary);
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-bubblegum-bg-primary);
 
-      &:disabled,
-      &[aria-disabled='true'] {
-        background-color: var(--ld-col-rp2);
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
       }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-bubblegum-bg-primary);
     }
   }
 }
 
 .ld-theme-shake,
 [class*='ld-theme'] .ld-theme-shake {
-  .ld-toggle input {
-    &:checked {
-      background-color: var(--ld-thm-shake-bg-primary);
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-shake-bg-primary);
 
-      &:disabled,
-      &[aria-disabled='true'] {
-        background-color: var(--ld-col-rp2);
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
       }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-shake-bg-primary);
     }
   }
 }
 
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
-  .ld-toggle input {
-    &:checked {
-      background-color: var(--ld-thm-solvent-bg-primary);
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-solvent-bg-primary);
 
-      &:disabled,
-      &[aria-disabled='true'] {
-        background-color: var(--ld-col-rp2);
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
       }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-solvent-bg-primary);
     }
   }
 }
