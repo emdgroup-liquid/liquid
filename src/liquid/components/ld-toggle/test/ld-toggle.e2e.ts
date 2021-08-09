@@ -24,7 +24,7 @@ const themes = [
   // ThemeName.tea.toLowerCase(),
 ]
 const checkedStates = [false, true]
-const allowableMismatchedPixels = 20
+const allowableMismatchedPixels = 2000
 
 describe('ld-toggle', () => {
   describe(`themed`, () => {
