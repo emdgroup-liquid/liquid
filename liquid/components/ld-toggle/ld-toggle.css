@@ -73,13 +73,26 @@
   --ld-toggle-height: 2.5rem;
   --ld-toggle-width: 4.1875rem;
   --ld-toggle-inner-space: 0.1875rem;
+
+  &.ld-toggle--with-icons {
+    --ld-toggle-width: 6rem;
+
+    .ld-toggle__icon-start,
+    .ld-toggle__icon-end {
+      margin: 0.75rem;
+    }
+  }
 }
 
 .ld-toggle--with-icons {
-  --ld-toggle-width: 6rem;
+  --ld-toggle-width: 4.5rem;
 
   input {
     background-color: var(--ld-col-rblck1) !important;
+
+    &:invalid ~ .ld-toggle__knob {
+      background-color: var(--ld-col-rr-default) !important;
+    }
 
     &:disabled,
     &[aria-disabled='true'] {
@@ -90,11 +103,15 @@
       }
     }
   }
+
+  .ld-toggle__icon-start,
+  .ld-toggle__icon-end {
+    margin: 0.5rem;
+  }
 }
 
-.ld-toggle input:invalid,
-.ld-toggle--invalid input {
-  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+.ld-toggle input:invalid {
+  background-color: var(--ld-col-rr-default);
 }
 
 /* .ld-theme-ocean -> default */
@@ -121,7 +138,6 @@
 .ld-toggle__icon-end {
   display: flex;
   align-items: center;
-  margin: 0.75rem;
   pointer-events: none;
   position: absolute;
   /* animations triggered by user interactions on single component instances are probably not a performance issue */
