@@ -73,7 +73,7 @@ describe('ld-toggle', () => {
         // With icons
         it(`with icons theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr}>
+            `<ld-toggle${checkedStateStr}>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -83,6 +83,31 @@ describe('ld-toggle', () => {
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`with icons focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr}>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // With icons (large)
+        it(`with icons (large) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle mode="large"${checkedStateStr}>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<ld-toggle mode="large"${checkedStateStr}>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
@@ -117,7 +142,7 @@ describe('ld-toggle', () => {
         // With icons (disabled)
         it(`with icons (disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} disabled>
+            `<ld-toggle${checkedStateStr} disabled>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -127,6 +152,31 @@ describe('ld-toggle', () => {
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`with icons (disabled) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} disabled>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // With icons (large, disabled)
+        it(`with icons (large, disabled) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle mode="large"${checkedStateStr} disabled>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<ld-toggle mode="large"${checkedStateStr} disabled>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
@@ -161,7 +211,7 @@ describe('ld-toggle', () => {
         // With icons (aria-disabled)
         it(`with icons (aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} aria-disabled="true">
+            `<ld-toggle${checkedStateStr} aria-disabled="true">
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -172,7 +222,101 @@ describe('ld-toggle', () => {
         })
         it(`with icons (aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} aria-disabled="true">
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // With icons (large, aria-disabled)
+        it(`with icons (large, aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
             `<ld-toggle mode="large"${checkedStateStr} aria-disabled="true">
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle mode="large"${checkedStateStr} aria-disabled="true">
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // Invalid
+        it(`invalid theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} required></ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`invalid focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} required></ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // With icons (invalid)
+        it(`with icons (invalid) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} required>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`with icons (invalid) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle${checkedStateStr} required>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // With icons (large, invalid)
+        it(`with icons (large, invalid) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle mode="large"${checkedStateStr} required>
+              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+            </ld-toggle>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-toggle mode="large"${checkedStateStr} required>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -236,7 +380,7 @@ describe('ld-toggle', () => {
         // CSS component with icons
         it(`css component with icons theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -254,6 +398,47 @@ describe('ld-toggle', () => {
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`css component with icons focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // CSS component with icons (large)
+        it(`css component with icons (large) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} />
@@ -302,7 +487,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (disabled)
         it(`css component with icons (disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,6 +505,47 @@ describe('ld-toggle', () => {
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
         it(`css component with icons (disabled) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} disabled />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // CSS component with icons (large, disabled)
+        it(`css component with icons (large, disabled) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} disabled />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} disabled />
@@ -368,7 +594,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (aria-disabled)
         it(`css component with icons (aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -387,8 +613,156 @@ describe('ld-toggle', () => {
         })
         it(`css component with icons (aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // CSS component with icons (large, aria-disabled)
+        it(`css component with icons (large, aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
             `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // Invalid CSS component
+        it(`css component invalid theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} required />
+                <span class="ld-toggle__knob"></span>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component invalid focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle">
+                <input type="checkbox"${checkedStateStr} required />
+                <span class="ld-toggle__knob"></span>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // CSS component with icons (invalid)
+        it(`css component with icons (invalid) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} required />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component with icons (invalid) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} required />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        // CSS component with icons (large, invalid)
+        it(`css component with icons (large, invalid) theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} required />
+                <span class="ld-toggle__knob"></span>
+                <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+                <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                </svg>
+              </div>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+        it(`css component with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+                <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
