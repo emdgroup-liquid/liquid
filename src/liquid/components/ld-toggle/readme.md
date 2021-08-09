@@ -43,6 +43,26 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </div>
 {% endexample %}
 
+### Invalid
+
+{% example %}
+<ld-toggle required></ld-toggle>
+
+<ld-toggle checked required></ld-toggle>
+
+<!-- CSS component -->
+
+<div class="ld-toggle">
+  <input type="checkbox" required />
+  <span class="ld-toggle__knob"></span>
+</div>
+
+<div class="ld-toggle">
+  <input type="checkbox" checked required />
+  <span class="ld-toggle__knob"></span>
+</div>
+{% endexample %}
+
 ### Disabled
 
 {% example %}
@@ -99,7 +119,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### With icons
 
 {% example %}
-<ld-toggle mode="large">
+<ld-toggle>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
@@ -109,7 +129,43 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
+<ld-toggle mode="large">
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle mode="large" checked>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
 <!-- CSS component -->
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" checked />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
 
 <div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
   <input type="checkbox" />
@@ -141,7 +197,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### With icons (disabled)
 
 {% example %}
-<ld-toggle mode="large" disabled>
+<ld-toggle disabled>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
@@ -151,7 +207,43 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
+<ld-toggle mode="large" disabled>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle mode="large" checked disabled>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
 <!-- CSS component -->
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" disabled />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" checked disabled />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
 
 <div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
   <input type="checkbox" disabled />
@@ -168,6 +260,84 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
   <input type="checkbox" checked disabled />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+{% endexample %}
+
+### With icons (invalid)
+
+{% example %}
+<ld-toggle required>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle checked required>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle mode="large" required>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<ld-toggle mode="large" checked required>
+  <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+</ld-toggle>
+
+<!-- CSS component -->
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" required />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--with-icons">
+  <input type="checkbox" checked required />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+  <input type="checkbox" required />
+  <span class="ld-toggle__knob"></span>
+  <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+  <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
+</div>
+
+<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+  <input type="checkbox" checked required />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
@@ -263,16 +433,15 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                  | Type                 | Default     |
-| -------------- | --------------- | ---------------------------------------------------------------------------- | -------------------- | ----------- |
-| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                      | `string`             | `undefined` |
-| `checked`      | `checked`       | The input value.                                                             | `boolean`            | `undefined` |
-| `disabled`     | `disabled`      | Disabled state of the toggle.                                                | `boolean`            | `false`     |
-| `invalid`      | `invalid`       | Set this property to `true` in order to mark the toggle visually as invalid. | `boolean`            | `undefined` |
-| `key`          | `key`           | for tracking the node's identity when working with lists                     | `string \| number`   | `undefined` |
-| `mode`         | `mode`          | Display mode.                                                                | `"large" \| "small"` | `undefined` |
-| `ref`          | `ref`           | reference to component                                                       | `any`                | `undefined` |
-| `required`     | `required`      | Set this property to `true` in order to mark the toggle as required.         | `boolean`            | `undefined` |
+| Property       | Attribute       | Description                                                          | Type                 | Default     |
+| -------------- | --------------- | -------------------------------------------------------------------- | -------------------- | ----------- |
+| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable              | `string`             | `undefined` |
+| `checked`      | `checked`       | The input value.                                                     | `boolean`            | `undefined` |
+| `disabled`     | `disabled`      | Disabled state of the toggle.                                        | `boolean`            | `false`     |
+| `key`          | `key`           | for tracking the node's identity when working with lists             | `string \| number`   | `undefined` |
+| `mode`         | `mode`          | Display mode.                                                        | `"large" \| "small"` | `undefined` |
+| `ref`          | `ref`           | reference to component                                               | `any`                | `undefined` |
+| `required`     | `required`      | Set this property to `true` in order to mark the toggle as required. | `boolean`            | `undefined` |
 
 
 ----------------------------------------------

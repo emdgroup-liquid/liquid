@@ -30,17 +30,6 @@ describe('ld-toggle', () => {
   it('renders with icons', async () => {
     const page = await newSpecPage({
       components: [LdIcon, LdToggle],
-      html: `<ld-toggle mode="large">
-        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-
-  it('renders large mode, if with icons', async () => {
-    const page = await newSpecPage({
-      components: [LdIcon, LdToggle],
       html: `<ld-toggle>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>

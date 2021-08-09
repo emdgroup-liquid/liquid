@@ -1,5 +1,6 @@
-import '../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Host, Prop } from '@stencil/core'
+import '../../components' // type definitions for type checks and intelliSense
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -25,9 +26,6 @@ export class LdToggle {
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) checked: boolean
-
-  /** Set this property to `true` in order to mark the toggle visually as invalid. */
-  @Prop() invalid: false
 
   /** Set this property to `true` in order to mark the toggle as required. */
   @Prop() required: false
@@ -59,30 +57,15 @@ export class LdToggle {
     this.checked = event.target.checked
   }
 
-  // TODO: memoized functions possible? simplify syntax, move to utils
-  private getClassNames = () => {
-    const classNames = ['ld-toggle']
-
-    if (this.mode === 'large') {
-      classNames.push('ld-toggle--large')
-    }
-    if (this.invalid) {
-      classNames.push('ld-toggle--invalid')
-    }
-    if (this.hasIcons) {
-      classNames.push(
-        this.mode === 'large'
-          ? 'ld-toggle--with-icons'
-          : 'ld-toggle--large ld-toggle--with-icons'
-      )
-    }
-
-    return classNames.join(' ')
-  }
-
   render() {
     return (
-      <Host class={this.getClassNames()}>
+      <Host
+        class={getClassNames([
+          'ld-toggle',
+          this.mode === 'large' && 'ld-toggle--large',
+          this.hasIcons && 'ld-toggle--with-icons',
+        ])}
+      >
         <input
           aria-disabled={this.ariaDisabled}
           checked={this.checked}
