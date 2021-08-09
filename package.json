@@ -28,11 +28,12 @@
     "dist/"
   ],
   "scripts": {
-    "build": "run-s build:stencil:components build:styles build:copy_design_tokens build:copy_tailwind_preset",
+    "build": "run-s build:stencil:components build:stencil:react build:styles build:copy_design_tokens build:copy_tailwind_preset",
     "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:docs",
     "build:eleventy": "dotenv -e .env -- npx @11ty/eleventy",
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
+    "build:stencil:react": "tsc -p tsconfig.react.json && shx rm src/react.ts && shx rm -r src/react-component-lib",
     "build:styles": "run-p build:styles:liquid:*",
     "build:styles:liquid:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' ; cat dist/css/*.css > dist/css/liquid.css",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
@@ -83,8 +84,11 @@
     "@semantic-release/git": "^9.0.0",
     "@stencil/eslint-plugin": "^0.3.1",
     "@stencil/postcss": "^2.0.0",
+    "@stencil/react-output-target": "^0.0.9",
     "@types/jest": "^26.0.24",
     "@types/puppeteer": "^5.4.0",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "chokidar-cli": "^2.1.0",
@@ -154,5 +158,9 @@
   },
   "browserslist": [
     "supports es6-module and supports css-variables and last 2 versions"
-  ]
+  ],
+  "optionalDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }

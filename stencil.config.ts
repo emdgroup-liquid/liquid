@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
+import { reactOutputTarget } from '@stencil/react-output-target'
 import postcssConfig from './postcss.config'
 
 export const config: Config = {
@@ -7,6 +8,11 @@ export const config: Config = {
   srcDir: 'src/liquid',
   globalStyle: 'src/liquid/global/styles/global.css',
   outputTargets: [
+    reactOutputTarget({
+      componentCorePackage: '..',
+      proxiesFile: './src/react.ts',
+      includeDefineCustomElements: true,
+    }),
     {
       type: 'dist',
     },
