@@ -1,0 +1,68 @@
+.ld-tooltip {
+  --shadow-color: rgba(9, 23, 52, 0.15);
+  --arrow-size: 1rem;
+
+  background-color: var(--ld-col-wht);
+  border-radius: 0.25rem;
+  color: var(--ld-col-rblck-default);
+  display: inline;
+  display: none;
+  filter: drop-shadow(0px 16px 32px var(--shadow-color))
+    drop-shadow(0px 0px 4px var(--shadow-color));
+  max-width: 16.125rem;
+  padding: 1rem;
+  position: relative;
+
+  &--with-arrow:before {
+    background-color: var(--ld-col-wht);
+    content: '';
+    height: var(--arrow-size);
+    position: absolute;
+    transform: rotate(45deg);
+    width: var(--arrow-size);
+  }
+
+  &.ld-tether-enabled {
+    display: block;
+  }
+
+  &.ld-tether-element-attached-bottom {
+    &.ld-tether-element-attached-center:before {
+      bottom: -0.5rem;
+    }
+  }
+
+  &.ld-tether-element-attached-top {
+    &.ld-tether-element-attached-center:before {
+      top: -0.5rem;
+    }
+  }
+
+  &.ld-tether-element-attached-center {
+    &:before {
+      left: calc(50% - var(--arrow-size) * 0.5);
+    }
+  }
+
+  &.ld-tether-element-attached-right {
+    &.ld-tether-element-attached-middle:before {
+      right: -0.5rem;
+    }
+  }
+
+  &.ld-tether-element-attached-middle {
+    &:before {
+      top: calc(50% - var(--arrow-size) * 0.5);
+    }
+  }
+
+  &.ld-tether-element-attached-left {
+    &.ld-tether-element-attached-middle:before {
+      left: -0.5rem;
+    }
+  }
+}
+
+.ld-tooltip__trigger {
+  display: inline-block;
+}
