@@ -154,17 +154,19 @@ export class LdTooltip {
           }}
         >
           <slot name="trigger">
-            <ld-icon name="alarm" size="sm" />
+            <span class="ld-tooltip__icon">
+              <ld-icon name="info" size="sm" filled />
+            </span>
           </slot>
         </span>
         <div
-          ref={(element) => {
-            this.tooltipRef = element
-          }}
           class={getClassNames([
             'ld-tooltip',
             this.arrow && 'ld-tooltip--with-arrow',
           ])}
+          ref={(element) => {
+            this.tooltipRef = element
+          }}
         >
           <slot />
         </div>

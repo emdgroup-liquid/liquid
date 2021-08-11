@@ -51,71 +51,71 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 {% example %}
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px">
-<ld-tooltip arrow position="top left" style="text-align: end">
-  <ld-button slot="trigger">top left</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="top left" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">top left</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="top center" style="text-align: center">
-  <ld-button slot="trigger">top center</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="top center" style="text-align: center">
+    <ld-button slot="trigger" style="width: 150px">top center</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="top right">
-  <ld-button slot="trigger">top right</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="top right">
+    <ld-button slot="trigger" style="width: 150px">top right</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="middle left" style="text-align: end">
-  <ld-button slot="trigger">middle left</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="middle left" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">middle left</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<div></div>
+  <div></div>
 
-<ld-tooltip arrow position="middle right">
-  <ld-button slot="trigger">middle right</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="middle right">
+    <ld-button slot="trigger" style="width: 150px">middle right</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="bottom left" style="text-align: end">
-  <ld-button slot="trigger">bottom left</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="bottom left" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">bottom left</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="bottom center" style="text-align: center">
-  <ld-button slot="trigger">bottom center</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="bottom center" style="text-align: center">
+    <ld-button slot="trigger" style="width: 150px">bottom center</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 
-<ld-tooltip arrow position="bottom right">
-  <ld-button slot="trigger">bottom right</ld-button>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-  <ld-paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </ld-paragraph>
-</ld-tooltip>
+  <ld-tooltip arrow position="bottom right">
+    <ld-button slot="trigger" style="width: 150px">bottom right</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
 </div>
 {% endexample %}
 

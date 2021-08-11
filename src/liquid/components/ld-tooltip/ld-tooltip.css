@@ -7,48 +7,37 @@
   }
 }
 
-@keyframes ld-tooltip-hide {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .ld-tooltip {
-  --shadow-color: rgba(9, 23, 52, 0.15);
-  --arrow-size: 1rem;
+  --arrow-size: 0.5rem;
+  --max-width: 20rem;
   --offset: 0.5rem;
+  --shadow-color: rgba(9, 23, 52, 0.15);
 
-  animation-duration: 200ms;
-  animation-name: ld-tooltip-hide;
   background-color: var(--ld-col-wht);
   border-radius: 0.25rem;
   color: var(--ld-col-rblck-default);
   filter: drop-shadow(0px 16px 32px var(--shadow-color))
     drop-shadow(0px 0px 4px var(--shadow-color));
-  max-width: 16.125rem;
+  max-width: var(--max-width);
   opacity: 0;
   padding: 1rem;
   pointer-events: none;
   position: relative;
+  transition: opacity 200ms ease-in-out;
+  z-index: 2147483647;
 
   &--with-arrow {
     --offset: 1rem;
 
     &:before {
-      background-color: var(--ld-col-wht);
+      border: var(--arrow-size) solid transparent;
       content: '';
-      height: var(--arrow-size);
       position: absolute;
-      transform: rotate(45deg);
-      width: var(--arrow-size);
     }
   }
 
   &.ld-tether-enabled {
-    animation-name: ld-tooltip-show;
+    animation: ld-tooltip-show 200ms ease-in-out;
     opacity: 1;
   }
 
@@ -56,24 +45,26 @@
     margin-top: calc(var(--offset) * -1);
 
     &:before {
-      bottom: -0.3125rem;
+      border-top-color: var(--ld-col-wht);
+      bottom: calc(var(--arrow-size) * -2);
     }
   }
 
   &.ld-tether-element-attached-center:before {
-    left: calc(50% - var(--arrow-size) * 0.5);
+    left: calc(50% - var(--arrow-size));
   }
 
   &.ld-tether-element-attached-left.ld-tether-element-attached-middle {
     margin-left: var(--offset);
 
     &:before {
-      left: -0.3125rem;
+      border-right-color: var(--ld-col-wht);
+      left: calc(var(--arrow-size) * -2);
     }
   }
 
   &.ld-tether-element-attached-middle:before {
-    top: calc(50% - var(--arrow-size) * 0.5);
+    top: calc(50% - var(--arrow-size));
   }
 
   &.ld-tether-element-attached-right {
@@ -85,7 +76,8 @@
       margin-left: calc(var(--offset) * -1);
 
       &:before {
-        right: -0.3125rem;
+        border-left-color: var(--ld-col-wht);
+        right: calc(var(--arrow-size) * -2);
       }
     }
   }
@@ -94,7 +86,8 @@
     margin-top: var(--offset);
 
     &:before {
-      top: -0.3125rem;
+      border-bottom-color: var(--ld-col-wht);
+      top: calc(var(--arrow-size) * -2);
     }
   }
 }
@@ -103,7 +96,65 @@
   display: inline-block;
 
   + .ld-tooltip {
+    opacity: 0;
     position: absolute;
-    visibility: hidden;
+  }
+}
+
+/* .ld-theme-ocean -> default */
+.ld-tooltip__icon,
+.ld-theme-ocean .ld-tooltip__icon,
+[class*='ld-theme'] .ld-theme-ocean .ld-tooltip__icon {
+  color: var(--ld-thm-ocean-bg-primary);
+  /* animations triggered by user interactions on single component instances are probably not a performance issue */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: color 200ms ease-in-out;
+
+  &:hover {
+    color: var(--ld-col-rb55);
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  .ld-tooltip__icon {
+    color: var(--ld-thm-tea-bg-primary);
+
+    &:hover {
+      color: var(--ld-col-rg5);
+    }
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum {
+  .ld-tooltip__icon {
+    color: var(--ld-thm-bubblegum-bg-primary);
+
+    &:hover {
+      color: var(--ld-col-rp55);
+    }
+  }
+}
+
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake {
+  .ld-tooltip__icon {
+    color: var(--ld-thm-shake-bg-primary);
+
+    &:hover {
+      color: var(--ld-col-rp55);
+    }
+  }
+}
+
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  .ld-tooltip__icon {
+    color: var(--ld-thm-solvent-bg-primary);
+
+    &:hover {
+      color: var(--ld-col-rp55);
+    }
   }
 }
