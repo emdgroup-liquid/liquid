@@ -7,8 +7,12 @@ type Position =
   | 'bottom center'
   | 'bottom left'
   | 'bottom right'
-  | 'middle left'
-  | 'middle right'
+  | 'left bottom'
+  | 'left middle'
+  | 'left top'
+  | 'right bottom'
+  | 'right middle'
+  | 'right top'
   | 'top center'
   | 'top left'
   | 'top right'
@@ -18,12 +22,26 @@ const mapPositionToAttachment = (position: Position) =>
     'bottom center': 'top center',
     'bottom left': 'top left',
     'bottom right': 'top right',
-    'middle left': 'middle right',
-    'middle right': 'middle left',
+    'left bottom': 'bottom right',
+    'left middle': 'middle right',
+    'left top': 'top right',
+    'right bottom': 'bottom left',
+    'right middle': 'middle left',
+    'right top': 'top left',
     'top center': 'bottom center',
     'top left': 'bottom left',
     'top right': 'bottom right',
   }[position])
+
+const mapPositionToTargetAttachment = (position: Position) =>
+  ({
+    'left bottom': 'bottom left',
+    'left middle': 'middle left',
+    'left top': 'top left',
+    'right bottom': 'bottom right',
+    'right middle': 'middle right',
+    'right top': 'top right',
+  }[position] ?? position)
 
 /**
  * @virtualProp ref - reference to component
@@ -61,6 +79,7 @@ export class LdTooltip {
 
   private initTooltip = () => {
     const attachment = mapPositionToAttachment(this.position)
+    const targetAttachment = mapPositionToTargetAttachment(this.position)
 
     this.popper = new Tether({
       attachment,
@@ -73,7 +92,7 @@ export class LdTooltip {
       ],
       element: this.tooltipRef,
       target: this.triggerRef,
-      targetAttachment: this.position,
+      targetAttachment,
     })
     this.visible = true
   }

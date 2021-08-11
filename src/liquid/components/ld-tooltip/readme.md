@@ -75,8 +75,8 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
     </ld-paragraph>
   </ld-tooltip>
 
-  <ld-tooltip arrow position="middle left" style="text-align: end">
-    <ld-button slot="trigger" style="width: 150px">middle left</ld-button>
+  <ld-tooltip arrow position="left top" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">left top</ld-button>
     <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -85,8 +85,44 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
   <div></div>
 
-  <ld-tooltip arrow position="middle right">
-    <ld-button slot="trigger" style="width: 150px">middle right</ld-button>
+  <ld-tooltip arrow position="right top">
+    <ld-button slot="trigger" style="width: 150px">right top</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
+
+  <ld-tooltip arrow position="left middle" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">left middle</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
+
+  <div></div>
+
+  <ld-tooltip arrow position="right middle">
+    <ld-button slot="trigger" style="width: 150px">right middle</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
+
+  <ld-tooltip arrow position="left bottom" style="text-align: end">
+    <ld-button slot="trigger" style="width: 150px">left bottom</ld-button>
+    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </ld-paragraph>
+  </ld-tooltip>
+
+  <div></div>
+
+  <ld-tooltip arrow position="right bottom">
+    <ld-button slot="trigger" style="width: 150px">right bottom</ld-button>
     <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -157,16 +193,16 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                               | Type                                                                                                                                 | Default        |
-| ------------- | -------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| `arrow`       | `arrow`        | Show arrow                                                                                | `boolean`                                                                                                                            | `false`        |
-| `disabled`    | `disabled`     | Disable tooltip trigger                                                                   | `boolean`                                                                                                                            | `false`        |
-| `hideDelay`   | `hide-delay`   | Delay in ms until tooltip hides (only when trigger type is 'hover')                       | `number`                                                                                                                             | `0`            |
-| `key`         | `key`          | for tracking the node's identity when working with lists                                  | `string \| number`                                                                                                                   | `undefined`    |
-| `position`    | `position`     | Position of the tooltip relative to the trigger element (also affects the arrow position) | `"bottom center" \| "bottom left" \| "bottom right" \| "middle left" \| "middle right" \| "top center" \| "top left" \| "top right"` | `'top center'` |
-| `ref`         | `ref`          | reference to component                                                                    | `any`                                                                                                                                | `undefined`    |
-| `showDelay`   | `show-delay`   | Delay in ms until tooltip shows (only when trigger type is 'hover')                       | `number`                                                                                                                             | `0`            |
-| `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                 | `'hover'`      |
+| Property      | Attribute      | Description                                                                               | Type                                                                                                                                                                                                 | Default        |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `arrow`       | `arrow`        | Show arrow                                                                                | `boolean`                                                                                                                                                                                            | `false`        |
+| `disabled`    | `disabled`     | Disable tooltip trigger                                                                   | `boolean`                                                                                                                                                                                            | `false`        |
+| `hideDelay`   | `hide-delay`   | Delay in ms until tooltip hides (only when trigger type is 'hover')                       | `number`                                                                                                                                                                                             | `0`            |
+| `key`         | `key`          | for tracking the node's identity when working with lists                                  | `string \| number`                                                                                                                                                                                   | `undefined`    |
+| `position`    | `position`     | Position of the tooltip relative to the trigger element (also affects the arrow position) | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'top center'` |
+| `ref`         | `ref`          | reference to component                                                                    | `any`                                                                                                                                                                                                | `undefined`    |
+| `showDelay`   | `show-delay`   | Delay in ms until tooltip shows (only when trigger type is 'hover')                       | `number`                                                                                                                                                                                             | `0`            |
+| `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
 
 ## Dependencies
