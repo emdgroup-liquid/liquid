@@ -4,25 +4,25 @@ import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
 type Position =
-  | 'top left'
-  | 'top center'
-  | 'top right'
+  | 'bottom center'
+  | 'bottom left'
+  | 'bottom right'
   | 'middle left'
   | 'middle right'
-  | 'bottom left'
-  | 'bottom center'
-  | 'bottom right'
+  | 'top center'
+  | 'top left'
+  | 'top right'
 
 const mapPositionToAttachment = (position: Position) =>
   ({
-    'top left': 'bottom left',
-    'top center': 'bottom center',
-    'top right': 'bottom right',
+    'bottom center': 'top center',
+    'bottom left': 'top left',
+    'bottom right': 'top right',
     'middle left': 'middle right',
     'middle right': 'middle left',
-    'bottom left': 'top left',
-    'bottom center': 'top center',
-    'bottom right': 'top right',
+    'top center': 'bottom center',
+    'top left': 'bottom left',
+    'top right': 'bottom right',
   }[position])
 
 /**
@@ -35,61 +35,110 @@ const mapPositionToAttachment = (position: Position) =>
   shadow: false,
 })
 export class LdTooltip {
-  /** Disables tooltip onClick handler */
+  /** Show arrow */
+  @Prop() arrow = false
+
+  /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
+  @Prop() hideDelay = 0
+
+  /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
+  @Prop() showDelay = 0
+
+  /** Disable tooltip trigger */
   @Prop() disabled = false
 
-  /** Position of the tooltip relative to the trigger element (also affects the arrow position). */
+  /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position: Position = 'top center'
 
-  /** Visibility of the arrow */
-  @Prop() arrow = false
+  /** Event type that triggers the tooltip */
+  @Prop() triggerType: 'click' | 'hover' = 'hover'
 
   private popper?: Tether
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
   private visible = false
+  private delayTimeout?: NodeJS.Timeout
 
-  private initTooltip() {
+  private initTooltip = () => {
+    const attachment = mapPositionToAttachment(this.position)
+
     this.popper = new Tether({
-      attachment: mapPositionToAttachment(this.position),
+      attachment,
       classPrefix: 'ld-tether',
       constraints: [
         {
+          attachment: 'together',
           to: 'window',
-          pin: true,
         },
       ],
       element: this.tooltipRef,
-      offset: this.arrow ? '16px 0' : '8px 0',
       target: this.triggerRef,
       targetAttachment: this.position,
     })
+    this.visible = true
   }
 
-  private toggleTooltip() {
+  private hideTooltip = () => {
+    this.popper.disable()
+    this.visible = false
+  }
+
+  private showTooltip = () => {
+    this.popper.enable()
+    this.visible = true
+  }
+
+  private toggleTooltip = () => {
     if (this.popper == undefined) {
       return
     }
 
     if (this.visible) {
-      this.popper.disable()
+      this.hideTooltip()
     } else {
-      this.popper.enable()
+      this.showTooltip()
     }
-    this.visible = !this.visible
   }
 
-  private handleTriggerClick(event: MouseEvent) {
-    if (this.disabled) {
+  private handleHideTrigger = (event: MouseEvent) => {
+    if (this.triggerType === 'click' || this.disabled) {
+      event.stopPropagation()
+      return
+    }
+
+    clearTimeout(this.delayTimeout)
+
+    if (this.popper) {
+      this.delayTimeout = setTimeout(this.hideTooltip, this.hideDelay)
+    }
+  }
+
+  private handleShowTrigger = (event: MouseEvent) => {
+    if (this.triggerType === 'click' || this.disabled) {
+      event.stopPropagation()
+      return
+    }
+
+    clearTimeout(this.delayTimeout)
+
+    if (this.popper === undefined) {
+      this.delayTimeout = setTimeout(this.initTooltip, this.showDelay)
+    } else {
+      this.delayTimeout = setTimeout(this.showTooltip, this.showDelay)
+    }
+  }
+
+  private handleToggleTrigger = (event: MouseEvent) => {
+    if (this.triggerType === 'hover' || this.disabled) {
       event.stopPropagation()
       return
     }
 
     if (this.popper === undefined) {
       this.initTooltip()
+    } else {
+      this.toggleTooltip()
     }
-
-    this.toggleTooltip()
   }
 
   render() {
@@ -97,7 +146,9 @@ export class LdTooltip {
       <Host>
         <span
           class="ld-tooltip__trigger"
-          onClick={this.handleTriggerClick.bind(this)}
+          onClick={this.handleToggleTrigger}
+          onMouseEnter={this.handleShowTrigger}
+          onMouseLeave={this.handleHideTrigger}
           ref={(element) => {
             this.triggerRef = element
           }}

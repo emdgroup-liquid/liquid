@@ -1,68 +1,109 @@
+@keyframes ld-tooltip-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ld-tooltip-hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .ld-tooltip {
   --shadow-color: rgba(9, 23, 52, 0.15);
   --arrow-size: 1rem;
+  --offset: 0.5rem;
 
+  animation-duration: 200ms;
+  animation-name: ld-tooltip-hide;
   background-color: var(--ld-col-wht);
   border-radius: 0.25rem;
   color: var(--ld-col-rblck-default);
-  display: inline;
-  display: none;
   filter: drop-shadow(0px 16px 32px var(--shadow-color))
     drop-shadow(0px 0px 4px var(--shadow-color));
   max-width: 16.125rem;
+  opacity: 0;
   padding: 1rem;
+  pointer-events: none;
   position: relative;
 
-  &--with-arrow:before {
-    background-color: var(--ld-col-wht);
-    content: '';
-    height: var(--arrow-size);
-    position: absolute;
-    transform: rotate(45deg);
-    width: var(--arrow-size);
+  &--with-arrow {
+    --offset: 1rem;
+
+    &:before {
+      background-color: var(--ld-col-wht);
+      content: '';
+      height: var(--arrow-size);
+      position: absolute;
+      transform: rotate(45deg);
+      width: var(--arrow-size);
+    }
   }
 
   &.ld-tether-enabled {
-    display: block;
+    animation-name: ld-tooltip-show;
+    opacity: 1;
   }
 
   &.ld-tether-element-attached-bottom {
-    &.ld-tether-element-attached-center:before {
-      bottom: -0.5rem;
+    margin-top: calc(var(--offset) * -1);
+
+    &:before {
+      bottom: -0.3125rem;
+    }
+  }
+
+  &.ld-tether-element-attached-center:before {
+    left: calc(50% - var(--arrow-size) * 0.5);
+  }
+
+  &.ld-tether-element-attached-left.ld-tether-element-attached-middle {
+    margin-left: var(--offset);
+
+    &:before {
+      left: -0.3125rem;
+    }
+  }
+
+  &.ld-tether-element-attached-middle:before {
+    top: calc(50% - var(--arrow-size) * 0.5);
+  }
+
+  &.ld-tether-element-attached-right {
+    &:before {
+      right: 1rem;
+    }
+
+    &.ld-tether-element-attached-middle {
+      margin-left: calc(var(--offset) * -1);
+
+      &:before {
+        right: -0.3125rem;
+      }
     }
   }
 
   &.ld-tether-element-attached-top {
-    &.ld-tether-element-attached-center:before {
-      top: -0.5rem;
-    }
-  }
+    margin-top: var(--offset);
 
-  &.ld-tether-element-attached-center {
     &:before {
-      left: calc(50% - var(--arrow-size) * 0.5);
-    }
-  }
-
-  &.ld-tether-element-attached-right {
-    &.ld-tether-element-attached-middle:before {
-      right: -0.5rem;
-    }
-  }
-
-  &.ld-tether-element-attached-middle {
-    &:before {
-      top: calc(50% - var(--arrow-size) * 0.5);
-    }
-  }
-
-  &.ld-tether-element-attached-left {
-    &.ld-tether-element-attached-middle:before {
-      left: -0.5rem;
+      top: -0.3125rem;
     }
   }
 }
 
 .ld-tooltip__trigger {
   display: inline-block;
+
+  + .ld-tooltip {
+    position: absolute;
+    visibility: hidden;
+  }
 }
