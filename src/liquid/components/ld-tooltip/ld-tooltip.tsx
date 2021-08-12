@@ -1,5 +1,5 @@
 import Tether from 'tether'
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Listen, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
@@ -43,6 +43,8 @@ const mapPositionToTargetAttachment = (position: Position) =>
     'right top': 'top right',
   }[position] ?? position)
 
+let tooltipCount = 0
+
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
@@ -53,6 +55,8 @@ const mapPositionToTargetAttachment = (position: Position) =>
   shadow: false,
 })
 export class LdTooltip {
+  @Element() element: HTMLElement
+
   /** Show arrow */
   @Prop() arrow = false
 
@@ -71,11 +75,12 @@ export class LdTooltip {
   /** Event type that triggers the tooltip */
   @Prop() triggerType: 'click' | 'hover' = 'hover'
 
+  private delayTimeout?: NodeJS.Timeout
+  private id = `ld-tooltip-${++tooltipCount}`
   private popper?: Tether
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
   private visible = false
-  private delayTimeout?: NodeJS.Timeout
 
   private initTooltip = () => {
     const attachment = mapPositionToAttachment(this.position)
@@ -160,32 +165,65 @@ export class LdTooltip {
     }
   }
 
+  // TODO: maybe this should listen only, if the tooltip was opened by click.
+  @Listen('click', {
+    target: 'window',
+  })
+  handleClickOutside(event) {
+    if (
+      event.target.closest('ld-tooltip') !== this.element &&
+      event.target.closest('.ld-tooltip') !== this.tooltipRef &&
+      this.triggerType === 'click'
+    ) {
+      this.hideTooltip()
+    }
+  }
+
+  // Mobile Safari in some cases does not react to click events on elements
+  // which are not interactive. But it does to touch events.
+  // TODO: maybe this should listen only, if the tooltip was opened by click.
+  @Listen('touchend', {
+    target: 'window',
+    passive: true,
+  })
+  handleTouchOutside(event) {
+    this.handleClickOutside(event)
+  }
+
   render() {
     return (
       <Host>
-        <span
+        <button
+          aria-describedby={this.id}
           class="ld-tooltip__trigger"
           onClick={this.handleToggleTrigger}
           onMouseEnter={this.handleShowTrigger}
+          onFocus={this.handleShowTrigger}
           onMouseLeave={this.handleHideTrigger}
+          onBlur={this.handleHideTrigger}
           ref={(element) => {
             this.triggerRef = element
           }}
+          type="button"
         >
           <slot name="trigger">
             <span class="ld-tooltip__icon">
               <ld-icon name="info" size="sm" filled />
             </span>
           </slot>
-        </span>
+        </button>
         <div
+          aria-hidden={!this.visible}
           class={getClassNames([
             'ld-tooltip',
             this.arrow && 'ld-tooltip--with-arrow',
+            this.triggerType === 'click' && 'ld-tooltip--interactive',
           ])}
+          id={this.id}
           ref={(element) => {
             this.tooltipRef = element
           }}
+          role="tooltip"
         >
           <slot />
         </div>

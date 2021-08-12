@@ -36,6 +36,10 @@
     }
   }
 
+  &--interactive {
+    pointer-events: auto;
+  }
+
   &.ld-tether-enabled {
     animation: ld-tooltip-show 200ms ease-in-out;
     opacity: 1;
@@ -99,7 +103,12 @@
 }
 
 .ld-tooltip__trigger {
+  background: none;
+  border: 0;
   display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
 
   + .ld-tooltip {
     opacity: 0;
