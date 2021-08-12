@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-tooltip renders custom trigger 1`] = `
+<ld-tooltip>
+  <!---->
+  <button aria-describedby="ld-tooltip-2" class="ld-tooltip__trigger" type="button">
+    <div slot="trigger">
+      Custom trigger
+    </div>
+    <slot-fb hidden="" name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+  </button>
+  <div aria-hidden="" class="ld-tooltip" id="ld-tooltip-2" role="tooltip">
+    <h4>
+      Headline
+    </h4>
+    <p>
+      Text content
+    </p>
+  </div>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders default 1`] = `
+<ld-tooltip>
+  <!---->
+  <button aria-describedby="ld-tooltip-1" class="ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+  </button>
+  <div aria-hidden="" class="ld-tooltip" id="ld-tooltip-1" role="tooltip">
+    <h4>
+      Headline
+    </h4>
+    <p>
+      Text content
+    </p>
+  </div>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with arrow 1`] = `
+<ld-tooltip arrow="">
+  <!---->
+  <button aria-describedby="ld-tooltip-3" class="ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+  </button>
+  <div aria-hidden="" class="ld-tooltip ld-tooltip--with-arrow" id="ld-tooltip-3" role="tooltip">
+    <h4>
+      Headline
+    </h4>
+    <p>
+      Text content
+    </p>
+  </div>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position bottom center 1`] = `
+<ld-tooltip position="bottom center">
+  <!---->
+  <button aria-describedby="ld-tooltip-4" class="ld-tether-element-attached-center ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-center ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position bottom left 1`] = `
+<ld-tooltip position="bottom left">
+  <!---->
+  <button aria-describedby="ld-tooltip-5" class="ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position bottom right 1`] = `
+<ld-tooltip position="bottom right">
+  <!---->
+  <button aria-describedby="ld-tooltip-6" class="ld-tether-element-attached-right ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-right ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position left bottom 1`] = `
+<ld-tooltip position="left bottom">
+  <!---->
+  <button aria-describedby="ld-tooltip-7" class="ld-tether-element-attached-bottom ld-tether-element-attached-right ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position left middle 1`] = `
+<ld-tooltip position="left middle">
+  <!---->
+  <button aria-describedby="ld-tooltip-8" class="ld-tether-element-attached-middle ld-tether-element-attached-right ld-tether-enabled ld-tether-target ld-tether-target-attached-left ld-tether-target-attached-middle ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position left top 1`] = `
+<ld-tooltip position="left top">
+  <!---->
+  <button aria-describedby="ld-tooltip-9" class="ld-tether-element-attached-right ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-left ld-tether-target-attached-top ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position right bottom 1`] = `
+<ld-tooltip position="right bottom">
+  <!---->
+  <button aria-describedby="ld-tooltip-10" class="ld-tether-element-attached-bottom ld-tether-element-attached-left ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-right ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position right middle 1`] = `
+<ld-tooltip position="right middle">
+  <!---->
+  <button aria-describedby="ld-tooltip-11" class="ld-tether-element-attached-left ld-tether-element-attached-middle ld-tether-enabled ld-tether-target ld-tether-target-attached-middle ld-tether-target-attached-right ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position right top 1`] = `
+<ld-tooltip position="right top">
+  <!---->
+  <button aria-describedby="ld-tooltip-12" class="ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-right ld-tether-target-attached-top ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position top center 1`] = `
+<ld-tooltip position="top center">
+  <!---->
+  <button aria-describedby="ld-tooltip-13" class="ld-tether-element-attached-bottom ld-tether-element-attached-center ld-tether-enabled ld-tether-target ld-tether-target-attached-center ld-tether-target-attached-top ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position top left 1`] = `
+<ld-tooltip position="top left">
+  <!---->
+  <button aria-describedby="ld-tooltip-14" class="ld-tether-element-attached-bottom ld-tether-element-attached-left ld-tether-enabled ld-tether-target ld-tether-target-attached-left ld-tether-target-attached-top ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
+
+exports[`ld-tooltip renders with position top right 1`] = `
+<ld-tooltip position="top right">
+  <!---->
+  <button aria-describedby="ld-tooltip-15" class="ld-tether-element-attached-bottom ld-tether-element-attached-right ld-tether-enabled ld-tether-target ld-tether-target-attached-right ld-tether-target-attached-top ld-tooltip__trigger" type="button">
+    <slot-fb name="trigger">
+      <span class="ld-tooltip__icon">
+        <ld-icon>
+          <!---->
+          <span class="ld-icon ld-icon--sm" role="presentation">
+            Not Found
+          </span>
+        </ld-icon>
+      </span>
+    </slot-fb>
+    <div class="ld-tether-target-marker">
+      <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+    </div>
+  </button>
+</ld-tooltip>
+`;
