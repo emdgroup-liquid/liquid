@@ -47,7 +47,7 @@ describe('ld-input', () => {
     expect(input.value).toBe('yada-yada')
 
     input.value = 'yoda-yoda'
-    await input.dispatchEvent(new Event('input'))
+    input.dispatchEvent(new Event('input'))
     await page.waitForChanges()
     expect(ldInput.value).toBe('yoda-yoda')
 
@@ -76,14 +76,14 @@ describe('ld-input', () => {
 
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldInput.addEventListener('focus', handlers.onFocus)
-    await input.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    input.dispatchEvent(new Event('focus'))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
     ldInput.addEventListener('blur', handlers.onBlur)
-    await input.dispatchEvent(new Event('blur'))
-    await new Promise((resolve) => setTimeout(resolve))
+    input.dispatchEvent(new Event('blur'))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
   })
   it('renders with slot start', async () => {
@@ -149,14 +149,12 @@ describe('ld-input', () => {
     })
     const ldInput = page.root
 
-    const banana = ldInput.querySelector('#banana')
+    const banana = ldInput.querySelector('#banana') as HTMLElement
 
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldInput.addEventListener('focus', handlers.onFocus)
-    await new Promise((resolve) => setTimeout(resolve))
-    ;(banana as HTMLElement).click()
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    banana.click()
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     HTMLInputElement.prototype.focus = prevProtoFocus
