@@ -89,7 +89,7 @@ describe('ld-checkbox', () => {
     expect(input.checked).toBe(false)
 
     input.checked = true
-    await input.dispatchEvent(new Event('click'))
+    input.dispatchEvent(new Event('click'))
     await page.waitForChanges()
     expect(ldCheckbox.checked).toBe(true)
 
@@ -122,14 +122,14 @@ describe('ld-checkbox', () => {
 
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldCheckbox.addEventListener('focus', handlers.onFocus)
-    await input.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    input.dispatchEvent(new Event('focus'))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
     ldCheckbox.addEventListener('blur', handlers.onBlur)
-    await input.dispatchEvent(new Event('blur'))
-    await new Promise((resolve) => setTimeout(resolve))
+    input.dispatchEvent(new Event('blur'))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
   })
 })
