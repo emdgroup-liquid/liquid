@@ -203,6 +203,16 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 </ld-tooltip>
 {% endexample %}
 
+## CSS Variables
+
+| Variable                        | Description                                                                            | Default              |
+| ------------------------------- | -------------------------------------------------------------------------------------- | -------------------- |
+| --ld-tooltip-arrow-size         | Size of the arrow                                                                      | 0.5rem (8px)         |
+| --ld-tooltip-arrow-offset       | Offset of the arrow from the tooltip border, if arrow is aligned left/right/top/bottom | var(--ld-sp-16)      |
+| --ld-tooltip-max-width          | Max width of the tooltip                                                               | 20rem (320px)        |
+| --ld-tooltip-offset             | Space between the trigger and the tooltip (including the arrow)                        | var(--ld-sp-8)       |
+| --ld-tooltip-animation-duration | Duration of the tooltip show/hide animation                                            | var(--ld-ad-default) |
+
 
 <!-- Auto Generated Below -->
 

@@ -8,29 +8,33 @@
 }
 
 .ld-tooltip {
-  --arrow-size: 0.5rem;
-  --max-width: 20rem;
-  --offset: 0.5rem;
-  --shadow-color: rgba(9, 23, 52, 0.15);
+  /* TODO: move to global vars? */
+  --ld-ad-default: 200ms; /* default animation duration */
+  --ld-zi-max: 2147483647; /* max z-index */
+
+  --ld-tooltip-arrow-size: 0.5rem;
+  --ld-tooltip-arrow-offset: var(--ld-sp-16);
+  --ld-tooltip-max-width: 20rem;
+  --ld-tooltip-offset: var(--ld-sp-8);
+  --ld-tooltip-animation-duration: var(--ld-ad-default);
 
   background-color: var(--ld-col-wht);
-  border-radius: 0.25rem;
+  border-radius: var(--ld-br-m);
   color: var(--ld-col-rblck-default);
-  filter: drop-shadow(0px 16px 32px var(--shadow-color))
-    drop-shadow(0px 0px 4px var(--shadow-color));
-  max-width: var(--max-width);
+  filter: var(--ld-drop-shadow-hover);
+  max-width: var(--ld-tooltip-max-width);
   opacity: 0;
-  padding: 1rem;
+  padding: var(--ld-sp-16);
   pointer-events: none;
   position: relative;
-  transition: opacity 200ms ease-in-out;
-  z-index: 2147483647;
+  transition: opacity var(--ld-tooltip-animation-duration) ease-in-out;
+  z-index: var(--ld-zi-max);
 
   &--with-arrow {
-    --offset: 1rem;
+    --ld-tooltip-offset: calc(var(--ld-tooltip-arrow-size) + var(--ld-sp-8));
 
     &:before {
-      border: var(--arrow-size) solid transparent;
+      border: var(--ld-tooltip-arrow-size) solid transparent;
       content: '';
       position: absolute;
     }
@@ -41,17 +45,17 @@
   }
 
   &.ld-tether-enabled {
-    animation: ld-tooltip-show 200ms ease-in-out;
+    animation: ld-tooltip-show var(--ld-tooltip-animation-duration) ease-in-out;
     opacity: 1;
   }
 
   &.ld-tether-element-attached-bottom {
     &:before {
-      bottom: 1rem;
+      bottom: var(--ld-tooltip-arrow-offset);
     }
 
     &.ld-tether-target-attached-top {
-      margin-top: calc(var(--offset) * -1);
+      margin-top: calc(var(--ld-tooltip-offset) * -1);
 
       &:before {
         border-top-color: var(--ld-col-wht);
@@ -61,11 +65,11 @@
   }
 
   &.ld-tether-element-attached-center:before {
-    left: calc(50% - var(--arrow-size));
+    left: calc(50% - var(--ld-tooltip-arrow-size));
   }
 
   &.ld-tether-element-attached-left.ld-tether-target-attached-right {
-    margin-left: var(--offset);
+    margin-left: var(--ld-tooltip-offset);
 
     &:before {
       border-right-color: var(--ld-col-wht);
@@ -74,16 +78,16 @@
   }
 
   &.ld-tether-element-attached-middle:before {
-    top: calc(50% - var(--arrow-size));
+    top: calc(50% - var(--ld-tooltip-arrow-size));
   }
 
   &.ld-tether-element-attached-right {
     &:before {
-      right: 1rem;
+      right: var(--ld-tooltip-arrow-offset);
     }
 
     &.ld-tether-target-attached-left {
-      margin-left: calc(var(--offset) * -1);
+      margin-left: calc(var(--ld-tooltip-offset) * -1);
 
       &:before {
         border-left-color: var(--ld-col-wht);
@@ -93,7 +97,7 @@
   }
 
   &.ld-tether-element-attached-top.ld-tether-target-attached-bottom {
-    margin-top: var(--offset);
+    margin-top: var(--ld-tooltip-offset);
 
     &:before {
       border-bottom-color: var(--ld-col-wht);
@@ -123,7 +127,7 @@
   color: var(--ld-thm-ocean-bg-primary);
   /* animations triggered by user interactions on single component instances are probably not a performance issue */
   /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: color 200ms ease-in-out;
+  transition: color var(--ld-tooltip-animation-duration) ease-in-out;
 
   &:hover {
     color: var(--ld-col-rb55);
