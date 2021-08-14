@@ -8,6 +8,7 @@
       > p,
       > ol,
       > ul,
+      > #css-variables + table,
       > #properties + table,
       > #events + table,
       > #slots + table {
@@ -17,6 +18,7 @@
         }
       }
 
+      #css-variables + table td,
       #properties + table td {
         &:first-of-type,
         &:nth-of-type(2),
@@ -76,6 +78,7 @@
       > p,
       > ol,
       > ul,
+      > #css-variables + table,
       > #properties + table,
       > #events + table,
       > #slots + table {
@@ -85,6 +88,7 @@
         }
       }
 
+      #css-variables + table td,
       #properties + table td {
         &:first-of-type,
         &:nth-of-type(2),
@@ -323,16 +327,14 @@
       }
     }
 
+    > #css-variables + table,
     > #properties + table {
-      --table-min-width: 72rem;
-
       td,
       th {
         /* props and attributes */
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
-          width: var(--table-cell-width-sm);
           word-break: break-all;
           flex-shrink: 0;
 
@@ -355,6 +357,15 @@
             }
           }
         }
+      }
+    }
+
+    > #properties + table {
+      --table-min-width: 72rem;
+
+      td,
+      th {
+        width: var(--table-cell-width-sm);
 
         /* attributes */
         &:nth-of-type(2) {
@@ -376,6 +387,25 @@
 
         /* default value */
         &:nth-of-type(5) {
+          width: var(--table-cell-width-sm);
+        }
+      }
+    }
+
+    > #css-variables + table {
+      --table-min-width: 62rem;
+
+      td,
+      th {
+        width: var(--table-cell-width);
+
+        /* description */
+        &:nth-of-type(2) {
+          width: var(--table-cell-width-lg);
+        }
+
+        /* default value */
+        &:nth-of-type(3) {
           width: var(--table-cell-width-sm);
         }
       }
@@ -431,6 +461,7 @@
       }
     }
 
+    > #css-variables + table,
     > #properties + table,
     > #events + table,
     > #slots + table {
@@ -491,6 +522,7 @@
   }
 }
 
+#css-variabled + table::after,
 #properties + table::after {
   content: '* required';
 }
