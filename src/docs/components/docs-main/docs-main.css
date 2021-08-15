@@ -88,11 +88,23 @@
         }
       }
 
-      #css-variables + table td,
       #properties + table td {
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
+          code {
+            &:not(:last-child) {
+              color: var(--ld-col-rb1);
+              background-color: var(--ld-col-rb-default);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb3);
+            }
+          }
+        }
+      }
+
+      #css-variables + table td {
+        &:first-of-type,
+        &:nth-of-type(3) {
           code {
             &:not(:last-child) {
               color: var(--ld-col-rb1);
@@ -327,13 +339,15 @@
       }
     }
 
-    > #css-variables + table,
     > #properties + table {
+      --table-min-width: 72rem;
+
       td,
       th {
+        width: var(--table-cell-width-sm);
+
         /* props and attributes */
         &:first-of-type,
-        &:nth-of-type(2),
         &:nth-of-type(4) {
           word-break: break-all;
           flex-shrink: 0;
@@ -357,15 +371,6 @@
             }
           }
         }
-      }
-    }
-
-    > #properties + table {
-      --table-min-width: 72rem;
-
-      td,
-      th {
-        width: var(--table-cell-width-sm);
 
         /* attributes */
         &:nth-of-type(2) {
@@ -398,6 +403,32 @@
       td,
       th {
         width: var(--table-cell-width);
+
+        /* props and attributes */
+        &:first-of-type,
+        &:nth-of-type(3) {
+          word-break: break-all;
+          flex-shrink: 0;
+
+          code {
+            display: inline-grid;
+            grid-auto-flow: column;
+            gap: var(--ld-sp-4);
+
+            + em {
+              display: none;
+            }
+
+            &:not(:last-child) {
+              font-weight: 600;
+
+              &::after {
+                content: '*';
+                transform: translateY(-0.125rem);
+              }
+            }
+          }
+        }
 
         /* description */
         &:nth-of-type(2) {
@@ -522,7 +553,6 @@
   }
 }
 
-#css-variabled + table::after,
 #properties + table::after {
   content: '* required';
 }
