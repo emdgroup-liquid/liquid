@@ -269,6 +269,14 @@
       }
     }
 
+    > ul {
+      list-style: disc;
+    }
+
+    > ol {
+      list-style: decimal;
+    }
+
     > table {
       --table-cell-width-sm: 12rem;
       --table-cell-width: 20rem;
