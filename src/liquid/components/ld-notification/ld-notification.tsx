@@ -114,13 +114,8 @@ export class LdNotification {
     )
   }
 
-  disconnectedCallback() {
-    clearTimeout(this.dismissTimeout)
-    this.fadeoutTimeouts.forEach(clearTimeout)
-  }
-
-  render() {
-    const dismissIcon = `
+  private getDismissIcon() {
+    return (
       <svg
         width="24"
         height="24"
@@ -144,8 +139,15 @@ export class LdNotification {
           stroke-linejoin="round"
         />
       </svg>
-    `
+    )
+  }
 
+  disconnectedCallback() {
+    clearTimeout(this.dismissTimeout)
+    this.fadeoutTimeouts.forEach(clearTimeout)
+  }
+
+  render() {
     const cl = `ld-notification ld-notification--${this.placement}`
 
     return (
@@ -163,8 +165,9 @@ export class LdNotification {
             <button
               class="ld-notification__btn-dismiss"
               onClick={this.handleNotificationDismiss.bind(this)}
-              innerHTML={dismissIcon}
-            ></button>
+            >
+              {this.getDismissIcon()}
+            </button>
           </div>
         ))}
         {this.queueDismissed.map((notification) => (
@@ -177,10 +180,9 @@ export class LdNotification {
               class="ld-notification__item-content"
               innerHTML={notification.content}
             ></div>
-            <div
-              class="ld-notification__btn-dismiss"
-              innerHTML={dismissIcon}
-            ></div>
+            <div class="ld-notification__btn-dismiss">
+              {this.getDismissIcon()}
+            </div>
           </div>
         ))}
       </Host>
