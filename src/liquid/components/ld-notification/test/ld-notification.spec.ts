@@ -174,7 +174,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -184,7 +183,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -203,7 +201,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -213,7 +210,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -573,7 +569,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -583,7 +578,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -593,7 +587,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -603,6 +596,7 @@ describe('ld-notification', () => {
           },
         })
       )
+
       await page.waitForChanges()
 
       let notifications = page.root.querySelectorAll(
@@ -661,7 +655,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
@@ -726,7 +719,6 @@ describe('ld-notification', () => {
           },
         })
       )
-      await page.waitForChanges()
 
       page.win.dispatchEvent(
         new CustomEvent('ldNotificationAdd', {
