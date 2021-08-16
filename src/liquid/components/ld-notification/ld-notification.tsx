@@ -106,7 +106,7 @@ export class LdNotification {
     this.queueDismissed = [...this.queue]
     this.queue = []
     this.currentNotification = undefined
-    this.fadeoutTimeouts.forEach((timeoutId) => clearTimeout(timeoutId))
+    this.fadeoutTimeouts.forEach(clearTimeout)
     this.fadeoutTimeouts.push(
       setTimeout(() => {
         this.queueDismissed = []
@@ -116,7 +116,7 @@ export class LdNotification {
 
   disconnectedCallback() {
     clearTimeout(this.dismissTimeout)
-    this.fadeoutTimeouts.forEach((timeoutId) => clearTimeout(timeoutId))
+    this.fadeoutTimeouts.forEach(clearTimeout)
   }
 
   render() {
