@@ -346,18 +346,18 @@
             </li>
           </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/getting-started.md"></docs-edit-on-github>
       </header>
-      <h1 id="getting-started">Getting Started <a class="header-anchor" href="#getting-started"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<h2 id="import-and-register-web-components">Import and register Web Components <a class="header-anchor" href="#import-and-register-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+      <h1 id="getting-started">Getting Started <a class="header-anchor" href="liquid/getting-started/#getting-started"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="import-and-register-web-components">Import and register Web Components <a class="header-anchor" href="liquid/getting-started/#import-and-register-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.</p>
 <p>There are two options to choose from when importing and registering Liquid Web Components. Depending on your needs you should choose one or the other.</p>
-<h3 id="self-lazy-loading-bundle">self-lazy-loading bundle <a class="header-anchor" href="#self-lazy-loading-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="self-lazy-loading-bundle">self-lazy-loading bundle <a class="header-anchor" href="liquid/getting-started/#self-lazy-loading-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The <em>self-lazy-loading bundle</em> is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h3 id="custom-elements-bundle">custom-elements bundle <a class="header-anchor" href="#custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="custom-elements-bundle">custom-elements bundle <a class="header-anchor" href="liquid/getting-started/#custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The <em>custom-elements bundle</em> is a tree-shakable bundle that does not apply polyfills, nor define any custom element automatically. Using this bundle may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/custom-elements'</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span></code></pre>
 <p>Learn more about the differences in the <a href="https://stenciljs.com/docs/distribution#how-is-this-different-than-dist-custom-elements-bundle-output-target">Stencil docs</a>.</p>
-<h2 id="import-stylesheets">Import stylesheets <a class="header-anchor" href="#import-stylesheets"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="import-stylesheets">Import stylesheets <a class="header-anchor" href="liquid/getting-started/#import-stylesheets"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>We recommend importing Liquid stylesheets in a central place respectively the entry file of your application.</p>
 <p>There are two options to choose from when importing stylesheets from Liquid. Depending on your needs you should choose one or the other.</p>
 <ol>

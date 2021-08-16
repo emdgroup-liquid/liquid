@@ -346,7 +346,7 @@
             </li>
           </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/components/ld-input-message/readme.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-input-message">ld-input-message <a class="header-anchor" href="#ld-input-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+      <h1 id="ld-input-message">ld-input-message <a class="header-anchor" href="components/ld-input-message/#ld-input-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>This component is meant to be used in conjunction with the <a href="components/ld-input/"><code>ld-input</code></a> and the <a href="components/ld-label/"><code>ld-label</code></a> component. Please reffer to the <a href="components/ld-input/"><code>ld-input</code></a> docs for further usage examples.</p>
 <blockquote>
 <p><strong>Note</strong>: The <code>ld-input-message</code> with a mode other than <code>&quot;info&quot;</code> is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background.</p>
@@ -354,8 +354,8 @@
 <blockquote>
 <p><strong>Note</strong>: If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">ARIA live regions</a> for this matter.</p>
 </blockquote>
-<h2 id="examples">Examples <a class="header-anchor" href="#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<h3 id="as-error-message">As error message <a class="header-anchor" href="#as-error-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h2 id="examples">Examples <a class="header-anchor" href="components/ld-input-message/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="as-error-message">As error message <a class="header-anchor" href="components/ld-input-message/#as-error-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-input-message%3EThis%20field%20is%20required.%3C%2Fld-input-message%3E" code-css-component="%3Cspan%20class%3D%22ld-input-message%20ld-input-message--error%22%3E%0A%20%20%3Csvg%20class%3D%22ld-input-message__icon%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ctitle%3EError%3C%2Ftitle%3E%0A%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7%2014C10.866%2014%2014%2010.866%2014%207C14%203.13401%2010.866%200%207%200C3.13401%200%200%203.13401%200%207C0%2010.866%203.13401%2014%207%2014Z%22%20fill%3D%22%23E61E50%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4.66675%204.66699L9.33341%209.33366%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4.66675%209.33301L9.33341%204.66634%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20This%20field%20is%20required.%0A%3C%2Fspan%3E"  background="light" themable>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span><span class="token punctuation">></span></span>This field is required.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span></code></pre>
@@ -370,7 +370,7 @@
   </svg>
   This field is required.
 </span></div></docs-example>
-<h3 id="as-info-message">As info message <a class="header-anchor" href="#as-info-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="as-info-message">As info message <a class="header-anchor" href="components/ld-input-message/#as-info-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-input-message%20mode%3D%22info%22%3EThis%20field%20will%20destroy%20itself%20on%20form%20submission.%3C%2Fld-input-message%3E" code-css-component="%3Cspan%20class%3D%22ld-input-message%20ld-input-message--info%22%3E%0A%20%20%3Csvg%20class%3D%22ld-input-message__icon%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ctitle%3EInfo%3C%2Ftitle%3E%0A%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7%2014C10.866%2014%2014%2010.866%2014%207C14%203.13401%2010.866%200%207%200C3.13401%200%200%203.13401%200%207C0%2010.866%203.13401%2014%207%2014Z%22%20fill%3D%22%23FFC832%22%2F%3E%0A%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.18234%2011.0254C6.79228%2011.0254%206.48657%2010.9147%206.26518%2010.6933C6.0438%2010.472%205.93311%2010.1662%205.93311%209.77618V6.12335C5.93311%205.99685%206.0069%205.93359%206.15449%205.93359H6.89771C7.28776%205.93359%207.59348%206.04428%207.81487%206.26567C8.03625%206.48705%208.14694%206.79277%208.14694%207.18283V10.8357C8.14694%2010.9622%208.07315%2011.0254%207.92556%2011.0254H7.18234Z%22%20fill%3D%22%23091734%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%226.99977%22%20cy%3D%223.80007%22%20rx%3D%221.06667%22%20ry%3D%221.06667%22%20fill%3D%22%23091734%22%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20This%20field%20will%20destroy%20itself%20on%20form%20submission.%0A%3C%2Fspan%3E"  background="light" themable>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>This field will destroy itself on form submission.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span></code></pre>
@@ -385,7 +385,7 @@
   </svg>
   This field will destroy itself on form submission.
 </span></div></docs-example>
-<h3 id="as-success-message">As success message <a class="header-anchor" href="#as-success-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="as-success-message">As success message <a class="header-anchor" href="components/ld-input-message/#as-success-message"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-input-message%20mode%3D%22valid%22%3EThat's%20correct!%3C%2Fld-input-message%3E" code-css-component="%3Cspan%20class%3D%22ld-input-message%20ld-input-message--info%22%3E%0A%20%20%3Csvg%20class%3D%22ld-input-message__icon%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ctitle%3EValid%3C%2Ftitle%3E%0A%20%20%20%20%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%2214%22%20height%3D%2214%22%20rx%3D%227%22%20fill%3D%22%2301884C%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M11.1111%206.13333L7.00937%209.86666L4.88887%207.77577%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%20%20That's%20correct!%0A%3C%2Fspan%3E"  background="light" themable>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>valid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>That's correct!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span></code></pre>
@@ -400,7 +400,7 @@
   That's correct!
 </span></div></docs-example>
 <!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="properties">Properties <a class="header-anchor" href="components/ld-input-message/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
 <tr>
