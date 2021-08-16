@@ -56,7 +56,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -89,7 +89,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am a warning.',
             type: 'warn',
@@ -122,7 +122,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'Ooops.',
             type: 'alert',
@@ -158,7 +158,7 @@ describe('ld-notification', () => {
       })
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -167,7 +167,7 @@ describe('ld-notification', () => {
       )
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'warning #1',
             type: 'warn',
@@ -177,7 +177,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'alert #1',
             type: 'alert',
@@ -187,7 +187,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #2',
             type: 'info',
@@ -196,7 +196,7 @@ describe('ld-notification', () => {
       )
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'warning #2',
             type: 'warn',
@@ -206,7 +206,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'alert #2',
             type: 'alert',
@@ -216,7 +216,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #3',
             type: 'info',
@@ -246,7 +246,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -282,7 +282,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -315,7 +315,7 @@ describe('ld-notification', () => {
       })
       const additionalTime = 200
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -357,7 +357,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -390,7 +390,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'Ooops.',
             type: 'alert',
@@ -422,7 +422,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'I am an info message.',
             type: 'info',
@@ -432,7 +432,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'Ooops.',
             type: 'alert',
@@ -464,7 +464,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -474,7 +474,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #2',
             type: 'info',
@@ -523,7 +523,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -533,7 +533,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #2',
             type: 'info',
@@ -566,7 +566,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -576,7 +576,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #2',
             type: 'info',
@@ -586,7 +586,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #3',
             type: 'info',
@@ -596,7 +596,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #4',
             type: 'info',
@@ -654,7 +654,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -664,7 +664,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #2',
             type: 'info',
@@ -719,7 +719,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -729,7 +729,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content: 'info #1',
             type: 'info',
@@ -750,7 +750,7 @@ describe('ld-notification', () => {
         html: `<ld-notification></ld-notification>`,
       })
       page.win.dispatchEvent(
-        new CustomEvent('ldNotification', {
+        new CustomEvent('ldNotificationAdd', {
           detail: {
             content:
               '<ld-icon name="placeholder"></ld-icon> A notification with an icon.',

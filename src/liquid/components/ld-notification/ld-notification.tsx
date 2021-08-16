@@ -43,7 +43,7 @@ export class LdNotification {
     }, this.currentNotification.timeout || DEFAULT_NOTIFICATION_TIMEOUT)
   }
 
-  @Listen('ldNotification', {
+  @Listen('ldNotificationAdd', {
     target: 'window',
     passive: true,
   })

@@ -17,10 +17,10 @@ Use the `ld-notification` component in your application to display popup notific
 
 ## How it works
 
-Add the component to your application, preferably close after the opening `<body>` tag. The component is invisible as long as no new notifications are triggered. It listens to three [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`: the `ldNotification` the `ldNotificationDismiss` and the `ldNotificationClear` event. As soon as one of those events reaches the `window`, the component either queues and displays new notifications or removes queued notifications from its queue. The content and type of each notification is set via the `event.detail` property. Here is an example on how you can trigger a notification containing an alert message:
+Add the component to your application, preferably close after the opening `<body>` tag. The component is invisible as long as no new notifications are triggered. It listens to three [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on the `window`: the `ldNotificationAdd` the `ldNotificationDismiss` and the `ldNotificationClear` event. As soon as one of those events reaches the `window`, the component either queues and displays new notifications or removes queued notifications from its queue. The content and type of each notification is set via the `event.detail` property. Here is an example on how you can trigger a notification containing an alert message:
 
 ```js
-dispatchEvent(new CustomEvent('ldNotification', {
+dispatchEvent(new CustomEvent('ldNotificationAdd', {
   detail: {
     content: 'Something went wrong.',
     type: 'alert',
@@ -55,7 +55,7 @@ Notifications of type `'alert'` take precedence of notifications of type `'info'
 While notifications with type `'alert'` do not time out, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object: 
 
 ```js
-dispatchEvent(new CustomEvent('ldNotification', {
+dispatchEvent(new CustomEvent('ldNotificationAdd', {
   detail: {
     content: 'Here is a message for you.',
     type: 'info',
@@ -69,7 +69,7 @@ dispatchEvent(new CustomEvent('ldNotification', {
 If you want to prevent a notification of type `'info'` and `'warn'` from timing out, use the timeout value `0`:
 
 ```js
-dispatchEvent(new CustomEvent('ldNotification', {
+dispatchEvent(new CustomEvent('ldNotificationAdd', {
   detail: {
     content: 'Here is a message for you.',
     type: 'info',
@@ -87,7 +87,7 @@ If a notification gets queued behind another notification, its timeout is reset 
 The examples above used simple text as content for the notification. But you can also use an HTML string containing links and other components:
 
  ```js
-dispatchEvent(new CustomEvent('ldNotification', {
+dispatchEvent(new CustomEvent('ldNotificationAdd', {
   detail: {
     content: '<ld-icon name="placeholder"></ld-icon> A notification with an icon.',
     type: 'info',
@@ -189,7 +189,7 @@ const formInfo = document.getElementById('form-info')
 const inputInfo = document.getElementById('input-info')
 formInfo.addEventListener('submit', ev => {
   ev.preventDefault()
-  dispatchEvent(new CustomEvent('ldNotification', {
+  dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
       content: inputInfo.value || '',
       type: 'info',
@@ -201,7 +201,7 @@ const formWarn = document.getElementById('form-warn')
 const inputWarn = document.getElementById('input-warn')
 formWarn.addEventListener('submit', ev => {
   ev.preventDefault()
-  dispatchEvent(new CustomEvent('ldNotification', {
+  dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
       content: inputWarn.value || '',
       type: 'warn',
@@ -213,7 +213,7 @@ const formInfoCustomTimeout = document.getElementById('form-info-custom-timeout'
 const inputInfoCustomTimeout = document.getElementById('input-info-custom-timeout')
 formInfoCustomTimeout.addEventListener('submit', ev => {
   ev.preventDefault()
-  dispatchEvent(new CustomEvent('ldNotification', {
+  dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
       content: inputInfoCustomTimeout.value || '',
       type: 'info',
@@ -226,7 +226,7 @@ const formInfoNoTimeout = document.getElementById('form-info-no-timeout')
 const inputInfoNoTimeout = document.getElementById('input-info-no-timeout')
 formInfoNoTimeout.addEventListener('submit', ev => {
   ev.preventDefault()
-  dispatchEvent(new CustomEvent('ldNotification', {
+  dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
       content: inputInfoNoTimeout.value || '',
       type: 'info',
@@ -239,7 +239,7 @@ const formAlert = document.getElementById('form-alert')
 const inputAlert = document.getElementById('input-alert')
 formAlert.addEventListener('submit', ev => {
   ev.preventDefault()
-  dispatchEvent(new CustomEvent('ldNotification', {
+  dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
       content: inputAlert.value || '',
       type: 'alert',
