@@ -41,7 +41,7 @@
   min-width: 19rem;
   max-width: calc(90% - 1rem);
   max-height: 80vh;
-  min-height: 2.5rem;
+  min-height: var(--ld-sp-40);
   overflow-y: auto;
   border-radius: var(--ld-br-m);
   display: flex;
