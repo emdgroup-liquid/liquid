@@ -1,5 +1,7 @@
 import { newE2EPage } from '@stencil/core/testing'
 
+jest.useRealTimers()
+
 describe('ld-sr-only', () => {
   it('renders', async () => {
     const page = await newE2EPage()
