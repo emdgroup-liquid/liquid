@@ -146,8 +146,7 @@ export class LdNotification {
       </svg>
     `
 
-    let cl = 'ld-notification'
-    cl += ` ld-notification--${this.placement}`
+    const cl = `ld-notification ld-notification--${this.placement}`
 
     return (
       <Host class={cl} role="region" aria-label="Notifications">
