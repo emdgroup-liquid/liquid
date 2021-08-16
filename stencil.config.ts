@@ -28,5 +28,6 @@ export const config: Config = {
   plugins: [postcss(postcssConfig)],
   testing: {
     moduleDirectories: ['node_modules', './'],
+    timers: 'fake',
   },
 }

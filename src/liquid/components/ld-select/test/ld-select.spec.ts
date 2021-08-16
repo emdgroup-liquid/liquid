@@ -20,9 +20,9 @@ async function triggerPopper(page) {
   const ldSelect = page.body.querySelector('ld-select')
   const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
   btnTrigger.focus = jest.fn(focusManager.focus)
-  await btnTrigger.click()
+  btnTrigger.click()
   await page.waitForChanges()
-  await new Promise((resolve) => setTimeout(resolve))
+  jest.advanceTimersByTime(0)
   await page.waitForChanges()
 }
 
@@ -37,7 +37,7 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
@@ -46,8 +46,8 @@ describe('ld-select', () => {
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
     btnTrigger.dispatchEvent(new Event('click'))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
 
     const popper = await page.body.querySelector('.ld-select__popper')
     const slottedOptions = ldSelect.querySelectorAll('ld-option')
@@ -91,7 +91,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     expect(ldSelect.classList.contains('ld-select--sm')).toBeTruthy()
@@ -142,36 +142,35 @@ describe('ld-select', () => {
     ldSelectFruit.addEventListener('focus', fruitHandlers.onFocus)
 
     window.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalledTimes(0)
 
     btnTriggerVegetable.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalledTimes(0)
 
     btnTriggerFruit.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalledTimes(1)
 
     const spyBlur = jest.spyOn(fruitHandlers, 'onBlur')
     ldSelectFruit.addEventListener('blur', fruitHandlers.onBlur)
 
     window.dispatchEvent(new Event('blur', { bubbles: true }))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalledTimes(0)
 
     btnTriggerVegetable.dispatchEvent(new Event('blur', { bubbles: true }))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalledTimes(0)
 
     btnTriggerFruit.dispatchEvent(new Event('blur', { bubbles: true }))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalledTimes(1)
 
     btnTriggerFruit['focus'] = jest.fn(focusManager.focus)
     btnTriggerFruit.dispatchEvent(new Event('click'))
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
     expect(btnTriggerFruit.getAttribute('aria-expanded')).toEqual('true')
 
@@ -188,23 +187,23 @@ describe('ld-select', () => {
     const Ev = CustomEvent as any
 
     internalOptionsFruits[1].focus = jest.fn(focusManager.focus)
-    await internalOptionsFruits[1].dispatchEvent(
+    internalOptionsFruits[1].dispatchEvent(
       new Ev('blur', {
         bubbles: true,
         relatedTarget: internalOptionsFruits[0],
       }) // actually FocusEvent
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalledTimes(1)
 
     internalOptionsFruits[1].focus = jest.fn(focusManager.focus)
-    await internalOptionsFruits[1].dispatchEvent(
+    internalOptionsFruits[1].dispatchEvent(
       new Ev('blur', {
         bubbles: true,
         detail: 0,
       }) // actually FocusEvent
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalledTimes(2)
   })
 
@@ -248,16 +247,16 @@ describe('ld-select', () => {
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
 
-    await internalOptions[0].click()
+    internalOptions[0].click()
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
 
-    await internalOptions[0].click()
+    internalOptions[0].click()
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
@@ -282,9 +281,9 @@ describe('ld-select', () => {
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
 
-    await internalOptions[1].click()
+    internalOptions[1].click()
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -309,9 +308,9 @@ describe('ld-select', () => {
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
 
-    await internalOptions[0].click()
+    internalOptions[0].click()
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
@@ -337,9 +336,9 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
 
     internalOptions[1].focus = jest.fn(focusManager.focus)
-    await internalOptions[1].click()
+    internalOptions[1].click()
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -372,7 +371,7 @@ describe('ld-select', () => {
     internalOptions[1].dispatchEvent(
       new KeyboardEvent('keydown', { key: ' ', bubbles: true })
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
@@ -381,13 +380,13 @@ describe('ld-select', () => {
     internalOptions[1].dispatchEvent(
       new KeyboardEvent('keydown', { key: ' ', bubbles: true })
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     internalOptions[1].dispatchEvent(
       new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
@@ -396,7 +395,7 @@ describe('ld-select', () => {
     internalOptions[1].dispatchEvent(
       new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
     )
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
@@ -471,7 +470,7 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
@@ -491,7 +490,7 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
@@ -522,9 +521,9 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
 
     const btnClear = await ldSelect.querySelector('.ld-select__btn-clear')
-    await btnClear.dispatchEvent(new MouseEvent('click'))
+    btnClear.dispatchEvent(new MouseEvent('click'))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
@@ -550,7 +549,7 @@ describe('ld-select', () => {
     window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -566,7 +565,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const doc = (document as unknown) as { activeElement: Element }
@@ -578,7 +577,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -595,7 +594,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const doc = (document as unknown) as { activeElement: Element }
@@ -610,7 +609,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -627,7 +626,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const ldSelect = page.root
@@ -644,7 +643,7 @@ describe('ld-select', () => {
     internalOptions[1].focus = jest.fn(focusManager.focus)
 
     btnClearSingle[0].dispatchEvent(new Event('click'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
@@ -674,7 +673,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
   })
@@ -699,7 +698,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
   })
@@ -726,7 +725,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -760,7 +759,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -787,7 +786,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
   })
@@ -812,7 +811,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
   })
@@ -839,7 +838,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
   })
@@ -855,7 +854,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const doc = (document as unknown) as { activeElement: Element }
@@ -871,7 +870,7 @@ describe('ld-select', () => {
 
     const spyFocus = jest.spyOn(internalOptions[1], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -880,7 +879,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     expect(spyFocus).toHaveBeenCalledTimes(1)
@@ -897,7 +896,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const doc = (document as unknown) as { activeElement: Element }
@@ -913,7 +912,7 @@ describe('ld-select', () => {
 
     const spyFocus = jest.spyOn(internalOptions[1], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -922,7 +921,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     expect(spyFocus).toHaveBeenCalledTimes(0)
@@ -960,7 +959,7 @@ describe('ld-select', () => {
     const spyFocus2 = jest.spyOn(internalOptions[2], 'focus')
     const spyFocus3 = jest.spyOn(internalOptions[3], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -969,7 +968,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
@@ -981,7 +980,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[0]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(1)
     expect(spyFocus1).toHaveBeenCalledTimes(1)
@@ -991,7 +990,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[1]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(1)
     expect(spyFocus1).toHaveBeenCalledTimes(1)
@@ -1001,7 +1000,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[2]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(1)
     expect(spyFocus1).toHaveBeenCalledTimes(1)
@@ -1011,7 +1010,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[3]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(1)
     expect(spyFocus1).toHaveBeenCalledTimes(1)
@@ -1051,7 +1050,7 @@ describe('ld-select', () => {
     const spyFocus2 = jest.spyOn(internalOptions[2], 'focus')
     const spyFocus3 = jest.spyOn(internalOptions[3], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -1062,7 +1061,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
@@ -1076,7 +1075,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(0)
     expect(spyFocus1).toHaveBeenCalledTimes(0)
@@ -1116,7 +1115,7 @@ describe('ld-select', () => {
     const spyFocus2 = jest.spyOn(internalOptions[2], 'focus')
     const spyFocus3 = jest.spyOn(internalOptions[3], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -1125,7 +1124,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
@@ -1137,7 +1136,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[3]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocus0).toHaveBeenCalledTimes(0)
     expect(spyFocus1).toHaveBeenCalledTimes(0)
@@ -1156,7 +1155,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
 
     const doc = (document as unknown) as { activeElement: Element }
@@ -1172,7 +1171,7 @@ describe('ld-select', () => {
 
     const spyFocus = jest.spyOn(internalOptions[1], 'focus')
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -1181,7 +1180,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     expect(spyFocus).toHaveBeenCalledTimes(1)
@@ -1210,7 +1209,7 @@ describe('ld-select', () => {
     internalOptions[0].focus = jest.fn(focusManager.focus)
     internalOptions[1].focus = jest.fn(focusManager.focus)
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -1221,7 +1220,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[0]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     expect(spyFocusBtnTrigger).toHaveBeenCalledTimes(1)
@@ -1254,7 +1253,7 @@ describe('ld-select', () => {
     internalOptions[2].focus = jest.fn(focusManager.focus)
     internalOptions[3].focus = jest.fn(focusManager.focus)
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -1271,7 +1270,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowUp', metaKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
@@ -1286,7 +1285,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowUp', metaKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusBtnTrigger).toHaveBeenCalledTimes(1)
     expect(spyFocus0).toHaveBeenCalledTimes(0)
@@ -1322,7 +1321,7 @@ describe('ld-select', () => {
     internalOptions[2].focus = jest.fn(focusManager.focus)
     internalOptions[3].focus = jest.fn(focusManager.focus)
 
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
@@ -1337,7 +1336,7 @@ describe('ld-select', () => {
     doc.activeElement = internalOptions[2]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
@@ -1350,7 +1349,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusBtnTrigger).toHaveBeenCalledTimes(1)
     expect(spyFocus0).toHaveBeenCalledTimes(0)
@@ -1395,7 +1394,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1408,7 +1407,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1421,7 +1420,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1466,7 +1465,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1479,7 +1478,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1492,7 +1491,7 @@ describe('ld-select', () => {
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1537,7 +1536,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(1)
@@ -1548,7 +1547,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'l' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(1)
@@ -1556,12 +1555,12 @@ describe('ld-select', () => {
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(1)
 
-    await new Promise((resolve) => setTimeout(resolve, 600))
+    jest.advanceTimersByTime(600)
 
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(2)
@@ -1572,7 +1571,7 @@ describe('ld-select', () => {
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'i' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(2)
@@ -1580,12 +1579,12 @@ describe('ld-select', () => {
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(1)
 
-    await new Promise((resolve) => setTimeout(resolve, 600))
+    jest.advanceTimersByTime(600)
 
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'i' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(3)
@@ -1593,12 +1592,12 @@ describe('ld-select', () => {
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(1)
 
-    await new Promise((resolve) => setTimeout(resolve, 600))
+    jest.advanceTimersByTime(600)
 
     doc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'z' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(spyFocusAppl).toHaveBeenCalledTimes(0)
     expect(spyFocusPear).toHaveBeenCalledTimes(3)
@@ -1617,7 +1616,7 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     expect(ldSelect.classList.contains('ld-select--expanded')).toBeFalsy()
@@ -1632,7 +1631,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -1647,7 +1646,7 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
     expect(ldSelect.classList.contains('ld-select--expanded')).toBeFalsy()
@@ -1662,7 +1661,7 @@ describe('ld-select', () => {
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -1685,7 +1684,7 @@ describe('ld-select', () => {
 
     page.body.dispatchEvent(new Event('touchend', { bubbles: true }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
@@ -1714,13 +1713,14 @@ describe('ld-select', () => {
 
     ldLabel.dispatchEvent(new Event('touchend', { bubbles: true }))
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     expect(spyFocusBtnTrigger).toHaveBeenCalled()
   })
 
-  it('displays more indicator with maxRows prop set in multiple mode', async () => {
+  xit('displays more indicator with maxRows prop set in multiple mode', async () => {
+    jest.useRealTimers()
     Object.defineProperty(LdSelect.prototype, 'isOverflowing', {
       configurable: true,
       value: () => true,
@@ -1743,14 +1743,8 @@ describe('ld-select', () => {
     const btnTrigger = ldSelect.querySelector('.ld-select__btn-trigger')
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
-
     const selectionList = btnTrigger.querySelector('.ld-select__selection-list')
     expect(selectionList).toBeTruthy()
-
-    await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
 
     const selectionListItems = btnTrigger.querySelectorAll(
       '.ld-select__selection-list-item'
@@ -1766,6 +1760,7 @@ describe('ld-select', () => {
       '.ld-select__selection-list-more'
     )
     expect(moreIndicator.length).toEqual(1)
+    jest.useFakeTimers()
   })
 
   // For some reason this test must come last, otherwise an exception is thrown.

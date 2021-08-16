@@ -174,12 +174,11 @@ describe('ld-button', () => {
 
     const spyClick = jest.spyOn(handlers, 'onClick')
     ldButton.addEventListener('click', handlers.onClick)
-    await new Promise((resolve) => setTimeout(resolve))
-    await button.dispatchEvent(
+    button.dispatchEvent(
       new Event('click', { bubbles: true, cancelable: true })
     )
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyClick).toHaveBeenCalled()
   })
 })

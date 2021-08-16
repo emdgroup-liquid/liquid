@@ -22,7 +22,7 @@ describe('ld-toggle', () => {
   it('renders large mode', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
-      html: `<ld-toggle mode="large"></ld-toggle>`,
+      html: `<ld-toggle size="lg"></ld-toggle>`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -77,13 +77,13 @@ describe('ld-toggle', () => {
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldToggle.addEventListener('focus', handlers.onFocus)
     input.dispatchEvent(new Event('focus'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
     ldToggle.addEventListener('blur', handlers.onBlur)
     input.dispatchEvent(new Event('blur'))
-    await new Promise((resolve) => setTimeout(resolve))
+    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
   })
 
