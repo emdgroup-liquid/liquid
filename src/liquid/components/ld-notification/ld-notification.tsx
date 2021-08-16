@@ -52,7 +52,7 @@ export class LdNotification {
     const newNotification = ev.detail
 
     // If the same notification is already in queue (same content, same type), ignore this notification.
-    const inQueue = this.queue.find(
+    const inQueue = this.queue.some(
       (notification) =>
         notification.content === newNotification.content &&
         notification.type === newNotification.type
