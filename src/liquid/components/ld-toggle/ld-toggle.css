@@ -1,0 +1,241 @@
+.ld-toggle {
+  --ld-toggle-height: 2rem;
+  --ld-toggle-width: 3.375rem;
+  --ld-toggle-inner-space: 0.125rem;
+
+  align-items: center;
+  display: flex;
+  height: var(--ld-toggle-height);
+  min-width: auto !important;
+  position: relative;
+  /* animations triggered by user interactions on single component instances are probably not a performance issue */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: background-color 200ms ease-in-out;
+  width: var(--ld-toggle-width);
+
+  input {
+    background-color: var(--ld-col-rblck4);
+    border-radius: var(--ld-br-full);
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    &:not(:disabled):not([aria-disabled='true']) {
+      cursor: pointer;
+    }
+
+    &:checked {
+      ~ .ld-toggle__knob {
+        transform: translateX(
+          calc(var(--ld-toggle-width) - var(--ld-toggle-height))
+        );
+      }
+
+      ~ .ld-toggle__icon-start {
+        color: var(--ld-col-rblck6);
+      }
+
+      ~ .ld-toggle__icon-end {
+        color: var(--ld-col-wht);
+      }
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      background-color: var(--ld-col-bg-g);
+
+      &:checked ~ .ld-toggle__icon-start {
+        color: var(--ld-col-rblck4);
+      }
+
+      &:not(:checked) ~ .ld-toggle__icon-end {
+        color: var(--ld-col-rblck4);
+      }
+    }
+  }
+
+  .ld-toggle__knob {
+    background-color: var(--ld-col-wht);
+    border-radius: var(--ld-br-full);
+    display: block;
+    height: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
+    margin: var(--ld-toggle-inner-space);
+    pointer-events: none;
+    transition: transform 200ms ease-in-out;
+    width: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
+    z-index: 1;
+  }
+}
+
+.ld-toggle--large {
+  --ld-toggle-height: 2.5rem;
+  --ld-toggle-width: 4.1875rem;
+  --ld-toggle-inner-space: 0.1875rem;
+
+  &.ld-toggle--with-icons {
+    --ld-toggle-width: 6rem;
+
+    .ld-toggle__icon-start,
+    .ld-toggle__icon-end {
+      margin: 0.75rem;
+    }
+  }
+}
+
+.ld-toggle--with-icons {
+  --ld-toggle-width: 4.5rem;
+
+  input {
+    background-color: var(--ld-col-rblck1) !important;
+
+    &:invalid ~ .ld-toggle__knob {
+      background-color: var(--ld-col-rr-default) !important;
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+      background-color: var(--ld-col-bg-g) !important;
+
+      ~ .ld-toggle__knob {
+        background-color: var(--ld-col-wht);
+      }
+    }
+  }
+
+  .ld-toggle__icon-start,
+  .ld-toggle__icon-end {
+    margin: 0.5rem;
+  }
+}
+
+.ld-toggle input:invalid {
+  background-color: var(--ld-col-rr-default);
+}
+
+/* .ld-theme-ocean -> default */
+.ld-toggle,
+.ld-theme-ocean .ld-toggle,
+[class*='ld-theme'] .ld-theme-ocean .ld-toggle {
+  input {
+    &:checked {
+      background-color: var(--ld-thm-ocean-bg-primary);
+
+      &:disabled,
+      &[aria-disabled='true'] {
+        background-color: var(--ld-col-rb2);
+      }
+    }
+  }
+
+  &--with-icons .ld-toggle__knob {
+    background-color: var(--ld-thm-ocean-bg-primary);
+  }
+}
+
+.ld-toggle__icon-start,
+.ld-toggle__icon-end {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  position: absolute;
+  /* animations triggered by user interactions on single component instances are probably not a performance issue */
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: color 200ms ease-in-out;
+  z-index: 1;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.ld-toggle__icon-start {
+  color: var(--ld-col-wht);
+  left: 0;
+}
+
+.ld-toggle__icon-end {
+  color: var(--ld-col-rblck6);
+  right: 0;
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-tea-bg-primary);
+
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rg2);
+        }
+      }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-tea-bg-primary);
+    }
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum {
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-bubblegum-bg-primary);
+
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
+      }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-bubblegum-bg-primary);
+    }
+  }
+}
+
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake {
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-shake-bg-primary);
+
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
+      }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-shake-bg-primary);
+    }
+  }
+}
+
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  .ld-toggle {
+    input {
+      &:checked {
+        background-color: var(--ld-thm-solvent-bg-primary);
+
+        &:disabled,
+        &[aria-disabled='true'] {
+          background-color: var(--ld-col-rp2);
+        }
+      }
+    }
+
+    &--with-icons .ld-toggle__knob {
+      background-color: var(--ld-thm-solvent-bg-primary);
+    }
+  }
+}

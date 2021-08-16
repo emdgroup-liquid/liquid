@@ -59,6 +59,7 @@ export class LdButton {
     const ariaDisabled = this.button.getAttribute('aria-disabled')
     if (ariaDisabled && ariaDisabled !== 'false') {
       ev.preventDefault()
+      ev.stopImmediatePropagation()
     }
   }
 

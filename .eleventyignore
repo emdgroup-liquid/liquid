@@ -1,6 +1,5 @@
 .github
 .stencil
-.stencil
 coverage
 dist
 dist_docs
