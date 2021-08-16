@@ -15,8 +15,8 @@ export class LdToggle {
   @Element() element: HTMLElement
   private hasIcons: boolean
 
-  /** Display mode. */
-  @Prop() mode?: 'small' | 'large'
+  /** Size of the toggle. */
+  @Prop() size?: 'sm' | 'lg'
 
   /** Disabled state of the toggle. */
   @Prop() disabled = false
@@ -62,7 +62,7 @@ export class LdToggle {
       <Host
         class={getClassNames([
           'ld-toggle',
-          this.mode === 'large' && 'ld-toggle--large',
+          this.size === 'lg' && 'ld-toggle--lg',
           this.hasIcons && 'ld-toggle--with-icons',
         ])}
       >

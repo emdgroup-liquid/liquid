@@ -25,7 +25,7 @@ exports[`ld-toggle renders disabled state 1`] = `
 `;
 
 exports[`ld-toggle renders large mode 1`] = `
-<ld-toggle class="ld-toggle ld-toggle--large" mode="large">
+<ld-toggle class="ld-toggle ld-toggle--lg" size="lg">
   <!---->
   <input type="checkbox">
   <span class="ld-toggle__knob"></span>

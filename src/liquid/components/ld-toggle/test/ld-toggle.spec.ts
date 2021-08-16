@@ -22,7 +22,7 @@ describe('ld-toggle', () => {
   it('renders large mode', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
-      html: `<ld-toggle mode="large"></ld-toggle>`,
+      html: `<ld-toggle size="lg"></ld-toggle>`,
     })
     expect(page.root).toMatchSnapshot()
   })

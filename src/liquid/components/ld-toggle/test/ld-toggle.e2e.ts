@@ -54,7 +54,7 @@ describe('ld-toggle', () => {
         // Large
         it(`large theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle size="lg"${checkedStateStr}></ld-toggle>`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -62,7 +62,7 @@ describe('ld-toggle', () => {
         })
         it(`large focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle size="lg"${checkedStateStr}></ld-toggle>`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -98,7 +98,7 @@ describe('ld-toggle', () => {
         // With icons (large)
         it(`with icons (large) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr}>
+            `<ld-toggle size="lg"${checkedStateStr}>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -109,7 +109,7 @@ describe('ld-toggle', () => {
         })
         it(`with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr}>
+            `<ld-toggle size="lg"${checkedStateStr}>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -167,7 +167,7 @@ describe('ld-toggle', () => {
         // With icons (large, disabled)
         it(`with icons (large, disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} disabled>
+            `<ld-toggle size="lg"${checkedStateStr} disabled>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -178,7 +178,7 @@ describe('ld-toggle', () => {
         })
         it(`with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} disabled>
+            `<ld-toggle size="lg"${checkedStateStr} disabled>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -236,7 +236,7 @@ describe('ld-toggle', () => {
         // With icons (large, aria-disabled)
         it(`with icons (large, aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} aria-disabled="true">
+            `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -247,7 +247,7 @@ describe('ld-toggle', () => {
         })
         it(`with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} aria-disabled="true">
+            `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -305,7 +305,7 @@ describe('ld-toggle', () => {
         // With icons (large, invalid)
         it(`with icons (large, invalid) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} required>
+            `<ld-toggle size="lg"${checkedStateStr} required>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -316,7 +316,7 @@ describe('ld-toggle', () => {
         })
         it(`with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle mode="large"${checkedStateStr} required>
+            `<ld-toggle size="lg"${checkedStateStr} required>
               <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
               <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
             </ld-toggle>`,
@@ -355,7 +355,7 @@ describe('ld-toggle', () => {
         // Large CSS component
         it(`css component large theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large">
+            `<div class="ld-toggle ld-toggle--lg">
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
@@ -366,7 +366,7 @@ describe('ld-toggle', () => {
         })
         it(`css component large focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large">
+            `<div class="ld-toggle ld-toggle--lg">
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
@@ -421,7 +421,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (large)
         it(`css component with icons (large) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -440,7 +440,7 @@ describe('ld-toggle', () => {
         })
         it(`css component with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -528,7 +528,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (large, disabled)
         it(`css component with icons (large, disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -547,7 +547,7 @@ describe('ld-toggle', () => {
         })
         it(`css component with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -635,7 +635,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (large, aria-disabled)
         it(`css component with icons (large, aria-disabled) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -654,7 +654,7 @@ describe('ld-toggle', () => {
         })
         it(`css component with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -742,7 +742,7 @@ describe('ld-toggle', () => {
         // CSS component with icons (large, invalid)
         it(`css component with icons (large, invalid) theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -761,7 +761,7 @@ describe('ld-toggle', () => {
         })
         it(`css component with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+            `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
