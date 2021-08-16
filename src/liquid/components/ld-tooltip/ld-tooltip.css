@@ -12,16 +12,19 @@
   --ld-ad-default: 200ms; /* default animation duration */
   --ld-zi-max: 2147483647; /* max z-index */
 
-  --ld-tooltip-arrow-size: 0.5rem;
-  --ld-tooltip-arrow-offset: var(--ld-sp-16);
-  --ld-tooltip-max-width: 20rem;
-  --ld-tooltip-offset: var(--ld-sp-8);
   --ld-tooltip-animation-duration: var(--ld-ad-default);
+  --ld-tooltip-distance-from-trigger: var(--ld-sp-8);
+  --ld-tooltip-max-width: 20rem;
+  /* calculation does not work, if 0 is used instead of 0px */
+  --ld-tooltip-offset-x: 0px;
+  --ld-tooltip-offset-y: 0px;
 
   background-color: var(--ld-col-wht);
   border-radius: var(--ld-br-m);
   color: var(--ld-col-rblck-default);
   filter: var(--ld-drop-shadow-hover);
+  margin-left: var(--ld-tooltip-offset-x);
+  margin-top: var(--ld-tooltip-offset-y);
   max-width: var(--ld-tooltip-max-width);
   opacity: 0;
   padding: var(--ld-sp-16);
@@ -31,7 +34,11 @@
   z-index: var(--ld-zi-max);
 
   &--with-arrow {
-    --ld-tooltip-offset: calc(var(--ld-tooltip-arrow-size) + var(--ld-sp-8));
+    --ld-tooltip-arrow-size: 0.5rem;
+    --ld-tooltip-arrow-offset: var(--ld-sp-16);
+    --ld-tooltip-distance-from-trigger: calc(
+      var(--ld-tooltip-arrow-size) + var(--ld-sp-8)
+    );
 
     &:before {
       border: var(--ld-tooltip-arrow-size) solid transparent;
@@ -55,7 +62,10 @@
     }
 
     &.ld-tether-target-attached-top {
-      margin-top: calc(var(--ld-tooltip-offset) * -1);
+      margin-top: calc(
+        var(--ld-tooltip-distance-from-trigger) * -1 -
+          var(--ld-tooltip-offset-y)
+      );
 
       &:before {
         border-top-color: var(--ld-col-wht);
@@ -69,7 +79,9 @@
   }
 
   &.ld-tether-element-attached-left.ld-tether-target-attached-right {
-    margin-left: var(--ld-tooltip-offset);
+    margin-left: calc(
+      var(--ld-tooltip-offset-x) + var(--ld-tooltip-distance-from-trigger)
+    );
 
     &:before {
       border-right-color: var(--ld-col-wht);
@@ -87,7 +99,10 @@
     }
 
     &.ld-tether-target-attached-left {
-      margin-left: calc(var(--ld-tooltip-offset) * -1);
+      margin-left: calc(
+        var(--ld-tooltip-distance-from-trigger) * -1 -
+          var(--ld-tooltip-offset-x)
+      );
 
       &:before {
         border-left-color: var(--ld-col-wht);
@@ -97,11 +112,37 @@
   }
 
   &.ld-tether-element-attached-top.ld-tether-target-attached-bottom {
-    margin-top: var(--ld-tooltip-offset);
+    margin-top: calc(
+      var(--ld-tooltip-distance-from-trigger) + var(--ld-tooltip-offset-y)
+    );
 
     &:before {
       border-bottom-color: var(--ld-col-wht);
       bottom: 100%;
+    }
+  }
+}
+
+.ld-tooltip--with-default-trigger:where(.ld-tooltip--with-arrow) {
+  &:where(.ld-tether-element-attached-top.ld-tether-target-attached-bottom),
+  &:where(.ld-tether-element-attached-bottom.ld-tether-target-attached-top) {
+    &:where(.ld-tether-element-attached-right) {
+      --ld-tooltip-offset-x: 1rem;
+    }
+
+    &:where(.ld-tether-element-attached-left) {
+      --ld-tooltip-offset-x: -1rem;
+    }
+  }
+
+  &:where(.ld-tether-element-attached-right.ld-tether-target-attached-left),
+  &:where(.ld-tether-element-attached-left.ld-tether-target-attached-right) {
+    &:where(.ld-tether-element-attached-bottom) {
+      --ld-tooltip-offset-y: 1rem;
+    }
+
+    &:where(.ld-tether-element-attached-top) {
+      --ld-tooltip-offset-y: -1rem;
     }
   }
 }
@@ -114,6 +155,10 @@
   font-size: inherit;
   padding: 0;
 
+  &--clickable {
+    cursor: pointer;
+  }
+
   + .ld-tooltip {
     opacity: 0;
     position: absolute;
@@ -125,6 +170,7 @@
 .ld-theme-ocean .ld-tooltip__icon,
 [class*='ld-theme'] .ld-theme-ocean .ld-tooltip__icon {
   color: var(--ld-thm-ocean-bg-primary);
+  display: flex;
   /* animations triggered by user interactions on single component instances are probably not a performance issue */
   /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
   transition: color var(--ld-tooltip-animation-duration) ease-in-out;

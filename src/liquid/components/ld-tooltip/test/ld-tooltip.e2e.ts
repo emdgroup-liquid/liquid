@@ -231,6 +231,38 @@ describe('ld-tooltip', () => {
 
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
         })
+
+        it(`position ${position} (custom trigger)`, async () => {
+          const page = await getPageWithContent(
+            `<ld-tooltip position="${position}">
+              <ld-button slot="trigger">Trigger</ld-button>
+              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+            </ld-tooltip>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          await new Promise((resolve) => setTimeout(resolve))
+
+          const results = await page.compareScreenshot()
+
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
+
+        it(`position ${position} (custom trigger with arrow)`, async () => {
+          const page = await getPageWithContent(
+            `<ld-tooltip arrow position="${position}">
+              <ld-button slot="trigger">Trigger</ld-button>
+              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+            </ld-tooltip>`,
+            theme
+          )
+          await page.keyboard.press('Tab')
+          await new Promise((resolve) => setTimeout(resolve))
+
+          const results = await page.compareScreenshot()
+
+          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        })
       })
     })
   }

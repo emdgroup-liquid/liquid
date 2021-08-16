@@ -76,11 +76,16 @@ export class LdTooltip {
   @Prop() triggerType: 'click' | 'hover' = 'hover'
 
   private delayTimeout?: NodeJS.Timeout
+  private hasDefaultTrigger = true
   private id = `ld-tooltip-${++tooltipCount}`
   private popper?: Tether
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
   private visible = false
+
+  componentWillLoad() {
+    this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
+  }
 
   private initTooltip = () => {
     const attachment = mapPositionToAttachment(this.position)
@@ -195,7 +200,10 @@ export class LdTooltip {
       <Host>
         <button
           aria-describedby={this.id}
-          class="ld-tooltip__trigger"
+          class={getClassNames([
+            'ld-tooltip__trigger',
+            this.triggerType === 'click' && 'ld-tooltip__trigger--clickable',
+          ])}
           onClick={this.handleToggleTrigger}
           onMouseEnter={this.handleShowTrigger}
           onFocus={this.handleShowTrigger}
@@ -217,6 +225,7 @@ export class LdTooltip {
           class={getClassNames([
             'ld-tooltip',
             this.arrow && 'ld-tooltip--with-arrow',
+            this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
             this.triggerType === 'click' && 'ld-tooltip--interactive',
           ])}
           id={this.id}

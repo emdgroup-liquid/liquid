@@ -205,13 +205,15 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 ## CSS Variables
 
-| Variable                          | Description                                                                            | Default                |
-| --------------------------------- | -------------------------------------------------------------------------------------- | ---------------------- |
-| `--ld-tooltip-arrow-size`         | Size of the arrow                                                                      | `0.5rem` (8px)         |
-| `--ld-tooltip-arrow-offset`       | Offset of the arrow from the tooltip border, if arrow is aligned left/right/top/bottom | `var(--ld-sp-16)`      |
-| `--ld-tooltip-max-width`          | Max width of the tooltip                                                               | `20rem` (320px)        |
-| `--ld-tooltip-offset`             | Space between the trigger and the tooltip (including the arrow)                        | `var(--ld-sp-8)`       |
-| `--ld-tooltip-animation-duration` | Duration of the tooltip show/hide animation                                            | `var(--ld-ad-default)` |
+| Variable                             | Description                                                                            | Default                |
+| ------------------------------------ | -------------------------------------------------------------------------------------- | ---------------------- |
+| `--ld-tooltip-animation-duration`    | Duration of the tooltip show/hide animation                                            | `var(--ld-ad-default)` |
+| `--ld-tooltip-arrow-offset`          | Offset of the arrow from the tooltip border, if arrow is aligned left/right/top/bottom | `var(--ld-sp-16)`      |
+| `--ld-tooltip-arrow-size`            | Size of the arrow                                                                      | `0.5rem` (8px)         |
+| `--ld-tooltip-distance-from-trigger` | Space between the trigger and the tooltip (including the arrow)                        | `var(--ld-sp-8)`       |
+| `--ld-tooltip-max-width`             | Max width of the tooltip                                                               | `20rem` (320px)        |
+| `--ld-tooltip-offset-x`              | Offset of the tooltip on the x-axis (If the tooltip is aligned to the right/left border of the trigger, a positive value always means increasing the space between trigger and tooltip.) | `0px`                  |
+| `--ld-tooltip-offset-y`              | Offset of the tooltip on the y-axis (If the tooltip is aligned to the top/bottom border of the trigger, a positive value always means increasing the space between trigger and tooltip.) | `0px`                  |
 
 
 <!-- Auto Generated Below -->
