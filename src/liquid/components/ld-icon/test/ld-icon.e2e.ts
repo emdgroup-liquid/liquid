@@ -1,5 +1,7 @@
 import { newE2EPage } from '@stencil/core/testing'
 
+jest.useRealTimers()
+
 describe('ld-icon', () => {
   it('renders with name prop', async () => {
     const page = await newE2EPage()
