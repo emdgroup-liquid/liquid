@@ -148,8 +148,8 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: var(--ld-sp-40);
+  width: var(--ld-sp-40);
   display: inline-grid;
   place-items: center;
   color: inherit;
