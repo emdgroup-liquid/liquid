@@ -9,8 +9,6 @@ permalink: components/ld-notification/
 
 # ld-notification
 
-> **Note**: 🚧 This component is work in progress.
-
 Use the `ld-notification` component in your application to display popup notifications.
 
 ---
@@ -48,7 +46,7 @@ If you really do want to include an interaction element within a notification, [
 
 ## Notification hierarchy
 
-Notifications of type `'alert'` take precedence of notifications of type `'info'` and `'warn'`, which means that if a notification of type `'info'` or `'warn'` is fired after a notification of type `'alert'` and the notification of type `'alert'` has not been dismissed yet, the potentially less important notifications gets placed behind the notification of type `'alert'`. Other than that most recent notifications take precedence of older notifications, pushing the older ones back in the queue and resetting and pausing their timeouts.
+Notifications of type `'alert'` take precedence of notifications of type `'info'` and `'warn'`, which means that if a notification of type `'info'` or `'warn'` is fired after a notification of type `'alert'` and the notification of type `'alert'` has not been dismissed yet, the potentially less important notifications get placed behind the notification of type `'alert'`. Other than that most recent notifications take precedence of older notifications, pushing the older ones back in the queue and resetting and pausing their timeouts.
 
 ## Notification timeout
 
