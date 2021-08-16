@@ -52,8 +52,8 @@
     animation: ld-notification-fade-in 0.2s linear;
   }
 
-  &:nth-last-of-type(n + 4) {
-    display: none;
+  &:nth-last-of-type(n + 5) {
+    opacity: 0;
   }
 
   &:nth-last-of-type(n + 2) {
