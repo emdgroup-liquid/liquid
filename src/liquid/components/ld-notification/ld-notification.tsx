@@ -150,10 +150,10 @@ export class LdNotification {
 
     return (
       <Host class={cl} role="region" aria-label="Notifications">
-        {this.queue.map((notification, index) => (
+        {this.queue.map((notification) => (
           <div
             class={`ld-notification__item ld-notification__item--${notification.type}`}
-            key={index}
+            key={notification.type + notification.content}
           >
             <div
               class="ld-notification__item-content"
@@ -167,11 +167,11 @@ export class LdNotification {
             ></button>
           </div>
         ))}
-        {this.queueDismissed.map((notification, index) => (
+        {this.queueDismissed.map((notification) => (
           <div
             aria-hidden="true"
             class={`ld-notification__item ld-notification__item--dismissed ld-notification__item--${notification.type}`}
-            key={index}
+            key={notification.type + notification.content}
           >
             <div
               class="ld-notification__item-content"

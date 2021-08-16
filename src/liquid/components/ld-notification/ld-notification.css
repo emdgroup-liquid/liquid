@@ -48,7 +48,7 @@
   justify-content: space-between;
   transition: transform 0.2s ease, opacity 0.2s linear;
 
-  &:where(:last-of-type:not(.ld-notification__item--dismissed)) {
+  &:where(:not(.ld-notification__item--dismissed)) {
     animation: ld-notification-fade-in 0.2s linear;
   }
 
