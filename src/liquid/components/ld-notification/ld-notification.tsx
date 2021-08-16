@@ -114,31 +114,48 @@ export class LdNotification {
     )
   }
 
-  private getDismissIcon() {
+  private renderNotification(notification: Notification, dismissed = false) {
+    let cl = `ld-notification__item ld-notification__item--${notification.type}`
+    if (dismissed) cl += ' ld-notification__item--dismissed'
+
     return (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Dismiss</title>
-        <path
-          d="M6 6L18 18"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M6 18L18 6"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      <div class={cl} key={notification.type + notification.content}>
+        <div
+          class="ld-notification__item-content"
+          innerHTML={notification.content}
+          role={notification.type === 'alert' ? 'alert' : 'status'}
+        ></div>
+        <button
+          class="ld-notification__btn-dismiss"
+          onClick={
+            dismissed ? undefined : this.handleNotificationDismiss.bind(this)
+          }
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Dismiss</title>
+            <path
+              d="M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 18L18 6"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
     )
   }
 
@@ -152,39 +169,12 @@ export class LdNotification {
 
     return (
       <Host class={cl} role="region" aria-label="Notifications">
-        {this.queue.map((notification) => (
-          <div
-            class={`ld-notification__item ld-notification__item--${notification.type}`}
-            key={notification.type + notification.content}
-          >
-            <div
-              class="ld-notification__item-content"
-              innerHTML={notification.content}
-              role={notification.type === 'alert' ? 'alert' : 'status'}
-            ></div>
-            <button
-              class="ld-notification__btn-dismiss"
-              onClick={this.handleNotificationDismiss.bind(this)}
-            >
-              {this.getDismissIcon()}
-            </button>
-          </div>
-        ))}
-        {this.queueDismissed.map((notification) => (
-          <div
-            aria-hidden="true"
-            class={`ld-notification__item ld-notification__item--dismissed ld-notification__item--${notification.type}`}
-            key={notification.type + notification.content}
-          >
-            <div
-              class="ld-notification__item-content"
-              innerHTML={notification.content}
-            ></div>
-            <div class="ld-notification__btn-dismiss">
-              {this.getDismissIcon()}
-            </div>
-          </div>
-        ))}
+        {this.queue.map((notification) =>
+          this.renderNotification.call(this, notification)
+        )}
+        {this.queueDismissed.map((notification) =>
+          this.renderNotification.call(this, notification, true)
+        )}
       </Host>
     )
   }
