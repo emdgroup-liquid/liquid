@@ -30,7 +30,7 @@
   padding: var(--ld-sp-16);
   pointer-events: none;
   position: relative;
-  transition: opacity var(--ld-tooltip-animation-duration) ease-in-out;
+  transition: opacity var(--ld-tooltip-animation-duration) ease-in;
   z-index: var(--ld-zi-max);
 
   &--with-arrow {
@@ -52,7 +52,7 @@
   }
 
   &.ld-tether-enabled {
-    animation: ld-tooltip-show var(--ld-tooltip-animation-duration) ease-in-out;
+    animation: ld-tooltip-show var(--ld-tooltip-animation-duration) ease-out;
     opacity: 1;
   }
 
@@ -159,67 +159,66 @@
     cursor: pointer;
   }
 
+  &:focus .ld-tooltip__icon {
+    color: var(--ld-tooltip-icon-color-focus);
+  }
+
+  &:hover .ld-tooltip__icon {
+    color: var(--ld-tooltip-icon-color-hover);
+  }
+
   + .ld-tooltip {
     opacity: 0;
     position: absolute;
   }
 }
 
-/* .ld-theme-ocean -> default */
-.ld-tooltip__icon,
-.ld-theme-ocean .ld-tooltip__icon,
-[class*='ld-theme'] .ld-theme-ocean .ld-tooltip__icon {
-  color: var(--ld-thm-ocean-bg-primary);
+.ld-tooltip__icon {
+  color: var(--ld-tooltip-icon-color);
   display: flex;
-  /* animations triggered by user interactions on single component instances are probably not a performance issue */
-  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: color var(--ld-tooltip-animation-duration) ease-in-out;
+}
 
-  &:hover {
-    color: var(--ld-col-rb55);
+/* .ld-theme-ocean -> default */
+.ld-tooltip__trigger,
+:where(.ld-theme-ocean) .ld-tooltip__trigger,
+:where([class*='ld-theme'] .ld-theme-ocean) .ld-tooltip__trigger {
+  --ld-tooltip-icon-color: var(--ld-thm-ocean-bg-primary);
+  --ld-tooltip-icon-color-hover: var(--ld-col-rb55);
+  --ld-tooltip-icon-color-focus: var(--ld-col-rb-focus);
+}
+
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  .ld-tooltip__trigger {
+    --ld-tooltip-icon-color: var(--ld-thm-tea-bg-primary);
+    --ld-tooltip-icon-color-hover: var(--ld-col-rg5);
+    --ld-tooltip-icon-color-focus: var(--ld-col-rg-focus);
   }
 }
 
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
-  .ld-tooltip__icon {
-    color: var(--ld-thm-tea-bg-primary);
-
-    &:hover {
-      color: var(--ld-col-rg5);
-    }
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  .ld-tooltip__trigger {
+    --ld-tooltip-icon-color: var(--ld-thm-bubblegum-bg-primary);
+    --ld-tooltip-icon-color-hover: var(--ld-col-rp55);
+    --ld-tooltip-icon-color-focus: var(--ld-col-rp-focus);
   }
 }
 
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-tooltip__icon {
-    color: var(--ld-thm-bubblegum-bg-primary);
-
-    &:hover {
-      color: var(--ld-col-rp55);
-    }
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  .ld-tooltip__trigger {
+    --ld-tooltip-icon-color: var(--ld-thm-shake-bg-primary);
+    --ld-tooltip-icon-color-hover: var(--ld-col-rp55);
+    --ld-tooltip-icon-color-focus: var(--ld-col-rp-focus);
   }
 }
 
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake {
-  .ld-tooltip__icon {
-    color: var(--ld-thm-shake-bg-primary);
-
-    &:hover {
-      color: var(--ld-col-rp55);
-    }
-  }
-}
-
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  .ld-tooltip__icon {
-    color: var(--ld-thm-solvent-bg-primary);
-
-    &:hover {
-      color: var(--ld-col-rp55);
-    }
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  .ld-tooltip__trigger {
+    --ld-tooltip-icon-color: var(--ld-thm-solvent-bg-primary);
+    --ld-tooltip-icon-color-hover: var(--ld-col-rp55);
+    --ld-tooltip-icon-color-focus: var(--ld-col-rp-focus);
   }
 }

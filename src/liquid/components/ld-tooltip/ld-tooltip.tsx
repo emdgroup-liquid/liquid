@@ -215,9 +215,7 @@ export class LdTooltip {
           type="button"
         >
           <slot name="trigger">
-            <span class="ld-tooltip__icon">
-              <ld-icon name="info" size="sm" filled />
-            </span>
+            <ld-icon class="ld-tooltip__icon" name="info" size="sm" filled />
           </slot>
         </button>
         <div
