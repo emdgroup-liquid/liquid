@@ -6,6 +6,11 @@
     opacity: 1;
   }
 }
+@keyframes ld-tooltip-hide {
+  to {
+    visibility: hidden;
+  }
+}
 
 .ld-tooltip {
   /* TODO: move to global vars? */
@@ -19,6 +24,8 @@
   --ld-tooltip-offset-x: 0px;
   --ld-tooltip-offset-y: 0px;
 
+  animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
+  animation-fill-mode: forwards;
   background-color: var(--ld-col-wht);
   border-radius: var(--ld-br-m);
   color: var(--ld-col-rblck-default);

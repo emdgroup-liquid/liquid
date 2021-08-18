@@ -1,7 +1,8 @@
 import Tether from 'tether'
-import { Component, Element, h, Host, Listen, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
+import { applyPropAliases } from '../../utils/applyPropAliases'
 
 type Position =
   | 'bottom center'
@@ -75,15 +76,17 @@ export class LdTooltip {
   /** Event type that triggers the tooltip */
   @Prop() triggerType: 'click' | 'hover' = 'hover'
 
+  @State() hasDefaultTrigger = true
+  @State() visible = false
+
   private delayTimeout?: NodeJS.Timeout
-  private hasDefaultTrigger = true
   private id = `ld-tooltip-${++tooltipCount}`
   private popper?: Tether
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
-  private visible = false
 
   componentWillLoad() {
+    applyPropAliases.call(this)
     this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
   }
 
@@ -219,7 +222,7 @@ export class LdTooltip {
           </slot>
         </button>
         <div
-          aria-hidden={!this.visible}
+          aria-hidden={this.visible ? 'false' : 'true'}
           class={getClassNames([
             'ld-tooltip',
             this.arrow && 'ld-tooltip--with-arrow',

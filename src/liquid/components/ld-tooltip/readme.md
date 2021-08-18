@@ -17,7 +17,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 {% example %}
 <ld-tooltip>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+  <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
   <ld-paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </ld-paragraph>
@@ -28,7 +28,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 {% example %}
 <ld-tooltip arrow>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+  <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
   <ld-paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </ld-paragraph>
@@ -42,7 +42,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   I am an
   <ld-tooltip arrow>
     <span slot="trigger" style="text-decoration: underline">inline</span>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
@@ -56,44 +56,45 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 {% example %}
 <ld-tooltip trigger-type="click">
   <div class="ld-button" slot="trigger">click me</div>
-  <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+  <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
   <ld-paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </ld-paragraph>
+  <ld-button>Focusable</ld-button>
 </ld-tooltip>
 {% endexample %}
 
 ## Positioning
 
 {% example %}
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 0.625rem">
   <ld-tooltip arrow position="top left" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 150px">top left</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">top left</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="top center" style="text-align: center">
-    <div class="ld-button" slot="trigger" style="width: 150px">top center</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">top center</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="top right">
-    <div class="ld-button" slot="trigger" style="width: 150px">top right</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">top right</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="left top" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 150px">left top</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">left top</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
@@ -102,16 +103,16 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right top">
-    <div class="ld-button" slot="trigger" style="width: 150px">right top</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">right top</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="left middle" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 150px">left middle</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">left middle</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
@@ -120,16 +121,16 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right middle">
-    <div class="ld-button" slot="trigger" style="width: 150px">right middle</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">right middle</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="left bottom" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 150px">left bottom</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">left bottom</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
@@ -138,32 +139,32 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right bottom">
-    <div class="ld-button" slot="trigger" style="width: 150px">right bottom</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">right bottom</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom left" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 150px">bottom left</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom left</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom center" style="text-align: center">
-    <div class="ld-button" slot="trigger" style="width: 150px">bottom center</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom center</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom right">
-    <div class="ld-button" slot="trigger" style="width: 150px">bottom right</div>
-    <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
+    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom right</div>
+    <ld-heading level="4" style="margin-bottom: 0.625rem">Headline</ld-heading>
     <ld-paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </ld-paragraph>
