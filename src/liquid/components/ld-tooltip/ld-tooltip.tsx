@@ -179,9 +179,10 @@ export class LdTooltip {
   })
   handleClickOutside(event) {
     if (
+      this.popper &&
+      this.triggerType === 'click' &&
       event.target.closest('ld-tooltip') !== this.element &&
-      event.target.closest('.ld-tooltip') !== this.tooltipRef &&
-      this.triggerType === 'click'
+      event.target.closest('.ld-tooltip') !== this.tooltipRef
     ) {
       this.hideTooltip()
     }
