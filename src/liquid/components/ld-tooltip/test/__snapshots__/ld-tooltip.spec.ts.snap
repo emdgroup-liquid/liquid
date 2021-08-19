@@ -16,7 +16,7 @@ exports[`ld-tooltip renders custom trigger 1`] = `
       </ld-icon>
     </slot-fb>
   </button>
-  <div aria-hidden="" class="ld-tooltip" id="ld-tooltip-2" role="tooltip">
+  <div aria-hidden="true" class="ld-tooltip" id="ld-tooltip-2" role="tooltip">
     <h4>
       Headline
     </h4>
@@ -40,7 +40,7 @@ exports[`ld-tooltip renders default 1`] = `
       </ld-icon>
     </slot-fb>
   </button>
-  <div aria-hidden="" class="ld-tooltip ld-tooltip--with-default-trigger" id="ld-tooltip-1" role="tooltip">
+  <div aria-hidden="true" class="ld-tooltip ld-tooltip--with-default-trigger" id="ld-tooltip-1" role="tooltip">
     <h4>
       Headline
     </h4>
@@ -64,7 +64,7 @@ exports[`ld-tooltip renders with arrow 1`] = `
       </ld-icon>
     </slot-fb>
   </button>
-  <div aria-hidden="" class="ld-tooltip ld-tooltip--with-arrow ld-tooltip--with-default-trigger" id="ld-tooltip-3" role="tooltip">
+  <div aria-hidden="true" class="ld-tooltip ld-tooltip--with-arrow ld-tooltip--with-default-trigger" id="ld-tooltip-3" role="tooltip">
     <h4>
       Headline
     </h4>
