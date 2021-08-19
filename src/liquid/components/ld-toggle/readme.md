@@ -33,11 +33,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### Large
 
 {% example %}
-<ld-toggle mode="large"></ld-toggle>
+<ld-toggle size="lg"></ld-toggle>
 
 <!-- CSS component -->
 
-<div class="ld-toggle ld-toggle--large">
+<div class="ld-toggle ld-toggle--lg">
   <input type="checkbox" />
   <span class="ld-toggle__knob"></span>
 </div>
@@ -129,12 +129,12 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large">
+<ld-toggle size="lg">
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large" checked>
+<ld-toggle size="lg" checked>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
@@ -167,7 +167,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" checked />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -207,12 +207,12 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large" disabled>
+<ld-toggle size="lg" disabled>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large" checked disabled>
+<ld-toggle size="lg" checked disabled>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
@@ -245,7 +245,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" disabled />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,7 +258,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" checked disabled />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -285,12 +285,12 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large" required>
+<ld-toggle size="lg" required>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
 
-<ld-toggle mode="large" checked required>
+<ld-toggle size="lg" checked required>
   <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
 </ld-toggle>
@@ -323,7 +323,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" required />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -336,7 +336,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   </svg>
 </div>
 
-<div class="ld-toggle ld-toggle--large ld-toggle--with-icons">
+<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
   <input type="checkbox" checked required />
   <span class="ld-toggle__knob"></span>
   <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -354,16 +354,16 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 {% example %}
 <ld-label position="right" size="m">
-  I have read the terms of service.*
+  I'd like to receive a weekly newsletter.
   <ld-toggle></ld-toggle>
 </ld-label>
 
 <!-- CSS component -->
 
 <label class="ld-label ld-label--right ld-label--m">
-  I have read the terms of service.*
+  I'd like to receive a weekly newsletter.
   <div class="ld-toggle">
-    <input type="checkbox" required />
+    <input type="checkbox" />
     <span class="ld-toggle__knob"></span>
   </div>
 </label>
