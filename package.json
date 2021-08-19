@@ -25,7 +25,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "run-s build:stencil:components build:styles build:copy_design_tokens",
+    "build": "run-s build:stencil:components build:styles build:copy_design_tokens build:copy_tailwind_preset",
     "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:docs",
     "build:eleventy": "npx @11ty/eleventy",
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
@@ -36,6 +36,7 @@
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
     "build:copy_design_tokens": "shx cp src/liquid/global/styles/design-tokens.json dist/css/design-tokens.json",
+    "build:copy_tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.js",
     "generate": "stencil generate",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
@@ -123,6 +124,7 @@
     "stylelint-no-unsupported-browser-features": "^4.1.4",
     "stylelint-use-nesting": "^3.0.0",
     "svgo": "^1.3.2",
+    "tailwindcss": "^2.2.7",
     "trash-cli": "^4.0.0",
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",

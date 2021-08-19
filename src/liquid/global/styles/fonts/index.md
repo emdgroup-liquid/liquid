@@ -11,7 +11,7 @@ permalink: global/fonts/
 
 Liquid uses two distinct font families for display and body fonts: _Lato_ is used as the body font as well as the `h*` and `xh*` display font, while the _MFont_ is used as the `b*` and `xb*` display font.
 
-Font loading is taken care of by Liquid's global CSS, so there's no work to do on your side, except for loading the required CSS file. Please refer to our documentation on [importing stylesheets](http://localhost:8080/#import-stylesheets) from Liquid.
+Font loading is taken care of by Liquid's global CSS, so there's no work to do on your side, except for loading the required CSS file. Please refer to our documentation on [importing stylesheets](liquid/getting-started/#import-stylesheets) from Liquid.
 
 For more information on display fonts, take a look at the documentation for the [`ld-heading`](components/ld-heading/) component.
 
