@@ -67,6 +67,19 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 |      | (optional) Custom SVG icon (only valid without name prop). |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-tooltip](../ld-tooltip)
+
+### Graph
+```mermaid
+graph TD;
+  ld-tooltip --> ld-icon
+  style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
