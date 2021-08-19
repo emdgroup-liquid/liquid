@@ -166,7 +166,7 @@
     cursor: pointer;
   }
 
-  &:focus .ld-tooltip__icon {
+  &:focus:focus-visible .ld-tooltip__icon {
     color: var(--ld-tooltip-icon-color-focus);
   }
 
