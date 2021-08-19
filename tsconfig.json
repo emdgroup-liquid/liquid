@@ -17,6 +17,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "include": ["./src/liquid"],
   "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]
 }

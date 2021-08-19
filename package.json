@@ -54,6 +54,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test:compare_screenshots": "live-server --port=4000 --open=compare.html screenshot --quiet --mount=/node_modules:./node_modules --mount=/.stencil:./.stencil",
     "update_design_tokens": "dotenv -e .env -- ts-node scripts/updateDesignTokens.ts",
+    "update_icons": "dotenv -e .env -- ts-node scripts/updateIcons.ts",
     "watch:eleventy": "npx @11ty/eleventy --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'npm run build:styles:docs:liquid'",
     "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'npm run build:styles:docs:docs'",
