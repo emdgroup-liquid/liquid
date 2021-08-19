@@ -60,7 +60,6 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <ld-paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </ld-paragraph>
-  <ld-button>Focusable</ld-button>
 </ld-tooltip>
 {% endexample %}
 
