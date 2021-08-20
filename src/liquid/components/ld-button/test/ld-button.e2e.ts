@@ -165,6 +165,34 @@ describe('ld-button', () => {
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
         })
 
+        // Progress button
+        it(`progress button theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-button progress="0.75">Text</ld-button>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
+        it(`progress button secondary theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-button progress="0.75" mode="secondary">Text</ld-button>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
+        it(`progress button ghost theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-button progress="0.75" mode="ghost">Text</ld-button>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
         // Themed CSS component
         const modeModifier = mode ? ` ld-button--${mode}` : ''
         it(`css component default theme-${theme}${modeStr}`, async () => {
@@ -276,6 +304,43 @@ describe('ld-button', () => {
           )
           await page.keyboard.press('Tab')
           await page.keyboard.down('Space')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
+        // Progress button CSS component
+        it(`css component progress button theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<button aria-busy="true" aria-live="polite" class="ld-button">
+              Text
+              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+            </button>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
+        it(`css component progress button secondary theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--secondary">
+              Text
+              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+            </button>`,
+            theme
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+
+        it(`css component progress button ghost theme-${theme}`, async () => {
+          const page = await getPageWithContent(
+            `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--ghost">
+              Text
+              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+            </button>`,
+            theme
+          )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
         })

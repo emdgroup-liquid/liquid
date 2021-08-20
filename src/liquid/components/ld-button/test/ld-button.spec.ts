@@ -9,7 +9,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button>
-        <button class="ld-button">
+        <button aria-live="polite" class="ld-button">
           Text
         </button>
       </ld-button>
@@ -22,7 +22,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button disabled>
-        <button aria-disabled="true" class="ld-button" disabled>
+        <button aria-live="polite" aria-disabled="true" class="ld-button" disabled>
           Text
         </button>
       </ld-button>
@@ -35,7 +35,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="highlight">
-        <button class="ld-button ld-button--highlight">
+        <button aria-live="polite" class="ld-button ld-button--highlight">
           Text
         </button>
       </ld-button>
@@ -48,7 +48,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="secondary">
-        <button class="ld-button ld-button--secondary">
+        <button aria-live="polite" class="ld-button ld-button--secondary">
           Text
         </button>
       </ld-button>
@@ -61,7 +61,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="on-brand-color">
-        <button class="ld-button ld-button--on-brand-color">
+        <button aria-live="polite" class="ld-button ld-button--on-brand-color">
           Text
         </button>
       </ld-button>
@@ -74,7 +74,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="secondary-on-brand-color">
-        <button class="ld-button ld-button--secondary-on-brand-color">
+        <button aria-live="polite" class="ld-button ld-button--secondary-on-brand-color">
           Text
         </button>
       </ld-button>
@@ -87,7 +87,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="ghost">
-        <button class="ld-button ld-button--ghost">
+        <button aria-live="polite" class="ld-button ld-button--ghost">
           Text
         </button>
       </ld-button>
@@ -100,7 +100,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button mode="danger">
-        <button class="ld-button ld-button--danger">
+        <button aria-live="polite" class="ld-button ld-button--danger">
           Text
         </button>
       </ld-button>
@@ -113,7 +113,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button size="sm">
-        <button class="ld-button ld-button--sm">
+        <button aria-live="polite" class="ld-button ld-button--sm">
           Text
         </button>
       </ld-button>
@@ -126,7 +126,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button justify-content="end">
-        <button class="ld-button ld-button--justify-end">
+        <button aria-live="polite" class="ld-button ld-button--justify-end">
           Text
         </button>
       </ld-button>
@@ -139,7 +139,7 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button align-text="right">
-        <button class="ld-button ld-button--align-text-right">
+        <button aria-live="polite" class="ld-button ld-button--align-text-right">
           Text
         </button>
       </ld-button>
@@ -152,9 +152,37 @@ describe('ld-button', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-button href="#" target="_blank">
-        <a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">
+        <a aria-live="polite" class="ld-button" href="#" target="_blank" rel="noreferrer noopener">
           Text
         </a>
+      </ld-button>
+    `)
+  })
+  it('as progress button', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button progress="0.75">Text</ld-button>`,
+    })
+    expect(page.root).toEqualHtml(`
+      <ld-button progress="0.75">
+        <button aria-busy="true" aria-live="polite" class="ld-button">
+          Text
+          <span class="ld-button__progress" style="--ld-button-progress:0.75;"></span>
+        </button>
+      </ld-button>
+    `)
+  })
+  it('as progress button pending', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button progress="pending">Text</ld-button>`,
+    })
+    expect(page.root).toEqualHtml(`
+      <ld-button progress="pending">
+        <button aria-busy="true" aria-live="polite" class="ld-button">
+          Text
+          <span class="ld-button__progress ld-button__progress--pending"></span>
+        </button>
       </ld-button>
     `)
   })
