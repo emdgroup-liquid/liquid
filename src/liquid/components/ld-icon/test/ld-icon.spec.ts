@@ -41,10 +41,10 @@ describe('ld-icon', () => {
   it('renders with size prop', async () => {
     const page = await newSpecPage({
       components: [LdIcon],
-      html: `<ld-icon name="atoms" size="sm"></ld-icon>`,
+      html: `<ld-icon name="atom" size="sm"></ld-icon>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-icon name="atoms" size="sm">
+      <ld-icon name="atom" size="sm">
         <span class="ld-icon ld-icon--sm" role="presentation">
           Not Found
         </span>

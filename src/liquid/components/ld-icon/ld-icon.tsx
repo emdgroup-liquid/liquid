@@ -16,24 +16,20 @@ export class LdIcon {
   /** The icon name. */
   @Prop() name: string = null
 
-  /** (optional) Set to true for a filled icon. */
-  @Prop() filled: boolean = null
-
   /** Size of the icon. */
   @Prop() size?: 'sm' | 'lg'
 
   @State() private svg: string
 
   @Watch('name')
-  @Watch('filled')
   private async loadIconPathData(): Promise<void> {
-    const { name, filled } = this
+    const { name } = this
 
     if ((!Build.isBrowser && !Build.isTesting) || !name) {
       return
     }
 
-    this.svg = await fetchIcon(name, filled)
+    this.svg = await fetchIcon(name)
   }
 
   async componentWillLoad(): Promise<void> {

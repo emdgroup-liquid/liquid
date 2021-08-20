@@ -53,7 +53,6 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 | Property | Attribute | Description                                              | Type               | Default     |
 | -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
-| `filled` | `filled`  | (optional) Set to true for a filled icon.                | `boolean`          | `null`      |
 | `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
 | `name`   | `name`    | The icon name.                                           | `string`           | `null`      |
 | `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
@@ -66,19 +65,6 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 | ---- | ---------------------------------------------------------- |
 |      | (optional) Custom SVG icon (only valid without name prop). |
 
-
-## Dependencies
-
-### Used by
-
- - [ld-tooltip](../ld-tooltip)
-
-### Graph
-```mermaid
-graph TD;
-  ld-tooltip --> ld-icon
-  style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

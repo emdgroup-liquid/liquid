@@ -52,7 +52,11 @@ export class DocsCopyToCb {
         <ld-sr-only>
           {this.copyTimeout ? 'Copied to clipboard' : 'Copy to clipboard'}
         </ld-sr-only>
-        {this.copyTimeout ? <ld-icon name="check" /> : <ld-icon name="copy" />}
+        {this.copyTimeout ? (
+          <ld-icon name="checkmark" />
+        ) : (
+          <ld-icon name="copy" />
+        )}
       </ld-button>
     )
   }
