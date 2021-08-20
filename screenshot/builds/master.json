@@ -10470,6 +10470,19 @@
       "isMobile": false
     },
     {
+      "id": "affe4442",
+      "image": "a5ea91a51621c1fe0793d1522829bc72.png",
+      "userAgent": "default",
+      "desc": "ld-loading renders",
+      "testPath": "./src/liquid/components/ld-loading/test/ld-loading.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "2d63ca44",
       "image": "586246f2bee5007f622f893a74d39f2e.png",
       "userAgent": "default",

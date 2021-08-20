@@ -24,6 +24,7 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-input](components/ld-input/)                    | done              | done               |
 | [ld-input-message](components/ld-input-message/)    | done              | done               |
 | [ld-label](components/ld-label/)                    | done              | done               |
+| [ld-loading](components/ld-loading/)                | done              | done               |
 | [ld-notification](components/ld-notification)       | done              | done               |
 | [ld-sr-only](components/ld-sr-only/)                | not needed        | done               |
 | [ld-sr-live](components/ld-sr-live/)                | not needed        | done               |
