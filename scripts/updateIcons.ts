@@ -1,9 +1,8 @@
 import fetch from 'node-fetch'
 import { promises } from 'fs'
 
-const { writeFile } = promises
-
 type FigmaNode = {
+  characters?: string
   id: string
   name: string
   type: string
@@ -23,6 +22,14 @@ type FigmaImageResponseBody = {
 
 type Icon = { id: string; name: string }
 
+const { writeFile } = promises
+const iconFileNames: string[] = []
+
+const iconsFilter =
+  process.env.FIGMA_ICONS_FILTER && process.env.FIGMA_ICONS_FILTER !== ''
+    ? process.env.FIGMA_ICONS_FILTER.split(',')
+    : []
+
 async function getIconCollectionFromFigma() {
   const response = await fetch(
     `https://api.figma.com/v1/files/${process.env.FIGMA_ICONS_FILE_ID}/nodes?ids=${process.env.FIGMA_ICONS_NODE_IDS}`,
@@ -41,15 +48,25 @@ async function getIconCollectionFromFigma() {
   Object.values(nodes).forEach(({ document }) => {
     document.children?.forEach(({ type, children }) => {
       if (type === 'GROUP') {
-        const { id, name } =
+        const { id } =
           children?.find((groupChild) => groupChild.type === 'INSTANCE') ?? {}
+        const { characters } =
+          children?.find((groupChild) => groupChild.type === 'TEXT') ?? {}
 
-        if (id && name) {
-          icons.push({ id, name })
+        if (id && characters) {
+          icons.push({
+            id,
+            name: characters.replace(/\n/g, ' ').replace(/\s\s/g, ' '),
+          })
         }
       }
     })
   })
+
+  if (iconsFilter.length) {
+    console.log('Icons filter applied!')
+    return icons.filter(({ name }) => iconsFilter.includes(name))
+  }
 
   return icons
 }
@@ -88,7 +105,7 @@ const getIconFromFigma = async (nodeId) => {
 }
 
 // Increase retries or base, if you run into rate limit exceptions
-const exponentialBackoff = async (fn, depth = 1, retries = 8, base = 2) => {
+const exponentialBackoff = async (fn, depth = 1, retries = 9, base = 2) => {
   try {
     return await fn()
   } catch (e) {
@@ -102,7 +119,16 @@ const exponentialBackoff = async (fn, depth = 1, retries = 8, base = 2) => {
 }
 
 const loadAndWriteIcon = async ({ id, name }) => {
-  const unifiedName = name.trim().toLocaleLowerCase().replaceAll(' ', '-')
+  const unifiedName = name
+    .trim()
+    .toLocaleLowerCase()
+    .replace(/[^0-9a-zA-Z]/g, '-')
+    .replace(/--/g, '-')
+
+  if (iconFileNames.includes(unifiedName)) {
+    console.warn(`Duplicate icon name "${unifiedName}" detected! Skipping.`)
+    return
+  }
 
   try {
     const icon = await exponentialBackoff(() => getIconFromFigma(id))
@@ -111,8 +137,10 @@ const loadAndWriteIcon = async ({ id, name }) => {
       await writeFile(
         `./src/liquid/components/ld-icon/assets/${unifiedName}.svg`,
         icon
+          .replace(/\sfill="#[^"]*"/g, ' fill="currentcolor"')
+          .replace(/\sstroke="#[^"]*"/g, ' stroke="currentcolor"')
       )
-
+      iconFileNames.push(unifiedName)
       console.log(`${unifiedName}.svg successfully written.`)
     }
   } catch (error) {
