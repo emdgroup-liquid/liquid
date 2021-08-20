@@ -1,0 +1,26 @@
+.docs-icon {
+  align-items: center;
+  background: var(--ld-col-wht);
+  border: none;
+  border-radius: var(--ld-br-l);
+  color: var(--ld-col-rblck-default);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-8);
+  width: 6rem;
+
+  .ld-paragraph {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  &__tooltip {
+    display: contents;
+
+    > .ld-tooltip__trigger {
+      height: 100%;
+    }
+  }
+}

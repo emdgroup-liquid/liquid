@@ -1,0 +1,21 @@
+.docs-icon-group {
+  align-items: center;
+  background: var(--ld-col-rblck4);
+  border-radius: var(--ld-br-l);
+  display: block;
+  padding: var(--ld-sp-8) 0 0 var(--ld-sp-8);
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--ld-sp-16);
+  }
+
+  &__icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--ld-sp-8);
+
+    > docs-icon {
+      margin: 0 var(--ld-sp-8) var(--ld-sp-8) 0;
+    }
+  }
+}
