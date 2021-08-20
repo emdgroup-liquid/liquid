@@ -419,6 +419,39 @@ You can align the text inside the button using the `align-text` propperty.
 
 > __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
 
+### Progress button
+
+{% example 'html', false, true %}
+<ld-button progress="0.75">Text</ld-button>
+
+<ld-button progress="pending">Text</ld-button>
+
+<ld-button progress="pending" mode="secondary">Text</ld-button>
+
+<ld-button progress="pending" mode="ghost">Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+</button>
+
+<button class="ld-button" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+
+<button class="ld-button ld-button--secondary" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+
+<button class="ld-button ld-button--ghost" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+{% endexample %}
 
 <!-- Auto Generated Below -->
 
@@ -433,6 +466,7 @@ You can align the text inside the button using the `align-text` propperty.
 | `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                                       | `undefined` |
 | `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                                                    | `undefined` |
 | `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "on-brand-color" \| "secondary" \| "secondary-on-brand-color"` | `undefined` |
+| `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                                                 | `undefined` |
 | `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                                                 | `undefined` |
 | `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
