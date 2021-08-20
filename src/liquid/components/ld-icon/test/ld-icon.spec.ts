@@ -5,10 +5,10 @@ describe('ld-icon', () => {
   it('renders with name prop', async () => {
     const page = await newSpecPage({
       components: [LdIcon],
-      html: `<ld-icon name="alarm"></ld-icon>`,
+      html: `<ld-icon name="add"></ld-icon>`,
     })
     expect(page.root).toEqualHtml(`
-      <ld-icon name="alarm">
+      <ld-icon name="add">
         <span class="ld-icon" role="presentation">
           Not Found
         </span>
@@ -18,10 +18,10 @@ describe('ld-icon', () => {
   it('renders multiple', async () => {
     const page = await newSpecPage({
       components: [LdIcon],
-      html: `<ld-icon name="alarm"></ld-icon><ld-icon name="education"></ld-icon><ld-icon name="alarm"></ld-icon>`,
+      html: `<ld-icon name="add"></ld-icon><ld-icon name="education"></ld-icon><ld-icon name="add"></ld-icon>`,
     })
     expect(page.body).toEqualHtml(`
-      <ld-icon name="alarm">
+      <ld-icon name="add">
         <span class="ld-icon" role="presentation">
           Not Found
         </span>
@@ -31,7 +31,7 @@ describe('ld-icon', () => {
           Not Found
         </span>
       </ld-icon>
-      <ld-icon name="alarm">
+      <ld-icon name="add">
         <span class="ld-icon" role="presentation">
           Not Found
         </span>

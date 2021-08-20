@@ -5,16 +5,18 @@ const { optimize } = require('svgo')
 const { readFile, writeFile } = require('fs').promises
 
 const svgoConfig = [
-  { removeViewBox: false },
-  { removeDimensions: true },
-  { removeXMLNS: true },
+  { name: 'removeViewBox', active: false },
+  { name: 'removeDimensions', active: true },
+  { name: 'removeXMLNS', active: true },
   {
-    convertPathData: {
+    name: 'convertPathData',
+    params: {
       floatPrecision: 4,
     },
   },
   {
-    cleanupIDs: {
+    name: 'cleanupIDs',
+    params: {
       prefix: {
         // https://github.com/svg/svgo/issues/674#issuecomment-328774019
         toString() {
@@ -29,7 +31,10 @@ const svgoConfig = [
 const optimiseFile = async (fileName) => {
   const filePath = path.resolve(__dirname, '..', fileName)
   const contents = await readFile(filePath, 'utf8')
-  const optimised = await optimize(contents, { path: filePath, ...svgoConfig })
+  const optimised = await optimize(contents, {
+    path: filePath,
+    plugins: svgoConfig,
+  })
   await writeFile(filePath, optimised.data, 'utf8').then(() => {
     console.log(`optimised ${fileName}`)
   })

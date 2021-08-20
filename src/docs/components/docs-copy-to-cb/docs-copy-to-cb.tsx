@@ -55,7 +55,30 @@ export class DocsCopyToCb {
         {this.copyTimeout ? (
           <ld-icon name="checkmark" />
         ) : (
-          <ld-icon name="copy" />
+          <ld-icon>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <rect
+                stroke="currentcolor"
+                width="11"
+                height="11"
+                x="5"
+                y="5"
+                stroke-width="2"
+                rx="1"
+              />
+              <path
+                stroke="currentcolor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 1H4C2 1 1 2 1 4v8"
+              />
+            </svg>
+          </ld-icon>
         )}
       </ld-button>
     )
