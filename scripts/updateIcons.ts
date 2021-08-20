@@ -87,32 +87,53 @@ const getIconFromFigma = async (nodeId) => {
   }
 }
 
-const generateIconFiles = (icons: Icon[]) =>
-  Promise.all(
-    icons.map(async ({ id, name }) => {
-      const unifiedName = name.toLocaleLowerCase().replace(' ', '-')
+// Increase retries or base, if you run into rate limit exceptions
+const exponentialBackoff = async (fn, depth = 1, retries = 8, base = 2) => {
+  try {
+    return await fn()
+  } catch (e) {
+    if (depth > retries) {
+      throw e
+    }
+    await new Promise((res) => setTimeout(res, base ** depth * 10))
 
-      try {
-        const icon = await getIconFromFigma(id)
+    return exponentialBackoff(fn, depth + 1)
+  }
+}
 
-        if (icon) {
-          await writeFile(
-            `./src/liquid/components/ld-icon/assets/${unifiedName}.svg`,
-            icon
-          )
+const loadAndWriteIcon = async ({ id, name }) => {
+  const unifiedName = name.trim().toLocaleLowerCase().replaceAll(' ', '-')
 
-          console.log(`${unifiedName}.svg successfully written.`)
-        }
-      } catch (error) {
-        console.log(`Error downloading ${name} icon with node ID ${id}.`, error)
-      }
-    })
-  )
+  try {
+    const icon = await exponentialBackoff(() => getIconFromFigma(id))
+
+    if (icon) {
+      await writeFile(
+        `./src/liquid/components/ld-icon/assets/${unifiedName}.svg`,
+        icon
+      )
+
+      console.log(`${unifiedName}.svg successfully written.`)
+    }
+  } catch (error) {
+    console.log(`Error downloading ${name} icon with node ID ${id}.`, error)
+  }
+}
+
+const generateIconFiles = async (icons: Icon[], chunk = 10) => {
+  let i: number
+  let j: number
+  for (i = 0, j = icons.length; i < j; i += chunk) {
+    const iconsChunk = icons.slice(i, i + chunk)
+
+    await Promise.all(iconsChunk.map(loadAndWriteIcon))
+  }
+}
 
 ;(async () => {
   try {
     const iconsCollection = await getIconCollectionFromFigma()
-    console.log({ iconsCollection })
+    console.log(`Found ${iconsCollection.length} icons. Downloading...`)
     await generateIconFiles(iconsCollection)
   } catch (err) {
     console.error('error', err)
