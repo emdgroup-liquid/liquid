@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-bg-cells renders default 1`] = `
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);">
+  <!---->
+  <div class="ld-bg-cells__pattern"></div>
+  <div class="ld-bg-cells__content"></div>
+</ld-bg-cells>
+`;
+
+exports[`ld-bg-cells renders with content 1`] = `
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);">
+  <!---->
+  <div class="ld-bg-cells__pattern"></div>
+  <div class="ld-bg-cells__content">
+    <p>
+      I am content
+    </p>
+  </div>
+</ld-bg-cells>
+`;
+
+exports[`ld-bg-cells renders with explicit type 1`] = `
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--millipore" type="millipore" style="--ld-bg-cells-image: url(/assets/millipore-cell.svg);">
+  <!---->
+  <div class="ld-bg-cells__pattern"></div>
+  <div class="ld-bg-cells__content"></div>
+</ld-bg-cells>
+`;
+
+exports[`ld-bg-cells renders with repeat 1`] = `
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc" repeat="" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);">
+  <!---->
+  <div class="ld-bg-cells__pattern"></div>
+  <div class="ld-bg-cells__content"></div>
+</ld-bg-cells>
+`;

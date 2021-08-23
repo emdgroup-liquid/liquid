@@ -17,6 +17,7 @@ If you have a suggestion for a new component not listed here, create an [issue o
 
 | Component                                           | Design            | Development        |
 |-----------------------------------------------------|-------------------|--------------------|
+| [ld-bg-cells](components/ld-bg-cells)               | done              | done               |
 | [ld-button](components/ld-button/)                  | done              | done               |
 | [ld-heading](components/ld-heading/)                | done              | done               |
 | [ld-paragraph](components/ld-paragraph/)            | done              | done               |
@@ -31,4 +32,3 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-radio](components/ld-radio)                     | done              | done               |
 | [ld-select](components/ld-select)                   | done              | done               |
 | [ld-toggle](components/ld-toggle)                   | done              | done               |
-| ld-pattern                                          | done              | todo               |
