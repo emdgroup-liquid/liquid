@@ -1,0 +1,23 @@
+/**
+ * @prop --ld-loading-size: Size of the loading indicator (1.5rem by default).
+ */
+.ld-loading {
+  --ld-loading-size: 1.5rem;
+  height: var(--ld-loading-size);
+  width: var(--ld-loading-size);
+  display: inline-flex;
+  flex-shrink: 0;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyMyAyMyI+PGRlZnMvPjxjaXJjbGUgY3g9IjExLjUiIGN5PSIxMS41IiByPSI5LjUiIHN0cm9rZT0iI0JGQkZCRiIgc3Ryb2tlLWRhc2hhcnJheT0iMi41NSA1IiBzdHJva2Utd2lkdGg9IjQiLz48L3N2Zz4=');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: ld-loading-animation 1.5s linear infinite;
+}
+
+@keyframes ld-loading-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
