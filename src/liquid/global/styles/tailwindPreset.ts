@@ -29,12 +29,22 @@ Object.entries(designTokens.colors).forEach(([key, value]) => {
     parseInt(extraction[3])
   )
 
-  if (key.includes('/default')) {
-    key = key.replace('/default', '')
-    colors[`${key.replace(/[0-9]/g, '')}`] = hex
+  const [, base, modifier, isDefault] =
+    /^([a-z-]+)(\d)*(\/default)?$/.exec(key) || []
+
+  if (!modifier) {
+    colors[key] = hex
+    return
   }
 
-  colors[`${key}`] = hex
+  if (!colors[base]) {
+    colors[base] = {}
+  }
+
+  if (isDefault) {
+    colors[base].DEFAULT = hex
+  }
+  colors[base][modifier.padEnd(3, '0')] = hex
 })
 
 // Extract typography
