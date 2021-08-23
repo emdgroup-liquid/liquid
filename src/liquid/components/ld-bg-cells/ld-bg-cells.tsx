@@ -1,4 +1,4 @@
-import { Component, Element, getAssetPath, h, Host, Prop } from '@stencil/core'
+import { Component, getAssetPath, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
