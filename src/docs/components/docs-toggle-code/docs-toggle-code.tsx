@@ -30,7 +30,21 @@ export class DocsToggleCode {
         size="sm"
       >
         <ld-sr-only>Toggle code</ld-sr-only>
-        <ld-icon name="markup" />
+        <ld-icon>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 22 22"
+          >
+            <path
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m8 18 6-13m3 10 4-4-4-4M5 7l-4 4 4 4"
+            />
+          </svg>
+        </ld-icon>
       </ld-button>
     )
   }

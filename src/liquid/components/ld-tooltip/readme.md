@@ -233,19 +233,6 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
 
-## Dependencies
-
-### Depends on
-
-- [ld-icon](../ld-icon)
-
-### Graph
-```mermaid
-graph TD;
-  ld-tooltip --> ld-icon
-  style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

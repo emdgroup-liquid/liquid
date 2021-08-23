@@ -5,7 +5,7 @@ jest.useRealTimers()
 describe('ld-icon', () => {
   it('renders with name prop', async () => {
     const page = await newE2EPage()
-    await page.setContent('<ld-icon name="alarm"></ld-icon>')
+    await page.setContent('<ld-icon name="add"></ld-icon>')
 
     const element = await page.find('ld-icon')
     expect(element).toHaveClass('hydrated')

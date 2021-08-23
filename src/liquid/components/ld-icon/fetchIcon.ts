@@ -3,18 +3,12 @@ import { getAssetPath } from '@stencil/core'
 const iconCache = {}
 const requestCache = {}
 
-export async function fetchIcon(
-  icon: string,
-  filled: boolean
-): Promise<string> {
-  const cacheKey = `${filled ? 'filled' : 'stroke'}_${icon}`
-  if (iconCache[cacheKey]) {
-    return iconCache[cacheKey]
+export async function fetchIcon(icon: string): Promise<string> {
+  if (iconCache[icon]) {
+    return iconCache[icon]
   }
-  if (!requestCache[cacheKey]) {
-    requestCache[cacheKey] = fetch(
-      getAssetPath(`./assets/${filled ? 'filled' : 'stroke'}/${icon}.svg`)
-    )
+  if (!requestCache[icon]) {
+    requestCache[icon] = fetch(getAssetPath(`./assets/${icon}.svg`))
       .then((resp) => resp.text())
       .catch((err) => {
         console.error(`"${icon}" is not a valid name`, err)
@@ -22,8 +16,8 @@ export async function fetchIcon(
       })
   }
 
-  const path = await requestCache[cacheKey]
-  iconCache[cacheKey] = path
+  const path = await requestCache[icon]
+  iconCache[icon] = path
 
   return path
 }
