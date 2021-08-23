@@ -30,9 +30,12 @@ const iconsFilter =
     ? process.env.FIGMA_ICONS_FILTER.split(',')
     : []
 
-async function getIconCollectionFromFigma() {
+async function getIconCollectionFromFigma(
+  figmaFileId = '8GYcAOePm8Tt9qqJ7Gnv99',
+  figmaNodeIds = '660:23252,640:37311'
+) {
   const response = await fetch(
-    `https://api.figma.com/v1/files/${process.env.FIGMA_ICONS_FILE_ID}/nodes?ids=${process.env.FIGMA_ICONS_NODE_IDS}`,
+    `https://api.figma.com/v1/files/${figmaFileId}/nodes?ids=${figmaNodeIds}`,
     {
       method: 'GET',
       headers: {
@@ -71,54 +74,12 @@ async function getIconCollectionFromFigma() {
   return icons
 }
 
-const getIconFromFigma = async (nodeId) => {
-  const response = await fetch(
-    `https://api.figma.com/v1/images/${process.env.FIGMA_ICONS_FILE_ID}?ids=${nodeId}&format=svg`,
-    {
-      method: 'GET',
-      headers: {
-        'X-Figma-Token': process.env.FIGMA_API_KEY,
-      },
-    }
-  )
-
-  if (!response.ok) {
-    throw new Error(
-      `Error requesting icon from Figma: ${await response.text()}`
-    )
+const getSingleIcon = async (name: string, url: string) => {
+  if (!url) {
+    console.warn(`No download URL for  "${name}" found. Skipping.`)
+    return
   }
 
-  const { err, images }: FigmaImageResponseBody = await response.json()
-  const imageUrl = images && images[nodeId]
-
-  if (err === null && imageUrl) {
-    const iconResponse = await fetch(imageUrl)
-
-    if (iconResponse.ok) {
-      return iconResponse.text()
-    } else {
-      throw new Error('Error downloading icon.')
-    }
-  } else {
-    throw new Error(`Invalid image response data from Figma: ${err}`)
-  }
-}
-
-// Increase retries or base, if you run into rate limit exceptions
-const exponentialBackoff = async (fn, depth = 1, retries = 9, base = 2) => {
-  try {
-    return await fn()
-  } catch (e) {
-    if (depth > retries) {
-      throw e
-    }
-    await new Promise((res) => setTimeout(res, base ** depth * 10))
-
-    return exponentialBackoff(fn, depth + 1)
-  }
-}
-
-const loadAndWriteIcon = async ({ id, name }) => {
   const unifiedName = name
     .trim()
     .toLocaleLowerCase()
@@ -130,31 +91,80 @@ const loadAndWriteIcon = async ({ id, name }) => {
     return
   }
 
-  try {
-    const icon = await exponentialBackoff(() => getIconFromFigma(id))
+  const iconResponse = await fetch(url)
 
-    if (icon) {
-      await writeFile(
-        `./src/liquid/components/ld-icon/assets/${unifiedName}.svg`,
-        icon
-          .replace(/\sfill="#[^"]*"/g, ' fill="currentcolor"')
-          .replace(/\sstroke="#[^"]*"/g, ' stroke="currentcolor"')
-      )
-      iconFileNames.push(unifiedName)
-      console.log(`${unifiedName}.svg successfully written.`)
-    }
-  } catch (error) {
-    console.log(`Error downloading ${name} icon with node ID ${id}.`, error)
+  if (!iconResponse.ok) {
+    throw new Error('Error downloading icon.')
   }
+
+  const icon = await iconResponse.text()
+
+  if (!icon) {
+    console.warn(`Icon ${name} has no content. Skipping.`)
+    return
+  }
+
+  await writeFile(
+    `./src/liquid/components/ld-icon/assets/${unifiedName}.svg`,
+    icon
+      .replace(/\sfill="#[^"]*"/g, ' fill="currentcolor"')
+      .replace(/\sstroke="#[^"]*"/g, ' stroke="currentcolor"')
+  )
+  iconFileNames.push(unifiedName)
+  console.log(`${unifiedName}.svg successfully written.`)
 }
 
-const generateIconFiles = async (icons: Icon[], chunk = 10) => {
-  let i: number
-  let j: number
-  for (i = 0, j = icons.length; i < j; i += chunk) {
-    const iconsChunk = icons.slice(i, i + chunk)
+const downloadIcons = async (icons: Icon[], images: Record<string, string>) => {
+  await Promise.all(
+    icons.map(async ({ name, id }) => {
+      try {
+        await exponentialBackoff(() => getSingleIcon(name, images[id]))
+      } catch (error) {
+        console.log(`Error downloading ${name} icon with node ID ${id}.`, error)
+      }
+    })
+  )
+}
 
-    await Promise.all(iconsChunk.map(loadAndWriteIcon))
+const loadAndWriteIcons = async (icons: Icon[]) => {
+  const response = await fetch(
+    `https://api.figma.com/v1/images/${
+      process.env.FIGMA_ICONS_FILE_ID
+    }?ids=${icons.map(({ id }) => id).join(',')}&format=svg`,
+    {
+      method: 'GET',
+      headers: {
+        'X-Figma-Token': process.env.FIGMA_API_KEY,
+      },
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(
+      `Error requesting icons from Figma: ${await response.text()}`
+    )
+  }
+
+  const { err, images }: FigmaImageResponseBody = await response.json()
+
+  if (err) {
+    throw new Error(`Invalid image response data from Figma: ${err}`)
+  }
+
+  return downloadIcons(icons, images)
+}
+
+// Increase retries or base, if you run into rate limit exceptions
+const exponentialBackoff = async (fn, depth = 1, retries = 7, base = 2) => {
+  try {
+    return await fn()
+  } catch (error) {
+    if (depth > retries) {
+      throw error
+    }
+    await new Promise((res) => setTimeout(res, base ** depth * 10))
+
+    return exponentialBackoff(fn, depth + 1)
   }
 }
 
@@ -162,8 +172,8 @@ const generateIconFiles = async (icons: Icon[], chunk = 10) => {
   try {
     const iconsCollection = await getIconCollectionFromFigma()
     console.log(`Found ${iconsCollection.length} icons. Downloading...`)
-    await generateIconFiles(iconsCollection)
-  } catch (err) {
-    console.error('error', err)
+    await loadAndWriteIcons(iconsCollection)
+  } catch (error) {
+    console.error('error', error)
   }
 })()

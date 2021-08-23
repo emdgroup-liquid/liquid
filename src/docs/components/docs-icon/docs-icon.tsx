@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core'
+import { copyToClipboard } from '../../utils/copyToClipboard'
 
 /** @internal **/
 @Component({
@@ -14,7 +15,7 @@ export class DocsIcon {
   @Prop() name: string
 
   private async copyIdentifier() {
-    await navigator.clipboard.writeText(this.identifier)
+    await copyToClipboard(this.identifier)
 
     dispatchEvent(
       new CustomEvent('ldNotificationAdd', {
@@ -36,9 +37,11 @@ export class DocsIcon {
           type="button"
         >
           <ld-icon name={this.identifier} size="lg" />
-          <ld-paragraph class="docs-icon__name">{this.name}</ld-paragraph>
+          <p class="docs-icon__name">{this.name}</p>
         </button>
-        <ld-paragraph>Click to copy identifier to clipboard.</ld-paragraph>
+        <ld-paragraph>
+          Click to copy "{this.identifier}" to clipboard.
+        </ld-paragraph>
       </ld-tooltip>
     )
   }

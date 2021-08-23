@@ -11,8 +11,9 @@
   padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-8);
   width: 6rem;
 
-  .ld-paragraph {
-    margin-top: 1rem;
+  &__name {
+    font: var(--ld-typo-label-s);
+    margin-top: var(--ld-sp-16);
     text-align: center;
   }
 
