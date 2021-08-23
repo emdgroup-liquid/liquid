@@ -9,7 +9,7 @@ permalink: components/ld-loading/
 
 # ld-loading
 
-Use the `ld-loading` component to indicate that the user should wait for a process to colplete. Combine it with textual information on what is going on for a better user experience. 
+Use the `ld-loading` component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience. 
 
 {% example %}
 <ld-loading></ld-loading>
