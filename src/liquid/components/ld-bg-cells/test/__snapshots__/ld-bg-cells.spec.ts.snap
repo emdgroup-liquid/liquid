@@ -31,7 +31,7 @@ exports[`ld-bg-cells renders with explicit type 1`] = `
 exports[`ld-bg-cells renders with repeat 1`] = `
 <ld-bg-cells class="ld-bg-cells ld-bg-cells--safc" repeat="" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);">
   <!---->
-  <div class="ld-bg-cells__pattern ld-bg-cells__pattern--repeat"></div>
+  <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content"></div>
 </ld-bg-cells>
 `;
