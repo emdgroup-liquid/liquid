@@ -11,23 +11,24 @@ function decToHex(value) {
     return value.toString(16).padStart(2, '0')
   }
 }
-
 function rgbToHex(r, g, b) {
   return '#' + decToHex(r) + decToHex(g) + decToHex(b)
 }
-
-// Extract colors
-const colors = {}
-Object.entries(designTokens.colors).forEach(([key, value]) => {
-  // Tailwind's background-opacity utility only works with hex color values,
-  // so we convert rgb to hex here.
+function colorValueToHex(colorValue: string) {
   const rgbRegex = /(\d{1,3}), (\d{1,3}), (\d{1,3})/g
-  const extraction = rgbRegex.exec(value as string)
-  const hex = rgbToHex(
+  const extraction = rgbRegex.exec(colorValue)
+  return rgbToHex(
     parseInt(extraction[1]),
     parseInt(extraction[2]),
     parseInt(extraction[3])
   )
+}
+
+// Extract colors
+// Tailwind's background-opacity utility only works with hex color values, so we convert rgb to hex.
+const colors = {}
+Object.entries(designTokens.colors).forEach(([key, value]) => {
+  const hex = colorValueToHex(value as string)
 
   const [, base, modifier, isDefault] =
     /^([a-z-]+)(\d)*(\/default)?$/.exec(key) || []
@@ -45,6 +46,12 @@ Object.entries(designTokens.colors).forEach(([key, value]) => {
     colors[base].DEFAULT = hex
   }
   colors[base][modifier.padEnd(3, '0')] = hex
+})
+Object.entries(designTokens.themes).forEach(([theme, themeColors]) => {
+  colors[theme] = {}
+  Object.entries(themeColors).forEach(([key, value]) => {
+    colors[theme][key] = colorValueToHex(value)
+  })
 })
 
 // Extract typography
