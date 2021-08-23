@@ -20,4 +20,10 @@ describe('ld-loading', () => {
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot({ allowableMismatchedRatio })
   })
+
+  it('renders as css component', async () => {
+    const page = await getPageWithContent(`<span class="ld-loading"></span>`)
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+  })
 })
