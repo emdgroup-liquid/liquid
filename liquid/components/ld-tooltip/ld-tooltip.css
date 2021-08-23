@@ -183,6 +183,8 @@
 .ld-tooltip__icon {
   color: var(--ld-tooltip-icon-color);
   display: flex;
+  height: var(--ld-sp-16);
+  width: var(--ld-sp-16);
 }
 
 /* .ld-theme-ocean -> default */
