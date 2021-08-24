@@ -22,6 +22,7 @@ ld-button {
   --ld-button-gap-sm: 0.625rem;
   --ld-button-gap-md: 0.875rem;
   --ld-button-gap-lg: 1.1875rem;
+  position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
   padding: var(--ld-button-padding-y-md) var(--ld-button-padding-x-md);
@@ -130,12 +131,62 @@ ld-button {
   &:where(.ld-button--justify-between) {
     justify-content: space-between;
   }
+
+  &[aria-busy='true'] {
+    cursor: progress;
+  }
+}
+
+@keyframes ld-button-progress-pending {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.ld-button__progress {
+  --ld-button-progress: 0;
+  position: absolute;
+  background-color: inherit;
+  inset: auto 0 0;
+  height: var(--ld-br-m);
+  overflow: hidden;
+  border-bottom-left-radius: var(--ld-br-full);
+  border-bottom-right-radius: var(--ld-br-full);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  &::before {
+    background-color: inherit;
+    filter: brightness(0.8);
+  }
+
+  &::after {
+    background-color: var(--ld-button-progress-color);
+    transition: transform 0.2s ease;
+    transform: translateX(-100%)
+      translateX(calc(var(--ld-button-progress) * 100%));
+  }
+
+  &--pending {
+    &::after {
+      animation: ld-button-progress-pending 1s linear infinite;
+    }
+  }
 }
 
 /* .ld-theme-ocean -> default */
 .ld-button,
 .ld-theme-ocean .ld-button,
 [class*='ld-theme'] .ld-theme-ocean .ld-button {
+  --ld-button-progress-color: var(--ld-thm-ocean-accent);
   background-color: var(--ld-thm-ocean-bg-primary);
   color: var(--ld-col-wht);
 
@@ -187,9 +238,29 @@ ld-button {
   }
 }
 
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum {
+  .ld-button {
+    --ld-button-progress-color: var(--ld-thm-bubblegum-accent);
+  }
+}
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake {
+  .ld-button {
+    --ld-button-progress-color: var(--ld-thm-shake-accent);
+  }
+}
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  .ld-button {
+    --ld-button-progress-color: var(--ld-thm-solvent-accent);
+  }
+}
+
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
   :where(.ld-button) {
+    --ld-button-progress-color: var(--ld-thm-tea-accent);
     background-color: var(--ld-thm-tea-bg-primary);
 
     &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -232,6 +303,10 @@ ld-button {
       color: var(--ld-col-vy4);
     }
   }
+
+  .ld-button__progress::after {
+    background-color: var(--ld-col-vy6);
+  }
 }
 
 .ld-button--danger,
@@ -255,6 +330,10 @@ ld-button {
       background-color: var(--ld-col-rr-active);
       color: var(--ld-col-wht);
     }
+  }
+
+  .ld-button__progress::after {
+    background-color: var(--ld-col-rr6);
   }
 }
 
@@ -284,6 +363,13 @@ ld-button {
       background-color: var(--ld-col-rb-a02);
     }
   }
+
+  .ld-button__progress::before {
+    background-color: var(--ld-col-rb-a01);
+  }
+  .ld-button__progress::after {
+    background-color: var(--ld-col-rb-default);
+  }
 }
 
 .ld-button--secondary,
@@ -312,6 +398,13 @@ ld-button {
         background-color: var(--ld-col-rp-a02);
       }
     }
+
+    .ld-button__progress::before {
+      background-color: var(--ld-col-rp-a01);
+    }
+    .ld-button__progress::after {
+      background-color: var(--ld-col-rp-default);
+    }
   }
 
   .ld-theme-tea &,
@@ -333,6 +426,13 @@ ld-button {
         color: var(--ld-col-rg-active);
         background-color: var(--ld-col-rg-a02);
       }
+    }
+
+    .ld-button__progress::before {
+      background-color: var(--ld-col-rg-a01);
+    }
+    .ld-button__progress::after {
+      background-color: var(--ld-col-rg-default);
     }
   }
 }

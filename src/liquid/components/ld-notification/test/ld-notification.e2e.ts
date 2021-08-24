@@ -1,5 +1,7 @@
 import { newE2EPage } from '@stencil/core/testing'
 
+jest.useRealTimers()
+
 async function getPageWithContent(content, theme = 'none') {
   const page = await newE2EPage()
   await page.setContent(

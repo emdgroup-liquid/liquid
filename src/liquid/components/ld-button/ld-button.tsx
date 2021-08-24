@@ -55,6 +55,9 @@ export class LdButton {
    */
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
+  /** Displays a progress bar at the bottom of the button. */
+  @Prop() progress: 'pending' | number
+
   private handleClick(ev) {
     const ariaDisabled = this.button.getAttribute('aria-disabled')
     if (ariaDisabled && ariaDisabled !== 'false') {
@@ -76,6 +79,15 @@ export class LdButton {
 
     const Tag = this.href ? 'a' : 'button'
 
+    const hasProgress = this.progress !== undefined
+
+    const styleProgress = !isNaN(parseFloat(this.progress + ''))
+      ? { '--ld-button-progress': this.progress + '' }
+      : undefined
+    const clProgress = `ld-button__progress${
+      this.progress === 'pending' ? ' ld-button__progress--pending' : ''
+    }`
+
     return (
       <Host>
         <Tag
@@ -84,6 +96,8 @@ export class LdButton {
           class={cl}
           disabled={this.disabled}
           aria-disabled={this.disabled ? 'true' : undefined}
+          aria-busy={hasProgress ? 'true' : undefined}
+          aria-live="polite"
           href={this.href}
           target={this.target}
           rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
@@ -94,6 +108,9 @@ export class LdButton {
               ))}
         >
           <slot />
+          {hasProgress && (
+            <span class={clProgress} style={styleProgress}></span>
+          )}
         </Tag>
       </Host>
     )
