@@ -114,7 +114,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install
-        run: yarn install --frozen-lockfile --network-timeout 100000
+        run: yarn config delete proxy && yarn config delete https-proxy && yarn install --verbose --frozen-lockfile --network-timeout 100000
         env:
           CI: true
 
