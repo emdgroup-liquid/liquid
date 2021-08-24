@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Border-radius</title>
+  <title>Liquid – CSS vs. Web Components</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -310,24 +310,24 @@
       
 
       <ul>
-          <li class="docs-nav__li docs-nav__li--active"><details>
+          <li class="docs-nav__li docs-nav__li--active"><details open>
                 <summary class="docs-nav__summary docs-nav__summary--liquid">
                   <a href="/liquid/"><span aria-label="Liquid">Liquid</span></a>
                 </summary>
                 <ul>
           <li class="docs-nav__li"><a href="/liquid/liquid/getting-started/">Getting started</a></li>
           <li class="docs-nav__li"><a href="/liquid/liquid/css-vs-web-components/">CSS vs. Web Components</a></li>
-          <li class="docs-nav__li"><a href="/liquid/liquid/component-assets/">Component assets</a></li>
+          <li class="docs-nav__li docs-nav__li--active"><a href="/liquid/liquid/component-assets/">Component assets</a></li>
           <li class="docs-nav__li"><a href="/liquid/liquid/type-checking-and-intellisense/">Type checking and intellisense</a></li>
           <li class="docs-nav__li"><a href="/liquid/liquid/server-side-rendering/">Server-side rendering</a></li>
           <li class="docs-nav__li"><a href="/liquid/liquid/tailwindcss-integration/">Tailwind CSS Integration</a></li></ul>
               </details></li>
-          <li class="docs-nav__li docs-nav__li--active"><details open>
+          <li class="docs-nav__li"><details>
                 <summary class="docs-nav__summary docs-nav__summary--globals">
                   <a href="/liquid/global/"><span aria-label="Globals">Globals</span></a>
                 </summary>
                 <ul>
-          <li class="docs-nav__li docs-nav__li--active"><a href="/liquid/global/border-radius/">Border-radius</a></li>
+          <li class="docs-nav__li"><a href="/liquid/global/border-radius/">Border-radius</a></li>
           <li class="docs-nav__li"><a href="/liquid/global/colors/">Colors</a></li>
           <li class="docs-nav__li"><a href="/liquid/global/focus/">Focus</a></li>
           <li class="docs-nav__li"><a href="/liquid/global/fonts/">Fonts</a></li>
@@ -366,24 +366,30 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav">
+        <ol><li><a href="#tweaking-the-bundler-and-adjusting-the-assets-path">Tweaking the bundler and adjusting the assets path</a></li></ol></nav>
+      </docs-toc>
+    
 
     <docs-main>
       <header><docs-breadcrumbs>
             
             <li>
-                <a href="/liquid/global/">Globals</a>
+                <a href="/liquid/">Liquid</a>
               </li><li>
-              <a href="/liquid/global/border-radius/" aria-current="page">Border-radius</a>
+              <a href="/liquid/liquid/component-assets/" aria-current="page">CSS vs. Web Components</a>
             </li>
-          </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/global/styles/border-radius/index.md"></docs-edit-on-github>
+          </docs-breadcrumbs><docs-edit-on-github path="./src/liquid/component-assets.md"></docs-edit-on-github>
       </header>
-      <h1 id="border-radius">Border-radius <a class="header-anchor" href="global/border-radius/#border-radius"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Global CSS custom properties for border-radius contribute to maintaining a consistent component look and feel.</p>
-<p>All border-radii listed below are available as global CSS custom properties after <a href="liquid/getting-started/#import-stylesheets">importing Liquid stylesheets</a>.</p>
-<p><docs-border-radius var="--ld-br-s"></docs-border-radius>
-<docs-border-radius var="--ld-br-m"></docs-border-radius>
-<docs-border-radius var="--ld-br-l"></docs-border-radius>
-<docs-border-radius var="--ld-br-full"></docs-border-radius></p>
+      <h1 id="component-assets">Component assets <a class="header-anchor" href="liquid/component-assets/#component-assets"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Some Liquid Web Components include assets which need to be loaded during runtime. Depending on how you bundle your client side resources, you may need to tweak your bundler so that it puts Liquid's assets into the right place and &quot;tell&quot; Liquid where to look for the assets.</p>
+<h2 id="tweaking-the-bundler-and-adjusting-the-assets-path">Tweaking the bundler and adjusting the assets path <a class="header-anchor" href="liquid/component-assets/#tweaking-the-bundler-and-adjusting-the-assets-path"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Suppose you have a <a href="https://nextjs.org/">Next.js</a> application which requires you to put all statically served assets into a folder called <code>public</code> in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the webpack config as follows:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// next.config.js</span><br><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><br><span class="token keyword">const</span> CopyWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'copy-webpack-plugin'</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token function-variable function">webpack</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    config<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CopyWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>      patterns<span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">{</span><br>          <span class="token keyword">from</span><span class="token operator">:</span> <span class="token string">'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets'</span><span class="token punctuation">,</span><br>          to<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/assets'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><br>      <span class="token punctuation">]</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>    <span class="token keyword">return</span> config<br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now all you need to do is &quot;tell&quot; the Liquid components where they have to load their assets from by using <a href="https://github.com/ionic-team/stencil/blob/f09abe6455887025d508e645e7c8c024a5c42fa2/src/declarations/stencil-public-runtime.ts#L290"><code>setAssetPath</code></a>:</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// _app.tsx</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements<span class="token punctuation">,</span> setAssetPath <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token keyword">function</span> <span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> Component<span class="token punctuation">,</span> pageProps <span class="token punctuation">}</span><span class="token operator">:</span> AppProps</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>    <span class="token function">setAssetPath</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span><br>    <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Component</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token punctuation">...</span><span class="token attr-value">pageProps</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br><span class="token punctuation">}</span></code></pre>
+<p><docs-page-nav prev-href="liquid/css-vs-web-components/" next-title="Type checking and intellisense" next-href="liquid/type-checking-and-intellisense/"></docs-page-nav></p>
 
     </docs-main>
 

@@ -19,7 +19,7 @@
     __docsSearchIndex__ = [{
               title: 'CSS vs. Web Components',
               tags: '',
-              url: '/liquid/liquid/components-assets/',
+              url: '/liquid/liquid/component-assets/',
               headings: 'Tweaking the bundler and adjusting the assets path',
               breadcrumbs: [
                 
@@ -265,6 +265,14 @@
                 
                 'Liquid','Server-side rendering']
             },{
+              title: 'Tailwind CSS Integration',
+              tags: '',
+              url: '/liquid/liquid/tailwindcss-integration/',
+              headings: 'Disabling Tailwind's default configurationAccessing Liquid's design tokens',
+              breadcrumbs: [
+                
+                'Liquid','Tailwind CSS Integration']
+            },{
               title: 'Type checking and intellisense',
               tags: '',
               url: '/liquid/liquid/type-checking-and-intellisense/',
@@ -309,9 +317,10 @@
                 <ul>
           <li class="docs-nav__li"><a href="/liquid/liquid/getting-started/">Getting started</a></li>
           <li class="docs-nav__li"><a href="/liquid/liquid/css-vs-web-components/">CSS vs. Web Components</a></li>
-          <li class="docs-nav__li"><a href="/liquid/liquid/components-assets/">Component assets</a></li>
+          <li class="docs-nav__li"><a href="/liquid/liquid/component-assets/">Component assets</a></li>
           <li class="docs-nav__li docs-nav__li--active"><a href="/liquid/liquid/type-checking-and-intellisense/">Type checking and intellisense</a></li>
-          <li class="docs-nav__li"><a href="/liquid/liquid/server-side-rendering/">Server-side rendering</a></li></ul>
+          <li class="docs-nav__li"><a href="/liquid/liquid/server-side-rendering/">Server-side rendering</a></li>
+          <li class="docs-nav__li"><a href="/liquid/liquid/tailwindcss-integration/">Tailwind CSS Integration</a></li></ul>
               </details></li>
           <li class="docs-nav__li"><details>
                 <summary class="docs-nav__summary docs-nav__summary--globals">
@@ -388,7 +397,7 @@
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"html.customData"</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>    <span class="token string">"./node_modules/@emdgroup-liquid/liquid/dist/web-components.html-data.json"</span><br>  <span class="token punctuation">]</span><br><span class="token punctuation">}</span></code></pre>
 <p>The format of the referenced JSON file, which includes type information about each Web Component, doesn't follow a common standard, but is Visual Studio Code specific. Discussions on a standard, which eventually will lead to support in more editors, is (at the time of writing) <a href="https://github.com/WICG/webcomponents/issues/776">still ongoing</a>. Probably due to the fact that there is no standard yet, VS Code extensions are not yet making use of the custom data feature. Hense intellisense is not yet working in Vue templates, Svelte markup etc.</p>
 <p><a href="https://youtrack.jetbrains.com/issue/WEB-39620">Some efforts</a> are also being made to enable intellisense for Web Components in Intellij editors, but we are not there yet.</p>
-<p><docs-page-nav prev-href="liquid/components-assets/" next-title="Server-side rendering" next-href="liquid/server-side-rendering/"></docs-page-nav></p>
+<p><docs-page-nav prev-href="liquid/component-assets/" next-title="Server-side rendering" next-href="liquid/server-side-rendering/"></docs-page-nav></p>
 
     </docs-main>
 
