@@ -11,7 +11,7 @@ permalink: liquid/tailwindcss-integration/
 
 # Tailwind CSS Integration
 
-Liquid boundles a [Tailwind CSS preset](https://tailwindcss.com/docs/presets) which you can use as a base for your own Tailwind CSS configuration:
+Liquid bundles a [Tailwind CSS preset](https://tailwindcss.com/docs/presets) which you can use as a base for your own Tailwind CSS configuration:
 
 ```js
 // tailwind.config.js
