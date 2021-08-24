@@ -11,7 +11,7 @@
     "url": "git@github.com:emdgroup-liquid/liquid.git"
   },
   "engines": {
-    "node": ">=15.5.0",
+    "node": ">=14.16.1",
     "yarn": ">=1.22.10"
   },
   "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
