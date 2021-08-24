@@ -5,7 +5,7 @@ eleventyNavigation:
   order: 3
 layout: layout.njk
 title: CSS vs. Web Components
-permalink: liquid/components-assets/
+permalink: liquid/component-assets/
 ---
 
 # Component assets
