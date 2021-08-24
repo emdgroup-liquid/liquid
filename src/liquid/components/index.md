@@ -21,7 +21,7 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-button](components/ld-button/)                  | done              | done               |
 | [ld-heading](components/ld-heading/)                | done              | done               |
 | [ld-paragraph](components/ld-paragraph/)            | done              | done               |
-| [ld-icon](components/ld-icon/)                      | in progress       | on hold            |
+| [ld-icon](components/ld-icon/)                      | in progress       | done               |
 | [ld-input](components/ld-input/)                    | done              | done               |
 | [ld-input-message](components/ld-input-message/)    | done              | done               |
 | [ld-label](components/ld-label/)                    | done              | done               |
