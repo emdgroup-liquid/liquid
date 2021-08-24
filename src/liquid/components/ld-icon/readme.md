@@ -9,7 +9,11 @@ permalink: components/ld-icon/
 
 # ld-icon
 
-## Web Component
+An icon provides a visual hint for content or interactions. Combine it with textual information for a better user experience. When using an icon on its own, make sure to either apply an [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) or use the [ld-sr-only](components/ld-sr-only/) component.
+
+---
+
+## Examples
 
 {% example %}
 <ld-icon name="placeholder"></ld-icon>
@@ -45,7 +49,7 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 </ld-icon>
 {% endexample %}
 
-### Available icons
+## Available icons
 
 <ld-notification placement="bottom"></ld-notification>
 
