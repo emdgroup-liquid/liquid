@@ -3,6 +3,9 @@
   "version": "1.0.0-rc.1",
   "description": "Beautiful, accessible and versatile UI components",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:emdgroup-liquid/liquid.git"
