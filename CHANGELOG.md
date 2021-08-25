@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.4](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-08-25)
+
+
+### Bug Fixes
+
+* **build:** export types ([e8dc84d](https://github.com/emdgroup-liquid/liquid/commit/e8dc84d0d75155be653eb88f423f8faa81553e37))
+
 # [1.0.0-rc.3](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-08-24)
 
 
