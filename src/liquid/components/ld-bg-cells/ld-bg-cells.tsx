@@ -2,7 +2,7 @@ import { Component, getAssetPath, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
-type CellType =
+export type CellType =
   | 'bioreliance'
   | 'f'
   | 'hexagon'

@@ -145,6 +145,7 @@ Some things are not linted but still are important:
   It applies the CSS class `ld-button` to its root element. Now the consuming developer can decide on either using the WebComponent `<ld-button>Submit</ld-button>` or the CSS class directly `<button class="ld-button">Submit</ld-button>`.
 - When writing CSS, we follow common best practices. We try to keep the CSS specificity to a minimum, in order to simplify component customization, but we also make sure that it's not low to an extent, where styles get overwritten by other libraries' reset or normalize styles (such as Tailwind's [Preflight](https://tailwindcss.com/docs/preflight)). In other words: If you're using the CSS `:where` trick to reduce CSS speceficity to zero, make sure the properties affected are not potential candidates for reset and normalize styles.
 - Themable components should support at least one level of [theme inception](/liquid/components/ld-theme/#theme-inception).
+- Due to an issue in stencil type declarations need to be either inlined or exported, as otherwise undefined types end up in the generated components.d.ts file. 
 - In order for camelcase props to work in React based apps, we create lowercase aliases in components, which have camelcase props, by adding the `@Element()` decorator to the component, making all camelcase props mutable and calling the utility function `applyPropAliases` in the `componentWillLoad` hook: 
   ```tsx
   import { Component, h } from '@stencil/core'
