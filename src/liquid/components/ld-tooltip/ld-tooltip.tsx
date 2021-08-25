@@ -4,7 +4,7 @@ import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
-type Position =
+export type Position =
   | 'bottom center'
   | 'bottom left'
   | 'bottom right'
@@ -17,32 +17,6 @@ type Position =
   | 'top center'
   | 'top left'
   | 'top right'
-
-const mapPositionToAttachment = (position: Position) =>
-  ({
-    'bottom center': 'top center',
-    'bottom left': 'top left',
-    'bottom right': 'top right',
-    'left bottom': 'bottom right',
-    'left middle': 'middle right',
-    'left top': 'top right',
-    'right bottom': 'bottom left',
-    'right middle': 'middle left',
-    'right top': 'top left',
-    'top center': 'bottom center',
-    'top left': 'bottom left',
-    'top right': 'bottom right',
-  }[position])
-
-const mapPositionToTargetAttachment = (position: Position) =>
-  ({
-    'left bottom': 'bottom left',
-    'left middle': 'middle left',
-    'left top': 'top left',
-    'right bottom': 'bottom right',
-    'right middle': 'middle right',
-    'right top': 'top right',
-  }[position] ?? position)
 
 let tooltipCount = 0
 
@@ -85,14 +59,39 @@ export class LdTooltip {
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
 
-  componentWillLoad() {
-    applyPropAliases.call(this)
-    this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
+  private mapPositionToAttachment = (position: Position) => {
+    return {
+      'bottom center': 'top center',
+      'bottom left': 'top left',
+      'bottom right': 'top right',
+      'left bottom': 'bottom right',
+      'left middle': 'middle right',
+      'left top': 'top right',
+      'right bottom': 'bottom left',
+      'right middle': 'middle left',
+      'right top': 'top left',
+      'top center': 'bottom center',
+      'top left': 'bottom left',
+      'top right': 'bottom right',
+    }[position]
+  }
+
+  private mapPositionToTargetAttachment = (position: Position) => {
+    return (
+      {
+        'left bottom': 'bottom left',
+        'left middle': 'middle left',
+        'left top': 'top left',
+        'right bottom': 'bottom right',
+        'right middle': 'middle right',
+        'right top': 'top right',
+      }[position] ?? position
+    )
   }
 
   private initTooltip = () => {
-    const attachment = mapPositionToAttachment(this.position)
-    const targetAttachment = mapPositionToTargetAttachment(this.position)
+    const attachment = this.mapPositionToAttachment(this.position)
+    const targetAttachment = this.mapPositionToTargetAttachment(this.position)
 
     this.popper = new Tether({
       attachment,
@@ -197,6 +196,11 @@ export class LdTooltip {
   })
   handleTouchOutside(event) {
     this.handleClickOutside(event)
+  }
+
+  componentWillLoad() {
+    applyPropAliases.call(this)
+    this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
   }
 
   render() {
