@@ -54,7 +54,7 @@ export class LdTooltip {
   @State() visible = false
 
   private delayTimeout?: NodeJS.Timeout
-  private id = `ld-tooltip-${++tooltipCount}`
+  private idDescriber = `ld-tooltip-${++tooltipCount}`
   private popper?: Tether
   private tooltipRef!: HTMLDivElement
   private triggerRef!: HTMLSpanElement
@@ -207,7 +207,7 @@ export class LdTooltip {
     return (
       <Host>
         <button
-          aria-describedby={this.id}
+          aria-describedby={this.idDescriber}
           class={getClassNames([
             'ld-tooltip__trigger',
             this.triggerType === 'click' && 'ld-tooltip__trigger--clickable',
@@ -252,7 +252,7 @@ export class LdTooltip {
             this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
             this.triggerType === 'click' && 'ld-tooltip--interactive',
           ])}
-          id={this.id}
+          id={this.idDescriber}
           ref={(element) => {
             this.tooltipRef = element
           }}
