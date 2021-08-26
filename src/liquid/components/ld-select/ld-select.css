@@ -432,8 +432,9 @@
 .ld-select__icon,
 .ld-select [slot='icon'] {
   flex-shrink: 0;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   pointer-events: none;
 
   :where(select[aria-disabled='true']) &,
