@@ -49,6 +49,65 @@ In rare cases you will want to have a theming element wrapped by another theming
 </div>
 {% endexample %}
 
+## CSS Custom Properties
+
+You have access to CSS custom properties with a color value depending on the current theme:
+
+```html
+--ld-thm-accent
+--ld-thm-bg-primary
+--ld-thm-bg-secondary
+--ld-thm-highlight
+```
+
+### Examples
+
+The following examples illustrate the variables applied to background color within each theme:
+
+#### Theme Ocean
+
+<div class="ld-theme-ocean">
+  <docs-color var="--ld-thm-accent"></docs-color>
+  <docs-color var="--ld-thm-bg-primary"></docs-color>
+  <docs-color var="--ld-thm-bg-secondary"></docs-color>
+  <docs-color var="--ld-thm-highlight"></docs-color>
+</div>
+
+#### Theme Bubblegum
+
+<div class="ld-theme-bubblegum">
+  <docs-color var="--ld-thm-accent"></docs-color>
+  <docs-color var="--ld-thm-bg-primary"></docs-color>
+  <docs-color var="--ld-thm-bg-secondary"></docs-color>
+  <docs-color var="--ld-thm-highlight"></docs-color>
+</div>
+
+#### Theme Shake
+
+<div class="ld-theme-shake">
+  <docs-color var="--ld-thm-accent"></docs-color>
+  <docs-color var="--ld-thm-bg-primary"></docs-color>
+  <docs-color var="--ld-thm-bg-secondary"></docs-color>
+  <docs-color var="--ld-thm-highlight"></docs-color>
+</div>
+
+#### Theme Solvent
+
+<div class="ld-theme-solvent">
+  <docs-color var="--ld-thm-accent"></docs-color>
+  <docs-color var="--ld-thm-bg-primary"></docs-color>
+  <docs-color var="--ld-thm-bg-secondary"></docs-color>
+  <docs-color var="--ld-thm-highlight"></docs-color>
+</div>
+
+#### Theme Tea
+
+<div class="ld-theme-tea">
+  <docs-color var="--ld-thm-accent"></docs-color>
+  <docs-color var="--ld-thm-bg-primary"></docs-color>
+  <docs-color var="--ld-thm-bg-secondary"></docs-color>
+  <docs-color var="--ld-thm-highlight"></docs-color>
+</div>
 
 <!-- Auto Generated Below -->
 
