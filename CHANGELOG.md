@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.5](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-08-26)
+
+
+### Bug Fixes
+
+* **build:** export types ([c0d0a59](https://github.com/emdgroup-liquid/liquid/commit/c0d0a5988f9d8f98769bfd29ff69188bec5d7635))
+* **engines:** allow node 14 and higher ([2ec2314](https://github.com/emdgroup-liquid/liquid/commit/2ec2314393246c27413743a97f9fce80b5e65acc))
+* **ld-bg-cells:** optimize svg assets ([f4cc3dd](https://github.com/emdgroup-liquid/liquid/commit/f4cc3dda9962a73962fd65c212435e735356026c))
+* **ld-select:** apply props explicitly to make it work in vue ([a6fca8f](https://github.com/emdgroup-liquid/liquid/commit/a6fca8fde15e9d651b6992a34825897ef224ae7d))
+* **ld-select:** custom trigger icon ([460de73](https://github.com/emdgroup-liquid/liquid/commit/460de733c2e4f623ccb15f70292377a1465fd8e7))
+* **ld-tooltip:** rename property id in order to prevent dom exception ([b623b18](https://github.com/emdgroup-liquid/liquid/commit/b623b18a71b6674b0a2a04a0a65c3382c85de26a))
+* **tailwindcss:** extend default spacings instead of replacing them ([3b9750d](https://github.com/emdgroup-liquid/liquid/commit/3b9750d50fd5b683c662ec88e2af6c7a8e2f0e86))
+
+
+### Features
+
+* **ld-notification:** theming ([3f83255](https://github.com/emdgroup-liquid/liquid/commit/3f8325564b611631c8d1de8bb3f4d7a25b5b3296))
+* **ld-theme:** add theme colors as dynamic css custom props ([acc077f](https://github.com/emdgroup-liquid/liquid/commit/acc077f509e6e8fa4aff4b65a7dfeb8b67b21407))
+
 # [1.0.0-rc.4](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-08-25)
 
 
