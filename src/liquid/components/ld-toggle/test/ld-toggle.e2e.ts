@@ -1,5 +1,4 @@
 import { newE2EPage } from '@stencil/core/testing'
-import { ThemeName } from '../../../types/theme'
 
 jest.useRealTimers()
 
@@ -19,11 +18,11 @@ async function getPageWithContent(content, theme = 'none') {
 
 const themes = [
   'none',
-  ThemeName.ocean.toLowerCase(),
-  ThemeName.bubblegum.toLowerCase(),
-  // ThemeName.shake.toLowerCase(),
-  // ThemeName.solvent.toLowerCase(),
-  // ThemeName.tea.toLowerCase(),
+  'ocean',
+  'bubblegum',
+  // 'shake',
+  // 'solvent',
+  // 'tea',
 ]
 const checkedStates = [false, true]
 const allowableMismatchedPixels = 2000

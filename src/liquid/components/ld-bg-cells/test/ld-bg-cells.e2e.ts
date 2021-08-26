@@ -1,5 +1,4 @@
 import { newE2EPage } from '@stencil/core/testing'
-import { ThemeName } from '../../../types/theme'
 
 async function getPageWithContent(content, theme = 'none') {
   const page = await newE2EPage()
@@ -18,11 +17,11 @@ async function getPageWithContent(content, theme = 'none') {
 
 const themes = [
   'none',
-  ThemeName.ocean.toLowerCase(),
-  ThemeName.bubblegum.toLowerCase(),
-  // ThemeName.shake.toLowerCase(),
-  // ThemeName.solvent.toLowerCase(),
-  // ThemeName.tea.toLowerCase(),
+  'ocean',
+  'bubblegum',
+  // 'shake',
+  // 'solvent',
+  // 'tea',
 ]
 const cellTypes = [
   'bioreliance',

@@ -1,6 +1,6 @@
 import '../../../components' // type definitions for type checking and intelliSense
 import { Component, h, Host, Prop, Listen, State } from '@stencil/core'
-import { ThemeName } from '../../../liquid/types/theme'
+import { ThemeName } from '../../../liquid/components/ld-theme/ld-theme'
 
 /** @internal **/
 @Component({
@@ -28,7 +28,7 @@ export class DocsExample {
   @Prop() themable = false
 
   /** Current theme. */
-  @State() currentTheme: ThemeName = ThemeName.ocean
+  @State() currentTheme: ThemeName = 'ocean'
 
   /** Is code toggled to be visible */
   @State() isCodeVisible = this.opened
