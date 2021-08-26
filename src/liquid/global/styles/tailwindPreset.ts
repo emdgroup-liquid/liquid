@@ -69,6 +69,12 @@ Object.entries({
   fontSize[key] = value.fontSize
 })
 
+// Extract spacings
+const spacing = {}
+Object.entries(designTokens.spacings).forEach(([key, value]) => {
+  spacing[`ld-${key}`] = value
+})
+
 const preset = {
   theme: {
     colors,
@@ -83,8 +89,8 @@ const preset = {
       body: ['Lato', 'sans-serif'],
       display: ['MWeb', 'sans-serif'],
     },
-    spacing: {
-      ...designTokens.spacings,
+    extend: {
+      spacing,
     },
   },
   plugins: [
