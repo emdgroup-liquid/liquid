@@ -114,7 +114,7 @@
 }
 
 .ld-notification__item--info {
-  background-color: var(--ld-col-rb-default);
+  background-color: var(--ld-notification-item-color);
   color: var(--ld-col-wht);
 }
 .ld-notification__item--warn {
@@ -160,4 +160,39 @@
   user-select: none;
   touch-action: manipulation;
   -webkit-touch-callout: none;
+}
+
+/* .ld-theme-ocean -> default */
+.ld-notification__item--info,
+:where(.ld-theme-ocean) .ld-notification__item--info,
+:where([class*='ld-theme'] .ld-theme-ocean) .ld-notification__item--info {
+  --ld-notification-item-color: var(--ld-thm-ocean-bg-primary);
+}
+
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  .ld-notification__item--info {
+    --ld-notification-item-color: var(--ld-thm-tea-bg-primary);
+  }
+}
+
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  .ld-notification__item--info {
+    --ld-notification-item-color: var(--ld-thm-bubblegum-bg-primary);
+  }
+}
+
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  .ld-notification__item--info {
+    --ld-notification-item-color: var(--ld-thm-shake-bg-primary);
+  }
+}
+
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  .ld-notification__item--info {
+    --ld-notification-item-color: var(--ld-thm-solvent-bg-primary);
+  }
 }
