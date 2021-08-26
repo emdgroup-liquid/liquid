@@ -23,4 +23,4 @@ title: Liquid
 
 Liquid is a UI component library based on the [Liquid Design System](https://lds.merck.design/), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
-<docs-page-nav next-title="Getting Started" next-href="/liquid/getting-started/"></docs-page-nav>
+<docs-page-nav next-title="Getting Started" next-href="liquid/getting-started/"></docs-page-nav>

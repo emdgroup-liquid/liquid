@@ -117,6 +117,10 @@ You can dismiss all notifications programmatically by dispatching the `ldNotific
 dispatchEvent(new CustomEvent('ldNotificationClear'))
 ```
 
+## Theming
+
+Notifications of type `'info'` can be themed by wrapping `ld-notification` in a [theme container](components/ld-theme/). 
+
 ## Examples
 
 The examples below illustrate how you can trigger notifications using different parameters:
