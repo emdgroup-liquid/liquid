@@ -37,7 +37,13 @@ export class LdOption {
 
   render() {
     return (
-      <Host class="ld-option" role="presentation">
+      <Host
+        class="ld-option"
+        role="presentation"
+        selected={this.selected}
+        disabled={this.disabled}
+        value={this.value}
+      >
         <slot></slot>
       </Host>
     )
