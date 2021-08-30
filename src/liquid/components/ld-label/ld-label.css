@@ -3,6 +3,7 @@ ld-label {
 }
 
 .ld-label {
+  --ld-label-col-gap: 0.625rem;
   font: var(--ld-typo-label-s);
   display: inline-grid;
   row-gap: var(--ld-sp-6);
@@ -19,21 +20,46 @@ ld-label {
 .ld-label--right {
   justify-content: flex-start;
   align-items: center;
-  column-gap: var(--ld-sp-6);
+  column-gap: var(--ld-label-col-gap);
   row-gap: 0;
+
+  > ld-checkbox,
+  > .ld-checkbox,
+  > ld-radio,
+  > .ld-radio,
+  > ld-toggle,
+  > .ld-toggle,
+  > ld-input,
+  > .ld-input,
+  > ld-select,
+  > .ld-select {
+    grid-area: input;
+    align-self: baseline;
+  }
 
   > ld-input-message,
   > .ld-input-message {
-    order: 0;
     grid-area: message;
     margin-top: var(--ld-sp-4);
   }
 
-  > :not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
-    order: 0;
-    grid-area: input;
-    align-self: baseline;
-    min-width: 100%;
+  > ld-input,
+  > .ld-input,
+  > ld-select,
+  > .ld-select {
+    .ld-label--left& {
+      + ld-input-message,
+      + .ld-input-message {
+        grid-column-start: 2;
+      }
+    }
+
+    .ld-label--right& {
+      + ld-input-message,
+      + .ld-input-message {
+        grid-column-end: 2;
+      }
+    }
   }
 }
 
@@ -42,16 +68,6 @@ ld-label {
   grid-template-areas:
     'label input'
     'message message';
-
-  > :first-child:not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
-    margin-left: var(--ld-sp-4);
-    justify-self: flex-start;
-  }
-
-  > :first-child:not(:last-child) {
-    margin-right: var(--ld-sp-4);
-    justify-self: flex-end;
-  }
 }
 
 .ld-label--right {
@@ -59,16 +75,6 @@ ld-label {
   grid-template-areas:
     'input label'
     'message message';
-
-  > :first-child:not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
-    margin-right: var(--ld-sp-4);
-    justify-self: flex-end;
-  }
-
-  > :first-child:not(:last-child) {
-    margin-left: var(--ld-sp-4);
-    justify-self: flex-start;
-  }
 }
 
 .ld-label--m {
