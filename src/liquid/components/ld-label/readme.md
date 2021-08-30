@@ -60,14 +60,14 @@ The default size is small. You can use a slightly bigger label (size medium) by 
 #### Left
 
 {% example %}
-<ld-label position="left">
+<ld-label position="left" size="m">
   Email Address
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
 
 <!-- CSS component -->
 
-<label class="ld-label ld-label--left">
+<label class="ld-label ld-label--left ld-label--m">
   Email Address
   <div class="ld-input">
     <input placeholder="jane.doe@example.com" type="email">
@@ -78,17 +78,52 @@ The default size is small. You can use a slightly bigger label (size medium) by 
 #### Right
 
 {% example %}
-<ld-label position="right">
+<ld-label position="right" size="m">
   Email Address
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
 
 <!-- CSS component -->
 
-<label class="ld-label ld-label--right">
+<label class="ld-label ld-label--right ld-label--m">
   Email Address
   <div class="ld-input">
     <input placeholder="jane.doe@example.com" type="email">
+  </div>
+</label>
+{% endexample %}
+
+### HTML Content
+
+{% example %}
+<ld-label position="right">
+  <span>I love to <code style="line-height: 0">code</code>.</span>
+  <ld-checkbox></ld-checkbox>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--right">
+  <span>I love to <code style="line-height: 0">code</code>.</span>
+  <div class="ld-checkbox">
+    <input type="checkbox">
+    <svg
+      class="ld-checkbox__check"
+      width="14"
+      height="14"
+      fill="none"
+      viewBox="0 0 14 14"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 4L5.40795 10L2 6.63964"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <div class="ld-checkbox__box"></div>
   </div>
 </label>
 {% endexample %}

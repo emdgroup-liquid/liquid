@@ -8,7 +8,7 @@ ld-label {
   row-gap: var(--ld-sp-6);
   column-gap: 0;
   max-width: 100%;
-  align-self: flex-start;
+  align-content: flex-start;
 
   ld-label & {
     width: 100%;
@@ -29,7 +29,7 @@ ld-label {
     margin-top: var(--ld-sp-4);
   }
 
-  > :not(ld-input-message):not(.ld-input-message) {
+  > :not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
     order: 0;
     grid-area: input;
     align-self: baseline;
@@ -43,8 +43,14 @@ ld-label {
     'label input'
     'message message';
 
-  > :first-child:not(ld-input-message):not(.ld-input-message) {
+  > :first-child:not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
     margin-left: var(--ld-sp-4);
+    justify-self: flex-start;
+  }
+
+  > :first-child:not(:last-child) {
+    margin-right: var(--ld-sp-4);
+    justify-self: flex-end;
   }
 }
 
@@ -54,8 +60,14 @@ ld-label {
     'input label'
     'message message';
 
-  > :first-child:not(ld-input-message):not(.ld-input-message) {
+  > :first-child:not(ld-input-message):not(.ld-input-message):not(:first-child:not(:last-child)) {
     margin-right: var(--ld-sp-4);
+    justify-self: flex-end;
+  }
+
+  > :first-child:not(:last-child) {
+    margin-left: var(--ld-sp-4);
+    justify-self: flex-start;
   }
 }
 
