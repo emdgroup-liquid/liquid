@@ -1,5 +1,5 @@
 ---
-title: Liquid
+title: Introduction
 ---
 
 <!doctype html>
@@ -20,10 +20,10 @@ title: Liquid
 
   <script>
     __docsSearchIndex__ = [
-    {%- for item in collections.all -%}
-      {%- if not item.data.excludeFromSitemap %}
-        {%- if item.data.title or item.data.renderData.title %}
-          {%- if 'Liquid' not in item.data.title -%}
+    {% for item in collections.all %}
+      {% if not item.data.excludeFromSitemap %}
+        {% if item.data.title or item.data.renderData.title %}
+          {% if 'Introduction' not in item.data.title %}
             {
               title: '{{ item.data.title or item.data.renderData.title }}',
               tags: '{{ item.data.tags }}',
@@ -31,19 +31,19 @@ title: Liquid
               headings: '{{ item.data.content | toc | safe | striptags(true) }}',
               breadcrumbs: [
                 {% set navPages = collections.all | eleventyNavigationBreadcrumb(item.data.title or item.data.renderData.title) %}
-                {% macro renderBreadcrumb(entry) -%}
+                {% macro renderBreadcrumb(entry) %}
                   '{{ entry.title }}',
-                {%- endmacro %}
-                {%- if navPages.length -%}
-                  {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}
+                {% endmacro %}
+                {% if navPages.length %}
+                  {% for entry in navPages %}{{ renderBreadcrumb(entry) }}{% endfor %}
                   '{{ item.data.title or item.data.renderData.title }}'
-                {%- endif -%}
+                {% endif %}
               ]
             }{{ '' if loop.last else ',' }}
-          {%- endif -%}
-        {%- endif -%}
-      {%- endif -%}
-    {%- endfor %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
     ]
   </script>
 
@@ -70,31 +70,31 @@ title: Liquid
 
     <docs-nav>
       {% set navPages = collections.all | eleventyNavigation %}
-      {% macro renderNavListItem(entry) -%}
-        {%- if not '404' in entry.url %}
-          <li class="docs-nav__li{% if entry.url in page.url %} docs-nav__li--active{% endif %}">
-            {%- if entry.children.length -%}
-              <details{% if ((entry.url == '/') and (('liquid/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
+      {% macro renderNavListItem(entry) %}
+        {% if not '404' in entry.url %}
+          <li class="docs-nav__li{% if ((entry.url == '/') and ((page.url == '/') or ('introduction/' in page.url))) or ((entry.url != '/') and (entry.url in page.url)) %} docs-nav__li--active{% endif %}">
+            {% if entry.children.length %}
+              <details{% if ((entry.url == '/') and (('introduction/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
                 <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower }}">
                   <a href="{{ env.base }}{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span></a>
                 </summary>
                 <ul>
-                  {%- if (entry.title == 'Components') or (entry.title == 'Globals') -%}
-                    {%- for child in entry.children|sort(false, true, 'title') %}{{ renderNavListItem(child) }}{% endfor -%}
-                  {%- else -%}
-                    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
-                  {%- endif -%}
+                  {% if (entry.title == 'Components') or (entry.title == 'Globals') %}
+                    {% for child in entry.children|sort(false, true, 'title') %}{{ renderNavListItem(child) }}{% endfor %}
+                  {% else %}
+                    {% for child in entry.children %}{{ renderNavListItem(child) }}{% endfor %}
+                  {% endif %}
                 </ul>
               </details>
-            {%- else -%}
+            {% else %}
               <a href="{{ env.base }}{{ entry.url | url }}">{{ entry.title }}</a>
-            {%- endif -%}
+            {% endif %}
           </li>
-        {%- endif -%}
-      {%- endmacro %}
+        {% endif %}
+      {% endmacro %}
 
       <ul>
-        {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
+        {% for entry in navPages %}{{ renderNavListItem(entry) }}{% endfor %}
       </ul>
     </docs-nav>
 
@@ -110,20 +110,20 @@ title: Liquid
 
     <docs-main>
       <header>
-        {%- if 'Liquid' not in title and not '404' in title -%}
+        {% if 'Introduction' not in title and not '404' in title %}
           <docs-breadcrumbs>
             {% set navPages = collections.all | eleventyNavigationBreadcrumb(title) %}
-            {% macro renderBreadcrumb(entry) -%}
+            {% macro renderBreadcrumb(entry) %}
               <li>
                 <a href="{{ env.base }}{{ entry.url }}">{{ entry.title }}</a>
               </li>
-            {%- endmacro %}
-            {%- for entry in navPages %}{{ renderBreadcrumb(entry) }}{%- endfor -%}
+            {% endmacro %}
+            {% for entry in navPages %}{{ renderBreadcrumb(entry) }}{% endfor %}
             <li>
               <a href="{{ env.base }}{{ page.url }}" aria-current="page">{{ title }}</a>
             </li>
           </docs-breadcrumbs>
-        {%- endif -%}
+        {% endif %}
         <docs-edit-on-github path="{{ page.inputPath }}"></docs-edit-on-github>
       </header>
       {{ content | safe }}

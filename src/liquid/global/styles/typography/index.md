@@ -13,7 +13,7 @@ The typography globals consist of CSS custom properties, which you can use to ei
 
 In most cases you will probably want to simply use components though, which themselves make use of global typography CSS custom properties, such as the [`ld-paragraph`](components/ld-paragraph/) or the [`ld-heading`](components/ld-heading/) component.
 
-The list below shows you all available typography related CSS custom properties available after [importing Liquid stylesheets](liquid/getting-started/#import-stylesheets) and the effect they have on text.
+The list below shows you all available typography related CSS custom properties available after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets) and the effect they have on text.
 
 > **Note**: Using one of the properties listed below alone does not guarantee typography as intended by the Liquid Design System. For instance, you need to combine all `--ld-typo-b*` and `--ld-typo-xb*` fonts with `text-transform: uppercase;`, use a color other than black and apply an `aria-label` in order to conform with the Liquid Design System and its accessibility requirements.
 

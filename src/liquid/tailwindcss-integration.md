@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Tailwind CSS Integration
-  parent: Liquid
+  parent: Introduction
   order: 6
 layout: layout.njk
 title: Tailwind CSS Integration
-permalink: liquid/tailwindcss-integration/
+permalink: introduction/tailwindcss-integration/
 ---
 
 
@@ -42,4 +42,4 @@ module.exports = {
 
 Maybe you don't want to use the preset and want to build your own config from scratch. Or you are using something other than Tailwind for the same purpose. In such cases you might want to access Liquid's design tokens (colors, spacings etc.) as "raw data". You can do so by importing the bundled design token file under `@emdgroup-liquid/liquid/dist/css/design-tokens.json`.
 
-<docs-page-nav prev-href="liquid/server-side-rendering/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/server-side-rendering/"></docs-page-nav>

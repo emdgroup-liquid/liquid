@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Server-side rendering
-  parent: Liquid
+  parent: Introduction
   order: 5
 layout: layout.njk
 title: Server-side rendering
-permalink: liquid/server-side-rendering/
+permalink: introduction/server-side-rendering/
 ---
 
 
@@ -66,4 +66,4 @@ return (
 )
 ```
 
-<docs-page-nav prev-href="liquid/type-checking-and-intellisense/" next-title="Tailwind CSS Integration" next-href="liquid/tailwindcss-integration/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Tailwind CSS Integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav>

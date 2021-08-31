@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Component assets
-  parent: Liquid
+  parent: Introduction
   order: 3
 layout: layout.njk
-title: CSS vs. Web Components
-permalink: liquid/component-assets/
+title: Component assets
+permalink: introduction/component-assets/
 ---
 
 # Component assets
@@ -52,4 +52,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 ```
 
-<docs-page-nav prev-href="liquid/css-vs-web-components/" next-title="Type checking and intellisense" next-href="liquid/type-checking-and-intellisense/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/css-vs-web-components/" next-title="Type checking and intellisense" next-href="introduction/type-checking-and-intellisense/"></docs-page-nav>
