@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Loading Indicator</title>
+  <title>Liquid – Type checking and intellisense</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -812,9 +812,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
                   <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
                 </summary>
@@ -846,7 +846,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/type-checking-and-intellisense/">Type checking and intellisense</a>
             
@@ -950,9 +950,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1024,7 +1024,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-loading/">Loading Indicator</a>
             
@@ -1120,7 +1120,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#with-jsx">With JSX</a></li><li><a href="#with-vanilla-html">With vanilla HTML</a></li></ol></nav>
       </docs-toc>
     
 
@@ -1132,72 +1132,32 @@
             
             
               <li>
-                <a href="/liquid/components/">Components</a>
+                <a href="/liquid/">Introduction</a>
               </li>
             
             <li>
-              <a href="/liquid/components/ld-loading/" aria-current="page">Loading Indicator</a>
+              <a href="/liquid/introduction/type-checking-and-intellisense/" aria-current="page">Type checking and intellisense</a>
             </li>
           </docs-breadcrumbs>
         
-        <docs-edit-on-github path="./src/liquid/components/ld-loading/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/liquid/type-checking-and-intellisense.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-loading">ld-loading <a class="header-anchor" href="components/ld-loading/#ld-loading"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Use the <code>ld-loading</code> component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience.</p>
-<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Cspan%20class%3D%22ld-loading%22%3E%3C%2Fspan%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><span class="ld-loading"></span></div></docs-example>
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-loading/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-loading-size</code></td>
-<td>Size of the loading indicator</td>
-<td><code>1.5rem</code></td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-loading/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+      <h1 id="type-checking-and-intellisense">Type checking and intellisense <a class="header-anchor" href="introduction/type-checking-and-intellisense/#type-checking-and-intellisense"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Liquid comes with Typescript type definitions and hense allows for type checking and intellisense. Both is currently supported in JSX and plain HTML only and an additional setup step is required.</p>
+<h2 id="with-jsx">With JSX <a class="header-anchor" href="introduction/type-checking-and-intellisense/#with-jsx"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Typescript checks expressions in JSX. Since it does not “know about” Liquid Web Components, it will “complain” as soon as it “sees” one with an error message like the following:</p>
+<blockquote>
+<p>Property 'ld-button' does not exist on type 'JSX.IntrinsicElements'</p>
+</blockquote>
+<p>In order to let Typescript “know about” Liquid Web Components, you'll have to decalare a JSX namespace including all Liquid components:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">JSX</span> <span class="token keyword">as</span> LocalJSX <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> HTMLAttributes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span> <span class="token comment">// or from 'vue'</span><br><br><span class="token keyword">type</span> <span class="token class-name">LiquidElements<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token punctuation">[</span><span class="token constant">P</span> <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token constant">P</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span><br>  Omit<span class="token operator">&lt;</span>HTMLAttributes<span class="token punctuation">,</span> <span class="token string">'className'</span><span class="token operator">></span> <span class="token operator">&amp;</span> <span class="token punctuation">{</span><br>    <span class="token keyword">class</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">declare</span> global <span class="token punctuation">{</span><br>  <span class="token keyword">namespace</span> <span class="token constant">JSX</span> <span class="token punctuation">{</span><br>    <span class="token keyword">interface</span> <span class="token class-name">IntrinsicElements</span> <span class="token keyword">extends</span> <span class="token class-name">LiquidElements<span class="token operator">&lt;</span>LocalJSX<span class="token punctuation">.</span>IntrinsicElements<span class="token operator">></span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>Learn more about JSX in Typescript in the <a href="https://www.typescriptlang.org/docs/handbook/jsx.html#type-checking">Typescript docs</a>.</p>
+<h2 id="with-vanilla-html">With vanilla HTML <a class="header-anchor" href="introduction/type-checking-and-intellisense/#with-vanilla-html"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Type checking is not yet supported in vanilla HTML, but intellisense can be enabled in Visual Studio Code by adding the <a href="https://code.visualstudio.com/api/extension-guides/custom-data-extension">custom data</a> setting to <code>.vscode/settings.json</code> in the root directory of your project:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"html.customData"</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>    <span class="token string">"./node_modules/@emdgroup-liquid/liquid/dist/web-components.html-data.json"</span><br>  <span class="token punctuation">]</span><br><span class="token punctuation">}</span></code></pre>
+<p>The format of the referenced JSON file, which includes type information about each Web Component, doesn't follow a common standard, but is Visual Studio Code specific. Discussions on a standard, which eventually will lead to support in more editors, is (at the time of writing) <a href="https://github.com/WICG/webcomponents/issues/776">still ongoing</a>. Probably due to the fact that there is no standard yet, VS Code extensions are not yet making use of the custom data feature. Hense intellisense is not yet working in Vue templates, Svelte markup etc.</p>
+<p><a href="https://youtrack.jetbrains.com/issue/WEB-39620">Some efforts</a> are also being made to enable intellisense for Web Components in Intellij editors, but we are not there yet.</p>
+<p><docs-page-nav prev-href="introduction/component-assets/" next-title="Server-side rendering" next-href="introduction/server-side-rendering/"></docs-page-nav></p>
 
     </docs-main>
 

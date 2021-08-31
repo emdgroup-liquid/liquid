@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Loading Indicator</title>
+  <title>Liquid – Tailwind CSS Integration</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -812,9 +812,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
                   <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
                 </summary>
@@ -862,7 +862,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/tailwindcss-integration/">Tailwind CSS Integration</a>
             
@@ -950,9 +950,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1024,7 +1024,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-loading/">Loading Indicator</a>
             
@@ -1120,7 +1120,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#disabling-tailwind%E2%80%99s-default-configuration">Disabling Tailwind’s default configuration</a></li><li><a href="#accessing-liquid%E2%80%99s-design-tokens">Accessing Liquid’s design tokens</a></li></ol></nav>
       </docs-toc>
     
 
@@ -1132,72 +1132,28 @@
             
             
               <li>
-                <a href="/liquid/components/">Components</a>
+                <a href="/liquid/">Introduction</a>
               </li>
             
             <li>
-              <a href="/liquid/components/ld-loading/" aria-current="page">Loading Indicator</a>
+              <a href="/liquid/introduction/tailwindcss-integration/" aria-current="page">Tailwind CSS Integration</a>
             </li>
           </docs-breadcrumbs>
         
-        <docs-edit-on-github path="./src/liquid/components/ld-loading/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/liquid/tailwindcss-integration.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-loading">ld-loading <a class="header-anchor" href="components/ld-loading/#ld-loading"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Use the <code>ld-loading</code> component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience.</p>
-<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Cspan%20class%3D%22ld-loading%22%3E%3C%2Fspan%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><span class="ld-loading"></span></div></docs-example>
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-loading/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-loading-size</code></td>
-<td>Size of the loading indicator</td>
-<td><code>1.5rem</code></td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-loading/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+      <h1 id="tailwind-css-integration">Tailwind CSS Integration <a class="header-anchor" href="introduction/tailwindcss-integration/#tailwind-css-integration"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Liquid bundles a <a href="https://tailwindcss.com/docs/presets">Tailwind CSS preset</a> which you can use as a base for your own Tailwind CSS configuration:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span><br><span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  presets<span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<h2 id="disabling-tailwind%E2%80%99s-default-configuration">Disabling Tailwind’s default configuration <a class="header-anchor" href="introduction/tailwindcss-integration/#disabling-tailwind%E2%80%99s-default-configuration"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Liquid's Tailwind preset extends Tailwind's <a href="https://unpkg.com/browse/tailwindcss@%5E2/stubs/defaultConfig.stub.js">default configuration</a> by default. If you want Liquid's preset to <strong>not</strong> extend Tailwind's default configuration, include an empty <code>presets</code> key in the preset:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span><br><span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span><br>liquidPreset<span class="token punctuation">.</span>presets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  presets<span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>Note</strong>: Not extending Tailwind's default configuration is the same as completely removing Tailwinds default CSS utility classes.</p>
+</blockquote>
+<h2 id="accessing-liquid%E2%80%99s-design-tokens">Accessing Liquid’s design tokens <a class="header-anchor" href="introduction/tailwindcss-integration/#accessing-liquid%E2%80%99s-design-tokens"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Maybe you don't want to use the preset and want to build your own config from scratch. Or you are using something other than Tailwind for the same purpose. In such cases you might want to access Liquid's design tokens (colors, spacings etc.) as &quot;raw data&quot;. You can do so by importing the bundled design token file under <code>@emdgroup-liquid/liquid/dist/css/design-tokens.json</code>.</p>
+<p><docs-page-nav prev-href="introduction/server-side-rendering/"></docs-page-nav></p>
 
     </docs-main>
 

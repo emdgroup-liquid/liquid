@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Loading Indicator</title>
+  <title>Liquid – Getting started</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -812,9 +812,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
                   <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
                 </summary>
@@ -822,7 +822,7 @@
                   
                     
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/getting-started/">Getting started</a>
             
@@ -950,9 +950,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1024,7 +1024,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-loading/">Loading Indicator</a>
             
@@ -1120,7 +1120,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#install">Install</a></li><li><a href="#import-and-register-web-components">Import and register Web Components</a><ol><li><a href="#self-lazy-loading-bundle">self-lazy-loading bundle</a></li><li><a href="#custom-elements-bundle">custom-elements bundle</a></li></ol></li><li><a href="#import-stylesheets">Import stylesheets</a></li></ol></nav>
       </docs-toc>
     
 
@@ -1132,72 +1132,45 @@
             
             
               <li>
-                <a href="/liquid/components/">Components</a>
+                <a href="/liquid/">Introduction</a>
               </li>
             
             <li>
-              <a href="/liquid/components/ld-loading/" aria-current="page">Loading Indicator</a>
+              <a href="/liquid/introduction/getting-started/" aria-current="page">Getting started</a>
             </li>
           </docs-breadcrumbs>
         
-        <docs-edit-on-github path="./src/liquid/components/ld-loading/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/liquid/getting-started.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-loading">ld-loading <a class="header-anchor" href="components/ld-loading/#ld-loading"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Use the <code>ld-loading</code> component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience.</p>
-<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Cspan%20class%3D%22ld-loading%22%3E%3C%2Fspan%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><span class="ld-loading"></span></div></docs-example>
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-loading/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-loading-size</code></td>
-<td>Size of the loading indicator</td>
-<td><code>1.5rem</code></td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-loading/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+      <h1 id="getting-started">Getting Started <a class="header-anchor" href="introduction/getting-started/#getting-started"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="install">Install <a class="header-anchor" href="introduction/getting-started/#install"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Install with your package manager of choice:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> @emdgroup-liquid/liquid</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token function">yarn</span> <span class="token function">add</span> @emdgroup-liquid/liquid</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token function">pnpm</span> <span class="token function">add</span> @emdgroup-liquid/liquid</code></pre>
+<h2 id="import-and-register-web-components">Import and register Web Components <a class="header-anchor" href="introduction/getting-started/#import-and-register-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.</p>
+<p>There are two options to choose from when importing and registering Liquid Web Components. Depending on your needs you should choose one or the other.</p>
+<h3 id="self-lazy-loading-bundle">self-lazy-loading bundle <a class="header-anchor" href="introduction/getting-started/#self-lazy-loading-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <em>self-lazy-loading bundle</em> is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h3 id="custom-elements-bundle">custom-elements bundle <a class="header-anchor" href="introduction/getting-started/#custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <em>custom-elements bundle</em> is a tree-shakable bundle that does not apply polyfills, nor define any custom element automatically. Using this bundle may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/custom-elements'</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span></code></pre>
+<p>Learn more about the differences in the <a href="https://stenciljs.com/docs/distribution#how-is-this-different-than-dist-custom-elements-bundle-output-target">Stencil docs</a>.</p>
+<h2 id="import-stylesheets">Import stylesheets <a class="header-anchor" href="introduction/getting-started/#import-stylesheets"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>We recommend importing Liquid stylesheets in a central place respectively the entry file of your application.</p>
+<p>There are two options to choose from when importing stylesheets from Liquid. Depending on your needs you should choose one or the other.</p>
+<ol>
+<li>If you are using <a href="https://purgecss.com/">PurgeCSS</a> you can import all styles from Liquid and let PurgeCSS remove unused classes from your bundle, no matter if you are using Web Components or CSS Components from liquid:</li>
+</ol>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'@emdgroup-liquid/liquid/dist/css/liquid.css'</span></code></pre>
+<ol start="2">
+<li>If you are not using <a href="https://purgecss.com/">PurgeCSS</a>, or anything similar, you should import only what you need in order to keep your bundle small.
+When using Liquid you will always need to import a CSS file containing global styles (shared CSS custom properties, shared utils, font imports...). If you are using CSS Components (as opposed to Web Components), you will also need to import the CSS of the components you are using. An example:</li>
+</ol>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'@emdgroup-liquid/liquid/dist/css/liquid.global.css'</span><br><span class="token keyword">import</span> <span class="token string">'@emdgroup-liquid/liquid/dist/css/ld-button.css'</span></code></pre>
+<p><docs-page-nav prev-href="./" next-title="CSS vs. Web Components" next-href="introduction/css-vs-web-components/"></docs-page-nav></p>
 
     </docs-main>
 

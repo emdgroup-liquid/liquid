@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Loading Indicator</title>
+  <title>Liquid – CSS vs. Web Components</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -812,9 +812,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
                   <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
                 </summary>
@@ -830,7 +830,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/css-vs-web-components/">CSS vs. Web Components</a>
             
@@ -950,9 +950,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1024,7 +1024,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-loading/">Loading Indicator</a>
             
@@ -1120,7 +1120,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#when-to-use-what">When to use what</a></li></ol></nav>
       </docs-toc>
     
 
@@ -1132,72 +1132,42 @@
             
             
               <li>
-                <a href="/liquid/components/">Components</a>
+                <a href="/liquid/">Introduction</a>
               </li>
             
             <li>
-              <a href="/liquid/components/ld-loading/" aria-current="page">Loading Indicator</a>
+              <a href="/liquid/introduction/css-vs-web-components/" aria-current="page">CSS vs. Web Components</a>
             </li>
           </docs-breadcrumbs>
         
-        <docs-edit-on-github path="./src/liquid/components/ld-loading/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/liquid/css-vs-web-components.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-loading">ld-loading <a class="header-anchor" href="components/ld-loading/#ld-loading"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Use the <code>ld-loading</code> component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience.</p>
-<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Cspan%20class%3D%22ld-loading%22%3E%3C%2Fspan%3E"  themable>
+      <h1 id="css-vs.-web-components">CSS vs. Web Components <a class="header-anchor" href="introduction/css-vs-web-components/#css-vs.-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Liquid ships both, CSS Components and Web Components. For instance, you can use the <a href="components/ld-button/"><code>ld-button</code></a> Web Component or its CSS Component counterpart:</p>
+<docs-example code="%3Cld-button%3EText%3C%2Fld-button%3E%0A%3Cbutton%20class%3D%22ld-button%22%3EText%3C%2Fbutton%3E"  opened themable>
 <div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><span class="ld-loading"></span></div></docs-example>
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-loading/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-loading-size</code></td>
-<td>Size of the loading indicator</td>
-<td><code>1.5rem</code></td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-loading/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-button>Text</ld-button>
+<button class="ld-button">Text</button></div></docs-example>
+<p>Both look the same, so which one should you use?</p>
+<h2 id="when-to-use-what">When to use what <a class="header-anchor" href="introduction/css-vs-web-components/#when-to-use-what"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>There are a few points to concider, when deciding on one of the two options or a mix of both:</p>
+<ul>
+<li>
+<p><strong>Convenience</strong>: Most Liquid Web Components are much more &quot;compact&quot; when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from <a href="introduction/type-checking-and-intellisense/">type checking and intellisense</a>.</p>
+</li>
+<li>
+<p><strong>Accessibility</strong>: Some components handle accessibility issues under the hood. For instance, the <a href="components/ld-heading/"><code>ld-heading</code></a> component applies an <code>aria-label</code> automatically when used with uppercase heading levels. With CSS Components you have to deal with such things yourself.</p>
+</li>
+<li>
+<p><strong>Functionality / feature set</strong>: We always try to offer both, a Web Component and an equivalent CSS Component, but it is not always possible to achieve the same feature set when not having JavaScript to our disposal. CSS can do only so much. Therefore, some more complex components offer more features as Web Components, while coming with a lighweight / less feature rich CSS Component fallback.</p>
+</li>
+<li>
+<p><strong>Performance</strong>: Web Components always come with a performance cost, because they require JavaScript to load and execute in the browser. If you are experiencing performance issues because you are using lots of Web Components on one single page (i.e. rendering a long list / table with components in each row and cell), you may concider either re-thinking your UI or using CSS Components.</p>
+</li>
+</ul>
+<p>With all that in mind, you'll need to make a choice case by case.</p>
+<p><docs-page-nav prev-href="introduction/getting-started/" next-title="Component assets" next-href="introduction/component-assets/"></docs-page-nav></p>
 
     </docs-main>
 
