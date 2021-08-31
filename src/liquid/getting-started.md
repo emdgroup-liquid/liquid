@@ -10,6 +10,22 @@ permalink: liquid/getting-started/
 
 # Getting Started
 
+## Install
+
+Install with your package manager of choice: 
+
+```shell
+npm install @emdgroup-liquid/liquid
+```
+
+```shell
+yarn add @emdgroup-liquid/liquid
+```
+
+```shell
+pnpm add @emdgroup-liquid/liquid
+```
+
 ## Import and register Web Components
 
 We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.
