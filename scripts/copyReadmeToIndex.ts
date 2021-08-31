@@ -19,7 +19,7 @@ title: Introduction
 `
 
 const footer =
-  '<docs-page-nav next-title="Getting Started" next-href="introduction/getting-started/"></docs-page-nav>'
+  '<docs-page-nav next-title="Why Liquid" next-href="introduction/why-liquid/"></docs-page-nav>'
 
 // eslint-disable-next-line @typescript-eslint/no-extra-semi
 ;(async () => {

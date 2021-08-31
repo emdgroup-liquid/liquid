@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Getting started
   parent: Introduction
-  order: 1
+  order: 2
 layout: layout.njk
 title: Getting started
 permalink: introduction/getting-started/
@@ -74,4 +74,4 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 ```
 
-<docs-page-nav prev-href="./" next-title="CSS vs. Web Components" next-href="introduction/css-vs-web-components/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/why-liquid/" next-title="CSS vs. Web Components" next-href="introduction/css-vs-web-components/"></docs-page-nav>

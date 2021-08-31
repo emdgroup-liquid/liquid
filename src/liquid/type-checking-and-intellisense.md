@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Type checking and intellisense
   parent: Introduction
-  order: 4
+  order: 5
 layout: layout.njk
 title: Type checking and intellisense
 permalink: introduction/type-checking-and-intellisense/

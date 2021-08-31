@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: CSS vs. Web Components
   parent: Introduction
-  order: 2
+  order: 3
 layout: layout.njk
 title: CSS vs. Web Components
 permalink: introduction/css-vs-web-components/

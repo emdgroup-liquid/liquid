@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Tailwind CSS Integration
   parent: Introduction
-  order: 6
+  order: 7
 layout: layout.njk
 title: Tailwind CSS Integration
 permalink: introduction/tailwindcss-integration/

@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Component assets
   parent: Introduction
-  order: 3
+  order: 4
 layout: layout.njk
 title: Component assets
 permalink: introduction/component-assets/

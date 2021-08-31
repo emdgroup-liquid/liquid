@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Server-side rendering
   parent: Introduction
-  order: 5
+  order: 6
 layout: layout.njk
 title: Server-side rendering
 permalink: introduction/server-side-rendering/
