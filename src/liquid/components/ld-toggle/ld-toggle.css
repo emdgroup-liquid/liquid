@@ -21,6 +21,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+    margin: 0;
 
     &:not(:disabled):not([aria-disabled='true']) {
       cursor: pointer;
