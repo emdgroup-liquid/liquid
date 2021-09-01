@@ -153,6 +153,6 @@
     ]
   },
   "browserslist": [
-    "supports es6-module and supports css-variables and last 2 versions"
+    "supports css-variables and last 2 versions"
   ]
 }
