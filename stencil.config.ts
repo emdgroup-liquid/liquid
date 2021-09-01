@@ -30,4 +30,15 @@ export const config: Config = {
     moduleDirectories: ['node_modules', './'],
     timers: 'fake',
   },
+  buildEs5: false,
+  extras: {
+    cssVarsShim: false,
+    dynamicImportShim: false,
+    shadowDomShim: false,
+    safari10: false,
+    scriptDataOpts: false,
+    appendChildSlotFix: false,
+    cloneNodeFix: false,
+    slotChildNodesFix: false,
+  },
 }
