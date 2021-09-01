@@ -9,7 +9,7 @@ permalink: global/shadows/
 
 # Shadows
 
-All shadows listed below are available as global CSS custom properties after [importing Liquid stylesheets](liquid/getting-started/#import-stylesheets).
+All shadows listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
 ## Box shadows
 

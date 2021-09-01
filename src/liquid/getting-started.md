@@ -1,14 +1,30 @@
 ---
 eleventyNavigation:
   key: Getting started
-  parent: Liquid
-  order: 1
+  parent: Introduction
+  order: 2
 layout: layout.njk
 title: Getting started
-permalink: liquid/getting-started/
+permalink: introduction/getting-started/
 ---
 
 # Getting Started
+
+## Install
+
+Install with your package manager of choice: 
+
+```shell
+npm install @emdgroup-liquid/liquid
+```
+
+```shell
+yarn add @emdgroup-liquid/liquid
+```
+
+```shell
+pnpm add @emdgroup-liquid/liquid
+```
 
 ## Import and register Web Components
 
@@ -58,4 +74,4 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 ```
 
-<docs-page-nav prev-href="./" next-title="CSS vs. Web Components" next-href="liquid/css-vs-web-components/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/why-liquid/" next-title="CSS vs. Web Components" next-href="introduction/css-vs-web-components/"></docs-page-nav>

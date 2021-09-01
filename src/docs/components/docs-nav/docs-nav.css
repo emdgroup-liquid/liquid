@@ -141,6 +141,11 @@
     height: var(--ld-sp-24);
     transform: translate(-170%, -15%);
     outline: none;
+    opacity: 0.5;
+
+    .docs-nav__li--active & {
+      opacity: 1;
+    }
   }
 }
 
@@ -151,8 +156,8 @@ body:not(.safari) {
   }
 }
 
-.docs-nav__summary--liquid::before {
-  background-image: url('dist/build/assets/liquid.svg');
+.docs-nav__summary--introduction::before {
+  background-image: url('dist/build/assets/introduction.svg');
 }
 
 .docs-nav__summary--components::before {

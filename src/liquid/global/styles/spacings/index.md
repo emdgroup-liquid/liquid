@@ -11,7 +11,7 @@ permalink: global/spacings/
 
 Spacings persisted in CSS custom properties help us to maintain a consistent layout, both in the design files as in the implemented components. Note that you are not forced to dogmatically use these custom properties everywhere. Instead, use them where it makes sense, for instance, if you wish to apply the same spacing between two elements as it is applied within an existing component.
 
-All spacings listed below are available as global CSS custom properties after [importing Liquid stylesheets](liquid/getting-started/#import-stylesheets).
+All spacings listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
 <docs-spacing var="--ld-sp-1" val="0.0625rem"></docs-spacing>
 <docs-spacing var="--ld-sp-2" val="0.125rem"></docs-spacing>
