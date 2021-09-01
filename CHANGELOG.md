@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.7](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2021-09-01)
+
+
+### Bug Fixes
+
+* **ld-tooltip:** lighthouse issue buttons do not have an accessible name ([a8fb585](https://github.com/emdgroup-liquid/liquid/commit/a8fb5851cfaabef1381d449a4a263d9b1af670e9))
+
+
+### Features
+
+* **ld-label:** allow html content ([9bbb125](https://github.com/emdgroup-liquid/liquid/commit/9bbb12582d5b5c9073275b69a78d45e4f92b951f))
+
 # [1.0.0-rc.6](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-08-31)
 
 
