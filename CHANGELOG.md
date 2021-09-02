@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.8](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-09-02)
+
+
+### Bug Fixes
+
+* **types:** annotate boolean prop types explicitly as booleans ([d18f141](https://github.com/emdgroup-liquid/liquid/commit/d18f141470582571bd68c61ab33480699d4be64a))
+
 # [1.0.0-rc.7](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2021-09-01)
 
 
