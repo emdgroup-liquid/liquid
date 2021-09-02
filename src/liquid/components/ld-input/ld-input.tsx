@@ -40,7 +40,7 @@ export class LdInput {
   @Prop({ mutable: true, reflect: true }) value: string
 
   /** Set this property to `true` in order to mark the field visually as invalid. */
-  @Prop() invalid = false
+  @Prop() invalid: boolean
 
   /** The input placeholder. */
   @Prop() placeholder: string

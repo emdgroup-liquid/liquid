@@ -1060,7 +1060,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 
 | Property      | Attribute     | Description                                                                                                           | Type               | Default     |
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `false`     |
+| `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
 | `key`         | `key`         | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
 | `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
 | `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`           | `undefined` |

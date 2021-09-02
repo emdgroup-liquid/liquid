@@ -27,7 +27,7 @@ export class LdInputMessage {
    * Thus the message is read aloud before the next element that received the focus
    * is announced to the user.
    */
-  @Prop() covert = false
+  @Prop() covert: boolean
 
   render() {
     let cl = 'ld-input-message'

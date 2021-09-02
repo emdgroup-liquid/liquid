@@ -19,7 +19,7 @@ export class LdToggle {
   @Prop() size?: 'sm' | 'lg'
 
   /** Disabled state of the toggle. */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string

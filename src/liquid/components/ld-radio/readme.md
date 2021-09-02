@@ -362,7 +362,7 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 | Property   | Attribute  | Description                                                                 | Type                      | Default     |
 | ---------- | ---------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
 | `checked`  | `checked`  | The input value.                                                            | `boolean`                 | `undefined` |
-| `disabled` | `disabled` | Disabled state of the radio.                                                | `boolean`                 | `false`     |
+| `disabled` | `disabled` | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
 | `invalid`  | `invalid`  | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
 | `key`      | `key`      | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
 | `mode`     | `mode`     | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |

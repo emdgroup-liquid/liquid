@@ -21,7 +21,7 @@ export class LdButton {
   private button!: HTMLElement
 
   /** Disabled state of the button. */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** Size of the button. */
   @Prop() size?: 'sm' | 'lg'

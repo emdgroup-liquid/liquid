@@ -24,12 +24,12 @@ export class LdOption {
   /**
    * If present, this boolean attribute indicates that the option is selected.
    */
-  @Prop() selected = false
+  @Prop() selected: boolean
 
   /**
    * Disables the option.
    */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   componentWillLoad() {
     applyPropAliases.apply(this)

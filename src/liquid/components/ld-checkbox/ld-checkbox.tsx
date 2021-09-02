@@ -23,13 +23,13 @@ export class LdCheckbox {
   @Prop() tone: 'dark'
 
   /** Disabled state of the checkbox. */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) checked: boolean
 
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
-  @Prop() invalid: false
+  @Prop() invalid: boolean
 
   private handleBlur(ev) {
     setTimeout(() => {

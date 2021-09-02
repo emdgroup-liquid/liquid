@@ -437,7 +437,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | -------------- | --------------- | -------------------------------------------------------------------- | ------------------ | ----------- |
 | `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable              | `string`           | `undefined` |
 | `checked`      | `checked`       | The input value.                                                     | `boolean`          | `undefined` |
-| `disabled`     | `disabled`      | Disabled state of the toggle.                                        | `boolean`          | `false`     |
+| `disabled`     | `disabled`      | Disabled state of the toggle.                                        | `boolean`          | `undefined` |
 | `key`          | `key`           | for tracking the node's identity when working with lists             | `string \| number` | `undefined` |
 | `ref`          | `ref`           | reference to component                                               | `any`              | `undefined` |
 | `required`     | `required`      | Set this property to `true` in order to mark the toggle as required. | `boolean`          | `undefined` |
