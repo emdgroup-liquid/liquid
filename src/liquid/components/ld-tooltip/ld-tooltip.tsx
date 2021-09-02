@@ -33,7 +33,7 @@ export class LdTooltip {
   @Element() element: HTMLElement
 
   /** Show arrow */
-  @Prop() arrow = false
+  @Prop() arrow: boolean
 
   /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
   @Prop() hideDelay = 0
@@ -42,7 +42,7 @@ export class LdTooltip {
   @Prop() showDelay = 0
 
   /** Disable tooltip trigger */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position: Position = 'top center'

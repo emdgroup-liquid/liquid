@@ -23,13 +23,13 @@ export class LdRadio {
   @Prop() tone: 'dark'
 
   /** Disabled state of the radio. */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** The input value. */
   @Prop({ mutable: true, reflect: true }) checked: boolean
 
   /** Set this property to `true` in order to mark the radio visually as invalid. */
-  @Prop() invalid: false
+  @Prop() invalid: boolean
 
   private handleBlur(ev) {
     setTimeout(() => {

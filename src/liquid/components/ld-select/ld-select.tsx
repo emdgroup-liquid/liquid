@@ -50,19 +50,19 @@ export class LdSelect {
   @Prop() name: string
 
   /** Multiselect mode. */
-  @Prop() multiple = false
+  @Prop() multiple: boolean
 
   /** Disabled state of the component. */
-  @Prop() disabled = false
+  @Prop() disabled: boolean
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
-  @Prop() invalid = false
+  @Prop() invalid: boolean
 
   /**
    * Prevents a state with no options selected after
    * initial selection in single select mode.
    */
-  @Prop() preventDeselection = false
+  @Prop() preventDeselection: boolean
 
   // prettier-ignore
   /**
