@@ -32,6 +32,7 @@
   align-items: center;
   text-decoration: none;
   margin-right: auto;
+  transform: translateX(calc(-1 * var(--ld-sp-4)));
 
   img {
     margin-right: var(--ld-sp-12);

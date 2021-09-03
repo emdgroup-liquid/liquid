@@ -12,7 +12,7 @@ export class DocsTopbar {
     return (
       <Host class="docs-topbar">
         <div class="docs-topbar__content">
-          <docs-btn-dots-grid></docs-btn-dots-grid>
+          {/*<docs-btn-dots-grid></docs-btn-dots-grid>*/}
           <a class="docs-topbar__link-home" href="./">
             <img
               src={getAssetPath('./assets/logo.svg')}
