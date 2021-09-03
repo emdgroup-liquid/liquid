@@ -22,6 +22,7 @@ interface SearchResult {
 })
 export class DocsSearch {
   private searchInput!: HTMLLdInputElement
+  private searchResults!: HTMLOListElement
   private fuse: Fuse<SearchResult>
 
   @State() results: Fuse.FuseResult<SearchResult>[] = []
@@ -38,10 +39,78 @@ export class DocsSearch {
   @Listen('keydown', {
     passive: true,
   })
-  handleKeyDown(ev: KeyboardEvent) {
-    ev.stopImmediatePropagation()
+  handleEscapeDown(ev: KeyboardEvent) {
+    if (!this.isActive) {
+      return
+    }
     if (ev.key === 'Escape') {
+      ev.stopImmediatePropagation()
       this.onSearchClose()
+    }
+  }
+
+  @Listen('keydown', {
+    passive: false,
+  })
+  handleKeyDown(ev: KeyboardEvent) {
+    if (!this.isActive) {
+      return
+    }
+    switch (ev.key) {
+      case 'ArrowDown': {
+        ev.preventDefault()
+
+        if (
+          document.activeElement.closest('.docs-search__input') ===
+          this.searchInput
+        ) {
+          ;(this.searchResults.querySelector(
+            '.docs-search__result > a'
+          ) as HTMLAnchorElement)?.focus()
+          return
+        }
+
+        const nextSibling = document.activeElement.closest(
+          '.docs-search__result'
+        )?.nextElementSibling
+        if (nextSibling?.classList.contains('docs-search__result')) {
+          ;(nextSibling.querySelector('a') as HTMLAnchorElement).focus()
+        }
+        return
+      }
+
+      case 'ArrowUp': {
+        ev.preventDefault()
+
+        const focusedSearchResult = document.activeElement.closest(
+          '.docs-search__result'
+        )
+
+        if (focusedSearchResult) {
+          const prevSibling = focusedSearchResult.previousElementSibling
+          if (prevSibling?.classList.contains('docs-search__result')) {
+            ;(prevSibling.querySelector('a') as HTMLAnchorElement).focus()
+          } else {
+            this.searchInput.querySelector('input').focus()
+            this.searchResults.scrollTo(0, 0)
+          }
+        }
+        return
+      }
+
+      case ' ': {
+        const focusedSearchResult = document.activeElement.closest(
+          '.docs-search__result'
+        )
+
+        if (focusedSearchResult) {
+          ev.preventDefault()
+          window.location.href = (focusedSearchResult.querySelector(
+            'a'
+          ) as HTMLAnchorElement).href
+        }
+        return
+      }
     }
   }
 
@@ -92,6 +161,7 @@ export class DocsSearch {
   private onSearchClose() {
     document.getElementById('docs-layout').removeAttribute('inert')
     this.isActive = false
+    this.results = []
     eventBus.emit(SearchEventType.close)
   }
 
@@ -147,6 +217,7 @@ export class DocsSearch {
               this.results.length ? ' docs-search__results--expanded' : ''
             }`}
             aria-label="Search results"
+            ref={(el) => (this.searchResults = el as HTMLOListElement)}
           >
             {this.results.length
               ? this.results.map((result) => {

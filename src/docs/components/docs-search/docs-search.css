@@ -94,6 +94,20 @@
     color: var(--ld-col-rblck-default);
     display: block;
     padding: var(--ld-sp-16);
+    outline: none;
+
+    &:focus:focus-visible {
+      background-color: var(--ld-col-bg-g);
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--ld-col-bg-lg);
+      }
+    }
+    &:active,
+    &:active:focus-visible {
+      background-color: var(--ld-col-bg-g);
+    }
   }
 }
 
