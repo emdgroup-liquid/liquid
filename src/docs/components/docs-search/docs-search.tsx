@@ -1,6 +1,6 @@
 import '../../../components' // type definitions for type checking and intelliSense
 import 'wicg-inert'
-import { Component, h, Listen, State, Host, getAssetPath } from '@stencil/core'
+import { Component, h, Listen, State, Host } from '@stencil/core'
 import Fuse from 'fuse.js'
 import eventBus from '../../utils/eventBus'
 import { SearchEventType } from '../../utils/eventTypes'
@@ -115,13 +115,30 @@ export class DocsSearch {
               type="search"
               spellcheck={false}
             >
-              <img
-                class="docs-search__input-icon"
+              <svg
+                aria-hidden="true"
                 slot="start"
-                src={getAssetPath('./assets/magnifier.svg')}
-                alt=""
-                role="presentation"
-              />
+                class="docs-search__input-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 19"
+              >
+                <ellipse
+                  cx="7.54523"
+                  cy="7.74543"
+                  stroke="#091734"
+                  stroke-width="2"
+                  rx="6.54523"
+                  ry="6.54548"
+                />
+                <path
+                  stroke="#091734"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12.6367 12.8362l4.3635 4.3636"
+                />
+              </svg>
             </ld-input>
           </form>
           <ol
