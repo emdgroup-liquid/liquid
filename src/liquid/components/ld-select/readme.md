@@ -5,6 +5,9 @@ eleventyNavigation:
 layout: layout.njk
 title: Select
 permalink: components/ld-select/
+tags:
+  - select
+  - dropdown
 ---
 
 # ld-select
