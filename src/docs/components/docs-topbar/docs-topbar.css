@@ -1,4 +1,5 @@
 .docs-topbar {
+  --docs-topbar-aside-width: 17rem;
   position: fixed;
   z-index: 3;
   top: 0;
@@ -36,6 +37,31 @@
 
   img {
     margin-right: var(--ld-sp-12);
+  }
+}
+
+.docs-topbar__external-links {
+  display: flex;
+  padding-left: var(--ld-sp-32);
+  width: var(--docs-topbar-aside-width);
+
+  @media (max-width: 40rem) {
+    display: none;
+  }
+
+  @media (max-width: 80rem) {
+    width: auto;
+  }
+}
+
+.docs-topbar__link-github {
+  @media (hover: hover) {
+    transition: opacity 0.2s linear;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

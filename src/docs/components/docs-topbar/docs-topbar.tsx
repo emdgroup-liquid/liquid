@@ -23,6 +23,21 @@ export class DocsTopbar {
               <b>Liquid Oxygen</b> Documentation
             </h1>
           </a>
+
+          <div class="docs-topbar__external-links">
+            <a
+              class="docs-topbar__link-github"
+              href="https://github.com/emdgroup-liquid/liquid"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <img
+                src={getAssetPath('./assets/github.svg')}
+                alt="Liquid Oxygen on GitHub"
+                role="presentation"
+              />
+            </a>
+          </div>
         </div>
       </Host>
     )
