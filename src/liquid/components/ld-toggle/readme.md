@@ -446,4 +446,4 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

@@ -260,4 +260,4 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

@@ -90,4 +90,4 @@ Paragraphs are usually represented in visual media as blocks of text separated f
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

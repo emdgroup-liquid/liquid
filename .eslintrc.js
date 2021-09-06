@@ -21,7 +21,7 @@ const commonTSConfig = {
 }
 
 module.exports = {
-  env: { browser: true, amd: true, node: true },
+  env: { browser: true, amd: true, node: true, es6: true },
   root: true,
   extends: ['eslint:recommended'],
   parser: '@babel/eslint-parser',

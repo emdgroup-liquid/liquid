@@ -318,4 +318,4 @@ HTML content describing the labeled element should be wrapped in a single HTML e
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

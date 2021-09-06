@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
@@ -61,6 +62,34 @@ module.exports = function (eleventyConfig) {
     })
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
+
+  // Contributors short code (used in layout.njk)
+  eleventyConfig.addNunjucksAsyncShortcode(
+    'contributors',
+    async function (inputPath) {
+      const path = inputPath.replace('/readme.md', '').replace('/index.md', '')
+
+      let commits
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/emdgroup-liquid/liquid/commits?path=${path}`,
+          {
+            headers: { Authorization: `token ${process.env.GH_TOKEN}` },
+          }
+        )
+        commits = await res.json()
+      } catch (err) {
+        console.warn(`Failed fetching contributors for path ${path}`, err)
+        return '[]'
+      }
+
+      return JSON.stringify([
+        ...new Set(
+          commits.map((entry) => entry.author.html_url.split('/').pop())
+        ),
+      ])
+    }
+  )
 
   // Code example short codes
   eleventyConfig.addPairedShortcode(

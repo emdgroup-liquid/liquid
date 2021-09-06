@@ -41,6 +41,7 @@ jobs:
       - name: Build docs
         run: npm run build:docs
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           MODE: gh_pages
 
       #- name: Run a11y tests

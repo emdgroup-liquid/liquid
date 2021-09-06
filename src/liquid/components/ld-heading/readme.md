@@ -244,4 +244,4 @@ Here are some examples on how you can apply different colors on headings:
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

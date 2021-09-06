@@ -39,4 +39,4 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

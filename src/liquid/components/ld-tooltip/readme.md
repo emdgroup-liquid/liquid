@@ -235,4 +235,4 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

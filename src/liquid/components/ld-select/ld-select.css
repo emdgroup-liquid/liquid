@@ -357,7 +357,7 @@
   align-items: center;
   color: var(--ld-col-wht);
   font: var(--ld-typo-label-s);
-  font-weight: bold;
+  font-weight: 700;
   padding: var(--ld-sp-4) var(--ld-sp-6);
 }
 

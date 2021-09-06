@@ -235,7 +235,8 @@
     #used-by,
     #used-by + ul,
     #graph,
-    .mermaid {
+    .mermaid,
+    .mermaid + hr {
       display: none;
     }
 
@@ -563,6 +564,14 @@
 
 #properties + table::after {
   content: '* required';
+}
+
+#slots,
+#events,
+#properties {
+  + table + hr {
+    display: none;
+  }
 }
 
 .header-anchor {

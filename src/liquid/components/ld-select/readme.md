@@ -1270,4 +1270,4 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

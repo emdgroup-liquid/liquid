@@ -92,4 +92,4 @@ formAlert.addEventListener('submit', ev => {
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

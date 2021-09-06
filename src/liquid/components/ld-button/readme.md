@@ -474,4 +474,4 @@ You can align the text inside the button using the `align-text` propperty.
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

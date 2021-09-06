@@ -86,4 +86,4 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

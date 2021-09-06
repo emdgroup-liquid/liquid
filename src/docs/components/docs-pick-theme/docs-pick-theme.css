@@ -39,7 +39,7 @@
 
 .docs-pick-theme__option.ld-option {
   color: var(--ld-col-wht);
-  font-weight: bold;
+  font-weight: 700;
   overflow: hidden;
 
   &:focus:focus-visible {

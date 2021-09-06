@@ -123,4 +123,4 @@ The following examples illustrate the variables applied to background color with
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+ 

@@ -127,6 +127,9 @@ title: Introduction
         <docs-edit-on-github path="{{ page.inputPath }}"></docs-edit-on-github>
       </header>
       {{ content | safe }}
+      {% if page.inputPath != './src/index.md' %}
+        <docs-contributors contributors='{% contributors page.inputPath %}'></docs-contributors>
+      {% endif %}
     </docs-main>
 
   </docs-layout>
