@@ -192,3 +192,24 @@ body:not(.safari) {
 .docs-nav__li--active > a {
   font-weight: 700;
 }
+
+.docs-nav__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--ld-sp-12);
+
+  a {
+    opacity: 0.8;
+    margin-right: var(--ld-sp-24);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.docs-nav__dimmed {
+  opacity: 0.8;
+}
