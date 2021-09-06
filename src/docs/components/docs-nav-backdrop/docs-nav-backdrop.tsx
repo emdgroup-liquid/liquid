@@ -9,7 +9,9 @@ import { NavEventType } from '../../utils/eventTypes'
   shadow: false,
 })
 export class DocsNavBackdrop {
-  private onClick() {
+  private onClick(ev) {
+    ev.preventDefault()
+    location.hash = ''
     setTimeout(() => {
       history.replaceState({}, '', window.location.pathname)
       eventBus.emit(NavEventType.close)

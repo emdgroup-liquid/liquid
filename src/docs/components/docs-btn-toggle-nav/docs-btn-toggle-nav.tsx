@@ -14,14 +14,18 @@ export class DocsBtnToggleNav {
 
   @State() isNavOpen = false
 
-  private onNavOpen() {
+  private onNavOpen(ev) {
+    ev.preventDefault()
+    location.hash = 'sidenav-open'
     eventBus.emit(NavEventType.open)
     this.isNavOpen = true
     setTimeout(() => {
       this.aClose.focus()
     })
   }
-  private onNavClose() {
+  private onNavClose(ev) {
+    ev.preventDefault()
+    location.hash = ''
     eventBus.emit(NavEventType.close)
     this.isNavOpen = false
     setTimeout(() => {
