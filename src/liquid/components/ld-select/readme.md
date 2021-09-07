@@ -1160,9 +1160,6 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 #example-form ld-input-message {
   visibility: hidden;
 }
-#example-form ld-input-message[covert="false"] {
-  visibility: inherit;
-}
 </style>
 <form id="example-form" novalidate>
   <ld-label>
@@ -1197,11 +1194,11 @@ The `ld-select` Web Component provides a low level API for integrating it with t
   function validateInput() {
     if (selectDirty && selected.length < 3) {
       select.setAttribute('invalid', 'true')
-      errorMessage.setAttribute('covert', 'false')
+      errorMessage.style.visibility = 'inherit'
       return false
     }
     select.removeAttribute('invalid')
-    errorMessage.setAttribute('covert', 'true')
+    errorMessage.style.visibility = 'hidden'
     return true
   }
   select.addEventListener('change', ev => {

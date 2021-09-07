@@ -991,9 +991,6 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 #example-form ld-input-message {
   visibility: hidden;
 }
-#example-form ld-input-message[covert="false"] {
-  visibility: inherit;
-}
 </style>
 <form id="example-form" novalidate>
   <ld-label>
@@ -1018,11 +1015,11 @@ The `ld-input` Web Component does not provide any properties or methods for vali
     value = ldInput.value
     if (!value) {
       ldInput.setAttribute('invalid', 'true')
-      ldInputMessage.setAttribute('covert', 'false')
+      ldInputMessage.style.visibility = 'inherit'
       return false
     }
     ldInput.removeAttribute('invalid')
-    ldInputMessage.setAttribute('covert', 'true')
+    ldInputMessage.style.visibility = 'hidden'
     return true
   }
   username.addEventListener('input', ev => {

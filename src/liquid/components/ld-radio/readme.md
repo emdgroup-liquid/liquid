@@ -297,9 +297,6 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 #example-form ld-label ld-input-message {
   visibility: hidden;
 }
-#example-form ld-label ld-input-message[covert="false"] {
-  visibility: inherit;
-}
 </style>
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
@@ -326,14 +323,14 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
     if (!value) {
       orangeRadio.setAttribute('invalid', 'true')
       bananaRadio.setAttribute('invalid', 'true')
-      orangeMessage.setAttribute('covert', 'false')
-      bananaMessage.setAttribute('covert', 'false')
+      orangeMessage.style.visibility = 'inherit'
+      bananaMessage.style.visibility = 'inherit'
       return false
     }
     orangeRadio.removeAttribute('invalid')
     bananaRadio.removeAttribute('invalid')
-    orangeMessage.setAttribute('covert', 'true')
-    bananaMessage.setAttribute('covert', 'true')
+    orangeMessage.style.visibility = 'hidden'
+    bananaMessage.style.visibility = 'hidden'
     return true
   }
   orangeRadio.addEventListener('input', validateInput)

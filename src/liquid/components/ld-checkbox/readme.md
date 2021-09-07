@@ -529,9 +529,6 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 #example-form ld-label:first-of-type ld-input-message {
   visibility: hidden;
 }
-#example-form ld-label:first-of-type ld-input-message[covert="false"] {
-  visibility: inherit;
-}
 </style>
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
@@ -554,11 +551,11 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
     value = ldCheckbox.checked
     if (!value) {
       ldCheckbox.setAttribute('invalid', 'true')
-      ldInputMessage.setAttribute('covert', 'false')
+      ldInputMessage.style.visibility = 'inherit'
       return false
     }
     ldCheckbox.removeAttribute('invalid')
-    ldInputMessage.setAttribute('covert', 'true')
+    ldInputMessage.style.visibility = 'hidden'
     return true
   }
   termsConfirmation.addEventListener('input', ev => {
