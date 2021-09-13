@@ -4,10 +4,10 @@
   --ld-tab-min-height: 2.5rem;
   --ld-tab-color: var(--ld-col-rblck-default);
   --ld-tab-bg-color: var(--ld-col-bg-lg);
-  --ld-tab-focus-color: var(--ld-col-rblck1);
-  --ld-tab-focus-bg-color: var(--ld-col-rblck4);
-  --ld-tab-hover-bg-color: var(--ld-col-rblck1);
-  --ld-tab-active-bg-color: var(--ld-col-rblck2);
+  --ld-tab-color-focus: var(--ld-col-rblck1);
+  --ld-tab-bg-color-focus: var(--ld-col-rblck4);
+  --ld-tab-bg-color-hover: var(--ld-col-rblck1);
+  --ld-tab-bg-color-active: var(--ld-col-rblck2);
   --ld-tab-gap: 0.625rem;
   --ld-tab-icon-size: 1.25rem;
   position: relative;
@@ -35,8 +35,8 @@
   background-color: var(--ld-tab-bg-color);
 
   &[aria-disabled='true'] {
-    --ld-tab-focus-bg-color: var(--ld-col-rblck3);
-    --ld-tab-focus-color: var(--ld-col-wht);
+    --ld-tab-bg-color-focus: var(--ld-col-rblck3);
+    --ld-tab-color-focus: var(--ld-col-wht);
 
     .ld-tab__content {
       opacity: 0.25;
@@ -49,7 +49,7 @@
     position: absolute;
     inset: auto 0 0 0;
     height: var(--ld-sp-2);
-    z-index: 1;
+    z-index: 3;
   }
 
   &[aria-selected='true'] {
@@ -62,11 +62,11 @@
 
   &:focus:focus-visible {
     outline: none;
-    background-color: var(--ld-tab-focus-bg-color);
+    background-color: var(--ld-tab-bg-color-focus);
 
     &:not(:active),
     &[aria-disabled='true'] {
-      color: var(--ld-tab-focus-color);
+      color: var(--ld-tab-color-focus);
     }
 
     &[aria-selected='true'] {
@@ -89,7 +89,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--ld-tab-hover-bg-color);
+        background-color: var(--ld-tab-bg-color-hover);
 
         &:not([aria-selected='true'])::after {
           background-color: inherit;
@@ -98,7 +98,7 @@
     }
     &:active:focus,
     &:active:focus:focus-visible {
-      background-color: var(--ld-tab-active-bg-color);
+      background-color: var(--ld-tab-bg-color-active);
 
       &:not([aria-selected='true'])::after {
         background-color: inherit;
@@ -158,21 +158,21 @@
 
     &:not([aria-disabled='true']) {
       --ld-tab-color: var(--ld-col-wht);
-      --ld-tab-focus-color: var(--ld-col-wht);
+      --ld-tab-color-focus: var(--ld-col-wht);
     }
 
     .ld-theme-ocean &,
     [class*='ld-theme'] .ld-theme-ocean & {
       --ld-tab-color-selected: var(--ld-thm-ocean-accent);
       --ld-tab-bg-color: var(--ld-thm-ocean-bg-primary);
-      --ld-tab-focus-bg-color: var(--ld-col-rb-focus);
-      --ld-tab-focus-color: var(--ld-col-rb6);
-      --ld-tab-hover-bg-color: var(--ld-col-rb-hover);
-      --ld-tab-active-bg-color: var(--ld-col-rb-active);
+      --ld-tab-bg-color-focus: var(--ld-col-rb-focus);
+      --ld-tab-color-focus: var(--ld-col-rb6);
+      --ld-tab-bg-color-hover: var(--ld-col-rb-hover);
+      --ld-tab-bg-color-active: var(--ld-col-rb-active);
 
       &[aria-disabled='true'] {
-        --ld-tab-focus-color: var(--ld-col-rb5);
-        --ld-tab-focus-bg-color: var(--ld-col-rb6);
+        --ld-tab-color-focus: var(--ld-col-rb5);
+        --ld-tab-bg-color-focus: var(--ld-col-rb6);
         --ld-tab-color: var(--ld-col-rb3);
       }
     }
@@ -181,14 +181,14 @@
     [class*='ld-theme'] .ld-theme-tea & {
       --ld-tab-color-selected: var(--ld-thm-tea-accent);
       --ld-tab-bg-color: var(--ld-thm-tea-bg-primary);
-      --ld-tab-focus-bg-color: var(--ld-col-rg-focus);
-      --ld-tab-focus-color: var(--ld-col-rg6);
-      --ld-tab-hover-bg-color: var(--ld-col-rg-hover);
-      --ld-tab-active-bg-color: var(--ld-col-rg-active);
+      --ld-tab-bg-color-focus: var(--ld-col-rg-focus);
+      --ld-tab-color-focus: var(--ld-col-rg6);
+      --ld-tab-bg-color-hover: var(--ld-col-rg-hover);
+      --ld-tab-bg-color-active: var(--ld-col-rg-active);
 
       &[aria-disabled='true'] {
-        --ld-tab-focus-color: var(--ld-col-rg5);
-        --ld-tab-focus-bg-color: var(--ld-col-rg6);
+        --ld-tab-color-focus: var(--ld-col-rg5);
+        --ld-tab-bg-color-focus: var(--ld-col-rg6);
         --ld-tab-color: var(--ld-col-rg3);
       }
     }
@@ -197,14 +197,14 @@
     [class*='ld-theme'] .ld-theme-bubblegum & {
       --ld-tab-color-selected: var(--ld-thm-bubblegum-accent);
       --ld-tab-bg-color: var(--ld-thm-bubblegum-bg-primary);
-      --ld-tab-focus-bg-color: var(--ld-col-rp-focus);
-      --ld-tab-focus-color: var(--ld-col-rp6);
-      --ld-tab-hover-bg-color: var(--ld-col-rp-hover);
-      --ld-tab-active-bg-color: var(--ld-col-rp-active);
+      --ld-tab-bg-color-focus: var(--ld-col-rp-focus);
+      --ld-tab-color-focus: var(--ld-col-rp6);
+      --ld-tab-bg-color-hover: var(--ld-col-rp-hover);
+      --ld-tab-bg-color-active: var(--ld-col-rp-active);
 
       &[aria-disabled='true'] {
-        --ld-tab-focus-color: var(--ld-col-rp5);
-        --ld-tab-focus-bg-color: var(--ld-col-rp6);
+        --ld-tab-color-focus: var(--ld-col-rp5);
+        --ld-tab-bg-color-focus: var(--ld-col-rp6);
         --ld-tab-color: var(--ld-col-rp3);
       }
     }
@@ -213,14 +213,14 @@
     [class*='ld-theme'] .ld-theme-shake & {
       --ld-tab-color-selected: var(--ld-thm-shake-accent);
       --ld-tab-bg-color: var(--ld-thm-shake-bg-primary);
-      --ld-tab-focus-bg-color: var(--ld-col-rp-focus);
-      --ld-tab-focus-color: var(--ld-col-rp6);
-      --ld-tab-hover-bg-color: var(--ld-col-rp-hover);
-      --ld-tab-active-bg-color: var(--ld-col-rp-active);
+      --ld-tab-bg-color-focus: var(--ld-col-rp-focus);
+      --ld-tab-color-focus: var(--ld-col-rp6);
+      --ld-tab-bg-color-hover: var(--ld-col-rp-hover);
+      --ld-tab-bg-color-active: var(--ld-col-rp-active);
 
       &[aria-disabled='true'] {
-        --ld-tab-focus-color: var(--ld-col-rp5);
-        --ld-tab-focus-bg-color: var(--ld-col-rp6);
+        --ld-tab-color-focus: var(--ld-col-rp5);
+        --ld-tab-bg-color-focus: var(--ld-col-rp6);
         --ld-tab-color: var(--ld-col-rp3);
       }
     }
@@ -229,14 +229,14 @@
     [class*='ld-theme'] .ld-theme-solvent & {
       --ld-tab-color-selected: var(--ld-thm-solvent-accent);
       --ld-tab-bg-color: var(--ld-thm-solvent-bg-primary);
-      --ld-tab-focus-bg-color: var(--ld-col-rp-focus);
-      --ld-tab-focus-color: var(--ld-col-rp6);
-      --ld-tab-hover-bg-color: var(--ld-col-rp-hover);
-      --ld-tab-active-bg-color: var(--ld-col-rp-active);
+      --ld-tab-bg-color-focus: var(--ld-col-rp-focus);
+      --ld-tab-color-focus: var(--ld-col-rp6);
+      --ld-tab-bg-color-hover: var(--ld-col-rp-hover);
+      --ld-tab-bg-color-active: var(--ld-col-rp-active);
 
       &[aria-disabled='true'] {
-        --ld-tab-focus-color: var(--ld-col-rp5);
-        --ld-tab-focus-bg-color: var(--ld-col-rp6);
+        --ld-tab-color-focus: var(--ld-col-rp5);
+        --ld-tab-bg-color-focus: var(--ld-col-rp6);
         --ld-tab-color: var(--ld-col-rp3);
       }
     }
