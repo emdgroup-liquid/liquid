@@ -155,6 +155,7 @@ ld-button {
   overflow: hidden;
   border-bottom-left-radius: var(--ld-br-full);
   border-bottom-right-radius: var(--ld-br-full);
+  transform: translateZ(0); /* fixes overflow issue in Safari */
 
   &::before,
   &::after {
