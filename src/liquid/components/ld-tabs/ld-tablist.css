@@ -1,7 +1,12 @@
 .ld-tablist {
   --ld-tab-indicator-color: var(--ld-col-bg-g);
+  --ld-tab-btn-scroll-color: var(--ld-col-rblck-default);
+  --ld-tab-btn-scroll-color-active: var(--ld-col-rblck-default);
+  --ld-tab-btn-scroll-bg-color: var(--ld-col-bg-lg);
+  --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rblck1);
+  --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rblck2);
   position: relative;
-  display: block;
+  display: flex;
   overflow: hidden;
 
   &::after {
@@ -10,6 +15,7 @@
     inset: auto 0 0 0;
     height: var(--ld-sp-2);
     background-color: var(--ld-tab-indicator-color);
+    z-index: 2;
   }
 
   .ld-tabs--rounded-all & {
@@ -36,39 +42,135 @@
   margin-bottom: -4rem;
 }
 
+.ld-tablist__btn-scroll {
+  position: relative;
+  border: 0;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  -webkit-touch-callout: none;
+  color: var(--ld-tab-btn-scroll-color);
+  background-color: var(--ld-tab-btn-scroll-bg-color);
+  box-shadow: var(--ld-shadow-active);
+  width: var(--ld-sp-32);
+  z-index: 2;
+
+  .ld-tablist--scrollable & {
+    display: inline-flex;
+  }
+
+  :where(.ld-tabs--brand-color) & {
+    --ld-tab-btn-scroll-color-active: var(--ld-col-wht);
+    --ld-tab-btn-scroll-color: var(--ld-col-wht);
+  }
+
+  &:focus:focus-visible {
+    outline: none;
+  }
+
+  &[aria-disabled='true'] {
+    svg {
+      opacity: 0.25;
+    }
+  }
+
+  &:where(:not([aria-disabled='true'])) {
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--ld-tab-btn-scroll-bg-color-hover);
+      }
+    }
+    &:active:focus,
+    &:active:focus:focus-visible {
+      color: var(--ld-tab-btn-scroll-color-active);
+      background-color: var(--ld-tab-btn-scroll-bg-color-active);
+    }
+  }
+
+  &--left {
+    left: 0;
+  }
+  &--right {
+    right: 0;
+  }
+}
+
 /* .ld-theme-ocean -> default */
-:where(.ld-tabs--brand-color) {
-  .ld-tablist,
-  :where(.ld-theme-ocean) .ld-tablist,
-  :where([class*='ld-theme'] .ld-theme-ocean) .ld-tablist {
+.ld-tablist,
+.ld-theme-ocean .ld-tablist,
+[class*='ld-theme'] .ld-theme-ocean .ld-tablist {
+  --ld-tab-color-selected: var(--ld-thm-ocean-bg-primary);
+  --ld-tab-selected-focus-color: var(--ld-col-rb2);
+
+  .ld-tabs--brand-color & {
     --ld-tab-indicator-color: var(--ld-thm-ocean-bg-secondary);
+    --ld-tab-btn-scroll-bg-color: var(--ld-thm-ocean-bg-primary);
+    --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rb-hover);
+    --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rb-active);
+  }
+}
+
+.ld-theme-tea,
+[class*='ld-theme'] .ld-theme-tea {
+  :where(.ld-tablist) {
+    --ld-tab-color-selected: var(--ld-thm-tea-bg-primary);
+    --ld-tab-selected-focus-color: var(--ld-col-rg2);
   }
 
-  :where(.ld-theme-tea),
-  :where([class*='ld-theme'] .ld-theme-tea) {
-    .ld-tablist {
-      --ld-tab-indicator-color: var(--ld-thm-tea-bg-secondary);
-    }
+  .ld-tabs--brand-color .ld-tablist {
+    --ld-tab-indicator-color: var(--ld-thm-tea-bg-secondary);
+    --ld-tab-btn-scroll-bg-color: var(--ld-thm-tea-bg-primary);
+    --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rg-hover);
+    --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rg-active);
+  }
+}
+
+.ld-theme-bubblegum,
+[class*='ld-theme'] .ld-theme-bubblegum {
+  :where(.ld-tablist) {
+    --ld-tab-color-selected: var(--ld-thm-bubblegum-bg-primary);
+    --ld-tab-selected-focus-color: var(--ld-col-rp2);
   }
 
-  :where(.ld-theme-bubblegum),
-  :where([class*='ld-theme'] .ld-theme-bubblegum) {
-    .ld-tablist {
-      --ld-tab-indicator-color: var(--ld-thm-bubblegum-bg-secondary);
-    }
+  .ld-tabs--brand-color .ld-tablist {
+    --ld-tab-indicator-color: var(--ld-thm-bubblegum-bg-secondary);
+    --ld-tab-btn-scroll-bg-color: var(--ld-thm-bubblegum-bg-primary);
+    --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rp-hover);
+    --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rp-active);
+  }
+}
+
+.ld-theme-shake,
+[class*='ld-theme'] .ld-theme-shake {
+  :where(.ld-tablist) {
+    --ld-tab-color-selected: var(--ld-thm-shake-bg-primary);
+    --ld-tab-selected-focus-color: var(--ld-col-rp2);
   }
 
-  :where(.ld-theme-shake),
-  :where([class*='ld-theme'] .ld-theme-shake) {
-    .ld-tablist {
-      --ld-tab-indicator-color: var(--ld-thm-shake-bg-secondary);
-    }
+  .ld-tabs--brand-color .ld-tablist {
+    --ld-tab-indicator-color: var(--ld-thm-shake-bg-secondary);
+    --ld-tab-btn-scroll-bg-color: var(--ld-thm-shake-bg-primary);
+    --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rp-hover);
+    --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rp-active);
+  }
+}
+
+.ld-theme-solvent,
+[class*='ld-theme'] .ld-theme-solvent {
+  :where(.ld-tablist) {
+    --ld-tab-color-selected: var(--ld-thm-solvent-bg-primary);
+    --ld-tab-selected-focus-color: var(--ld-col-rp2);
   }
 
-  :where(.ld-theme-solvent),
-  :where([class*='ld-theme'] .ld-theme-solvent) {
-    .ld-tablist {
-      --ld-tab-indicator-color: var(--ld-thm-solvent-bg-secondary);
-    }
+  .ld-tabs--brand-color .ld-tablist {
+    --ld-tab-indicator-color: var(--ld-thm-solvent-bg-secondary);
+    --ld-tab-btn-scroll-bg-color: var(--ld-thm-solvent-bg-primary);
+    --ld-tab-btn-scroll-bg-color-hover: var(--ld-col-rp-hover);
+    --ld-tab-btn-scroll-bg-color-active: var(--ld-col-rp-active);
   }
 }

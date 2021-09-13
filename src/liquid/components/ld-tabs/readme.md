@@ -26,17 +26,17 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         <a href="#apple">Apple</a>, orange, banana
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Potato, <a href="#cucumber">cucumber</a>, tomato
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Walnut, chestnut, <a href="#strawberry">strawberry</a>
       </ld-paragraph>
     </ld-tabpanel>
@@ -228,21 +228,20 @@ There are two ways to programmatically select a tab:
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
-    <ld-tab disabled>Corn</ld-tab>
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Apple, orange, banana
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Potato, cucumber, tomato
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Walnut, chestnut, strawberry
       </ld-paragraph>
     </ld-tabpanel>
@@ -266,21 +265,20 @@ document.getElementById('nuts_button_1').addEventListener('click', ev => {
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
-    <ld-tab disabled>Corn</ld-tab>
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Apple, orange, banana
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Potato, cucumber, tomato
       </ld-paragraph>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin: 1rem 0">
+      <ld-paragraph style="margin-top: 1rem">
         Walnut, chestnut, strawberry
       </ld-paragraph>
     </ld-tabpanel>
