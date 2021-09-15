@@ -62,6 +62,10 @@
     display: inline-flex;
   }
 
+  :where(.ld-tabs--ghost) & {
+    --ld-tab-btn-scroll-bg-color: transparent;
+  }
+
   :where(.ld-tabs--brand-color) & {
     --ld-tab-btn-scroll-color-active: var(--ld-col-wht);
     --ld-tab-btn-scroll-color: var(--ld-col-wht);
