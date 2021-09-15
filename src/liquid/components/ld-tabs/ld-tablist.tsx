@@ -69,7 +69,7 @@ export class LdTablist {
     ]?.querySelector('[role="tab"]') as HTMLButtonElement
     if (currentTab) {
       currentTab.focus({ preventScroll: true })
-      currentTab.scrollIntoView({
+      currentTab.closest('ld-tab').scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'center',
@@ -81,7 +81,7 @@ export class LdTablist {
     ;(this.el
       .closest('ld-tabs')
       .querySelector(
-        'ld-tabpanel:not([hidden]) > [role="tabpanel"]'
+        'ld-tabpanel:not(.ld-tabpanel--hidden) > section'
       ) as HTMLElement)?.focus()
   }
 

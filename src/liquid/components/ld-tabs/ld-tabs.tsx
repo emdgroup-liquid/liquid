@@ -28,12 +28,10 @@ export class LdTabs {
   private idDescriber = `ld-tabs-${tabsCount++}`
 
   private updateTabs(currentLdTab) {
-    const prevLdTab = Array.from(
-      this.el.querySelectorAll('ld-tab[selected]')
-    ).filter((ldTab) => ldTab !== currentLdTab)[0]
-    if (prevLdTab) {
-      prevLdTab.removeAttribute('selected')
-    }
+    this.el
+      .querySelector('[aria-selected="true"]')
+      ?.closest('ld-tab')
+      .removeAttribute('selected')
     currentLdTab.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -44,12 +42,12 @@ export class LdTabs {
   private updateTabPanels(currentLdTab) {
     const tabId = currentLdTab.querySelector('[role="tab"]').id
     this.el.querySelectorAll('[role="tabpanel"]').forEach((tabpanel) => {
-      tabpanel.closest('ld-tabpanel').setAttribute('hidden', 'true')
+      tabpanel.closest('ld-tabpanel').classList.add('ld-tabpanel--hidden')
     })
     this.el
       .querySelector(`[aria-labelledby="${tabId}"]`)
       ?.closest('ld-tabpanel')
-      .removeAttribute('hidden')
+      .classList.remove('ld-tabpanel--hidden')
   }
 
   private handleTabChange(ev) {
@@ -74,9 +72,9 @@ export class LdTabs {
         `${this.idDescriber}-tab-${index}`
       )
       if (selectedIndex === index) {
-        tabpanel.closest('ld-tabpanel').removeAttribute('hidden')
+        tabpanel.closest('ld-tabpanel').classList.remove('ld-tabpanel--hidden')
       } else {
-        tabpanel.closest('ld-tabpanel').setAttribute('hidden', 'true')
+        tabpanel.closest('ld-tabpanel').classList.add('ld-tabpanel--hidden')
       }
     })
   }

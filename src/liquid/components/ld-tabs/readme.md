@@ -166,7 +166,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 ### With many tabs
 
-Try to avoid using tab bars with more than five tab items.
+You should try to avoid using tab bars with more than five tab items. But if you really must, the `ld-tabs` component has got you covered:
 
 {% example 'html', false, false, 'light' %}
 <ld-tabs>
@@ -205,7 +205,7 @@ The `ld-tabs` component emits the `tabChange` event which you can use to bind cu
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
-    <ld-tab disabled>Corn</ld-tab>
+    <ld-tab disabled>Grain</ld-tab>
   </ld-tablist>
 </ld-tabs>
 
