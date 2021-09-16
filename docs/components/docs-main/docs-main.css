@@ -1,0 +1,640 @@
+@define-mixin docs-main-ui-light {
+  .docs-main {
+    hr {
+      background-color: var(--ld-col-rblck1);
+    }
+
+    main {
+      > p,
+      > ol,
+      > ul,
+      > #css-variables + table,
+      > #properties + table,
+      > #events + table,
+      > #slots + table {
+        code {
+          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rblck1);
+          background-color: var(--ld-col-bg-lg);
+        }
+      }
+
+      #css-variables + table td,
+      #properties + table td {
+        &:first-of-type,
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
+          code {
+            &:not(:last-child) {
+              color: var(--ld-col-rb1);
+              background-color: var(--ld-col-rb-default);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb6);
+            }
+          }
+        }
+      }
+
+      > p > a,
+      > ul a,
+      > ol a,
+      > table a {
+        color: var(--ld-col-vc4);
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--ld-col-vc-default);
+          }
+        }
+
+        &:active,
+        &:active:focus-visible {
+          color: var(--ld-col-vc5);
+        }
+      }
+
+      > blockquote {
+        color: var(--ld-col-rblck-default);
+        background-color: var(--ld-col-vy2);
+        border-left: solid var(--ld-sp-6) var(--ld-col-vy3);
+        font: var(--ld-typo-body-m);
+
+        code {
+          background-color: var(--ld-col-vy3);
+        }
+      }
+
+      > pre {
+        border-color: var(--ld-col-rblck1);
+      }
+    }
+  }
+}
+@define-mixin docs-main-ui-dark {
+  .docs-main {
+    hr {
+      background-color: var(--ld-col-rblck4);
+    }
+
+    main {
+      > p,
+      > ol,
+      > ul,
+      > #css-variables + table,
+      > #properties + table,
+      > #events + table,
+      > #slots + table {
+        code {
+          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rblck3);
+          background-color: var(--ld-col-rblck4);
+        }
+      }
+
+      #properties + table td {
+        &:first-of-type,
+        &:nth-of-type(2),
+        &:nth-of-type(4) {
+          code {
+            &:not(:last-child) {
+              color: var(--ld-col-rb1);
+              background-color: var(--ld-col-rb-default);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb3);
+            }
+          }
+        }
+      }
+
+      #css-variables + table td {
+        &:first-of-type,
+        &:nth-of-type(3) {
+          code {
+            &:not(:last-child) {
+              color: var(--ld-col-rb1);
+              background-color: var(--ld-col-rb-default);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb3);
+            }
+          }
+        }
+      }
+
+      > p > a,
+      > ol a,
+      > ul a,
+      > table a {
+        color: var(--ld-col-vc2);
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--ld-col-vc3);
+          }
+        }
+
+        &:active,
+        &:active:focus-visible {
+          color: var(--ld-col-vc4);
+        }
+      }
+
+      > blockquote {
+        color: var(--ld-col-rblck-default);
+        background-color: var(--ld-col-vy3);
+        border-left: solid var(--ld-sp-6) var(--ld-col-vy4);
+
+        code {
+          background-color: var(--ld-col-vy3);
+        }
+      }
+
+      > pre {
+        border-color: var(--ld-col-rblck-default);
+      }
+    }
+  }
+}
+
+@mixin docs-main-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-main-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-main-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-main-ui-light;
+}
+
+.docs-main {
+  --ld-typo-code-s: 0.875rem / 176% 'Source Code Pro', Consolas, Monaco,
+    'Ubuntu Mono', monospace;
+  --ld-typo-code-m: 1rem / 160% 'Source Code Pro', Consolas, Monaco,
+    'Ubuntu Mono', monospace;
+  padding: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-40);
+  min-width: 20rem;
+
+  main {
+    > header,
+    > footer {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+
+      > * + *:not(.docs-breadcrumbs) {
+        margin-top: var(--ld-sp-16);
+      }
+    }
+
+    > p,
+    > ol,
+    > ul {
+      font: var(--ld-typo-body-m);
+
+      code {
+        display: inline-flex;
+        padding: 0 var(--ld-sp-4);
+        border-radius: var(--ld-br-s);
+      }
+    }
+
+    > p > a,
+    > table a,
+    > ol a,
+    > ul a,
+    > blockquote a {
+      text-decoration: underline;
+
+      code {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        padding: 0;
+      }
+    }
+
+    > hr {
+      border: 0;
+      height: var(--ld-sp-1);
+
+      &:last-of-type + p {
+        display: none;
+      }
+    }
+
+    > * + * {
+      margin-top: var(--ld-sp-32);
+    }
+
+    > * + h1 {
+      margin-top: var(--ld-sp-16);
+    }
+
+    > * + h2,
+    > * + h3,
+    > * + footer {
+      margin-top: var(--ld-sp-40);
+    }
+
+    #dependencies,
+    #used-by,
+    #used-by + ul,
+    #graph,
+    .mermaid,
+    .mermaid + hr {
+      display: none;
+    }
+
+    > h1 {
+      font: var(--ld-typo-xh5);
+    }
+    > h2 {
+      font: var(--ld-typo-h2);
+    }
+    > h3 {
+      font: var(--ld-typo-h3);
+    }
+    > h4 {
+      font: var(--ld-typo-h4);
+    }
+    > h5 {
+      font: var(--ld-typo-h5);
+    }
+    > h6 {
+      font: var(--ld-typo-h6);
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      position: relative;
+      font-weight: 700;
+      outline: none;
+
+      > code {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+    }
+
+    > ul,
+    > ol {
+      padding-left: var(--ld-sp-16);
+
+      > li {
+        > p {
+          display: inline;
+        }
+      }
+    }
+
+    > ul {
+      list-style: disc;
+    }
+
+    > ol {
+      list-style: decimal;
+    }
+
+    > table {
+      --table-cell-width-sm: 12rem;
+      --table-cell-width: 20rem;
+      --table-cell-width-lg: 30rem;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      min-width: 100%;
+      text-align: left;
+      border-collapse: collapse;
+      display: block;
+      padding-bottom: var(--ld-sp-24);
+
+      tr {
+        display: flex;
+        margin-top: var(--ld-sp-16);
+      }
+      tbody tr:nth-child(odd) {
+        background-color: var(--sensitive-grey-dark);
+      }
+
+      thead {
+        border-bottom: solid 0.0625rem var(--ld-col-rblck2);
+
+        tr {
+          margin-top: 0;
+        }
+        th {
+          padding-top: 0;
+        }
+      }
+
+      th {
+        padding-bottom: var(--ld-sp-16);
+      }
+
+      td,
+      th {
+        padding: var(--ld-sp-8) var(--ld-sp-16);
+        vertical-align: top;
+
+        &:first-of-type {
+          padding-left: 0;
+        }
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+
+      b,
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    > #properties + table {
+      --table-min-width: 72rem;
+
+      td,
+      th {
+        width: var(--table-cell-width-sm);
+
+        /* props and attributes */
+        &:first-of-type,
+        &:nth-of-type(4) {
+          word-break: break-all;
+          flex-shrink: 0;
+
+          code {
+            display: inline-grid;
+            grid-auto-flow: column;
+            gap: var(--ld-sp-4);
+
+            + em {
+              display: none;
+            }
+
+            &:not(:last-child) {
+              font-weight: 600;
+
+              &::after {
+                content: '*';
+                transform: translateY(-0.125rem);
+              }
+            }
+          }
+        }
+
+        /* attributes */
+        &:nth-of-type(2) {
+          visibility: hidden;
+          width: 0;
+          padding: 0;
+          height: 0;
+        }
+
+        /* description */
+        &:nth-of-type(3) {
+          width: var(--table-cell-width-lg);
+        }
+
+        /* type */
+        &:nth-of-type(4) {
+          width: var(--table-cell-width-lg);
+        }
+
+        /* default value */
+        &:nth-of-type(5) {
+          width: var(--table-cell-width-sm);
+        }
+      }
+    }
+
+    > #css-variables + table {
+      --table-min-width: 62rem;
+
+      td,
+      th {
+        width: var(--table-cell-width);
+
+        /* props and attributes */
+        &:first-of-type,
+        &:nth-of-type(3) {
+          word-break: break-all;
+          flex-shrink: 0;
+
+          code {
+            display: inline-grid;
+            grid-auto-flow: column;
+            gap: var(--ld-sp-4);
+
+            + em {
+              display: none;
+            }
+
+            &:not(:last-child) {
+              font-weight: 600;
+
+              &::after {
+                content: '*';
+                transform: translateY(-0.125rem);
+              }
+            }
+          }
+        }
+
+        /* description */
+        &:nth-of-type(2) {
+          width: var(--table-cell-width-lg);
+        }
+
+        /* default value */
+        &:nth-of-type(3) {
+          width: var(--table-cell-width-sm);
+        }
+      }
+    }
+
+    > #events + table {
+      --table-min-width: 64rem;
+
+      td,
+      th {
+        /* props and attributes */
+        &:first-of-type,
+        &:nth-of-type(3) {
+          width: var(--table-cell-width-sm);
+        }
+
+        /* description */
+        &:nth-of-type(2) {
+          width: var(--table-cell-width-lg);
+          transform: translateY(-0.1875rem);
+        }
+
+        /* type */
+        &:nth-of-type(3) {
+          width: var(--table-cell-width);
+        }
+      }
+    }
+
+    > #methods {
+      ~ h3 code {
+        font: var(--ld-typo-body-s);
+        font-weight: 400;
+        font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono',
+          monospace;
+        padding: var(--ld-sp-4) var(--ld-sp-6);
+        border-radius: var(--ld-br-s);
+        display: inline-flex;
+      }
+    }
+
+    > #slots + table {
+      --table-min-width: 50rem;
+
+      td,
+      th {
+        /* props and attributes */
+        &:first-of-type {
+          width: var(--table-cell-width-sm);
+          word-break: break-all;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    > #css-variables + table,
+    > #properties + table,
+    > #events + table,
+    > #slots + table {
+      font: var(--ld-typo-body-m);
+
+      thead,
+      tbody {
+        min-width: var(--table-min-width);
+        display: block !important;
+      }
+
+      code {
+        display: inline-flex;
+        padding: 0 var(--ld-sp-6);
+        border-radius: var(--ld-br-s);
+      }
+    }
+
+    > #components ~ #status ~ table {
+      td,
+      th {
+        width: var(--table-cell-width-sm);
+        flex-shrink: 0;
+      }
+    }
+
+    > blockquote {
+      padding: var(--ld-sp-8) var(--ld-sp-24) var(--ld-sp-12) var(--ld-sp-24);
+
+      a {
+        text-decoration: underline;
+      }
+
+      code {
+        padding: 0 var(--ld-sp-4);
+        border-radius: var(--ld-br-s);
+      }
+    }
+
+    > pre {
+      border-radius: var(--ld-br-l);
+      border-style: solid;
+      border-width: var(--ld-sp-1);
+    }
+  }
+
+  code {
+    font: var(--ld-typo-code-s);
+  }
+
+  @media (max-width: 48rem) {
+    grid-area: stack;
+    padding: var(--ld-sp-24) var(--ld-sp-24);
+
+    main {
+      padding-bottom: var(--ld-sp-40);
+    }
+  }
+}
+
+#properties + table::after {
+  content: '* required';
+}
+
+#slots,
+#events,
+#properties {
+  + table + hr {
+    display: none;
+  }
+}
+
+.header-anchor {
+  left: 0;
+  transform: translateX(-100%);
+  position: absolute;
+  text-align: right;
+
+  @media screen and (max-width: 48rem) {
+    left: unset;
+    position: relative;
+    width: auto;
+  }
+}
+
+.header-anchor__symbol {
+  visibility: hidden;
+  padding-right: var(--ld-sp-8);
+  opacity: 0.25;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  h1:hover &,
+  h2:hover &,
+  h3:hover &,
+  h4:hover &,
+  h5:hover &,
+  h6:hover &,
+  .header-anchor:focus & {
+    visibility: inherit;
+  }
+
+  .header-anchor:focus & {
+    opacity: 1;
+  }
+
+  @media screen and (hover: none) {
+    visibility: inherit;
+  }
+
+  @media screen and (max-width: 48rem) {
+    visibility: inherit;
+    padding-right: 0;
+    opacity: 0.25;
+
+    h1:hover &,
+    h2:hover &,
+    h3:hover &,
+    h4:hover &,
+    h5:hover &,
+    h6:hover &,
+    .header-anchor:focus & {
+      visibility: inherit;
+    }
+
+    .header-anchor:focus & {
+      opacity: 1;
+    }
+  }
+}
+
+.docs-main__header-image {
+  max-width: 32rem;
+}

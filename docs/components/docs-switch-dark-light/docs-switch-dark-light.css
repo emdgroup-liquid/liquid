@@ -1,0 +1,49 @@
+@define-mixin docs-switch-ui-light {
+  .docs-switch-dark-light__btn {
+    circle {
+      stroke: var(--ld-col-rblck-default);
+    }
+    path {
+      fill: var(--ld-col-rblck-default);
+    }
+  }
+}
+@define-mixin docs-switch-ui-dark {
+  .docs-switch-dark-light__btn {
+    circle {
+      stroke: var(--ld-col-wht);
+    }
+    path {
+      fill: var(--ld-col-wht);
+    }
+  }
+}
+
+@mixin docs-switch-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-switch-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-switch-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-switch-ui-light;
+}
+
+.docs-switch-dark-light__btn {
+  display: flex;
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: var(--ld-typo-body-s);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  svg {
+    margin-right: var(--ld-sp-6);
+  }
+}

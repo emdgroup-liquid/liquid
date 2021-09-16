@@ -1,0 +1,32 @@
+@import 'reset.css';
+@import 'code.css';
+
+@define-mixin docs-ui-light {
+  background-color: var(--ld-col-wht);
+  color: var(--ld-col-rblck-default);
+
+  body::before {
+    background-color: var(--ld-col-wht);
+  }
+}
+@define-mixin docs-ui-dark {
+  background-color: var(--ld-col-rblck5);
+  color: var(--ld-col-wht);
+
+  body::before {
+    background-color: var(--ld-col-rblck5);
+  }
+}
+
+@mixin docs-ui-light;
+@media (prefers-color-scheme: dark) {
+  html {
+    @mixin docs-ui-dark;
+  }
+}
+.docs-ui-light {
+  @mixin docs-ui-light;
+}
+.docs-ui-dark {
+  @mixin docs-ui-dark;
+}
