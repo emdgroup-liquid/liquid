@@ -87,12 +87,15 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── scripts                   # Contains bash or node script files executed via npm script commands.
 ├── src                       # Well, that's the source folder. You probably guessed it.
 │   ├── docs                  # Everything inside this folder is for developing the docs site.
-│   │   ├──_includes
-│   │   │  └── layout.njk     # The docs site is powered by 11ty. This is the default (and only)
-│   │   │                     # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
+│   │   ├── assets            # Static assets for the docs page reside here.
 │   │   ├── components        # Docs components live here.
 │   │   ├── global            # Docs global styles live here.
+│   │   ├── includes
+│   │   │  └── layout.njk     # The docs site is powered by 11ty. This is the default (and only)
+│   │   │                     # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
 │   │   ├── layouts           # There is one layout component which lives inside this folder.
+│   │   ├── pages             # This folder contains markdown files for general documentation pages, 
+│   │   │                     # legal stuff and the 404 page.
 │   │   └── utils             # Docs util files shared by the docs components live here.
 │   └── liquid                # Everything inside this folder is for developing Liquid components.
 │       ├── components        # This folder contains all Liquid components including tests and docs.
@@ -201,7 +204,8 @@ Unit tests and functional (e2e) tests and visual regression tests (using screens
 Accessibility tests are a bit special: You recognize accessibility test files by their suffix `.a11y.ts`. These tests are executed in a separate process using [puppeteer](https://pptr.dev) and [pa11y](https://pa11y.org) and require the docs to be built beforhand. If you look at pa11y.json, you will find an option which is responsible for hiding irrelevant stuff from the docs which shall not be tested using CSS selectors. One note regarding automated accessibility testing:
 
 > Automated accessibility testing helps comply with accessibility guidelines but does not guarantee that a website or app is accessible. You still need to perform manual testing using screen readers and involve disabled users in user testings. 
-You execute tests either by running one of the npm scripts which start with `test` (see package.json) or by executing the respective test commands directly with the options needed. Please refer to the docs of each test runner in question for available options. 
+You execute tests either by running one of the npm scripts which start with `test` (see package.json) or by executing the respective test commands directly with the options needed. Please refer to the docs of each test runner in question for available options.
+
 ### Relevant resources
 
 If you want to dive deeper into the technology stack used in this project,
