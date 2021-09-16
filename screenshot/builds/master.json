@@ -2,7 +2,7 @@
   "id": "master",
   "message": "Master",
   "appNamespace": "liquid",
-  "timestamp": 1628511080742,
+  "timestamp": 1631790418391,
   "screenshots": [
     {
       "id": "ebe71651",
@@ -15606,7 +15606,7 @@
     },
     {
       "id": "99caa70b",
-      "image": "49d01aad00b214d74bc74eb138e274a5.png",
+      "image": "a16ce29f8555d3ac183422c5495af9eb.png",
       "userAgent": "default",
       "desc": "ld-select multiple max-rows theme-bubblegum",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
