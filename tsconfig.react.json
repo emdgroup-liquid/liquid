@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "baseUrl": ".",
-    "declaration": false,
+    "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
