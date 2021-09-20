@@ -73,6 +73,7 @@ jobs:
       - name: Coveralls
         if: github.ref == 'refs/heads/develop'
         uses: coverallsapp/github-action@master
+        continue-on-error: true
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
