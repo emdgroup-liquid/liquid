@@ -166,7 +166,7 @@
 .ld-tab__spacer {
   display: inline-flex;
   flex-shrink: 1;
-  width: 1rem;
+  width: var(--ld-sp-16);
 }
 
 .ld-tab__content {
