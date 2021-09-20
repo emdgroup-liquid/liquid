@@ -195,6 +195,34 @@ You should try to avoid using tab bars with more than five tab items. But if you
 </ld-tabs>
 {% endexample %}
 
+### Full width
+
+{% example 'html', false, false, 'light' %}
+<ld-tabs style="width: 100%" mode="ghost">
+  <ld-tablist>
+    <ld-tab selected>Fruits</ld-tab>
+    <ld-tab disabled>Vegetables</ld-tab>
+    <ld-tab>Nuts</ld-tab>
+  </ld-tablist>
+</ld-tabs>
+
+<ld-tabs style="width: 100%">
+  <ld-tablist>
+    <ld-tab selected>Fruits</ld-tab>
+    <ld-tab disabled>Vegetables</ld-tab>
+    <ld-tab>Nuts</ld-tab>
+  </ld-tablist>
+</ld-tabs>
+
+<ld-tabs style="width: 100%" mode="brand-color">
+  <ld-tablist>
+    <ld-tab selected>Fruits</ld-tab>
+    <ld-tab disabled>Vegetables</ld-tab>
+    <ld-tab>Nuts</ld-tab>
+  </ld-tablist>
+</ld-tabs>
+{% endexample %}
+
 ## Events
 
 The `ld-tabs` component emits the `tabChange` event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.
