@@ -1,5 +1,13 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 
 let tabsCount = 0
@@ -24,6 +32,11 @@ export class LdTabs {
 
   /** Sets border radii. */
   @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
+
+  /**
+   * Emitted with the id of the selected tab.
+   */
+  @Event() tabChange: EventEmitter<string>
 
   private idDescriber = `ld-tabs-${tabsCount++}`
 
@@ -50,10 +63,12 @@ export class LdTabs {
       .classList.remove('ld-tabpanel--hidden')
   }
 
-  private handleTabChange(ev) {
+  private handleTabSelect(ev) {
+    ev.stopImmediatePropagation()
     const currentLdTab = ev.target
     this.updateTabs(currentLdTab)
     this.updateTabPanels(currentLdTab)
+    this.tabChange.emit(ev.detail)
   }
 
   componentDidRender() {
@@ -82,7 +97,7 @@ export class LdTabs {
   render() {
     return (
       <Host
-        onTabChange={this.handleTabChange.bind(this)}
+        onTabSelect={this.handleTabSelect.bind(this)}
         class={getClassNames([
           'ld-tabs',
           this.size && `ld-tabs--${this.size}`,

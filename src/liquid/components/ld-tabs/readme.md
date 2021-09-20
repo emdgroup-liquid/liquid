@@ -338,6 +338,13 @@ document.getElementById('nuts_button_2').addEventListener('click', ev => {
 | `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                           | `undefined` |
 
 
+## Events
+
+| Event       | Description                              | Type                  |
+| ----------- | ---------------------------------------- | --------------------- |
+| `tabChange` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+
+
 ----------------------------------------------
 
  
