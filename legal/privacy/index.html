@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Background Cells</title>
+  <title>Liquid – Privacy</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -1071,9 +1071,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1081,7 +1081,7 @@
                   
                     
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-bg-cells/">Background Cells</a>
             
@@ -1249,264 +1249,63 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#default">Default</a></li><li><a href="#cell-types">Cell types</a></li><li><a href="#custom-position%2C-size-and-colors">Custom position, size and colors</a></li><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#1.-general-information">1. General information</a></li><li><a href="#2.-what-kind-of-data-is-collected-and-how-is-it-used%3F">2. What kind of data is collected and how is it used?</a></li><li><a href="#3.-is-other-personal-data-collected-and-processed%3F">3. Is other personal data collected and processed?</a></li><li><a href="#4.-will-my-data-be-transferred-to-third-parties%2C-e.-g.-authorities%3F">4. Will my data be transferred to third parties, e. g. authorities?</a></li><li><a href="#5.-how-long-will-my-data-be-stored%3F">5. How long will my data be stored?</a></li><li><a href="#6.-do-i-have-a-right-to-information-and-rectification-of-my-stored-data%3F-what-other-rights-do-i-have-with-regard-to-my-stored-data%3F">6. Do I have a right to information and rectification of my stored data? What other rights do I have with regard to my stored data?</a></li><li><a href="#7.-can-i-withdraw-my-consent-to-the-use-of-my-data%3F">7. Can I withdraw my consent to the use of my data?</a></li><li><a href="#8.-who-is-my-contact-person-if-i-have-questions-about-data-protection%3F">8. Who is my contact person if I have questions about data protection?</a></li><li><a href="#9.-how-long-is-this-data-privacy-declaration-valid%3F">9. How long is this data privacy declaration valid?</a></li></ol></nav>
       </docs-toc>
     
 
     <docs-main>
       <header>
         
-          <docs-breadcrumbs>
-            
-            
-            
-              <li>
-                <a href="/liquid/components/">Components</a>
-              </li>
-            
-            <li>
-              <a href="/liquid/components/ld-bg-cells/" aria-current="page">Background Cells</a>
-            </li>
-          </docs-breadcrumbs>
-        
-        <docs-edit-on-github path="./src/liquid/components/ld-bg-cells/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/privacy.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-bg-cells">ld-bg-cells <a class="header-anchor" href="components/ld-bg-cells/#ld-bg-cells"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>A background pattern with the Merck cells as additional visual element.</p>
-<hr>
-<h2 id="default">Default <a class="header-anchor" href="components/ld-bg-cells/#default"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20class%3D%22box1-16%2F9%22%3E%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box1-16%5C%2F9%20%7B%0A%20%20%20%20padding-top%3A%2056.25%25%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box1-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">padding-top</span><span class="token punctuation">:</span> 56.25%<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells class="box1-16/9"></ld-bg-cells>
-<style>
-  .box1-16\/9 {
-    padding-top: 56.25%;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box1-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box1-16\/9 {
-    padding-top: 56.25%;
-  }
-</style> -->
-<h2 id="cell-types">Cell types <a class="header-anchor" href="components/ld-bg-cells/#cell-types"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20type%3D%22bioreliance%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20bioreliance%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22f%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20f%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22hexagon%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20hexagon%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22millipore%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20millipore%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22qa-x2f-qc%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20qa-x2f-qc%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22safc%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20safc%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22sigma-aldrich%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20sigma-aldrich%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22t%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20t%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22tile%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20tile%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box2-16%5C%2F9%20%7B%0A%20%20%20%20height%3A%2012.3046875rem%3B%0A%20%20%20%20width%3A%2021.875rem%3B%0A%20%20%7D%0A%0A%20%20.box2-16%5C%2F9%20.ld-bg-cells__content%20%7B%0A%20%20%20%20align-items%3A%20center%3B%0A%20%20%20%20color%3A%20var(--ld-col-wht)%3B%0A%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20justify-content%3A%20center%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bioreliance<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: bioreliance<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>f<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: f<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hexagon<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: hexagon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>millipore<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: millipore<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qa-x2f-qc<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: qa-x2f-qc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>safc<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: safc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sigma-aldrich<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: sigma-aldrich<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: t<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tile<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: tile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box2-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 12.3046875rem<span class="token punctuation">;</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 21.875rem<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token selector">.box2-16\/9 .ld-bg-cells__content</span> <span class="token punctuation">{</span><br>    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-wht<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells type="bioreliance" class="box2-16/9">
-  <ld-paragraph>type: bioreliance</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="f" class="box2-16/9">
-  <ld-paragraph>type: f</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="hexagon" class="box2-16/9">
-  <ld-paragraph>type: hexagon</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="millipore" class="box2-16/9">
-  <ld-paragraph>type: millipore</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="qa-x2f-qc" class="box2-16/9">
-  <ld-paragraph>type: qa-x2f-qc</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="safc" class="box2-16/9">
-  <ld-paragraph>type: safc</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="sigma-aldrich" class="box2-16/9">
-  <ld-paragraph>type: sigma-aldrich</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="t" class="box2-16/9">
-  <ld-paragraph>type: t</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="tile" class="box2-16/9">
-  <ld-paragraph>type: tile</ld-paragraph>
-</ld-bg-cells>
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--bioreliance box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: bioreliance</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--f box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: f</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--hexagon box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: hexagon</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--millipore box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: millipore</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--qa-x2f-qc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: qa-x2f-qc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--safc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: safc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--sigma-aldrich box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: sigma-aldrich</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--t box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: t</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--tile box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: tile</p>
-  </div>
-</div>
-
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
-
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style> -->
-<h2 id="custom-position%2C-size-and-colors">Custom position, size and colors <a class="header-anchor" href="components/ld-bg-cells/#custom-position%2C-size-and-colors"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20class%3D%22box3-16%2F9%22%3E%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box3-16%5C%2F9%20%7B%0A%20%20%20%20--ld-bg-cells-background-color%3A%20var(--ld-col-vm2)%3B%0A%20%20%20%20--ld-bg-cells-foreground-color%3A%20var(--ld-col-vm4)%3B%0A%20%20%20%20--ld-bg-cells-position%3A%20bottom%20left%3B%0A%20%20%20%20--ld-bg-cells-size%3A%20150%25%3B%0A%0A%20%20%20%20padding-top%3A%2056.25%25%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box3-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box3-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">--ld-bg-cells-background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-vm2<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-foreground-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-vm4<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-position</span><span class="token punctuation">:</span> bottom left<span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-size</span><span class="token punctuation">:</span> 150%<span class="token punctuation">;</span><br><br>    <span class="token property">padding-top</span><span class="token punctuation">:</span> 56.25%<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells class="box3-16/9"></ld-bg-cells>
-<style>
-  .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm2);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm4);
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
-    padding-top: 56.25%;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box3-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm2);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm4);
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
-
-    padding-top: 56.25%;
-  }
-</style> -->
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-bg-cells/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-bg-cells-background-color</code></td>
-<td>Background color</td>
-<td>Primary color of the current theme</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-foreground-color</code></td>
-<td>Foreground color (cells)</td>
-<td>Secondary color of the current theme</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-position</code></td>
-<td>Position of the cells</td>
-<td>Individual per cell type</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-size</code></td>
-<td>Size of the cells</td>
-<td>Individual per cell type</td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-bg-cells/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td><code>type</code></td>
-<td>Cells pattern</td>
-<td><code>&quot;bioreliance&quot; \| &quot;f&quot; \| &quot;hexagon&quot; \| &quot;millipore&quot; \| &quot;qa-x2f-qc&quot; \| &quot;safc&quot; \| &quot;sigma-aldrich&quot; \| &quot;t&quot; \| &quot;tile&quot;</code></td>
-<td><code>'safc'</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
+      <h1 id="privacy-statement">Privacy Statement <a class="header-anchor" href="legal/privacy/#privacy-statement"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="1.-general-information">1. General information <a class="header-anchor" href="legal/privacy/#1.-general-information"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Thank you for your interest in the Liquid Design System website of Merck KGaA, Darmstadt, Germany. We take data protection and privacy issues very seriously and comply with the applicable national and European data protection regulations. Therefore, we would like to inform you with this declaration about data protection measures and which data we may store and how we use this data.</p>
+<h2 id="2.-what-kind-of-data-is-collected-and-how-is-it-used%3F">2. What kind of data is collected and how is it used? <a class="header-anchor" href="legal/privacy/#2.-what-kind-of-data-is-collected-and-how-is-it-used%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Whenever a user accesses the website, the user’s internet browser automatically transfers the following data to Merck KGaA, Darmstadt, Germany’s web server for technical reasons:</p>
+<ul>
+<li>IP address of the requesting computer</li>
+<li>date and time of access</li>
+<li>name and URL of the retrieved file</li>
+<li>access status (file transferred, file not found etc.)</li>
+</ul>
+<p>This data is collected, processed and used for the purpose of enabling the use of the website (connection setup), system security and technical administration of the network infrastructure. A comparison with other databases or a transfer to third parties, also in excerpts, does not take place. The legal basis for processing is Art. 6 para. 1 b GDPR.</p>
+<h2 id="3.-is-other-personal-data-collected-and-processed%3F">3. Is other personal data collected and processed? <a class="header-anchor" href="legal/privacy/#3.-is-other-personal-data-collected-and-processed%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>We collect and process your personal data only if you request certain services and we need your data for this purpose or if you have voluntarily given us your express consent. The legal basis for processing is Art. 6 Para. 1 b GDPR and Art. 6 Para. 1 a GDPR.</p>
+<p>You can do this, for example, by sending us an email or submitting inquiries to us. Unless otherwise required by law, we will only use your personal data for the purposes for which you have given your consent.</p>
+<p>For special services such as newsletters, sweepstakes etc. the respective special data protection provisions apply.</p>
+<h2 id="4.-will-my-data-be-transferred-to-third-parties%2C-e.-g.-authorities%3F">4. Will my data be transferred to third parties, e. g. authorities? <a class="header-anchor" href="legal/privacy/#4.-will-my-data-be-transferred-to-third-parties%2C-e.-g.-authorities%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>At Merck KGaA, Darmstadt, Germany, those bodies within Merck KGaA, Darmstadt, Germany receive your data that are required to fulfill our contractual and legal obligations. Some data must be disclosed under strict contractual and legal requirements:</p>
+<ul>
+<li><strong>Due to legal obligation</strong>: <br/>
+In certain cases, we are required by law to transfer data to a requesting public authority.Upon submission of a court order, we are obliged pursuant to § 101 of the German Copyright Act to provide owners of copyright and ancillary copyrights with information about customers who are alleged to have offered copyright-protected works on internet file-sharing sites. In these cases, our information contains the user ID of an IP address allocated at the time requested and, if known, the name and address of the customer. <br/> In other respects, personal data will only be transferred to state institutions and public authorities within the framework of mandatory national legal provisions or if disclosure is necessary in the event of attacks on the network infrastructure for legal or criminal prosecution. The legal basis for processing is Art. 6 Para. 1 c GDPR or § 24 Para. 2 No. 1 German Federal Data Protection Act.</li>
+<li><strong>To external service providers for data processing</strong>: <br/>
+When service providers get access to our customers’ personal data, this usually takes place in the course of so-called order processing of personal data. This is expressly provided for by law. In this case, Merck KGaA, Darmstadt, Germany remains responsible for the protection of your data – in addition, the processor may also be responsible. The service provider works strictly in accordance with our instructions, which we ensure by means of strict contractual regulations, technical and organizational measures and supplementary controls. Merck KGaA, Darmstadt, Germany works with service suppliers as processors. These are Merck KGaA, Darmstadt, Germany Group companies and service providers for IT services (e. g. for technical-administrative tasks and for usage analysis), telecommunications, consulting and advisory services as well as sales and marketing.The data protection regulations for instruction-bound order processing of personal data are complied with.</li>
+<li><strong>To Merck KGaA, Darmstadt, Germany Group companies</strong>: <br/>
+Merck KGaA, Darmstadt, Germany may transfer your personal data to Merck KGaA, Darmstadt, Germany Group companies in order to carry out a business relationship with you or for the purposes of legitimate interests.If data are transferred abroad, they are based within the EU or the EEA or in a country which, according to the decision of the EU Commission, has an appropriate level of data protection. In the case of data transfers to Merck KGaA, Darmstadt, Germany Group companies domiciled in other countries, Merck KGaA, Darmstadt, Germany ensures by way of guarantees that the data-importing Merck KGaA, Darmstadt, Germany Group company has been obligated to an appropriate level of data protection. <br/> Beyond this, we do not transfer data to third parties unless you have given your express consent, the transfer is obviously necessary for the provision of an offer or service requested by you or this is provided for by law. We also do not intend to transfer your data beyond this to a third country or international organization.</li>
+</ul>
+<h2 id="5.-how-long-will-my-data-be-stored%3F">5. How long will my data be stored? <a class="header-anchor" href="legal/privacy/#5.-how-long-will-my-data-be-stored%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>We store data for as long as it is legally necessary or necessary for the provision of the service requested by you, or as long as it has been agreed upon in a declaration of consent.</p>
+<h2 id="6.-do-i-have-a-right-to-information-and-rectification-of-my-stored-data%3F-what-other-rights-do-i-have-with-regard-to-my-stored-data%3F">6. Do I have a right to information and rectification of my stored data? What other rights do I have with regard to my stored data? <a class="header-anchor" href="legal/privacy/#6.-do-i-have-a-right-to-information-and-rectification-of-my-stored-data%3F-what-other-rights-do-i-have-with-regard-to-my-stored-data%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>You may at any time and free of charge request information about the scope, origin and recipients of the stored data as well as the purpose of the storage; in addition, you have the right to rectification, erasure or restriction of the processing of your data in accordance with data protection regulations, a right to object to the processing as well as a right to data portability. Please note that there is a right of appeal to a supervisory authority.</p>
+<h2 id="7.-can-i-withdraw-my-consent-to-the-use-of-my-data%3F">7. Can I withdraw my consent to the use of my data? <a class="header-anchor" href="legal/privacy/#7.-can-i-withdraw-my-consent-to-the-use-of-my-data%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>You have the right to withdraw your consent to the use of your data at any time. Just send an email to <a href="mailto:liquid@merckgroup.com">liquid@merckgroup.com</a></p>
+<p>or send a letter to the following address:</p>
+<p>Merck KGaA<br/>
+Frankfurter Str. 250<br/>
+64293 Darmstadt<br/>
+Germany</p>
+<h2 id="8.-who-is-my-contact-person-if-i-have-questions-about-data-protection%3F">8. Who is my contact person if I have questions about data protection? <a class="header-anchor" href="legal/privacy/#8.-who-is-my-contact-person-if-i-have-questions-about-data-protection%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>If you have any questions or comments, please feel free to contact the Group Data Protection Officer of Merck KGaA, Darmstadt, Germany at any time:</p>
+<p>Group Data Protection Officer<br/>
+Frankfurter Strasse 250<br/>
+64293 Darmstadt<br/>
+Germany</p>
+<h2 id="9.-how-long-is-this-data-privacy-declaration-valid%3F">9. How long is this data privacy declaration valid? <a class="header-anchor" href="legal/privacy/#9.-how-long-is-this-data-privacy-declaration-valid%3F"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>This data privacy declaration is up-to-date and dates from March 1, 2021. We reserve the right to amend the data privacy declaration at any time with effect for the future, in particular to adapt it to a further development of the website or the implementation of new technologies.</p>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
       
     </docs-main>
 

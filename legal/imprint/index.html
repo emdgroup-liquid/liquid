@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Background Cells</title>
+  <title>Liquid – Imprint</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -1071,9 +1071,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
                 </summary>
@@ -1081,7 +1081,7 @@
                   
                     
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-bg-cells/">Background Cells</a>
             
@@ -1249,264 +1249,48 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#default">Default</a></li><li><a href="#cell-types">Cell types</a></li><li><a href="#custom-position%2C-size-and-colors">Custom position, size and colors</a></li><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol></nav>
+        <ol><li><a href="#address">Address</a></li><li><a href="#details">Details</a></li></ol></nav>
       </docs-toc>
     
 
     <docs-main>
       <header>
         
-          <docs-breadcrumbs>
-            
-            
-            
-              <li>
-                <a href="/liquid/components/">Components</a>
-              </li>
-            
-            <li>
-              <a href="/liquid/components/ld-bg-cells/" aria-current="page">Background Cells</a>
-            </li>
-          </docs-breadcrumbs>
-        
-        <docs-edit-on-github path="./src/liquid/components/ld-bg-cells/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/imprint.md"></docs-edit-on-github>
       </header>
-      <h1 id="ld-bg-cells">ld-bg-cells <a class="header-anchor" href="components/ld-bg-cells/#ld-bg-cells"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>A background pattern with the Merck cells as additional visual element.</p>
-<hr>
-<h2 id="default">Default <a class="header-anchor" href="components/ld-bg-cells/#default"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20class%3D%22box1-16%2F9%22%3E%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box1-16%5C%2F9%20%7B%0A%20%20%20%20padding-top%3A%2056.25%25%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box1-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">padding-top</span><span class="token punctuation">:</span> 56.25%<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells class="box1-16/9"></ld-bg-cells>
-<style>
-  .box1-16\/9 {
-    padding-top: 56.25%;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box1-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box1-16\/9 {
-    padding-top: 56.25%;
-  }
-</style> -->
-<h2 id="cell-types">Cell types <a class="header-anchor" href="components/ld-bg-cells/#cell-types"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20type%3D%22bioreliance%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20bioreliance%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22f%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20f%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22hexagon%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20hexagon%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22millipore%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20millipore%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22qa-x2f-qc%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20qa-x2f-qc%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22safc%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20safc%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22sigma-aldrich%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20sigma-aldrich%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22t%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20t%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%3Cld-bg-cells%20type%3D%22tile%22%20class%3D%22box2-16%2F9%22%3E%0A%20%20%3Cld-paragraph%3Etype%3A%20tile%3C%2Fld-paragraph%3E%0A%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box2-16%5C%2F9%20%7B%0A%20%20%20%20height%3A%2012.3046875rem%3B%0A%20%20%20%20width%3A%2021.875rem%3B%0A%20%20%7D%0A%0A%20%20.box2-16%5C%2F9%20.ld-bg-cells__content%20%7B%0A%20%20%20%20align-items%3A%20center%3B%0A%20%20%20%20color%3A%20var(--ld-col-wht)%3B%0A%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20justify-content%3A%20center%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bioreliance<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: bioreliance<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>f<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: f<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hexagon<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: hexagon<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>millipore<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: millipore<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qa-x2f-qc<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: qa-x2f-qc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>safc<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: safc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sigma-aldrich<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: sigma-aldrich<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>t<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: t<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tile<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-paragraph</span><span class="token punctuation">></span></span>type: tile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-paragraph</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box2-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">height</span><span class="token punctuation">:</span> 12.3046875rem<span class="token punctuation">;</span><br>    <span class="token property">width</span><span class="token punctuation">:</span> 21.875rem<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token selector">.box2-16\/9 .ld-bg-cells__content</span> <span class="token punctuation">{</span><br>    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-wht<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>    <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells type="bioreliance" class="box2-16/9">
-  <ld-paragraph>type: bioreliance</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="f" class="box2-16/9">
-  <ld-paragraph>type: f</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="hexagon" class="box2-16/9">
-  <ld-paragraph>type: hexagon</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="millipore" class="box2-16/9">
-  <ld-paragraph>type: millipore</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="qa-x2f-qc" class="box2-16/9">
-  <ld-paragraph>type: qa-x2f-qc</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="safc" class="box2-16/9">
-  <ld-paragraph>type: safc</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="sigma-aldrich" class="box2-16/9">
-  <ld-paragraph>type: sigma-aldrich</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="t" class="box2-16/9">
-  <ld-paragraph>type: t</ld-paragraph>
-</ld-bg-cells>
-<ld-bg-cells type="tile" class="box2-16/9">
-  <ld-paragraph>type: tile</ld-paragraph>
-</ld-bg-cells>
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--bioreliance box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: bioreliance</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--f box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: f</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--hexagon box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: hexagon</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--millipore box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: millipore</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--qa-x2f-qc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: qa-x2f-qc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--safc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: safc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--sigma-aldrich box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: sigma-aldrich</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--t box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: t</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--tile box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-paragraph">type: tile</p>
-  </div>
-</div>
-
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
-
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style> -->
-<h2 id="custom-position%2C-size-and-colors">Custom position, size and colors <a class="header-anchor" href="components/ld-bg-cells/#custom-position%2C-size-and-colors"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<docs-example code="%3Cld-bg-cells%20class%3D%22box3-16%2F9%22%3E%3C%2Fld-bg-cells%3E%0A%0A%3Cstyle%3E%0A%20%20.box3-16%5C%2F9%20%7B%0A%20%20%20%20--ld-bg-cells-background-color%3A%20var(--ld-col-vm2)%3B%0A%20%20%20%20--ld-bg-cells-foreground-color%3A%20var(--ld-col-vm4)%3B%0A%20%20%20%20--ld-bg-cells-position%3A%20bottom%20left%3B%0A%20%20%20%20--ld-bg-cells-size%3A%20150%25%3B%0A%0A%20%20%20%20padding-top%3A%2056.25%25%3B%0A%20%20%7D%0A%3C%2Fstyle%3E"  themable>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-bg-cells</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box3-16/9<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-bg-cells</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br>  <span class="token selector">.box3-16\/9</span> <span class="token punctuation">{</span><br>    <span class="token property">--ld-bg-cells-background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-vm2<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-foreground-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--ld-col-vm4<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-position</span><span class="token punctuation">:</span> bottom left<span class="token punctuation">;</span><br>    <span class="token property">--ld-bg-cells-size</span><span class="token punctuation">:</span> 150%<span class="token punctuation">;</span><br><br>    <span class="token property">padding-top</span><span class="token punctuation">:</span> 56.25%<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-bg-cells class="box3-16/9"></ld-bg-cells>
-<style>
-  .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm2);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm4);
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
-    padding-top: 56.25%;
-  }
-</style></div></docs-example>
-<!-- CSS component -->
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box3-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm2);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm4);
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
-
-    padding-top: 56.25%;
-  }
-</style> -->
-<h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-bg-cells/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--ld-bg-cells-background-color</code></td>
-<td>Background color</td>
-<td>Primary color of the current theme</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-foreground-color</code></td>
-<td>Foreground color (cells)</td>
-<td>Secondary color of the current theme</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-position</code></td>
-<td>Position of the cells</td>
-<td>Individual per cell type</td>
-</tr>
-<tr>
-<td><code>--ld-bg-cells-size</code></td>
-<td>Size of the cells</td>
-<td>Individual per cell type</td>
-</tr>
-</tbody>
-</table>
-<!-- Auto Generated Below -->
-<h2 id="properties">Properties <a class="header-anchor" href="components/ld-bg-cells/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string \| number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td><code>type</code></td>
-<td>Cells pattern</td>
-<td><code>&quot;bioreliance&quot; \| &quot;f&quot; \| &quot;hexagon&quot; \| &quot;millipore&quot; \| &quot;qa-x2f-qc&quot; \| &quot;safc&quot; \| &quot;sigma-aldrich&quot; \| &quot;t&quot; \| &quot;tile&quot;</code></td>
-<td><code>'safc'</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
+      <h1 id="imprint">Imprint <a class="header-anchor" href="legal/imprint/#imprint"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="address">Address <a class="header-anchor" href="legal/imprint/#address"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Merck KGaA
+Frankfurter Strasse 250
+64293 Darmstadt
+Germany</p>
+<p>Phone: <a href="tel:00496151720">+49 6151 72-0</a><br/>
+Telefax: +49 6151 72-2000</p>
+<p>Email to the User Experience Strategy &amp; Design team, Chief Digital Organization: <a href="mailto:liquid@merckgroup.com">liquid@merckgroup.com</a><br/>
+Company Website: <a href="https://www.merckgroup.com">www.merckgroup.com</a></p>
+<h2 id="details">Details <a class="header-anchor" href="legal/imprint/#details"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p><strong>Legal form</strong>: Corporation with general partners
+<strong>Commercial Register</strong>: AG Darmstadt HRB 6164
+<strong>Registered Office</strong>: Darmstadt
+<strong>Chairman of the Supervisory Board</strong>: Dr. Wolfgang Büchele</p>
+<p><strong>Executive Board</strong>: <br/>
+Dr. Stefan Oschmann (Chairman &amp; CEO) <br/>
+Belén Garijo, MD (Stellvertretende Vorsitzende, stellvertretender CEO &amp; CEO Healthcare) <br/>
+Dr. Kai Beckmann (CEO Performance Materials) <br/>
+Dr. Marcus Kuhnert (CFO)</p>
+<p><strong>Value Added Tax Identification Number (VAT ID)</strong>: DE 811850788</p>
+<p><strong>Competent Governmental Authority</strong>: Regierungspräsidium Darmstadt (Germany).</p>
+<p>This imprint is also valid for the Social Media platforms of the Merck Group e. g. for the site www.facebook.com/MerckGroup.</p>
+<p><strong>Responsible for the content according to § 55 Abs. 2 RStV (German)</strong>: <br/>
+Paul Svoboda <br/>
+Merck KGaA <br/>
+Frankfurter Straße 250 <br/>
+64293 Darmstadt <br/>
+Germany</p>
+<p>You may also have a look at our <a href="legal/privacy">privacy statement</a> to see that we take data protection and confidentiality very seriously and on our site do not make further use of your social media contributions.</p>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
       
     </docs-main>
 

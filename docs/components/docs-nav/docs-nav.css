@@ -193,20 +193,35 @@ body:not(.safari) {
   font-weight: 700;
 }
 
-.docs-nav__footer-links {
+.docs-nav__contact-links,
+.docs-nav__legal-links {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: var(--ld-sp-12);
 
   a {
     opacity: 0.8;
-    margin-right: var(--ld-sp-24);
 
     @media (hover: hover) {
       &:hover {
         opacity: 1;
       }
     }
+  }
+}
+
+.docs-nav__contact-links {
+  flex-wrap: wrap;
+  margin-top: var(--ld-sp-12);
+
+  a {
+    margin-right: var(--ld-sp-24);
+  }
+}
+
+.docs-nav__legal-links {
+  flex-direction: column;
+
+  a:not(:first-of-type) {
+    margin-top: var(--ld-sp-12);
   }
 }
 
