@@ -1,5 +1,4 @@
 import { newSpecPage } from '@stencil/core/testing'
-// import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdTabs } from '../ld-tabs'
 import { LdTablist } from '../ld-tablist'
 import { LdTab } from '../ld-tab'
