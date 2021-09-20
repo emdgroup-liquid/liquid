@@ -63,34 +63,39 @@ export class DocsNav {
             </nav>
           </div>
           <div class="docs-nav__section">
-            <div class="docs-nav__footer">
-              <p>
-                <span class="docs-nav__dimmed">
-                  © 2021, Merck KGaA, Darmstadt,&nbsp;Germany
-                </span>
-              </p>
-              <br />
-              <p>
-                <span class="docs-nav__dimmed">Get in touch:</span>
-                <div class="docs-nav__footer-links">
-                  <a
-                    href="https://github.com/emdgroup-liquid/liquid/discussions"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    GitHub discussions
-                  </a>
-                  <br />
-                  <a
-                    href="https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Teams
-                  </a>
-                </div>
-              </p>
-            </div>
+            <p>
+              <span class="docs-nav__dimmed">
+                © 2021, Merck KGaA, Darmstadt,&nbsp;Germany
+              </span>
+            </p>
+            <br />
+            <p>
+              <span class="docs-nav__dimmed">Get in touch:</span>
+              <span class="docs-nav__contact-links">
+                <a
+                  href="https://github.com/emdgroup-liquid/liquid/discussions"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  GitHub discussions
+                </a>
+                <br />
+                <a
+                  href="https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Teams
+                </a>
+              </span>
+            </p>
+          </div>
+          <div class="docs-nav__section">
+            <p class="docs-nav__legal-links">
+              <a href="legal/privacy">Privacy Statement</a>
+              <a href="legal/terms">Terms and Conditions</a>
+              <a href="legal/imprint">Imprint</a>
+            </p>
           </div>
         </div>
       </Host>
