@@ -123,7 +123,7 @@ export class LdTablist {
       >
         <button
           onClick={this.scroll.bind(this, 'left')}
-          ref={(el) => (this.btnScrollLeftRef = el as HTMLButtonElement)}
+          ref={(el) => (this.btnScrollLeftRef = el)}
           aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
           class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
           tabindex="-1"
