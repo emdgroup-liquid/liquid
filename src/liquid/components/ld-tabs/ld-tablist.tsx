@@ -16,7 +16,6 @@ export class LdTablist {
 
   private slotContainerRef!: HTMLElement
   private btnScrollLeftRef!: HTMLButtonElement
-  // private btnScrollRightRef!: HTMLButtonElement
 
   @State() scrollable: boolean
   @State() scrollLeftEnabled: boolean
@@ -147,7 +146,7 @@ export class LdTablist {
         </button>
         <div
           class="ld-tablist__scroll-container"
-          ref={(el) => (this.slotContainerRef = el as HTMLElement)}
+          ref={(el) => (this.slotContainerRef = el)}
           onScroll={this.updateScrollButtons.bind(this)}
         >
           <slot></slot>
