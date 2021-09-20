@@ -41,9 +41,9 @@ export class LdTabs {
 
   private updateTabPanels(currentLdTab) {
     const tabId = currentLdTab.querySelector('[role="tab"]').id
-    this.el.querySelectorAll('[role="tabpanel"]').forEach((tabpanel) => {
-      tabpanel.closest('ld-tabpanel').classList.add('ld-tabpanel--hidden')
-    })
+    this.el
+      .querySelector('ld-tabpanel:not(.ld-tabpanel--hidden)')
+      ?.classList.add('ld-tabpanel--hidden')
     this.el
       .querySelector(`[aria-labelledby="${tabId}"]`)
       ?.closest('ld-tabpanel')
