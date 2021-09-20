@@ -192,22 +192,8 @@ describe('ld-tabs', () => {
 
       const tabBtn0 = ldTabItems[0].querySelector('button')
       const tabBtn2 = ldTabItems[2].querySelector('button')
-
-      expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
-      expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
-
       const ldTabpanel0 = ldTabpanels[0]
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
-
-      expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
-      expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
-
       const ldTabpanel2 = ldTabpanels[2]
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
 
       ldTabItems[2].scrollIntoView = jest.fn()
       const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
