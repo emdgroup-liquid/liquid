@@ -34,7 +34,7 @@ export class LdTab {
   /**
    * Emitted with the id of the selected tab.
    */
-  @Event() tabChange: EventEmitter<string>
+  @Event() tabSelect: EventEmitter<string>
 
   private handleTabClick(ev) {
     ev.preventDefault()
@@ -55,7 +55,7 @@ export class LdTab {
       this.el
     )
 
-    this.tabChange.emit(index)
+    this.tabSelect.emit(index)
   }
 
   render() {
