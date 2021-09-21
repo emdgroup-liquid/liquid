@@ -66,4 +66,4 @@ return (
 )
 ```
 
-<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Tailwind CSS Integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="React bindings" next-href="introduction/react-bindings/"></docs-page-nav>
