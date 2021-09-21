@@ -1,21 +1,9 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "baseUrl": ".",
     "declaration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "lib": ["dom", "es2017"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "target": "es2017"
+    "jsxFactory": "React.createElement",
+    "outDir": "dist"
   },
   "include": ["./src/react.ts"],
   "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]

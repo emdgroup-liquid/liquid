@@ -29,7 +29,8 @@ UserInterfaceState.xcuserstate
 src/**/components.d.ts
 
 # Stencil React bindings
-src/react.ts
+src/react.js
+src/react.d.ts
 src/react-component-lib
 
 .husky
