@@ -8,18 +8,18 @@
   height: var(--ld-toggle-height);
   min-width: auto !important;
   position: relative;
-  /* animations triggered by user interactions on single component instances are probably not a performance issue */
-  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: background-color 200ms ease-in-out;
   width: var(--ld-toggle-width);
 
   input {
+    appearance: none;
     background-color: var(--ld-col-rblck4);
     border-radius: var(--ld-br-full);
-    appearance: none;
-    position: absolute;
-    width: 100%;
     height: 100%;
+    position: absolute;
+    /* animations triggered by user interactions on single component instances are probably not a performance issue */
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    transition: background-color 200ms ease-in-out;
+    width: 100%;
     z-index: 0;
     margin: 0;
 

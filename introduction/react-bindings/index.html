@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Imprint</title>
+  <title>Liquid – React bindings</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -940,9 +940,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
                   <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
                 </summary>
@@ -998,7 +998,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/react-bindings/">React bindings</a>
             
@@ -1280,48 +1280,39 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#address">Address</a></li><li><a href="#details">Details</a></li></ol></nav>
+        <ol><li><a href="#custom-elements-are-defined-automatically">Custom Elements are defined automatically</a></li></ol></nav>
       </docs-toc>
     
 
     <docs-main>
       <header>
         
-        <docs-edit-on-github path="./src/docs/pages/imprint.md"></docs-edit-on-github>
+          <docs-breadcrumbs>
+            
+            
+            
+              <li>
+                <a href="/liquid/">Introduction</a>
+              </li>
+            
+            <li>
+              <a href="/liquid/introduction/react-bindings/" aria-current="page">React bindings</a>
+            </li>
+          </docs-breadcrumbs>
+        
+        <docs-edit-on-github path="./src/docs/pages/react-bindings.md"></docs-edit-on-github>
       </header>
-      <h1 id="imprint">Imprint <a class="header-anchor" href="legal/imprint/#imprint"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<h2 id="address">Address <a class="header-anchor" href="legal/imprint/#address"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>Merck KGaA
-Frankfurter Strasse 250
-64293 Darmstadt
-Germany</p>
-<p>Phone: <a href="tel:00496151720">+49 6151 72-0</a><br/>
-Telefax: +49 6151 72-2000</p>
-<p>Email to the User Experience Strategy &amp; Design team, Chief Digital Organization: <a href="mailto:liquid@merckgroup.com">liquid@merckgroup.com</a><br/>
-Company Website: <a href="https://www.merckgroup.com">www.merckgroup.com</a></p>
-<h2 id="details">Details <a class="header-anchor" href="legal/imprint/#details"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p><strong>Legal form</strong>: Corporation with general partners
-<strong>Commercial Register</strong>: AG Darmstadt HRB 6164
-<strong>Registered Office</strong>: Darmstadt
-<strong>Chairman of the Supervisory Board</strong>: Dr. Wolfgang Büchele</p>
-<p><strong>Executive Board</strong>: <br/>
-Dr. Stefan Oschmann (Chairman &amp; CEO) <br/>
-Belén Garijo, MD (Stellvertretende Vorsitzende, stellvertretender CEO &amp; CEO Healthcare) <br/>
-Dr. Kai Beckmann (CEO Performance Materials) <br/>
-Dr. Marcus Kuhnert (CFO)</p>
-<p><strong>Value Added Tax Identification Number (VAT ID)</strong>: DE 811850788</p>
-<p><strong>Competent Governmental Authority</strong>: Regierungspräsidium Darmstadt (Germany).</p>
-<p>This imprint is also valid for the Social Media platforms of the Merck Group e. g. for the site www.facebook.com/MerckGroup.</p>
-<p><strong>Responsible for the content according to § 55 Abs. 2 RStV (German)</strong>: <br/>
-Paul Svoboda <br/>
-Merck KGaA <br/>
-Frankfurter Straße 250 <br/>
-64293 Darmstadt <br/>
-Germany</p>
-<p>You may also have a look at our <a href="legal/privacy">privacy statement</a> to see that we take data protection and confidentiality very seriously and on our site do not make further use of your social media contributions.</p>
+      <h1 id="react-bindings">React Bindings <a class="header-anchor" href="introduction/react-bindings/#react-bindings"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Setting event listeners via <code>on&lt;EventName&gt;</code>-prop on Liquid Oxygen Web Components does not work properly in React. For this reason, we provide special React bindings for Liquid Oxygen. They allow you to set event listeners via prop just like you are used to do in React without having to use <code>reference</code>.</p>
+<p>All you need to do is to import and use the React binding of a Liquid Oxygen component instead of using the web component directly.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/react'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> buttonProps <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>  <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span><br>  <span class="token operator">&lt;</span>LdButton <span class="token punctuation">{</span><span class="token operator">...</span>buttonProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><br>  <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span><br><span class="token punctuation">)</span></code></pre>
+<h2 id="custom-elements-are-defined-automatically">Custom Elements are defined automatically <a class="header-anchor" href="introduction/react-bindings/#custom-elements-are-defined-automatically"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>A positive side-effect of using React bindings is, that you do not need to call the <code>defineCustomElements</code> method manually, as the React bindings automatically take care of that.</p>
+<p>For more details on React integration read the <a href="https://stenciljs.com/docs/react">Stencil documentation</a>.</p>
+<p><docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["renet"]'></docs-contributors>
       
     </docs-main>
 

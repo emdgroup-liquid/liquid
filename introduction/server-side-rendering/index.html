@@ -105,6 +105,29 @@
         
           
             {
+              title: 'React bindings',
+              tags: '',
+              url: '/liquid/introduction/react-bindings/',
+              headings: 'Custom Elements are defined automatically',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'React bindings'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Sandbox applications',
               tags: '',
               url: '/liquid/introduction/sandbox-applications/',
@@ -977,6 +1000,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/introduction/react-bindings/">React bindings</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/introduction/tailwindcss-integration/">Tailwind CSS integration</a>
             
           </li>
@@ -1289,10 +1320,10 @@
 <pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">typeof</span> window <span class="token operator">===</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">click me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
 <p>For convenience, you can create a conditional object which holds all your handlers on client-side and then reference your handlers via that object:</p>
 <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> methods <span class="token operator">=</span> <span class="token keyword">typeof</span> window <span class="token operator">===</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">:</span> <span class="token punctuation">{</span><br>  <span class="token function-variable function">handleClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment">/* ... */</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token keyword">return</span> <span class="token punctuation">(</span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>methods<span class="token punctuation">.</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">click me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token punctuation">)</span></code></pre>
-<p><docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Tailwind CSS Integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav></p>
+<p><docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="React bindings" next-href="introduction/react-bindings/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 
