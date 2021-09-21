@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.9](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2021-09-21)
+
+
+### Bug Fixes
+
+* **ld-button:** active states on safari ([37ba9ef](https://github.com/emdgroup-liquid/liquid/commit/37ba9ef2d16a6a7fc75c1695324c4e85b9feff29))
+* **ld-button:** progress bar overflow issue on safari ([c02d350](https://github.com/emdgroup-liquid/liquid/commit/c02d350d300584f09b8f6c56940b5083906c1830)), closes [#32](https://github.com/emdgroup-liquid/liquid/issues/32)
+* **ld-select:** swap more indicator color and background-color ([848d82c](https://github.com/emdgroup-liquid/liquid/commit/848d82ca5c9f7109cb040b5562ada4fbdafa8ec1))
+* **ld-tabs:** emit tab change event from within the ld-tabs component ([28b8185](https://github.com/emdgroup-liquid/liquid/commit/28b81854c142b48d472e7dd85cab2bc4bebb3368))
+
+
+### Features
+
+* add react bindings ([b93b93c](https://github.com/emdgroup-liquid/liquid/commit/b93b93c27e078b4a7fe2fd765deab63f302d920d))
+* **ld-tabs:** scrollable tab list ([9ad487a](https://github.com/emdgroup-liquid/liquid/commit/9ad487add3f4a5eacb93af69f661e12f9620b2dc))
+* **ld-tabs:** support full width tabs ([6201704](https://github.com/emdgroup-liquid/liquid/commit/62017045990c62071e8f24a0d94de5ed0e2c2ece))
+* **ld-tabs:** tabs tablist tab tabpanellist tabpanel ([b50de93](https://github.com/emdgroup-liquid/liquid/commit/b50de93e72f6431849d6771b43ffe88a96772273))
+
 # [1.0.0-rc.8](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-09-02)
 
 
