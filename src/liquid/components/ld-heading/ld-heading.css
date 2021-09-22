@@ -1,3 +1,10 @@
+:host {
+  /* Reset within the shadow DOM. */
+  .ld-heading {
+    margin: 0;
+  }
+}
+
 :where(ld-heading) {
   display: block;
 }
