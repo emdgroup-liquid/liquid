@@ -11,10 +11,12 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 @Component({
   tag: 'ld-heading',
   styleUrl: 'ld-heading.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdHeading {
-  @Element() el: HTMLHeadingElement
+  @Element() el: HTMLElement
+
+  private headingRef: HTMLHeadingElement
 
   /** The heading level. */
   @Prop() level!: 1 | 2 | 3 | 4 | 5 | 6 | '1' | '2' | '3' | '4' | '5' | '6'
@@ -104,10 +106,9 @@ export class LdHeading {
       this.visualLevel?.indexOf('b') === 0 ||
       this.visualLevel?.indexOf('xb') === 0
     if (isBHeading) {
-      const heading = this.el.querySelector('.ld-heading')
-      heading.setAttribute(
+      this.headingRef.setAttribute(
         'aria-label',
-        this.ariaLabel || heading.innerHTML.trim()
+        this.ariaLabel || this.el.innerHTML.trim()
       )
     }
   }
@@ -130,6 +131,7 @@ export class LdHeading {
     return (
       <HTag
         class={cl}
+        ref={(ref: HTMLHeadingElement) => (this.headingRef = ref)}
         {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
       >
         <slot></slot>

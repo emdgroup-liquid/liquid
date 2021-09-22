@@ -9,7 +9,7 @@ import { Component, h, Prop, getAssetPath } from '@stencil/core'
   assetsDirs: ['assets'],
   tag: 'ld-input-message',
   styleUrl: 'ld-input-message.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdInputMessage {
   /** Input message mode. */
