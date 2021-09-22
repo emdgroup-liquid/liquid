@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Method,
   Prop,
   Watch,
 } from '@stencil/core'
@@ -16,10 +17,12 @@ import {
 @Component({
   tag: 'ld-tab',
   styleUrl: 'ld-tab.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTab {
   @Element() el: HTMLElement
+
+  private btnRef: HTMLButtonElement
 
   /**
    * If present, this boolean attribute indicates that the tab is selected.
@@ -30,6 +33,14 @@ export class LdTab {
    * Disables the tab.
    */
   @Prop() disabled?: boolean
+
+  /**
+   * asdf
+   */
+  @Method()
+  async focusTab() {
+    this.btnRef.focus({ preventScroll: true })
+  }
 
   /**
    * Emitted with the id of the selected tab.
@@ -50,17 +61,13 @@ export class LdTab {
   emitEvent(newSelected: boolean, oldSelected: boolean) {
     if (!newSelected || newSelected === oldSelected) return
 
-    const index = Array.prototype.indexOf.call(
-      this.el.closest('.ld-tablist__scroll-container').children,
-      this.el
-    )
-
-    this.tabSelect.emit(index)
+    this.tabSelect.emit()
   }
 
   render() {
     return (
       <button
+        ref={(el) => (this.btnRef = el as HTMLButtonElement)}
         class="ld-tab"
         role="tab"
         aria-selected={this.selected ? 'true' : undefined}

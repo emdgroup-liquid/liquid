@@ -19,7 +19,7 @@ let tabsCount = 0
 @Component({
   tag: 'ld-tabs',
   styleUrl: 'ld-tabs.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTabs {
   @Element() el: HTMLElement
@@ -41,10 +41,7 @@ export class LdTabs {
   private idDescriber = `ld-tabs-${tabsCount++}`
 
   private updateTabs(currentLdTab) {
-    this.el
-      .querySelector('[aria-selected="true"]')
-      ?.closest('ld-tab')
-      .removeAttribute('selected')
+    this.el.querySelector('[selected]')?.removeAttribute('selected')
     currentLdTab.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -52,44 +49,47 @@ export class LdTabs {
     })
   }
 
-  private updateTabPanels(currentLdTab) {
-    const tabId = currentLdTab.querySelector('[role="tab"]').id
+  private updateTabPanels(tabId: string) {
     this.el
-      .querySelector('ld-tabpanel:not(.ld-tabpanel--hidden)')
-      ?.classList.add('ld-tabpanel--hidden')
+      .querySelector('ld-tabpanel:not([hidden])')
+      ?.setAttribute('hidden', undefined)
     this.el
       .querySelector(`[aria-labelledby="${tabId}"]`)
-      ?.closest('ld-tabpanel')
-      .classList.remove('ld-tabpanel--hidden')
+      ?.removeAttribute('hidden')
   }
 
   private handleTabSelect(ev) {
+    const index = Array.prototype.indexOf.call(
+      this.el.querySelector('ld-tablist').children,
+      ev.target
+    )
+
     ev.stopImmediatePropagation()
     const currentLdTab = ev.target
     this.updateTabs(currentLdTab)
-    this.updateTabPanels(currentLdTab)
-    this.tabChange.emit(ev.detail)
+    this.updateTabPanels(currentLdTab.id)
+    this.tabChange.emit(index)
   }
 
   componentDidRender() {
     // Assign ids to tabs and use them in aria-describedby attributes of the corresponding tabpanels.
     // Memorize the index of the selected tab in order to hide all non-selected tabpanels.
     let selectedIndex
-    this.el.querySelectorAll('[role="tab"]').forEach((tab, index) => {
+    this.el.querySelectorAll('ld-tab').forEach((tab, index) => {
       tab.id = `${this.idDescriber}-tab-${index}`
-      if (tab.getAttribute('aria-selected')) {
+      if (tab.hasAttribute('selected')) {
         selectedIndex = index
       }
     })
-    this.el.querySelectorAll('[role="tabpanel"]').forEach((tabpanel, index) => {
+    this.el.querySelectorAll('ld-tabpanel').forEach((tabpanel, index) => {
       tabpanel.setAttribute(
         'aria-labelledby',
         `${this.idDescriber}-tab-${index}`
       )
       if (selectedIndex === index) {
-        tabpanel.closest('ld-tabpanel').classList.remove('ld-tabpanel--hidden')
+        tabpanel.removeAttribute('hidden')
       } else {
-        tabpanel.closest('ld-tabpanel').classList.add('ld-tabpanel--hidden')
+        tabpanel.setAttribute('hidden', 'true')
       }
     })
   }

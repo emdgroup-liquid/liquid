@@ -1,6 +1,6 @@
 import '../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Host, Listen, State } from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
+import { LdTab } from './ld-tab'
 
 /**
  * @virtualProp ref - reference to component
@@ -9,7 +9,7 @@ import { getClassNames } from '../../utils/getClassNames'
 @Component({
   tag: 'ld-tablist',
   styleUrl: 'ld-tablist.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTablist {
   @Element() el: HTMLElement
@@ -29,10 +29,10 @@ export class LdTablist {
 
   private updateScrollable() {
     const scrollButtonsWidth =
-      2 * parseFloat(window.getComputedStyle(this.btnScrollLeftRef).width)
+      2 * this.btnScrollLeftRef.getBoundingClientRect().width
     const scrollContainerWidth = this.slotContainerRef.getBoundingClientRect()
       .width
-    const contentWidth = Array.from(this.slotContainerRef.children)
+    const contentWidth = Array.from(this.el.children)
       .map((child) => child.getBoundingClientRect().width)
       .reduce((a, b) => a + b)
     this.scrollable =
@@ -61,14 +61,14 @@ export class LdTablist {
     })
   }
 
-  private focusTab(prevTab: HTMLElement, dir: 'left' | 'right') {
-    const prevLdTab = prevTab.closest('ld-tab')
-    const currentTab = prevLdTab[
-      dir === 'left' ? 'previousElementSibling' : 'nextElementSibling'
-    ]?.querySelector('[role="tab"]') as HTMLButtonElement
+  private focusTab(prevLdTab: HTMLElement, dir: 'left' | 'right') {
+    const currentTab =
+      prevLdTab[
+        dir === 'left' ? 'previousElementSibling' : 'nextElementSibling'
+      ]
     if (currentTab) {
-      currentTab.focus({ preventScroll: true })
-      currentTab.closest('ld-tab').scrollIntoView({
+      ;((currentTab as unknown) as LdTab).focusTab()
+      currentTab.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'center',
@@ -79,9 +79,7 @@ export class LdTablist {
   private setFocusOnSelectedTabpanel() {
     ;(this.el
       .closest('ld-tabs')
-      .querySelector(
-        'ld-tabpanel:not(.ld-tabpanel--hidden) > section'
-      ) as HTMLElement)?.focus()
+      .querySelector('ld-tabpanel:not([hidden])') as HTMLElement)?.focus()
   }
 
   private onKeydown(ev) {
@@ -114,10 +112,7 @@ export class LdTablist {
     return (
       <Host
         onKeydown={this.onKeydown.bind(this)}
-        class={getClassNames([
-          'ld-tablist',
-          this.scrollable && 'ld-tablist--scrollable',
-        ])}
+        class="ld-tablist"
         role="tablist"
       >
         <button
@@ -126,6 +121,7 @@ export class LdTablist {
           aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
           class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
           tabindex="-1"
+          hidden={!this.scrollable}
         >
           <svg
             width="16"
@@ -156,6 +152,7 @@ export class LdTablist {
           aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
           class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
           tabindex="-1"
+          hidden={!this.scrollable}
         >
           <svg
             width="16"

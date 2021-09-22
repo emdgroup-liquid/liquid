@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h } from '@stencil/core'
+import { Component, h, Host } from '@stencil/core'
 
 /**
  * @virtualProp ref - reference to component
@@ -8,14 +8,14 @@ import { Component, h } from '@stencil/core'
 @Component({
   tag: 'ld-tabpanel',
   styleUrl: 'ld-tabpanel.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTabpanel {
   render() {
     return (
-      <section role="tabpanel" class="ld-tabpanel" tabindex="-1">
+      <Host role="tabpanel" class="ld-tabpanel" tabindex="-1">
         <slot></slot>
-      </section>
+      </Host>
     )
   }
 }

@@ -1,4 +1,4 @@
-.ld-tablist {
+:host {
   --ld-tab-indicator-color: var(--ld-col-bg-g);
   --ld-tab-btn-scroll-color: var(--ld-col-rblck-default);
   --ld-tab-btn-scroll-color-active: var(--ld-col-rblck-default);
@@ -59,7 +59,6 @@
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
-  display: none;
   justify-content: center;
   align-items: center;
   -webkit-touch-callout: none;
@@ -68,10 +67,6 @@
   box-shadow: var(--ld-shadow-active);
   width: var(--ld-sp-32);
   z-index: 2;
-
-  .ld-tablist--scrollable & {
-    display: inline-flex;
-  }
 
   &:focus:focus-visible {
     outline: none;
