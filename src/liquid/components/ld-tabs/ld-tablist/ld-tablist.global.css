@@ -1,0 +1,84 @@
+:where(.ld-theme-ocean),
+:where([class*='ld-theme'] .ld-theme-ocean) {
+  --ld-tablist-border-brand-color: var(--ld-thm-ocean-bg-secondary);
+  --ld-tablist-btn-scroll-bg-brand-color-active: var(--ld-col-rb-active);
+  --ld-tablist-btn-scroll-bg-brand-color-hover: var(--ld-col-rb-hover);
+  --ld-tablist-btn-scroll-bg-brand-color: var(--ld-thm-ocean-bg-primary);
+  --ld-tab-bg-brand-color-active: var(--ld-col-rb-active);
+  --ld-tab-bg-brand-color-focus-disabled: var(--ld-col-rb6);
+  --ld-tab-bg-brand-color-focus: var(--ld-col-rb-focus);
+  --ld-tab-bg-brand-color-hover: var(--ld-col-rb-hover);
+  --ld-tab-bg-brand-color: var(--ld-thm-ocean-bg-primary);
+  --ld-tab-border-brand-color-selected: var(--ld-thm-ocean-accent);
+  --ld-tab-brand-color-disabled: var(--ld-col-rb3);
+  --ld-tab-brand-color-focus-disabled: var(--ld-col-rb5);
+  --ld-tab-brand-color-focus: var(--ld-col-rb6);
+}
+
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  --ld-tablist-border-brand-color: var(--ld-thm-tea-bg-secondary);
+  --ld-tablist-btn-scroll-bg-brand-color-active: var(--ld-col-rg-active);
+  --ld-tablist-btn-scroll-bg-brand-color-hover: var(--ld-col-rg-hover);
+  --ld-tablist-btn-scroll-bg-brand-color: var(--ld-thm-tea-bg-primary);
+  --ld-tab-bg-brand-color-active: var(--ld-col-rg-active);
+  --ld-tab-bg-brand-color-focus-disabled: var(--ld-col-rg6);
+  --ld-tab-bg-brand-color-focus: var(--ld-col-rg-focus);
+  --ld-tab-bg-brand-color-hover: var(--ld-col-rg-hover);
+  --ld-tab-bg-brand-color: var(--ld-thm-tea-bg-primary);
+  --ld-tab-border-brand-color-selected: var(--ld-thm-tea-accent);
+  --ld-tab-brand-color-disabled: var(--ld-col-rg3);
+  --ld-tab-brand-color-focus-disabled: var(--ld-col-rg5);
+  --ld-tab-brand-color-focus: var(--ld-col-rg6);
+}
+
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  --ld-tablist-border-brand-color: var(--ld-thm-bubblegum-bg-secondary);
+  --ld-tablist-btn-scroll-bg-brand-color: var(--ld-thm-bubblegum-bg-primary);
+  --ld-tablist-btn-scroll-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tablist-btn-scroll-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-focus-disabled: var(--ld-col-rp6);
+  --ld-tab-bg-brand-color-focus: var(--ld-col-rp-focus);
+  --ld-tab-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tab-bg-brand-color: var(--ld-thm-bubblegum-bg-primary);
+  --ld-tab-border-brand-color-selected: var(--ld-thm-bubblegum-accent);
+  --ld-tab-brand-color-disabled: var(--ld-col-rp3);
+  --ld-tab-brand-color-focus-disabled: var(--ld-col-rp5);
+  --ld-tab-brand-color-focus: var(--ld-col-rp6);
+}
+
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  --ld-tablist-border-brand-color: var(--ld-thm-shake-bg-secondary);
+  --ld-tablist-btn-scroll-bg-brand-color: var(--ld-thm-shake-bg-primary);
+  --ld-tablist-btn-scroll-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tablist-btn-scroll-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-focus-disabled: var(--ld-col-rp6);
+  --ld-tab-bg-brand-color-focus: var(--ld-col-rp-focus);
+  --ld-tab-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tab-bg-brand-color: var(--ld-thm-shake-bg-primary);
+  --ld-tab-border-brand-color-selected: var(--ld-thm-shake-accent);
+  --ld-tab-brand-color-disabled: var(--ld-col-rp3);
+  --ld-tab-brand-color-focus-disabled: var(--ld-col-rp5);
+  --ld-tab-brand-color-focus: var(--ld-col-rp6);
+}
+
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  --ld-tablist-border-brand-color: var(--ld-thm-solvent-bg-secondary);
+  --ld-tablist-btn-scroll-bg-brand-color: var(--ld-thm-solvent-bg-primary);
+  --ld-tablist-btn-scroll-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tablist-btn-scroll-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-active: var(--ld-col-rp-active);
+  --ld-tab-bg-brand-color-focus-disabled: var(--ld-col-rp6);
+  --ld-tab-bg-brand-color-focus: var(--ld-col-rp-focus);
+  --ld-tab-bg-brand-color-hover: var(--ld-col-rp-hover);
+  --ld-tab-bg-brand-color: var(--ld-thm-solvent-bg-primary);
+  --ld-tab-border-brand-color-selected: var(--ld-thm-solvent-accent);
+  --ld-tab-brand-color-disabled: var(--ld-col-rp3);
+  --ld-tab-brand-color-focus-disabled: var(--ld-col-rp5);
+  --ld-tab-brand-color-focus: var(--ld-col-rp6);
+}

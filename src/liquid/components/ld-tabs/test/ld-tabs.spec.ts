@@ -1,9 +1,9 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdTabs } from '../ld-tabs'
-import { LdTablist } from '../ld-tablist'
-import { LdTab } from '../ld-tab'
-import { LdTabpanellist } from '../ld-tabpanellist'
-import { LdTabpanel } from '../ld-tabpanel'
+import { LdTablist } from '../ld-tablist/ld-tablist'
+import { LdTab } from '../ld-tab/ld-tab'
+import { LdTabpanellist } from '../ld-tabpanellist/ld-tabpanellist'
+import { LdTabpanel } from '../ld-tabpanel/ld-tabpanel'
 
 class FocusManager {
   focus(el) {

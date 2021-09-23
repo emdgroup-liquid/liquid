@@ -1,0 +1,39 @@
+:where(.ld-theme-ocean),
+:where([class*='ld-theme'] .ld-theme-ocean) {
+  --ld-tab-border-color-selected-focus: var(--ld-col-rb2);
+  --ld-tab-border-color-selected: var(--ld-thm-ocean-bg-primary);
+  --ld-tab-color-selected-focus: var(--ld-col-rb2);
+  --ld-tab-color-selected: var(--ld-thm-ocean-bg-primary);
+}
+
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  --ld-tab-border-color-selected-focus: var(--ld-col-rg2);
+  --ld-tab-border-color-selected: var(--ld-thm-tea-bg-primary);
+  --ld-tab-color-selected-focus: var(--ld-col-rg2);
+  --ld-tab-color-selected: var(--ld-thm-tea-bg-primary);
+}
+
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  --ld-tab-border-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-border-color-selected: var(--ld-thm-bubblegum-bg-primary);
+  --ld-tab-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-color-selected: var(--ld-thm-bubblegum-bg-primary);
+}
+
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  --ld-tab-border-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-border-color-selected: var(--ld-thm-shake-bg-primary);
+  --ld-tab-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-color-selected: var(--ld-thm-shake-bg-primary);
+}
+
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  --ld-tab-border-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-border-color-selected: var(--ld-thm-solvent-bg-primary);
+  --ld-tab-color-selected-focus: var(--ld-col-rp2);
+  --ld-tab-color-selected: var(--ld-thm-solvent-bg-primary);
+}

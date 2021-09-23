@@ -5,3 +5,6 @@
 @import 'border-radius/border-radius.css';
 @import 'spacings/spacings.css';
 @import 'focus/focus.css';
+
+@import '../../components/ld-tabs/ld-tab/ld-tab.global.css';
+@import '../../components/ld-tabs/ld-tablist/ld-tablist.global.css';

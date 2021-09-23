@@ -1,14 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-} from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
+import { Component, Element, Event, EventEmitter, h, Host } from '@stencil/core'
 
 let tabsCount = 0
 
@@ -23,15 +14,6 @@ let tabsCount = 0
 })
 export class LdTabs {
   @Element() el: HTMLElement
-
-  /** Size of the tabs. */
-  @Prop() size?: 'sm' | 'lg'
-
-  /** Display mode. */
-  @Prop() mode?: 'ghost' | 'brand-color'
-
-  /** Sets border radii. */
-  @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
 
   /**
    * Emitted with the id of the selected tab.
@@ -96,15 +78,7 @@ export class LdTabs {
 
   render() {
     return (
-      <Host
-        onTabSelect={this.handleTabSelect.bind(this)}
-        class={getClassNames([
-          'ld-tabs',
-          this.size && `ld-tabs--${this.size}`,
-          this.mode && `ld-tabs--${this.mode}`,
-          this.rounded && `ld-tabs--rounded-${this.rounded}`,
-        ])}
-      >
+      <Host onTabSelect={this.handleTabSelect.bind(this)} class="ld-tabs">
         <slot></slot>
       </Host>
     )

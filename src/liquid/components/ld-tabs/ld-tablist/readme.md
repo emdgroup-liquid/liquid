@@ -1,0 +1,35 @@
+---
+eleventyNavigation:
+  key: Tab List
+  parent: Tabs
+layout: layout.njk
+title: Tab List
+permalink: components/ld-tablist/
+---
+
+# ld-tablist
+
+The `ld-tablist` component is a sub-component for `ld-tabs`.
+
+Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage examples.
+
+---
+
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property  | Attribute | Description                                              | Type                                     | Default     |
+| --------- | --------- | -------------------------------------------------------- | ---------------------------------------- | ----------- |
+| `key`     | `key`     | for tracking the node's identity when working with lists | `string \| number`                       | `undefined` |
+| `mode`    | `mode`    | Display mode.                                            | `"brand-color" \| "ghost"`               | `undefined` |
+| `ref`     | `ref`     | reference to component                                   | `any`                                    | `undefined` |
+| `rounded` | `rounded` | Sets border radii.                                       | `"all" \| "all-lg" \| "top" \| "top-lg"` | `undefined` |
+| `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                           | `undefined` |
+
+
+----------------------------------------------
+
+ 

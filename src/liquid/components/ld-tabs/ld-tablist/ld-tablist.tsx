@@ -1,6 +1,7 @@
-import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Listen, State } from '@stencil/core'
-import { LdTab } from './ld-tab'
+import '../../../components' // type definitions for type checks and intelliSense
+import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
+import { LdTab } from '../ld-tab/ld-tab'
+import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -13,6 +14,15 @@ import { LdTab } from './ld-tab'
 })
 export class LdTablist {
   @Element() el: HTMLElement
+
+  /** Size of the tabs. */
+  @Prop() size?: 'sm' | 'lg'
+
+  /** Display mode. */
+  @Prop() mode?: 'ghost' | 'brand-color'
+
+  /** Sets border radii. */
+  @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
 
   private slotContainerRef!: HTMLElement
   private btnScrollLeftRef!: HTMLButtonElement
@@ -110,67 +120,72 @@ export class LdTablist {
 
   render() {
     return (
-      <Host
-        onKeydown={this.onKeydown.bind(this)}
-        class="ld-tablist"
-        role="tablist"
-      >
-        <button
-          onClick={this.scroll.bind(this, 'left')}
-          ref={(el) => (this.btnScrollLeftRef = el)}
-          aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
-          class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
-          tabindex="-1"
-          hidden={!this.scrollable}
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Scroll left</title>
-            <path
-              d="M10 13L6 8L10 3"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+      <Host onKeydown={this.onKeydown.bind(this)} role="tablist">
         <div
-          class="ld-tablist__scroll-container"
-          ref={(el) => (this.slotContainerRef = el)}
-          onScroll={this.updateScrollButtons.bind(this)}
+          class={getClassNames([
+            'ld-tablist',
+            this.size && `ld-tablist--${this.size}`,
+            this.mode && `ld-tablist--${this.mode}`,
+            this.rounded && `ld-tablist--rounded-${this.rounded}`,
+          ])}
         >
-          <slot></slot>
-        </div>
-        <button
-          onClick={this.scroll.bind(this, 'right')}
-          aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
-          class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
-          tabindex="-1"
-          hidden={!this.scrollable}
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            onClick={this.scroll.bind(this, 'left')}
+            ref={(el) => (this.btnScrollLeftRef = el)}
+            aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
+            class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
+            tabindex="-1"
+            hidden={!this.scrollable}
           >
-            <title>Scroll right</title>
-            <path
-              d="M6 13L10 8L6 3"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Scroll left</title>
+              <path
+                d="M10 13L6 8L10 3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div
+            class="ld-tablist__scroll-container"
+            ref={(el) => (this.slotContainerRef = el)}
+            onScroll={this.updateScrollButtons.bind(this)}
+          >
+            <slot></slot>
+          </div>
+          <button
+            onClick={this.scroll.bind(this, 'right')}
+            aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
+            class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
+            tabindex="-1"
+            hidden={!this.scrollable}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Scroll right</title>
+              <path
+                d="M6 13L10 8L6 3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </Host>
     )
   }
