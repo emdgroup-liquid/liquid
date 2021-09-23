@@ -9,7 +9,12 @@ describe('ld-heading', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-heading level="1">
-        <h1 class="ld-heading ld-heading--h1">Text</h1>
+        <mock:shadow-root>
+          <h1 class="ld-heading ld-heading--h1">
+            <slot></slot>
+          </h1>
+        </mock:shadow-root>
+        Text
       </ld-heading>
     `)
   })
@@ -46,7 +51,12 @@ describe('ld-heading', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-heading level="1" visual-level="h3">
-        <h1 class="ld-heading ld-heading--h3">Text</h1>
+        <mock:shadow-root>
+          <h1 class="ld-heading ld-heading--h3">
+            <slot></slot>
+          </h1>
+        </mock:shadow-root>
+        Text
       </ld-heading>
     `)
   })
@@ -57,7 +67,12 @@ describe('ld-heading', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-heading aria-label="Yolo" level="1" visual-level="b3">
-        <h1 aria-label="Yolo" class="ld-heading ld-heading--b3">Text</h1>
+        <mock:shadow-root>
+          <h1 aria-label="Yolo" class="ld-heading ld-heading--b3">
+            <slot></slot>
+          </h1>
+        </mock:shadow-root>
+        Text
       </ld-heading>
     `)
   })
@@ -68,7 +83,12 @@ describe('ld-heading', () => {
     })
     expect(page.root).toEqualHtml(`
       <ld-heading level="1" visual-level="b3">
-        <h1 aria-label="Text" class="ld-heading ld-heading--b3">Text</h1>
+        <mock:shadow-root>
+          <h1 aria-label="Text" class="ld-heading ld-heading--b3">
+            <slot></slot>
+          </h1>
+        </mock:shadow-root>
+        Text
       </ld-heading>
     `)
   })
