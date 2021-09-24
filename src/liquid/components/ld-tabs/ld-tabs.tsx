@@ -1,5 +1,14 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, Event, EventEmitter, h, Host } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+} from '@stencil/core'
+import { LdTab } from './ld-tab/ld-tab'
 
 let tabsCount = 0
 
@@ -41,16 +50,30 @@ export class LdTabs {
   }
 
   private handleTabSelect(ev) {
-    const index = Array.prototype.indexOf.call(
-      this.el.querySelector('ld-tablist').children,
-      ev.target
-    )
-
     ev.stopImmediatePropagation()
     const currentLdTab = ev.target
     this.updateTabs(currentLdTab)
     this.updateTabPanels(currentLdTab.id)
-    this.tabChange.emit(index)
+    this.tabChange.emit(currentLdTab.id)
+  }
+
+  /** Set selected tab to a certain index */
+  @Method()
+  async switchTab(identifier: number | string) {
+    const newActiveTab =
+      typeof identifier === 'number'
+        ? this.el.querySelectorAll('ld-tab')[identifier]
+        : this.el.querySelector(`ld-tab#${identifier}`)
+
+    if (!newActiveTab) {
+      throw new Error(
+        `Could not find ld-tab with ${
+          typeof identifier === 'number' ? 'index' : 'id'
+        } ${typeof identifier === 'number' ? identifier : `"${identifier}"`}.`
+      )
+    }
+
+    ;((newActiveTab as unknown) as LdTab).select()
   }
 
   componentDidRender() {

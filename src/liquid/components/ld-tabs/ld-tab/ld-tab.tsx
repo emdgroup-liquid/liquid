@@ -35,7 +35,7 @@ export class LdTab {
   @Prop() disabled?: boolean
 
   /**
-   * asdf
+   * Focuses the tab
    */
   @Method()
   async focusTab() {
@@ -47,14 +47,10 @@ export class LdTab {
    */
   @Event() tabSelect: EventEmitter<string>
 
-  private handleTabClick(ev) {
-    ev.preventDefault()
+  private handleTabClick(event: MouseEvent) {
+    event.preventDefault()
 
-    if (this.disabled) return
-
-    if (ev.currentTarget.getAttribute('aria-selected')) return
-
-    this.selected = true
+    this.select()
   }
 
   @Watch('selected')
@@ -62,6 +58,16 @@ export class LdTab {
     if (!newSelected || newSelected === oldSelected) return
 
     this.tabSelect.emit()
+  }
+
+  /** Set selected tab to a certain index */
+  @Method()
+  async select() {
+    if (this.disabled) return
+
+    if (this.btnRef.getAttribute('aria-selected')) return
+
+    this.selected = true
   }
 
   render() {

@@ -248,7 +248,7 @@ The `ld-tabs` component emits the `tabChange` event which you can use to bind cu
 
 There are two ways to programmatically select a tab: 
 
-1. By dispatching a `click` event on the respective element with `role="tab"`:
+1. By using the `switchTab`-method exposed by the `ld-tabs` element:
 
 {% example %}
 <ld-tabs id="tabs_programmatic_1">
@@ -279,13 +279,15 @@ There are two ways to programmatically select a tab:
 <ld-button id="nuts_button_1">Select nuts</ld-button>
 
 <script>
-document.getElementById('nuts_button_1').addEventListener('click', ev => {
-  document.getElementById('tabs_programmatic_1').querySelectorAll('ld-tab')[2].dispatchEvent(new Event('click'))
-})
+  document.getElementById('nuts_button_1').addEventListener('click', async (ev) => {
+    await document.getElementById('tabs_programmatic_1').switchTab(2)
+
+    console.log(`Tab successfully set to tab at index 2 using ld-tabs' "switchTab"-method.`)
+  })
 </script>
 {% endexample %}
 
-2. By updating the `selected` prop on the `ld-tab` components:
+2. By using the `select`-method exposed by the `ld-tab` element:
 
 {% example %}
 <ld-tabs id="tabs_programmatic_2">
@@ -316,10 +318,11 @@ document.getElementById('nuts_button_1').addEventListener('click', ev => {
 <ld-button id="nuts_button_2">Select nuts</ld-button>
 
 <script>
-document.getElementById('nuts_button_2').addEventListener('click', ev => {
-  document.getElementById('tabs_programmatic_2').querySelector('ld-tab[selected]').removeAttribute('selected')
-  document.getElementById('tabs_programmatic_2').querySelectorAll('ld-tab')[2].setAttribute('selected', 'true')
-})
+  document.getElementById('nuts_button_2').addEventListener('click', async (ev) => {
+    await document.getElementById('tabs_programmatic_2').querySelectorAll('ld-tab')[2].select()
+
+    console.log(`Tab successfully set to tab at index 2 using ld-tab's "select"-method.`)
+  })
 </script>
 {% endexample %}
 
@@ -340,6 +343,19 @@ document.getElementById('nuts_button_2').addEventListener('click', ev => {
 | Event       | Description                              | Type                  |
 | ----------- | ---------------------------------------- | --------------------- |
 | `tabChange` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+
+
+## Methods
+
+### `switchTab(identifier: number | string) => Promise<void>`
+
+Set selected tab to a certain index
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
