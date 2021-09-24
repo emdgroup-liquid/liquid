@@ -72,7 +72,7 @@
     list-style: none;
   }
 
-  details[open] summary::after {
+  details[open] > summary::after {
     transform: rotate(90deg);
   }
 
@@ -163,6 +163,20 @@
       opacity: 1;
     }
   }
+
+  li ul & {
+    font-weight: inherit;
+    margin-top: 0;
+    text-transform: none;
+
+    + ul {
+      margin-left: var(--ld-sp-12);
+    }
+  }
+
+  li ul li.docs-nav__li--active > details > & {
+    font-weight: 700;
+  }
 }
 
 body:not(.safari) {
@@ -187,6 +201,10 @@ body:not(.safari) {
 
 .docs-nav__li {
   margin-top: var(--ld-sp-12);
+
+  > a {
+    display: block;
+  }
 }
 
 .docs-nav__li--active > a {

@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Tabs
 layout: layout.njk
 title: Tab List
-permalink: components/ld-tablist/
+permalink: components/ld-tabs/ld-tablist/
 ---
 
 # ld-tablist

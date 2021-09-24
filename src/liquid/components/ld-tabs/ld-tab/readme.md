@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Tabs
 layout: layout.njk
 title: Tab
-permalink: components/ld-tab/
+permalink: components/ld-tabs/ld-tab/
 ---
 
 # ld-tab
@@ -40,7 +40,17 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ### `focusTab() => Promise<void>`
 
-asdf
+Focuses the tab
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `select() => Promise<void>`
+
+Set selected tab to a certain index
 
 #### Returns
 
