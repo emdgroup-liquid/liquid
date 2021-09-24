@@ -32,7 +32,11 @@ export class LdTabs {
   private idDescriber = `ld-tabs-${tabsCount++}`
 
   private updateTabs(currentLdTab) {
-    this.el.querySelector('[selected]')?.removeAttribute('selected')
+    // TODO: fix Stencils DOM implementation for unit testing and replace
+    // this.el.querySelector('[selected]')?.removeAttribute('selected')
+    Array.from(this.el.querySelectorAll('ld-tab'))
+      .find((tab) => tab.hasAttribute('selected'))
+      ?.removeAttribute('selected')
     currentLdTab.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -41,11 +45,15 @@ export class LdTabs {
   }
 
   private updateTabPanels(tabId: string) {
-    this.el
-      .querySelector('ld-tabpanel:not([hidden])')
+    // TODO: fix Stencils DOM implementation for unit testing and replace
+    const tabPanels = Array.from(this.el.querySelectorAll('ld-tabpanel'))
+    // this.el.querySelector('ld-tabpanel:not([hidden])')
+    tabPanels
+      .find((tabpanel) => !tabpanel.hasAttribute('hidden'))
       ?.setAttribute('hidden', undefined)
-    this.el
-      .querySelector(`[aria-labelledby="${tabId}"]`)
+    // this.el.querySelector(`[aria-labelledby="${tabId}"]`)
+    tabPanels
+      .find((tabpanel) => tabpanel.getAttribute('aria-labelledby') === tabId)
       ?.removeAttribute('hidden')
   }
 

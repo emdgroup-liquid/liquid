@@ -73,9 +73,9 @@ export class LdTablist {
 
   private focusTab(prevLdTab: HTMLElement, dir: 'left' | 'right') {
     const currentTab =
-      prevLdTab[
-        dir === 'left' ? 'previousElementSibling' : 'nextElementSibling'
-      ]
+      dir === 'left'
+        ? prevLdTab.previousElementSibling
+        : prevLdTab.nextElementSibling
     if (currentTab) {
       ;((currentTab as unknown) as LdTab).focusTab()
       currentTab.scrollIntoView({
@@ -87,9 +87,13 @@ export class LdTablist {
   }
 
   private setFocusOnSelectedTabpanel() {
-    ;(this.el
-      .closest('ld-tabs')
-      .querySelector('ld-tabpanel:not([hidden])') as HTMLElement)?.focus()
+    // TODO: fix Stencils DOM implementation for unit testing and replace
+    // ;(this.el
+    //   .closest('ld-tabs')
+    //   .querySelector('ld-tabpanel:not([hidden])') as HTMLElement)?.focus()
+    Array.from(this.el.closest('ld-tabs').querySelectorAll('ld-tabpanel'))
+      .find((tabpanel) => !tabpanel.hasAttribute('hidden'))
+      ?.focus()
   }
 
   private onKeydown(ev) {

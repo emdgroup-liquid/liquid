@@ -93,16 +93,19 @@ describe('ld-heading', () => {
     `)
   })
   it('throws with invalid visual level prop', async () => {
+    let error: unknown
+
     try {
       await newSpecPage({
         components: [LdHeading],
         html: `<ld-heading level="1" visual-level="asdf" aria-label="Text">Text</ld-heading>`,
       })
-      expect(true).toBe(false)
     } catch (err) {
-      expect(err).toStrictEqual(
-        TypeError('ld-heading visualLevel prop invalid; got asdf')
-      )
+      error = err
     }
+
+    expect(error).toStrictEqual(
+      TypeError('ld-heading visualLevel prop invalid; got asdf')
+    )
   })
 })
