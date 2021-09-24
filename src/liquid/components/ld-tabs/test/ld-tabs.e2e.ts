@@ -2,7 +2,7 @@ import { newE2EPage } from '@stencil/core/testing'
 
 jest.useRealTimers()
 
-async function getPageWithContent(content, theme = 'none') {
+async function getPageWithContent(content, theme = 'ocean') {
   const page = await newE2EPage()
   await page.setContent(
     `<div class="ld-theme-${theme}" style="height: 100vh; display: flex; justify-content: center; align-items: center">${content}</div>`
@@ -14,7 +14,6 @@ async function getPageWithContent(content, theme = 'none') {
 }
 
 const themes = [
-  'none',
   'ocean',
   'bubblegum',
   // 'shake',
@@ -36,8 +35,8 @@ const cssIconComponent = `
 `
 
 const getTabsHTML = (props = '', withText = true, withIcon = false) => `
-  <ld-tabs ${props}>
-    <ld-tablist>
+  <ld-tabs>
+    <ld-tablist ${props}>
       <ld-tab selected>${withIcon ? cssIconComponent : ''}${
   withText ? 'Fruits' : ''
 }</ld-tab>
@@ -55,8 +54,8 @@ const getTabsHTML = (props = '', withText = true, withIcon = false) => `
 `
 
 const getManyTabsHTML = (props = '') => `
-  <ld-tabs ${props} style="max-width: calc(100% - var(--ld-sp-24)*2)">
-    <ld-tablist>
+  <ld-tabs style="max-width: calc(100% - var(--ld-sp-24)*2)">
+    <ld-tablist ${props}>
       <ld-tab selected>Classical</ld-tab>
       <ld-tab>Rock</ld-tab>
       <ld-tab>Indie</ld-tab>
@@ -83,7 +82,7 @@ const getManyTabsHTML = (props = '') => `
 
 const allowableMismatchedRatio = 0.02
 
-describe('ld-checkbox', () => {
+describe('ld-tabs', () => {
   for (const theme of themes) {
     it(`default theme-${theme}`, async () => {
       const page = await getPageWithContent(getTabsHTML(), theme)
