@@ -9,7 +9,7 @@ permalink: components/ld-heading/
 
 # ld-heading
 
-<link rel="stylesheet" href="/liquid/components/ld-heading/ld-heading.css">
+<link rel="stylesheet" href="/dist/build/css/ld-heading.css">
 
 Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
 

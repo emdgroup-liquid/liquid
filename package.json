@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "build": "run-s build:stencil:components build:stencil:react build:styles build:copy_design_tokens build:copy_tailwind_preset",
-    "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:docs",
+    "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:*",
     "build:eleventy": "dotenv -e .env -- npx @11ty/eleventy",
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
@@ -37,6 +37,7 @@
     "build:styles": "run-p build:styles:liquid:*",
     "build:styles:liquid:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' ; cat dist/css/*.css > dist/css/liquid.css",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
+    "build:styles:docs:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist_docs/dist/build/css/",
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
     "build:copy_design_tokens": "shx cp src/liquid/global/styles/design-tokens.json dist/css/design-tokens.json",
@@ -48,7 +49,7 @@
     "lint:ts": "tsc --noemit -p tsconfig.docs.json",
     "optimise_svg_icons": "ts-node scripts/optimiseSVGIcons.ts",
     "prepare": "husky install",
-    "start": "run-p serve build:styles:docs:docs watch:** start:info",
+    "start": "run-p serve build:styles:docs:* watch:** start:info",
     "start:info": "echo 'serving on http://localhost:8080'",
     "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser --quiet",
     "test": "run-p test:stencil test:a11y",
@@ -61,10 +62,11 @@
     "update_design_tokens": "dotenv -e .env -- ts-node scripts/updateDesignTokens.ts",
     "update_icons": "dotenv -e .env -- ts-node scripts/updateIcons.ts",
     "watch:eleventy": "dotenv -e .env -- npx @11ty/eleventy --watch",
-    "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'npm run build:styles:docs:liquid'",
-    "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'npm run build:styles:docs:docs'",
+    "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
+    "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
     "watch:readme": "chokidar README.md -c 'ts-node scripts/copyReadmeToIndex.ts'",
-    "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts"
+    "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts",
+    "watch:styles:components": "chokidar src/liquid/components/**/*.css -c 'yarn build:styles:docs:components'"
   },
   "dependencies": {
     "@stencil/core": "^2.7.1",
