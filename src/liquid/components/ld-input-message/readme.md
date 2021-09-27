@@ -9,6 +9,8 @@ permalink: components/ld-input-message/
 
 # ld-input-message
 
+<link rel="stylesheet" href="/liquid/components/ld-input-message/ld-input-message.css">
+
 This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 
 > **Note**: The `ld-input-message` with a mode other than `"info"` is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 
@@ -60,11 +62,10 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 <!-- CSS component -->
 
-<span class="ld-input-message ld-input-message--info">
-  <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <title>Valid</title>
-    <rect x="1" y="1" width="14" height="14" rx="7" fill="#01884C"/>
-    <path d="M11.1111 6.13333L7.00937 9.86666L4.88887 7.77577" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<span class="ld-input-message ld-input-message--valid">
+  <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <circle cx="7" cy="7" r="7" fill="#01884C"/>
+    <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.1 5.1L6.1 9 3.8 6.8"/>
   </svg>
   That's correct!
 </span>

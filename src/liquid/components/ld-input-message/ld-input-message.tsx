@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Prop, getAssetPath } from '@stencil/core'
+import { Component, h, Prop, getAssetPath, Host } from '@stencil/core'
 
 /**
  * @virtualProp ref - reference to component
@@ -16,11 +16,8 @@ export class LdInputMessage {
   @Prop() mode: 'error' | 'info' | 'valid' = 'error'
 
   render() {
-    let cl = 'ld-input-message'
-    cl += ` ld-input-message--${this.mode}`
-
     return (
-      <span class={cl}>
+      <Host class={`ld-input-message ld-input-message--${this.mode}`}>
         <img
           class="ld-input-message__icon"
           alt=""
@@ -30,7 +27,7 @@ export class LdInputMessage {
         <span aria-live="assertive">
           <slot></slot>
         </span>
-      </span>
+      </Host>
     )
   }
 }

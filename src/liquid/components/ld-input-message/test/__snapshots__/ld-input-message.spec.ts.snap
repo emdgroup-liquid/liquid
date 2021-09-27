@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-input-message applies the mode modifier, if mode is set 1`] = `
+<ld-input-message class="ld-input-message ld-input-message--info" mode="info">
+  <mock:shadow-root>
+    <img alt="" class="ld-input-message__icon" role="presentation" src="/assets/info.svg">
+    <span aria-live="assertive">
+      <slot></slot>
+    </span>
+  </mock:shadow-root>
+  This field is optional.
+</ld-input-message>
+`;
+
+exports[`ld-input-message renders as error message by default 1`] = `
+<ld-input-message class="ld-input-message ld-input-message--error">
+  <mock:shadow-root>
+    <img alt="" class="ld-input-message__icon" role="presentation" src="/assets/error.svg">
+    <span aria-live="assertive">
+      <slot></slot>
+    </span>
+  </mock:shadow-root>
+  This field is required.
+</ld-input-message>
+`;
