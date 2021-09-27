@@ -3,6 +3,7 @@ import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
+import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -11,10 +12,13 @@ import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
 @Component({
   tag: 'ld-label',
   styleUrl: 'ld-label.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdLabel {
   @Element() el: HTMLLabelElement
+
+  /** Align input message with input position. */
+  @Prop() alignMessage: boolean
 
   /** Relative position to labeled element. Default is top. */
   @Prop() position: 'left' | 'right'
@@ -23,13 +27,14 @@ export class LdLabel {
   @Prop() size: 'm'
 
   render() {
-    let cl = 'ld-label'
-    if (this.position) cl += ` ld-label--${this.position}`
-    if (this.size) cl += ` ld-label--${this.size}`
-
     return (
       <label
-        class={cl}
+        class={getClassNames([
+          'ld-label',
+          this.alignMessage && 'ld-label--align-message',
+          this.position && `ld-label--${this.position}`,
+          this.size && `ld-label--${this.size}`,
+        ])}
         {...cloneAttributes<LabelHTMLAttributes<HTMLLabelElement>>(this.el)}
       >
         <slot></slot>

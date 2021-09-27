@@ -1,4 +1,4 @@
-ld-label {
+:host {
   display: inline-flex;
 }
 
@@ -23,42 +23,39 @@ ld-label {
   column-gap: var(--ld-label-col-gap);
   row-gap: 0;
 
-  > ld-checkbox,
+  > ::slotted(.ld-checkbox),
   > .ld-checkbox,
-  > ld-radio,
+  > ::slotted(.ld-radio),
   > .ld-radio,
-  > ld-toggle,
+  > ::slotted(.ld-toggle),
   > .ld-toggle,
-  > ld-input,
+  > ::slotted(.ld-input),
   > .ld-input,
-  > ld-select,
+  > ::slotted(.ld-select),
   > .ld-select {
     grid-area: input;
     align-self: baseline;
   }
 
-  > ld-input-message,
+  > ::slotted(.ld-input-message),
   > .ld-input-message {
     grid-area: message;
     margin-top: var(--ld-sp-4);
   }
+}
 
-  > ld-input,
-  > .ld-input,
-  > ld-select,
-  > .ld-select {
-    .ld-label--left& {
-      + ld-input-message,
-      + .ld-input-message {
-        grid-column-start: 2;
-      }
+.ld-label--align-message {
+  &.ld-label--left {
+    > ::slotted(.ld-input-message),
+    > .ld-input-message {
+      grid-column-start: 2;
     }
+  }
 
-    .ld-label--right& {
-      + ld-input-message,
-      + .ld-input-message {
-        grid-column-end: 2;
-      }
+  &.ld-label--right {
+    > ::slotted(.ld-input-message),
+    > .ld-input-message {
+      grid-column-end: 2;
     }
   }
 }

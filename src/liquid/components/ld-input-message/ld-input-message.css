@@ -6,12 +6,12 @@
   line-height: 1.5;
 }
 
-:host([mode='valid']),
+:host(.ld-input-message--valid),
 .ld-input-message--valid {
   color: var(--ld-col-rg-default);
 }
 
-:host([mode='error']),
+:host(.ld-input-message--error),
 .ld-input-message--error {
   color: var(--ld-col-rr-default);
 }
