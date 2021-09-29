@@ -367,6 +367,19 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 | `tone`     | `tone`     | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the radio button
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
  

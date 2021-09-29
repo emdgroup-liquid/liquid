@@ -38,7 +38,7 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ## Methods
 
-### `focusTab() => Promise<void>`
+### `focusInner() => Promise<void>`
 
 Focuses the tab
 

@@ -1068,6 +1068,19 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `value`       | `value`       | The input value.                                                                                                      | `string`           | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot      | Description                                                                                                                                                                                                                                                                                                                                                           |

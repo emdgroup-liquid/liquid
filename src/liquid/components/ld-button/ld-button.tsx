@@ -1,5 +1,4 @@
-import '../../components' // type definitions for type checking and intelliSense
-import { Component, h, Host, Prop, Element } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
@@ -15,10 +14,9 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
   styleUrl: 'ld-button.css',
   shadow: false,
 })
-export class LdButton {
+export class LdButton implements InnerFocusable {
   @Element() el: HTMLElement
-
-  private button!: HTMLElement
+  private button: HTMLAnchorElement | HTMLButtonElement
 
   /** Disabled state of the button. */
   @Prop() disabled: boolean
@@ -58,12 +56,41 @@ export class LdButton {
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress: 'pending' | number
 
-  private handleClick(ev) {
+  /**
+   * Sets focus on the checkbox
+   */
+  @Method()
+  async focusInner() {
+    if (this.button !== undefined) {
+      this.button.focus()
+    }
+  }
+
+  private handleBlur = (ev: FocusEvent) => {
+    setTimeout(() => {
+      this.el.dispatchEvent(ev)
+    })
+  }
+
+  private handleClick = (ev: MouseEvent) => {
+    if (ev.target === this.el) {
+      ev.stopImmediatePropagation()
+      this.button.click()
+      return
+    }
+
     const ariaDisabled = this.button.getAttribute('aria-disabled')
+
     if (ariaDisabled && ariaDisabled !== 'false') {
       ev.preventDefault()
       ev.stopImmediatePropagation()
     }
+  }
+
+  private handleFocus = (ev: FocusEvent) => {
+    setTimeout(() => {
+      this.el.dispatchEvent(ev)
+    })
   }
 
   componentWillLoad() {
@@ -89,18 +116,21 @@ export class LdButton {
     }`
 
     return (
-      <Host>
+      <Host onClick={this.handleClick}>
         <Tag
-          ref={(el) => (this.button = el as HTMLElement)}
-          onClick={this.handleClick.bind(this)}
+          ref={(el: HTMLAnchorElement | HTMLButtonElement) =>
+            (this.button = el)
+          }
           class={cl}
           disabled={this.disabled}
           aria-disabled={this.disabled ? 'true' : undefined}
           aria-busy={hasProgress ? 'true' : undefined}
           aria-live="polite"
           href={this.href}
-          target={this.target}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+          target={this.target}
           {...(this.href
             ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
             : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(

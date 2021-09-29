@@ -209,4 +209,17 @@ describe('ld-button', () => {
     jest.advanceTimersByTime(0)
     expect(spyClick).toHaveBeenCalled()
   })
+
+  it('allows to set inner focus', async () => {
+    const { root } = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button>Text</ld-button>`,
+    })
+    const button = root.querySelector('button')
+
+    button.focus = jest.fn()
+    await root.focusInner()
+
+    expect(button.focus).toHaveBeenCalled()
+  })
 })

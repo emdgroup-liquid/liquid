@@ -1,5 +1,4 @@
-import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import TextareaHTMLAttributes = JSXBase.TextareaHTMLAttributes
@@ -28,10 +27,9 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
   styleUrl: 'ld-input.css',
   shadow: false,
 })
-export class LdInput {
-  @Element() el: HTMLInputElement
-
-  private input!: HTMLInputElement | HTMLTextAreaElement
+export class LdInput implements InnerFocusable {
+  @Element() el: HTMLElement
+  private input: HTMLInputElement | HTMLTextAreaElement
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
@@ -57,13 +55,23 @@ export class LdInput {
    */
   @Prop() multiline: boolean
 
-  private handleBlur(ev) {
+  /**
+   * Sets focus on the input
+   */
+  @Method()
+  async focusInner() {
+    if (this.input !== undefined) {
+      this.input.focus()
+    }
+  }
+
+  private handleBlur = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
   }
 
-  private handleFocus(ev) {
+  private handleFocus = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
@@ -77,10 +85,14 @@ export class LdInput {
     this.input.value = this.value || ''
   }
 
-  private handleClick(ev) {
-    if (ev.target.closest('.ld-button')) return
-    if (ev.target.tagname === 'INPUT') return
-    this.input.focus()
+  private handleClick = (ev: MouseEvent) => {
+    const target = ev.target as HTMLElement
+
+    if (target.closest('ld-button')) return
+    if (target === this.input) return
+
+    ev.stopImmediatePropagation()
+    this.input.click()
   }
 
   render() {
@@ -91,13 +103,13 @@ export class LdInput {
 
     if (this.multiline) {
       return (
-        <Host class={cl} onClick={this.handleClick.bind(this)}>
+        <Host class={cl} onClick={this.handleClick}>
           <textarea
             ref={(el) => (this.input = el as HTMLTextAreaElement)}
             onInput={this.handleInput.bind(this)}
             placeholder={this.placeholder}
-            onBlur={this.handleBlur.bind(this)}
-            onFocus={this.handleFocus.bind(this)}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             {...cloneAttributes<TextareaHTMLAttributes<HTMLInputElement>>(
               this.el
             )}
@@ -113,15 +125,15 @@ export class LdInput {
     }
 
     return (
-      <Host class={cl} onClick={this.handleClick.bind(this)}>
+      <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
           ref={(el) => (this.input = el as HTMLInputElement)}
           onInput={this.handleInput.bind(this)}
           placeholder={this.placeholder}
           type={this.type}
-          onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           value={this.value}
         />

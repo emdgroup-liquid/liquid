@@ -1,5 +1,4 @@
-import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, Host, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
@@ -26,6 +25,26 @@ export class LdLabel {
   /** Size of the label. Default is small. */
   @Prop() size: 'm'
 
+  private handleClick = async (event: MouseEvent) => {
+    console.log({ target: event.target })
+    const inputElement: HTMLElement = this.el.querySelector(
+      'ld-input, ld-textarea, ld-toggle, ld-select, ld-button, ld-checkbox, ld-radio, input, textarea, button, select'
+    )
+    const clickedInsideInputElement =
+      event.target === inputElement ||
+      inputElement.contains(event.target as Node)
+
+    if (inputElement && !clickedInsideInputElement) {
+      if ('focusInner' in inputElement) {
+        await ((inputElement as unknown) as InnerFocusable).focusInner()
+      } else {
+        inputElement.focus()
+      }
+
+      inputElement.click()
+    }
+  }
+
   render() {
     return (
       <label
@@ -35,6 +54,7 @@ export class LdLabel {
           this.position && `ld-label--${this.position}`,
           this.size && `ld-label--${this.size}`,
         ])}
+        onClick={this.handleClick}
         {...cloneAttributes<LabelHTMLAttributes<HTMLLabelElement>>(this.el)}
       >
         <slot></slot>

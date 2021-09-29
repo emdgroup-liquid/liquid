@@ -1,5 +1,4 @@
-import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -13,9 +12,9 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-checkbox.css',
   shadow: false,
 })
-export class LdCheckbox {
+export class LdCheckbox implements InnerFocusable {
   @Element() el: HTMLElement
-
+  private input: HTMLInputElement
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -31,24 +30,37 @@ export class LdCheckbox {
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
   @Prop() invalid: boolean
 
+  /**
+   * Sets focus on the checkbox
+   */
+  @Method()
+  async focusInner() {
+    if (this.input !== undefined) {
+      this.input.focus()
+    }
+  }
+
   private handleBlur(ev) {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
   }
 
-  private handleFocus(ev) {
+  private handleFocus = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
   }
 
-  private handleClick(ev) {
-    if (ev.target.getAttribute('aria-disabled') === 'true') {
+  private handleClick = (ev: MouseEvent) => {
+    if (this.input.getAttribute('aria-disabled') === 'true') {
       ev.preventDefault()
       return
     }
-    this.checked = ev.target.checked
+
+    console.log({ zzz: ev.target === this.el })
+
+    this.checked = ev.target === this.el ? !this.checked : this.input.checked
   }
 
   render() {
@@ -58,11 +70,11 @@ export class LdCheckbox {
     if (this.invalid) cl += ' ld-checkbox--invalid'
 
     return (
-      <Host class={cl}>
+      <Host class={cl} onClick={this.handleClick}>
         <input
-          onClick={this.handleClick.bind(this)}
           onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
+          onFocus={this.handleFocus}
+          ref={(ref) => (this.input = ref)}
           type="checkbox"
           {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
           disabled={this.disabled}

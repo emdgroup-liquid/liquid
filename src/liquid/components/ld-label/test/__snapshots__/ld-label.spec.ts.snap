@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-label renders with position left 1`] = `
+<ld-label position="left">
+  <mock:shadow-root>
+    <label class="ld-label ld-label--left">
+      <slot></slot>
+    </label>
+  </mock:shadow-root>
+  Yada-yada
+</ld-label>
+`;
+
+exports[`ld-label renders with position right 1`] = `
+<ld-label position="right">
+  <mock:shadow-root>
+    <label class="ld-label ld-label--right">
+      <slot></slot>
+    </label>
+  </mock:shadow-root>
+  Yada-yada
+</ld-label>
+`;
+
+exports[`ld-label renders with size "m" 1`] = `
+<ld-label size="m">
+  <mock:shadow-root>
+    <label class="ld-label ld-label--m">
+      <slot></slot>
+    </label>
+  </mock:shadow-root>
+  Yada-yada
+</ld-label>
+`;
+
+exports[`ld-label renders with slot 1`] = `
+<ld-label>
+  <mock:shadow-root>
+    <label class="ld-label">
+      <slot></slot>
+    </label>
+  </mock:shadow-root>
+  Yada-yada
+</ld-label>
+`;

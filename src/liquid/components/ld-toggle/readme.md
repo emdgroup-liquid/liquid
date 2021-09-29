@@ -444,6 +444,19 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `size`         | `size`          | Size of the toggle.                                                  | `"lg" \| "sm"`     | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the toggle
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
  

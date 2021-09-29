@@ -77,7 +77,7 @@ export class LdTablist {
         ? prevLdTab.previousElementSibling
         : prevLdTab.nextElementSibling
     if (currentTab) {
-      ;((currentTab as unknown) as LdTab).focusTab()
+      ;((currentTab as unknown) as LdTab).focusInner()
       currentTab.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',

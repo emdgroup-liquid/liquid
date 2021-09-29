@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -19,7 +18,7 @@ import {
   styleUrl: 'ld-tab.css',
   shadow: true,
 })
-export class LdTab {
+export class LdTab implements InnerFocusable {
   @Element() el: HTMLElement
 
   private btnRef: HTMLButtonElement
@@ -38,7 +37,7 @@ export class LdTab {
    * Focuses the tab
    */
   @Method()
-  async focusTab() {
+  async focusInner() {
     this.btnRef.focus({ preventScroll: true })
   }
 

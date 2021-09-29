@@ -89,7 +89,7 @@ describe('ld-checkbox', () => {
     expect(input.checked).toBe(false)
 
     input.checked = true
-    input.dispatchEvent(new Event('click'))
+    input.dispatchEvent(new Event('click', { bubbles: true }))
     await page.waitForChanges()
     expect(ldCheckbox.checked).toBe(true)
 
@@ -131,5 +131,17 @@ describe('ld-checkbox', () => {
     input.dispatchEvent(new Event('blur'))
     jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
+  })
+  it('allows to set inner focus', async () => {
+    const { root } = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox />`,
+    })
+    const input = root.querySelector('input')
+
+    input.focus = jest.fn()
+    await root.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
   })
 })

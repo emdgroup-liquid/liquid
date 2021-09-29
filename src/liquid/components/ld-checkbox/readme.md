@@ -594,6 +594,19 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `tone`     | `tone`     | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the checkbox
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

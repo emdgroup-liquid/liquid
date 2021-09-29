@@ -472,6 +472,19 @@ You can align the text inside the button using the `align-text` propperty.
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the checkbox
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
  

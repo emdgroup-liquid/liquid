@@ -2,26 +2,27 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
+    "baseUrl": ".",
     "declaration": false,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "es2017",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "baseUrl": ".",
-    "esModuleInterop": true,
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "es2017",
+    "typeRoots": ["./src/types", "./node_modules/@types"]
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["./src/liquid"],
+  "include": ["./src/liquid", "./src/types"],
   "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]
 }
