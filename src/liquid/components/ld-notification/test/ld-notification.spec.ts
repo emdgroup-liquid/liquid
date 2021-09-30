@@ -8,7 +8,6 @@ const FADE_TRANSITION_DURATION = 200
 describe('ld-notification', () => {
   afterEach(() => {
     jest.clearAllTimers()
-    jest.useRealTimers()
   })
 
   it('renders as empty container placed at the top by default', async () => {
@@ -271,8 +270,6 @@ describe('ld-notification', () => {
     })
 
     it('dismisses a notifications of type "info" after default timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -303,8 +300,6 @@ describe('ld-notification', () => {
     })
 
     it('dismisses a notifications of type "info" after custom timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -346,8 +341,6 @@ describe('ld-notification', () => {
     })
 
     it('does not dismiss a notification of type "info" with a timeout set to 0', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -379,8 +372,6 @@ describe('ld-notification', () => {
     })
 
     it('does not dismiss a notification of type "alert" after default timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -411,8 +402,6 @@ describe('ld-notification', () => {
     })
 
     it('does not dismiss a notification of type "info" if it is in queue behind another notification', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -555,8 +544,6 @@ describe('ld-notification', () => {
 
   describe('transitions', () => {
     it('transitions single notifications', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -641,8 +628,6 @@ describe('ld-notification', () => {
     })
 
     it('transitions multiple notifications', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
