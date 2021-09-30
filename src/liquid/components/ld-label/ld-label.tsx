@@ -26,7 +26,6 @@ export class LdLabel {
   @Prop() size: 'm'
 
   private handleClick = async (event: MouseEvent) => {
-    console.log({ target: event.target })
     const inputElement: HTMLElement = this.el.querySelector(
       'ld-input, ld-textarea, ld-toggle, ld-select, ld-button, ld-checkbox, ld-radio, input, textarea, button, select'
     )

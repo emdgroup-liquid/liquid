@@ -1,5 +1,19 @@
+---
+eleventyNavigation:
+  key: Option
+  parent: Select
+layout: layout.njk
+title: Option
+permalink: components/ld-select/ld-option/
+---
+
 # ld-option
 
+The `ld-option` component is a sub-component for `ld-select`.
+
+Please refer to the [`ld-select` documentation](components/ld-select) for usage examples.
+
+---
 
 
 <!-- Auto Generated Below -->

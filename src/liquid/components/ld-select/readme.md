@@ -1265,6 +1265,41 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | `"icon"` | replaces caret with custom trigger button icon |
 
 
+## Shadow Parts
+
+| Part                     | Description |
+| ------------------------ | ----------- |
+| `"btn-clear"`            |             |
+| `"btn-clear-single"`     |             |
+| `"btn-trigger"`          |             |
+| `"icon-clear"`           |             |
+| `"icon-clear-single"`    |             |
+| `"options-container"`    |             |
+| `"root"`                 |             |
+| `"select"`               |             |
+| `"selection-label-bg"`   |             |
+| `"selection-label-text"` |             |
+| `"selection-list"`       |             |
+| `"selection-list-item"`  |             |
+| `"slot-container"`       |             |
+| `"trigger-icon"`         |             |
+| `"trigger-text"`         |             |
+| `"trigger-text-wrapper"` |             |
+
+
+## Dependencies
+
+### Depends on
+
+- ld-select-popper
+
+### Graph
+```mermaid
+graph TD;
+  ld-select --> ld-select-popper
+  style ld-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

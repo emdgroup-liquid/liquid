@@ -10,6 +10,7 @@
   column-gap: 0;
   max-width: 100%;
   align-content: flex-start;
+  flex-grow: 1;
 
   ld-label & {
     width: 100%;

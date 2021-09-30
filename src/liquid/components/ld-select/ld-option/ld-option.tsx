@@ -1,6 +1,6 @@
-import '../../components' // type definitions for type checks and intelliSense
+import '../../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Prop, Element } from '@stencil/core'
-import { applyPropAliases } from '../../utils/applyPropAliases'
+import { applyPropAliases } from '../../../utils/applyPropAliases'
 
 /**
  * @virtualProp ref - reference to component
@@ -9,7 +9,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 @Component({
   tag: 'ld-option',
   styleUrl: 'ld-option.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdOption {
   @Element() el: HTMLElement
