@@ -347,9 +347,7 @@ describe('ld-tabs', () => {
   })
 
   describe('keyboard interactions', () => {
-    // FIXME: fix and re-activate
-    // ...but maybe this test is obsolete, as it's implicitly tested with the e2e tests?
-    xit('changes focus via arrow keys and selection via enter or space', async () => {
+    it('changes focus via arrow keys and selection via enter or space', async () => {
       const page = await newSpecPage({
         components,
         html: `
@@ -373,16 +371,17 @@ describe('ld-tabs', () => {
       const ldTablist = ldTabs.querySelector('ld-tablist')
 
       const ldTabItems = ldTablist.querySelectorAll('ld-tab')
+      const [ldTab0, ldTab1, ldTab2, ldTab3] = Array.from(ldTabItems)
       expect(ldTabItems.length).toEqual(4)
 
       const ldTabpanellist = ldTabs.querySelector('ld-tabpanellist')
       const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
       expect(ldTabpanels.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
-      const tabBtn1 = ldTabItems[1].shadowRoot.querySelector('button')
-      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
-      const tabBtn3 = ldTabItems[3].shadowRoot.querySelector('button')
+      const tabBtn0 = ldTab0.shadowRoot.querySelector('button')
+      const tabBtn1 = ldTab1.shadowRoot.querySelector('button')
+      const tabBtn2 = ldTab2.shadowRoot.querySelector('button')
+      const tabBtn3 = ldTab3.shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
@@ -408,21 +407,21 @@ describe('ld-tabs', () => {
       const ldTabpanel3 = ldTabpanels[3]
       expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      ldTabItems[0].scrollIntoView = jest.fn()
-      ldTabItems[1].scrollIntoView = jest.fn()
-      ldTabItems[2].scrollIntoView = jest.fn()
-      ldTabItems[3].scrollIntoView = jest.fn()
-      const spyScrollIntoView0 = jest.spyOn(ldTabItems[0], 'scrollIntoView')
-      const spyScrollIntoView1 = jest.spyOn(ldTabItems[1], 'scrollIntoView')
-      const spyScrollIntoView2 = jest.spyOn(ldTabItems[2], 'scrollIntoView')
-      const spyScrollIntoView3 = jest.spyOn(ldTabItems[3], 'scrollIntoView')
+      ldTab0.scrollIntoView = jest.fn()
+      ldTab1.scrollIntoView = jest.fn()
+      ldTab2.scrollIntoView = jest.fn()
+      ldTab3.scrollIntoView = jest.fn()
+      const spyScrollIntoView0 = jest.spyOn(ldTab0, 'scrollIntoView')
+      const spyScrollIntoView1 = jest.spyOn(ldTab1, 'scrollIntoView')
+      const spyScrollIntoView2 = jest.spyOn(ldTab2, 'scrollIntoView')
+      const spyScrollIntoView3 = jest.spyOn(ldTab3, 'scrollIntoView')
 
       tabBtn0.focus = jest.fn(focusManager.focus)
       tabBtn1.focus = jest.fn(focusManager.focus)
       tabBtn2.focus = jest.fn(focusManager.focus)
       tabBtn3.focus = jest.fn(focusManager.focus)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -435,7 +434,7 @@ describe('ld-tabs', () => {
       expect(tabBtn1.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn1.getAttribute('tabindex')).toEqual('-1')
 
-      tabBtn1.dispatchEvent(
+      ldTab1.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -458,7 +457,7 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
       expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
-      tabBtn2.dispatchEvent(
+      ldTab2.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -472,43 +471,43 @@ describe('ld-tabs', () => {
       expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
       expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      tabBtn3.dispatchEvent(
+      ldTab3.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView3).toHaveBeenCalledTimes(1)
 
-      tabBtn3.dispatchEvent(
+      ldTab3.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView2).toHaveBeenCalledTimes(3)
 
-      tabBtn2.dispatchEvent(
+      ldTab2.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView1).toHaveBeenCalledTimes(2)
 
-      tabBtn1.dispatchEvent(
+      ldTab1.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
       )
       await page.waitForChanges()

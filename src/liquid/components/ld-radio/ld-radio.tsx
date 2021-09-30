@@ -52,14 +52,13 @@ export class LdRadio implements InnerFocusable {
     })
   }
 
-  private handleClick(ev: MouseEvent) {
+  private handleClick = (ev: MouseEvent) => {
     if (this.input.getAttribute('aria-disabled') === 'true') {
       ev.preventDefault()
       return
     }
 
-    this.checked =
-      ev.target === this.el ? !this.input.checked : this.input.checked
+    this.checked = ev.target === this.el ? !this.checked : this.input.checked
   }
 
   render() {

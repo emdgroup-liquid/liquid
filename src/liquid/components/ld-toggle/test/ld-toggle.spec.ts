@@ -50,7 +50,7 @@ describe('ld-toggle', () => {
     expect(input).toHaveProperty('checked', false)
 
     input.checked = true
-    input.dispatchEvent(new Event('click'))
+    input.dispatchEvent(new Event('click', { bubbles: true }))
     await page.waitForChanges()
     expect(ldToggle.checked).toBe(true)
 
@@ -104,5 +104,18 @@ describe('ld-toggle', () => {
 
     expect(ldToggle.checked).toBe(undefined)
     expect(page.root).toMatchSnapshot()
+  })
+
+  it('allows to set inner focus', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle />`,
+    })
+    const input = root.querySelector('input')
+
+    input.focus = jest.fn()
+    await root.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
   })
 })

@@ -72,16 +72,16 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio></ld-radio>`,
     })
-    const ldCheckbox = page.root
-    expect(ldCheckbox.checked).toBe(undefined)
+    const ldRadio = page.root
+    expect(ldRadio.checked).toBe(undefined)
 
-    const input = ldCheckbox.querySelector('input')
+    const input = ldRadio.querySelector('input')
     expect(input.checked).toBe(false)
 
     input.checked = true
-    input.dispatchEvent(new Event('click'))
+    input.dispatchEvent(new Event('click', { bubbles: true }))
     await page.waitForChanges()
-    expect(ldCheckbox.checked).toBe(true)
+    expect(ldRadio.checked).toBe(true)
 
     expect(page.root).toEqualHtml(`
       <ld-radio checked class="ld-radio">
@@ -96,8 +96,8 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio></ld-radio>`,
     })
-    const ldCheckbox = page.root
-    const input = ldCheckbox.querySelector('input')
+    const ldRadio = page.root
+    const input = ldRadio.querySelector('input')
 
     const handlers = {
       onFocus() {
@@ -109,15 +109,28 @@ describe('ld-radio', () => {
     }
 
     const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldCheckbox.addEventListener('focus', handlers.onFocus)
+    ldRadio.addEventListener('focus', handlers.onFocus)
     input.dispatchEvent(new Event('focus'))
     jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldCheckbox.addEventListener('blur', handlers.onBlur)
+    ldRadio.addEventListener('blur', handlers.onBlur)
     input.dispatchEvent(new Event('blur'))
     jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
+  })
+
+  it('allows to set inner focus', async () => {
+    const { root } = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio />`,
+    })
+    const input = root.querySelector('input')
+
+    input.focus = jest.fn()
+    await root.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
   })
 })
