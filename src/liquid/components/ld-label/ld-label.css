@@ -1,5 +1,9 @@
 :host {
   display: inline-flex;
+
+  .ld-label {
+    width: 100%;
+  }
 }
 
 .ld-label {
@@ -10,10 +14,6 @@
   column-gap: 0;
   max-width: 100%;
   align-content: flex-start;
-
-  ld-label & {
-    width: 100%;
-  }
 }
 
 .ld-label--left,
