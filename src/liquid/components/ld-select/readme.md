@@ -10,6 +10,9 @@ tags:
   - dropdown
 ---
 
+<link rel="stylesheet" href="/dist/build/css/ld-label.css">
+<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+
 # ld-select
 
 The `ld-select` component represents a control that provides a menu of options. This control can be used in forms to accept a selection of these options from the user.

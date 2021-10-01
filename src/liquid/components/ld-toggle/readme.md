@@ -7,6 +7,9 @@ title: Toggle
 permalink: components/ld-toggle/
 ---
 
+<link rel="stylesheet" href="/dist/build/css/ld-label.css">
+<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+
 # ld-toggle
 
 A toggle allows the user to select and deselect single values.

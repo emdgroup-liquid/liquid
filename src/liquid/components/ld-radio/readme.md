@@ -7,6 +7,9 @@ title: Radio Button
 permalink: components/ld-radio/
 ---
 
+<link rel="stylesheet" href="/dist/build/css/ld-label.css">
+<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+
 # ld-radio
 
 The `ld-radio` component is meant to be used in **radio groups** — collections of radio buttons describing a set of related options (i.e. using a [`fieldset`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset) and a [`legend`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)). Only one radio button in a given group can be selected at the same time.

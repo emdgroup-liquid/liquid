@@ -7,6 +7,9 @@ title: Checkbox
 permalink: components/ld-checkbox/
 ---
 
+<link rel="stylesheet" href="/dist/build/css/ld-label.css">
+<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+
 # ld-checkbox
 
 A checkbox allows the user to select and deselect single values.
