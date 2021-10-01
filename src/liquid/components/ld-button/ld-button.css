@@ -22,6 +22,7 @@ ld-button {
   --ld-button-gap-sm: 0.625rem;
   --ld-button-gap-md: 0.875rem;
   --ld-button-gap-lg: 1.1875rem;
+  box-sizing: border-box;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;

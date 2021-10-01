@@ -7,6 +7,12 @@ title: Input
 permalink: components/ld-input/
 ---
 
+<link rel="stylesheet" href="/dist/build/css/ld-input.css">
+<link rel="stylesheet" href="/dist/build/css/ld-icon.css">
+<link rel="stylesheet" href="/dist/build/css/ld-button.css">
+<link rel="stylesheet" href="/dist/build/css/ld-label.css">
+<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+
 # ld-input
 
 The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.

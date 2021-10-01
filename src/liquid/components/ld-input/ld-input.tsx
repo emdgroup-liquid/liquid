@@ -25,7 +25,7 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 @Component({
   tag: 'ld-input',
   styleUrl: 'ld-input.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdInput implements InnerFocusable {
   @Element() el: HTMLElement
