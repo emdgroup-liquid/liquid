@@ -1,8 +1,5 @@
 import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import TextareaHTMLAttributes = JSXBase.TextareaHTMLAttributes
-import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 
 /**
  * The `ld-input` component. You can use it in conjunction with the `ld-label`
@@ -89,10 +86,12 @@ export class LdInput implements InnerFocusable {
     const target = ev.target as HTMLElement
 
     if (target.closest('ld-button')) return
-    if (target === this.input) return
 
-    ev.stopImmediatePropagation()
-    this.input.click()
+    if (target === this.el) {
+      this.input.dispatchEvent(new Event('click', { bubbles: false }))
+    } else {
+      this.input.focus()
+    }
   }
 
   render() {
@@ -105,14 +104,12 @@ export class LdInput implements InnerFocusable {
       return (
         <Host class={cl} onClick={this.handleClick}>
           <textarea
-            ref={(el) => (this.input = el as HTMLTextAreaElement)}
+            ref={(el) => (this.input = el)}
             onInput={this.handleInput.bind(this)}
             placeholder={this.placeholder}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            {...cloneAttributes<TextareaHTMLAttributes<HTMLInputElement>>(
-              this.el
-            )}
+            {...cloneAttributes(this.el)}
             value={this.value}
           />
           {this.type === 'file' && (
@@ -128,13 +125,13 @@ export class LdInput implements InnerFocusable {
       <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
-          ref={(el) => (this.input = el as HTMLInputElement)}
+          ref={(el) => (this.input = el)}
           onInput={this.handleInput.bind(this)}
           placeholder={this.placeholder}
           type={this.type}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
+          {...cloneAttributes(this.el)}
           value={this.value}
         />
         {this.type === 'file' && (
