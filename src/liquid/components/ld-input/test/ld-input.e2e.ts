@@ -213,8 +213,7 @@ describe('ld-input', () => {
       const page = await getPageWithContent(
         `<ld-input aria-disabled="true"></ld-input>`
       )
-      const ldInput = await page.find('ld-input')
-      const input = await ldInput.find('input')
+      const input = await page.find('ld-input >>> input')
 
       await input.press('8')
       await input.press('8')

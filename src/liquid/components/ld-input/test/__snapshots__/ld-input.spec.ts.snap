@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-input renders 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input>
+    <slot name="end"></slot>
+  </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input renders as dark input with prop tone set to "dark" 1`] = `
+<ld-input class="ld-input ld-input--dark" tone="dark">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input>
+    <slot name="end"></slot>
+  </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input renders with both slots 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input>
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <span slot="start">
+    hi
+  </span>
+  <span slot="end">
+    hello
+  </span>
+</ld-input>
+`;
+
+exports[`ld-input renders with slot end 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input>
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <span slot="end">
+    hello
+  </span>
+</ld-input>
+`;
+
+exports[`ld-input renders with slot start 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input>
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <span slot="start">
+    hi
+  </span>
+</ld-input>
+`;
+
+exports[`ld-input renders with value 1`] = `
+<ld-input class="ld-input" value="yada-yada">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input value="yada-yada">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input updates value prop on value change 1`] = `
+<ld-input class="ld-input" value="yoda-yoda">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input value="yoda-yoda">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+</ld-input>
+`;

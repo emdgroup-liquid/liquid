@@ -7,11 +7,7 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input">
-        <input>
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('renders as dark input with prop tone set to "dark"', async () => {
@@ -19,11 +15,7 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input tone="dark"></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input tone="dark" class="ld-input ld-input--dark">
-        <input>
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('renders with value', async () => {
@@ -31,11 +23,7 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input value="yada-yada"></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input value="yada-yada" class="ld-input">
-        <input value="yada-yada">
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('updates value prop on value change', async () => {
@@ -46,19 +34,14 @@ describe('ld-input', () => {
     const ldInput = page.root
     expect(ldInput.value).toBe('yada-yada')
 
-    const input = page.root.querySelector('input')
+    const input = ldInput.shadowRoot.querySelector('input')
     expect(input.value).toBe('yada-yada')
 
     input.value = 'yoda-yoda'
     input.dispatchEvent(new Event('input'))
     await page.waitForChanges()
-    expect(ldInput.value).toBe('yoda-yoda')
 
-    expect(page.root).toEqualHtml(`
-      <ld-input value="yoda-yoda" class="ld-input">
-        <input value="yoda-yoda">
-      </ld-input>
-    `)
+    expect(ldInput).toMatchSnapshot()
   })
 
   it('emits focus and blur event', async () => {
@@ -67,7 +50,7 @@ describe('ld-input', () => {
       html: `<ld-input></ld-input>`,
     })
     const ldInput = page.root
-    const input = page.root.querySelector('input')
+    const input = page.root.shadowRoot.querySelector('input')
 
     const handlers = {
       onFocus() {
@@ -96,14 +79,7 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input><span slot="start">hi</span></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input">
-        <span slot="start">
-          hi
-        </span>
-        <input>
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('renders with slot end', async () => {
@@ -111,14 +87,7 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input><span slot="end">hello</span></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input">
-        <input>
-        <span slot="end">
-          hello
-        </span>
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('renders with both slots', async () => {
@@ -126,40 +95,60 @@ describe('ld-input', () => {
       components: [LdInput],
       html: `<ld-input><span slot="start">hi</span><span slot="end">hello</span></ld-input>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-input class="ld-input">
-        <span slot="start">
-          hi
-        </span>
-        <input>
-        <span slot="end">
-          hello
-        </span>
-      </ld-input>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
-  it('clicks the input on click of non-interactive elment inside the component', async () => {
+  it('focuses the input on click of non-interactive elment inside the component', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input><span slot="end"><span id="banana">🍌</span></span></ld-input>`,
     })
     const ldInput = page.root
     const banana = ldInput.querySelector('#banana') as HTMLElement
-    const input = ldInput.querySelector('input')
+    const input = ldInput.shadowRoot.querySelector('input')
 
-    input.click = jest.fn()
+    input.focus = jest.fn()
     banana.dispatchEvent(new Event('click', { bubbles: true }))
 
-    expect(input.click).toHaveBeenCalled()
+    expect(input.focus).toHaveBeenCalled()
   })
 
-  it('allows to set inner focus (input)', async () => {
+  it('forwards click to input (default)', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],
       html: `<ld-input />`,
     })
-    const input = root.querySelector('input')
+    const input = root.shadowRoot.querySelector('input')
+
+    const dispatchSpy = jest.spyOn(input, 'dispatchEvent')
+    root.click()
+
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      expect.objectContaining({ bubbles: false })
+    )
+  })
+
+  it('forwards click to input (multiline)', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input multiline />`,
+    })
+    const textarea = root.shadowRoot.querySelector('textarea')
+
+    const dispatchSpy = jest.spyOn(textarea, 'dispatchEvent')
+    root.click()
+
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      expect.objectContaining({ bubbles: false })
+    )
+  })
+
+  it('allows to set inner focus (default)', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const input = root.shadowRoot.querySelector('input')
 
     input.focus = jest.fn()
     await root.focusInner()
@@ -167,12 +156,12 @@ describe('ld-input', () => {
     expect(input.focus).toHaveBeenCalled()
   })
 
-  it('allows to set inner focus (textarea)', async () => {
+  it('allows to set inner focus (multiline)', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],
       html: `<ld-input multiline />`,
     })
-    const textarea = root.querySelector('textarea')
+    const textarea = root.shadowRoot.querySelector('textarea')
 
     textarea.focus = jest.fn()
     await root.focusInner()
