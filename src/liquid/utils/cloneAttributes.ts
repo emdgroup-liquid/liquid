@@ -6,7 +6,7 @@ export function cloneAttributes<T = HTMLAttributes | NamedNodeMap>(el: {
 }) {
   const attrClone = { ...el.attributes }
   Object.keys(attrClone).forEach((key) => {
-    if (['style', 'id', 'class'].includes(attrClone[key].name)) {
+    if (['style', 'id', 'class', 'slot'].includes(attrClone[key].name)) {
       delete attrClone[key]
     }
   })
