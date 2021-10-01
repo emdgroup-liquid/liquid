@@ -12,7 +12,8 @@ import {
   EventEmitter,
 } from '@stencil/core'
 import Tether from 'tether'
-import { LdOptionInternal } from '../ld-option/ld-option-internal'
+import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
+import { LdOptionInternal } from './ld-option-internal/ld-option-internal'
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
@@ -24,7 +25,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 @Component({
   tag: 'ld-select',
   styleUrl: 'ld-select.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdSelect {
   @Element() el: HTMLElement
@@ -34,8 +35,7 @@ export class LdSelect {
   private selectionListRef!: HTMLElement
   private slotContainerRef!: HTMLElement
   private internalOptionsContainerRef!: HTMLElement
-  private popperRef!: HTMLElement
-  private shadowRef!: HTMLElement
+  private listboxRef!: HTMLElement
   private btnClearRef: HTMLButtonElement
   private popper: Tether
   private observer: MutationObserver
@@ -84,7 +84,7 @@ export class LdSelect {
   @Prop({ mutable: true }) maxRows?: number
 
   /** Attached as CSS class to the select popper element. */
-  @Prop({ mutable: true }) popperClass: string
+  @Prop() popperClass?: string
 
   /**
    * Stringified tether options object to be merged with the default options.
@@ -97,7 +97,7 @@ export class LdSelect {
 
   @State() selected: { value: string; text: string }[] = []
 
-  @State() themeCl: string
+  @State() theme: string
 
   @State() ariaDisabled = false
 
@@ -108,6 +108,8 @@ export class LdSelect {
   @State() internalOptionsHTML: string
 
   @State() hasMore = false
+
+  @State() hasCustomIcon = false
 
   @Watch('selected')
   emitEvents(
@@ -129,14 +131,14 @@ export class LdSelect {
     if (!newQuery) return
 
     const options = (Array.from(
-      this.popperRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as HTMLOptionElement[]
+      this.listboxRef.querySelectorAll('ld-option-internal')
+    ) as unknown) as LdOptionInternal[]
     const values = options.map((option) => option.value)
     let index = values.findIndex(
       (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
     )
     if (index > -1) {
-      options[index].focus()
+      options[index].focusOption()
       return
     }
 
@@ -149,7 +151,7 @@ export class LdSelect {
     }
 
     if (index > 0) {
-      options[index - 1].focus()
+      options[index - 1].focusOption()
     }
   }
 
@@ -265,15 +267,14 @@ export class LdSelect {
   }
 
   private updatePopperWidth() {
-    this.popperRef.style.setProperty(
+    this.listboxRef.style.setProperty(
       'width',
       `${this.selectRef.getBoundingClientRect().width}px`
     )
   }
 
   private updatePopperShadowHeight() {
-    this.shadowRef.style.setProperty(
-      'height',
+    ;((this.listboxRef as unknown) as LdSelectPopper).updateShadowHeight(
       `calc(100% + ${this.triggerRef.getBoundingClientRect().height}px)`
     )
   }
@@ -284,10 +285,11 @@ export class LdSelect {
 
     setTimeout(() => {
       // Array.from(themeEl.classList).find doesn't work in JSDom for some reason.
-      this.themeCl = themeEl.classList
+      this.theme = themeEl.classList
         .toString()
         .split(' ')
         .find((cl) => cl.indexOf('ld-theme-') === 0)
+        ?.split('ld-theme-')[1]
     })
   }
 
@@ -304,7 +306,7 @@ export class LdSelect {
 
     this.popper = new Tether({
       classPrefix: 'ld-tether',
-      element: this.popperRef,
+      element: this.listboxRef,
       target: this.selectRef,
       attachment: 'top left',
       targetAttachment: 'bottom left',
@@ -318,14 +320,14 @@ export class LdSelect {
       ...customTetherOptions,
     })
 
-    this.popperRef.classList.add('ld-select__popper--initialized')
+    this.listboxRef.classList.add('ld-select__popper--initialized')
   }
 
   private initOptions() {
     const initialized = this.initialized
     let children
     if (!initialized) {
-      children = this.slotContainerRef.querySelectorAll('ld-option')
+      children = this.el.querySelectorAll('ld-option')
     } else {
       children = this.internalOptionsContainerRef.querySelectorAll(
         'ld-option-internal'
@@ -342,9 +344,17 @@ export class LdSelect {
 
     setTimeout(() => {
       if (!initialized) {
-        this.internalOptionsHTML = this.slotContainerRef.innerHTML[
-          'replaceAll'
-        ](/<(\/)?ld-option/g, '<$1ld-option-internal')
+        this.internalOptionsHTML = this.el.innerHTML['replaceAll'](
+          /<ld-option/g,
+          `<ld-option-internal${this.multiple ? ' mode="checkbox"' : ''}${
+            this.size ? ' size="' + this.size + '"' : ''
+          }${this.preventDeselection ? ' prevent-deselection' : ''}`
+        )
+          .replaceAll(/<\/ld-option/g, '</ld-option-internal')
+          .replaceAll(
+            /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
+            ''
+          )
       }
       this.selected = childrenArr
         .filter((child) => {
@@ -393,7 +403,7 @@ export class LdSelect {
   }
 
   private clearSelection() {
-    Array.from(this.popperRef.querySelectorAll('ld-option-internal')).forEach(
+    Array.from(this.listboxRef.querySelectorAll('ld-option-internal')).forEach(
       (option) => {
         ;((option as unknown) as LdOptionInternal).selected = false
       }
@@ -415,7 +425,7 @@ export class LdSelect {
     const target = ev.target as HTMLElement
 
     // Ignore events which are not fired on current instance.
-    if (target.closest('[role="listbox"]') !== this.popperRef) return
+    if (target.closest('[role="listbox"]') !== this.listboxRef) return
 
     if (this.multiple) {
       // Focus the option, that has been (de-)selected.
@@ -423,7 +433,7 @@ export class LdSelect {
     } else {
       // Deselect currently selected option, if it's not the target option.
       ;((Array.from(
-        this.popperRef.querySelectorAll('ld-option-internal')
+        this.listboxRef.querySelectorAll('ld-option-internal')
       ) as unknown) as HTMLOptionElement[]).forEach((option) => {
         if (
           option !==
@@ -445,7 +455,7 @@ export class LdSelect {
       // If selected in single select mode, focus selected
       let optionToFocus
       if (!this.multiple) {
-        optionToFocus = this.popperRef.querySelector(
+        optionToFocus = this.listboxRef.querySelector(
           'ld-option-internal[aria-selected="true"]'
         )
       }
@@ -468,10 +478,13 @@ export class LdSelect {
     // Move focus to the last option.
     ev.preventDefault()
     const options = (Array.from(
-      this.popperRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as HTMLOptionElement[]
-    if (document.activeElement !== options[options.length - 1]) {
-      options[options.length - 1].focus()
+      this.listboxRef.querySelectorAll('ld-option-internal')
+    ) as unknown) as LdOptionInternal[]
+    if (
+      document.activeElement !==
+      ((options[options.length - 1] as unknown) as HTMLElement)
+    ) {
+      options[options.length - 1].focusOption()
     }
   }
 
@@ -492,7 +505,7 @@ export class LdSelect {
         option.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
       }
     } else {
-      option.focus()
+      ;((option as unknown) as LdOptionInternal).focusOption()
     }
   }
 
@@ -513,7 +526,7 @@ export class LdSelect {
 
     // Ignore events if current instance has no focus.
     if (
-      document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
+      document.activeElement.closest('[role="listbox"]') !== this.listboxRef &&
       document.activeElement.closest('ld-select') !== this.el
     ) {
       return
@@ -530,7 +543,7 @@ export class LdSelect {
     // If an option is focused, ignore Enter and Space key events
     // (the internal option component will dispatch its own event on selection).
     if (
-      document.activeElement.closest('[role="listbox"]') !== this.popperRef &&
+      document.activeElement.closest('[role="listbox"]') !== this.listboxRef &&
       document.activeElement.classList.contains(
         'ld-select__btn-clear-single'
       ) &&
@@ -545,7 +558,7 @@ export class LdSelect {
         // If expanded, move focus to the next option.
         // If shift is pressed, select the next option.
         // Holding down the Shift key and then using the Down cursor keys
-        // increases the range of items selected.
+        // increases the range of items selected (multiple mode only).
         ev.preventDefault()
         if (!this.expanded) {
           this.expandAndFocus()
@@ -559,14 +572,13 @@ export class LdSelect {
 
         let nextOption
         if (
-          document.activeElement.nextElementSibling?.classList.contains(
-            'ld-option-internal'
-          )
+          document.activeElement.nextElementSibling?.localName ===
+          'ld-option-internal'
         ) {
           nextOption = document.activeElement.nextElementSibling
         } else {
-          if (document.activeElement === this.triggerRef) {
-            nextOption = this.popperRef.querySelector('ld-option-internal')
+          if (document.activeElement === this.el) {
+            nextOption = this.listboxRef.querySelector('ld-option-internal')
           }
         }
         this.selectAndFocus(ev, nextOption)
@@ -577,7 +589,7 @@ export class LdSelect {
         // If expanded, move focus to the previous option.
         // If the first option is focused, focus the trigger button.
         // Holding down the Shift key and then using the Up cursor keys
-        // increases the range of items selected.
+        // increases the range of items selected (multiple mode only).
         ev.preventDefault()
         if (!this.expanded) {
           this.expandAndFocus()
@@ -590,9 +602,8 @@ export class LdSelect {
         }
 
         if (
-          document.activeElement.previousElementSibling?.classList.contains(
-            'ld-option-internal'
-          )
+          document.activeElement.previousElementSibling?.localName ===
+          'ld-option-internal'
         ) {
           this.selectAndFocus(ev, document.activeElement.previousElementSibling)
           return
@@ -600,7 +611,7 @@ export class LdSelect {
 
         if (
           document.activeElement ===
-          this.popperRef.querySelector('ld-option-internal')
+          this.listboxRef.querySelector('ld-option-internal')
         ) {
           this.triggerRef.focus()
         }
@@ -646,6 +657,8 @@ export class LdSelect {
           ev.stopImmediatePropagation()
         }
         break
+      case 'Shift':
+        break
       default:
         if (this.expanded) {
           ev.preventDefault()
@@ -661,7 +674,7 @@ export class LdSelect {
   handleClickOutside(ev) {
     if (
       ev.target.closest('ld-select') !== this.el &&
-      ev.target.closest('[role="listbox"]') !== this.popperRef
+      ev.target.closest('[role="listbox"]') !== this.listboxRef
     ) {
       this.expanded = false
     }
@@ -694,7 +707,7 @@ export class LdSelect {
     // Ignore blur events outside the select component.
     const target = ev.target as HTMLElement
     if (
-      target.closest('[role="listbox"]') !== this.popperRef &&
+      target.closest('[role="listbox"]') !== this.listboxRef &&
       target.closest('ld-select') !== this.el
     ) {
       return
@@ -730,7 +743,7 @@ export class LdSelect {
   private handleTriggerFocus(ev: FocusEvent) {
     if (
       (ev.relatedTarget as HTMLElement)?.closest('[role="listbox"]') !==
-      this.popperRef
+      this.listboxRef
     ) {
       this.focus.emit(this.selected.map((option) => option.value))
     }
@@ -756,13 +769,19 @@ export class LdSelect {
       (selection) => selection.value !== optionValue
     )
 
-    this.popperRef
+    this.listboxRef
       .querySelector(`ld-option-internal[value='${optionValue}']`)
       .dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
   }
 
   componentWillLoad() {
     applyPropAliases.apply(this)
+    const customIcon = this.el.querySelector('ld-icon')
+    this.hasCustomIcon = !!customIcon
+
+    if (customIcon) {
+      customIcon.setAttribute('size', this.size)
+    }
 
     if (this.el.getAttribute('aria-disabled') === 'true') {
       this.ariaDisabled = true
@@ -817,199 +836,219 @@ export class LdSelect {
     let triggerIconCl = 'ld-select__icon'
     if (this.expanded) triggerIconCl += ' ld-select__icon--rotated'
 
-    let popperCl = 'ld-select__popper'
-    if (this.invalid) popperCl += ' ld-select__popper--invalid'
-    if (detached) popperCl += ' ld-select__popper--detached'
-    if (this.multiple) popperCl += ' ld-select__popper--multiple'
-    if (this.expanded) popperCl += ' ld-select__popper--expanded'
-    if (this.size) popperCl += ` ld-select__popper--${this.size}`
-    if (this.themeCl) popperCl += ` ${this.themeCl}`
-    if (this.popperClass) popperCl += ` ${this.popperClass}`
-    if (this.preventDeselection) {
-      popperCl += ' ld-select__popper--prevent-deselection'
-    }
-
     const triggerText = this.multiple
       ? this.placeholder
       : this.selected[0]?.text || this.placeholder
 
     return (
-      <Host class={cl} disabled={this.disabled}>
-        {this.name
-          ? this.selected.map((selection) => (
-              <input
-                type="hidden"
-                name={this.name}
-                value={selection.value}
-              ></input>
-            ))
-          : ''}
+      <Host>
         <div
-          ref={(el) => (this.slotContainerRef = el as HTMLElement)}
-          class="ld-select__slot-container"
+          class={cl}
+          aria-disabled={this.disabled || this.ariaDisabled}
+          part="root"
+          style={
+            this.expanded
+              ? {
+                  zIndex: '2147483647', // Highest possible z-index
+                }
+              : undefined
+          }
         >
-          <slot></slot>
-        </div>
-        <div
-          class="ld-select__select"
-          ref={(el) => (this.selectRef = el as HTMLElement)}
-        >
+          {this.name
+            ? this.selected.map((selection) => (
+                <input
+                  type="hidden"
+                  name={this.name}
+                  value={selection.value}
+                ></input>
+              ))
+            : ''}
           <div
-            class={triggerCl}
-            role="button"
-            tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
-            aria-disabled={
-              this.disabled || this.ariaDisabled ? 'true' : 'false'
-            }
-            aria-haspopup="listbox"
-            aria-expanded={this.expanded ? 'true' : 'false'}
-            aria-label={triggerText}
-            onClick={this.handleTriggerClick.bind(this)}
-            onFocus={this.handleTriggerFocus.bind(this)}
-            ref={(el) => (this.triggerRef = el as HTMLElement)}
+            ref={(el) => (this.slotContainerRef = el as HTMLElement)}
+            class="ld-select__slot-container"
+            part="slot-container"
           >
-            {this.multiple && this.selected.length ? (
-              <ul
-                class="ld-select__selection-list"
-                aria-label="Selected options"
-                ref={(el) => (this.selectionListRef = el as HTMLElement)}
-                style={{
-                  maxHeight:
-                    this.maxRows && this.maxRows > 0
-                      ? `${this.maxRows * 1.75}rem`
-                      : undefined,
-                }}
-              >
-                {this.selected.map((selection, index) => {
-                  return (
-                    <li
-                      key={index}
-                      class="ld-select__selection-list-item"
-                      style={{ order: index + 1 + '' }}
-                    >
-                      <label class="ld-select__selection-label">
-                        <span
-                          class="ld-select__selection-label-text"
-                          title={selection.text}
-                        >
-                          {selection.text}
-                        </span>
-
-                        <button
-                          disabled={
-                            this.disabled || this.ariaDisabled
-                              ? true
-                              : undefined
-                          }
-                          class="ld-select__btn-clear-single"
-                          onClick={(ev) => {
-                            this.handleClearSingleClick.call(
-                              this,
-                              ev,
-                              selection.value
-                            )
-                          }}
-                        >
-                          <svg
-                            class="ld-select__btn-clear-single-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 12 12"
-                          >
-                            <title>Clear</title>
-                            <path
-                              stroke="#fff"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M2 2l8 8M2 10l8-8"
-                            />
-                          </svg>
-                        </button>
-
-                        <span class="ld-select__selection-label-bg"></span>
-                      </label>
-                    </li>
-                  )
-                })}
-              </ul>
-            ) : (
-              <span
-                class="ld-select__btn-trigger-text-wrapper"
-                title={triggerText}
-              >
-                <span class="ld-select__btn-trigger-text">{triggerText}</span>
-              </span>
-            )}
-
-            {this.selected?.length && this.multiple ? (
-              <button
-                class="ld-select__btn-clear"
-                disabled={this.disabled || this.ariaDisabled ? true : undefined}
-                onClick={this.handleClearClick.bind(this)}
-                ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
-              >
-                <svg
-                  class="ld-select__btn-clear-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 21 20"
+            <slot></slot>
+          </div>
+          <div
+            class="ld-select__select"
+            part="select"
+            ref={(el) => (this.selectRef = el as HTMLElement)}
+          >
+            <div
+              class={triggerCl}
+              role="button"
+              part="btn-trigger"
+              tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
+              aria-disabled={
+                this.disabled || this.ariaDisabled ? 'true' : 'false'
+              }
+              aria-haspopup="listbox"
+              aria-expanded={this.expanded ? 'true' : 'false'}
+              aria-label={triggerText}
+              onClick={this.handleTriggerClick.bind(this)}
+              onFocus={this.handleTriggerFocus.bind(this)}
+              ref={(el) => (this.triggerRef = el as HTMLElement)}
+            >
+              {this.multiple && this.selected.length ? (
+                <ul
+                  class="ld-select__selection-list"
+                  part="selection-list"
+                  aria-label="Selected options"
+                  ref={(el) => (this.selectionListRef = el as HTMLElement)}
+                  style={{
+                    maxHeight:
+                      this.maxRows && this.maxRows > 0
+                        ? `${this.maxRows * 1.75}rem`
+                        : undefined,
+                  }}
                 >
-                  <title>Clear all</title>
+                  {this.selected.map((selection, index) => {
+                    return (
+                      <li
+                        key={index}
+                        class="ld-select__selection-list-item"
+                        style={{ order: index + 1 + '' }}
+                        part="selection-list-item"
+                      >
+                        <label class="ld-select__selection-label">
+                          <span
+                            class="ld-select__selection-label-text"
+                            title={selection.text}
+                            part="selection-label-text"
+                          >
+                            {selection.text}
+                          </span>
+
+                          <button
+                            disabled={
+                              this.disabled || this.ariaDisabled
+                                ? true
+                                : undefined
+                            }
+                            class="ld-select__btn-clear-single"
+                            part="btn-clear-single"
+                            onClick={(ev) => {
+                              this.handleClearSingleClick.call(
+                                this,
+                                ev,
+                                selection.value
+                              )
+                            }}
+                          >
+                            <svg
+                              class="ld-select__btn-clear-single-icon"
+                              part="icon-clear-single"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 12 12"
+                            >
+                              <title>Clear</title>
+                              <path
+                                stroke="#fff"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M2 2l8 8M2 10l8-8"
+                              />
+                            </svg>
+                          </button>
+
+                          <span
+                            class="ld-select__selection-label-bg"
+                            part="selection-label-bg"
+                          ></span>
+                        </label>
+                      </li>
+                    )
+                  })}
+                </ul>
+              ) : (
+                <span
+                  class="ld-select__btn-trigger-text-wrapper"
+                  title={triggerText}
+                  part="trigger-text-wrapper"
+                >
+                  <span class="ld-select__btn-trigger-text" part="trigger-text">
+                    {triggerText}
+                  </span>
+                </span>
+              )}
+
+              {this.selected?.length && this.multiple ? (
+                <button
+                  class="ld-select__btn-clear"
+                  disabled={
+                    this.disabled || this.ariaDisabled ? true : undefined
+                  }
+                  onClick={this.handleClearClick.bind(this)}
+                  ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
+                  part="btn-clear"
+                >
+                  <svg
+                    class="ld-select__btn-clear-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 21 20"
+                    part="icon-clear"
+                  >
+                    <title>Clear all</title>
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M10 20a10 10 0 100-20 10 10 0 000 20z"
+                      clip-rule="evenodd"
+                    />
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6.67 6.67l6.67 6.66M6.67 13.33l6.67-6.66"
+                    />
+                  </svg>
+                </button>
+              ) : (
+                ''
+              )}
+
+              <slot name="icon"></slot>
+              {!this.hasCustomIcon && (
+                <svg
+                  class={triggerIconCl}
+                  role={'presentation'}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  part="trigger-icon"
+                >
                   <path
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    d="M10 20a10 10 0 100-20 10 10 0 000 20z"
-                    clip-rule="evenodd"
-                  />
-                  <path
-                    stroke="#fff"
+                    stroke="currentColor"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6.67 6.67l6.67 6.66M6.67 13.33l6.67-6.66"
+                    stroke-width="3"
+                    d="M3 6l5 4 5-4"
                   />
                 </svg>
-              </button>
-            ) : (
-              ''
-            )}
-
-            <slot name="icon"></slot>
-            <svg
-              class={triggerIconCl}
-              role={'presentation'}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-                d="M3 6l5 4 5-4"
-              />
-            </svg>
+              )}
+            </div>
           </div>
-        </div>
-        <div
-          role="listbox"
-          class={popperCl}
-          ref={(el) => (this.popperRef = el as HTMLElement)}
-        >
-          <div class="ld-select__scroll-container">
+          <ld-select-popper
+            popperClass={this.popperClass}
+            ref={(el) => (this.listboxRef = el as HTMLElement)}
+            role="listbox"
+            expanded={this.expanded}
+            size={this.size}
+            detached={detached}
+            theme={this.theme}
+          >
             <div
               ref={(el) =>
                 (this.internalOptionsContainerRef = el as HTMLElement)
               }
-              class="ld-select__internal-options-container"
               innerHTML={this.internalOptionsHTML}
+              part="options-container"
             ></div>
-            <div
-              class="ld-select__shadow"
-              ref={(el) => (this.shadowRef = el as HTMLElement)}
-            ></div>
-          </div>
+          </ld-select-popper>
         </div>
       </Host>
     )

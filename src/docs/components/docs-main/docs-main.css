@@ -231,7 +231,11 @@
       margin-top: var(--ld-sp-40);
     }
 
+    #shadow-parts,
+    #shadow-parts + table,
     #dependencies,
+    #depends-on,
+    #depends-on + ul,
     #used-by,
     #used-by + ul,
     #graph,
