@@ -1,5 +1,14 @@
 import '../../../components' // type definitions for type checks and intelliSense
-import { Component, h, Host, Method, Prop } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 
 /** @internal **/
@@ -9,7 +18,7 @@ import { getClassNames } from '../../../utils/getClassNames'
   shadow: true,
 })
 export class LdSelectPopper {
-  private shadowRef!: HTMLElement
+  @Element() el: HTMLElement
 
   /**
    * Indicates if select element is expanded.
@@ -28,23 +37,38 @@ export class LdSelectPopper {
   /** Attaches CSS class to the select popper element. */
   @Prop() popperClass?: string
 
+  /** A watcher is applied to the CSS class in order to be able to react to tether changes. */
+  @Prop({ mutable: true, reflect: true }) class: string
+
+  @State() isPinned = false
+  @State() shadowHeight = '100%'
+
+  @Watch('class')
+  updatePinnedState() {
+    this.isPinned = this.el.classList.contains('ld-tether-pinned')
+  }
+
   /**
    * Focuses the tab
    */
   @Method()
   async updateShadowHeight(height: string) {
-    this.shadowRef.style.setProperty('height', height)
+    this.shadowHeight = height
   }
 
   render() {
     return (
-      <Host class={this.popperClass && { [this.popperClass]: true }}>
+      <Host
+        class={this.popperClass && { [this.popperClass]: true }}
+        style={{ zIndex: this.isPinned ? '2147483647' : '2147483646' }}
+      >
         <div
           class={getClassNames([
             'ld-select-popper',
             this.expanded && 'ld-select-popper--expanded',
             this.detached && 'ld-select-popper--detached',
             this.size && `ld-select-popper--${this.size}`,
+            this.isPinned && 'ld-select-popper--pinned',
             this.theme && `ld-theme-${this.theme}`,
           ])}
           part="popper"
@@ -56,7 +80,7 @@ export class LdSelectPopper {
             <slot></slot>
             <div
               class="ld-select-popper__shadow"
-              ref={(el) => (this.shadowRef = el as HTMLElement)}
+              style={{ height: this.isPinned ? '100%' : this.shadowHeight }}
               part="shadow"
             ></div>
           </div>

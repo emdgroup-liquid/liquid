@@ -39,7 +39,6 @@ export class LdOption {
     return (
       <Host
         class="ld-option"
-        role="presentation"
         selected={this.selected}
         disabled={this.disabled}
         value={this.value}

@@ -3,8 +3,8 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
 import { LdTheme } from '../../ld-theme/ld-theme'
 import { LdLabel } from '../../ld-label/ld-label'
-import { LdOption } from '../../ld-option/ld-option'
-import { LdOptionInternal } from '../../ld-option/ld-option-internal'
+import { LdOption } from '../ld-option/ld-option'
+import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
 
 global.MutationObserver = MutationObserver
 
