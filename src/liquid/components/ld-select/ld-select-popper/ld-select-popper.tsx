@@ -62,7 +62,12 @@ export class LdSelectPopper {
 
   render() {
     return (
-      <Host style={{ zIndex: this.isPinned ? '2147483647' : '2147483646' }}>
+      <Host
+        style={{
+          zIndex: this.isPinned ? '2147483647' : '2147483646',
+          display: this.expanded ? 'block' : 'none',
+        }}
+      >
         <div
           class={getClassNames([
             'ld-select-popper',

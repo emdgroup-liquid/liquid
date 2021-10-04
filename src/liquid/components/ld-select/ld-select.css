@@ -1,9 +1,14 @@
 :host {
   display: inline-flex;
+
+  .ld-select {
+    flex-grow: 1;
+  }
 }
 
-ld-select,
+:host,
 .ld-select {
+  /* layout */
   --ld-select-min-width: 12.8125rem;
   --ld-select-min-height-sm: 2rem;
   --ld-select-min-height-md: 2.5rem;
@@ -17,13 +22,36 @@ ld-select,
   --ld-select-padding-right-sm: calc(2.5rem + 0.625rem);
   --ld-select-padding-right-md: calc(2.5rem + 0.75rem);
   --ld-select-padding-right-lg: calc(2.5rem + 0.875rem);
-  box-sizing: border-box;
+  --ld-select-icon-size-sm: 1rem;
+  --ld-select-icon-size-md: 1.25rem;
+  --ld-select-icon-size-lg: 1.5rem;
+
+  /* colors */
+  --ld-select-col: var(--ld-col-rblck-default);
+  --ld-select-col-bg: var(--ld-col-wht);
+  --ld-select-col-invalid: var(--ld-col-rr-default);
+  --ld-select-col-invalid-hover: var(--ld-col-rr-hover);
+  --ld-select-col-invalid-focus: var(--ld-col-rr-focus);
+  --ld-select-col-invalid-active: var(--ld-col-rr-active);
+  --ld-select-col-bg-invalid-disabled: var(--ld-col-rr1);
+  --ld-select-col-disabled: var(--ld-col-rblck1);
+  --ld-select-col-border: var(--ld-col-rblck1);
+  --ld-select-col-border-hover: var(--ld-col-rblck2);
+  --ld-select-selection-col: var(--ld-col-wht);
+
+  /* themable colors */
+  --ld-select-thm-col: var(--ld-thm-ocean-bg-primary);
+  --ld-select-thm-col-hover: var(--ld-col-rb-hover);
+  --ld-select-thm-col-focus: var(--ld-col-rb-focus);
+  --ld-select-thm-col-active: var(--ld-col-rb-active);
+  --ld-select-ghost-thm-col-bg-hover: var(--ld-col-rb-a01);
+  --ld-select-ghost-thm-col-bg-focus: var(--ld-col-rb-a02);
 
   /* reset */
   *,
   *::before,
   *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
   ul {
     list-style: none;
@@ -33,39 +61,70 @@ ld-select,
 .ld-select {
   display: inline-flex;
   position: relative;
-  flex-grow: 1;
 
-  /*&:where(:not(ld-select)) {
-    .ld-icon,
-    .ld-select__icon {
+  select + .ld-icon,
+  ::slotted(ld-icon) {
+    width: var(--ld-select-icon-size-md);
+    height: var(--ld-select-icon-size-md);
+  }
+
+  ::slotted(ld-icon) {
+    display: contents !important;
+  }
+
+  select {
+    + .ld-icon,
+    + .ld-select__icon {
       position: absolute;
       right: var(--ld-select-padding-x-md);
       top: 50%;
       transform: translateY(-50%);
     }
-    :where(select:not[multiple]) {
-      padding-right: var(--ld-select-padding-right-md);
+
+    + .ld-icon {
+      width: var(--ld-select-icon-size-md);
+      height: var(--ld-select-icon-size-md);
     }
 
-    &:where(.ld-select--sm) {
-      .ld-icon,
-      .ld-select__icon {
+    &:where(:not[multiple]) {
+      padding-right: var(--ld-select-padding-right-md);
+    }
+  }
+
+  &.ld-select--sm {
+    select {
+      + .ld-icon,
+      + .ld-select__icon {
         right: var(--ld-select-padding-x-sm);
       }
-      :where(select:not[multiple]) {
+
+      + .ld-icon {
+        width: var(--ld-select-icon-size-sm);
+        height: var(--ld-select-icon-size-sm);
+      }
+
+      &:where(:not[multiple]) {
         padding-right: var(--ld-select-padding-right-sm);
       }
     }
-    &:where(.ld-select--lg) {
-      .ld-icon,
-      .ld-select__icon {
+  }
+  &.ld-select--lg {
+    select {
+      + .ld-icon,
+      + .ld-select__icon {
         right: var(--ld-select-padding-x-lg);
       }
-      :where(select:not[multiple]) {
+
+      + .ld-icon {
+        width: var(--ld-select-icon-size-lg);
+        height: var(--ld-select-icon-size-lg);
+      }
+
+      &:where(:not[multiple]) {
         padding-right: var(--ld-select-padding-right-lg);
       }
     }
-  }*/
+  }
 }
 
 :where(.ld-select:not(.ld-select--inline):not(.ld-select--ghost)) {
@@ -91,8 +150,8 @@ ld-select,
   height: 100%;
   user-select: none;
   touch-action: manipulation;
-  color: var(--ld-col-rblck-default);
-  background-color: var(--ld-col-wht);
+  color: var(--ld-select-col);
+  background-color: var(--ld-select-col-bg);
   line-height: 1;
   text-align: left;
   appearance: none;
@@ -138,7 +197,7 @@ ld-select,
   &:where([aria-disabled='true']),
   &:where([aria-disabled='true']) + .ld-select__icon,
   &:where([aria-disabled='true']) + .ld-icon {
-    color: var(--ld-col-rblck1);
+    color: var(--ld-select-col-disabled);
   }
 }
 
@@ -187,7 +246,7 @@ ld-select,
   &:where(:not(.ld-select--detached):not(.ld-select--expanded)) {
     :where(select),
     :where(.ld-select__btn-trigger) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck1);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-border);
     }
   }
 
@@ -198,7 +257,7 @@ ld-select,
       &:where(:not(:disabled):not([aria-disabled='true']):not(.ld-select__btn-trigger--detached):not([aria-expanded='true'])) {
         @media (hover: hover) {
           &:hover:not(:focus:focus-visible) {
-            box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck2);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-border-hover);
           }
         }
       }
@@ -210,35 +269,35 @@ ld-select,
 .ld-select--invalid .ld-select__btn-trigger--invalid {
   &:where(:not(:disabled)) {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
     }
   }
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:not(:focus:focus-visible)) {
-      background-color: var(--ld-col-rr1);
-      color: var(--ld-col-rr-default);
+      background-color: var(--ld-select-col-bg-invalid-disabled);
+      color: var(--ld-select-col-invalid);
     }
 
     &:where(:not(.ld-select__btn-trigger--ghost)) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
     }
 
     + .ld-icon,
     + .ld-select__icon,
     .ld-select__icon {
-      color: var(--ld-col-rr-default);
+      color: var(--ld-select-col-invalid);
     }
 
     @media (hover: hover) {
       &:hover {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rr-default);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
 
         + .ld-icon,
         + .ld-select__icon,
         .ld-select__icon,
         ::slotted(ld-icon) {
-          color: var(--ld-col-rr-hover);
+          color: var(--ld-select-col-invalid-hover);
         }
       }
     }
@@ -247,7 +306,7 @@ ld-select,
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-col-rr-focus);
+        color: var(--ld-select-col-invalid-focus);
       }
     }
     &:where(:active),
@@ -256,7 +315,7 @@ ld-select,
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-col-rr-active);
+        color: var(--ld-select-col-invalid-active);
       }
     }
   }
@@ -275,10 +334,6 @@ ld-select,
   display: flex;
   align-items: center;
   overflow: hidden;
-
-  :where(.ld-select__btn-trigger[aria-disabled='true']) & {
-    color: var(--ld-col-rblck1);
-  }
 }
 
 .ld-select--sm > select,
@@ -344,12 +399,17 @@ ld-select,
   line-height: 0;
   -webkit-touch-callout: none;
 
-  &:disabled {
-    color: var(--ld-col-rblck1);
-  }
-
   &:not(:disabled) {
     cursor: pointer;
+  }
+}
+
+.ld-select__btn-clear {
+  margin-right: var(--ld-sp-6);
+  flex-shrink: 0;
+
+  &:disabled {
+    color: var(--ld-select-col-disabled);
   }
 }
 
@@ -362,7 +422,7 @@ ld-select,
   width: 100%;
   display: inline-flex;
   align-items: center;
-  color: var(--ld-col-wht);
+  color: var(--ld-select-selection-col);
   font: var(--ld-typo-label-s);
   font-weight: 700;
   padding: var(--ld-sp-4) var(--ld-sp-6);
@@ -377,7 +437,7 @@ ld-select,
   border-radius: var(--ld-br-m);
 
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {
-    background-color: var(--ld-col-rblck1);
+    background-color: var(--ld-select-col-disabled);
   }
 }
 
@@ -390,11 +450,6 @@ ld-select,
   width: var(--ld-select-btn-clear-single-size);
   height: var(--ld-select-btn-clear-single-size);
   margin-left: var(--ld-sp-6);
-}
-
-.ld-select__btn-clear {
-  margin-right: var(--ld-sp-6);
-  flex-shrink: 0;
 }
 
 .ld-select__btn-clear-icon {
@@ -421,7 +476,7 @@ ld-select,
   :where(select[aria-disabled='true']) &,
   :where(select:disabled) &,
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {
-    color: var(--ld-col-rblck1);
+    color: var(--ld-select-col-disabled);
   }
 
   .ld-icon,
@@ -436,10 +491,14 @@ ld-select,
   transform: rotate(180deg);
 }
 
+.ld-select__slot-container {
+  display: none;
+}
+
 :where(.ld-select:not([disabled]):not([aria-disabled]):not(.ld-select--invalid)) {
   .ld-select__btn-trigger {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
     }
   }
 
@@ -448,12 +507,12 @@ ld-select,
     :where(.ld-select__btn-trigger) {
       @media (hover: hover) {
         &:hover:not(:focus) {
-          background-color: var(--ld-col-rb-a01);
+          background-color: var(--ld-select-ghost-thm-col-bg-hover);
         }
       }
       &:active,
       &:active:focus-visible {
-        background-color: var(--ld-col-rb-a02);
+        background-color: var(--ld-select-ghost-thm-col-bg-focus);
       }
     }
   }
@@ -464,7 +523,7 @@ ld-select,
     + .ld-icon,
     + .ld-select__icon,
     ::slotted(ld-icon) {
-      color: var(--ld-thm-ocean-bg-primary);
+      color: var(--ld-select-thm-col);
     }
 
     @media (hover: hover) {
@@ -473,17 +532,17 @@ ld-select,
         + .ld-icon,
         + .ld-select__icon,
         ::slotted(ld-icon) {
-          color: var(--ld-col-rb-hover);
+          color: var(--ld-select-thm-col-hover);
         }
       }
     }
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
 
       .ld-select__icon,
       + .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-col-rb-focus);
+        color: var(--ld-select-thm-col-focus);
       }
     }
     &:where(:active),
@@ -492,7 +551,7 @@ ld-select,
       + .ld-icon,
       + .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-col-rb-active);
+        color: var(--ld-select-thm-col-active);
       }
     }
   }
@@ -500,66 +559,46 @@ ld-select,
 :where(.ld-select:not(ld-select)):not(.ld-select--invalid) {
   :where(select:not(:disabled)) {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
     }
   }
 }
 
 :where(.ld-select:not([disabled]):not([aria-disabled]):not([aria-disabled='true'])) {
   .ld-select__selection-list-more {
-    color: var(--ld-thm-ocean-bg-primary);
+    color: var(--ld-select-thm-col);
   }
   .ld-select__selection-label-bg {
-    background-color: var(--ld-thm-ocean-bg-primary);
+    background-color: var(--ld-select-thm-col);
   }
 
   .ld-select__btn-clear-single {
     &:where(:focus:focus-visible) + .ld-select__selection-label-bg {
-      background-color: var(--ld-col-rb-focus);
+      background-color: var(--ld-select-thm-col-focus);
     }
 
     &:where(:active),
     &:where(:active:focus-visible) {
       + .ld-select__selection-label-bg {
-        background-color: var(--ld-col-rb-active);
+        background-color: var(--ld-select-thm-col-active);
       }
     }
   }
 
   .ld-select__btn-clear {
-    color: var(--ld-thm-ocean-bg-primary);
+    color: var(--ld-select-thm-col);
 
     &:where(:focus:focus-visible) {
-      color: var(--ld-col-rb-focus);
+      color: var(--ld-select-thm-col-focus);
     }
     @media (hover: hover) {
       &:where(:hover) {
-        color: var(--ld-col-rb-hover);
+        color: var(--ld-select-thm-col-hover);
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      color: var(--ld-col-rb-active);
+      color: var(--ld-select-thm-col-active);
     }
   }
-}
-
-ld-select-popper {
-  display: none;
-}
-
-:where(.ld-select__shadow) {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: calc(100% + var(--ld-select-min-height-md));
-  box-shadow: var(--ld-shadow-sticky);
-  border-radius: var(--ld-br-m);
-  pointer-events: none;
-  background-color: var(--ld-col-wht);
-  z-index: -1;
-}
-
-.ld-select__slot-container {
-  display: none;
 }
