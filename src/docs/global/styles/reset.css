@@ -7,67 +7,84 @@ body {
 html {
   box-sizing: border-box;
 }
-:where(:not(.docs-example__show)) {
-  p,
-  ol,
-  ul,
-  li,
-  dl,
-  dt,
-  dd,
-  blockquote,
-  figure,
-  fieldset,
-  legend,
-  textarea,
-  pre,
-  iframe,
-  hr,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     margin: 0;
     padding: 0;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     font-size: 100%; /* stylelint-disable-line */
     font-weight: normal;
   }
-  ul {
+}
+ul {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     list-style: none;
   }
-  button,
-  input,
-  select {
+}
+button,
+input,
+select {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     margin: 0;
   }
-  *,
-  *::before,
-  *::after {
+}
+*,
+*::before,
+*::after {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     box-sizing: inherit;
   }
-  img,
-  video {
+}
+img,
+video {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     height: auto;
     max-width: 100%;
   }
-  iframe {
+}
+iframe {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     border: 0;
   }
-  table {
+}
+table {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     border-collapse: collapse;
     border-spacing: 0;
   }
-  td,
-  th {
+}
+td,
+th {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     padding: 0;
   }
 }
