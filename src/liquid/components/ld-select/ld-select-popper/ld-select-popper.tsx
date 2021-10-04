@@ -56,12 +56,13 @@ export class LdSelectPopper {
     this.shadowHeight = height
   }
 
+  componentWillLoad() {
+    this.popperClass && this.el.classList.add(this.popperClass)
+  }
+
   render() {
     return (
-      <Host
-        class={this.popperClass && { [this.popperClass]: true }}
-        style={{ zIndex: this.isPinned ? '2147483647' : '2147483646' }}
-      >
+      <Host style={{ zIndex: this.isPinned ? '2147483647' : '2147483646' }}>
         <div
           class={getClassNames([
             'ld-select-popper',
