@@ -130,7 +130,7 @@ describe('ld-label', () => {
 
     it('renders on the left with input message at the bottom', async () => {
       const page = await getPageWithContent(`
-        <ld-label position="left" size="m">
+        <ld-label position="left" size="m" align-message>
           Email Address
           <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
           <ld-input-message>This field is required.</ld-input-message>
@@ -141,7 +141,7 @@ describe('ld-label', () => {
 
     it('renders on the left with input message at the bottom as css component', async () => {
       const page = await getPageWithContent(`
-        <label class="ld-label ld-label--left ld-label--m">
+        <label class="ld-label ld-label--left ld-label--m ld-label--align-message">
           Email Address
           <div class="ld-input ld-input--invalid">
             <input placeholder="jane.doe@example.com" type="email">

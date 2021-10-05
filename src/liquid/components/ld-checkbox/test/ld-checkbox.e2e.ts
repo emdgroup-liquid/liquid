@@ -1,19 +1,7 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdCheckbox } from '../ld-checkbox'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './src/docs/global/styles/reset.css' })
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-checkbox.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
 
 const themes = [
   'none',
@@ -121,7 +109,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -131,7 +120,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.hover('.ld-checkbox')
             const results = await page.compareScreenshot()
@@ -142,7 +132,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()
@@ -155,7 +146,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -165,7 +157,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}" disabled>
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.hover('.ld-checkbox')
             const results = await page.compareScreenshot()
@@ -176,7 +169,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()
@@ -189,7 +183,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -199,7 +194,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}" aria-disabled="true">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.hover('.ld-checkbox')
             const results = await page.compareScreenshot()
@@ -210,7 +206,8 @@ describe('ld-checkbox', () => {
               `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme
+              theme,
+              LdCheckbox
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()

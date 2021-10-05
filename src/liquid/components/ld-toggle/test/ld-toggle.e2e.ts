@@ -1,20 +1,8 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdIcon } from '../../ld-icon/ld-icon'
+import { LdToggle } from '../ld-toggle'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './src/docs/global/styles/reset.css' })
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-toggle.css' })
-  await page.addStyleTag({ path: './dist/css/ld-icon.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
 
 const themes = [
   'none',
@@ -335,7 +323,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -346,7 +335,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -360,7 +350,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -371,7 +362,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -393,7 +385,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -412,7 +405,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -434,7 +428,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -453,7 +448,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -467,7 +463,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -478,7 +475,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -500,7 +498,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -519,7 +518,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -541,7 +541,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -560,7 +561,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -574,7 +576,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -585,7 +588,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -607,7 +611,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -626,7 +631,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -648,7 +654,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -667,7 +674,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -681,7 +689,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -692,7 +701,8 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
               </div>`,
-            theme
+            theme,
+            LdToggle
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -714,7 +724,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -733,7 +744,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -755,7 +767,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedPixels })
@@ -774,7 +787,8 @@ describe('ld-toggle', () => {
                   <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
                 </svg>
               </div>`,
-            theme
+            theme,
+            [LdToggle, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()

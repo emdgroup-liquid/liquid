@@ -1,19 +1,7 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdRadio } from '../ld-radio'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './src/docs/global/styles/reset.css' })
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-radio.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
 
 const themes = [
   'none',
@@ -106,7 +94,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr}></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -116,7 +105,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr}></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.hover('.ld-radio')
             const results = await page.compareScreenshot()
@@ -127,7 +117,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr}></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()
@@ -140,7 +131,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -150,7 +142,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}" disabled>
                 <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.hover('.ld-radio')
             const results = await page.compareScreenshot()
@@ -161,7 +154,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()
@@ -174,7 +168,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -184,7 +179,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}" aria-disabled="true">
                 <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.hover('.ld-radio')
             const results = await page.compareScreenshot()
@@ -195,7 +191,8 @@ describe('ld-radio', () => {
               `<div class="ld-radio${toneModifier}">
                 <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
               </div>`,
-              theme
+              theme,
+              LdRadio
             )
             await page.keyboard.press('Tab')
             const results = await page.compareScreenshot()

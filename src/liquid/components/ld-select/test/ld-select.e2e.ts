@@ -1,21 +1,7 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdSelect } from '../ld-select'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './src/docs/global/styles/reset.css' })
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-select.css' })
-  await page.addStyleTag({ path: './dist/css/ld-option.css' })
-  await page.addStyleTag({ path: './dist/css/ld-icon.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
 
 const themes = [
   // 'none',
@@ -397,7 +383,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -412,7 +399,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
@@ -428,7 +416,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -446,7 +435,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -461,7 +451,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
@@ -477,7 +468,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -495,7 +487,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -510,7 +503,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
@@ -526,7 +520,8 @@ describe('ld-select', () => {
             <option value="banana">Banana</option>
           </select>${selectIcon}
         </div>`,
-        theme
+        theme,
+        LdSelect
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
