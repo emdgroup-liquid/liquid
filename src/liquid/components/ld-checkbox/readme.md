@@ -7,8 +7,8 @@ title: Checkbox
 permalink: components/ld-checkbox/
 ---
 
-<link rel="stylesheet" href="/dist/build/css/ld-label.css">
-<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-label.css">
+<link rel="stylesheet" href="/css_components/ld-input-message.css">
 
 # ld-checkbox
 
