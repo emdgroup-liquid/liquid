@@ -455,7 +455,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -465,7 +465,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--sm">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -476,7 +476,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--sm">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -484,7 +484,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
     </svg>
   </span>
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -535,7 +535,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--lg">
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -545,7 +545,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--lg">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -556,7 +556,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--lg">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -564,7 +564,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
     </svg>
   </span>
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -580,13 +580,13 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" aria-label="Submit" size="sm">
+  <ld-button slot="end" aria-label="Submit" >
     <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" size="sm">
+  <ld-button slot="end" >
     Submit <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
@@ -604,13 +604,13 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end" aria-label="Submit" size="lg">
+  <ld-button slot="end" aria-label="Submit">
     <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end" size="lg">
+  <ld-button slot="end">
     Submit <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
@@ -620,7 +620,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -633,7 +633,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm">
     Submit
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -670,7 +670,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--lg">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--lg">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -683,69 +683,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg">
     Submit
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-{% endexample %}
-
-#### With inset button
-
-{% example %}
-<ld-input placeholder="Placeholder">
-  <ld-button slot="end" size="sm">
-    Submit <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder">
-  <ld-button slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end">
-    Submit <ld-icon name="placeholder" size="sm"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm">
-    Submit
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm" aria-label="Submit">
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <button class="ld-button">
-    Submit
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--lg">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -759,65 +697,65 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
   <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
@@ -826,7 +764,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -837,7 +775,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -849,7 +787,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -858,7 +796,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   </button>
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>

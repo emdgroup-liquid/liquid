@@ -62,6 +62,24 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  componentWillLoad() {
+    // TODO: manipulate css components, as well, as soon as components have shadow DOM.
+    this.el.querySelectorAll('ld-button').forEach((button) => {
+      if (this.size !== undefined) {
+        button.setAttribute('size', this.size)
+      } else {
+        button.removeAttribute('size')
+      }
+    })
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      if (this.size !== undefined) {
+        icon.setAttribute('size', this.size)
+      } else {
+        icon.removeAttribute('size')
+      }
+    })
+  }
+
   private handleBlur = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
@@ -88,6 +106,7 @@ export class LdInput implements InnerFocusable {
     if (target.closest('ld-button')) return
 
     if (target === this.el) {
+      this.input.focus()
       this.input.dispatchEvent(new Event('click', { bubbles: false }))
     } else {
       this.input.focus()

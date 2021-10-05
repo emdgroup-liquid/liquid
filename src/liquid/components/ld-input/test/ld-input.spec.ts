@@ -109,8 +109,9 @@ describe('ld-input', () => {
 
     input.focus = jest.fn()
     banana.dispatchEvent(new Event('click', { bubbles: true }))
+    ldInput.dispatchEvent(new Event('click'))
 
-    expect(input.focus).toHaveBeenCalled()
+    expect(input.focus).toHaveBeenCalledTimes(2)
   })
 
   it('forwards click to input (default)', async () => {
@@ -120,6 +121,7 @@ describe('ld-input', () => {
     })
     const input = root.shadowRoot.querySelector('input')
 
+    input.focus = jest.fn()
     const dispatchSpy = jest.spyOn(input, 'dispatchEvent')
     root.click()
 
@@ -135,6 +137,7 @@ describe('ld-input', () => {
     })
     const textarea = root.shadowRoot.querySelector('textarea')
 
+    textarea.focus = jest.fn()
     const dispatchSpy = jest.spyOn(textarea, 'dispatchEvent')
     root.click()
 

@@ -22,18 +22,22 @@ ld-button {
   --ld-button-gap-sm: 0.625rem;
   --ld-button-gap-md: 0.875rem;
   --ld-button-gap-lg: 1.1875rem;
+  background-color: var(--ld-button-bg-color);
   box-sizing: border-box;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
   padding: var(--ld-button-padding-y-md) var(--ld-button-padding-x-md);
-  border-radius: var(--ld-br-m);
+  border-radius: var(--ld-button-border-top-left-radius, var(--ld-br-m))
+    var(--ld-button-border-top-right-radius, var(--ld-br-m))
+    var(--ld-button-border-bottom-right-radius, var(--ld-br-m))
+    var(--ld-button-border-bottom-left-radius, var(--ld-br-m));
   min-height: 2.5rem;
   min-width: 2.5rem;
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
-  color: var(--ld-col-wht);
+  color: var(--ld-button-text-color, var(--ld-col-wht));
   display: grid;
   grid-auto-flow: column;
   gap: var(--ld-button-gap-md);
@@ -51,6 +55,22 @@ ld-button {
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     cursor: pointer;
+
+    &:where(:focus:focus-visible) {
+      background-color: var(--ld-button-bg-color-focus);
+      color: var(--ld-button-text-color-focus);
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--ld-button-bg-color-hover);
+        color: var(--ld-button-text-color-hover, var(--ld-col-wht));
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(--ld-button-bg-color-active);
+      color: var(--ld-button-text-color-active, var(--ld-col-wht));
+    }
   }
 
   :where(ld-icon) {
@@ -148,14 +168,20 @@ ld-button {
 }
 
 .ld-button__progress {
+  border-bottom-left-radius: var(
+    --ld-button-border-bottom-left-radius,
+    var(--ld-br-full)
+  );
+  border-bottom-right-radius: var(
+    --ld-button-border-bottom-right-radius,
+    var(--ld-br-full)
+  );
   --ld-button-progress: 0;
   position: absolute;
   background-color: inherit;
   inset: auto 0 0;
   height: var(--ld-br-m);
   overflow: hidden;
-  border-bottom-left-radius: var(--ld-br-full);
-  border-bottom-right-radius: var(--ld-br-full);
   transform: translateZ(0); /* fixes overflow issue in Safari */
 
   &::before,
@@ -166,7 +192,7 @@ ld-button {
   }
 
   &::before {
-    background-color: inherit;
+    background-color: var(--ld-button-progress-bg-color, inherit);
     filter: brightness(0.8);
   }
 
@@ -188,27 +214,12 @@ ld-button {
 .ld-button,
 .ld-theme-ocean .ld-button,
 [class*='ld-theme'] .ld-theme-ocean .ld-button {
+  --ld-button-bg-color: var(--ld-thm-ocean-bg-primary);
+  --ld-button-bg-color-focus: var(--ld-col-rb-focus);
+  --ld-button-text-color-focus: var(--ld-thm-ocean-bg-secondary);
+  --ld-button-bg-color-hover: var(--ld-col-rb-hover);
+  --ld-button-bg-color-active: var(--ld-col-rb-active);
   --ld-button-progress-color: var(--ld-thm-ocean-accent);
-  background-color: var(--ld-thm-ocean-bg-primary);
-  color: var(--ld-col-wht);
-
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      background-color: var(--ld-col-rb-focus);
-      color: var(--ld-thm-ocean-bg-secondary);
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(--ld-col-rb-hover);
-        color: var(--ld-col-wht);
-      }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(--ld-col-rb-active);
-      color: var(--ld-col-wht);
-    }
-  }
 }
 
 .ld-theme-bubblegum,
@@ -218,43 +229,29 @@ ld-button {
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
   :where(.ld-button) {
-    background-color: var(--ld-thm-solvent-bg-primary);
-
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        background-color: var(--ld-col-rp-focus);
-        color: var(--ld-thm-solvent-bg-secondary);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          background-color: var(--ld-col-rp-hover);
-          color: var(--ld-col-wht);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        background-color: var(--ld-col-rp-active);
-        color: var(--ld-col-wht);
-      }
-    }
+    --ld-button-bg-color: var(--ld-thm-solvent-bg-primary);
+    --ld-button-bg-color-focus: var(--ld-col-rp-focus);
+    --ld-button-text-color-focus: var(--ld-thm-solvent-bg-secondary);
+    --ld-button-bg-color-hover: var(--ld-col-rp-hover);
+    --ld-button-bg-color-active: var(--ld-col-rp-active);
   }
 }
 
 .ld-theme-bubblegum,
 [class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-button {
+  :where(.ld-button) {
     --ld-button-progress-color: var(--ld-thm-bubblegum-accent);
   }
 }
 .ld-theme-shake,
 [class*='ld-theme'] .ld-theme-shake {
-  .ld-button {
+  :where(.ld-button) {
     --ld-button-progress-color: var(--ld-thm-shake-accent);
   }
 }
 .ld-theme-solvent,
 [class*='ld-theme'] .ld-theme-solvent {
-  .ld-button {
+  :where(.ld-button) {
     --ld-button-progress-color: var(--ld-thm-solvent-accent);
   }
 }
@@ -262,25 +259,12 @@ ld-button {
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
   :where(.ld-button) {
+    --ld-button-bg-color: var(--ld-thm-tea-bg-primary);
+    --ld-button-bg-color-focus: var(--ld-col-rg-focus);
+    --ld-button-text-color-focus: var(--ld-thm-tea-bg-secondary);
+    --ld-button-bg-color-hover: var(--ld-col-rg-hover);
+    --ld-button-bg-color-active: var(--ld-col-rg-active);
     --ld-button-progress-color: var(--ld-thm-tea-accent);
-    background-color: var(--ld-thm-tea-bg-primary);
-
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        background-color: var(--ld-col-rg-focus);
-        color: var(--ld-thm-tea-bg-secondary);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          background-color: var(--ld-col-rg-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        background-color: var(--ld-col-rg-active);
-        color: var(--ld-col-wht);
-      }
-    }
   }
 }
 
@@ -345,32 +329,44 @@ ld-button {
 .ld-button--ghost,
 [class*='ld-theme'] .ld-button--ghost,
 [class*='ld-theme'] [class*='ld-theme'] .ld-button--ghost {
-  color: var(--ld-col-rb-default);
-  background-color: transparent;
+  background-color: var(--ld-button-ghost-bg-color, transparent);
+  color: var(--ld-button-ghost-text-color, var(--ld-col-rb-default));
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      color: var(--ld-col-rb-focus);
-      background-color: transparent;
+      background-color: var(--ld-button-ghost-bg-color-focus, transparent);
+      color: var(--ld-button-ghost-text-color-focus, var(--ld-col-rb-focus));
     }
     @media (hover: hover) {
       &:where(:hover) {
-        color: var(--ld-col-rb-hover);
-        background-color: var(--ld-col-rb-a01);
+        background-color: var(
+          --ld-button-ghost-bg-color-hover,
+          var(--ld-col-rb-a01)
+        );
+        color: var(--ld-button-ghost-text-color-hover, var(--ld-col-rb-hover));
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      color: var(--ld-col-rb-active);
-      background-color: var(--ld-col-rb-a02);
+      background-color: var(
+        --ld-button-ghost-bg-color-active,
+        var(--ld-col-rb-a02)
+      );
+      color: var(--ld-button-ghost-text-color-active, var(--ld-col-rb-active));
     }
   }
 
   .ld-button__progress::before {
-    background-color: var(--ld-col-rb-a01);
+    background-color: var(
+      --ld-button-ghost-progress-bg-color,
+      var(--ld-col-rb-a01)
+    );
   }
   .ld-button__progress::after {
-    background-color: var(--ld-col-rb-default);
+    background-color: var(
+      --ld-button-ghost-progress-color,
+      var(--ld-col-rb-default)
+    );
   }
 }
 
@@ -382,6 +378,8 @@ ld-button {
   [class*='ld-theme'] .ld-theme-solvent &,
   [class*='ld-theme'] .ld-theme-bubblegum &,
   [class*='ld-theme'] .ld-theme-shake & {
+    --ld-button-ghost-progress-bg-color: var(--ld-col-rp-a01);
+    --ld-button-ghost-progress-color: var(--ld-col-rp-default);
     color: var(--ld-col-rp-default);
 
     &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -400,17 +398,12 @@ ld-button {
         background-color: var(--ld-col-rp-a02);
       }
     }
-
-    .ld-button__progress::before {
-      background-color: var(--ld-col-rp-a01);
-    }
-    .ld-button__progress::after {
-      background-color: var(--ld-col-rp-default);
-    }
   }
 
   .ld-theme-tea &,
   [class*='ld-theme'] .ld-theme-tea & {
+    --ld-button-ghost-progress-bg-color: var(--ld-col-rg-a01);
+    --ld-button-ghost-progress-color: var(--ld-col-rg-default);
     color: var(--ld-col-rg-default);
 
     &:where(:not(:disabled):not([aria-disabled='true'])) {
@@ -428,13 +421,6 @@ ld-button {
         color: var(--ld-col-rg-active);
         background-color: var(--ld-col-rg-a02);
       }
-    }
-
-    .ld-button__progress::before {
-      background-color: var(--ld-col-rg-a01);
-    }
-    .ld-button__progress::after {
-      background-color: var(--ld-col-rg-default);
     }
   }
 }

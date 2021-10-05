@@ -12,6 +12,13 @@
   }
 }
 
+.ld-theme-ocean,
+[class*='ld-theme'] .ld-theme-ocean {
+  .ld-input:not(.ld-input--invalid):focus-within::before {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-default);
+  }
+}
+
 .ld-theme-solvent,
 .ld-theme-bubblegum,
 .ld-theme-shake,
@@ -19,6 +26,10 @@
 [class*='ld-theme'] .ld-theme-bubblegum,
 [class*='ld-theme'] .ld-theme-shake {
   .ld-input {
+    &:not(.ld-input--invalid):focus-within::before {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
+    }
+
     > ld-icon,
     > .ld-icon {
       color: var(--ld-col-rp-default);
@@ -37,6 +48,10 @@
 .ld-theme-tea,
 [class*='ld-theme'] .ld-theme-tea {
   .ld-input {
+    &:not(.ld-input--invalid):focus-within::before {
+      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-default);
+    }
+
     > ld-icon,
     > .ld-icon {
       color: var(--ld-col-rg-default);
