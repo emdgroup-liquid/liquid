@@ -9,7 +9,7 @@ permalink: components/ld-input-message/
 
 # ld-input-message
 
-<link rel="stylesheet" href="/dist/build/css/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-input-message.css">
 
 This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 

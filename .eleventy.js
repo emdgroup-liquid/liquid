@@ -6,6 +6,8 @@ const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setWatchJavaScriptDependencies(false)
+
   // Navigation
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
@@ -160,6 +162,6 @@ module.exports = function (eleventyConfig) {
       output: './dist_docs',
       includes: './docs/includes',
     },
-    templateFormats: ['html', 'md', 'njk', 'css'],
+    templateFormats: ['md', 'njk'],
   }
 }

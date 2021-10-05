@@ -1,10 +1,27 @@
 .ld-option-internal {
+  /* layout */
   --ld-option-padding-left-sm: 0.625rem;
   --ld-option-padding-left-lg: 0.875rem;
+
+  /* colors */
+  --ld-option-col: var(--ld-col-rblck-default);
+  --ld-option-col-disabled: var(--ld-col-disabled);
+  --ld-option-col-bg: var(--ld-col-wht);
+  --ld-option-col-border: var(--ld-col-rblck1);
+
+  /* themable colors */
+  --ld-option-thm-col: var(--ld-thm-ocean-bg-primary);
+  --ld-option-thm-col-hover: var(--ld-col-rb-hover);
+  --ld-option-thm-col-focus: var(--ld-col-rb-focus);
+  --ld-option-thm-col-active: var(--ld-col-rb-active);
+  --ld-option-thm-col-bg-hover: var(--ld-col-rb1);
+  --ld-option-thm-col-bg-focus: var(--ld-col-rb1);
+  --ld-option-thm-col-bg-active: var(--ld-col-rb1);
+
   display: flex;
   position: relative;
-  color: var(--ld-col-rblck-default);
-  background-color: var(--ld-col-wht);
+  color: var(--ld-option-col);
+  background-color: var(--ld-option-col-bg);
   padding: var(--ld-sp-8) var(--ld-sp-12);
   font: var(--ld-typo-label-m);
   min-height: 2.5rem;
@@ -14,7 +31,7 @@
   border: 0;
   outline: none;
   -webkit-touch-callout: none;
-  border-bottom: solid var(--ld-col-rblck1) var(--ld-sp-1);
+  border-bottom: solid var(--ld-option-col-border) var(--ld-sp-1);
   box-sizing: border-box;
 
   &--sm {
@@ -49,7 +66,7 @@
   }
 
   &[aria-disabled='true'] {
-    color: var(--ld-col-disabled);
+    color: var(--ld-option-col-disabled);
   }
 
   /* Pseudo element for focus outline */
@@ -62,6 +79,41 @@
     bottom: 0;
     border-radius: var(--ld-br-m);
     pointer-events: none;
+  }
+
+  &:where(:focus:focus-visible):before {
+    box-shadow: inset 0 0 0 0.1rem var(--ld-option-thm-col);
+  }
+
+  &:where(:not([disabled]):not([aria-disabled='true'])) {
+    :where(.ld-option-internal__check) {
+      color: var(--ld-option-thm-col);
+    }
+
+    &:where(:focus:focus-visible) {
+      background-color: var(--ld-option-thm-col-bg-focus);
+
+      :where(.ld-option-internal__check) {
+        color: var(--ld-option-thm-col-focus);
+      }
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--ld-option-thm-col-bg-hover);
+
+        :where(.ld-option-internal__check) {
+          color: var(--ld-option-thm-col-hover);
+        }
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(--ld-option-thm-col-bg-active);
+
+      :where(.ld-option-internal__check) {
+        color: var(--ld-option-thm-col-active);
+      }
+    }
   }
 }
 
@@ -89,128 +141,4 @@
 .ld-option-internal__label {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-/* .ld-theme-ocean -> default */
-.ld-option-internal,
-.ld-theme-ocean .ld-option-internal,
-[class*='ld-theme'] .ld-theme-ocean .ld-option-internal {
-  &:where(:focus:focus-visible):before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-bg-primary);
-  }
-
-  &:where(:not([disabled]):not([aria-disabled='true'])) {
-    :where(.ld-option-internal__check) {
-      color: var(--ld-thm-ocean-bg-primary);
-    }
-
-    &:where(:focus:focus-visible) {
-      background-color: var(--ld-col-rb1);
-
-      :where(.ld-option-internal__check) {
-        color: var(--ld-col-rb-focus);
-      }
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(--ld-col-rb1);
-
-        :where(.ld-option-internal__check) {
-          color: var(--ld-col-rb-hover);
-        }
-      }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(--ld-col-rb1);
-
-      :where(.ld-option-internal__check) {
-        color: var(--ld-col-rb-active);
-      }
-    }
-  }
-}
-
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum,
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake,
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  :where(.ld-option-internal) {
-    &:where(:focus:focus-visible):before {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-default);
-    }
-
-    &:where(:not([disabled]):not([aria-disabled='true'])) {
-      :where(.ld-option-internal__check) {
-        color: var(--ld-col-rp-default);
-      }
-
-      &:where(:focus:focus-visible) {
-        background-color: var(--ld-col-rp1);
-
-        :where(.ld-option-internal__check) {
-          color: var(--ld-col-rp-focus);
-        }
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          background-color: var(--ld-col-rp1);
-
-          :where(.ld-option-internal__check) {
-            color: var(--ld-col-rp-hover);
-          }
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        background-color: var(--ld-col-rp1);
-
-        :where(.ld-option-internal__check) {
-          color: var(--ld-col-rp-active);
-        }
-      }
-    }
-  }
-}
-
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
-  :where(.ld-option-internal) {
-    &:where(:focus:focus-visible):before {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-bg-primary);
-    }
-
-    &:where(:not([disabled]):not([aria-disabled='true'])) {
-      :where(.ld-option-internal__check) {
-        color: var(--ld-thm-tea-bg-primary);
-      }
-
-      &:where(:focus:focus-visible) {
-        background-color: var(--ld-col-rg1);
-
-        :where(.ld-option-internal__check) {
-          color: var(--ld-col-rg-focus);
-        }
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          background-color: var(--ld-col-rg1);
-
-          :where(.ld-option-internal__check) {
-            color: var(--ld-col-rg-hover);
-          }
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        background-color: var(--ld-col-rg1);
-
-        :where(.ld-option-internal__check) {
-          color: var(--ld-col-rg-active);
-        }
-      }
-    }
-  }
 }
