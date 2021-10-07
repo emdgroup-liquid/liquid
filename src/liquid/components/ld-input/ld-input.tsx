@@ -63,7 +63,6 @@ export class LdInput implements InnerFocusable {
   }
 
   componentWillLoad() {
-    // TODO: manipulate css components, as well, as soon as components have shadow DOM.
     this.el.querySelectorAll('ld-button').forEach((button) => {
       if (this.size !== undefined) {
         button.setAttribute('size', this.size)
@@ -71,6 +70,18 @@ export class LdInput implements InnerFocusable {
         button.removeAttribute('size')
       }
     })
+    this.el.querySelectorAll('.ld-button').forEach((button) => {
+      if (this.size === 'sm') {
+        button.classList.remove('ld-button--lg')
+        button.classList.add('ld-button--sm')
+      } else if (this.size === 'lg') {
+        button.classList.remove('ld-button--sm')
+        button.classList.add('ld-button--lg')
+      } else {
+        button.classList.remove('ld-button--sm', 'ld-button--lg')
+      }
+    })
+    // TODO: manipulate css component, as well, as soon as icon has shadow DOM.
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
       if (this.size !== undefined) {
         icon.setAttribute('size', this.size)

@@ -1,9 +1,5 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Method, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
-import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
  * @virtualProp ref - reference to component
@@ -12,7 +8,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 @Component({
   tag: 'ld-button',
   styleUrl: 'ld-button.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdButton implements InnerFocusable {
   @Element() el: HTMLElement
@@ -72,7 +68,20 @@ export class LdButton implements InnerFocusable {
     })
   }
 
+  connectedCallback() {
+    this.el.addEventListener('click', this.handleClick, {
+      capture: true,
+    })
+  }
+
+  disconnectedCallback() {
+    this.el.removeEventListener('click', this.handleClick, {
+      capture: true,
+    })
+  }
+
   private handleClick = (ev: MouseEvent) => {
+    console.log({ ev })
     if (ev.target === this.el) {
       ev.stopImmediatePropagation()
       this.button.click()
@@ -81,7 +90,7 @@ export class LdButton implements InnerFocusable {
 
     const ariaDisabled = this.button.getAttribute('aria-disabled')
 
-    if (ariaDisabled && ariaDisabled !== 'false') {
+    if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
       ev.preventDefault()
       ev.stopImmediatePropagation()
     }
@@ -94,7 +103,14 @@ export class LdButton implements InnerFocusable {
   }
 
   componentWillLoad() {
-    applyPropAliases.apply(this)
+    // TODO: manipulate css component, as well, as soon as icon has shadow DOM.
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      if (this.size !== undefined) {
+        icon.setAttribute('size', this.size)
+      } else {
+        icon.removeAttribute('size')
+      }
+    })
   }
 
   render() {
@@ -116,33 +132,24 @@ export class LdButton implements InnerFocusable {
     }`
 
     return (
-      <Host onClick={this.handleClick}>
-        <Tag
-          ref={(el: HTMLAnchorElement | HTMLButtonElement) =>
-            (this.button = el)
-          }
-          class={cl}
-          disabled={this.disabled}
-          aria-disabled={this.disabled ? 'true' : undefined}
-          aria-busy={hasProgress ? 'true' : undefined}
-          aria-live="polite"
-          href={this.href}
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
-          rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-          target={this.target}
-          {...(this.href
-            ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
-            : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(
-                this.el
-              ))}
-        >
-          <slot />
-          {hasProgress && (
-            <span class={clProgress} style={styleProgress}></span>
-          )}
-        </Tag>
-      </Host>
+      <Tag
+        ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
+        class={cl}
+        disabled={this.disabled}
+        aria-disabled={this.disabled ? 'true' : undefined}
+        aria-busy={hasProgress ? 'true' : undefined}
+        aria-live="polite"
+        href={this.href}
+        onBlur={this.handleBlur}
+        onClick={this.handleClick}
+        onFocus={this.handleFocus}
+        rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        target={this.target}
+        {...cloneAttributes(this.el)}
+      >
+        <slot />
+        {hasProgress && <span class={clProgress} style={styleProgress}></span>}
+      </Tag>
     )
   }
 }

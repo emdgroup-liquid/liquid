@@ -7,207 +7,161 @@ describe('ld-button', () => {
       components: [LdButton],
       html: `<ld-button>Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button>
-        <button aria-live="polite" class="ld-button">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('disabled', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button disabled>Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button disabled>
-        <button aria-live="polite" aria-disabled="true" class="ld-button" disabled>
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
-  it('heighlight', async () => {
+
+  it('highlight', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="highlight">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="highlight">
-        <button aria-live="polite" class="ld-button ld-button--highlight">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('secondary', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="secondary">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="secondary">
-        <button aria-live="polite" class="ld-button ld-button--secondary">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('on-brand-color', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="on-brand-color">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="on-brand-color">
-        <button aria-live="polite" class="ld-button ld-button--on-brand-color">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('secondary-on-brand-color', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="secondary-on-brand-color">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="secondary-on-brand-color">
-        <button aria-live="polite" class="ld-button ld-button--secondary-on-brand-color">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('ghost', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="ghost">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="ghost">
-        <button aria-live="polite" class="ld-button ld-button--ghost">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('danger', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="danger">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button mode="danger">
-        <button aria-live="polite" class="ld-button ld-button--danger">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('size', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button size="sm">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button size="sm">
-        <button aria-live="polite" class="ld-button ld-button--sm">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('justify content', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button justify-content="end">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button justify-content="end">
-        <button aria-live="polite" class="ld-button ld-button--justify-end">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('align text', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button align-text="right">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button align-text="right">
-        <button aria-live="polite" class="ld-button ld-button--align-text-right">
-          Text
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('as anchor', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button href="#" target="_blank">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button href="#" target="_blank">
-        <a aria-live="polite" class="ld-button" href="#" target="_blank" rel="noreferrer noopener">
-          Text
-        </a>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('as progress button', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button progress="0.75">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button progress="0.75">
-        <button aria-busy="true" aria-live="polite" class="ld-button">
-          Text
-          <span class="ld-button__progress" style="--ld-button-progress:0.75;"></span>
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('as progress button pending', async () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button progress="pending">Text</ld-button>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-button progress="pending">
-        <button aria-busy="true" aria-live="polite" class="ld-button">
-          Text
-          <span class="ld-button__progress ld-button__progress--pending"></span>
-        </button>
-      </ld-button>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
-  it('allows adding click handlers', async () => {
-    const handlers = {
-      onClick() {
-        return
-      },
-    }
 
+  it('allows adding click handlers', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button>Text</ld-button>`,
+      html: `<ld-button disabled>Text</ld-button>`,
     })
     const ldButton = page.root
-    const button = ldButton.querySelector('button')
+    const clickHandler = jest.fn()
 
-    const spyClick = jest.spyOn(handlers, 'onClick')
-    ldButton.addEventListener('click', handlers.onClick)
-    button.dispatchEvent(
-      new Event('click', { bubbles: true, cancelable: true })
+    ldButton.addEventListener('click', clickHandler)
+    ldButton.dispatchEvent(
+      new MouseEvent('click', { bubbles: true, cancelable: true })
     )
-    await page.waitForChanges()
-    jest.advanceTimersByTime(0)
-    expect(spyClick).toHaveBeenCalled()
+
+    expect(clickHandler).toHaveBeenCalledTimes(1)
+  })
+
+  xit('prevents click handlers from being invoked, if disabled', async () => {
+    // FIXME: the event handlers being called might be a stencil "jsdom" issue
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button disabled>Text</ld-button>`,
+    })
+    const ldButton = page.root
+    const clickHandler = jest.fn()
+
+    ldButton.addEventListener('click', clickHandler)
+    ldButton.dispatchEvent(
+      new MouseEvent('click', { bubbles: true, cancelable: true })
+    )
+
+    expect(clickHandler).not.toHaveBeenCalled()
+  })
+
+  xit('prevents click handlers from being invoked, if aria-disabled', async () => {
+    // FIXME: the event handlers being called might be a stencil "jsdom" issue
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button aria-disabled="true">Text</ld-button>`,
+    })
+    const ldButton = page.root
+    const clickHandler = jest.fn()
+
+    ldButton.addEventListener('click', clickHandler)
+    ldButton.dispatchEvent(
+      new MouseEvent('click', { bubbles: true, cancelable: true })
+    )
+
+    expect(clickHandler).not.toHaveBeenCalled()
   })
 
   it('allows to set inner focus', async () => {
@@ -215,7 +169,7 @@ describe('ld-button', () => {
       components: [LdButton],
       html: `<ld-button>Text</ld-button>`,
     })
-    const button = root.querySelector('button')
+    const button = root.shadowRoot.querySelector('button')
 
     button.focus = jest.fn()
     await root.focusInner()

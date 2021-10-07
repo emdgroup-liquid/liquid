@@ -1,9 +1,5 @@
-ld-button {
-  display: inline-flex;
-
-  > :where(.ld-button) {
-    width: 100%;
-  }
+:host > :where(.ld-button) {
+  width: 100%;
 }
 
 .ld-button {
@@ -73,17 +69,14 @@ ld-button {
     }
   }
 
+  /* TODO: check if this is necessary or can be removed / moved to ld-icon.css */
+  ::slotted(ld-icon),
   :where(ld-icon) {
     line-height: 0;
   }
 
-  ld-icon,
-  :where(.ld-icon),
-  :where(.ld-icon svg) {
-    width: var(--ld-button-icon-size-md);
-    height: var(--ld-button-icon-size-md);
-  }
-
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
   > ld-icon,
   > .ld-icon {
     margin: auto var(--ld-button-icon-margin-x-md);
@@ -98,16 +91,11 @@ ld-button {
     line-height: 1;
     gap: var(--ld-button-gap-sm);
 
+    ::slotted(ld-icon),
+    ::slotted(.ld-icon),
     > ld-icon,
     > .ld-icon {
       margin: auto var(--ld-button-icon-margin-x-sm);
-    }
-
-    ld-icon,
-    .ld-icon,
-    .ld-icon :where(svg) {
-      width: var(--ld-button-icon-size-sm);
-      height: var(--ld-button-icon-size-sm);
     }
   }
 
@@ -120,16 +108,11 @@ ld-button {
     line-height: 1;
     gap: var(--ld-button-gap-lg);
 
+    ::slotted(ld-icon),
+    ::slotted(.ld-icon),
     > ld-icon,
     > .ld-icon {
       margin: auto var(--ld-button-icon-margin-x-lg);
-    }
-
-    ld-icon,
-    .ld-icon,
-    .ld-icon :where(svg) {
-      width: var(--ld-button-icon-size-lg);
-      height: var(--ld-button-icon-size-lg);
     }
   }
 
@@ -210,67 +193,7 @@ ld-button {
   }
 }
 
-/* .ld-theme-ocean -> default */
-.ld-button,
-.ld-theme-ocean .ld-button,
-[class*='ld-theme'] .ld-theme-ocean .ld-button {
-  --ld-button-bg-color: var(--ld-thm-ocean-bg-primary);
-  --ld-button-bg-color-focus: var(--ld-col-rb-focus);
-  --ld-button-text-color-focus: var(--ld-thm-ocean-bg-secondary);
-  --ld-button-bg-color-hover: var(--ld-col-rb-hover);
-  --ld-button-bg-color-active: var(--ld-col-rb-active);
-  --ld-button-progress-color: var(--ld-thm-ocean-accent);
-}
-
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum,
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake,
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  :where(.ld-button) {
-    --ld-button-bg-color: var(--ld-thm-solvent-bg-primary);
-    --ld-button-bg-color-focus: var(--ld-col-rp-focus);
-    --ld-button-text-color-focus: var(--ld-thm-solvent-bg-secondary);
-    --ld-button-bg-color-hover: var(--ld-col-rp-hover);
-    --ld-button-bg-color-active: var(--ld-col-rp-active);
-  }
-}
-
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum {
-  :where(.ld-button) {
-    --ld-button-progress-color: var(--ld-thm-bubblegum-accent);
-  }
-}
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake {
-  :where(.ld-button) {
-    --ld-button-progress-color: var(--ld-thm-shake-accent);
-  }
-}
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  :where(.ld-button) {
-    --ld-button-progress-color: var(--ld-thm-solvent-accent);
-  }
-}
-
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
-  :where(.ld-button) {
-    --ld-button-bg-color: var(--ld-thm-tea-bg-primary);
-    --ld-button-bg-color-focus: var(--ld-col-rg-focus);
-    --ld-button-text-color-focus: var(--ld-thm-tea-bg-secondary);
-    --ld-button-bg-color-hover: var(--ld-col-rg-hover);
-    --ld-button-bg-color-active: var(--ld-col-rg-active);
-    --ld-button-progress-color: var(--ld-thm-tea-accent);
-  }
-}
-
-.ld-button--highlight,
-[class*='ld-theme'] .ld-button--highlight,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--highlight {
+.ld-button--highlight {
   background-color: var(--ld-col-vy-default);
   color: var(--ld-col-vy6);
 
@@ -295,9 +218,7 @@ ld-button {
   }
 }
 
-.ld-button--danger,
-[class*='ld-theme'] .ld-button--danger,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--danger {
+.ld-button--danger {
   background-color: var(--ld-col-rr-default);
   color: var(--ld-col-wht);
 
@@ -324,185 +245,69 @@ ld-button {
 }
 
 .ld-button--secondary,
-[class*='ld-theme'] .ld-button--secondary,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--secondary,
-.ld-button--ghost,
-[class*='ld-theme'] .ld-button--ghost,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--ghost {
+.ld-button--ghost {
   background-color: var(--ld-button-ghost-bg-color, transparent);
-  color: var(--ld-button-ghost-text-color, var(--ld-col-rb-default));
+  color: var(--ld-button-ghost-text-color);
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       background-color: var(--ld-button-ghost-bg-color-focus, transparent);
-      color: var(--ld-button-ghost-text-color-focus, var(--ld-col-rb-focus));
+      color: var(--ld-button-ghost-text-color-focus);
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(
-          --ld-button-ghost-bg-color-hover,
-          var(--ld-col-rb-a01)
-        );
-        color: var(--ld-button-ghost-text-color-hover, var(--ld-col-rb-hover));
+        background-color: var(--ld-button-ghost-bg-color-hover);
+        color: var(--ld-button-ghost-text-color-hover);
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(
-        --ld-button-ghost-bg-color-active,
-        var(--ld-col-rb-a02)
-      );
-      color: var(--ld-button-ghost-text-color-active, var(--ld-col-rb-active));
+      background-color: var(--ld-button-ghost-bg-color-active);
+      color: var(--ld-button-ghost-text-color-active);
     }
   }
 
   .ld-button__progress::before {
-    background-color: var(
-      --ld-button-ghost-progress-bg-color,
-      var(--ld-col-rb-a01)
-    );
+    background-color: var(--ld-button-ghost-progress-bg-color);
   }
   .ld-button__progress::after {
-    background-color: var(
-      --ld-button-ghost-progress-color,
-      var(--ld-col-rb-default)
-    );
-  }
-}
-
-.ld-button--secondary,
-.ld-button--ghost {
-  .ld-theme-solvent &,
-  .ld-theme-bubblegum &,
-  .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-solvent &,
-  [class*='ld-theme'] .ld-theme-bubblegum &,
-  [class*='ld-theme'] .ld-theme-shake & {
-    --ld-button-ghost-progress-bg-color: var(--ld-col-rp-a01);
-    --ld-button-ghost-progress-color: var(--ld-col-rp-default);
-    color: var(--ld-col-rp-default);
-
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rp-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-col-rp-hover);
-          background-color: var(--ld-col-rp-a01);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-col-rp-active);
-        background-color: var(--ld-col-rp-a02);
-      }
-    }
-  }
-
-  .ld-theme-tea &,
-  [class*='ld-theme'] .ld-theme-tea & {
-    --ld-button-ghost-progress-bg-color: var(--ld-col-rg-a01);
-    --ld-button-ghost-progress-color: var(--ld-col-rg-default);
-    color: var(--ld-col-rg-default);
-
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rg-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-col-rg-hover);
-          background-color: var(--ld-col-rg-a01);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-col-rg-active);
-        background-color: var(--ld-col-rg-a02);
-      }
-    }
-  }
-}
-
-.ld-button--secondary,
-[class*='ld-theme'] .ld-button--secondary,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--secondary {
-  box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-default);
-
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-focus);
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rb-hover);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      box-shadow: inset 0px 0px 0px 2px var(var(--ld-col-rb-active));
-    }
+    background-color: var(--ld-button-ghost-progress-color);
   }
 }
 
 .ld-button--secondary {
-  .ld-theme-solvent &,
-  .ld-theme-bubblegum &,
-  .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-solvent &,
-  [class*='ld-theme'] .ld-theme-bubblegum &,
-  [class*='ld-theme'] .ld-theme-shake & {
-    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-default);
+  box-shadow: inset 0px 0px 0px 2px var(--ld-button-secondary-shadow-color);
 
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rp-active);
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:focus:focus-visible) {
+      box-shadow: inset 0px 0px 0px 2px
+        var(--ld-button-secondary-shadow-color-focus);
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        box-shadow: inset 0px 0px 0px 2px
+          var(--ld-button-secondary-shadow-color-hover);
       }
     }
-  }
-
-  .ld-theme-tea &,
-  [class*='ld-theme'] .ld-theme-tea & {
-    box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-default);
-
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-focus);
-      }
-      @media (hover: hover) {
-        &:where(:hover) {
-          box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-hover);
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        box-shadow: inset 0px 0px 0px 2px var(--ld-col-rg-active);
-      }
+    &:active,
+    &:active:focus-visible {
+      box-shadow: inset 0px 0px 0px 2px
+        var(--ld-button-secondary-shadow-color-active);
     }
   }
 }
 
-.ld-button--on-brand-color,
-[class*='ld-theme'] .ld-button--on-brand-color,
-[class*='ld-theme'] [class*='ld-theme'] .ld-button--on-brand-color {
+.ld-button--on-brand-color {
   --ld-col-ob-wht-active: rgba(255, 255, 255, 0.5);
   --ld-col-ob-wht-hover: rgba(255, 255, 255, 0.7);
   --ld-col-ob-wht-focus: rgba(255, 255, 255, 0.9);
   background-color: var(--ld-col-wht);
+  color: var(--ld-button-text-brand-color);
 
   &:where(&:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       background-color: var(--ld-col-ob-wht-focus);
+      color: var(--ld-button-text-brand-color-focus);
     }
     @media (hover: hover) {
       &:where(:hover) {
@@ -516,48 +321,7 @@ ld-button {
   }
 }
 
-.ld-button--on-brand-color,
-.ld-theme-ocean .ld-button--on-brand-color,
-[class*='ld-theme'] .ld-theme-ocean .ld-button--on-brand-color {
-  color: var(--ld-col-rb-default);
-
-  &:where(&:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      color: var(--ld-col-rb-focus);
-    }
-  }
-}
-
-.ld-button--on-brand-color {
-  .ld-theme-tea &,
-  [class*='ld-theme'] .ld-theme-tea & {
-    color: var(--ld-col-rg-default);
-
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rg-focus);
-      }
-    }
-  }
-
-  .ld-theme-solvent &,
-  .ld-theme-bubblegum &,
-  .ld-theme-shake &,
-  [class*='ld-theme'] .ld-theme-solvent &,
-  [class*='ld-theme'] .ld-theme-bubblegum &,
-  [class*='ld-theme'] .ld-theme-shake & {
-    color: var(--ld-col-rp-default);
-
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-col-rp-focus);
-      }
-    }
-  }
-}
-
-.ld-button--secondary-on-brand-color,
-[class*='ld-theme'] .ld-button--secondary-on-brand-color {
+.ld-button--secondary-on-brand-color {
   --ld-col-sob-wht-active: rgba(255, 255, 255, 0.8);
   --ld-col-sob-wht-active-bg: rgba(255, 255, 255, 0.1);
   --ld-col-sob-wht-hover-bg: rgba(255, 255, 255, 0.2);
