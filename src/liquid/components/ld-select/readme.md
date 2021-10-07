@@ -1247,12 +1247,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ## Events
 
-| Event    | Description                                                                                            | Type                    |
-| -------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `blur`   | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
-| `change` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
-| `focus`  | Emitted with an array of selected values when the select component gets focus.                         | `CustomEvent<string[]>` |
-| `input`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| Event      | Description                                                                                            | Type                    |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `blur`     | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
+| `change`   | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| `focus`    | Emitted with an array of selected values when the select component gets focus.                         | `CustomEvent<string[]>` |
+| `focusout` | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
+| `input`    | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
 
 
 ## Slots

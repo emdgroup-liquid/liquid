@@ -168,12 +168,20 @@ export class LdSelect {
   /**
    * Emitted with an array of selected values when the select component gets focus.
    */
-  @Event({ bubbles: false }) focus: EventEmitter<string[]>
+  @Event({ bubbles: false, cancelable: false, composed: true })
+  focus: EventEmitter<string[]>
 
   /**
    * Emitted with an array of selected values when the select component looses focus.
    */
-  @Event({ bubbles: false }) blur: EventEmitter<string[]>
+  @Event({ bubbles: false, cancelable: false, composed: true })
+  blur: EventEmitter<string[]>
+
+  /**
+   * Emitted with an array of selected values when the select component looses focus.
+   */
+  @Event({ bubbles: true, cancelable: false, composed: true })
+  focusout: EventEmitter<string[]>
 
   private isOverflowing() {
     return (
@@ -427,10 +435,7 @@ export class LdSelect {
     // Ignore events which are not fired on current instance.
     if (target.closest('[role="listbox"]') !== this.listboxRef) return
 
-    if (this.multiple) {
-      // Focus the option, that has been (de-)selected.
-      target.closest('ld-option-internal').focus()
-    } else {
+    if (!this.multiple) {
       // Deselect currently selected option, if it's not the target option.
       ;((Array.from(
         this.listboxRef.querySelectorAll('ld-option-internal')
@@ -450,14 +455,18 @@ export class LdSelect {
   }
 
   private expandAndFocus() {
-    this.handleTriggerClick()
+    this.expand()
     setTimeout(() => {
-      // If selected in single select mode, focus selected
+      // If selected in single select mode, focus selected.
       let optionToFocus
       if (!this.multiple) {
-        optionToFocus = this.listboxRef.querySelector(
-          'ld-option-internal[aria-selected="true"]'
+        // Using find instead of ld-option-internal[selected] selector below
+        // in order to prevent "TypeError: e.getAttributeNode is not a function" in JSDom.
+        optionToFocus = Array.from(
+          this.listboxRef.querySelectorAll('ld-option-internal')
         )
+          .find((ldOption) => ldOption.hasAttribute('selected'))
+          ?.shadowRoot.querySelector('[role="option"]')
       }
       if (!optionToFocus) {
         optionToFocus = this.triggerRef
@@ -469,7 +478,7 @@ export class LdSelect {
   private handleHome(ev) {
     // Move focus to the trigger button.
     ev.preventDefault()
-    if (document.activeElement !== this.triggerRef) {
+    if (this.el.shadowRoot.activeElement !== this.triggerRef) {
       this.triggerRef.focus()
     }
   }
@@ -534,7 +543,7 @@ export class LdSelect {
 
     // If the clear button is focused, ignore Enter and Space key events.
     if (
-      document.activeElement === this.btnClearRef &&
+      this.el.shadowRoot.activeElement === this.btnClearRef &&
       (ev.key === ' ' || ev.key === 'Enter')
     ) {
       return
@@ -544,7 +553,7 @@ export class LdSelect {
     // (the internal option component will dispatch its own event on selection).
     if (
       document.activeElement.closest('[role="listbox"]') !== this.listboxRef &&
-      document.activeElement.classList.contains(
+      this.el.shadowRoot.activeElement.classList.contains(
         'ld-select__btn-clear-single'
       ) &&
       (ev.key === ' ' || ev.key === 'Enter')
@@ -572,8 +581,8 @@ export class LdSelect {
 
         let nextOption
         if (
-          document.activeElement.nextElementSibling?.localName ===
-          'ld-option-internal'
+          document.activeElement.nextElementSibling?.tagName ===
+          'LD-OPTION-INTERNAL'
         ) {
           nextOption = document.activeElement.nextElementSibling
         } else {
@@ -602,8 +611,8 @@ export class LdSelect {
         }
 
         if (
-          document.activeElement.previousElementSibling?.localName ===
-          'ld-option-internal'
+          document.activeElement.previousElementSibling?.tagName ===
+          'LD-OPTION-INTERNAL'
         ) {
           this.selectAndFocus(ev, document.activeElement.previousElementSibling)
           return
@@ -631,14 +640,22 @@ export class LdSelect {
         // If not expanded: Toggle popper.
         ev.preventDefault()
         ev.stopImmediatePropagation()
-        if (!this.expanded) {
+        if (
+          this.expanded &&
+          this.el.shadowRoot.activeElement === this.triggerRef
+        ) {
+          this.togglePopper()
+        } else {
           this.expandAndFocus()
         }
         break
       case 'Enter':
         // If expanded and trigger button is focused: Toggle popper.
         ev.preventDefault()
-        if (this.expanded && document.activeElement === this.triggerRef) {
+        if (
+          this.expanded &&
+          this.el.shadowRoot.activeElement === this.triggerRef
+        ) {
           this.togglePopper()
         }
         break
@@ -658,6 +675,7 @@ export class LdSelect {
         }
         break
       case 'Shift':
+      case 'Meta':
         break
       default:
         if (this.expanded) {
@@ -695,49 +713,28 @@ export class LdSelect {
     this.handleClickOutside(ev)
   }
 
-  @Listen('blur', {
-    target: 'window',
-    capture: true,
-  })
-  handleBlur(ev) {
-    if (!ev.target?.closest) {
-      return
-    }
-
-    // Ignore blur events outside the select component.
-    const target = ev.target as HTMLElement
+  private handleFocusout(ev) {
+    // Emit blur event if focus is not within the select component.
+    ev.stopImmediatePropagation()
     if (
-      target.closest('[role="listbox"]') !== this.listboxRef &&
-      target.closest('ld-select') !== this.el
+      ev.relatedTarget?.tagName !== 'LD-OPTION-INTERNAL' &&
+      ev.relatedTarget !== this.el
     ) {
-      return
-    }
-
-    // Stop event propagation if the related target / focus is within the select component.
-    if (
-      ev.relatedTarget &&
-      ((ev.relatedTarget as HTMLElement).classList.contains(
-        'ld-option-internal'
-      ) ||
-        (ev.relatedTarget as HTMLElement).closest('ld-select') === this.el)
-    ) {
-      ev.stopImmediatePropagation()
-    } else {
-      // The next condition is similar to `ev instanceof FocusEvent`, thought it works in test env.
-      if (ev.detail === 0) {
-        this.blur.emit(this.selected.map((option) => option.value))
-      }
+      const selectedValues = this.selected.map((option) => option.value)
+      this.blur.emit(selectedValues)
+      this.focusout.emit(selectedValues)
     }
   }
 
-  private handleTriggerClick(ev?: Event) {
-    if (ev) ev.preventDefault()
-
-    if (this.disabled || this.ariaDisabled) return
-
+  private expand() {
     if (!this.popper) this.initPopper()
 
     this.togglePopper()
+  }
+
+  private handleTriggerClick(ev: Event) {
+    ev.preventDefault()
+    this.expand()
   }
 
   private handleTriggerFocus(ev: FocusEvent) {
@@ -846,6 +843,7 @@ export class LdSelect {
           class={cl}
           aria-disabled={this.disabled || this.ariaDisabled}
           part="root"
+          onFocusout={this.handleFocusout.bind(this)}
           style={
             this.expanded
               ? {
@@ -1033,6 +1031,7 @@ export class LdSelect {
             </div>
           </div>
           <ld-select-popper
+            onFocusout={this.handleFocusout.bind(this)}
             popperClass={this.popperClass}
             ref={(el) => (this.listboxRef = el as HTMLElement)}
             role="listbox"
