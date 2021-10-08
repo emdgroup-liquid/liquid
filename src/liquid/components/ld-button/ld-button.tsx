@@ -53,19 +53,13 @@ export class LdButton implements InnerFocusable {
   @Prop() progress: 'pending' | number
 
   /**
-   * Sets focus on the checkbox
+   * Sets focus on the button
    */
   @Method()
   async focusInner() {
     if (this.button !== undefined) {
       this.button.focus()
     }
-  }
-
-  private handleBlur = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
   }
 
   connectedCallback() {
@@ -80,26 +74,15 @@ export class LdButton implements InnerFocusable {
     })
   }
 
-  private handleClick = (ev: MouseEvent) => {
-    console.log({ ev })
-    if (ev.target === this.el) {
-      ev.stopImmediatePropagation()
-      this.button.click()
-      return
-    }
-
+  private handleClick = (event: MouseEvent) => {
+    console.log(event.target)
     const ariaDisabled = this.button.getAttribute('aria-disabled')
 
     if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
-      ev.preventDefault()
-      ev.stopImmediatePropagation()
+      event.preventDefault()
+      event.stopImmediatePropagation()
+      return
     }
-  }
-
-  private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
   }
 
   componentWillLoad() {
@@ -140,9 +123,6 @@ export class LdButton implements InnerFocusable {
         aria-busy={hasProgress ? 'true' : undefined}
         aria-live="polite"
         href={this.href}
-        onBlur={this.handleBlur}
-        onClick={this.handleClick}
-        onFocus={this.handleFocus}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         target={this.target}
         {...cloneAttributes(this.el)}

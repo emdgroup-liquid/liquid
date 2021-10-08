@@ -487,7 +487,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the checkbox
+Sets focus on the button
 
 #### Returns
 

@@ -15,16 +15,17 @@ export const getPageWithContent = async (
   theme = 'ocean',
   components?: unknown
 ) => {
-  const page = await newE2EPage()
+  const page = await newE2EPage({
+    html: `<div class="ld-theme-${theme} e2e-container">${content}</div>`,
+    // TODO: test, if this helps the asset loading...
+    waitUntil: 'load',
+  })
 
-  await page.setContent(
-    `<div class="ld-theme-${theme} e2e-container">${content}</div>`
-  )
   await page.addStyleTag({
     content: `body {
   margin: 0;
 }
-*:focus {
+*:focus, ld-button >>> *:focus {
   outline: none;
 }
 .e2e-container {
@@ -44,8 +45,6 @@ export const getPageWithContent = async (
       })
     )
   }
-  // TODO: test, if this helps the asset loading...
-  // await page.waitForEvent('load')
 
   return page
 }

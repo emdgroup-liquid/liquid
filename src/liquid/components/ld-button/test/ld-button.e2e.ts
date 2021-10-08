@@ -1,10 +1,10 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdButton } from '../ld-button'
 
 jest.useRealTimers()
 
 const themes = [
-  'none',
   'ocean',
   // 'bubblegum',
   // 'shake',
@@ -186,7 +186,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -195,7 +195,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.hover('.ld-button')
           const results = await page.compareScreenshot()
@@ -205,7 +205,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -215,7 +215,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           await page.keyboard.down('Space')
@@ -228,7 +228,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -237,7 +237,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.hover('.ld-button')
           const results = await page.compareScreenshot()
@@ -247,7 +247,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -257,7 +257,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           await page.keyboard.down('Space')
@@ -270,7 +270,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -279,7 +279,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.hover('.ld-button')
           const results = await page.compareScreenshot()
@@ -289,7 +289,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
@@ -299,7 +299,7 @@ describe('ld-button', () => {
           const page = await getPageWithContent(
             `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
             theme,
-            LdButton
+            [LdButton, LdIcon]
           )
           await page.keyboard.press('Tab')
           await page.keyboard.down('Space')

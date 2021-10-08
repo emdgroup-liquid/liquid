@@ -1,19 +1,6 @@
-import { newE2EPage } from '@stencil/core/testing'
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div${
-      theme !== 'none' ? ` class="ld-theme-${theme}"` : ''
-    } style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-paragraph.css' })
-  await page.addStyleTag({ path: './dist/css/ld-bg-cells.css' })
-  await page.addStyleTag({ content: 'body { margin: 0; }' })
-  return page
-}
+import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
+import { LdParagraph } from '../../ld-paragraph/ld-paragraph'
+import { LdBgCells } from '../ld-bg-cells'
 
 const themes = [
   'none',
@@ -114,7 +101,8 @@ describe('ld-bg-cells', () => {
             `<div class="ld-bg-cells ld-bg-cells--safc">
               <div class="ld-bg-cells__pattern"></div>
             </div>`,
-            theme
+            theme,
+            LdBgCells
           )
           const results = await page.compareScreenshot()
 
@@ -127,7 +115,8 @@ describe('ld-bg-cells', () => {
               `<div class="ld-bg-cells ld-bg-cells--${cellType} ">
                 <div class="ld-bg-cells__pattern"></div>
               </div>`,
-              theme
+              theme,
+              LdBgCells
             )
             const results = await page.compareScreenshot()
 
@@ -140,7 +129,8 @@ describe('ld-bg-cells', () => {
             `<div class="ld-bg-cells ld-bg-cells--safc">
               <div class="ld-bg-cells__pattern ld-bg-cells__pattern--repeat"></div>
             </div>`,
-            theme
+            theme,
+            LdBgCells
           )
           const results = await page.compareScreenshot()
 
@@ -160,7 +150,8 @@ describe('ld-bg-cells', () => {
                 --ld-bg-cells-size: 150%;
               }
             </style>`,
-            theme
+            theme,
+            LdBgCells
           )
           const results = await page.compareScreenshot()
 
@@ -177,7 +168,8 @@ describe('ld-bg-cells', () => {
                 </p>
               </div>
             </div>`,
-            theme
+            theme,
+            [LdBgCells, LdParagraph]
           )
           const results = await page.compareScreenshot()
 
