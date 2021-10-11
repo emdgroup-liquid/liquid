@@ -976,7 +976,6 @@ describe('ld-select', () => {
     expect(spyFocus).toHaveBeenCalledTimes(0)
   })
 
-  /*
   it('sets focus on next internal option on key down ArrowDown if popper is expanded', async () => {
     const page = await newSpecPage({
       components,
@@ -993,7 +992,9 @@ describe('ld-select', () => {
     await triggerPopper(page)
 
     const ldSelect = page.root
-    const { internalOptions } = await getInternalOptions(page)
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
 
     expect(internalOptions.length).toEqual(4)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1024,14 +1025,12 @@ describe('ld-select', () => {
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-    const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-
     expect(spyFocus0).toHaveBeenCalledTimes(1)
     expect(spyFocus1).toHaveBeenCalledTimes(0)
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(0)
 
-    doc.activeElement = ldSelect
+    doc.activeElement = ldInternalOptions[0]
     shadowDoc.activeElement = internalOptions[0]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1042,6 +1041,7 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(0)
 
+    doc.activeElement = ldInternalOptions[1]
     shadowDoc.activeElement = internalOptions[1]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1052,6 +1052,7 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(1)
     expect(spyFocus3).toHaveBeenCalledTimes(0)
 
+    doc.activeElement = ldInternalOptions[2]
     shadowDoc.activeElement = internalOptions[2]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1062,6 +1063,7 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(1)
     expect(spyFocus3).toHaveBeenCalledTimes(1)
 
+    doc.activeElement = ldInternalOptions[3]
     shadowDoc.activeElement = internalOptions[3]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1088,11 +1090,12 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
+
+    const { doc, shadowDoc } = getShadow(page)
 
     expect(internalOptions.length).toEqual(4)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1107,11 +1110,14 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
     )
@@ -1125,7 +1131,8 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(1)
 
-    doc.activeElement = internalOptions[3]
+    doc.activeElement = ldInternalOptions[3]
+    shadowDoc.activeElement = internalOptions[3]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
     )
@@ -1153,11 +1160,12 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
+
+    const { doc, shadowDoc } = getShadow(page)
 
     expect(internalOptions.length).toEqual(4)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1172,11 +1180,14 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1188,7 +1199,8 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(1)
 
-    doc.activeElement = internalOptions[3]
+    doc.activeElement = ldInternalOptions[3]
+    shadowDoc.activeElement = internalOptions[3]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'End' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1210,17 +1222,19 @@ describe('ld-select', () => {
       `,
     })
 
-    jest.advanceTimersByTime(0)
-    await page.waitForChanges()
-
-    const doc = (document as unknown) as { activeElement: Element }
+    await triggerPopper(page)
 
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
+    const { doc, shadowDoc } = getShadow(page)
+
+    await triggerPopper(page)
+
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
     internalOptions[0].focus = jest.fn(focusManager.focus)
     internalOptions[1].focus = jest.fn(focusManager.focus)
 
@@ -1228,10 +1242,14 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
-    doc.activeElement = btnTrigger
+
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
     await page.waitForChanges()
@@ -1254,11 +1272,12 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
+
+    const { doc, shadowDoc } = getShadow(page)
 
     expect(internalOptions.length).toEqual(2)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1266,13 +1285,16 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
 
     const spyFocusBtnTrigger = jest.spyOn(btnTrigger as HTMLElement, 'focus')
 
-    doc.activeElement = internalOptions[0]
+    doc.activeElement = ldInternalOptions[0]
+    shadowDoc.activeElement = internalOptions[0]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1296,11 +1318,12 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
+
+    const { doc, shadowDoc } = getShadow(page)
 
     expect(internalOptions.length).toEqual(4)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1310,7 +1333,9 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
 
@@ -1320,7 +1345,8 @@ describe('ld-select', () => {
     const spyFocus2 = jest.spyOn(internalOptions[2], 'focus')
     const spyFocus3 = jest.spyOn(internalOptions[3], 'focus')
 
-    doc.activeElement = internalOptions[2]
+    doc.activeElement = ldInternalOptions[2]
+    shadowDoc.activeElement = internalOptions[2]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowUp', metaKey: true })
     )
@@ -1335,7 +1361,8 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(0)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowUp', metaKey: true })
     )
@@ -1364,11 +1391,12 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
+
+    const { doc, shadowDoc } = getShadow(page)
 
     expect(internalOptions.length).toEqual(4)
     internalOptions[0].focus = jest.fn(focusManager.focus)
@@ -1378,7 +1406,9 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(0)
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
     btnTrigger['focus'] = jest.fn(focusManager.focus)
 
@@ -1388,7 +1418,8 @@ describe('ld-select', () => {
     const spyFocus2 = jest.spyOn(internalOptions[2], 'focus')
     const spyFocus3 = jest.spyOn(internalOptions[3], 'focus')
 
-    doc.activeElement = internalOptions[2]
+    doc.activeElement = ldInternalOptions[2]
+    shadowDoc.activeElement = internalOptions[2]
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1401,7 +1432,8 @@ describe('ld-select', () => {
     expect(spyFocus2).toHaveBeenCalledTimes(0)
     expect(spyFocus3).toHaveBeenCalledTimes(0)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1429,59 +1461,64 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
 
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { doc, shadowDoc } = getShadow(page)
+
+    expect(internalOptions.length).toEqual(5)
     internalOptions.forEach((internalOption) => {
       internalOption.focus = jest.fn(focusManager.focus)
     })
 
-    expect(internalOptions.length).toEqual(5)
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[1]
+    doc.activeElement = ldInternalOptions[1]
+    shadowDoc.activeElement = internalOptions[1]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[2]
+    doc.activeElement = ldInternalOptions[2]
+    shadowDoc.activeElement = internalOptions[2]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[3]
+    doc.activeElement = ldInternalOptions[3]
+    shadowDoc.activeElement = internalOptions[3]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowDown', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).not.toEqual(null)
   })
 
   it('selects multiple options on key down ArrowUp with Shift if popper is expanded in multiple mode', async () => {
@@ -1500,59 +1537,64 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const { ldInternalOptions, internalOptions } = await getInternalOptions(
+      page
+    )
 
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { doc, shadowDoc } = getShadow(page)
+
+    expect(internalOptions.length).toEqual(5)
     internalOptions.forEach((internalOption) => {
       internalOption.focus = jest.fn(focusManager.focus)
     })
 
-    expect(internalOptions.length).toEqual(5)
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[3]
+    doc.activeElement = ldInternalOptions[3]
+    shadowDoc.activeElement = internalOptions[3]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[2]
+    doc.activeElement = ldInternalOptions[2]
+    shadowDoc.activeElement = internalOptions[2]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
 
-    doc.activeElement = internalOptions[1]
+    doc.activeElement = ldInternalOptions[1]
+    shadowDoc.activeElement = internalOptions[1]
     window.dispatchEvent(
       new KeyboardEvent('keydown', { key: 'ArrowUp', shiftKey: true })
     )
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
 
-    expect(internalOptions[0].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[1].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[2].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[3].getAttribute('selected')).not.toEqual(null)
-    expect(internalOptions[4].getAttribute('selected')).toEqual(null)
+    expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[2].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[3].getAttribute('selected')).not.toEqual(null)
+    expect(ldInternalOptions[4].getAttribute('selected')).toEqual(null)
   })
 
   it('supports typeahead focus setting', async () => {
@@ -1571,12 +1613,14 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
 
-    const doc = (document as unknown) as { activeElement: Element }
-
     const ldSelect = page.root
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
-    const popper = page.body.querySelector('.ld-select__popper')
-    const internalOptions = popper.querySelectorAll('ld-option-internal')
+    const { internalOptions } = await getInternalOptions(page)
+
+    const { doc, shadowDoc } = getShadow(page)
+
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     internalOptions.forEach((internalOption) => {
       internalOption.focus = jest.fn(focusManager.focus)
     })
@@ -1588,7 +1632,8 @@ describe('ld-select', () => {
 
     expect(internalOptions.length).toEqual(5)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1599,7 +1644,8 @@ describe('ld-select', () => {
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(0)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'l' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1612,7 +1658,8 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(600)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'p' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1623,7 +1670,8 @@ describe('ld-select', () => {
     expect(spyFocusBana).toHaveBeenCalledTimes(0)
     expect(spyFocusPlum).toHaveBeenCalledTimes(1)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'i' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1636,7 +1684,8 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(600)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'i' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1649,7 +1698,8 @@ describe('ld-select', () => {
 
     jest.advanceTimersByTime(600)
 
-    doc.activeElement = btnTrigger
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'z' }))
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
@@ -1674,15 +1724,19 @@ describe('ld-select', () => {
     jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
-    expect(ldSelect.classList.contains('ld-select--expanded')).toBeFalsy()
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
+
+    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     expect(btnTrigger.getAttribute('aria-disabled')).toEqual('true')
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const { doc, shadowDoc } = getShadow(page)
     btnTrigger['focus'] = jest.fn(focusManager.focus)
-    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
-    doc.activeElement = btnTrigger
+
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1704,15 +1758,19 @@ describe('ld-select', () => {
     jest.advanceTimersByTime(0)
 
     const ldSelect = page.root
-    expect(ldSelect.classList.contains('ld-select--expanded')).toBeFalsy()
 
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
+
+    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     expect(btnTrigger.getAttribute('aria-disabled')).toEqual('true')
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const { doc, shadowDoc } = getShadow(page)
     btnTrigger['focus'] = jest.fn(focusManager.focus)
-    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
-    doc.activeElement = btnTrigger
+
+    doc.activeElement = ldSelect
+    shadowDoc.activeElement = btnTrigger
 
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
     await page.waitForChanges()
@@ -1734,7 +1792,9 @@ describe('ld-select', () => {
 
     await triggerPopper(page)
     const ldSelect = page.root
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
     page.body.dispatchEvent(new Event('touchend', { bubbles: true }))
@@ -1761,7 +1821,9 @@ describe('ld-select', () => {
     await triggerPopper(page)
     const ldLabel = page.body.querySelector('ld-label')
     const ldSelect = page.body.querySelector('ld-select')
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
     const spyFocusBtnTrigger = jest.spyOn(btnTrigger as HTMLElement, 'focus')
@@ -1774,15 +1836,16 @@ describe('ld-select', () => {
     expect(spyFocusBtnTrigger).toHaveBeenCalled()
   })
 
-  xit('displays more indicator with maxRows prop set in multiple mode', async () => {
-    jest.useRealTimers()
-    Object.defineProperty(LdSelect.prototype, 'isOverflowing', {
-      configurable: true,
-      value: () => true,
-    })
+  it('displays more indicator with maxRows prop set in multiple mode', async () => {
+    jest
+      .spyOn(
+        (LdSelect.prototype as unknown) as { isOverflowing },
+        'isOverflowing'
+      )
+      .mockImplementation(() => true)
 
     const page = await newSpecPage({
-      components: [LdTheme, LdSelect, LdOption, LdOptionInternal],
+      components,
       html: `
         <ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 14rem">
           <ld-option value="apple" selected>Apple</ld-option>
@@ -1791,37 +1854,54 @@ describe('ld-select', () => {
         </ld-select>
       `,
     })
+    jest.advanceTimersByTime(0)
     await page.waitForChanges()
-    await new Promise((resolve) => setTimeout(resolve))
 
     const ldSelect = page.root
-    const btnTrigger = ldSelect.shadowRoot.querySelector('.ld-select__btn-trigger')
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
     const selectionList = btnTrigger.querySelector('.ld-select__selection-list')
     expect(selectionList).toBeTruthy()
+
+    await triggerPopper(page)
+    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+    window.dispatchEvent(new Event('resize'))
 
     const selectionListItems = btnTrigger.querySelectorAll(
       '.ld-select__selection-list-item'
     )
     expect(selectionListItems.length).toEqual(3)
 
+    jest.advanceTimersByTime(0)
+
     const selectionListItemsOverflowing = btnTrigger.querySelectorAll(
       '.ld-select__selection-list-item--overflowing'
     )
     expect(selectionListItemsOverflowing.length).toBeGreaterThan(0)
 
-    const moreIndicator = btnTrigger.querySelectorAll(
+    jest
+      .spyOn(
+        (LdSelect.prototype as unknown) as { isOverflowing },
+        'isOverflowing'
+      )
+      .mockImplementation(() => false)
+
+    const moreIndicator = btnTrigger.querySelector(
       '.ld-select__selection-list-more'
     )
-    expect(moreIndicator.length).toEqual(1)
-    jest.useFakeTimers()
+    expect(moreIndicator).toBeTruthy()
+
+    jest.restoreAllMocks()
   })
 
   // For some reason this test must come last, otherwise an exception is thrown.
   it('applies theme class on popper element', async () => {
     const page = await newSpecPage({
-      components: [LdTheme, LdSelect, LdOption, LdOptionInternal],
+      components,
       html: `
         <ld-theme name="tea">
           <ld-select placeholder="Pick a fruit" name="fruit">
@@ -1833,8 +1913,12 @@ describe('ld-select', () => {
     })
 
     await triggerPopper(page)
-    const popper = page.body.querySelector('.ld-select__popper')
-    expect(popper.classList.contains('ld-theme-tea')).toBeTruthy()
+
+    const ldSelectPopper = await page.body.querySelector('ld-select-popper')
+    expect(
+      ldSelectPopper.shadowRoot
+        .querySelector('.ld-select-popper')
+        .classList.contains('ld-theme-tea')
+    ).toBeTruthy()
   })
-  */
 })
