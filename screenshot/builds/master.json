@@ -15436,10 +15436,10 @@
       "isMobile": false
     },
     {
-      "id": "aa44f6d6",
-      "image": "48f94f3997c2193608e57e4be1312620.png",
+      "id": "a828c278",
+      "image": "3c701e34bc4e86b081cfa8a5647e4468.png",
       "userAgent": "default",
-      "desc": "ld-select css component aria-disabled focus theme-bubblegum",
+      "desc": "ld-select css component aria-disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15449,10 +15449,10 @@
       "isMobile": false
     },
     {
-      "id": "22668baf",
+      "id": "a711b870",
       "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select css component aria-disabled hover theme-bubblegum",
+      "desc": "ld-select css component aria-disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15462,10 +15462,10 @@
       "isMobile": false
     },
     {
-      "id": "422a41a6",
+      "id": "36fbccb5",
       "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select css component aria-disabled theme-bubblegum",
+      "desc": "ld-select css component aria-disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15475,10 +15475,10 @@
       "isMobile": false
     },
     {
-      "id": "d083267c",
-      "image": "2f4babc80f15be4d490515e621526f8d.png",
+      "id": "5416af41",
+      "image": "60b6765c624008a880a67e8faed45e01.png",
       "userAgent": "default",
-      "desc": "ld-select css component default theme-bubblegum",
+      "desc": "ld-select css component default theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15488,10 +15488,10 @@
       "isMobile": false
     },
     {
-      "id": "a2ab961b",
+      "id": "86169fd1",
       "image": "30a59d7fad18098caaf826c7b02f8708.png",
       "userAgent": "default",
-      "desc": "ld-select css component disabled focus theme-bubblegum",
+      "desc": "ld-select css component disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15501,10 +15501,10 @@
       "isMobile": false
     },
     {
-      "id": "13a49ef4",
+      "id": "7f99e7c8",
       "image": "30a59d7fad18098caaf826c7b02f8708.png",
       "userAgent": "default",
-      "desc": "ld-select css component disabled hover theme-bubblegum",
+      "desc": "ld-select css component disabled hover theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15514,10 +15514,10 @@
       "isMobile": false
     },
     {
-      "id": "da7f2d0c",
+      "id": "45f42728",
       "image": "30a59d7fad18098caaf826c7b02f8708.png",
       "userAgent": "default",
-      "desc": "ld-select css component disabled theme-bubblegum",
+      "desc": "ld-select css component disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15527,10 +15527,10 @@
       "isMobile": false
     },
     {
-      "id": "b066056b",
-      "image": "787baaa18e2084a8cc9d61ec788abf2d.png",
+      "id": "4509cf75",
+      "image": "3cb9b448780f793d8edcf50e0289f153.png",
       "userAgent": "default",
-      "desc": "ld-select css component focus theme-bubblegum",
+      "desc": "ld-select css component focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15540,10 +15540,10 @@
       "isMobile": false
     },
     {
-      "id": "91c54210",
-      "image": "c5339c1abb3c189cd741caa940ea6154.png",
+      "id": "b79891d3",
+      "image": "0c62f2de85e098cdebf037938dbfc4e1.png",
       "userAgent": "default",
-      "desc": "ld-select css component hover theme-bubblegum",
+      "desc": "ld-select css component hover theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15553,10 +15553,10 @@
       "isMobile": false
     },
     {
-      "id": "acdf069b",
-      "image": "1e1a5a262eb1c3ac9c2c8d731bb19621.png",
+      "id": "4f953666",
+      "image": "cdc2a998e067084c665c90be062dae73.png",
       "userAgent": "default",
-      "desc": "ld-select multiple focus clear all button theme-bubblegum",
+      "desc": "ld-select multiple focus clear all button theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15566,10 +15566,10 @@
       "isMobile": false
     },
     {
-      "id": "a9ebe5c5",
-      "image": "b1aa83c8bc53a7760256e994cbe9f5bc.png",
+      "id": "a83d7910",
+      "image": "9648dc660978fc09668f003af740ce60.png",
       "userAgent": "default",
-      "desc": "ld-select multiple focus selection theme-bubblegum",
+      "desc": "ld-select multiple focus selection theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15579,10 +15579,10 @@
       "isMobile": false
     },
     {
-      "id": "23382d9a",
-      "image": "f6491d6ac356822028a6d9ff493e00e7.png",
+      "id": "f3159a66",
+      "image": "872e0bf90baee64c97276db15f82beec.png",
       "userAgent": "default",
-      "desc": "ld-select multiple hover clear all button theme-bubblegum",
+      "desc": "ld-select multiple hover clear all button theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15592,10 +15592,10 @@
       "isMobile": false
     },
     {
-      "id": "8d6f360c",
-      "image": "23a429791165987c923c145b8244e719.png",
+      "id": "ed8a6e05",
+      "image": "57b5ff9423f40e4e2d137a2f088be81a.png",
       "userAgent": "default",
-      "desc": "ld-select multiple invalid selected theme-bubblegum",
+      "desc": "ld-select multiple invalid selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15605,10 +15605,10 @@
       "isMobile": false
     },
     {
-      "id": "99caa70b",
-      "image": "bd99135c7f46738723e49309e9429343.png",
+      "id": "5f22cfaa",
+      "image": "7e525107cf38fdef9dccdbd728a3d8e0.png",
       "userAgent": "default",
-      "desc": "ld-select multiple max-rows theme-bubblegum",
+      "desc": "ld-select multiple max-rows theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15618,10 +15618,10 @@
       "isMobile": false
     },
     {
-      "id": "0b53b47f",
+      "id": "0ae04a53",
       "image": "8eee4a3dbf153231f3821d0e8e01afda.png",
       "userAgent": "default",
-      "desc": "ld-select multiple selected aria-disabled theme-bubblegum",
+      "desc": "ld-select multiple selected aria-disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15631,10 +15631,10 @@
       "isMobile": false
     },
     {
-      "id": "9d8ed871",
+      "id": "7210706e",
       "image": "8eee4a3dbf153231f3821d0e8e01afda.png",
       "userAgent": "default",
-      "desc": "ld-select multiple selected disabled theme-bubblegum",
+      "desc": "ld-select multiple selected disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15644,10 +15644,10 @@
       "isMobile": false
     },
     {
-      "id": "913fe6fb",
-      "image": "27132789f457c914aa2f2483f28ba201.png",
+      "id": "faaa560b",
+      "image": "4651988598cde2f6a56b274459a7b1f9.png",
       "userAgent": "default",
-      "desc": "ld-select multiple selected theme-bubblegum",
+      "desc": "ld-select multiple selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15657,10 +15657,10 @@
       "isMobile": false
     },
     {
-      "id": "f38765c3",
-      "image": "0a1b51ceeab01079b5fa06b7be5eb8f6.png",
+      "id": "3f09aa78",
+      "image": "d2475c8be3bf31efa8d5d1381a94be06.png",
       "userAgent": "default",
-      "desc": "ld-select multiple size lg selected theme-bubblegum",
+      "desc": "ld-select multiple size lg selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15670,10 +15670,10 @@
       "isMobile": false
     },
     {
-      "id": "148f8e93",
-      "image": "d75030f1122bd63c138efd2dc29d2a27.png",
+      "id": "cb90324a",
+      "image": "61c89314088b34db567e202e589eb845.png",
       "userAgent": "default",
-      "desc": "ld-select multiple size sm selected theme-bubblegum",
+      "desc": "ld-select multiple size sm selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15683,10 +15683,10 @@
       "isMobile": false
     },
     {
-      "id": "ffdbd608",
-      "image": "f5dd04aa9ef3e34a782df67655600dae.png",
+      "id": "8222c485",
+      "image": "7c1ec615d93a73091531c106df66d59d.png",
       "userAgent": "default",
-      "desc": "ld-select multiple theme-bubblegum",
+      "desc": "ld-select multiple theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15696,23 +15696,10 @@
       "isMobile": false
     },
     {
-      "id": "8c0cdd80",
-      "image": "48f94f3997c2193608e57e4be1312620.png",
-      "userAgent": "default",
-      "desc": "ld-select single aria-disabled focus theme-bubblegum",
-      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "340ceb62",
+      "id": "de1ab3ef",
       "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select single aria-disabled theme-bubblegum",
+      "desc": "ld-select single aria-disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15722,49 +15709,10 @@
       "isMobile": false
     },
     {
-      "id": "fe5baf08",
-      "image": "43d1f565423d4a4ad068ec75819170df.png",
-      "userAgent": "default",
-      "desc": "ld-select single custom trigger icon size lg selected theme-bubblegum",
-      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "c3e2ed4b",
-      "image": "482dd22f193f8f2c0a0edfe0886bf43d.png",
-      "userAgent": "default",
-      "desc": "ld-select single custom trigger icon size sm theme-bubblegum",
-      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "7412fd29",
-      "image": "c1fc336b3eaea65924791474793f727f.png",
-      "userAgent": "default",
-      "desc": "ld-select single custom trigger icon theme-bubblegum",
-      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "77a5372e",
+      "id": "4b90a322",
       "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select single disabled focus theme-bubblegum",
+      "desc": "ld-select single aria-disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15774,10 +15722,49 @@
       "isMobile": false
     },
     {
-      "id": "abce3c2d",
+      "id": "9de78d2e",
+      "image": "043c276123ea51686d7631b8d8c32cc7.png",
+      "userAgent": "default",
+      "desc": "ld-select single custom trigger icon size lg selected theme-none",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "d9050b16",
+      "image": "2082d30c3595169bc506f7342b2eec9b.png",
+      "userAgent": "default",
+      "desc": "ld-select single custom trigger icon size sm theme-none",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "930c6100",
+      "image": "65c9e00ce6afb071089a5338f16a3e86.png",
+      "userAgent": "default",
+      "desc": "ld-select single custom trigger icon theme-none",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2b8a9a51",
       "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select single disabled theme-bubblegum",
+      "desc": "ld-select single disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15787,10 +15774,10 @@
       "isMobile": false
     },
     {
-      "id": "f2f93ae0",
-      "image": "787baaa18e2084a8cc9d61ec788abf2d.png",
+      "id": "4fa76c42",
+      "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
       "userAgent": "default",
-      "desc": "ld-select single focus theme-bubblegum",
+      "desc": "ld-select single disabled theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15800,10 +15787,23 @@
       "isMobile": false
     },
     {
-      "id": "49541490",
+      "id": "d24db7f7",
+      "image": "3cb9b448780f793d8edcf50e0289f153.png",
+      "userAgent": "default",
+      "desc": "ld-select single focus theme-none",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "3e99c747",
       "image": "cb0f5be765d6201fb85536fcfb3e6d86.png",
       "userAgent": "default",
-      "desc": "ld-select single invalid theme-bubblegum",
+      "desc": "ld-select single invalid theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15813,10 +15813,10 @@
       "isMobile": false
     },
     {
-      "id": "bbc316ba",
-      "image": "ab0f9c7da7797d1749ba892b3e57d2ef.png",
+      "id": "46532e7c",
+      "image": "5979782d2d9825a434cde78d31b37962.png",
       "userAgent": "default",
-      "desc": "ld-select single selected theme-bubblegum",
+      "desc": "ld-select single selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15826,10 +15826,10 @@
       "isMobile": false
     },
     {
-      "id": "4b765493",
-      "image": "b6054980cd6ed6f83206367647df750d.png",
+      "id": "2ca64046",
+      "image": "c1a7b57408a32e5f7062df3e6e033fc9.png",
       "userAgent": "default",
-      "desc": "ld-select single size lg selected theme-bubblegum",
+      "desc": "ld-select single size lg selected theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15839,10 +15839,10 @@
       "isMobile": false
     },
     {
-      "id": "e97c3c5a",
-      "image": "1b46a9548705a750f4140d46bae58512.png",
+      "id": "9d0b9552",
+      "image": "1ba69a499519f03e13aa6441b62b56ba.png",
       "userAgent": "default",
-      "desc": "ld-select single size sm theme-bubblegum",
+      "desc": "ld-select single size sm theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,
@@ -15852,10 +15852,10 @@
       "isMobile": false
     },
     {
-      "id": "b907485a",
-      "image": "2f4babc80f15be4d490515e621526f8d.png",
+      "id": "42f65987",
+      "image": "60b6765c624008a880a67e8faed45e01.png",
       "userAgent": "default",
-      "desc": "ld-select single theme-bubblegum",
+      "desc": "ld-select single theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
       "width": 600,
       "height": 600,

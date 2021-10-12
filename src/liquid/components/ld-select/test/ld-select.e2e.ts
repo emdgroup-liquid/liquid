@@ -4,9 +4,9 @@ import { LdSelect } from '../ld-select'
 jest.useRealTimers()
 
 const themes = [
-  // 'none',
+  'none',
   // 'ocean',
-  'bubblegum',
+  // 'bubblegum',
   // 'shake',
   // 'solvent',
   // 'tea',
@@ -286,7 +286,8 @@ describe('ld-select', () => {
         </ld-select>`,
         theme
       )
-      await page.hover('.ld-select__btn-clear')
+      const btnClear = await page.find('ld-select >>> .ld-select__btn-clear')
+      await btnClear.hover()
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot({ allowableMismatchedRatio })
     })
