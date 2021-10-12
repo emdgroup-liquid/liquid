@@ -36,49 +36,7 @@ describe('ld-tabs', () => {
         </ld-tabs>
       `,
     })
-    const ldTabs = page.root
-    const ldTablist = ldTabs.querySelector('ld-tablist')
-    expect(ldTablist.getAttribute('role')).toEqual('tablist')
-
-    const ldTabItems = ldTablist.querySelectorAll('ld-tab')
-    expect(ldTabItems.length).toEqual(4)
-
-    const ldTabpanellist = ldTabs.querySelector('ld-tabpanellist')
-    const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
-    expect(ldTabpanels.length).toEqual(4)
-
-    const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
-    expect(ldTabItems[0].getAttribute('id')).toEqual('ld-tabs-0-tab-0')
-    expect(tabBtn0.getAttribute('role')).toEqual('tab')
-    expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
-    expect(tabBtn0.getAttribute('aria-disabled')).toEqual(null)
-    expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
-
-    const ldTabpanel0 = ldTabpanels[0]
-    expect(ldTabpanel0.getAttribute('role')).toEqual('tabpanel')
-    expect(ldTabpanel0).not.toHaveAttribute('hidden')
-
-    const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
-    expect(ldTabItems[2].getAttribute('id')).toEqual('ld-tabs-0-tab-2')
-    expect(tabBtn2.getAttribute('role')).toEqual('tab')
-    expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
-    expect(tabBtn2.getAttribute('aria-disabled')).toEqual(null)
-    expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
-
-    const ldTabpanel2 = ldTabpanels[2]
-    expect(ldTabpanel2.getAttribute('role')).toEqual('tabpanel')
-    expect(ldTabpanel2).toHaveAttribute('hidden')
-
-    const tabBtn3 = ldTabItems[3].shadowRoot.querySelector('button')
-    expect(ldTabItems[3].getAttribute('id')).toEqual('ld-tabs-0-tab-3')
-    expect(tabBtn3.getAttribute('role')).toEqual('tab')
-    expect(tabBtn3.getAttribute('aria-selected')).toEqual(null)
-    expect(tabBtn3.getAttribute('aria-disabled')).toEqual('true')
-    expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
-
-    const ldTabpanel3 = ldTabpanels[3]
-    expect(ldTabpanel3.getAttribute('role')).toEqual('tabpanel')
-    expect(ldTabpanel3).toHaveAttribute('hidden')
+    expect(page.root).toMatchSnapshot()
   })
 
   describe('mouse interactions', () => {
@@ -551,65 +509,6 @@ describe('ld-tabs', () => {
       tabBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
       expect(spyTabChange).toHaveBeenCalled()
-    })
-  })
-
-  describe('modifiers', () => {
-    it('size', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs>
-          <ld-tablist size="sm">
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(
-        page.root
-          .querySelector('ld-tablist')
-          .shadowRoot.querySelector('.ld-tablist')
-      ).toHaveClass('ld-tablist--sm')
-    })
-
-    it('mode', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs>
-          <ld-tablist mode="ghost">
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(
-        page.root
-          .querySelector('ld-tablist')
-          .shadowRoot.querySelector('.ld-tablist')
-      ).toHaveClass('ld-tablist--ghost')
-    })
-
-    it('rounded', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs>
-          <ld-tablist rounded="all-lg">
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(
-        page.root
-          .querySelector('ld-tablist')
-          .shadowRoot.querySelector('.ld-tablist')
-      ).toHaveClass('ld-tablist--rounded-all-lg')
     })
   })
 })

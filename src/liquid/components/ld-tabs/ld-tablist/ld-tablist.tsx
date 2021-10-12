@@ -132,20 +132,23 @@ export class LdTablist {
             this.mode && `ld-tablist--${this.mode}`,
             this.rounded && `ld-tablist--rounded-${this.rounded}`,
           ])}
+          part="wrapper"
         >
           <button
-            onClick={this.scroll.bind(this, 'left')}
-            ref={(el) => (this.btnScrollLeftRef = el)}
             aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
             class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
-            tabindex="-1"
             hidden={!this.scrollable}
+            onClick={this.scroll.bind(this, 'left')}
+            part="arrow start"
+            ref={(el) => (this.btnScrollLeftRef = el)}
+            tabindex="-1"
           >
             <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
               fill="none"
+              height="16"
+              part="arrow-icon start"
+              viewBox="0 0 16 16"
+              width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>Scroll left</title>
@@ -160,23 +163,26 @@ export class LdTablist {
           </button>
           <div
             class="ld-tablist__scroll-container"
-            ref={(el) => (this.slotContainerRef = el)}
             onScroll={this.updateScrollButtons.bind(this)}
+            part="scroll-container"
+            ref={(el) => (this.slotContainerRef = el)}
           >
             <slot></slot>
           </div>
           <button
-            onClick={this.scroll.bind(this, 'right')}
             aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
             class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
-            tabindex="-1"
             hidden={!this.scrollable}
+            onClick={this.scroll.bind(this, 'right')}
+            part="arrow end"
+            tabindex="-1"
           >
             <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
               fill="none"
+              height="16"
+              part="arrow-icon end"
+              viewBox="0 0 16 16"
+              width="16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>Scroll right</title>

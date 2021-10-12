@@ -72,19 +72,20 @@ export class LdTab implements InnerFocusable {
   render() {
     return (
       <button
-        ref={(el) => (this.btnRef = el as HTMLButtonElement)}
-        class="ld-tab"
-        role="tab"
-        aria-selected={this.selected ? 'true' : undefined}
         aria-disabled={this.disabled ? 'true' : undefined}
+        aria-selected={this.selected ? 'true' : undefined}
+        class="ld-tab"
         onClick={this.handleTabClick.bind(this)}
+        part="button"
+        ref={(el) => (this.btnRef = el as HTMLButtonElement)}
+        role="tab"
         tabindex={this.selected ? undefined : '-1'}
       >
-        <span class="ld-tab__spacer"></span>
-        <span class="ld-tab__content">
-          <slot></slot>
+        <span class="ld-tab__spacer" part="spacer start" />
+        <span class="ld-tab__content" part="content">
+          <slot />
         </span>
-        <span class="ld-tab__spacer"></span>
+        <span class="ld-tab__spacer" part="spacer end" />
       </button>
     )
   }
