@@ -19,8 +19,9 @@ export class LdInputMessage {
     return (
       <Host class={`ld-input-message ld-input-message--${this.mode}`}>
         <img
-          class="ld-input-message__icon"
           alt=""
+          class="ld-input-message__icon"
+          part="icon"
           role="presentation"
           src={getAssetPath(`./assets/${this.mode}.svg`)}
         />
