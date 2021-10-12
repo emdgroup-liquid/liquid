@@ -25,7 +25,7 @@ export const getPageWithContent = async (
     content: `body {
   margin: 0;
 }
-*:focus, ld-button >>> *:focus {
+*:focus {
   outline: none;
 }
 .e2e-container {
@@ -36,6 +36,7 @@ export const getPageWithContent = async (
   })
   await page.addStyleTag({ path: './dist/css/liquid.global.css' })
   await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
+
   if (components) {
     await Promise.all(
       [components].flat().map(async (component: Component) => {

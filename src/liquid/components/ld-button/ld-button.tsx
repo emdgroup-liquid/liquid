@@ -116,19 +116,26 @@ export class LdButton implements InnerFocusable {
 
     return (
       <Tag
-        ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
+        aria-busy={hasProgress ? 'true' : undefined}
+        aria-disabled={this.disabled ? 'true' : undefined}
+        aria-live="polite"
         class={cl}
         disabled={this.disabled}
-        aria-disabled={this.disabled ? 'true' : undefined}
-        aria-busy={hasProgress ? 'true' : undefined}
-        aria-live="polite"
         href={this.href}
+        part="button"
+        ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         target={this.target}
         {...cloneAttributes(this.el)}
       >
         <slot />
-        {hasProgress && <span class={clProgress} style={styleProgress}></span>}
+        {hasProgress && (
+          <span
+            class={clProgress}
+            part="progress-bar"
+            style={styleProgress}
+          ></span>
+        )}
       </Tag>
     )
   }
