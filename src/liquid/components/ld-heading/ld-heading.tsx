@@ -131,6 +131,7 @@ export class LdHeading {
     return (
       <HTag
         class={cl}
+        part="tag"
         ref={(ref: HTMLHeadingElement) => (this.headingRef = ref)}
         {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
       >

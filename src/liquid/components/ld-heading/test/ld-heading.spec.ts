@@ -7,16 +7,7 @@ describe('ld-heading', () => {
       components: [LdHeading],
       html: `<ld-heading level="1">Text</ld-heading>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-heading level="1">
-        <mock:shadow-root>
-          <h1 class="ld-heading ld-heading--h1">
-            <slot></slot>
-          </h1>
-        </mock:shadow-root>
-        Text
-      </ld-heading>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
   it('throws if no level is provided', async () => {
     expect.assertions(1)
@@ -49,48 +40,21 @@ describe('ld-heading', () => {
       components: [LdHeading],
       html: `<ld-heading level="1" visual-level="h3">Text</ld-heading>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-heading level="1" visual-level="h3">
-        <mock:shadow-root>
-          <h1 class="ld-heading ld-heading--h3">
-            <slot></slot>
-          </h1>
-        </mock:shadow-root>
-        Text
-      </ld-heading>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
   it('renders with visual b level and explicit aria-label', async () => {
     const page = await newSpecPage({
       components: [LdHeading],
       html: `<ld-heading level="1" visual-level="b3" aria-label="Yolo">Text</ld-heading>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-heading aria-label="Yolo" level="1" visual-level="b3">
-        <mock:shadow-root>
-          <h1 aria-label="Yolo" class="ld-heading ld-heading--b3">
-            <slot></slot>
-          </h1>
-        </mock:shadow-root>
-        Text
-      </ld-heading>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
   it('renders with visual b level and implicit aria-label', async () => {
     const page = await newSpecPage({
       components: [LdHeading],
       html: `<ld-heading level="1" visual-level="b3">Text</ld-heading>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-heading level="1" visual-level="b3">
-        <mock:shadow-root>
-          <h1 aria-label="Text" class="ld-heading ld-heading--b3">
-            <slot></slot>
-          </h1>
-        </mock:shadow-root>
-        Text
-      </ld-heading>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
   it('throws with invalid visual level prop', async () => {
     let error: unknown
