@@ -30,6 +30,20 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 | `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                           | `undefined` |
 
 
+## Shadow Parts
+
+| Part                 | Description                                            |
+| -------------------- | ------------------------------------------------------ |
+| `"arrow"`            | Both arrow button elements                             |
+| `"arrow-icon"`       | Both arrow icon SVGs                                   |
+| `"arrow-icon-left"`  | Left arrow icon SVG                                    |
+| `"arrow-icon-right"` | Right arrow icon SVG                                   |
+| `"arrow-left"`       | Left arrow button element                              |
+| `"arrow-right"`      | Right arrow button element                             |
+| `"scroll-container"` | Container wrapping the slot                            |
+| `"wrapper"`          | Container wrapping the arrows and the scroll-container |
+
+
 ----------------------------------------------
 
  

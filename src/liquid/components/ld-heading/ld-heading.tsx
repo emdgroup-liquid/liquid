@@ -7,6 +7,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part tag - Actual h-tag
  */
 @Component({
   tag: 'ld-heading',

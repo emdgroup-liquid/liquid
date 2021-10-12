@@ -244,6 +244,13 @@ Here are some examples on how you can apply different colors on headings:
 | `visualLevel`        | `visual-level` | The heading style. Overrides the style inferred from the heading level.                                                                                                                                                                                                                                                                                                                                                                                                                                        | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6"` | `undefined` |
 
 
+## Shadow Parts
+
+| Part    | Description  |
+| ------- | ------------ |
+| `"tag"` | Actual h-tag |
+
+
 ----------------------------------------------
 
  

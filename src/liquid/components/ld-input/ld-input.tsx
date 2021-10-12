@@ -18,6 +18,8 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
  * need to adjust some styles on the slotted item in order to make it fit right.
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part input - Actual input/textarea element
+ * @part placeholder - Placeholder rendered for input type "file"
  */
 @Component({
   tag: 'ld-input',

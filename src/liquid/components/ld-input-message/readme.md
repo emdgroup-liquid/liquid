@@ -84,6 +84,13 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 | `ref`    | `ref`     | reference to component                                   | `any`                          | `undefined` |
 
 
+## Shadow Parts
+
+| Part     | Description            |
+| -------- | ---------------------- |
+| `"icon"` | Image tag used for the icon |
+
+
 ----------------------------------------------
 
  

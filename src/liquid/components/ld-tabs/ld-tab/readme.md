@@ -59,6 +59,17 @@ Type: `Promise<void>`
 
 
 
+## Shadow Parts
+
+| Part             | Description               |
+| ---------------- | ------------------------- |
+| `"button"`       | Actual button element     |
+| `"content"`      | Element wrapping the slot |
+| `"spacer"`       | Both spacer elements      |
+| `"spacer-left"`  | Left spacer element       |
+| `"spacer-right"` | Right spacer element      |
+
+
 ----------------------------------------------
 
  

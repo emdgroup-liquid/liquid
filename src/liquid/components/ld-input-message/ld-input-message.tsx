@@ -4,6 +4,7 @@ import { Component, h, Prop, getAssetPath, Host } from '@stencil/core'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part icon - Image tag used for the icon
  */
 @Component({
   assetsDirs: ['assets'],

@@ -4,6 +4,8 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part button - Actual button or anchor element
+ * @part progress-bar - Progress bar
  */
 @Component({
   tag: 'ld-button',

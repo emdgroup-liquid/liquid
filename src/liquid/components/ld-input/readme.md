@@ -1033,6 +1033,14 @@ Type: `Promise<void>`
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
 
 
+## Shadow Parts
+
+| Part            | Description                                |
+| --------------- | ------------------------------------------ |
+| `"input"`       | Actual input/textarea element              |
+| `"placeholder"` | Placeholder rendered for input type "file" |
+
+
 ----------------------------------------------
 
  

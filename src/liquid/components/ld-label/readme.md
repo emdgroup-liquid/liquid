@@ -392,6 +392,13 @@ HTML content describing the labeled element should be wrapped in a single HTML e
 | `size`         | `size`          | Size of the label. Default is small.                     | `"m"`               | `undefined` |
 
 
+## Shadow Parts
+
+| Part    | Description          |
+| ------- | -------------------- |
+| `"tag"` | Actual label element |
+
+
 ----------------------------------------------
 
  

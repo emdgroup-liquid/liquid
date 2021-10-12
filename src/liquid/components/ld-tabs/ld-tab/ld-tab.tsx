@@ -12,6 +12,11 @@ import {
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part button - Actual button element
+ * @part content - Element wrapping the slot
+ * @part spacer - Both spacer elements
+ * @part spacer-left - Left spacer element
+ * @part spacer-right - Right spacer element
  */
 @Component({
   tag: 'ld-tab',
@@ -81,11 +86,11 @@ export class LdTab implements InnerFocusable {
         role="tab"
         tabindex={this.selected ? undefined : '-1'}
       >
-        <span class="ld-tab__spacer" part="spacer start" />
+        <span class="ld-tab__spacer" part="spacer spacer-left" />
         <span class="ld-tab__content" part="content">
           <slot />
         </span>
-        <span class="ld-tab__spacer" part="spacer end" />
+        <span class="ld-tab__spacer" part="spacer spacer-right" />
       </button>
     )
   }

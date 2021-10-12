@@ -498,9 +498,10 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part             | Description |
-| ---------------- | ----------- |
-| `"progress-bar"` |             |
+| Part             | Description                     |
+| ---------------- | ------------------------------- |
+| `"button"`       | Actual button or anchor element |
+| `"progress-bar"` | Progress bar                    |
 
 
 ----------------------------------------------

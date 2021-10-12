@@ -6,6 +6,14 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part arrow - Both arrow button elements
+ * @part arrow-icon - Both arrow icon SVGs
+ * @part arrow-icon-left - Left arrow icon SVG
+ * @part arrow-icon-right - Right arrow icon SVG
+ * @part arrow-left - Left arrow button element
+ * @part arrow-right - Right arrow button element
+ * @part scroll-container - Container wrapping the slot
+ * @part wrapper - Container wrapping the arrows and the scroll-container
  */
 @Component({
   tag: 'ld-tablist',
@@ -139,14 +147,14 @@ export class LdTablist {
             class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
             hidden={!this.scrollable}
             onClick={this.scroll.bind(this, 'left')}
-            part="arrow start"
+            part="arrow arrow-left"
             ref={(el) => (this.btnScrollLeftRef = el)}
             tabindex="-1"
           >
             <svg
               fill="none"
               height="16"
-              part="arrow-icon start"
+              part="arrow-icon arrow-icon-left"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -174,13 +182,13 @@ export class LdTablist {
             class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
             hidden={!this.scrollable}
             onClick={this.scroll.bind(this, 'right')}
-            part="arrow end"
+            part="arrow arrow-right"
             tabindex="-1"
           >
             <svg
               fill="none"
               height="16"
-              part="arrow-icon end"
+              part="arrow-icon arrow-icon-right"
               viewBox="0 0 16 16"
               width="16"
               xmlns="http://www.w3.org/2000/svg"

@@ -7,6 +7,7 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part tag - Actual label element
  */
 @Component({
   tag: 'ld-label',
