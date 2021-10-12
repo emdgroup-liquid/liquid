@@ -122,6 +122,8 @@ export class LdSelect {
     const oldValues = oldSelection.map((option) => option.value)
     if (JSON.stringify(newValues) === JSON.stringify(oldValues)) return
 
+    this.updateTriggerMoreIndicator(true)
+
     this.input.emit(newValues)
     this.change.emit(newValues)
   }
@@ -259,15 +261,17 @@ export class LdSelect {
             )
           )
           const [lastNotOverflowing] = notOverflowing.slice(-1)
-          lastNotOverflowing.classList.add(
-            'ld-select__selection-list-item--overflowing'
-          )
-          overflowingTotal++
-          moreItem.innerText = `+${overflowingTotal}`
+          if (lastNotOverflowing) {
+            lastNotOverflowing.classList.add(
+              'ld-select__selection-list-item--overflowing'
+            )
+            overflowingTotal++
+            moreItem.innerText = `+${overflowingTotal}`
 
-          window.requestAnimationFrame(() => {
-            hideLastVisibleIfMoreIndicatorOverflowing()
-          })
+            window.requestAnimationFrame(() => {
+              hideLastVisibleIfMoreIndicatorOverflowing()
+            })
+          }
         }
         hideLastVisibleIfMoreIndicatorOverflowing()
       }
@@ -282,7 +286,8 @@ export class LdSelect {
   }
 
   private updatePopperShadowHeight() {
-    ;((this.listboxRef as unknown) as LdSelectPopper).updateShadowHeight(
+    const ldPopper = (this.listboxRef as unknown) as LdSelectPopper
+    ldPopper.updateShadowHeight(
       `calc(100% + ${this.triggerRef.getBoundingClientRect().height}px)`
     )
   }
@@ -497,24 +502,25 @@ export class LdSelect {
     }
   }
 
-  private selectAndFocus(ev, option) {
-    if (!option) return
+  private selectAndFocus(ev, ldOption: LdOptionInternal) {
+    if (!ldOption) return
 
     if (this.multiple && ev.shiftKey) {
       if (
-        document.activeElement?.classList.contains('ld-option-internal') &&
-        document.activeElement.getAttribute('aria-selected') !== 'true'
+        document.activeElement?.tagName === 'LD-OPTION-INTERNAL' &&
+        !document.activeElement.hasAttribute('selected')
       ) {
         document.activeElement.dispatchEvent(
           new KeyboardEvent('keydown', { key: ' ' })
         )
       }
-      option.focus()
-      if (option.getAttribute('aria-selected') !== 'true') {
-        option.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
+      ldOption.focusOption()
+      const ldOptionHTMLEl = (ldOption as unknown) as HTMLElement
+      if (!ldOptionHTMLEl.hasAttribute('selected')) {
+        ldOptionHTMLEl.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
       }
     } else {
-      ;((option as unknown) as LdOptionInternal).focusOption()
+      ldOption.focusOption()
     }
   }
 
@@ -579,18 +585,18 @@ export class LdSelect {
           return
         }
 
-        let nextOption
+        let nextLdOption
         if (
           document.activeElement.nextElementSibling?.tagName ===
           'LD-OPTION-INTERNAL'
         ) {
-          nextOption = document.activeElement.nextElementSibling
+          nextLdOption = document.activeElement.nextElementSibling
         } else {
           if (document.activeElement === this.el) {
-            nextOption = this.listboxRef.querySelector('ld-option-internal')
+            nextLdOption = this.listboxRef.querySelector('ld-option-internal')
           }
         }
-        this.selectAndFocus(ev, nextOption)
+        this.selectAndFocus(ev, nextLdOption)
         break
       }
       case 'ArrowUp': {
@@ -614,7 +620,11 @@ export class LdSelect {
           document.activeElement.previousElementSibling?.tagName ===
           'LD-OPTION-INTERNAL'
         ) {
-          this.selectAndFocus(ev, document.activeElement.previousElementSibling)
+          this.selectAndFocus(
+            ev,
+            (document.activeElement
+              .previousElementSibling as unknown) as LdOptionInternal
+          )
           return
         }
 
