@@ -54,6 +54,7 @@ export class LdLabel {
           this.size && `ld-label--${this.size}`,
         ])}
         onClick={this.handleClick}
+        part="tag"
         {...cloneAttributes<LabelHTMLAttributes<HTMLLabelElement>>(this.el)}
       >
         <slot></slot>

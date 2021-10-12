@@ -3,7 +3,7 @@
 exports[`ld-label renders with position left 1`] = `
 <ld-label position="left">
   <mock:shadow-root>
-    <label class="ld-label ld-label--left">
+    <label class="ld-label ld-label--left" part="tag">
       <slot></slot>
     </label>
   </mock:shadow-root>
@@ -14,7 +14,7 @@ exports[`ld-label renders with position left 1`] = `
 exports[`ld-label renders with position right 1`] = `
 <ld-label position="right">
   <mock:shadow-root>
-    <label class="ld-label ld-label--right">
+    <label class="ld-label ld-label--right" part="tag">
       <slot></slot>
     </label>
   </mock:shadow-root>
@@ -25,7 +25,7 @@ exports[`ld-label renders with position right 1`] = `
 exports[`ld-label renders with size "m" 1`] = `
 <ld-label size="m">
   <mock:shadow-root>
-    <label class="ld-label ld-label--m">
+    <label class="ld-label ld-label--m" part="tag">
       <slot></slot>
     </label>
   </mock:shadow-root>
@@ -36,7 +36,7 @@ exports[`ld-label renders with size "m" 1`] = `
 exports[`ld-label renders with slot 1`] = `
 <ld-label>
   <mock:shadow-root>
-    <label class="ld-label">
+    <label class="ld-label" part="tag">
       <slot></slot>
     </label>
   </mock:shadow-root>
