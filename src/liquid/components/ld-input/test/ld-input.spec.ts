@@ -5,7 +5,7 @@ describe('ld-input', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input></ld-input>`,
+      html: `<ld-input />`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -13,7 +13,7 @@ describe('ld-input', () => {
   it('renders as dark input with prop tone set to "dark"', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input tone="dark"></ld-input>`,
+      html: `<ld-input tone="dark" />`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -21,7 +21,23 @@ describe('ld-input', () => {
   it('renders with value', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input value="yada-yada"></ld-input>`,
+      html: `<ld-input value="yada-yada" />`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('renders type file', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" />`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('renders type file (multiline)', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" multiline />`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -29,7 +45,7 @@ describe('ld-input', () => {
   it('updates value prop on value change', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input value="yada-yada"></ld-input>`,
+      html: `<ld-input value="yada-yada" />`,
     })
     const ldInput = page.root
     expect(ldInput.value).toBe('yada-yada')
@@ -47,7 +63,7 @@ describe('ld-input', () => {
   it('emits focus and blur event', async () => {
     const page = await newSpecPage({
       components: [LdInput],
-      html: `<ld-input></ld-input>`,
+      html: `<ld-input />`,
     })
     const ldInput = page.root
     const input = page.root.shadowRoot.querySelector('input')

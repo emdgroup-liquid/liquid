@@ -134,16 +134,17 @@ export class LdInput implements InnerFocusable {
       return (
         <Host class={cl} onClick={this.handleClick}>
           <textarea
-            ref={(el) => (this.input = el)}
-            onInput={this.handleInput.bind(this)}
-            placeholder={this.placeholder}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
+            onInput={this.handleInput.bind(this)}
+            part="input"
+            placeholder={this.placeholder}
+            ref={(el) => (this.input = el)}
             {...cloneAttributes(this.el)}
             value={this.value}
           />
           {this.type === 'file' && (
-            <span class="ld-input__placeholder">
+            <span class="ld-input__placeholder" part="placeholder">
               {this.input?.value || this.placeholder}
             </span>
           )}
@@ -155,17 +156,18 @@ export class LdInput implements InnerFocusable {
       <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
-          ref={(el) => (this.input = el)}
-          onInput={this.handleInput.bind(this)}
-          placeholder={this.placeholder}
-          type={this.type}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
+          onInput={this.handleInput.bind(this)}
+          part="input"
+          placeholder={this.placeholder}
+          ref={(el) => (this.input = el)}
+          type={this.type}
           {...cloneAttributes(this.el)}
           value={this.value}
         />
         {this.type === 'file' && (
-          <span class="ld-input__placeholder">
+          <span class="ld-input__placeholder" part="placeholder">
             {this.input?.value || this.placeholder}
           </span>
         )}
