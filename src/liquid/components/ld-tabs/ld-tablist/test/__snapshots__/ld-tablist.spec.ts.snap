@@ -27,7 +27,7 @@ exports[`ld-tablist modifiers mode 1`] = `
   </mock:shadow-root>
   <ld-tab selected="">
     <mock:shadow-root>
-      <button aria-selected="true" class="ld-tab" part="button" role="tab">
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>
@@ -39,7 +39,7 @@ exports[`ld-tablist modifiers mode 1`] = `
   </ld-tab>
   <ld-tab>
     <mock:shadow-root>
-      <button class="ld-tab" part="button" role="tab" tabindex="-1">
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>
@@ -79,7 +79,7 @@ exports[`ld-tablist modifiers rounded 1`] = `
   </mock:shadow-root>
   <ld-tab selected="">
     <mock:shadow-root>
-      <button aria-selected="true" class="ld-tab" part="button" role="tab">
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>
@@ -91,7 +91,7 @@ exports[`ld-tablist modifiers rounded 1`] = `
   </ld-tab>
   <ld-tab>
     <mock:shadow-root>
-      <button class="ld-tab" part="button" role="tab" tabindex="-1">
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>
@@ -131,7 +131,7 @@ exports[`ld-tablist modifiers size 1`] = `
   </mock:shadow-root>
   <ld-tab selected="">
     <mock:shadow-root>
-      <button aria-selected="true" class="ld-tab" part="button" role="tab">
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>
@@ -143,7 +143,7 @@ exports[`ld-tablist modifiers size 1`] = `
   </ld-tab>
   <ld-tab>
     <mock:shadow-root>
-      <button class="ld-tab" part="button" role="tab" tabindex="-1">
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
         <span class="ld-tab__spacer" part="spacer spacer-left"></span>
         <span class="ld-tab__content" part="content">
           <slot></slot>

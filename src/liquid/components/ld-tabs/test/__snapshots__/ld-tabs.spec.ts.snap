@@ -31,7 +31,7 @@ exports[`ld-tabs renders 1`] = `
     </mock:shadow-root>
     <ld-tab id="ld-tabs-0-tab-0" selected="">
       <mock:shadow-root>
-        <button aria-selected="true" class="ld-tab" part="button" role="tab">
+        <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
           <span class="ld-tab__spacer" part="spacer spacer-left"></span>
           <span class="ld-tab__content" part="content">
             <slot></slot>
@@ -43,7 +43,7 @@ exports[`ld-tabs renders 1`] = `
     </ld-tab>
     <ld-tab id="ld-tabs-0-tab-1">
       <mock:shadow-root>
-        <button class="ld-tab" part="button" role="tab" tabindex="-1">
+        <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
           <span class="ld-tab__spacer" part="spacer spacer-left"></span>
           <span class="ld-tab__content" part="content">
             <slot></slot>
@@ -55,7 +55,7 @@ exports[`ld-tabs renders 1`] = `
     </ld-tab>
     <ld-tab id="ld-tabs-0-tab-2">
       <mock:shadow-root>
-        <button class="ld-tab" part="button" role="tab" tabindex="-1">
+        <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
           <span class="ld-tab__spacer" part="spacer spacer-left"></span>
           <span class="ld-tab__content" part="content">
             <slot></slot>
@@ -67,7 +67,7 @@ exports[`ld-tabs renders 1`] = `
     </ld-tab>
     <ld-tab disabled="" id="ld-tabs-0-tab-3">
       <mock:shadow-root>
-        <button aria-disabled="true" class="ld-tab" part="button" role="tab" tabindex="-1">
+        <button aria-disabled="true" class="ld-tab" part="button focusable" role="tab" tabindex="-1">
           <span class="ld-tab__spacer" part="spacer spacer-left"></span>
           <span class="ld-tab__content" part="content">
             <slot></slot>

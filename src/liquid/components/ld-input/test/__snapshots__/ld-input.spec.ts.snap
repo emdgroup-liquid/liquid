@@ -4,7 +4,7 @@ exports[`ld-input renders 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input">
+    <input part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
 </ld-input>
@@ -14,7 +14,7 @@ exports[`ld-input renders as dark input with prop tone set to "dark" 1`] = `
 <ld-input class="ld-input ld-input--dark" tone="dark">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input">
+    <input part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
 </ld-input>
@@ -22,7 +22,7 @@ exports[`ld-input renders as dark input with prop tone set to "dark" 1`] = `
 
 exports[`ld-input renders type file (multiline) 1`] = `
 <ld-input class="ld-input" multiline="" type="file">
-  <mock:shadow-root><textarea part="input"></textarea>
+  <mock:shadow-root><textarea part="input focusable"></textarea>
     <span class="ld-input__placeholder" part="placeholder"></span>
   </mock:shadow-root>
 </ld-input>
@@ -32,7 +32,7 @@ exports[`ld-input renders type file 1`] = `
 <ld-input class="ld-input" type="file">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input" type="file">
+    <input part="input focusable" type="file">
     <span class="ld-input__placeholder" part="placeholder"></span>
     <slot name="end"></slot>
   </mock:shadow-root>
@@ -43,7 +43,7 @@ exports[`ld-input renders with both slots 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input">
+    <input part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <span slot="start">
@@ -59,7 +59,7 @@ exports[`ld-input renders with slot end 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input">
+    <input part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <span slot="end">
@@ -72,7 +72,7 @@ exports[`ld-input renders with slot start 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input">
+    <input part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <span slot="start">
@@ -85,7 +85,7 @@ exports[`ld-input renders with value 1`] = `
 <ld-input class="ld-input" value="yada-yada">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input" value="yada-yada">
+    <input part="input focusable" value="yada-yada">
     <slot name="end"></slot>
   </mock:shadow-root>
 </ld-input>
@@ -95,7 +95,7 @@ exports[`ld-input updates value prop on value change 1`] = `
 <ld-input class="ld-input" value="yoda-yoda">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input" value="yoda-yoda">
+    <input part="input focusable" value="yoda-yoda">
     <slot name="end"></slot>
   </mock:shadow-root>
 </ld-input>

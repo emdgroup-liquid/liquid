@@ -124,7 +124,7 @@ export class LdButton implements InnerFocusable {
         class={cl}
         disabled={this.disabled}
         href={this.href}
-        part="button"
+        part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         target={this.target}

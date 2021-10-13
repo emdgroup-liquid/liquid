@@ -86,8 +86,8 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ## Shadow Parts
 
-| Part     | Description            |
-| -------- | ---------------------- |
+| Part     | Description                 |
+| -------- | --------------------------- |
 | `"icon"` | Image tag used for the icon |
 
 

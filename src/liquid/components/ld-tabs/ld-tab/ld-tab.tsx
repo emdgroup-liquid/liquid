@@ -81,7 +81,7 @@ export class LdTab implements InnerFocusable {
         aria-selected={this.selected ? 'true' : undefined}
         class="ld-tab"
         onClick={this.handleTabClick.bind(this)}
-        part="button"
+        part="button focusable"
         ref={(el) => (this.btnRef = el as HTMLButtonElement)}
         role="tab"
         tabindex={this.selected ? undefined : '-1'}

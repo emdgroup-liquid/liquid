@@ -65,6 +65,7 @@ Type: `Promise<void>`
 | ---------------- | ------------------------- |
 | `"button"`       | Actual button element     |
 | `"content"`      | Element wrapping the slot |
+| `"focusable"`    |                           |
 | `"spacer"`       | Both spacer elements      |
 | `"spacer-left"`  | Left spacer element       |
 | `"spacer-right"` | Right spacer element      |

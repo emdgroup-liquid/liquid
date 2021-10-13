@@ -140,7 +140,7 @@ export class LdOptionInternal {
           onMouseOver={() => (this.hasHover = true)}
           onMouseOut={() => (this.hasHover = false)}
           tabindex="-1"
-          part="option"
+          part="option focusable"
         >
           {this.mode === 'checkbox' ? (
             <div

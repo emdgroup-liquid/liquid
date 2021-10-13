@@ -139,7 +139,7 @@ export class LdInput implements InnerFocusable {
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
-            part="input"
+            part="input focusable"
             placeholder={this.placeholder}
             ref={(el) => (this.input = el)}
             {...cloneAttributes(this.el)}
@@ -161,7 +161,7 @@ export class LdInput implements InnerFocusable {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onInput={this.handleInput.bind(this)}
-          part="input"
+          part="input focusable"
           placeholder={this.placeholder}
           ref={(el) => (this.input = el)}
           type={this.type}

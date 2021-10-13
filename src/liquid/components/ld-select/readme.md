@@ -1271,6 +1271,7 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | `"btn-clear"`            |             |
 | `"btn-clear-single"`     |             |
 | `"btn-trigger"`          |             |
+| `"focusable"`            |             |
 | `"icon-clear"`           |             |
 | `"icon-clear-single"`    |             |
 | `"options-container"`    |             |

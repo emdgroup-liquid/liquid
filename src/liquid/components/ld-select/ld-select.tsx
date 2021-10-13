@@ -886,7 +886,7 @@ export class LdSelect {
             <div
               class={triggerCl}
               role="button"
-              part="btn-trigger"
+              part="btn-trigger focusable"
               tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
               aria-disabled={
                 this.disabled || this.ariaDisabled ? 'true' : 'false'
@@ -935,7 +935,7 @@ export class LdSelect {
                                 : undefined
                             }
                             class="ld-select__btn-clear-single"
-                            part="btn-clear-single"
+                            part="btn-clear-single focusable"
                             onClick={(ev) => {
                               this.handleClearSingleClick.call(
                                 this,
@@ -991,7 +991,7 @@ export class LdSelect {
                   }
                   onClick={this.handleClearClick.bind(this)}
                   ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
-                  part="btn-clear"
+                  part="btn-clear focusable"
                 >
                   <svg
                     class="ld-select__btn-clear-icon"

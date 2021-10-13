@@ -3,7 +3,6 @@ import { getPageWithContent } from '../../../utils/e2e-tests'
 jest.useRealTimers()
 
 const themes = [
-  'none',
   'ocean',
   'bubblegum',
   // 'shake',

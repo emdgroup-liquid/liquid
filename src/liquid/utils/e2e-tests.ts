@@ -18,14 +18,15 @@ export const getPageWithContent = async (
   const page = await newE2EPage({
     html: `<div class="ld-theme-${theme} e2e-container">${content}</div>`,
     // TODO: test, if this helps the asset loading...
-    waitUntil: 'load',
+    waitUntil: 'domcontentloaded',
   })
 
   await page.addStyleTag({
     content: `body {
   margin: 0;
 }
-*:focus {
+*:focus,
+::part(focusable) {
   outline: none;
 }
 .e2e-container {
