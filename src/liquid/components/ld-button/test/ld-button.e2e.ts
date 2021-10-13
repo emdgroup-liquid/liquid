@@ -4,14 +4,6 @@ import { LdButton } from '../ld-button'
 
 jest.useRealTimers()
 
-const themes = [
-  'ocean',
-  // 'bubblegum',
-  // 'shake',
-  // 'solvent',
-  'tea',
-]
-
 const modes = [
   '',
   'highlight',
@@ -35,318 +27,300 @@ const allowableMismatchedRatio = 0.02
 
 describe('ld-button', () => {
   for (const mode of modes) {
-    const modeStr = mode ? ` ${mode}` : ''
-    describe(`themed${modeStr}`, () => {
-      for (const theme of themes) {
-        // Themed
-        it(`default theme-${theme}${modeStr}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.hover('ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+    const modeStr = mode ? `mode ${mode}` : 'mode none'
+    describe(modeStr, () => {
+      it(`default ${modeStr}`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`hover`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.hover('ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`focus`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`active`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Disabled
-        it(`disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.hover('ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`disabled active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Disabled
+      it(`disabled`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`disabled hover`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.hover('ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`disabled focus`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`disabled active`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Aria-disabled
-        it(`aria-disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`aria-disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.hover('ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`aria-disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`aria-disabled active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Aria-disabled
+      it(`aria-disabled`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`aria-disabled hover`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.hover('ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`aria-disabled focus`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`aria-disabled active`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Progress button
-        it(`progress button theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button progress="0.75">Text</ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Progress button
+      it(`progress button`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button progress="0.75">Text</ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        it(`progress button secondary theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button progress="0.75" mode="secondary">Text</ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      it(`progress button secondary`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button progress="0.75" mode="secondary">Text</ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        it(`progress button ghost theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-button progress="0.75" mode="ghost">Text</ld-button>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      it(`progress button ghost`, async () => {
+        const page = await getPageWithContent(
+          `<ld-button progress="0.75" mode="ghost">Text</ld-button>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Themed CSS component
-        const modeModifier = mode ? ` ld-button--${mode}` : ''
-        it(`css component default theme-${theme}${modeStr}`, async () => {
-          const page = await getPageWithContent(
-            `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.hover('.ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // CSS component
+      const modeModifier = mode ? ` ld-button--${mode}` : ''
+      it(`css component default ${modeStr}`, async () => {
+        const page = await getPageWithContent(
+          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component hover`, async () => {
+        const page = await getPageWithContent(
+          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.hover('.ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component focus`, async () => {
+        const page = await getPageWithContent(
+          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component active`, async () => {
+        const page = await getPageWithContent(
+          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Disabled CSS component
-        it(`css component disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.hover('.ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Disabled CSS component
+      it(`css component disabled`, async () => {
+        const page = await getPageWithContent(
+          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component disabled hover`, async () => {
+        const page = await getPageWithContent(
+          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.hover('.ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component disabled focus`, async () => {
+        const page = await getPageWithContent(
+          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component disabled active`, async () => {
+        const page = await getPageWithContent(
+          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Aria-disabled CSS component
-        it(`css component aria-disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.hover('.ld-button')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled active theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-            theme,
-            [LdButton, LdIcon]
-          )
-          await page.keyboard.press('Tab')
-          await page.keyboard.down('Space')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Aria-disabled CSS component
+      it(`css component aria-disabled`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component aria-disabled hover`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.hover('.ld-button')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component aria-disabled focus`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
+      it(`css component aria-disabled active`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
+          undefined,
+          [LdButton, LdIcon]
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        // Progress button CSS component
-        it(`css component progress button theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-busy="true" aria-live="polite" class="ld-button">
-              Text
-              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-            </button>`,
-            theme,
-            LdButton
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      // Progress button CSS component
+      it(`css component progress button`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-busy="true" aria-live="polite" class="ld-button">
+            Text
+            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+          </button>`,
+          undefined,
+          LdButton
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        it(`css component progress button secondary theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--secondary">
-              Text
-              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-            </button>`,
-            theme,
-            LdButton
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+      it(`css component progress button secondary`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--secondary">
+            Text
+            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+          </button>`,
+          undefined,
+          LdButton
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
 
-        it(`css component progress button ghost theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--ghost">
-              Text
-              <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-            </button>`,
-            theme,
-            LdButton
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-      }
+      it(`css component progress button ghost`, async () => {
+        const page = await getPageWithContent(
+          `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--ghost">
+            Text
+            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+          </button>`,
+          undefined,
+          LdButton
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      })
     })
   }
 
@@ -453,6 +427,23 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+    })
+  })
+
+  describe('implicit form submission', () => {
+    it('submits form implicitly', async () => {
+      const page = await getPageWithContent(
+        `<form><ld-button>Text</ld-button></form>`
+      )
+      const form = await page.find('form')
+      expect(form).not.toBeNull()
+      const formSubmitSpy = await form.spyOnEvent('submit')
+
+      // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
+      await page.evaluate(() => document.querySelector('ld-button').click())
+      page.waitForChanges()
+
+      expect(formSubmitSpy).toHaveReceivedEvent()
     })
   })
 })

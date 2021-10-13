@@ -176,4 +176,87 @@ describe('ld-button', () => {
 
     expect(button.focus).toHaveBeenCalled()
   })
+
+  describe('implicit form submission', () => {
+    beforeAll(() => {
+      // Mock clickFakeButton (actual implementation tested in e2e test).
+      jest
+        .spyOn(
+          (LdButton.prototype as unknown) as { clickFakeButton },
+          'clickFakeButton'
+        )
+        .mockImplementation(
+          (form: HTMLFormElement, buttonType: 'submit' | 'reset') => {
+            form.dispatchEvent(new Event(buttonType))
+          }
+        )
+    })
+
+    afterAll(() => {
+      jest.restoreAllMocks()
+    })
+
+    it('submits a form implicitly', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `<form><ld-button>Text</ld-button></form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      const submitHandler = jest.fn()
+      const resetHandler = jest.fn()
+
+      form.addEventListener('submit', submitHandler)
+      form.addEventListener('reset', resetHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+
+      expect(submitHandler).toHaveBeenCalled()
+      expect(resetHandler).not.toHaveBeenCalled()
+    })
+
+    it('does not submit a form as an anchor', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `<form><ld-button href="#">Text</ld-button></form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      const submitHandler = jest.fn()
+      const resetHandler = jest.fn()
+
+      form.addEventListener('submit', submitHandler)
+      form.addEventListener('reset', resetHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+
+      expect(submitHandler).not.toHaveBeenCalled()
+      expect(resetHandler).not.toHaveBeenCalled()
+    })
+
+    it('resets a form', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `<form><ld-button type="reset">Text</ld-button></form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      const submitHandler = jest.fn()
+      const resetHandler = jest.fn()
+
+      form.addEventListener('submit', submitHandler)
+      form.addEventListener('reset', resetHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+
+      expect(submitHandler).not.toHaveBeenCalled()
+      expect(resetHandler).toHaveBeenCalled()
+    })
+  })
 })
