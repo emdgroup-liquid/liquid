@@ -4,11 +4,16 @@ import { getClassNames } from '../../utils/getClassNames'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part input - Actual input element
+ * @part knob - Toggle knob
+ * @part icon-wrapper - Both wrappers of icons
+ * @part icon-wrapper-start - Wrapper of the start icon
+ * @part icon-wrapper-end - Wrapper of the end icon
  */
 @Component({
   tag: 'ld-toggle',
   styleUrl: 'ld-toggle.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdToggle implements InnerFocusable {
   @Element() element: HTMLElement
@@ -59,13 +64,12 @@ export class LdToggle implements InnerFocusable {
   }
 
   private handleClick = (event: MouseEvent) => {
-    if (this.input.getAttribute('aria-disabled') === 'true') {
+    if (this.ariaDisabled) {
       event.preventDefault()
       return
     }
 
-    this.checked =
-      event.target === this.element ? !this.input.checked : this.input.checked
+    this.checked = !this.checked
   }
 
   render() {
@@ -84,18 +88,22 @@ export class LdToggle implements InnerFocusable {
           disabled={this.disabled}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
+          part="input focusable"
           ref={(ref) => (this.input = ref)}
           required={this.required}
           type="checkbox"
         />
-        <span class="ld-toggle__knob" />
+        <span class="ld-toggle__knob" part="knob" />
         {this.hasIcons && (
-          <div class="ld-toggle__icon-start">
+          <div
+            class="ld-toggle__icon-start"
+            part="icon-wrapper icon-wrapper-start"
+          >
             <slot name="icon-start" />
           </div>
         )}
         {this.hasIcons && (
-          <div class="ld-toggle__icon-end">
+          <div class="ld-toggle__icon-end" part="icon-wrapper icon-wrapper-end">
             <slot name="icon-end" />
           </div>
         )}

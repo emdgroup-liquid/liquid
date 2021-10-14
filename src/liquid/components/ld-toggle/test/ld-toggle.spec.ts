@@ -46,12 +46,12 @@ describe('ld-toggle', () => {
     const ldToggle = page.root
     expect(ldToggle.checked).toBe(undefined)
 
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
     expect(input).toHaveProperty('checked', false)
 
-    input.checked = true
-    input.dispatchEvent(new Event('click', { bubbles: true }))
+    ldToggle.dispatchEvent(new Event('click', { bubbles: true }))
     await page.waitForChanges()
+    expect(input).toHaveProperty('checked', true)
     expect(ldToggle.checked).toBe(true)
 
     expect(page.root).toMatchSnapshot()
@@ -63,7 +63,7 @@ describe('ld-toggle', () => {
       html: `<ld-toggle></ld-toggle>`,
     })
     const ldToggle = page.root
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
 
     const handlers = {
       onFocus() {
@@ -96,12 +96,12 @@ describe('ld-toggle', () => {
 
     expect(ldToggle.checked).toBe(undefined)
 
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
 
-    input.checked = false
-    input.dispatchEvent(new Event('click'))
+    ldToggle.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
+    expect(input).toHaveProperty('checked', false)
     expect(ldToggle.checked).toBe(undefined)
     expect(page.root).toMatchSnapshot()
   })
@@ -111,7 +111,7 @@ describe('ld-toggle', () => {
       components: [LdToggle],
       html: `<ld-toggle />`,
     })
-    const input = root.querySelector('input')
+    const input = root.shadowRoot.querySelector('input')
 
     input.focus = jest.fn()
     await root.focusInner()
