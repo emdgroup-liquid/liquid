@@ -7,6 +7,7 @@ title: Checkbox
 permalink: components/ld-checkbox/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-checkbox.css">
 <link rel="stylesheet" href="/css_components/ld-label.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
 
@@ -608,6 +609,15 @@ Sets focus on the checkbox
 Type: `Promise<void>`
 
 
+
+
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"box"`   |             |
+| `"check"` |             |
+| `"root"`  |             |
 
 
 ## Dependencies

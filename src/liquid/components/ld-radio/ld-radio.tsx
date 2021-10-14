@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Method, Prop } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -10,11 +10,14 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 @Component({
   tag: 'ld-radio',
   styleUrl: 'ld-radio.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdRadio implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLInputElement
+
+  private root: HTMLDivElement
   private input: HTMLInputElement
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -30,9 +33,7 @@ export class LdRadio implements InnerFocusable {
   /** Set this property to `true` in order to mark the radio visually as invalid. */
   @Prop() invalid: boolean
 
-  /**
-   * Sets focus on the radio button
-   */
+  /** Sets focus on the radio button.*/
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
@@ -53,12 +54,28 @@ export class LdRadio implements InnerFocusable {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.input.getAttribute('aria-disabled') === 'true') {
+    if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
       ev.preventDefault()
       return
     }
 
-    this.checked = ev.target === this.el ? !this.checked : this.input.checked
+    if (this.checked) return
+
+    // Uncheck radios with same name.
+    const name = this.el.getAttribute('name')
+    if (name) {
+      // Attribute selector fails in test env, hance filtering with js below.
+      Array.from(document.querySelectorAll('ld-radio'))
+        .filter((ldRadio) => ldRadio.getAttribute('name') === name)
+        .forEach((ldRadio) => {
+          ldRadio.removeAttribute('checked')
+        })
+    }
+
+    this.checked =
+      (ev.target as HTMLElement).closest('.ld-radio') === this.root
+        ? true
+        : this.input.checked
   }
 
   render() {
@@ -68,8 +85,14 @@ export class LdRadio implements InnerFocusable {
     if (this.invalid) cl += ' ld-radio--invalid'
 
     return (
-      <Host class={cl} onClick={this.handleClick}>
+      <div
+        part="root"
+        class={cl}
+        onClick={this.handleClick}
+        ref={(ref) => (this.root = ref)}
+      >
         <input
+          part="input focusable"
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
@@ -78,9 +101,9 @@ export class LdRadio implements InnerFocusable {
           disabled={this.disabled}
           checked={this.checked}
         />
-        <div class="ld-radio__dot"></div>
-        <div class="ld-radio__box"></div>
-      </Host>
+        <div part="dot" class="ld-radio__dot"></div>
+        <div class="ld-radio__box" part="box"></div>
+      </div>
     )
   }
 }

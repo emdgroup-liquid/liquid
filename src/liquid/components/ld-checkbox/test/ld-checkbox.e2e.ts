@@ -3,15 +3,6 @@ import { LdCheckbox } from '../ld-checkbox'
 
 jest.useRealTimers()
 
-const themes = [
-  'none',
-  'ocean',
-  'bubblegum',
-  // 'shake',
-  // 'solvent',
-  // 'tea',
-]
-
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 
@@ -41,179 +32,197 @@ describe('ld-checkbox', () => {
   for (const tone of tones) {
     const toneStr = tone ? ` ${tone}` : ''
     describe(`themed${toneStr}`, () => {
-      for (const theme of themes) {
-        for (const checkedState of checkedStates) {
-          const checkedStateStr = checkedState ? ' checked' : ''
+      for (const checkedState of checkedStates) {
+        const checkedStateStr = checkedState ? ' checked' : ''
 
-          // Themed
-          it(`default theme-${theme}${toneStr}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}"></ld-checkbox>`,
-              theme
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}" ${checkedStateStr}></ld-checkbox>`,
-              theme
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
+        it(`default ${toneStr}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}"></ld-checkbox>`
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr}></ld-checkbox>`
+          )
+          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          await checkbox.hover()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr}></ld-checkbox>`
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
 
-          // Disabled
-          it(`disabled theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`,
-              theme
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`disabled focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`,
-              theme
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
+        // Disabled
+        it(`disabled ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`disabled hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`
+          )
+          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          await checkbox.hover()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`disabled focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
 
-          // Aria-disabled
-          it(`aria-disabled theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`,
-              theme
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`,
-              theme
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
+        // Aria-disabled
+        it(`aria-disabled ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`aria-disabled hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`
+          )
+          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          await checkbox.hover()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`aria-disabled focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
 
-          // Themed CSS component
-          const toneModifier = tone ? ` ld-checkbox--${tone}` : ''
-          it(`css component default theme-${theme}${toneStr}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+        // Themed CSS component
+        const toneModifier = tone ? ` ld-checkbox--${tone}` : ''
+        it(`css component default ${toneStr}${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component hover theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+            undefined,
+            LdCheckbox
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.hover('.ld-checkbox')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+            undefined,
+            LdCheckbox
+          )
+          await page.hover('.ld-checkbox')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr}></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
+            undefined,
+            LdCheckbox
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
 
-          // Disabled CSS component
-          it(`css component disabled theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+        // Disabled CSS component
+        it(`css component disabled ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component disabled hover theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}" disabled>
+            undefined,
+            LdCheckbox
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component disabled hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}" disabled>
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.hover('.ld-checkbox')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component disabled focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+            undefined,
+            LdCheckbox
+          )
+          await page.hover('.ld-checkbox')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component disabled focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} disabled></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
+            undefined,
+            LdCheckbox
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
 
-          // Aria-disabled CSS component
-          it(`css component aria-disabled theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+        // Aria-disabled CSS component
+        it(`css component aria-disabled ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component aria-disabled hover theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}" aria-disabled="true">
+            undefined,
+            LdCheckbox
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component aria-disabled hover ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}" aria-disabled="true">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.hover('.ld-checkbox')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-          it(`css component aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
-            const page = await getPageWithContent(
-              `<div class="ld-checkbox${toneModifier}">
+            undefined,
+            LdCheckbox
+          )
+          await page.hover('.ld-checkbox')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
+        it(`css component aria-disabled focus ${checkedStateStr}`, async () => {
+          const page = await getPageWithContent(
+            `<div class="ld-checkbox${toneModifier}">
                 <input type="checkbox" ${checkedStateStr} aria-disabled="true"></input>${checkAndBox}
               </div>`,
-              theme,
-              LdCheckbox
-            )
-            await page.keyboard.press('Tab')
-            const results = await page.compareScreenshot()
-            expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-          })
-        }
+            undefined,
+            LdCheckbox
+          )
+          await page.keyboard.press('Tab')
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        })
       }
     })
   }
@@ -221,8 +230,7 @@ describe('ld-checkbox', () => {
   describe('aria-disabled', () => {
     it('does not prevent input value changes without an aria-disabled attribute', async () => {
       const page = await getPageWithContent(`<ld-checkbox></ld-checkbox>`)
-      const ldCheckbox = await page.find('ld-checkbox')
-      const input = await ldCheckbox.find('input')
+      const input = await page.find('ld-checkbox >>> input')
 
       await input.press('Space')
 
@@ -236,8 +244,7 @@ describe('ld-checkbox', () => {
       const page = await getPageWithContent(
         `<ld-checkbox aria-disabled="true"></ld-checkbox>`
       )
-      const ldCheckbox = await page.find('ld-checkbox')
-      const input = await ldCheckbox.find('input')
+      const input = await page.find('ld-checkbox >>> input')
 
       await input.press('Space')
 

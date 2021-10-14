@@ -7,6 +7,7 @@ title: Radio Button
 permalink: components/ld-radio/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-radio.css">
 <link rel="stylesheet" href="/css_components/ld-label.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
 
@@ -374,13 +375,22 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the radio button
+Sets focus on the radio button.
 
 #### Returns
 
 Type: `Promise<void>`
 
 
+
+
+## Shadow Parts
+
+| Part     | Description |
+| -------- | ----------- |
+| `"box"`  |             |
+| `"dot"`  |             |
+| `"root"` |             |
 
 
 ----------------------------------------------

@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Method, Prop } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -10,11 +10,14 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 @Component({
   tag: 'ld-checkbox',
   styleUrl: 'ld-checkbox.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdCheckbox implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLInputElement
+
+  private root: HTMLDivElement
   private input: HTMLInputElement
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -53,14 +56,15 @@ export class LdCheckbox implements InnerFocusable {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.input.getAttribute('aria-disabled') === 'true') {
+    if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
       ev.preventDefault()
       return
     }
 
-    console.log({ zzz: ev.target === this.el })
-
-    this.checked = ev.target === this.el ? !this.checked : this.input.checked
+    this.checked =
+      (ev.target as HTMLElement).closest('.ld-checkbox') === this.root
+        ? !this.checked
+        : this.input.checked
   }
 
   render() {
@@ -70,8 +74,14 @@ export class LdCheckbox implements InnerFocusable {
     if (this.invalid) cl += ' ld-checkbox--invalid'
 
     return (
-      <Host class={cl} onClick={this.handleClick}>
+      <div
+        part="root"
+        class={cl}
+        onClick={this.handleClick}
+        ref={(ref) => (this.root = ref)}
+      >
         <input
+          part="input focusable"
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
@@ -82,6 +92,7 @@ export class LdCheckbox implements InnerFocusable {
         />
         <svg
           class="ld-checkbox__check"
+          part="check"
           width="14"
           height="14"
           fill="none"
@@ -96,8 +107,8 @@ export class LdCheckbox implements InnerFocusable {
             stroke-linejoin="round"
           />
         </svg>
-        <div class="ld-checkbox__box"></div>
-      </Host>
+        <div class="ld-checkbox__box" part="box"></div>
+      </div>
     )
   }
 }
