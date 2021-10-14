@@ -1,18 +1,15 @@
 import { JSXBase } from '@stencil/core/internal'
-import HTMLAttributes = JSXBase.HTMLAttributes
 
-export function cloneAttributes<T = HTMLAttributes | NamedNodeMap>(el: {
-  attributes: HTMLAttributes | NamedNodeMap
-}) {
-  const attrClone = { ...el.attributes }
-  Object.keys(attrClone).forEach((key) => {
-    if (['style', 'id', 'class', 'slot'].includes(attrClone[key].name)) {
-      delete attrClone[key]
-    }
-  })
-  return Object.values(<T>attrClone).reduce((acc: T, attr: Attr): T => {
-    if (!attr.name) return acc
-    acc[attr.name] = attr.value || true
-    return acc
-  }, {})
-}
+export const cloneAttributes = <B extends HTMLElement>(el: B) =>
+  Object.values(el.attributes).reduce<JSXBase.HTMLAttributes<B>>(
+    (acc, attr) => {
+      if (['style', 'id', 'class', 'slot'].includes(attr.name)) {
+        return acc
+      }
+
+      acc[attr.name] = attr.value || true
+
+      return acc
+    },
+    {}
+  )

@@ -1,7 +1,5 @@
 import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import LabelHTMLAttributes = JSXBase.LabelHTMLAttributes
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
@@ -56,7 +54,7 @@ export class LdLabel {
         ])}
         onClick={this.handleClick}
         part="tag"
-        {...cloneAttributes<LabelHTMLAttributes<HTMLLabelElement>>(this.el)}
+        {...cloneAttributes(this.el)}
       >
         <slot></slot>
       </label>
