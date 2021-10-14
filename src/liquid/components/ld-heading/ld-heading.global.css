@@ -8,22 +8,22 @@ ld-heading[visual-level*='b'],
 .ld-heading--xb1,
 .ld-heading--xb2,
 .ld-heading--xb3 {
-  .ld-theme-ocean :where(&),
-  [class*='ld-theme'] .ld-theme-ocean :where(&) {
+  :where(.ld-theme-ocean &),
+  :where([class*='ld-theme'] .ld-theme-ocean &) {
     color: var(--ld-col-rb-default);
   }
 
-  .ld-theme-solvent :where(&),
-  [class*='ld-theme'] .ld-theme-solvent :where(&),
-  .ld-theme-bubblegum :where(&),
-  [class*='ld-theme'] .ld-theme-bubblegum :where(&),
-  .ld-theme-shake :where(&),
-  [class*='ld-theme'] .ld-theme-shake :where(&) {
+  :where(.ld-theme-solvent &),
+  :where([class*='ld-theme'] .ld-theme-solvent &),
+  :where(.ld-theme-bubblegum &),
+  :where([class*='ld-theme'] .ld-theme-bubblegum &),
+  :where(.ld-theme-shake &),
+  :where([class*='ld-theme'] .ld-theme-shake &) {
     color: var(--ld-col-rp-default);
   }
 
-  .ld-theme-tea :where(&),
-  [class*='ld-theme'] .ld-theme-tea :where(&) {
+  :where(.ld-theme-tea &),
+  :where([class*='ld-theme'] .ld-theme-tea &) {
     color: var(--ld-col-rg-default);
   }
 }
