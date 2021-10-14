@@ -3,8 +3,8 @@
 exports[`ld-toggle prevents input value changes with an aria-disabled attribute 1`] = `
 <ld-toggle aria-disabled="true" class="ld-toggle">
   <mock:shadow-root>
-    <input aria-disabled="true" type="checkbox">
-    <span class="ld-toggle__knob"></span>
+    <input aria-disabled="true" part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
 </ld-toggle>
 `;
@@ -12,8 +12,8 @@ exports[`ld-toggle prevents input value changes with an aria-disabled attribute 
 exports[`ld-toggle renders default 1`] = `
 <ld-toggle class="ld-toggle">
   <mock:shadow-root>
-    <input type="checkbox">
-    <span class="ld-toggle__knob"></span>
+    <input part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
 </ld-toggle>
 `;
@@ -21,8 +21,8 @@ exports[`ld-toggle renders default 1`] = `
 exports[`ld-toggle renders disabled state 1`] = `
 <ld-toggle class="ld-toggle" disabled="">
   <mock:shadow-root>
-    <input disabled="" type="checkbox">
-    <span class="ld-toggle__knob"></span>
+    <input disabled="" part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
 </ld-toggle>
 `;
@@ -30,8 +30,8 @@ exports[`ld-toggle renders disabled state 1`] = `
 exports[`ld-toggle renders large mode 1`] = `
 <ld-toggle class="ld-toggle ld-toggle--lg" size="lg">
   <mock:shadow-root>
-    <input type="checkbox">
-    <span class="ld-toggle__knob"></span>
+    <input part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
 </ld-toggle>
 `;
@@ -39,12 +39,12 @@ exports[`ld-toggle renders large mode 1`] = `
 exports[`ld-toggle renders with icons 1`] = `
 <ld-toggle class="ld-toggle ld-toggle--with-icons">
   <mock:shadow-root>
-    <input type="checkbox">
-    <span class="ld-toggle__knob"></span>
-    <div class="ld-toggle__icon-start">
+    <input part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
+    <div class="ld-toggle__icon-start" part="icon-wrapper icon-wrapper-start">
       <slot name="icon-start"></slot>
     </div>
-    <div class="ld-toggle__icon-end">
+    <div class="ld-toggle__icon-end" part="icon-wrapper icon-wrapper-end">
       <slot name="icon-end"></slot>
     </div>
   </mock:shadow-root>
@@ -66,8 +66,8 @@ exports[`ld-toggle renders with icons 1`] = `
 exports[`ld-toggle updates checked prop on checked value change 1`] = `
 <ld-toggle checked="" class="ld-toggle">
   <mock:shadow-root>
-    <input checked="" type="checkbox">
-    <span class="ld-toggle__knob"></span>
+    <input checked="" part="input focusable" type="checkbox">
+    <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
 </ld-toggle>
 `;
