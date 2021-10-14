@@ -7,6 +7,7 @@ title: Toggle
 permalink: components/ld-toggle/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-toggle.css">
 <link rel="stylesheet" href="/css_components/ld-label.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
 
@@ -458,6 +459,18 @@ Sets focus on the toggle
 Type: `Promise<void>`
 
 
+
+
+## Shadow Parts
+
+| Part                   | Description               |
+| ---------------------- | ------------------------- |
+| `"focusable"`          |                           |
+| `"icon-wrapper"`       | Both wrappers of icons    |
+| `"icon-wrapper-end"`   | Wrapper of the end icon   |
+| `"icon-wrapper-start"` | Wrapper of the start icon |
+| `"input"`              | Actual input element      |
+| `"knob"`               | Toggle knob               |
 
 
 ----------------------------------------------

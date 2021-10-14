@@ -49,7 +49,7 @@ module.exports = {
       // /::slotted\([^,]*[>+~][^,]+\)/,
       // /:host\([^,]+ [^,]+\)/,
       // /:host\([^,]*[>+~][^,]+\)/,
-      /.+:host/,
+      /([^, \n][ \n]*):host/,
     ],
     'selector-no-qualifying-type': null,
     'selector-type-no-unknown': [
