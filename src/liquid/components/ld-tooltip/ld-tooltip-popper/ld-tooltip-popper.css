@@ -1,0 +1,187 @@
+@keyframes ld-tooltip-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ld-tooltip-hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+.ld-tooltip {
+  :host(&) {
+    /* TODO: move to global vars? */
+    --ld-ad-default: 200ms; /* default animation duration */
+    --ld-zi-max: 2147483647; /* max z-index */
+
+    --ld-tooltip-animation-duration: var(--ld-ad-default);
+    --ld-tooltip-distance-from-trigger: var(--ld-sp-8);
+    --ld-tooltip-max-width: 20rem;
+    /* calculation does not work, if 0 is used instead of 0px */
+    --ld-tooltip-offset-x: 0px;
+    --ld-tooltip-offset-y: 0px;
+
+    animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
+    animation-fill-mode: forwards;
+    background-color: var(--ld-col-wht);
+    border-radius: var(--ld-br-m);
+    color: var(--ld-col-rblck-default);
+    filter: var(--ld-drop-shadow-hover);
+    margin-left: var(--ld-tooltip-offset-x);
+    margin-top: var(--ld-tooltip-offset-y);
+    max-width: var(--ld-tooltip-max-width);
+    opacity: 0;
+    padding: var(--ld-sp-16);
+    pointer-events: none;
+    position: relative;
+    transition: opacity var(--ld-tooltip-animation-duration) ease-in;
+    z-index: var(--ld-zi-max);
+  }
+
+  &--with-arrow {
+    :host(&) {
+      --ld-tooltip-arrow-size: 0.5rem;
+      --ld-tooltip-arrow-offset: var(--ld-sp-16);
+      --ld-tooltip-distance-from-trigger: calc(
+        var(--ld-tooltip-arrow-size) + var(--ld-sp-8)
+      );
+
+      &:before {
+        border: var(--ld-tooltip-arrow-size) solid transparent;
+        content: '';
+        position: absolute;
+      }
+    }
+  }
+
+  &--interactive {
+    :host(&) {
+      pointer-events: auto;
+    }
+  }
+
+  &.ld-tether-enabled {
+    :host(&) {
+      animation: ld-tooltip-show var(--ld-tooltip-animation-duration) ease-out;
+      opacity: 1;
+    }
+  }
+
+  &.ld-tether-element-attached-bottom {
+    :host(&) {
+      &:before {
+        bottom: var(--ld-tooltip-arrow-offset);
+      }
+    }
+
+    &.ld-tether-target-attached-top {
+      :host(&) {
+        margin-top: calc(
+          var(--ld-tooltip-distance-from-trigger) * -1 -
+            var(--ld-tooltip-offset-y)
+        );
+
+        &:before {
+          border-top-color: var(--ld-col-wht);
+          top: 100%;
+        }
+      }
+    }
+  }
+
+  &.ld-tether-element-attached-center {
+    :host(&):before {
+      left: calc(50% - var(--ld-tooltip-arrow-size));
+    }
+  }
+
+  &.ld-tether-element-attached-left.ld-tether-target-attached-right {
+    :host(&) {
+      margin-left: calc(
+        var(--ld-tooltip-offset-x) + var(--ld-tooltip-distance-from-trigger)
+      );
+
+      &:before {
+        border-right-color: var(--ld-col-wht);
+        right: 100%;
+      }
+    }
+  }
+
+  &.ld-tether-element-attached-middle {
+    :host(&):before {
+      top: calc(50% - var(--ld-tooltip-arrow-size));
+    }
+  }
+
+  &.ld-tether-element-attached-right {
+    :host(&) {
+      &:before {
+        right: var(--ld-tooltip-arrow-offset);
+      }
+    }
+
+    &.ld-tether-target-attached-left {
+      :host(&) {
+        margin-left: calc(
+          var(--ld-tooltip-distance-from-trigger) * -1 -
+            var(--ld-tooltip-offset-x)
+        );
+
+        &:before {
+          border-left-color: var(--ld-col-wht);
+          left: 100%;
+        }
+      }
+    }
+  }
+
+  &.ld-tether-element-attached-top.ld-tether-target-attached-bottom {
+    :host(&) {
+      margin-top: calc(
+        var(--ld-tooltip-distance-from-trigger) + var(--ld-tooltip-offset-y)
+      );
+
+      &:before {
+        border-bottom-color: var(--ld-col-wht);
+        bottom: 100%;
+      }
+    }
+  }
+}
+
+.ld-tooltip--with-default-trigger:where(.ld-tooltip--with-arrow) {
+  &:where(.ld-tether-element-attached-top.ld-tether-target-attached-bottom),
+  &:where(.ld-tether-element-attached-bottom.ld-tether-target-attached-top) {
+    &:where(.ld-tether-element-attached-right) {
+      :host(&) {
+        --ld-tooltip-offset-x: 1rem;
+      }
+    }
+
+    &:where(.ld-tether-element-attached-left) {
+      :host(&) {
+        --ld-tooltip-offset-x: -1rem;
+      }
+    }
+  }
+
+  &:where(.ld-tether-element-attached-right.ld-tether-target-attached-left),
+  &:where(.ld-tether-element-attached-left.ld-tether-target-attached-right) {
+    &:where(.ld-tether-element-attached-bottom) {
+      :host(&) {
+        --ld-tooltip-offset-y: 1rem;
+      }
+    }
+
+    &:where(.ld-tether-element-attached-top) {
+      :host(&) {
+        --ld-tooltip-offset-y: -1rem;
+      }
+    }
+  }
+}
