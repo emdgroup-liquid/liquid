@@ -1,0 +1,39 @@
+:where(.ld-theme-ocean),
+:where([class*='ld-theme'] .ld-theme-ocean) {
+  .ld-bg-cells {
+    --ld-bg-cells-background-color: var(--ld-thm-ocean-bg-primary);
+    --ld-bg-cells-foreground-color: var(--ld-thm-ocean-accent);
+  }
+}
+
+:where(.ld-theme-tea),
+:where([class*='ld-theme'] .ld-theme-tea) {
+  .ld-bg-cells {
+    --ld-bg-cells-background-color: var(--ld-thm-tea-bg-primary);
+    --ld-bg-cells-foreground-color: var(--ld-thm-tea-accent);
+  }
+}
+
+:where(.ld-theme-bubblegum),
+:where([class*='ld-theme'] .ld-theme-bubblegum) {
+  .ld-bg-cells {
+    --ld-bg-cells-background-color: var(--ld-thm-bubblegum-bg-primary);
+    --ld-bg-cells-foreground-color: var(--ld-thm-bubblegum-accent);
+  }
+}
+
+:where(.ld-theme-shake),
+:where([class*='ld-theme'] .ld-theme-shake) {
+  .ld-bg-cells {
+    --ld-bg-cells-background-color: var(--ld-thm-shake-bg-primary);
+    --ld-bg-cells-foreground-color: var(--ld-thm-shake-accent);
+  }
+}
+
+:where(.ld-theme-solvent),
+:where([class*='ld-theme'] .ld-theme-solvent) {
+  .ld-bg-cells {
+    --ld-bg-cells-background-color: var(--ld-thm-solvent-bg-primary);
+    --ld-bg-cells-foreground-color: var(--ld-thm-solvent-accent);
+  }
+}
