@@ -9,6 +9,7 @@ permalink: components/ld-toggle/
 
 <link rel="stylesheet" href="/css_components/ld-toggle.css">
 <link rel="stylesheet" href="/css_components/ld-label.css">
+<link rel="stylesheet" href="/css_components/ld-icon.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
 
 # ld-toggle

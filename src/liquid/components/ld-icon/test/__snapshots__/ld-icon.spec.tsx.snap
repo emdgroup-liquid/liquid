@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-icon renders multiple 1`] = `
+<body>
+  <ld-icon class="ld-icon" role="presentation">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+  <ld-icon class="ld-icon" role="presentation">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+  <ld-icon class="ld-icon" role="presentation">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+</body>
+`;
+
+exports[`ld-icon renders with name prop 1`] = `
+<ld-icon class="ld-icon" role="presentation">
+  <mock:shadow-root>
+    Not Found
+  </mock:shadow-root>
+</ld-icon>
+`;
+
+exports[`ld-icon renders with size prop 1`] = `
+<ld-icon class="ld-icon ld-icon--sm" role="presentation">
+  <mock:shadow-root>
+    Not Found
+  </mock:shadow-root>
+</ld-icon>
+`;
+
+exports[`ld-icon renders with slot 1`] = `
+<ld-icon class="ld-icon" role="presentation">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <span>
+    fake icon
+  </span>
+</ld-icon>
+`;

@@ -11,8 +11,9 @@ tags:
 ---
 
 <link rel="stylesheet" href="/css_components/ld-select.css">
-<link rel="stylesheet" href="/css_components/ld-label.css">
+<link rel="stylesheet" href="/css_components/ld-icon.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-label.css">
 
 # ld-select
 
