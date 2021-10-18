@@ -6,6 +6,7 @@ import { fetchIcon } from './fetchIcon'
  * @slot - (optional) Custom SVG icon (only valid without name prop).
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part icon - Actual SVG element
  */
 @Component({
   assetsDirs: ['assets'],
@@ -29,8 +30,9 @@ export class LdIcon {
     }
 
     const div = document.createElement('div')
+    const iconString = await fetchIcon(this.name)
 
-    div.innerHTML = await fetchIcon(this.name)
+    div.innerHTML = iconString.replace('<svg', '<svg part="icon"')
     this.element.shadowRoot.appendChild(div.firstChild)
   }
 
