@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-sr-only renders 1`] = `
+<ld-sr-only class="ld-sr-only">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  Hello screen reader
+</ld-sr-only>
+`;

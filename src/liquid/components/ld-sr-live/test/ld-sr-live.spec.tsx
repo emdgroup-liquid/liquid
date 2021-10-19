@@ -1,11 +1,12 @@
+import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
-import { LdSrOnly } from '../ld-sr-only'
+import { LdSrLive } from '../ld-sr-live'
 
-describe('ld-sr-only', () => {
+describe('ld-sr-live', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [LdSrOnly],
-      html: `<ld-sr-only>Hello screen reader</ld-sr-only>`,
+      components: [LdSrLive],
+      template: () => <ld-sr-live />,
     })
     expect(page.root).toMatchSnapshot()
   })
