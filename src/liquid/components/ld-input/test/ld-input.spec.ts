@@ -187,4 +187,92 @@ describe('ld-input', () => {
 
     expect(textarea.focus).toHaveBeenCalled()
   })
+
+  it('removes size from ld-icon web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input>
+        <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
+        <ld-icon name="placeholder" size="lg" slot="end"></ld-icon>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('removes size from ld-icon css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input>
+        <svg class="ld-icon ld-icon--sm" slot="start"></svg>
+        <svg class="ld-icon ld-icon--lg" slot="end"></svg>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-icon web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="sm">
+        <ld-icon name="placeholder" slot="start"></ld-icon>
+        <ld-icon name="placeholder" size="lg" slot="end"></ld-icon>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-icon css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="sm">
+        <svg class="ld-icon" slot="start"></svg>
+        <svg class="ld-icon ld-icon--lg" slot="end"></svg>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('removes size from ld-button web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input>
+        <ld-button size="sm" slot="start">X</ld-button>
+        <ld-button size="lg" slot="end">Y</ld-button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('removes size from ld-button css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input>
+        <button class="ld-button ld-button--sm" slot="start">X</button>
+        <button class="ld-button ld-button--lg" slot="end">Y</button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-button web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="sm">
+        <ld-button slot="start">X</ld-button>
+        <ld-button size="lg" slot="end">Y</ld-button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-button css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="sm">
+        <button class="ld-button" slot="start">X</button>
+        <button class="ld-button ld-button--lg" slot="end">Y</button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })

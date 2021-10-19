@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-input removes size from ld-button css component 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <button class="ld-button" slot="start">
+    X
+  </button>
+  <button class="ld-button" slot="end">
+    Y
+  </button>
+</ld-input>
+`;
+
+exports[`ld-input removes size from ld-button web component 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <ld-button slot="start">
+    X
+  </ld-button>
+  <ld-button slot="end">
+    Y
+  </ld-button>
+</ld-input>
+`;
+
+exports[`ld-input removes size from ld-icon css component 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <svg class="ld-icon" slot="start"></svg>
+  <svg class="ld-icon" slot="end"></svg>
+</ld-input>
+`;
+
+exports[`ld-input removes size from ld-icon web component 1`] = `
+<ld-input class="ld-input">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <ld-icon name="placeholder" slot="start"></ld-icon>
+  <ld-icon name="placeholder" slot="end"></ld-icon>
+</ld-input>
+`;
+
 exports[`ld-input renders 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
@@ -88,6 +144,62 @@ exports[`ld-input renders with value 1`] = `
     <input part="input focusable" value="yada-yada">
     <slot name="end"></slot>
   </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input sets size on ld-button css component 1`] = `
+<ld-input class="ld-input ld-input--sm" size="sm">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <button class="ld-button ld-button--sm" slot="start">
+    X
+  </button>
+  <button class="ld-button ld-button--sm" slot="end">
+    Y
+  </button>
+</ld-input>
+`;
+
+exports[`ld-input sets size on ld-button web component 1`] = `
+<ld-input class="ld-input ld-input--sm" size="sm">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <ld-button size="sm" slot="start">
+    X
+  </ld-button>
+  <ld-button size="sm" slot="end">
+    Y
+  </ld-button>
+</ld-input>
+`;
+
+exports[`ld-input sets size on ld-icon css component 1`] = `
+<ld-input class="ld-input ld-input--sm" size="sm">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <svg class="ld-icon ld-icon--sm" slot="start"></svg>
+  <svg class="ld-icon ld-icon--sm" slot="end"></svg>
+</ld-input>
+`;
+
+exports[`ld-input sets size on ld-icon web component 1`] = `
+<ld-input class="ld-input ld-input--sm" size="sm">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
+  <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
 </ld-input>
 `;
 

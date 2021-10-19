@@ -259,4 +259,48 @@ describe('ld-button', () => {
       expect(resetHandler).toHaveBeenCalled()
     })
   })
+
+  it('removes size from ld-icon web component', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button>
+        <ld-icon name="placeholder" size="sm"></ld-icon>
+        <ld-icon name="placeholder" size="lg"></ld-icon>
+      </ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('removes size from ld-icon css component', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button>
+        <svg class="ld-icon ld-icon--sm"></svg>
+        <svg class="ld-icon ld-icon--lg"></svg>
+      </ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-icon web component', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button size="sm">
+        <ld-icon name="placeholder"></ld-icon>
+        <ld-icon name="placeholder" size="lg"></ld-icon>
+      </ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size on ld-icon css component', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button size="sm">
+        <svg class="ld-icon"></svg>
+        <svg class="ld-icon ld-icon--lg"></svg>
+      </ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })
