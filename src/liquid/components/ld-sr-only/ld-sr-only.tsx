@@ -7,7 +7,7 @@ import { Component, Host, h } from '@stencil/core'
 @Component({
   tag: 'ld-sr-only',
   styleUrl: 'ld-sr-only.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdSrOnly {
   render() {

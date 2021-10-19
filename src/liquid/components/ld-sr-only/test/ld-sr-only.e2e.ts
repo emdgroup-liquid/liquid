@@ -10,8 +10,6 @@ describe('ld-sr-only', () => {
     const element = await page.find('ld-sr-only')
     expect(element).toHaveClass('hydrated')
 
-    expect(element).toHaveClass('ld-sr-only')
-
     const isNotVisible = await page.$eval('ld-sr-only', (elem) => {
       return (
         window.getComputedStyle(elem).getPropertyValue('clip') ===

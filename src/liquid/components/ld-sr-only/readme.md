@@ -7,6 +7,8 @@ title: Screen Reader Only
 permalink: components/ld-sr-only/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-sr-only.css">
+
 # ld-sr-only
 
 Use `ld-sr-only` to hide an element visually without hiding it from screen readers.
@@ -36,6 +38,19 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 | `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
 | `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ld-sr-live](../ld-sr-live)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sr-live --> ld-sr-only
+  style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
