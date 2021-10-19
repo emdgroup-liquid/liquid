@@ -10,7 +10,7 @@ export type ThemeName = 'bubblegum' | 'ocean' | 'shake' | 'solvent' | 'tea'
 @Component({
   tag: 'ld-theme',
   styleUrl: 'ld-theme.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTheme {
   /** The theme name. */
