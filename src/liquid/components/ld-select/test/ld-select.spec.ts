@@ -65,6 +65,10 @@ function getShadow(page: SpecPage) {
 }
 
 describe('ld-select', () => {
+  afterEach(() => {
+    jest.advanceTimersToNextTimer()
+  })
+
   it('renders popper element with copies of slotted options', async () => {
     const page = await newSpecPage({
       components,
@@ -1920,5 +1924,88 @@ describe('ld-select', () => {
         .querySelector('.ld-select-popper')
         .classList.contains('ld-theme-tea')
     ).toBeTruthy()
+  })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit">
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+    })
+    jest.advanceTimersByTime(0)
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('fills hidden input fields with initially selected option values', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit" multiple>
+            <ld-option value="apple" selected>Apple</ld-option>
+            <ld-option value="banana" selected>Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+    })
+    jest.advanceTimersByTime(0)
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('throws an error, if multiple options initially selected without multiple mode', async () => {
+    expect.assertions(1)
+    try {
+      await newSpecPage({
+        components,
+        html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit">
+            <ld-option value="apple" selected>Apple</ld-option>
+            <ld-option value="banana" selected>Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+      })
+    } catch (err) {
+      expect(err).toStrictEqual(
+        TypeError(
+          'Multiple selected options are not allowed, if multiple option is not set.'
+        )
+      )
+    }
+  })
+
+  it('updates hidden input fields', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit" multiple>
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="pear">Pear</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+    })
+
+    const ldSelect = page.root
+    await triggerPopper(page)
+    const { internalOptions } = await getInternalOptions(page)
+    const [option1, option2, option3] = internalOptions
+
+    option1.click()
+    option2.click()
+    option3.click()
+    option1.click() // deselect
+    jest.advanceTimersByTime(0)
+
+    expect(ldSelect).toMatchSnapshot()
   })
 })

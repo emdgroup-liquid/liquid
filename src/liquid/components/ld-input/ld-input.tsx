@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
@@ -28,7 +28,11 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 })
 export class LdInput implements InnerFocusable {
   @Element() el: HTMLInputElement | HTMLTextAreaElement
+  private hiddenInput?: HTMLInputElement
   private input: HTMLInputElement | HTMLTextAreaElement
+
+  /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
+  @Prop() name?: string
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
@@ -64,7 +68,27 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  @Watch('value')
+  updateValue() {
+    if (this.hiddenInput) {
+      this.hiddenInput.value = this.value
+    }
+  }
+
   componentWillLoad() {
+    const outerForm = this.el.closest('form')
+
+    if (outerForm && this.name) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.type = 'hidden'
+      this.hiddenInput.name = this.name
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
+    }
+
     this.el.querySelectorAll('ld-button').forEach((button) => {
       if (this.size !== undefined) {
         button.setAttribute('size', this.size)
