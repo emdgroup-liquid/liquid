@@ -379,6 +379,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 
 {% example %}
 
+<form>
 <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
   <ld-label position="right" size="m">
     I have read the terms of service.*
@@ -392,7 +393,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
     <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
   </ld-label>
 </div>
-
+</form>
 <!-- CSS component -->
 
 <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); width: 100%">
@@ -443,6 +444,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `checked`      | `checked`       | The input value.                                                     | `boolean`          | `undefined` |
 | `disabled`     | `disabled`      | Disabled state of the toggle.                                        | `boolean`          | `undefined` |
 | `key`          | `key`           | for tracking the node's identity when working with lists             | `string \| number` | `undefined` |
+| `name`         | `name`          | Used to specify the name of the control.                             | `string`           | `undefined` |
 | `ref`          | `ref`           | reference to component                                               | `any`              | `undefined` |
 | `required`     | `required`      | Set this property to `true` in order to mark the toggle as required. | `boolean`          | `undefined` |
 | `size`         | `size`          | Size of the toggle.                                                  | `"lg" \| "sm"`     | `undefined` |
