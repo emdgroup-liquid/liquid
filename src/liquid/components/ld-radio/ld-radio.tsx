@@ -1,4 +1,4 @@
-import { Component, Element, h, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Method, Prop, Watch } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -17,9 +17,16 @@ export class LdRadio implements InnerFocusable {
 
   private root: HTMLDivElement
   private input: HTMLInputElement
+  private hiddenInput: HTMLInputElement
 
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
+
+  /** Used to specify the name of the control. */
+  @Prop() name: string
+
+  /** The input value. */
+  @Prop() value: string
 
   /** radio tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
@@ -33,11 +40,48 @@ export class LdRadio implements InnerFocusable {
   /** Set this property to `true` in order to mark the radio visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Set this property to `true` in order to mark the checkbox as required. */
+  @Prop() required: boolean
+
   /** Sets focus on the radio button.*/
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
       this.input.focus()
+    }
+  }
+
+  @Watch('checked')
+  @Watch('name')
+  @Watch('required')
+  @Watch('value')
+  updateHiddenInput() {
+    if (this.hiddenInput) {
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.checked && this.name ? this.name : ''
+      this.hiddenInput.required = this.required
+      this.hiddenInput.value = this.value ?? (this.checked ? 'on' : '')
+    }
+  }
+
+  componentWillLoad() {
+    if (this.el.closest('form')) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.required = this.required
+      this.hiddenInput.type = 'hidden'
+
+      if (this.value || this.checked) {
+        this.hiddenInput.value = this.value ?? 'on'
+      }
+      if (this.checked) {
+        this.hiddenInput.checked = true
+
+        if (this.name) {
+          this.hiddenInput.name = this.name
+        }
+      }
+
+      this.el.appendChild(this.hiddenInput)
     }
   }
 
@@ -62,11 +106,10 @@ export class LdRadio implements InnerFocusable {
     if (this.checked) return
 
     // Uncheck radios with same name.
-    const name = this.el.getAttribute('name')
-    if (name) {
+    if (this.name) {
       // Attribute selector fails in test env, hance filtering with js below.
       Array.from(document.querySelectorAll('ld-radio'))
-        .filter((ldRadio) => ldRadio.getAttribute('name') === name)
+        .filter((ldRadio) => ldRadio.getAttribute('name') === this.name)
         .forEach((ldRadio) => {
           ldRadio.removeAttribute('checked')
         })

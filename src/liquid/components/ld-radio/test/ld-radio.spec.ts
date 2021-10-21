@@ -194,4 +194,69 @@ describe('ld-radio', () => {
     expect(ldRadios[2].getAttribute('checked')).toBe(null)
     expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
   })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const { root } = await newSpecPage({
+      components: [LdRadio],
+      html: `<form><ld-radio /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('sets initial state on hidden input', async () => {
+    const { root } = await newSpecPage({
+      components: [LdRadio],
+      html: `<form><ld-radio name="example" checked required value="test" /></form>`,
+    })
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'example')
+    expect(root.querySelector('input')).toHaveProperty('required', true)
+    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+  })
+
+  it('updates hidden input field', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdRadio],
+      html: `<form><ld-radio name="example" /></form>`,
+    })
+    const wrapper = root.shadowRoot.querySelector('> div')
+
+    root.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', '')
+    expect(root.querySelector('input')).toHaveProperty('checked', false)
+    expect(root.querySelector('input')).toHaveProperty('required', false)
+    expect(root.querySelector('input')).toHaveProperty('name', '')
+
+    wrapper.dispatchEvent(new Event('click'))
+    root.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('required', true)
+    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+
+    root.setAttribute('name', '')
+    root.setAttribute('value', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', '')
+
+    root.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+
+    root.setAttribute('value', '')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', '')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+  })
 })

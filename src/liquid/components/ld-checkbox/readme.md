@@ -537,23 +537,23 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
     I have read the terms of service.*
-    <ld-checkbox required></ld-checkbox>
-    <ld-input-message visible="false">To proceed, you must except the terms of service.</ld-input-message>
+    <ld-checkbox id="terms" name="terms" required></ld-checkbox>
+    <ld-input-message id="terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
   </ld-label>
   <ld-label position="right" size="m">
     I'd like to receive a weekly newsletter.
-    <ld-checkbox></ld-checkbox>
+    <ld-checkbox id="newsletter"></ld-checkbox>
     <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
   </ld-label>
   <ld-button>Submit</ld-button>
 </form>
 <script>
-  const termsConfirmation = document.querySelector('#example-form ld-label:first-of-type ld-checkbox')
-  const termsConfirmationErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
+  const form = document.querySelector('#example-form')
+  const termsConfirmation = document.querySelector('#example-form #terms')
+  const termsConfirmationErrorMessage = document.querySelector('#example-form #terms-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(ldCheckbox, ldInputMessage) {
-    value = ldCheckbox.checked
-    if (!value) {
+  function validateInput(formElement, ldInputMessage) {
+    if (!formElement.terms.checked) {
       ldCheckbox.setAttribute('invalid', 'true')
       ldInputMessage.style.visibility = 'inherit'
       return false
@@ -563,14 +563,14 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
     return true
   }
   termsConfirmation.addEventListener('input', ev => {
-    validateInput(termsConfirmation, termsConfirmationErrorMessage)
+    validateInput(form, termsConfirmationErrorMessage)
   })
   termsConfirmation.addEventListener('blur', ev => {
-    validateInput(termsConfirmation, termsConfirmationErrorMessage)
+    validateInput(form, termsConfirmationErrorMessage)
   })
-  submitButton.addEventListener('click', ev => {
+  form.addEventListener('submit', ev => {
     ev.preventDefault()
-    const isTermsConfirmationValid = validateInput(termsConfirmation, termsConfirmationErrorMessage)
+    const isTermsConfirmationValid = validateInput(form, termsConfirmationErrorMessage)
     setTimeout(() => {
       if (isTermsConfirmationValid) {
         window.alert('Form submitted.')
@@ -594,8 +594,11 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `invalid`  | `invalid`  | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`                 | `undefined` |
 | `key`      | `key`      | for tracking the node's identity when working with lists                       | `string \| number`        | `undefined` |
 | `mode`     | `mode`     | Display mode.                                                                  | `"danger" \| "highlight"` | `undefined` |
+| `name`     | `name`     | Used to specify the name of the control.                                       | `string`                  | `undefined` |
 | `ref`      | `ref`      | reference to component                                                         | `any`                     | `undefined` |
+| `required` | `required` | Set this property to `true` in order to mark the checkbox as required.         | `boolean`                 | `undefined` |
 | `tone`     | `tone`     | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
+| `value`    | `value`    | The input value.                                                               | `string`                  | `undefined` |
 
 
 ## Methods
