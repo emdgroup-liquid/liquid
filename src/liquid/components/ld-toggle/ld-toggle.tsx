@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 
 /**
@@ -18,6 +18,7 @@ import { getClassNames } from '../../utils/getClassNames'
 export class LdToggle implements InnerFocusable {
   @Element() element: HTMLElement
   private input: HTMLInputElement
+  private hiddenInput: HTMLInputElement
   private hasIcons: boolean
 
   /** Size of the toggle. */
@@ -26,6 +27,12 @@ export class LdToggle implements InnerFocusable {
   /** Disabled state of the toggle. */
   @Prop() disabled: boolean
 
+  /** Used to specify the name of the control. */
+  @Prop() name: string
+
+  /** The input value. */
+  @Prop() value: string
+
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
 
@@ -33,7 +40,7 @@ export class LdToggle implements InnerFocusable {
   @Prop({ mutable: true, reflect: true }) checked: boolean
 
   /** Set this property to `true` in order to mark the toggle as required. */
-  @Prop() required: false
+  @Prop() required: boolean
 
   /**
    * Sets focus on the toggle
@@ -45,10 +52,42 @@ export class LdToggle implements InnerFocusable {
     }
   }
 
+  @Watch('checked')
+  @Watch('name')
+  @Watch('required')
+  @Watch('value')
+  updateHiddenInput() {
+    if (this.hiddenInput) {
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.checked && this.name ? this.name : ''
+      this.hiddenInput.required = this.required
+      this.hiddenInput.value = this.value ?? (this.checked ? 'on' : '')
+    }
+  }
+
   componentWillLoad() {
     this.hasIcons =
       !!this.element.querySelector('[slot="icon-start"]') ||
       !!this.element.querySelector('[slot="icon-end"]')
+
+    if (this.element.closest('form')) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.required = this.required
+      this.hiddenInput.type = 'hidden'
+
+      if (this.value || this.checked) {
+        this.hiddenInput.value = this.value ?? 'on'
+      }
+      if (this.checked) {
+        this.hiddenInput.checked = true
+
+        if (this.name) {
+          this.hiddenInput.name = this.name
+        }
+      }
+
+      this.element.appendChild(this.hiddenInput)
+    }
   }
 
   private handleBlur = (ev: FocusEvent) => {

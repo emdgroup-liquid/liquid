@@ -118,4 +118,75 @@ describe('ld-toggle', () => {
 
     expect(input.focus).toHaveBeenCalled()
   })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('sets initial state on hidden input', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle name="example" checked required /></form>`,
+    })
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'example')
+    expect(root.querySelector('input')).toHaveProperty('required', true)
+    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+  })
+
+  it('updates hidden input field', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle name="example" /></form>`,
+    })
+
+    root.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', '')
+    expect(root.querySelector('input')).toHaveProperty('checked', false)
+    expect(root.querySelector('input')).toHaveProperty('required', false)
+    expect(root.querySelector('input')).toHaveProperty('name', '')
+
+    root.dispatchEvent(new Event('click'))
+    root.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('required', true)
+    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+
+    root.setAttribute('name', '')
+    root.setAttribute('value', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', '')
+
+    root.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+
+    root.setAttribute('value', '')
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', '')
+    expect(root.querySelector('input')).toHaveProperty('checked', true)
+    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+
+    root.dispatchEvent(new Event('click'))
+    await waitForChanges()
+
+    expect(root.querySelector('input')).toHaveProperty('value', '')
+    expect(root.querySelector('input')).toHaveProperty('checked', false)
+    expect(root.querySelector('input')).toHaveProperty('name', '')
+  })
 })
