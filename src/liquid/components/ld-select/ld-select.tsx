@@ -16,6 +16,8 @@ import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
 import { LdOptionInternal } from './ld-option-internal/ld-option-internal'
 import { applyPropAliases } from '../../utils/applyPropAliases'
 
+type SelectOption = { value: string; text: string }
+
 /**
  * @slot - the default slot contains the select options
  * @slot icon - replaces caret with custom trigger button icon
@@ -92,35 +94,24 @@ export class LdSelect {
   @Prop({ mutable: true }) tetherOptions = '{}'
 
   @State() initialized = false
-
   @State() expanded = false
-
-  @State() selected: { value: string; text: string }[] = []
-
+  @State() selected: SelectOption[] = []
   @State() theme: string
-
   @State() ariaDisabled = false
-
   @State() typeAheadQuery: string
-
   @State() typeAheadTimeout: number
-
   @State() internalOptionsHTML: string
-
   @State() hasMore = false
-
   @State() hasCustomIcon = false
+  @State() renderHiddenInput = false
 
   @Watch('selected')
-  emitEvents(
-    newSelection: { value: string; text: string }[],
-    oldSelection: { value: string; text: string }[]
-  ) {
+  emitEvents(newSelection: SelectOption[], oldSelection: SelectOption[]) {
     if (!this.initialized) return
 
     const newValues = newSelection.map((option) => option.value)
     const oldValues = oldSelection.map((option) => option.value)
-    if (JSON.stringify(newValues) === JSON.stringify(oldValues)) return
+    if (newValues.join() === oldValues.join()) return
 
     this.updateTriggerMoreIndicator(true)
 
@@ -301,8 +292,8 @@ export class LdSelect {
       this.theme = themeEl.classList
         .toString()
         .split(' ')
-        .find((cl) => cl.indexOf('ld-theme-') === 0)
-        ?.split('ld-theme-')[1]
+        .find((cl) => cl.startsWith('ld-theme-'))
+        ?.substr(9)
     })
   }
 
@@ -353,7 +344,17 @@ export class LdSelect {
       )
     }
 
-    const childrenArr = Array.from(children) as HTMLElement[]
+    const selectedChildren = Array.from<HTMLElement>(children).filter(
+      (child) => {
+        return ((child as unknown) as LdOptionInternal).selected
+      }
+    )
+
+    if (selectedChildren.length > 1 && !this.multiple) {
+      throw new TypeError(
+        'Multiple selected options are not allowed, if multiple option is not set.'
+      )
+    }
 
     setTimeout(() => {
       if (!initialized) {
@@ -369,16 +370,53 @@ export class LdSelect {
             ''
           )
       }
-      this.selected = childrenArr
-        .filter((child) => {
-          return ((child as unknown) as LdOptionInternal).selected
-        })
-        .map((child) => ({
-          value: child.getAttribute('value'),
-          text: child.innerText,
-        }))
+      this.selected = selectedChildren.map((child) => ({
+        value: child.getAttribute('value'),
+        text: child.innerText,
+      }))
+
+      if (this.renderHiddenInput) {
+        this.updateHiddenInput(this.selected)
+      }
+
       this.updateTriggerMoreIndicator(true)
     })
+  }
+
+  private updateHiddenInput = (selected: SelectOption[]) => {
+    const selectedValues = selected.map(({ value }) => value)
+    const inputs = this.el.querySelectorAll('input')
+
+    inputs.forEach((hiddenInput) => {
+      const index = selectedValues.indexOf(hiddenInput.value)
+      if (index >= 0) {
+        selectedValues.splice(index, 1)
+      } else {
+        hiddenInput.remove()
+      }
+    })
+
+    if (selected.length === 0) {
+      this.appendHiddenInput()
+      return
+    }
+
+    selectedValues.forEach(this.appendHiddenInput)
+  }
+
+  private appendHiddenInput = (value?: string) => {
+    const hiddenInput = document.createElement('input')
+
+    // Slot required to keep the hidden input outside the popper
+    hiddenInput.setAttribute('slot', 'hidden')
+    hiddenInput.name = this.name
+    hiddenInput.type = 'hidden'
+
+    if (value !== undefined) {
+      hiddenInput.value = value
+    }
+
+    this.el.appendChild(hiddenInput)
   }
 
   private handleSlotChange() {
@@ -782,6 +820,12 @@ export class LdSelect {
   }
 
   componentWillLoad() {
+    const outerForm = this.el.closest('form')
+
+    if (outerForm && this.name) {
+      this.renderHiddenInput = true
+    }
+
     applyPropAliases.apply(this)
     const customIcon = this.el.querySelector('ld-icon')
     this.hasCustomIcon = !!customIcon
@@ -862,15 +906,7 @@ export class LdSelect {
               : undefined
           }
         >
-          {this.name
-            ? this.selected.map((selection) => (
-                <input
-                  type="hidden"
-                  name={this.name}
-                  value={selection.value}
-                ></input>
-              ))
-            : ''}
+          {this.renderHiddenInput && <slot name="hidden" />}
           <div
             ref={(el) => (this.slotContainerRef = el as HTMLElement)}
             class="ld-select__slot-container"

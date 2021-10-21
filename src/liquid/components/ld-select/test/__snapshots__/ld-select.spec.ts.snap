@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-select creates hidden input field, if inside a form 1`] = `
+<ld-select name="fruit" placeholder="Pick a fruit">
+  <mock:shadow-root>
+    <div class="ld-select" part="root">
+      <slot name="hidden"></slot>
+      <div class="ld-select__slot-container" part="slot-container">
+        <slot></slot>
+      </div>
+      <div class="ld-select__select" part="select">
+        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+          <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
+            <span class="ld-select__btn-trigger-text" part="trigger-text">
+              Pick a fruit
+            </span>
+          </span>
+          <slot name="icon"></slot>
+          <svg class="ld-select__icon" part="trigger-icon" role="presentation" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6l5 4 5-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+          </svg>
+        </div>
+      </div>
+      <ld-select-popper role="listbox" style="z-index: 2147483646; display: none;">
+        <mock:shadow-root>
+          <div class="ld-select-popper" part="popper">
+            <div class="ld-select-popper__scroll-container" part="popper-scroll-container">
+              <slot></slot>
+              <div class="ld-select-popper__shadow" part="shadow" style="height: 100%;"></div>
+            </div>
+          </div>
+        </mock:shadow-root>
+        <div part="options-container"></div>
+      </ld-select-popper>
+    </div>
+  </mock:shadow-root>
+  <ld-option class="ld-option" value="apple">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Apple
+  </ld-option>
+  <ld-option class="ld-option" value="banana">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Banana
+  </ld-option>
+  <input name="fruit" slot="hidden" type="hidden">
+</ld-select>
+`;
+
+exports[`ld-select fills hidden input fields with initially selected option values 1`] = `
+<ld-select multiple="" name="fruit" placeholder="Pick a fruit">
+  <mock:shadow-root>
+    <div class="ld-select" part="root">
+      <slot name="hidden"></slot>
+      <div class="ld-select__slot-container" part="slot-container">
+        <slot></slot>
+      </div>
+      <div class="ld-select__select" part="select">
+        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+          <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
+            <span class="ld-select__btn-trigger-text" part="trigger-text">
+              Pick a fruit
+            </span>
+          </span>
+          <slot name="icon"></slot>
+          <svg class="ld-select__icon" part="trigger-icon" role="presentation" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6l5 4 5-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+          </svg>
+        </div>
+      </div>
+      <ld-select-popper role="listbox" style="z-index: 2147483646; display: none;">
+        <mock:shadow-root>
+          <div class="ld-select-popper" part="popper">
+            <div class="ld-select-popper__scroll-container" part="popper-scroll-container">
+              <slot></slot>
+              <div class="ld-select-popper__shadow" part="shadow" style="height: 100%;"></div>
+            </div>
+          </div>
+        </mock:shadow-root>
+        <div part="options-container"></div>
+      </ld-select-popper>
+    </div>
+  </mock:shadow-root>
+  <ld-option class="ld-option" selected="" value="apple">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Apple
+  </ld-option>
+  <ld-option class="ld-option" selected="" value="banana">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Banana
+  </ld-option>
+  <input name="fruit" slot="hidden" type="hidden" value="apple">
+  <input name="fruit" slot="hidden" type="hidden" value="banana">
+</ld-select>
+`;
+
+exports[`ld-select updates hidden input fields 1`] = `
+<ld-select multiple="" name="fruit" placeholder="Pick a fruit">
+  <mock:shadow-root>
+    <div class="ld-select ld-select--expanded" part="root" style="z-index: 2147483647;">
+      <slot name="hidden"></slot>
+      <div class="ld-select__slot-container" part="slot-container">
+        <slot></slot>
+      </div>
+      <div class="ld-select__select ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left" part="select">
+        <div aria-disabled="false" aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+          <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
+            <span class="ld-select__btn-trigger-text" part="trigger-text">
+              Pick a fruit
+            </span>
+          </span>
+          <slot name="icon"></slot>
+          <svg class="ld-select__icon ld-select__icon--rotated" part="trigger-icon" role="presentation" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6l5 4 5-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+          </svg>
+        </div>
+        <div class="ld-tether-target-marker">
+          <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ld-option class="ld-option" value="apple">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Apple
+  </ld-option>
+  <ld-option class="ld-option" value="pear">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Pear
+  </ld-option>
+  <ld-option class="ld-option" value="banana">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Banana
+  </ld-option>
+  <input name="fruit" slot="hidden" type="hidden" value="pear">
+  <input name="fruit" slot="hidden" type="hidden" value="banana">
+</ld-select>
+`;

@@ -275,4 +275,34 @@ describe('ld-input', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('fills hidden input field with initial value', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" value="hello" /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('updates hidden input field', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+    const input = root.shadowRoot.querySelector('input')
+
+    input.value = 'test'
+    input.dispatchEvent(new Event('input'))
+    await waitForChanges()
+
+    expect(root).toMatchSnapshot()
+  })
 })

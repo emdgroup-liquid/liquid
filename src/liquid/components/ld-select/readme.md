@@ -1185,13 +1185,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
   <ld-button>Submit</ld-button>
 </form>
 <script>
+  const form = document.querySelector('#example-form')
   const select = document.querySelector('#example-form ld-select')
   const errorMessage = document.querySelector('#example-form ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  let selected = []
   let selectDirty = false
   function validateInput() {
-    if (selectDirty && selected.length < 3) {
+    if (selectDirty && (!form.fruits.  || form.fruits.length < 3)) {
       select.setAttribute('invalid', 'true')
       errorMessage.style.visibility = 'inherit'
       return false
@@ -1201,15 +1201,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
     return true
   }
   select.addEventListener('change', ev => {
-    selected = ev.detail
     validateInput()
   })
   select.addEventListener('blur', ev => {
-    selected = ev.detail
     selectDirty = true
     validateInput()
   })
-  submitButton.addEventListener('click', ev => {
+  form.addEventListener('submit', ev => {
     ev.preventDefault()
     selectDirty = true
     const isValid = validateInput()

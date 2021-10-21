@@ -939,24 +939,24 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 <form id="example-form" novalidate>
   <ld-label>
     Login*
-    <ld-input required placeholder="login"></ld-input>
+    <ld-input name="login" required placeholder="login"></ld-input>
     <ld-input-message visible="false">This field is required.</ld-input-message>
   </ld-label>
   <ld-label>
     Password*
-    <ld-input required placeholder="password" type="password"></ld-input>
+    <ld-input name="password" required placeholder="password" type="password"></ld-input>
     <ld-input-message visible="false">This field is required.</ld-input-message>
   </ld-label>
   <ld-button>Submit</ld-button>
 </form>
 <script>
+  const form = document.querySelector('#example-form')
   const username = document.querySelector('#example-form ld-label:first-of-type ld-input')
   const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
   const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(ldInput, ldInputMessage) {
-    value = ldInput.value
+  function validateInput(ldInput, value, ldInputMessage) {
     if (!value) {
       ldInput.setAttribute('invalid', 'true')
       ldInputMessage.style.visibility = 'inherit'
@@ -978,10 +978,10 @@ The `ld-input` Web Component does not provide any properties or methods for vali
   password.addEventListener('blur', ev => {
     validateInput(password, passwordErrorMessage)
   })
-  submitButton.addEventListener('click', ev => {
+  form.addEventListener('submit', ev => {
     ev.preventDefault()
-    const isUsernameValid = validateInput(username, usernameErrorMessage)
-    const isPasswordValid = validateInput(password, passwordErrorMessage)
+    const isUsernameValid = validateInput(username, form.login.value, usernameErrorMessage)
+    const isPasswordValid = validateInput(password, form.password.value, passwordErrorMessage)
     setTimeout(() => {
       if (isUsernameValid && isPasswordValid) {
         window.alert('Form submitted.')
@@ -1004,6 +1004,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
 | `key`         | `key`         | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
 | `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
+| `name`        | `name`        | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `string`           | `undefined` |
 | `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`           | `undefined` |
 | `ref`         | `ref`         | reference to component                                                                                                | `any`              | `undefined` |
 | `size`        | `size`        | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |

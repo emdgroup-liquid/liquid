@@ -53,6 +53,20 @@ exports[`ld-input removes size from ld-icon web component 1`] = `
   </mock:shadow-root>
   <ld-icon name="placeholder" slot="start"></ld-icon>
   <ld-icon name="placeholder" slot="end"></ld-icon>
+exports[`ld-input creates hidden input field, if inside a form 1`] = `
+<ld-input class="ld-input" name="example">
+  <input name="example" type="hidden">
+</ld-input>
+`;
+
+exports[`ld-input fills hidden input field with initial value 1`] = `
+<ld-input class="ld-input" name="example" value="hello">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable" value="hello">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden" value="hello">
 </ld-input>
 `;
 
@@ -200,6 +214,17 @@ exports[`ld-input sets size on ld-icon web component 1`] = `
   </mock:shadow-root>
   <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
   <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+</ld-input>
+`;
+
+exports[`ld-input updates hidden input field 1`] = `
+<ld-input class="ld-input" name="example" value="test">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable" value="test">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden" value="test">
 </ld-input>
 `;
 
