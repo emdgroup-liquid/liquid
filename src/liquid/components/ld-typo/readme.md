@@ -1,0 +1,327 @@
+---
+eleventyNavigation:
+  key: Typography
+  parent: Components
+layout: layout.njk
+title: Typography
+permalink: components/ld-typo/
+---
+
+# ld-typo
+
+<link rel="stylesheet" href="/css_components/ld-typo.css">
+
+Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
+
+> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+> 
+> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
+
+---
+
+## Examples
+
+### Paragraphs
+
+{% example "html", true %}
+<ld-typo variant="body-xs">
+  <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</ld-typo>
+
+<ld-typo variant="body-s">
+  <b>S</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</ld-typo>
+
+<ld-typo variant="body-m">
+  <b>M</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</ld-typo>
+
+<ld-typo variant="body-l">
+  <b>L</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</ld-typo>
+
+<ld-typo variant="body-xl">
+  <b>XL</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</ld-typo>
+
+<!-- CSS component -->
+
+<p class="ld-typo ld-typo--body-xs">
+  <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="ld-typo ld-typo--body-s">
+  <b>S</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="ld-typo ld-typo--body-m">
+  <b>M</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="ld-typo ld-typo--body-l">
+  <b>L</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="ld-typo ld-typo--body-xl">
+  <b>XL</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+{% endexample %}
+
+### Headings
+
+{% example "html", true %}
+<ld-typo variant="h1">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="h2">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="h3">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="h4">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="h5">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="h6">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<h1 class="ld-typo ld-typo--h1">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-typo ld-typo--h2">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-typo ld-typo--h3">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h4 class="ld-typo ld-typo--h4">
+  Almost before we knew it, we had left the ground.
+</h4>
+
+<h5 class="ld-typo ld-typo--h5">
+  Almost before we knew it, we had left the ground.
+</h5>
+
+<h6 class="ld-typo ld-typo--h6">
+  Almost before we knew it, we had left the ground.
+</h6>
+{% endexample %}
+
+### Branding variants `b*`
+
+`b*` headings should be only a couple of words long.
+
+{% example "html", true %}
+<ld-typo variant="b1">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="b2">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="b3">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="b4">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="b5">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="b6">
+  Lorem ipsum
+</ld-typo>
+
+<!-- CSS component -->
+
+<h1 class="ld-typo ld-typo--b1" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h1>
+
+<h2 class="ld-typo ld-typo--b2" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h2>
+
+<h3 class="ld-typo ld-typo--b3" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h3>
+
+<h4 class="ld-typo ld-typo--b4" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h4>
+
+<h5 class="ld-typo ld-typo--b5" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h5>
+
+<h6 class="ld-typo ld-typo--b6" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h6>
+{% endexample %}
+
+### Large heading variants `xh*`
+
+{% example "html", true %}
+<ld-typo variant="xh1">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh2">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh3">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<h1 class="ld-typo ld-typo--xh1">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+<h2 class="ld-typo ld-typo--xh2">
+  Almost before we knew it, we had left the ground.
+</h2>
+
+<h3 class="ld-typo ld-typo--xh3">
+  Almost before we knew it, we had left the ground.
+</h3>
+{% endexample %}
+
+### Large branding variants `xb*`
+
+`xb*` headings should be only a couple of words long.
+
+{% example "html", true %}
+<ld-typo variant="xb1">
+  Lipsum
+</ld-typo>
+
+<ld-typo variant="xb2">
+  Lipsum
+</ld-typo>
+
+<ld-typo variant="xb3">
+  Lipsum
+</ld-typo>
+
+<!-- CSS component -->
+
+<h1 class="ld-typo ld-typo--xb1" aria-label="Lorem ipsum">
+  Lipsum
+</h1>
+
+<h2 class="ld-typo ld-typo--xb2" aria-label="Lorem ipsum">
+  Lipsum
+</h2>
+
+<h3 class="ld-typo ld-typo--xb3" aria-label="Lorem ipsum">
+  Lipsum
+</h3>
+{% endexample %}
+
+### Custom tag
+
+`xb*` headings should be only a couple of words long.
+
+{% example "html", true %}
+<ld-typo variant="body-m" tag="h1">
+  I'm actually a level 1 heading
+</ld-typo>
+
+<ld-typo variant="b5" tag="p">
+  I'm actually a paragraph
+</ld-typo>
+
+<!-- CSS component -->
+
+<h1 class="ld-typo ld-typo--body-m">
+  I'm actually a level 1 heading
+</h1>
+
+<p class="ld-typo ld-typo--b5" aria-label="I'm actually a paragraph">
+  I'm actually a paragraph
+</p>
+
+{% endexample %}
+
+## Colors
+
+You may have noticed that all `b*` and `xb*` variants use a color given by the current theme, while all other variants inherit their color. While this is the default behaviour, you can still apply a different color on both types of headings. This may be usefull, if, for instance, you need to display a `b1` heading in "vibrant yellow" on top of a background using a "rich color".
+
+> **Note**: With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as [insufficiant contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+
+Here are some examples on how you can apply different colors on headings:
+
+{% example "html", true %}
+<style>
+.custom-color { color: var(--ld-col-vm-default); }
+</style>
+
+<ld-typo variant="b1" class="custom-color">
+  Lorem ipsum
+</ld-typo>
+
+<ld-typo variant="h1" style="color: var(--ld-col-vc4)">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<style>
+.custom-color { color: var(--ld-col-vm-default); }
+</style>
+
+<h1 class="ld-typo ld-typo--b1 custom-color" aria-label="Lorem ipsum">
+  Lorem ipsum
+</h1>
+
+<h1 class="ld-typo ld-typo--h1" style="color: var(--ld-col-vc4)">
+  Almost before we knew it, we had left the ground.
+</h1>
+
+{% endexample %}
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property               | Attribute    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type                                                                                                                                                                                                                                          | Default     |
+| ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `ariaLabel`            | `aria-label` | Since b* and xb* variants are uppercase, screen readers need to be served a (non-uppercase) aria-label (otherwise they will read out the heading letter by letter). If you're using a b* or xb* variant, an aria-label will be set automatically on the element. The component will use the inner HTML for the label implicitly. If you want to set an aria-label explicitly (such as when you have inner HTML that should not be part of the label), you can use this property. | `string`                                                                                                                                                                                                                                      | `undefined` |
+| `key`                  | `key`        | for tracking the node's identity when working with lists                                                                                                                                                                                                                                                                                                                                                                                                                         | `string \| number`                                                                                                                                                                                                                            | `undefined` |
+| `ref`                  | `ref`        | reference to component                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `any`                                                                                                                                                                                                                                         | `undefined` |
+| `tag`                  | `tag`        | The rendered HTML tag. Overrides tag inferred from the variant.                                                                                                                                                                                                                                                                                                                                                                                                                  | `string`                                                                                                                                                                                                                                      | `undefined` |
+| `variant` _(required)_ | `variant`    | The font style. Every variant has a default tag that it renders with.                                                                                                                                                                                                                                                                                                                                                                                                            | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6" \| "body-xs" \| "body-s" \| "body-m" \| "body-l" \| "body-xl"` | `undefined` |
+
+
+## Shadow Parts
+
+| Part    | Description |
+| ------- | ----------- |
+| `"tag"` | Actual tag  |
+
+
+----------------------------------------------
+
+ 
