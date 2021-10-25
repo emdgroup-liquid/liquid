@@ -135,7 +135,7 @@ export class LdNotification {
           onClick={
             dismissed ? undefined : this.handleNotificationDismiss.bind(this)
           }
-          part="btn-dismiss"
+          part="btn-dismiss focusable"
         >
           <svg
             width="24"
