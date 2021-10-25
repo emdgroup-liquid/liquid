@@ -1,4 +1,4 @@
-.ld-notification {
+:host {
   position: fixed;
   z-index: 2147483647; /* Highest possible */
   display: flex;
@@ -80,7 +80,7 @@
     animation: ld-notification-fade-out 0.2s linear forwards;
   }
 
-  .ld-notification--bottom & {
+  :host(.ld-notification--bottom) & {
     bottom: var(--ld-sp-32);
 
     &:nth-last-of-type(2) {
@@ -96,7 +96,7 @@
     }
   }
 
-  .ld-notification--top & {
+  :host(.ld-notification--top) & {
     top: var(--ld-sp-32);
 
     &:nth-last-of-type(2) {

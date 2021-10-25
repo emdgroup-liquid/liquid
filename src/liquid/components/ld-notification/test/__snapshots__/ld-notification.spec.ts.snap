@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-notification renders as empty container placed at the top by default 1`] = `
+<ld-notification aria-label="Notifications" class="ld-notification ld-notification--top" role="region">
+  <mock:shadow-root></mock:shadow-root>
+</ld-notification>
+`;
