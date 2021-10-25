@@ -1,28 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdCheckbox } from '../ld-checkbox'
 
-const checkIcon = `
-  <svg part="check" class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-  </svg>`
-
 describe('ld-checkbox', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox>
-        <mock:shadow-root>
-          <div class="ld-checkbox" part="root">
-            <input type="checkbox" part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('disabled', async () => {
@@ -30,17 +15,7 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<ld-checkbox disabled></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox disabled>
-        <mock:shadow-root>
-          <div class="ld-checkbox" part="root">
-            <input type="checkbox" disabled part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('heighlight', async () => {
@@ -48,17 +23,7 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<ld-checkbox mode="highlight"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox mode="highlight">
-        <mock:shadow-root>
-          <div class="ld-checkbox ld-checkbox--highlight" part="root">
-            <input type="checkbox" part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('danger', async () => {
@@ -66,17 +31,7 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<ld-checkbox mode="danger"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox mode="danger">
-        <mock:shadow-root>
-          <div class="ld-checkbox ld-checkbox--danger" part="root">
-            <input type="checkbox" part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('tone', async () => {
@@ -84,17 +39,7 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<ld-checkbox tone="dark"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox tone="dark">
-        <mock:shadow-root>
-          <div class="ld-checkbox ld-checkbox--dark" part="root">
-            <input type="checkbox" part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('updates checked prop on checked value change', async () => {
@@ -108,21 +53,11 @@ describe('ld-checkbox', () => {
     const input = ldCheckbox.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
 
-    input.dispatchEvent(new Event('click', { bubbles: true }))
+    ldCheckbox.click()
     await page.waitForChanges()
-    expect(ldCheckbox.checked).toBe(true)
 
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox checked>
-        <mock:shadow-root>
-          <div class="ld-checkbox" part="root">
-            <input checked type="checkbox" part="input focusable">
-            ${checkIcon}
-            <div class="ld-checkbox__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-checkbox>
-    `)
+    expect(ldCheckbox.checked).toBe(true)
+    expect(input.checked).toBe(true)
   })
 
   it('emits focus and blur event', async () => {
@@ -156,14 +91,15 @@ describe('ld-checkbox', () => {
   })
 
   it('allows to set inner focus', async () => {
-    const { root } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox />`,
     })
-    const input = root.shadowRoot.querySelector('input')
+    const ldCheckbox = page.root
+    const input = ldCheckbox.shadowRoot.querySelector('input')
 
     input.focus = jest.fn()
-    await root.focusInner()
+    await ldCheckbox.focusInner()
 
     expect(input.focus).toHaveBeenCalled()
   })
@@ -177,13 +113,14 @@ describe('ld-checkbox', () => {
   })
 
   it('sets initial state on hidden input', async () => {
-    const { root } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<form><ld-checkbox name="example" checked required /></form>`,
     })
-    expect(root.querySelector('input')).toHaveProperty('value', 'on')
-    expect(root.querySelector('input')).toHaveProperty('name', 'example')
-    expect(root.querySelector('input')).toHaveProperty('required', true)
+    const ldCheckbox = page.root
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'on')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
   })
 
   it('updates hidden input field', async () => {
@@ -191,51 +128,51 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<form><ld-checkbox name="example" /></form>`,
     })
-    const wrapper = root.shadowRoot.querySelector('> div')
+    const ldCheckbox = root
 
-    root.setAttribute('name', 'test')
+    ldCheckbox.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', false)
-    expect(root.querySelector('input')).toHaveProperty('required', false)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
 
-    wrapper.dispatchEvent(new Event('click'))
-    root.setAttribute('required', '')
+    ldCheckbox.dispatchEvent(new Event('click'))
+    ldCheckbox.setAttribute('required', '')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('required', true)
-    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'on')
 
-    root.setAttribute('name', '')
-    root.setAttribute('value', 'test')
+    ldCheckbox.setAttribute('name', '')
+    ldCheckbox.setAttribute('value', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
 
-    root.setAttribute('name', 'test')
+    ldCheckbox.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
 
-    root.setAttribute('value', '')
+    ldCheckbox.setAttribute('value', '')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
 
-    wrapper.dispatchEvent(new Event('click'))
+    ldCheckbox.dispatchEvent(new Event('click'))
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', false)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
   })
 })

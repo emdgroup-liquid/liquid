@@ -613,14 +613,25 @@ Type: `Promise<void>`
 
 
 
+### `selectInner() => Promise<void>`
+
+Sets focus on the checkbox
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Shadow Parts
 
-| Part      | Description |
-| --------- | ----------- |
-| `"box"`   |             |
-| `"check"` |             |
-| `"root"`  |             |
+| Part      | Description          |
+| --------- | -------------------- |
+| `"box"`   |                      |
+| `"check"` |                      |
+| `"input"` | Actual input element |
+| `"root"`  |                      |
 
 
 ## Dependencies

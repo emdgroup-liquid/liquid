@@ -1,4 +1,4 @@
-import { Component, Element, h, Method, Prop, Watch } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -6,6 +6,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part input - Actual input element
  */
 @Component({
   tag: 'ld-checkbox',
@@ -13,9 +14,8 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   shadow: true,
 })
 export class LdCheckbox implements InnerFocusable {
-  @Element() el: HTMLInputElement
+  @Element() el: HTMLLdCheckboxElement
 
-  private root: HTMLDivElement
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
@@ -51,6 +51,14 @@ export class LdCheckbox implements InnerFocusable {
     if (this.input !== undefined) {
       this.input.focus()
     }
+  }
+
+  /**
+   * Sets focus on the checkbox
+   */
+  @Method()
+  async selectInner() {
+    this.handleClick()
   }
 
   @Watch('checked')
@@ -99,16 +107,13 @@ export class LdCheckbox implements InnerFocusable {
     })
   }
 
-  private handleClick = (ev: MouseEvent) => {
+  private handleClick = (ev?: MouseEvent) => {
     if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
-      ev.preventDefault()
+      ev?.preventDefault()
       return
     }
 
-    this.checked =
-      (ev.target as HTMLElement).closest('.ld-checkbox') === this.root
-        ? !this.checked
-        : this.input.checked
+    this.checked = !this.checked
   }
 
   render() {
@@ -118,12 +123,7 @@ export class LdCheckbox implements InnerFocusable {
     if (this.invalid) cl += ' ld-checkbox--invalid'
 
     return (
-      <div
-        part="root"
-        class={cl}
-        onClick={this.handleClick}
-        ref={(ref) => (this.root = ref)}
-      >
+      <Host part="root" class={cl} onClick={this.handleClick}>
         <input
           part="input focusable"
           onBlur={this.handleBlur.bind(this)}
@@ -152,7 +152,7 @@ export class LdCheckbox implements InnerFocusable {
           />
         </svg>
         <div class="ld-checkbox__box" part="box"></div>
-      </div>
+      </Host>
     )
   }
 }

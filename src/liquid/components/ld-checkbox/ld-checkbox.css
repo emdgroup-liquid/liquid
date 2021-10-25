@@ -1,10 +1,5 @@
 :host,
 .ld-checkbox {
-  display: inline-flex;
-  flex-shrink: 0;
-}
-
-.ld-checkbox {
   /* layout */
   --ld-checkbox-size: 1.25rem;
 
@@ -34,6 +29,8 @@
   --ld-checkbox-thm-col-focus: var(--ld-col-rb-focus);
 
   position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
   width: var(--ld-checkbox-size);
   height: var(--ld-checkbox-size);
   min-width: auto !important;
@@ -135,30 +132,6 @@
       background-color: var(--ld-checkbox-col-bg);
     }
   }
-  &.ld-checkbox--dark {
-    @media (hover: hover) {
-      &:hover {
-        :where(input:not(:disabled):not(input[aria-disabled='true']):not(:checked)) {
-          ~ .ld-checkbox__box {
-            background-color: var(--ld-checkbox-dark-col-bg-hover);
-          }
-        }
-      }
-    }
-
-    input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
-      ~ .ld-checkbox__box {
-        background-color: var(--ld-checkbox-dark-col-bg);
-      }
-
-      &:active,
-      &:active:focus-visible {
-        ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-dark-col-bg-active);
-        }
-      }
-    }
-  }
 
   @media (hover: hover) {
     &:hover {
@@ -176,6 +149,32 @@
           background-color: var(--ld-checkbox-thm-col-hover);
           box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-hover);
         }
+      }
+    }
+  }
+}
+
+.ld-checkbox.ld-checkbox--dark,
+:host(.ld-checkbox.ld-checkbox--dark) {
+  @media (hover: hover) {
+    &:hover {
+      :where(input:not(:disabled):not(input[aria-disabled='true']):not(:checked)) {
+        ~ .ld-checkbox__box {
+          background-color: var(--ld-checkbox-dark-col-bg-hover);
+        }
+      }
+    }
+  }
+
+  input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+    ~ .ld-checkbox__box {
+      background-color: var(--ld-checkbox-dark-col-bg);
+    }
+
+    &:active,
+    &:active:focus-visible {
+      ~ .ld-checkbox__box {
+        background-color: var(--ld-checkbox-dark-col-bg-active);
       }
     }
   }
@@ -199,11 +198,13 @@
   box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-border);
 }
 
+:host,
 .ld-checkbox,
 .ld-checkbox__box {
   border-radius: var(--ld-br-m);
 }
 
+:host(.ld-checkbox--highlight),
 .ld-checkbox--highlight {
   --ld-checkbox-thm-col: var(--ld-checkbox-col-warn);
   --ld-checkbox-thm-col-hover: var(--ld-checkbox-col-warn-hover);
@@ -211,6 +212,8 @@
   --ld-checkbox-thm-col-focus: var(--ld-checkbox-col-warn-active);
 }
 
+:host(.ld-checkbox--invalid),
+:host(.ld-checkbox--danger),
 .ld-checkbox--invalid,
 .ld-checkbox--danger {
   --ld-checkbox-thm-col: var(--ld-checkbox-col-invalid);

@@ -7,17 +7,7 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio></ld-radio>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-radio>
-        <mock:shadow-root>
-          <div class="ld-radio" part="root">
-            <input type="radio" part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('disabled', async () => {
@@ -25,17 +15,7 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio disabled></ld-radio>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-radio disabled>
-        <mock:shadow-root>
-          <div class="ld-radio" part="root">
-            <input type="radio" disabled part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('heighlight', async () => {
@@ -43,17 +23,7 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio mode="highlight"></ld-radio>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-radio mode="highlight">
-        <mock:shadow-root>
-          <div class="ld-radio ld-radio--highlight" part="root">
-            <input type="radio" part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('danger', async () => {
@@ -61,17 +31,7 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio mode="danger"></ld-radio>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-radio mode="danger">
-        <mock:shadow-root>
-          <div class="ld-radio ld-radio--danger" part="root">
-            <input type="radio" part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('tone', async () => {
@@ -79,17 +39,7 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<ld-radio tone="dark"></ld-radio>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-radio tone="dark">
-        <mock:shadow-root>
-          <div class="ld-radio ld-radio--dark" part="root">
-            <input type="radio" part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   it('updates checked prop on checked value change', async () => {
@@ -103,21 +53,11 @@ describe('ld-radio', () => {
     const input = ldRadio.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
 
-    input.dispatchEvent(new Event('click', { bubbles: true }))
+    ldRadio.click()
     await page.waitForChanges()
-    expect(ldRadio.getAttribute('checked')).not.toBe(null)
 
-    expect(page.root).toEqualHtml(`
-      <ld-radio checked>
-        <mock:shadow-root>
-          <div class="ld-radio" part="root">
-            <input checked type="radio" part="input focusable">
-            <div class="ld-radio__dot" part="dot"></div>
-            <div class="ld-radio__box" part="box"></div>
-          </div>
-        </mock:shadow-root>
-      </ld-radio>
-    `)
+    expect(ldRadio.getAttribute('checked')).not.toBe(null)
+    expect(input.checked).toBe(true)
   })
 
   it('emits focus and blur event', async () => {
@@ -151,14 +91,15 @@ describe('ld-radio', () => {
   })
 
   it('allows to set inner focus', async () => {
-    const { root } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdRadio],
       html: `<ld-radio />`,
     })
-    const input = root.shadowRoot.querySelector('input')
+    const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
 
     input.focus = jest.fn()
-    await root.focusInner()
+    await ldRadio.focusInner()
 
     expect(input.focus).toHaveBeenCalled()
   })
@@ -176,17 +117,12 @@ describe('ld-radio', () => {
 
     const ldRadios = Array.from(page.body.querySelectorAll('ld-radio'))
 
-    expect(ldRadios.length).toEqual(4)
-
     expect(ldRadios[0].getAttribute('checked')).toBe(null)
     expect(ldRadios[1].getAttribute('checked')).toBe(null)
     expect(ldRadios[2].getAttribute('checked')).not.toBe(null)
     expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
 
-    ldRadios[0].shadowRoot
-      .querySelector('input')
-      .dispatchEvent(new Event('click', { bubbles: true }))
-    jest.advanceTimersByTime(0)
+    ldRadios[0].click()
     await page.waitForChanges()
 
     expect(ldRadios[0].getAttribute('checked')).not.toBe(null)
@@ -195,23 +131,123 @@ describe('ld-radio', () => {
     expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
   })
 
+  it('moves focus', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `
+        <ld-radio name="foo" />
+        <ld-radio name="bar" />
+        <ld-radio name="foo" checked />
+        <ld-radio name="baz" />
+        <ld-radio name="foo" />
+      `,
+    })
+
+    const ldRadios = Array.from(page.body.querySelectorAll('ld-radio'))
+    const radios = ldRadios.map((ldRadio) =>
+      ldRadio.shadowRoot.querySelector('input')
+    )
+    radios.forEach((radio) => {
+      radio.focus = jest.fn()
+    })
+
+    radios[0].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })
+    ) // nothing shall happen
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(0)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(0)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(0)
+
+    radios[0].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(0)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(1)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(0)
+
+    radios[2].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(0)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(1)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(1)
+
+    radios[4].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(0)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(1)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(1)
+
+    radios[4].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(0)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(2)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(1)
+
+    radios[2].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(1)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(2)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(1)
+
+    radios[0].dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
+    )
+    await page.waitForChanges()
+
+    expect(radios[0].focus).toHaveBeenCalledTimes(1)
+    expect(radios[1].focus).toHaveBeenCalledTimes(0)
+    expect(radios[2].focus).toHaveBeenCalledTimes(2)
+    expect(radios[3].focus).toHaveBeenCalledTimes(0)
+    expect(radios[4].focus).toHaveBeenCalledTimes(1)
+  })
+
   it('creates hidden input field, if inside a form', async () => {
-    const { root } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdRadio],
       html: `<form><ld-radio /></form>`,
     })
-    expect(root).toMatchSnapshot()
+    const ldRadio = page.root
+    expect(ldRadio).toMatchSnapshot()
   })
 
   it('sets initial state on hidden input', async () => {
-    const { root } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdRadio],
       html: `<form><ld-radio name="example" checked required value="test" /></form>`,
     })
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'example')
-    expect(root.querySelector('input')).toHaveProperty('required', true)
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
+    const ldRadio = page.root
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
   })
 
   it('updates hidden input field', async () => {
@@ -219,44 +255,44 @@ describe('ld-radio', () => {
       components: [LdRadio],
       html: `<form><ld-radio name="example" /></form>`,
     })
-    const wrapper = root.shadowRoot.querySelector('> div')
+    const ldRadio = root
 
-    root.setAttribute('name', 'test')
+    ldRadio.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', false)
-    expect(root.querySelector('input')).toHaveProperty('required', false)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', '')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', '')
 
-    wrapper.dispatchEvent(new Event('click'))
-    root.setAttribute('required', '')
+    ldRadio.dispatchEvent(new Event('click'))
+    ldRadio.setAttribute('required', '')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('required', true)
-    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'on')
 
-    root.setAttribute('name', '')
-    root.setAttribute('value', 'test')
+    ldRadio.setAttribute('name', '')
+    ldRadio.setAttribute('value', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', '')
 
-    root.setAttribute('name', 'test')
+    ldRadio.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
-    root.setAttribute('value', '')
+    ldRadio.setAttribute('value', '')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldRadio.querySelector('input')).toHaveProperty('value', '')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
   })
 })

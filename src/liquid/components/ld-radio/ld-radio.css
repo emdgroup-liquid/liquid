@@ -1,10 +1,5 @@
 :host,
 .ld-radio {
-  display: inline-flex;
-  flex-shrink: 0;
-}
-
-.ld-radio {
   /* layout */
   --ld-radio-size: 1.25rem;
   --ld-radio-dot-size: 0.625rem;
@@ -138,28 +133,6 @@
       background-color: var(--ld-radio-col-bg);
     }
   }
-  &.ld-radio--dark {
-    &:hover {
-      input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
-        ~ .ld-radio__box {
-          background-color: var(--ld-radio-dark-col-bg-hover);
-        }
-      }
-    }
-
-    input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
-      ~ .ld-radio__box {
-        background-color: var(--ld-radio-dark-col-bg);
-      }
-
-      &:active,
-      &:active:focus-visible {
-        ~ .ld-radio__box {
-          background-color: var(--ld-radio-dark-col-bg-active);
-        }
-      }
-    }
-  }
 
   @media (hover: hover) {
     &:hover {
@@ -177,6 +150,32 @@
           background-color: var(--ld-radio-thm-col-hover);
           box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-hover);
         }
+      }
+    }
+  }
+}
+
+.ld-radio.ld-radio--dark,
+:host(.ld-radio.ld-radio--dark) {
+  @media (hover: hover) {
+    &:hover {
+      input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+        ~ .ld-radio__box {
+          background-color: var(--ld-radio-dark-col-bg-hover);
+        }
+      }
+    }
+  }
+
+  input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+    ~ .ld-radio__box {
+      background-color: var(--ld-radio-dark-col-bg);
+    }
+
+    &:active,
+    &:active:focus-visible {
+      ~ .ld-radio__box {
+        background-color: var(--ld-radio-dark-col-bg-active);
       }
     }
   }
@@ -202,12 +201,14 @@
   box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck4);
 }
 
+:host,
 .ld-radio,
 .ld-radio__dot,
 .ld-radio__box {
   border-radius: var(--ld-br-full);
 }
 
+:host(.ld-radio--highlight),
 .ld-radio--highlight {
   --ld-radio-thm-col: var(--ld-radio-col-warn);
   --ld-radio-thm-col-hover: var(--ld-radio-col-warn-hover);
@@ -215,6 +216,8 @@
   --ld-radio-thm-col-focus: var(--ld-radio-col-warn-active);
 }
 
+:host(.ld-radio--invalid),
+:host(.ld-radio--danger),
 .ld-radio--invalid,
 .ld-radio--danger {
   --ld-radio-thm-col: var(--ld-radio-col-invalid);

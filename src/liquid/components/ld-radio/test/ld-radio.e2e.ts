@@ -31,7 +31,7 @@ describe('ld-radio', () => {
           const page = await getPageWithContent(
             `<ld-radio tone="${tone}" ${checkedStateStr}></ld-radio>`
           )
-          const radio = await page.find('ld-radio >>> .ld-radio')
+          const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -57,7 +57,7 @@ describe('ld-radio', () => {
           const page = await getPageWithContent(
             `<ld-radio tone="${tone}" ${checkedStateStr} disabled></ld-radio>`
           )
-          const radio = await page.find('ld-radio >>> .ld-radio')
+          const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -83,7 +83,7 @@ describe('ld-radio', () => {
           const page = await getPageWithContent(
             `<ld-radio tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-radio>`
           )
-          const radio = await page.find('ld-radio >>> .ld-radio')
+          const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })

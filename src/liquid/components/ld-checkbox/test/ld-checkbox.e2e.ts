@@ -46,7 +46,7 @@ describe('ld-checkbox', () => {
           const page = await getPageWithContent(
             `<ld-checkbox tone="${tone}" ${checkedStateStr}></ld-checkbox>`
           )
-          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -72,7 +72,7 @@ describe('ld-checkbox', () => {
           const page = await getPageWithContent(
             `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`
           )
-          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })
@@ -98,7 +98,7 @@ describe('ld-checkbox', () => {
           const page = await getPageWithContent(
             `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`
           )
-          const checkbox = await page.find('ld-checkbox >>> .ld-checkbox')
+          const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot({ allowableMismatchedRatio })

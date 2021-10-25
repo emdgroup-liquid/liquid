@@ -26,6 +26,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 {% example %}
 <ld-radio name="examlpe-1"></ld-radio>
 <ld-radio name="examlpe-1" checked></ld-radio>
+<ld-radio name="examlpe-1"></ld-radio>
 
 <!-- CSS component -->
 
@@ -36,6 +37,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </div>
 <div class="ld-radio">
   <input type="radio" name="examlpe-1-css" checked>
+  <div class="ld-radio__dot"></div>
+  <div class="ld-radio__box"></div>
+</div>
+<div class="ld-radio">
+  <input type="radio" name="examlpe-1-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -389,11 +395,12 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part     | Description |
-| -------- | ----------- |
-| `"box"`  |             |
-| `"dot"`  |             |
-| `"root"` |             |
+| Part      | Description          |
+| --------- | -------------------- |
+| `"box"`   |                      |
+| `"dot"`   |                      |
+| `"input"` | Actual input element |
+| `"root"`  |                      |
 
 
 ----------------------------------------------

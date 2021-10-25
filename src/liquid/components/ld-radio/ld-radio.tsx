@@ -1,4 +1,4 @@
-import { Component, Element, h, Method, Prop, Watch } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { JSXBase } from '@stencil/core/internal'
 import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
@@ -6,6 +6,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part input - Actual input element
  */
 @Component({
   tag: 'ld-radio',
@@ -13,9 +14,8 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   shadow: true,
 })
 export class LdRadio implements InnerFocusable {
-  @Element() el: HTMLInputElement
+  @Element() el: HTMLLdRadioElement
 
-  private root: HTMLDivElement
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
@@ -43,7 +43,7 @@ export class LdRadio implements InnerFocusable {
   /** Set this property to `true` in order to mark the checkbox as required. */
   @Prop() required: boolean
 
-  /** Sets focus on the radio button.*/
+  /** Sets focus on the radio button. */
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
@@ -61,6 +61,23 @@ export class LdRadio implements InnerFocusable {
       this.hiddenInput.name = this.checked && this.name ? this.name : ''
       this.hiddenInput.required = this.required
       this.hiddenInput.value = this.value ?? (this.checked ? 'on' : '')
+    }
+  }
+
+  private handleKeyDown = (ev: KeyboardEvent) => {
+    switch (ev.key) {
+      case 'ArrowUp':
+      case 'ArrowLeft': {
+        ev.preventDefault()
+        this.focusRadio('prev')
+        return
+      }
+      case 'ArrowDown':
+      case 'ArrowRight': {
+        ev.preventDefault()
+        this.focusRadio('next')
+        return
+      }
     }
   }
 
@@ -97,9 +114,9 @@ export class LdRadio implements InnerFocusable {
     })
   }
 
-  private handleClick = (ev: MouseEvent) => {
+  private handleClick = (ev?: MouseEvent) => {
     if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
-      ev.preventDefault()
+      ev?.preventDefault()
       return
     }
 
@@ -115,10 +132,18 @@ export class LdRadio implements InnerFocusable {
         })
     }
 
-    this.checked =
-      (ev.target as HTMLElement).closest('.ld-radio') === this.root
-        ? true
-        : this.input.checked
+    this.checked = true
+  }
+
+  private focusRadio(dir: 'next' | 'prev') {
+    const ldRadios = Array.from(document.querySelectorAll('ld-radio')).filter(
+      (ldRadio) => ldRadio.getAttribute('name') === this.name
+    )
+    ldRadios.forEach((ldRadio, index) => {
+      if (ldRadio === this.el) {
+        ldRadios[index + (dir === 'next' ? 1 : -1)]?.focusInner()
+      }
+    })
   }
 
   render() {
@@ -128,16 +153,12 @@ export class LdRadio implements InnerFocusable {
     if (this.invalid) cl += ' ld-radio--invalid'
 
     return (
-      <div
-        part="root"
-        class={cl}
-        onClick={this.handleClick}
-        ref={(ref) => (this.root = ref)}
-      >
+      <Host part="root" class={cl} onClick={this.handleClick}>
         <input
           part="input focusable"
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"
           {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
@@ -146,7 +167,7 @@ export class LdRadio implements InnerFocusable {
         />
         <div part="dot" class="ld-radio__dot"></div>
         <div class="ld-radio__box" part="box"></div>
-      </div>
+      </Host>
     )
   }
 }

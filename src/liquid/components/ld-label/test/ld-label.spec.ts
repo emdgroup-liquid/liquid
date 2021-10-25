@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../../ld-input/ld-input'
+import { LdCheckbox } from '../../ld-checkbox/ld-checkbox'
 import { LdLabel } from '../ld-label'
 
 describe('ld-label', () => {
@@ -38,7 +39,7 @@ describe('ld-label', () => {
   it('clicks on associated input element, when label is clicked', async () => {
     const { root } = await newSpecPage({
       components: [LdLabel],
-      html: `<ld-label size="m">
+      html: `<ld-label>
         <span>Label text</span>
         <input type="text" />
       </ld-label>`,
@@ -54,10 +55,32 @@ describe('ld-label', () => {
     expect(input.click).toHaveBeenCalledTimes(1)
   })
 
+  it('clicks on associated web component, when label is clicked', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox, LdLabel],
+      html: `<ld-label>
+        <span>Label text</span>
+        <ld-checkbox></ld-checkbox>
+      </ld-label>`,
+    })
+    const ldLabel = page.root
+    const ldCheckbox = ldLabel.querySelector('ld-checkbox')
+
+    ldCheckbox.click = jest.fn()
+    ldCheckbox.shadowRoot.querySelector('input').focus = jest.fn()
+    // A click on the label actually triggers a click on the slot in the shadow DOM.
+    ldLabel.shadowRoot.querySelector('slot').click()
+    ldLabel.querySelector('span').click()
+
+    await page.waitForChanges()
+
+    expect(ldCheckbox.click).toHaveBeenCalledTimes(1)
+  })
+
   it('focuses associated input element, when label is clicked', async () => {
     const { root } = await newSpecPage({
       components: [LdLabel],
-      html: `<ld-label size="m">
+      html: `<ld-label>
         <span>Label text</span>
         <input type="text" />
       </ld-label>`,
@@ -76,21 +99,21 @@ describe('ld-label', () => {
   it('focuses associated input web component, when label is clicked', async () => {
     const { root } = await newSpecPage({
       components: [LdInput, LdLabel],
-      html: `<ld-label size="m">
+      html: `<ld-label>
         <span>Label text</span>
         <ld-input />
       </ld-label>`,
     })
-    const input = root.querySelector('ld-input')
+    const ldInput = root.querySelector('ld-input')
 
-    input.click = jest.fn()
-    input.focus = jest.fn()
-    Object.defineProperty(input, 'focusInner', { value: jest.fn() })
+    ldInput.click = jest.fn()
+    ldInput.focus = jest.fn()
+    Object.defineProperty(ldInput, 'focusInner', { value: jest.fn() })
     // A click on the label actually triggers a click on the slot in the shadow DOM.
     root.shadowRoot.querySelector('slot').click()
     root.querySelector('span').click()
 
-    expect(input.focus).not.toHaveBeenCalled()
-    expect(input.focusInner).toHaveBeenCalledTimes(1)
+    expect(ldInput.focus).not.toHaveBeenCalled()
+    expect(ldInput.focusInner).toHaveBeenCalledTimes(1)
   })
 })
