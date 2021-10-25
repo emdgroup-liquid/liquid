@@ -1,8 +1,6 @@
 import '../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import ParagraphHTMLAttributes = JSXBase.HTMLAttributes
 
 /**
  * @virtualProp ref - reference to component
@@ -11,7 +9,7 @@ import ParagraphHTMLAttributes = JSXBase.HTMLAttributes
 @Component({
   tag: 'ld-paragraph',
   styleUrl: 'ld-paragraph.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdParagraph {
   @Element() el: HTMLParagraphElement
@@ -24,12 +22,7 @@ export class LdParagraph {
     if (this.size && this.size !== 'm') cl += ` ld-paragraph--${this.size}`
 
     return (
-      <p
-        class={cl}
-        {...cloneAttributes<ParagraphHTMLAttributes<HTMLParagraphElement>>(
-          this.el
-        )}
-      >
+      <p class={cl} {...cloneAttributes(this.el)}>
         <slot></slot>
       </p>
     )

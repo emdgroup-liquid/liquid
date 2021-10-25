@@ -14,7 +14,7 @@ import HeadingHTMLAttributes = JSXBase.HTMLAttributes
   shadow: true,
 })
 export class LdHeading {
-  @Element() el: HTMLElement
+  @Element() el: HTMLHeadingElement
 
   private headingRef: HTMLHeadingElement
 
@@ -131,7 +131,7 @@ export class LdHeading {
         class={cl}
         part="tag"
         ref={(ref: HTMLHeadingElement) => (this.headingRef = ref)}
-        {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
+        {...cloneAttributes(this.el)}
       >
         <slot></slot>
       </HTag>

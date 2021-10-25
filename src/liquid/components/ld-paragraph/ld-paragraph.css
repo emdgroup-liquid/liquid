@@ -1,4 +1,4 @@
-:where(ld-paragraph) {
+:host {
   display: block;
 }
 
