@@ -15,11 +15,7 @@ describe('ld-notification', () => {
       components: [LdNotification],
       html: `<ld-notification></ld-notification>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-notification aria-label="Notifications" class="ld-notification ld-notification--top" role="region">
-        <mock:shadow-root></mock:shadow-root>
-      </ld-notification>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   describe('placement', () => {
