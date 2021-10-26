@@ -542,7 +542,7 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
   </ld-label>
   <ld-label position="right" size="m">
     I'd like to receive a weekly newsletter.
-    <ld-checkbox id="newsletter"></ld-checkbox>
+    <ld-checkbox id="newsletter" name="newsletter"></ld-checkbox>
     <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
   </ld-label>
   <ld-button>Submit</ld-button>
@@ -604,16 +604,6 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 ## Methods
 
 ### `focusInner() => Promise<void>`
-
-Sets focus on the checkbox
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `selectInner() => Promise<void>`
 
 Sets focus on the checkbox
 
