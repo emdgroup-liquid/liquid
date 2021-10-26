@@ -273,6 +273,16 @@ formClear.addEventListener('submit', ev => {
 | `placement` | `placement` | Notification placement within the screen. | `"bottom" \| "top"` | `'top'` |
 
 
+## Shadow Parts
+
+| Part                 | Description |
+| -------------------- | ----------- |
+| `"btn-dismiss"`      |             |
+| `"btn-dismiss-icon"` |             |
+| `"content"`          |             |
+| `"item"`             |             |
+
+
 ----------------------------------------------
 
  

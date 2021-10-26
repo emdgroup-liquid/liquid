@@ -2,7 +2,6 @@ import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { JSXBase } from '@stencil/core/internal'
 import HeadingHTMLAttributes = JSXBase.HTMLAttributes
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
  * @virtualProp ref - reference to component
@@ -15,7 +14,7 @@ import { applyPropAliases } from '../../utils/applyPropAliases'
   shadow: true,
 })
 export class LdHeading {
-  @Element() el: HTMLElement
+  @Element() el: HTMLHeadingElement
 
   private headingRef: HTMLHeadingElement
 
@@ -115,8 +114,6 @@ export class LdHeading {
   }
 
   componentWillLoad() {
-    applyPropAliases.apply(this)
-
     this.validateLevel()
     this.validateVisualLevel()
   }
@@ -134,7 +131,7 @@ export class LdHeading {
         class={cl}
         part="tag"
         ref={(ref: HTMLHeadingElement) => (this.headingRef = ref)}
-        {...cloneAttributes<HeadingHTMLAttributes<HTMLHeadingElement>>(this.el)}
+        {...cloneAttributes(this.el)}
       >
         <slot></slot>
       </HTag>

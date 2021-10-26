@@ -1,3 +1,4 @@
+:host,
 .ld-toggle {
   --ld-toggle-height: 2rem;
   --ld-toggle-width: 3.375rem;
@@ -28,6 +29,13 @@
     }
 
     &:checked {
+      background-color: var(--ld-toggle-bg-color-checked);
+
+      &:disabled,
+      &[aria-disabled='true'] {
+        background-color: var(--ld-toggle-bg-color-checked-disabled);
+      }
+
       ~ .ld-toggle__knob {
         transform: translateX(
           calc(var(--ld-toggle-width) - var(--ld-toggle-height))
@@ -68,23 +76,34 @@
     width: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
     z-index: 1;
   }
+
+  input:invalid {
+    background-color: var(--ld-col-rr-default);
+  }
 }
 
 .ld-toggle--lg {
-  --ld-toggle-height: 2.5rem;
-  --ld-toggle-width: 4.1875rem;
-  --ld-toggle-inner-space: 0.1875rem;
+  &,
+  :host(&) {
+    --ld-toggle-height: 2.5rem;
+    --ld-toggle-width: 4.1875rem;
+    --ld-toggle-inner-space: 0.1875rem;
+  }
 
   &.ld-toggle--with-icons {
-    --ld-toggle-width: 6rem;
+    &,
+    :host(&) {
+      --ld-toggle-width: 6rem;
 
-    .ld-toggle__icon-start,
-    .ld-toggle__icon-end {
-      margin: 0.75rem;
+      .ld-toggle__icon-start,
+      .ld-toggle__icon-end {
+        margin: 0.75rem;
+      }
     }
   }
 }
 
+:host(.ld-toggle--with-icons),
 .ld-toggle--with-icons {
   --ld-toggle-width: 4.5rem;
 
@@ -105,33 +124,13 @@
     }
   }
 
+  .ld-toggle__knob {
+    background-color: var(--ld-toggle-with-icons-knob-color);
+  }
+
   .ld-toggle__icon-start,
   .ld-toggle__icon-end {
     margin: 0.5rem;
-  }
-}
-
-.ld-toggle input:invalid {
-  background-color: var(--ld-col-rr-default);
-}
-
-/* .ld-theme-ocean -> default */
-.ld-toggle,
-.ld-theme-ocean .ld-toggle,
-[class*='ld-theme'] .ld-theme-ocean .ld-toggle {
-  input {
-    &:checked {
-      background-color: var(--ld-thm-ocean-bg-primary);
-
-      &:disabled,
-      &[aria-disabled='true'] {
-        background-color: var(--ld-col-rb2);
-      }
-    }
-  }
-
-  &--with-icons .ld-toggle__knob {
-    background-color: var(--ld-thm-ocean-bg-primary);
   }
 }
 
@@ -159,84 +158,4 @@
 .ld-toggle__icon-end {
   color: var(--ld-col-rblck6);
   right: 0;
-}
-
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
-  .ld-toggle {
-    input {
-      &:checked {
-        background-color: var(--ld-thm-tea-bg-primary);
-
-        &:disabled,
-        &[aria-disabled='true'] {
-          background-color: var(--ld-col-rg2);
-        }
-      }
-    }
-
-    &--with-icons .ld-toggle__knob {
-      background-color: var(--ld-thm-tea-bg-primary);
-    }
-  }
-}
-
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum {
-  .ld-toggle {
-    input {
-      &:checked {
-        background-color: var(--ld-thm-bubblegum-bg-primary);
-
-        &:disabled,
-        &[aria-disabled='true'] {
-          background-color: var(--ld-col-rp2);
-        }
-      }
-    }
-
-    &--with-icons .ld-toggle__knob {
-      background-color: var(--ld-thm-bubblegum-bg-primary);
-    }
-  }
-}
-
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake {
-  .ld-toggle {
-    input {
-      &:checked {
-        background-color: var(--ld-thm-shake-bg-primary);
-
-        &:disabled,
-        &[aria-disabled='true'] {
-          background-color: var(--ld-col-rp2);
-        }
-      }
-    }
-
-    &--with-icons .ld-toggle__knob {
-      background-color: var(--ld-thm-shake-bg-primary);
-    }
-  }
-}
-
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
-  .ld-toggle {
-    input {
-      &:checked {
-        background-color: var(--ld-thm-solvent-bg-primary);
-
-        &:disabled,
-        &[aria-disabled='true'] {
-          background-color: var(--ld-col-rp2);
-        }
-      }
-    }
-
-    &--with-icons .ld-toggle__knob {
-      background-color: var(--ld-thm-solvent-bg-primary);
-    }
-  }
 }

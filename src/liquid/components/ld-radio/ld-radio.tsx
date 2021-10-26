@@ -1,6 +1,4 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
-import { JSXBase } from '@stencil/core/internal'
-import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
@@ -14,7 +12,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   shadow: true,
 })
 export class LdRadio implements InnerFocusable {
-  @Element() el: HTMLLdRadioElement
+  @Element() el: HTMLInputElement
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
@@ -140,7 +138,7 @@ export class LdRadio implements InnerFocusable {
       (ldRadio) => ldRadio.getAttribute('name') === this.name
     )
     ldRadios.forEach((ldRadio, index) => {
-      if (ldRadio === this.el) {
+      if (ldRadio === (this.el as unknown as HTMLLdRadioElement)) {
         ldRadios[index + (dir === 'next' ? 1 : -1)]?.focusInner()
       }
     })
@@ -161,7 +159,7 @@ export class LdRadio implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
+          {...cloneAttributes(this.el)}
           disabled={this.disabled}
           checked={this.checked}
         />
