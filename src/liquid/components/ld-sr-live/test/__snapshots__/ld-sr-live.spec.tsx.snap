@@ -4,8 +4,8 @@ exports[`ld-sr-live renders 1`] = `
 <ld-sr-live>
   <mock:shadow-root>
     <ld-sr-only>
-      <span aria-atomic="true" aria-live="polite" aria-relevant="text" role="status"></span>
-      <span aria-atomic="true" aria-live="polite" aria-relevant="text" role="alert"></span>
+      <span aria-atomic="true" aria-live="polite" aria-relevant="all" role="status"></span>
+      <span aria-atomic="true" aria-live="polite" aria-relevant="all" role="alert"></span>
     </ld-sr-only>
   </mock:shadow-root>
 </ld-sr-live>
