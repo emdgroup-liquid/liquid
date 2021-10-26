@@ -88,27 +88,31 @@ export class LdButton implements InnerFocusable {
     btnFake.remove()
   }
 
-  private handleClick = (event: MouseEvent) => {
+  private handleClick = (ev: MouseEvent) => {
     const ariaDisabled = this.button.getAttribute('aria-disabled')
 
     if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
-      event.preventDefault()
-      event.stopImmediatePropagation()
+      ev.preventDefault()
+      ev.stopImmediatePropagation()
       return
     }
 
     if (!this.href) {
-      const form = this.el.closest('form')
-      if (form) {
-        switch (this.el.getAttribute('type')) {
-          case 'reset':
-            this.clickFakeButton(form, 'reset')
-            break
-          case 'submit':
-          default:
-            this.clickFakeButton(form, 'submit')
+      setTimeout(() => {
+        if (!ev.defaultPrevented) {
+          const form = this.el.closest('form')
+          if (form) {
+            switch (this.el.getAttribute('type')) {
+              case 'reset':
+                this.clickFakeButton(form, 'reset')
+                break
+              case 'submit':
+              default:
+                this.clickFakeButton(form, 'submit')
+            }
+          }
         }
-      }
+      })
     }
   }
 

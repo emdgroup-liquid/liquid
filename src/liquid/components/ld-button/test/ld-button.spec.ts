@@ -213,7 +213,30 @@ describe('ld-button', () => {
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
 
+      jest.advanceTimersByTime(0)
+
       expect(submitHandler).toHaveBeenCalled()
+      expect(resetHandler).not.toHaveBeenCalled()
+    })
+
+    it('does not submit a form as an anchor', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `<form><ld-button href="#">Text</ld-button></form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      const submitHandler = jest.fn()
+      const resetHandler = jest.fn()
+
+      form.addEventListener('submit', submitHandler)
+      form.addEventListener('reset', resetHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+
+      expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()
     })
 
@@ -254,6 +277,8 @@ describe('ld-button', () => {
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
+
+      jest.advanceTimersByTime(0)
 
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).toHaveBeenCalled()

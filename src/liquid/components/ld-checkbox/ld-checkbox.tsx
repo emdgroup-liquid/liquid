@@ -75,10 +75,9 @@ export class LdCheckbox implements InnerFocusable {
       }
       if (this.checked) {
         this.hiddenInput.checked = true
-
-        if (this.name) {
-          this.hiddenInput.name = this.name
-        }
+      }
+      if (this.name) {
+        this.hiddenInput.name = this.name
       }
 
       this.el.appendChild(this.hiddenInput)

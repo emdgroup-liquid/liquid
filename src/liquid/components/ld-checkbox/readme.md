@@ -537,8 +537,8 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
     I have read the terms of service.*
-    <ld-checkbox id="terms" name="terms" required></ld-checkbox>
-    <ld-input-message id="terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
+    <ld-checkbox id="example-form-terms" name="terms" required></ld-checkbox>
+    <ld-input-message id="example-form-terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
   </ld-label>
   <ld-label position="right" size="m">
     I'd like to receive a weekly newsletter.
@@ -549,28 +549,28 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 </form>
 <script>
   const form = document.querySelector('#example-form')
-  const termsConfirmation = document.querySelector('#example-form #terms')
-  const termsConfirmationErrorMessage = document.querySelector('#example-form #terms-message')
+  const termsConfirmation = document.querySelector('#example-form-terms')
+  const termsErrorMessage = document.querySelector('#example-form-terms-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(formElement, ldInputMessage) {
-    if (!formElement.terms.checked) {
-      ldCheckbox.setAttribute('invalid', 'true')
-      ldInputMessage.style.visibility = 'inherit'
+  function validateInput() {
+    if (!form.terms.checked) {
+      termsConfirmation.setAttribute('invalid', 'true')
+      termsErrorMessage.style.visibility = 'inherit'
       return false
     }
-    ldCheckbox.removeAttribute('invalid')
-    ldInputMessage.style.visibility = 'hidden'
+    termsConfirmation.removeAttribute('invalid')
+    termsErrorMessage.style.visibility = 'hidden'
     return true
   }
   termsConfirmation.addEventListener('input', ev => {
-    validateInput(form, termsConfirmationErrorMessage)
+    validateInput()
   })
   termsConfirmation.addEventListener('blur', ev => {
-    validateInput(form, termsConfirmationErrorMessage)
+    validateInput()
   })
   form.addEventListener('submit', ev => {
     ev.preventDefault()
-    const isTermsConfirmationValid = validateInput(form, termsConfirmationErrorMessage)
+    const isTermsConfirmationValid = validateInput()
     setTimeout(() => {
       if (isTermsConfirmationValid) {
         window.alert('Form submitted.')

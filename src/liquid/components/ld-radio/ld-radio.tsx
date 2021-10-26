@@ -90,10 +90,10 @@ export class LdRadio implements InnerFocusable {
       }
       if (this.checked) {
         this.hiddenInput.checked = true
+      }
 
-        if (this.name) {
-          this.hiddenInput.name = this.name
-        }
+      if (this.name) {
+        this.hiddenInput.name = this.name
       }
 
       this.el.appendChild(this.hiddenInput)
@@ -138,7 +138,7 @@ export class LdRadio implements InnerFocusable {
       (ldRadio) => ldRadio.getAttribute('name') === this.name
     )
     ldRadios.forEach((ldRadio, index) => {
-      if (ldRadio === (this.el as unknown as HTMLLdRadioElement)) {
+      if (ldRadio === ((this.el as unknown) as HTMLLdRadioElement)) {
         ldRadios[index + (dir === 'next' ? 1 : -1)]?.focusInner()
       }
     })
