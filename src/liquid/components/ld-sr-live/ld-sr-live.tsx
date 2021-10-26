@@ -46,7 +46,7 @@ export class LdSrLive {
         <span
           role="status"
           aria-live="polite"
-          aria-relevant="text"
+          aria-relevant="all"
           aria-atomic="true"
         >
           {this.info}
@@ -54,7 +54,7 @@ export class LdSrLive {
         <span
           role="alert"
           aria-live="polite"
-          aria-relevant="text"
+          aria-relevant="all"
           aria-atomic="true"
         >
           {this.alert}
