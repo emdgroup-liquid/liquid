@@ -1,31 +1,3 @@
-/* .ld-theme-ocean -> default */
-.ld-theme-ocean,
-[class*='ld-theme'] .ld-theme-ocean {
-  ld-button,
-  .ld-button {
-    --ld-button-bg-color-active: var(--ld-col-rb-active);
-    --ld-button-bg-color-focus: var(--ld-col-rb-focus);
-    --ld-button-bg-color-hover: var(--ld-col-rb-hover);
-    --ld-button-bg-color: var(--ld-thm-ocean-bg-primary);
-    --ld-button-ghost-bg-color-active: var(--ld-col-rb-a02);
-    --ld-button-ghost-bg-color-hover: var(--ld-col-rb-a01);
-    --ld-button-ghost-progress-bg-color: var(--ld-col-rb-a01);
-    --ld-button-ghost-progress-color: var(--ld-col-rb-default);
-    --ld-button-ghost-text-color-active: var(--ld-col-rb-active);
-    --ld-button-ghost-text-color-focus: var(--ld-col-rb-focus);
-    --ld-button-ghost-text-color-hover: var(--ld-col-rb-hover);
-    --ld-button-ghost-text-color: var(--ld-col-rb-default);
-    --ld-button-progress-color: var(--ld-thm-ocean-accent);
-    --ld-button-secondary-shadow-color-active: var(--ld-col-rb-active);
-    --ld-button-secondary-shadow-color-focus: var(--ld-col-rb-focus);
-    --ld-button-secondary-shadow-color-hover: var(--ld-col-rb-hover);
-    --ld-button-secondary-shadow-color: var(--ld-col-rb-default);
-    --ld-button-text-brand-color-focus: var(--ld-col-rb-focus);
-    --ld-button-text-brand-color: var(--ld-col-rb-default);
-    --ld-button-text-color-focus: var(--ld-thm-ocean-bg-secondary);
-  }
-}
-
 .ld-theme-bubblegum,
 [class*='ld-theme'] .ld-theme-bubblegum,
 .ld-theme-shake,

@@ -7,10 +7,9 @@
 @import 'focus/focus.css';
 
 @import '../../components/ld-bg-cells/ld-bg-cells.global.css';
-@import '../../components/ld-button/ld-button.global.css';
 @import '../../components/ld-heading/ld-heading.global.css';
 @import '../../components/ld-input/ld-input.global.css';
 @import '../../components/ld-tabs/ld-tab/ld-tab.global.css';
 @import '../../components/ld-tabs/ld-tablist/ld-tablist.global.css';
-@import '../../components/ld-tooltip/ld-tooltip.global.css';
 @import '../../components/ld-toggle/ld-toggle.global.css';
+@import '../../components/ld-tooltip/ld-tooltip.global.css';

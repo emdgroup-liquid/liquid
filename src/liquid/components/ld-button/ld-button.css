@@ -22,11 +22,13 @@
   --ld-button-gap-sm: 0.625rem;
   --ld-button-gap-md: 0.875rem;
   --ld-button-gap-lg: 1.1875rem;
-  background-color: var(--ld-button-bg-color);
+  background-color: var(--ld-button-bg-color, var(--ld-thm-primary));
   box-sizing: border-box;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
+  overflow: hidden;
+  transform: translateZ(0); /* fixes overflow issue in Safari */
   padding: var(--ld-button-padding-y-md) var(--ld-button-padding-x-md);
   border-radius: var(--ld-button-border-top-left-radius, var(--ld-br-m))
     var(--ld-button-border-top-right-radius, var(--ld-br-m))
@@ -57,18 +59,27 @@
     cursor: pointer;
 
     &:where(:focus:focus-visible) {
-      background-color: var(--ld-button-bg-color-focus);
-      color: var(--ld-button-text-color-focus);
+      background-color: var(
+        --ld-button-bg-color-focus,
+        var(--ld-thm-primary-focus)
+      );
+      color: var(--ld-button-text-color-focus, var(--ld-thm-primary-active));
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-button-bg-color-hover);
+        background-color: var(
+          --ld-button-bg-color-hover,
+          var(--ld-thm-primary-hover)
+        );
         color: var(--ld-button-text-color-hover, var(--ld-col-wht));
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-button-bg-color-active);
+      background-color: var(
+        --ld-button-bg-color-active,
+        var(--ld-thm-primary-active)
+      );
       color: var(--ld-button-text-color-active, var(--ld-col-wht));
     }
   }
@@ -148,46 +159,28 @@
 @keyframes ld-button-progress-pending {
   0% {
     transform: translateX(-100%);
+    z-index: -1;
   }
   100% {
     transform: translateX(100%);
+    z-index: -1;
   }
 }
 
 .ld-button__progress {
-  border-bottom-left-radius: var(
-    --ld-button-border-bottom-left-radius,
-    var(--ld-br-full)
-  );
-  border-bottom-right-radius: var(
-    --ld-button-border-bottom-right-radius,
-    var(--ld-br-full)
-  );
   --ld-button-progress: 0;
   position: absolute;
-  background-color: inherit;
   inset: auto 0 0;
-  height: var(--ld-br-m);
-  overflow: hidden;
-  transform: translateZ(0); /* fixes overflow issue in Safari */
+  z-index: -1;
 
-  &::before,
   &::after {
+    background-color: var(--ld-button-progress-color, var(--ld-thm-secondary));
     content: '';
-    position: absolute;
-    inset: 0;
-  }
-
-  &::before {
-    background-color: var(--ld-button-progress-bg-color, inherit);
-    filter: brightness(0.8);
-  }
-
-  &::after {
-    background-color: var(--ld-button-progress-color);
-    transition: transform 0.2s ease;
+    display: block;
+    height: var(--ld-br-m);
     transform: translateX(-100%)
       translateX(calc(var(--ld-button-progress) * 100%));
+    transition: transform 0.2s ease;
   }
 
   &--pending {
@@ -198,157 +191,287 @@
 }
 
 .ld-button--highlight {
-  background-color: var(--ld-col-vy-default);
-  color: var(--ld-col-vy6);
+  background-color: var(--ld-button-highlight-bg-color, var(--ld-thm-warning));
+  color: var(--ld-button-highlight-text-color, var(--ld-thm-warning-active));
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-highlight-progress-color,
+      var(--ld-thm-warning-active)
+    );
+  }
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      background-color: var(--ld-col-vy-focus);
+      background-color: var(
+        --ld-button-highlight-bg-color-focus,
+        var(--ld-thm-warning-focus)
+      );
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-col-vy-hover);
+        background-color: var(
+          --ld-button-highlight-bg-color-hover,
+          var(--ld-thm-warning-hover)
+        );
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-col-vy-active);
-      color: var(--ld-col-vy4);
-    }
-  }
+      background-color: var(
+        --ld-button-highlight-bg-color-active,
+        var(--ld-thm-warning-active)
+      );
 
-  .ld-button__progress::after {
-    background-color: var(--ld-col-vy6);
+      color: var(
+        --ld-button-highlight-text-color-active,
+        var(--ld-thm-warning-hover)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-highlight-progress-active,
+          var(--ld-thm-warning-hover)
+        );
+      }
+    }
   }
 }
 
 .ld-button--danger {
-  background-color: var(--ld-col-rr-default);
-  color: var(--ld-col-wht);
+  background-color: var(--ld-button-danger-bg-color, var(--ld-thm-error));
+  color: var(--ld-button-danger-text-color, var(--ld-col-wht));
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-danger-progress-color,
+      var(--ld-thm-error-hover)
+    );
+  }
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      background-color: var(--ld-col-rr-focus);
+      background-color: var(
+        --ld-button-danger-bg-color-focus,
+        var(--ld-thm-error-focus)
+      );
+      color: var(
+        --ld-button-danger-text-color-focus,
+        var(--ld-thm-error-active)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-progress-color,
+          var(--ld-thm-error-active)
+        );
+      }
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-col-rr-hover);
-        color: var(--ld-col-wht);
+        background-color: var(
+          --ld-button-danger-bg-color-hover,
+          var(--ld-thm-error-hover)
+        );
+
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-danger-progress-color,
+            var(--ld-thm-error)
+          );
+        }
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-col-rr-active);
-      color: var(--ld-col-wht);
-    }
-  }
+      background-color: var(
+        --ld-button-danger-bg-color-active,
+        var(--ld-thm-error-active)
+      );
 
-  .ld-button__progress::after {
-    background-color: var(--ld-col-rr6);
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-progress-color,
+          var(--ld-thm-error)
+        );
+      }
+    }
   }
 }
 
 .ld-button--secondary,
 .ld-button--ghost {
-  background-color: var(--ld-button-ghost-bg-color, transparent);
-  color: var(--ld-button-ghost-text-color);
+  background-color: transparent;
+  color: var(--ld-button-ghost-text-color, var(--ld-thm-primary));
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-ghost-progress-color,
+      var(--ld-thm-primary)
+    );
+  }
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      background-color: var(--ld-button-ghost-bg-color-focus, transparent);
-      color: var(--ld-button-ghost-text-color-focus);
+      color: var(
+        --ld-button-ghost-text-color-focus,
+        var(--ld-thm-primary-focus)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-ghost-progress-color-focus,
+          var(--ld-thm-primary-focus)
+        );
+      }
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-button-ghost-bg-color-hover);
-        color: var(--ld-button-ghost-text-color-hover);
+        background-color: var(
+          --ld-button-ghost-bg-color-hover,
+          var(--ld-thm-primary-transparent-lowest)
+        );
+        color: var(
+          --ld-button-ghost-text-color-hover,
+          var(--ld-thm-primary-hover)
+        );
+
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-ghost-progress-color-hover,
+            var(--ld-thm-primary-hover)
+          );
+        }
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-button-ghost-bg-color-active);
-      color: var(--ld-button-ghost-text-color-active);
-    }
-  }
+      background-color: var(
+        --ld-button-ghost-bg-color-active,
+        var(--ld-thm-primary-transparent-low)
+      );
+      color: var(
+        --ld-button-ghost-text-color-active,
+        var(--ld-thm-primary-active)
+      );
 
-  .ld-button__progress::before {
-    background-color: var(--ld-button-ghost-progress-bg-color);
-  }
-  .ld-button__progress::after {
-    background-color: var(--ld-button-ghost-progress-color);
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-ghost-progress-color-active,
+          var(--ld-thm-primary-active)
+        );
+      }
+    }
   }
 }
 
 .ld-button--secondary {
-  box-shadow: inset 0px 0px 0px 2px var(--ld-button-secondary-shadow-color);
+  box-shadow: inset 0px 0px 0px 2px;
+}
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      box-shadow: inset 0px 0px 0px 2px
-        var(--ld-button-secondary-shadow-color-focus);
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        box-shadow: inset 0px 0px 0px 2px
-          var(--ld-button-secondary-shadow-color-hover);
+.ld-button--ghost {
+  .ld-button__progress {
+    background-color: var(
+      --ld-button-ghost-progress-track-color,
+      var(--ld-thm-primary-transparent-low)
+    );
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      .ld-button__progress {
+        background-color: transparent;
       }
     }
-    &:active,
-    &:active:focus-visible {
-      box-shadow: inset 0px 0px 0px 2px
-        var(--ld-button-secondary-shadow-color-active);
+  }
+  &:where(:active),
+  &:where(:active:focus-visible) {
+    .ld-button__progress {
+      background-color: transparent;
     }
   }
 }
 
 .ld-button--on-brand-color {
-  --ld-col-ob-wht-active: rgba(255, 255, 255, 0.5);
-  --ld-col-ob-wht-hover: rgba(255, 255, 255, 0.7);
-  --ld-col-ob-wht-focus: rgba(255, 255, 255, 0.9);
-  background-color: var(--ld-col-wht);
-  color: var(--ld-button-text-brand-color);
+  background-color: var(--ld-button-on-brand-bg-color, var(--ld-col-wht));
+  color: var(--ld-button-on-brand-text-color, var(--ld-thm-primary));
 
   &:where(&:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      background-color: var(--ld-col-ob-wht-focus);
-      color: var(--ld-button-text-brand-color-focus);
+      color: var(
+        --ld-button-on-brand-text-color-focus,
+        var(--ld-thm-primary-focus)
+      );
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-col-ob-wht-hover);
+        background-color: var(
+          --ld-button-on-brand-bg-color-hover,
+          var(--ld-col-wht-transparent-high)
+        );
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-col-ob-wht-active);
+      background-color: var(
+        --ld-button-on-brand-bg-color-active,
+        var(--ld-col-wht-transparent-medium)
+      );
     }
   }
 }
 
 .ld-button--secondary-on-brand-color {
-  --ld-col-sob-wht-active: rgba(255, 255, 255, 0.8);
-  --ld-col-sob-wht-active-bg: rgba(255, 255, 255, 0.1);
-  --ld-col-sob-wht-hover-bg: rgba(255, 255, 255, 0.2);
-  --ld-col-sob-wht-focus: rgba(255, 255, 255, 0.7);
   background-color: transparent;
-  color: var(--ld-col-wht);
-  box-shadow: inset 0px 0px 0px 2px var(--ld-col-wht);
+  color: var(--ld-button-secondary-on-brand-text-color, var(--ld-col-wht));
+  box-shadow: inset 0px 0px 0px 2px;
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-secondary-on-brand-progress-color,
+      var(--ld-col-wht)
+    );
+  }
 
   &:where(&:not(:disabled):not([aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
-      color: var(--ld-col-sob-wht-focus);
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-sob-wht-focus);
+      color: var(
+        --ld-button-secondary-on-brand-text-color,
+        var(--ld-col-wht-transparent-high)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-secondary-on-brand-progress-color-focus,
+          var(--ld-col-wht-transparent-high)
+        );
+      }
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-col-sob-wht-hover-bg);
+        background-color: var(
+          --ld-button-secondary-on-brand-bg-color-hover,
+          var(--ld-col-wht-transparent-low)
+        );
       }
     }
     &:where(:active),
     &:where(:active:focus-visible) {
-      background-color: var(--ld-col-sob-wht-active-bg);
-      color: var(--ld-col-sob-wht-active);
-      box-shadow: inset 0px 0px 0px 2px var(--ld-col-sob-wht-active);
+      background-color: var(
+        --ld-button-secondary-on-brand-bg-color-active,
+        var(--ld-col-wht-transparent-lowest)
+      );
+      color: var(
+        --ld-button-secondary-on-brand-text-color,
+        var(--ld-col-wht-transparent-highest)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-secondary-on-brand-progress-color-active,
+          var(--ld-col-wht-transparent-highest)
+        );
+      }
     }
   }
 }
