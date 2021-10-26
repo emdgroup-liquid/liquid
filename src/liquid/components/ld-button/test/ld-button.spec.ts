@@ -240,10 +240,10 @@ describe('ld-button', () => {
       expect(resetHandler).not.toHaveBeenCalled()
     })
 
-    it('does not submit a form as an anchor', async () => {
+    it('does not submit a form if event is prevented', async () => {
       const page = await newSpecPage({
         components: [LdButton],
-        html: `<form><ld-button href="#">Text</ld-button></form>`,
+        html: `<form><ld-button>Text</ld-button></form>`,
       })
       const form = page.body.querySelector('form')
 
@@ -253,9 +253,9 @@ describe('ld-button', () => {
 
       form.addEventListener('submit', submitHandler)
       form.addEventListener('reset', resetHandler)
-      ldButton.dispatchEvent(
-        new MouseEvent('click', { bubbles: true, cancelable: true })
-      )
+      const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
+      ev.preventDefault()
+      ldButton.dispatchEvent(ev)
 
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()
