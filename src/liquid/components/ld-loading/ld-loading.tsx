@@ -8,10 +8,10 @@ import { Component, h, Host } from '@stencil/core'
 @Component({
   tag: 'ld-loading',
   styleUrl: 'ld-loading.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdLoading {
   render() {
-    return <Host class="ld-loading"></Host>
+    return <Host class="ld-loading" />
   }
 }

@@ -1,6 +1,7 @@
 /**
  * @prop --ld-loading-size: Size of the loading indicator (1.5rem by default).
  */
+:host,
 .ld-loading {
   --ld-loading-size: 1.5rem;
   height: var(--ld-loading-size);

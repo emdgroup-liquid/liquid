@@ -7,6 +7,8 @@ title: Loading Indicator
 permalink: components/ld-loading/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-loading.css">
+
 # ld-loading
 
 Use the `ld-loading` component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience. 
