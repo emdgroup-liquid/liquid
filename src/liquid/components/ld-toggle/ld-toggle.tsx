@@ -16,7 +16,7 @@ import { getClassNames } from '../../utils/getClassNames'
   shadow: true,
 })
 export class LdToggle implements InnerFocusable {
-  @Element() element: HTMLElement
+  @Element() el: HTMLElement
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
   private hasIcons: boolean
@@ -59,46 +59,31 @@ export class LdToggle implements InnerFocusable {
   updateHiddenInput() {
     if (this.hiddenInput) {
       this.hiddenInput.checked = this.checked
-      this.hiddenInput.name = this.checked && this.name ? this.name : ''
       this.hiddenInput.required = this.required
-      this.hiddenInput.value = this.value ?? (this.checked ? 'on' : '')
-    }
-  }
 
-  componentWillLoad() {
-    this.hasIcons =
-      !!this.element.querySelector('[slot="icon-start"]') ||
-      !!this.element.querySelector('[slot="icon-end"]')
-
-    if (this.element.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'hidden'
-
-      if (this.value || this.checked) {
-        this.hiddenInput.value = this.value ?? 'on'
-      }
-      if (this.checked) {
-        this.hiddenInput.checked = true
-
-        if (this.name) {
-          this.hiddenInput.name = this.name
-        }
+      if (this.name) {
+        this.hiddenInput.name = this.name
+      } else {
+        this.hiddenInput.removeAttribute('name')
       }
 
-      this.element.appendChild(this.hiddenInput)
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      } else {
+        this.hiddenInput.removeAttribute('value')
+      }
     }
   }
 
   private handleBlur = (ev: FocusEvent) => {
     setTimeout(() => {
-      this.element.dispatchEvent(ev)
+      this.el.dispatchEvent(ev)
     })
   }
 
   private handleFocus = (event: FocusEvent) => {
     setTimeout(() => {
-      this.element.dispatchEvent(event)
+      this.el.dispatchEvent(event)
     })
   }
 
@@ -109,6 +94,33 @@ export class LdToggle implements InnerFocusable {
     }
 
     this.checked = !this.checked
+    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
+  }
+
+  componentWillLoad() {
+    this.hasIcons =
+      !!this.el.querySelector('[slot="icon-start"]') ||
+      !!this.el.querySelector('[slot="icon-end"]')
+
+    if (this.el.closest('form')) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.required = this.required
+      this.hiddenInput.type = 'checkbox'
+      this.hiddenInput.style.visibility = 'hidden'
+      this.hiddenInput.style.position = 'absolute'
+      this.hiddenInput.style.pointerEvents = 'none'
+      this.hiddenInput.checked = this.checked
+
+      if (this.name) {
+        this.hiddenInput.name = this.name
+      }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
+    }
   }
 
   render() {

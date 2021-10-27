@@ -56,9 +56,19 @@ export class LdRadio implements InnerFocusable {
   updateHiddenInput() {
     if (this.hiddenInput) {
       this.hiddenInput.checked = this.checked
-      this.hiddenInput.name = this.checked && this.name ? this.name : ''
       this.hiddenInput.required = this.required
-      this.hiddenInput.value = this.value ?? (this.checked ? 'on' : '')
+
+      if (this.name) {
+        this.hiddenInput.name = this.name
+      } else {
+        this.hiddenInput.removeAttribute('name')
+      }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      } else {
+        this.hiddenInput.removeAttribute('value')
+      }
     }
   }
 
@@ -76,27 +86,6 @@ export class LdRadio implements InnerFocusable {
         this.focusRadio('next')
         return
       }
-    }
-  }
-
-  componentWillLoad() {
-    if (this.el.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'hidden'
-
-      if (this.value || this.checked) {
-        this.hiddenInput.value = this.value ?? 'on'
-      }
-      if (this.checked) {
-        this.hiddenInput.checked = true
-      }
-
-      if (this.name) {
-        this.hiddenInput.name = this.name
-      }
-
-      this.el.appendChild(this.hiddenInput)
     }
   }
 
@@ -131,6 +120,7 @@ export class LdRadio implements InnerFocusable {
     }
 
     this.checked = true
+    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
   }
 
   private focusRadio(dir: 'next' | 'prev') {
@@ -142,6 +132,28 @@ export class LdRadio implements InnerFocusable {
         ldRadios[index + (dir === 'next' ? 1 : -1)]?.focusInner()
       }
     })
+  }
+
+  componentWillLoad() {
+    if (this.el.closest('form')) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.required = this.required
+      this.hiddenInput.type = 'radio'
+      this.hiddenInput.style.visibility = 'hidden'
+      this.hiddenInput.style.position = 'absolute'
+      this.hiddenInput.style.pointerEvents = 'none'
+      this.hiddenInput.checked = this.checked
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      if (this.name) {
+        this.hiddenInput.name = this.name
+      }
+
+      this.el.appendChild(this.hiddenInput)
+    }
   }
 
   render() {

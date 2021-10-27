@@ -9,7 +9,7 @@ exports[`ld-checkbox creates hidden input field, if inside a form 1`] = `
     </svg>
     <div class="ld-checkbox__box" part="box"></div>
   </mock:shadow-root>
-  <input type="hidden">
+  <input type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
 </ld-checkbox>
 `;
 

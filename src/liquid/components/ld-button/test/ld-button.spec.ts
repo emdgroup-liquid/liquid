@@ -236,6 +236,8 @@ describe('ld-button', () => {
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
 
+      jest.advanceTimersByTime(0)
+
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()
     })
@@ -254,8 +256,12 @@ describe('ld-button', () => {
       form.addEventListener('submit', submitHandler)
       form.addEventListener('reset', resetHandler)
       const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
-      ev.preventDefault()
       ldButton.dispatchEvent(ev)
+      // preventing after dispatching only works with setTimeout implementation
+      // which is required in order to check for ev.defaultPrevented
+      ev.preventDefault()
+
+      jest.advanceTimersByTime(0)
 
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()

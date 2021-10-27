@@ -90,6 +90,20 @@ describe('ld-radio', () => {
     expect(spyBlur).toHaveBeenCalled()
   })
 
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio />`,
+    })
+    const ldRadio = page.root
+
+    const spyInput = jest.fn()
+    ldRadio.addEventListener('input', spyInput)
+    ldRadio.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
   it('allows to set inner focus', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
@@ -256,43 +270,40 @@ describe('ld-radio', () => {
       html: `<form><ld-radio name="example" /></form>`,
     })
     const ldRadio = root
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
 
     ldRadio.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(ldRadio.querySelector('input')).toHaveProperty('value', '')
-    expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
-    expect(ldRadio.querySelector('input')).toHaveProperty('name', '')
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
+
+    ldRadio.removeAttribute('name')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input').getAttribute('name')).toEqual(null)
 
     ldRadio.dispatchEvent(new Event('click'))
-    ldRadio.setAttribute('required', '')
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
-    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'on')
 
-    ldRadio.setAttribute('name', '')
+    ldRadio.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
+
     ldRadio.setAttribute('value', 'test')
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
-    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldRadio.querySelector('input')).toHaveProperty('name', '')
 
-    ldRadio.setAttribute('name', 'test')
+    ldRadio.removeAttribute('value')
     await waitForChanges()
 
-    expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
-    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
-
-    ldRadio.setAttribute('value', '')
-    await waitForChanges()
-
-    expect(ldRadio.querySelector('input')).toHaveProperty('value', '')
-    expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)
   })
 })

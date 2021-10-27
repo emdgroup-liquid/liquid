@@ -24,18 +24,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### Primary
 
 {% example %}
-<ld-radio name="examlpe-1"></ld-radio>
-<ld-radio name="examlpe-1" checked></ld-radio>
+<ld-radio name="example-1"></ld-radio>
+<ld-radio name="example-1" checked></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio">
-  <input type="radio" name="examlpe-1-css">
+  <input type="radio" name="example-1-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio">
-  <input type="radio" name="examlpe-1-css" checked>
+  <input type="radio" name="example-1-css" checked>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -44,18 +44,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### Disabled
 
 {% example %}
-<ld-radio name="examlpe-2" disabled></ld-radio>
-<ld-radio name="examlpe-2" disabled checked></ld-radio>
+<ld-radio name="example-2" disabled></ld-radio>
+<ld-radio name="example-2" disabled checked></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio">
-  <input type="radio" disabled name="examlpe-2-css">
+  <input type="radio" disabled name="example-2-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio">
-  <input type="radio" disabled name="examlpe-2-css" checked>
+  <input type="radio" disabled name="example-2-css" checked>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -64,8 +64,8 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 **If you want the checkbox to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-radio name="examlpe-3" aria-disabled="true"></ld-radio>
-<ld-radio name="examlpe-3" aria-disabled="true" checked></ld-radio>
+<ld-radio name="example-3" aria-disabled="true"></ld-radio>
+<ld-radio name="example-3" aria-disabled="true" checked></ld-radio>
 
 <!-- CSS component -->
 
@@ -73,7 +73,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <input
     type="radio"
     aria-disabled="true"
-    name="examlpe-3-css"
+    name="example-3-css"
     id="focusable-disabled-radio-1">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
@@ -82,7 +82,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <input
     type="radio"
     aria-disabled="true"
-    name="examlpe-3-css"
+    name="example-3-css"
     checked
     id="focusable-disabled-radio-2">
   <div class="ld-radio__dot"></div>
@@ -107,18 +107,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 > **Note**: Dark tone checkboxes should only be used on white backgrounds.
 
 {% example 'html', false, false, 'light' %}
-<ld-radio name="examlpe-4" tone="dark"></ld-radio>
-<ld-radio name="examlpe-4" tone="dark" checked></ld-radio>
+<ld-radio name="example-4" tone="dark"></ld-radio>
+<ld-radio name="example-4" tone="dark" checked></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--dark">
-  <input type="radio" name="examlpe-4-css">
+  <input type="radio" name="example-4-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio ld-radio--dark">
-  <input type="radio" name="examlpe-4-css" checked>
+  <input type="radio" name="example-4-css" checked>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -127,18 +127,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### Highlight
 
 {% example %}
-<ld-radio name="examlpe-5" mode="highlight"></ld-radio>
-<ld-radio name="examlpe-5" mode="highlight" checked></ld-radio>
+<ld-radio name="example-5" mode="highlight"></ld-radio>
+<ld-radio name="example-5" mode="highlight" checked></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--highlight">
-  <input type="radio" name="examlpe-5-css">
+  <input type="radio" name="example-5-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio ld-radio--highlight">
-  <input type="radio" name="examlpe-5-css" checked>
+  <input type="radio" name="example-5-css" checked>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -149,18 +149,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 An invalid state for a radio inputs inside a group makes sense, if for instance a selection is required, but no value is selected.
 
 {% example %}
-<ld-radio name="examlpe-6" invalid required></ld-radio>
-<ld-radio name="examlpe-6" invalid required></ld-radio>
+<ld-radio name="example-6" invalid required></ld-radio>
+<ld-radio name="example-6" invalid required></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--invalid">
-  <input type="radio" name="examlpe-6-css" required>
+  <input type="radio" name="example-6-css" required>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio ld-radio--invalid">
-  <input type="radio" name="examlpe-6-css" required>
+  <input type="radio" name="example-6-css" required>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -171,18 +171,18 @@ An invalid state for a radio inputs inside a group makes sense, if for instance 
 The radio button in mode "danger" looks and behaves the same as a radio button with the [`invalid`](#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.
 
 {% example %}
-<ld-radio name="examlpe-7" mode="danger"></ld-radio>
-<ld-radio name="examlpe-7" mode="danger" checked></ld-radio>
+<ld-radio name="example-7" mode="danger"></ld-radio>
+<ld-radio name="example-7" mode="danger" checked></ld-radio>
 
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--highlight ld-radio--danger">
-  <input type="radio" name="examlpe-7-css">
+  <input type="radio" name="example-7-css">
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
 <div class="ld-radio ld-radio--highlight ld-radio--danger">
-  <input type="radio" name="examlpe-7-css" checked>
+  <input type="radio" name="example-7-css" checked>
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
@@ -193,12 +193,12 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
 {% example %}
 <ld-label position="right" size="m">
   Orange
-  <ld-radio name="examlpe-8" value="orange"></ld-radio>
+  <ld-radio name="example-8" value="orange"></ld-radio>
 </ld-label>
 
 <ld-label position="right" size="m">
   Banana
-  <ld-radio name="examlpe-8" value="banana"></ld-radio>
+  <ld-radio name="example-8" value="banana"></ld-radio>
 </ld-label>
 
 <!-- CSS component -->
@@ -206,7 +206,7 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
 <label class="ld-label ld-label--right ld-label--m">
   Orange
   <div class="ld-radio">
-    <input type="radio" name="examlpe-8-css" value="orange">
+    <input type="radio" name="example-8-css" value="orange">
     <div class="ld-radio__dot"></div>
     <div class="ld-radio__box"></div>
   </div>
@@ -215,7 +215,7 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
 <label class="ld-label ld-label--right ld-label--m">
   Banana
   <div class="ld-radio">
-    <input type="radio" name="examlpe-8-css" value="banana">
+    <input type="radio" name="example-8-css" value="banana">
     <div class="ld-radio__dot"></div>
     <div class="ld-radio__box"></div>
   </div>
@@ -229,13 +229,13 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 {% example %}
 <ld-label position="right" size="m">
   Orange
-  <ld-radio name="examlpe-9"></ld-radio>
+  <ld-radio name="example-9"></ld-radio>
   <ld-input-message mode="info">You'll join the orange team.</ld-input-message>
 </ld-label>
 
 <ld-label position="right" size="m">
   Banana
-  <ld-radio name="examlpe-9"></ld-radio>
+  <ld-radio name="example-9"></ld-radio>
   <ld-input-message mode="info">You'll join the banana team.</ld-input-message>
 </ld-label>
 
@@ -244,7 +244,7 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 <label class="ld-label ld-label--right ld-label--m">
   Orange
   <div class="ld-radio">
-    <input type="radio" name="examlpe-9-css">
+    <input type="radio" name="example-9-css">
     <div class="ld-radio__dot"></div>
     <div class="ld-radio__box"></div>
   </div>
@@ -262,7 +262,7 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 <label class="ld-label ld-label--right ld-label--m">
   Banana
   <div class="ld-radio">
-    <input type="radio" name="examlpe-9-css">
+    <input type="radio" name="example-9-css">
     <div class="ld-radio__dot"></div>
     <div class="ld-radio__box"></div>
   </div>
@@ -305,13 +305,13 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 <form id="example-form" novalidate>
   <ld-label position="right" size="m">
     Orange*
-    <ld-radio name="examlpe-10" required></ld-radio>
+    <ld-radio value="orange" name="example-10" required></ld-radio>
     <ld-input-message>You must pick a team.</ld-input-message>
   </ld-label>
   
   <ld-label position="right" size="m">
     Banana*
-    <ld-radio name="examlpe-10" required></ld-radio>
+    <ld-radio value="banana" name="example-10" required></ld-radio>
     <ld-input-message>You must pick a team.</ld-input-message>
   </ld-label>
   <ld-button>Submit</ld-button>

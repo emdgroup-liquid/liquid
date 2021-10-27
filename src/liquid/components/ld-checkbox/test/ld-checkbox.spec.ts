@@ -90,6 +90,20 @@ describe('ld-checkbox', () => {
     expect(spyBlur).toHaveBeenCalled()
   })
 
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+
+    const spyInput = jest.fn()
+    ldCheckbox.addEventListener('input', spyInput)
+    ldCheckbox.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
   it('allows to set inner focus', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
@@ -118,7 +132,6 @@ describe('ld-checkbox', () => {
       html: `<form><ld-checkbox name="example" checked required /></form>`,
     })
     const ldCheckbox = page.root
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'on')
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
   })
@@ -129,50 +142,42 @@ describe('ld-checkbox', () => {
       html: `<form><ld-checkbox name="example" /></form>`,
     })
     const ldCheckbox = root
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
 
     ldCheckbox.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
+
+    ldCheckbox.removeAttribute('name')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input').getAttribute('name')).toEqual(null)
 
     ldCheckbox.dispatchEvent(new Event('click'))
-    ldCheckbox.setAttribute('required', '')
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'on')
 
-    ldCheckbox.setAttribute('name', '')
+    ldCheckbox.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
+
     ldCheckbox.setAttribute('value', 'test')
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
 
-    ldCheckbox.setAttribute('name', 'test')
+    ldCheckbox.removeAttribute('value')
     await waitForChanges()
 
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
-
-    ldCheckbox.setAttribute('value', '')
-    await waitForChanges()
-
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
-
-    ldCheckbox.dispatchEvent(new Event('click'))
-    await waitForChanges()
-
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', '')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', '')
+    expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(
+      null
+    )
   })
 })
