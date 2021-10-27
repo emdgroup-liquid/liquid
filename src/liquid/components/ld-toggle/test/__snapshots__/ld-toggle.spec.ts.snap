@@ -58,17 +58,15 @@ exports[`ld-toggle renders with icons 1`] = `
       <slot name="icon-end"></slot>
     </div>
   </mock:shadow-root>
-  <ld-icon name="placeholder" size="sm" slot="icon-start">
-    <!---->
-    <span class="ld-icon ld-icon--sm" role="presentation">
+  <ld-icon class="ld-icon ld-icon--sm" name="placeholder" role="presentation" size="sm" slot="icon-start">
+    <mock:shadow-root>
       Not Found
-    </span>
+    </mock:shadow-root>
   </ld-icon>
-  <ld-icon name="placeholder" size="sm" slot="icon-end">
-    <!---->
-    <span class="ld-icon ld-icon--sm" role="presentation">
+  <ld-icon class="ld-icon ld-icon--sm" name="placeholder" role="presentation" size="sm" slot="icon-end">
+    <mock:shadow-root>
       Not Found
-    </span>
+    </mock:shadow-root>
   </ld-icon>
 </ld-toggle>
 `;
