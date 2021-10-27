@@ -77,13 +77,13 @@ export class LdRadio implements InnerFocusable {
       case 'ArrowUp':
       case 'ArrowLeft': {
         ev.preventDefault()
-        this.focusRadio('prev')
+        this.focusAndSelect('prev')
         return
       }
       case 'ArrowDown':
       case 'ArrowRight': {
         ev.preventDefault()
-        this.focusRadio('next')
+        this.focusAndSelect('next')
         return
       }
     }
@@ -123,13 +123,17 @@ export class LdRadio implements InnerFocusable {
     this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
   }
 
-  private focusRadio(dir: 'next' | 'prev') {
+  private focusAndSelect(dir: 'next' | 'prev') {
     const ldRadios = Array.from(document.querySelectorAll('ld-radio')).filter(
       (ldRadio) => ldRadio.getAttribute('name') === this.name
     )
     ldRadios.forEach((ldRadio, index) => {
       if (ldRadio === ((this.el as unknown) as HTMLLdRadioElement)) {
-        ldRadios[index + (dir === 'next' ? 1 : -1)]?.focusInner()
+        const targetLdRadio = ldRadios[index + (dir === 'next' ? 1 : -1)]
+        if (targetLdRadio) {
+          targetLdRadio.focusInner()
+          targetLdRadio.click()
+        }
       }
     })
   }
@@ -174,6 +178,11 @@ export class LdRadio implements InnerFocusable {
           {...cloneAttributes(this.el)}
           disabled={this.disabled}
           checked={this.checked}
+          tabIndex={
+            this.checked
+              ? parseInt(this.el.getAttribute('tabindex')) || undefined
+              : -1
+          }
         />
         <div part="dot" class="ld-radio__dot"></div>
         <div class="ld-radio__box" part="box"></div>
