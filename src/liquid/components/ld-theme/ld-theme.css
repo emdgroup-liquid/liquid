@@ -1,5 +1,6 @@
 /* .ld-theme-ocean -> default */
 :root,
+:host(.ld-theme-ocean),
 .ld-theme-ocean {
   --ld-thm-accent: var(--ld-thm-ocean-accent);
   --ld-thm-bg-primary: var(--ld-thm-ocean-bg-primary);
@@ -7,6 +8,7 @@
   --ld-thm-highlight: var(--ld-thm-ocean-highlight);
 }
 
+:host(.ld-theme-bubblegum),
 .ld-theme-bubblegum {
   --ld-thm-accent: var(--ld-thm-bubblegum-accent);
   --ld-thm-bg-primary: var(--ld-thm-bubblegum-bg-primary);
@@ -14,6 +16,7 @@
   --ld-thm-highlight: var(--ld-thm-bubblegum-highlight);
 }
 
+:host(.ld-theme-shake),
 .ld-theme-shake {
   --ld-thm-accent: var(--ld-thm-shake-accent);
   --ld-thm-bg-primary: var(--ld-thm-shake-bg-primary);
@@ -21,6 +24,7 @@
   --ld-thm-highlight: var(--ld-thm-shake-highlight);
 }
 
+:host(.ld-theme-solvent),
 .ld-theme-solvent {
   --ld-thm-accent: var(--ld-thm-solvent-accent);
   --ld-thm-bg-primary: var(--ld-thm-solvent-bg-primary);
@@ -28,6 +32,7 @@
   --ld-thm-highlight: var(--ld-thm-solvent-highlight);
 }
 
+:host(.ld-theme-tea),
 .ld-theme-tea {
   --ld-thm-accent: var(--ld-thm-tea-accent);
   --ld-thm-bg-primary: var(--ld-thm-tea-bg-primary);

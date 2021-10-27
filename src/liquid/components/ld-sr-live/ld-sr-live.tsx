@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Host, Listen, State } from '@stencil/core'
+import { Component, h, Listen, State } from '@stencil/core'
 
 /**
  * @virtualProp ref - reference to component
@@ -7,14 +7,14 @@ import { Component, h, Host, Listen, State } from '@stencil/core'
 @Component({
   tag: 'ld-sr-live',
   styleUrl: 'ld-sr-live.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdSrLive {
-  private infoSuffix = ''
-  private alertSuffix = ''
+  private infoSuffix: string
+  private alertSuffix: string
 
-  @State() info = ''
-  @State() alert = ''
+  @State() info: string
+  @State() alert: string
 
   @Listen('ldSrLiveInfo', {
     target: 'window',
@@ -42,11 +42,11 @@ export class LdSrLive {
 
   render() {
     return (
-      <Host class="ld-sr-live ld-sr-only">
+      <ld-sr-only>
         <span
           role="status"
           aria-live="polite"
-          aria-relevant="text"
+          aria-relevant="all"
           aria-atomic="true"
         >
           {this.info}
@@ -54,12 +54,12 @@ export class LdSrLive {
         <span
           role="alert"
           aria-live="polite"
-          aria-relevant="text"
+          aria-relevant="all"
           aria-atomic="true"
         >
           {this.alert}
         </span>
-      </Host>
+      </ld-sr-only>
     )
   }
 }

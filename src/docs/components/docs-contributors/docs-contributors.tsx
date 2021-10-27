@@ -23,7 +23,7 @@ export class DocsContributors {
         <ld-heading
           class="docs-contributors__heading"
           level="2"
-          visualLevel="h4"
+          visual-level="h4"
         >
           Contributors
         </ld-heading>

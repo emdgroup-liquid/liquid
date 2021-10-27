@@ -5,7 +5,6 @@ import { LdToggle } from '../ld-toggle'
 jest.useRealTimers()
 
 const themes = [
-  'none',
   'ocean',
   'bubblegum',
   // 'shake',
@@ -24,7 +23,7 @@ describe('ld-toggle', () => {
         // Themed
         it(`default theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} />`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -32,7 +31,7 @@ describe('ld-toggle', () => {
         })
         it(`focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} />`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -43,7 +42,7 @@ describe('ld-toggle', () => {
         // Large
         it(`large theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle size="lg"${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle size="lg"${checkedStateStr} />`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -51,7 +50,7 @@ describe('ld-toggle', () => {
         })
         it(`large focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle size="lg"${checkedStateStr}></ld-toggle>`,
+            `<ld-toggle size="lg"${checkedStateStr} />`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -112,7 +111,7 @@ describe('ld-toggle', () => {
         // Disabled
         it(`disabled theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} disabled></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} disabled />`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -120,7 +119,7 @@ describe('ld-toggle', () => {
         })
         it(`disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} disabled></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} disabled />`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -181,7 +180,7 @@ describe('ld-toggle', () => {
         // Aria-disabled
         it(`aria-disabled theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} aria-disabled="true"></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} aria-disabled="true" />`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -189,7 +188,7 @@ describe('ld-toggle', () => {
         })
         it(`aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} aria-disabled="true"></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} aria-disabled="true" />`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -250,7 +249,7 @@ describe('ld-toggle', () => {
         // Invalid
         it(`invalid theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} required></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} required />`,
             theme
           )
           const results = await page.compareScreenshot()
@@ -258,7 +257,7 @@ describe('ld-toggle', () => {
         })
         it(`invalid focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-toggle${checkedStateStr} required></ld-toggle>`,
+            `<ld-toggle${checkedStateStr} required />`,
             theme
           )
           await page.keyboard.press('Tab')
@@ -377,12 +376,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -397,12 +396,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -420,12 +419,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -440,12 +439,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -490,12 +489,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -510,12 +509,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -533,12 +532,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -553,12 +552,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} disabled />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -603,12 +602,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -623,12 +622,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -646,12 +645,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -666,12 +665,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} aria-disabled="true" />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -716,12 +715,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -736,12 +735,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -759,12 +758,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -779,12 +778,12 @@ describe('ld-toggle', () => {
                 <input type="checkbox"${checkedStateStr} required />
                 <span class="ld-toggle__knob"></span>
                 <svg class="ld-toggle__icon-start ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
                 <svg class="ld-toggle__icon-end ld-icon ld-icon--sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+                  <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3" />
+                  <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3" />
                 </svg>
               </div>`,
             theme,
@@ -801,12 +800,11 @@ describe('ld-toggle', () => {
   // Test is necessary, as unit tests can only test key events,
   // if a key event handler is explicitly assigned
   it('toggles on space key', async () => {
-    const page = await getPageWithContent(`<ld-toggle></ld-toggle>`)
-    const ldToggle = await page.find('ld-toggle')
-    const input = await ldToggle.find('input')
+    const page = await getPageWithContent(`<ld-toggle />`)
+    const input = await page.find('ld-toggle >>> input')
 
-    await input.press('Space')
-
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('Space')
     await page.waitForChanges()
 
     const checked = await input.getProperty('checked')

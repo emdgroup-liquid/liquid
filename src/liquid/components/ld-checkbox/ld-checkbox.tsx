@@ -1,6 +1,4 @@
 import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
-import { JSXBase } from '@stencil/core/internal'
-import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
@@ -13,7 +11,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   shadow: false,
 })
 export class LdCheckbox implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLInputElement
   private input: HTMLInputElement
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
@@ -76,7 +74,7 @@ export class LdCheckbox implements InnerFocusable {
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
           type="checkbox"
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
+          {...cloneAttributes(this.el)}
           disabled={this.disabled}
           checked={this.checked}
         />

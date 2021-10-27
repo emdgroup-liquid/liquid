@@ -27,7 +27,7 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   shadow: true,
 })
 export class LdInput implements InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLInputElement | HTMLTextAreaElement
   private input: HTMLInputElement | HTMLTextAreaElement
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */

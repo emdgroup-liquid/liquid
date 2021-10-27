@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-theme renders default theme 1`] = `
+<ld-theme class="ld-theme-ocean">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  yolo
+</ld-theme>
+`;
+
+exports[`ld-theme renders explicit theme 1`] = `
+<ld-theme class="ld-theme-tea" name="tea">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  yolo
+</ld-theme>
+`;
