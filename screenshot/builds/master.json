@@ -149,32 +149,6 @@
     },
     {
       "id": "b19ed956",
-      "image": "81e02d5713786e679c04847c9f64d2f5.png",
-      "userAgent": "default",
-      "desc": "ld-bg-cells web component with repeating cell pattern",
-      "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "c1d7c1a4",
-      "image": "ecad7a639bbc2caa9ad3e5575dc0e0db.png",
-      "userAgent": "default",
-      "desc": "ld-bg-cells theme none web component with scrollable content",
-      "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "6aaba861",
       "image": "ccf666d245041e03b630a20db51e6f9a.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component with repeating cell pattern",
