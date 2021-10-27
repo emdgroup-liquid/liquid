@@ -441,6 +441,9 @@ describe('ld-button', () => {
 
       // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
       await page.evaluate(() => document.querySelector('ld-button').click())
+      await page.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve))
+      })
       page.waitForChanges()
 
       expect(formSubmitSpy).toHaveReceivedEvent()

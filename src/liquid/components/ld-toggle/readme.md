@@ -448,6 +448,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `ref`          | `ref`           | reference to component                                               | `any`              | `undefined` |
 | `required`     | `required`      | Set this property to `true` in order to mark the toggle as required. | `boolean`          | `undefined` |
 | `size`         | `size`          | Size of the toggle.                                                  | `"lg" \| "sm"`     | `undefined` |
+| `value`        | `value`         | The input value.                                                     | `string`           | `undefined` |
 
 
 ## Methods

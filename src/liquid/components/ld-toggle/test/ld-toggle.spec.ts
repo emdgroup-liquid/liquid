@@ -106,6 +106,20 @@ describe('ld-toggle', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle />`,
+    })
+    const ldCheckbox = page.root
+
+    const spyInput = jest.fn()
+    ldCheckbox.addEventListener('input', spyInput)
+    ldCheckbox.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
   it('allows to set inner focus', async () => {
     const { root } = await newSpecPage({
       components: [LdToggle],
@@ -132,10 +146,8 @@ describe('ld-toggle', () => {
       components: [LdToggle],
       html: `<form><ld-toggle name="example" checked required /></form>`,
     })
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
     expect(root.querySelector('input')).toHaveProperty('name', 'example')
     expect(root.querySelector('input')).toHaveProperty('required', true)
-    expect(root.querySelector('input')).toHaveProperty('value', 'on')
   })
 
   it('updates hidden input field', async () => {
@@ -143,50 +155,41 @@ describe('ld-toggle', () => {
       components: [LdToggle],
       html: `<form><ld-toggle name="example" /></form>`,
     })
-
-    root.setAttribute('name', 'test')
+    const ldToggle = root
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', false)
-    expect(root.querySelector('input')).toHaveProperty('required', false)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldToggle.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldToggle.querySelector('input')).toHaveProperty('required', false)
 
-    root.dispatchEvent(new Event('click'))
-    root.setAttribute('required', '')
+    ldToggle.setAttribute('name', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('required', true)
-    expect(root.querySelector('input')).toHaveProperty('value', 'on')
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
-    root.setAttribute('name', '')
-    root.setAttribute('value', 'test')
+    ldToggle.removeAttribute('name')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldToggle.querySelector('input').getAttribute('name')).toEqual(null)
 
-    root.setAttribute('name', 'test')
+    ldToggle.dispatchEvent(new Event('click'))
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', 'test')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldToggle.querySelector('input')).toHaveProperty('checked', true)
 
-    root.setAttribute('value', '')
+    ldToggle.setAttribute('required', '')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', true)
-    expect(root.querySelector('input')).toHaveProperty('name', 'test')
+    expect(ldToggle.querySelector('input')).toHaveProperty('required', true)
 
-    root.dispatchEvent(new Event('click'))
+    ldToggle.setAttribute('value', 'test')
     await waitForChanges()
 
-    expect(root.querySelector('input')).toHaveProperty('value', '')
-    expect(root.querySelector('input')).toHaveProperty('checked', false)
-    expect(root.querySelector('input')).toHaveProperty('name', '')
+    expect(ldToggle.querySelector('input')).toHaveProperty('value', 'test')
+
+    ldToggle.removeAttribute('value')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)
   })
 })

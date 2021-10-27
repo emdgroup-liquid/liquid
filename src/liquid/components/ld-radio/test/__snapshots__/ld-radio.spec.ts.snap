@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-radio creates hidden input field, if inside a form 1`] = `
+<ld-radio class="ld-radio" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+  <input type="radio" style="visibility: hidden; position: absolute; pointer-events: none;">
+</ld-radio>
+`;
+
+exports[`ld-radio danger 1`] = `
+<ld-radio class="ld-radio ld-radio--danger" mode="danger" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+</ld-radio>
+`;
+
+exports[`ld-radio disabled 1`] = `
+<ld-radio class="ld-radio" disabled="" part="root">
+  <mock:shadow-root>
+    <input disabled="" part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+</ld-radio>
+`;
+
+exports[`ld-radio heighlight 1`] = `
+<ld-radio class="ld-radio ld-radio--highlight" mode="highlight" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+</ld-radio>
+`;
+
+exports[`ld-radio renders 1`] = `
+<ld-radio class="ld-radio" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+</ld-radio>
+`;
+
+exports[`ld-radio tone 1`] = `
+<ld-radio class="ld-radio ld-radio--dark" part="root" tone="dark">
+  <mock:shadow-root>
+    <input part="input focusable" type="radio">
+    <div class="ld-radio__dot" part="dot"></div>
+    <div class="ld-radio__box" part="box"></div>
+  </mock:shadow-root>
+</ld-radio>
+`;

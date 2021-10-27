@@ -213,6 +213,8 @@ describe('ld-button', () => {
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
 
+      jest.advanceTimersByTime(0)
+
       expect(submitHandler).toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()
     })
@@ -234,6 +236,33 @@ describe('ld-button', () => {
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
 
+      jest.advanceTimersByTime(0)
+
+      expect(submitHandler).not.toHaveBeenCalled()
+      expect(resetHandler).not.toHaveBeenCalled()
+    })
+
+    it('does not submit a form if event is prevented', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `<form><ld-button>Text</ld-button></form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      const submitHandler = jest.fn()
+      const resetHandler = jest.fn()
+
+      form.addEventListener('submit', submitHandler)
+      form.addEventListener('reset', resetHandler)
+      const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
+      ldButton.dispatchEvent(ev)
+      // preventing after dispatching only works with setTimeout implementation
+      // which is required in order to check for ev.defaultPrevented
+      ev.preventDefault()
+
+      jest.advanceTimersByTime(0)
+
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).not.toHaveBeenCalled()
     })
@@ -254,6 +283,8 @@ describe('ld-button', () => {
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
+
+      jest.advanceTimersByTime(0)
 
       expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).toHaveBeenCalled()
