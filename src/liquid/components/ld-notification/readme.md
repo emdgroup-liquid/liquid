@@ -280,6 +280,7 @@ formClear.addEventListener('submit', ev => {
 | `"btn-dismiss"`      |             |
 | `"btn-dismiss-icon"` |             |
 | `"content"`          |             |
+| `"focusable"`        |             |
 | `"item"`             |             |
 
 

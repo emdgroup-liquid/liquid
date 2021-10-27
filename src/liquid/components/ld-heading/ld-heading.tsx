@@ -1,7 +1,5 @@
 import { Component, Element, h, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import HeadingHTMLAttributes = JSXBase.HTMLAttributes
 
 /**
  * @virtualProp ref - reference to component
