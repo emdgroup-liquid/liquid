@@ -13,7 +13,7 @@ const FADE_TRANSITION_DURATION = 200
 @Component({
   tag: 'ld-notification',
   styleUrl: 'ld-notification.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdNotification {
   /**
@@ -119,17 +119,23 @@ export class LdNotification {
     if (dismissed) cl += ' ld-notification__item--dismissed'
 
     return (
-      <div class={cl} key={notification.type + notification.content}>
+      <div
+        class={cl}
+        key={notification.type + notification.content}
+        part="item"
+      >
         <div
           class="ld-notification__item-content"
           innerHTML={notification.content}
           role={notification.type === 'alert' ? 'alert' : 'status'}
+          part="content"
         ></div>
         <button
           class="ld-notification__btn-dismiss"
           onClick={
             dismissed ? undefined : this.handleNotificationDismiss.bind(this)
           }
+          part="btn-dismiss focusable"
         >
           <svg
             width="24"
@@ -137,6 +143,7 @@ export class LdNotification {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            part="btn-dismiss-icon"
           >
             <title>Dismiss</title>
             <path

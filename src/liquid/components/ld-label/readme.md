@@ -10,6 +10,7 @@ permalink: components/ld-label/
 <link rel="stylesheet" href="/css_components/ld-label.css">
 <link rel="stylesheet" href="/css_components/ld-input.css">
 <link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-toggle.css">
 
 # ld-label
 

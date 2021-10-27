@@ -7,6 +7,8 @@ title: Tooltip
 permalink: components/ld-tooltip/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-button.css">
+
 # ld-tooltip
 
 Tooltips provide additional information, mostly short paragraphs, and can be placed besides all sorts of interface elements.
@@ -232,6 +234,29 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `showDelay`   | `show-delay`   | Delay in ms until tooltip shows (only when trigger type is 'hover')                       | `number`                                                                                                                                                                                             | `0`            |
 | `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
+
+## Shadow Parts
+
+| Part          | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| `"focusable"` |                                                                           |
+| `"icon"`      | Default icon when no trigger is supplied                                  |
+| `"popper"`    | Popper element (can only be styled as long as tooltip is not initialized) |
+| `"trigger"`   | Trigger button                                                            |
+
+
+## Dependencies
+
+### Depends on
+
+- ld-tooltip-popper
+
+### Graph
+```mermaid
+graph TD;
+  ld-tooltip --> ld-tooltip-popper
+  style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

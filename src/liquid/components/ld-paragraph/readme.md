@@ -7,6 +7,8 @@ title: Paragraph
 permalink: components/ld-paragraph/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-paragraph.css">
+
 # ld-paragraph
 
 Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation.

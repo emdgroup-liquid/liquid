@@ -7,17 +7,14 @@ describe('ld-theme', () => {
       components: [LdTheme],
       html: `<ld-theme>yolo</ld-theme>`,
     })
-    expect(page.root).toEqualHtml(
-      `<ld-theme class="ld-theme-ocean">yolo</ld-theme>`
-    )
+    expect(page.root).toMatchSnapshot()
   })
+
   it('renders explicit theme', async () => {
     const page = await newSpecPage({
       components: [LdTheme],
       html: `<ld-theme name="tea">yolo</ld-theme>`,
     })
-    expect(page.root).toEqualHtml(
-      `<ld-theme class="ld-theme-tea" name="tea">yolo</ld-theme>`
-    )
+    expect(page.root).toMatchSnapshot()
   })
 })

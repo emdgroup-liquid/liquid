@@ -1,5 +1,9 @@
-:host > :where(.ld-button) {
-  width: 100%;
+:host {
+  display: inline-flex;
+
+  > :where(.ld-button) {
+    width: 100%;
+  }
 }
 
 .ld-button {
