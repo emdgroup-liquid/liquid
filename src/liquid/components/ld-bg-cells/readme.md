@@ -7,6 +7,8 @@ title: Background Cells
 permalink: components/ld-bg-cells/
 ---
 
+<!-- <link rel="stylesheet" href="/css_components/ld-bg-cells.css"> -->
+
 # ld-bg-cells
 
 A background pattern with the Merck cells as additional visual element.
@@ -208,6 +210,14 @@ A background pattern with the Merck cells as additional visual element.
 | `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number`                                                                                              | `undefined` |
 | `ref`    | `ref`     | reference to component                                   | `any`                                                                                                           | `undefined` |
 | `type`   | `type`    | Cells pattern                                            | `"bioreliance" \| "f" \| "hexagon" \| "millipore" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "t" \| "tile"` | `'safc'`    |
+
+
+## Shadow Parts
+
+| Part        | Description                          |
+| ----------- | ------------------------------------ |
+| `"content"` | Element wrapping the slot            |
+| `"pattern"` | Element containing the cells pattern |
 
 
 ----------------------------------------------
