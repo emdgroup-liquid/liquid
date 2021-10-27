@@ -62,16 +62,34 @@ function parseThemesAndVariants(items, styles) {
         if (variants) {
           variants.forEach((variant) => {
             const variantName = variant.name.toLowerCase()
-            const colorName = `${groupName}${
-              variantName === 'default' ? '' : `-${variantName}`
-            }`
-            if (variant.styles?.fill) {
-              theme[colorName] = styles[variant.styles.fill]?.name
-                .split('_')[0]
-                .replaceAll(/[a-z\-0]/g, '')
-                .toLowerCase()
+            const subVariants = variant.children
+
+            if (variant.children) {
+              if (subVariants) {
+                subVariants.forEach((subVariant) => {
+                  const subVariantName = subVariant.name.toLowerCase()
+                  const colorName = `${groupName}-${variantName}-${subVariantName}`
+                  theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+                })
+              }
             } else {
-              theme[colorName] = relRGBToAbsRGB(variant.fills[0])
+              const colorName = `${groupName}${
+                variantName === 'default' ? '' : `-${variantName}`
+              }`
+
+              if (variant.styles?.fill) {
+                const referenceName = styles[variant.styles.fill]?.name
+                  .split('_')[0]
+                  .replaceAll(/[a-z0]/g, '')
+                  .toLowerCase()
+                const [colorNumber] = referenceName.match(/\d+/) ?? []
+                theme[colorName] = colorNumber
+                  ? referenceName.replaceAll(/\d+/g, '') +
+                    (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                  : referenceName.replace(/-$/, '')
+              } else {
+                theme[colorName] = relRGBToAbsRGB(variant.fills[0])
+              }
             }
           })
         }
@@ -264,13 +282,20 @@ function generateColors(colorTokens, themes) {
     const val = colorTokens[key]
     if (key.includes('/default')) {
       colorVariables.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
-      const colorKey = key.replace(/\d/g, '').replace('/default', '')
-      colorVariables.push(`  --ld-col-${colorKey}-default: ${val};`)
+      const colorKey = key
+        .replace(/\d/g, '')
+        .replace('/default', '')
+        .replace(/-$/, '')
+      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
       colorVariables.push(
-        `  --ld-col-${colorKey}-a01: ${val.replace(', 1)', ', 0.1)')};`
+        `  --ld-col-${colorKey}-a01: ${val
+          .replace('rgb', 'rgba')
+          .replace(')', ', 0.1)')};`
       )
       colorVariables.push(
-        `  --ld-col-${colorKey}-a02: ${val.replace(', 1)', ', 0.2)')};`
+        `  --ld-col-${colorKey}-a02: ${val
+          .replace('rgb', 'rgba')
+          .replace(')', ', 0.2)')};`
       )
     } else {
       colorVariables.push(`  --ld-col-${key}: ${val};`)
@@ -288,8 +313,13 @@ function generateColors(colorTokens, themes) {
         return
       }
 
+      const variableValue =
+        colorGroup.indexOf('rgb') === 0
+          ? colorGroup
+          : `var(--ld-col-${colorGroup})`
+
       colorVariables.push(
-        `  --ld-thm-${themeName}-${colorGroupName}: var(--ld-col-${colorGroup});`
+        `  --ld-thm-${themeName}-${colorGroupName}: ${variableValue};`
       )
       themeSelectors.push(
         `  --ld-thm-${colorGroupName}: var(--ld-thm-${themeName}-${colorGroupName});`

@@ -48,7 +48,7 @@
 
   &.ld-theme-ocean {
     &::part(check) {
-      color: var(--ld-col-rb-default);
+      color: var(--ld-thm-ocean-primary);
     }
 
     &::part(option) {
@@ -56,15 +56,15 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rb-hover);
+          color: var(--ld-thm-ocean-primary-hover);
         }
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rb6);
-        background-color: var(--ld-col-rb1);
+        color: var(--ld-col-rb-600);
+        background-color: var(--ld-col-rb-100);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-primary-focus);
         }
       }
     }
@@ -78,32 +78,32 @@
 
     &.ld-option-internal--hover-within {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rb-hover);
+        fill: var(--ld-thm-ocean-primary-hover);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-hover);
+        fill: var(--ld-thm-ocean-secondary-hover);
       }
       &::part(check) {
-        color: var(--ld-col-rb-hover);
+        color: var(--ld-thm-ocean-primary-hover);
       }
     }
 
     &.ld-option-internal--focus-within:focus-visible {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rb-focus);
+        fill: var(--ld-thm-ocean-primary-focus);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-focus);
+        fill: var(--ld-thm-ocean-secondary-focus);
       }
       &::part(check) {
-        color: var(--ld-col-rb6);
+        color: var(--ld-col-rb-600);
       }
     }
   }
 
   &.ld-theme-bubblegum {
     &::part(check) {
-      color: var(--ld-col-rp-default);
+      color: var(--ld-thm-bubblegum-primary);
     }
 
     &::part(option) {
@@ -111,16 +111,16 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rp-hover);
-          background-color: var(--ld-col-rp1);
+          color: var(--ld-thm-bubblegum-primary-hover);
+          background-color: var(--ld-col-rp-100);
         }
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rp6);
-        background-color: var(--ld-col-rp1);
+        color: var(--ld-col-rp-600);
+        background-color: var(--ld-col-rp-100);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-bubblegum-primary-focus);
         }
       }
     }
@@ -134,32 +134,32 @@
 
     &.ld-option-internal--hover-within {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-hover);
+        fill: var(--ld-thm-bubblegum-primary-hover);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-hover);
+        fill: var(--ld-thm-bubblegum-secondary-hover);
       }
       &::part(check) {
-        color: var(--ld-col-rp-hover);
+        color: var(--ld-thm-bubblegum-primary-hover);
       }
     }
 
     &.ld-option-internal--focus-within:focus-visible {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
+        fill: var(--ld-thm-bubblegum-primary-focus);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-focus);
+        fill: var(--ld-thm-bubblegum-primary-focus);
       }
       &::part(check) {
-        color: var(--ld-col-rp6);
+        color: var(--ld-col-rp-600);
       }
     }
   }
 
   &.ld-theme-shake {
     &::part(check) {
-      color: var(--ld-col-rp-default);
+      color: var(--ld-thm-shake-primary);
     }
 
     &::part(option) {
@@ -167,16 +167,16 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rp-hover);
-          background-color: var(--ld-col-rp1);
+          color: var(--ld-thm-shake-primary-hover);
+          background-color: var(--ld-col-rp-100);
         }
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rp6);
-        background-color: var(--ld-col-rp1);
+        color: var(--ld-col-rp-600);
+        background-color: var(--ld-col-rp-100);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-shake-primary-focus);
         }
       }
     }
@@ -190,32 +190,32 @@
 
     &.ld-option-internal--hover-within {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-hover);
+        fill: var(--ld-thm-shake-primary-hover);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vm-hover);
+        fill: var(--ld-thm-shake-secondary-hover);
       }
       &::part(check) {
-        color: var(--ld-col-rp-hover);
+        color: var(--ld-thm-shake-primary-hover);
       }
     }
 
     &.ld-option-internal--focus-within:focus-visible {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
+        fill: var(--ld-thm-shake-primary-focus);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vm-focus);
+        fill: var(--ld-thm-shake-secondary-focus);
       }
       &::part(check) {
-        color: var(--ld-col-rp6);
+        color: var(--ld-col-rp-600);
       }
     }
   }
 
   &.ld-theme-solvent {
     &::part(check) {
-      color: var(--ld-col-rp-default);
+      color: var(--ld-thm-solvent-primary);
     }
 
     &::part(option) {
@@ -223,16 +223,16 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rp-hover);
-          background-color: var(--ld-col-rp1);
+          color: var(--ld-thm-solvent-primary-hover);
+          background-color: var(--ld-col-rp-100);
         }
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rp6);
-        background-color: var(--ld-col-rp1);
+        color: var(--ld-col-rp-600);
+        background-color: var(--ld-col-rp-100);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-solvent-primary-focus);
         }
       }
     }
@@ -246,32 +246,32 @@
 
     &.ld-option-internal--hover-within {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-hover);
+        fill: var(--ld-thm-solvent-primary-hover);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-hover);
+        fill: var(--ld-thm-solvent-secondary-hover);
       }
       &::part(check) {
-        color: var(--ld-col-rp-hover);
+        color: var(--ld-thm-solvent-primary-hover);
       }
     }
 
     &.ld-option-internal--focus-within:focus-visible {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
+        fill: var(--ld-thm-solvent-primary-focus);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-focus);
+        fill: var(--ld-thm-solvent-primary-focus);
       }
       &::part(check) {
-        color: var(--ld-col-rp6);
+        color: var(--ld-col-rp-600);
       }
     }
   }
 
   &.ld-theme-tea {
     &::part(check) {
-      color: var(--ld-col-rg-default);
+      color: var(--ld-thm-tea-primary);
     }
 
     &::part(option) {
@@ -279,16 +279,16 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--ld-col-rg-hover);
-          background-color: var(--ld-col-rg1);
+          color: var(--ld-thm-tea-primary-hover);
+          background-color: var(--ld-col-rg-100);
         }
       }
       &:focus:focus-visible {
-        color: var(--ld-col-rg6);
-        background-color: var(--ld-col-rg1);
+        color: var(--ld-col-rg-600);
+        background-color: var(--ld-col-rg-100);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-primary-focus);
         }
       }
     }
@@ -302,25 +302,25 @@
 
     &.ld-option-internal--hover-within {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rg-hover);
+        fill: var(--ld-thm-tea-primary-hover);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-hover);
+        fill: var(--ld-thm-tea-secondary-hover);
       }
       &::part(check) {
-        color: var(--ld-col-rg-hover);
+        color: var(--ld-thm-tea-primary-hover);
       }
     }
 
     &.ld-option-internal--focus-within:focus-visible {
       .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rg-focus);
+        fill: var(--ld-thm-tea-primary-focus);
       }
       .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-focus);
+        fill: var(--ld-thm-tea-secondary-focus);
       }
       &::part(check) {
-        color: var(--ld-col-rg6);
+        color: var(--ld-col-rg-600);
       }
     }
   }

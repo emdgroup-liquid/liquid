@@ -329,7 +329,7 @@
       &:where(:hover) {
         background-color: var(
           --ld-button-ghost-bg-color-hover,
-          var(--ld-thm-primary-transparent-lowest)
+          var(--ld-thm-primary-alpha-lowest)
         );
         color: var(
           --ld-button-ghost-text-color-hover,
@@ -348,7 +348,7 @@
     &:where(:active:focus-visible) {
       background-color: var(
         --ld-button-ghost-bg-color-active,
-        var(--ld-thm-primary-transparent-low)
+        var(--ld-thm-primary-alpha-low)
       );
       color: var(
         --ld-button-ghost-text-color-active,
@@ -373,7 +373,7 @@
   .ld-button__progress {
     background-color: var(
       --ld-button-ghost-progress-track-color,
-      var(--ld-thm-primary-transparent-low)
+      var(--ld-thm-primary-alpha-low)
     );
   }
 
@@ -407,7 +407,7 @@
       &:where(:hover) {
         background-color: var(
           --ld-button-on-brand-bg-color-hover,
-          var(--ld-col-wht-transparent-high)
+          var(--ld-col-wht-alpha-high)
         );
       }
     }
@@ -415,7 +415,7 @@
     &:where(:active:focus-visible) {
       background-color: var(
         --ld-button-on-brand-bg-color-active,
-        var(--ld-col-wht-transparent-medium)
+        var(--ld-col-wht-alpha-medium)
       );
     }
   }
@@ -437,13 +437,13 @@
     &:where(:focus:focus-visible) {
       color: var(
         --ld-button-secondary-on-brand-text-color,
-        var(--ld-col-wht-transparent-high)
+        var(--ld-col-wht-alpha-high)
       );
 
       .ld-button__progress::after {
         background-color: var(
           --ld-button-secondary-on-brand-progress-color-focus,
-          var(--ld-col-wht-transparent-high)
+          var(--ld-col-wht-alpha-high)
         );
       }
     }
@@ -451,7 +451,7 @@
       &:where(:hover) {
         background-color: var(
           --ld-button-secondary-on-brand-bg-color-hover,
-          var(--ld-col-wht-transparent-low)
+          var(--ld-col-wht-alpha-low)
         );
       }
     }
@@ -459,17 +459,17 @@
     &:where(:active:focus-visible) {
       background-color: var(
         --ld-button-secondary-on-brand-bg-color-active,
-        var(--ld-col-wht-transparent-lowest)
+        var(--ld-col-wht-alpha-lowest)
       );
       color: var(
         --ld-button-secondary-on-brand-text-color,
-        var(--ld-col-wht-transparent-highest)
+        var(--ld-col-wht-alpha-highest)
       );
 
       .ld-button__progress::after {
         background-color: var(
           --ld-button-secondary-on-brand-progress-color-active,
-          var(--ld-col-wht-transparent-highest)
+          var(--ld-col-wht-alpha-highest)
         );
       }
     }

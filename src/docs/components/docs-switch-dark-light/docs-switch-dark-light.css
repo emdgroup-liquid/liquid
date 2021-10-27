@@ -1,10 +1,10 @@
 @define-mixin docs-switch-ui-light {
   .docs-switch-dark-light__btn {
     circle {
-      stroke: var(--ld-col-rblck-default);
+      stroke: var(--ld-col-gray);
     }
     path {
-      fill: var(--ld-col-rblck-default);
+      fill: var(--ld-col-gray);
     }
   }
 }

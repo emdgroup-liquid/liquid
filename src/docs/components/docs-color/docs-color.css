@@ -1,9 +1,9 @@
 @define-mixin docs-color-ui-light {
   .docs-color {
-    border-color: var(--ld-col-rblck1);
+    border-color: var(--ld-col-gray-100);
 
     &.docs-color--transparent {
-      color: var(--ld-col-rblck-default);
+      color: var(--ld-col-gray);
 
       .docs-copy-to-cb {
         filter: none;
@@ -13,7 +13,7 @@
 }
 @define-mixin docs-color-ui-dark {
   .docs-color {
-    border-color: var(--ld-col-rblck4);
+    border-color: var(--ld-col-gray-400);
 
     &.docs-color--transparent {
       color: var(--ld-col-wht);
@@ -44,7 +44,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-rblck-default);
+  color: var(--ld-col-gray);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 

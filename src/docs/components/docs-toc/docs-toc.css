@@ -1,11 +1,11 @@
 @define-mixin docs-toc-ui-light {
   .docs-toc__nav::before {
-    background-color: var(--ld-col-bg-g);
+    background-color: var(--ld-col-gray-050);
   }
 }
 @define-mixin docs-toc-ui-dark {
   .docs-toc__nav::before {
-    background-color: var(--ld-col-rblck3);
+    background-color: var(--ld-col-gray-300);
   }
 }
 
@@ -64,12 +64,12 @@
 
     &.docs-toc__link--is-active,
     &.docs-toc__link--is-target {
-      color: var(--ld-col-vc-default);
+      color: var(--ld-thm-secondary);
     }
 
     &.docs-toc__link--is-active {
       &::before {
-        background-color: var(--ld-col-vc-default);
+        background-color: var(--ld-thm-secondary);
         z-index: 1;
       }
     }
