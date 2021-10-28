@@ -18,6 +18,7 @@
   --ld-option-thm-col-bg-focus: var(--ld-col-rb1);
   --ld-option-thm-col-bg-active: var(--ld-col-rb1);
 
+  /*outline: none;*/
   display: flex;
   position: relative;
   color: var(--ld-option-col);
@@ -29,7 +30,6 @@
   user-select: none;
   touch-action: manipulation;
   border: 0;
-  outline: none;
   -webkit-touch-callout: none;
   border-bottom: solid var(--ld-option-col-border) var(--ld-sp-1);
   box-sizing: border-box;

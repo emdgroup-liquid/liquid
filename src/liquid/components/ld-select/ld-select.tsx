@@ -35,7 +35,6 @@ export class LdSelect {
   private selectRef!: HTMLElement
   private triggerRef!: HTMLElement
   private selectionListRef!: HTMLElement
-  private slotContainerRef!: HTMLElement
   private internalOptionsContainerRef!: HTMLElement
   private listboxRef!: HTMLElement
   private btnClearRef: HTMLButtonElement
@@ -393,7 +392,6 @@ export class LdSelect {
       if (index >= 0) {
         selectedValues.splice(index, 1)
       } else {
-        console.log('here')
         hiddenInput.remove()
       }
     })
@@ -421,7 +419,15 @@ export class LdSelect {
     this.el.appendChild(hiddenInput)
   }
 
-  private handleSlotChange() {
+  private handleSlotChange(mutationsList: MutationRecord[]) {
+    if (
+      mutationsList.some(
+        (record) => (record.target as HTMLElement).tagName !== 'LD-OPTION'
+      )
+    ) {
+      return
+    }
+
     this.initialized = false
 
     const oldValues = [...this.selected]
@@ -433,9 +439,8 @@ export class LdSelect {
   }
 
   private initObserver() {
-    if (this.observer) this.observer.disconnect()
     this.observer = new MutationObserver(this.handleSlotChange.bind(this))
-    this.observer.observe(this.slotContainerRef, {
+    this.observer.observe(this.el, {
       subtree: true,
       childList: true,
       attributes: true,
@@ -782,6 +787,9 @@ export class LdSelect {
 
   private handleTriggerClick(ev: Event) {
     ev.preventDefault()
+
+    if (this.disabled || this.ariaDisabled) return
+
     this.expand()
   }
 
@@ -911,11 +919,7 @@ export class LdSelect {
           }
         >
           {this.renderHiddenInput && <slot name="hidden" />}
-          <div
-            ref={(el) => (this.slotContainerRef = el as HTMLElement)}
-            class="ld-select__slot-container"
-            part="slot-container"
-          >
+          <div class="ld-select__slot-container" part="slot-container">
             <slot></slot>
           </div>
           <div

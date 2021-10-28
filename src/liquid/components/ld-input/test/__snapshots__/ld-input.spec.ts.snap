@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-input creates hidden input field, if inside a form 1`] = `
+<ld-input class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden">
+</ld-input>
+`;
+
+exports[`ld-input fills hidden input field with initial value 1`] = `
+<ld-input class="ld-input" name="example" value="hello">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input part="input focusable" value="hello">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden" value="hello">
+</ld-input>
+`;
+
 exports[`ld-input removes size from ld-button css component 1`] = `
 <ld-input class="ld-input">
   <mock:shadow-root>
@@ -53,20 +75,6 @@ exports[`ld-input removes size from ld-icon web component 1`] = `
   </mock:shadow-root>
   <ld-icon name="placeholder" slot="start"></ld-icon>
   <ld-icon name="placeholder" slot="end"></ld-icon>
-exports[`ld-input creates hidden input field, if inside a form 1`] = `
-<ld-input class="ld-input" name="example">
-  <input name="example" type="hidden">
-</ld-input>
-`;
-
-exports[`ld-input fills hidden input field with initial value 1`] = `
-<ld-input class="ld-input" name="example" value="hello">
-  <mock:shadow-root>
-    <slot name="start"></slot>
-    <input part="input focusable" value="hello">
-    <slot name="end"></slot>
-  </mock:shadow-root>
-  <input name="example" type="hidden" value="hello">
 </ld-input>
 `;
 

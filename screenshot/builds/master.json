@@ -9847,7 +9847,7 @@
     },
     {
       "id": "de1ab3ef",
-      "image": "134b5d426d93d5cd56a60e3dbbf84037.png",
+      "image": "3c701e34bc4e86b081cfa8a5647e4468.png",
       "userAgent": "default",
       "desc": "ld-select single aria-disabled focus theme-none",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",

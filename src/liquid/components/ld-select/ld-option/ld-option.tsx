@@ -33,16 +33,16 @@ export class LdOption {
 
   componentWillLoad() {
     applyPropAliases.apply(this)
+    // Setting selected via prop directly triggers the mutation observer to fire twice on attribute chage.
+    // This is indeed only true for the selected attribute. The disabled attribute works fine when assigned directly.
+    if (this.selected) {
+      this.el.setAttribute('selected', '')
+    }
   }
 
   render() {
     return (
-      <Host
-        class="ld-option"
-        selected={this.selected}
-        disabled={this.disabled}
-        value={this.value}
-      >
+      <Host class="ld-option">
         <slot></slot>
       </Host>
     )
