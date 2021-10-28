@@ -26,7 +26,7 @@ class FocusManager {
 }
 const focusManager = new FocusManager()
 
-async function triggerPopper(page: SpecPage) {
+async function triggerPopperWithClick(page: SpecPage) {
   const ldSelect = page.body.querySelector('ld-select')
   const btnTrigger = ldSelect.shadowRoot.querySelector(
     '.ld-select__btn-trigger'
@@ -120,7 +120,7 @@ describe('ld-select', () => {
         html: '<ld-select placeholder="Pick a fruit" name="fruit"></ld-select>',
       })
 
-      await triggerPopper(page)
+      await triggerPopperWithClick(page)
     } catch (err) {
       expect(err).toStrictEqual(
         TypeError(
@@ -147,7 +147,7 @@ describe('ld-select', () => {
     const ldSelectEl = ldSelect.shadowRoot.querySelector('.ld-select')
     expect(ldSelectEl.classList.contains('ld-select--sm')).toBeTruthy()
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
     const ldSelectPopperEl = await ldSelectPopper.shadowRoot.querySelector(
@@ -248,7 +248,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions } = await getInternalOptions(page)
 
     expect(ldInternalOptions.length).toEqual(2)
@@ -267,7 +267,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -301,7 +301,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -328,7 +328,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -355,7 +355,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -383,7 +383,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -441,7 +441,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
     const selectPopper = ldSelectPopper.shadowRoot.querySelector(
@@ -508,7 +508,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions } = await getInternalOptions(page)
 
     expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
@@ -639,7 +639,7 @@ describe('ld-select', () => {
     )
     expect(btnClearSingle.length).toEqual(2)
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions } = await getInternalOptions(page)
 
     expect(ldInternalOptions[0].getAttribute('selected')).not.toEqual(null)
@@ -731,7 +731,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
 
@@ -763,7 +763,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const { doc } = getShadow(page)
 
@@ -800,7 +800,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const { doc } = getShadow(page)
     const ldSelect = page.root
@@ -887,7 +887,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -938,7 +938,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
     )
@@ -955,7 +955,7 @@ describe('ld-select', () => {
     expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
     expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const spyFocus = jest.spyOn(internalOptions[1], 'focus')
@@ -993,7 +993,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1092,7 +1092,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1162,7 +1162,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1226,7 +1226,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1235,7 +1235,7 @@ describe('ld-select', () => {
 
     const { doc, shadowDoc } = getShadow(page)
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     expect(ldInternalOptions[0].getAttribute('selected')).toEqual(null)
     expect(ldInternalOptions[1].getAttribute('selected')).not.toEqual(null)
@@ -1274,7 +1274,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1320,7 +1320,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1393,7 +1393,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
@@ -1463,7 +1463,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
@@ -1539,7 +1539,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const { ldInternalOptions, internalOptions } = await getInternalOptions(
       page
@@ -1615,7 +1615,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelect = page.root
     const { internalOptions } = await getInternalOptions(page)
@@ -1747,6 +1747,10 @@ describe('ld-select', () => {
     jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
+
+    await triggerPopperWithClick(page)
+
+    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
 
   it('prevents interaction with aria-disabled prop set to a truethy value', async () => {
@@ -1781,6 +1785,10 @@ describe('ld-select', () => {
     jest.advanceTimersByTime(0)
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
+
+    await triggerPopperWithClick(page)
+
+    expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
   })
 
   it('closes popper on click outside the component', async () => {
@@ -1794,7 +1802,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const ldSelect = page.root
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
@@ -1822,7 +1830,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const ldLabel = page.body.querySelector('ld-label')
     const ldSelect = page.body.querySelector('ld-select')
     const btnTrigger = ldSelect.shadowRoot.querySelector(
@@ -1870,7 +1878,7 @@ describe('ld-select', () => {
     const selectionList = btnTrigger.querySelector('.ld-select__selection-list')
     expect(selectionList).toBeTruthy()
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
     window.dispatchEvent(new Event('resize'))
@@ -1916,7 +1924,7 @@ describe('ld-select', () => {
       `,
     })
 
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
     expect(
@@ -1996,7 +2004,7 @@ describe('ld-select', () => {
     })
 
     const ldSelect = page.root
-    await triggerPopper(page)
+    await triggerPopperWithClick(page)
     const { internalOptions } = await getInternalOptions(page)
     const [option1, option2, option3] = internalOptions
 
