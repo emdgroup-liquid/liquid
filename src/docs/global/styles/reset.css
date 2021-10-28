@@ -1,11 +1,12 @@
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+* {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    box-sizing: border-box;
+  }
+}
 html,
 body {
   margin: 0;
   padding: 0;
-}
-html {
-  box-sizing: border-box;
 }
 
 p,
@@ -55,13 +56,6 @@ input,
 select {
   &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
     margin: 0;
-  }
-}
-*,
-*::before,
-*::after {
-  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
-    box-sizing: inherit;
   }
 }
 img,
