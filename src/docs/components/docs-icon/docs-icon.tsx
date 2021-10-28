@@ -39,9 +39,7 @@ export class DocsIcon {
           <ld-icon name={this.identifier} size="lg" />
           <p class="docs-icon__name">{this.name}</p>
         </button>
-        <ld-paragraph>
-          Click to copy "{this.identifier}" to clipboard.
-        </ld-paragraph>
+        <ld-typo>Click to copy "{this.identifier}" to clipboard.</ld-typo>
       </ld-tooltip>
     )
   }

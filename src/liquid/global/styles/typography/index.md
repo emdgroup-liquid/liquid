@@ -11,7 +11,7 @@ permalink: global/typography/
 
 The typography globals consist of CSS custom properties, which you can use to either apply a `font-family` or a `font` value (combining `font-size`, `line-height` and `font-familily`).
 
-In most cases you will probably want to simply use components though, which themselves make use of global typography CSS custom properties, such as the [`ld-paragraph`](components/ld-paragraph/) or the [`ld-heading`](components/ld-heading/) component.
+In most cases you will probably want to simply use components though, which themselves make use of global typography CSS custom properties, such as the [`ld-typo`](components/ld-typo/) component.
 
 The list below shows you all available typography related CSS custom properties available after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets) and the effect they have on text.
 

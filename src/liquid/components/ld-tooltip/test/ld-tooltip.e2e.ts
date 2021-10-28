@@ -31,10 +31,10 @@ describe('ld-tooltip', () => {
       it(`default trigger`, async () => {
         const page = await getPageWithContent(
           `<ld-tooltip>
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -46,10 +46,10 @@ describe('ld-tooltip', () => {
       it(`default trigger (focus)`, async () => {
         const page = await getPageWithContent(
           `<ld-tooltip trigger-type="click">
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -62,10 +62,10 @@ describe('ld-tooltip', () => {
       it(`default trigger (hover)`, async () => {
         const page = await getPageWithContent(
           `<ld-tooltip trigger-type="click">
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -79,10 +79,10 @@ describe('ld-tooltip', () => {
         const page = await getPageWithContent(
           `<ld-tooltip trigger-type="click">
             <ld-button slot="trigger">Click me</ld-button>
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -95,10 +95,10 @@ describe('ld-tooltip', () => {
         const page = await getPageWithContent(
           `<ld-tooltip trigger-type="click">
             <ld-button slot="trigger">Click me</ld-button>
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -112,10 +112,10 @@ describe('ld-tooltip', () => {
         const page = await getPageWithContent(
           `<ld-tooltip trigger-type="click">
             <ld-button slot="trigger">Click me</ld-button>
-            <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-            <ld-paragraph>
+            <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+            <ld-typo>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </ld-paragraph>
+            </ld-typo>
           </ld-tooltip>`,
           theme
         )
@@ -131,10 +131,10 @@ describe('ld-tooltip', () => {
             I am an
             <ld-tooltip trigger-type="click">
               <span slot="trigger" style="text-decoration: underline">inline</span>
-              <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-              <ld-paragraph>
+              <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+              <ld-typo>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </ld-paragraph>
+              </ld-typo>
             </ld-tooltip>
           trigger!</p>`,
           theme
@@ -150,10 +150,10 @@ describe('ld-tooltip', () => {
             I am an
             <ld-tooltip trigger-type="click">
               <span slot="trigger" style="text-decoration: underline">inline</span>
-              <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-              <ld-paragraph>
+              <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+              <ld-typo>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </ld-paragraph>
+              </ld-typo>
             </ld-tooltip>
           trigger!</p>`,
           theme
@@ -170,10 +170,10 @@ describe('ld-tooltip', () => {
             I am an
             <ld-tooltip trigger-type="click">
               <span slot="trigger" style="text-decoration: underline">inline</span>
-              <ld-heading level="4" style="margin-bottom: 10px">Headline</ld-heading>
-              <ld-paragraph>
+              <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
+              <ld-typo>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </ld-paragraph>
+              </ld-typo>
             </ld-tooltip>
           trigger!</p>`,
           theme
@@ -188,7 +188,7 @@ describe('ld-tooltip', () => {
         it(`position ${position} (default)`, async () => {
           const page = await getPageWithContent(
             `<ld-tooltip position="${position}">
-              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+              <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
             </ld-tooltip>`,
             theme
           )
@@ -203,7 +203,7 @@ describe('ld-tooltip', () => {
         it(`position ${position} (with arrow)`, async () => {
           const page = await getPageWithContent(
             `<ld-tooltip arrow position="${position}">
-              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+              <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
             </ld-tooltip>`,
             theme
           )
@@ -219,7 +219,7 @@ describe('ld-tooltip', () => {
           const page = await getPageWithContent(
             `<ld-tooltip position="${position}">
               <ld-button slot="trigger">Trigger</ld-button>
-              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+              <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
             </ld-tooltip>`,
             theme
           )
@@ -235,7 +235,7 @@ describe('ld-tooltip', () => {
           const page = await getPageWithContent(
             `<ld-tooltip arrow position="${position}">
               <ld-button slot="trigger">Trigger</ld-button>
-              <ld-paragraph>Lorem ipsum dolor sit amet.</ld-paragraph>
+              <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
             </ld-tooltip>`,
             theme
           )

@@ -7,6 +7,7 @@
   }
 }
 
+.ld-typo,
 .ld-typo--body-m {
   font: var(--ld-typo-body-m);
 }
@@ -21,6 +22,27 @@
 }
 .ld-typo--body-xs {
   font: var(--ld-typo-body-xs);
+}
+
+.ld-typo--cap-l {
+  font: var(--ld-typo-cap-l);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.ld-typo--cap-m {
+  font: var(--ld-typo-cap-m);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ld-typo--label-m {
+  font: var(--ld-typo-label-m);
+}
+.ld-typo--label-s {
+  font: var(--ld-typo-label-s);
+  font-weight: 700;
 }
 
 .ld-typo--h1 {
