@@ -1191,7 +1191,7 @@ The `ld-select` Web Component provides a low level API for integrating it with t
   const submitButton = document.querySelector('#example-form ld-button')
   let selectDirty = false
   function validateInput() {
-    if (selectDirty && (!form.fruits.  || form.fruits.length < 3)) {
+    if (selectDirty && (!form.fruits || !form.fruits.length || form.fruits.length < 3)) {
       select.setAttribute('invalid', 'true')
       errorMessage.style.visibility = 'inherit'
       return false
