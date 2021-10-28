@@ -106,7 +106,10 @@ export class LdSelect {
   @State() renderHiddenInput = false
 
   @Watch('selected')
-  emitEvents(newSelection: SelectOption[], oldSelection: SelectOption[]) {
+  emitEventsAndUpdateHidden(
+    newSelection: SelectOption[],
+    oldSelection: SelectOption[]
+  ) {
     if (!this.initialized) return
 
     const newValues = newSelection.map((option) => option.value)
@@ -114,6 +117,10 @@ export class LdSelect {
     if (newValues.join() === oldValues.join()) return
 
     this.updateTriggerMoreIndicator(true)
+
+    if (this.renderHiddenInput) {
+      this.updateHiddenInput(newSelection)
+    }
 
     this.input.emit(newValues)
     this.change.emit(newValues)
@@ -356,31 +363,25 @@ export class LdSelect {
       )
     }
 
-    setTimeout(() => {
-      if (!initialized) {
-        this.internalOptionsHTML = this.el.innerHTML['replaceAll'](
-          /<ld-option/g,
-          `<ld-option-internal${this.multiple ? ' mode="checkbox"' : ''}${
-            this.size ? ' size="' + this.size + '"' : ''
-          }${this.preventDeselection ? ' prevent-deselection' : ''}`
+    if (!initialized) {
+      this.internalOptionsHTML = this.el.innerHTML['replaceAll'](
+        /<ld-option/g,
+        `<ld-option-internal${this.multiple ? ' mode="checkbox"' : ''}${
+          this.size ? ' size="' + this.size + '"' : ''
+        }${this.preventDeselection ? ' prevent-deselection' : ''}`
+      )
+        .replaceAll(/<\/ld-option/g, '</ld-option-internal')
+        .replaceAll(
+          /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
+          ''
         )
-          .replaceAll(/<\/ld-option/g, '</ld-option-internal')
-          .replaceAll(
-            /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
-            ''
-          )
-      }
-      this.selected = selectedChildren.map((child) => ({
-        value: child.getAttribute('value'),
-        text: child.innerText,
-      }))
+    }
+    this.selected = selectedChildren.map((child) => ({
+      value: child.getAttribute('value'),
+      text: child.innerText,
+    }))
 
-      if (this.renderHiddenInput) {
-        this.updateHiddenInput(this.selected)
-      }
-
-      this.updateTriggerMoreIndicator(true)
-    })
+    this.updateTriggerMoreIndicator(true)
   }
 
   private updateHiddenInput = (selected: SelectOption[]) => {
@@ -392,6 +393,7 @@ export class LdSelect {
       if (index >= 0) {
         selectedValues.splice(index, 1)
       } else {
+        console.log('here')
         hiddenInput.remove()
       }
     })
@@ -425,11 +427,9 @@ export class LdSelect {
     const oldValues = [...this.selected]
     this.initOptions()
 
-    setTimeout(() => {
-      this.initialized = true
-      const newValues = [...this.selected]
-      this.emitEvents(newValues, oldValues)
-    })
+    this.initialized = true
+    const newValues = [...this.selected]
+    this.emitEventsAndUpdateHidden(newValues, oldValues)
   }
 
   private initObserver() {
@@ -837,11 +837,15 @@ export class LdSelect {
     if (this.el.getAttribute('aria-disabled') === 'true') {
       this.ariaDisabled = true
     }
+
+    this.initOptions()
+
+    if (this.renderHiddenInput) {
+      this.updateHiddenInput(this.selected)
+    }
   }
 
   componentDidLoad() {
-    this.initOptions()
-
     setTimeout(() => {
       this.initObserver()
       this.initialized = true
