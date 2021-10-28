@@ -20,12 +20,16 @@ export class LdTypo {
   @Prop() tag: string
 
   /** The font style. Every variant has a default tag that it renders with. */
-  @Prop({ mutable: true }) variant!:
+  @Prop({ mutable: true }) variant:
     | 'body-xs'
     | 'body-s'
     | 'body-m'
     | 'body-l'
     | 'body-xl'
+    | 'cap-m'
+    | 'cap-l'
+    | 'label-s'
+    | 'label-m'
     | 'h1'
     | 'h2'
     | 'h3'
@@ -46,7 +50,7 @@ export class LdTypo {
     | 'xh3'
     | 'xh4'
     | 'xh5'
-    | 'xh6'
+    | 'xh6' = 'body-m'
 
   /**
    * Since b* and xb* variants are uppercase, screen readers need to be served a
@@ -71,11 +75,6 @@ export class LdTypo {
 
   private getDefaultTag = () =>
     ({
-      'body-xs': 'p',
-      'body-s': 'p',
-      'body-m': 'p',
-      'body-l': 'p',
-      'body-xl': 'p',
       h1: 'h1',
       h2: 'h2',
       h3: 'h3',

@@ -21,6 +21,20 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ## Examples
 
+### Default
+
+{% example "html", true %}
+<ld-typo>
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<p class="ld-typo">
+  Almost before we knew it, we had left the ground.
+</p>
+{% endexample %}
+
 ### Paragraphs
 
 {% example "html", true %}
@@ -46,24 +60,68 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<p class="ld-typo ld-typo--body-xs">
+<p class="ld-typo--body-xs">
   <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<p class="ld-typo ld-typo--body-s">
+<p class="ld-typo--body-s">
   <b>S</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<p class="ld-typo ld-typo--body-m">
+<p class="ld-typo--body-m">
   <b>M</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<p class="ld-typo ld-typo--body-l">
+<p class="ld-typo--body-l">
   <b>L</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<p class="ld-typo ld-typo--body-xl">
+<p class="ld-typo--body-xl">
   <b>XL</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+{% endexample %}
+
+### Labels
+
+{% example "html", true %}
+<ld-typo variant="label-s">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="label-m">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<p class="ld-typo--label-s">
+  Almost before we knew it, we had left the ground.
+</p>
+
+<p class="ld-typo--label-m">
+  Almost before we knew it, we had left the ground.
+</p>
+{% endexample %}
+
+### Captions
+
+{% example "html", true %}
+<ld-typo variant="cap-m">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="cap-l">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<!-- CSS component -->
+
+<p class="ld-typo--cap-m">
+  Almost before we knew it, we had left the ground.
+</p>
+
+<p class="ld-typo--cap-l">
+  Almost before we knew it, we had left the ground.
 </p>
 {% endexample %}
 
@@ -96,27 +154,27 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo ld-typo--h1">
+<h1 class="ld-typo--h1">
   Almost before we knew it, we had left the ground.
 </h1>
 
-<h2 class="ld-typo ld-typo--h2">
+<h2 class="ld-typo--h2">
   Almost before we knew it, we had left the ground.
 </h2>
 
-<h3 class="ld-typo ld-typo--h3">
+<h3 class="ld-typo--h3">
   Almost before we knew it, we had left the ground.
 </h3>
 
-<h4 class="ld-typo ld-typo--h4">
+<h4 class="ld-typo--h4">
   Almost before we knew it, we had left the ground.
 </h4>
 
-<h5 class="ld-typo ld-typo--h5">
+<h5 class="ld-typo--h5">
   Almost before we knew it, we had left the ground.
 </h5>
 
-<h6 class="ld-typo ld-typo--h6">
+<h6 class="ld-typo--h6">
   Almost before we knew it, we had left the ground.
 </h6>
 {% endexample %}
@@ -152,27 +210,27 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo ld-typo--b1" aria-label="Lorem ipsum">
+<h1 class="ld-typo--b1" aria-label="Lorem ipsum">
   Lorem ipsum
 </h1>
 
-<h2 class="ld-typo ld-typo--b2" aria-label="Lorem ipsum">
+<h2 class="ld-typo--b2" aria-label="Lorem ipsum">
   Lorem ipsum
 </h2>
 
-<h3 class="ld-typo ld-typo--b3" aria-label="Lorem ipsum">
+<h3 class="ld-typo--b3" aria-label="Lorem ipsum">
   Lorem ipsum
 </h3>
 
-<h4 class="ld-typo ld-typo--b4" aria-label="Lorem ipsum">
+<h4 class="ld-typo--b4" aria-label="Lorem ipsum">
   Lorem ipsum
 </h4>
 
-<h5 class="ld-typo ld-typo--b5" aria-label="Lorem ipsum">
+<h5 class="ld-typo--b5" aria-label="Lorem ipsum">
   Lorem ipsum
 </h5>
 
-<h6 class="ld-typo ld-typo--b6" aria-label="Lorem ipsum">
+<h6 class="ld-typo--b6" aria-label="Lorem ipsum">
   Lorem ipsum
 </h6>
 {% endexample %}
@@ -194,15 +252,15 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo ld-typo--xh1">
+<h1 class="ld-typo--xh1">
   Almost before we knew it, we had left the ground.
 </h1>
 
-<h2 class="ld-typo ld-typo--xh2">
+<h2 class="ld-typo--xh2">
   Almost before we knew it, we had left the ground.
 </h2>
 
-<h3 class="ld-typo ld-typo--xh3">
+<h3 class="ld-typo--xh3">
   Almost before we knew it, we had left the ground.
 </h3>
 {% endexample %}
@@ -226,15 +284,15 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo ld-typo--xb1" aria-label="Lorem ipsum">
+<h1 class="ld-typo--xb1" aria-label="Lorem ipsum">
   Lipsum
 </h1>
 
-<h2 class="ld-typo ld-typo--xb2" aria-label="Lorem ipsum">
+<h2 class="ld-typo--xb2" aria-label="Lorem ipsum">
   Lipsum
 </h2>
 
-<h3 class="ld-typo ld-typo--xb3" aria-label="Lorem ipsum">
+<h3 class="ld-typo--xb3" aria-label="Lorem ipsum">
   Lipsum
 </h3>
 {% endexample %}
@@ -254,11 +312,11 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo ld-typo--body-m">
+<h1 class="ld-typo--body-m">
   I'm actually a level 1 heading
 </h1>
 
-<p class="ld-typo ld-typo--b5" aria-label="I'm actually a paragraph">
+<p class="ld-typo--b5" aria-label="I'm actually a paragraph">
   I'm actually a paragraph
 </p>
 
@@ -291,11 +349,11 @@ Here are some examples on how you can apply different colors on headings:
 .custom-color { color: var(--ld-col-vm-default); }
 </style>
 
-<h1 class="ld-typo ld-typo--b1 custom-color" aria-label="Lorem ipsum">
+<h1 class="ld-typo--b1 custom-color" aria-label="Lorem ipsum">
   Lorem ipsum
 </h1>
 
-<h1 class="ld-typo ld-typo--h1" style="color: var(--ld-col-vc4)">
+<h1 class="ld-typo--h1" style="color: var(--ld-col-vc4)">
   Almost before we knew it, we had left the ground.
 </h1>
 
@@ -306,13 +364,13 @@ Here are some examples on how you can apply different colors on headings:
 
 ## Properties
 
-| Property               | Attribute    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type                                                                                                                                                                                                                                          | Default     |
-| ---------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `ariaLabel`            | `aria-label` | Since b* and xb* variants are uppercase, screen readers need to be served a (non-uppercase) aria-label (otherwise they will read out the heading letter by letter). If you're using a b* or xb* variant, an aria-label will be set automatically on the element. The component will use the inner HTML for the label implicitly. If you want to set an aria-label explicitly (such as when you have inner HTML that should not be part of the label), you can use this property. | `string`                                                                                                                                                                                                                                      | `undefined` |
-| `key`                  | `key`        | for tracking the node's identity when working with lists                                                                                                                                                                                                                                                                                                                                                                                                                         | `string \| number`                                                                                                                                                                                                                            | `undefined` |
-| `ref`                  | `ref`        | reference to component                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `any`                                                                                                                                                                                                                                         | `undefined` |
-| `tag`                  | `tag`        | The rendered HTML tag. Overrides tag inferred from the variant.                                                                                                                                                                                                                                                                                                                                                                                                                  | `string`                                                                                                                                                                                                                                      | `undefined` |
-| `variant` _(required)_ | `variant`    | The font style. Every variant has a default tag that it renders with.                                                                                                                                                                                                                                                                                                                                                                                                            | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6" \| "body-xs" \| "body-s" \| "body-m" \| "body-l" \| "body-xl"` | `undefined` |
+| Property    | Attribute    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type                                                                                                                                                                                                                                                                                          | Default     |
+| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `ariaLabel` | `aria-label` | Since b* and xb* variants are uppercase, screen readers need to be served a (non-uppercase) aria-label (otherwise they will read out the heading letter by letter). If you're using a b* or xb* variant, an aria-label will be set automatically on the element. The component will use the inner HTML for the label implicitly. If you want to set an aria-label explicitly (such as when you have inner HTML that should not be part of the label), you can use this property. | `string`                                                                                                                                                                                                                                                                                      | `undefined` |
+| `key`       | `key`        | for tracking the node's identity when working with lists                                                                                                                                                                                                                                                                                                                                                                                                                         | `string \| number`                                                                                                                                                                                                                                                                            | `undefined` |
+| `ref`       | `ref`        | reference to component                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `any`                                                                                                                                                                                                                                                                                         | `undefined` |
+| `tag`       | `tag`        | The rendered HTML tag. Overrides tag inferred from the variant.                                                                                                                                                                                                                                                                                                                                                                                                                  | `string`                                                                                                                                                                                                                                                                                      | `undefined` |
+| `variant`   | `variant`    | The font style. Every variant has a default tag that it renders with.                                                                                                                                                                                                                                                                                                                                                                                                            | `"body-xs" \| "body-s" \| "body-m" \| "body-l" \| "body-xl" \| "cap-m" \| "cap-l" \| "label-s" \| "label-m" \| "h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6" \| "b1" \| "b2" \| "b3" \| "b4" \| "b5" \| "b6" \| "xb1" \| "xb2" \| "xb3" \| "xh1" \| "xh2" \| "xh3" \| "xh4" \| "xh5" \| "xh6"` | `'body-m'`  |
 
 
 ## Shadow Parts

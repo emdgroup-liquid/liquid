@@ -1,4 +1,4 @@
-ld-typo[variant*='b']:not([variant*='body']),
+ld-typo[variant*='b']:not([variant*='body']):not([variant*='label']),
 .ld-typo--b1,
 .ld-typo--b2,
 .ld-typo--b3,
