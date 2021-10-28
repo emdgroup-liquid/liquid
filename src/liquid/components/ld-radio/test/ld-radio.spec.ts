@@ -145,13 +145,13 @@ describe('ld-radio', () => {
     expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
   })
 
-  it('moves focus', async () => {
+  it('moves focus and selection', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
       html: `
-        <ld-radio name="foo" />
-        <ld-radio name="bar" />
         <ld-radio name="foo" checked />
+        <ld-radio name="bar" />
+        <ld-radio name="foo" />
         <ld-radio name="baz" />
         <ld-radio name="foo" />
       `,
@@ -161,6 +161,9 @@ describe('ld-radio', () => {
     const radios = ldRadios.map((ldRadio) =>
       ldRadio.shadowRoot.querySelector('input')
     )
+    ldRadios.forEach((ldRadio) => {
+      ldRadio.click = jest.fn()
+    })
     radios.forEach((radio) => {
       radio.focus = jest.fn()
     })
@@ -169,6 +172,12 @@ describe('ld-radio', () => {
       new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })
     ) // nothing shall happen
     await page.waitForChanges()
+
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(0)
 
     expect(radios[0].focus).toHaveBeenCalledTimes(0)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
@@ -181,6 +190,12 @@ describe('ld-radio', () => {
     )
     await page.waitForChanges()
 
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(1)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(0)
+
     expect(radios[0].focus).toHaveBeenCalledTimes(0)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
     expect(radios[2].focus).toHaveBeenCalledTimes(1)
@@ -192,6 +207,12 @@ describe('ld-radio', () => {
     )
     await page.waitForChanges()
 
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(1)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(1)
+
     expect(radios[0].focus).toHaveBeenCalledTimes(0)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
     expect(radios[2].focus).toHaveBeenCalledTimes(1)
@@ -203,6 +224,12 @@ describe('ld-radio', () => {
     )
     await page.waitForChanges()
 
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(1)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(1)
+
     expect(radios[0].focus).toHaveBeenCalledTimes(0)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
     expect(radios[2].focus).toHaveBeenCalledTimes(1)
@@ -213,6 +240,12 @@ describe('ld-radio', () => {
       new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
     )
     await page.waitForChanges()
+
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(2)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(1)
 
     expect(radios[0].focus).toHaveBeenCalledTimes(0)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
@@ -225,6 +258,12 @@ describe('ld-radio', () => {
     )
     await page.waitForChanges()
 
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(1)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(2)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(1)
+
     expect(radios[0].focus).toHaveBeenCalledTimes(1)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
     expect(radios[2].focus).toHaveBeenCalledTimes(2)
@@ -235,6 +274,12 @@ describe('ld-radio', () => {
       new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
     )
     await page.waitForChanges()
+
+    expect(ldRadios[0].click).toHaveBeenCalledTimes(1)
+    expect(ldRadios[1].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[2].click).toHaveBeenCalledTimes(2)
+    expect(ldRadios[3].click).toHaveBeenCalledTimes(0)
+    expect(ldRadios[4].click).toHaveBeenCalledTimes(1)
 
     expect(radios[0].focus).toHaveBeenCalledTimes(1)
     expect(radios[1].focus).toHaveBeenCalledTimes(0)
