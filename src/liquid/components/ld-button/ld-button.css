@@ -255,10 +255,6 @@
         --ld-button-danger-bg-color-focus,
         var(--ld-thm-error-focus)
       );
-      color: var(
-        --ld-button-danger-text-color-focus,
-        var(--ld-thm-error-active)
-      );
 
       .ld-button__progress::after {
         background-color: var(
@@ -273,6 +269,7 @@
           --ld-button-danger-bg-color-hover,
           var(--ld-thm-error-hover)
         );
+        color: var(--ld-button-danger-text-color-hover, var(--ld-col-wht));
 
         .ld-button__progress::after {
           background-color: var(
@@ -288,6 +285,7 @@
         --ld-button-danger-bg-color-active,
         var(--ld-thm-error-active)
       );
+      color: var(--ld-button-danger-text-color-active, var(--ld-col-wht));
 
       .ld-button__progress::after {
         background-color: var(
