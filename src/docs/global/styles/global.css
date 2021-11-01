@@ -3,18 +3,18 @@
 
 @define-mixin docs-ui-light {
   background-color: var(--ld-col-wht);
-  color: var(--ld-col-gray);
+  color: var(--ld-col-neutral);
 
   body::before {
     background-color: var(--ld-col-wht);
   }
 }
 @define-mixin docs-ui-dark {
-  background-color: var(--ld-col-gray-500);
+  background-color: var(--ld-col-neutral-500);
   color: var(--ld-col-wht);
 
   body::before {
-    background-color: var(--ld-col-gray-500);
+    background-color: var(--ld-col-neutral-500);
   }
 }
 

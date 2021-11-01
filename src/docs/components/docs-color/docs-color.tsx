@@ -8,6 +8,7 @@ import { Component, Prop, h, Host, Element, State } from '@stencil/core'
 })
 export class MyComponent {
   @Element() el: HTMLElement
+  private bgRef: HTMLSpanElement
 
   /** CSS variable name */
   @Prop() var: string
@@ -30,7 +31,9 @@ export class MyComponent {
   }
 
   componentDidLoad() {
-    const color = getComputedStyle(this.el).getPropertyValue('background-color')
+    const color = getComputedStyle(this.bgRef).getPropertyValue(
+      'background-color'
+    )
     setTimeout(() => {
       this.val = color
       this.dark = this.isDark(color)
@@ -45,12 +48,19 @@ export class MyComponent {
     }
 
     return (
-      <Host class={cl} style={{ background: `var(${this.var})` }}>
-        <span class="docs-color__var">
+      <Host class={cl}>
+        <span
+          ref={(ref) => (this.bgRef = ref)}
+          class="docs-color__var"
+          style={{ background: `var(${this.var})` }}
+        >
           <docs-copy-to-cb textToCopy={this.var} />
           {this.var}
         </span>
-        <span class="docs-color__val">
+        <span
+          class="docs-color__val"
+          style={{ background: `var(${this.var})` }}
+        >
           <docs-copy-to-cb textToCopy={this.val} />
           {this.val}
         </span>

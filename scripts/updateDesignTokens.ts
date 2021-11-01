@@ -20,12 +20,12 @@ function parseThemesAndVariants(items, styles) {
   const colorVariants = {}
 
   items.forEach((item) => {
-    if (item.name === 'Gray') {
+    if (item.name === 'Neutral') {
       const variants = item.children
       if (variants) {
         variants.forEach((variant) => {
           const variantName = variant.name.toLowerCase()
-          const colorName = `gray${
+          const colorName = `neutral${
             variantName === 'default' ? '' : `-${variantName}`
           }`
           colorVariants[colorName] = relRGBToAbsRGB(variant.fills[0])
@@ -45,7 +45,23 @@ function parseThemesAndVariants(items, styles) {
               subVariants.forEach((subVariant) => {
                 const subVariantName = subVariant.name.toLowerCase()
                 const colorName = `wht-${variantName}-${subVariantName}`
-                colorVariants[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+
+                if (subVariant.styles?.fill) {
+                  const referenceName: string = styles[
+                    subVariant.styles.fill
+                  ]?.name
+                    .split('_')[0]
+                    .replaceAll(/[a-z0]/g, '')
+                    .toLowerCase()
+                  const [colorNumberStr] = referenceName.match(/\d+/) ?? []
+                  const colorNumber = Number.parseInt(colorNumberStr)
+                  colorVariants[colorName] = colorNumber
+                    ? referenceName.replace(/\d+/g, '') +
+                      (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                    : referenceName.replace(/-$/, '')
+                } else {
+                  colorVariants[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+                }
               })
             }
           }
@@ -69,7 +85,26 @@ function parseThemesAndVariants(items, styles) {
                 subVariants.forEach((subVariant) => {
                   const subVariantName = subVariant.name.toLowerCase()
                   const colorName = `${groupName}-${variantName}-${subVariantName}`
-                  theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+
+                  if (subVariant.styles?.fill) {
+                    const [baseColorName, ...rest] = styles[
+                      subVariant.styles.fill
+                    ]?.name
+                      .split('_')[0]
+                      .split('-')
+                    const referenceName =
+                      baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
+                      '-' +
+                      rest.join('-')
+                    const [colorNumberStr] = referenceName.match(/\d+/) ?? []
+                    const colorNumber = Number.parseInt(colorNumberStr)
+                    theme[colorName] = colorNumber
+                      ? referenceName.replace(/\d+/g, '') +
+                        (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                      : referenceName.replace(/-$/, '')
+                  } else {
+                    theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+                  }
                 })
               }
             } else {
@@ -287,16 +322,6 @@ function generateColors(colorTokens, themes) {
         .replace('/default', '')
         .replace(/-$/, '')
       colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
-      colorVariables.push(
-        `  --ld-col-${colorKey}-a01: ${val
-          .replace('rgb', 'rgba')
-          .replace(')', ', 0.1)')};`
-      )
-      colorVariables.push(
-        `  --ld-col-${colorKey}-a02: ${val
-          .replace('rgb', 'rgba')
-          .replace(')', ', 0.2)')};`
-      )
     } else {
       colorVariables.push(`  --ld-col-${key}: ${val};`)
     }

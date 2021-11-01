@@ -3,7 +3,7 @@
   pointer-events: none;
   user-select: none;
   touch-action: manipulation;
-  background-color: var(--ld-col-gray);
+  background-color: var(--ld-col-neutral);
   opacity: 0;
   z-index: 1;
 

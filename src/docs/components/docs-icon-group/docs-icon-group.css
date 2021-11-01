@@ -1,12 +1,12 @@
 @define-mixin docs-icon-group-ui-light {
   .docs-icon-group__icons {
-    background-color: var(--ld-col-gray-010);
-    border: var(--ld-sp-1) solid var(--ld-col-gray-100);
+    background-color: var(--ld-col-neutral-010);
+    border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
   }
 }
 @define-mixin docs-icon-group-ui-dark {
   .docs-icon-group__icons {
-    background-color: var(--ld-col-gray-400);
+    background-color: var(--ld-col-neutral-400);
     border: var(--ld-sp-1) solid transparent;
   }
 }

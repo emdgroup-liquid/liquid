@@ -75,18 +75,18 @@ code .highlight-line:before {
 @define-mixin docs-code-ui-light {
   code[class*='language-'],
   pre[class*='language-'] {
-    color: var(--ld-col-gray);
+    color: var(--ld-col-neutral);
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: var(--ld-col-gray-010);
+    background-color: var(--ld-col-neutral-010);
   }
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata,
   .token.punctuation {
-    color: var(--ld-col-gray-400);
+    color: var(--ld-col-neutral-400);
   }
   .token.property,
   .token.tag,
@@ -117,8 +117,8 @@ code .highlight-line:before {
     color: var(--ld-col-rp-400);
   }
   code .highlight-line:before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-gray-100);
-    color: var(--ld-col-gray-200);
+    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+    color: var(--ld-col-neutral-200);
   }
   .highlight-line.highlight-line-active {
     background-color: var(--ld-thm-warning);
@@ -132,14 +132,14 @@ code .highlight-line:before {
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background: var(--ld-col-gray);
+    background: var(--ld-col-neutral);
   }
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata,
   .token.punctuation {
-    color: var(--ld-col-gray-200);
+    color: var(--ld-col-neutral-200);
   }
   .token.property,
   .token.tag,
@@ -170,19 +170,19 @@ code .highlight-line:before {
     color: var(--ld-col-rp-200);
   }
   code .highlight-line:before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-gray-500);
-    color: var(--ld-col-gray-400);
+    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-500);
+    color: var(--ld-col-neutral-400);
   }
   .highlight-line.highlight-line-active {
     background-color: var(--ld-col-vy);
-    color: var(--ld-col-gray);
+    color: var(--ld-col-neutral);
 
     .token.comment,
     .token.prolog,
     .token.doctype,
     .token.cdata,
     .token.punctuation {
-      color: var(--ld-col-gray-400);
+      color: var(--ld-col-neutral-400);
     }
     .token.property,
     .token.tag,
@@ -213,8 +213,8 @@ code .highlight-line:before {
       color: var(--ld-col-rp-400);
     }
     code .highlight-line:before {
-      border-right: var(--ld-sp-1) solid var(--ld-col-gray-100);
-      color: var(--ld-col-gray-200);
+      border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+      color: var(--ld-col-neutral-200);
     }
   }
 }

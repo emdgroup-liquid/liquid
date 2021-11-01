@@ -1,36 +1,36 @@
 @define-mixin docs-nav-ui-light {
   .docs-nav__content {
-    background-color: var(--ld-col-gray-010);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-gray-100);
+    background-color: var(--ld-col-neutral-010);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-100);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-gray-010);
+    background-color: var(--ld-col-neutral-010);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-gray-100);
+    border-bottom-color: var(--ld-col-neutral-100);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-gray-400);
+    color: var(--ld-col-neutral-400);
 
     &:hover,
     &.docs-nav__li--active {
-      color: var(--ld-col-gray);
+      color: var(--ld-col-neutral);
     }
   }
 }
 @define-mixin docs-nav-ui-dark {
   .docs-nav__content {
-    background-color: var(--ld-col-gray);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-gray-400);
+    background-color: var(--ld-col-neutral);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-400);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-gray);
+    background-color: var(--ld-col-neutral);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-gray-500);
+    border-bottom-color: var(--ld-col-neutral-500);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-gray-100);
+    color: var(--ld-col-neutral-100);
 
     &:hover,
     &.docs-nav__li--active {
