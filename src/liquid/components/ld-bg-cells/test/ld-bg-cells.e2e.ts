@@ -13,7 +13,6 @@ const cellTypes = [
   't',
   'tile',
 ]
-const allowableMismatchedPixels = 2000
 
 jest.useRealTimers()
 
@@ -23,7 +22,7 @@ describe('ld-bg-cells', () => {
       const page = await getPageWithContent(`<ld-bg-cells />`)
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     cellTypes.forEach((cellType) => {
@@ -33,7 +32,7 @@ describe('ld-bg-cells', () => {
         )
         const results = await page.compareScreenshot()
 
-        expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        expect(results).toMatchScreenshot()
       })
     })
 
@@ -41,7 +40,7 @@ describe('ld-bg-cells', () => {
       const page = await getPageWithContent(`<ld-bg-cells repeat />`)
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     it(`with custom css vars`, async () => {
@@ -49,8 +48,8 @@ describe('ld-bg-cells', () => {
         `<ld-bg-cells class="custom" />
         <style>
           .custom {
-            --ld-bg-cells-background-color: var(--ld-col-vm2);
-            --ld-bg-cells-foreground-color: var(--ld-col-vm4);
+            --ld-bg-cells-background-color: var(--ld-col-vm-200);
+            --ld-bg-cells-foreground-color: var(--ld-col-vm-400);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }
@@ -58,7 +57,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     it(`with scrollable content`, async () => {
@@ -71,7 +70,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -87,7 +86,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     cellTypes.forEach((cellType) => {
@@ -101,7 +100,7 @@ describe('ld-bg-cells', () => {
         )
         const results = await page.compareScreenshot()
 
-        expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+        expect(results).toMatchScreenshot()
       })
     })
 
@@ -115,7 +114,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     it(`with custom css vars`, async () => {
@@ -125,8 +124,8 @@ describe('ld-bg-cells', () => {
         </div>
         <style>
           .custom {
-            --ld-bg-cells-background-color: var(--ld-col-vm2);
-            --ld-bg-cells-foreground-color: var(--ld-col-vm4);
+            --ld-bg-cells-background-color: var(--ld-col-vm-200);
+            --ld-bg-cells-foreground-color: var(--ld-col-vm-400);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }
@@ -136,7 +135,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
 
     it(`with scrollable content`, async () => {
@@ -154,7 +153,7 @@ describe('ld-bg-cells', () => {
       )
       const results = await page.compareScreenshot()
 
-      expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+      expect(results).toMatchScreenshot()
     })
   })
 })

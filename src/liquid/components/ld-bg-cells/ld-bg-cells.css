@@ -1,6 +1,6 @@
 :host,
 .ld-bg-cells {
-  background: var(--ld-bg-cells-background-color);
+  background: var(--ld-bg-cells-background-color, var(--ld-thm-primary));
   height: 100%;
   position: relative;
   width: 100%;
@@ -63,7 +63,7 @@
 }
 
 .ld-bg-cells__pattern {
-  background: var(--ld-bg-cells-foreground-color);
+  background: var(--ld-bg-cells-foreground-color, var(--ld-thm-secondary));
   mask-image: var(--ld-bg-cells-image);
   mask-position: var(--ld-bg-cells-position);
   mask-repeat: no-repeat;
