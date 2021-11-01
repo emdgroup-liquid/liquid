@@ -103,6 +103,7 @@ export class LdSelect {
   @State() hasMore = false
   @State() hasCustomIcon = false
   @State() renderHiddenInput = false
+  @State() ignoreSlotChanges = false
 
   @Watch('selected')
   emitEventsAndUpdateHidden(
@@ -334,6 +335,8 @@ export class LdSelect {
   }
 
   private initOptions() {
+    this.ignoreSlotChanges = true
+
     const initialized = this.initialized
     let children
     if (!initialized) {
@@ -363,17 +366,25 @@ export class LdSelect {
     }
 
     if (!initialized) {
-      this.internalOptionsHTML = this.el.innerHTML['replaceAll'](
-        /<ld-option/g,
-        `<ld-option-internal${this.multiple ? ' mode="checkbox"' : ''}${
+      let internalOptionsHTML = ''
+      for (const ldOption of children) {
+        const classStr = ldOption.classList.length
+          ? ldOption.classList.toString()
+          : ''
+        internalOptionsHTML += `<ld-option-internal${
+          classStr ? ' class="' + classStr + '"' : ''
+        }${this.multiple ? ' mode="checkbox"' : ''}${
           this.size ? ' size="' + this.size + '"' : ''
-        }${this.preventDeselection ? ' prevent-deselection' : ''}`
-      )
-        .replaceAll(/<\/ld-option/g, '</ld-option-internal')
-        .replaceAll(
+        }${this.preventDeselection ? ' prevent-deselection' : ''}${
+          ldOption.selected ? ' selected' : ''
+        }${ldOption.value ? ' value="' + ldOption.value + '"' : ''}${
+          ldOption.disabled ? ' disabled' : ''
+        }>${ldOption.innerHTML.replaceAll(
           /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
           ''
-        )
+        )}</ld-option-internal>`
+      }
+      this.internalOptionsHTML = internalOptionsHTML
     }
     this.selected = selectedChildren.map((child) => ({
       value: child.getAttribute('value'),
@@ -420,6 +431,11 @@ export class LdSelect {
   }
 
   private handleSlotChange(mutationsList: MutationRecord[]) {
+    if (this.ignoreSlotChanges) {
+      this.ignoreSlotChanges = false
+      return
+    }
+
     if (
       mutationsList.some(
         (record) => (record.target as HTMLElement).tagName !== 'LD-OPTION'
