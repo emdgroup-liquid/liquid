@@ -52,11 +52,12 @@
     }
 
     &::part(option) {
-      color: var(--ld-thm-ocean-bg-primary);
+      color: var(--ld-thm-ocean-primary);
 
       @media (hover: hover) {
         &:hover {
           color: var(--ld-thm-ocean-primary-hover);
+          background-color: var(--ld-col-rb-100);
         }
       }
       &:focus:focus-visible {
@@ -70,10 +71,10 @@
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-ocean-bg-primary);
+      fill: var(--ld-thm-ocean-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-ocean-accent);
+      fill: var(--ld-thm-ocean-secondary);
     }
 
     &.ld-option-internal--hover-within {
@@ -107,7 +108,7 @@
     }
 
     &::part(option) {
-      color: var(--ld-thm-bubblegum-bg-primary);
+      color: var(--ld-thm-bubblegum-primary);
 
       @media (hover: hover) {
         &:hover {
@@ -126,10 +127,10 @@
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-bubblegum-bg-primary);
+      fill: var(--ld-thm-bubblegum-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-bubblegum-accent);
+      fill: var(--ld-thm-bubblegum-secondary);
     }
 
     &.ld-option-internal--hover-within {
@@ -163,7 +164,7 @@
     }
 
     &::part(option) {
-      color: var(--ld-thm-shake-bg-primary);
+      color: var(--ld-thm-shake-primary);
 
       @media (hover: hover) {
         &:hover {
@@ -182,10 +183,10 @@
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-shake-bg-primary);
+      fill: var(--ld-thm-shake-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-shake-accent);
+      fill: var(--ld-thm-shake-secondary);
     }
 
     &.ld-option-internal--hover-within {
@@ -219,7 +220,7 @@
     }
 
     &::part(option) {
-      color: var(--ld-thm-solvent-bg-primary);
+      color: var(--ld-thm-solvent-primary);
 
       @media (hover: hover) {
         &:hover {
@@ -238,10 +239,10 @@
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-solvent-bg-primary);
+      fill: var(--ld-thm-solvent-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-solvent-accent);
+      fill: var(--ld-thm-solvent-secondary);
     }
 
     &.ld-option-internal--hover-within {
@@ -275,7 +276,7 @@
     }
 
     &::part(option) {
-      color: var(--ld-thm-tea-bg-primary);
+      color: var(--ld-thm-tea-primary);
 
       @media (hover: hover) {
         &:hover {
@@ -294,10 +295,10 @@
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-tea-bg-primary);
+      fill: var(--ld-thm-tea-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-tea-accent);
+      fill: var(--ld-thm-tea-secondary);
     }
 
     &.ld-option-internal--hover-within {
