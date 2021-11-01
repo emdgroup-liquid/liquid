@@ -169,7 +169,7 @@ describe('ld-select', () => {
       `,
     })
 
-    const ldSelect = page.body.querySelector('ld-select[name="fruit"]')
+    const ldSelect = page.root
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
     )
@@ -288,6 +288,48 @@ describe('ld-select', () => {
 
     expect(internalOptions[0].getAttribute('selected')).toEqual(null)
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
+  })
+
+  it('emits input event on selection of an option', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    await triggerPopperWithClick(page)
+    const { internalOptions } = await getInternalOptions(page)
+
+    const ldSelect = page.root
+
+    const spyInput = jest.fn()
+    let inputEvent
+    ldSelect.addEventListener('input', (ev) => {
+      inputEvent = ev
+      spyInput()
+    })
+
+    internalOptions[0].click()
+    await page.waitForChanges()
+    jest.advanceTimersByTime(0)
+
+    expect(spyInput).toHaveBeenCalledTimes(1)
+    expect(Array.isArray(inputEvent.detail)).toBeTruthy()
+    expect(inputEvent.detail.length).toEqual(1)
+    expect(inputEvent.detail[0]).toEqual('apple')
+
+    internalOptions[1].click()
+    await page.waitForChanges()
+    jest.advanceTimersByTime(0)
+
+    expect(spyInput).toHaveBeenCalledTimes(2)
+    expect(Array.isArray(inputEvent.detail)).toBeTruthy()
+    expect(inputEvent.detail.length).toEqual(1)
+    expect(inputEvent.detail[0]).toEqual('banana')
   })
 
   it('deselects a selected option if another option is selected in single select mode', async () => {
