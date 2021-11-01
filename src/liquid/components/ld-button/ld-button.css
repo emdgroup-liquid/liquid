@@ -177,7 +177,7 @@
     background-color: var(--ld-button-progress-color, var(--ld-thm-secondary));
     content: '';
     display: block;
-    height: var(--ld-br-m);
+    height: var(--ld-sp-4);
     transform: translateX(-100%)
       translateX(calc(var(--ld-button-progress) * 100%));
     transition: transform 0.2s ease;
