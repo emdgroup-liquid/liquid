@@ -47,6 +47,7 @@ function parseThemesAndVariants(items, styles) {
                 const colorName = `wht-${variantName}-${subVariantName}`
 
                 if (subVariant.styles?.fill) {
+                  // block renames e.g. "RichBlue-05" to "rb-500"
                   const referenceName: string = styles[
                     subVariant.styles.fill
                   ]?.name
@@ -87,6 +88,7 @@ function parseThemesAndVariants(items, styles) {
                   const colorName = `${groupName}-${variantName}-${subVariantName}`
 
                   if (subVariant.styles?.fill) {
+                    // block renames e.g. "RichBlue-alpha-low" to "rb-alpha-low",
                     const [baseColorName, ...rest] = styles[
                       subVariant.styles.fill
                     ]?.name
@@ -113,6 +115,7 @@ function parseThemesAndVariants(items, styles) {
               }`
 
               if (variant.styles?.fill) {
+                // block renames e.g. "RichBlue-05" to "rb-500"
                 const referenceName = styles[variant.styles.fill]?.name
                   .split('_')[0]
                   .replaceAll(/[a-z0]/g, '')
