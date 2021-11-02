@@ -144,7 +144,7 @@ describe('ld-bg-cells', () => {
         `<div class="ld-bg-cells ld-bg-cells--safc" style="height: 9rem; width: 15rem">
           <div class="ld-bg-cells__pattern"></div>
           <div class="ld-bg-cells__content">
-            <p class="ld-typo--body-m" style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
+            <p class="ld-typo" style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
           </div>
