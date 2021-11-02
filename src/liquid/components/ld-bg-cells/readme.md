@@ -91,55 +91,55 @@ A background pattern with the Merck cells as additional visual element.
 <!-- <div class="ld-bg-cells ld-bg-cells--bioreliance box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: bioreliance</p>
+    <p class="ld-typo">type: bioreliance</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--f box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: f</p>
+    <p class="ld-typo">type: f</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--hexagon box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: hexagon</p>
+    <p class="ld-typo">type: hexagon</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--millipore box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: millipore</p>
+    <p class="ld-typo">type: millipore</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--qa-x2f-qc box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: qa-x2f-qc</p>
+    <p class="ld-typo">type: qa-x2f-qc</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--safc box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: safc</p>
+    <p class="ld-typo">type: safc</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--sigma-aldrich box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: sigma-aldrich</p>
+    <p class="ld-typo">type: sigma-aldrich</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--t box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: t</p>
+    <p class="ld-typo">type: t</p>
   </div>
 </div>
 <div class="ld-bg-cells ld-bg-cells--tile box2-16/9">
   <div class="ld-bg-cells__pattern"></div>
   <div class="ld-bg-cells__content">
-    <p class="ld-typo--body-m">type: tile</p>
+    <p class="ld-typo">type: tile</p>
   </div>
 </div>
 
