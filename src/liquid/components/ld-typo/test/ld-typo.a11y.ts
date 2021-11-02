@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer'
 import liveServer from 'live-server'
 import { join } from 'path'
 
-describe('ld-paragraph', () => {
+describe('ld-typo', () => {
   let server, browser, page
 
   beforeAll(async function () {
@@ -34,7 +34,7 @@ describe('ld-paragraph', () => {
   it('is accessible', async () => {
     try {
       const result = await pa11y(
-        `http://localhost:${server.address().port}/components/ld-paragraph/`,
+        `http://localhost:${server.address().port}/components/ld-typo/`,
         {
           browser,
           page,

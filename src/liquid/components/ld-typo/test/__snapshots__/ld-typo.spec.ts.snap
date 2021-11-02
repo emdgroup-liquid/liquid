@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-typo renders 1`] = `
+<ld-typo variant="body-m">
+  <mock:shadow-root>
+    <p class="ld-typo ld-typo--body-m" part="tag">
+      <slot></slot>
+    </p>
+  </mock:shadow-root>
+  Text
+</ld-typo>
+`;
+
+exports[`ld-typo renders with brand variant and explicit aria-label 1`] = `
+<ld-typo aria-label="Yolo" variant="b3">
+  <mock:shadow-root>
+    <h3 aria-label="Yolo" class="ld-typo ld-typo--b3" part="tag">
+      <slot></slot>
+    </h3>
+  </mock:shadow-root>
+  Text
+</ld-typo>
+`;
+
+exports[`ld-typo renders with brand variant and implicit aria-label 1`] = `
+<ld-typo tag="h1" variant="b3">
+  <mock:shadow-root>
+    <h1 aria-label="Text" class="ld-typo ld-typo--b3" part="tag">
+      <slot></slot>
+    </h1>
+  </mock:shadow-root>
+  Text
+</ld-typo>
+`;
+
+exports[`ld-typo renders with custom tag 1`] = `
+<ld-typo tag="h1" variant="h3">
+  <mock:shadow-root>
+    <h1 class="ld-typo ld-typo--h3" part="tag">
+      <slot></slot>
+    </h1>
+  </mock:shadow-root>
+  Text
+</ld-typo>
+`;
