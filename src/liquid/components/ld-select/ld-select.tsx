@@ -103,7 +103,6 @@ export class LdSelect {
   @State() hasMore = false
   @State() hasCustomIcon = false
   @State() renderHiddenInput = false
-  @State() ignoreSlotChanges = false
 
   @Watch('selected')
   emitEventsAndUpdateHidden(
@@ -335,11 +334,6 @@ export class LdSelect {
   }
 
   private initOptions() {
-    this.ignoreSlotChanges = true
-    setTimeout(() => {
-      this.ignoreSlotChanges = false
-    })
-
     const initialized = this.initialized
     let children
     if (!initialized) {
@@ -387,8 +381,8 @@ export class LdSelect {
       }
       this.internalOptionsHTML = internalOptionsHTML
     }
-    this.selected = selectedChildren.map((child) => ({
-      value: child.getAttribute('value'),
+    this.selected = selectedChildren.map((child: HTMLLdOptionElement) => ({
+      value: child.value,
       text: child.innerText,
     }))
 
@@ -432,8 +426,6 @@ export class LdSelect {
   }
 
   private handleSlotChange(mutationsList: MutationRecord[]) {
-    if (this.ignoreSlotChanges) return
-
     if (
       mutationsList.some(
         (record) => (record.target as HTMLElement).tagName !== 'LD-OPTION'
