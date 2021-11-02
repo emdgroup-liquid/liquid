@@ -1,5 +1,5 @@
 import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
-import { LdParagraph } from '../../ld-paragraph/ld-paragraph'
+import { LdTypo } from '../../ld-typo/ld-typo'
 import { LdBgCells } from '../ld-bg-cells'
 
 const cellTypes = [
@@ -63,9 +63,9 @@ describe('ld-bg-cells', () => {
     it(`with scrollable content`, async () => {
       const page = await getPageWithContent(
         `<ld-bg-cells style="height: 9rem; width: 15rem">
-          <ld-paragraph style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
+          <ld-typo style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          </ld-paragraph>
+          </ld-typo>
         </ld-bg-cells>`
       )
       const results = await page.compareScreenshot()
@@ -143,13 +143,13 @@ describe('ld-bg-cells', () => {
         `<div class="ld-bg-cells ld-bg-cells--safc" style="height: 9rem; width: 15rem">
           <div class="ld-bg-cells__pattern"></div>
           <div class="ld-bg-cells__content">
-            <p class="ld-paragraph" style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
+            <p class="ld-typo" style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
           </div>
         </div>`,
         undefined,
-        [LdBgCells, LdParagraph]
+        [LdBgCells, LdTypo]
       )
       const results = await page.compareScreenshot()
 

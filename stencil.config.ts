@@ -34,6 +34,7 @@ export const config: Config = {
   ],
   plugins: [postcss(postcssConfig)],
   testing: {
+    allowableMismatchedPixels: 0,
     moduleDirectories: ['node_modules', './'],
     timers: 'fake',
   },
