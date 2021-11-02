@@ -7,15 +7,11 @@ title: Typography
 permalink: components/ld-typo/
 ---
 
-# ld-typo
-
 <link rel="stylesheet" href="/css_components/ld-typo.css">
 
-Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
+# ld-typo
 
-> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
-> 
-> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
+To give text a certain style of typography, you can use the `ld-typo` component. Every variant has its own semantic HTML tag that it gets rendered with. Heading styles render with their respective heading tag (`h1`, `h2`, etc). You can use the `tag` attribute, to render the variant with a different HTML tag, while keeping the visual variant style.
 
 ---
 
@@ -126,6 +122,12 @@ Headings are used as an introduction into a topic or a content section and for v
 {% endexample %}
 
 ### Headings
+
+Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
+
+> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+> 
+> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
 
 {% example "html", true %}
 <ld-typo variant="h1">
