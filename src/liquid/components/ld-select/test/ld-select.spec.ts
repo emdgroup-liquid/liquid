@@ -322,6 +322,15 @@ describe('ld-select', () => {
     )
   })
 
+  it('ignores slot changes if options are being initialized', async () => {
+    const ldSelect = new LdSelect()
+    ldSelect.ignoreSlotChanges = true
+    ;((ldSelect as unknown) as {
+      handleSlotChange: () => void
+    }).handleSlotChange()
+    expect(ldSelect.ignoreSlotChanges).toBeFalsy()
+  })
+
   it('deselects a selected option if another option is selected in single select mode', async () => {
     const page = await newSpecPage({
       components,
