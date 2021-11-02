@@ -323,12 +323,29 @@ describe('ld-select', () => {
   })
 
   it('ignores slot changes if options are being initialized', async () => {
+    expect.assertions(1)
     const ldSelect = new LdSelect()
-    ldSelect.ignoreSlotChanges = true
-    ;((ldSelect as unknown) as {
-      handleSlotChange: () => void
-    }).handleSlotChange()
-    expect(ldSelect.ignoreSlotChanges).toBeFalsy()
+
+    try {
+      ldSelect.ignoreSlotChanges = true
+      ;((ldSelect as unknown) as {
+        handleSlotChange: () => void
+      }).handleSlotChange()
+    } catch (err) {
+      // the following assertion should be skipped.
+      expect(err).toStrictEqual(Error('should be skipped.'))
+    }
+
+    try {
+      ldSelect.ignoreSlotChanges = false
+      ;((ldSelect as unknown) as {
+        handleSlotChange: () => void
+      }).handleSlotChange()
+    } catch (err) {
+      expect(err).toStrictEqual(
+        TypeError("Cannot read property 'some' of undefined")
+      )
+    }
   })
 
   it('deselects a selected option if another option is selected in single select mode', async () => {

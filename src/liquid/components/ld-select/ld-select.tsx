@@ -336,6 +336,9 @@ export class LdSelect {
 
   private initOptions() {
     this.ignoreSlotChanges = true
+    setTimeout(() => {
+      this.ignoreSlotChanges = false
+    })
 
     const initialized = this.initialized
     let children
@@ -429,10 +432,7 @@ export class LdSelect {
   }
 
   private handleSlotChange(mutationsList: MutationRecord[]) {
-    if (this.ignoreSlotChanges) {
-      this.ignoreSlotChanges = false
-      return
-    }
+    if (this.ignoreSlotChanges) return
 
     if (
       mutationsList.some(
