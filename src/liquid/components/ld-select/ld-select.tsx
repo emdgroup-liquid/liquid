@@ -368,9 +368,7 @@ export class LdSelect {
     if (!initialized) {
       let internalOptionsHTML = ''
       for (const ldOption of children) {
-        const classStr = ldOption.classList.length
-          ? ldOption.classList.toString()
-          : ''
+        const classStr = ldOption.classList.toString()
         internalOptionsHTML += `<ld-option-internal${
           classStr ? ' class="' + classStr + '"' : ''
         }${this.multiple ? ' mode="checkbox"' : ''}${
