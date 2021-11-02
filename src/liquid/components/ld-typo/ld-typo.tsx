@@ -63,9 +63,21 @@ export class LdTypo {
   @Prop() ariaLabel: string
 
   private applyAriaLabel() {
-    const isBrandHeading =
-      this.variant.includes('b') && !this.variant.includes('body')
-    if (isBrandHeading) {
+    const isUppercase = [
+      'cap-m',
+      'cap-l',
+      'b1',
+      'b2',
+      'b3',
+      'b4',
+      'b5',
+      'b6',
+      'xb1',
+      'xb2',
+      'xb3',
+    ].includes(this.variant)
+
+    if (isUppercase) {
       this.root.setAttribute(
         'aria-label',
         this.ariaLabel || this.el.innerHTML.trim()
@@ -75,6 +87,10 @@ export class LdTypo {
 
   private getDefaultTag = () =>
     ({
+      'cap-m': 'span',
+      'cap-l': 'span',
+      'label-s': 'span',
+      'label-m': 'span',
       h1: 'h1',
       h2: 'h2',
       h3: 'h3',
