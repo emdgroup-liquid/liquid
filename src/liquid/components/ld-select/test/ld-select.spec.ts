@@ -16,7 +16,14 @@ const components = [
   LdTheme,
 ]
 
-global.MutationObserver = MutationObserver
+let triggerableMutationObserver
+const TriggerableMutationObserver = function (cb) {
+  triggerableMutationObserver = new MutationObserver(cb)
+  triggerableMutationObserver.trigger = cb
+  return triggerableMutationObserver
+}
+
+global.MutationObserver = TriggerableMutationObserver as MutationObserver
 
 class FocusManager {
   focus(el) {
@@ -320,32 +327,6 @@ describe('ld-select', () => {
         detail: ['banana'],
       })
     )
-  })
-
-  it('ignores slot changes if options are being initialized', async () => {
-    expect.assertions(1)
-    const ldSelect = new LdSelect()
-
-    try {
-      ldSelect.ignoreSlotChanges = true
-      ;((ldSelect as unknown) as {
-        handleSlotChange: () => void
-      }).handleSlotChange()
-    } catch (err) {
-      // the following assertion should be skipped.
-      expect(err).toStrictEqual(Error('should be skipped.'))
-    }
-
-    try {
-      ldSelect.ignoreSlotChanges = false
-      ;((ldSelect as unknown) as {
-        handleSlotChange: () => void
-      }).handleSlotChange()
-    } catch (err) {
-      expect(err).toStrictEqual(
-        TypeError("Cannot read property 'some' of undefined")
-      )
-    }
   })
 
   it('deselects a selected option if another option is selected in single select mode', async () => {
@@ -1922,7 +1903,7 @@ describe('ld-select', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('fills hidden input fields with initially selected option values', async () => {
+  it('renders initially selected options as internal options and hidden input fields', async () => {
     const page = await newSpecPage({
       components,
       html: `
@@ -1960,7 +1941,7 @@ describe('ld-select', () => {
     }
   })
 
-  it('updates hidden input fields', async () => {
+  it('updates internal options in popper and hidden input fields', async () => {
     const page = await newSpecPage({
       components,
       html: `
@@ -1974,16 +1955,47 @@ describe('ld-select', () => {
       `,
     })
 
-    const ldSelect = page.root
     await triggerPopperWithClick(page)
     const { internalOptions } = await getInternalOptions(page)
-    const [option1, option2, option3] = internalOptions
+    const [option0, option1, option2] = internalOptions
 
+    option0.click()
     option1.click()
     option2.click()
-    option3.click()
-    option1.click() // deselect
+    option0.click() // deselect
 
-    expect(ldSelect).toMatchSnapshot()
+    await page.waitForChanges()
+
+    expect(page.body).toMatchSnapshot()
+  })
+
+  it('observes slot content changes and updates internal options in popper and hidden input fields', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit">
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="pear">Pear</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+    })
+    const ldSelect = page.root
+
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+
+    const slottedOptions = ldSelect.querySelectorAll('ld-option')
+    expect(slottedOptions.length).toEqual(3)
+
+    slottedOptions[2].setAttribute('selected', '')
+    await page.waitForChanges()
+    triggerableMutationObserver.trigger([])
+
+    await page.waitForChanges()
+
+    expect(page.body).toMatchSnapshot()
   })
 })
