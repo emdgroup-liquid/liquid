@@ -1,27 +1,11 @@
 @define-mixin docs-color-ui-light {
   .docs-color {
-    border-color: var(--ld-col-rblck1);
-
-    &.docs-color--transparent {
-      color: var(--ld-col-rblck-default);
-
-      .docs-copy-to-cb {
-        filter: none;
-      }
-    }
+    border-color: var(--ld-col-neutral-100);
   }
 }
 @define-mixin docs-color-ui-dark {
   .docs-color {
-    border-color: var(--ld-col-rblck4);
-
-    &.docs-color--transparent {
-      color: var(--ld-col-wht);
-
-      .docs-copy-to-cb {
-        filter: invert(1) hue-rotate(180deg);
-      }
-    }
+    border-color: var(--ld-col-neutral-400);
   }
 }
 
@@ -38,13 +22,15 @@
 }
 
 .docs-color {
+  background: #090909
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g><rect height="12" width="12" fill="black"></rect><rect height="12" width="12" y="12" x="12" fill="black"></rect></g></svg>');
   display: flex;
   width: 100%;
   align-items: center;
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-rblck-default);
+  color: var(--ld-col-neutral);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
@@ -64,8 +50,22 @@
   }
 }
 
+.docs-color--transparent {
+  color: var(--ld-col-wht);
+
+  &.docs-color--dark {
+    color: var(--ld-col-neutral);
+  }
+
+  .docs-copy-to-cb {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
 .docs-color--dark {
   color: var(--ld-col-wht);
+  background: #f1f1f1
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g><rect height="12" width="12" fill="white"></rect><rect height="12" width="12" y="12" x="12" fill="white"></rect></g></svg>');
 
   .docs-copy-to-cb {
     filter: invert(1) hue-rotate(180deg);

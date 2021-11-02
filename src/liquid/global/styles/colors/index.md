@@ -11,25 +11,26 @@ permalink: global/colors/
 
 All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
-## White and Liquid Black
+## White, Transparent White and Liquid Black
 
 <docs-color var="--ld-col-wht"></docs-color>
-<docs-color var="--ld-col-rblck-default"></docs-color>
+<docs-color var="--ld-col-wht-alpha-highest"></docs-color>
+<docs-color var="--ld-col-wht-alpha-high"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-medium"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-lowest"></docs-color>
+<docs-color var="--ld-col-neutral"></docs-color>
 
 ## Grey scale colors
 
-### Background grey scale colors
-
-<docs-color var="--ld-col-bg-lg"></docs-color>
-<docs-color var="--ld-col-bg-g"></docs-color>
-
-### Foreground grey scale colors
-
-<docs-color var="--ld-col-rblck1"></docs-color>
-<docs-color var="--ld-col-rblck2"></docs-color>
-<docs-color var="--ld-col-rblck3"></docs-color>
-<docs-color var="--ld-col-rblck4"></docs-color>
-<docs-color var="--ld-col-rblck5"></docs-color>
+<docs-color var="--ld-col-neutral-010"></docs-color>
+<docs-color var="--ld-col-neutral-050"></docs-color>
+<docs-color var="--ld-col-neutral-100"></docs-color>
+<docs-color var="--ld-col-neutral-200"></docs-color>
+<docs-color var="--ld-col-neutral-300"></docs-color>
+<docs-color var="--ld-col-neutral-400"></docs-color>
+<docs-color var="--ld-col-neutral-500"></docs-color>
+<docs-color var="--ld-col-neutral-600"></docs-color>
 
 ## Rich colors
 
@@ -37,134 +38,203 @@ Use rich colors for the structure of interfaces, actionable items, and validatio
 
 ### Rich Blue
 
-<docs-color var="--ld-col-rb1"></docs-color>
-<docs-color var="--ld-col-rb2"></docs-color>
-<docs-color var="--ld-col-rb3"></docs-color>
-<docs-color var="--ld-col-rb4"></docs-color>
-<docs-color var="--ld-col-rb5"></docs-color>
-<docs-color var="--ld-col-rb55"></docs-color>
-<docs-color var="--ld-col-rb6"></docs-color>
+<docs-color var="--ld-col-rb-100"></docs-color>
+<docs-color var="--ld-col-rb-200"></docs-color>
+<docs-color var="--ld-col-rb-300"></docs-color>
+<docs-color var="--ld-col-rb-400"></docs-color>
+<docs-color var="--ld-col-rb-500"></docs-color>
+<docs-color var="--ld-col-rb-550"></docs-color>
+<docs-color var="--ld-col-rb-600"></docs-color>
 
 ### Rich Green
 
-<docs-color var="--ld-col-rg1"></docs-color>
-<docs-color var="--ld-col-rg2"></docs-color>
-<docs-color var="--ld-col-rg3"></docs-color>
-<docs-color var="--ld-col-rg4"></docs-color>
-<docs-color var="--ld-col-rg5"></docs-color>
-<docs-color var="--ld-col-rg6"></docs-color>
+<docs-color var="--ld-col-rg-100"></docs-color>
+<docs-color var="--ld-col-rg-200"></docs-color>
+<docs-color var="--ld-col-rg-300"></docs-color>
+<docs-color var="--ld-col-rg-400"></docs-color>
+<docs-color var="--ld-col-rg-500"></docs-color>
+<docs-color var="--ld-col-rg-600"></docs-color>
 
 ### Rich Purple
 
-<docs-color var="--ld-col-rp1"></docs-color>
-<docs-color var="--ld-col-rp2"></docs-color>
-<docs-color var="--ld-col-rp3"></docs-color>
-<docs-color var="--ld-col-rp4"></docs-color>
-<docs-color var="--ld-col-rp5"></docs-color>
-<docs-color var="--ld-col-rp55"></docs-color>
-<docs-color var="--ld-col-rp6"></docs-color>
+<docs-color var="--ld-col-rp-100"></docs-color>
+<docs-color var="--ld-col-rp-200"></docs-color>
+<docs-color var="--ld-col-rp-300"></docs-color>
+<docs-color var="--ld-col-rp-400"></docs-color>
+<docs-color var="--ld-col-rp-500"></docs-color>
+<docs-color var="--ld-col-rp-550"></docs-color>
+<docs-color var="--ld-col-rp-600"></docs-color>
 
 ### Rich Red
 
-<docs-color var="--ld-col-rr1"></docs-color>
-<docs-color var="--ld-col-rr2"></docs-color>
-<docs-color var="--ld-col-rr3"></docs-color>
-<docs-color var="--ld-col-rr4"></docs-color>
-<docs-color var="--ld-col-rr5"></docs-color>
-<docs-color var="--ld-col-rr6"></docs-color>
+<docs-color var="--ld-col-rr-100"></docs-color>
+<docs-color var="--ld-col-rr-200"></docs-color>
+<docs-color var="--ld-col-rr-300"></docs-color>
+<docs-color var="--ld-col-rr-400"></docs-color>
+<docs-color var="--ld-col-rr-500"></docs-color>
+<docs-color var="--ld-col-rr-600"></docs-color>
 
 ## Vibrant colors
 
 ### Vibrant Cyan
 
-<docs-color var="--ld-col-vc1"></docs-color>
-<docs-color var="--ld-col-vc2"></docs-color>
-<docs-color var="--ld-col-vc3"></docs-color>
-<docs-color var="--ld-col-vc4"></docs-color>
-<docs-color var="--ld-col-vc5"></docs-color>
-<docs-color var="--ld-col-vc6"></docs-color>
+<docs-color var="--ld-col-vc-100"></docs-color>
+<docs-color var="--ld-col-vc-200"></docs-color>
+<docs-color var="--ld-col-vc-300"></docs-color>
+<docs-color var="--ld-col-vc-400"></docs-color>
+<docs-color var="--ld-col-vc-500"></docs-color>
+<docs-color var="--ld-col-vc-600"></docs-color>
 
 ### Vibrant Green
 
-<docs-color var="--ld-col-vg1"></docs-color>
-<docs-color var="--ld-col-vg2"></docs-color>
-<docs-color var="--ld-col-vg3"></docs-color>
-<docs-color var="--ld-col-vg4"></docs-color>
-<docs-color var="--ld-col-vg5"></docs-color>
-<docs-color var="--ld-col-vg6"></docs-color>
+<docs-color var="--ld-col-vg-100"></docs-color>
+<docs-color var="--ld-col-vg-200"></docs-color>
+<docs-color var="--ld-col-vg-300"></docs-color>
+<docs-color var="--ld-col-vg-400"></docs-color>
+<docs-color var="--ld-col-vg-500"></docs-color>
+<docs-color var="--ld-col-vg-600"></docs-color>
 
 ### Vibrant Magenta
 
-<docs-color var="--ld-col-vm1"></docs-color>
-<docs-color var="--ld-col-vm2"></docs-color>
-<docs-color var="--ld-col-vm3"></docs-color>
-<docs-color var="--ld-col-vm4"></docs-color>
-<docs-color var="--ld-col-vm5"></docs-color>
-<docs-color var="--ld-col-vm6"></docs-color>
+<docs-color var="--ld-col-vm-100"></docs-color>
+<docs-color var="--ld-col-vm-200"></docs-color>
+<docs-color var="--ld-col-vm-300"></docs-color>
+<docs-color var="--ld-col-vm-400"></docs-color>
+<docs-color var="--ld-col-vm-500"></docs-color>
+<docs-color var="--ld-col-vm-600"></docs-color>
 
 ### Vibrant Yellow
 
-<docs-color var="--ld-col-vy1"></docs-color>
-<docs-color var="--ld-col-vy2"></docs-color>
-<docs-color var="--ld-col-vy3"></docs-color>
-<docs-color var="--ld-col-vy4"></docs-color>
-<docs-color var="--ld-col-vy5"></docs-color>
-<docs-color var="--ld-col-vy6"></docs-color>
-
-## Transparent colors
-
-<docs-color is-transparent var="--ld-col-rblck-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rblck-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rb-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rb-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rg-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rg-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rp-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rp-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rr-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rr-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vc-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vc-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vg-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vg-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vm-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vm-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vy-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vy-a02"></docs-color>
+<docs-color var="--ld-col-vy-100"></docs-color>
+<docs-color var="--ld-col-vy-200"></docs-color>
+<docs-color var="--ld-col-vy-300"></docs-color>
+<docs-color var="--ld-col-vy-400"></docs-color>
+<docs-color var="--ld-col-vy-500"></docs-color>
+<docs-color var="--ld-col-vy-600"></docs-color>
 
 ## Theme palettes
 
 ### Bubblegum
 
-<docs-color var="--ld-thm-bubblegum-accent"></docs-color>
-<docs-color var="--ld-thm-bubblegum-bg-primary"></docs-color>
-<docs-color var="--ld-thm-bubblegum-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-bubblegum-highlight"></docs-color>
+<docs-color var="--ld-thm-bubblegum-primary-focus"></docs-color>
+<docs-color var="--ld-thm-bubblegum-primary"></docs-color>
+<docs-color var="--ld-thm-bubblegum-primary-hover"></docs-color>
+<docs-color var="--ld-thm-bubblegum-primary-active"></docs-color>
+<docs-color is-transparent var="--ld-thm-bubblegum-primary-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-thm-bubblegum-primary-alpha-lowest"></docs-color>
+<docs-color var="--ld-thm-bubblegum-secondary-focus"></docs-color>
+<docs-color var="--ld-thm-bubblegum-secondary"></docs-color>
+<docs-color var="--ld-thm-bubblegum-secondary-hover"></docs-color>
+<docs-color var="--ld-thm-bubblegum-secondary-active"></docs-color>
+<docs-color var="--ld-thm-bubblegum-success-focus"></docs-color>
+<docs-color var="--ld-thm-bubblegum-success"></docs-color>
+<docs-color var="--ld-thm-bubblegum-success-hover"></docs-color>
+<docs-color var="--ld-thm-bubblegum-success-active"></docs-color>
+<docs-color var="--ld-thm-bubblegum-warning-focus"></docs-color>
+<docs-color var="--ld-thm-bubblegum-warning"></docs-color>
+<docs-color var="--ld-thm-bubblegum-warning-hover"></docs-color>
+<docs-color var="--ld-thm-bubblegum-warning-active"></docs-color>
+<docs-color var="--ld-thm-bubblegum-error-focus"></docs-color>
+<docs-color var="--ld-thm-bubblegum-error"></docs-color>
+<docs-color var="--ld-thm-bubblegum-error-hover"></docs-color>
+<docs-color var="--ld-thm-bubblegum-error-active"></docs-color>
 
 ### Ocean
 
-<docs-color var="--ld-thm-ocean-accent"></docs-color>
-<docs-color var="--ld-thm-ocean-bg-primary"></docs-color>
-<docs-color var="--ld-thm-ocean-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-ocean-highlight"></docs-color>
+<docs-color var="--ld-thm-ocean-primary-focus"></docs-color>
+<docs-color var="--ld-thm-ocean-primary"></docs-color>
+<docs-color var="--ld-thm-ocean-primary-hover"></docs-color>
+<docs-color var="--ld-thm-ocean-primary-active"></docs-color>
+<docs-color is-transparent var="--ld-thm-ocean-primary-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-thm-ocean-primary-alpha-lowest"></docs-color>
+<docs-color var="--ld-thm-ocean-secondary-focus"></docs-color>
+<docs-color var="--ld-thm-ocean-secondary"></docs-color>
+<docs-color var="--ld-thm-ocean-secondary-hover"></docs-color>
+<docs-color var="--ld-thm-ocean-secondary-active"></docs-color>
+<docs-color var="--ld-thm-ocean-success-focus"></docs-color>
+<docs-color var="--ld-thm-ocean-success"></docs-color>
+<docs-color var="--ld-thm-ocean-success-hover"></docs-color>
+<docs-color var="--ld-thm-ocean-success-active"></docs-color>
+<docs-color var="--ld-thm-ocean-warning-focus"></docs-color>
+<docs-color var="--ld-thm-ocean-warning"></docs-color>
+<docs-color var="--ld-thm-ocean-warning-hover"></docs-color>
+<docs-color var="--ld-thm-ocean-warning-active"></docs-color>
+<docs-color var="--ld-thm-ocean-error-focus"></docs-color>
+<docs-color var="--ld-thm-ocean-error"></docs-color>
+<docs-color var="--ld-thm-ocean-error-hover"></docs-color>
+<docs-color var="--ld-thm-ocean-error-active"></docs-color>
 
 ### Shake
 
-<docs-color var="--ld-thm-shake-accent"></docs-color>
-<docs-color var="--ld-thm-shake-bg-primary"></docs-color>
-<docs-color var="--ld-thm-shake-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-shake-highlight"></docs-color>
+<docs-color var="--ld-thm-shake-primary-focus"></docs-color>
+<docs-color var="--ld-thm-shake-primary"></docs-color>
+<docs-color var="--ld-thm-shake-primary-hover"></docs-color>
+<docs-color var="--ld-thm-shake-primary-active"></docs-color>
+<docs-color is-transparent var="--ld-thm-shake-primary-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-thm-shake-primary-alpha-lowest"></docs-color>
+<docs-color var="--ld-thm-shake-secondary-focus"></docs-color>
+<docs-color var="--ld-thm-shake-secondary"></docs-color>
+<docs-color var="--ld-thm-shake-secondary-hover"></docs-color>
+<docs-color var="--ld-thm-shake-secondary-active"></docs-color>
+<docs-color var="--ld-thm-shake-success-focus"></docs-color>
+<docs-color var="--ld-thm-shake-success"></docs-color>
+<docs-color var="--ld-thm-shake-success-hover"></docs-color>
+<docs-color var="--ld-thm-shake-success-active"></docs-color>
+<docs-color var="--ld-thm-shake-warning-focus"></docs-color>
+<docs-color var="--ld-thm-shake-warning"></docs-color>
+<docs-color var="--ld-thm-shake-warning-hover"></docs-color>
+<docs-color var="--ld-thm-shake-warning-active"></docs-color>
+<docs-color var="--ld-thm-shake-error-focus"></docs-color>
+<docs-color var="--ld-thm-shake-error"></docs-color>
+<docs-color var="--ld-thm-shake-error-hover"></docs-color>
+<docs-color var="--ld-thm-shake-error-active"></docs-color>
 
 ### Solvent
 
-<docs-color var="--ld-thm-solvent-accent"></docs-color>
-<docs-color var="--ld-thm-solvent-bg-primary"></docs-color>
-<docs-color var="--ld-thm-solvent-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-solvent-highlight"></docs-color>
+<docs-color var="--ld-thm-solvent-primary-focus"></docs-color>
+<docs-color var="--ld-thm-solvent-primary"></docs-color>
+<docs-color var="--ld-thm-solvent-primary-hover"></docs-color>
+<docs-color var="--ld-thm-solvent-primary-active"></docs-color>
+<docs-color is-transparent var="--ld-thm-solvent-primary-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-thm-solvent-primary-alpha-lowest"></docs-color>
+<docs-color var="--ld-thm-solvent-secondary-focus"></docs-color>
+<docs-color var="--ld-thm-solvent-secondary"></docs-color>
+<docs-color var="--ld-thm-solvent-secondary-hover"></docs-color>
+<docs-color var="--ld-thm-solvent-secondary-active"></docs-color>
+<docs-color var="--ld-thm-solvent-success-focus"></docs-color>
+<docs-color var="--ld-thm-solvent-success"></docs-color>
+<docs-color var="--ld-thm-solvent-success-hover"></docs-color>
+<docs-color var="--ld-thm-solvent-success-active"></docs-color>
+<docs-color var="--ld-thm-solvent-warning-focus"></docs-color>
+<docs-color var="--ld-thm-solvent-warning"></docs-color>
+<docs-color var="--ld-thm-solvent-warning-hover"></docs-color>
+<docs-color var="--ld-thm-solvent-warning-active"></docs-color>
+<docs-color var="--ld-thm-solvent-error-focus"></docs-color>
+<docs-color var="--ld-thm-solvent-error"></docs-color>
+<docs-color var="--ld-thm-solvent-error-hover"></docs-color>
+<docs-color var="--ld-thm-solvent-error-active"></docs-color>
 
 ### Tea
 
-<docs-color var="--ld-thm-tea-accent"></docs-color>
-<docs-color var="--ld-thm-tea-bg-primary"></docs-color>
-<docs-color var="--ld-thm-tea-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-tea-highlight"></docs-color>
+<docs-color var="--ld-thm-tea-primary-focus"></docs-color>
+<docs-color var="--ld-thm-tea-primary"></docs-color>
+<docs-color var="--ld-thm-tea-primary-hover"></docs-color>
+<docs-color var="--ld-thm-tea-primary-active"></docs-color>
+<docs-color is-transparent var="--ld-thm-tea-primary-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-thm-tea-primary-alpha-lowest"></docs-color>
+<docs-color var="--ld-thm-tea-secondary-focus"></docs-color>
+<docs-color var="--ld-thm-tea-secondary"></docs-color>
+<docs-color var="--ld-thm-tea-secondary-hover"></docs-color>
+<docs-color var="--ld-thm-tea-secondary-active"></docs-color>
+<docs-color var="--ld-thm-tea-success-focus"></docs-color>
+<docs-color var="--ld-thm-tea-success"></docs-color>
+<docs-color var="--ld-thm-tea-success-hover"></docs-color>
+<docs-color var="--ld-thm-tea-success-active"></docs-color>
+<docs-color var="--ld-thm-tea-warning-focus"></docs-color>
+<docs-color var="--ld-thm-tea-warning"></docs-color>
+<docs-color var="--ld-thm-tea-warning-hover"></docs-color>
+<docs-color var="--ld-thm-tea-warning-active"></docs-color>
+<docs-color var="--ld-thm-tea-error-focus"></docs-color>
+<docs-color var="--ld-thm-tea-error"></docs-color>
+<docs-color var="--ld-thm-tea-error-hover"></docs-color>
+<docs-color var="--ld-thm-tea-error-active"></docs-color>

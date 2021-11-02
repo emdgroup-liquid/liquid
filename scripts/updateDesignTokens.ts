@@ -11,113 +11,137 @@ function relRGBToAbsRGB(fill) {
   const g = Math.round(fill.color.g * 255)
   const b = Math.round(fill.color.b * 255)
   const a = Math.round((fill.opacity || 1) * 100) / 100
-  return `rgba(${r}, ${g}, ${b}, ${a})`
+
+  return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
 }
 
-function parseThemes(items) {
+function parseThemesAndVariants(items, styles) {
   const themes = {}
+  const colorVariants = {}
 
-  for (const item of items) {
-    if (['Bubblegum', 'Ocean', 'Shake', 'Solvent', 'Tea'].includes(item.name)) {
-      const themeName = item.name.toLowerCase()
-      themes[themeName] = {}
-
-      const themeItems = item.children
-      for (const themeItem of themeItems) {
-        let colorName
-        if (themeItem.name.indexOf('Primary') !== -1) {
-          colorName = 'bg-primary'
-        }
-        if (themeItem.name.indexOf('Drop-Shadow Color') !== -1) {
-          colorName = 'bg-secondary'
-        }
-        if (themeItem.name.indexOf('Accent') !== -1) {
-          colorName = 'accent'
-        }
-        if (themeItem.name.indexOf('Highlight') !== -1) {
-          colorName = 'highlight'
-        }
-        themes[themeName][colorName] = relRGBToAbsRGB(themeItem.fills[0])
+  items.forEach((item) => {
+    if (item.name === 'Neutral') {
+      const variants = item.children
+      if (variants) {
+        variants.forEach((variant) => {
+          const variantName = variant.name.toLowerCase()
+          const colorName = `neutral${
+            variantName === 'default' ? '' : `-${variantName}`
+          }`
+          colorVariants[colorName] = relRGBToAbsRGB(variant.fills[0])
+        })
       }
-      continue
-    }
-  }
+    } else if (item.name === 'White') {
+      const variants = item.children
+      if (variants) {
+        variants.forEach((variant) => {
+          const variantName = variant.name.toLowerCase()
+          const subVariants = variant.children
 
-  return themes
-}
+          if (variantName === 'default') {
+            colorVariants['wht'] = relRGBToAbsRGB(variant.fills[0])
+          } else if (variant.children) {
+            if (subVariants) {
+              subVariants.forEach((subVariant) => {
+                const subVariantName = subVariant.name.toLowerCase()
+                const colorName = `wht-${variantName}-${subVariantName}`
 
-function parseVariants(items) {
-  const variants = {}
-
-  function addCol(colorBaseName, themeItem) {
-    variants[
-      themeItem.name.indexOf('Primary') === 0
-        ? `${colorBaseName}-primary`
-        : `${colorBaseName}-${themeItem.name.split('_')[0].toLowerCase()}`
-    ] = relRGBToAbsRGB(themeItem.fills[0])
-  }
-
-  for (const item of items) {
-    if (item.name.indexOf('Vibrant') === 0 || item.name.indexOf('Rich') === 0) {
-      let colorBaseName
-      switch (item.name) {
-        case 'RichBlack':
-          colorBaseName = 'rblck'
-          break
-        case 'RichBlue':
-          colorBaseName = 'rb'
-          break
-        case 'RichGreen':
-          colorBaseName = 'rg'
-          break
-        case 'RichPurple':
-          colorBaseName = 'rp'
-          break
-        case 'RichRed':
-          colorBaseName = 'rr'
-          break
-        case 'VibrantCyan':
-          colorBaseName = 'vc'
-          break
-        case 'VibrantGreen':
-          colorBaseName = 'vg'
-          break
-        case 'VibrantMagenta':
-          colorBaseName = 'vm'
-          break
-        case 'VibrantYellow':
-          colorBaseName = 'vy'
-          break
-      }
-
-      for (const themeItem of item.children) {
-        if (themeItem.children) {
-          for (const child of themeItem.children) {
-            addCol(colorBaseName, child)
+                if (subVariant.styles?.fill) {
+                  // block renames e.g. "RichBlue-05" to "rb-500"
+                  const referenceName: string = styles[
+                    subVariant.styles.fill
+                  ]?.name
+                    .split('_')[0]
+                    .replaceAll(/[a-z0]/g, '')
+                    .toLowerCase()
+                  const [colorNumberStr] = referenceName.match(/\d+/) ?? []
+                  const colorNumber = Number.parseInt(colorNumberStr)
+                  colorVariants[colorName] = colorNumber
+                    ? referenceName.replace(/\d+/g, '') +
+                      (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                    : referenceName.replace(/-$/, '')
+                } else {
+                  colorVariants[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+                }
+              })
+            }
           }
-        } else {
-          addCol(colorBaseName, themeItem)
-        }
+        })
       }
-    }
+    } else if (!item.name.startsWith('_')) {
+      const theme = {}
+      const themeName = item.name.toLowerCase()
 
-    if (item.name === 'Disabled Color') {
-      const themeItems = item.children
-      for (const themeItem of themeItems) {
-        let colorName
-        if (themeItem.name === 'Disabled Color') {
-          colorName = 'disabled'
+      const colorGroups = item.children
+      colorGroups.forEach((colorGroup) => {
+        const groupName = colorGroup.name.toLowerCase()
+        const variants = colorGroup.children
+        if (variants) {
+          variants.forEach((variant) => {
+            const variantName = variant.name.toLowerCase()
+            const subVariants = variant.children
+
+            if (variant.children) {
+              if (subVariants) {
+                subVariants.forEach((subVariant) => {
+                  const subVariantName = subVariant.name.toLowerCase()
+                  const colorName = `${groupName}-${variantName}-${subVariantName}`
+
+                  if (subVariant.styles?.fill) {
+                    // block renames e.g. "RichBlue-alpha-low" to "rb-alpha-low",
+                    const [baseColorName, ...rest] = styles[
+                      subVariant.styles.fill
+                    ]?.name
+                      .split('_')[0]
+                      .split('-')
+                    const referenceName =
+                      baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
+                      '-' +
+                      rest.join('-')
+                    const [colorNumberStr] = referenceName.match(/\d+/) ?? []
+                    const colorNumber = Number.parseInt(colorNumberStr)
+                    theme[colorName] = colorNumber
+                      ? referenceName.replace(/\d+/g, '') +
+                        (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                      : referenceName.replace(/-$/, '')
+                  } else {
+                    theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
+                  }
+                })
+              }
+            } else {
+              const colorName = `${groupName}${
+                variantName === 'default' ? '' : `-${variantName}`
+              }`
+
+              if (variant.styles?.fill) {
+                // block renames e.g. "RichBlue-05" to "rb-500"
+                const referenceName = styles[variant.styles.fill]?.name
+                  .split('_')[0]
+                  .replaceAll(/[a-z0]/g, '')
+                  .toLowerCase()
+                const [colorNumber] = referenceName.match(/\d+/) ?? []
+                theme[colorName] = colorNumber
+                  ? referenceName.replaceAll(/\d+/g, '') +
+                    (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
+                  : referenceName.replace(/-$/, '')
+              } else {
+                theme[colorName] = relRGBToAbsRGB(variant.fills[0])
+              }
+            }
+          })
         }
-        if (themeItem.name === 'Disabled On Brand Color') {
-          colorName = 'disabled-on-primary'
-        }
-        variants[colorName] = relRGBToAbsRGB(themeItem.fills[0])
+      })
+
+      if (Object.keys(themes).length === 0) {
+        theme['default'] = true
       }
-      continue
-    }
-  }
 
-  return variants
+      themes[themeName] = theme
+    }
+  })
+
+  return { themes, variants: colorVariants }
 }
 
 function parseShadows(items) {
@@ -204,21 +228,28 @@ function parseSpacings(items) {
   return spacings
 }
 
-async function getTokensFromFigma(figmaId = '5UbVMMa68tkeSlrNWgZw93') {
-  const result = await nodeFetch('https://api.figma.com/v1/files/' + figmaId, {
-    method: 'GET',
-    headers: {
-      'X-Figma-Token': process.env.FIGMA_API_KEY,
-    },
-  })
-  const figmaData = (await result.json()).document.children.filter((item) => {
-    return item.name === 'Liquid Design Tokens'
-  })[0].children
+async function getTokensFromFigma(
+  figmaId = 'JcDMeUwec9e185HfBgT9XE',
+  nodeId = '2615:28396'
+) {
+  const result = await nodeFetch(
+    `https://api.figma.com/v1/files/${figmaId}/nodes?ids=${nodeId}`,
+    {
+      method: 'GET',
+      headers: {
+        'X-Figma-Token': process.env.FIGMA_API_KEY,
+      },
+    }
+  )
+  const { document, styles } = (await result.json()).nodes[nodeId]
+  const { children: figmaData } = document
+  const { themes, variants } = parseThemesAndVariants(
+    figmaData.find(({ name }) => name.indexOf('Theme Colors') === 0).children,
+    styles
+  )
 
   const tokens = {
-    themes: parseThemes(
-      figmaData.find((child) => child.name.indexOf('Themes') === 0).children
-    ),
+    themes,
     shadows: parseShadows(
       figmaData.find((child) => child.name === 'Shadows').children
     ),
@@ -226,9 +257,7 @@ async function getTokensFromFigma(figmaId = '5UbVMMa68tkeSlrNWgZw93') {
       figmaData.find((child) => child.name === 'Spacings').children
     ),
     colors: {
-      ...parseVariants(
-        figmaData.find((child) => child.name.indexOf('Themes') === 0).children
-      ),
+      ...variants,
       ...parseColors(
         figmaData.find((child) => child.name === 'Accessible Colors').children
       ),
@@ -281,45 +310,68 @@ function generateShadows(tokens) {
   )
 }
 
-function generateColors(tokensColors, tokensThemes) {
-  const lines = []
+function generateColors(colorTokens, themes) {
+  const colorVariables = []
+  const defaultThemeVariables = []
+  const themeSelectors = []
 
   // Basic colors
-  Object.keys(tokensColors).forEach((key) => {
-    const val = tokensColors[key]
+  Object.keys(colorTokens).forEach((key) => {
+    const val = colorTokens[key]
     if (key.includes('/default')) {
-      lines.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
-      const colorKey = key.slice(0, -'x/default'.length)
-      lines.push(`  --ld-col-${colorKey}-default: ${val};`)
-      lines.push(
-        `  --ld-col-${colorKey}-a01: ${val.replace(', 1)', ', 0.1)')};`
-      )
-      lines.push(
-        `  --ld-col-${colorKey}-a02: ${val.replace(', 1)', ', 0.2)')};`
-      )
+      colorVariables.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
+      const colorKey = key
+        .replace(/\d/g, '')
+        .replace('/default', '')
+        .replace(/-$/, '')
+      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
     } else {
-      lines.push(`  --ld-col-${key}: ${val};`)
+      colorVariables.push(`  --ld-col-${key}: ${val};`)
     }
   })
   // Theme specific colors
-  Object.keys(tokensThemes).forEach((key) => {
-    const val = tokensThemes[key]
-    if (['bubblegum', 'ocean', 'shake', 'solvent', 'tea'].includes(key)) {
-      Object.keys(val).forEach((itemName) => {
-        const itemValue = val[itemName]
-        lines.push(`  --ld-thm-${key}-${itemName}: ${itemValue};`)
-      })
-    } else if (key === 'disabled' || key === 'variants') {
-      Object.keys(val).forEach((itemName) => {
-        const itemValue = val[itemName]
-        lines.push(`  --ld-col-${itemName}: ${itemValue};`)
-      })
-    }
+  Object.keys(themes).forEach((themeName) => {
+    const theme = themes[themeName]
+    themeSelectors.push(`.ld-theme-${themeName},
+    [class*='ld-theme'] .ld-theme-${themeName} {`)
+    Object.keys(theme).forEach((colorGroupName) => {
+      const colorGroup = theme[colorGroupName]
+
+      if (colorGroupName === 'default') {
+        return
+      }
+
+      const variableValue =
+        colorGroup.indexOf('rgb') === 0
+          ? colorGroup
+          : `var(--ld-col-${colorGroup})`
+
+      colorVariables.push(
+        `  --ld-thm-${themeName}-${colorGroupName}: ${variableValue};`
+      )
+      themeSelectors.push(
+        `  --ld-thm-${colorGroupName}: var(--ld-thm-${themeName}-${colorGroupName});`
+      )
+      if (theme.default) {
+        defaultThemeVariables.push(
+          `  --ld-thm-${colorGroupName}: var(--ld-thm-${themeName}-${colorGroupName});`
+        )
+      }
+    })
+    themeSelectors.push(`}`)
   })
 
   return writeFile(
     './src/liquid/global/styles/colors/colors.css',
-    ['/* autogenerated */', ':root {', ...lines.sort(), '}', ''].join('\n'),
+    [
+      '/* autogenerated */',
+      ':root {',
+      ...colorVariables.sort(),
+      ...defaultThemeVariables,
+      '}',
+      ...themeSelectors,
+      '',
+    ].join('\n'),
     'utf8'
   )
 }

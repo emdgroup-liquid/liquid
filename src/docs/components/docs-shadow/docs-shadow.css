@@ -1,11 +1,11 @@
 @define-mixin docs-shadow-ui-light {
   .docs-shadow {
-    border-color: var(--ld-col-rblck1);
+    border-color: var(--ld-col-neutral-100);
   }
 }
 @define-mixin docs-shadow-ui-dark {
   .docs-shadow {
-    border-color: var(--ld-col-rblck4);
+    border-color: var(--ld-col-neutral-400);
   }
 }
 
@@ -28,7 +28,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-rblck-default);
+  color: var(--ld-col-neutral);
   background-color: var(--ld-col-wht);
   padding: var(--ld-sp-16) var(--ld-sp-16) 4rem;
 
