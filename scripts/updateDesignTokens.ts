@@ -10,7 +10,7 @@ function relRGBToAbsRGB(fill) {
   const r = Math.round(fill.color.r * 255)
   const g = Math.round(fill.color.g * 255)
   const b = Math.round(fill.color.b * 255)
-  const a = Math.round((fill.opacity || 1) * 100) / 100
+  const a = Math.round((fill.opacity ?? 1) * 100) / 100
 
   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
 }
@@ -20,55 +20,7 @@ function parseThemesAndVariants(items, styles) {
   const colorVariants = {}
 
   items.forEach((item) => {
-    if (item.name === 'Neutral') {
-      const variants = item.children
-      if (variants) {
-        variants.forEach((variant) => {
-          const variantName = variant.name.toLowerCase()
-          const colorName = `neutral${
-            variantName === 'default' ? '' : `-${variantName}`
-          }`
-          colorVariants[colorName] = relRGBToAbsRGB(variant.fills[0])
-        })
-      }
-    } else if (item.name === 'White') {
-      const variants = item.children
-      if (variants) {
-        variants.forEach((variant) => {
-          const variantName = variant.name.toLowerCase()
-          const subVariants = variant.children
-
-          if (variantName === 'default') {
-            colorVariants['wht'] = relRGBToAbsRGB(variant.fills[0])
-          } else if (variant.children) {
-            if (subVariants) {
-              subVariants.forEach((subVariant) => {
-                const subVariantName = subVariant.name.toLowerCase()
-                const colorName = `wht-${variantName}-${subVariantName}`
-
-                if (subVariant.styles?.fill) {
-                  // block renames e.g. "RichBlue-05" to "rb-500"
-                  const referenceName: string = styles[
-                    subVariant.styles.fill
-                  ]?.name
-                    .split('_')[0]
-                    .replaceAll(/[a-z0]/g, '')
-                    .toLowerCase()
-                  const [colorNumberStr] = referenceName.match(/\d+/) ?? []
-                  const colorNumber = Number.parseInt(colorNumberStr)
-                  colorVariants[colorName] = colorNumber
-                    ? referenceName.replace(/\d+/g, '') +
-                      (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
-                    : referenceName.replace(/-$/, '')
-                } else {
-                  colorVariants[colorName] = relRGBToAbsRGB(subVariant.fills[0])
-                }
-              })
-            }
-          }
-        })
-      }
-    } else if (!item.name.startsWith('_')) {
+    if (!item.name.startsWith('_')) {
       const theme = {}
       const themeName = item.name.toLowerCase()
 
@@ -92,6 +44,7 @@ function parseThemesAndVariants(items, styles) {
                     const [baseColorName, ...rest] = styles[
                       subVariant.styles.fill
                     ]?.name
+                      .split('/')[1]
                       .split('_')[0]
                       .split('-')
                     const referenceName =
@@ -117,6 +70,7 @@ function parseThemesAndVariants(items, styles) {
               if (variant.styles?.fill) {
                 // block renames e.g. "RichBlue-05" to "rb-500"
                 const referenceName = styles[variant.styles.fill]?.name
+                  .split('/')[1]
                   .split('_')[0]
                   .replaceAll(/[a-z0]/g, '')
                   .toLowerCase()
@@ -169,7 +123,7 @@ function parseColors(items) {
   const colors = {}
 
   for (const item of items) {
-    if (item.fills?.length) {
+    if (!item.name.startsWith('_') && item.fills?.length) {
       colors[item.name.split('_')[0].toLowerCase()] = relRGBToAbsRGB(
         item.fills[0]
       )
