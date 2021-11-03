@@ -1,4 +1,19 @@
 :host {
+  /* layout */
+  --ld-notification-min-height: var(--ld-sp-40);
+  --ld-notification-border-radius: var(--ld-br-m);
+  --ld-notification-inset-y: var(--ld-sp-32);
+
+  /* colors */
+  --ld-notification-col: var(--ld-col-wht);
+  --ld-notification-col-warn: var(--ld-col-neutral);
+  --ld-notification-col-alert: var(--ld-col-wht);
+
+  /* themable colors */
+  --ld-notification-col-bg: var(--ld-thm-primary);
+  --ld-notification-col-bg-warn: var(--ld-thm-warning);
+  --ld-notification-col-bg-alert: var(--ld-thm-error);
+
   position: fixed;
   z-index: 2147483647; /* Highest possible */
   display: flex;
@@ -36,17 +51,17 @@
   pointer-events: auto;
   position: absolute;
   transform-origin: center;
-  box-shadow: var(--ld-shadow-sticky);
   width: fit-content;
   min-width: 19rem;
   max-width: calc(90% - 1rem);
   max-height: 80vh;
-  min-height: var(--ld-sp-40);
   overflow-y: auto;
-  border-radius: var(--ld-br-m);
   display: flex;
   justify-content: space-between;
   transition: transform 0.2s ease, opacity 0.2s linear;
+  box-shadow: var(--ld-shadow-sticky);
+  min-height: var(--ld-notification-min-height);
+  border-radius: var(--ld-notification-border-radius);
 
   &:where(:not(.ld-notification__item--dismissed)) {
     animation: ld-notification-fade-in 0.2s linear;
@@ -81,7 +96,7 @@
   }
 
   :host(.ld-notification--bottom) & {
-    bottom: var(--ld-sp-32);
+    bottom: var(--ld-notification-inset-y);
 
     &:nth-last-of-type(2) {
       transform: scale(0.975) translateY(25%);
@@ -97,7 +112,7 @@
   }
 
   :host(.ld-notification--top) & {
-    top: var(--ld-sp-32);
+    top: var(--ld-notification-inset-y);
 
     &:nth-last-of-type(2) {
       transform: scale(0.975) translateY(-25%);
@@ -114,16 +129,16 @@
 }
 
 .ld-notification__item--info {
-  background-color: var(--ld-notification-item-color);
-  color: var(--ld-col-wht);
+  background-color: var(--ld-notification-col-bg);
+  color: var(--ld-notification-col);
 }
 .ld-notification__item--warn {
-  background-color: var(--ld-col-vy-default);
-  color: var(--ld-col-rblck-default);
+  background-color: var(--ld-notification-col-bg-warn);
+  color: var(--ld-notification-col-warn);
 }
 .ld-notification__item--alert {
-  background-color: var(--ld-col-rr-default);
-  color: var(--ld-col-wht);
+  background-color: var(--ld-notification-col-bg-alert);
+  color: var(--ld-notification-col-alert);
 }
 
 .ld-notification__item-content,
@@ -160,39 +175,4 @@
   user-select: none;
   touch-action: manipulation;
   -webkit-touch-callout: none;
-}
-
-/* .ld-theme-ocean -> default */
-.ld-notification__item--info,
-:where(.ld-theme-ocean) .ld-notification__item--info,
-:where([class*='ld-theme'] .ld-theme-ocean) .ld-notification__item--info {
-  --ld-notification-item-color: var(--ld-thm-ocean-bg-primary);
-}
-
-:where(.ld-theme-tea),
-:where([class*='ld-theme'] .ld-theme-tea) {
-  .ld-notification__item--info {
-    --ld-notification-item-color: var(--ld-thm-tea-bg-primary);
-  }
-}
-
-:where(.ld-theme-bubblegum),
-:where([class*='ld-theme'] .ld-theme-bubblegum) {
-  .ld-notification__item--info {
-    --ld-notification-item-color: var(--ld-thm-bubblegum-bg-primary);
-  }
-}
-
-:where(.ld-theme-shake),
-:where([class*='ld-theme'] .ld-theme-shake) {
-  .ld-notification__item--info {
-    --ld-notification-item-color: var(--ld-thm-shake-bg-primary);
-  }
-}
-
-:where(.ld-theme-solvent),
-:where([class*='ld-theme'] .ld-theme-solvent) {
-  .ld-notification__item--info {
-    --ld-notification-item-color: var(--ld-thm-solvent-bg-primary);
-  }
 }

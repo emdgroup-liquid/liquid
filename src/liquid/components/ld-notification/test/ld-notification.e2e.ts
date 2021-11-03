@@ -2,8 +2,6 @@ import { getPageWithContent } from '../../../utils/e2e-tests'
 
 jest.useRealTimers()
 
-const allowableMismatchedRatio = 0.02
-
 describe('ld-notification', () => {
   describe('placement', () => {
     it('renders placed at the top with prop placement set to "top"', async () => {
@@ -25,7 +23,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders placed at the bottom with prop placement set to "bottom"', async () => {
@@ -47,7 +45,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -71,7 +69,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`renders a notification of type "warn"`, async () => {
@@ -93,7 +91,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`renders a notification of type "alert"`, async () => {
@@ -115,7 +113,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -210,7 +208,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -235,7 +233,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 })
