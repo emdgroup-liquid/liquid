@@ -1881,11 +1881,7 @@ describe('ld-select', () => {
     await page.waitForChanges()
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-    expect(
-      ldSelectPopper.shadowRoot
-        .querySelector('.ld-select-popper')
-        .classList.contains('ld-theme-tea')
-    ).toBeTruthy()
+    expect(ldSelectPopper.classList.contains('ld-theme-tea')).toBeTruthy()
   })
 
   it('creates hidden input field, if inside a form', async () => {

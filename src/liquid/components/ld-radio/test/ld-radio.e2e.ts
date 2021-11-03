@@ -6,8 +6,6 @@ jest.useRealTimers()
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 
-const allowableMismatchedRatio = 0.02
-
 const dotAndBox = `
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
@@ -25,7 +23,7 @@ describe('ld-radio', () => {
             `<ld-radio tone="${tone}"></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -34,7 +32,7 @@ describe('ld-radio', () => {
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -42,7 +40,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled
@@ -51,7 +49,7 @@ describe('ld-radio', () => {
             `<ld-radio tone="${tone}" ${checkedStateStr} disabled></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -60,7 +58,7 @@ describe('ld-radio', () => {
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -68,7 +66,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled
@@ -77,7 +75,7 @@ describe('ld-radio', () => {
             `<ld-radio tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`aria-disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -86,7 +84,7 @@ describe('ld-radio', () => {
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`aria-disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -94,7 +92,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Themed CSS component
@@ -108,7 +106,7 @@ describe('ld-radio', () => {
             LdRadio
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -120,7 +118,7 @@ describe('ld-radio', () => {
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -132,7 +130,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled CSS component
@@ -145,7 +143,7 @@ describe('ld-radio', () => {
             LdRadio
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -157,7 +155,7 @@ describe('ld-radio', () => {
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -169,7 +167,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled CSS component
@@ -182,7 +180,7 @@ describe('ld-radio', () => {
             LdRadio
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component aria-disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -194,7 +192,7 @@ describe('ld-radio', () => {
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component aria-disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -206,7 +204,7 @@ describe('ld-radio', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
       }
     })

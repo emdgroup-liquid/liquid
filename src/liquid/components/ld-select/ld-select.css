@@ -28,25 +28,25 @@
   --ld-select-icon-size-lg: 1.5rem;
 
   /* colors */
-  --ld-select-col: var(--ld-col-rblck-default);
+  --ld-select-col: var(--ld-col-neutral);
   --ld-select-col-bg: var(--ld-col-wht);
-  --ld-select-col-invalid: var(--ld-col-rr-default);
-  --ld-select-col-invalid-hover: var(--ld-col-rr-hover);
-  --ld-select-col-invalid-focus: var(--ld-col-rr-focus);
-  --ld-select-col-invalid-active: var(--ld-col-rr-active);
-  --ld-select-col-bg-invalid-disabled: var(--ld-col-rr1);
-  --ld-select-col-disabled: var(--ld-col-rblck1);
-  --ld-select-col-border: var(--ld-col-rblck1);
-  --ld-select-col-border-hover: var(--ld-col-rblck2);
+  --ld-select-col-disabled: var(--ld-col-neutral-100);
+  --ld-select-col-border: var(--ld-col-neutral-100);
+  --ld-select-col-border-hover: var(--ld-col-neutral-200);
   --ld-select-selection-col: var(--ld-col-wht);
 
   /* themable colors */
-  --ld-select-thm-col: var(--ld-thm-ocean-bg-primary);
-  --ld-select-thm-col-hover: var(--ld-col-rb-hover);
-  --ld-select-thm-col-focus: var(--ld-col-rb-focus);
-  --ld-select-thm-col-active: var(--ld-col-rb-active);
-  --ld-select-ghost-thm-col-bg-hover: var(--ld-col-rb-a01);
-  --ld-select-ghost-thm-col-bg-focus: var(--ld-col-rb-a02);
+  --ld-select-col-invalid: var(--ld-thm-error);
+  --ld-select-col-invalid-hover: var(--ld-thm-error-hover);
+  --ld-select-col-invalid-focus: var(--ld-thm-error-focus);
+  --ld-select-col-invalid-active: var(--ld-thm-error-active);
+  --ld-select-col-bg-invalid-disabled: var(--ld-thm-error-disabled);
+  --ld-select-thm-col: var(--ld-thm-primary);
+  --ld-select-thm-col-hover: var(--ld-thm-primary-hover);
+  --ld-select-thm-col-focus: var(--ld-thm-primary-focus);
+  --ld-select-thm-col-active: var(--ld-thm-primary-active);
+  --ld-select-ghost-thm-col-bg-hover: var(--ld-thm-primary-alpha-lowest);
+  --ld-select-ghost-thm-col-bg-focus: var(--ld-thm-primary-alpha-low);
 
   /* reset */
   *,
