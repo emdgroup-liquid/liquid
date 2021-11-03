@@ -31,7 +31,7 @@ export class LdInput implements InnerFocusable {
   private hiddenInput?: HTMLInputElement
   private input: HTMLInputElement | HTMLTextAreaElement
 
-  /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
+  /** Used to specify the name of the control. */
   @Prop() name?: string
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
