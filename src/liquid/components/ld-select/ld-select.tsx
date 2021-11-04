@@ -363,20 +363,26 @@ export class LdSelect {
     }
 
     if (!initialized) {
-      this.internalOptionsHTML = this.el.innerHTML['replaceAll'](
-        /<ld-option/g,
-        `<ld-option-internal${this.multiple ? ' mode="checkbox"' : ''}${
+      let internalOptionsHTML = ''
+      for (const ldOption of children) {
+        const classStr = ldOption.classList.toString()
+        internalOptionsHTML += `<ld-option-internal${
+          classStr ? ' class="' + classStr + '"' : ''
+        }${this.multiple ? ' mode="checkbox"' : ''}${
           this.size ? ' size="' + this.size + '"' : ''
-        }${this.preventDeselection ? ' prevent-deselection' : ''}`
-      )
-        .replaceAll(/<\/ld-option/g, '</ld-option-internal')
-        .replaceAll(
+        }${this.preventDeselection ? ' prevent-deselection' : ''}${
+          ldOption.selected ? ' selected' : ''
+        }${ldOption.value ? ' value="' + ldOption.value + '"' : ''}${
+          ldOption.disabled ? ' disabled' : ''
+        }>${ldOption.innerHTML.replaceAll(
           /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
           ''
-        )
+        )}</ld-option-internal>`
+      }
+      this.internalOptionsHTML = internalOptionsHTML
     }
-    this.selected = selectedChildren.map((child) => ({
-      value: child.getAttribute('value'),
+    this.selected = selectedChildren.map((child: HTMLLdOptionElement) => ({
+      value: child.value,
       text: child.innerText,
     }))
 

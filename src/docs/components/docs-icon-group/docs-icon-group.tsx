@@ -13,9 +13,9 @@ export class DocsIconGroup {
   render() {
     return (
       <Host class="docs-icon-group">
-        <ld-heading level="3" visual-level="h4">
+        <ld-typo variant="h4" tag="h3">
           {this.name}
-        </ld-heading>
+        </ld-typo>
         <div class="docs-icon-group__icons">
           <slot />
         </div>

@@ -1,0 +1,137 @@
+:host {
+  display: block;
+
+  /* Reset within the shadow DOM. */
+  .ld-typo {
+    margin: 0;
+  }
+}
+
+.ld-typo,
+.ld-typo--body-m {
+  font: var(--ld-typo-body-m);
+}
+.ld-typo--body-l {
+  font: var(--ld-typo-body-l);
+}
+.ld-typo--body-s {
+  font: var(--ld-typo-body-s);
+}
+.ld-typo--body-xl {
+  font: var(--ld-typo-body-xl);
+}
+.ld-typo--body-xs {
+  font: var(--ld-typo-body-xs);
+}
+
+.ld-typo--cap-l {
+  font: var(--ld-typo-cap-l);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.ld-typo--cap-m {
+  font: var(--ld-typo-cap-m);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ld-typo--label-m {
+  font: var(--ld-typo-label-m);
+}
+.ld-typo--label-s {
+  font: var(--ld-typo-label-s);
+  font-weight: 700;
+}
+
+.ld-typo--h1 {
+  font: var(--ld-typo-h1);
+  font-weight: 700;
+}
+.ld-typo--h2 {
+  font: var(--ld-typo-h2);
+  font-weight: 700;
+}
+.ld-typo--h3 {
+  font: var(--ld-typo-h3);
+  font-weight: 700;
+}
+.ld-typo--h4 {
+  font: var(--ld-typo-h4);
+  font-weight: 700;
+}
+.ld-typo--h5 {
+  font: var(--ld-typo-h5);
+  font-weight: 700;
+}
+.ld-typo--h6 {
+  font: var(--ld-typo-h6);
+  font-weight: 700;
+}
+
+.ld-typo--b1 {
+  font: var(--ld-typo-b1);
+  text-transform: uppercase;
+}
+.ld-typo--b2 {
+  font: var(--ld-typo-b2);
+  text-transform: uppercase;
+}
+.ld-typo--b3 {
+  font: var(--ld-typo-b3);
+  text-transform: uppercase;
+}
+.ld-typo--b4 {
+  font: var(--ld-typo-b4);
+  text-transform: uppercase;
+}
+.ld-typo--b5 {
+  font: var(--ld-typo-b5);
+  text-transform: uppercase;
+}
+.ld-typo--b6 {
+  font: var(--ld-typo-b6);
+  text-transform: uppercase;
+}
+
+.ld-typo--xb1 {
+  font: var(--ld-typo-xb1);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.ld-typo--xb2 {
+  font: var(--ld-typo-xb2);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.ld-typo--xb3 {
+  font: var(--ld-typo-xb3);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ld-typo--xh1 {
+  font: var(--ld-typo-xh1);
+  font-weight: 700;
+}
+.ld-typo--xh2 {
+  font: var(--ld-typo-xh2);
+  font-weight: 700;
+}
+.ld-typo--xh3 {
+  font: var(--ld-typo-xh3);
+  font-weight: 700;
+}
+.ld-typo--xh4 {
+  font: var(--ld-typo-xh4);
+  font-weight: 700;
+}
+.ld-typo--xh5 {
+  font: var(--ld-typo-xh5);
+  font-weight: 700;
+}
+.ld-typo--xh6 {
+  font: var(--ld-typo-xh6);
+  font-weight: 700;
+}
