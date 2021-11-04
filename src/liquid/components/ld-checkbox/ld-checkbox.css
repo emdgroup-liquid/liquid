@@ -4,35 +4,32 @@
   --ld-checkbox-size: 1.25rem;
 
   /* colors */
-  --ld-checkbox-col-bg: var(--ld-col-wht);
-  --ld-checkbox-col-bg-hover: var(--ld-col-neutral-010);
-  --ld-checkbox-col-bg-active: var(--ld-col-neutral-050);
-  --ld-checkbox-col-border: var(--ld-col-neutral-400);
-  --ld-checkbox-col-disabled: var(--ld-col-neutral-200);
-  --ld-checkbox-col-bg-disabled: var(--ld-col-neutral-100);
-  --ld-checkbox-dark-col-bg: var(--ld-col-neutral-050);
-  --ld-checkbox-dark-col-bg-hover: var(--ld-col-neutral-100);
-  --ld-checkbox-dark-col-bg-active: var(--ld-col-neutral-200);
+  --ld-checkbox-bg-col: var(--ld-col-wht);
+  --ld-checkbox-bg-col-hover: var(--ld-col-neutral-010);
+  --ld-checkbox-bg-col-active: var(--ld-col-neutral-050);
+  --ld-checkbox-disabled-col: var(--ld-col-neutral-200);
+  --ld-checkbox-disabled-bg-col: var(--ld-col-neutral-100);
+  --ld-checkbox-dark-bg-col: var(--ld-col-neutral-050);
+  --ld-checkbox-dark-bg-col-hover: var(--ld-col-neutral-100);
+  --ld-checkbox-dark-bg-col-active: var(--ld-col-neutral-200);
   --ld-checkbox-checked-col: var(--ld-col-wht);
   --ld-checkbox-checked-col-active: var(--ld-col-wht);
 
   /* themable colors */
-  --ld-checkbox-col-invalid: var(--ld-thm-error);
-  --ld-checkbox-col-invalid-hover: var(--ld-thm-error-hover);
-  --ld-checkbox-col-invalid-focus: var(--ld-thm-error-focus);
-  --ld-checkbox-col-invalid-active: var(--ld-thm-error-active);
-  --ld-checkbox-col-warn: var(--ld-thm-warning);
-  --ld-checkbox-col-warn-hover: var(--ld-thm-warning-hover);
-  --ld-checkbox-col-warn-focus: var(--ld-thm-warning-focus);
-  --ld-checkbox-col-warn-active: var(--ld-thm-warning-active);
-  --ld-checkbox-col-warn-checked: var(--ld-thm-warning-active);
-  --ld-checkbox-col-warn-checked-focus: var(--ld-thm-warning-active);
-  --ld-checkbox-col-warn-checked-active: var(--ld-thm-warning-hover);
-  --ld-checkbox-col-bg-warn-checked-active: var(--ld-thm-warning-active);
-  --ld-checkbox-thm-col: var(--ld-thm-primary);
-  --ld-checkbox-thm-col-hover: var(--ld-thm-primary-hover);
-  --ld-checkbox-thm-col-active: var(--ld-thm-primary-active);
-  --ld-checkbox-thm-col-focus: var(--ld-thm-primary-focus);
+  --ld-checkbox-col: var(--ld-thm-primary);
+  --ld-checkbox-col-hover: var(--ld-thm-primary-hover);
+  --ld-checkbox-col-active: var(--ld-thm-primary-active);
+  --ld-checkbox-col-focus: var(--ld-thm-primary-focus);
+  --ld-checkbox-invalid-col: var(--ld-thm-error);
+  --ld-checkbox-invalid-col-hover: var(--ld-thm-error-hover);
+  --ld-checkbox-invalid-col-focus: var(--ld-thm-error-focus);
+  --ld-checkbox-invalid-col-active: var(--ld-thm-error-active);
+  --ld-checkbox-warn-col: var(--ld-thm-warning);
+  --ld-checkbox-warn-col-hover: var(--ld-thm-warning-hover);
+  --ld-checkbox-warn-col-focus: var(--ld-thm-warning-focus);
+  --ld-checkbox-warn-col-active: var(--ld-thm-warning-active);
+  --ld-checkbox-warn-checked-col: var(--ld-thm-warning-active);
+  --ld-checkbox-warn-checked-col-active: var(--ld-thm-warning-hover);
 
   position: relative;
   display: inline-flex;
@@ -63,16 +60,16 @@
     &:where(:disabled),
     &:where([aria-disabled='true']) {
       ~ .ld-checkbox__check {
-        color: var(--ld-checkbox-col-disabled);
+        color: var(--ld-checkbox-disabled-col);
       }
       ~ .ld-checkbox__box {
         background-color: transparent;
-        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-bg-disabled);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-disabled-bg-col);
       }
 
       &:checked {
         ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-col-bg-disabled);
+          background-color: var(--ld-checkbox-disabled-bg-col);
         }
       }
     }
@@ -81,23 +78,23 @@
       cursor: pointer;
 
       ~ .ld-checkbox__check {
-        color: var(--ld-checkbox-thm-col-active);
+        color: var(--ld-checkbox-col-active);
       }
       ~ .ld-checkbox__box {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col);
       }
 
       &:focus:focus-visible {
         ~ .ld-checkbox__box {
           background-color: transparent;
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-focus);
         }
       }
       &:active,
       &:active:focus-visible {
         ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-col-bg-active);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-active);
+          background-color: var(--ld-checkbox-bg-col-active);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-active);
         }
       }
 
@@ -106,17 +103,17 @@
           color: var(--ld-checkbox-checked-col);
         }
         ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-thm-col);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col);
+          background-color: var(--ld-checkbox-col);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col);
         }
 
         &:focus:focus-visible {
           ~ .ld-checkbox__check {
-            color: var(--ld-checkbox-thm-col-active);
+            color: var(--ld-checkbox-col-active);
           }
           ~ .ld-checkbox__box {
-            background-color: var(--ld-checkbox-thm-col-focus);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-focus);
+            background-color: var(--ld-checkbox-col-focus);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-focus);
           }
         }
         &:active,
@@ -125,8 +122,8 @@
             color: var(--ld-checkbox-checked-col-active);
           }
           ~ .ld-checkbox__box {
-            background-color: var(--ld-checkbox-thm-col-active);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-active);
+            background-color: var(--ld-checkbox-col-active);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-active);
           }
         }
       }
@@ -135,14 +132,14 @@
 
   :where(input:not(:disabled):not(input[aria-disabled='true'])) {
     ~ .ld-checkbox__box {
-      background-color: var(--ld-checkbox-col-bg);
+      background-color: var(--ld-checkbox-bg-col);
     }
 
     @media (hover: hover) {
       &:hover {
         ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-col-bg-hover);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-hover);
+          background-color: var(--ld-checkbox-bg-col-hover);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-hover);
         }
 
         &:checked {
@@ -150,8 +147,8 @@
             color: var(--ld-checkbox-checked-col);
           }
           ~ .ld-checkbox__box {
-            background-color: var(--ld-checkbox-thm-col-hover);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-thm-col-hover);
+            background-color: var(--ld-checkbox-col-hover);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-hover);
           }
         }
       }
@@ -164,13 +161,13 @@
   :where(input) {
     &:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
       ~ .ld-checkbox__box {
-        background-color: var(--ld-checkbox-dark-col-bg);
+        background-color: var(--ld-checkbox-dark-bg-col);
       }
 
       @media (hover: hover) {
         &:hover {
           ~ .ld-checkbox__box {
-            background-color: var(--ld-checkbox-dark-col-bg-hover);
+            background-color: var(--ld-checkbox-dark-bg-col-hover);
           }
         }
       }
@@ -178,7 +175,7 @@
       &:active,
       &:active:focus-visible {
         ~ .ld-checkbox__box {
-          background-color: var(--ld-checkbox-dark-col-bg-active);
+          background-color: var(--ld-checkbox-dark-bg-col-active);
         }
       }
     }
@@ -200,7 +197,6 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-border);
 }
 
 :host,
@@ -211,20 +207,20 @@
 
 :host(.ld-checkbox--highlight),
 .ld-checkbox--highlight {
-  --ld-checkbox-thm-col: var(--ld-checkbox-col-warn);
-  --ld-checkbox-thm-col-hover: var(--ld-checkbox-col-warn-hover);
-  --ld-checkbox-thm-col-focus: var(--ld-checkbox-col-warn-focus);
-  --ld-checkbox-thm-col-active: var(--ld-checkbox-col-warn-active);
-  --ld-checkbox-checked-col: var(--ld-checkbox-col-warn-checked);
-  --ld-checkbox-checked-col-active: var(--ld-checkbox-col-warn-checked-active);
+  --ld-checkbox-col: var(--ld-checkbox-warn-col);
+  --ld-checkbox-col-hover: var(--ld-checkbox-warn-col-hover);
+  --ld-checkbox-col-focus: var(--ld-checkbox-warn-col-focus);
+  --ld-checkbox-col-active: var(--ld-checkbox-warn-col-active);
+  --ld-checkbox-checked-col: var(--ld-checkbox-warn-checked-col);
+  --ld-checkbox-checked-col-active: var(--ld-checkbox-warn-checked-col-active);
 }
 
 :host(.ld-checkbox--invalid),
 :host(.ld-checkbox--danger),
 .ld-checkbox--invalid,
 .ld-checkbox--danger {
-  --ld-checkbox-thm-col: var(--ld-checkbox-col-invalid);
-  --ld-checkbox-thm-col-hover: var(--ld-checkbox-col-invalid-hover);
-  --ld-checkbox-thm-col-active: var(--ld-checkbox-col-invalid-active);
-  --ld-checkbox-thm-col-focus: var(--ld-checkbox-col-invalid-focus);
+  --ld-checkbox-col: var(--ld-checkbox-invalid-col);
+  --ld-checkbox-col-hover: var(--ld-checkbox-invalid-col-hover);
+  --ld-checkbox-col-active: var(--ld-checkbox-invalid-col-active);
+  --ld-checkbox-col-focus: var(--ld-checkbox-invalid-col-focus);
 }
