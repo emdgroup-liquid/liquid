@@ -20,33 +20,33 @@
   --ld-input-time-min-width-lg: 7.5rem;
 
   /* colors */
-  --ld-input-bg-color-disabled: var(--ld-col-wht-alpha-none);
-  --ld-input-bg-color-invalid-focus: var(--ld-col-wht);
-  --ld-input-bg-color-invalid: var(--ld-thm-error-disabled);
-  --ld-input-bg-color: var(--ld-col-wht);
-  --ld-input-border-color-disabled: var(--ld-col-neutral-100);
-  --ld-input-border-color-hover: var(--ld-col-neutral-200);
-  --ld-input-border-color: var(--ld-col-neutral-100);
-  --ld-input-icon-color-focus: var(--ld-thm-primary-focus);
-  --ld-input-icon-color-invalid-focus: var(--ld-thm-error-focus);
-  --ld-input-icon-color: var(--ld-thm-primary);
-  --ld-input-placeholder-color-invalid: var(--ld-thm-error-focus);
-  --ld-input-placeholder-color: var(--ld-col-neutral-400);
-  --ld-input-text-color-disabled: var(--ld-col-neutral-200);
-  --ld-input-text-color-invalid-focus: var(--ld-col-neutral);
-  --ld-input-text-color-invalid: var(--ld-thm-error);
-  --ld-input-text-color: var(--ld-col-neutral);
+  --ld-input-bg-col-disabled: var(--ld-col-wht-alpha-none);
+  --ld-input-bg-col-invalid-focus: var(--ld-col-wht);
+  --ld-input-bg-col-invalid: var(--ld-thm-error-disabled);
+  --ld-input-bg-col: var(--ld-col-wht);
+  --ld-input-border-col-disabled: var(--ld-col-neutral-100);
+  --ld-input-border-col-hover: var(--ld-col-neutral-200);
+  --ld-input-border-col: var(--ld-col-neutral-100);
+  --ld-input-icon-col-focus: var(--ld-thm-primary-focus);
+  --ld-input-icon-col-invalid-focus: var(--ld-thm-error-focus);
+  --ld-input-icon-col: var(--ld-thm-primary);
+  --ld-input-placeholder-col-invalid: var(--ld-thm-error-focus);
+  --ld-input-placeholder-col: var(--ld-col-neutral-400);
+  --ld-input-text-col-disabled: var(--ld-col-neutral-200);
+  --ld-input-text-col-invalid-focus: var(--ld-col-neutral);
+  --ld-input-text-col-invalid: var(--ld-thm-error);
+  --ld-input-text-col: var(--ld-col-neutral);
 
   /* mode colors */
-  --ld-input-dark-bg-color-focus: var(--ld-col-wht);
-  --ld-input-dark-bg-color: var(--ld-col-neutral-010);
+  --ld-input-dark-bg-col-focus: var(--ld-col-wht);
+  --ld-input-dark-bg-col: var(--ld-col-neutral-010);
 
   cursor: text;
   position: relative;
   display: inline-flex;
   align-items: center;
-  background-color: var(--ld-input-bg-color);
-  color: var(--ld-input-text-color);
+  background-color: var(--ld-input-bg-col);
+  color: var(--ld-input-text-col);
   max-width: 100%;
   border-radius: var(--ld-br-m);
   line-height: 1;
@@ -62,7 +62,7 @@
     border-radius: var(--ld-br-m);
     display: block;
     pointer-events: none;
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-color);
+    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col);
   }
 
   ::slotted(*),
@@ -118,13 +118,13 @@
 
     &::-webkit-calendar-picker-indicator {
       cursor: pointer;
-      background: var(--ld-input-icon-color);
+      background: var(--ld-input-icon-col);
       mask-repeat: no-repeat;
       mask-position: center;
       outline: none;
 
       &:focus:focus-visible {
-        background: var(--ld-input-icon-color-focus);
+        background: var(--ld-input-icon-col-focus);
       }
     }
     &[type='date']::-webkit-calendar-picker-indicator {
@@ -154,7 +154,7 @@
     appearance: none;
 
     &::placeholder {
-      color: var(--ld-input-placeholder-color);
+      color: var(--ld-input-placeholder-col);
     }
   }
 
@@ -208,7 +208,7 @@
   ::slotted(.ld-icon),
   > ld-icon,
   > .ld-icon {
-    color: var(--ld-input-icon-color);
+    color: var(--ld-input-icon-col);
     cursor: text;
     display: inline-flex;
   }
@@ -320,14 +320,14 @@
 
 :host(.ld-input--dark),
 .ld-input--dark {
-  background-color: var(--ld-input-dark-bg-color);
+  background-color: var(--ld-input-dark-bg-col);
 }
 
 @media (hover: hover) {
   :host(:not(.ld-input--invalid):not([aria-disabled='true']):not([disabled]):hover:not(:focus-within)),
   .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not([disabled]):hover:not(:focus-within) {
     &::before {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-color-hover);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col-hover);
     }
   }
 }
@@ -341,55 +341,55 @@
 
 :host(.ld-input--dark:not(.ld-input--invalid):focus-within),
 .ld-input--dark:not(.ld-input--invalid):focus-within {
-  background-color: var(--ld-input-dark-bg-color-focus);
+  background-color: var(--ld-input-dark-bg-col-focus);
 }
 
 :host(.ld-input--invalid:focus-within),
 .ld-input--invalid:focus-within {
-  background-color: var(--ld-input-bg-color-invalid-focus);
+  background-color: var(--ld-input-bg-col-invalid-focus);
 }
 
 :host(.ld-input--invalid:not([disabled]):not([aria-disabled='true']):where(:not(:focus))),
 .ld-input--invalid:not([disabled]):not([aria-disabled='true']):where(:not(:focus)) {
-  background-color: var(--ld-input-bg-color-invalid);
-  color: var(--ld-input-text-color-invalid);
+  background-color: var(--ld-input-bg-col-invalid);
+  color: var(--ld-input-text-col-invalid);
 }
 
 :host(.ld-input--invalid:not([disabled]):not([aria-disabled='true'])),
 .ld-input--invalid:not([disabled]):not([aria-disabled='true']) {
   &::before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-text-color-invalid);
+    box-shadow: inset 0 0 0 0.1rem var(--ld-input-text-col-invalid);
   }
 
   > input,
   > textarea {
-    color: var(--ld-input-text-color-invalid);
+    color: var(--ld-input-text-col-invalid);
 
     &::placeholder {
-      color: var(--ld-input-placeholder-color-invalid);
+      color: var(--ld-input-placeholder-col-invalid);
     }
   }
 
   > input::-webkit-calendar-picker-indicator {
-    background: var(--ld-input-text-color-invalid);
+    background: var(--ld-input-text-col-invalid);
 
     &:focus:focus-visible {
-      background: var(--ld-input-icon-color-invalid-focus);
+      background: var(--ld-input-icon-col-invalid-focus);
     }
   }
 
   .ld-input__placeholder {
-    color: var(--ld-input-placeholder-color-invalid);
+    color: var(--ld-input-placeholder-col-invalid);
   }
 }
 
 :host(.ld-input--invalid:not([disabled]):not([aria-disabled='true']):focus-within),
 .ld-input--invalid:not([disabled]):not([aria-disabled='true']):focus-within {
-  background-color: var(--ld-input-bg-color-invalid-focus);
+  background-color: var(--ld-input-bg-col-invalid-focus);
 
   > input,
   > textarea {
-    color: var(--ld-input-text-color-invalid-focus);
+    color: var(--ld-input-text-col-invalid-focus);
   }
 }
 
@@ -397,11 +397,11 @@
 :host([aria-disabled='true']),
 .ld-input[disabled],
 .ld-input[aria-disabled='true'] {
-  color: var(--ld-input-text-color-disabled);
-  background-color: var(--ld-input-bg-color-disabled);
+  color: var(--ld-input-text-col-disabled);
+  background-color: var(--ld-input-bg-col-disabled);
 
   &::before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-color-disabled);
+    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col-disabled);
   }
 
   input,
@@ -415,7 +415,7 @@
   }
 
   input::-webkit-calendar-picker-indicator {
-    background: var(--ld-input-text-color-disabled);
+    background: var(--ld-input-text-col-disabled);
     pointer-events: none;
   }
 
@@ -433,7 +433,7 @@
   height: 100%;
   align-items: center;
   pointer-events: none;
-  color: var(--ld-input-placeholder-color);
+  color: var(--ld-input-placeholder-col);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
