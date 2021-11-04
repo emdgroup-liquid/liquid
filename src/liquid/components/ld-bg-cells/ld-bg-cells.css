@@ -1,6 +1,9 @@
 :host,
 .ld-bg-cells {
-  background: var(--ld-bg-cells-background-color, var(--ld-thm-primary));
+  --ld-bg-cells-bg-col: var(--ld-thm-primary);
+  --ld-bg-cells-pattern-col: var(--ld-thm-secondary);
+
+  background: var(--ld-bg-cells-bg-col);
   height: 100%;
   position: relative;
   width: 100%;
@@ -63,7 +66,7 @@
 }
 
 .ld-bg-cells__pattern {
-  background: var(--ld-bg-cells-foreground-color, var(--ld-thm-secondary));
+  background: var(--ld-bg-cells-pattern-col);
   mask-image: var(--ld-bg-cells-image);
   mask-position: var(--ld-bg-cells-position);
   mask-repeat: no-repeat;

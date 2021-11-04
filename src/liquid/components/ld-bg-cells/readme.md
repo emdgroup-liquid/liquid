@@ -163,8 +163,8 @@ A background pattern with the Merck cells as additional visual element.
 
 <style>
   .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm-200);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm-400);
+    --ld-bg-cells-bg-col: var(--ld-col-vm-200);
+    --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
     --ld-bg-cells-position: bottom left;
     --ld-bg-cells-size: 150%;
 
@@ -181,8 +181,8 @@ A background pattern with the Merck cells as additional visual element.
 
 <style>
   .box3-16\/9 {
-    --ld-bg-cells-background-color: var(--ld-col-vm-200);
-    --ld-bg-cells-foreground-color: var(--ld-col-vm-400);
+    --ld-bg-cells-bg-col: var(--ld-col-vm-200);
+    --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
     --ld-bg-cells-position: bottom left;
     --ld-bg-cells-size: 150%;
 
@@ -194,8 +194,8 @@ A background pattern with the Merck cells as additional visual element.
 
 | Variable                         | Description                                                   | Default                              |
 | -------------------------------- | ------------------------------------------------------------- | ------------------------------------ |
-| `--ld-bg-cells-background-color` | Background color                                              | Primary color of the current theme   |
-| `--ld-bg-cells-foreground-color` | Foreground color (cells)                                      | Secondary color of the current theme |
+| `--ld-bg-cells-bg-col` | Background color                                              | Primary color of the current theme   |
+| `--ld-bg-cells-pattern-col` | Pattern color (cells)                                      | Secondary color of the current theme |
 | `--ld-bg-cells-position`         | Position of the cells                                         | Individual per cell type             |
 | `--ld-bg-cells-size`             | Size of the cells                                             | Individual per cell type             |
 
