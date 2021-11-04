@@ -136,17 +136,17 @@
   --ld-toggle-width: var(--ld-toggle-with-icons-width);
 
   input {
-    background-color: var(--ld-toggle-with-icons-input-bg-col);
+    &:not(:disabled) {
+      background-color: var(--ld-toggle-with-icons-input-bg-col);
+    }
 
     &:invalid ~ .ld-toggle__knob {
-      background-color: var(--ld-toggle-invalid-knob-bg-col) !important;
+      background-color: var(--ld-toggle-invalid-knob-bg-col);
     }
 
     &:disabled,
     &[aria-disabled='true'] {
-      background-color: var(
-        --ld-toggle-with-icons-disabled-input-bg-col
-      ) !important;
+      background-color: var(--ld-toggle-with-icons-disabled-input-bg-col);
 
       ~ .ld-toggle__knob {
         background-color: var(--ld-toggle-disabled-knob-bg-col);
