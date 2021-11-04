@@ -1,8 +1,37 @@
 :host,
 .ld-toggle {
+  /* layout */
   --ld-toggle-height: 2rem;
   --ld-toggle-width: 3.375rem;
   --ld-toggle-inner-space: 0.125rem;
+  --ld-toggle-with-icons-width: 4.5rem;
+  --ld-toggle-lg-height: 2.5rem;
+  --ld-toggle-lg-width: 4.1875rem;
+  --ld-toggle-lg-inner-space: 0.1875rem;
+  --ld-toggle-lg-with-icons-width: 6rem;
+  --ld-toggle-border-radius: var(--ld-br-full);
+  --ld-toggle-knob-border-radius: var(--ld-br-full);
+
+  /* colors */
+  --ld-toggle-input-col-bg: var(--ld-col-neutral-400);
+  --ld-toggle-input-col-bg-disabled: var(--ld-col-neutral-050);
+  --ld-toggle-icon-col-bg-disabled: var(--ld-col-neutral-050);
+  --ld-toggle-icon-start-col: var(--ld-col-wht);
+  --ld-toggle-icon-end-col: var(--ld-col-neutral);
+  --ld-toggle-icon-start-col-checked: var(--ld-col-neutral);
+  --ld-toggle-icon-end-col-checked: var(--ld-col-wht);
+  --ld-toggle-icon-col-disabled: var(--ld-col-neutral-400);
+  --ld-toggle-knob-col-bg: var(--ld-col-wht);
+  --ld-toggle-knob-col-bg-disabled: var(--ld-col-wht);
+  --ld-toggle-with-icons-input-col-bg: var(--ld-col-neutral-100);
+  --ld-toggle-with-icons-input-col-bg-disabled: var(--ld-col-neutral-050);
+
+  /* themable colors */
+  --ld-toggle-input-col-bg-checked-disabled: var(--ld-thm-primary-alpha-low);
+  --ld-toggle-input-col-bg-invalid: var(--ld-thm-error);
+  --ld-toggle-bg-color-checked: var(--ld-thm-primary);
+  --ld-toggle-with-icon-knob-color: var(--ld-thm-primary);
+  --ld-toggle-knob-col-bg-invalid: var(--ld-thm-error);
 
   align-items: center;
   display: flex;
@@ -13,16 +42,16 @@
 
   input {
     appearance: none;
-    background-color: var(--ld-col-rblck4);
-    border-radius: var(--ld-br-full);
+    background-color: var(--ld-toggle-input-col-bg);
+    border-radius: var(--ld-toggle-border-radius);
     height: 100%;
+    margin: 0;
     position: absolute;
     /* animations triggered by user interactions on single component instances are probably not a performance issue */
     /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
     transition: background-color 200ms ease-in-out;
     width: 100%;
     z-index: 0;
-    margin: 0;
 
     &:not(:disabled):not([aria-disabled='true']) {
       cursor: pointer;
@@ -33,7 +62,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: var(--ld-toggle-bg-color-checked-disabled);
+        background-color: var(--ld-toggle-input-col-bg-checked-disabled);
       }
 
       ~ .ld-toggle__knob {
@@ -43,31 +72,31 @@
       }
 
       ~ .ld-toggle__icon-start {
-        color: var(--ld-col-rblck6);
+        color: var(--ld-toggle-icon-start-col-checked);
       }
 
       ~ .ld-toggle__icon-end {
-        color: var(--ld-col-wht);
+        color: var(--ld-toggle-icon-end-col-checked);
       }
     }
 
     &:disabled,
     &[aria-disabled='true'] {
-      background-color: var(--ld-col-bg-g);
+      background-color: var(--ld-toggle-input-col-bg-disabled);
 
       &:checked ~ .ld-toggle__icon-start {
-        color: var(--ld-col-rblck4);
+        color: var(--ld-toggle-icon-col-disabled);
       }
 
       &:not(:checked) ~ .ld-toggle__icon-end {
-        color: var(--ld-col-rblck4);
+        color: var(--ld-toggle-icon-col-disabled);
       }
     }
   }
 
   .ld-toggle__knob {
-    background-color: var(--ld-col-wht);
-    border-radius: var(--ld-br-full);
+    background-color: var(--ld-toggle-knob-col-bg);
+    border-radius: var(--ld-toggle-knob-border-radius);
     display: block;
     height: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
     margin: var(--ld-toggle-inner-space);
@@ -78,22 +107,22 @@
   }
 
   input:invalid {
-    background-color: var(--ld-col-rr-default);
+    background-color: var(--ld-toggle-input-col-bg-invalid);
   }
 }
 
 .ld-toggle--lg {
   &,
   :host(&) {
-    --ld-toggle-height: 2.5rem;
-    --ld-toggle-width: 4.1875rem;
-    --ld-toggle-inner-space: 0.1875rem;
+    --ld-toggle-height: var(--ld-toggle-lg-height);
+    --ld-toggle-width: var(--ld-toggle-lg-width);
+    --ld-toggle-inner-space: var(--ld-toggle-lg-inner-space);
   }
 
   &.ld-toggle--with-icons {
     &,
     :host(&) {
-      --ld-toggle-width: 6rem;
+      --ld-toggle-width: var(--ld-toggle-lg-with-icons-width);
 
       .ld-toggle__icon-start,
       .ld-toggle__icon-end {
@@ -105,27 +134,29 @@
 
 :host(.ld-toggle--with-icons),
 .ld-toggle--with-icons {
-  --ld-toggle-width: 4.5rem;
+  --ld-toggle-width: var(--ld-toggle-with-icons-width);
 
   input {
-    background-color: var(--ld-col-rblck1) !important;
+    background-color: var(--ld-toggle-with-icons-input-col-bg) !important;
 
     &:invalid ~ .ld-toggle__knob {
-      background-color: var(--ld-col-rr-default) !important;
+      background-color: var(--ld-toggle-knob-col-bg-invalid) !important;
     }
 
     &:disabled,
     &[aria-disabled='true'] {
-      background-color: var(--ld-col-bg-g) !important;
+      background-color: var(
+        --ld-toggle-with-icons-input-col-bg-disabled
+      ) !important;
 
       ~ .ld-toggle__knob {
-        background-color: var(--ld-col-wht);
+        background-color: var(--ld-toggle-knob-col-bg-disabled);
       }
     }
   }
 
   .ld-toggle__knob {
-    background-color: var(--ld-toggle-with-icons-knob-color);
+    background-color: var(--ld-toggle-with-icon-knob-color);
   }
 
   .ld-toggle__icon-start,
@@ -151,11 +182,11 @@
 }
 
 .ld-toggle__icon-start {
-  color: var(--ld-col-wht);
+  color: var(--ld-toggle-icon-start-col);
   left: 0;
 }
 
 .ld-toggle__icon-end {
-  color: var(--ld-col-rblck6);
+  color: var(--ld-toggle-icon-end-col);
   right: 0;
 }
