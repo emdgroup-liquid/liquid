@@ -173,7 +173,7 @@ export class LdInput implements InnerFocusable {
       this.el.getAttribute('aria-disabled') === 'true' &&
       !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.code)
     ) {
-      // ev.preventDefault()
+      ev.preventDefault()
     }
   }
 
