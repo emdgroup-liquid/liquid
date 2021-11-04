@@ -145,11 +145,18 @@ export class LdInput implements InnerFocusable {
       this.value = this.input.value
       return
     }
-    this.input.value = this.value || ''
+    this.input.value = this.value ?? ''
   }
 
   private handleClick = (ev: MouseEvent) => {
     const target = ev.target as HTMLElement
+    if (
+      this.el.hasAttribute('disabled') ||
+      this.el.getAttribute('aria-disabled') === 'true'
+    ) {
+      ev.preventDefault()
+      return
+    }
 
     if (target.closest('ld-button')) return
 
@@ -158,6 +165,15 @@ export class LdInput implements InnerFocusable {
       this.input.dispatchEvent(new Event('click', { bubbles: false }))
     } else {
       this.input.focus()
+    }
+  }
+
+  private handleKeyDown = (ev: KeyboardEvent) => {
+    if (
+      this.el.getAttribute('aria-disabled') === 'true' &&
+      !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.code)
+    ) {
+      // ev.preventDefault()
     }
   }
 
@@ -196,6 +212,7 @@ export class LdInput implements InnerFocusable {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onInput={this.handleInput.bind(this)}
+          onKeyDown={this.handleKeyDown}
           part="input focusable"
           placeholder={this.placeholder}
           ref={(el) => (this.input = el)}
