@@ -13,25 +13,24 @@
   --ld-toggle-knob-border-radius: var(--ld-br-full);
 
   /* colors */
-  --ld-toggle-input-col-bg: var(--ld-col-neutral-400);
-  --ld-toggle-input-col-bg-disabled: var(--ld-col-neutral-050);
-  --ld-toggle-icon-col-bg-disabled: var(--ld-col-neutral-050);
+  --ld-toggle-input-bg-col: var(--ld-col-neutral-400);
   --ld-toggle-icon-start-col: var(--ld-col-wht);
   --ld-toggle-icon-end-col: var(--ld-col-neutral);
-  --ld-toggle-icon-start-col-checked: var(--ld-col-neutral);
-  --ld-toggle-icon-end-col-checked: var(--ld-col-wht);
-  --ld-toggle-icon-col-disabled: var(--ld-col-neutral-400);
-  --ld-toggle-knob-col-bg: var(--ld-col-wht);
-  --ld-toggle-knob-col-bg-disabled: var(--ld-col-wht);
-  --ld-toggle-with-icons-input-col-bg: var(--ld-col-neutral-100);
-  --ld-toggle-with-icons-input-col-bg-disabled: var(--ld-col-neutral-050);
+  --ld-toggle-knob-bg-col: var(--ld-col-wht);
+  --ld-toggle-checked-icon-start-col: var(--ld-col-neutral);
+  --ld-toggle-checked-icon-end-col: var(--ld-col-wht);
+  --ld-toggle-disabled-input-bg-col: var(--ld-col-neutral-050);
+  --ld-toggle-disabled-icon-col: var(--ld-col-neutral-400);
+  --ld-toggle-disabled-knob-bg-col: var(--ld-col-wht);
+  --ld-toggle-with-icons-input-bg-col: var(--ld-col-neutral-100);
+  --ld-toggle-with-icons-disabled-input-bg-col: var(--ld-col-neutral-050);
 
   /* themable colors */
-  --ld-toggle-input-col-bg-checked-disabled: var(--ld-thm-primary-alpha-low);
-  --ld-toggle-input-col-bg-invalid: var(--ld-thm-error);
-  --ld-toggle-bg-color-checked: var(--ld-thm-primary);
-  --ld-toggle-with-icon-knob-color: var(--ld-thm-primary);
-  --ld-toggle-knob-col-bg-invalid: var(--ld-thm-error);
+  --ld-toggle-checked-bg-color: var(--ld-thm-primary);
+  --ld-toggle-checked-disabled-input-bg-col: var(--ld-thm-primary-alpha-low);
+  --ld-toggle-invalid-input-bg-col: var(--ld-thm-error);
+  --ld-toggle-invalid-knob-bg-col: var(--ld-thm-error);
+  --ld-toggle-with-icon-knob-col: var(--ld-thm-primary);
 
   align-items: center;
   display: flex;
@@ -42,7 +41,7 @@
 
   input {
     appearance: none;
-    background-color: var(--ld-toggle-input-col-bg);
+    background-color: var(--ld-toggle-input-bg-col);
     border-radius: var(--ld-toggle-border-radius);
     height: 100%;
     margin: 0;
@@ -58,11 +57,11 @@
     }
 
     &:checked {
-      background-color: var(--ld-toggle-bg-color-checked);
+      background-color: var(--ld-toggle-checked-bg-color);
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: var(--ld-toggle-input-col-bg-checked-disabled);
+        background-color: var(--ld-toggle-checked-disabled-input-bg-col);
       }
 
       ~ .ld-toggle__knob {
@@ -72,30 +71,30 @@
       }
 
       ~ .ld-toggle__icon-start {
-        color: var(--ld-toggle-icon-start-col-checked);
+        color: var(--ld-toggle-checked-icon-start-col);
       }
 
       ~ .ld-toggle__icon-end {
-        color: var(--ld-toggle-icon-end-col-checked);
+        color: var(--ld-toggle-checked-icon-end-col);
       }
     }
 
     &:disabled,
     &[aria-disabled='true'] {
-      background-color: var(--ld-toggle-input-col-bg-disabled);
+      background-color: var(--ld-toggle-disabled-input-bg-col);
 
       &:checked ~ .ld-toggle__icon-start {
-        color: var(--ld-toggle-icon-col-disabled);
+        color: var(--ld-toggle-disabled-icon-col);
       }
 
       &:not(:checked) ~ .ld-toggle__icon-end {
-        color: var(--ld-toggle-icon-col-disabled);
+        color: var(--ld-toggle-disabled-icon-col);
       }
     }
   }
 
   .ld-toggle__knob {
-    background-color: var(--ld-toggle-knob-col-bg);
+    background-color: var(--ld-toggle-knob-bg-col);
     border-radius: var(--ld-toggle-knob-border-radius);
     display: block;
     height: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
@@ -107,7 +106,7 @@
   }
 
   input:invalid {
-    background-color: var(--ld-toggle-input-col-bg-invalid);
+    background-color: var(--ld-toggle-invalid-input-bg-col);
   }
 }
 
@@ -137,26 +136,26 @@
   --ld-toggle-width: var(--ld-toggle-with-icons-width);
 
   input {
-    background-color: var(--ld-toggle-with-icons-input-col-bg) !important;
+    background-color: var(--ld-toggle-with-icons-input-bg-col);
 
     &:invalid ~ .ld-toggle__knob {
-      background-color: var(--ld-toggle-knob-col-bg-invalid) !important;
+      background-color: var(--ld-toggle-invalid-knob-bg-col) !important;
     }
 
     &:disabled,
     &[aria-disabled='true'] {
       background-color: var(
-        --ld-toggle-with-icons-input-col-bg-disabled
+        --ld-toggle-with-icons-disabled-input-bg-col
       ) !important;
 
       ~ .ld-toggle__knob {
-        background-color: var(--ld-toggle-knob-col-bg-disabled);
+        background-color: var(--ld-toggle-disabled-knob-bg-col);
       }
     }
   }
 
   .ld-toggle__knob {
-    background-color: var(--ld-toggle-with-icon-knob-color);
+    background-color: var(--ld-toggle-with-icon-knob-col);
   }
 
   .ld-toggle__icon-start,
