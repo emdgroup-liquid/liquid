@@ -7,10 +7,18 @@
 }
 
 .ld-label {
-  --ld-label-col-gap: 0.625rem;
+  /* layout */
+  --ld-label-column-gap: 0.625rem;
+  --ld-label-row-gap: var(--ld-sp-6);
+
+  /* colors */
+  --ld-label-col: var(--ld-col-neutral);
+  --ld-label-disabled-col: var(--ld-col-neutral-200);
+
+  color: var(--ld-label-col);
   font: var(--ld-typo-label-s);
   display: inline-grid;
-  row-gap: var(--ld-sp-6);
+  row-gap: var(--ld-label-row-gap);
   column-gap: 0;
   max-width: 100%;
   align-content: flex-start;
@@ -20,7 +28,7 @@
 .ld-label--right {
   justify-content: flex-start;
   align-items: center;
-  column-gap: var(--ld-label-col-gap);
+  column-gap: var(--ld-label-column-gap);
   row-gap: 0;
 
   > ::slotted(.ld-checkbox),
@@ -80,5 +88,5 @@
 }
 
 :where(.ld-label[disabled]) {
-  color: var(--ld-col-rblck2);
+  color: var(--ld-label-disabled-col);
 }
