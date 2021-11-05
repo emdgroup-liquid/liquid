@@ -12083,7 +12083,7 @@
     },
     {
       "id": "ac2dc773",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed aria-disabled focus theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12109,7 +12109,7 @@
     },
     {
       "id": "8147ebda",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed aria-disabled focus theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12135,7 +12135,7 @@
     },
     {
       "id": "f5e7d469",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed aria-disabled theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12161,7 +12161,7 @@
     },
     {
       "id": "b489c3cc",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed aria-disabled theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12187,7 +12187,7 @@
     },
     {
       "id": "003c30a0",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component aria-disabled focus theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12213,7 +12213,7 @@
     },
     {
       "id": "79725db9",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component aria-disabled focus theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12239,7 +12239,7 @@
     },
     {
       "id": "7bfd4a4d",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component aria-disabled theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12265,7 +12265,7 @@
     },
     {
       "id": "d16f5f42",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "8977571f62d56aa45d241a490d0bd10b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component aria-disabled theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12343,7 +12343,7 @@
     },
     {
       "id": "11956509",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component disabled focus theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12369,7 +12369,7 @@
     },
     {
       "id": "83b8bad6",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component disabled focus theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12395,7 +12395,7 @@
     },
     {
       "id": "3998af6c",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "1dc0e323b98a140c2ee5e3b86e4d0f41.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component disabled theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12421,7 +12421,7 @@
     },
     {
       "id": "ea1ca67b",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component disabled theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12863,7 +12863,7 @@
     },
     {
       "id": "aac43082",
-      "image": "91799ace8702a9d603953a918121214a.png",
+      "image": "989d4d683da7fd867b6d3590ea33add4.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons (disabled) theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12967,7 +12967,7 @@
     },
     {
       "id": "282b0dbc",
-      "image": "f43cb4178a7548a526aa9cdfaa53db17.png",
+      "image": "a497e7ef68f8eaa48f4d792530198711.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons (invalid) theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -12993,7 +12993,7 @@
     },
     {
       "id": "6b222cae",
-      "image": "873736ce4fdc53267f21cccfbfb29324.png",
+      "image": "fd39ca719a25a820262ad191ee4db177.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons (invalid) theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13071,7 +13071,7 @@
     },
     {
       "id": "e4f4eaec",
-      "image": "aa2f3020954cb6b6063bfc361c71b654.png",
+      "image": "328a9e15030139e06c110932ab38480b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons (large) theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13383,7 +13383,7 @@
     },
     {
       "id": "f2cfc3da",
-      "image": "aa2f3020954cb6b6063bfc361c71b654.png",
+      "image": "328a9e15030139e06c110932ab38480b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons (large, invalid) theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13513,7 +13513,7 @@
     },
     {
       "id": "b27e7440",
-      "image": "fd39ca719a25a820262ad191ee4db177.png",
+      "image": "e6932adaf6c890797d2772af5b669034.png",
       "userAgent": "default",
       "desc": "ld-toggle themed css component with icons theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13591,7 +13591,7 @@
     },
     {
       "id": "beea3acc",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed disabled focus theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13617,7 +13617,7 @@
     },
     {
       "id": "a58f6715",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed disabled focus theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13643,7 +13643,7 @@
     },
     {
       "id": "e222a249",
-      "image": "14c99899fce820101b4e87846b5f8fae.png",
+      "image": "640e2caa19e66dac2b7a8a8f1411d6ea.png",
       "userAgent": "default",
       "desc": "ld-toggle themed disabled theme-bubblegum checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",
@@ -13669,7 +13669,7 @@
     },
     {
       "id": "ed98ebaf",
-      "image": "3cfc7bb58986d312bc225865611b110c.png",
+      "image": "d1e5f1e166c2cd918de6a65fa515729b.png",
       "userAgent": "default",
       "desc": "ld-toggle themed disabled theme-ocean checked",
       "testPath": "./src/liquid/components/ld-toggle/test/ld-toggle.e2e.ts",

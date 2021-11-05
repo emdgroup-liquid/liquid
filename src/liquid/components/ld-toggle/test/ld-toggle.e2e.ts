@@ -12,7 +12,6 @@ const themes = [
   // 'tea',
 ]
 const checkedStates = [false, true]
-const allowableMismatchedPixels = 2000
 
 describe('ld-toggle', () => {
   describe(`themed`, () => {
@@ -27,7 +26,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -36,7 +35,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Large
@@ -46,7 +45,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`large focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -55,7 +54,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons
@@ -68,7 +67,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -80,7 +79,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (large)
@@ -93,7 +92,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -105,7 +104,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled
@@ -115,7 +114,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -124,7 +123,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (disabled)
@@ -137,7 +136,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -149,7 +148,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (large, disabled)
@@ -162,7 +161,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -174,7 +173,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled
@@ -184,7 +183,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -193,7 +192,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (aria-disabled)
@@ -206,7 +205,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -218,7 +217,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (large, aria-disabled)
@@ -231,7 +230,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -243,7 +242,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Invalid
@@ -253,7 +252,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`invalid focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -262,7 +261,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (invalid)
@@ -275,7 +274,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -287,7 +286,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // With icons (large, invalid)
@@ -300,7 +299,7 @@ describe('ld-toggle', () => {
             theme
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -312,7 +311,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Themed CSS component
@@ -326,7 +325,7 @@ describe('ld-toggle', () => {
             LdToggle
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -339,7 +338,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Large CSS component
@@ -353,7 +352,7 @@ describe('ld-toggle', () => {
             LdToggle
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component large focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -366,7 +365,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons
@@ -388,7 +387,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -409,7 +408,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (large)
@@ -431,7 +430,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (large) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -452,7 +451,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled CSS component
@@ -466,7 +465,7 @@ describe('ld-toggle', () => {
             LdToggle
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -479,7 +478,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (disabled)
@@ -501,7 +500,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -522,7 +521,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (large, disabled)
@@ -544,7 +543,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (large, disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -565,7 +564,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled CSS component
@@ -579,7 +578,7 @@ describe('ld-toggle', () => {
             LdToggle
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component aria-disabled focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -592,7 +591,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (aria-disabled)
@@ -614,7 +613,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -635,7 +634,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (large, aria-disabled)
@@ -657,7 +656,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (large, aria-disabled) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -678,7 +677,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // Invalid CSS component
@@ -692,7 +691,7 @@ describe('ld-toggle', () => {
             LdToggle
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component invalid focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -705,7 +704,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (invalid)
@@ -727,7 +726,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -748,7 +747,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
 
         // CSS component with icons (large, invalid)
@@ -770,7 +769,7 @@ describe('ld-toggle', () => {
             [LdToggle, LdIcon]
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
         it(`css component with icons (large, invalid) focus theme-${theme}${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -791,7 +790,7 @@ describe('ld-toggle', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedPixels })
+          expect(results).toMatchScreenshot()
         })
       }
     }
