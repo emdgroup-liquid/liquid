@@ -52,6 +52,10 @@
   --ld-col-rr-alpha-low: rgba(230, 30, 80, 0.2);
   --ld-col-rr-alpha-lowest: rgba(230, 30, 80, 0.1);
   --ld-col-rr: rgb(230, 30, 80);
+  --ld-col-sb: rgb(150, 215, 210);
+  --ld-col-sg: rgb(180, 220, 150);
+  --ld-col-sp: rgb(225, 195, 205);
+  --ld-col-sy: rgb(255, 220, 185);
   --ld-col-vc-100: rgb(248, 253, 254);
   --ld-col-vc-200: rgb(100, 211, 222);
   --ld-col-vc-300: rgb(45, 190, 205);

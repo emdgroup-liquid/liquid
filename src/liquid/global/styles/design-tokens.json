@@ -251,7 +251,11 @@
     "wht-alpha-medium": "rgba(255, 255, 255, 0.5)",
     "wht-alpha-low": "rgba(255, 255, 255, 0.2)",
     "wht-alpha-lowest": "rgba(255, 255, 255, 0.1)",
-    "wht-alpha-none": "rgba(255, 255, 255, 0)"
+    "wht-alpha-none": "rgba(255, 255, 255, 0)",
+    "sg": "rgb(180, 220, 150)",
+    "sy": "rgb(255, 220, 185)",
+    "sb": "rgb(150, 215, 210)",
+    "sp": "rgb(225, 195, 205)"
   },
   "typography": {
     "display": {
