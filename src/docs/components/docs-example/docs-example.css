@@ -22,8 +22,8 @@
   }
 
   .docs-example__tools-scroll-container {
-    background-color: var(--ld-col-neutral-400);
-    border-color: var(--ld-col-neutral-400);
+    background-color: var(--ld-col-neutral-600);
+    border-color: var(--ld-col-neutral-600);
   }
 
   .docs-example__tools {

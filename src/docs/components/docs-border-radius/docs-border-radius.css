@@ -5,7 +5,7 @@
 }
 @define-mixin docs-border-radius-ui-dark {
   .docs-border-radius {
-    border-color: var(--ld-col-neutral-400);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 

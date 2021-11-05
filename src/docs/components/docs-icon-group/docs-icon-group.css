@@ -6,7 +6,7 @@
 }
 @define-mixin docs-icon-group-ui-dark {
   .docs-icon-group__icons {
-    background-color: var(--ld-col-neutral-400);
+    background-color: var(--ld-col-neutral-600);
     border: var(--ld-sp-1) solid transparent;
   }
 }

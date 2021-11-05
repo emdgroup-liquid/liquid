@@ -18,36 +18,36 @@
 
     &:active,
     &:active:focus-visible {
-      background-color: var(--ld-col-neutral-500);
+      background-color: var(--ld-col-neutral-800);
       color: var(--ld-col-wht);
-      box-shadow: 0 0 0 2px var(--ld-col-neutral-500);
+      box-shadow: 0 0 0 2px var(--ld-col-neutral-800);
     }
   }
 }
 @define-mixin docs-edit-on-github-ui-dark {
   .docs-edit-on-github .ld-button {
-    background-color: var(--ld-col-neutral-500);
+    background-color: var(--ld-col-neutral-800);
     color: var(--ld-col-wht);
-    box-shadow: 0 0 0 2px var(--ld-col-neutral-400);
+    box-shadow: 0 0 0 2px var(--ld-col-neutral-600);
 
     &:focus:focus-visible {
       color: var(--ld-col-wht);
-      background-color: var(--ld-col-neutral-400);
+      background-color: var(--ld-col-neutral-600);
       box-shadow: 0 0 0 2px var(--ld-col-wht);
     }
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--ld-col-neutral-500);
+        background-color: var(--ld-col-neutral-800);
         box-shadow: 0 0 0 2px var(--ld-col-wht);
       }
     }
 
     &:active,
     &:active:focus-visible {
-      background-color: var(--ld-col-neutral-200);
+      background-color: var(--ld-col-neutral-300);
       color: var(--ld-col-neutral);
-      box-shadow: 0 0 0 2px var(--ld-col-neutral-200);
+      box-shadow: 0 0 0 2px var(--ld-col-neutral-300);
     }
   }
 }

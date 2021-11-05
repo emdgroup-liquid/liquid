@@ -5,7 +5,7 @@
 }
 @define-mixin docs-color-ui-dark {
   .docs-color {
-    border-color: var(--ld-col-neutral-400);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 

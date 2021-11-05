@@ -13,14 +13,14 @@
   --ld-toggle-knob-border-radius: var(--ld-br-full);
 
   /* colors */
-  --ld-toggle-input-bg-col: var(--ld-col-neutral-400);
+  --ld-toggle-input-bg-col: var(--ld-col-neutral-600);
   --ld-toggle-icon-start-col: var(--ld-col-wht);
   --ld-toggle-icon-end-col: var(--ld-col-neutral);
   --ld-toggle-knob-bg-col: var(--ld-col-wht);
   --ld-toggle-checked-icon-start-col: var(--ld-col-neutral);
   --ld-toggle-checked-icon-end-col: var(--ld-col-wht);
   --ld-toggle-disabled-input-bg-col: var(--ld-col-neutral-050);
-  --ld-toggle-disabled-icon-col: var(--ld-col-neutral-400);
+  --ld-toggle-disabled-icon-col: var(--ld-col-neutral-600);
   --ld-toggle-disabled-knob-bg-col: var(--ld-col-wht);
   --ld-toggle-with-icons-input-bg-col: var(--ld-col-neutral-100);
   --ld-toggle-with-icons-disabled-input-bg-col: var(--ld-col-neutral-050);

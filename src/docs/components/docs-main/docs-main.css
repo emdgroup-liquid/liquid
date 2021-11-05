@@ -25,9 +25,9 @@
         &:nth-of-type(4) {
           code {
             &:not(:last-child) {
-              color: var(--ld-col-rb-100);
+              color: var(--ld-col-rb-010);
               background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-600);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-800);
             }
           }
         }
@@ -37,7 +37,7 @@
       > ul a,
       > ol a,
       > table a {
-        color: var(--ld-col-vc-400);
+        color: var(--ld-col-vc-600);
 
         @media (hover: hover) {
           &:hover {
@@ -47,18 +47,18 @@
 
         &:active,
         &:active:focus-visible {
-          color: var(--ld-col-vc-500);
+          color: var(--ld-col-vc-700);
         }
       }
 
       > blockquote {
         color: var(--ld-col-neutral);
-        background-color: var(--ld-col-vy-200);
-        border-left: solid var(--ld-sp-6) var(--ld-col-vy-300);
+        background-color: var(--ld-col-vy-100);
+        border-left: solid var(--ld-sp-6) var(--ld-col-vy);
         font: var(--ld-typo-body-m);
 
         code {
-          background-color: var(--ld-col-vy-300);
+          background-color: var(--ld-col-vy);
         }
       }
 
@@ -71,7 +71,7 @@
 @define-mixin docs-main-ui-dark {
   .docs-main {
     hr {
-      background-color: var(--ld-col-neutral-400);
+      background-color: var(--ld-col-neutral-600);
     }
 
     main {
@@ -83,8 +83,8 @@
       > #events + table,
       > #slots + table {
         code {
-          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-300);
-          background-color: var(--ld-col-neutral-400);
+          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-400);
+          background-color: var(--ld-col-neutral-600);
         }
       }
 
@@ -94,9 +94,9 @@
         &:nth-of-type(4) {
           code {
             &:not(:last-child) {
-              color: var(--ld-col-rb-100);
+              color: var(--ld-col-rb-010);
               background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-300);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-400);
             }
           }
         }
@@ -107,9 +107,9 @@
         &:nth-of-type(3) {
           code {
             &:not(:last-child) {
-              color: var(--ld-col-rb-100);
+              color: var(--ld-col-rb-010);
               background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-300);
+              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-400);
             }
           }
         }
@@ -123,23 +123,23 @@
 
         @media (hover: hover) {
           &:hover {
-            color: var(--ld-col-vc-300);
+            color: var(--ld-col-vc);
           }
         }
 
         &:active,
         &:active:focus-visible {
-          color: var(--ld-col-vc-400);
+          color: var(--ld-col-vc-600);
         }
       }
 
       > blockquote {
         color: var(--ld-col-neutral);
-        background-color: var(--ld-col-vy-300);
+        background-color: var(--ld-col-vy);
         border-left: solid var(--ld-sp-6) var(--ld-col-vy-400);
 
         code {
-          background-color: var(--ld-col-vy-300);
+          background-color: var(--ld-col-vy);
         }
       }
 
@@ -319,7 +319,7 @@
       }
 
       thead {
-        border-bottom: solid 0.0625rem var(--ld-col-neutral-200);
+        border-bottom: solid 0.0625rem var(--ld-col-neutral-300);
 
         tr {
           margin-top: 0;

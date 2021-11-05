@@ -48,8 +48,8 @@ describe('ld-bg-cells', () => {
         `<ld-bg-cells class="custom" />
         <style>
           .custom {
-            --ld-bg-cells-bg-col: var(--ld-col-vm-200);
-            --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
+            --ld-bg-cells-bg-col: var(--ld-col-vm-300);
+            --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }
@@ -124,8 +124,8 @@ describe('ld-bg-cells', () => {
         </div>
         <style>
           .custom {
-            --ld-bg-cells-bg-col: var(--ld-col-vm-200);
-            --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
+            --ld-bg-cells-bg-col: var(--ld-col-vm-300);
+            --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }

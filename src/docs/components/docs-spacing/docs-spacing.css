@@ -5,7 +5,7 @@
 }
 @define-mixin docs-spacing-ui-dark {
   .docs-spacing {
-    border-color: var(--ld-col-neutral-400);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 
@@ -69,7 +69,7 @@
 }
 
 .docs-spacing__val {
-  color: var(--ld-col-neutral-300);
+  color: var(--ld-col-neutral-400);
   width: 6.5rem;
 }
 
