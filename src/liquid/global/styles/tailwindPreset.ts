@@ -1,70 +1,133 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const plugin = require('tailwindcss/plugin')
-const designTokens = require('./design-tokens.json')
+const designTokens: DesignTokens = require('./design-tokens.json')
 
-function decToHex(value) {
-  if (value > 255) {
-    return 'FF'
-  } else if (value < 0) {
-    return '00'
-  } else {
-    return value.toString(16).padStart(2, '0')
+type Theme = Record<string, string> & {
+  default?: boolean
+}
+
+type Typo = {
+  fontFamily: string
+  fontSize: string
+  lineHeight: string
+}
+
+type DesignTokens = {
+  borderRadii: Record<string, string>
+  colors: Record<string, string>
+  shadows: Record<string, string>
+  spacings: Record<string, string>
+  themes: Record<string, Theme>
+  typography: {
+    body: Record<string, Typo>
+    display: Record<string, Typo>
   }
 }
-function rgbToHex(r, g, b) {
-  return '#' + decToHex(r) + decToHex(g) + decToHex(b)
+
+type TailwindColorObject = {
+  [key: string]: TailwindColorObject | string
 }
-function colorValueToHex(colorValue: string) {
-  const rgbRegex = /(\d{1,3}), (\d{1,3}), (\d{1,3})/g
-  const extraction = rgbRegex.exec(colorValue)
-  return rgbToHex(
-    parseInt(extraction[1]),
-    parseInt(extraction[2]),
-    parseInt(extraction[3])
-  )
+
+const colors = { thm: {} }
+const createNestedColorFromFlat = (
+  key: string,
+  colorObject: TailwindColorObject,
+  colorTokenReference?: string
+) => {
+  const nameParts = key.split('-')
+  let currentColorObject = colorObject
+
+  nameParts.forEach((namePart, index) => {
+    const lastIndex = nameParts.length - 1
+
+    if (index === lastIndex) {
+      if (lastIndex === 0) {
+        if (!currentColorObject[namePart]) {
+          currentColorObject[namePart] = {}
+        }
+
+        currentColorObject[namePart]['DEFAULT'] = colorTokenReference
+          ? colors[colorTokenReference].DEFAULT
+          : `var(--ld-thm-${key})`
+        return
+      }
+
+      currentColorObject[namePart] = colorTokenReference
+        ? designTokens.colors[colorTokenReference]
+        : `var(--ld-thm-${key})`
+      return
+    }
+
+    if (!currentColorObject[namePart]) {
+      currentColorObject[namePart] = {}
+    }
+
+    currentColorObject = currentColorObject[namePart] as TailwindColorObject
+  })
 }
 
 // Extract colors
-// Tailwind's background-opacity utility only works with hex color values, so we convert rgb to hex.
-const colors = {}
 Object.entries(designTokens.colors).forEach(([key, value]) => {
-  const hex = colorValueToHex(value as string)
+  const [name, isDefault] = key.split('/')
+  const nameParts = name.split('-')
+  let currentColorObject = colors
 
-  const [, base, modifier, isDefault] =
-    /^([a-z-]+)(\d)*(\/default)?$/.exec(key) || []
+  nameParts.forEach((namePart, index) => {
+    const lastIndex = nameParts.length - 1
+    const defaultIndex = nameParts.length - 2
 
-  if (!modifier) {
-    colors[key] = hex
-    return
-  }
+    if (index === lastIndex) {
+      if (lastIndex === 0) {
+        if (!currentColorObject[namePart]) {
+          currentColorObject[namePart] = {}
+        }
 
-  if (!colors[base]) {
-    colors[base] = {}
-  }
+        currentColorObject[namePart].DEFAULT = value
+        return
+      }
 
-  if (isDefault) {
-    colors[base].DEFAULT = hex
-  }
-  colors[base][modifier.padEnd(3, '0')] = hex
-})
-Object.entries(designTokens.themes).forEach(([theme, themeColors]) => {
-  colors[theme] = {}
-  Object.entries(themeColors).forEach(([key, value]) => {
-    colors[theme][key] = colorValueToHex(value)
+      currentColorObject[namePart] = value
+      return
+    }
+
+    if (!currentColorObject[namePart]) {
+      currentColorObject[namePart] = {}
+    }
+
+    if (isDefault && index === defaultIndex) {
+      currentColorObject[namePart].DEFAULT = value
+    }
+
+    currentColorObject = currentColorObject[namePart]
   })
 })
 
+// Extract theme colors
+Object.entries(designTokens.themes).forEach(
+  ([themeName, theme], themeIndex) => {
+    const isFirstTheme = themeIndex === 0
+    colors[themeName] = {}
+
+    Object.entries(theme).forEach(([key, value]) => {
+      if (typeof value !== 'boolean') {
+        createNestedColorFromFlat(key, colors[themeName], value)
+
+        if (isFirstTheme) {
+          // Creates dynamic colors based on custom properties
+          createNestedColorFromFlat(key, colors.thm)
+        }
+      }
+    })
+  }
+)
+
 // Extract typography
 const typography = {}
-const fontSize = designTokens
+const fontSize = {}
 Object.entries({
   ...designTokens.typography.display,
   ...designTokens.typography.body,
-} as {
-  fontSize: string
-  lineHeight: string
-  fontFamily: string
-}[]).forEach(([key, value]) => {
+}).forEach(([key, value]) => {
   typography[`.typo-${key}`] = value
   fontSize[key] = value.fontSize
 })

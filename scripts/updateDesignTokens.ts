@@ -198,7 +198,7 @@ async function getTokensFromFigma(
   const { document, styles } = (await result.json()).nodes[nodeId]
   const { children: figmaData } = document
   const { themes, variants } = parseThemesAndVariants(
-    figmaData.find(({ name }) => name.indexOf('Theme Colors') === 0).children,
+    figmaData.find(({ name }) => name === 'Themes').children,
     styles
   )
 
@@ -213,7 +213,7 @@ async function getTokensFromFigma(
     colors: {
       ...variants,
       ...parseColors(
-        figmaData.find((child) => child.name === 'Accessible Colors').children
+        figmaData.find((child) => child.name === 'Colors').children
       ),
     },
     typography: parseTypography(
@@ -402,7 +402,6 @@ function generateJSONTokenFile(tokenCollection) {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-extra-semi
 ;(async () => {
   try {
     const tokenCollection = await getTokensFromFigma()

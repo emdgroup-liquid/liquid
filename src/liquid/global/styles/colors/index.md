@@ -112,6 +112,13 @@ Use rich colors for the structure of interfaces, actionable items, and validatio
 <docs-color var="--ld-col-vy-500"></docs-color>
 <docs-color var="--ld-col-vy-600"></docs-color>
 
+### Sensitive Colors
+
+<docs-color var="--ld-col-sb"></docs-color>
+<docs-color var="--ld-col-sg"></docs-color>
+<docs-color var="--ld-col-sp"></docs-color>
+<docs-color var="--ld-col-sy"></docs-color>
+
 ## Theme palettes
 
 ### Bubblegum
