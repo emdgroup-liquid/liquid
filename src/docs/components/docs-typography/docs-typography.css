@@ -5,7 +5,7 @@
 }
 @define-mixin docs-typography-ui-dark {
   .docs-typography {
-    border-color: var(--ld-col-neutral-400);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 
@@ -51,7 +51,7 @@
 }
 
 .docs-typography__val {
-  color: var(--ld-col-neutral-300);
+  color: var(--ld-col-neutral-400);
   padding-left: var(--ld-sp-8);
   margin-bottom: var(--ld-sp-12);
 }

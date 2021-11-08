@@ -164,8 +164,8 @@ A background pattern with the Merck cells as additional visual element.
 
 <style>
   .box3-16\/9 {
-    --ld-bg-cells-bg-col: var(--ld-col-vm-200);
-    --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
+    --ld-bg-cells-bg-col: var(--ld-col-vm-300);
+    --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
     --ld-bg-cells-position: bottom left;
     --ld-bg-cells-size: 150%;
 
@@ -182,8 +182,8 @@ A background pattern with the Merck cells as additional visual element.
 
 <style>
   .box3-16\/9 {
-    --ld-bg-cells-bg-col: var(--ld-col-vm-200);
-    --ld-bg-cells-pattern-col: var(--ld-col-vm-400);
+    --ld-bg-cells-bg-col: var(--ld-col-vm-300);
+    --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
     --ld-bg-cells-position: bottom left;
     --ld-bg-cells-size: 150%;
 

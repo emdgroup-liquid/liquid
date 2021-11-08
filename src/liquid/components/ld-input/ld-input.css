@@ -25,14 +25,14 @@
   --ld-input-bg-col-invalid: var(--ld-thm-error-disabled);
   --ld-input-bg-col: var(--ld-col-wht);
   --ld-input-border-col-disabled: var(--ld-col-neutral-100);
-  --ld-input-border-col-hover: var(--ld-col-neutral-200);
+  --ld-input-border-col-hover: var(--ld-col-neutral-300);
   --ld-input-border-col: var(--ld-col-neutral-100);
   --ld-input-icon-col-focus: var(--ld-thm-primary-focus);
   --ld-input-icon-col-invalid-focus: var(--ld-thm-error-focus);
   --ld-input-icon-col: var(--ld-thm-primary);
   --ld-input-placeholder-col-invalid: var(--ld-thm-error-focus);
-  --ld-input-placeholder-col: var(--ld-col-neutral-400);
-  --ld-input-text-col-disabled: var(--ld-col-neutral-200);
+  --ld-input-placeholder-col: var(--ld-col-neutral-600);
+  --ld-input-text-col-disabled: var(--ld-col-neutral-300);
   --ld-input-text-col-invalid-focus: var(--ld-col-neutral);
   --ld-input-text-col-invalid: var(--ld-thm-error);
   --ld-input-text-col: var(--ld-col-neutral);

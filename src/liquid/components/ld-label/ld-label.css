@@ -13,7 +13,7 @@
 
   /* colors */
   --ld-label-col: var(--ld-col-neutral);
-  --ld-label-disabled-col: var(--ld-col-neutral-200);
+  --ld-label-disabled-col: var(--ld-col-neutral-300);
 
   color: var(--ld-label-col);
   font: var(--ld-typo-label-s);
