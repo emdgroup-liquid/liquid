@@ -31,7 +31,7 @@
   --ld-select-col: var(--ld-col-neutral);
   --ld-select-col-disabled: var(--ld-col-neutral-100);
   --ld-select-col-border: var(--ld-col-neutral-100);
-  --ld-select-col-border-hover: var(--ld-col-neutral-200);
+  --ld-select-col-border-hover: var(--ld-col-neutral-300);
   --ld-select-bg-col: var(--ld-col-wht);
   --ld-select-selection-col: var(--ld-col-wht);
 
