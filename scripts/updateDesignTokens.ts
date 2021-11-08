@@ -15,9 +15,8 @@ function relRGBToAbsRGB(fill) {
   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
 }
 
-function parseThemesAndVariants(items, styles) {
+function parseThemes(items, styles) {
   const themes = {}
-  const colorVariants = {}
 
   items.forEach((item) => {
     if (!item.name.startsWith('_')) {
@@ -40,23 +39,16 @@ function parseThemesAndVariants(items, styles) {
                   const colorName = `${groupName}-${variantName}-${subVariantName}`
 
                   if (subVariant.styles?.fill) {
-                    // block renames e.g. "RichBlue-alpha-low" to "rb-alpha-low",
                     const [baseColorName, ...rest] = styles[
                       subVariant.styles.fill
                     ]?.name
                       .split('/')[1]
-                      .split('_')[0]
                       .split('-')
                     const referenceName =
                       baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
                       '-' +
                       rest.join('-')
-                    const [colorNumberStr] = referenceName.match(/\d+/) ?? []
-                    const colorNumber = Number.parseInt(colorNumberStr)
-                    theme[colorName] = colorNumber
-                      ? referenceName.replace(/\d+/g, '') +
-                        (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
-                      : referenceName.replace(/-$/, '')
+                    theme[colorName] = referenceName
                   } else {
                     theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
                   }
@@ -68,17 +60,16 @@ function parseThemesAndVariants(items, styles) {
               }`
 
               if (variant.styles?.fill) {
-                // block renames e.g. "RichBlue-05" to "rb-500"
-                const referenceName = styles[variant.styles.fill]?.name
+                const [baseColorName, ...rest] = styles[
+                  variant.styles.fill
+                ]?.name
                   .split('/')[1]
-                  .split('_')[0]
-                  .replaceAll(/[a-z0]/g, '')
-                  .toLowerCase()
-                const [colorNumber] = referenceName.match(/\d+/) ?? []
-                theme[colorName] = colorNumber
-                  ? referenceName.replaceAll(/\d+/g, '') +
-                    (colorNumber > 9 ? colorNumber * 10 : colorNumber * 100)
-                  : referenceName.replace(/-$/, '')
+                  .split('-')
+                const referenceName =
+                  baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
+                  '-' +
+                  rest.join('-')
+                theme[colorName] = referenceName
               } else {
                 theme[colorName] = relRGBToAbsRGB(variant.fills[0])
               }
@@ -95,7 +86,7 @@ function parseThemesAndVariants(items, styles) {
     }
   })
 
-  return { themes, variants: colorVariants }
+  return themes
 }
 
 function parseShadows(items) {
@@ -119,14 +110,49 @@ function parseShadows(items) {
   return shadows
 }
 
-function parseColors(items) {
+function parseColors(items, styles) {
   const colors = {}
 
   for (const item of items) {
-    if (!item.name.startsWith('_') && item.fills?.length) {
-      colors[item.name.split('_')[0].toLowerCase()] = relRGBToAbsRGB(
-        item.fills[0]
-      )
+    if (!item.name.startsWith('_')) {
+      if (item.children) {
+        Object.assign(colors, parseColors(item.children, styles))
+      } else if (item.fills?.length && item.styles?.fill) {
+        const style = styles[item.styles.fill]
+        const { name, description } = style
+        const [baseColorName, ...rest] = name.split('/')[1].split('-')
+        const defaultOnly = rest.length === 0
+        const colorShortName = ['Neutral', 'White'].includes(baseColorName)
+          ? baseColorName === 'White'
+            ? 'wht'
+            : baseColorName.toLowerCase()
+          : baseColorName.replaceAll(/[a-z]/g, '').toLowerCase()
+        const colorName =
+          colorShortName + (defaultOnly ? '' : '-' + rest.join('-'))
+        const colorValue = relRGBToAbsRGB(item.fills[0])
+        colors[colorName] = colorValue
+
+        if (description) {
+          const variants = description.split(', ')
+          variants.forEach((variant) => {
+            if (variant.startsWith('Surface')) {
+              return
+            }
+
+            if (variant === 'Default') {
+              if (!defaultOnly) {
+                colors[colorShortName] = colorValue
+              }
+              return
+            }
+
+            const colorVariantName =
+              colorShortName + '-' + variant.toLowerCase()
+
+            colors[colorVariantName] = colorValue
+          })
+        }
+      }
     }
   }
 
@@ -197,13 +223,12 @@ async function getTokensFromFigma(
   )
   const { document, styles } = (await result.json()).nodes[nodeId]
   const { children: figmaData } = document
-  const { themes, variants } = parseThemesAndVariants(
-    figmaData.find(({ name }) => name === 'Themes').children,
-    styles
-  )
 
   const tokens = {
-    themes,
+    themes: parseThemes(
+      figmaData.find(({ name }) => name === 'Themes').children,
+      styles
+    ),
     shadows: parseShadows(
       figmaData.find((child) => child.name === 'Shadows').children
     ),
@@ -211,9 +236,9 @@ async function getTokensFromFigma(
       figmaData.find((child) => child.name === 'Spacings').children
     ),
     colors: {
-      ...variants,
       ...parseColors(
-        figmaData.find((child) => child.name === 'Colors').children
+        figmaData.find((child) => child.name === 'Colors').children,
+        styles
       ),
     },
     typography: parseTypography(
