@@ -37,16 +37,16 @@
 
   /* themable colors */
   --ld-select-invalid-col: var(--ld-thm-error);
-  --ld-select-invalid-col-hover: var(--ld-thm-error-hover);
-  --ld-select-invalid-col-focus: var(--ld-thm-error-focus);
-  --ld-select-invalid-col-active: var(--ld-thm-error-active);
+  --ld-select-invalid-icon-col-hover: var(--ld-thm-error-hover);
+  --ld-select-invalid-icon-col-focus: var(--ld-thm-error-focus);
+  --ld-select-invalid-icon-col-active: var(--ld-thm-error-active);
   --ld-select-invalid-disabled-bg-col: var(--ld-thm-error-disabled);
   --ld-select-thm-col: var(--ld-thm-primary);
   --ld-select-thm-col-hover: var(--ld-thm-primary-hover);
   --ld-select-thm-col-focus: var(--ld-thm-primary-focus);
   --ld-select-thm-col-active: var(--ld-thm-primary-active);
-  --ld-select-ghost-thm-bg-col-hover: var(--ld-thm-primary-alpha-lowest);
-  --ld-select-ghost-thm-bg-col-focus: var(--ld-thm-primary-alpha-low);
+  --ld-select-ghost-trigger-bg-col-hover: var(--ld-thm-primary-alpha-lowest);
+  --ld-select-ghost-trigger-bg-col-focus: var(--ld-thm-primary-alpha-low);
 
   /* reset */
   *,
@@ -298,7 +298,7 @@
         + .ld-select__icon,
         .ld-select__icon,
         ::slotted(ld-icon) {
-          color: var(--ld-select-invalid-col-hover);
+          color: var(--ld-select-invalid-icon-col-hover);
         }
       }
     }
@@ -307,7 +307,7 @@
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-select-invalid-col-focus);
+        color: var(--ld-select-invalid-icon-col-focus);
       }
     }
     &:where(:active),
@@ -316,7 +316,7 @@
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-select-invalid-col-active);
+        color: var(--ld-select-invalid-icon-col-active);
       }
     }
   }
@@ -508,12 +508,12 @@
     :where(.ld-select__btn-trigger) {
       @media (hover: hover) {
         &:hover:not(:focus) {
-          background-color: var(--ld-select-ghost-thm-bg-col-hover);
+          background-color: var(--ld-select-ghost-trigger-bg-col-hover);
         }
       }
       &:active,
       &:active:focus-visible {
-        background-color: var(--ld-select-ghost-thm-bg-col-focus);
+        background-color: var(--ld-select-ghost-trigger-bg-col-focus);
       }
     }
   }
