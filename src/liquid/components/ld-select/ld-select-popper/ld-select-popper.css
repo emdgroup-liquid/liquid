@@ -4,9 +4,8 @@
   --ld-select-popper-max-height: calc(100vh - 1.25rem);
 
   /* colors */
-  --ld-select-popper-col-border: var(--ld-col-rblck1);
+  --ld-select-popper-col-border: var(--ld-col-neutral-100);
   --ld-select-popper-col-bg: var(--ld-col-wht);
-
   min-width: var(--ld-select-popper-min-width);
 
   ld-option-internal:last-of-type::part(option) {

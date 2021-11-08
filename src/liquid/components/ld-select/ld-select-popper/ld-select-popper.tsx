@@ -48,6 +48,12 @@ export class LdSelectPopper {
     this.isPinned = this.el.classList.contains('ld-tether-pinned')
   }
 
+  @Watch('theme')
+  updatePopperTheme(newValue: string, oldValue: string) {
+    this.el.classList.remove(`ld-theme-${oldValue}`)
+    if (newValue) this.el.classList.add(`ld-theme-${newValue}`)
+  }
+
   /**
    * Focuses the tab
    */
@@ -75,7 +81,6 @@ export class LdSelectPopper {
             this.detached && 'ld-select-popper--detached',
             this.size && `ld-select-popper--${this.size}`,
             this.isPinned && 'ld-select-popper--pinned',
-            this.theme && `ld-theme-${this.theme}`,
           ])}
           part="popper"
         >
