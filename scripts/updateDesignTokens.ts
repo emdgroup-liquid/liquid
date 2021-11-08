@@ -114,44 +114,45 @@ function parseColors(items, styles) {
   const colors = {}
 
   for (const item of items) {
-    if (!item.name.startsWith('_')) {
-      if (item.children) {
-        Object.assign(colors, parseColors(item.children, styles))
-      } else if (item.fills?.length && item.styles?.fill) {
-        const style = styles[item.styles.fill]
-        const { name, description } = style
-        const [baseColorName, ...rest] = name.split('/')[1].split('-')
-        const defaultOnly = rest.length === 0
-        const colorShortName = ['Neutral', 'White'].includes(baseColorName)
-          ? baseColorName === 'White'
-            ? 'wht'
-            : baseColorName.toLowerCase()
-          : baseColorName.replaceAll(/[a-z]/g, '').toLowerCase()
-        const colorName =
-          colorShortName + (defaultOnly ? '' : '-' + rest.join('-'))
-        const colorValue = relRGBToAbsRGB(item.fills[0])
-        colors[colorName] = colorValue
+    if (item.name.startsWith('_')) {
+      continue
+    }
 
-        if (description) {
-          const variants = description.split(', ')
-          variants.forEach((variant) => {
-            if (variant.startsWith('Surface')) {
-              return
+    if (item.children) {
+      Object.assign(colors, parseColors(item.children, styles))
+    } else if (item.fills?.length && item.styles?.fill) {
+      const style = styles[item.styles.fill]
+      const { name, description } = style
+      const [baseColorName, ...rest] = name.split('/')[1].split('-')
+      const defaultOnly = rest.length === 0
+      const colorShortName = ['Neutral', 'White'].includes(baseColorName)
+        ? baseColorName === 'White'
+          ? 'wht'
+          : baseColorName.toLowerCase()
+        : baseColorName.replaceAll(/[a-z]/g, '').toLowerCase()
+      const colorName =
+        colorShortName + (defaultOnly ? '' : '-' + rest.join('-'))
+      const colorValue = relRGBToAbsRGB(item.fills[0])
+      colors[colorName] = colorValue
+
+      if (description) {
+        const variants = description.split(', ')
+        variants.forEach((variant) => {
+          if (variant.startsWith('Surface')) {
+            return
+          }
+
+          if (variant === 'Default') {
+            if (!defaultOnly) {
+              colors[colorShortName] = colorValue
             }
+            return
+          }
 
-            if (variant === 'Default') {
-              if (!defaultOnly) {
-                colors[colorShortName] = colorValue
-              }
-              return
-            }
+          const colorVariantName = colorShortName + '-' + variant.toLowerCase()
 
-            const colorVariantName =
-              colorShortName + '-' + variant.toLowerCase()
-
-            colors[colorVariantName] = colorValue
-          })
-        }
+          colors[colorVariantName] = colorValue
+        })
       }
     }
   }
