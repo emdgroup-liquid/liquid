@@ -18,10 +18,7 @@ type DesignTokens = {
   shadows: Record<string, string>
   spacings: Record<string, string>
   themes: Record<string, Theme>
-  typography: {
-    body: Record<string, Typo>
-    display: Record<string, Typo>
-  }
+  typography: Record<string, Typo>
 }
 
 type TailwindColorObject = {
@@ -133,13 +130,23 @@ Object.entries(designTokens.themes).forEach(
 // Extract typography
 const typography = {}
 const fontSize = {}
-Object.entries({
-  ...designTokens.typography.display,
-  ...designTokens.typography.body,
-}).forEach(([key, value]) => {
+const typoTokenEntries = Object.entries(designTokens.typography)
+typoTokenEntries.forEach(([key, value]) => {
   typography[`.typo-${key}`] = value
   fontSize[key] = value.fontSize
 })
+const [, { fontFamily: bodyFontFamily }] = typoTokenEntries.find(([key]) =>
+  key.startsWith('body')
+)
+const nonBodyTypoEntry = typoTokenEntries.find(
+  ([, value]) => value.fontFamily !== bodyFontFamily
+)
+const fontFamily = {
+  body: bodyFontFamily.split(', '),
+  display: nonBodyTypoEntry
+    ? nonBodyTypoEntry[1].fontFamily.split(', ')
+    : undefined,
+}
 
 // Extract spacings
 const spacing = {}
@@ -157,10 +164,7 @@ const preset = {
     boxShadow: designTokens.shadows,
     dropShadow: designTokens.shadows,
     fontSize,
-    fontFamily: {
-      body: ['Lato', 'sans-serif'],
-      display: ['MWeb', 'sans-serif'],
-    },
+    fontFamily,
     extend: {
       spacing,
     },
@@ -172,5 +176,7 @@ const preset = {
   ],
   corePlugins: {},
 }
+
+console.log(preset)
 
 module.exports = preset

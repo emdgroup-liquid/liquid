@@ -295,159 +295,170 @@
     "neutral-999": "rgb(0, 0, 0)"
   },
   "typography": {
-    "display": {
-      "xh1": {
-        "fontSize": "5.75rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "xh2": {
-        "fontSize": "4.5rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "xh3": {
-        "fontSize": "4rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "xh4": {
-        "fontSize": "3rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "xh5": {
-        "fontSize": "2.5rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "xh6": {
-        "fontSize": "2.25rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      },
-      "h1": {
-        "fontSize": "2rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "h2": {
-        "fontSize": "1.625rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "h3": {
-        "fontSize": "1.375rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "h4": {
-        "fontSize": "1.125rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "h5": {
-        "fontSize": "1rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "h6": {
-        "fontSize": "0.875rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "xb1": {
-        "fontSize": "5.75rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "xb2": {
-        "fontSize": "4.5rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "xb3": {
-        "fontSize": "4rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b1": {
-        "fontSize": "3rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b2": {
-        "fontSize": "2.5rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b3": {
-        "fontSize": "2.25rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b4": {
-        "fontSize": "2rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b5": {
-        "fontSize": "1.625rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      },
-      "b6": {
-        "fontSize": "1.375rem",
-        "lineHeight": "120%",
-        "fontFamily": "MWeb"
-      }
+    "xh1": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "5.75rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
     },
-    "body": {
-      "body-xs": {
-        "fontSize": "0.75rem",
-        "lineHeight": "180%",
-        "fontFamily": "Lato"
-      },
-      "body-s": {
-        "fontSize": "0.875rem",
-        "lineHeight": "176%",
-        "fontFamily": "Lato"
-      },
-      "body-m": {
-        "fontSize": "1rem",
-        "lineHeight": "160%",
-        "fontFamily": "Lato"
-      },
-      "body-l": {
-        "fontSize": "1.125rem",
-        "lineHeight": "160%",
-        "fontFamily": "Lato"
-      },
-      "body-xl": {
-        "fontSize": "1.375rem",
-        "lineHeight": "160%",
-        "fontFamily": "Lato"
-      },
-      "cap-l": {
-        "fontSize": "1.25rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "cap-m": {
-        "fontSize": "0.875rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "label-m": {
-        "fontSize": "1rem",
-        "lineHeight": "140%",
-        "fontFamily": "Lato"
-      },
-      "label-s": {
-        "fontSize": "0.875rem",
-        "lineHeight": "120%",
-        "fontFamily": "Lato"
-      }
+    "xh2": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "4.5rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
+    },
+    "xh3": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "4rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
+    },
+    "xh4": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "3rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
+    },
+    "xh5": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "2.5rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
+    },
+    "xh6": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "2.25rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
+    },
+    "h1": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "2rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "h2": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.625rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "h3": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.375rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "h4": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.125rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "h5": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "h6": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "xb1": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "5.75rem",
+      "lineHeight": "120%"
+    },
+    "xb2": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "4.5rem",
+      "lineHeight": "120%"
+    },
+    "xb3": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "4rem",
+      "lineHeight": "120%"
+    },
+    "b1": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "3rem",
+      "lineHeight": "120%"
+    },
+    "b2": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "2.5rem",
+      "lineHeight": "120%"
+    },
+    "b3": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "2.25rem",
+      "lineHeight": "120%"
+    },
+    "b4": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "2rem",
+      "lineHeight": "120%"
+    },
+    "b5": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "1.625rem",
+      "lineHeight": "120%"
+    },
+    "b6": {
+      "fontFamily": "MWeb, Helvetica, Arial, sans-serif",
+      "fontSize": "1.375rem",
+      "lineHeight": "120%"
+    },
+    "body-xs": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "0.75rem",
+      "lineHeight": "180%"
+    },
+    "body-s": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "lineHeight": "176%"
+    },
+    "body-m": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "160%"
+    },
+    "body-l": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.125rem",
+      "lineHeight": "160%"
+    },
+    "body-xl": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.375rem",
+      "lineHeight": "160%"
+    },
+    "cap-l": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1.25rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "cap-m": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 700,
+      "lineHeight": "140%"
+    },
+    "label-m": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": "140%"
+    },
+    "label-s": {
+      "fontFamily": "Lato, Helvetica, Arial, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 700,
+      "lineHeight": "120%"
     }
   },
   "borderRadii": {
