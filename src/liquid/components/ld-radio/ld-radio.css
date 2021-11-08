@@ -123,8 +123,8 @@
             background-color: var(--ld-radio-checked-col-active);
           }
           ~ .ld-radio__box {
-            background-color: var(--ld-radio-thm-col-active);
-            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-active);
+            background-color: var(--ld-radio-col-active);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-col-active);
           }
         }
       }
@@ -148,8 +148,8 @@
             color: var(--ld-radio-checked-col);
           }
           ~ .ld-radio__box {
-            background-color: var(--ld-radio-col-active);
-            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-col-active);
+            background-color: var(--ld-radio-col-hover);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-col-hover);
           }
         }
       }
