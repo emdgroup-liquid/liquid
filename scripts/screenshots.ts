@@ -23,7 +23,7 @@ async function deleteScreenshots(components?: string[]) {
       master.screenshots = updatedScreenshots
       await fs.writeFile(
         'screenshot/builds/master.json',
-        JSON.stringify(master, undefined, 2),
+        JSON.stringify(master, undefined, 2) + '\n',
         { encoding: 'utf8', flag: 'w' }
       )
       console.info('Updated screenshot/builds/master.json')
