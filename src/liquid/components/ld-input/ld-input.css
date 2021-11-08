@@ -62,7 +62,7 @@
     border-radius: var(--ld-br-m);
     display: block;
     pointer-events: none;
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col);
+    box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-border-col);
   }
 
   ::slotted(*),
@@ -327,7 +327,7 @@
   :host(:not(.ld-input--invalid):not([aria-disabled='true']):not([disabled]):hover:not(:focus-within)),
   .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not([disabled]):hover:not(:focus-within) {
     &::before {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col-hover);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-border-col-hover);
     }
   }
 }
@@ -335,7 +335,7 @@
 :host(:not(.ld-input--invalid):focus-within),
 .ld-input:not(.ld-input--invalid):focus-within {
   &::before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-thm-primary);
+    box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-thm-primary);
   }
 }
 
@@ -358,7 +358,7 @@
 :host(.ld-input--invalid:not([disabled]):not([aria-disabled='true'])),
 .ld-input--invalid:not([disabled]):not([aria-disabled='true']) {
   &::before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-text-col-invalid);
+    box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-text-col-invalid);
   }
 
   > input,
@@ -401,7 +401,7 @@
   background-color: var(--ld-input-bg-col-disabled);
 
   &::before {
-    box-shadow: inset 0 0 0 0.1rem var(--ld-input-border-col-disabled);
+    box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-border-col-disabled);
   }
 
   input,

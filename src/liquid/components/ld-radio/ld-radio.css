@@ -62,7 +62,7 @@
       }
       ~ .ld-radio__box {
         background-color: transparent;
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-bg-disabled);
+        box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-col-bg-disabled);
       }
 
       &:checked {
@@ -79,20 +79,20 @@
         background-color: var(--ld-radio-thm-col-active);
       }
       ~ .ld-radio__box {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col);
+        box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col);
       }
 
       &:focus:focus-visible {
         ~ .ld-radio__box {
           background-color: transparent;
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-focus);
         }
       }
       &:active,
       &:active:focus-visible {
         ~ .ld-radio__box {
           background-color: var(--ld-radio-col-bg-active);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-active);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-active);
         }
       }
 
@@ -102,7 +102,7 @@
         }
         ~ .ld-radio__box {
           background-color: var(--ld-radio-thm-col);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col);
         }
 
         &:focus:focus-visible {
@@ -111,7 +111,7 @@
           }
           ~ .ld-radio__box {
             background-color: var(--ld-radio-thm-col-focus);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-focus);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-focus);
           }
         }
         &:active,
@@ -121,7 +121,8 @@
           }
           ~ .ld-radio__box {
             background-color: var(--ld-radio-thm-col-active);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-active);
+            box-shadow: inset 0 0 0 var(--ld-sp-2)
+              var(--ld-radio-thm-col-active);
           }
         }
       }
@@ -139,7 +140,7 @@
       :where(input:not(:disabled):not(input[aria-disabled='true']))
         ~ .ld-radio__box {
         background-color: var(--ld-radio-col-bg);
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-hover);
+        box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-hover);
       }
 
       :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
@@ -148,7 +149,7 @@
         }
         ~ .ld-radio__box {
           background-color: var(--ld-radio-thm-col-hover);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-hover);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-radio-thm-col-hover);
         }
       }
     }
@@ -198,7 +199,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  box-shadow: inset 0 0 0 0.1rem var(--ld-col-rblck4);
+  box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-col-rblck4);
 }
 
 :host,

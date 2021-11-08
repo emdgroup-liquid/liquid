@@ -65,7 +65,8 @@
         background-color: var(--ld-col-rb-010);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-ocean-primary-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-ocean-primary-focus);
         }
       }
     }
@@ -121,7 +122,8 @@
         background-color: var(--ld-col-rp-010);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-bubblegum-primary-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-bubblegum-primary-focus);
         }
       }
     }
@@ -177,7 +179,8 @@
         background-color: var(--ld-col-rp-010);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-shake-primary-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-shake-primary-focus);
         }
       }
     }
@@ -233,7 +236,8 @@
         background-color: var(--ld-col-rp-010);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-solvent-primary-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-solvent-primary-focus);
         }
       }
     }
@@ -289,7 +293,7 @@
         background-color: var(--ld-col-rg-010);
 
         &::before {
-          box-shadow: inset 0 0 0 0.1rem var(--ld-thm-tea-primary-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-thm-tea-primary-focus);
         }
       }
     }
