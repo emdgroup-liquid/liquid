@@ -5,7 +5,7 @@
 }
 @define-mixin docs-toc-ui-dark {
   .docs-toc__nav::before {
-    background-color: var(--ld-col-neutral-300);
+    background-color: var(--ld-col-neutral-400);
   }
 }
 

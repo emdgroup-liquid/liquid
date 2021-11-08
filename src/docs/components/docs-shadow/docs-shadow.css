@@ -5,7 +5,7 @@
 }
 @define-mixin docs-shadow-ui-dark {
   .docs-shadow {
-    border-color: var(--ld-col-neutral-400);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 
