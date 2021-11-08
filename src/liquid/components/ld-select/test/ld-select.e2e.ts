@@ -29,8 +29,6 @@ const selectIcon = `
   </svg>
 `
 
-const allowableMismatchedRatio = 0.02
-
 describe('ld-select', () => {
   for (const theme of themes) {
     // Single select mode
@@ -44,7 +42,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single selected theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -56,7 +54,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -69,7 +67,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Size
@@ -83,7 +81,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single size lg selected theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -95,7 +93,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Custom trigger icon
@@ -110,7 +108,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single custom trigger icon theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -123,7 +121,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single custom trigger icon size lg selected theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -136,7 +134,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Disabled
@@ -150,7 +148,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single disabled focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -163,7 +161,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Aria-disabled
@@ -177,7 +175,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`single aria-disabled focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -190,7 +188,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Invalid
@@ -204,7 +202,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Multiple select mode
@@ -218,7 +216,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple selected theme-${theme}`, async () => {
@@ -231,7 +229,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple selected disabled theme-${theme}`, async () => {
@@ -244,7 +242,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple selected aria-disabled theme-${theme}`, async () => {
@@ -257,7 +255,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple focus clear all button theme-${theme}`, async () => {
@@ -274,7 +272,7 @@ describe('ld-select', () => {
       await page.keyboard.press('Tab')
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple hover clear all button theme-${theme}`, async () => {
@@ -289,7 +287,7 @@ describe('ld-select', () => {
       const btnClear = await page.find('ld-select >>> .ld-select__btn-clear')
       await btnClear.hover()
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple focus selection theme-${theme}`, async () => {
@@ -304,7 +302,7 @@ describe('ld-select', () => {
       await page.keyboard.press('Tab')
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple invalid selected theme-${theme}`, async () => {
@@ -317,7 +315,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple size sm selected theme-${theme}`, async () => {
@@ -330,7 +328,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple size lg selected theme-${theme}`, async () => {
@@ -343,7 +341,7 @@ describe('ld-select', () => {
         theme
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it(`multiple max-rows theme-${theme}`, async () => {
@@ -370,7 +368,7 @@ describe('ld-select', () => {
       )
       await new Promise((resolve) => setTimeout(resolve, 100))
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Themed CSS component
@@ -388,7 +386,7 @@ describe('ld-select', () => {
         LdSelect
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component hover theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -405,7 +403,7 @@ describe('ld-select', () => {
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -422,7 +420,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Disabled CSS component
@@ -440,7 +438,7 @@ describe('ld-select', () => {
         LdSelect
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component disabled hover theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -457,7 +455,7 @@ describe('ld-select', () => {
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component disabled focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -474,7 +472,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     // Aria-disabled CSS component
@@ -492,7 +490,7 @@ describe('ld-select', () => {
         LdSelect
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component aria-disabled hover theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -509,7 +507,7 @@ describe('ld-select', () => {
       )
       await page.hover('.ld-select')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it(`css component aria-disabled focus theme-${theme}`, async () => {
       const page = await getPageWithContent(
@@ -526,7 +524,7 @@ describe('ld-select', () => {
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   }
 })

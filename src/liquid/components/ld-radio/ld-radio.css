@@ -5,29 +5,32 @@
   --ld-radio-dot-size: 0.625rem;
 
   /* colors */
-  --ld-radio-col-bg: var(--ld-col-wht);
-  --ld-radio-col-bg-active: var(--ld-col-bg-g);
-  --ld-radio-col-border: var(--ld-col-rblck4);
-  --ld-radio-col-disabled: var(--ld-col-rblck2);
-  --ld-radio-col-bg-disabled: var(--ld-col-rblck1);
-  --ld-radio-dark-col-bg: var(--ld-col-bg-g);
-  --ld-radio-dark-col-bg-hover: var(--ld-col-rblck1);
-  --ld-radio-dark-col-bg-active: var(--ld-col-rblck2);
+  --ld-radio-bg-col: var(--ld-col-wht);
+  --ld-radio-bg-col-hover: var(--ld-col-neutral-010);
+  --ld-radio-bg-col-active: var(--ld-col-neutral-050);
+  --ld-radio-disabled-col: var(--ld-col-neutral-300);
+  --ld-radio-disabled-bg-col: var(--ld-col-neutral-100);
+  --ld-radio-dark-bg-col: var(--ld-col-neutral-050);
+  --ld-radio-dark-bg-col-hover: var(--ld-col-neutral-100);
+  --ld-radio-dark-bg-col-active: var(--ld-col-neutral-300);
   --ld-radio-checked-col: var(--ld-col-wht);
-  --ld-radio-col-invalid: var(--ld-col-rr-default);
-  --ld-radio-col-invalid-hover: var(--ld-col-rr-hover);
-  --ld-radio-col-invalid-focus: var(--ld-col-rr-focus);
-  --ld-radio-col-invalid-active: var(--ld-col-rr-active);
-  --ld-radio-col-warn: var(--ld-col-vy-default);
-  --ld-radio-col-warn-hover: var(--ld-col-vy-hover);
-  --ld-radio-col-warn-focus: var(--ld-col-vy-focus);
-  --ld-radio-col-warn-active: var(--ld-col-vy-active);
+  --ld-radio-checked-col-active: var(--ld-col-wht);
 
   /* themable colors */
-  --ld-radio-thm-col: var(--ld-col-rb-default);
-  --ld-radio-thm-col-hover: var(--ld-col-rb-hover);
-  --ld-radio-thm-col-active: var(--ld-col-rb-active);
-  --ld-radio-thm-col-focus: var(--ld-col-rb-focus);
+  --ld-radio-col: var(--ld-thm-primary);
+  --ld-radio-col-hover: var(--ld-thm-primary-hover);
+  --ld-radio-col-active: var(--ld-thm-primary-active);
+  --ld-radio-col-focus: var(--ld-thm-primary-focus);
+  --ld-radio-invalid-col: var(--ld-thm-error);
+  --ld-radio-invalid-col-hover: var(--ld-thm-error-hover);
+  --ld-radio-invalid-col-focus: var(--ld-thm-error-focus);
+  --ld-radio-invalid-col-active: var(--ld-thm-error-active);
+  --ld-radio-warn-col: var(--ld-thm-warning);
+  --ld-radio-warn-col-hover: var(--ld-thm-warning-hover);
+  --ld-radio-warn-col-focus: var(--ld-thm-warning-focus);
+  --ld-radio-warn-col-active: var(--ld-thm-warning-active);
+  --ld-radio-warn-checked-col: var(--ld-thm-warning-active);
+  --ld-radio-warn-checked-col-active: var(--ld-thm-warning-hover);
 
   position: relative;
   display: inline-flex;
@@ -58,16 +61,16 @@
     &:where(:disabled),
     &:where([aria-disabled='true']) {
       ~ .ld-radio__dot {
-        background-color: var(--ld-radio-col-disabled);
+        background-color: var(--ld-radio-disabled-col);
       }
       ~ .ld-radio__box {
         background-color: transparent;
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-bg-disabled);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-disabled-bg-col);
       }
 
       &:checked {
         ~ .ld-radio__box {
-          background-color: var(--ld-radio-col-bg-disabled);
+          background-color: var(--ld-radio-disabled-bg-col);
         }
       }
     }
@@ -76,23 +79,23 @@
       cursor: pointer;
 
       ~ .ld-radio__dot {
-        background-color: var(--ld-radio-thm-col-active);
+        background-color: var(--ld-radio-col-active);
       }
       ~ .ld-radio__box {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col);
       }
 
       &:focus:focus-visible {
         ~ .ld-radio__box {
           background-color: transparent;
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-focus);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-focus);
         }
       }
       &:active,
       &:active:focus-visible {
         ~ .ld-radio__box {
-          background-color: var(--ld-radio-col-bg-active);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-active);
+          background-color: var(--ld-radio-bg-col-active);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-active);
         }
       }
 
@@ -101,27 +104,27 @@
           background-color: var(--ld-radio-checked-col);
         }
         ~ .ld-radio__box {
-          background-color: var(--ld-radio-thm-col);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col);
+          background-color: var(--ld-radio-col);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col);
         }
 
         &:focus:focus-visible {
           ~ .ld-radio__dot {
-            background-color: var(--ld-radio-thm-col-active);
+            background-color: var(--ld-radio-col-active);
           }
           ~ .ld-radio__box {
-            background-color: var(--ld-radio-thm-col-focus);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-focus);
+            background-color: var(--ld-radio-col-focus);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-focus);
           }
         }
         &:active,
         &:active:focus-visible {
           ~ .ld-radio__dot {
-            background-color: var(--ld-radio-col-bg-active);
+            background-color: var(--ld-radio-checked-col-active);
           }
           ~ .ld-radio__box {
-            background-color: var(--ld-radio-thm-col-active);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-active);
+            background-color: var(--ld-radio-col-active);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-active);
           }
         }
       }
@@ -130,25 +133,24 @@
 
   :where(input:not(:disabled):not(input[aria-disabled='true'])) {
     ~ .ld-radio__box {
-      background-color: var(--ld-radio-col-bg);
+      background-color: var(--ld-radio-bg-col);
     }
-  }
 
-  @media (hover: hover) {
-    &:hover {
-      :where(input:not(:disabled):not(input[aria-disabled='true']))
+    @media (hover: hover) {
+      &:hover {
         ~ .ld-radio__box {
-        background-color: var(--ld-radio-col-bg);
-        box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-hover);
-      }
-
-      :where(input:not(:disabled):not(input[aria-disabled='true'])):checked {
-        ~ .ld-radio__dot {
-          background-color: var(--ld-radio-checked-col);
+          background-color: var(--ld-radio-bg-col-hover);
+          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-hover);
         }
-        ~ .ld-radio__box {
-          background-color: var(--ld-radio-thm-col-hover);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-radio-thm-col-hover);
+
+        &:checked {
+          ~ .ld-radio__dot {
+            color: var(--ld-radio-checked-col);
+          }
+          ~ .ld-radio__box {
+            background-color: var(--ld-radio-col-hover);
+            box-shadow: inset 0 0 0 0.1rem var(--ld-radio-col-hover);
+          }
         }
       }
     }
@@ -157,25 +159,25 @@
 
 .ld-radio.ld-radio--dark,
 :host(.ld-radio.ld-radio--dark) {
-  @media (hover: hover) {
-    &:hover {
-      input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
-        ~ .ld-radio__box {
-          background-color: var(--ld-radio-dark-col-bg-hover);
+  :where(input) {
+    &:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+      ~ .ld-radio__box {
+        background-color: var(--ld-radio-dark-bg-col);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          ~ .ld-radio__box {
+            background-color: var(--ld-radio-dark-bg-col-hover);
+          }
         }
       }
-    }
-  }
 
-  input:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
-    ~ .ld-radio__box {
-      background-color: var(--ld-radio-dark-col-bg);
-    }
-
-    &:active,
-    &:active:focus-visible {
-      ~ .ld-radio__box {
-        background-color: var(--ld-radio-dark-col-bg-active);
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-radio__box {
+          background-color: var(--ld-radio-dark-bg-col-active);
+        }
       }
     }
   }
@@ -210,18 +212,20 @@
 
 :host(.ld-radio--highlight),
 .ld-radio--highlight {
-  --ld-radio-thm-col: var(--ld-radio-col-warn);
-  --ld-radio-thm-col-hover: var(--ld-radio-col-warn-hover);
-  --ld-radio-thm-col-active: var(--ld-radio-col-warn-focus);
-  --ld-radio-thm-col-focus: var(--ld-radio-col-warn-active);
+  --ld-radio-col: var(--ld-radio-warn-col);
+  --ld-radio-col-hover: var(--ld-radio-warn-col-hover);
+  --ld-radio-col-active: var(--ld-radio-warn-col-focus);
+  --ld-radio-col-focus: var(--ld-radio-warn-col-active);
+  --ld-radio-checked-col: var(--ld-radio-warn-checked-col);
+  --ld-radio-checked-col-active: var(--ld-radio-warn-checked-col-active);
 }
 
 :host(.ld-radio--invalid),
 :host(.ld-radio--danger),
 .ld-radio--invalid,
 .ld-radio--danger {
-  --ld-radio-thm-col: var(--ld-radio-col-invalid);
-  --ld-radio-thm-col-hover: var(--ld-radio-col-invalid-hover);
-  --ld-radio-thm-col-active: var(--ld-radio-col-invalid-focus);
-  --ld-radio-thm-col-focus: var(--ld-radio-col-invalid-active);
+  --ld-radio-col: var(--ld-radio-invalid-col);
+  --ld-radio-col-hover: var(--ld-radio-invalid-col-hover);
+  --ld-radio-col-active: var(--ld-radio-invalid-col-focus);
+  --ld-radio-col-focus: var(--ld-radio-invalid-col-active);
 }

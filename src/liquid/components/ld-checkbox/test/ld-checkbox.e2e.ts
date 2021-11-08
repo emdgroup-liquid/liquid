@@ -6,8 +6,6 @@ jest.useRealTimers()
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 
-const allowableMismatchedRatio = 0.02
-
 const checkAndBox = `
   <svg
     class="ld-checkbox__check"
@@ -40,7 +38,7 @@ describe('ld-checkbox', () => {
             `<ld-checkbox tone="${tone}"></ld-checkbox>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -49,7 +47,7 @@ describe('ld-checkbox', () => {
           const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -57,7 +55,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled
@@ -66,7 +64,7 @@ describe('ld-checkbox', () => {
             `<ld-checkbox tone="${tone}" ${checkedStateStr} disabled></ld-checkbox>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -75,7 +73,7 @@ describe('ld-checkbox', () => {
           const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -83,7 +81,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled
@@ -92,7 +90,7 @@ describe('ld-checkbox', () => {
             `<ld-checkbox tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-checkbox>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`aria-disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -101,7 +99,7 @@ describe('ld-checkbox', () => {
           const checkbox = await page.find('ld-checkbox')
           await checkbox.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`aria-disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -109,7 +107,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Themed CSS component
@@ -123,7 +121,7 @@ describe('ld-checkbox', () => {
             LdCheckbox
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -135,7 +133,7 @@ describe('ld-checkbox', () => {
           )
           await page.hover('.ld-checkbox')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -147,7 +145,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled CSS component
@@ -160,7 +158,7 @@ describe('ld-checkbox', () => {
             LdCheckbox
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -172,7 +170,7 @@ describe('ld-checkbox', () => {
           )
           await page.hover('.ld-checkbox')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -184,7 +182,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled CSS component
@@ -197,7 +195,7 @@ describe('ld-checkbox', () => {
             LdCheckbox
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component aria-disabled hover ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -209,7 +207,7 @@ describe('ld-checkbox', () => {
           )
           await page.hover('.ld-checkbox')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
         it(`css component aria-disabled focus ${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
@@ -221,7 +219,7 @@ describe('ld-checkbox', () => {
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
       }
     })

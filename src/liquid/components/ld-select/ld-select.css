@@ -28,25 +28,25 @@
   --ld-select-icon-size-lg: 1.5rem;
 
   /* colors */
-  --ld-select-col: var(--ld-col-rblck-default);
-  --ld-select-col-bg: var(--ld-col-wht);
-  --ld-select-col-invalid: var(--ld-col-rr-default);
-  --ld-select-col-invalid-hover: var(--ld-col-rr-hover);
-  --ld-select-col-invalid-focus: var(--ld-col-rr-focus);
-  --ld-select-col-invalid-active: var(--ld-col-rr-active);
-  --ld-select-col-bg-invalid-disabled: var(--ld-col-rr1);
-  --ld-select-col-disabled: var(--ld-col-rblck1);
-  --ld-select-col-border: var(--ld-col-rblck1);
-  --ld-select-col-border-hover: var(--ld-col-rblck2);
+  --ld-select-col: var(--ld-col-neutral);
+  --ld-select-col-disabled: var(--ld-col-neutral-100);
+  --ld-select-col-border: var(--ld-col-neutral-100);
+  --ld-select-col-border-hover: var(--ld-col-neutral-300);
+  --ld-select-bg-col: var(--ld-col-wht);
   --ld-select-selection-col: var(--ld-col-wht);
 
   /* themable colors */
-  --ld-select-thm-col: var(--ld-thm-ocean-bg-primary);
-  --ld-select-thm-col-hover: var(--ld-col-rb-hover);
-  --ld-select-thm-col-focus: var(--ld-col-rb-focus);
-  --ld-select-thm-col-active: var(--ld-col-rb-active);
-  --ld-select-ghost-thm-col-bg-hover: var(--ld-col-rb-a01);
-  --ld-select-ghost-thm-col-bg-focus: var(--ld-col-rb-a02);
+  --ld-select-invalid-col: var(--ld-thm-error);
+  --ld-select-invalid-icon-col-hover: var(--ld-thm-error-hover);
+  --ld-select-invalid-icon-col-focus: var(--ld-thm-error-focus);
+  --ld-select-invalid-icon-col-active: var(--ld-thm-error-active);
+  --ld-select-invalid-disabled-bg-col: var(--ld-thm-error-disabled);
+  --ld-select-thm-col: var(--ld-thm-primary);
+  --ld-select-thm-col-hover: var(--ld-thm-primary-hover);
+  --ld-select-thm-col-focus: var(--ld-thm-primary-focus);
+  --ld-select-thm-col-active: var(--ld-thm-primary-active);
+  --ld-select-ghost-trigger-bg-col-hover: var(--ld-thm-primary-alpha-lowest);
+  --ld-select-ghost-trigger-bg-col-focus: var(--ld-thm-primary-alpha-low);
 
   /* reset */
   *,
@@ -152,7 +152,7 @@
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-select-col);
-  background-color: var(--ld-select-col-bg);
+  background-color: var(--ld-select-bg-col);
   line-height: 1;
   text-align: left;
   appearance: none;
@@ -270,35 +270,35 @@
 .ld-select--invalid .ld-select__btn-trigger--invalid {
   &:where(:not(:disabled)) {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
     }
   }
 
   &:where(:not(:disabled):not([aria-disabled='true'])) {
     &:where(:not(:focus:focus-visible)) {
-      background-color: var(--ld-select-col-bg-invalid-disabled);
-      color: var(--ld-select-col-invalid);
+      background-color: var(--ld-select-invalid-disabled-bg-col);
+      color: var(--ld-select-invalid-col);
     }
 
     &:where(:not(.ld-select__btn-trigger--ghost)) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
+      box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
     }
 
     + .ld-icon,
     + .ld-select__icon,
     .ld-select__icon {
-      color: var(--ld-select-col-invalid);
+      color: var(--ld-select-invalid-col);
     }
 
     @media (hover: hover) {
       &:hover {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-invalid);
+        box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
 
         + .ld-icon,
         + .ld-select__icon,
         .ld-select__icon,
         ::slotted(ld-icon) {
-          color: var(--ld-select-col-invalid-hover);
+          color: var(--ld-select-invalid-icon-col-hover);
         }
       }
     }
@@ -307,7 +307,7 @@
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-select-col-invalid-focus);
+        color: var(--ld-select-invalid-icon-col-focus);
       }
     }
     &:where(:active),
@@ -316,7 +316,7 @@
       + .ld-select__icon,
       .ld-select__icon,
       ::slotted(ld-icon) {
-        color: var(--ld-select-col-invalid-active);
+        color: var(--ld-select-invalid-icon-col-active);
       }
     }
   }
@@ -508,12 +508,12 @@
     :where(.ld-select__btn-trigger) {
       @media (hover: hover) {
         &:hover:not(:focus) {
-          background-color: var(--ld-select-ghost-thm-col-bg-hover);
+          background-color: var(--ld-select-ghost-trigger-bg-col-hover);
         }
       }
       &:active,
       &:active:focus-visible {
-        background-color: var(--ld-select-ghost-thm-col-bg-focus);
+        background-color: var(--ld-select-ghost-trigger-bg-col-focus);
       }
     }
   }

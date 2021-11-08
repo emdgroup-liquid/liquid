@@ -4,19 +4,19 @@
   --ld-option-padding-left-lg: 0.875rem;
 
   /* colors */
-  --ld-option-col: var(--ld-col-rblck-default);
-  --ld-option-col-disabled: var(--ld-col-disabled);
+  --ld-option-col: var(--ld-col-neutral);
+  --ld-option-col-disabled: var(--ld-col-neutral-disabled);
   --ld-option-col-bg: var(--ld-col-wht);
-  --ld-option-col-border: var(--ld-col-rblck1);
+  --ld-option-col-border: var(--ld-col-neutral-100);
 
   /* themable colors */
-  --ld-option-thm-col: var(--ld-thm-ocean-bg-primary);
-  --ld-option-thm-col-hover: var(--ld-col-rb-hover);
-  --ld-option-thm-col-focus: var(--ld-col-rb-focus);
-  --ld-option-thm-col-active: var(--ld-col-rb-active);
-  --ld-option-thm-col-bg-hover: var(--ld-col-rb1);
-  --ld-option-thm-col-bg-focus: var(--ld-col-rb1);
-  --ld-option-thm-col-bg-active: var(--ld-col-rb1);
+  --ld-option-thm-col: var(--ld-thm-primary);
+  --ld-option-thm-col-hover: var(--ld-thm-primary-hover);
+  --ld-option-thm-col-focus: var(--ld-thm-primary-focus);
+  --ld-option-thm-col-active: var(--ld-thm-primary-active);
+  --ld-option-thm-col-bg-hover: var(--ld-thm-primary-highlight);
+  --ld-option-thm-col-bg-focus: var(--ld-thm-primary-highlight);
+  --ld-option-thm-col-bg-active: var(--ld-thm-primary-highlight);
 
   /*outline: none;*/
   display: flex;
