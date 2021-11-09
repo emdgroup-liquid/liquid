@@ -1,10 +1,11 @@
-@import 'fonts/fonts.css';
-@import 'typography/typography.css';
-@import 'colors/colors.css';
-@import 'shadows/shadows.css';
 @import 'border-radius/border-radius.css';
-@import 'spacings/spacings.css';
+@import 'colors/colors.css';
 @import 'focus/focus.css';
+@import 'fonts/fonts.css';
+@import 'shadows/shadows.css';
+@import 'spacings/spacings.css';
+@import 'theming/theming.css';
+@import 'typography/typography.css';
 
 @import '../../components/ld-tabs/ld-tab/ld-tab.global.css';
 @import '../../components/ld-tabs/ld-tablist/ld-tablist.global.css';

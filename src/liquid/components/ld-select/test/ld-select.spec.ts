@@ -1868,12 +1868,12 @@ describe('ld-select', () => {
     const page = await newSpecPage({
       components,
       html: `
-        <ld-theme name="tea">
+        <div class="ld-theme-tea">
           <ld-select placeholder="Pick a fruit" name="fruit">
             <ld-option value="apple">Apple</ld-option>
             <ld-option value="pear">Pear</ld-option>
           </ld-select>
-        </ld-theme>
+        </div>
       `,
     })
 
