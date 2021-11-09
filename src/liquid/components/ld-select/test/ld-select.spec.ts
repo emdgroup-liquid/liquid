@@ -2,7 +2,6 @@ import MutationObserver from 'mutation-observer'
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
 import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
-import { LdTheme } from '../../ld-theme/ld-theme'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
@@ -13,7 +12,6 @@ const components = [
   LdOption,
   LdOptionInternal,
   LdLabel,
-  LdTheme,
 ]
 
 let triggerableMutationObserver
