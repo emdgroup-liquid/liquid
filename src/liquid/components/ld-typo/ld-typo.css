@@ -2,12 +2,12 @@
   display: block;
 
   &([variant^='xb']),
-  &([variant*='b1']),
-  &([variant*='b2']),
-  &([variant*='b3']),
-  &([variant*='b4']),
-  &([variant*='b5']),
-  &([variant*='b6']) {
+  &([variant='b1']),
+  &([variant='b2']),
+  &([variant='b3']),
+  &([variant='b4']),
+  &([variant='b5']),
+  &([variant='b6']) {
     color: var(--ld-typo-text-brand-color);
   }
 
