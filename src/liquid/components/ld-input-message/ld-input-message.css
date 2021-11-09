@@ -17,7 +17,7 @@
 }
 
 .ld-input-message__icon {
-  transform: translateY(0.1rem);
+  transform: translateY(var(--ld-sp-2));
   margin-top: var(--ld-sp-2);
   margin-right: var(--ld-sp-6);
   flex-shrink: 0;

@@ -64,7 +64,8 @@
       }
       ~ .ld-checkbox__box {
         background-color: transparent;
-        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-disabled-bg-col);
+        box-shadow: inset 0 0 0 var(--ld-sp-2)
+          var(--ld-checkbox-disabled-bg-col);
       }
 
       &:checked {
@@ -81,20 +82,20 @@
         color: var(--ld-checkbox-col-active);
       }
       ~ .ld-checkbox__box {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col);
+        box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col);
       }
 
       &:focus:focus-visible {
         ~ .ld-checkbox__box {
           background-color: transparent;
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-focus);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-focus);
         }
       }
       &:active,
       &:active:focus-visible {
         ~ .ld-checkbox__box {
           background-color: var(--ld-checkbox-bg-col-active);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-active);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-active);
         }
       }
 
@@ -104,7 +105,7 @@
         }
         ~ .ld-checkbox__box {
           background-color: var(--ld-checkbox-col);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col);
         }
 
         &:focus:focus-visible {
@@ -113,7 +114,7 @@
           }
           ~ .ld-checkbox__box {
             background-color: var(--ld-checkbox-col-focus);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-focus);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-focus);
           }
         }
         &:active,
@@ -123,7 +124,7 @@
           }
           ~ .ld-checkbox__box {
             background-color: var(--ld-checkbox-col-active);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-active);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-active);
           }
         }
       }
@@ -139,7 +140,7 @@
       &:hover {
         ~ .ld-checkbox__box {
           background-color: var(--ld-checkbox-bg-col-hover);
-          box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-hover);
+          box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-hover);
         }
 
         &:checked {
@@ -148,7 +149,7 @@
           }
           ~ .ld-checkbox__box {
             background-color: var(--ld-checkbox-col-hover);
-            box-shadow: inset 0 0 0 0.1rem var(--ld-checkbox-col-hover);
+            box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-checkbox-col-hover);
           }
         }
       }

@@ -247,7 +247,7 @@
   &:where(:not(.ld-select--detached):not(.ld-select--expanded)) {
     :where(select),
     :where(.ld-select__btn-trigger) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-border);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-col-border);
     }
   }
 
@@ -258,7 +258,8 @@
       &:where(:not(:disabled):not([aria-disabled='true']):not(.ld-select__btn-trigger--detached):not([aria-expanded='true'])) {
         @media (hover: hover) {
           &:hover:not(:focus:focus-visible) {
-            box-shadow: inset 0 0 0 0.1rem var(--ld-select-col-border-hover);
+            box-shadow: inset 0 0 0 var(--ld-sp-2)
+              var(--ld-select-col-border-hover);
           }
         }
       }
@@ -270,7 +271,7 @@
 .ld-select--invalid .ld-select__btn-trigger--invalid {
   &:where(:not(:disabled)) {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-invalid-col);
     }
   }
 
@@ -281,7 +282,7 @@
     }
 
     &:where(:not(.ld-select__btn-trigger--ghost)) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-invalid-col);
     }
 
     + .ld-icon,
@@ -292,7 +293,7 @@
 
     @media (hover: hover) {
       &:hover {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-select-invalid-col);
+        box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-invalid-col);
 
         + .ld-icon,
         + .ld-select__icon,
@@ -499,7 +500,7 @@
 :where(.ld-select:not([disabled]):not([aria-disabled]):not(.ld-select--invalid)) {
   .ld-select__btn-trigger {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-thm-col);
     }
   }
 
@@ -538,7 +539,7 @@
       }
     }
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-thm-col);
 
       .ld-select__icon,
       + .ld-select__icon,
@@ -562,7 +563,7 @@
   :where(select:not(:disabled)),
   :where(.ld-select__btn-trigger) {
     &:where(:focus:focus-visible) {
-      box-shadow: inset 0 0 0 0.1rem var(--ld-select-thm-col);
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-thm-col);
     }
   }
 }
