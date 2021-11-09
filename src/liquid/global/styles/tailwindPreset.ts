@@ -177,6 +177,4 @@ const preset = {
   corePlugins: {},
 }
 
-console.log(preset)
-
 module.exports = preset
