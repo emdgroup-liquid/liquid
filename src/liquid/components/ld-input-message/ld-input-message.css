@@ -1,5 +1,8 @@
 :host,
 .ld-input-message {
+  --ld-input-message-valid-text-col: var(--ld-thm-success);
+  --ld-input-message-error-text-col: var(--ld-thm-error);
+
   display: inline-flex;
   align-items: flex-start;
   font: var(--ld-typo-body-s);
@@ -8,12 +11,12 @@
 
 :host(.ld-input-message--valid),
 .ld-input-message--valid {
-  color: var(--ld-col-rg-default);
+  color: var(--ld-input-message-valid-text-col);
 }
 
 :host(.ld-input-message--error),
 .ld-input-message--error {
-  color: var(--ld-col-rr-default);
+  color: var(--ld-input-message-error-text-col);
 }
 
 .ld-input-message__icon {
