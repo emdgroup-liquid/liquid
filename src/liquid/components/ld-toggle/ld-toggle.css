@@ -125,7 +125,7 @@
 
       .ld-toggle__icon-start,
       .ld-toggle__icon-end {
-        margin: 0.75rem;
+        margin: auto 0.75rem;
       }
     }
   }
@@ -160,7 +160,7 @@
 
   .ld-toggle__icon-start,
   .ld-toggle__icon-end {
-    margin: 0.5rem;
+    margin: auto 0.5rem;
   }
 }
 
