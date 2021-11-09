@@ -23,9 +23,10 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 
 ## CSS Variables
 
-| Variable             | Description                   | Default  |
-| -------------------- | ----------------------------- | -------- |
-| `--ld-loading-size`  | Size of the loading indicator | `1.5rem` |
+| Variable             | Description                     | Default                     |
+| -------------------- | ------------------------------- | --------------------------- |
+| `--ld-loading-col`   | Color of the loading indicator. | `var(--ld-col-neutral-300)` |
+| `--ld-loading-size`  | Size of the loading indicator.  | `1.5rem`                    |
 
 <!-- Auto Generated Below -->
 
