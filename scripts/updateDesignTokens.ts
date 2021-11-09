@@ -123,6 +123,7 @@ function parseColors(items, styles) {
     } else if (item.fills?.length && item.styles?.fill) {
       const style = styles[item.styles.fill]
       const { name, description } = style
+      const variants = description.split(', ')
       const [baseColorName, ...rest] = name.split('/')[1].split('-')
       const defaultOnly = rest.length === 0
       const colorShortName = ['Neutral', 'White'].includes(baseColorName)
@@ -131,29 +132,11 @@ function parseColors(items, styles) {
           : baseColorName.toLowerCase()
         : baseColorName.replaceAll(/[a-z]/g, '').toLowerCase()
       const colorName =
-        colorShortName + (defaultOnly ? '' : '-' + rest.join('-'))
+        colorShortName +
+        (defaultOnly ? '' : '-' + rest.join('-')) +
+        (variants.includes('Default') ? '/default' : '')
       const colorValue = relRGBToAbsRGB(item.fills[0])
       colors[colorName] = colorValue
-
-      if (description) {
-        const variants = description.split(', ')
-        variants.forEach((variant) => {
-          if (variant.startsWith('Surface')) {
-            return
-          }
-
-          if (variant === 'Default') {
-            if (!defaultOnly) {
-              colors[colorShortName] = colorValue
-            }
-            return
-          }
-
-          const colorVariantName = colorShortName + '-' + variant.toLowerCase()
-
-          colors[colorVariantName] = colorValue
-        })
-      }
     }
   }
 
@@ -299,12 +282,18 @@ function generateColors(colorTokens, themes) {
   Object.keys(colorTokens).forEach((key) => {
     const val = colorTokens[key]
     if (key.includes('/default')) {
-      colorVariables.push(`  --ld-col-${key.split('/default')[0]}: ${val};`)
-      const colorKey = key
+      const colorKey = key.split('/default')[0]
+      const colorBaseName = key
         .replace(/\d/g, '')
         .replace('/default', '')
         .replace(/-$/, '')
+
       colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
+
+      // prevents duplicate custom properties in cases like "sp/default"
+      if (colorBaseName !== colorKey) {
+        colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
+      }
     } else {
       colorVariables.push(`  --ld-col-${key}: ${val};`)
     }
