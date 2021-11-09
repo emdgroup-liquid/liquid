@@ -572,7 +572,8 @@
 
 #slots,
 #events,
-#properties {
+#properties,
+#shadow-parts {
   + table + hr {
     display: none;
   }
