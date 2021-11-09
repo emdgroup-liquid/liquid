@@ -163,8 +163,7 @@
   --ld-thm-warning-hover: var(--ld-thm-ocean-warning-hover);
   --ld-thm-warning: var(--ld-thm-ocean-warning);
 }
-.ld-theme-ocean,
-[class*='ld-theme'] .ld-theme-ocean {
+.ld-theme-ocean {
   --ld-thm-error-active: var(--ld-thm-ocean-error-active);
   --ld-thm-error-focus: var(--ld-thm-ocean-error-focus);
   --ld-thm-error-highlight: var(--ld-thm-ocean-error-highlight);
@@ -193,8 +192,7 @@
   --ld-thm-warning-hover: var(--ld-thm-ocean-warning-hover);
   --ld-thm-warning: var(--ld-thm-ocean-warning);
 }
-.ld-theme-solvent,
-[class*='ld-theme'] .ld-theme-solvent {
+.ld-theme-solvent {
   --ld-thm-error-active: var(--ld-thm-solvent-error-active);
   --ld-thm-error-focus: var(--ld-thm-solvent-error-focus);
   --ld-thm-error-highlight: var(--ld-thm-solvent-error-highlight);
@@ -223,8 +221,7 @@
   --ld-thm-warning-hover: var(--ld-thm-solvent-warning-hover);
   --ld-thm-warning: var(--ld-thm-solvent-warning);
 }
-.ld-theme-bubblegum,
-[class*='ld-theme'] .ld-theme-bubblegum {
+.ld-theme-bubblegum {
   --ld-thm-error-active: var(--ld-thm-bubblegum-error-active);
   --ld-thm-error-focus: var(--ld-thm-bubblegum-error-focus);
   --ld-thm-error-highlight: var(--ld-thm-bubblegum-error-highlight);
@@ -253,8 +250,7 @@
   --ld-thm-warning-hover: var(--ld-thm-bubblegum-warning-hover);
   --ld-thm-warning: var(--ld-thm-bubblegum-warning);
 }
-.ld-theme-tea,
-[class*='ld-theme'] .ld-theme-tea {
+.ld-theme-tea {
   --ld-thm-error-active: var(--ld-thm-tea-error-active);
   --ld-thm-error-focus: var(--ld-thm-tea-error-focus);
   --ld-thm-error-highlight: var(--ld-thm-tea-error-highlight);
@@ -283,8 +279,7 @@
   --ld-thm-warning-hover: var(--ld-thm-tea-warning-hover);
   --ld-thm-warning: var(--ld-thm-tea-warning);
 }
-.ld-theme-shake,
-[class*='ld-theme'] .ld-theme-shake {
+.ld-theme-shake {
   --ld-thm-error-active: var(--ld-thm-shake-error-active);
   --ld-thm-error-focus: var(--ld-thm-shake-error-focus);
   --ld-thm-error-highlight: var(--ld-thm-shake-error-highlight);

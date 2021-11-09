@@ -7,7 +7,6 @@ title: Theming
 permalink: global/theming/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-theme.css">
 <link rel="stylesheet" href="/css_components/ld-button.css">
 
 # Theming
@@ -34,20 +33,28 @@ You apply a theme by wrapping whatever needs to be themed in an element with a `
 
 ## Theme inception
 
-In rare cases you will want to have a theming element wrapped by another theming element. Liquid supports a one level theme inception, which should be sufficiant for most edge cases. You can **not** wrap a theme in a theme in a theme... So, here is an example of a one level theme inception:
+In rare cases you may want to have a theming element wrapped by another theming element. Liquid supports unlimited theme inception (nested themes). Here is an example of a two-level theme inception:
 
 {% example 'html', false, true, false, false %}
-<div class="ld-theme-bubblegum">
-  <div class="ld-theme-tea">
-    <ld-button>Text</ld-button>
+<div class="ld-theme-bubblegum" style="display: flex;">
+  <ld-button>Text</ld-button>
+  <div class="ld-theme-tea" style="display: flex;">
+    <ld-button style="margin: 0 var(--ld-sp-16);">Text</ld-button>
+    <div class="ld-theme-ocean">
+      <ld-button>Text</ld-button>
+    </div>
   </div>
 </div>
 
 <!-- CSS component -->
 
-<div class="ld-theme-bubblegum">
-  <div class="ld-theme-tea">
-    <button class="ld-button">Text</button>
+<div class="ld-theme-bubblegum" style="display: flex;">
+  <button class="ld-button">Text</button>
+  <div class="ld-theme-tea" style="display: flex;">
+    <button class="ld-button" style="margin: 0 var(--ld-sp-16);">Text</button>
+    <div class="ld-theme-ocean">
+      <button class="ld-button">Text</button>
+    </div>
   </div>
 </div>
 {% endexample %}
