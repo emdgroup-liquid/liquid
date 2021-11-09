@@ -252,6 +252,18 @@ Headings are used as an introduction into a topic or a content section and for v
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
+<ld-typo variant="xh4">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh5">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh6">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
 <!-- CSS component -->
 
 <h1 class="ld-typo--xh1">
@@ -263,6 +275,18 @@ Headings are used as an introduction into a topic or a content section and for v
 </h2>
 
 <h3 class="ld-typo--xh3">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh4">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh5">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh6">
   Almost before we knew it, we had left the ground.
 </h3>
 {% endexample %}
