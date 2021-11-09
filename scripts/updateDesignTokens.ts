@@ -349,8 +349,7 @@ function generateTheming(themes) {
       }
     })
 
-    themeSelectors.push(`.ld-theme-${themeName},
-[class*='ld-theme'] .ld-theme-${themeName} {`)
+    themeSelectors.push(`.ld-theme-${themeName} {`)
     themeSelectors.push(...currentThemeColorVariables.sort())
     themeSelectors.push(`}`)
   })
