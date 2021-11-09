@@ -6,6 +6,21 @@ function pxToRem(px: string | number) {
   return parseInt(px + '') / 16 + 'rem'
 }
 
+function getColorTokenValue(variant, styles) {
+  if (variant.styles?.fill) {
+    const style = styles[variant.styles.fill]
+    const { name, description } = style
+    const variants = description.split(', ')
+    const [baseColorName, ...rest] = name.split('/')[1].split('-')
+    const referenceName =
+      baseColorName.replaceAll(/[a-z]/g, '').toLowerCase() +
+      (variants.includes('Default') ? '' : '-' + rest.join('-'))
+    return referenceName
+  } else {
+    return relRGBToAbsRGB(variant.fills[0])
+  }
+}
+
 function relRGBToAbsRGB(fill) {
   const r = Math.round(fill.color.r * 255)
   const g = Math.round(fill.color.g * 255)
@@ -37,42 +52,14 @@ function parseThemes(items, styles) {
                 subVariants.forEach((subVariant) => {
                   const subVariantName = subVariant.name.toLowerCase()
                   const colorName = `${groupName}-${variantName}-${subVariantName}`
-
-                  if (subVariant.styles?.fill) {
-                    const [baseColorName, ...rest] = styles[
-                      subVariant.styles.fill
-                    ]?.name
-                      .split('/')[1]
-                      .split('-')
-                    const referenceName =
-                      baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
-                      '-' +
-                      rest.join('-')
-                    theme[colorName] = referenceName
-                  } else {
-                    theme[colorName] = relRGBToAbsRGB(subVariant.fills[0])
-                  }
+                  theme[colorName] = getColorTokenValue(subVariant, styles)
                 })
               }
             } else {
               const colorName = `${groupName}${
                 variantName === 'default' ? '' : `-${variantName}`
               }`
-
-              if (variant.styles?.fill) {
-                const [baseColorName, ...rest] = styles[
-                  variant.styles.fill
-                ]?.name
-                  .split('/')[1]
-                  .split('-')
-                const referenceName =
-                  baseColorName.replaceAll(/[a-z0]/g, '').toLowerCase() +
-                  '-' +
-                  rest.join('-')
-                theme[colorName] = referenceName
-              } else {
-                theme[colorName] = relRGBToAbsRGB(variant.fills[0])
-              }
+              theme[colorName] = getColorTokenValue(variant, styles)
             }
           })
         }

@@ -29,7 +29,7 @@ type TailwindColorObject = {
 }
 
 const colors = { thm: {} }
-const createNestedColorFromFlat = (
+const createNestedThemeColorFromFlat = (
   key: string,
   colorObject: TailwindColorObject,
   colorTokenReference?: string
@@ -46,9 +46,18 @@ const createNestedColorFromFlat = (
           currentColorObject[namePart] = {}
         }
 
-        currentColorObject[namePart]['DEFAULT'] = colorTokenReference
-          ? colors[colorTokenReference].DEFAULT
-          : `var(--ld-thm-${key})`
+        if (!colorTokenReference) {
+          currentColorObject[namePart]['DEFAULT'] = `var(--ld-thm-${key})`
+          return
+        }
+
+        const colorTokenReferenceParts = colorTokenReference.split('-')
+
+        currentColorObject[namePart]['DEFAULT'] =
+          colorTokenReferenceParts.length === 1
+            ? colors[colorTokenReference].DEFAULT
+            : designTokens.colors[colorTokenReference] ??
+              designTokens.colors[colorTokenReference + '/default']
         return
       }
 
@@ -110,11 +119,11 @@ Object.entries(designTokens.themes).forEach(
 
     Object.entries(theme).forEach(([key, value]) => {
       if (typeof value !== 'boolean') {
-        createNestedColorFromFlat(key, colors[themeName], value)
+        createNestedThemeColorFromFlat(key, colors[themeName], value)
 
         if (isFirstTheme) {
           // Creates dynamic colors based on custom properties
-          createNestedColorFromFlat(key, colors.thm)
+          createNestedThemeColorFromFlat(key, colors.thm)
         }
       }
     })
