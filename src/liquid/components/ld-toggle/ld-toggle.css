@@ -20,14 +20,13 @@
   --ld-toggle-checked-icon-start-col: var(--ld-col-neutral);
   --ld-toggle-checked-icon-end-col: var(--ld-col-wht);
   --ld-toggle-disabled-input-bg-col: var(--ld-col-neutral-050);
-  --ld-toggle-disabled-icon-col: var(--ld-col-neutral-600);
+  --ld-toggle-disabled-icon-col: var(--ld-col-neutral-200);
   --ld-toggle-disabled-knob-bg-col: var(--ld-col-wht);
   --ld-toggle-with-icons-input-bg-col: var(--ld-col-neutral-100);
   --ld-toggle-with-icons-disabled-input-bg-col: var(--ld-col-neutral-050);
 
   /* themable colors */
   --ld-toggle-checked-bg-col: var(--ld-thm-primary);
-  --ld-toggle-checked-disabled-input-bg-col: var(--ld-thm-primary-alpha-low);
   --ld-toggle-invalid-input-bg-col: var(--ld-thm-error);
   --ld-toggle-invalid-knob-bg-col: var(--ld-thm-error);
   --ld-toggle-with-icons-knob-col: var(--ld-thm-primary);
@@ -61,7 +60,7 @@
 
       &:disabled,
       &[aria-disabled='true'] {
-        background-color: var(--ld-toggle-checked-disabled-input-bg-col);
+        background-color: var(--ld-toggle-disabled-input-bg-col);
       }
 
       ~ .ld-toggle__knob {
@@ -83,10 +82,12 @@
     &[aria-disabled='true'] {
       background-color: var(--ld-toggle-disabled-input-bg-col);
 
-      &:checked ~ .ld-toggle__icon-start {
+      &:checked ~ .ld-toggle__icon-start,
+      &:checked ~ .ld-toggle__icon-end {
         color: var(--ld-toggle-disabled-icon-col);
       }
 
+      &:not(:checked) ~ .ld-toggle__icon-start,
       &:not(:checked) ~ .ld-toggle__icon-end {
         color: var(--ld-toggle-disabled-icon-col);
       }
@@ -105,7 +106,7 @@
     z-index: 1;
   }
 
-  input:invalid {
+  input:where(:not(:disabled):not([aria-disabled='true'])):invalid {
     background-color: var(--ld-toggle-invalid-input-bg-col);
   }
 }
