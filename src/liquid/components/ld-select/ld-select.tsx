@@ -14,7 +14,6 @@ import {
 import Tether from 'tether'
 import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
 import { LdOptionInternal } from './ld-option-internal/ld-option-internal'
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 type SelectOption = { value: string; text: string }
 
@@ -840,7 +839,6 @@ export class LdSelect {
       this.renderHiddenInput = true
     }
 
-    applyPropAliases.apply(this)
     const customIcon = this.el.querySelector('ld-icon')
     this.hasCustomIcon = !!customIcon
 

@@ -2,7 +2,6 @@ import Tether from 'tether'
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 export type Position =
   | 'bottom center'
@@ -211,7 +210,6 @@ export class LdTooltip {
   }
 
   componentWillLoad() {
-    applyPropAliases.call(this)
     this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
   }
 
