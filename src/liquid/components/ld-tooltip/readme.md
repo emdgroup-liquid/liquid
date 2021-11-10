@@ -11,7 +11,7 @@ permalink: components/ld-tooltip/
 
 # ld-tooltip
 
-Tooltips provide additional information, mostly short paragraphs, and can be placed besides all sorts of interface elements.
+Tooltips provide additional information, mostly short paragraphs, and can be placed beside all sorts of interface elements.
 
 ---
 
