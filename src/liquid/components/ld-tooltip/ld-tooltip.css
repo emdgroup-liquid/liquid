@@ -1,4 +1,9 @@
 .ld-tooltip__trigger {
+  /* themable colors */
+  --ld-tooltip-trigger-icon-col: var(--ld-thm-primary);
+  --ld-tooltip-trigger-icon-col-hover: var(--ld-thm-primary-hover);
+  --ld-tooltip-trigger-icon-col-focus: var(--ld-thm-primary-focus);
+
   background: none;
   border: 0;
   display: inline-block;
@@ -11,11 +16,11 @@
   }
 
   &:focus:focus-visible .ld-tooltip__icon {
-    color: var(--ld-tooltip-icon-color-focus);
+    color: var(--ld-tooltip-trigger-icon-col-focus);
   }
 
   &:hover .ld-tooltip__icon {
-    color: var(--ld-tooltip-icon-color-hover);
+    color: var(--ld-tooltip-trigger-icon-col-hover);
   }
 
   + .ld-tooltip {
@@ -25,7 +30,7 @@
 }
 
 .ld-tooltip__icon {
-  color: var(--ld-tooltip-icon-color);
+  color: var(--ld-tooltip-trigger-icon-col);
   display: flex;
   height: var(--ld-sp-16);
   width: var(--ld-sp-16);

@@ -25,11 +25,15 @@
     --ld-tooltip-offset-x: 0px;
     --ld-tooltip-offset-y: 0px;
 
+    /* colors */
+    --tooltip-col: var(--ld-col-neutral);
+    --tooltip-bg-col: var(--ld-col-wht);
+
     animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
     animation-fill-mode: forwards;
-    background-color: var(--ld-col-wht);
+    background-color: var(--tooltip-bg-col);
     border-radius: var(--ld-br-m);
-    color: var(--ld-col-rblck-default);
+    color: var(--tooltip-col);
     filter: var(--ld-drop-shadow-hover);
     margin-left: var(--ld-tooltip-offset-x);
     margin-top: var(--ld-tooltip-offset-y);
@@ -86,7 +90,7 @@
         );
 
         &:before {
-          border-top-color: var(--ld-col-wht);
+          border-top-color: var(--tooltip-bg-col);
           top: 100%;
         }
       }
@@ -106,7 +110,7 @@
       );
 
       &:before {
-        border-right-color: var(--ld-col-wht);
+        border-right-color: var(--tooltip-bg-col);
         right: 100%;
       }
     }
@@ -133,7 +137,7 @@
         );
 
         &:before {
-          border-left-color: var(--ld-col-wht);
+          border-left-color: var(--tooltip-bg-col);
           left: 100%;
         }
       }
@@ -147,7 +151,7 @@
       );
 
       &:before {
-        border-bottom-color: var(--ld-col-wht);
+        border-bottom-color: var(--tooltip-bg-col);
         bottom: 100%;
       }
     }
