@@ -7,6 +7,4 @@
 @import 'theming/theming.css';
 @import 'typography/typography.css';
 
-@import '../../components/ld-tabs/ld-tab/ld-tab.global.css';
-@import '../../components/ld-tabs/ld-tablist/ld-tablist.global.css';
 @import '../../components/ld-tooltip/ld-tooltip.global.css';

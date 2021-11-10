@@ -123,6 +123,28 @@ export class LdTablist {
     }
   }
 
+  componentWillLoad() {
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      if (this.size !== undefined) {
+        icon.setAttribute('size', this.size)
+      } else {
+        icon.removeAttribute('size')
+      }
+    })
+    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
+      icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+      if (this.size === 'sm') {
+        icon.classList.remove('ld-icon--lg')
+        icon.classList.add('ld-icon--sm')
+      } else if (this.size === 'lg') {
+        icon.classList.remove('ld-icon--sm')
+        icon.classList.add('ld-icon--lg')
+      } else {
+        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+      }
+    })
+  }
+
   componentDidLoad() {
     setTimeout(() => {
       this.updateScrollable()
