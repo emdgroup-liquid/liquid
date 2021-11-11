@@ -284,6 +284,24 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
+  it('copies form autocomplete attribute, if it has not one of its own', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form autocomplete="off"><ld-input name="example" /></form>`,
+    })
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('uses own autocomplete attribute even if the form has a different one', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form autocomplete="off"><ld-input name="example" autocomplete="name" /></form>`,
+    })
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
   it('fills hidden input field with initial value', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],

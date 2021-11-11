@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-input copies form autocomplete attribute, if it has not one of its own 1`] = `
+<ld-input autocomplete="off" class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input autocomplete="off" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden">
+</ld-input>
+`;
+
 exports[`ld-input creates hidden input field, if inside a form 1`] = `
 <ld-input class="ld-input" name="example">
   <mock:shadow-root>
@@ -243,5 +254,16 @@ exports[`ld-input updates value prop on value change 1`] = `
     <input part="input focusable" value="yoda-yoda">
     <slot name="end"></slot>
   </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input uses own autocomplete attribute even if the form has a different one 1`] = `
+<ld-input autocomplete="name" class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input autocomplete="name" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden">
 </ld-input>
 `;
