@@ -11,7 +11,7 @@ permalink: global/colors/
 
 All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
-## White, Transparent White and Liquid Black
+## White
 
 <docs-color var="--ld-col-wht"></docs-color>
 <docs-color var="--ld-col-wht-alpha-highest"></docs-color>
@@ -19,7 +19,6 @@ All colors listed below are available as global CSS custom properties after [imp
 <docs-color is-transparent var="--ld-col-wht-alpha-medium"></docs-color>
 <docs-color is-transparent var="--ld-col-wht-alpha-low"></docs-color>
 <docs-color is-transparent var="--ld-col-wht-alpha-lowest"></docs-color>
-<docs-color var="--ld-col-neutral"></docs-color>
 
 ## Grey scale colors
 
