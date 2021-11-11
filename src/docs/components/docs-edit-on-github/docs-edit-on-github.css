@@ -1,18 +1,18 @@
 @define-mixin docs-edit-on-github-ui-light {
   .docs-edit-on-github ld-button::part(button) {
     background-color: var(--ld-col-wht);
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
     box-shadow: 0 0 0 2px var(--ld-col-neutral-100);
 
     &:focus:focus-visible {
-      color: var(--ld-col-neutral);
+      color: var(--ld-col-neutral-900);
       background-color: var(--ld-col-neutral-050);
-      box-shadow: 0 0 0 2px var(--ld-col-neutral);
+      box-shadow: 0 0 0 2px var(--ld-col-neutral-900);
     }
 
     @media (hover: hover) {
       &:hover {
-        box-shadow: 0 0 0 2px var(--ld-col-neutral);
+        box-shadow: 0 0 0 2px var(--ld-col-neutral-900);
       }
     }
 
@@ -46,7 +46,7 @@
     &:active,
     &:active:focus-visible {
       background-color: var(--ld-col-neutral-300);
-      color: var(--ld-col-neutral);
+      color: var(--ld-col-neutral-900);
       box-shadow: 0 0 0 2px var(--ld-col-neutral-300);
     }
   }

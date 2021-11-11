@@ -28,7 +28,7 @@
   --ld-select-icon-size-lg: 1.5rem;
 
   /* colors */
-  --ld-select-col: var(--ld-col-neutral);
+  --ld-select-col: var(--ld-col-neutral-900);
   --ld-select-col-disabled: var(--ld-col-neutral-100);
   --ld-select-col-border: var(--ld-col-neutral-100);
   --ld-select-col-border-hover: var(--ld-col-neutral-300);

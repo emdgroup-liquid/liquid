@@ -75,7 +75,7 @@ code .highlight-line:before {
 @define-mixin docs-code-ui-light {
   code[class*='language-'],
   pre[class*='language-'] {
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
@@ -132,7 +132,7 @@ code .highlight-line:before {
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background: var(--ld-col-neutral);
+    background: var(--ld-col-neutral-900);
   }
   .token.comment,
   .token.prolog,
@@ -175,7 +175,7 @@ code .highlight-line:before {
   }
   .highlight-line.highlight-line-active {
     background-color: var(--ld-col-vy);
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
 
     .token.comment,
     .token.prolog,

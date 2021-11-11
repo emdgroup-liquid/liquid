@@ -29,7 +29,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: var(--ld-col-neutral);
+  background-color: var(--ld-col-neutral-900);
   opacity: 0.8;
   z-index: -1;
 }
@@ -91,7 +91,7 @@
 
   a {
     text-decoration: none;
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
     display: block;
     padding: var(--ld-sp-16);
     outline: none;

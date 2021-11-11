@@ -3,7 +3,7 @@
   background: var(--ld-col-wht);
   border: none;
   border-radius: var(--ld-br-l);
-  color: var(--ld-col-neutral);
+  color: var(--ld-col-neutral-900);
   cursor: pointer;
   display: flex;
   flex-direction: column;

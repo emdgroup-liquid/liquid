@@ -52,7 +52,7 @@
       }
 
       > blockquote {
-        color: var(--ld-col-neutral);
+        color: var(--ld-col-neutral-900);
         background-color: var(--ld-col-vy-100);
         border-left: solid var(--ld-sp-6) var(--ld-col-vy);
         font: var(--ld-typo-body-m);
@@ -134,7 +134,7 @@
       }
 
       > blockquote {
-        color: var(--ld-col-neutral);
+        color: var(--ld-col-neutral-900);
         background-color: var(--ld-col-vy);
         border-left: solid var(--ld-sp-6) var(--ld-col-vy-400);
 
@@ -144,7 +144,7 @@
       }
 
       > pre {
-        border-color: var(--ld-col-neutral);
+        border-color: var(--ld-col-neutral-900);
       }
     }
   }

@@ -1,9 +1,9 @@
 @define-mixin docs-btn-search-ui-light {
   .docs-btn-search__magnifier {
-    stroke: var(--ld-col-neutral);
+    stroke: var(--ld-col-neutral-900);
   }
   .docs-btn-search__shortcut {
-    fill: var(--ld-col-neutral);
+    fill: var(--ld-col-neutral-900);
   }
 }
 @define-mixin docs-btn-search-ui-dark {

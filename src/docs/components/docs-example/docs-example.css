@@ -9,7 +9,7 @@
   }
 
   .docs-example__tools {
-    stroke: var(--ld-col-neutral);
+    stroke: var(--ld-col-neutral-900);
   }
 
   .docs-example__tool-buttons {
@@ -18,7 +18,7 @@
 }
 @define-mixin docs-example-ui-dark {
   .docs-example__code {
-    background-color: var(--ld-col-neutral);
+    background-color: var(--ld-col-neutral-900);
   }
 
   .docs-example__tools-scroll-container {
@@ -101,7 +101,7 @@
 
 .docs-example__show {
   background-color: var(--ld-col-neutral-010);
-  color: var(--ld-col-neutral);
+  color: var(--ld-col-neutral-900);
   border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
   border-bottom-width: 0;
   border-top-left-radius: var(--ld-br-l);

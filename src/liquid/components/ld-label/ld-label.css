@@ -12,7 +12,7 @@
   --ld-label-row-gap: var(--ld-sp-6);
 
   /* colors */
-  --ld-label-col: var(--ld-col-neutral);
+  --ld-label-col: var(--ld-col-neutral-900);
   --ld-label-disabled-col: var(--ld-col-neutral-300);
 
   color: var(--ld-label-col);

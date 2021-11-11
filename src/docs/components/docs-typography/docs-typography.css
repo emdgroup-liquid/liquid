@@ -28,7 +28,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-neutral);
+  color: var(--ld-col-neutral-900);
   background-color: var(--ld-col-neutral-010);
   padding: var(--ld-sp-8) var(--ld-sp-8);
   border-radius: var(--ld-br-l);

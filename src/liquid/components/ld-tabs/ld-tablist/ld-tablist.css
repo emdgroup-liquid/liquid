@@ -1,8 +1,8 @@
 :host {
   /* colors */
   --ld-tablist-border-col: var(--ld-col-neutral-050);
-  --ld-tablist-btn-scroll-col: var(--ld-col-neutral);
-  --ld-tablist-btn-scroll-col-active: var(--ld-col-neutral);
+  --ld-tablist-btn-scroll-col: var(--ld-col-neutral-900);
+  --ld-tablist-btn-scroll-col-active: var(--ld-col-neutral-900);
   --ld-tablist-btn-scroll-bg-col: var(--ld-col-neutral-010);
   --ld-tablist-btn-scroll-bg-col-hover: var(--ld-col-neutral-100);
   --ld-tablist-btn-scroll-bg-col-active: var(--ld-col-neutral-300);

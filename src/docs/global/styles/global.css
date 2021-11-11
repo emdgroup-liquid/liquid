@@ -3,7 +3,7 @@
 
 @define-mixin docs-ui-light {
   background-color: var(--ld-col-wht);
-  color: var(--ld-col-neutral);
+  color: var(--ld-col-neutral-900);
 
   body::before {
     background-color: var(--ld-col-wht);

@@ -37,14 +37,14 @@
     &:focus:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
         color: var(--ld-col-rb-400);
-        background-color: var(--ld-col-neutral);
+        background-color: var(--ld-col-neutral-900);
       }
     }
     &:active,
     &:active:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
         color: var(--ld-col-rb-300);
-        background-color: var(--ld-col-neutral);
+        background-color: var(--ld-col-neutral-900);
       }
     }
   }
@@ -53,13 +53,13 @@
 
     &:hover:not(.docs-switch-web-css__option--active) {
       color: var(--ld-col-rb-400);
-      background-color: var(--ld-col-neutral);
+      background-color: var(--ld-col-neutral-900);
     }
   }
 
   .docs-switch-web-css__option--active {
     background-color: var(--ld-col-rb-400);
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
   }
 }
 

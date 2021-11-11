@@ -6,7 +6,7 @@
 
   /* colors */
   --ld-notification-col: var(--ld-col-wht);
-  --ld-notification-warn-col: var(--ld-col-neutral);
+  --ld-notification-warn-col: var(--ld-col-neutral-900);
   --ld-notification-alert-col: var(--ld-col-wht);
 
   /* themable colors */
