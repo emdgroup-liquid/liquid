@@ -1,11 +1,11 @@
 @define-mixin docs-spacing-ui-light {
   .docs-spacing {
-    border-color: var(--ld-col-rblck1);
+    border-color: var(--ld-col-neutral-100);
   }
 }
 @define-mixin docs-spacing-ui-dark {
   .docs-spacing {
-    border-color: var(--ld-col-rblck4);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 
@@ -28,7 +28,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-rblck-default);
+  color: var(--ld-col-neutral);
   background-color: var(--ld-col-wht);
   padding: var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-8);
   min-height: 6rem;
@@ -69,11 +69,11 @@
 }
 
 .docs-spacing__val {
-  color: var(--ld-col-rblck3);
+  color: var(--ld-col-neutral-400);
   width: 6.5rem;
 }
 
 .docs-spacing__vis {
   display: inline-flex;
-  background-color: var(--ld-col-vm-default);
+  background-color: var(--ld-col-vm);
 }

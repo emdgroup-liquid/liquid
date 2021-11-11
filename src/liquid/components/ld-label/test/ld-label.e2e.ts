@@ -1,37 +1,26 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdCheckbox } from '../../ld-checkbox/ld-checkbox'
+import { LdInputMessage } from '../../ld-input-message/ld-input-message'
+import { LdInput } from '../../ld-input/ld-input'
+import { LdToggle } from '../../ld-toggle/ld-toggle'
+import { LdLabel } from '../ld-label'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './dist/css/ld-label.css' })
-  await page.addStyleTag({ path: './dist/css/ld-input.css' })
-  await page.addStyleTag({ path: './dist/css/ld-input-message.css' })
-  await page.addStyleTag({ path: './dist/css/ld-toggle.css' })
-  await page.addStyleTag({ path: './dist/css/ld-checkbox.css' })
-  await page.waitForChanges()
-  return page
-}
-
-const allowableMismatchedRatio = 0.02
 
 describe('ld-label', () => {
   it('renders', async () => {
     const page = await getPageWithContent('<ld-label>Email Address</ld-label>')
     const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+    expect(results).toMatchScreenshot()
   })
 
   it('renders as css component', async () => {
     const page = await getPageWithContent(
-      '<label class="ld-label">Email Address</label>'
+      '<label class="ld-label">Email Address</label>',
+      { components: LdLabel }
     )
     const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+    expect(results).toMatchScreenshot()
   })
 
   describe('size', () => {
@@ -40,15 +29,16 @@ describe('ld-label', () => {
         '<ld-label size="m">Email Address</ld-label>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders with size m as css component', async () => {
       const page = await getPageWithContent(
-        '<label class="ld-label ld-label--m">Email Address</label>'
+        '<label class="ld-label ld-label--m">Email Address</label>',
+        { components: LdLabel }
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -60,19 +50,22 @@ describe('ld-label', () => {
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders at the top by default as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label">
           Email Address
           <div class="ld-input">
             <input placeholder="jane.doe@example.com" type="email">
           </div>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders at the top by default with input message at the bottom', async () => {
@@ -83,11 +76,12 @@ describe('ld-label', () => {
           <ld-input-message>This field is required.</ld-input-message>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders at the top by default with input message at the bottom as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label">
           Email Address
           <div class="ld-input ld-input--invalid">
@@ -101,9 +95,11 @@ describe('ld-label', () => {
             </svg>
             This field is required.
           </span>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdInputMessage, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left', async () => {
@@ -113,35 +109,39 @@ describe('ld-label', () => {
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--left ld-label--m">
           Email Address
           <div class="ld-input">
             <input placeholder="jane.doe@example.com" type="email">
           </div>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left with input message at the bottom', async () => {
       const page = await getPageWithContent(`
-        <ld-label position="left" size="m">
+        <ld-label position="left" size="m" align-message>
           Email Address
           <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
           <ld-input-message>This field is required.</ld-input-message>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left with input message at the bottom as css component', async () => {
-      const page = await getPageWithContent(`
-        <label class="ld-label ld-label--left ld-label--m">
+      const page = await getPageWithContent(
+        `
+        <label class="ld-label ld-label--left ld-label--m ld-label--align-message">
           Email Address
           <div class="ld-input ld-input--invalid">
             <input placeholder="jane.doe@example.com" type="email">
@@ -154,9 +154,11 @@ describe('ld-label', () => {
             </svg>
             This field is required.
           </span>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdInputMessage, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left with left-aligned input message at the bottom', async () => {
@@ -167,11 +169,12 @@ describe('ld-label', () => {
           <ld-input-message mode="info">Recommended.</ld-input-message>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the left with left-aligned input message at the bottom as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--left ld-label--m">
           Auto-update
           <div class="ld-toggle">
@@ -187,9 +190,11 @@ describe('ld-label', () => {
             </svg>
             Recommended.
           </span>
-        </label>`)
+        </label>`,
+        { components: [LdToggle, LdInputMessage, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right', async () => {
@@ -199,19 +204,22 @@ describe('ld-label', () => {
           <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--right ld-label--m">
           Email Address
           <div class="ld-input">
             <input placeholder="jane.doe@example.com" type="email">
           </div>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right with input message at the bottom', async () => {
@@ -222,11 +230,12 @@ describe('ld-label', () => {
           <ld-input-message>This field is required.</ld-input-message>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right with input message at the bottom as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--right ld-label--m">
           Email Address
           <div class="ld-input ld-input--invalid">
@@ -240,9 +249,11 @@ describe('ld-label', () => {
             </svg>
             This field is required.
           </span>
-        </label>`)
+        </label>`,
+        { components: [LdInput, LdInputMessage, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right with left-aligned input message at the bottom', async () => {
@@ -253,11 +264,12 @@ describe('ld-label', () => {
           <ld-input-message mode="info">Recommended.</ld-input-message>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders on the right with left-aligned input message at the bottom as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--right ld-label--m">
           Auto-update
           <div class="ld-toggle">
@@ -273,9 +285,11 @@ describe('ld-label', () => {
             </svg>
             Recommended.
           </span>
-        </label>`)
+        </label>`,
+        { components: [LdToggle, LdInputMessage, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -287,11 +301,12 @@ describe('ld-label', () => {
           <ld-checkbox></ld-checkbox>
         </ld-label>`)
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders with html content as css component', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <label class="ld-label ld-label--right">
           <span>I love to <code style="line-height: 0">code</code>.</span>
           <div class="ld-checkbox">
@@ -314,9 +329,11 @@ describe('ld-label', () => {
             </svg>
             <div class="ld-checkbox__box"></div>
           </div>
-        </label>`)
+        </label>`,
+        { components: [LdCheckbox, LdLabel] }
+      )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 })

@@ -7,6 +7,12 @@ title: Input
 permalink: components/ld-input/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-input.css">
+<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="/css_components/ld-button.css">
+<link rel="stylesheet" href="/css_components/ld-label.css">
+<link rel="stylesheet" href="/css_components/ld-input-message.css">
+
 # ld-input
 
 The `ld-input` component can be used in forms to accept data from the user. While the [native HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of `ld-input` are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.
@@ -449,7 +455,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -459,7 +465,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--sm">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -470,7 +476,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--sm">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -478,7 +484,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
     </svg>
   </span>
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -529,7 +535,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--lg">
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -539,7 +545,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--lg">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -550,7 +556,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </div>
 
 <div class="ld-input ld-input--lg">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -558,7 +564,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
     </svg>
   </span>
   <input placeholder="Placeholder">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -574,13 +580,13 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" aria-label="Submit" size="sm">
+  <ld-button slot="end" aria-label="Submit" >
     <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" size="sm">
+  <ld-button slot="end" >
     Submit <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
@@ -598,13 +604,13 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end" aria-label="Submit" size="lg">
+  <ld-button slot="end" aria-label="Submit">
     <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end" size="lg">
+  <ld-button slot="end">
     Submit <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
@@ -614,7 +620,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -627,7 +633,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm">
     Submit
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -664,7 +670,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--lg">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--lg">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -677,69 +683,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg">
     Submit
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-{% endexample %}
-
-#### With inset button
-
-{% example %}
-<ld-input placeholder="Placeholder">
-  <ld-button slot="end" size="sm">
-    Submit <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder">
-  <ld-button slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end">
-    Submit <ld-icon name="placeholder" size="sm"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<!-- CSS component -->
-
-<div class="ld-input">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm">
-    Submit
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm" aria-label="Submit">
-    <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <button class="ld-button">
-    Submit
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--lg">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -753,65 +697,65 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 {% example %}
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="sm">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
   <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder" size="sm"></ld-icon>
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
 <ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="start" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="start" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit" size="lg">
-    <ld-icon name="placeholder" size="lg"></ld-icon>
+  <ld-button mode="ghost" slot="end" aria-label="Submit">
+    <ld-icon name="placeholder"></ld-icon>
   </ld-button>
 </ld-input>
 
@@ -820,7 +764,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -831,7 +775,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -843,7 +787,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
 
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -852,7 +796,7 @@ You can use [slots](#slots) in order to add static or interactive elements, such
   </button>
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon">
+    <span class="ld-icon ld-icon--sm">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -995,24 +939,24 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 <form id="example-form" novalidate>
   <ld-label>
     Login*
-    <ld-input required placeholder="login"></ld-input>
+    <ld-input name="login" required placeholder="login"></ld-input>
     <ld-input-message visible="false">This field is required.</ld-input-message>
   </ld-label>
   <ld-label>
     Password*
-    <ld-input required placeholder="password" type="password"></ld-input>
+    <ld-input name="password" required placeholder="password" type="password"></ld-input>
     <ld-input-message visible="false">This field is required.</ld-input-message>
   </ld-label>
   <ld-button>Submit</ld-button>
 </form>
 <script>
+  const form = document.querySelector('#example-form')
   const username = document.querySelector('#example-form ld-label:first-of-type ld-input')
   const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
   const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
   const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(ldInput, ldInputMessage) {
-    value = ldInput.value
+  function validateInput(ldInput, value, ldInputMessage) {
     if (!value) {
       ldInput.setAttribute('invalid', 'true')
       ldInputMessage.style.visibility = 'inherit'
@@ -1034,10 +978,10 @@ The `ld-input` Web Component does not provide any properties or methods for vali
   password.addEventListener('blur', ev => {
     validateInput(password, passwordErrorMessage)
   })
-  submitButton.addEventListener('click', ev => {
+  form.addEventListener('submit', ev => {
     ev.preventDefault()
-    const isUsernameValid = validateInput(username, usernameErrorMessage)
-    const isPasswordValid = validateInput(password, passwordErrorMessage)
+    const isUsernameValid = validateInput(username, form.login.value, usernameErrorMessage)
+    const isPasswordValid = validateInput(password, form.password.value, passwordErrorMessage)
     setTimeout(() => {
       if (isUsernameValid && isPasswordValid) {
         window.alert('Form submitted.')
@@ -1060,6 +1004,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `invalid`     | `invalid`     | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
 | `key`         | `key`         | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
 | `multiline`   | `multiline`   | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
+| `name`        | `name`        | Used to specify the name of the control.                                                                              | `string`           | `undefined` |
 | `placeholder` | `placeholder` | The input placeholder.                                                                                                | `string`           | `undefined` |
 | `ref`         | `ref`         | reference to component                                                                                                | `any`              | `undefined` |
 | `size`        | `size`        | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |
@@ -1068,12 +1013,33 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `value`       | `value`       | The input value.                                                                                                      | `string`           | `undefined` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot      | Description                                                                                                                                                                                                                                                                                                                                                           |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `"end"`   | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the start of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right. |
 | `"start"` | The purpose of this slot is to add icons or buttons to the input, __justifying the item to the end of the component__. Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component. If you choose to place something different into the slot, you will probably need to adjust some styles on the slotted item in order to make it fit right.   |
+
+
+## Shadow Parts
+
+| Part            | Description                                |
+| --------------- | ------------------------------------------ |
+| `"input"`       | Actual input/textarea element              |
+| `"placeholder"` | Placeholder rendered for input type "file" |
 
 
 ----------------------------------------------

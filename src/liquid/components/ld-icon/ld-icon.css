@@ -1,8 +1,4 @@
-:where(ld-icon) {
-  display: inline-grid;
-  place-content: center;
-}
-
+:host,
 :where(.ld-icon) {
   --ld-icon-size-sm: 1rem;
   --ld-icon-size-md: 1.25rem;
@@ -13,6 +9,7 @@
   width: var(--ld-icon-size-md);
   height: var(--ld-icon-size-md);
 
+  ::slotted(svg),
   :where(svg) {
     width: var(--ld-icon-size-md);
     height: var(--ld-icon-size-md);
@@ -20,13 +17,21 @@
   }
 }
 
-:where(.ld-icon--sm),
-:where(.ld-icon--sm svg) {
-  width: var(--ld-icon-size-sm);
-  height: var(--ld-icon-size-sm);
+:host(.ld-icon--sm),
+:where(.ld-icon--sm) {
+  &,
+  ::slotted(svg),
+  :where(svg) {
+    width: var(--ld-icon-size-sm);
+    height: var(--ld-icon-size-sm);
+  }
 }
-:where(.ld-icon--lg),
-:where(.ld-icon--lg svg) {
-  width: var(--ld-icon-size-lg);
-  height: var(--ld-icon-size-lg);
+:host(.ld-icon--lg),
+:where(.ld-icon--lg) {
+  &,
+  ::slotted(svg),
+  :where(svg) {
+    width: var(--ld-icon-size-lg);
+    height: var(--ld-icon-size-lg);
+  }
 }

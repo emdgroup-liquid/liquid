@@ -7,10 +7,6 @@ describe('ld-sr-only', () => {
       components: [LdSrOnly],
       html: `<ld-sr-only>Hello screen reader</ld-sr-only>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-sr-only class="ld-sr-only">
-        Hello screen reader
-      </ld-sr-only>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 })

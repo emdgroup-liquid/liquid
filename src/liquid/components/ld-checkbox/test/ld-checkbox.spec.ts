@@ -7,76 +7,41 @@ describe('ld-checkbox', () => {
       components: [LdCheckbox],
       html: `<ld-checkbox></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox class="ld-checkbox">
-        <input type="checkbox">
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('disabled', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox disabled></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox class="ld-checkbox" disabled>
-        <input type="checkbox" disabled>
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('heighlight', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox mode="highlight"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox class="ld-checkbox ld-checkbox--highlight" mode="highlight">
-        <input type="checkbox">
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('danger', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox mode="danger"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox class="ld-checkbox ld-checkbox--danger" mode="danger">
-        <input type="checkbox">
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('tone', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox tone="dark"></ld-checkbox>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox class="ld-checkbox ld-checkbox--dark" tone="dark">
-        <input type="checkbox">
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
+
   it('updates checked prop on checked value change', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
@@ -85,31 +50,23 @@ describe('ld-checkbox', () => {
     const ldCheckbox = page.root
     expect(ldCheckbox.checked).toBe(undefined)
 
-    const input = ldCheckbox.querySelector('input')
+    const input = ldCheckbox.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
 
-    input.checked = true
-    input.dispatchEvent(new Event('click'))
+    ldCheckbox.click()
     await page.waitForChanges()
-    expect(ldCheckbox.checked).toBe(true)
 
-    expect(page.root).toEqualHtml(`
-      <ld-checkbox checked class="ld-checkbox">
-        <input checked type="checkbox">
-        <svg class="ld-checkbox__check" fill="none" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
-        </svg>
-        <div class="ld-checkbox__box"></div>
-      </ld-checkbox>
-    `)
+    expect(ldCheckbox.checked).toBe(true)
+    expect(input.checked).toBe(true)
   })
+
   it('emits focus and blur event', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox></ld-checkbox>`,
     })
     const ldCheckbox = page.root
-    const input = ldCheckbox.querySelector('input')
+    const input = ldCheckbox.shadowRoot.querySelector('input')
 
     const handlers = {
       onFocus() {
@@ -131,5 +88,96 @@ describe('ld-checkbox', () => {
     input.dispatchEvent(new Event('blur'))
     jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
+  })
+
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+
+    const spyInput = jest.fn()
+    ldCheckbox.addEventListener('input', spyInput)
+    ldCheckbox.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
+  it('allows to set inner focus', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox />`,
+    })
+    const ldCheckbox = page.root
+    const input = ldCheckbox.shadowRoot.querySelector('input')
+
+    input.focus = jest.fn()
+    await ldCheckbox.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
+  })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const { root } = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<form><ld-checkbox /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('sets initial state on hidden input', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<form><ld-checkbox name="example" checked required /></form>`,
+    })
+    const ldCheckbox = page.root
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
+  })
+
+  it('updates hidden input field', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<form><ld-checkbox name="example" /></form>`,
+    })
+    const ldCheckbox = root
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
+
+    ldCheckbox.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
+
+    ldCheckbox.removeAttribute('name')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input').getAttribute('name')).toEqual(null)
+
+    ldCheckbox.dispatchEvent(new Event('click'))
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
+
+    ldCheckbox.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
+
+    ldCheckbox.setAttribute('value', 'test')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
+
+    ldCheckbox.removeAttribute('value')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(
+      null
+    )
   })
 })

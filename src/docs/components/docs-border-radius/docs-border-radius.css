@@ -1,11 +1,11 @@
 @define-mixin docs-border-radius-ui-light {
   .docs-border-radius {
-    border-color: var(--ld-col-rblck1);
+    border-color: var(--ld-col-neutral-100);
   }
 }
 @define-mixin docs-border-radius-ui-dark {
   .docs-border-radius {
-    border-color: var(--ld-col-rblck4);
+    border-color: var(--ld-col-neutral-600);
   }
 }
 
@@ -28,7 +28,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-rblck-default);
+  color: var(--ld-col-neutral);
   background-color: var(--ld-col-wht);
   padding: var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-16) var(--ld-sp-8);
   min-height: 4rem;
@@ -66,7 +66,7 @@
 
 .docs-border-radius__vis {
   display: inline-flex;
-  background-color: var(--ld-col-vm-default);
+  background-color: var(--ld-col-vm);
   width: var(--ld-sp-40);
   height: var(--ld-sp-40);
 }

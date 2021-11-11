@@ -7,6 +7,11 @@ title: Label
 permalink: components/ld-label/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-label.css">
+<link rel="stylesheet" href="/css_components/ld-input.css">
+<link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-toggle.css">
+
 # ld-label
 
 This component is meant to be used in conjunction with form input components, such as the [`ld-input`](components/ld-input/) component, and the [`ld-input-message`](components/ld-input-message/) component.
@@ -111,7 +116,7 @@ How the label positions its child elements depends both on its `position` prop a
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
 
-<ld-label position="left" size="m">
+<ld-label position="left" size="m" align-message>
   Email Address
   <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
   <ld-input-message>This field is required.</ld-input-message>
@@ -132,7 +137,7 @@ How the label positions its child elements depends both on its `position` prop a
   </div>
 </label>
 
-<label class="ld-label ld-label--left ld-label--m">
+<label class="ld-label ld-label--left ld-label--m ld-label--align-message">
   Email Address
   <div class="ld-input ld-input--invalid">
     <input placeholder="jane.doe@example.com" type="email">
@@ -173,7 +178,7 @@ How the label positions its child elements depends both on its `position` prop a
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
 
-<ld-label position="right" size="m">
+<ld-label position="right" size="m" align-message>
   Email Address
   <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
   <ld-input-message>This field is required.</ld-input-message>
@@ -194,7 +199,7 @@ How the label positions its child elements depends both on its `position` prop a
   </div>
 </label>
 
-<label class="ld-label ld-label--right ld-label--m">
+<label class="ld-label ld-label--right ld-label--m ld-label--align-message">
   Email Address
   <div class="ld-input ld-input--invalid">
     <input placeholder="jane.doe@example.com" type="email">
@@ -223,6 +228,77 @@ How the label positions its child elements depends both on its `position` prop a
       <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
     </svg>
     Recommended.
+  </span>
+</label>
+{% endexample %}
+
+### Align message with input
+
+When positioning the label left or right, you may want to position the `ld-input-message` right under the input field that is wrapped by the `ld-label`. You can do set the `align-message`-attribute to achieve this behavior. With this attribute set (and the label being positioned left or right), the `ld-input-message` will also never grow underneath the label.
+
+{% example %}
+<ld-label position="left" size="m">
+  Email Address
+  <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
+  <ld-input-message>I do not align with the input.</ld-input-message>
+</ld-label>
+
+<ld-label position="left" size="m" align-message>
+  Email Address
+  <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
+  <ld-input-message>I align with the input.</ld-input-message>
+</ld-label>
+
+<ld-label position="right" size="m" align-message>
+  Email Address
+  <ld-input invalid placeholder="jane.doe@example.com" type="email"></ld-input>
+  <ld-input-message>I never grow underneath the label, even though I am very long.</ld-input-message>
+</ld-label>
+
+<!-- CSS component -->
+
+<label class="ld-label ld-label--left ld-label--m">
+  Email Address
+  <div class="ld-input ld-input--invalid">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+  <span class="ld-input-message ld-input-message--error">
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+      <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    I do not align with the input.
+  </span>
+</label>
+
+<label class="ld-label ld-label--left ld-label--m ld-label--align-message">
+  Email Address
+  <div class="ld-input ld-input--invalid">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+  <span class="ld-input-message ld-input-message--error">
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+      <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    I align with the input.
+  </span>
+</label>
+
+<label class="ld-label ld-label--right ld-label--m ld-label--align-message">
+  Email Address
+  <div class="ld-input ld-input--invalid">
+    <input placeholder="jane.doe@example.com" type="email">
+  </div>
+  <span class="ld-input-message ld-input-message--error">
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
+      <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    I never grow underneath the label, even though I am very long.
   </span>
 </label>
 {% endexample %}
@@ -308,12 +384,20 @@ HTML content describing the labeled element should be wrapped in a single HTML e
 
 ## Properties
 
-| Property   | Attribute  | Description                                              | Type                | Default     |
-| ---------- | ---------- | -------------------------------------------------------- | ------------------- | ----------- |
-| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number`  | `undefined` |
-| `position` | `position` | Relative position to labeled element. Default is top.    | `"left" \| "right"` | `undefined` |
-| `ref`      | `ref`      | reference to component                                   | `any`               | `undefined` |
-| `size`     | `size`     | Size of the label. Default is small.                     | `"m"`               | `undefined` |
+| Property       | Attribute       | Description                                              | Type                | Default     |
+| -------------- | --------------- | -------------------------------------------------------- | ------------------- | ----------- |
+| `alignMessage` | `align-message` | Align input message with input position.                 | `boolean`           | `undefined` |
+| `key`          | `key`           | for tracking the node's identity when working with lists | `string \| number`  | `undefined` |
+| `position`     | `position`      | Relative position to labeled element. Default is top.    | `"left" \| "right"` | `undefined` |
+| `ref`          | `ref`           | reference to component                                   | `any`               | `undefined` |
+| `size`         | `size`          | Size of the label. Default is small.                     | `"m"`               | `undefined` |
+
+
+## Shadow Parts
+
+| Part    | Description          |
+| ------- | -------------------- |
+| `"tag"` | Actual label element |
 
 
 ----------------------------------------------

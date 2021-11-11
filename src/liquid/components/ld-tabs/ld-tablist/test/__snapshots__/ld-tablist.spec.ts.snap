@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-tablist modifiers mode 1`] = `
+<ld-tablist mode="ghost" role="tablist">
+  <mock:shadow-root>
+    <div class="ld-tablist ld-tablist--ghost" part="wrapper">
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll left
+          </title>
+          <path d="M10 13L6 8L10 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+      <div class="ld-tablist__scroll-container" part="scroll-container">
+        <slot></slot>
+      </div>
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll right
+          </title>
+          <path d="M6 13L10 8L6 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </mock:shadow-root>
+  <ld-tab selected="">
+    <mock:shadow-root>
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Fruits
+  </ld-tab>
+  <ld-tab>
+    <mock:shadow-root>
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Vegetables
+  </ld-tab>
+</ld-tablist>
+`;
+
+exports[`ld-tablist modifiers rounded 1`] = `
+<ld-tablist role="tablist" rounded="all-lg">
+  <mock:shadow-root>
+    <div class="ld-tablist ld-tablist--rounded-all-lg" part="wrapper">
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll left
+          </title>
+          <path d="M10 13L6 8L10 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+      <div class="ld-tablist__scroll-container" part="scroll-container">
+        <slot></slot>
+      </div>
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll right
+          </title>
+          <path d="M6 13L10 8L6 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </mock:shadow-root>
+  <ld-tab selected="">
+    <mock:shadow-root>
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Fruits
+  </ld-tab>
+  <ld-tab>
+    <mock:shadow-root>
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Vegetables
+  </ld-tab>
+</ld-tablist>
+`;
+
+exports[`ld-tablist modifiers size 1`] = `
+<ld-tablist role="tablist" size="sm">
+  <mock:shadow-root>
+    <div class="ld-tablist ld-tablist--sm" part="wrapper">
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll left
+          </title>
+          <path d="M10 13L6 8L10 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+      <div class="ld-tablist__scroll-container" part="scroll-container">
+        <slot></slot>
+      </div>
+      <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
+        <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <title>
+            Scroll right
+          </title>
+          <path d="M6 13L10 8L6 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+  </mock:shadow-root>
+  <ld-tab selected="">
+    <mock:shadow-root>
+      <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Fruits
+  </ld-tab>
+  <ld-tab>
+    <mock:shadow-root>
+      <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+        <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+        <span class="ld-tab__content" part="content">
+          <slot></slot>
+        </span>
+        <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+      </button>
+    </mock:shadow-root>
+    Vegetables
+  </ld-tab>
+</ld-tablist>
+`;

@@ -1,30 +1,6 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from '../../../utils/e2e-tests'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './src/docs/global/styles/reset.css' })
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ path: './dist/css/ld-notification.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
-
-const themes = [
-  'none',
-  'ocean',
-  'bubblegum',
-  // 'shake',
-  // 'solvent',
-  // 'tea',
-]
-
-const allowableMismatchedRatio = 0.02
 
 describe('ld-notification', () => {
   describe('placement', () => {
@@ -47,7 +23,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
 
     it('renders placed at the bottom with prop placement set to "bottom"', async () => {
@@ -69,81 +45,76 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
   describe('notification types', () => {
-    for (const theme of themes) {
-      it(`renders a notification of type "info" with theme ${theme}`, async () => {
-        const page = await getPageWithContent(
-          `<ld-notification></ld-notification>`,
-          theme
+    it(`renders a notification of type "info"`, async () => {
+      const page = await getPageWithContent(
+        `<ld-notification></ld-notification>`
+      )
+
+      page.evaluate(() => {
+        window.dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: 'I am an info message.',
+              type: 'info',
+            },
+          })
         )
-
-        page.evaluate(() => {
-          window.dispatchEvent(
-            new CustomEvent('ldNotificationAdd', {
-              detail: {
-                content: 'I am an info message.',
-                type: 'info',
-              },
-            })
-          )
-        })
-
-        await page.waitForChanges()
-
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
       })
 
-      it(`renders a notification of type "warn" with theme ${theme}`, async () => {
-        const page = await getPageWithContent(
-          `<ld-notification></ld-notification>`,
-          theme
+      await page.waitForChanges()
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it(`renders a notification of type "warn"`, async () => {
+      const page = await getPageWithContent(
+        `<ld-notification></ld-notification>`
+      )
+
+      page.evaluate(() => {
+        window.dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: 'I am a warning.',
+              type: 'warn',
+            },
+          })
         )
-
-        page.evaluate(() => {
-          window.dispatchEvent(
-            new CustomEvent('ldNotificationAdd', {
-              detail: {
-                content: 'I am a warning.',
-                type: 'warn',
-              },
-            })
-          )
-        })
-
-        await page.waitForChanges()
-
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
       })
 
-      it(`renders a notification of type "alert" with theme ${theme}`, async () => {
-        const page = await getPageWithContent(
-          `<ld-notification></ld-notification>`,
-          theme
+      await page.waitForChanges()
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it(`renders a notification of type "alert"`, async () => {
+      const page = await getPageWithContent(
+        `<ld-notification></ld-notification>`
+      )
+
+      page.evaluate(() => {
+        window.dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: 'Oooops.',
+              type: 'alert',
+            },
+          })
         )
-
-        page.evaluate(() => {
-          window.dispatchEvent(
-            new CustomEvent('ldNotificationAdd', {
-              detail: {
-                content: 'Oooops.',
-                type: 'alert',
-              },
-            })
-          )
-        })
-
-        await page.waitForChanges()
-
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
       })
-    }
+
+      await page.waitForChanges()
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('notification hierarchy', () => {
@@ -237,7 +208,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -262,7 +233,7 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 })

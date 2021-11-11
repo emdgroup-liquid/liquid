@@ -20,13 +20,9 @@ export class DocsContributors {
     return (
       <section class="docs-contributors">
         <hr />
-        <ld-heading
-          class="docs-contributors__heading"
-          level="2"
-          visualLevel="h4"
-        >
+        <ld-typo class="docs-contributors__heading" variant="h4" tag="h2">
           Contributors
-        </ld-heading>
+        </ld-typo>
         <ul>
           {contributors.map((contributor) => (
             <li>

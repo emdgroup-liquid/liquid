@@ -100,7 +100,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 │   └── liquid                # Everything inside this folder is for developing Liquid components.
 │       ├── components        # This folder contains all Liquid components including tests and docs.
 │       ├── global            # Here we have global styles. Mainly CSS custom properties, such as
-│       │                     # variables for colors, typography, spacings, shadows etc.
+│       │                     # variables for colors, theming, typography, spacings, shadows etc.
 │       │                     # Note that most of these files are auto-generated using design tokens.
 │       └── utils             # Contains utilities shared between components.
 ├── stencil.config.docs.ts    # Stencil config file for the docs site.
@@ -125,55 +125,10 @@ Some things are not linted but still are important:
 - We prefix Liquid components with `ld-` and docs components with `docs-`.
 - We use [BEM](http://getbem.com/introduction/) as a methodology for organizing CSS rules.
 - We use relative length units in CSS, mostly `rem`; absolute length units should be avoided (borders and outlines may count as an exception to the rule).
-- We mostly do not make use of Shadow DOM because it introduces quirks in regard to accessibiliy, makes pure CSS theming difficult, does not allow for a straight forward customization and makes it hard to purge unused CSS; hense we depend on namespacing. Though, not using Shadow DOM comes as well with disadvanteges we cannot neglegt: When rendering a `<slot>` with Shadow DOM disabled, Stencil needs to move slotted content around in the DOM, which is costly (performance-wise). Therefore, if a Web Component is using slots, but not Shadow DOM, it should at least come with a CSS Component fallback for cases where performance matters; if it is not possible to mimic the Web Component with a CSS counterpart, we use Shadow DOM.
-- Components which **do** use Shadow DOM should have their CSS file suffixed with .shadow.css so that PostCSS is aware of it and does not include them into the liquid.css dist file.
-- When ever possible, try to provide CSS components alongside Web components using the same CSS file; again, prefix the classes with `ld-`, use BEM and do **not** use Shadow DOM. Here is an example: 
-  ```tsx
-  import { Component, h } from '@stencil/core'
-  @Component({
-    tag: 'ld-my-component',
-    styleUrl: 'ld-my-component.css',
-    shadow: false,
-  })
-  export class LdMyComponent {
-    render() {
-      return (
-        <div class="ld-my-component">
-          <slot />
-        </div>
-      )
-    }
-  }
-  ```
-  It applies the CSS class `ld-button` to its root element. Now the consuming developer can decide on either using the WebComponent `<ld-button>Submit</ld-button>` or the CSS class directly `<button class="ld-button">Submit</ld-button>`.
+- We use Shadow DOM wherever possible, especially in components which use slots: not using Shadow DOM in such components resutls in a worse performance (due to Stencil's custom _slot_ implementation performing expensive DOM operations) and quirks in React apps. We allow for custom styling of Web Component by applying [part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) attributes to component internal elements.
+- When ever possible, try to provide CSS components alongside Web components using the same CSS file; prefix CSS classes with `ld-` and use BEM.
 - When writing CSS, we follow common best practices. We try to keep the CSS specificity to a minimum, in order to simplify component customization, but we also make sure that it's not low to an extent, where styles get overwritten by other libraries' reset or normalize styles (such as Tailwind's [Preflight](https://tailwindcss.com/docs/preflight)). In other words: If you're using the CSS `:where` trick to reduce CSS speceficity to zero, make sure the properties affected are not potential candidates for reset and normalize styles.
-- Themable components should support at least one level of [theme inception](/liquid/components/ld-theme/#theme-inception).
 - Due to an issue in stencil type declarations need to be either inlined or exported, as otherwise undefined types end up in the generated components.d.ts file. 
-- In order for camelcase props to work in React based apps, we create lowercase aliases in components, which have camelcase props, by adding the `@Element()` decorator to the component, making all camelcase props mutable and calling the utility function `applyPropAliases` in the `componentWillLoad` hook: 
-  ```tsx
-  import { Component, h } from '@stencil/core'
-  import { applyPropAliases } from '../../utils/applyPropAliases'
-  @Component({
-    tag: 'ld-my-component',
-    styleUrl: 'ld-my-component.css',
-    shadow: false,
-  })
-  export class LdMyComponent {
-    @Element() el: HTMLDivElement
-    @Prop({ mutable: true })
-    myCamelcaseProp: string
-    componentWillLoad() {
-      applyPropAliases.apply(this)
-    }
-    render() {
-      return (
-        <div class="ld-my-component">
-          <slot />
-        </div>
-      )
-    }
-  }
-  ```
 - We enable type checking and intelliSense for Web Component attributes by importing the autogenerated components type definitions file (src/components.d.ts) at the top of all imports in each component: 
   ```tsx
   import '../../components' // type definitions for type checks and intelliSense

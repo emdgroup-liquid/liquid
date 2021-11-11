@@ -7,6 +7,9 @@ title: Button
 permalink: components/ld-button/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-button.css">
+<link rel="stylesheet" href="/css_components/ld-icon.css">
+
 # ld-button
 
 Buttons allow a user to trigger events on the user interface. A button's text should express what the button does.
@@ -29,11 +32,19 @@ Icon-buttons without visual text should either contain a [screen-reader-only](co
 ### Disabled
 
 {% example %}
-<ld-button disabled>Text</ld-button>
+<ld-button id="disabled-button-1" disabled>Text</ld-button>
+<script>
+  document.getElementById('disabled-button-1').addEventListener('click', () => { window.alert('click') })
+  // The event handler won't be called.
+</script>
 
 <!-- CSS component -->
 
-<button class="ld-button" disabled>Text</button>
+<button id="disabled-button-2" class="ld-button" disabled>Text</button>
+<script>
+  document.getElementById('disabled-button-2').addEventListener('click', () => { window.alert('click') })
+  // The event handler won't be called.
+</script>
 {% endexample %}
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
@@ -42,20 +53,20 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-button id="disabled-button" aria-disabled="true">Text</ld-button>
+<ld-button id="disabled-button-3" aria-disabled="true">Text</ld-button>
 <script>
-  document.getElementById('disabled-button').addEventListener('click', () => { window.alert('click') })
+  document.getElementById('disabled-button-3').addEventListener('click', () => { window.alert('click') })
   // The event handler won't be called.
 </script>
 
 <!-- CSS component -->
 
-<button id="disabled-button-2" class="ld-button" aria-disabled="true">
+<button id="disabled-button-4" class="ld-button" aria-disabled="true">
   Text
 </button>
 <script>
   // When using the CSS component, you will need to prevent the default behaviour of the button yourself.
-  document.getElementById('disabled-button-2').addEventListener('click', (ev) => {
+  document.getElementById('disabled-button-4').addEventListener('click', (ev) => {
     console.info('preventing default behaviour')
     ev.preventDefault()
     ev.stopImmediatePropagation()
@@ -201,7 +212,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <!-- CSS component -->
 
 <button class="ld-button ld-button--sm">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--sm">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -221,7 +232,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </button>
 
 <button class="ld-button ld-button--lg">
-  <span class="ld-icon">
+  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -231,7 +242,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </button>
 
 <button class="ld-button ld-button--highlight ld-button--sm">
-  <span class="ld-icon" role="presentation">
+  <span class="ld-icon ld-icon--sm" role="presentation">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -251,7 +262,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </button>
 
 <button class="ld-button ld-button--secondary ld-button--lg">
-    <span class="ld-icon" role="presentation">
+    <span class="ld-icon ld-icon--lg" role="presentation">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -426,6 +437,10 @@ You can align the text inside the button using the `align-text` propperty.
 
 <ld-button progress="pending">Text</ld-button>
 
+<ld-button progress="pending" mode="highlight">Text</ld-button>
+
+<ld-button progress="pending" mode="danger">Text</ld-button>
+
 <ld-button progress="pending" mode="secondary">Text</ld-button>
 
 <ld-button progress="pending" mode="ghost">Text</ld-button>
@@ -438,6 +453,16 @@ You can align the text inside the button using the `align-text` propperty.
 </button>
 
 <button class="ld-button" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+
+<button class="ld-button ld-button--highlight" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+
+<button class="ld-button ld-button--danger" aria-busy="true" aria-live="polite">
   Text
   <span class="ld-button__progress ld-button__progress--pending"></span>
 </button>
@@ -470,6 +495,27 @@ You can align the text inside the button using the `align-text` propperty.
 | `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                                                 | `undefined` |
 | `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
 | `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
+
+
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the button
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part             | Description                     |
+| ---------------- | ------------------------------- |
+| `"button"`       | Actual button or anchor element |
+| `"progress-bar"` | Progress bar                    |
 
 
 ----------------------------------------------

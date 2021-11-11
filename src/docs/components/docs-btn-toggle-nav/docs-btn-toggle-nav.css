@@ -10,28 +10,28 @@
     touch-action: manipulation;
     border-radius: 100%;
     box-shadow: var(--ld-shadow-sticky);
-    color: var(--ld-col-vm-default);
+    color: var(--ld-col-vm);
     outline: none;
 
     &:focus:focus-visible {
       box-shadow: var(--ld-shadow-hover);
-      color: var(--ld-col-vm2);
+      color: var(--ld-col-vm-300);
 
       rect {
-        fill: var(--ld-col-vm6);
+        fill: var(--ld-col-vm-800);
       }
     }
     @media (hover: hover) {
       &:hover {
         box-shadow: var(--ld-shadow-hover);
-        color: var(--ld-col-vm4);
+        color: var(--ld-col-vm-600);
       }
     }
 
     &:active,
     &:active:focus-visible {
       box-shadow: var(--ld-shadow-active);
-      color: var(--ld-col-vm5);
+      color: var(--ld-col-vm-700);
     }
   }
 

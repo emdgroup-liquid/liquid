@@ -1,0 +1,144 @@
+:host {
+  display: block;
+
+  &([variant^='xb']),
+  &([variant='b1']),
+  &([variant='b2']),
+  &([variant='b3']),
+  &([variant='b4']),
+  &([variant='b5']),
+  &([variant='b6']) {
+    color: var(--ld-typo-text-brand-color);
+  }
+
+  /* Reset within the shadow DOM. */
+  .ld-typo {
+    color: inherit;
+    margin: 0;
+  }
+}
+
+:host,
+.ld-typo {
+  --ld-typo-text-brand-color: var(--ld-thm-primary);
+}
+
+.ld-typo,
+.ld-typo--body-m {
+  font: var(--ld-typo-body-m);
+}
+.ld-typo--body-l {
+  font: var(--ld-typo-body-l);
+}
+.ld-typo--body-s {
+  font: var(--ld-typo-body-s);
+}
+.ld-typo--body-xl {
+  font: var(--ld-typo-body-xl);
+}
+.ld-typo--body-xs {
+  font: var(--ld-typo-body-xs);
+}
+
+.ld-typo--cap-l {
+  font: var(--ld-typo-cap-l);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.ld-typo--cap-m {
+  font: var(--ld-typo-cap-m);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ld-typo--label-m {
+  font: var(--ld-typo-label-m);
+}
+.ld-typo--label-s {
+  font: var(--ld-typo-label-s);
+}
+
+.ld-typo--h1 {
+  font: var(--ld-typo-h1);
+}
+.ld-typo--h2 {
+  font: var(--ld-typo-h2);
+}
+.ld-typo--h3 {
+  font: var(--ld-typo-h3);
+}
+.ld-typo--h4 {
+  font: var(--ld-typo-h4);
+}
+.ld-typo--h5 {
+  font: var(--ld-typo-h5);
+}
+.ld-typo--h6 {
+  font: var(--ld-typo-h6);
+}
+
+.ld-typo--b1 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b1);
+  text-transform: uppercase;
+}
+.ld-typo--b2 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b2);
+  text-transform: uppercase;
+}
+.ld-typo--b3 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b3);
+  text-transform: uppercase;
+}
+.ld-typo--b4 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b4);
+  text-transform: uppercase;
+}
+.ld-typo--b5 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b5);
+  text-transform: uppercase;
+}
+.ld-typo--b6 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-b6);
+  text-transform: uppercase;
+}
+
+.ld-typo--xb1 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-xb1);
+  text-transform: uppercase;
+}
+.ld-typo--xb2 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-xb2);
+  text-transform: uppercase;
+}
+.ld-typo--xb3 {
+  color: var(--ld-typo-text-brand-color);
+  font: var(--ld-typo-xb3);
+  text-transform: uppercase;
+}
+
+.ld-typo--xh1 {
+  font: var(--ld-typo-xh1);
+}
+.ld-typo--xh2 {
+  font: var(--ld-typo-xh2);
+}
+.ld-typo--xh3 {
+  font: var(--ld-typo-xh3);
+}
+.ld-typo--xh4 {
+  font: var(--ld-typo-xh4);
+}
+.ld-typo--xh5 {
+  font: var(--ld-typo-xh5);
+}
+.ld-typo--xh6 {
+  font: var(--ld-typo-xh6);
+}

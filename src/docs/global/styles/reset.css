@@ -1,6 +1,14 @@
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+* {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    box-sizing: border-box;
+  }
+}
 html,
-body,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 p,
 ol,
 ul,
@@ -22,8 +30,10 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  padding: 0;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    margin: 0;
+    padding: 0;
+  }
 }
 h1,
 h2,
@@ -31,38 +41,44 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%; /* stylelint-disable-line */
-  font-weight: normal;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    font-size: 100%; /* stylelint-disable-line */
+    font-weight: normal;
+  }
 }
 ul {
-  list-style: none;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    list-style: none;
+  }
 }
 button,
 input,
 select {
-  margin: 0;
-}
-html {
-  box-sizing: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    margin: 0;
+  }
 }
 img,
 video {
-  height: auto;
-  max-width: 100%;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    height: auto;
+    max-width: 100%;
+  }
 }
 iframe {
-  border: 0;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    border: 0;
+  }
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 }
 td,
 th {
-  padding: 0;
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+    padding: 0;
+  }
 }

@@ -2,7 +2,6 @@ import Tether from 'tether'
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 export type Position =
   | 'bottom center'
@@ -23,11 +22,14 @@ let tooltipCount = 0
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part icon - Default icon when no trigger is supplied
+ * @part trigger - Trigger button
+ * @part popper - Popper element (can only be styled as long as tooltip is not initialized)
  */
 @Component({
   tag: 'ld-tooltip',
   styleUrl: 'ld-tooltip.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTooltip {
   @Element() element: HTMLElement
@@ -56,7 +58,7 @@ export class LdTooltip {
   private delayTimeout?: NodeJS.Timeout
   private idDescriber = `ld-tooltip-${++tooltipCount}`
   private popper?: Tether
-  private tooltipRef!: HTMLDivElement
+  private tooltipRef!: HTMLElement
   private triggerRef!: HTMLSpanElement
 
   private mapPositionToAttachment = (position: Position) => {
@@ -89,10 +91,14 @@ export class LdTooltip {
     )
   }
 
-  private initTooltip = () => {
+  private initTooltip = async () => {
     const attachment = this.mapPositionToAttachment(this.position)
     const targetAttachment = this.mapPositionToTargetAttachment(this.position)
+    const tooltipContent = this.tooltipRef.querySelector('slot').assignedNodes()
 
+    tooltipContent.forEach((node) => {
+      this.tooltipRef.appendChild(node)
+    })
     this.popper = new Tether({
       attachment,
       classPrefix: 'ld-tether',
@@ -106,6 +112,11 @@ export class LdTooltip {
       target: this.triggerRef,
       targetAttachment,
     })
+    // Fixes a tether positioning bug
+    this.popper.enable()
+    this.popper.enable()
+    this.popper.enable()
+    this.popper.enable()
     this.visible = true
   }
 
@@ -199,7 +210,6 @@ export class LdTooltip {
   }
 
   componentWillLoad() {
-    applyPropAliases.call(this)
     this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
   }
 
@@ -217,6 +227,7 @@ export class LdTooltip {
           onFocus={this.handleShowTrigger}
           onMouseLeave={this.handleHideTrigger}
           onBlur={this.handleHideTrigger}
+          part="trigger focusable"
           ref={(element) => {
             this.triggerRef = element
           }}
@@ -225,42 +236,40 @@ export class LdTooltip {
           <slot name="trigger">
             <svg
               class="ld-tooltip__icon"
-              viewBox="0 0 24 24"
               fill="none"
+              part="icon"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <title>Info</title>
               <path
-                fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z"
+                fill-rule="evenodd"
                 fill="currentcolor"
               />
               <path
-                fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z"
+                fill-rule="evenodd"
                 fill="white"
               />
             </svg>
           </slot>
         </button>
-        <div
-          aria-hidden={this.visible ? 'false' : 'true'}
-          class={getClassNames([
-            'ld-tooltip',
-            this.arrow && 'ld-tooltip--with-arrow',
-            this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
-            this.triggerType === 'click' && 'ld-tooltip--interactive',
-          ])}
+        <ld-tooltip-popper
+          aria-hidden={this.visible ? undefined : 'true'}
+          arrow={this.arrow}
+          hasDefaultTrigger={this.hasDefaultTrigger}
           id={this.idDescriber}
-          ref={(element) => {
+          part="popper"
+          ref={(element: HTMLElement) => {
             this.tooltipRef = element
           }}
-          role="tooltip"
+          triggerType={this.triggerType}
         >
           <slot />
-        </div>
+        </ld-tooltip-popper>
       </Host>
     )
   }

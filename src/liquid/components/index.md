@@ -23,7 +23,6 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | [ld-button](components/ld-button/)                  | done              | done               |
 | ld-card                                             | done              | todo               |
 | [ld-checkbox](components/ld-checkbox)               | done              | done               |
-| [ld-heading](components/ld-heading/)                | done              | done               |
 | [ld-icon](components/ld-icon/)                      | in progress       | done               |
 | [ld-input](components/ld-input/)                    | done              | done               |
 | [ld-input-message](components/ld-input-message/)    | done              | done               |
@@ -34,13 +33,12 @@ If you have a suggestion for a new component not listed here, create an [issue o
 | ld-modal                                            | done              | todo               |
 | [ld-notification](components/ld-notification)       | done              | done               |
 | ld-pagination                                       | done              | todo               |
-| [ld-paragraph](components/ld-paragraph/)            | done              | done               |
 | ld-progress                                         | done              | todo               |
 | [ld-radio](components/ld-radio)                     | done              | done               |
+| [ld-select](components/ld-select)                   | done              | done               |
 | [ld-sr-only](components/ld-sr-only/)                | not needed        | done               |
 | [ld-sr-live](components/ld-sr-live/)                | not needed        | done               |
-| [ld-select](components/ld-select)                   | done              | done               |
 | [ld-tabs](components/ld-tabs)                       | done              | done               |
-| [ld-theme](components/ld-theme)                     | done              | done               |
 | [ld-toggle](components/ld-toggle)                   | done              | done               |
 | [ld-tooltip](components/ld-tooltip)                 | done              | done               |
+| [ld-typo](components/ld-typo/)                      | done              | done               |

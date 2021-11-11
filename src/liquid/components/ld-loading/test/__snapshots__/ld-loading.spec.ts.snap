@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-loading renders 1`] = `
+<ld-loading class="ld-loading">
+  <mock:shadow-root></mock:shadow-root>
+</ld-loading>
+`;

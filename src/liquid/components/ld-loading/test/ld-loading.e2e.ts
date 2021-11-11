@@ -1,29 +1,23 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
+import { LdLoading } from '../ld-loading'
 
 jest.useRealTimers()
 
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: grid; place-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './dist/css/ld-loading.css' })
-  return page
-}
-
-const allowableMismatchedRatio = 0.02
-
 describe('ld-loading', () => {
   it('renders', async () => {
-    const page = await getPageWithContent(`<ld-loading></ld-loading>`)
+    const page = await getPageWithContent(
+      `<ld-loading style="animation: none;" />`
+    )
     const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+    expect(results).toMatchScreenshot()
   })
 
   it('renders as css component', async () => {
-    const page = await getPageWithContent(`<span class="ld-loading"></span>`)
+    const page = await getPageWithContent(
+      `<span class="ld-loading" style="animation: none;" />`,
+      { components: LdLoading }
+    )
     const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+    expect(results).toMatchScreenshot()
   })
 })

@@ -258,6 +258,13 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 |      | (optional) Custom SVG icon (only valid without name prop). |
 
 
+## Shadow Parts
+
+| Part     | Description        |
+| -------- | ------------------ |
+| `"icon"` | Actual SVG element |
+
+
 ----------------------------------------------
 
  

@@ -29,7 +29,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: var(--ld-col-rblck-default);
+  background-color: var(--ld-col-neutral);
   opacity: 0.8;
   z-index: -1;
 }
@@ -80,7 +80,7 @@
     content: '';
     display: block;
     height: var(--ld-sp-1);
-    background-color: var(--ld-col-rblck1);
+    background-color: var(--ld-col-neutral-100);
     margin: 0 auto;
     width: calc(100% - var(--ld-sp-32));
   }
@@ -91,22 +91,22 @@
 
   a {
     text-decoration: none;
-    color: var(--ld-col-rblck-default);
+    color: var(--ld-col-neutral);
     display: block;
     padding: var(--ld-sp-16);
     outline: none;
 
     &:focus:focus-visible {
-      background-color: var(--ld-col-bg-g);
+      background-color: var(--ld-col-neutral-050);
     }
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--ld-col-bg-lg);
+        background-color: var(--ld-col-neutral-010);
       }
     }
     &:active,
     &:active:focus-visible {
-      background-color: var(--ld-col-bg-g);
+      background-color: var(--ld-col-neutral-050);
     }
   }
 }

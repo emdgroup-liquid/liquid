@@ -1,64 +1,69 @@
-ld-label {
+:host {
   display: inline-flex;
+
+  .ld-label {
+    width: 100%;
+  }
 }
 
 .ld-label {
-  --ld-label-col-gap: 0.625rem;
+  /* layout */
+  --ld-label-column-gap: 0.625rem;
+  --ld-label-row-gap: var(--ld-sp-6);
+
+  /* colors */
+  --ld-label-col: var(--ld-col-neutral);
+  --ld-label-disabled-col: var(--ld-col-neutral-300);
+
+  color: var(--ld-label-col);
   font: var(--ld-typo-label-s);
   display: inline-grid;
-  row-gap: var(--ld-sp-6);
+  row-gap: var(--ld-label-row-gap);
   column-gap: 0;
   max-width: 100%;
   align-content: flex-start;
-
-  ld-label & {
-    width: 100%;
-  }
 }
 
 .ld-label--left,
 .ld-label--right {
   justify-content: flex-start;
   align-items: center;
-  column-gap: var(--ld-label-col-gap);
+  column-gap: var(--ld-label-column-gap);
   row-gap: 0;
 
-  > ld-checkbox,
+  > ::slotted(.ld-checkbox),
   > .ld-checkbox,
-  > ld-radio,
+  > ::slotted(.ld-radio),
   > .ld-radio,
-  > ld-toggle,
+  > ::slotted(.ld-toggle),
   > .ld-toggle,
-  > ld-input,
+  > ::slotted(.ld-input),
   > .ld-input,
-  > ld-select,
+  > ::slotted(.ld-select),
   > .ld-select {
     grid-area: input;
     align-self: baseline;
   }
 
-  > ld-input-message,
+  > ::slotted(.ld-input-message),
   > .ld-input-message {
     grid-area: message;
     margin-top: var(--ld-sp-4);
   }
+}
 
-  > ld-input,
-  > .ld-input,
-  > ld-select,
-  > .ld-select {
-    .ld-label--left& {
-      + ld-input-message,
-      + .ld-input-message {
-        grid-column-start: 2;
-      }
+.ld-label--align-message {
+  &.ld-label--left {
+    > ::slotted(.ld-input-message),
+    > .ld-input-message {
+      grid-column-start: 2;
     }
+  }
 
-    .ld-label--right& {
-      + ld-input-message,
-      + .ld-input-message {
-        grid-column-end: 2;
-      }
+  &.ld-label--right {
+    > ::slotted(.ld-input-message),
+    > .ld-input-message {
+      grid-column-end: 2;
     }
   }
 }
@@ -83,5 +88,5 @@ ld-label {
 }
 
 :where(.ld-label[disabled]) {
-  color: var(--ld-col-rblck2);
+  color: var(--ld-label-disabled-col);
 }

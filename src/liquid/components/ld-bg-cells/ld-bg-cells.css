@@ -1,49 +1,64 @@
+:host,
 .ld-bg-cells {
-  background: var(--ld-bg-cells-background-color);
+  --ld-bg-cells-bg-col: var(--ld-thm-primary);
+  --ld-bg-cells-pattern-col: var(--ld-thm-secondary);
+
+  background: var(--ld-bg-cells-bg-col);
   height: 100%;
   position: relative;
   width: 100%;
+}
 
+.ld-bg-cells {
+  :host(&--bioreliance),
   :where(&--bioreliance) {
     --ld-bg-cells-position: top 5% right -20%;
     --ld-bg-cells-size: 230%;
   }
 
+  :host(&--f),
   :where(&--f) {
     --ld-bg-cells-position: top 20% right -50%;
     --ld-bg-cells-size: 180%;
   }
 
+  :host(&--hexagon),
   :where(&--hexagon) {
     --ld-bg-cells-position: top 56% right -30%;
     --ld-bg-cells-size: 200%;
   }
 
+  :host(&--millipore),
   :where(&--millipore) {
     --ld-bg-cells-position: top -10% right -30%;
     --ld-bg-cells-size: 200%;
   }
 
+  :host(&--qa-x2f-qc),
   :where(&--qa-x2f-qc) {
     --ld-bg-cells-position: top -30% right -34%;
     --ld-bg-cells-size: 170%;
   }
 
+  :host(&--safc),
   :where(&--safc) {
     --ld-bg-cells-position: top 47% right -15%;
     --ld-bg-cells-size: 290%;
   }
 
+  :host(&--sigma-aldrich),
   :where(&--sigma-aldrich) {
     --ld-bg-cells-position: top 51% right -19%;
     --ld-bg-cells-size: 280%;
   }
 
+  :host(&--t),
   :where(&--t) {
     --ld-bg-cells-position: top -10% right -20%;
     --ld-bg-cells-size: 250%;
   }
 
+  :host(&--tile),
   :where(&--tile) {
     --ld-bg-cells-position: top 50% right -12%;
     --ld-bg-cells-size: 250%;
@@ -51,7 +66,7 @@
 }
 
 .ld-bg-cells__pattern {
-  background: var(--ld-bg-cells-foreground-color);
+  background: var(--ld-bg-cells-pattern-col);
   mask-image: var(--ld-bg-cells-image);
   mask-position: var(--ld-bg-cells-position);
   mask-repeat: no-repeat;
@@ -67,44 +82,4 @@
 .ld-bg-cells__content {
   inset: 0;
   position: absolute;
-}
-
-/* .ld-theme-ocean -> default */
-.ld-bg-cells,
-:where(.ld-theme-ocean) .ld-bg-cells,
-:where([class*='ld-theme'] .ld-theme-ocean) .ld-bg-cells {
-  --ld-bg-cells-background-color: var(--ld-thm-ocean-bg-primary);
-  --ld-bg-cells-foreground-color: var(--ld-thm-ocean-accent);
-}
-
-:where(.ld-theme-tea),
-:where([class*='ld-theme'] .ld-theme-tea) {
-  .ld-bg-cells {
-    --ld-bg-cells-background-color: var(--ld-thm-tea-bg-primary);
-    --ld-bg-cells-foreground-color: var(--ld-thm-tea-accent);
-  }
-}
-
-:where(.ld-theme-bubblegum),
-:where([class*='ld-theme'] .ld-theme-bubblegum) {
-  .ld-bg-cells {
-    --ld-bg-cells-background-color: var(--ld-thm-bubblegum-bg-primary);
-    --ld-bg-cells-foreground-color: var(--ld-thm-bubblegum-accent);
-  }
-}
-
-:where(.ld-theme-shake),
-:where([class*='ld-theme'] .ld-theme-shake) {
-  .ld-bg-cells {
-    --ld-bg-cells-background-color: var(--ld-thm-shake-bg-primary);
-    --ld-bg-cells-foreground-color: var(--ld-thm-shake-accent);
-  }
-}
-
-:where(.ld-theme-solvent),
-:where([class*='ld-theme'] .ld-theme-solvent) {
-  .ld-bg-cells {
-    --ld-bg-cells-background-color: var(--ld-thm-solvent-bg-primary);
-    --ld-bg-cells-foreground-color: var(--ld-thm-solvent-accent);
-  }
 }

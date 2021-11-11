@@ -8,7 +8,6 @@ const FADE_TRANSITION_DURATION = 200
 describe('ld-notification', () => {
   afterEach(() => {
     jest.clearAllTimers()
-    jest.useRealTimers()
   })
 
   it('renders as empty container placed at the top by default', async () => {
@@ -16,13 +15,7 @@ describe('ld-notification', () => {
       components: [LdNotification],
       html: `<ld-notification></ld-notification>`,
     })
-    expect(page.root).toEqualHtml(`
-      <ld-notification
-        aria-label="Notifications"
-        class="ld-notification ld-notification--top"
-        role="region">
-      </ld-notification>
-    `)
+    expect(page.root).toMatchSnapshot()
   })
 
   describe('placement', () => {
@@ -31,10 +24,13 @@ describe('ld-notification', () => {
         components: [LdNotification],
         html: `<ld-notification placement="top"></ld-notification>`,
       })
+      const ldNotification = page.root
       expect(
-        page.root.classList.contains('ld-notification--bottom')
+        ldNotification.classList.contains('ld-notification--bottom')
       ).toBeFalsy()
-      expect(page.root.classList.contains('ld-notification--top')).toBeTruthy()
+      expect(
+        ldNotification.classList.contains('ld-notification--top')
+      ).toBeTruthy()
     })
 
     it('renders placed at the bottom with prop placement set to "bottom"', async () => {
@@ -42,10 +38,13 @@ describe('ld-notification', () => {
         components: [LdNotification],
         html: `<ld-notification placement="bottom"></ld-notification>`,
       })
+      const ldNotification = page.root
       expect(
-        page.root.classList.contains('ld-notification--bottom')
+        ldNotification.classList.contains('ld-notification--bottom')
       ).toBeTruthy()
-      expect(page.root.classList.contains('ld-notification--top')).toBeFalsy()
+      expect(
+        ldNotification.classList.contains('ld-notification--top')
+      ).toBeFalsy()
     })
   })
 
@@ -65,7 +64,9 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll('.ld-notification__item')
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item'
+      )
 
       expect(notifications.length).toEqual(1)
 
@@ -98,7 +99,9 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll('.ld-notification__item')
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item'
+      )
 
       expect(notifications.length).toEqual(1)
 
@@ -131,7 +134,9 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll('.ld-notification__item')
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item'
+      )
 
       expect(notifications.length).toEqual(1)
 
@@ -221,7 +226,9 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll('.ld-notification__item')
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item'
+      )
 
       expect(notifications.length).toEqual(7)
 
@@ -251,7 +258,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -264,15 +271,13 @@ describe('ld-notification', () => {
       btnDismiss.dispatchEvent(new Event('click'))
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
     })
 
     it('dismisses a notifications of type "info" after default timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -287,7 +292,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -296,15 +301,13 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
     })
 
     it('dismisses a notifications of type "info" after custom timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -321,7 +324,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -330,7 +333,7 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -339,15 +342,13 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(additionalTime)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
     })
 
     it('does not dismiss a notification of type "info" with a timeout set to 0', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -363,7 +364,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -372,15 +373,13 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
     })
 
     it('does not dismiss a notification of type "alert" after default timeout', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -395,7 +394,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -404,15 +403,13 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
     })
 
     it('does not dismiss a notification of type "info" if it is in queue behind another notification', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -437,7 +434,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
@@ -446,7 +443,7 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
@@ -479,7 +476,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
@@ -487,7 +484,7 @@ describe('ld-notification', () => {
       page.win.dispatchEvent(new CustomEvent('ldNotificationDismiss'))
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -505,10 +502,8 @@ describe('ld-notification', () => {
       await page.waitForChanges()
 
       expect(page.root).toEqualHtml(`
-        <ld-notification
-          aria-label="Notifications"
-          class="ld-notification ld-notification--top"
-          role="region">
+        <ld-notification aria-label="Notifications" class="ld-notification ld-notification--top" role="region">
+          <mock:shadow-root></mock:shadow-root>
         </ld-notification>
       `)
     })
@@ -538,7 +533,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
@@ -546,7 +541,7 @@ describe('ld-notification', () => {
       page.win.dispatchEvent(new CustomEvent('ldNotificationClear'))
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
@@ -555,8 +550,6 @@ describe('ld-notification', () => {
 
   describe('transitions', () => {
     it('transitions single notifications', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -599,12 +592,12 @@ describe('ld-notification', () => {
 
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(4)
 
-      let dismissedNotifications = page.root.querySelectorAll(
+      let dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(0)
@@ -615,12 +608,12 @@ describe('ld-notification', () => {
       page.win.dispatchEvent(new CustomEvent('ldNotificationDismiss'))
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
 
-      dismissedNotifications = page.root.querySelectorAll(
+      dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(2)
@@ -629,20 +622,18 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(FADE_TRANSITION_DURATION)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
 
-      dismissedNotifications = page.root.querySelectorAll(
+      dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(0)
     })
 
     it('transitions multiple notifications', async () => {
-      jest.useFakeTimers()
-
       const page = await newSpecPage({
         components: [LdNotification],
         html: `<ld-notification></ld-notification>`,
@@ -666,12 +657,12 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      let notifications = page.root.querySelectorAll(
+      let notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(2)
 
-      let dismissedNotifications = page.root.querySelectorAll(
+      let dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(0)
@@ -679,12 +670,12 @@ describe('ld-notification', () => {
       page.win.dispatchEvent(new CustomEvent('ldNotificationClear'))
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
 
-      dismissedNotifications = page.root.querySelectorAll(
+      dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(2)
@@ -693,12 +684,12 @@ describe('ld-notification', () => {
       jest.advanceTimersByTime(FADE_TRANSITION_DURATION)
       await page.waitForChanges()
 
-      notifications = page.root.querySelectorAll(
+      notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(0)
 
-      dismissedNotifications = page.root.querySelectorAll(
+      dismissedNotifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item--dismissed'
       )
       expect(dismissedNotifications.length).toEqual(0)
@@ -730,7 +721,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll(
+      const notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)
@@ -752,7 +743,7 @@ describe('ld-notification', () => {
       )
       await page.waitForChanges()
 
-      const notifications = page.root.querySelectorAll(
+      const notifications = page.root.shadowRoot.querySelectorAll(
         '.ld-notification__item:not(.ld-notification__item--dismissed)'
       )
       expect(notifications.length).toEqual(1)

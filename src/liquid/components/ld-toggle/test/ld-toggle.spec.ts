@@ -46,12 +46,12 @@ describe('ld-toggle', () => {
     const ldToggle = page.root
     expect(ldToggle.checked).toBe(undefined)
 
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
     expect(input).toHaveProperty('checked', false)
 
-    input.checked = true
-    input.dispatchEvent(new Event('click'))
+    ldToggle.dispatchEvent(new Event('click', { bubbles: true }))
     await page.waitForChanges()
+    expect(input).toHaveProperty('checked', true)
     expect(ldToggle.checked).toBe(true)
 
     expect(page.root).toMatchSnapshot()
@@ -63,7 +63,7 @@ describe('ld-toggle', () => {
       html: `<ld-toggle></ld-toggle>`,
     })
     const ldToggle = page.root
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
 
     const handlers = {
       onFocus() {
@@ -96,13 +96,100 @@ describe('ld-toggle', () => {
 
     expect(ldToggle.checked).toBe(undefined)
 
-    const input = ldToggle.querySelector('input')
+    const input = ldToggle.shadowRoot.querySelector('input')
 
-    input.checked = false
-    input.dispatchEvent(new Event('click'))
+    ldToggle.dispatchEvent(new Event('click'))
     await page.waitForChanges()
 
+    expect(input).toHaveProperty('checked', false)
     expect(ldToggle.checked).toBe(undefined)
     expect(page.root).toMatchSnapshot()
+  })
+
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle />`,
+    })
+    const ldCheckbox = page.root
+
+    const spyInput = jest.fn()
+    ldCheckbox.addEventListener('input', spyInput)
+    ldCheckbox.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
+  it('allows to set inner focus', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle />`,
+    })
+    const input = root.shadowRoot.querySelector('input')
+
+    input.focus = jest.fn()
+    await root.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
+  })
+
+  it('creates hidden input field, if inside a form', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle /></form>`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('sets initial state on hidden input', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle name="example" checked required /></form>`,
+    })
+    expect(root.querySelector('input')).toHaveProperty('name', 'example')
+    expect(root.querySelector('input')).toHaveProperty('required', true)
+  })
+
+  it('updates hidden input field', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle name="example" /></form>`,
+    })
+    const ldToggle = root
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldToggle.querySelector('input')).toHaveProperty('checked', false)
+    expect(ldToggle.querySelector('input')).toHaveProperty('required', false)
+
+    ldToggle.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
+
+    ldToggle.removeAttribute('name')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input').getAttribute('name')).toEqual(null)
+
+    ldToggle.dispatchEvent(new Event('click'))
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('checked', true)
+
+    ldToggle.setAttribute('required', '')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('required', true)
+
+    ldToggle.setAttribute('value', 'test')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('value', 'test')
+
+    ldToggle.removeAttribute('value')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)
   })
 })

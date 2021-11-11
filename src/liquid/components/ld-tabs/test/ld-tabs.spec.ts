@@ -1,9 +1,9 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdTabs } from '../ld-tabs'
-import { LdTablist } from '../ld-tablist'
-import { LdTab } from '../ld-tab'
-import { LdTabpanellist } from '../ld-tabpanellist'
-import { LdTabpanel } from '../ld-tabpanel'
+import { LdTablist } from '../ld-tablist/ld-tablist'
+import { LdTab } from '../ld-tab/ld-tab'
+import { LdTabpanellist } from '../ld-tabpanellist/ld-tabpanellist'
+import { LdTabpanel } from '../ld-tabpanel/ld-tabpanel'
 
 class FocusManager {
   focus(el) {
@@ -36,59 +36,11 @@ describe('ld-tabs', () => {
         </ld-tabs>
       `,
     })
-    const ldTabs = page.root
-    const ldTablist = ldTabs.querySelector('ld-tablist')
-    expect(ldTablist.getAttribute('role')).toEqual('tablist')
-
-    const ldTabItems = ldTablist.querySelectorAll('ld-tab')
-    expect(ldTabItems.length).toEqual(4)
-
-    const ldTabpanellist = ldTabs.querySelector('ld-tabpanellist')
-    const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
-    expect(ldTabpanels.length).toEqual(4)
-
-    const tabBtn0 = ldTabItems[0].querySelector('button')
-    expect(tabBtn0.getAttribute('id')).toEqual('ld-tabs-0-tab-0')
-    expect(tabBtn0.getAttribute('role')).toEqual('tab')
-    expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
-    expect(tabBtn0.getAttribute('aria-disabled')).toEqual(null)
-    expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
-
-    const ldTabpanel0 = ldTabpanels[0]
-    expect(ldTabpanel0.querySelector('section').getAttribute('role')).toEqual(
-      'tabpanel'
-    )
-    expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(false)
-
-    const tabBtn2 = ldTabItems[2].querySelector('button')
-    expect(tabBtn2.getAttribute('id')).toEqual('ld-tabs-0-tab-2')
-    expect(tabBtn2.getAttribute('role')).toEqual('tab')
-    expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
-    expect(tabBtn2.getAttribute('aria-disabled')).toEqual(null)
-    expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
-
-    const ldTabpanel2 = ldTabpanels[2]
-    expect(ldTabpanel2.querySelector('section').getAttribute('role')).toEqual(
-      'tabpanel'
-    )
-    expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(true)
-
-    const tabBtn3 = ldTabItems[3].querySelector('button')
-    expect(tabBtn3.getAttribute('id')).toEqual('ld-tabs-0-tab-3')
-    expect(tabBtn3.getAttribute('role')).toEqual('tab')
-    expect(tabBtn3.getAttribute('aria-selected')).toEqual(null)
-    expect(tabBtn3.getAttribute('aria-disabled')).toEqual('true')
-    expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
-
-    const ldTabpanel3 = ldTabpanels[3]
-    expect(ldTabpanel3.querySelector('section').getAttribute('role')).toEqual(
-      'tabpanel'
-    )
-    expect(ldTabpanel3.classList.contains('ld-tabpanel--hidden')).toEqual(true)
+    expect(page.root).toMatchSnapshot()
   })
 
   describe('mouse interactions', () => {
-    it('changes tab via click', async () => {
+    it('changes tab via click with preselected tab', async () => {
       const page = await newSpecPage({
         components,
         html: `
@@ -118,24 +70,20 @@ describe('ld-tabs', () => {
       const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
       expect(ldTabpanels.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
-      const tabBtn2 = ldTabItems[2].querySelector('button')
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
       const ldTabpanel0 = ldTabpanels[0]
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel0).not.toHaveAttribute('hidden')
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
 
       const ldTabpanel2 = ldTabpanels[2]
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel2).toHaveAttribute('hidden')
 
       ldTabItems[2].scrollIntoView = jest.fn()
       const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
@@ -146,16 +94,12 @@ describe('ld-tabs', () => {
       expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
 
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel0).toHaveAttribute('hidden')
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
 
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
       expect(spyScrollIntoView).toHaveBeenCalled()
     })
@@ -190,8 +134,8 @@ describe('ld-tabs', () => {
       const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
       expect(ldTabpanels.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
-      const tabBtn2 = ldTabItems[2].querySelector('button')
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
       const ldTabpanel0 = ldTabpanels[0]
       const ldTabpanel2 = ldTabpanels[2]
 
@@ -204,16 +148,12 @@ describe('ld-tabs', () => {
       expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
 
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel0).toHaveAttribute('hidden')
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
 
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
       expect(spyScrollIntoView).toHaveBeenCalled()
     })
@@ -238,8 +178,8 @@ describe('ld-tabs', () => {
       const ldTabItems = ldTablist.querySelectorAll('ld-tab')
       expect(ldTabItems.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
-      const tabBtn2 = ldTabItems[2].querySelector('button')
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
@@ -292,24 +232,20 @@ describe('ld-tabs', () => {
       const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
       expect(ldTabpanels.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
-      const tabBtn3 = ldTabItems[3].querySelector('button')
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn3 = ldTabItems[3].shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
       const ldTabpanel0 = ldTabpanels[0]
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel0).not.toHaveAttribute('hidden')
 
       expect(tabBtn3.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
 
       const ldTabpanel3 = ldTabpanels[3]
-      expect(ldTabpanel3.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel3).toHaveAttribute('hidden')
 
       ldTabItems[3].scrollIntoView = jest.fn()
       const spyScrollIntoView = jest.spyOn(ldTabItems[3], 'scrollIntoView')
@@ -320,16 +256,12 @@ describe('ld-tabs', () => {
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel0).not.toHaveAttribute('hidden')
 
       expect(tabBtn3.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
 
-      expect(ldTabpanel3.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel3).toHaveAttribute('hidden')
 
       expect(spyScrollIntoView).not.toHaveBeenCalled()
     })
@@ -354,7 +286,7 @@ describe('ld-tabs', () => {
       const ldTabItems = ldTablist.querySelectorAll('ld-tab')
       expect(ldTabItems.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
@@ -397,64 +329,57 @@ describe('ld-tabs', () => {
       const ldTablist = ldTabs.querySelector('ld-tablist')
 
       const ldTabItems = ldTablist.querySelectorAll('ld-tab')
+      const [ldTab0, ldTab1, ldTab2, ldTab3] = Array.from(ldTabItems)
       expect(ldTabItems.length).toEqual(4)
 
       const ldTabpanellist = ldTabs.querySelector('ld-tabpanellist')
       const ldTabpanels = ldTabpanellist.querySelectorAll('ld-tabpanel')
       expect(ldTabpanels.length).toEqual(4)
 
-      const tabBtn0 = ldTabItems[0].querySelector('button')
-      const tabBtn1 = ldTabItems[1].querySelector('button')
-      const tabBtn2 = ldTabItems[2].querySelector('button')
-      const tabBtn3 = ldTabItems[3].querySelector('button')
+      const tabBtn0 = ldTab0.shadowRoot.querySelector('button')
+      const tabBtn1 = ldTab1.shadowRoot.querySelector('button')
+      const tabBtn2 = ldTab2.shadowRoot.querySelector('button')
+      const tabBtn3 = ldTab3.shadowRoot.querySelector('button')
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
       const ldTabpanel0 = ldTabpanels[0]
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel0).not.toHaveAttribute('hidden')
 
       expect(tabBtn1.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn1.getAttribute('tabindex')).toEqual('-1')
 
       const ldTabpanel1 = ldTabpanels[1]
-      expect(ldTabpanel1.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel1).toHaveAttribute('hidden')
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
 
       const ldTabpanel2 = ldTabpanels[2]
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
-      const tabpanelSection2 = ldTabpanel2.querySelector('section')
-      tabpanelSection2.focus = jest.fn(focusManager.focus)
-      const spyTabpanelFocus2 = jest.spyOn(tabpanelSection2, 'focus')
+      expect(ldTabpanel2).toHaveAttribute('hidden')
+
+      ldTabpanel2.focus = jest.fn(focusManager.focus)
+      const spyTabpanelFocus2 = jest.spyOn(ldTabpanel2, 'focus')
 
       const ldTabpanel3 = ldTabpanels[3]
-      expect(ldTabpanel3.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      ldTabItems[0].scrollIntoView = jest.fn()
-      ldTabItems[1].scrollIntoView = jest.fn()
-      ldTabItems[2].scrollIntoView = jest.fn()
-      ldTabItems[3].scrollIntoView = jest.fn()
-      const spyScrollIntoView0 = jest.spyOn(ldTabItems[0], 'scrollIntoView')
-      const spyScrollIntoView1 = jest.spyOn(ldTabItems[1], 'scrollIntoView')
-      const spyScrollIntoView2 = jest.spyOn(ldTabItems[2], 'scrollIntoView')
-      const spyScrollIntoView3 = jest.spyOn(ldTabItems[3], 'scrollIntoView')
+      ldTab0.scrollIntoView = jest.fn()
+      ldTab1.scrollIntoView = jest.fn()
+      ldTab2.scrollIntoView = jest.fn()
+      ldTab3.scrollIntoView = jest.fn()
+      const spyScrollIntoView0 = jest.spyOn(ldTab0, 'scrollIntoView')
+      const spyScrollIntoView1 = jest.spyOn(ldTab1, 'scrollIntoView')
+      const spyScrollIntoView2 = jest.spyOn(ldTab2, 'scrollIntoView')
+      const spyScrollIntoView3 = jest.spyOn(ldTab3, 'scrollIntoView')
 
       tabBtn0.focus = jest.fn(focusManager.focus)
       tabBtn1.focus = jest.fn(focusManager.focus)
       tabBtn2.focus = jest.fn(focusManager.focus)
       tabBtn3.focus = jest.fn(focusManager.focus)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -462,14 +387,12 @@ describe('ld-tabs', () => {
       expect(spyScrollIntoView1).toHaveBeenCalledTimes(1)
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel0).not.toHaveAttribute('hidden')
 
       expect(tabBtn1.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn1.getAttribute('tabindex')).toEqual('-1')
 
-      tabBtn1.dispatchEvent(
+      ldTab1.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -482,23 +405,17 @@ describe('ld-tabs', () => {
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
-      expect(ldTabpanel0.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel0).toHaveAttribute('hidden')
 
       expect(tabBtn1.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn1.getAttribute('tabindex')).toEqual('-1')
-      expect(ldTabpanel1.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel1).toHaveAttribute('hidden')
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
-      tabBtn2.dispatchEvent(
+      ldTab2.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
@@ -506,53 +423,49 @@ describe('ld-tabs', () => {
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
-      expect(ldTabpanel2.classList.contains('ld-tabpanel--hidden')).toEqual(
-        false
-      )
+      expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
       expect(tabBtn3.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn3.getAttribute('tabindex')).toEqual('-1')
-      expect(ldTabpanel3.classList.contains('ld-tabpanel--hidden')).toEqual(
-        true
-      )
+      expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      tabBtn3.dispatchEvent(
+      ldTab3.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView3).toHaveBeenCalledTimes(1)
 
-      tabBtn3.dispatchEvent(
+      ldTab3.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView2).toHaveBeenCalledTimes(3)
 
-      tabBtn2.dispatchEvent(
+      ldTab2.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView1).toHaveBeenCalledTimes(2)
 
-      tabBtn1.dispatchEvent(
+      ldTab1.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
       expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
 
-      tabBtn0.dispatchEvent(
+      ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
       )
       await page.waitForChanges()
@@ -583,7 +496,7 @@ describe('ld-tabs', () => {
 
       const ldTabBtn1 = ldTabItems[1]
       ldTabBtn1.scrollIntoView = jest.fn()
-      const tabBtn1 = ldTabBtn1.querySelector('button')
+      const tabBtn1 = ldTabBtn1.shadowRoot.querySelector('button')
 
       const handlers = {
         onTabChange() {
@@ -596,55 +509,6 @@ describe('ld-tabs', () => {
       tabBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
       expect(spyTabChange).toHaveBeenCalled()
-    })
-  })
-
-  describe('modifiers', () => {
-    it('size', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs size="sm">
-          <ld-tablist>
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(page.root.classList.contains('ld-tabs--sm')).toBeTruthy()
-    })
-
-    it('mode', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs mode="ghost">
-          <ld-tablist>
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(page.root.classList.contains('ld-tabs--ghost')).toBeTruthy()
-    })
-
-    it('rounded', async () => {
-      const page = await newSpecPage({
-        components,
-        html: `
-        <ld-tabs rounded="all-lg">
-          <ld-tablist>
-            <ld-tab selected>Fruits</ld-tab>
-            <ld-tab>Vegetables</ld-tab>
-          </ld-tablist>
-        </ld-tabs>
-      `,
-      })
-      expect(
-        page.root.classList.contains('ld-tabs--rounded-all-lg')
-      ).toBeTruthy()
     })
   })
 })

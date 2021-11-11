@@ -90,6 +90,19 @@ formAlert.addEventListener('submit', ev => {
 | `ref`    | `ref`     | reference to component | `any` | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ld-sr-only](../ld-sr-only)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sr-live --> ld-sr-only
+  style ld-sr-live fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

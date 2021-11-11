@@ -1,62 +1,30 @@
-import { newE2EPage } from '@stencil/core/testing'
+import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
 
 jest.useRealTimers()
-
-async function getPageWithContent(content, theme = 'none') {
-  const page = await newE2EPage()
-  await page.setContent(
-    `<div class="ld-theme-${theme}" style="height: 100vh; display: flex; justify-content: center; align-items: center">${content}</div>`
-  )
-  await page.addStyleTag({ path: './dist/css/liquid.global.css' })
-  await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
-  await page.addStyleTag({ content: '*:focus { outline: none; }' })
-  return page
-}
-
-const themes = [
-  'none',
-  'ocean',
-  'bubblegum',
-  // 'shake',
-  // 'solvent',
-  // 'tea',
-]
 
 const rounded = ['all', 'all-lg', 'top', 'top-lg']
 
 const sizes = ['sm', 'lg']
 
-const cssIconComponent = `
-  <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-`
-
-const getTabsHTML = (props = '', withText = true, withIcon = false) => `
-  <ld-tabs ${props}>
-    <ld-tablist>
-      <ld-tab selected>${withIcon ? cssIconComponent : ''}${
-  withText ? 'Fruits' : ''
-}</ld-tab>
-      <ld-tab>${withIcon ? cssIconComponent : ''}${
-  withText ? 'Vegetables' : ''
-}</ld-tab>
-      <ld-tab>${withIcon ? cssIconComponent : ''}${
-  withText ? 'Nuts' : ''
-}</ld-tab>
-      <ld-tab disabled>${withIcon ? cssIconComponent : ''}${
-  withText ? 'Grain' : ''
-}</ld-tab>
+const getTabsHTML = (props = '', withText = true, withIcon = false) => {
+  const getContent = (text) =>
+    (withIcon ? '<ld-icon name="placeholder"></ld-icon>' : '') +
+    (withText ? text : '')
+  return `
+  <ld-tabs>
+    <ld-tablist ${props}>
+      <ld-tab selected>${getContent('Fruits')}</ld-tab>
+      <ld-tab>${getContent('Vegetables')}</ld-tab>
+      <ld-tab>${getContent('Nuts')}</ld-tab>
+      <ld-tab disabled>${getContent('Grain')}</ld-tab>
     </ld-tablist>
   </ld-tabs>
 `
+}
 
 const getManyTabsHTML = (props = '') => `
-  <ld-tabs ${props} style="max-width: calc(100% - var(--ld-sp-24)*2)">
-    <ld-tablist>
+  <ld-tabs style="max-width: calc(100% - var(--ld-sp-24)*2)">
+    <ld-tablist ${props}>
       <ld-tab selected>Classical</ld-tab>
       <ld-tab>Rock</ld-tab>
       <ld-tab>Indie</ld-tab>
@@ -81,331 +49,271 @@ const getManyTabsHTML = (props = '') => `
   </ld-tabs>
 `
 
-const allowableMismatchedRatio = 0.02
+describe('ld-tabs', () => {
+  it(`default`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-describe('ld-checkbox', () => {
-  for (const theme of themes) {
-    it(`default theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`hover`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.hover('ld-tab:nth-of-type(2)')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`hover theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.hover('ld-tab:nth-of-type(2)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`hover selected`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.hover('ld-tab:nth-of-type(1)')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`hover selected theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.hover('ld-tab:nth-of-type(1)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`hover disabled`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.hover('ld-tab:nth-of-type(3)')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`hover disabled theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.hover('ld-tab:nth-of-type(3)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`focus`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('ArrowRight')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`focus theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`focus selected`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`focus selected theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`focus disabled`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`focus disabled theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`active`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.down('Space')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`active theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`active selected`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.down('Space')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`active selected theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
+  it(`active disabled`, async () => {
+    const page = await getPageWithContent(getTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.down('Space')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
-    it(`active disabled theme-${theme}`, async () => {
-      const page = await getPageWithContent(getTabsHTML(), theme)
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-    })
-  }
+  it(`many`, async () => {
+    const page = await getPageWithContent(getManyTabsHTML())
+    await page.keyboard.press('Tab')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    await page.keyboard.press('ArrowRight')
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 
   describe('mode', () => {
-    for (const theme of themes) {
-      it(`ghost theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost hover theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(2)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost hover`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.hover('ld-tab:nth-of-type(2)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost hover selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(1)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost hover selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.hover('ld-tab:nth-of-type(1)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost hover disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(3)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost hover disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.hover('ld-tab:nth-of-type(3)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost focus theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost focus`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost focus selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost focus selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost focus disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost focus disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost active theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost active`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost active selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost active selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost active disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="ghost"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost active disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`ghost theme-${theme} many`, async () => {
-        const page = await getPageWithContent(
-          getManyTabsHTML('mode="ghost"'),
-          theme
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`ghost many`, async () => {
+      const page = await getPageWithContent(getManyTabsHTML('mode="ghost"'))
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color hover theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(2)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color hover`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.hover('ld-tab:nth-of-type(2)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color hover selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(1)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color hover selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.hover('ld-tab:nth-of-type(1)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color hover disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.hover('ld-tab:nth-of-type(3)')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color hover disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.hover('ld-tab:nth-of-type(3)')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color focus theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color focus`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color focus selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color focus selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color focus disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color focus disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color active theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color active`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color active selected theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color active selected`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color active disabled theme-${theme}`, async () => {
-        const page = await getPageWithContent(
-          getTabsHTML('mode="brand-color"'),
-          theme
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.press('ArrowRight')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
+    it(`brand-color active disabled`, async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.press('ArrowRight')
+      await page.keyboard.down('Space')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-      it(`brand-color theme-${theme} many`, async () => {
-        const page = await getPageWithContent(
-          getManyTabsHTML('mode="brand-color"'),
-          theme
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-      })
-    }
+    it(`brand-color many`, async () => {
+      const page = await getPageWithContent(
+        getManyTabsHTML('mode="brand-color"')
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('rounded corners', () => {
@@ -415,7 +323,7 @@ describe('ld-checkbox', () => {
           getTabsHTML(`mode="brand-color" rounded="${r}"`)
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
     }
   })
@@ -424,8 +332,10 @@ describe('ld-checkbox', () => {
     for (const size of sizes) {
       it(`size ${size}`, async () => {
         const page = await getPageWithContent(getTabsHTML(`size="${size}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
     }
   })
@@ -436,16 +346,20 @@ describe('ld-checkbox', () => {
         const page = await getPageWithContent(
           getTabsHTML(`size="${size}"`, true, true)
         )
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       it(`icon only size ${size}`, async () => {
         const page = await getPageWithContent(
           getTabsHTML(`size="${size}"`, false, true)
         )
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
     }
   })

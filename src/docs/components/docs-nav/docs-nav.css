@@ -1,36 +1,36 @@
 @define-mixin docs-nav-ui-light {
   .docs-nav__content {
-    background-color: var(--ld-col-bg-lg);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck1);
+    background-color: var(--ld-col-neutral-010);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-100);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-bg-lg);
+    background-color: var(--ld-col-neutral-010);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-rblck1);
+    border-bottom-color: var(--ld-col-neutral-100);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-rblck4);
+    color: var(--ld-col-neutral-600);
 
     &:hover,
     &.docs-nav__li--active {
-      color: var(--ld-col-rblck-default);
+      color: var(--ld-col-neutral);
     }
   }
 }
 @define-mixin docs-nav-ui-dark {
   .docs-nav__content {
-    background-color: var(--ld-col-rblck-default);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck4);
+    background-color: var(--ld-col-neutral);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-600);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-rblck-default);
+    background-color: var(--ld-col-neutral);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-rblck5);
+    border-bottom-color: var(--ld-col-neutral-800);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-rblck1);
+    color: var(--ld-col-neutral-100);
 
     &:hover,
     &.docs-nav__li--active {
@@ -72,7 +72,7 @@
     list-style: none;
   }
 
-  details[open] summary::after {
+  details[open] > summary::after {
     transform: rotate(90deg);
   }
 
@@ -163,6 +163,20 @@
       opacity: 1;
     }
   }
+
+  li ul & {
+    font-weight: inherit;
+    margin-top: 0;
+    text-transform: none;
+
+    + ul {
+      margin-left: var(--ld-sp-12);
+    }
+  }
+
+  li ul li.docs-nav__li--active > details > & {
+    font-weight: 700;
+  }
 }
 
 body:not(.safari) {
@@ -187,6 +201,10 @@ body:not(.safari) {
 
 .docs-nav__li {
   margin-top: var(--ld-sp-12);
+
+  > a {
+    display: block;
+  }
 }
 
 .docs-nav__li--active > a {

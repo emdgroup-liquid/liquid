@@ -10,6 +10,11 @@ tags:
   - dropdown
 ---
 
+<link rel="stylesheet" href="/css_components/ld-select.css">
+<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="/css_components/ld-label.css">
+
 # ld-select
 
 The `ld-select` component represents a control that provides a menu of options. This control can be used in forms to accept a selection of these options from the user.
@@ -931,12 +936,10 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="pineapple">Pineapple</option>
     <option value="plum">Plum</option>
   </select>
-  <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
-    </svg>
-  </span>
+  <svg class="ld-icon" role="presentation" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
 </div>
 
 <div class='ld-select'>
@@ -958,12 +961,10 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="pineapple">Pineapple</option>
     <option value="plum">Plum</option>
   </select>
-  <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
-    </svg>
-  </span>
+  <svg class="ld-icon" role="presentation" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
 </div>
 
 <div class='ld-select ld-select--lg'>
@@ -985,12 +986,10 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <option value="pineapple">Pineapple</option>
     <option value="plum">Plum</option>
   </select>
-  <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
-    </svg>
-  </span>
+  <svg class="ld-icon" role="presentation" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"></rect>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"></circle>
+  </svg>
 </div>
 {% endexample %}
 
@@ -1122,12 +1121,12 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
       />
     </svg>
   </div>
-  <span class="ld-input-message ld-input-message--error">
+  <span class="ld-input-message ld-input-message--info">
     <!-- Note that you can use an img element with the class ld-input-message__icon here as well. -->
-    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#E61E50"/>
-      <path d="M4.66675 4.66699L9.33341 9.33366" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M4.66675 9.33301L9.33341 4.66634" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg class="ld-input-message__icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#FFC832"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="#091734"/>
+      <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="#091734"/>
     </svg>
     Not available today.
   </span>
@@ -1186,13 +1185,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
   <ld-button>Submit</ld-button>
 </form>
 <script>
+  const form = document.querySelector('#example-form')
   const select = document.querySelector('#example-form ld-select')
   const errorMessage = document.querySelector('#example-form ld-input-message')
   const submitButton = document.querySelector('#example-form ld-button')
-  let selected = []
   let selectDirty = false
   function validateInput() {
-    if (selectDirty && selected.length < 3) {
+    if (selectDirty && (!form.fruits || !form.fruits.length || form.fruits.length < 3)) {
       select.setAttribute('invalid', 'true')
       errorMessage.style.visibility = 'inherit'
       return false
@@ -1202,15 +1201,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
     return true
   }
   select.addEventListener('change', ev => {
-    selected = ev.detail
     validateInput()
   })
   select.addEventListener('blur', ev => {
-    selected = ev.detail
     selectDirty = true
     validateInput()
   })
-  submitButton.addEventListener('click', ev => {
+  form.addEventListener('submit', ev => {
     ev.preventDefault()
     selectDirty = true
     const isValid = validateInput()
@@ -1249,12 +1246,13 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ## Events
 
-| Event    | Description                                                                                            | Type                    |
-| -------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `blur`   | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
-| `change` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
-| `focus`  | Emitted with an array of selected values when the select component gets focus.                         | `CustomEvent<string[]>` |
-| `input`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| Event      | Description                                                                                            | Type                    |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `blur`     | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
+| `change`   | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| `focus`    | Emitted with an array of selected values when the select component gets focus.                         | `CustomEvent<string[]>` |
+| `focusout` | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
+| `input`    | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
 
 
 ## Slots
@@ -1264,6 +1262,42 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 |          | the default slot contains the select options   |
 | `"icon"` | replaces caret with custom trigger button icon |
 
+
+## Shadow Parts
+
+| Part                     | Description |
+| ------------------------ | ----------- |
+| `"btn-clear"`            |             |
+| `"btn-clear-single"`     |             |
+| `"btn-trigger"`          |             |
+| `"focusable"`            |             |
+| `"icon-clear"`           |             |
+| `"icon-clear-single"`    |             |
+| `"options-container"`    |             |
+| `"root"`                 |             |
+| `"select"`               |             |
+| `"selection-label-bg"`   |             |
+| `"selection-label-text"` |             |
+| `"selection-list"`       |             |
+| `"selection-list-item"`  |             |
+| `"slot-container"`       |             |
+| `"trigger-icon"`         |             |
+| `"trigger-text"`         |             |
+| `"trigger-text-wrapper"` |             |
+
+
+## Dependencies
+
+### Depends on
+
+- ld-select-popper
+
+### Graph
+```mermaid
+graph TD;
+  ld-select --> ld-select-popper
+  style ld-select fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

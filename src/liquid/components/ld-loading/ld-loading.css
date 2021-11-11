@@ -1,15 +1,18 @@
 /**
- * @prop --ld-loading-size: Size of the loading indicator (1.5rem by default).
+ * @prop --ld-loading-col: Color of the loading indicator.
+ * @prop --ld-loading-size: Size of the loading indicator.
  */
+:host,
 .ld-loading {
   --ld-loading-size: 1.5rem;
+  --ld-loading-col: var(--ld-col-neutral-300);
+
+  background: var(--ld-loading-col);
   height: var(--ld-loading-size);
   width: var(--ld-loading-size);
   display: inline-flex;
   flex-shrink: 0;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyMyAyMyI+PGRlZnMvPjxjaXJjbGUgY3g9IjExLjUiIGN5PSIxMS41IiByPSI5LjUiIHN0cm9rZT0iI0JGQkZCRiIgc3Ryb2tlLWRhc2hhcnJheT0iMi41NSA1IiBzdHJva2Utd2lkdGg9IjQiLz48L3N2Zz4=');
-  background-size: 100%;
-  background-repeat: no-repeat;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23"><defs/><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-dasharray="2.55 5" stroke-width="4"/></svg>');
   animation: ld-loading-animation 1.5s linear infinite;
 }
 

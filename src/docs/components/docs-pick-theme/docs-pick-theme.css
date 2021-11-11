@@ -1,32 +1,35 @@
+.docs-pick-theme {
+  --docs-pick-theme-icon-size: 1.25rem;
+}
+
 .docs-pick-theme__fieldset {
   border: 0;
 }
 
-.docs-pick-theme__icon {
-  width: var(--ld-sp-24);
-  height: var(--ld-sp-24);
+.docs-pick-theme ld-icon {
+  width: var(--docs-pick-theme-icon-size);
+  height: var(--docs-pick-theme-icon-size);
 }
 
-.docs-pick-theme {
-  .ld-select {
-    min-height: 0;
-  }
-
-  .ld-select__btn-trigger {
-    padding: var(--ld-sp-8);
-  }
-
-  .ld-select__btn-trigger-text-wrapper {
+.docs-pick-theme__select {
+  &::part(trigger-text-wrapper) {
     display: none;
   }
+
+  &::part(btn-trigger) {
+    padding: var(--ld-sp-6);
+  }
 }
 
-.docs-pick-theme__popper.ld-select__popper {
-  min-width: 14rem;
+.docs-pick-theme__select,
+.docs-pick-theme__select::part(select),
+.docs-pick-theme__select::part(btn-trigger) {
+  height: var(--ld-sp-32);
+  width: var(--ld-sp-32);
+}
 
-  .ld-select__scroll-container {
-    border-top: 0;
-  }
+.docs-pick-theme__popper {
+  min-width: 14rem;
 }
 
 .docs-pick-theme__option-pattern {
@@ -37,298 +40,293 @@
   height: 100%;
 }
 
-.docs-pick-theme__option.ld-option {
-  color: var(--ld-col-wht);
-  font-weight: 700;
-  overflow: hidden;
-
-  &:focus:focus-visible {
-    .docs-pick-theme__option-pattern-wrapper {
-      overflow: hidden;
-    }
+.docs-pick-theme__option {
+  &::part(option) {
+    font-weight: 700;
+    overflow: hidden;
   }
 
   &.ld-theme-ocean {
-    color: var(--ld-thm-ocean-bg-primary);
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rb-hover);
-
-        .docs-pick-theme__option-pattern-primary {
-          fill: var(--ld-col-rb-hover);
-        }
-        .docs-pick-theme__option-pattern-accent {
-          fill: var(--ld-col-vc-hover);
-        }
-      }
+    &::part(check) {
+      color: var(--ld-thm-ocean-primary);
     }
-    &:focus:focus-visible {
-      color: var(--ld-col-rb6);
-      background-color: var(--ld-col-rb1);
 
-      &::before {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rb-focus);
-      }
+    &::part(option) {
+      color: var(--ld-thm-ocean-primary);
 
-      .ld-option__check {
-        color: var(--ld-col-rb6);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-ocean-primary-hover);
+          background-color: var(--ld-col-rb-010);
+        }
       }
+      &:focus:focus-visible {
+        color: var(--ld-col-rb-800);
+        background-color: var(--ld-col-rb-010);
 
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rb-focus);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-focus);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      .ld-option__label {
-        color: var(--ld-col-rb-active);
-      }
-
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rb-active);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-hover);
+        &::before {
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-ocean-primary-focus);
+        }
       }
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-ocean-bg-primary);
+      fill: var(--ld-thm-ocean-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-ocean-accent);
+      fill: var(--ld-thm-ocean-secondary);
+    }
+
+    &.ld-option-internal--hover-within {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-ocean-primary-hover);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-ocean-secondary-hover);
+      }
+      &::part(check) {
+        color: var(--ld-thm-ocean-primary-hover);
+      }
+    }
+
+    &.ld-option-internal--focus-within:focus-visible {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-ocean-primary-focus);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-ocean-secondary-focus);
+      }
+      &::part(check) {
+        color: var(--ld-col-rb-800);
+      }
     }
   }
 
   &.ld-theme-bubblegum {
-    color: var(--ld-thm-bubblegum-bg-primary);
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rp-hover);
-        background-color: var(--ld-col-rp1);
-
-        .docs-pick-theme__option-pattern-primary {
-          fill: var(--ld-col-rp-hover);
-        }
-        .docs-pick-theme__option-pattern-accent {
-          fill: var(--ld-col-vc-hover);
-        }
-      }
+    &::part(check) {
+      color: var(--ld-thm-bubblegum-primary);
     }
-    &:focus:focus-visible {
-      color: var(--ld-col-rp6);
-      background-color: var(--ld-col-rp1);
 
-      &::before {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
-      }
+    &::part(option) {
+      color: var(--ld-thm-bubblegum-primary);
 
-      .ld-option__check {
-        color: var(--ld-col-rp6);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-bubblegum-primary-hover);
+          background-color: var(--ld-col-rp-010);
+        }
       }
+      &:focus:focus-visible {
+        color: var(--ld-col-rp-900);
+        background-color: var(--ld-col-rp-010);
 
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-focus);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      .ld-option__label {
-        color: var(--ld-col-rp-active);
-      }
-
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-active);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vc-hover);
+        &::before {
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-bubblegum-primary-focus);
+        }
       }
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-bubblegum-bg-primary);
+      fill: var(--ld-thm-bubblegum-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-bubblegum-accent);
+      fill: var(--ld-thm-bubblegum-secondary);
+    }
+
+    &.ld-option-internal--hover-within {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-bubblegum-primary-hover);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-bubblegum-secondary-hover);
+      }
+      &::part(check) {
+        color: var(--ld-thm-bubblegum-primary-hover);
+      }
+    }
+
+    &.ld-option-internal--focus-within:focus-visible {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-bubblegum-primary-focus);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-bubblegum-primary-focus);
+      }
+      &::part(check) {
+        color: var(--ld-col-rp-900);
+      }
     }
   }
 
   &.ld-theme-shake {
-    color: var(--ld-thm-shake-bg-primary);
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rp-hover);
-        background-color: var(--ld-col-rp1);
-
-        .docs-pick-theme__option-pattern-primary {
-          fill: var(--ld-col-rp-hover);
-        }
-        .docs-pick-theme__option-pattern-accent {
-          fill: var(--ld-col-vm-hover);
-        }
-      }
+    &::part(check) {
+      color: var(--ld-thm-shake-primary);
     }
-    &:focus:focus-visible {
-      color: var(--ld-col-rp6);
-      background-color: var(--ld-col-rp1);
 
-      &::before {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
-      }
+    &::part(option) {
+      color: var(--ld-thm-shake-primary);
 
-      .ld-option__check {
-        color: var(--ld-col-rp6);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-shake-primary-hover);
+          background-color: var(--ld-col-rp-010);
+        }
       }
+      &:focus:focus-visible {
+        color: var(--ld-col-rp-900);
+        background-color: var(--ld-col-rp-010);
 
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vm-focus);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      .ld-option__label {
-        color: var(--ld-col-rp-active);
-      }
-
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-active);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vm-hover);
+        &::before {
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-shake-primary-focus);
+        }
       }
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-shake-bg-primary);
+      fill: var(--ld-thm-shake-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-shake-accent);
+      fill: var(--ld-thm-shake-secondary);
+    }
+
+    &.ld-option-internal--hover-within {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-shake-primary-hover);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-shake-secondary-hover);
+      }
+      &::part(check) {
+        color: var(--ld-thm-shake-primary-hover);
+      }
+    }
+
+    &.ld-option-internal--focus-within:focus-visible {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-shake-primary-focus);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-shake-secondary-focus);
+      }
+      &::part(check) {
+        color: var(--ld-col-rp-900);
+      }
     }
   }
 
   &.ld-theme-solvent {
-    color: var(--ld-thm-solvent-bg-primary);
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rp-hover);
-        background-color: var(--ld-col-rp1);
-
-        .docs-pick-theme__option-pattern-primary {
-          fill: var(--ld-col-rp-hover);
-        }
-        .docs-pick-theme__option-pattern-accent {
-          fill: var(--ld-col-vg-hover);
-        }
-      }
+    &::part(check) {
+      color: var(--ld-thm-solvent-primary);
     }
-    &:focus:focus-visible {
-      color: var(--ld-col-rp6);
-      background-color: var(--ld-col-rp1);
 
-      &::before {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rp-focus);
-      }
+    &::part(option) {
+      color: var(--ld-thm-solvent-primary);
 
-      .ld-option__check {
-        color: var(--ld-col-rp6);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-solvent-primary-hover);
+          background-color: var(--ld-col-rp-010);
+        }
       }
+      &:focus:focus-visible {
+        color: var(--ld-col-rp-900);
+        background-color: var(--ld-col-rp-010);
 
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-focus);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-focus);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      .ld-option__label {
-        color: var(--ld-col-rp-active);
-      }
-
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rp-active);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-hover);
+        &::before {
+          box-shadow: inset 0 0 0 var(--ld-sp-1)
+            var(--ld-thm-solvent-primary-focus);
+        }
       }
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-solvent-bg-primary);
+      fill: var(--ld-thm-solvent-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-solvent-accent);
+      fill: var(--ld-thm-solvent-secondary);
+    }
+
+    &.ld-option-internal--hover-within {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-solvent-primary-hover);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-solvent-secondary-hover);
+      }
+      &::part(check) {
+        color: var(--ld-thm-solvent-primary-hover);
+      }
+    }
+
+    &.ld-option-internal--focus-within:focus-visible {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-solvent-primary-focus);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-solvent-primary-focus);
+      }
+      &::part(check) {
+        color: var(--ld-col-rp-900);
+      }
     }
   }
 
   &.ld-theme-tea {
-    color: var(--ld-thm-tea-bg-primary);
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--ld-col-rg-hover);
-        background-color: var(--ld-col-rg1);
-
-        .docs-pick-theme__option-pattern-primary {
-          fill: var(--ld-col-rg-hover);
-        }
-        .docs-pick-theme__option-pattern-accent {
-          fill: var(--ld-col-vg-hover);
-        }
-      }
+    &::part(check) {
+      color: var(--ld-thm-tea-primary);
     }
-    &:focus:focus-visible {
-      color: var(--ld-col-rg6);
-      background-color: var(--ld-col-rg1);
 
-      &::before {
-        box-shadow: inset 0 0 0 0.1rem var(--ld-col-rg-focus);
-      }
+    &::part(option) {
+      color: var(--ld-thm-tea-primary);
 
-      .ld-option__check {
-        color: var(--ld-col-rg6);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-tea-primary-hover);
+          background-color: var(--ld-col-rg-010);
+        }
       }
+      &:focus:focus-visible {
+        color: var(--ld-col-rg-900);
+        background-color: var(--ld-col-rg-010);
 
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rg-focus);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-focus);
-      }
-    }
-    &:active,
-    &:active:focus-visible {
-      .ld-option__label {
-        color: var(--ld-col-rg-active);
-      }
-
-      .docs-pick-theme__option-pattern-primary {
-        fill: var(--ld-col-rg-active);
-      }
-      .docs-pick-theme__option-pattern-accent {
-        fill: var(--ld-col-vg-hover);
+        &::before {
+          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-thm-tea-primary-focus);
+        }
       }
     }
 
     .docs-pick-theme__option-pattern-primary {
-      fill: var(--ld-thm-tea-bg-primary);
+      fill: var(--ld-thm-tea-primary);
     }
     .docs-pick-theme__option-pattern-accent {
-      fill: var(--ld-thm-tea-accent);
+      fill: var(--ld-thm-tea-secondary);
+    }
+
+    &.ld-option-internal--hover-within {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-tea-primary-hover);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-tea-secondary-hover);
+      }
+      &::part(check) {
+        color: var(--ld-thm-tea-primary-hover);
+      }
+    }
+
+    &.ld-option-internal--focus-within:focus-visible {
+      .docs-pick-theme__option-pattern-primary {
+        fill: var(--ld-thm-tea-primary-focus);
+      }
+      .docs-pick-theme__option-pattern-accent {
+        fill: var(--ld-thm-tea-secondary-focus);
+      }
+      &::part(check) {
+        color: var(--ld-col-rg-900);
+      }
     }
   }
 }

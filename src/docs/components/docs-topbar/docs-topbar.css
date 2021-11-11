@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: var(--docs-topbar-height);
-  background-color: var(--ld-col-rp-default);
+  background-color: var(--ld-col-rp);
   box-shadow: var(--ld-shadow-hover);
 }
 

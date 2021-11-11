@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-checkbox creates hidden input field, if inside a form 1`] = `
+<ld-checkbox class="ld-checkbox" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+  <input type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
+</ld-checkbox>
+`;
+
+exports[`ld-checkbox danger 1`] = `
+<ld-checkbox class="ld-checkbox ld-checkbox--danger" mode="danger" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+</ld-checkbox>
+`;
+
+exports[`ld-checkbox disabled 1`] = `
+<ld-checkbox class="ld-checkbox" disabled="" part="root">
+  <mock:shadow-root>
+    <input disabled="" part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+</ld-checkbox>
+`;
+
+exports[`ld-checkbox heighlight 1`] = `
+<ld-checkbox class="ld-checkbox ld-checkbox--highlight" mode="highlight" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+</ld-checkbox>
+`;
+
+exports[`ld-checkbox renders 1`] = `
+<ld-checkbox class="ld-checkbox" part="root">
+  <mock:shadow-root>
+    <input part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+</ld-checkbox>
+`;
+
+exports[`ld-checkbox tone 1`] = `
+<ld-checkbox class="ld-checkbox ld-checkbox--dark" part="root" tone="dark">
+  <mock:shadow-root>
+    <input part="input focusable" type="checkbox">
+    <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L5.40795 10L2 6.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+    </svg>
+    <div class="ld-checkbox__box" part="box"></div>
+  </mock:shadow-root>
+</ld-checkbox>
+`;

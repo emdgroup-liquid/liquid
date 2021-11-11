@@ -1,24 +1,20 @@
-import '../../components' // type definitions for type checking and intelliSense
-import { Component, h, Host, Prop, Element } from '@stencil/core'
+import { Component, Element, h, Method, Prop } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import ButtonHTMLAttributes = JSXBase.ButtonHTMLAttributes
-import AnchorHTMLAttributes = JSXBase.AnchorHTMLAttributes
-import { applyPropAliases } from '../../utils/applyPropAliases'
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part button - Actual button or anchor element
+ * @part progress-bar - Progress bar
  */
 @Component({
   tag: 'ld-button',
   styleUrl: 'ld-button.css',
-  shadow: false,
+  shadow: true,
 })
-export class LdButton {
+export class LdButton implements InnerFocusable {
   @Element() el: HTMLElement
-
-  private button!: HTMLElement
+  private button: HTMLAnchorElement | HTMLButtonElement
 
   /** Disabled state of the button. */
   @Prop() disabled: boolean
@@ -58,16 +54,87 @@ export class LdButton {
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress: 'pending' | number
 
-  private handleClick(ev) {
+  /**
+   * Sets focus on the button
+   */
+  @Method()
+  async focusInner() {
+    if (this.button !== undefined) {
+      this.button.focus()
+    }
+  }
+
+  connectedCallback() {
+    this.el.addEventListener('click', this.handleClick, {
+      capture: true,
+    })
+  }
+
+  disconnectedCallback() {
+    this.el.removeEventListener('click', this.handleClick, {
+      capture: true,
+    })
+  }
+
+  private clickFakeButton(
+    form: HTMLFormElement,
+    buttonType: 'submit' | 'reset'
+  ) {
+    const btnFake = document.createElement('button')
+    btnFake.type = buttonType
+    btnFake.style.display = 'none'
+    form.appendChild(btnFake)
+    btnFake.click()
+    btnFake.remove()
+  }
+
+  private handleClick = (ev: MouseEvent) => {
     const ariaDisabled = this.button.getAttribute('aria-disabled')
-    if (ariaDisabled && ariaDisabled !== 'false') {
+
+    if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
       ev.preventDefault()
       ev.stopImmediatePropagation()
+      return
+    }
+
+    if (!this.href) {
+      setTimeout(() => {
+        if (!ev.defaultPrevented) {
+          const form = this.el.closest('form')
+          if (form) {
+            switch (this.el.getAttribute('type')) {
+              case 'reset':
+                this.clickFakeButton(form, 'reset')
+                break
+              case 'submit':
+              default:
+                this.clickFakeButton(form, 'submit')
+            }
+          }
+        }
+      })
     }
   }
 
   componentWillLoad() {
-    applyPropAliases.apply(this)
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      if (this.size !== undefined) {
+        icon.setAttribute('size', this.size)
+      } else {
+        icon.removeAttribute('size')
+      }
+    })
+    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
+      if (this.size === 'sm') {
+        icon.classList.remove('ld-icon--lg')
+        icon.classList.add('ld-icon--sm')
+      } else if (this.size === 'lg') {
+        icon.classList.remove('ld-icon--sm')
+        icon.classList.add('ld-icon--lg')
+      } else {
+        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+      }
+    })
   }
 
   render() {
@@ -89,30 +156,28 @@ export class LdButton {
     }`
 
     return (
-      <Host>
-        <Tag
-          ref={(el) => (this.button = el as HTMLElement)}
-          onClick={this.handleClick.bind(this)}
-          class={cl}
-          disabled={this.disabled}
-          aria-disabled={this.disabled ? 'true' : undefined}
-          aria-busy={hasProgress ? 'true' : undefined}
-          aria-live="polite"
-          href={this.href}
-          target={this.target}
-          rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-          {...(this.href
-            ? cloneAttributes<ButtonHTMLAttributes<HTMLButtonElement>>(this.el)
-            : cloneAttributes<AnchorHTMLAttributes<HTMLAnchorElement>>(
-                this.el
-              ))}
-        >
-          <slot />
-          {hasProgress && (
-            <span class={clProgress} style={styleProgress}></span>
-          )}
-        </Tag>
-      </Host>
+      <Tag
+        aria-busy={hasProgress ? 'true' : undefined}
+        aria-disabled={this.disabled ? 'true' : undefined}
+        aria-live="polite"
+        class={cl}
+        disabled={this.disabled}
+        href={this.href}
+        part="button focusable"
+        ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
+        rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        target={this.target}
+        {...cloneAttributes(this.el)}
+      >
+        <slot />
+        {hasProgress && (
+          <span
+            class={clProgress}
+            part="progress-bar"
+            style={styleProgress}
+          ></span>
+        )}
+      </Tag>
     )
   }
 }

@@ -26,19 +26,19 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         <a href="#apple">Apple</a>, orange, banana
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Potato, <a href="#cucumber">cucumber</a>, tomato
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Walnut, chestnut, <a href="#strawberry">strawberry</a>
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
   </ld-tabpanellist>
 </ld-tabs>
@@ -59,8 +59,8 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 ### Ghost
 
 {% example %}
-<ld-tabs mode="ghost">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -71,8 +71,8 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 ### Brand color
 
 {% example %}
-<ld-tabs mode="brand-color">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="brand-color">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -83,32 +83,32 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 ### Rounded corners
 
 {% example %}
-<ld-tabs mode="brand-color" rounded="all">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="brand-color" rounded="all">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs mode="brand-color" rounded="all-lg">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="brand-color" rounded="all-lg">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs mode="brand-color" rounded="top">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="brand-color" rounded="top">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs mode="brand-color" rounded="top-lg">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="brand-color" rounded="top-lg">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -119,8 +119,8 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 ### Size
 
 {% example 'html', false, false, 'light' %}
-<ld-tabs size="sm">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist size="sm">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -135,8 +135,8 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs size="lg">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist size="lg">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -155,8 +155,8 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs mode="ghost">
-  <ld-tablist>
+<ld-tabs>
+  <ld-tablist mode="ghost">
     <ld-tab selected><ld-icon name="placeholder"></ld-icon>Fruits</ld-tab>
     <ld-tab><ld-icon name="placeholder"></ld-icon>Vegetables</ld-tab>
     <ld-tab><ld-icon name="placeholder"></ld-icon>Nuts</ld-tab>
@@ -198,8 +198,8 @@ You should try to avoid using tab bars with more than five tab items. But if you
 ### Full width
 
 {% example 'html', false, false, 'light' %}
-<ld-tabs style="width: 100%" mode="ghost">
-  <ld-tablist>
+<ld-tabs style="width: 100%">
+  <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab disabled>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -214,8 +214,8 @@ You should try to avoid using tab bars with more than five tab items. But if you
   </ld-tablist>
 </ld-tabs>
 
-<ld-tabs style="width: 100%" mode="brand-color">
-  <ld-tablist>
+<ld-tabs style="width: 100%">
+  <ld-tablist mode="brand-color">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab disabled>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -228,8 +228,8 @@ You should try to avoid using tab bars with more than five tab items. But if you
 The `ld-tabs` component emits the `tabChange` event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.
 
 {% example %}
-<ld-tabs mode="ghost" id="tabs_events">
-  <ld-tablist>
+<ld-tabs id="tabs_events">
+  <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
@@ -248,30 +248,30 @@ The `ld-tabs` component emits the `tabChange` event which you can use to bind cu
 
 There are two ways to programmatically select a tab: 
 
-1. By dispatching a `click` event on the respective element with `role="tab"`:
+1. By using the `switchTab`-method exposed by the `ld-tabs` element:
 
 {% example %}
-<ld-tabs mode="ghost" id="tabs_programmatic_1">
-  <ld-tablist>
+<ld-tabs id="tabs_programmatic_1">
+  <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Apple, orange, banana
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Potato, cucumber, tomato
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Walnut, chestnut, strawberry
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
   </ld-tabpanellist>
 </ld-tabs>
@@ -279,36 +279,38 @@ There are two ways to programmatically select a tab:
 <ld-button id="nuts_button_1">Select nuts</ld-button>
 
 <script>
-document.getElementById('nuts_button_1').addEventListener('click', ev => {
-  document.getElementById('tabs_programmatic_1').querySelectorAll('[role="tab"]')[2].dispatchEvent(new Event('click'))
-})
+  document.getElementById('nuts_button_1').addEventListener('click', async (ev) => {
+    await document.getElementById('tabs_programmatic_1').switchTab(2)
+
+    console.log(`Tab successfully set to tab at index 2 using ld-tabs' "switchTab"-method.`)
+  })
 </script>
 {% endexample %}
 
-2. By updating the `selected` prop on the `ld-tab` components:
+2. By using the `select`-method exposed by the `ld-tab` element:
 
 {% example %}
-<ld-tabs mode="ghost" id="tabs_programmatic_2">
-  <ld-tablist>
+<ld-tabs id="tabs_programmatic_2">
+  <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
   <ld-tabpanellist>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Apple, orange, banana
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Potato, cucumber, tomato
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
     <ld-tabpanel>
-      <ld-paragraph style="margin-top: 1rem">
+      <ld-typo style="margin-top: 1rem">
         Walnut, chestnut, strawberry
-      </ld-paragraph>
+      </ld-typo>
     </ld-tabpanel>
   </ld-tabpanellist>
 </ld-tabs>
@@ -316,10 +318,11 @@ document.getElementById('nuts_button_1').addEventListener('click', ev => {
 <ld-button id="nuts_button_2">Select nuts</ld-button>
 
 <script>
-document.getElementById('nuts_button_2').addEventListener('click', ev => {
-  document.getElementById('tabs_programmatic_2').querySelector('ld-tab[selected]').removeAttribute('selected')
-  document.getElementById('tabs_programmatic_2').querySelectorAll('ld-tab')[2].setAttribute('selected', 'true')
-})
+  document.getElementById('nuts_button_2').addEventListener('click', async (ev) => {
+    await document.getElementById('tabs_programmatic_2').querySelectorAll('ld-tab')[2].select()
+
+    console.log(`Tab successfully set to tab at index 2 using ld-tab's "select"-method.`)
+  })
 </script>
 {% endexample %}
 
@@ -329,13 +332,10 @@ document.getElementById('nuts_button_2').addEventListener('click', ev => {
 
 ## Properties
 
-| Property  | Attribute | Description                                              | Type                                     | Default     |
-| --------- | --------- | -------------------------------------------------------- | ---------------------------------------- | ----------- |
-| `key`     | `key`     | for tracking the node's identity when working with lists | `string \| number`                       | `undefined` |
-| `mode`    | `mode`    | Display mode.                                            | `"brand-color" \| "ghost"`               | `undefined` |
-| `ref`     | `ref`     | reference to component                                   | `any`                                    | `undefined` |
-| `rounded` | `rounded` | Sets border radii.                                       | `"all" \| "all-lg" \| "top" \| "top-lg"` | `undefined` |
-| `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                           | `undefined` |
+| Property | Attribute | Description                                              | Type               | Default     |
+| -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
 
 
 ## Events
@@ -343,6 +343,19 @@ document.getElementById('nuts_button_2').addEventListener('click', ev => {
 | Event       | Description                              | Type                  |
 | ----------- | ---------------------------------------- | --------------------- |
 | `tabChange` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+
+
+## Methods
+
+### `switchTab(identifier: number | string) => Promise<void>`
+
+Set selected tab to a certain index
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------

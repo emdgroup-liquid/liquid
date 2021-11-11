@@ -6,9 +6,9 @@ import {
   EventEmitter,
   h,
   Host,
-  Prop,
+  Method,
 } from '@stencil/core'
-import { getClassNames } from '../../utils/getClassNames'
+import { LdTab } from './ld-tab/ld-tab'
 
 let tabsCount = 0
 
@@ -19,19 +19,10 @@ let tabsCount = 0
 @Component({
   tag: 'ld-tabs',
   styleUrl: 'ld-tabs.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdTabs {
   @Element() el: HTMLElement
-
-  /** Size of the tabs. */
-  @Prop() size?: 'sm' | 'lg'
-
-  /** Display mode. */
-  @Prop() mode?: 'ghost' | 'brand-color'
-
-  /** Sets border radii. */
-  @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
 
   /**
    * Emitted with the id of the selected tab.
@@ -41,10 +32,11 @@ export class LdTabs {
   private idDescriber = `ld-tabs-${tabsCount++}`
 
   private updateTabs(currentLdTab) {
-    this.el
-      .querySelector('[aria-selected="true"]')
-      ?.closest('ld-tab')
-      .removeAttribute('selected')
+    // TODO: fix Stencils DOM implementation for unit testing and replace
+    // this.el.querySelector('[selected]')?.removeAttribute('selected')
+    Array.from(this.el.querySelectorAll('ld-tab'))
+      .find((tab) => tab.hasAttribute('selected'))
+      ?.removeAttribute('selected')
     currentLdTab.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -52,59 +44,72 @@ export class LdTabs {
     })
   }
 
-  private updateTabPanels(currentLdTab) {
-    const tabId = currentLdTab.querySelector('[role="tab"]').id
-    this.el
-      .querySelector('ld-tabpanel:not(.ld-tabpanel--hidden)')
-      ?.classList.add('ld-tabpanel--hidden')
-    this.el
-      .querySelector(`[aria-labelledby="${tabId}"]`)
-      ?.closest('ld-tabpanel')
-      .classList.remove('ld-tabpanel--hidden')
+  private updateTabPanels(tabId: string) {
+    // TODO: fix Stencils DOM implementation for unit testing and replace
+    const tabPanels = Array.from(this.el.querySelectorAll('ld-tabpanel'))
+    // this.el.querySelector('ld-tabpanel:not([hidden])')
+    tabPanels
+      .find((tabpanel) => !tabpanel.hasAttribute('hidden'))
+      ?.setAttribute('hidden', undefined)
+    // this.el.querySelector(`[aria-labelledby="${tabId}"]`)
+    tabPanels
+      .find((tabpanel) => tabpanel.getAttribute('aria-labelledby') === tabId)
+      ?.removeAttribute('hidden')
   }
 
   private handleTabSelect(ev) {
     ev.stopImmediatePropagation()
     const currentLdTab = ev.target
     this.updateTabs(currentLdTab)
-    this.updateTabPanels(currentLdTab)
-    this.tabChange.emit(ev.detail)
+    this.updateTabPanels(currentLdTab.id)
+    this.tabChange.emit(currentLdTab.id)
+  }
+
+  /** Set selected tab to a certain index */
+  @Method()
+  async switchTab(identifier: number | string) {
+    const newActiveTab =
+      typeof identifier === 'number'
+        ? this.el.querySelectorAll('ld-tab')[identifier]
+        : this.el.querySelector(`ld-tab#${identifier}`)
+
+    if (!newActiveTab) {
+      throw new Error(
+        `Could not find ld-tab with ${
+          typeof identifier === 'number' ? 'index' : 'id'
+        } ${typeof identifier === 'number' ? identifier : `"${identifier}"`}.`
+      )
+    }
+
+    ;((newActiveTab as unknown) as LdTab).select()
   }
 
   componentDidRender() {
     // Assign ids to tabs and use them in aria-describedby attributes of the corresponding tabpanels.
     // Memorize the index of the selected tab in order to hide all non-selected tabpanels.
     let selectedIndex
-    this.el.querySelectorAll('[role="tab"]').forEach((tab, index) => {
+    this.el.querySelectorAll('ld-tab').forEach((tab, index) => {
       tab.id = `${this.idDescriber}-tab-${index}`
-      if (tab.getAttribute('aria-selected')) {
+      if (tab.hasAttribute('selected')) {
         selectedIndex = index
       }
     })
-    this.el.querySelectorAll('[role="tabpanel"]').forEach((tabpanel, index) => {
+    this.el.querySelectorAll('ld-tabpanel').forEach((tabpanel, index) => {
       tabpanel.setAttribute(
         'aria-labelledby',
         `${this.idDescriber}-tab-${index}`
       )
       if (selectedIndex === index) {
-        tabpanel.closest('ld-tabpanel').classList.remove('ld-tabpanel--hidden')
+        tabpanel.removeAttribute('hidden')
       } else {
-        tabpanel.closest('ld-tabpanel').classList.add('ld-tabpanel--hidden')
+        tabpanel.setAttribute('hidden', 'true')
       }
     })
   }
 
   render() {
     return (
-      <Host
-        onTabSelect={this.handleTabSelect.bind(this)}
-        class={getClassNames([
-          'ld-tabs',
-          this.size && `ld-tabs--${this.size}`,
-          this.mode && `ld-tabs--${this.mode}`,
-          this.rounded && `ld-tabs--rounded-${this.rounded}`,
-        ])}
-      >
+      <Host onTabSelect={this.handleTabSelect.bind(this)} class="ld-tabs">
         <slot></slot>
       </Host>
     )

@@ -1,35 +1,39 @@
-import { Build, Component, Host, h, Prop, State, Watch } from '@stencil/core'
+import { Build, Component, Host, h, Prop, Watch, Element } from '@stencil/core'
+import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { fetchIcon } from './fetchIcon'
 
 /**
  * @slot - (optional) Custom SVG icon (only valid without name prop).
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part icon - Actual SVG element
  */
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-icon',
   styleUrl: 'ld-icon.css',
-  shadow: false,
+  shadow: true,
 })
 export class LdIcon {
+  @Element() element: HTMLElement
+
   /** The icon name. */
   @Prop() name: string = null
 
   /** Size of the icon. */
   @Prop() size?: 'sm' | 'lg'
 
-  @State() private svg: string
-
   @Watch('name')
   private async loadIconPathData(): Promise<void> {
-    const { name } = this
-
-    if ((!Build.isBrowser && !Build.isTesting) || !name) {
+    if ((!Build.isBrowser && !Build.isTesting) || !this.name) {
       return
     }
 
-    this.svg = await fetchIcon(name)
+    const div = document.createElement('div')
+    const iconString = await fetchIcon(this.name)
+
+    div.innerHTML = iconString.replace('<svg', '<svg part="icon"')
+    this.element.shadowRoot.appendChild(div.firstChild)
   }
 
   async componentWillLoad(): Promise<void> {
@@ -37,14 +41,12 @@ export class LdIcon {
   }
 
   render() {
-    let cl = 'ld-icon'
-    if (this.size) cl += ` ld-icon--${this.size}`
-
     return (
-      <Host>
-        <span class={cl} role="presentation" innerHTML={this.svg}>
-          {!this.name && <slot></slot>}
-        </span>
+      <Host
+        class={getClassNames(['ld-icon', this.size && `ld-icon--${this.size}`])}
+        role="presentation"
+      >
+        {!this.name && <slot></slot>}
       </Host>
     )
   }

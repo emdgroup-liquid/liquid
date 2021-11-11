@@ -7,6 +7,8 @@ title: Loading Indicator
 permalink: components/ld-loading/
 ---
 
+<link rel="stylesheet" href="/css_components/ld-loading.css">
+
 # ld-loading
 
 Use the `ld-loading` component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience. 
@@ -21,9 +23,10 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 
 ## CSS Variables
 
-| Variable             | Description                   | Default  |
-| -------------------- | ----------------------------- | -------- |
-| `--ld-loading-size`  | Size of the loading indicator | `1.5rem` |
+| Variable             | Description                     | Default                     |
+| -------------------- | ------------------------------- | --------------------------- |
+| `--ld-loading-col`   | Color of the loading indicator. | `var(--ld-col-neutral-300)` |
+| `--ld-loading-size`  | Size of the loading indicator.  | `1.5rem`                    |
 
 <!-- Auto Generated Below -->
 

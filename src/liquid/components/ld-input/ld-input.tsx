@@ -1,9 +1,5 @@
-import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { JSXBase } from '@stencil/core/internal'
-import TextareaHTMLAttributes = JSXBase.TextareaHTMLAttributes
-import InputHTMLAttributes = JSXBase.InputHTMLAttributes
 
 /**
  * The `ld-input` component. You can use it in conjunction with the `ld-label`
@@ -22,16 +18,21 @@ import InputHTMLAttributes = JSXBase.InputHTMLAttributes
  * need to adjust some styles on the slotted item in order to make it fit right.
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part input - Actual input/textarea element
+ * @part placeholder - Placeholder rendered for input type "file"
  */
 @Component({
   tag: 'ld-input',
   styleUrl: 'ld-input.css',
-  shadow: false,
+  shadow: true,
 })
-export class LdInput {
-  @Element() el: HTMLInputElement
+export class LdInput implements InnerFocusable {
+  @Element() el: HTMLInputElement | HTMLTextAreaElement
+  private hiddenInput?: HTMLInputElement
+  private input: HTMLInputElement | HTMLTextAreaElement
 
-  private input!: HTMLInputElement | HTMLTextAreaElement
+  /** Used to specify the name of the control. */
+  @Prop() name?: string
 
   /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
@@ -57,13 +58,82 @@ export class LdInput {
    */
   @Prop() multiline: boolean
 
-  private handleBlur(ev) {
+  /**
+   * Sets focus on the input
+   */
+  @Method()
+  async focusInner() {
+    if (this.input !== undefined) {
+      this.input.focus()
+    }
+  }
+
+  @Watch('value')
+  updateValue() {
+    if (this.hiddenInput) {
+      this.hiddenInput.value = this.value
+    }
+  }
+
+  componentWillLoad() {
+    const outerForm = this.el.closest('form')
+
+    if (outerForm && this.name) {
+      this.hiddenInput = document.createElement('input')
+      this.hiddenInput.type = 'hidden'
+      this.hiddenInput.name = this.name
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
+    }
+
+    this.el.querySelectorAll('ld-button').forEach((button) => {
+      if (this.size !== undefined) {
+        button.setAttribute('size', this.size)
+      } else {
+        button.removeAttribute('size')
+      }
+    })
+    this.el.querySelectorAll('.ld-button').forEach((button) => {
+      if (this.size === 'sm') {
+        button.classList.remove('ld-button--lg')
+        button.classList.add('ld-button--sm')
+      } else if (this.size === 'lg') {
+        button.classList.remove('ld-button--sm')
+        button.classList.add('ld-button--lg')
+      } else {
+        button.classList.remove('ld-button--sm', 'ld-button--lg')
+      }
+    })
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      if (this.size !== undefined) {
+        icon.setAttribute('size', this.size)
+      } else {
+        icon.removeAttribute('size')
+      }
+    })
+    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
+      if (this.size === 'sm') {
+        icon.classList.remove('ld-icon--lg')
+        icon.classList.add('ld-icon--sm')
+      } else if (this.size === 'lg') {
+        icon.classList.remove('ld-icon--sm')
+        icon.classList.add('ld-icon--lg')
+      } else {
+        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+      }
+    })
+  }
+
+  private handleBlur = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
   }
 
-  private handleFocus(ev) {
+  private handleFocus = (ev: FocusEvent) => {
     setTimeout(() => {
       this.el.dispatchEvent(ev)
     })
@@ -74,13 +144,36 @@ export class LdInput {
       this.value = this.input.value
       return
     }
-    this.input.value = this.value || ''
+    this.input.value = this.value ?? ''
   }
 
-  private handleClick(ev) {
-    if (ev.target.closest('.ld-button')) return
-    if (ev.target.tagname === 'INPUT') return
-    this.input.focus()
+  private handleClick = (ev: MouseEvent) => {
+    const target = ev.target as HTMLElement
+    if (
+      this.el.hasAttribute('disabled') ||
+      this.el.getAttribute('aria-disabled') === 'true'
+    ) {
+      ev.preventDefault()
+      return
+    }
+
+    if (target.closest('ld-button')) return
+
+    if (target === this.el) {
+      this.input.focus()
+      this.input.dispatchEvent(new Event('click', { bubbles: false }))
+    } else {
+      this.input.focus()
+    }
+  }
+
+  private handleKeyDown = (ev: KeyboardEvent) => {
+    if (
+      this.el.getAttribute('aria-disabled') === 'true' &&
+      !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.code)
+    ) {
+      ev.preventDefault()
+    }
   }
 
   render() {
@@ -91,20 +184,19 @@ export class LdInput {
 
     if (this.multiline) {
       return (
-        <Host class={cl} onClick={this.handleClick.bind(this)}>
+        <Host class={cl} onClick={this.handleClick}>
           <textarea
-            ref={(el) => (this.input = el as HTMLTextAreaElement)}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
+            part="input focusable"
             placeholder={this.placeholder}
-            onBlur={this.handleBlur.bind(this)}
-            onFocus={this.handleFocus.bind(this)}
-            {...cloneAttributes<TextareaHTMLAttributes<HTMLInputElement>>(
-              this.el
-            )}
+            ref={(el) => (this.input = el)}
+            {...cloneAttributes(this.el)}
             value={this.value}
           />
           {this.type === 'file' && (
-            <span class="ld-input__placeholder">
+            <span class="ld-input__placeholder" part="placeholder">
               {this.input?.value || this.placeholder}
             </span>
           )}
@@ -113,20 +205,22 @@ export class LdInput {
     }
 
     return (
-      <Host class={cl} onClick={this.handleClick.bind(this)}>
+      <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
-          ref={(el) => (this.input = el as HTMLInputElement)}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           onInput={this.handleInput.bind(this)}
+          onKeyDown={this.handleKeyDown}
+          part="input focusable"
           placeholder={this.placeholder}
+          ref={(el) => (this.input = el)}
           type={this.type}
-          onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus.bind(this)}
-          {...cloneAttributes<InputHTMLAttributes<HTMLInputElement>>(this.el)}
+          {...cloneAttributes(this.el)}
           value={this.value}
         />
         {this.type === 'file' && (
-          <span class="ld-input__placeholder">
+          <span class="ld-input__placeholder" part="placeholder">
             {this.input?.value || this.placeholder}
           </span>
         )}

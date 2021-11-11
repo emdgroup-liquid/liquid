@@ -40,6 +40,17 @@ module.exports = {
         disableFix: true,
       },
     ],
+    'selector-disallowed-list': [
+      /(?::?:after|:?:before|:?:first-letter|:?:first-line)[^,]+/,
+      // /::slotted\(.+\) .*/,
+      // /::slotted\(.+\):(?!:?after|:?before|:?first-letter|:?first-line)/,
+      // /::slotted\(.*(?::?:after|:?:before|:?:first-letter|:?:first-line|::slotted|:host).*\)/,
+      // /::slotted\([^,]+ [^,]+\)/,
+      // /::slotted\([^,]*[>+~][^,]+\)/,
+      // /:host\([^,]+ [^,]+\)/,
+      // /:host\([^,]*[>+~][^,]+\)/,
+      /([^, \n][ \n]*):host/,
+    ],
     'selector-no-qualifying-type': null,
     'selector-type-no-unknown': [
       true,
