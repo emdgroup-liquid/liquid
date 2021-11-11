@@ -1,65 +1,65 @@
 @define-mixin docs-switch-web-css-ui-light {
   .docs-switch-web-css button {
-    background-color: var(--ld-col-bg-g);
+    background-color: var(--ld-col-neutral-050);
 
     &:focus:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
-        color: var(--ld-col-rb5);
-        background-color: var(--ld-col-bg-lg);
+        color: var(--ld-col-rb);
+        background-color: var(--ld-col-neutral-010);
       }
     }
     &:active,
     &:active:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
-        color: var(--ld-col-rb55);
+        color: var(--ld-col-rb-700);
         background-color: transparent;
       }
     }
   }
   .docs-switch-web-css__option {
-    color: var(--ld-col-rblck4);
+    color: var(--ld-col-neutral-600);
 
     &:hover:not(.docs-switch-web-css__option--active) {
-      color: var(--ld-col-rb5);
-      background-color: var(--ld-col-bg-lg);
+      color: var(--ld-col-rb);
+      background-color: var(--ld-col-neutral-010);
     }
   }
 
   .docs-switch-web-css__option--active {
     color: var(--ld-col-wht);
-    background-color: var(--ld-col-rb5);
+    background-color: var(--ld-col-rb);
   }
 }
 @define-mixin docs-switch-web-css-ui-dark {
   .docs-switch-web-css button {
-    background-color: var(--ld-col-rblck3);
+    background-color: var(--ld-col-neutral-400);
 
     &:focus:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
-        color: var(--ld-col-rb3);
-        background-color: var(--ld-col-rblck-default);
+        color: var(--ld-col-rb-400);
+        background-color: var(--ld-col-neutral);
       }
     }
     &:active,
     &:active:focus-visible {
       .docs-switch-web-css__option:not(.docs-switch-web-css__option--active) {
-        color: var(--ld-col-rb2);
-        background-color: var(--ld-col-rblck-default);
+        color: var(--ld-col-rb-300);
+        background-color: var(--ld-col-neutral);
       }
     }
   }
   .docs-switch-web-css__option {
-    color: var(--ld-col-rblck5);
+    color: var(--ld-col-neutral-800);
 
     &:hover:not(.docs-switch-web-css__option--active) {
-      color: var(--ld-col-rb3);
-      background-color: var(--ld-col-rblck-default);
+      color: var(--ld-col-rb-400);
+      background-color: var(--ld-col-neutral);
     }
   }
 
   .docs-switch-web-css__option--active {
-    background-color: var(--ld-col-rb3);
-    color: var(--ld-col-rblck-default);
+    background-color: var(--ld-col-rb-400);
+    color: var(--ld-col-neutral);
   }
 }
 

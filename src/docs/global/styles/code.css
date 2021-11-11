@@ -75,18 +75,18 @@ code .highlight-line:before {
 @define-mixin docs-code-ui-light {
   code[class*='language-'],
   pre[class*='language-'] {
-    color: var(--ld-col-rblck-default);
+    color: var(--ld-col-neutral);
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background-color: var(--ld-col-bg-lg);
+    background-color: var(--ld-col-neutral-010);
   }
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata,
   .token.punctuation {
-    color: var(--ld-col-rblck4);
+    color: var(--ld-col-neutral-600);
   }
   .token.property,
   .token.tag,
@@ -94,7 +94,7 @@ code .highlight-line:before {
   .token.symbol,
   .token.boolean,
   .token.deleted {
-    color: var(--ld-col-vm4);
+    color: var(--ld-col-vm-600);
   }
   .token.number,
   .token.selector,
@@ -103,25 +103,25 @@ code .highlight-line:before {
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: var(--ld-col-rg4);
+    color: var(--ld-col-rg);
   }
   .token.atrule,
   .token.attr-value,
   .token.function,
   .token.class-name {
-    color: var(--ld-col-vc4);
+    color: var(--ld-col-vc-600);
   }
   .token.keyword,
   .token.regex,
   .token.important {
-    color: var(--ld-col-rp4);
+    color: var(--ld-col-rp-600);
   }
   code .highlight-line:before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-rblck1);
-    color: var(--ld-col-rblck2);
+    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+    color: var(--ld-col-neutral-300);
   }
   .highlight-line.highlight-line-active {
-    background-color: var(--ld-col-vy-default);
+    background-color: var(--ld-thm-warning);
   }
 }
 
@@ -132,14 +132,14 @@ code .highlight-line:before {
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background: var(--ld-col-rblck-default);
+    background: var(--ld-col-neutral);
   }
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata,
   .token.punctuation {
-    color: var(--ld-col-rblck2);
+    color: var(--ld-col-neutral-300);
   }
   .token.property,
   .token.tag,
@@ -147,7 +147,7 @@ code .highlight-line:before {
   .token.symbol,
   .token.boolean,
   .token.deleted {
-    color: var(--ld-col-vm-default);
+    color: var(--ld-col-vm);
   }
   .token.number,
   .token.selector,
@@ -156,33 +156,33 @@ code .highlight-line:before {
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: var(--ld-col-vg-default);
+    color: var(--ld-col-vg);
   }
   .token.atrule,
   .token.attr-value,
   .token.function,
   .token.class-name {
-    color: var(--ld-col-vc-default);
+    color: var(--ld-col-vc);
   }
   .token.keyword,
   .token.regex,
   .token.important {
-    color: var(--ld-col-rp2);
+    color: var(--ld-col-rp-300);
   }
   code .highlight-line:before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-rblck5);
-    color: var(--ld-col-rblck4);
+    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-800);
+    color: var(--ld-col-neutral-600);
   }
   .highlight-line.highlight-line-active {
-    background-color: var(--ld-col-vy-default);
-    color: var(--ld-col-rblck-default);
+    background-color: var(--ld-col-vy);
+    color: var(--ld-col-neutral);
 
     .token.comment,
     .token.prolog,
     .token.doctype,
     .token.cdata,
     .token.punctuation {
-      color: var(--ld-col-rblck4);
+      color: var(--ld-col-neutral-600);
     }
     .token.property,
     .token.tag,
@@ -190,7 +190,7 @@ code .highlight-line:before {
     .token.symbol,
     .token.boolean,
     .token.deleted {
-      color: var(--ld-col-vm4);
+      color: var(--ld-col-vm-600);
     }
     .token.number,
     .token.selector,
@@ -199,22 +199,22 @@ code .highlight-line:before {
     .token.char,
     .token.builtin,
     .token.inserted {
-      color: var(--ld-col-rg4);
+      color: var(--ld-col-rg);
     }
     .token.atrule,
     .token.attr-value,
     .token.function,
     .token.class-name {
-      color: var(--ld-col-vc4);
+      color: var(--ld-col-vc-600);
     }
     .token.keyword,
     .token.regex,
     .token.important {
-      color: var(--ld-col-rp4);
+      color: var(--ld-col-rp-600);
     }
     code .highlight-line:before {
-      border-right: var(--ld-sp-1) solid var(--ld-col-rblck1);
-      color: var(--ld-col-rblck2);
+      border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+      color: var(--ld-col-neutral-300);
     }
   }
 }

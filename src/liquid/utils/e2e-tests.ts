@@ -11,12 +11,13 @@ type Component = Record<string, unknown> & {
 }
 
 export const getPageWithContent = async (
-  content: string,
-  theme = 'ocean',
-  components?: unknown
+  content,
+  config?: {
+    components?: unknown
+  }
 ) => {
   const page = await newE2EPage({
-    html: `<div class="ld-theme-${theme} e2e-container">${content}</div>`,
+    html: `<div class="e2e-container">${content}</div>`,
     // TODO: test, if this helps the asset loading...
     waitUntil: 'domcontentloaded',
   })
@@ -28,6 +29,7 @@ export const getPageWithContent = async (
 *:focus,
 ::part(focusable) {
   outline: none;
+  caret-color: transparent;
 }
 .e2e-container {
   display: grid;
@@ -38,9 +40,9 @@ export const getPageWithContent = async (
   await page.addStyleTag({ path: './dist/css/liquid.global.css' })
   await page.addStyleTag({ path: './src/docs/utils/fontsBase64.css' })
 
-  if (components) {
+  if (config?.components) {
     await Promise.all(
-      [components].flat().map(async (component: Component) => {
+      [config.components].flat().map(async (component: Component) => {
         const cssFileName =
           component.COMPILER_META.styles[0].externalStyles[0].relativePath
         await page.addStyleTag({ path: `./dist/css/${cssFileName}` })

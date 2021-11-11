@@ -3,18 +3,7 @@ import { LdInput } from '../ld-input'
 
 jest.useRealTimers()
 
-const themes = [
-  'none',
-  'ocean',
-  'bubblegum',
-  // 'shake',
-  // 'solvent',
-  // 'tea',
-]
-
 const tones = [undefined, 'dark']
-
-const allowableMismatchedRatio = 0.02
 
 const cssIconComponent = `
   <span class="ld-icon" role="presentation">
@@ -28,183 +17,210 @@ const cssIconComponent = `
 describe('ld-input', () => {
   for (const tone of tones) {
     const toneStr = tone ? ` ${tone}` : ''
-    describe(`themed${toneStr}`, () => {
-      for (const theme of themes) {
-        // Themed
-        it(`default theme-${theme}${toneStr}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`with value theme-${theme}${toneStr}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" value="Value"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+    const toneAttr = tone ? ` tone="${tone}"` : ''
+    // Web Component
+    it(`default${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} value="Value"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.hover('ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-        // Disabled
-        it(`disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" disabled placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`disabled with value theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" disabled value="Value"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<ld-input tone="${tone}" disabled placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`,
-            theme
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+    // Disabled Web Component
+    it(`disabled${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} disabled placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`disabled with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} disabled value="Value"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`disabled hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} disabled placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.hover('ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`disabled focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} disabled placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-        // Themed CSS component
-        const toneModifier = tone ? ` ld-input--${tone}` : ''
-        it(`css component default theme-${theme}${toneStr}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component with value theme-${theme}${toneStr}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}"><input value="Value"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.hover('.ld-input')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+    // Aria-disabled Web Component
+    it(`aria-disabled${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} aria-disabled="true" placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`aria-disabled with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} aria-disabled="true" value="Value"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`aria-disabled hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} aria-disabled="true" placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.hover('ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`aria-disabled focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<ld-input${toneAttr} aria-disabled="true" placeholder="Placeholder"><ld-icon slot="end" name="placeholder"></ld-icon></ld-input>`
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-        // Disabled CSS component
-        it(`css component disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled with value theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" disabled><input disabled value="Value"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.hover('.ld-input')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
+    // CSS component
+    const toneModifier = tone ? ` ld-input--${tone}` : ''
+    it(`css component default${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}"><input value="Value"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.hover('.ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
 
-        // Aria-disabled CSS component
-        it(`css component aria-disabled theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled with value theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" value="Value"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled hover theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.hover('.ld-input')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-        it(`css component aria-disabled focus theme-${theme}`, async () => {
-          const page = await getPageWithContent(
-            `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-            theme,
-            LdInput
-          )
-          await page.keyboard.press('Tab')
-          const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
-        })
-      }
+    // Disabled CSS component
+    it(`css component disabled${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component disabled with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" disabled><input disabled value="Value"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component disabled hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.hover('.ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component disabled focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    // Aria-disabled CSS component
+    it(`css component aria-disabled${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component aria-disabled with value${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" value="Value"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component aria-disabled hover${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.hover('.ld-input')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it(`css component aria-disabled focus${toneStr}`, async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        { components: LdInput }
+      )
+      await page.keyboard.press('Tab')
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
     })
   }
 

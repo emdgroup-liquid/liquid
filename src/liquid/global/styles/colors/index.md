@@ -11,25 +11,29 @@ permalink: global/colors/
 
 All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
-## White and Liquid Black
+## White, Transparent White and Liquid Black
 
 <docs-color var="--ld-col-wht"></docs-color>
-<docs-color var="--ld-col-rblck-default"></docs-color>
+<docs-color var="--ld-col-wht-alpha-highest"></docs-color>
+<docs-color var="--ld-col-wht-alpha-high"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-medium"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-wht-alpha-lowest"></docs-color>
+<docs-color var="--ld-col-neutral"></docs-color>
 
 ## Grey scale colors
 
-### Background grey scale colors
-
-<docs-color var="--ld-col-bg-lg"></docs-color>
-<docs-color var="--ld-col-bg-g"></docs-color>
-
-### Foreground grey scale colors
-
-<docs-color var="--ld-col-rblck1"></docs-color>
-<docs-color var="--ld-col-rblck2"></docs-color>
-<docs-color var="--ld-col-rblck3"></docs-color>
-<docs-color var="--ld-col-rblck4"></docs-color>
-<docs-color var="--ld-col-rblck5"></docs-color>
+<docs-color var="--ld-col-neutral-010"></docs-color>
+<docs-color var="--ld-col-neutral-050"></docs-color>
+<docs-color var="--ld-col-neutral-100"></docs-color>
+<docs-color var="--ld-col-neutral-200"></docs-color>
+<docs-color var="--ld-col-neutral-300"></docs-color>
+<docs-color var="--ld-col-neutral-400"></docs-color>
+<docs-color var="--ld-col-neutral-500"></docs-color>
+<docs-color var="--ld-col-neutral-600"></docs-color>
+<docs-color var="--ld-col-neutral-700"></docs-color>
+<docs-color var="--ld-col-neutral-800"></docs-color>
+<docs-color var="--ld-col-neutral-900"></docs-color>
 
 ## Rich colors
 
@@ -37,134 +41,141 @@ Use rich colors for the structure of interfaces, actionable items, and validatio
 
 ### Rich Blue
 
-<docs-color var="--ld-col-rb1"></docs-color>
-<docs-color var="--ld-col-rb2"></docs-color>
-<docs-color var="--ld-col-rb3"></docs-color>
-<docs-color var="--ld-col-rb4"></docs-color>
-<docs-color var="--ld-col-rb5"></docs-color>
-<docs-color var="--ld-col-rb55"></docs-color>
-<docs-color var="--ld-col-rb6"></docs-color>
+<docs-color var="--ld-col-rb-010"></docs-color>
+<docs-color var="--ld-col-rb-050"></docs-color>
+<docs-color var="--ld-col-rb-100"></docs-color>
+<docs-color var="--ld-col-rb-200"></docs-color>
+<docs-color var="--ld-col-rb-300"></docs-color>
+<docs-color var="--ld-col-rb-400"></docs-color>
+<docs-color var="--ld-col-rb-500"></docs-color>
+<docs-color var="--ld-col-rb-600"></docs-color>
+<docs-color var="--ld-col-rb-700"></docs-color>
+<docs-color var="--ld-col-rb-800"></docs-color>
+<docs-color var="--ld-col-rb-900"></docs-color>
+<docs-color is-transparent var="--ld-col-rb-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-rb-alpha-lowest"></docs-color>
 
 ### Rich Green
 
-<docs-color var="--ld-col-rg1"></docs-color>
-<docs-color var="--ld-col-rg2"></docs-color>
-<docs-color var="--ld-col-rg3"></docs-color>
-<docs-color var="--ld-col-rg4"></docs-color>
-<docs-color var="--ld-col-rg5"></docs-color>
-<docs-color var="--ld-col-rg6"></docs-color>
+<docs-color var="--ld-col-rg-010"></docs-color>
+<docs-color var="--ld-col-rg-050"></docs-color>
+<docs-color var="--ld-col-rg-100"></docs-color>
+<docs-color var="--ld-col-rg-200"></docs-color>
+<docs-color var="--ld-col-rg-300"></docs-color>
+<docs-color var="--ld-col-rg-400"></docs-color>
+<docs-color var="--ld-col-rg-500"></docs-color>
+<docs-color var="--ld-col-rg-600"></docs-color>
+<docs-color var="--ld-col-rg-700"></docs-color>
+<docs-color var="--ld-col-rg-800"></docs-color>
+<docs-color var="--ld-col-rg-900"></docs-color>
+<docs-color is-transparent var="--ld-col-rg-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-rg-alpha-lowest"></docs-color>
 
 ### Rich Purple
 
-<docs-color var="--ld-col-rp1"></docs-color>
-<docs-color var="--ld-col-rp2"></docs-color>
-<docs-color var="--ld-col-rp3"></docs-color>
-<docs-color var="--ld-col-rp4"></docs-color>
-<docs-color var="--ld-col-rp5"></docs-color>
-<docs-color var="--ld-col-rp55"></docs-color>
-<docs-color var="--ld-col-rp6"></docs-color>
+<docs-color var="--ld-col-rp-010"></docs-color>
+<docs-color var="--ld-col-rp-050"></docs-color>
+<docs-color var="--ld-col-rp-100"></docs-color>
+<docs-color var="--ld-col-rp-200"></docs-color>
+<docs-color var="--ld-col-rp-300"></docs-color>
+<docs-color var="--ld-col-rp-400"></docs-color>
+<docs-color var="--ld-col-rp-500"></docs-color>
+<docs-color var="--ld-col-rp-600"></docs-color>
+<docs-color var="--ld-col-rp-700"></docs-color>
+<docs-color var="--ld-col-rp-800"></docs-color>
+<docs-color var="--ld-col-rp-900"></docs-color>
+<docs-color is-transparent var="--ld-col-rp-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-rp-alpha-lowest"></docs-color>
 
 ### Rich Red
 
-<docs-color var="--ld-col-rr1"></docs-color>
-<docs-color var="--ld-col-rr2"></docs-color>
-<docs-color var="--ld-col-rr3"></docs-color>
-<docs-color var="--ld-col-rr4"></docs-color>
-<docs-color var="--ld-col-rr5"></docs-color>
-<docs-color var="--ld-col-rr6"></docs-color>
+<docs-color var="--ld-col-rr-010"></docs-color>
+<docs-color var="--ld-col-rr-050"></docs-color>
+<docs-color var="--ld-col-rr-100"></docs-color>
+<docs-color var="--ld-col-rr-200"></docs-color>
+<docs-color var="--ld-col-rr-300"></docs-color>
+<docs-color var="--ld-col-rr-400"></docs-color>
+<docs-color var="--ld-col-rr-500"></docs-color>
+<docs-color var="--ld-col-rr-600"></docs-color>
+<docs-color var="--ld-col-rr-700"></docs-color>
+<docs-color var="--ld-col-rr-800"></docs-color>
+<docs-color var="--ld-col-rr-900"></docs-color>
+<docs-color is-transparent var="--ld-col-rr-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-rr-alpha-lowest"></docs-color>
 
 ## Vibrant colors
 
 ### Vibrant Cyan
 
-<docs-color var="--ld-col-vc1"></docs-color>
-<docs-color var="--ld-col-vc2"></docs-color>
-<docs-color var="--ld-col-vc3"></docs-color>
-<docs-color var="--ld-col-vc4"></docs-color>
-<docs-color var="--ld-col-vc5"></docs-color>
-<docs-color var="--ld-col-vc6"></docs-color>
+<docs-color var="--ld-col-vc-010"></docs-color>
+<docs-color var="--ld-col-vc-050"></docs-color>
+<docs-color var="--ld-col-vc-100"></docs-color>
+<docs-color var="--ld-col-vc-200"></docs-color>
+<docs-color var="--ld-col-vc-300"></docs-color>
+<docs-color var="--ld-col-vc-400"></docs-color>
+<docs-color var="--ld-col-vc-500"></docs-color>
+<docs-color var="--ld-col-vc-600"></docs-color>
+<docs-color var="--ld-col-vc-700"></docs-color>
+<docs-color var="--ld-col-vc-800"></docs-color>
+<docs-color var="--ld-col-vc-900"></docs-color>
+<docs-color is-transparent var="--ld-col-vc-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-vc-alpha-lowest"></docs-color>
 
 ### Vibrant Green
 
-<docs-color var="--ld-col-vg1"></docs-color>
-<docs-color var="--ld-col-vg2"></docs-color>
-<docs-color var="--ld-col-vg3"></docs-color>
-<docs-color var="--ld-col-vg4"></docs-color>
-<docs-color var="--ld-col-vg5"></docs-color>
-<docs-color var="--ld-col-vg6"></docs-color>
+<docs-color var="--ld-col-vg-010"></docs-color>
+<docs-color var="--ld-col-vg-050"></docs-color>
+<docs-color var="--ld-col-vg-100"></docs-color>
+<docs-color var="--ld-col-vg-200"></docs-color>
+<docs-color var="--ld-col-vg-300"></docs-color>
+<docs-color var="--ld-col-vg-400"></docs-color>
+<docs-color var="--ld-col-vg-500"></docs-color>
+<docs-color var="--ld-col-vg-600"></docs-color>
+<docs-color var="--ld-col-vg-700"></docs-color>
+<docs-color var="--ld-col-vg-800"></docs-color>
+<docs-color var="--ld-col-vg-900"></docs-color>
+<docs-color is-transparent var="--ld-col-vg-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-vg-alpha-lowest"></docs-color>
 
 ### Vibrant Magenta
 
-<docs-color var="--ld-col-vm1"></docs-color>
-<docs-color var="--ld-col-vm2"></docs-color>
-<docs-color var="--ld-col-vm3"></docs-color>
-<docs-color var="--ld-col-vm4"></docs-color>
-<docs-color var="--ld-col-vm5"></docs-color>
-<docs-color var="--ld-col-vm6"></docs-color>
+<docs-color var="--ld-col-vm-010"></docs-color>
+<docs-color var="--ld-col-vm-050"></docs-color>
+<docs-color var="--ld-col-vm-100"></docs-color>
+<docs-color var="--ld-col-vm-200"></docs-color>
+<docs-color var="--ld-col-vm-300"></docs-color>
+<docs-color var="--ld-col-vm-400"></docs-color>
+<docs-color var="--ld-col-vm-500"></docs-color>
+<docs-color var="--ld-col-vm-600"></docs-color>
+<docs-color var="--ld-col-vm-700"></docs-color>
+<docs-color var="--ld-col-vm-800"></docs-color>
+<docs-color var="--ld-col-vm-900"></docs-color>
+<docs-color is-transparent var="--ld-col-vm-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-vm-alpha-lowest"></docs-color>
 
 ### Vibrant Yellow
 
-<docs-color var="--ld-col-vy1"></docs-color>
-<docs-color var="--ld-col-vy2"></docs-color>
-<docs-color var="--ld-col-vy3"></docs-color>
-<docs-color var="--ld-col-vy4"></docs-color>
-<docs-color var="--ld-col-vy5"></docs-color>
-<docs-color var="--ld-col-vy6"></docs-color>
+<docs-color var="--ld-col-vy-010"></docs-color>
+<docs-color var="--ld-col-vy-050"></docs-color>
+<docs-color var="--ld-col-vy-100"></docs-color>
+<docs-color var="--ld-col-vy-200"></docs-color>
+<docs-color var="--ld-col-vy-300"></docs-color>
+<docs-color var="--ld-col-vy-400"></docs-color>
+<docs-color var="--ld-col-vy-500"></docs-color>
+<docs-color var="--ld-col-vy-600"></docs-color>
+<docs-color var="--ld-col-vy-700"></docs-color>
+<docs-color var="--ld-col-vy-800"></docs-color>
+<docs-color var="--ld-col-vy-900"></docs-color>
+<docs-color is-transparent var="--ld-col-vy-alpha-low"></docs-color>
+<docs-color is-transparent var="--ld-col-vy-alpha-lowest"></docs-color>
 
-## Transparent colors
+### Sensitive Colors
 
-<docs-color is-transparent var="--ld-col-rblck-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rblck-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rb-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rb-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rg-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rg-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rp-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rp-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-rr-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-rr-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vc-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vc-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vg-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vg-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vm-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vm-a02"></docs-color>
-<docs-color is-transparent var="--ld-col-vy-a01"></docs-color>
-<docs-color is-transparent var="--ld-col-vy-a02"></docs-color>
+<docs-color var="--ld-col-sb"></docs-color>
+<docs-color var="--ld-col-sg"></docs-color>
+<docs-color var="--ld-col-sp"></docs-color>
+<docs-color var="--ld-col-sy"></docs-color>
 
 ## Theme palettes
 
-### Bubblegum
-
-<docs-color var="--ld-thm-bubblegum-accent"></docs-color>
-<docs-color var="--ld-thm-bubblegum-bg-primary"></docs-color>
-<docs-color var="--ld-thm-bubblegum-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-bubblegum-highlight"></docs-color>
-
-### Ocean
-
-<docs-color var="--ld-thm-ocean-accent"></docs-color>
-<docs-color var="--ld-thm-ocean-bg-primary"></docs-color>
-<docs-color var="--ld-thm-ocean-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-ocean-highlight"></docs-color>
-
-### Shake
-
-<docs-color var="--ld-thm-shake-accent"></docs-color>
-<docs-color var="--ld-thm-shake-bg-primary"></docs-color>
-<docs-color var="--ld-thm-shake-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-shake-highlight"></docs-color>
-
-### Solvent
-
-<docs-color var="--ld-thm-solvent-accent"></docs-color>
-<docs-color var="--ld-thm-solvent-bg-primary"></docs-color>
-<docs-color var="--ld-thm-solvent-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-solvent-highlight"></docs-color>
-
-### Tea
-
-<docs-color var="--ld-thm-tea-accent"></docs-color>
-<docs-color var="--ld-thm-tea-bg-primary"></docs-color>
-<docs-color var="--ld-thm-tea-bg-secondary"></docs-color>
-<docs-color var="--ld-thm-tea-highlight"></docs-color>
+For available theme colors, please have a look at the documentation on [Theming](global/theming/).

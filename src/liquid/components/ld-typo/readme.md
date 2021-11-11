@@ -212,27 +212,27 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo--b1" aria-label="Lorem ipsum">
+<h1 class="ld-typo ld-typo--b1" aria-label="Lorem ipsum">
   Lorem ipsum
 </h1>
 
-<h2 class="ld-typo--b2" aria-label="Lorem ipsum">
+<h2 class="ld-typo ld-typo--b2" aria-label="Lorem ipsum">
   Lorem ipsum
 </h2>
 
-<h3 class="ld-typo--b3" aria-label="Lorem ipsum">
+<h3 class="ld-typo ld-typo--b3" aria-label="Lorem ipsum">
   Lorem ipsum
 </h3>
 
-<h4 class="ld-typo--b4" aria-label="Lorem ipsum">
+<h4 class="ld-typo ld-typo--b4" aria-label="Lorem ipsum">
   Lorem ipsum
 </h4>
 
-<h5 class="ld-typo--b5" aria-label="Lorem ipsum">
+<h5 class="ld-typo ld-typo--b5" aria-label="Lorem ipsum">
   Lorem ipsum
 </h5>
 
-<h6 class="ld-typo--b6" aria-label="Lorem ipsum">
+<h6 class="ld-typo ld-typo--b6" aria-label="Lorem ipsum">
   Lorem ipsum
 </h6>
 {% endexample %}
@@ -252,6 +252,18 @@ Headings are used as an introduction into a topic or a content section and for v
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
+<ld-typo variant="xh4">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh5">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
+<ld-typo variant="xh6">
+  Almost before we knew it, we had left the ground.
+</ld-typo>
+
 <!-- CSS component -->
 
 <h1 class="ld-typo--xh1">
@@ -263,6 +275,18 @@ Headings are used as an introduction into a topic or a content section and for v
 </h2>
 
 <h3 class="ld-typo--xh3">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh4">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh5">
+  Almost before we knew it, we had left the ground.
+</h3>
+
+<h3 class="ld-typo--xh6">
   Almost before we knew it, we had left the ground.
 </h3>
 {% endexample %}
@@ -286,15 +310,15 @@ Headings are used as an introduction into a topic or a content section and for v
 
 <!-- CSS component -->
 
-<h1 class="ld-typo--xb1" aria-label="Lorem ipsum">
+<h1 class="ld-typo ld-typo--xb1" aria-label="Lorem ipsum">
   Lipsum
 </h1>
 
-<h2 class="ld-typo--xb2" aria-label="Lorem ipsum">
+<h2 class="ld-typo ld-typo--xb2" aria-label="Lorem ipsum">
   Lipsum
 </h2>
 
-<h3 class="ld-typo--xb3" aria-label="Lorem ipsum">
+<h3 class="ld-typo ld-typo--xb3" aria-label="Lorem ipsum">
   Lipsum
 </h3>
 {% endexample %}
@@ -318,7 +342,7 @@ Headings are used as an introduction into a topic or a content section and for v
   I'm actually a level 1 heading
 </h1>
 
-<p class="ld-typo--b5" aria-label="I'm actually a paragraph">
+<p class="ld-typo ld-typo--b5" aria-label="I'm actually a paragraph">
   I'm actually a paragraph
 </p>
 
@@ -334,28 +358,28 @@ Here are some examples on how you can apply different colors on headings:
 
 {% example "html", true %}
 <style>
-.custom-color { color: var(--ld-col-vm-default); }
+.custom-color { color: var(--ld-col-vm); }
 </style>
 
 <ld-typo variant="b1" class="custom-color">
   Lorem ipsum
 </ld-typo>
 
-<ld-typo variant="h1" style="color: var(--ld-col-vc4)">
+<ld-typo variant="h1" style="color: var(--ld-col-vc-600)">
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
 <!-- CSS component -->
 
 <style>
-.custom-color { color: var(--ld-col-vm-default); }
+.custom-color { color: var(--ld-col-vm); }
 </style>
 
-<h1 class="ld-typo--b1 custom-color" aria-label="Lorem ipsum">
+<h1 class="ld-typo ld-typo--b1 custom-color" aria-label="Lorem ipsum">
   Lorem ipsum
 </h1>
 
-<h1 class="ld-typo--h1" style="color: var(--ld-col-vc4)">
+<h1 class="ld-typo--h1" style="color: var(--ld-col-vc-600)">
   Almost before we knew it, we had left the ground.
 </h1>
 

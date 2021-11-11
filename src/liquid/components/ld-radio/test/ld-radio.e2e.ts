@@ -6,8 +6,6 @@ jest.useRealTimers()
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 
-const allowableMismatchedRatio = 0.02
-
 const dotAndBox = `
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
@@ -15,198 +13,188 @@ const dotAndBox = `
 
 describe('ld-radio', () => {
   for (const tone of tones) {
-    const toneStr = tone ? ` ${tone}` : ''
-    describe(`themed${toneStr}`, () => {
+    describe(tone ? `tone ${tone}` : 'no tone', () => {
       for (const checkedState of checkedStates) {
         const checkedStateStr = checkedState ? ' checked' : ''
 
-        it(`default ${toneStr}${checkedStateStr}`, async () => {
+        it(`default${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<ld-radio tone="${tone}"></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`hover ${checkedStateStr}`, async () => {
+        it(`hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr}></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr}></ld-radio>`
           )
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`focus ${checkedStateStr}`, async () => {
+        it(`focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr}></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr}></ld-radio>`
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled
-        it(`disabled ${checkedStateStr}`, async () => {
+        it(`disabled${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} disabled></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} disabled></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`disabled hover ${checkedStateStr}`, async () => {
+        it(`disabled hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} disabled></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} disabled></ld-radio>`
           )
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`disabled focus ${checkedStateStr}`, async () => {
+        it(`disabled focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} disabled></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} disabled></ld-radio>`
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled
-        it(`aria-disabled ${checkedStateStr}`, async () => {
+        it(`aria-disabled${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} aria-disabled="true"></ld-radio>`
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`aria-disabled hover ${checkedStateStr}`, async () => {
+        it(`aria-disabled hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} aria-disabled="true"></ld-radio>`
           )
           const radio = await page.find('ld-radio')
           await radio.hover()
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`aria-disabled focus ${checkedStateStr}`, async () => {
+        it(`aria-disabled focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
-            `<ld-radio tone="${tone}" ${checkedStateStr} aria-disabled="true"></ld-radio>`
+            `<ld-radio tone="${tone}"${checkedStateStr} aria-disabled="true"></ld-radio>`
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
-        // Themed CSS component
+        // CSS component
         const toneModifier = tone ? ` ld-radio--${tone}` : ''
-        it(`css component default ${toneStr}${checkedStateStr}`, async () => {
+        it(`css component default${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr}></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr}></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component hover ${checkedStateStr}`, async () => {
+        it(`css component hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr}></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr}></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component focus ${checkedStateStr}`, async () => {
+        it(`css component focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr}></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr}></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Disabled CSS component
-        it(`css component disabled ${checkedStateStr}`, async () => {
+        it(`css component disabled${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} disabled></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component disabled hover ${checkedStateStr}`, async () => {
+        it(`css component disabled hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}" disabled>
-                <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} disabled></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component disabled focus ${checkedStateStr}`, async () => {
+        it(`css component disabled focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr} disabled></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} disabled></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
 
         // Aria-disabled CSS component
-        it(`css component aria-disabled ${checkedStateStr}`, async () => {
+        it(`css component aria-disabled${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component aria-disabled hover ${checkedStateStr}`, async () => {
+        it(`css component aria-disabled hover${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}" aria-disabled="true">
-                <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.hover('.ld-radio')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
-        it(`css component aria-disabled focus ${checkedStateStr}`, async () => {
+        it(`css component aria-disabled focus${checkedStateStr}`, async () => {
           const page = await getPageWithContent(
             `<div class="ld-radio${toneModifier}">
-                <input type="radio" ${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
-              </div>`,
-            undefined,
-            LdRadio
+              <input type="radio"${checkedStateStr} aria-disabled="true"></input>${dotAndBox}
+            </div>`,
+            { components: LdRadio }
           )
           await page.keyboard.press('Tab')
           const results = await page.compareScreenshot()
-          expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+          expect(results).toMatchScreenshot()
         })
       }
     })

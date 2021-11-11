@@ -1,6 +1,5 @@
 import '../../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Event, EventEmitter, State } from '@stencil/core'
-import { ThemeName } from '../../../liquid/components/ld-theme/ld-theme'
 
 /** @internal **/
 @Component({
@@ -9,10 +8,10 @@ import { ThemeName } from '../../../liquid/components/ld-theme/ld-theme'
   shadow: false,
 })
 export class DocsPickTheme {
-  @State() currentTheme: ThemeName = 'ocean'
+  @State() currentTheme = 'ocean'
 
   /** Theme pick change event. */
-  @Event() pickTheme: EventEmitter<'' | ThemeName>
+  @Event() pickTheme: EventEmitter<string>
 
   private handleChange(ev) {
     this.pickTheme.emit(ev.detail[0])

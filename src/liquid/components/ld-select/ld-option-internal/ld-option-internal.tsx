@@ -11,7 +11,6 @@ import {
   State,
   Method,
 } from '@stencil/core'
-import { applyPropAliases } from '../../../utils/applyPropAliases'
 import { getClassNames } from '../../../utils/getClassNames'
 
 /** @internal **/
@@ -108,8 +107,6 @@ export class LdOptionInternal {
   }
 
   componentWillLoad() {
-    applyPropAliases.apply(this)
-
     if (typeof this.value === 'undefined') {
       window.requestAnimationFrame(() => {
         this.value = this.el.innerText

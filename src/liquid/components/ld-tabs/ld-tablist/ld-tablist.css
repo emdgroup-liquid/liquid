@@ -1,10 +1,28 @@
 :host {
-  --ld-tablist-border-color: var(--ld-col-bg-g);
-  --ld-tablist-btn-scroll-color: var(--ld-col-rblck-default);
-  --ld-tablist-btn-scroll-color-active: var(--ld-col-rblck-default);
-  --ld-tablist-btn-scroll-bg-color: var(--ld-col-bg-lg);
-  --ld-tablist-btn-scroll-bg-color-hover: var(--ld-col-rblck1);
-  --ld-tablist-btn-scroll-bg-color-active: var(--ld-col-rblck2);
+  /* colors */
+  --ld-tablist-border-col: var(--ld-col-neutral-050);
+  --ld-tablist-btn-scroll-col: var(--ld-col-neutral);
+  --ld-tablist-btn-scroll-col-active: var(--ld-col-neutral);
+  --ld-tablist-btn-scroll-bg-col: var(--ld-col-neutral-010);
+  --ld-tablist-btn-scroll-bg-col-hover: var(--ld-col-neutral-100);
+  --ld-tablist-btn-scroll-bg-col-active: var(--ld-col-neutral-300);
+
+  /* theme colors */
+  --ld-tablist-border-brand-col: var(--ld-thm-primary-active);
+  --ld-tablist-btn-scroll-bg-brand-col-active: var(--ld-thm-primary-active);
+  --ld-tablist-btn-scroll-bg-brand-col-hover: var(--ld-thm-primary-hover);
+  --ld-tablist-btn-scroll-bg-brand-col: var(--ld-thm-primary);
+
+  /* theme colors (ld-tab) */
+  --ld-tab-bg-brand-col-active: var(--ld-thm-primary-active);
+  --ld-tab-bg-brand-col-focus: var(--ld-thm-primary-focus);
+  --ld-tab-bg-brand-col-hover: var(--ld-thm-primary-hover);
+  --ld-tab-bg-brand-col: var(--ld-thm-primary);
+  --ld-tab-text-brand-col-focus: var(--ld-thm-primary-active);
+  --ld-tab-disabled-bg-brand-col-focus: var(--ld-thm-primary-active);
+  --ld-tab-disabled-text-brand-col-focus: var(--ld-thm-primary);
+  --ld-tab-disabled-text-brand-col: var(--ld-thm-primary-focus);
+  --ld-tab-selected-border-brand-col: var(--ld-thm-secondary);
 }
 
 .ld-tablist {
@@ -12,14 +30,14 @@
   display: flex;
   overflow: hidden;
   z-index: 0;
-  background-color: var(--ld-tablist-btn-scroll-bg-color);
+  background-color: var(--ld-tablist-btn-scroll-bg-col);
 
   &::after {
     content: '';
     position: absolute;
     inset: auto 0 0 0;
     height: var(--ld-sp-2);
-    background-color: var(--ld-tablist-border-color);
+    background-color: var(--ld-tablist-border-col);
     z-index: 2;
   }
 
@@ -39,68 +57,65 @@
     border-radius: var(--ld-br-l) var(--ld-br-l) 0 0;
   }
 
-  &--sm {
+  &--sm ::slotted(ld-tab) {
+    --ld-tab-font: var(--ld-typo-body-s);
+    --ld-tab-gap: 0.375rem;
+    --ld-tab-min-height: 2rem;
     --ld-tab-padding-x: 0.625rem;
     --ld-tab-padding-y: 0.5rem;
-    --ld-tab-min-height: 2rem;
-    --ld-tab-gap: 0.375rem;
-    --ld-tab-icon-size: 1rem;
-    --ld-tab-font: var(--ld-typo-body-s);
   }
 
-  &--lg {
+  &--lg ::slotted(ld-tab) {
+    --ld-tab-font: var(--ld-typo-body-l);
+    --ld-tab-gap: 0.875rem;
+    --ld-tab-min-height: 3.125rem;
     --ld-tab-padding-x: 1.3125rem;
     --ld-tab-padding-y: 0.75rem;
-    --ld-tab-min-height: 3.125rem;
-    --ld-tab-gap: 0.875rem;
-    --ld-tab-icon-size: 1.5rem;
-    --ld-tab-font: var(--ld-typo-body-l);
   }
 
   &--ghost {
-    --ld-tablist-btn-scroll-bg-color: transparent;
-    --ld-tab-bg-color: transparent;
+    --ld-tablist-btn-scroll-bg-col: transparent;
+    ::slotted(ld-tab) {
+      --ld-tab-bg-col: transparent;
+    }
   }
 
   &--brand-color {
     /* ld-tablist internal vars */
-    --ld-tablist-btn-scroll-color-active: var(--ld-col-wht);
-    --ld-tablist-btn-scroll-color: var(--ld-col-wht);
-    --ld-tablist-btn-scroll-bg-color: var(
-      --ld-tablist-btn-scroll-bg-brand-color
+    --ld-tablist-btn-scroll-col-active: var(--ld-col-wht);
+    --ld-tablist-btn-scroll-col: var(--ld-col-wht);
+    --ld-tablist-btn-scroll-bg-col: var(--ld-tablist-btn-scroll-bg-brand-col);
+    --ld-tablist-btn-scroll-bg-col-hover: var(
+      --ld-tablist-btn-scroll-bg-brand-col-hover
     );
-    --ld-tablist-btn-scroll-bg-color-hover: var(
-      --ld-tablist-btn-scroll-bg-brand-color-hover
+    --ld-tablist-btn-scroll-bg-col-active: var(
+      --ld-tablist-btn-scroll-bg-brand-col-active
     );
-    --ld-tablist-btn-scroll-bg-color-active: var(
-      --ld-tablist-btn-scroll-bg-brand-color-active
-    );
-    --ld-tablist-border-color: var(--ld-tablist-border-brand-color);
+    --ld-tablist-border-col: var(--ld-tablist-border-brand-col);
 
-    /* ld-tab vars (non-theme-specific) */
-    --ld-tab-color-selected-focus: var(--ld-col-wht);
-    --ld-tab-border-color-selected-focus: var(--ld-tab-border-color-selected);
-    --ld-tab-color-selected: var(--ld-col-wht);
-    --ld-tab-opacity-disabled: 0.5;
-    --ld-tab-content-opacity-disabled: 1;
-    --ld-tab-color: var(--ld-col-wht);
+    ::slotted(ld-tab) {
+      --ld-tab-disabled-opacity: 0.5;
+      --ld-tab-disabled-content-opacity: 1;
 
-    /* ld-tab vars (theme-specific) */
-    --ld-tab-border-color-selected: var(
-      --ld-tab-border-brand-color-selected
-    ) !important;
-    --ld-tab-bg-color: var(--ld-tab-bg-brand-color) !important;
-    --ld-tab-bg-color-focus: var(--ld-tab-bg-brand-color-focus) !important;
-    --ld-tab-color-focus: var(--ld-tab-brand-color-focus) !important;
-    --ld-tab-bg-color-hover: var(--ld-tab-bg-brand-color-hover) !important;
-    --ld-tab-bg-color-active: var(--ld-tab-bg-brand-color-active) !important;
-    --ld-tab-color-focus-disabled: var(
-      --ld-tab-brand-color-focus-disabled
-    ) !important;
-    --ld-tab-bg-color-focus-disabled: var(
-      --ld-tab-bg-brand-color-focus-disabled
-    ) !important;
-    --ld-tab-color-disabled: var(--ld-tab-brand-color-disabled) !important;
+      /* colors */
+      --ld-tab-selected-text-col-focus: var(--ld-col-wht);
+      --ld-tab-selected-text-col: var(--ld-col-wht);
+      --ld-tab-text-col: var(--ld-col-wht);
+
+      /* theme colors */
+      --ld-tab-bg-col: var(--ld-tab-bg-brand-col);
+      --ld-tab-bg-col-focus: var(--ld-tab-bg-brand-col-focus);
+      --ld-tab-bg-col-hover: var(--ld-tab-bg-brand-col-hover);
+      --ld-tab-bg-col-active: var(--ld-tab-bg-brand-col-active);
+      --ld-tab-disabled-bg-col-focus: var(--ld-tab-disabled-bg-brand-col-focus);
+      --ld-tab-disabled-text-col-focus: var(
+        --ld-tab-disabled-text-brand-col-focus
+      );
+      --ld-tab-disabled-text-col: var(--ld-tab-disabled-text-brand-col);
+      --ld-tab-selected-border-col-focus: var(--ld-tab-selected-border-col);
+      --ld-tab-selected-border-col: var(--ld-tab-selected-border-brand-col);
+      --ld-tab-text-col-focus: var(--ld-tab-text-brand-col-focus);
+    }
   }
 }
 
@@ -121,8 +136,8 @@
   justify-content: center;
   align-items: center;
   -webkit-touch-callout: none;
-  color: var(--ld-tablist-btn-scroll-color);
-  background-color: var(--ld-tablist-btn-scroll-bg-color);
+  color: var(--ld-tablist-btn-scroll-col);
+  background-color: var(--ld-tablist-btn-scroll-bg-col);
   box-shadow: var(--ld-shadow-active);
   width: var(--ld-sp-32);
   z-index: 2;
@@ -142,13 +157,13 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--ld-tablist-btn-scroll-bg-color-hover);
+        background-color: var(--ld-tablist-btn-scroll-bg-col-hover);
       }
     }
     &:active:focus,
     &:active:focus:focus-visible {
-      color: var(--ld-tablist-btn-scroll-color-active);
-      background-color: var(--ld-tablist-btn-scroll-bg-color-active);
+      color: var(--ld-tablist-btn-scroll-col-active);
+      background-color: var(--ld-tablist-btn-scroll-bg-col-active);
     }
   }
 

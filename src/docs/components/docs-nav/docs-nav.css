@@ -1,36 +1,36 @@
 @define-mixin docs-nav-ui-light {
   .docs-nav__content {
-    background-color: var(--ld-col-bg-lg);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck1);
+    background-color: var(--ld-col-neutral-010);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-100);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-bg-lg);
+    background-color: var(--ld-col-neutral-010);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-rblck1);
+    border-bottom-color: var(--ld-col-neutral-100);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-rblck4);
+    color: var(--ld-col-neutral-600);
 
     &:hover,
     &.docs-nav__li--active {
-      color: var(--ld-col-rblck-default);
+      color: var(--ld-col-neutral);
     }
   }
 }
 @define-mixin docs-nav-ui-dark {
   .docs-nav__content {
-    background-color: var(--ld-col-rblck-default);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-rblck4);
+    background-color: var(--ld-col-neutral);
+    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-600);
   }
   .docs-nav::before {
-    background-color: var(--ld-col-rblck-default);
+    background-color: var(--ld-col-neutral);
   }
   .docs-nav__section {
-    border-bottom-color: var(--ld-col-rblck5);
+    border-bottom-color: var(--ld-col-neutral-800);
   }
   .docs-nav__li .docs-nav__li {
-    color: var(--ld-col-rblck1);
+    color: var(--ld-col-neutral-100);
 
     &:hover,
     &.docs-nav__li--active {

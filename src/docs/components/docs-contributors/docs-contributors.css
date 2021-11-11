@@ -5,7 +5,7 @@
 }
 @define-mixin docs-contributors-ui-dark {
   .docs-contributors__img {
-    border-color: var(--ld-col-rblck5);
+    border-color: var(--ld-col-neutral-800);
   }
 }
 

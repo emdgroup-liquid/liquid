@@ -2,7 +2,6 @@ import MutationObserver from 'mutation-observer'
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
 import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
-import { LdTheme } from '../../ld-theme/ld-theme'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
@@ -13,7 +12,6 @@ const components = [
   LdOption,
   LdOptionInternal,
   LdLabel,
-  LdTheme,
 ]
 
 let triggerableMutationObserver
@@ -1868,12 +1866,12 @@ describe('ld-select', () => {
     const page = await newSpecPage({
       components,
       html: `
-        <ld-theme name="tea">
+        <div class="ld-theme-tea">
           <ld-select placeholder="Pick a fruit" name="fruit">
             <ld-option value="apple">Apple</ld-option>
             <ld-option value="pear">Pear</ld-option>
           </ld-select>
-        </ld-theme>
+        </div>
       `,
     })
 
@@ -1881,11 +1879,7 @@ describe('ld-select', () => {
     await page.waitForChanges()
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-    expect(
-      ldSelectPopper.shadowRoot
-        .querySelector('.ld-select-popper')
-        .classList.contains('ld-theme-tea')
-    ).toBeTruthy()
+    expect(ldSelectPopper.classList.contains('ld-theme-tea')).toBeTruthy()
   })
 
   it('creates hidden input field, if inside a form', async () => {
