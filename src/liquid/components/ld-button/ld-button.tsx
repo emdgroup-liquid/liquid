@@ -125,7 +125,6 @@ export class LdButton implements InnerFocusable {
       }
     })
     this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
       if (this.size === 'sm') {
         icon.classList.remove('ld-icon--lg')
         icon.classList.add('ld-icon--sm')
