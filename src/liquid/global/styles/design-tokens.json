@@ -90,7 +90,7 @@
     },
     "tea": {
       "primary-highlight": "rg-010",
-      "primary-focus": "rg-100",
+      "primary-focus": "rg-400",
       "primary-hover": "rg-700",
       "primary-active": "rg-900",
       "primary": "rg",

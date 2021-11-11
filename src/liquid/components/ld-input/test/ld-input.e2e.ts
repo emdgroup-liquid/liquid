@@ -119,8 +119,7 @@ describe('ld-input', () => {
     it(`css component default${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -128,8 +127,7 @@ describe('ld-input', () => {
     it(`css component with value${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}"><input value="Value"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -137,8 +135,7 @@ describe('ld-input', () => {
     it(`css component hover${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.hover('.ld-input')
       const results = await page.compareScreenshot()
@@ -147,8 +144,7 @@ describe('ld-input', () => {
     it(`css component focus${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}"><input placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -159,8 +155,7 @@ describe('ld-input', () => {
     it(`css component disabled${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -168,8 +163,7 @@ describe('ld-input', () => {
     it(`css component disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" disabled><input disabled value="Value"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -177,8 +171,7 @@ describe('ld-input', () => {
     it(`css component disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.hover('.ld-input')
       const results = await page.compareScreenshot()
@@ -187,8 +180,7 @@ describe('ld-input', () => {
     it(`css component disabled focus${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -199,8 +191,7 @@ describe('ld-input', () => {
     it(`css component aria-disabled${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -208,8 +199,7 @@ describe('ld-input', () => {
     it(`css component aria-disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" value="Value"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -217,8 +207,7 @@ describe('ld-input', () => {
     it(`css component aria-disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.hover('.ld-input')
       const results = await page.compareScreenshot()
@@ -227,8 +216,7 @@ describe('ld-input', () => {
     it(`css component aria-disabled focus${toneStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-input${toneModifier}" aria-disabled="true"><input aria-disabled="true" placeholder="Placeholder"></input>${cssIconComponent}</div>`,
-        undefined,
-        LdInput
+        { components: LdInput }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()

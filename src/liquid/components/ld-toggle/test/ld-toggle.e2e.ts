@@ -24,12 +24,12 @@ describe('ld-toggle', () => {
   for (const checkedState of checkedStates) {
     const checkedStateStr = checkedState ? ' checked' : ''
 
-    it(`default ${checkedStateStr}`, async () => {
+    it(`default${checkedStateStr}`, async () => {
       const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`)
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`focus ${checkedStateStr}`, async () => {
+    it(`focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`)
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -37,14 +37,14 @@ describe('ld-toggle', () => {
     })
 
     // Large
-    it(`large ${checkedStateStr}`, async () => {
+    it(`large${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`large focus ${checkedStateStr}`, async () => {
+    it(`large focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} />`
       )
@@ -54,22 +54,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons
-    it(`with icons ${checkedStateStr}`, async () => {
+    it(`with icons${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr}>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons focus ${checkedStateStr}`, async () => {
+    it(`with icons focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr}>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -77,22 +77,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (large)
-    it(`with icons (large) ${checkedStateStr}`, async () => {
+    it(`with icons (large)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr}>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (large) focus ${checkedStateStr}`, async () => {
+    it(`with icons (large) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr}>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -100,14 +100,14 @@ describe('ld-toggle', () => {
     })
 
     // Disabled
-    it(`disabled ${checkedStateStr}`, async () => {
+    it(`disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} disabled />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`disabled focus ${checkedStateStr}`, async () => {
+    it(`disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} disabled />`
       )
@@ -117,22 +117,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (disabled)
-    it(`with icons (disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} disabled>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (disabled) focus ${checkedStateStr}`, async () => {
+    it(`with icons (disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} disabled>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -140,22 +140,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (large, disabled)
-    it(`with icons (large, disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (large, disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} disabled>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (large, disabled) focus ${checkedStateStr}`, async () => {
+    it(`with icons (large, disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} disabled>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+          <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+          <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+        </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -163,14 +163,14 @@ describe('ld-toggle', () => {
     })
 
     // Aria-disabled
-    it(`aria-disabled ${checkedStateStr}`, async () => {
+    it(`aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} aria-disabled="true" />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`aria-disabled focus ${checkedStateStr}`, async () => {
+    it(`aria-disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} aria-disabled="true" />`
       )
@@ -180,22 +180,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (aria-disabled)
-    it(`with icons (aria-disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} aria-disabled="true">
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (aria-disabled) focus ${checkedStateStr}`, async () => {
+    it(`with icons (aria-disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} aria-disabled="true">
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -203,22 +203,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (large, aria-disabled)
-    it(`with icons (large, aria-disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (large, aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (large, aria-disabled) focus ${checkedStateStr}`, async () => {
+    it(`with icons (large, aria-disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -226,28 +226,28 @@ describe('ld-toggle', () => {
     })
 
     // Invalid
-    it(`invalid ${checkedStateStr}`, async () => {
+    it(`invalid${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`invalid disabled ${checkedStateStr}`, async () => {
+    it(`invalid disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required disabled />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`invalid aria-disabled ${checkedStateStr}`, async () => {
+    it(`invalid aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required aria-disabled="true" />`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`invalid focus ${checkedStateStr}`, async () => {
+    it(`invalid focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required />`
       )
@@ -257,42 +257,42 @@ describe('ld-toggle', () => {
     })
 
     // With icons (invalid)
-    it(`with icons (invalid) ${checkedStateStr}`, async () => {
+    it(`with icons (invalid)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (invalid disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (invalid disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required disabled>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (invalid aria-disabled) ${checkedStateStr}`, async () => {
+    it(`with icons (invalid aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required aria-disabled="true">
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (invalid) focus ${checkedStateStr}`, async () => {
+    it(`with icons (invalid) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle${checkedStateStr} required>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -300,22 +300,22 @@ describe('ld-toggle', () => {
     })
 
     // With icons (large, invalid)
-    it(`with icons (large, invalid) ${checkedStateStr}`, async () => {
+    it(`with icons (large, invalid)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} required>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`with icons (large, invalid) focus ${checkedStateStr}`, async () => {
+    it(`with icons (large, invalid) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<ld-toggle size="lg"${checkedStateStr} required>
-              <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
-              <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-            </ld-toggle>`
+        <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
+      </ld-toggle>`
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -323,26 +323,24 @@ describe('ld-toggle', () => {
     })
 
     // CSS component
-    it(`css component default ${checkedStateStr}`, async () => {
+    it(`css component default${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component focus ${checkedStateStr}`, async () => {
+    it(`css component focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -350,26 +348,24 @@ describe('ld-toggle', () => {
     })
 
     // Large CSS component
-    it(`css component large ${checkedStateStr}`, async () => {
+    it(`css component large${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component large focus ${checkedStateStr}`, async () => {
+    it(`css component large focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -377,30 +373,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons
-    it(`css component with icons ${checkedStateStr}`, async () => {
+    it(`css component with icons${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons focus ${checkedStateStr}`, async () => {
+    it(`css component with icons focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -408,30 +402,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (large)
-    it(`css component with icons (large) ${checkedStateStr}`, async () => {
+    it(`css component with icons (large)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (large) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (large) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -439,26 +431,24 @@ describe('ld-toggle', () => {
     })
 
     // Disabled CSS component
-    it(`css component disabled ${checkedStateStr}`, async () => {
+    it(`css component disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component disabled focus ${checkedStateStr}`, async () => {
+    it(`css component disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -466,30 +456,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (disabled)
-    it(`css component with icons (disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (disabled) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -497,30 +485,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (large, disabled)
-    it(`css component with icons (large, disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (large, disabled) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} disabled />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} disabled />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -528,26 +514,24 @@ describe('ld-toggle', () => {
     })
 
     // Aria-disabled CSS component
-    it(`css component aria-disabled ${checkedStateStr}`, async () => {
+    it(`css component aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component aria-disabled focus ${checkedStateStr}`, async () => {
+    it(`css component aria-disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -555,30 +539,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (aria-disabled)
-    it(`css component with icons (aria-disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (aria-disabled) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (aria-disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -586,30 +568,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (large, aria-disabled)
-    it(`css component with icons (large, aria-disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (large, aria-disabled) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, aria-disabled) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -617,50 +597,46 @@ describe('ld-toggle', () => {
     })
 
     // Invalid CSS component
-    it(`css component invalid ${checkedStateStr}`, async () => {
+    it(`css component invalid${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component invalid disabled ${checkedStateStr}`, async () => {
+    it(`css component invalid disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} required disabled />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} required disabled />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component invalid aria-disabled ${checkedStateStr}`, async () => {
+    it(`css component invalid aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} required aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} required aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component invalid focus ${checkedStateStr}`, async () => {
+    it(`css component invalid focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-              </div>`,
-        undefined,
-        LdToggle
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+        </div>`,
+        { components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -668,58 +644,54 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (invalid)
-    it(`css component with icons (invalid) ${checkedStateStr}`, async () => {
+    it(`css component with icons (invalid)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (invalid disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (invalid disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required disabled />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required disabled />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (invalid aria-disabled) ${checkedStateStr}`, async () => {
+    it(`css component with icons (invalid aria-disabled)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required aria-disabled="true" />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required aria-disabled="true" />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (invalid) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (invalid) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -727,30 +699,28 @@ describe('ld-toggle', () => {
     })
 
     // CSS component with icons (large, invalid)
-    it(`css component with icons (large, invalid) ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, invalid)${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
-    it(`css component with icons (large, invalid) focus ${checkedStateStr}`, async () => {
+    it(`css component with icons (large, invalid) focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
         `<div class="ld-toggle ld-toggle--lg ld-toggle--with-icons">
-                <input type="checkbox"${checkedStateStr} required />
-                <span class="ld-toggle__knob"></span>
-                ${iconStart}
-                ${iconEnd}
-              </div>`,
-        undefined,
-        [LdToggle, LdIcon]
+          <input type="checkbox"${checkedStateStr} required />
+          <span class="ld-toggle__knob"></span>
+          ${iconStart}
+          ${iconEnd}
+        </div>`,
+        { components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()

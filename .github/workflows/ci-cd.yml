@@ -35,8 +35,10 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit
 
-      # - name: Run e2e tests
-      #   run: npm run test:e2e
+      # e2e tests are still not stable due to flaky screenshot diffing in stencil
+      #- name: Run e2e tests
+      #  if: github.event_name == 'pull_request'
+      #  run: npm run test:e2e
 
       - name: Build docs
         run: npm run build:docs
@@ -47,12 +49,12 @@ jobs:
       #- name: Run a11y tests
       #  run: npm run test:a11y
 
-      - name: Comment on test coverage
-        if: github.event_name == 'pull_request'
-        uses: romeovs/lcov-reporter-action@v0.2.21
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          lcov-file: ./coverage/lcov.info
+      #- name: Comment on test coverage
+      #  if: github.event_name == 'pull_request'
+      #  uses: romeovs/lcov-reporter-action@v0.2.21
+      #  with:
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+      #    lcov-file: ./coverage/lcov.info
 
       - name: Archive dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'

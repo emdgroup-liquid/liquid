@@ -15,8 +15,7 @@ describe('ld-loading', () => {
   it('renders as css component', async () => {
     const page = await getPageWithContent(
       `<span class="ld-loading" style="animation: none;" />`,
-      undefined,
-      LdLoading
+      { components: LdLoading }
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()

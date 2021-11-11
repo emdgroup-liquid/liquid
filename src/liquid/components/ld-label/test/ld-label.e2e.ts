@@ -17,8 +17,7 @@ describe('ld-label', () => {
   it('renders as css component', async () => {
     const page = await getPageWithContent(
       '<label class="ld-label">Email Address</label>',
-      undefined,
-      LdLabel
+      { components: LdLabel }
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -36,8 +35,7 @@ describe('ld-label', () => {
     it('renders with size m as css component', async () => {
       const page = await getPageWithContent(
         '<label class="ld-label ld-label--m">Email Address</label>',
-        undefined,
-        LdLabel
+        { components: LdLabel }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -64,8 +62,7 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        undefined,
-        [LdInput, LdLabel]
+        { components: [LdInput, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -99,8 +96,7 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        undefined,
-        [LdInput, LdInputMessage, LdLabel]
+        { components: [LdInput, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -125,8 +121,7 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        undefined,
-        [LdInput, LdLabel]
+        { components: [LdInput, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -160,8 +155,7 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        undefined,
-        [LdInput, LdInputMessage, LdLabel]
+        { components: [LdInput, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -197,8 +191,7 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        undefined,
-        [LdToggle, LdInputMessage, LdLabel]
+        { components: [LdToggle, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -223,8 +216,7 @@ describe('ld-label', () => {
             <input placeholder="jane.doe@example.com" type="email">
           </div>
         </label>`,
-        undefined,
-        [LdInput, LdLabel]
+        { components: [LdInput, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -258,8 +250,7 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        undefined,
-        [LdInput, LdInputMessage, LdLabel]
+        { components: [LdInput, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -295,8 +286,7 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        undefined,
-        [LdToggle, LdInputMessage, LdLabel]
+        { components: [LdToggle, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -340,8 +330,7 @@ describe('ld-label', () => {
             <div class="ld-checkbox__box"></div>
           </div>
         </label>`,
-        undefined,
-        [LdCheckbox, LdLabel]
+        { components: [LdCheckbox, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

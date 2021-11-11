@@ -81,8 +81,7 @@ describe('ld-bg-cells', () => {
         `<div class="ld-bg-cells ld-bg-cells--safc">
           <div class="ld-bg-cells__pattern"></div>
         </div>`,
-        undefined,
-        LdBgCells
+        { components: LdBgCells }
       )
       const results = await page.compareScreenshot()
 
@@ -95,8 +94,7 @@ describe('ld-bg-cells', () => {
           `<div class="ld-bg-cells ld-bg-cells--${cellType} ">
             <div class="ld-bg-cells__pattern"></div>
           </div>`,
-          undefined,
-          LdBgCells
+          { components: LdBgCells }
         )
         const results = await page.compareScreenshot()
 
@@ -109,8 +107,7 @@ describe('ld-bg-cells', () => {
         `<div class="ld-bg-cells ld-bg-cells--safc">
           <div class="ld-bg-cells__pattern ld-bg-cells__pattern--repeat"></div>
         </div>`,
-        undefined,
-        LdBgCells
+        { components: LdBgCells }
       )
       const results = await page.compareScreenshot()
 
@@ -130,8 +127,7 @@ describe('ld-bg-cells', () => {
             --ld-bg-cells-size: 150%;
           }
         </style>`,
-        undefined,
-        LdBgCells
+        { components: LdBgCells }
       )
       const results = await page.compareScreenshot()
 
@@ -148,8 +144,7 @@ describe('ld-bg-cells', () => {
             </p>
           </div>
         </div>`,
-        undefined,
-        [LdBgCells, LdTypo]
+        { components: [LdBgCells, LdTypo] }
       )
       const results = await page.compareScreenshot()
 

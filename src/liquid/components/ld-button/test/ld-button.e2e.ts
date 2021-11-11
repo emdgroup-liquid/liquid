@@ -23,8 +23,6 @@ const cssIconComponent = `
   </span>
 `
 
-const allowableMismatchedRatio = 0.02
-
 describe('ld-button', () => {
   for (const mode of modes) {
     const modeStr = mode ? `mode ${mode}` : 'mode none'
@@ -34,7 +32,7 @@ describe('ld-button', () => {
           `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`hover`, async () => {
         const page = await getPageWithContent(
@@ -42,7 +40,7 @@ describe('ld-button', () => {
         )
         await page.hover('ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`focus`, async () => {
         const page = await getPageWithContent(
@@ -50,7 +48,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`active`, async () => {
         const page = await getPageWithContent(
@@ -59,7 +57,7 @@ describe('ld-button', () => {
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Disabled
@@ -68,7 +66,7 @@ describe('ld-button', () => {
           `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`disabled hover`, async () => {
         const page = await getPageWithContent(
@@ -76,7 +74,7 @@ describe('ld-button', () => {
         )
         await page.hover('ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`disabled focus`, async () => {
         const page = await getPageWithContent(
@@ -84,7 +82,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`disabled active`, async () => {
         const page = await getPageWithContent(
@@ -93,7 +91,7 @@ describe('ld-button', () => {
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Aria-disabled
@@ -102,7 +100,7 @@ describe('ld-button', () => {
           `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`aria-disabled hover`, async () => {
         const page = await getPageWithContent(
@@ -110,7 +108,7 @@ describe('ld-button', () => {
         )
         await page.hover('ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`aria-disabled focus`, async () => {
         const page = await getPageWithContent(
@@ -118,7 +116,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`aria-disabled active`, async () => {
         const page = await getPageWithContent(
@@ -127,7 +125,7 @@ describe('ld-button', () => {
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Progress button
@@ -136,7 +134,7 @@ describe('ld-button', () => {
           `<ld-button progress="0.75">Text</ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       it(`progress button secondary`, async () => {
@@ -144,7 +142,7 @@ describe('ld-button', () => {
           `<ld-button progress="0.75" mode="secondary">Text</ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       it(`progress button ghost`, async () => {
@@ -152,7 +150,7 @@ describe('ld-button', () => {
           `<ld-button progress="0.75" mode="ghost">Text</ld-button>`
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // CSS component
@@ -160,126 +158,114 @@ describe('ld-button', () => {
       it(`css component default ${modeStr}`, async () => {
         const page = await getPageWithContent(
           `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component hover`, async () => {
         const page = await getPageWithContent(
           `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.hover('.ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component focus`, async () => {
         const page = await getPageWithContent(
           `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component active`, async () => {
         const page = await getPageWithContent(
           `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Disabled CSS component
       it(`css component disabled`, async () => {
         const page = await getPageWithContent(
           `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component disabled hover`, async () => {
         const page = await getPageWithContent(
           `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.hover('.ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component disabled focus`, async () => {
         const page = await getPageWithContent(
           `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component disabled active`, async () => {
         const page = await getPageWithContent(
           `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Aria-disabled CSS component
       it(`css component aria-disabled`, async () => {
         const page = await getPageWithContent(
           `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component aria-disabled hover`, async () => {
         const page = await getPageWithContent(
           `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.hover('.ld-button')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component aria-disabled focus`, async () => {
         const page = await getPageWithContent(
           `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
       it(`css component aria-disabled active`, async () => {
         const page = await getPageWithContent(
           `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          undefined,
-          [LdButton, LdIcon]
+          { components: [LdButton, LdIcon] }
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       // Progress button CSS component
@@ -289,11 +275,10 @@ describe('ld-button', () => {
             Text
             <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
           </button>`,
-          undefined,
-          LdButton
+          { components: LdButton }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       it(`css component progress button secondary`, async () => {
@@ -302,11 +287,10 @@ describe('ld-button', () => {
             Text
             <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
           </button>`,
-          undefined,
-          LdButton
+          { components: LdButton }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
 
       it(`css component progress button ghost`, async () => {
@@ -315,11 +299,10 @@ describe('ld-button', () => {
             Text
             <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
           </button>`,
-          undefined,
-          LdButton
+          { components: LdButton }
         )
         const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+        expect(results).toMatchScreenshot()
       })
     })
   }
@@ -330,14 +313,14 @@ describe('ld-button', () => {
         '<ld-button size="sm">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('lg', async () => {
       const page = await getPageWithContent(
         '<ld-button size="lg">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -347,21 +330,21 @@ describe('ld-button', () => {
         '<ld-button><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('icon button sm', async () => {
       const page = await getPageWithContent(
         '<ld-button size="sm"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('icon button lg', async () => {
       const page = await getPageWithContent(
         '<ld-button size="lg"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -371,28 +354,28 @@ describe('ld-button', () => {
         '<ld-button style="width: 8rem" justify-content="center">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('justify start', async () => {
       const page = await getPageWithContent(
         '<ld-button style="width: 8rem" justify-content="start">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('justify end', async () => {
       const page = await getPageWithContent(
         '<ld-button style="width: 8rem" justify-content="end">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('justify between', async () => {
       const page = await getPageWithContent(
         '<ld-button style="width: 8rem" justify-content="between">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -402,21 +385,21 @@ describe('ld-button', () => {
         '<ld-button>Almost before we knew it, we had left the ground. A shining crescent far beneath the flying vessel. Then came the night of the first falling star.</ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('multiline text left', async () => {
       const page = await getPageWithContent(
         '<ld-button align-text="left"><ld-icon name="placeholder"></ld-icon>Almost before we knew it, we had left the ground. A shining crescent far beneath the flying vessel. Then came the night of the first falling star.</ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
     it('multiline text right', async () => {
       const page = await getPageWithContent(
         '<ld-button align-text="right">Almost before we knew it, we had left the ground. A shining crescent far beneath the flying vessel. Then came the night of the first falling star.<ld-icon name="placeholder"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 
@@ -426,7 +409,7 @@ describe('ld-button', () => {
         `<ld-button href="#" target="_blank">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
       )
       const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot({ allowableMismatchedRatio })
+      expect(results).toMatchScreenshot()
     })
   })
 

@@ -41,8 +41,9 @@ describe('ld-tooltip', () => {
       </ld-tooltip>`
     )
     await page.keyboard.press('Tab')
-    const results = await page.compareScreenshot()
+    await new Promise((resolve) => setTimeout(resolve, 200))
 
+    const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
   })
 
@@ -54,6 +55,8 @@ describe('ld-tooltip', () => {
       </ld-tooltip>`
     )
     await page.hover('ld-tooltip')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -81,6 +84,8 @@ describe('ld-tooltip', () => {
       </ld-tooltip>`
     )
     await page.keyboard.press('Tab')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -95,6 +100,8 @@ describe('ld-tooltip', () => {
       </ld-tooltip>`
     )
     await page.hover('ld-tooltip')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -132,6 +139,8 @@ describe('ld-tooltip', () => {
       trigger!</p>`
     )
     await page.keyboard.press('Tab')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -151,6 +160,8 @@ describe('ld-tooltip', () => {
       trigger!</p>`
     )
     await page.hover('ld-tooltip')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -164,7 +175,7 @@ describe('ld-tooltip', () => {
         </ld-tooltip>`
       )
       await page.keyboard.press('Tab')
-      await new Promise((resolve) => setTimeout(resolve))
+      await new Promise((resolve) => setTimeout(resolve, 200))
 
       const results = await page.compareScreenshot()
 
@@ -178,7 +189,7 @@ describe('ld-tooltip', () => {
         </ld-tooltip>`
       )
       await page.keyboard.press('Tab')
-      await new Promise((resolve) => setTimeout(resolve))
+      await new Promise((resolve) => setTimeout(resolve, 200))
 
       const results = await page.compareScreenshot()
 
@@ -193,7 +204,7 @@ describe('ld-tooltip', () => {
         </ld-tooltip>`
       )
       await page.keyboard.press('Tab')
-      await new Promise((resolve) => setTimeout(resolve))
+      await new Promise((resolve) => setTimeout(resolve, 200))
 
       const results = await page.compareScreenshot()
 
@@ -208,7 +219,7 @@ describe('ld-tooltip', () => {
         </ld-tooltip>`
       )
       await page.keyboard.press('Tab')
-      await new Promise((resolve) => setTimeout(resolve))
+      await new Promise((resolve) => setTimeout(resolve, 200))
 
       const results = await page.compareScreenshot()
 
