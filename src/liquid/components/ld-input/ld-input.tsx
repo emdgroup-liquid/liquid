@@ -46,6 +46,9 @@ export class LdInput implements InnerFocusable {
   /** The input placeholder. */
   @Prop() placeholder: string
 
+  /** Hint for form autofill feature. */
+  @Prop({ mutable: true, reflect: true }) autocomplete: string
+
   /** The input type. */
   @Prop() type: string
 
@@ -78,15 +81,21 @@ export class LdInput implements InnerFocusable {
   componentWillLoad() {
     const outerForm = this.el.closest('form')
 
-    if (outerForm && this.name) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.type = 'hidden'
-      this.hiddenInput.name = this.name
-      if (this.value) {
-        this.hiddenInput.value = this.value
+    if (outerForm) {
+      if (!this.autocomplete) {
+        this.autocomplete = outerForm.getAttribute('autocomplete')
       }
 
-      this.el.appendChild(this.hiddenInput)
+      if (this.name) {
+        this.hiddenInput = document.createElement('input')
+        this.hiddenInput.type = 'hidden'
+        this.hiddenInput.name = this.name
+        if (this.value) {
+          this.hiddenInput.value = this.value
+        }
+
+        this.el.appendChild(this.hiddenInput)
+      }
     }
 
     this.el.querySelectorAll('ld-button').forEach((button) => {
@@ -217,6 +226,7 @@ export class LdInput implements InnerFocusable {
           ref={(el) => (this.input = el)}
           type={this.type}
           {...cloneAttributes(this.el)}
+          autocomplete={this.autocomplete}
           value={this.value}
         />
         {this.type === 'file' && (
