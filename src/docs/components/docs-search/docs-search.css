@@ -73,6 +73,7 @@
   overflow: hidden auto;
   border-bottom-left-radius: var(--ld-br-m);
   border-bottom-right-radius: var(--ld-br-m);
+  transform: translateY(-1px); /* fixes render issue on safari */
 }
 
 .docs-search__results--expanded {
