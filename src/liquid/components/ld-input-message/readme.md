@@ -91,6 +91,19 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 | `"icon"` | Image tag used for the icon |
 
 
+## Dependencies
+
+### Depends on
+
+- [ld-icon](../ld-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ld-input-message --> ld-icon
+  style ld-input-message fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

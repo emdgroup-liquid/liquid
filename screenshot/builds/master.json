@@ -4738,7 +4738,7 @@
     },
     {
       "id": "90a3534d",
-      "image": "f38a4676497ec52a9829ee4e678f6139.png",
+      "image": "c40b75479b747fab1f4f0dc91a26feb5.png",
       "userAgent": "default",
       "desc": "ld-label position renders at the top by default with input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -4790,7 +4790,7 @@
     },
     {
       "id": "59a24750",
-      "image": "cacd122a3d646a26d43fc349e1a52c2a.png",
+      "image": "b05d4134e3f35fe58a6d1d44c8043176.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -4816,7 +4816,7 @@
     },
     {
       "id": "2aba4500",
-      "image": "284ac51f2a3e7a6b0e4eeab73de9cda9.png",
+      "image": "47b50ab9ebefbe4e7bb68338cb52066d.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with left-aligned input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -4868,7 +4868,7 @@
     },
     {
       "id": "8e808ff3",
-      "image": "486edec90dfc7db1875c255158d5222a.png",
+      "image": "f99aa6b83e089e4ca6c2463399deb187.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -4894,7 +4894,7 @@
     },
     {
       "id": "e32c3429",
-      "image": "e593efc7fd500de27bda173d520a932d.png",
+      "image": "18202831627e0238d8e26f730d746e6f.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with left-aligned input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
