@@ -1,0 +1,1 @@
+const s=s=>Object.values(s.attributes).reduce(((s,{name:t,value:a})=>(!t||["style","id","class","slot","part"].includes(t)||(s[t]=a||!0),s)),{});export{s as c}

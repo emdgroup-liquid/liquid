@@ -1,1 +1,0 @@
-function t(t){var i;const n=null!==(i=null!=t?t:this.el)&&void 0!==i?i:this.element;if(!n)throw new Error(`Component ${this.name} is missing @Element() decorator.`);for(const t in this)if(t!==t.toLowerCase()){const i=n.getAttribute(t.toLowerCase());i&&(this[t]=i)}}export{t as a}

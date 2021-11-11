@@ -1,1 +1,0 @@
-function e(e){const t=Object.assign({},e.attributes);return Object.keys(t).forEach((e=>{["style","id","class"].includes(t[e].name)&&delete t[e]})),Object.values(t).reduce(((e,t)=>t.name?(e[t.name]=t.value||!0,e):e),{})}export{e as c}
