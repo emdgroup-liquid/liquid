@@ -154,7 +154,7 @@ export class DocsSearch {
     this.isActive = true
     this.searchInput.value = ''
     setTimeout(() => {
-      this.searchInput.querySelector('input').focus()
+      this.searchInput.focusInner()
     })
   }
 
