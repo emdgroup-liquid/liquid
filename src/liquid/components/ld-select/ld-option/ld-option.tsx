@@ -1,6 +1,5 @@
 import '../../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Prop, Element } from '@stencil/core'
-import { applyPropAliases } from '../../../utils/applyPropAliases'
 
 /**
  * @virtualProp ref - reference to component
@@ -32,7 +31,6 @@ export class LdOption {
   @Prop() disabled: boolean
 
   componentWillLoad() {
-    applyPropAliases.apply(this)
     // Setting selected via prop directly triggers the mutation observer to fire twice on attribute chage.
     // This is indeed only true for the selected attribute. The disabled attribute works fine when assigned directly.
     if (this.selected) {

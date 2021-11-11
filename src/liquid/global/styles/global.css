@@ -6,5 +6,3 @@
 @import 'spacings/spacings.css';
 @import 'theming/theming.css';
 @import 'typography/typography.css';
-
-@import '../../components/ld-tooltip/ld-tooltip.global.css';
