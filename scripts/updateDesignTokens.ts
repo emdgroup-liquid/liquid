@@ -83,6 +83,18 @@ function parseThemes(items, styles) {
   return themes
 }
 
+function parseBorderRadii(items) {
+  const borderRadii = {}
+
+  items.forEach((item) => {
+    borderRadii[item.name.toLowerCase()] = item.cornerRadius
+      ? pxToRem(item.cornerRadius)
+      : '0'
+  })
+
+  return borderRadii
+}
+
 function parseShadows(items) {
   const shadows = {}
 
@@ -224,12 +236,9 @@ async function getTokensFromFigma(
       ],
       styles
     ),
-    borderRadii: {
-      full: '999rem',
-      s: '0.125rem',
-      m: '0.25rem',
-      l: '0.5rem',
-    },
+    borderRadii: parseBorderRadii(
+      figmaData.find((child) => child.name === 'Border Radius').children
+    ),
   }
 
   return tokens
