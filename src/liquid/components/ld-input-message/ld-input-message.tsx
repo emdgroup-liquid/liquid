@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Prop, getAssetPath, Host } from '@stencil/core'
+import { Component, h, Prop, Host } from '@stencil/core'
 
 /**
  * @virtualProp ref - reference to component
@@ -19,12 +19,11 @@ export class LdInputMessage {
   render() {
     return (
       <Host class={`ld-input-message ld-input-message--${this.mode}`}>
-        <img
-          alt=""
+        <ld-icon
           class="ld-input-message__icon"
+          name={this.mode}
           part="icon"
-          role="presentation"
-          src={getAssetPath(`./assets/${this.mode}.svg`)}
+          size="sm"
         />
         <span aria-live="assertive">
           <slot></slot>

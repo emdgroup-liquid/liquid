@@ -265,6 +265,19 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 | `"icon"` | Actual SVG element |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-input-message](../ld-input-message)
+
+### Graph
+```mermaid
+graph TD;
+  ld-input-message --> ld-icon
+  style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  
