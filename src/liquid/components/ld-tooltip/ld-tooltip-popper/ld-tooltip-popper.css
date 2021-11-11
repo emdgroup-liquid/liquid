@@ -26,7 +26,7 @@
     --ld-tooltip-offset-y: 0px;
 
     /* colors */
-    --tooltip-col: var(--ld-col-neutral);
+    --tooltip-col: var(--ld-col-neutral-900);
     --tooltip-bg-col: var(--ld-col-wht);
 
     animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);

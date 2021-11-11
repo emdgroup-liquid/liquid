@@ -14,9 +14,9 @@
   --ld-tab-bg-col: var(--ld-col-neutral-010);
   --ld-tab-disabled-bg-col-focus: var(--ld-col-neutral-400);
   --ld-tab-disabled-text-col-focus: var(--ld-col-wht);
-  --ld-tab-disabled-text-col: var(--ld-col-neutral);
+  --ld-tab-disabled-text-col: var(--ld-col-neutral-900);
   --ld-tab-text-col-focus: var(--ld-col-neutral-100);
-  --ld-tab-text-col: var(--ld-col-neutral);
+  --ld-tab-text-col: var(--ld-col-neutral-900);
 
   /* theme colors */
   --ld-tab-selected-border-col-focus: var(--ld-thm-primary-focus);

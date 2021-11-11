@@ -30,7 +30,7 @@
   overflow: hidden;
   border-style: solid;
   border-width: var(--ld-sp-1);
-  color: var(--ld-col-neutral);
+  color: var(--ld-col-neutral-900);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
@@ -54,7 +54,7 @@
   color: var(--ld-col-wht);
 
   &.docs-color--dark {
-    color: var(--ld-col-neutral);
+    color: var(--ld-col-neutral-900);
   }
 
   .docs-copy-to-cb {
