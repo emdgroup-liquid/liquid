@@ -20,7 +20,7 @@
   &__tooltip {
     display: contents;
 
-    > .ld-tooltip__trigger {
+    &::part(trigger) {
       height: 100%;
     }
   }
