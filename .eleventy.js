@@ -85,7 +85,7 @@ module.exports = function (eleventyConfig) {
         return '[]'
       }
 
-      if (!commits || !Array.isArray(commits)) {
+      if (!Array.isArray(commits)) {
         return '[]'
       }
 
