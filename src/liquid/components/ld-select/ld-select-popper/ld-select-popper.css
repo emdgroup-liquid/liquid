@@ -4,8 +4,8 @@
   --ld-select-popper-max-height: calc(100vh - 1.25rem);
 
   /* colors */
-  --ld-select-popper-col-border: var(--ld-col-neutral-100);
-  --ld-select-popper-col-bg: var(--ld-col-wht);
+  --ld-select-popper-border-col: var(--ld-col-neutral-100);
+  --ld-select-popper-bg-col: var(--ld-col-wht);
   min-width: var(--ld-select-popper-min-width);
 
   ld-option-internal:last-of-type::part(option) {
@@ -37,7 +37,7 @@
   overflow-y: auto;
   border-bottom-left-radius: var(--ld-br-m);
   border-bottom-right-radius: var(--ld-br-m);
-  border-top: solid var(--ld-select-popper-col-border) var(--ld-sp-1);
+  border-top: solid var(--ld-select-popper-border-col) var(--ld-sp-1);
 
   .ld-select-popper--detached &,
   .ld-select-popper--pinned & {
@@ -53,7 +53,7 @@
   box-shadow: var(--ld-shadow-sticky);
   border-radius: var(--ld-br-m);
   pointer-events: none;
-  background-color: var(--ld-select-popper-col-bg);
+  background-color: var(--ld-select-popper-bg-col);
   z-index: -1;
   bottom: 0;
 
