@@ -85,6 +85,10 @@ module.exports = function (eleventyConfig) {
         return '[]'
       }
 
+      if (!Array.isArray(commits)) {
+        return '[]'
+      }
+
       return JSON.stringify([
         ...new Set(
           commits.map((entry) => entry.author.html_url.split('/').pop())
