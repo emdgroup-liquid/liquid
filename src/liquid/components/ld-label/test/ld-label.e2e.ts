@@ -250,7 +250,7 @@ describe('ld-label', () => {
             This field is required.
           </span>
         </label>`,
-        { components: [LdInput, LdInputMessage, LdLabel] }
+        { components: [LdIcon, LdInput, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -285,7 +285,7 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        { components: [LdToggle, LdInputMessage, LdLabel] }
+        { components: [LdIcon, LdToggle, LdInputMessage, LdLabel] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
