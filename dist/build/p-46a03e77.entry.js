@@ -1,0 +1,1 @@
+import{r as a,h as l,H as t}from"./p-e65bc256.js";let e=class{constructor(l){a(this,l)}render(){return l(t,{role:"tabpanel",class:"ld-tabpanel",tabindex:"-1"},l("slot",null))}};e.style="";export{e as ld_tabpanel}
