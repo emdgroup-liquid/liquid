@@ -357,7 +357,7 @@
               title: 'Icon',
               tags: '',
               url: '/liquid/components/ld-icon/',
-              headings: 'ExamplesDifferent sizesColorWith custom SVG iconAvailable iconsPropertiesSlotsShadow Parts',
+              headings: 'ExamplesDifferent sizesColorWith custom SVG iconAvailable iconsPropertiesSlotsShadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -380,7 +380,7 @@
               title: 'Input Message',
               tags: '',
               url: '/liquid/components/ld-input-message/',
-              headings: 'ExamplesAs error messageAs info messageAs success messagePropertiesShadow Parts',
+              headings: 'ExamplesAs error messageAs info messageAs success messagePropertiesShadow PartsDependenciesDepends onGraph',
               breadcrumbs: [
                 
                 
@@ -1432,7 +1432,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav">
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#different-sizes">Different sizes</a></li><li><a href="#color">Color</a></li><li><a href="#with-custom-svg-icon">With custom SVG icon</a></li></ol></li><li><a href="#available-icons">Available icons</a></li><li><a href="#properties">Properties</a></li><li><a href="#slots">Slots</a></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol></nav>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#different-sizes">Different sizes</a></li><li><a href="#color">Color</a></li><li><a href="#with-custom-svg-icon">With custom SVG icon</a></li></ol></li><li><a href="#available-icons">Available icons</a></li><li><a href="#properties">Properties</a></li><li><a href="#slots">Slots</a></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#graph">Graph</a></li></ol></li></ol></nav>
       </docs-toc>
     
 
@@ -1733,10 +1733,20 @@
 </tr>
 </tbody>
 </table>
+<h2 id="dependencies">Dependencies <a class="header-anchor" href="components/ld-icon/#dependencies"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="used-by">Used by <a class="header-anchor" href="components/ld-icon/#used-by"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<ul>
+<li><a href="../ld-input-message">ld-input-message</a></li>
+</ul>
+<h3 id="graph">Graph <a class="header-anchor" href="components/ld-icon/#graph"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<pre class="mermaid">graph TD;
+  ld-input-message --> ld-icon
+  style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
+</pre>
 <hr>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 
