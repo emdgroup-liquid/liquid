@@ -82,7 +82,6 @@
 
   > input {
     align-self: stretch;
-    box-sizing: border-box;
     max-height: var(--ld-input-max-height-md);
 
     &[type='file'] {
@@ -152,6 +151,7 @@
     border-radius: var(--ld-br-m);
     outline: none;
     appearance: none;
+    box-sizing: border-box;
 
     &::placeholder {
       color: var(--ld-input-placeholder-col);
