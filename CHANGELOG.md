@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.14](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-checkbox:** emits input event on click from outside ([bf2985c](https://github.com/emdgroup-liquid/liquid/commit/bf2985c3ab3a1e815161afd01983720ff46cef90))
+* **ld-radio:** emits input event on click from outside ([c07d5a1](https://github.com/emdgroup-liquid/liquid/commit/c07d5a172b6e7f0b01a0b6d911fb64a6f2b65a4b))
+* **ld-select:** add focus inner method for click on label ([700da3b](https://github.com/emdgroup-liquid/liquid/commit/700da3b1123fe21fa760202a85cbbb1a7de157d0))
+
 # [1.0.0-rc.13](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-11-16)
 
 
