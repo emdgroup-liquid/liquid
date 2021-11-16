@@ -120,7 +120,6 @@ export class LdRadio implements InnerFocusable {
     }
 
     this.checked = true
-    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
   }
 
   private focusAndSelect(dir: 'next' | 'prev') {
@@ -128,7 +127,7 @@ export class LdRadio implements InnerFocusable {
       (ldRadio) => ldRadio.getAttribute('name') === this.name
     )
     ldRadios.forEach((ldRadio, index) => {
-      if (ldRadio === ((this.el as unknown) as HTMLLdRadioElement)) {
+      if (ldRadio === (this.el as unknown as HTMLLdRadioElement)) {
         const targetLdRadio = ldRadios[index + (dir === 'next' ? 1 : -1)]
         if (targetLdRadio) {
           targetLdRadio.focusInner()
