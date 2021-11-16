@@ -227,4 +227,38 @@ describe('ld-radio', () => {
       expect(checked).toBe(false)
     })
   })
+
+  it('emits input event', async () => {
+    const page = await getPageWithContent(
+      `
+      <form id="example-form" novalidate>
+        <ld-radio value="orange" name="fruit" required invalid></ld-radio>
+        <ld-radio value="banana" name="fruit" required invalid></ld-radio>
+      </form>
+      <script>
+        const orangeRadio = document.querySelector('#example-form ld-radio:first-of-type')
+        const bananaRadio = document.querySelector('#example-form ld-radio:last-of-type')
+        function validateInput() {
+          value = orangeRadio.checked || bananaRadio.checked
+          if (!value) {
+            orangeRadio.setAttribute('invalid', 'true')
+            bananaRadio.setAttribute('invalid', 'true')
+            return false
+          }
+          orangeRadio.removeAttribute('invalid')
+          bananaRadio.removeAttribute('invalid')
+          return true
+        }
+        orangeRadio.addEventListener('input', validateInput)
+        bananaRadio.addEventListener('input', validateInput)
+      </script>`
+    )
+    const ldRadioOrange = await page.find('ld-radio[value="orange"]')
+    expect(ldRadioOrange).toHaveAttribute('invalid')
+
+    ldRadioOrange.click()
+    await page.waitForChanges()
+
+    expect(ldRadioOrange).not.toHaveAttribute('invalid')
+  })
 })
