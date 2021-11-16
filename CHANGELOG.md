@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.13](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-checkbox:** remove redundant input event dispatch ([0e95969](https://github.com/emdgroup-liquid/liquid/commit/0e95969bf07c16b0eb48d5b3a890f5404275e394))
+* **ld-icon:** replace icon instead of appending it on name change ([90fbcfe](https://github.com/emdgroup-liquid/liquid/commit/90fbcfeafbbd8a5c3e3b6b0563b0bdb1309c354f))
+* **ld-input:** add box-sizing border-box to textarea ([31a60c1](https://github.com/emdgroup-liquid/liquid/commit/31a60c1cb2c9d71bea8cf87a1c40d0723396d1a8))
+* **ld-radio:** remove redundant input event dispatch ([b063726](https://github.com/emdgroup-liquid/liquid/commit/b06372676c60d8cafaacf6671b3534c2be414cfa))
+
 # [1.0.0-rc.12](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-16)
 
 
