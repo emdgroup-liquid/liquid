@@ -120,6 +120,14 @@ export class LdRadio implements InnerFocusable {
     }
 
     this.checked = true
+
+    if (!ev.isTrusted) {
+      // This happens, when a click event is dispatched on the host element
+      // from the outside i.e. on click on a parent ld-label element.
+      this.el.dispatchEvent(
+        new Event('input', { bubbles: true, composed: true })
+      )
+    }
   }
 
   private focusAndSelect(dir: 'next' | 'prev') {
