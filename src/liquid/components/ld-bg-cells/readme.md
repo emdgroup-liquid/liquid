@@ -7,8 +7,8 @@ title: Background Cells
 permalink: components/ld-bg-cells/
 ---
 
-<!-- <link rel="stylesheet" href="/css_components/ld-bg-cells.css"> -->
-<!-- <link rel="stylesheet" href="/css_components/ld-typo.css"> -->
+<!-- <link rel="stylesheet" href="css_components/ld-bg-cells.css"> -->
+<!-- <link rel="stylesheet" href="css_components/ld-typo.css"> -->
 
 # ld-bg-cells
 

@@ -7,8 +7,8 @@ title: Button
 permalink: components/ld-button/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-button.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
 
 # ld-button
 

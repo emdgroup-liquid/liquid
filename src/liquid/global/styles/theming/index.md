@@ -7,7 +7,7 @@ title: Theming
 permalink: global/theming/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-button.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
 
 # Theming
 
