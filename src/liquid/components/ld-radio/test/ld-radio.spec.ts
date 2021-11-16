@@ -90,6 +90,20 @@ describe('ld-radio', () => {
     expect(spyBlur).toHaveBeenCalled()
   })
 
+  it('emits input event on click', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio />`,
+    })
+    const ldRadio = page.root
+
+    const spyInput = jest.fn()
+    ldRadio.addEventListener('input', spyInput)
+    ldRadio.click()
+
+    expect(spyInput).toHaveBeenCalled()
+  })
+
   it('allows to set inner focus', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
