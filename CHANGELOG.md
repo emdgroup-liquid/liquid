@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.12](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-icon:** replace icon instead of appending it on name change ([16605f0](https://github.com/emdgroup-liquid/liquid/commit/16605f068c9d7f87a929d0585d4b92df99661a9a))
+
 # [1.0.0-rc.11](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-16)
 
 
