@@ -34,6 +34,18 @@ describe('ld-icon', () => {
     expect(results).toMatchScreenshot()
   })
 
+  it('replaces existing icon on icon name change', async () => {
+    const page = await getPageWithContent(`<ld-icon name="add"></ld-icon>`)
+    const ldIcon = await page.find('ld-icon')
+    expect(ldIcon).toHaveClasses(['hydrated'])
+
+    ldIcon.setProperty('name', 'matryoshka')
+    await page.waitForChanges()
+
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
   describe('sizes', () => {
     it('sm', async () => {
       const page = await getPageWithContent(

@@ -33,6 +33,7 @@ export class LdIcon {
     const iconString = await fetchIcon(this.name)
 
     div.innerHTML = iconString.replace('<svg', '<svg part="icon"')
+    this.element.shadowRoot.innerHTML = ''
     this.element.shadowRoot.appendChild(div.firstChild)
   }
 
