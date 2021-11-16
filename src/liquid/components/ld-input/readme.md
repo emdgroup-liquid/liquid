@@ -7,11 +7,11 @@ title: Input
 permalink: components/ld-input/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-input.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
-<link rel="stylesheet" href="/css_components/ld-button.css">
-<link rel="stylesheet" href="/css_components/ld-label.css">
-<link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="css_components/ld-input.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
+<link rel="stylesheet" href="css_components/ld-label.css">
+<link rel="stylesheet" href="css_components/ld-input-message.css">
 
 # ld-input
 

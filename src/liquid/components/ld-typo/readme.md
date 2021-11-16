@@ -7,7 +7,7 @@ title: Typography
 permalink: components/ld-typo/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-typo.css">
+<link rel="stylesheet" href="css_components/ld-typo.css">
 
 # ld-typo
 
