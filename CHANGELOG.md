@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.11](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-16)
+
+
+### Bug Fixes
+
+* **changelog:** remove redundant entries ([f1bb6bc](https://github.com/emdgroup-liquid/liquid/commit/f1bb6bc28ba945cb99b3b0f9636a5c56f8038cbb))
+* **ld-input:** add box-sizing border-box to textarea ([dc689e4](https://github.com/emdgroup-liquid/liquid/commit/dc689e4b754336a36bbc4ef6edbb44ad5c17c3e1))
+
 # [1.0.0-rc.10](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2021-11-15)
 
 
