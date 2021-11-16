@@ -4685,6 +4685,32 @@
       "isMobile": false
     },
     {
+      "id": "ab9cae96",
+      "image": "6b11baeb77f4acbd9c2231aafa449edc.png",
+      "userAgent": "default",
+      "desc": "ld-input multiline css component",
+      "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "fdd9fe79",
+      "image": "6b11baeb77f4acbd9c2231aafa449edc.png",
+      "userAgent": "default",
+      "desc": "ld-input multiline web component",
+      "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "db9080ce",
       "image": "f063bbae55a3e0af086a49487af3d576.png",
       "userAgent": "default",
