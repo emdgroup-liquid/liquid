@@ -242,4 +242,35 @@ describe('ld-checkbox', () => {
       expect(checked).toBe(false)
     })
   })
+
+  it('emits input event', async () => {
+    const page = await getPageWithContent(
+      `
+      <form id="example-form" novalidate>
+        <ld-checkbox id="example-form-terms" name="terms" required checked></ld-checkbox>
+      </form>
+      <script>
+        const form = document.querySelector('#example-form')
+        const ldCheckbox = document.querySelector('#example-form-terms')
+        function validateInput() {
+          if (!form.terms.checked) {
+            ldCheckbox.setAttribute('invalid', 'true')
+            return false
+          }
+          ldCheckbox.removeAttribute('invalid')
+          return true
+        }
+        ldCheckbox.addEventListener('input', ev => {
+          validateInput()
+        })
+      </script>`
+    )
+    const ldCheckbox = await page.find('ld-checkbox')
+    expect(ldCheckbox).not.toHaveAttribute('invalid')
+
+    ldCheckbox.click()
+    await page.waitForChanges()
+
+    expect(ldCheckbox).toHaveAttribute('invalid')
+  })
 })
