@@ -25,7 +25,7 @@ global.MutationObserver = TriggerableMutationObserver as MutationObserver
 
 class FocusManager {
   focus(el) {
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
     doc.activeElement = el
   }
 }
@@ -58,8 +58,8 @@ async function getInternalOptions(page: SpecPage) {
 
 function getShadow(page: SpecPage) {
   const ldSelect = page.root
-  const doc = (document as unknown) as { activeElement: Element }
-  const shadowDoc = (ldSelect.shadowRoot as unknown) as {
+  const doc = document as unknown as { activeElement: Element }
+  const shadowDoc = ldSelect.shadowRoot as unknown as {
     activeElement: Element
   }
   return {
@@ -101,9 +101,8 @@ describe('ld-select', () => {
       '.ld-select-popper'
     )
     const slottedOptions = ldSelect.querySelectorAll('ld-option')
-    const internalOptions = ldSelectPopper.querySelectorAll(
-      'ld-option-internal'
-    )
+    const internalOptions =
+      ldSelectPopper.querySelectorAll('ld-option-internal')
 
     expect(ldSelectEl.classList.contains('ld-select--expanded')).toBeTruthy()
     expect(slottedOptions.length).toEqual(2)
@@ -211,9 +210,8 @@ describe('ld-select', () => {
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
 
-    const internalOptions = ldSelectPopper.querySelectorAll(
-      'ld-option-internal'
-    )
+    const internalOptions =
+      ldSelectPopper.querySelectorAll('ld-option-internal')
 
     expect(internalOptions.length).toEqual(2)
 
@@ -427,7 +425,7 @@ describe('ld-select', () => {
 
     ldInternalOptions[0].focus = jest.fn(focusManager.focus)
     ldInternalOptions[1].focus = jest.fn(focusManager.focus)
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
 
     doc.activeElement = internalOptions[1]
     ldInternalOptions[1].dispatchEvent(
@@ -474,9 +472,8 @@ describe('ld-select', () => {
     await triggerPopperWithClick(page)
 
     const ldSelectPopper = await page.body.querySelector('ld-select-popper')
-    const selectPopper = ldSelectPopper.shadowRoot.querySelector(
-      '.ld-select-popper'
-    )
+    const selectPopper =
+      ldSelectPopper.shadowRoot.querySelector('.ld-select-popper')
 
     expect(
       selectPopper.classList.contains('ld-select-popper--detached')
@@ -564,7 +561,7 @@ describe('ld-select', () => {
       `,
     })
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
     const ldSelect = page.root
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
@@ -590,7 +587,7 @@ describe('ld-select', () => {
       `,
     })
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
     const ldSelect = await page.root
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
@@ -617,7 +614,7 @@ describe('ld-select', () => {
       `,
     })
 
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
     const ldSelect = await page.root
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
@@ -1806,7 +1803,7 @@ describe('ld-select', () => {
   it('displays more indicator with maxRows prop set in multiple mode', async () => {
     jest
       .spyOn(
-        (LdSelect.prototype as unknown) as { isOverflowing },
+        LdSelect.prototype as unknown as { isOverflowing },
         'isOverflowing'
       )
       .mockImplementation(() => true)
@@ -1848,7 +1845,7 @@ describe('ld-select', () => {
 
     jest
       .spyOn(
-        (LdSelect.prototype as unknown) as { isOverflowing },
+        LdSelect.prototype as unknown as { isOverflowing },
         'isOverflowing'
       )
       .mockImplementation(() => false)
@@ -1991,5 +1988,26 @@ describe('ld-select', () => {
     await page.waitForChanges()
 
     expect(page.body).toMatchSnapshot()
+  })
+
+  it('implements focus inner', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit" popper-class="ld-select__popper--fruits">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
+    ;(btnTrigger as HTMLElement).focus = jest.fn(focusManager.focus)
+
+    await page.root.focusInner()
+    expect((btnTrigger as HTMLElement).focus).toHaveBeenCalledTimes(1)
   })
 })

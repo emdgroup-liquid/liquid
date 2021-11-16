@@ -10,6 +10,7 @@ import {
   State,
   Watch,
   EventEmitter,
+  Method,
 } from '@stencil/core'
 import Tether from 'tether'
 import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
@@ -28,7 +29,7 @@ type SelectOption = { value: string; text: string }
   styleUrl: 'ld-select.css',
   shadow: true,
 })
-export class LdSelect {
+export class LdSelect implements InnerFocusable {
   @Element() el: HTMLElement
 
   private selectRef!: HTMLElement
@@ -128,9 +129,9 @@ export class LdSelect {
   handleTypeAhead(newQuery?: string) {
     if (!newQuery) return
 
-    const options = (Array.from(
+    const options = Array.from(
       this.listboxRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as LdOptionInternal[]
+    ) as unknown as LdOptionInternal[]
     const values = options.map((option) => option.value)
     let index = values.findIndex(
       (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
@@ -180,6 +181,14 @@ export class LdSelect {
    */
   @Event({ bubbles: true, cancelable: false, composed: true })
   focusout: EventEmitter<string[]>
+
+  /** Sets focus on the trigger button. */
+  @Method()
+  async focusInner() {
+    if (!this.disabled) {
+      this.triggerRef.focus()
+    }
+  }
 
   private isOverflowing() {
     return (
@@ -282,7 +291,7 @@ export class LdSelect {
   }
 
   private updatePopperShadowHeight() {
-    const ldPopper = (this.listboxRef as unknown) as LdSelectPopper
+    const ldPopper = this.listboxRef as unknown as LdSelectPopper
     ldPopper.updateShadowHeight(
       `calc(100% + ${this.triggerRef.getBoundingClientRect().height}px)`
     )
@@ -338,9 +347,8 @@ export class LdSelect {
     if (!initialized) {
       children = this.el.querySelectorAll('ld-option')
     } else {
-      children = this.internalOptionsContainerRef.querySelectorAll(
-        'ld-option-internal'
-      )
+      children =
+        this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
     }
 
     if (!children.length) {
@@ -351,7 +359,7 @@ export class LdSelect {
 
     const selectedChildren = Array.from<HTMLElement>(children).filter(
       (child) => {
-        return ((child as unknown) as LdOptionInternal).selected
+        return (child as unknown as LdOptionInternal).selected
       }
     )
 
@@ -466,7 +474,7 @@ export class LdSelect {
   private clearSelection() {
     Array.from(this.listboxRef.querySelectorAll('ld-option-internal')).forEach(
       (option) => {
-        ;((option as unknown) as LdOptionInternal).selected = false
+        ;(option as unknown as LdOptionInternal).selected = false
       }
     )
     this.selected = []
@@ -490,14 +498,14 @@ export class LdSelect {
 
     if (!this.multiple) {
       // Deselect currently selected option, if it's not the target option.
-      ;((Array.from(
-        this.listboxRef.querySelectorAll('ld-option-internal')
-      ) as unknown) as HTMLOptionElement[]).forEach((option) => {
+      ;(
+        Array.from(
+          this.listboxRef.querySelectorAll('ld-option-internal')
+        ) as unknown as HTMLOptionElement[]
+      ).forEach((option) => {
         if (
           option !==
-          ((target.closest(
-            'ld-option-internal'
-          ) as unknown) as HTMLOptionElement)
+          (target.closest('ld-option-internal') as unknown as HTMLOptionElement)
         ) {
           option.selected = false
         }
@@ -539,12 +547,12 @@ export class LdSelect {
   private handleEnd(ev) {
     // Move focus to the last option.
     ev.preventDefault()
-    const options = (Array.from(
+    const options = Array.from(
       this.listboxRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as LdOptionInternal[]
+    ) as unknown as LdOptionInternal[]
     if (
       document.activeElement !==
-      ((options[options.length - 1] as unknown) as HTMLElement)
+      (options[options.length - 1] as unknown as HTMLElement)
     ) {
       options[options.length - 1].focusOption()
     }
@@ -563,7 +571,7 @@ export class LdSelect {
         )
       }
       ldOption.focusOption()
-      const ldOptionHTMLEl = (ldOption as unknown) as HTMLElement
+      const ldOptionHTMLEl = ldOption as unknown as HTMLElement
       if (!ldOptionHTMLEl.hasAttribute('selected')) {
         ldOptionHTMLEl.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
       }
@@ -670,8 +678,8 @@ export class LdSelect {
         ) {
           this.selectAndFocus(
             ev,
-            (document.activeElement
-              .previousElementSibling as unknown) as LdOptionInternal
+            document.activeElement
+              .previousElementSibling as unknown as LdOptionInternal
           )
           return
         }
