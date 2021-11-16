@@ -93,7 +93,6 @@ export class LdCheckbox implements InnerFocusable {
     }
 
     this.checked = !this.checked
-    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
   }
 
   componentWillLoad() {

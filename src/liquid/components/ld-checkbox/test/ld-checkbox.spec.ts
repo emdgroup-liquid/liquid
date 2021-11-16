@@ -90,20 +90,6 @@ describe('ld-checkbox', () => {
     expect(spyBlur).toHaveBeenCalled()
   })
 
-  it('emits input event on click', async () => {
-    const page = await newSpecPage({
-      components: [LdCheckbox],
-      html: `<ld-checkbox></ld-checkbox>`,
-    })
-    const ldCheckbox = page.root
-
-    const spyInput = jest.fn()
-    ldCheckbox.addEventListener('input', spyInput)
-    ldCheckbox.click()
-
-    expect(spyInput).toHaveBeenCalled()
-  })
-
   it('allows to set inner focus', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
