@@ -1254,6 +1254,19 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | `input`    | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
 
 
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the trigger button.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot     | Description                                    |
