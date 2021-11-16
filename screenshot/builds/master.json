@@ -4035,6 +4035,19 @@
       "isMobile": false
     },
     {
+      "id": "1a6085ee",
+      "image": "bfbdc874abd3e1b63d6424c83049689d.png",
+      "userAgent": "default",
+      "desc": "ld-icon replaces existing icon on icon name change",
+      "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "652a1171",
       "image": "42c7b717e212fe83baa6bb0f35629284.png",
       "userAgent": "default",
