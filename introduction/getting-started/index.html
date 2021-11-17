@@ -73,7 +73,7 @@
               title: 'Getting started',
               tags: '',
               url: '/liquid/introduction/getting-started/',
-              headings: 'InstallImport and register Web Componentsself-lazy-loading bundlecustom-elements bundleImport stylesheets',
+              headings: 'InstallImport and register Web Componentsself-lazy-loading bundledist-custom-elementsdist-custom-elements-bundleImport stylesheets',
               breadcrumbs: [
                 
                 
@@ -1432,7 +1432,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#install">Install</a></li><li><a href="#import-and-register-web-components">Import and register Web Components</a><ol><li><a href="#self-lazy-loading-bundle">self-lazy-loading bundle</a></li><li><a href="#custom-elements-bundle">custom-elements bundle</a></li></ol></li><li><a href="#import-stylesheets">Import stylesheets</a></li></ol>
+        <ol><li><a href="#install">Install</a></li><li><a href="#import-and-register-web-components">Import and register Web Components</a><ol><li><a href="#self-lazy-loading-bundle">self-lazy-loading bundle</a></li><li><a href="#dist-custom-elements">dist-custom-elements</a></li><li><a href="#dist-custom-elements-bundle">dist-custom-elements-bundle</a></li></ol></li><li><a href="#import-stylesheets">Import stylesheets</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -1463,14 +1463,17 @@
 <pre class="language-shell"><code class="language-shell"><span class="token function">pnpm</span> <span class="token function">add</span> @emdgroup-liquid/liquid</code></pre>
 <h2 id="import-and-register-web-components">Import and register Web Components <a class="header-anchor" href="introduction/getting-started/#import-and-register-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.</p>
-<p>There are two options to choose from when importing and registering Liquid Web Components. Depending on your needs you should choose one or the other.</p>
+<p>There are multiple options to choose from when importing and registering Liquid Web Components:</p>
 <h3 id="self-lazy-loading-bundle">self-lazy-loading bundle <a class="header-anchor" href="introduction/getting-started/#self-lazy-loading-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>The <em>self-lazy-loading bundle</em> is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.</p>
+<p>The <a href="https://stenciljs.com/docs/distribution">self-lazy-loading bundle</a> is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<h3 id="custom-elements-bundle">custom-elements bundle <a class="header-anchor" href="introduction/getting-started/#custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>The <em>custom-elements bundle</em> is a tree-shakable bundle that does not apply polyfills, nor define any custom element automatically. Using this bundle may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.</p>
+<h3 id="dist-custom-elements">dist-custom-elements <a class="header-anchor" href="introduction/getting-started/#dist-custom-elements"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <a href="https://stenciljs.com/docs/custom-elements">dist-custom-elements</a> output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span></code></pre>
+<h3 id="dist-custom-elements-bundle">dist-custom-elements-bundle <a class="header-anchor" href="introduction/getting-started/#dist-custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <a href="https://stenciljs.com/docs/custom-elements-bundle">dist-custom-elements-bundle</a> is a &quot;single&quot; and still tree-shakable bundle of custom elements.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/custom-elements'</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span></code></pre>
-<p>Learn more about the differences in the <a href="https://stenciljs.com/docs/distribution#how-is-this-different-than-dist-custom-elements-bundle-output-target">Stencil docs</a>.</p>
+<p>Learn more about the differences in the <a href="https://stenciljs.com/docs/output-targets">Stencil docs</a>.</p>
 <h2 id="import-stylesheets">Import stylesheets <a class="header-anchor" href="introduction/getting-started/#import-stylesheets"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>We recommend importing Liquid stylesheets in a central place respectively the entry file of your application.</p>
 <p>There are two options to choose from when importing stylesheets from Liquid. Depending on your needs you should choose one or the other.</p>
