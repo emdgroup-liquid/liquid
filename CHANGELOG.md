@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.15](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-11-17)
+
+
+### Bug Fixes
+
+* **dist-custom-elements:** build custom elements bundle ([2a03561](https://github.com/emdgroup-liquid/liquid/commit/2a03561cb4773b08abf5fe9f4662358c2a763fad))
+
 # [1.0.0-rc.14](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-11-16)
 
 
