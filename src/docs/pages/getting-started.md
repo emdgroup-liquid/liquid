@@ -44,7 +44,7 @@ defineCustomElements()
 
 ### dist-custom-elements
 
-The [dist-custom-elements](https://stenciljs.com/docs/custom-elements) output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.
+The [dist-custom-elements](https://stenciljs.com/docs/custom-elements) output target is used to generate custom elements in a more optimized way for tree shaking, and is the recommended choice when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.
 
 ```js
 import { LdButton } from '@emdgroup-liquid/liquid/dist/components/ld-button'
