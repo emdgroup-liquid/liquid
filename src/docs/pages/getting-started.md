@@ -30,11 +30,11 @@ pnpm add @emdgroup-liquid/liquid
 
 We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.
 
-There are two options to choose from when importing and registering Liquid Web Components. Depending on your needs you should choose one or the other.
+There are multiple options to choose from when importing and registering Liquid Web Components:
 
 ### self-lazy-loading bundle
 
-The _self-lazy-loading bundle_ is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.
+The [self-lazy-loading bundle](https://stenciljs.com/docs/distribution) is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.
 
 ```js
 import { defineCustomElements } from '@emdgroup-liquid/liquid'
@@ -42,9 +42,19 @@ import { defineCustomElements } from '@emdgroup-liquid/liquid'
 defineCustomElements()
 ```
 
-### custom-elements bundle
+### dist-custom-elements
 
-The _custom-elements bundle_ is a tree-shakable bundle that does not apply polyfills, nor define any custom element automatically. Using this bundle may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.
+The [dist-custom-elements](https://stenciljs.com/docs/custom-elements) output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.
+
+```js
+import { LdButton } from '@emdgroup-liquid/liquid/dist/components/ld-button'
+
+customElements.define('ld-button', LdButton)
+```
+
+### dist-custom-elements-bundle
+
+The [dist-custom-elements-bundle](https://stenciljs.com/docs/custom-elements-bundle) is a "single" and still tree-shakable bundle of custom elements.
 
 ```js
 import { LdButton } from '@emdgroup-liquid/liquid/dist/custom-elements'
@@ -52,7 +62,7 @@ import { LdButton } from '@emdgroup-liquid/liquid/dist/custom-elements'
 customElements.define('ld-button', LdButton)
 ```
 
-Learn more about the differences in the [Stencil docs](https://stenciljs.com/docs/distribution#how-is-this-different-than-dist-custom-elements-bundle-output-target).
+Learn more about the differences in the [Stencil docs](https://stenciljs.com/docs/output-targets).
 
 ## Import stylesheets
 
