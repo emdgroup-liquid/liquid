@@ -1,4 +1,4 @@
-# Introduction
+# Liquid
 
 [![Join us on GitHub discussions](https://img.shields.io/badge/Join%20us-on%20GitHub%20discussions-blue?style=flat&color=0F69AF)](https://github.com/emdgroup-liquid/liquid/discussions)
 [![Join us on Teams](https://img.shields.io/badge/Join%20us-on%20Teams-blue?style=flat&color=503291)](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9)
@@ -16,6 +16,8 @@ Read the [developer docs](https://emdgroup-liquid.github.io/liquid/).
 
 If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](CONTRIBUTING.md).
 
-## License
+[//]: # "---"
+
+<h2>License</h2>
 
 Liquid Oxygen is available under a [custom license](https://emdgroup-liquid.github.io/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
