@@ -70,6 +70,29 @@
         
           
             {
+              title: 'FAQ',
+              tags: '',
+              url: '/liquid/introduction/faq/',
+              headings: 'Do I have the legal rights to use Liquid?Why should I use Liquid?Can I use Liquid with framework X?Which browsers are supported?What is Shadow DOM?Can I customize Liquid?What happened to liquid-design-react?Can Liquid Oxygen components be combined with the liquid-design-react library?Can I personally contribute to Liquid Oxygen?',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Getting started',
               tags: '',
               url: '/liquid/introduction/getting-started/',
@@ -85,6 +108,12 @@
                 
               ]
             },
+          
+        
+      
+    
+      
+        
           
         
       
@@ -1042,6 +1071,8 @@
         
       
         
+      
+        
           <li class="docs-nav__li docs-nav__li--active">
             
               <details open>
@@ -1119,6 +1150,14 @@
           <li class="docs-nav__li">
             
               <a href="/liquid/introduction/sandbox-applications/">Sandbox applications</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/faq/">FAQ</a>
             
           </li>
         
@@ -1457,6 +1496,7 @@
       </header>
       <h1 id="css-vs.-web-components">CSS vs. Web Components <a class="header-anchor" href="introduction/css-vs-web-components/#css-vs.-web-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Liquid ships both, CSS Components and Web Components. For instance, you can use the <a href="components/ld-button/"><code>ld-button</code></a> Web Component or its CSS Component counterpart:</p>
+<link rel="stylesheet" href="css_components/ld-button.css">
 <docs-example code="%3Cld-button%3EText%3C%2Fld-button%3E%0A%3Cbutton%20class%3D%22ld-button%22%3EText%3C%2Fbutton%3E"  opened themable>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
@@ -1470,7 +1510,10 @@
 <p><strong>Convenience</strong>: Most Liquid Web Components are much more &quot;compact&quot; when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from <a href="introduction/type-checking-and-intellisense/">type checking and intellisense</a>.</p>
 </li>
 <li>
-<p><strong>Accessibility</strong>: Some components handle accessibility issues under the hood. For instance, the <a href="components/ld-typo/"><code>ld-typo</code></a> component applies an <code>aria-label</code> automatically when used with uppercase heading variants. With CSS Components you have to deal with such things yourself.</p>
+<p><strong>Accessibility</strong>: Some Web Components handle accessibility issues under the hood. For instance, the <a href="components/ld-typo/"><code>ld-typo</code></a> Web Component applies an <code>aria-label</code> automatically when used with uppercase heading variants. With CSS Components you have to deal with such things yourself.</p>
+</li>
+<li>
+<p><strong>Encapsulation</strong>: Shadow DOM shields Web Components from their surrounding environment. This means that when you use Liquid's Web Components, you do not need to be concerned about exidently overriding Liquid's CSS (except for CSS custom props), nor worry about our internal DOM being interfered with anything outside the component. CSS Components on the other hand give a bit more freedom when it comes to customization.</p>
 </li>
 <li>
 <p><strong>Functionality / feature set</strong>: We always try to offer both, a Web Component and an equivalent CSS Component, but it is not always possible to achieve the same feature set when not having JavaScript to our disposal. CSS can do only so much. Therefore, some more complex components offer more features as Web Components, while coming with a lighweight / less feature rich CSS Component fallback.</p>
@@ -1483,7 +1526,7 @@
 <p><docs-page-nav prev-href="introduction/getting-started/" next-title="Component assets" next-href="introduction/component-assets/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
       
     </docs-main>
 

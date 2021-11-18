@@ -70,6 +70,29 @@
         
           
             {
+              title: 'FAQ',
+              tags: '',
+              url: '/liquid/introduction/faq/',
+              headings: 'Do I have the legal rights to use Liquid?Why should I use Liquid?Can I use Liquid with framework X?Which browsers are supported?What is Shadow DOM?Can I customize Liquid?What happened to liquid-design-react?Can Liquid Oxygen components be combined with the liquid-design-react library?Can I personally contribute to Liquid Oxygen?',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Getting started',
               tags: '',
               url: '/liquid/introduction/getting-started/',
@@ -85,6 +108,12 @@
                 
               ]
             },
+          
+        
+      
+    
+      
+        
           
         
       
@@ -1042,6 +1071,8 @@
         
       
         
+      
+        
           <li class="docs-nav__li docs-nav__li--active">
             
               <details open>
@@ -1119,6 +1150,14 @@
           <li class="docs-nav__li">
             
               <a href="/liquid/introduction/sandbox-applications/">Sandbox applications</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/faq/">FAQ</a>
             
           </li>
         
@@ -1468,7 +1507,7 @@
 <p>The <a href="https://stenciljs.com/docs/distribution">self-lazy-loading bundle</a> is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h3 id="dist-custom-elements">dist-custom-elements <a class="header-anchor" href="introduction/getting-started/#dist-custom-elements"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>The <a href="https://stenciljs.com/docs/custom-elements">dist-custom-elements</a> output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.</p>
+<p>The <a href="https://stenciljs.com/docs/custom-elements">dist-custom-elements</a> output target is used to generate custom elements in a more optimized way for tree shaking, and is the recommended choice when using any frontend framework integrations. The generated output consists of ES Modules which helps bundlers to parse and optimize the code.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span></code></pre>
 <h3 id="dist-custom-elements-bundle">dist-custom-elements-bundle <a class="header-anchor" href="introduction/getting-started/#dist-custom-elements-bundle"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The <a href="https://stenciljs.com/docs/custom-elements-bundle">dist-custom-elements-bundle</a> is a &quot;single&quot; and still tree-shakable bundle of custom elements.</p>
