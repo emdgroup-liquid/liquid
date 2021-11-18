@@ -53,12 +53,12 @@
 
       > blockquote {
         color: var(--ld-col-neutral-900);
-        background-color: var(--ld-col-vy-100);
-        border-left: solid var(--ld-sp-6) var(--ld-col-vy);
+        background-color: var(--ld-thm-warning-focus);
+        border-left: solid var(--ld-sp-6) var(--ld-thm-warning);
         font: var(--ld-typo-body-m);
 
         code {
-          background-color: var(--ld-col-vy);
+          background-color: var(--ld-thm-warning);
         }
       }
 
@@ -135,11 +135,11 @@
 
       > blockquote {
         color: var(--ld-col-neutral-900);
-        background-color: var(--ld-col-vy);
-        border-left: solid var(--ld-sp-6) var(--ld-col-vy-400);
+        background-color: var(--ld-thm-warning);
+        border-left: solid var(--ld-sp-6) var(--ld-thm-warning-hover);
 
         code {
-          background-color: var(--ld-col-vy);
+          background-color: var(--ld-thm-warning);
         }
       }
 

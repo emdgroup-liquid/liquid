@@ -10,7 +10,7 @@ permalink: introduction/why-liquid/
 
 # Why Liquid
 
-Here is why we think you should concider using Liquid:
+Here is why we think you should use Liquid:
 
 - **Accessible**: All Liquid components are built with accessibility in mind, following best practices in accordance to the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/) Level AA requirements.
 - **Interoperable**: Liquid is built with [Stencil](https://stenciljs.com/). It ships both, standards-based Web Components and CSS Components, which you can include in almost any modern web-based tech stack.

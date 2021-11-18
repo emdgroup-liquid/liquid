@@ -15,3 +15,7 @@ Liquid is a UI component library based on the [Liquid Design System](https://lds
 Read the [developer docs](https://emdgroup-liquid.github.io/liquid/).
 
 If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](CONTRIBUTING.md).
+
+## License
+
+Liquid Oxygen is available under a [custom license](https://emdgroup-liquid.github.io/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.

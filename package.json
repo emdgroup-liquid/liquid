@@ -66,7 +66,7 @@
     "watch:eleventy": "dotenv -e .env -- npx @11ty/eleventy --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
     "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
-    "watch:readme": "chokidar README.md -c 'ts-node scripts/copyReadmeToIndex.ts'",
+    "watch:readme_and_license": "chokidar README.md LICENSE.md -c 'ts-node scripts/copyReadmeAndLicenseToPages.ts'",
     "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts",
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -c 'yarn build:styles:docs:components'"
   },
