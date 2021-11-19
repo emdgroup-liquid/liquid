@@ -24,6 +24,7 @@
   --ld-button-gap-lg: 1.1875rem;
   background-color: var(--ld-button-bg-color, var(--ld-thm-primary));
   box-sizing: border-box;
+  margin: 0;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
