@@ -2,9 +2,9 @@
 
 Please include a summary of the change and which issue is fixed. 
 Please also include relevant motivation and context. 
-List any dependencies that are required for this change.
+List any new dependencies or updates that are required for this change.
 
-Fixes # (issue)
+Fixes #(issue)
 
 ## Type of change
 
@@ -21,14 +21,19 @@ Please describe the tests that you've added and run to verify your changes.
 Provide instructions, so we can reproduce. 
 Please also list any relevant details for your test configuration.
 
-- [ ] Test A
-- [ ] Test B
+- [ ] unit tests
+- [ ] e2e tests
+- [ ] accessibility tests
+- [ ] tested manually
+- [ ] other:
 
 **Test Configuration**:
-* liquid versions:
-* browsers:
-* os:
-* misc:
+
+- liquid versions:
+- os:
+- browsers:
+- screen readers:
+- misc:
 
 # Checklist:
 
@@ -38,4 +43,4 @@ Please also list any relevant details for your test configuration.
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
+- [ ] New and existing tests pass locally with my changes
