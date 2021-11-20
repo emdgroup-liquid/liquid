@@ -32,8 +32,15 @@ export class LdIcon {
     const div = document.createElement('div')
     const iconString = await fetchIcon(this.name)
 
-    div.innerHTML = iconString.replace('<svg', '<svg part="icon"')
-    this.element.shadowRoot.innerHTML = ''
+    div.innerHTML = iconString.replace(
+      '<svg',
+      '<svg class="ld-icon__svg" part="icon"'
+    )
+    Array.from(this.element.shadowRoot.children).forEach((child) => {
+      if (child.tagName !== 'STYLE') {
+        this.element.shadowRoot.removeChild(child)
+      }
+    })
     this.element.shadowRoot.appendChild(div.firstChild)
   }
 

@@ -49,6 +49,8 @@
   min-height: var(--ld-tab-min-height);
   color: var(--ld-tab-text-col);
   background-color: var(--ld-tab-bg-col);
+  box-sizing: border-box;
+  margin: 0;
 
   &[aria-disabled='true'] {
     color: var(--ld-tab-disabled-text-col);
