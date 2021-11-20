@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.16](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-11-20)
+
+
+### Bug Fixes
+
+* **dist-custom-elements:** build custom elements bundle ([8bf6210](https://github.com/emdgroup-liquid/liquid/commit/8bf62103ff6b6efc9838132870d07941d89230f7))
+* **ld-button:** reset margin for safari ([58f0e3f](https://github.com/emdgroup-liquid/liquid/commit/58f0e3f1aaefe342b10075c37bb9d799ad496d7e))
+* **ld-checkbox:** emits input event on click from outside ([f456f50](https://github.com/emdgroup-liquid/liquid/commit/f456f5094e8e7de6adf6b9a8f1049d7e0457231c))
+* **ld-icon:** make sure shadow dom style element is not removed ([7cb5746](https://github.com/emdgroup-liquid/liquid/commit/7cb5746ea5d1d64bcdbd5f25b15891312e7e7b9d)), closes [#124](https://github.com/emdgroup-liquid/liquid/issues/124)
+* **ld-radio:** emits input event on click from outside ([d465d2b](https://github.com/emdgroup-liquid/liquid/commit/d465d2bc0b564e5b4580a66782125aa9a7357e02))
+* **ld-select:** add focus inner method for click on label ([cad4501](https://github.com/emdgroup-liquid/liquid/commit/cad450167645710748cef33a9e665ab673d721bf))
+
 # [1.0.0-rc.15](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-11-17)
 
 
