@@ -238,12 +238,12 @@ Before creating enhancement suggestions, please check [this list](#before-submit
 > - Feature requests are closed issues with `feature` label and `needed: votes` label.
 > - Bugs are open issues tagged with the `bug` label.
 > 
-> View the enhancement backlog [here](https://github.com/emdgroup-liquid/liquid/issues?utf8=✓&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+). Upvote the top comment of an issue with 👍 if you want the enhancement to be prioritised higher.
+> View the enhancement backlog [here](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+label%3A"needed%3A+votes"). Upvote the top comment of an issue with 👍 if you want the enhancement to be prioritised higher.
 
 #### Before submitting an enhancement suggestion
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+label%3A"needed%3A+votes"+sort%3Areactions-%2B1-desc+)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
 #### How do I vote on an existing enhancement suggestion?
 
