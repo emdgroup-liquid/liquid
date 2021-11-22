@@ -1790,14 +1790,12 @@ describe('ld-select', () => {
       '.ld-select__btn-trigger'
     )
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
-
-    const spyFocusBtnTrigger = jest.spyOn(btnTrigger as HTMLElement, 'focus')
+    ;(btnTrigger as HTMLElement).focus = jest.fn()
 
     ldLabel.dispatchEvent(new Event('touchend', { bubbles: true }))
     await page.waitForChanges()
 
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
-    expect(spyFocusBtnTrigger).toHaveBeenCalled()
   })
 
   it('displays more indicator with maxRows prop set in multiple mode', async () => {
