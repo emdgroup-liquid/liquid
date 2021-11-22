@@ -235,7 +235,7 @@ Before creating enhancement suggestions, please check [this list](#before-submit
 
 > **Note:** This repository is using __lodash style issue management for enhancements__. This means:
 > 
-> - Feature requests are closed issues with `feature` label and `votes needed` label.
+> - Feature requests are closed issues with `feature` label and `needed: votes` label.
 > - Bugs are open issues tagged with the `bug` label.
 > 
 > View the enhancement backlog [here](https://github.com/emdgroup-liquid/liquid/issues?utf8=✓&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+). Upvote the top comment of an issue with 👍 if you want the enhancement to be prioritised higher.
@@ -243,11 +243,11 @@ Before creating enhancement suggestions, please check [this list](#before-submit
 #### Before submitting an enhancement suggestion
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?utf8=✓&q=label%3Aneeds-votes+sort%3Areactions-%2B1-desc+)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **votes needed** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+label%3A"needed%3A+votes"+sort%3Areactions-%2B1-desc+)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
 #### How do I vote on an existing enhancement suggestion?
 
-Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:needs-votes sort:reactions-+1-desc ` as the issue search query).
+Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:"needed: votes" sort:reactions-+1-desc` as the issue search query).
 
 #### How do I submit a (good) enhancement suggestion?
 
@@ -326,6 +326,7 @@ This section lists the labels we use in order to help us track and manage issues
 | needed: more information | This label indicates that a reply with more information is required from the issue reporter. |
 | needed: replication      | This label indicates that a bug has been reported, but has not been successfully replicated yet. |
 | needed: tests            | This label indicates that a better test coverage is required to resolve the issue. |
+| needed: votes            | Enhancement suggestion which needs votes, before it gets addressed by the contributors. |
 | priority: high           | Issues with this label should be resolved as quickly as possible. |
 | priority: low            | Issues with this label won’t have the immediate focus of the core team. |
 | question                 | Not really an issue but more a question. |
@@ -333,5 +334,4 @@ This section lists the labels we use in order to help us track and manage issues
 | stale                    | There's been no activity for 60 days. The issue will be closed after 2 weeks unless active again. |
 | umbrella issue           | An umbrella issue contains multiple issues and needs to be split into separate issues eventually. |
 | upstream                 | Used to label issues which require a fix upstream (fixing an issue of a dependency). |
-| votes needed             | Enhancement suggestion which needs votes, before it gets addressed by the contributors. |
 | won't fix                | This will not be worked on. |
