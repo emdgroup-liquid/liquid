@@ -762,11 +762,6 @@ export class LdSelect implements InnerFocusable {
     ) {
       this.expanded = false
     }
-
-    if (ev.target.closest('ld-label')?.querySelector('ld-select') === this.el) {
-      ev.preventDefault()
-      this.triggerRef.focus()
-    }
   }
 
   // Mobile Safari in some cases does not react to click events on elements
