@@ -26,6 +26,7 @@
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g><rect height="12" width="12" fill="black"></rect><rect height="12" width="12" y="12" x="12" fill="black"></rect></g></svg>');
   display: flex;
   width: 100%;
+  height: var(--ld-sp-40);
   align-items: center;
   overflow: hidden;
   border-style: solid;
