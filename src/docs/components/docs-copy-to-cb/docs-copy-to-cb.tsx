@@ -36,9 +36,9 @@ export class DocsCopyToCb {
           {this.copyTimeout ? 'Copied to clipboard' : 'Copy to clipboard'}
         </ld-sr-only>
         {this.copyTimeout ? (
-          <ld-icon name="checkmark" key="check" />
+          <ld-icon size="sm" name="checkmark" key="check" />
         ) : (
-          <ld-icon key="success">
+          <ld-icon size="sm" key="success">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
