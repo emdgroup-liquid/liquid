@@ -7,10 +7,6 @@
   --ld-select-popper-border-col: var(--ld-col-neutral-100);
   --ld-select-popper-bg-col: var(--ld-col-wht);
   min-width: var(--ld-select-popper-min-width);
-
-  ld-option-internal:last-of-type::part(option) {
-    border-bottom: 0;
-  }
 }
 
 .ld-select-popper {
@@ -34,6 +30,7 @@
 
 .ld-select-popper__scroll-container {
   max-height: var(--ld-select-popper-max-height);
+  overflow-x: visible;
   overflow-y: auto;
   border-bottom-left-radius: var(--ld-br-m);
   border-bottom-right-radius: var(--ld-br-m);

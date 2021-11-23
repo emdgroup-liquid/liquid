@@ -202,6 +202,10 @@
   }
 }
 
+.ld-select__btn-trigger {
+  overflow: hidden;
+}
+
 :where(.ld-select),
 :where(.ld-select) > select {
   min-height: var(--ld-select-min-height-md);
