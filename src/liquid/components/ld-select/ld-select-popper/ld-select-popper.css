@@ -30,7 +30,6 @@
 
 .ld-select-popper__scroll-container {
   max-height: var(--ld-select-popper-max-height);
-  overflow-x: visible;
   overflow-y: auto;
   border-bottom-left-radius: var(--ld-br-m);
   border-bottom-right-radius: var(--ld-br-m);
