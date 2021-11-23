@@ -1,4 +1,4 @@
-:host(:not(:last-child)) {
+:host(:not(:last-of-type)) {
   .ld-option-internal {
     border-bottom: solid var(--ld-option-border-col) var(--ld-sp-1);
   }
@@ -24,7 +24,7 @@
   --ld-option-thm-bg-col-focus: var(--ld-thm-primary-highlight);
   --ld-option-thm-bg-col-active: var(--ld-thm-primary-highlight);
 
-  /*outline: none;*/
+  outline: none;
   display: flex;
   position: relative;
   color: var(--ld-option-text-col);
@@ -86,8 +86,17 @@
     pointer-events: none;
   }
 
-  &:where(:focus:focus-visible):before {
-    box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-option-thm-col);
+  &:where(:focus),
+  &:where(:focus:focus-visible) {
+    &:before {
+      box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-option-thm-col);
+    }
+  }
+
+  &:where(:focus:not(:focus-visible)) {
+    &:before {
+      box-shadow: none;
+    }
   }
 
   &:where(:not([disabled]):not([aria-disabled='true'])) {
@@ -95,6 +104,7 @@
       color: var(--ld-option-thm-col);
     }
 
+    &:where(:focus),
     &:where(:focus:focus-visible) {
       background-color: var(--ld-option-thm-bg-col-focus);
 
@@ -102,6 +112,15 @@
         color: var(--ld-option-thm-col-focus);
       }
     }
+
+    &:where(:focus:not(:focus-visible)) {
+      background-color: var(--ld-option-bg-col);
+
+      :where(.ld-option-internal__check) {
+        color: var(--ld-option-thm-col);
+      }
+    }
+
     @media (hover: hover) {
       &:where(:hover) {
         background-color: var(--ld-option-thm-bg-col-hover);
@@ -111,6 +130,7 @@
         }
       }
     }
+
     &:where(:active),
     &:where(:active:focus-visible) {
       background-color: var(--ld-option-thm-bg-col-active);
