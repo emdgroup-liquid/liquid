@@ -149,7 +149,7 @@
 .ld-notification__item-content {
   display: grid;
   grid-auto-flow: column;
-  align-items: center;
+  align-items: baseline;
   gap: var(--ld-sp-12);
   padding: var(--ld-sp-6) var(--ld-sp-12);
 
