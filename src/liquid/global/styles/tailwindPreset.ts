@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { join } = require('path')
 const plugin = require('tailwindcss/plugin')
-const designTokens: DesignTokens = require('./design-tokens.json')
+
+let designTokens: DesignTokens
+try {
+  designTokens = require(join(process.cwd(), 'design-tokens.json'))
+} catch (err) {
+  designTokens = require('./design-tokens.json')
+}
 
 type Theme = Record<string, string> & {
   default?: boolean

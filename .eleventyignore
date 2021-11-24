@@ -1,5 +1,6 @@
 .github
 .stencil
+bin
 coverage
 dist
 dist_docs

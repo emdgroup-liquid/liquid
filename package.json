@@ -15,6 +15,7 @@
     "yarn": ">=1.22.10"
   },
   "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
+  "bin": "./bin/cli.js",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -25,10 +26,15 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/liquid/liquid.esm.js",
   "files": [
+    "bin/",
     "dist/"
   ],
   "scripts": {
-    "build": "run-s build:stencil:components build:stencil:react build:styles build:copy_design_tokens build:copy_tailwind_preset",
+    "apply_design_tokens": "dotenv -e .env -- ts-node scripts/applyDesignTokens.ts",
+    "build": "run-s build:stencil:components build:stencil:react build:styles build:copy_design_tokens build:tailwind_preset build:bin",
+    "build:bin": "run-p build:bin:*",
+    "build:bin:cli": "tsc scripts/cli.ts --moduleResolution node --target esnext --outfile bin/cli.js",
+    "build:bin:apply_design_tokens": "tsc scripts/applyDesignTokens.ts --moduleResolution node --target esnext --outfile bin/applyDesignTokens.js",
     "build:docs": "run-s build:stencil:docs build:eleventy build:styles:docs:*",
     "build:eleventy": "dotenv -e .env -- npx @11ty/eleventy",
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
@@ -41,7 +47,7 @@
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/dist/build/liquid.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
     "build:copy_design_tokens": "shx cp src/liquid/global/styles/design-tokens.json dist/css/design-tokens.json",
-    "build:copy_tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.js",
+    "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.js",
     "generate": "stencil generate",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
@@ -61,7 +67,6 @@
     "test:unit": "stencil test --spec --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test:compare_screenshots": "live-server --port=4000 --open=compare.html screenshot --quiet --mount=/node_modules:./node_modules --mount=/.stencil:./.stencil",
-    "update_design_tokens": "dotenv -e .env -- ts-node scripts/updateDesignTokens.ts",
     "update_icons": "dotenv -e .env -- ts-node scripts/updateIcons.ts",
     "watch:eleventy": "dotenv -e .env -- npx @11ty/eleventy --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
