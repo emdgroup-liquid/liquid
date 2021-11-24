@@ -160,7 +160,10 @@
 
   > textarea {
     height: 100%;
+    max-height: inherit;
     min-height: inherit;
+    max-width: inherit;
+    min-width: inherit;
   }
 
   ::slotted(ld-button),
