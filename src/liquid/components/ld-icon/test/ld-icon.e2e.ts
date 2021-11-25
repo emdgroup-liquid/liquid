@@ -76,4 +76,23 @@ describe('ld-icon', () => {
       expect(results).toMatchScreenshot()
     })
   })
+
+  describe('color', () => {
+    it('web component', async () => {
+      const page = await getPageWithContent(
+        '<ld-icon name="placeholder" style="color: var(--ld-col-vc)"></ld-icon>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it('css component', async () => {
+      const page = await getPageWithContent(
+        `<span style="color: var(--ld-col-vg)">
+          <ld-icon name="placeholder"></ld-icon>
+        </span>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
 })

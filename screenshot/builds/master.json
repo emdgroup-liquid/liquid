@@ -4009,6 +4009,32 @@
       "isMobile": false
     },
     {
+      "id": "cb256493",
+      "image": "bc45857c445f089975ce842784cf0afc.png",
+      "userAgent": "default",
+      "desc": "ld-icon color css component",
+      "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "46016a38",
+      "image": "ed9b66bae60593c4179d1f8fad8a130c.png",
+      "userAgent": "default",
+      "desc": "ld-icon color web component",
+      "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "50d5f6cb",
       "image": "680ff195fb7055b3c3cc98c33ca97f5f.png",
       "userAgent": "default",
