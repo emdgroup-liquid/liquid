@@ -34,9 +34,9 @@ An icon provides a visual hint for content or interactions. Combine it with text
 Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword) value for fills or strokes, which means that you can adjust the icon color by setting the `color` property value of the `ld-icon` component or a wrapping element.
 
 {% example %}
-<ld-icon name="placeholder" style="color: var(--ld-col-vc-default)"></ld-icon>
+<ld-icon name="placeholder" style="color: var(--ld-col-vc)"></ld-icon>
 
-<span style="color: var(--ld-col-vg-default)">
+<span style="color: var(--ld-col-vg)">
   <ld-icon name="placeholder"></ld-icon>
 </span>
 {% endexample %}
