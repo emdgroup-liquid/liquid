@@ -51,6 +51,8 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 ## Available icons
 
+### Overview
+
 <ld-notification placement="bottom"></ld-notification>
 
 <docs-icon-group name="System Technical">
@@ -237,6 +239,10 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
   <docs-icon identifier="clock" name="Clock"></docs-icon>
   <docs-icon identifier="bell" name="Bell"></docs-icon>
 </docs-icon-group>
+
+### Download
+
+If you wish to download all icons as SVG files, you can use [this link](https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2Femdgroup-liquid%2Fliquid%2Ftree%2Fdevelop%2Fsrc%2Fliquid%2Fcomponents%2Fld-icon%2Fassets).
 
 <!-- Auto Generated Below -->
 
