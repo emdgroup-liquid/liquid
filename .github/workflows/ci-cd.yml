@@ -56,12 +56,14 @@ jobs:
       #    github-token: ${{ secrets.GITHUB_TOKEN }}
       #    lcov-file: ./coverage/lcov.info
 
-      - name: Archive dist artifacts
+      - name: Archive bin_dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
         uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: bin_dist
+          path: |
+            bin
+            dist
           retention-days: 1
 
       - name: Archive dist_docs artifacts
@@ -122,11 +124,11 @@ jobs:
         env:
           CI: true
 
-      - name: Download dist artifacts
+      - name: Download bin_dist artifacts
         uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: bin_dist
+          path: /
 
       - name: Semantic Release
         if: success()
