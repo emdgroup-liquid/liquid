@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.17](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.16...v1.0.0-rc.17) (2021-11-25)
+
+
+### Bug Fixes
+
+* **ld-input:** let textarea inherit max/min sizes ([6c80ffb](https://github.com/emdgroup-liquid/liquid/commit/6c80ffbdbee7c86f78f86b66bf7926988937b7bc))
+* **ld-notification:** center content vertically ([5b114fe](https://github.com/emdgroup-liquid/liquid/commit/5b114fe47c202b95dc32715ecc324b1c221ed09b))
+* **ld-select:** focus outline styles for Safari ([16c1f30](https://github.com/emdgroup-liquid/liquid/commit/16c1f30e14d3af5c137ac1abd45062b2edf94097))
+* **ld-select:** ld-select not opening up on mobile safari ([8eb01c3](https://github.com/emdgroup-liquid/liquid/commit/8eb01c3f4e03830411dc9d20687b612d6835e77b)), closes [#122](https://github.com/emdgroup-liquid/liquid/issues/122)
+
+
+### Features
+
+* **design-tokens:** add bin command to generate custom design tokens ([37cd41b](https://github.com/emdgroup-liquid/liquid/commit/37cd41beb2b4b7665c111ca936e9dabab8cfa2e3))
+
 # [1.0.0-rc.16](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-11-20)
 
 
