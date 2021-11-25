@@ -128,7 +128,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: bin_dist
-          path: /
+          path: ./
 
       - name: Semantic Release
         if: success()
