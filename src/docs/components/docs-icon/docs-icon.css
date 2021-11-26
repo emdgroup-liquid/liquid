@@ -1,15 +1,21 @@
 .docs-icon {
   align-items: center;
-  background: var(--ld-col-wht);
-  border: none;
+  background: var(--ld-col-neutral-010);
   border-radius: var(--ld-br-l);
+  border: none;
   color: var(--ld-col-neutral-900);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-8);
-  width: 6rem;
+  text-decoration: none;
+  width: 100%;
+
+  &__player {
+    margin: calc(var(--ld-sp-24) * -1) 0 calc(var(--ld-sp-16) * -1);
+    width: 6rem;
+  }
 
   &__name {
     font: var(--ld-typo-label-s);
@@ -17,11 +23,49 @@
     text-align: center;
   }
 
-  &__tooltip {
-    display: contents;
+  &__instructions {
+    text-align: center;
 
-    &::part(trigger) {
-      height: 100%;
+    &--hidden {
+      opacity: 0;
     }
+
+    span {
+      color: var(--ld-thm-secondary);
+    }
+  }
+
+  &__action {
+    margin: var(--ld-sp-16) 0 var(--ld-sp-8);
+    position: relative;
+  }
+
+  &__confirmation {
+    top: 0;
+    bottom: 0;
+    color: var(--ld-thm-secondary);
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+
+    &--visible {
+      opacity: 1;
+    }
+
+    &::part(tag) {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+    }
+
+    ld-icon {
+      margin-left: var(--ld-sp-8);
+    }
+  }
+
+  &__instructions,
+  &__confirmation {
+    transition: opacity 200ms ease-in-out;
   }
 }

@@ -89,6 +89,7 @@
     "@babel/eslint-plugin": "^7.13.0",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@lottiefiles/lottie-player": "^1.5.1",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@stencil/eslint-plugin": "^0.3.1",

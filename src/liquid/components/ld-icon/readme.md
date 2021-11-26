@@ -53,8 +53,6 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 ### Overview
 
-<ld-notification placement="bottom"></ld-notification>
-
 <docs-icon-group name="System Technical">
   <docs-icon identifier="phone" name="Phone"></docs-icon>
   <docs-icon identifier="bin" name="Bin"></docs-icon>
