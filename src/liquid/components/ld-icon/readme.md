@@ -51,9 +51,11 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 ## Available icons
 
-### Overview
+All icons listed below are bundled with Liquid. As a developer, you don't need to download any of the icons. Just use the `ld-icon` component and insert the name of the desired icon, as illustrated in the examples above. Right-click on the icons below to copy their technical names for use in the `ld-icon` component.
 
-<ld-notification placement="bottom"></ld-notification>
+Left-click an icon below to download its SVG file. To download all icons at once, use this button:
+
+<ld-button class="ld-theme-bubblegum" href="https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2Femdgroup-liquid%2Fliquid%2Ftree%2Fdevelop%2Fsrc%2Fliquid%2Fcomponents%2Fld-icon%2Fassets">Download all icons</ld-button>
 
 <docs-icon-group name="System Technical">
   <docs-icon identifier="phone" name="Phone"></docs-icon>
@@ -240,10 +242,6 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
   <docs-icon identifier="bell" name="Bell"></docs-icon>
 </docs-icon-group>
 
-### Download
-
-If you wish to download all icons as SVG files, you can use [this link](https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2Femdgroup-liquid%2Fliquid%2Ftree%2Fdevelop%2Fsrc%2Fliquid%2Fcomponents%2Fld-icon%2Fassets).
-
 <!-- Auto Generated Below -->
 
 
@@ -286,4 +284,4 @@ graph TD;
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*
