@@ -1,6 +1,10 @@
 .docs-icon-group {
   margin-bottom: var(--ld-sp-32);
   display: block;
+
+  &__headline {
+    margin-bottom: var(--ld-sp-16);
+  }
 }
 
 .docs-icon-group__icons {

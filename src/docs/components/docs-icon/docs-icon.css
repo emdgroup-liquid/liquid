@@ -1,16 +1,45 @@
+@define-mixin docs-icon-ui-light {
+  .docs-icon {
+    color: var(--ld-col-neutral-900);
+  }
+}
+@define-mixin docs-icon-ui-dark {
+  .docs-icon {
+    color: var(--ld-col-wht);
+  }
+}
+
+@mixin docs-icon-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-icon-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-icon-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-icon-ui-light;
+}
+
 .docs-icon {
   align-items: center;
-  background: var(--ld-col-neutral-010);
   border-radius: var(--ld-br-l);
   border: none;
-  color: var(--ld-col-neutral-900);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-8);
   text-decoration: none;
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: all 200ms ease-in-out;
   width: 100%;
+
+  &--boxed,
+  &:hover {
+    color: var(--ld-col-neutral-900);
+    background: var(--ld-col-neutral-010);
+  }
 
   &__player {
     margin: calc(var(--ld-sp-24) * -1) 0 calc(var(--ld-sp-16) * -1);
@@ -21,18 +50,6 @@
     font: var(--ld-typo-label-s);
     margin-top: var(--ld-sp-16);
     text-align: center;
-  }
-
-  &__instructions {
-    text-align: center;
-
-    &--hidden {
-      opacity: 0;
-    }
-
-    span {
-      color: var(--ld-thm-secondary);
-    }
   }
 
   &__action {
@@ -67,5 +84,23 @@
   &__instructions,
   &__confirmation {
     transition: opacity 200ms ease-in-out;
+  }
+}
+
+.docs-icon__instructions {
+  opacity: 0;
+  text-align: center;
+
+  .docs-icon:hover & {
+    opacity: 1;
+  }
+
+  &--hidden,
+  .docs-icon:hover &--hidden {
+    opacity: 0;
+  }
+
+  span {
+    color: var(--ld-thm-secondary);
   }
 }

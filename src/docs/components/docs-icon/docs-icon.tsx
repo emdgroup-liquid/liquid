@@ -56,7 +56,10 @@ export class DocsIcon {
   render() {
     return (
       <a
-        class="docs-icon"
+        class={getClassNames([
+          'docs-icon',
+          this.isAnimation && 'docs-icon--boxed',
+        ])}
         href={this.downloadUrl}
         onContextMenu={this.isAnimation ? undefined : this.copyIdentifier}
         slot="trigger"
