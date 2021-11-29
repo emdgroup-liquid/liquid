@@ -8,7 +8,6 @@ import {
 } from '@stencil/core'
 import { copyToClipboard } from '../../utils/copyToClipboard'
 import { getClassNames } from '../../../liquid/utils/getClassNames'
-import { LottiePlayer } from '@lottiefiles/lottie-player'
 import '@lottiefiles/lottie-player'
 
 /** @internal **/
@@ -18,9 +17,6 @@ import '@lottiefiles/lottie-player'
   shadow: false,
 })
 export class DocsIcon {
-  private player?: LottiePlayer
-  private preventTimeout?: NodeJS.Timeout
-
   /** Play the animation back and forth */
   @Prop() bounce = false
 
@@ -72,7 +68,6 @@ export class DocsIcon {
             autoplay
             loop
             mode={this.bounce ? 'bounce' : undefined}
-            ref={(ref) => (this.player = ref)}
             src={this.downloadUrl}
           />
         ) : (
