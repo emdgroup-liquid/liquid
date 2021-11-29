@@ -19,6 +19,7 @@ import '@lottiefiles/lottie-player'
 })
 export class DocsIcon {
   private player?: LottiePlayer
+  private preventTimeout?: NodeJS.Timeout
 
   /** Play the animation back and forth */
   @Prop() bounce = false
@@ -48,18 +49,6 @@ export class DocsIcon {
     }, 2000)
   }
 
-  private startPlay = () => {
-    if (this.player) {
-      this.player.play()
-    }
-  }
-
-  private stopPlay = () => {
-    if (this.player) {
-      this.player.stop()
-    }
-  }
-
   async componentWillLoad(): Promise<void> {
     if (!this.downloadUrl && this.isAnimation) {
       this.downloadUrl = `../../assets/animations/${this.identifier}.json`
@@ -74,16 +63,13 @@ export class DocsIcon {
         class="docs-icon"
         href={this.downloadUrl}
         onContextMenu={this.isAnimation ? undefined : this.copyIdentifier}
-        onMouseEnter={this.startPlay}
-        onMouseLeave={this.stopPlay}
-        onTouchEnd={this.stopPlay}
-        onTouchStart={this.startPlay}
         slot="trigger"
         download
       >
         {this.isAnimation ? (
           <lottie-player
             class="docs-icon__player"
+            autoplay
             loop
             mode={this.bounce ? 'bounce' : undefined}
             ref={(ref) => (this.player = ref)}
