@@ -10,7 +10,6 @@
 .docs-icon-group__icons {
   border-radius: var(--ld-br-l);
   display: grid;
-  gap: var(--ld-sp-32);
   grid-template-columns: repeat(2, 1fr);
 
   @media (min-width: 70rem) {

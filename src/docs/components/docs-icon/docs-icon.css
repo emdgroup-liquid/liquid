@@ -1,11 +1,19 @@
 @define-mixin docs-icon-ui-light {
   .docs-icon {
     color: var(--ld-col-neutral-900);
+
+    &__player {
+      filter: none;
+    }
   }
 }
 @define-mixin docs-icon-ui-dark {
   .docs-icon {
     color: var(--ld-col-wht);
+
+    &__player {
+      filter: invert(1) hue-rotate(180deg);
+    }
   }
 }
 
@@ -29,31 +37,67 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: space-between;
   padding: var(--ld-sp-24) var(--ld-sp-8) var(--ld-sp-8);
+  position: relative;
   text-decoration: none;
   /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: all 200ms ease-in-out;
+  transition: all 100ms ease-in-out;
   width: 100%;
 
-  &--boxed,
   &:hover {
-    color: var(--ld-col-neutral-900);
     background: var(--ld-col-neutral-010);
+    color: var(--ld-col-neutral-900);
+    height: calc(100% + var(--ld-sp-16));
+    margin: calc(var(--ld-sp-8) * -1);
+    padding: var(--ld-sp-32) var(--ld-sp-16) var(--ld-sp-16);
+    width: calc(100% + var(--ld-sp-16));
+  }
+
+  &:hover &__player {
+    filter: none;
   }
 
   &__player {
-    margin: calc(var(--ld-sp-24) * -1) 0 calc(var(--ld-sp-16) * -1);
-    width: 6rem;
+    flex: 0;
+    margin: calc(var(--ld-sp-16) * -1) 0 calc(var(--ld-sp-8) * -1);
+    transition: all 100ms ease-in-out;
+    width: 3rem;
+  }
+
+  &__identifier {
+    flex: 1;
+    font: var(--ld-typo-code-s);
+    font-weight: bold;
+    opacity: 0;
+    padding-top: var(--ld-sp-16);
+    text-align: center;
+    transition: all 100ms ease-in-out;
+  }
+
+  &:hover &__identifier {
+    margin: calc(var(--ld-sp-8) * -1) 0 var(--ld-sp-8);
+    opacity: 1;
   }
 
   &__name {
     font: var(--ld-typo-label-s);
-    margin-top: var(--ld-sp-16);
+    inset: var(--ld-sp-8);
+    margin-top: var(--ld-sp-8);
+    position: absolute;
     text-align: center;
+    top: 3.75rem;
+    transition: all 100ms ease-in-out;
+  }
+
+  &:hover &__name {
+    margin-top: 0;
+    opacity: 0;
+    top: 3.5rem;
   }
 
   &__action {
-    margin: var(--ld-sp-16) 0 var(--ld-sp-8);
+    margin: var(--ld-sp-8) 0;
     position: relative;
   }
 
@@ -83,15 +127,22 @@
 
   &__instructions,
   &__confirmation {
-    transition: opacity 200ms ease-in-out;
+    transition: all 100ms ease-in-out;
   }
 }
 
 .docs-icon__instructions {
   opacity: 0;
+  position: relative;
   text-align: center;
+  top: var(--ld-sp-8);
+
+  &::part(tag) {
+    line-height: 140%;
+  }
 
   .docs-icon:hover & {
+    top: 0;
     opacity: 1;
   }
 

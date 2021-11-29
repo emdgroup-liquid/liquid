@@ -56,10 +56,7 @@ export class DocsIcon {
   render() {
     return (
       <a
-        class={getClassNames([
-          'docs-icon',
-          this.isAnimation && 'docs-icon--boxed',
-        ])}
+        class="docs-icon"
         href={this.downloadUrl}
         onContextMenu={this.isAnimation ? undefined : this.copyIdentifier}
         slot="trigger"
@@ -77,13 +74,14 @@ export class DocsIcon {
           <ld-icon name={this.identifier} size="lg" />
         )}
         <p class="docs-icon__name">{this.name}</p>
+        <p class="docs-icon__identifier">{this.identifier}</p>
         <div class="docs-icon__action">
           <ld-typo
             class={getClassNames([
               'docs-icon__instructions',
               this.confirm && 'docs-icon__instructions--hidden',
             ])}
-            variant="label-s"
+            variant="body-xs"
           >
             <span>Click</span> to download
             {!this.isAnimation && (
