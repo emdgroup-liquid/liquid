@@ -9,7 +9,7 @@ permalink: global/animations/
 
 # Animations
 
-Liquid Oxygen comes with out-of-the-box animations, served as Lottie files. You can use them by integrating the [`lottie-player` Web Component](https://github.com/LottieFiles/lottie-player) in your application and simply supplying the path to a self-hosted copy of the Lottie file (JSON format) to it. Just click on the animations below to download their Lottie files.
+Liquid Oxygen comes with animations in form of [Lottie](https://airbnb.design/lottie/) files. You can use them by integrating the [`lottie-player` Web Component](https://github.com/LottieFiles/lottie-player) in your application and simply supplying the path to a self-hosted copy of the Lottie file (JSON format) to it. Just click on the animations below to download their Lottie files.
 
 <docs-icon-group>
   <docs-icon identifier="burger-cross" bounce is-animation name="Burger+Cross"></docs-icon>
