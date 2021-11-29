@@ -913,22 +913,28 @@ export class LdSelect implements InnerFocusable {
     // Disallow ghost in combination with multiple select mode.
     const ghost = !this.multiple && this.mode === 'ghost'
 
-    const cl = ['ld-select']
-    if (this.size) cl.push(`ld-select--${this.size}`)
-    if (this.invalid) cl.push('ld-select--invalid')
-    if (this.expanded) cl.push('ld-select--expanded')
-    if (detached) cl.push('ld-select--detached')
-    if (inline) cl.push('ld-select--inline')
-    if (ghost) cl.push('ld-select--ghost')
+    const cl = [
+      'ld-select',
+      this.size && `ld-select--${this.size}`,
+      this.invalid && 'ld-select--invalid',
+      this.expanded && 'ld-select--expanded',
+      detached && 'ld-select--detached',
+      inline && 'ld-select--inline',
+      ghost && 'ld-select--ghost',
+    ]
 
-    const triggerCl = ['ld-select__btn-trigger']
-    if (this.invalid) triggerCl.push('ld-select__btn-trigger--invalid')
-    if (detached) triggerCl.push('ld-select__btn-trigger--detached')
-    if (inline) triggerCl.push('ld-select__btn-trigger--inline')
-    if (ghost) triggerCl.push('ld-select__btn-trigger--ghost')
+    const triggerCl = [
+      'ld-select__btn-trigger',
+      this.invalid && 'ld-select__btn-trigger--invalid',
+      detached && 'ld-select__btn-trigger--detached',
+      inline && 'ld-select__btn-trigger--inline',
+      ghost && 'ld-select__btn-trigger--ghost',
+    ]
 
-    const triggerIconCl = ['ld-select__icon']
-    if (this.expanded) triggerIconCl.push('ld-select__icon--rotated')
+    const triggerIconCl = [
+      'ld-select__icon',
+      this.expanded && 'ld-select__icon--rotated',
+    ]
 
     const triggerText = this.multiple
       ? this.placeholder
