@@ -21,7 +21,7 @@ export class DocsIcon {
   @Prop() bounce = false
 
   /** URL to download from */
-  @Prop() downloadUrl: string
+  @Prop({ mutable: true }) downloadUrl: string
 
   /** Icon file name */
   @Prop() identifier: string
