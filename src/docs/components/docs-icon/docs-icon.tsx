@@ -60,7 +60,7 @@ export class DocsIcon {
         href={this.downloadUrl}
         onContextMenu={this.isAnimation ? undefined : this.copyIdentifier}
         slot="trigger"
-        download
+        download={this.identifier}
       >
         {this.isAnimation ? (
           <lottie-player
