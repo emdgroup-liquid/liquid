@@ -42,29 +42,31 @@ export class LdSelect implements InnerFocusable {
   private popper: Tether
   private observer: MutationObserver
 
+  /** Hint for form autofill feature. */
+  @Prop() autocomplete?: string
+
   /**
-   * Used as trigger button label in multiselect mode
-   * and in single select mode if nothing is selected.
+   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+   * Only one form element in a document can have the autofocus attribute.
    */
-  @Prop() placeholder: string
-
-  /** Used to specify the name of the control. */
-  @Prop() name: string
-
-  /** Multiselect mode. */
-  @Prop() multiple: boolean
+  @Prop() autofocus?: boolean
 
   /** Disabled state of the component. */
   @Prop() disabled: boolean
+
+  /**
+   * The form element to associate the select with (its form owner).
+   */
+  @Prop() form?: string
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
 
   /**
-   * Prevents a state with no options selected after
-   * initial selection in single select mode.
+   * Constrains the height of the trigger button by replacing overflowing selection
+   * with a "+X more" indicator.
    */
-  @Prop() preventDeselection: boolean
+  @Prop({ mutable: true }) maxRows?: number
 
   // prettier-ignore
   /**
@@ -76,53 +78,51 @@ export class LdSelect implements InnerFocusable {
     | 'inline' //   = detached + minumum trigger button width
     | 'ghost' //    = inline   + transparent background and borders
 
-  /** Size of the select trigger button. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Multiselect mode. */
+  @Prop() multiple: boolean
+
+  /** Used to specify the name of the control. */
+  @Prop() name: string
 
   /**
-   * Constrains the height of the trigger button by replacing overflowing selection
-   * with a "+X more" indicator.
+   * Used as trigger button label in multiselect mode
+   * and in single select mode if nothing is selected.
    */
-  @Prop({ mutable: true }) maxRows?: number
+  @Prop() placeholder: string
 
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass?: string
+
+  /**
+   * Prevents a state with no options selected after
+   * initial selection in single select mode.
+   */
+  @Prop() preventDeselection: boolean
+
+  /** Size of the select trigger button. */
+  @Prop() size?: 'sm' | 'lg'
 
   /**
    * Stringified tether options object to be merged with the default options.
    */
   @Prop({ mutable: true }) tetherOptions = '{}'
 
-  /** Hint for form autofill feature. */
-  @Prop() autocomplete?: string
-
-  /**
-   * The form element to associate the select with (its form owner).
-   */
-  @Prop() form?: string
-
   /**
    * A Boolean attribute indicating that an option with a non-empty string value must be selected.
    */
   @Prop() required?: boolean
 
-  /**
-   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
-   * Only one form element in a document can have the autofocus attribute.
-   */
-  @Prop() autofocus?: boolean
-
-  @State() initialized = false
+  @State() ariaDisabled = false
   @State() expanded = false
+  @State() hasCustomIcon = false
+  @State() hasMore = false
+  @State() initialized = false
+  @State() internalOptionsHTML: string
+  @State() renderHiddenInput = false
   @State() selected: SelectOption[] = []
   @State() theme: string
-  @State() ariaDisabled = false
   @State() typeAheadQuery: string
   @State() typeAheadTimeout: number
-  @State() internalOptionsHTML: string
-  @State() hasMore = false
-  @State() hasCustomIcon = false
-  @State() renderHiddenInput = false
 
   @Watch('selected')
   emitEventsAndUpdateHidden(
