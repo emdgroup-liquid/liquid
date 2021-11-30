@@ -1,3 +1,4 @@
+jest.mock('../../../utils/cloneAttributes')
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
 
@@ -284,13 +285,42 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
-  it('copies form autocomplete attribute, if it has not one of its own', async () => {
+  it('creates hidden input field, if name attribute is added', async () => {
     const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input /></form>`,
+    })
+
+    root.setAttribute('name', 'test')
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, if form attribute is given', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input form="example-form" name="example" />`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, if form attribute is added', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input name="example" />`,
+    })
+
+    root.setAttribute('form', 'test')
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('copies form autocomplete attribute, if it has not one of its own', async () => {
+    const page = await newSpecPage({
       components: [LdInput],
       html: `<form autocomplete="off"><ld-input name="example" /></form>`,
     })
-    await waitForChanges()
-    expect(root).toMatchSnapshot()
+    expect(page.root).toMatchSnapshot()
   })
 
   it('uses own autocomplete attribute even if the form has a different one', async () => {
@@ -302,15 +332,15 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
-  it('fills hidden input field with initial value', async () => {
+  it('fills hidden input field with initial attributes', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],
-      html: `<form><ld-input name="example" value="hello" /></form>`,
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello"  /></form>`,
     })
     expect(root).toMatchSnapshot()
   })
 
-  it('updates hidden input field', async () => {
+  it('updates hidden input field value', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdInput],
       html: `<form><ld-input name="example" /></form>`,
@@ -321,6 +351,59 @@ describe('ld-input', () => {
     input.dispatchEvent(new Event('input'))
     await waitForChanges()
 
+    expect(root).toMatchSnapshot()
+  })
+
+  it('updates hidden input field attributes', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+
+    root.setAttribute('dirname', 'test.dir')
+    root.setAttribute('form', 'test')
+    root.setAttribute('name', 'test')
+    root.setAttribute('value', 'test')
+    await waitForChanges()
+
+    expect(root).toMatchSnapshot()
+    expect(root.querySelector('input').dirName).toBe('test.dir')
+  })
+
+  it('removes hidden input field attributes', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
+    })
+
+    root.removeAttribute('dirname')
+    root.removeAttribute('form')
+    root.removeAttribute('value')
+    await waitForChanges()
+
+    expect(root).toMatchSnapshot()
+    expect(root.querySelector('input').dirName).toBeNull()
+  })
+
+  it('removes hidden input field, if name attribute is removed', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
+    })
+
+    root.removeAttribute('name')
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('removes hidden input field, if form attribute is removed', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input form="example-form" name="example" />`,
+    })
+
+    root.removeAttribute('form')
+    await waitForChanges()
     expect(root).toMatchSnapshot()
   })
 })

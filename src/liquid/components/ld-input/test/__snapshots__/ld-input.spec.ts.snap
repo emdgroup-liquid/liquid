@@ -4,10 +4,32 @@ exports[`ld-input copies form autocomplete attribute, if it has not one of its o
 <ld-input autocomplete="off" class="ld-input" name="example">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input autocomplete="off" part="input focusable">
+    <input autocomplete="off" name="example" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <input name="example" type="hidden">
+</ld-input>
+`;
+
+exports[`ld-input creates hidden input field, if form attribute is added 1`] = `
+<ld-input class="ld-input" form="test" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input form="test" name="example" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input form="test" name="example">
+</ld-input>
+`;
+
+exports[`ld-input creates hidden input field, if form attribute is given 1`] = `
+<ld-input class="ld-input" form="example-form" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input form="example-form" name="example" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input form="example-form" name="example" type="hidden">
 </ld-input>
 `;
 
@@ -15,21 +37,63 @@ exports[`ld-input creates hidden input field, if inside a form 1`] = `
 <ld-input class="ld-input" name="example">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input name="example" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <input name="example" type="hidden">
 </ld-input>
 `;
 
-exports[`ld-input fills hidden input field with initial value 1`] = `
-<ld-input class="ld-input" name="example" value="hello">
+exports[`ld-input creates hidden input field, if name attribute is added 1`] = `
+<ld-input class="ld-input" name="test">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable" value="hello">
+    <input name="test" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
-  <input name="example" type="hidden" value="hello">
+  <input name="test">
+</ld-input>
+`;
+
+exports[`ld-input fills hidden input field with initial attributes 1`] = `
+<ld-input class="ld-input" dirname="example.dir" form="formName" name="example" value="hello">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input dirname="example.dir" form="formName" name="example" part="input focusable" value="hello">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input form="formName" name="example" type="hidden" value="hello">
+</ld-input>
+`;
+
+exports[`ld-input removes hidden input field attributes 1`] = `
+<ld-input class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input name="example" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input name="example" type="hidden">
+</ld-input>
+`;
+
+exports[`ld-input removes hidden input field, if form attribute is removed 1`] = `
+<ld-input class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input name="example" part="input focusable">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+</ld-input>
+`;
+
+exports[`ld-input removes hidden input field, if name attribute is removed 1`] = `
+<ld-input class="ld-input" dirname="example.dir" form="formName" value="hello">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input dirname="example.dir" form="formName" part="input focusable" value="hello">
+    <slot name="end"></slot>
+  </mock:shadow-root>
 </ld-input>
 `;
 
@@ -103,7 +167,7 @@ exports[`ld-input renders as dark input with prop tone set to "dark" 1`] = `
 <ld-input class="ld-input ld-input--dark" tone="dark">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input part="input focusable" tone="dark">
     <slot name="end"></slot>
   </mock:shadow-root>
 </ld-input>
@@ -184,7 +248,7 @@ exports[`ld-input sets size on ld-button css component 1`] = `
 <ld-input class="ld-input ld-input--sm" size="sm">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input part="input focusable" size="sm">
     <slot name="end"></slot>
   </mock:shadow-root>
   <button class="ld-button ld-button--sm" slot="start">
@@ -200,7 +264,7 @@ exports[`ld-input sets size on ld-button web component 1`] = `
 <ld-input class="ld-input ld-input--sm" size="sm">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input part="input focusable" size="sm">
     <slot name="end"></slot>
   </mock:shadow-root>
   <ld-button size="sm" slot="start">
@@ -216,7 +280,7 @@ exports[`ld-input sets size on ld-icon css component 1`] = `
 <ld-input class="ld-input ld-input--sm" size="sm">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input part="input focusable" size="sm">
     <slot name="end"></slot>
   </mock:shadow-root>
   <svg class="ld-icon ld-icon--sm" slot="start"></svg>
@@ -228,7 +292,7 @@ exports[`ld-input sets size on ld-icon web component 1`] = `
 <ld-input class="ld-input ld-input--sm" size="sm">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable">
+    <input part="input focusable" size="sm">
     <slot name="end"></slot>
   </mock:shadow-root>
   <ld-icon name="placeholder" size="sm" slot="start"></ld-icon>
@@ -236,11 +300,22 @@ exports[`ld-input sets size on ld-icon web component 1`] = `
 </ld-input>
 `;
 
-exports[`ld-input updates hidden input field 1`] = `
-<ld-input class="ld-input" name="example" value="test">
+exports[`ld-input updates hidden input field attributes 1`] = `
+<ld-input class="ld-input" dirname="test.dir" form="test" name="test" value="test">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input part="input focusable" value="test">
+    <input dirname="test.dir" form="test" name="test" part="input focusable" value="test">
+    <slot name="end"></slot>
+  </mock:shadow-root>
+  <input form="test" name="test" type="hidden" value="test">
+</ld-input>
+`;
+
+exports[`ld-input updates hidden input field value 1`] = `
+<ld-input class="ld-input" name="example">
+  <mock:shadow-root>
+    <slot name="start"></slot>
+    <input name="example" part="input focusable" value="test">
     <slot name="end"></slot>
   </mock:shadow-root>
   <input name="example" type="hidden" value="test">
@@ -248,7 +323,7 @@ exports[`ld-input updates hidden input field 1`] = `
 `;
 
 exports[`ld-input updates value prop on value change 1`] = `
-<ld-input class="ld-input" value="yoda-yoda">
+<ld-input class="ld-input" value="yada-yada">
   <mock:shadow-root>
     <slot name="start"></slot>
     <input part="input focusable" value="yoda-yoda">
@@ -261,7 +336,7 @@ exports[`ld-input uses own autocomplete attribute even if the form has a differe
 <ld-input autocomplete="name" class="ld-input" name="example">
   <mock:shadow-root>
     <slot name="start"></slot>
-    <input autocomplete="name" part="input focusable">
+    <input autocomplete="name" name="example" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
   <input name="example" type="hidden">
