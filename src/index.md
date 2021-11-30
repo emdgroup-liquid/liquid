@@ -23,8 +23,10 @@ title: Introduction
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=develop)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=develop)
 
 > ⚠️  **Important**: Liquid is currently in its early development stage and subject to major changes. If you get stuck, reach out for help in [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+> 
+> Looking for the legacy version of the Liquid Design System? Click [here](https://liquid-legacy-docs.merck.design/).
 
-Liquid is a UI component library based on the [Liquid Design System](https://lds.merck.design/), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
+Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
 
 
