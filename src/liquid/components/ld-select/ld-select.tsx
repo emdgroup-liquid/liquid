@@ -884,11 +884,10 @@ export class LdSelect implements InnerFocusable {
     setTimeout(() => {
       this.initObserver()
       this.initialized = true
-
-      if (this.autofocus) {
-        this.focusInner()
-      }
     })
+    if (this.autofocus) {
+      this.focusInner()
+    }
   }
 
   componentDidUpdate() {
