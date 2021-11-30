@@ -15,6 +15,7 @@ import {
 import Tether from 'tether'
 import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
 import { LdOptionInternal } from './ld-option-internal/ld-option-internal'
+import { getClassNames } from '../../utils/getClassNames'
 
 type SelectOption = { value: string; text: string }
 
@@ -41,29 +42,31 @@ export class LdSelect implements InnerFocusable {
   private popper: Tether
   private observer: MutationObserver
 
+  /** Hint for form autofill feature. */
+  @Prop() autocomplete?: string
+
   /**
-   * Used as trigger button label in multiselect mode
-   * and in single select mode if nothing is selected.
+   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+   * Only one form element in a document can have the autofocus attribute.
    */
-  @Prop() placeholder: string
-
-  /** Used to specify the name of the control. */
-  @Prop() name: string
-
-  /** Multiselect mode. */
-  @Prop() multiple: boolean
+  @Prop() autofocus?: boolean
 
   /** Disabled state of the component. */
   @Prop() disabled: boolean
+
+  /**
+   * The form element to associate the select with (its form owner).
+   */
+  @Prop() form?: string
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
 
   /**
-   * Prevents a state with no options selected after
-   * initial selection in single select mode.
+   * Constrains the height of the trigger button by replacing overflowing selection
+   * with a "+X more" indicator.
    */
-  @Prop() preventDeselection: boolean
+  @Prop({ mutable: true }) maxRows?: number
 
   // prettier-ignore
   /**
@@ -75,34 +78,51 @@ export class LdSelect implements InnerFocusable {
     | 'inline' //   = detached + minumum trigger button width
     | 'ghost' //    = inline   + transparent background and borders
 
-  /** Size of the select trigger button. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Multiselect mode. */
+  @Prop() multiple: boolean
+
+  /** Used to specify the name of the control. */
+  @Prop() name: string
 
   /**
-   * Constrains the height of the trigger button by replacing overflowing selection
-   * with a "+X more" indicator.
+   * Used as trigger button label in multiselect mode
+   * and in single select mode if nothing is selected.
    */
-  @Prop({ mutable: true }) maxRows?: number
+  @Prop() placeholder: string
 
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass?: string
+
+  /**
+   * Prevents a state with no options selected after
+   * initial selection in single select mode.
+   */
+  @Prop() preventDeselection: boolean
+
+  /** Size of the select trigger button. */
+  @Prop() size?: 'sm' | 'lg'
 
   /**
    * Stringified tether options object to be merged with the default options.
    */
   @Prop({ mutable: true }) tetherOptions = '{}'
 
-  @State() initialized = false
+  /**
+   * A Boolean attribute indicating that an option with a non-empty string value must be selected.
+   */
+  @Prop() required?: boolean
+
+  @State() ariaDisabled = false
   @State() expanded = false
+  @State() hasCustomIcon = false
+  @State() hasMore = false
+  @State() initialized = false
+  @State() internalOptionsHTML: string
+  @State() renderHiddenInput = false
   @State() selected: SelectOption[] = []
   @State() theme: string
-  @State() ariaDisabled = false
   @State() typeAheadQuery: string
   @State() typeAheadTimeout: number
-  @State() internalOptionsHTML: string
-  @State() hasMore = false
-  @State() hasCustomIcon = false
-  @State() renderHiddenInput = false
 
   @Watch('selected')
   emitEventsAndUpdateHidden(
@@ -864,6 +884,10 @@ export class LdSelect implements InnerFocusable {
     setTimeout(() => {
       this.initObserver()
       this.initialized = true
+
+      if (this.autofocus) {
+        this.focusInner()
+      }
     })
   }
 
@@ -889,22 +913,28 @@ export class LdSelect implements InnerFocusable {
     // Disallow ghost in combination with multiple select mode.
     const ghost = !this.multiple && this.mode === 'ghost'
 
-    let cl = 'ld-select'
-    if (this.size) cl += ` ld-select--${this.size}`
-    if (this.invalid) cl += ' ld-select--invalid'
-    if (this.expanded) cl += ' ld-select--expanded'
-    if (detached) cl += ' ld-select--detached'
-    if (inline) cl += ' ld-select--inline'
-    if (ghost) cl += ' ld-select--ghost'
+    const cl = [
+      'ld-select',
+      this.size && `ld-select--${this.size}`,
+      this.invalid && 'ld-select--invalid',
+      this.expanded && 'ld-select--expanded',
+      detached && 'ld-select--detached',
+      inline && 'ld-select--inline',
+      ghost && 'ld-select--ghost',
+    ]
 
-    let triggerCl = 'ld-select__btn-trigger'
-    if (this.invalid) triggerCl += ' ld-select__btn-trigger--invalid'
-    if (detached) triggerCl += ' ld-select__btn-trigger--detached'
-    if (inline) triggerCl += ' ld-select__btn-trigger--inline'
-    if (ghost) triggerCl += ' ld-select__btn-trigger--ghost'
+    const triggerCl = [
+      'ld-select__btn-trigger',
+      this.invalid && 'ld-select__btn-trigger--invalid',
+      detached && 'ld-select__btn-trigger--detached',
+      inline && 'ld-select__btn-trigger--inline',
+      ghost && 'ld-select__btn-trigger--ghost',
+    ]
 
-    let triggerIconCl = 'ld-select__icon'
-    if (this.expanded) triggerIconCl += ' ld-select__icon--rotated'
+    const triggerIconCl = [
+      'ld-select__icon',
+      this.expanded && 'ld-select__icon--rotated',
+    ]
 
     const triggerText = this.multiple
       ? this.placeholder
@@ -913,7 +943,7 @@ export class LdSelect implements InnerFocusable {
     return (
       <Host>
         <div
-          class={cl}
+          class={getClassNames(cl)}
           aria-disabled={this.disabled || this.ariaDisabled}
           part="root"
           onFocusout={this.handleFocusout.bind(this)}
@@ -935,7 +965,7 @@ export class LdSelect implements InnerFocusable {
             ref={(el) => (this.selectRef = el as HTMLElement)}
           >
             <div
-              class={triggerCl}
+              class={getClassNames(triggerCl)}
               role="button"
               part="btn-trigger focusable"
               tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
@@ -1074,7 +1104,7 @@ export class LdSelect implements InnerFocusable {
               <slot name="icon"></slot>
               {!this.hasCustomIcon && (
                 <svg
-                  class={triggerIconCl}
+                  class={getClassNames(triggerIconCl)}
                   role={'presentation'}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"

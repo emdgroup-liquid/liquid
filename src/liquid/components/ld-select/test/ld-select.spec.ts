@@ -2003,9 +2003,31 @@ describe('ld-select', () => {
     const btnTrigger = ldSelect.shadowRoot.querySelector(
       '.ld-select__btn-trigger'
     )
-    ;(btnTrigger as HTMLElement).focus = jest.fn(focusManager.focus)
+    ;(btnTrigger as HTMLElement).focus = jest.fn()
 
     await page.root.focusInner()
+    expect((btnTrigger as HTMLElement).focus).toHaveBeenCalledTimes(1)
+  })
+
+  it('auto-focuses', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select autofocus placeholder="Pick a fruit" name="fruit" popper-class="ld-select__popper--fruits">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+    const btnTrigger = ldSelect.shadowRoot.querySelector(
+      '.ld-select__btn-trigger'
+    )
+    ;(btnTrigger as HTMLElement).focus = jest.fn()
+
+    await page.waitForChanges()
+    jest.advanceTimersByTime(0)
     expect((btnTrigger as HTMLElement).focus).toHaveBeenCalledTimes(1)
   })
 })
