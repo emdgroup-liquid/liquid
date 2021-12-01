@@ -15,6 +15,10 @@ In most cases you will probably want to simply use components though, which them
 
 The list below shows you all available typography related CSS custom properties available after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets) and the effect they have on text.
 
+> Please be aware of our brand guidelines regarding typography.
+> 
+> For more information visit [Brand Hub: Typography](https://brand-hub.merckgroup.com/en/design-basics/typography.html).
+
 > **Note**: Using one of the properties listed below alone does not guarantee typography as intended by the Liquid Design System. For instance, you need to combine all `--ld-typo-b*` and `--ld-typo-xb*` fonts with `text-transform: uppercase;`, use a color other than black and apply an `aria-label` in order to conform with the Liquid Design System and its accessibility requirements.
 
 ## Available CSS custom properties

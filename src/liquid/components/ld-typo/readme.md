@@ -13,6 +13,10 @@ permalink: components/ld-typo/
 
 To give text a certain style of typography, you can use the `ld-typo` component. Every variant has its own semantic HTML tag that it gets rendered with. Heading styles render with their respective heading tag (`h1`, `h2`, etc). You can use the `tag` attribute, to render the variant with a different HTML tag, while keeping the visual variant style.
 
+> Please be aware of our brand guidelines regarding typography.
+> 
+> For more information visit [Brand Hub: Typography](https://brand-hub.merckgroup.com/en/design-basics/typography.html).
+
 ---
 
 ## Examples
