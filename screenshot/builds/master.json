@@ -3073,6 +3073,58 @@
       "isMobile": false
     },
     {
+      "id": "cd3e9064",
+      "image": "33fab876591c00fec508f54756e69220.png",
+      "userAgent": "default",
+      "desc": "ld-checkbox indeterminate css component",
+      "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "03c7af77",
+      "image": "e4bc0c2e2cc14e3103af2cb9d0ab70c0.png",
+      "userAgent": "default",
+      "desc": "ld-checkbox indeterminate css component disabled",
+      "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "030ef142",
+      "image": "33fab876591c00fec508f54756e69220.png",
+      "userAgent": "default",
+      "desc": "ld-checkbox indeterminate web component",
+      "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "e241b2ef",
+      "image": "e4bc0c2e2cc14e3103af2cb9d0ab70c0.png",
+      "userAgent": "default",
+      "desc": "ld-checkbox indeterminate web component disabled",
+      "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "c849bdfe",
       "image": "08add4160550304134136fa7224931bb.png",
       "userAgent": "default",

@@ -273,4 +273,44 @@ describe('ld-checkbox', () => {
 
     expect(ldCheckbox).toHaveAttribute('invalid')
   })
+
+  describe('indeterminate', () => {
+    it('web component', async () => {
+      const page = await getPageWithContent(
+        '<ld-checkbox indeterminate></ld-checkbox>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-checkbox">
+          <input type="checkbox" indeterminate></input>${checkAndBox}
+        </div>`,
+        { components: LdCheckbox }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('web component disabled', async () => {
+      const page = await getPageWithContent(
+        '<ld-checkbox indeterminate disabled></ld-checkbox>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component disabled', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-checkbox">
+          <input type="checkbox" indeterminate disabled></input>${checkAndBox}
+        </div>`,
+        { components: LdCheckbox }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
 })

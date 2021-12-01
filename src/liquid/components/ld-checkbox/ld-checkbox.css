@@ -57,6 +57,22 @@
       }
     }
 
+    /* For whatever reason both selectors are required to work with both, web and css component */
+    &:indeterminate,
+    &[indeterminate] {
+      ~ .ld-checkbox__box::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: var(--ld-sp-2);
+        border-radius: var(--ld-sp-2);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: inherit;
+      }
+    }
+
     &:where(:disabled),
     &:where([aria-disabled='true']) {
       ~ .ld-checkbox__check {

@@ -123,6 +123,7 @@ export class LdInput implements InnerFocusable {
   @Watch('dirname')
   @Watch('form')
   @Watch('name')
+  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
     const outerForm = this.el.closest('form')
@@ -133,6 +134,7 @@ export class LdInput implements InnerFocusable {
 
     if (this.hiddenInput) {
       this.hiddenInput.dirName = this.dirname
+      this.hiddenInput.required = this.required
 
       if (this.name) {
         this.hiddenInput.name = this.name
