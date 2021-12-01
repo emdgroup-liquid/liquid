@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-checkbox creates hidden input field, if inside a form 1`] = `
-<ld-checkbox class="ld-checkbox" part="root">
+<ld-checkbox class="ld-checkbox" name="example" part="root">
   <mock:shadow-root>
     <input part="input focusable" type="checkbox">
     <svg class="ld-checkbox__check" fill="none" height="14" part="check" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
@@ -9,7 +9,7 @@ exports[`ld-checkbox creates hidden input field, if inside a form 1`] = `
     </svg>
     <div class="ld-checkbox__box" part="box"></div>
   </mock:shadow-root>
-  <input type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
+  <input name="example" type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
 </ld-checkbox>
 `;
 
