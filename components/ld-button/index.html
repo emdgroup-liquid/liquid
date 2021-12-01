@@ -1946,10 +1946,59 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
 <td><code>undefined</code></td>
 </tr>
 <tr>
+<td><code>autofocus</code></td>
+<td><code>autofocus</code></td>
+<td>Automatically focus the form control when the page is loaded.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
 <td><code>disabled</code></td>
 <td><code>disabled</code></td>
 <td>Disabled state of the button.</td>
 <td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>form</code></td>
+<td><code>form</code></td>
+<td>Associates the control with a form element.</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>formaction</code></td>
+<td><code>formaction</code></td>
+<td>Overrides the <code>action</code> attribute of the button's form owner.</td>
+<td><code>&quot;application/x-www-form-urlencoded&quot; \| &quot;multipart/form-data&quot; \| &quot;text/plain&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>formenctype</code></td>
+<td><code>formenctype</code></td>
+<td>Overrides the <code>enctype</code> attribute of the button's form owner.</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>formmethod</code></td>
+<td><code>formmethod</code></td>
+<td>Overrides the <code>method</code> attribute of the button's form owner.</td>
+<td><code>&quot;get&quot; \| &quot;post&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>formnovalidate</code></td>
+<td><code>formnovalidate</code></td>
+<td>Overrides the <code>novalidate</code> attribute of the button's form owner.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>formtarget</code></td>
+<td><code>formtarget</code></td>
+<td>Overrides the <code>target</code> attribute of the button's form owner.</td>
+<td><code>&quot;_blank&quot; \| &quot;_parent&quot; \| &quot;_self&quot; \| &quot;_top&quot;</code></td>
 <td><code>undefined</code></td>
 </tr>
 <tr>
@@ -1981,6 +2030,13 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
 <td><code>undefined</code></td>
 </tr>
 <tr>
+<td><code>name</code></td>
+<td><code>name</code></td>
+<td>Used to specify the name of the control.</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
 <td><code>progress</code></td>
 <td><code>progress</code></td>
 <td>Displays a progress bar at the bottom of the button.</td>
@@ -2006,6 +2062,20 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
 <td><code>target</code></td>
 <td>The <code>target</code> attributed can be used in conjunction with the <code>href</code> attribute. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target">mdn docs</a> for more information on the <code>target</code> attribute.</td>
 <td><code>&quot;_blank&quot; \| &quot;_parent&quot; \| &quot;_self&quot; \| &quot;_top&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>type</code></td>
+<td>Specifies the default behavior of the button.</td>
+<td><code>&quot;button&quot; \| &quot;reset&quot; \| &quot;submit&quot;</code></td>
+<td><code>'submit'</code></td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>value</code></td>
+<td>Defines the value associated with the button’s <code>name</code> when it’s submitted with the form data.</td>
+<td><code>string</code></td>
 <td><code>undefined</code></td>
 </tr>
 </tbody>
@@ -2037,7 +2107,7 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
 <hr>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 
