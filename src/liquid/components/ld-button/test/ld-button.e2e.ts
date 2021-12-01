@@ -413,13 +413,13 @@ describe('ld-button', () => {
     })
   })
 
-  describe('implicit form submission', () => {
+  describe('implicit form interaction', () => {
     it('submits form implicitly', async () => {
       const page = await getPageWithContent(
         `<form><ld-button>Text</ld-button></form>`
       )
       const form = await page.find('form')
-      expect(form).not.toBeNull()
+      const formResetSpy = await form.spyOnEvent('reset')
       const formSubmitSpy = await form.spyOnEvent('submit')
 
       // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
@@ -429,7 +429,27 @@ describe('ld-button', () => {
       })
       page.waitForChanges()
 
+      expect(formResetSpy).not.toHaveReceivedEvent()
       expect(formSubmitSpy).toHaveReceivedEvent()
+    })
+
+    it('resets form implicitly', async () => {
+      const page = await getPageWithContent(
+        `<form><ld-button type="reset">Text</ld-button></form>`
+      )
+      const form = await page.find('form')
+      const formResetSpy = await form.spyOnEvent('reset')
+      const formSubmitSpy = await form.spyOnEvent('submit')
+
+      // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
+      await page.evaluate(() => document.querySelector('ld-button').click())
+      await page.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve))
+      })
+      page.waitForChanges()
+
+      expect(formResetSpy).toHaveReceivedEvent()
+      expect(formSubmitSpy).not.toHaveReceivedEvent()
     })
   })
 })

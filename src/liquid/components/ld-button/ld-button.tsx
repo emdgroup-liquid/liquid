@@ -1,4 +1,5 @@
 import { Component, Element, h, Method, Prop } from '@stencil/core'
+import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
@@ -16,11 +17,45 @@ export class LdButton implements InnerFocusable {
   @Element() el: HTMLElement
   private button: HTMLAnchorElement | HTMLButtonElement
 
-  /** Disabled state of the button. */
-  @Prop() disabled: boolean
+  /** Align text. */
+  @Prop({ mutable: true }) alignText?: 'left' | 'right'
 
-  /** Size of the button. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus?: boolean
+
+  /** Disabled state of the button. */
+  @Prop() disabled?: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /** Overrides the `action` attribute of the button's form owner. */
+  @Prop() formaction?:
+    | 'application/x-www-form-urlencoded'
+    | 'multipart/form-data'
+    | 'text/plain'
+
+  /** Overrides the `enctype` attribute of the button's form owner. */
+  @Prop() formenctype?: string
+
+  /** Overrides the `method` attribute of the button's form owner. */
+  @Prop() formmethod?: 'get' | 'post'
+
+  /** Overrides the `novalidate` attribute of the button's form owner. */
+  @Prop() formnovalidate?: boolean
+
+  /** Overrides the `target` attribute of the button's form owner. */
+  @Prop() formtarget?: '_blank' | '_parent' | '_self' | '_top'
+
+  /**
+   * Transforms the button to an anchor element.
+   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
+   * for more information on the `href` attribute.
+   */
+  @Prop() href?: string
+
+  /** Justify content. */
+  @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
 
   /** Display mode. */
   @Prop() mode?:
@@ -31,18 +66,14 @@ export class LdButton implements InnerFocusable {
     | 'on-brand-color'
     | 'secondary-on-brand-color'
 
-  /** Align text. */
-  @Prop({ mutable: true }) alignText: 'left' | 'right'
+  /** Used to specify the name of the control. */
+  @Prop() name?: string
 
-  /** Justify content. */
-  @Prop({ mutable: true }) justifyContent: 'start' | 'end' | 'between'
+  /** Displays a progress bar at the bottom of the button. */
+  @Prop() progress?: 'pending' | number
 
-  /**
-   * Transforms the button to an anchor element.
-   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
-   * for more information on the `href` attribute.
-   */
-  @Prop() href?: string
+  /** Size of the button. */
+  @Prop() size?: 'sm' | 'lg'
 
   /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
@@ -51,8 +82,11 @@ export class LdButton implements InnerFocusable {
    */
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
-  /** Displays a progress bar at the bottom of the button. */
-  @Prop() progress: 'pending' | number
+  /** Specifies the default behavior of the button. */
+  @Prop() type: 'button' | 'reset' | 'submit' = 'submit'
+
+  /** Defines the value associated with the button’s `name` when it’s submitted with the form data. */
+  @Prop() value?: string
 
   /**
    * Sets focus on the button
@@ -70,22 +104,40 @@ export class LdButton implements InnerFocusable {
     })
   }
 
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
+    }
+  }
+
   disconnectedCallback() {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
     })
   }
 
-  private clickFakeButton(
-    form: HTMLFormElement,
-    buttonType: 'submit' | 'reset'
-  ) {
-    const btnFake = document.createElement('button')
-    btnFake.type = buttonType
-    btnFake.style.display = 'none'
-    form.appendChild(btnFake)
-    btnFake.click()
-    btnFake.remove()
+  private clickHiddenButton() {
+    console.log('drin')
+    const button = document.createElement('button')
+
+    button.style.pointerEvents = 'none'
+    button.style.position = 'absolute'
+    button.style.visibility = 'hidden'
+
+    if (this.form) button.setAttribute('form', this.form)
+    if (this.formaction !== undefined) button.formAction = this.formaction
+    if (this.formenctype !== undefined) button.formEnctype = this.formenctype
+    if (this.formmethod !== undefined) button.formMethod = this.formmethod
+    if (this.formnovalidate !== undefined)
+      button.formNoValidate = this.formnovalidate
+    if (this.formtarget !== undefined) button.formTarget = this.formtarget
+    if (this.name !== undefined) button.name = this.name
+    if (this.type !== undefined) button.type = this.type
+    if (this.value !== undefined) button.value = this.value
+
+    this.el.parentNode.append(button)
+    button.click()
+    button.remove()
   }
 
   private handleClick = (ev: MouseEvent) => {
@@ -97,19 +149,12 @@ export class LdButton implements InnerFocusable {
       return
     }
 
-    if (!this.href) {
+    if (!this.href && this.type !== 'button') {
       setTimeout(() => {
         if (!ev.defaultPrevented) {
           const form = this.el.closest('form')
-          if (form) {
-            switch (this.el.getAttribute('type')) {
-              case 'reset':
-                this.clickFakeButton(form, 'reset')
-                break
-              case 'submit':
-              default:
-                this.clickFakeButton(form, 'submit')
-            }
+          if (form || this.form) {
+            this.clickHiddenButton()
           }
         }
       })
@@ -138,11 +183,13 @@ export class LdButton implements InnerFocusable {
   }
 
   render() {
-    let cl = 'ld-button'
-    if (this.size) cl += ` ld-button--${this.size}`
-    if (this.mode) cl += ` ld-button--${this.mode}`
-    if (this.alignText) cl += ` ld-button--align-text-${this.alignText}`
-    if (this.justifyContent) cl += ` ld-button--justify-${this.justifyContent}`
+    const cl = getClassNames([
+      'ld-button',
+      this.size && `ld-button--${this.size}`,
+      this.mode && `ld-button--${this.mode}`,
+      this.alignText && `ld-button--align-text-${this.alignText}`,
+      this.justifyContent && `ld-button--justify-${this.justifyContent}`,
+    ])
 
     const Tag = this.href ? 'a' : 'button'
 
@@ -161,13 +208,16 @@ export class LdButton implements InnerFocusable {
         aria-disabled={this.disabled ? 'true' : undefined}
         aria-live="polite"
         class={cl}
-        disabled={this.disabled}
-        href={this.href}
         part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        target={this.target}
-        {...cloneAttributes(this.el)}
+        {...cloneAttributes(this.el, [
+          'align-text',
+          'justify-content',
+          'mode',
+          'progress',
+          'size',
+        ])}
       >
         <slot />
         {hasProgress && (
