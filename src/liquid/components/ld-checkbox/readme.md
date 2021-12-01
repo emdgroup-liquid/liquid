@@ -334,7 +334,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 ### Danger
 
-The checkbox in mode "danger" looks and behaves the same as a checkbox with the [`invalid`](#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code. 
+The checkbox in mode "danger" looks and behaves the same as a checkbox with the [`invalid`](components/ld-checkbox/#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code. 
 
 {% example %}
 <ld-checkbox mode="danger"></ld-checkbox>

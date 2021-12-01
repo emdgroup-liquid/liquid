@@ -403,7 +403,7 @@ When displaying input messages conditionally (i.e. an error message becomes visi
 
 ### With slotted elements
 
-You can use [slots](#slots) in order to add static or interactive elements, such as icons or buttons into the input component.
+You can use [slots](components/ld-input/#slots) in order to add static or interactive elements, such as icons or buttons into the input component.
 
 #### With icon
 
