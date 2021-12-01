@@ -322,7 +322,7 @@
               title: 'Components',
               tags: '',
               url: '/liquid/components/',
-              headings: 'Enhancement backlogSubmitting an enhancement request',
+              headings: 'Feature backlogMilestonesSubmitting a feature request',
               breadcrumbs: [
                 
                 
@@ -1586,7 +1586,7 @@ Icon-buttons without visual text should either contain a <a href="components/ld-
   // The event handler won't be called.
 </script></div></docs-example>
 <p>The <code>disabled</code> attribute applies both attributes, <code>disabled</code> and <code>aria-disabled=&quot;true&quot;</code> on the rendered component.
-Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code>button</code> element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an <a href="#anchor-button">anchor button</a>.</p>
+Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code>button</code> element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an <a href="components/ld-button/#anchor-button">anchor button</a>.</p>
 <p><strong>If you want the button to stay focusable</strong> even if it is disabled, use <code>aria-disabled</code> in place of <code>disabled</code>:</p>
 <docs-example code="%3Cld-button%20id%3D%22disabled-button-3%22%20aria-disabled%3D%22true%22%3EText%3C%2Fld-button%3E%0A%3Cscript%3E%0A%20%20document.getElementById('disabled-button-3').addEventListener('click'%2C%20()%20%3D%3E%20%7B%20window.alert('click')%20%7D)%0A%20%20%2F%2F%20The%20event%20handler%20won't%20be%20called.%0A%3C%2Fscript%3E" code-css-component="%3Cbutton%20id%3D%22disabled-button-4%22%20class%3D%22ld-button%22%20aria-disabled%3D%22true%22%3E%0A%20%20Text%0A%3C%2Fbutton%3E%0A%3Cscript%3E%0A%20%20%2F%2F%20When%20using%20the%20CSS%20component%2C%20you%20will%20need%20to%20prevent%20the%20default%20behaviour%20of%20the%20button%20yourself.%0A%20%20document.getElementById('disabled-button-4').addEventListener('click'%2C%20(ev)%20%3D%3E%20%7B%0A%20%20%20%20console.info('preventing%20default%20behaviour')%0A%20%20%20%20ev.preventDefault()%0A%20%20%20%20ev.stopImmediatePropagation()%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable>
 <div slot="code">
