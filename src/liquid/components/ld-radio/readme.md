@@ -169,7 +169,7 @@ An invalid state for a radio inputs inside a group makes sense, if for instance 
 
 ### Danger
 
-The radio button in mode "danger" looks and behaves the same as a radio button with the [`invalid`](#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.
+The radio button in mode "danger" looks and behaves the same as a radio button with the [`invalid`](components/ld-radio/#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.
 
 {% example %}
 <ld-radio name="example-7" mode="danger"></ld-radio>

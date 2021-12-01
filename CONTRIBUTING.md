@@ -19,7 +19,7 @@ They are not rules. So use your best judgment, and feel free to propose changes 
 
 [How can I contribute?](#how-can-i-contribute)
 * [Reporting bugs](#reporting-bugs)
-* [Suggesting enhancements](#suggesting-enhancements)
+* [Requesting new features](#requesting-new-features)
 * [Your first code contribution](#your-first-code-contribution)
 * [Pull requests](#pull-requests)
 
@@ -227,39 +227,39 @@ Include details about your configuration and environment:
 * **Are you running Liquid docs using the provided Dockerfile in a docker container?**
 * **Which other framework/libraries are you using that may be involved in the issue?** Please check https://stenciljs.com/docs/overview for possible known quirks.
 
-### Suggesting enhancements
+### Requesting new features
 
-This section guides you through submitting an enhancement suggestion for Liquid, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion :pencil: and find related suggestions :mag_right:.
+This section guides you through submitting a feature request for Liquid, including completely new components, new features to existing components and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your request :pencil: and find related requests :mag_right:.
 
-Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion). Fill in [the template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md).
+Before creating feature requests, please check [this list](#before-submitting-a-feature-request) as you might find out that you don't need to create one. When you are creating a feature request, please [include as many details as possible](#how-do-i-submit-a-good-feature-request). Fill in [the template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md).
 
-> **Note:** This repository is using __lodash style issue management for enhancements__. This means:
+> **Note:** This repository is using __lodash style issue management for features__. This means:
 > 
 > - Feature requests are closed issues with `feature` label and `needed: votes` label.
 > - Bugs are open issues tagged with the `bug` label.
 > 
-> View the enhancement backlog [here](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+label%3A"needed%3A+votes"). Upvote the top comment of an issue with 👍 if you want the enhancement to be prioritised higher.
+> View the feature backlog [here](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+label%3A"needed%3A+votes"). Upvote the top comment of an issue with 👍 if you want the feature to be prioritised higher.
 
-#### Before submitting an enhancement suggestion
+#### Before submitting a feature request
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in the [enhancement backlog](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature)** to see if a similar enhancement has already been suggested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the suggested enhancement or add a comment, if you think it contains relevant information which will help drive it forward, instead of opening a new one. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+* **Perform a search in the [feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature)** to see if a similar feature has already been requested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the requested feature or add a comment, if you think it contains relevant information that will help drive it forward, instead of opening a new one. If you prefer to discuss with others first, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or in our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
-#### How do I vote on an existing enhancement suggestion?
+#### How do I vote on an existing feature request?
 
-Click on the reaction icon in the upper right corner of the enhancement suggestion. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:"needed: votes" sort:reactions-+1-desc` as the issue search query).
+Click on the reaction icon in the upper right corner of the feature request. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:"needed: votes" sort:reactions-+1-desc` as the issue search query).
 
-#### How do I submit a (good) enhancement suggestion?
+#### How do I submit a (good) feature request?
 
-Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue provide the following information:
+Feature requests are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue providing the following information:
 
 * **Use a clear and descriptive title** for the issue to identify the suggestion.
-* **Provide a step-by-step description of the suggested enhancement** in as many details as possible.
+* **Provide a step-by-step description of the requested feature** in as many details as possible.
 * **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
 * **Include screenshots and animated GIFs** which help you demonstrate the steps or point out the part of Liquid which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
-* **Explain why this enhancement would be useful** to most Liquid users and isn't something that can or should be implemented as a separate community package.
-* **List some other UI libraries or applications where this enhancement exists.**
+* **Explain why this feature would be useful** to most Liquid users and isn't something that can or should be implemented as a separate community package.
+* **List some other UI libraries or applications where this feature already exists.**
 * **Specify which version of Liquid you're using.** You can get the exact version by running `npm list @emdgroup-liquid/liquid` inside the working directory of your project.
 * **Specify the name and version of the browser you're using.**
 * **Specify the name and version of the OS you're using.**
@@ -326,7 +326,7 @@ This section lists the labels we use in order to help us track and manage issues
 | needed: more information | This label indicates that a reply with more information is required from the issue reporter. |
 | needed: replication      | This label indicates that a bug has been reported, but has not been successfully replicated yet. |
 | needed: tests            | This label indicates that a better test coverage is required to resolve the issue. |
-| needed: votes            | Enhancement suggestion which needs votes, before it gets addressed by the contributors. |
+| needed: votes            | Feature request which needs votes, before it gets addressed by the contributors. |
 | priority: high           | Issues with this label should be resolved as quickly as possible. |
 | priority: low            | Issues with this label won’t have the immediate focus of the core team. |
 | question                 | Not really an issue but more a question. |
