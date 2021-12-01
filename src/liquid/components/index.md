@@ -23,4 +23,4 @@ To give you an overview when to expect new features, we are using [GitHub milest
 
 ## Submitting a feature request
 
-If you have a suggestion for a new component not listed in the [feature backlog](#feature-backlog) or would like to suggest a new feature for an existing component, you can create a [feature request on GitHub](https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md). Please read our [contributing guidelines on submitting feature requests](https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#suggesting-enhancements) before submitting your first request.
+If you have a suggestion for a new component not listed in the [feature backlog](#feature-backlog) or would like to suggest a new feature for an existing component, you can create a [feature request on GitHub](https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md). Please read our [contributing guidelines on submitting feature requests](https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features) before submitting your first request.
