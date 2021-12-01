@@ -11,6 +11,10 @@ permalink: global/colors/
 
 All colors listed below are available as global CSS custom properties after [importing Liquid stylesheets](introduction/getting-started/#import-stylesheets).
 
+> Please be aware of our brand guidelines regarding colors.
+> 
+> For more information visit [Brand Hub: Colors](https://brand-hub.merckgroup.com/en/design-basics/colors.html).
+
 ## White
 
 <docs-color var="--ld-col-wht"></docs-color>
