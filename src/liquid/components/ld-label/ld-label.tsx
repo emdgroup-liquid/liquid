@@ -34,7 +34,7 @@ export class LdLabel {
 
     if (inputElement && !clickedInsideInputElement) {
       if ('focusInner' in inputElement) {
-        await ((inputElement as unknown) as InnerFocusable).focusInner()
+        await (inputElement as unknown as InnerFocusable).focusInner()
       } else {
         inputElement.focus()
       }
@@ -44,17 +44,19 @@ export class LdLabel {
   }
 
   render() {
+    const cl = getClassNames([
+      'ld-label',
+      this.alignMessage && 'ld-label--align-message',
+      this.position && `ld-label--${this.position}`,
+      this.size && `ld-label--${this.size}`,
+    ])
+
     return (
       <label
-        class={getClassNames([
-          'ld-label',
-          this.alignMessage && 'ld-label--align-message',
-          this.position && `ld-label--${this.position}`,
-          this.size && `ld-label--${this.size}`,
-        ])}
+        class={cl}
         onClick={this.handleClick}
         part="tag"
-        {...cloneAttributes(this.el)}
+        {...cloneAttributes(this.el, ['align-message', 'position', 'size'])}
       >
         <slot></slot>
       </label>
