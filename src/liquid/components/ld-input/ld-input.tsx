@@ -188,8 +188,6 @@ export class LdInput implements InnerFocusable {
       if (this.value) {
         this.hiddenInput.value = this.value
       }
-
-      this.el.appendChild(this.hiddenInput)
     }
 
     this.el.querySelectorAll('ld-button').forEach((button) => {
