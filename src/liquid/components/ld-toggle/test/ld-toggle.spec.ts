@@ -136,7 +136,7 @@ describe('ld-toggle', () => {
   it('creates hidden input field, if inside a form', async () => {
     const { root } = await newSpecPage({
       components: [LdToggle],
-      html: `<form><ld-toggle /></form>`,
+      html: `<form><ld-toggle name="example" /></form>`,
     })
     expect(root).toMatchSnapshot()
   })
@@ -170,7 +170,12 @@ describe('ld-toggle', () => {
     ldToggle.removeAttribute('name')
     await waitForChanges()
 
-    expect(ldToggle.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldToggle.querySelector('input')).toEqual(null)
+
+    ldToggle.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
     ldToggle.dispatchEvent(new Event('click'))
     await waitForChanges()
@@ -191,5 +196,16 @@ describe('ld-toggle', () => {
     await waitForChanges()
 
     expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdToggle],
+      html: '<ld-toggle name="example" form="yolo" />',
+    })
+    const ldToggle = root
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
   })
 })
