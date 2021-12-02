@@ -440,12 +440,11 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                        | `string`           | `undefined` |
 | `autocomplete` | `autocomplete`  | Hint for form autofill feature.                                                | `string`           | `undefined` |
 | `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `undefined` |
-| `checked`      | `checked`       | The input value.                                                               | `boolean`          | `undefined` |
+| `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `undefined` |
 | `disabled`     | `disabled`      | Disabled state of the checkbox.                                                | `boolean`          | `undefined` |
 | `form`         | `form`          | Associates the control with a form element.                                    | `string`           | `undefined` |
 | `invalid`      | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`          | `undefined` |
 | `key`          | `key`           | for tracking the node's identity when working with lists                       | `string \| number` | `undefined` |
-| `list`         | `list`          | Value of the id attribute of the `<datalist>` of autocomplete options.         | `string`           | `undefined` |
 | `name`         | `name`          | Used to specify the name of the control.                                       | `string`           | `undefined` |
 | `readonly`     | `readonly`      | The value is not editable.                                                     | `boolean`          | `undefined` |
 | `ref`          | `ref`           | reference to component                                                         | `any`              | `undefined` |
@@ -471,7 +470,6 @@ Type: `Promise<void>`
 
 | Part                   | Description               |
 | ---------------------- | ------------------------- |
-| `"focusable"`          |                           |
 | `"icon-wrapper"`       | Both wrappers of icons    |
 | `"icon-wrapper-end"`   | Wrapper of the end icon   |
 | `"icon-wrapper-start"` | Wrapper of the start icon |

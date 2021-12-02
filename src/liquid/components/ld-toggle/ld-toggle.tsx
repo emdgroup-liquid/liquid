@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
  * @virtualProp ref - reference to component
@@ -17,6 +18,7 @@ import { getClassNames } from '../../utils/getClassNames'
 })
 export class LdToggle implements InnerFocusable {
   @Element() el: HTMLElement
+
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
   private hasIcons: boolean
@@ -30,7 +32,7 @@ export class LdToggle implements InnerFocusable {
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
 
-  /** The input value. */
+  /** Indicates whether the toggle is "on". */
   @Prop({ mutable: true, reflect: true }) checked: boolean
 
   /** Disabled state of the checkbox. */
@@ -41,9 +43,6 @@ export class LdToggle implements InnerFocusable {
 
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
   @Prop() invalid: boolean
-
-  /** Value of the id attribute of the `<datalist>` of autocomplete options. */
-  @Prop() list?: string
 
   /** Used to specify the name of the control. */
   @Prop() name: string
@@ -72,13 +71,11 @@ export class LdToggle implements InnerFocusable {
 
   @Watch('checked')
   @Watch('name')
-  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
     const outerForm = this.el.closest('form')
     if (!this.hiddenInput && this.name && (outerForm || this.form)) {
-      this.hiddenInput = document.createElement('input')
-      this.el.appendChild(this.hiddenInput)
+      this.createHiddenInput()
     }
 
     if (this.hiddenInput) {
@@ -90,7 +87,6 @@ export class LdToggle implements InnerFocusable {
 
       this.hiddenInput.name = this.name
       this.hiddenInput.checked = this.checked
-      this.hiddenInput.required = this.required
 
       if (this.value) {
         this.hiddenInput.value = this.value
@@ -109,6 +105,15 @@ export class LdToggle implements InnerFocusable {
         }
       }
     }
+  }
+
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'checkbox'
+    this.hiddenInput.style.visibility = 'hidden'
+    this.hiddenInput.style.position = 'absolute'
+    this.hiddenInput.style.pointerEvents = 'none'
+    this.el.appendChild(this.hiddenInput)
   }
 
   private handleBlur = (ev: FocusEvent) => {
@@ -144,27 +149,20 @@ export class LdToggle implements InnerFocusable {
       this.autocomplete = outerForm.getAttribute('autocomplete')
     }
 
-    if (outerForm || this.form) {
-      if (this.name) {
-        this.hiddenInput = document.createElement('input')
-        this.hiddenInput.required = this.required
-        this.hiddenInput.type = 'checkbox'
-        this.hiddenInput.style.visibility = 'hidden'
-        this.hiddenInput.style.position = 'absolute'
-        this.hiddenInput.style.pointerEvents = 'none'
-        this.hiddenInput.checked = this.checked
-        this.hiddenInput.name = this.name
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.name
 
-        if (this.form) {
-          this.hiddenInput.setAttribute('form', this.form)
-        }
-
-        if (this.value) {
-          this.hiddenInput.value = this.value
-        }
-
-        this.el.appendChild(this.hiddenInput)
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
     }
   }
 
@@ -186,14 +184,15 @@ export class LdToggle implements InnerFocusable {
       >
         <input
           aria-disabled={this.ariaDisabled}
-          checked={this.checked}
-          disabled={this.disabled}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           part="input focusable"
           ref={(ref) => (this.input = ref)}
           required={this.required}
           type="checkbox"
+          {...cloneAttributes(this.el, ['autocomplete', 'size'])}
+          checked={this.checked}
+          disabled={this.disabled}
         />
         <span class="ld-toggle__knob" part="knob" />
         {this.hasIcons && (
