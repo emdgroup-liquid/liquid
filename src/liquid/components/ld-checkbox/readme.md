@@ -176,7 +176,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 ### Indeterminate
 
-If the `indeterminate` attribute is present on the `ld-checkbox` component, the checkbox's value is neither `true` nor `false`, but is instead _indeterminate_, meaning that its state cannot be determined or stated in pure binary terms. This may happen, for instance, if the state of the checkbox depends on multiple other checkboxes, and those checkboxes have different values.
+If the `indeterminate` attribute is present on the `ld-checkbox` component, the checkbox's value is neither `true` nor `false`, but is instead _indeterminate_, meaning that its state cannot be determined or stated in pure binary terms. This may happen, for instance, if the state of the checkbox depends on multiple other checkboxes, and those checkboxes have different values. However, the control is never a true tri-state control, even if the element's indeterminate attribute is set to true. The indeterminate IDL attribute only gives the appearance of a third state.
 
 > **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
 
