@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+jest.mock('../../../utils/cloneAttributes')
 import { LdRadio } from '../ld-radio'
 
 describe('ld-radio', () => {
@@ -300,12 +301,11 @@ describe('ld-radio', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio name="example" checked required value="test" /></form>`,
+      html: `<form><ld-radio name="example" checked value="test" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
   })
 
@@ -319,7 +319,6 @@ describe('ld-radio', () => {
 
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
 
     ldRadio.setAttribute('name', 'test')
     await waitForChanges()
@@ -340,11 +339,6 @@ describe('ld-radio', () => {
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-
-    ldRadio.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
 
     ldRadio.setAttribute('value', 'test')
     await waitForChanges()

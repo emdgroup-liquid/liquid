@@ -24,7 +24,7 @@ export class LdRadio implements InnerFocusable {
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
 
-  /** The input value. */
+  /** Indicates whether the radio button is selected. */
   @Prop({ mutable: true, reflect: true }) checked: boolean
 
   /** Disabled state of the radio. */
@@ -35,9 +35,6 @@ export class LdRadio implements InnerFocusable {
 
   /** Set this property to `true` in order to mark the radio visually as invalid. */
   @Prop() invalid: boolean
-
-  /** Value of the id attribute of the `<datalist>` of autocomplete options. */
-  @Prop() list?: string
 
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
@@ -66,15 +63,12 @@ export class LdRadio implements InnerFocusable {
   }
 
   @Watch('checked')
-  @Watch('form')
   @Watch('name')
-  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
     const outerForm = this.el.closest('form')
     if (!this.hiddenInput && this.name && (outerForm || this.form)) {
-      this.hiddenInput = document.createElement('input')
-      this.el.appendChild(this.hiddenInput)
+      this.createHiddenInput()
     }
 
     if (this.hiddenInput) {
@@ -86,7 +80,6 @@ export class LdRadio implements InnerFocusable {
 
       this.hiddenInput.name = this.name
       this.hiddenInput.checked = this.checked
-      this.hiddenInput.required = this.required
 
       if (this.value) {
         this.hiddenInput.value = this.value
@@ -105,6 +98,15 @@ export class LdRadio implements InnerFocusable {
         }
       }
     }
+  }
+
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'radio'
+    this.hiddenInput.style.visibility = 'hidden'
+    this.hiddenInput.style.position = 'absolute'
+    this.hiddenInput.style.pointerEvents = 'none'
+    this.el.appendChild(this.hiddenInput)
   }
 
   private handleKeyDown = (ev: KeyboardEvent) => {
@@ -187,27 +189,20 @@ export class LdRadio implements InnerFocusable {
       this.autocomplete = outerForm.getAttribute('autocomplete')
     }
 
-    if (outerForm || this.form) {
-      if (this.name) {
-        this.hiddenInput = document.createElement('input')
-        this.hiddenInput.required = this.required
-        this.hiddenInput.type = 'radio'
-        this.hiddenInput.style.visibility = 'hidden'
-        this.hiddenInput.style.position = 'absolute'
-        this.hiddenInput.style.pointerEvents = 'none'
-        this.hiddenInput.checked = this.checked
-        this.hiddenInput.name = this.name
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.name
 
-        if (this.form) {
-          this.hiddenInput.setAttribute('form', this.form)
-        }
-
-        if (this.value) {
-          this.hiddenInput.value = this.value
-        }
-
-        this.el.appendChild(this.hiddenInput)
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
     }
   }
 
@@ -234,7 +229,7 @@ export class LdRadio implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"
-          {...cloneAttributes(this.el)}
+          {...cloneAttributes(this.el, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
           tabIndex={
