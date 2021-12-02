@@ -49,12 +49,7 @@ permalink: legal/license/
       .split('\n')
       .splice(1)
       .join('\n')
-      .split('[//]: # "---"')
-    readme.splice(1, 1)
-    await writeFile(
-      './src/index.md',
-      headerReadme + readme.join('') + footerReadme
-    )
+    await writeFile('./src/index.md', headerReadme + readme + footerReadme)
   } catch (err) {
     console.error('error', err)
   }
