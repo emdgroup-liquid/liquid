@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-radio creates hidden input field, if inside a form 1`] = `
-<ld-radio class="ld-radio" part="root">
+<ld-radio class="ld-radio" name="example" part="root">
   <mock:shadow-root>
     <input part="input focusable" tabindex="-1" type="radio">
     <div class="ld-radio__dot" part="dot"></div>
     <div class="ld-radio__box" part="box"></div>
   </mock:shadow-root>
-  <input type="radio" style="visibility: hidden; position: absolute; pointer-events: none;">
+  <input name="example" type="radio" style="visibility: hidden; position: absolute; pointer-events: none;">
 </ld-radio>
 `;
 
