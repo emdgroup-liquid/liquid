@@ -57,9 +57,7 @@
       }
     }
 
-    /* For whatever reason both selectors are required to work with both, web and css component */
-    &:indeterminate,
-    &[indeterminate] {
+    &:indeterminate {
       ~ .ld-checkbox__box::before {
         content: '';
         position: absolute;

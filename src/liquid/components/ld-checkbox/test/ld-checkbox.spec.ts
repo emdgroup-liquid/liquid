@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+jest.mock('../../../utils/cloneAttributes')
 import { LdCheckbox } from '../ld-checkbox'
 
 describe('ld-checkbox', () => {
@@ -129,25 +130,22 @@ describe('ld-checkbox', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
-      html: '<form><ld-checkbox name="example" checked required /></form>',
+      html: '<form><ld-checkbox name="example" checked /></form>',
     })
     const ldCheckbox = page.root
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
   })
 
   it('updates hidden input field', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdCheckbox],
-      html: `<form><ld-checkbox name="example" indeterminate /></form>`,
+      html: `<form><ld-checkbox name="example" /></form>`,
     })
     const ldCheckbox = root
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
-    expect(ldCheckbox.querySelector('input').indeterminate).toEqual(true)
 
     ldCheckbox.setAttribute('name', 'test')
     await waitForChanges()
@@ -168,12 +166,6 @@ describe('ld-checkbox', () => {
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-    expect(ldCheckbox.querySelector('input').indeterminate).toEqual(undefined)
-
-    ldCheckbox.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
 
     ldCheckbox.setAttribute('value', 'test')
     await waitForChanges()
@@ -191,7 +183,7 @@ describe('ld-checkbox', () => {
   it('uses hidden input field with referenced form', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdCheckbox],
-      html: '<ld-checkbox name="example" indeterminate form="yolo" />',
+      html: '<ld-checkbox name="example" form="yolo" />',
     })
     const ldCheckbox = root
     await waitForChanges()
