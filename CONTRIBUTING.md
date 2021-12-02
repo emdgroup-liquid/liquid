@@ -28,7 +28,7 @@ They are not rules. So use your best judgment, and feel free to propose changes 
 
 ## Code of conduct
 
-This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [liquid@emdgroup.com](liquid@emdgroup.com).
+This project and everyone who participates in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [liquid@emdgroup.com](liquid@emdgroup.com).
 
 ## I don't want to read this whole thing I just have a question!!!
 
@@ -36,8 +36,8 @@ This project and everyone participating in it is governed by our [Code of Conduc
 
 We have official channels where the community chimes in with helpful advice if you have questions.
 
-* [Liquid on GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions)
-* [Liquid on Teams](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9)
+* [Liquid on GitHub discussions][discussions]
+* [Liquid on Teams][teams]
 
 ## What should I know before I get started?
 
@@ -189,10 +189,10 @@ Let us know if we should add something! 🤓
 
 This section guides you through submitting a bug report for Liquid. Following these guidelines helps maintainers and the community understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
 
-Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Fill out [the required template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/bug_report.md), the information it asks for helps us resolve issues faster.
+Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Fill out [the required template][bug report template], the information it asks for helps us resolve issues faster.
 
-> **Note:** If you find a **closed** issue that seems like it is describing the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one. **Please don't comment on closed issues.** Instead, create a new bug report issue. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or our
-> [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+> **Note:** If you find a **closed** issue that seems like it is describing the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one. **Please don't comment on closed issues.** Instead, create a new bug report issue. If you prefer to discuss with others before, you can start a discussion on [GitHub discussions][discussions] or our
+> [Teams channel][teams].
 
 #### Before submitting a bug report
 
@@ -201,7 +201,7 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 
 #### How do I submit a (good) bug report?
 
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue and provide the following information by filling in [the template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/bug_report.md).
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue and provide the following information by filling in [the template][bug report template].
 
 Explain the problem and include additional details to help maintainers reproduce the problem:
 
@@ -231,19 +231,19 @@ Include details about your configuration and environment:
 
 This section guides you through submitting a feature request for Liquid, including completely new components, new features to existing components and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your request :pencil: and find related requests :mag_right:.
 
-Before creating feature requests, please check [this list](#before-submitting-a-feature-request) as you might find out that you don't need to create one. When you are creating a feature request, please [include as many details as possible](#how-do-i-submit-a-good-feature-request). Fill in [the template](https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md).
+Before creating feature requests, please check [this list](#before-submitting-a-feature-request) as you might find out that you don't need to create one. When you are creating a feature request, please [include as many details as possible](#how-do-i-submit-a-good-feature-request). Fill in [the template][feature request template].
 
 > **Note:** This repository is using __lodash style issue management for features__. This means:
 > 
 > - Feature requests are closed issues with `feature` label and `needed: votes` label.
 > - Bugs are open issues tagged with the `bug` label.
 > 
-> View the feature backlog [here](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+label%3A"needed%3A+votes"). Upvote the top comment of an issue with 👍 if you want the feature to be prioritised higher.
+> View the [feature backlog]. Upvote the top comment of an issue with 👍 if you want the feature to be prioritised higher.
 
 #### Before submitting a feature request
 
 * Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in the [feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature)** to see if a similar feature has already been requested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the requested feature or add a comment, if you think it contains relevant information that will help drive it forward, instead of opening a new one. If you prefer to discuss with others first, you can start a discussion on [GitHub discussions](https://github.com/emdgroup-liquid/liquid/discussions) or in our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+* **Perform a search in the [feature backlog]** to see if a similar feature has already been requested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the requested feature or add a comment, if you think it contains relevant information that will help drive it forward, instead of opening a new one. If you prefer to discuss with others first, you can start a discussion on [GitHub discussions][discussions] or in our [Teams channel][teams].
 
 #### How do I vote on an existing feature request?
 
@@ -268,8 +268,8 @@ Feature requests are tracked as [GitHub issues](https://guides.github.com/featur
 
 Unsure where to begin contributing to Liquid? You can start by looking through `beginner` and `help wanted` issues:
 
-* [Beginner issues](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aopen+label%3Abeginner+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
-* [Help wanted issues](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aopen+label%3A"help+wanted"+sort%3Acomments-desc) - issues which should be a bit more involved than `beginner` issues.
+* [Beginner issues](https://github.com/emdgroup-liquid/liquid/issues?q=label%3Abeginner+-label%3Adone+sort%3Areactions-%2B1-desc) - issues which should only require a few lines of code, and a test or two.
+* [Help wanted issues](https://github.com/emdgroup-liquid/liquid/issues?q=label%3A"help+wanted"+-label%3Adone+sort%3Areactions-%2B1-desc) - issues which should be a bit more involved than `beginner` issues.
 
 Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.
 
@@ -280,7 +280,7 @@ need to be installed on your machine.
 2. Install dependencies by executing `yarn` inside the project folder.
 3. Start up the local development server with `yarn start`.
 4. Now head over to [localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site (on first build it may take a while until it shows up - relax and be patient).  
-> **If you are on a Windows machine**, you might need to startup the dev environment in a Docker container due to an [unresolved issue in Stencil](https://github.com/ionic-team/stencil/issues/2319) seeing _"Component tag name must be unique"_ in your command line app. So install [Docker](https://www.docker.com/products/docker-desktop) and execute the following command once inside the project folder to build a container for your dev environment: `docker build -t liquid .` Now you can start up the dev environment inside the Docker container: `docker run -p 8080:8080 liquid` If you can not or do not want to use Docker, you can still work around the _"Component tag name must be unique"_ issue by deleting the dist folder. Note though, that it may eventually be recreated, for instance if you run tests.
+> **If you are on a Windows machine**, you might need to start up the dev environment in a Docker container due to an [unresolved issue in Stencil](https://github.com/ionic-team/stencil/issues/2319) seeing _"Component tag name must be unique"_ in your command line app. So install [Docker](https://www.docker.com/products/docker-desktop) and execute the following command once inside the project folder to build a container for your dev environment: `docker build -t liquid .` Now you can start up the dev environment inside the Docker container: `docker run -p 8080:8080 liquid` If you can not or do not want to use Docker, you can still work around the _"Component tag name must be unique"_ issue by deleting the dist folder. Note though, that it may eventually be recreated, for instance if you run tests.
 
 ### Pull requests
 
@@ -304,34 +304,10 @@ While the prerequisites above must be satisfied prior to having your pull reques
 
 ### Issue and pull request labels
 
-This section lists the labels we use in order to help us track and manage issues and pull requests.
+A lists of all labels we use in order to help us track and manage issues and pull requests can be found [here](https://github.com/emdgroup-liquid/liquid/labels).
 
-| Label                    | Description                    |
-|--------------------------|--------------------------------|
-| accepted                 | Issues with this label are issues that the core team has accepted on to the roadmap. |
-| accessibility            | An issue concerning accessibility. |
-| beginner                 | Good for newcomers to the project. |
-| blocked                  | The issue cannot be resolved until some other issue has been closed. |
-| bug                      | An issue describing unexpected or malicious behaviour. |
-| confirmed                | This label indicates that the issue has been reproduced and verified by the core team. |
-| design                   | Issues related to the visual design of liquid. |
-| discussion               | Discussions should not happen in issues. If they do... well, we have a label for that. |
-| documentation            | Improvements or additions to documentation |
-| duplicate                | This issue or pull request already exists. |
-| feature                  | Issues that describe new features. |
-| help wanted              | Core maintainers are asking for help from the community. |
-| improvement              | Not a bug nor a feature. Refactoring of code would likely have this label. |
-| needed: design decision  | Issues that need a design decision are blocked for development. |
-| needed: documentation    | If something is lacking documentation, this label will be assigned. |
-| needed: more information | This label indicates that a reply with more information is required from the issue reporter. |
-| needed: replication      | This label indicates that a bug has been reported, but has not been successfully replicated yet. |
-| needed: tests            | This label indicates that a better test coverage is required to resolve the issue. |
-| needed: votes            | Feature request which needs votes, before it gets addressed by the contributors. |
-| priority: high           | Issues with this label should be resolved as quickly as possible. |
-| priority: low            | Issues with this label won’t have the immediate focus of the core team. |
-| question                 | Not really an issue but more a question. |
-| semantic-release         | Added by semantic-release bot. |
-| stale                    | There's been no activity for 60 days. The issue will be closed after 2 weeks unless active again. |
-| umbrella issue           | An umbrella issue contains multiple issues and needs to be split into separate issues eventually. |
-| upstream                 | Used to label issues which require a fix upstream (fixing an issue of a dependency). |
-| won't fix                | This will not be worked on. |
+[discussions]: https://github.com/emdgroup-liquid/liquid/discussions
+[teams]: https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9
+[feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+
+[bug report template]: https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/bug_report.md
+[feature request template]: https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md
