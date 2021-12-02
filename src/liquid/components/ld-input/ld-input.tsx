@@ -128,8 +128,7 @@ export class LdInput implements InnerFocusable {
   updateHiddenInput() {
     const outerForm = this.el.closest('form')
     if (!this.hiddenInput && this.name && (outerForm || this.form)) {
-      this.hiddenInput = document.createElement('input')
-      this.el.appendChild(this.hiddenInput)
+      this.createHiddenInput()
     }
 
     if (this.hiddenInput) {
@@ -164,6 +163,12 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'hidden'
+    this.el.appendChild(this.hiddenInput)
+  }
+
   componentWillLoad() {
     const outerForm = this.el.closest('form')
 
@@ -171,23 +176,20 @@ export class LdInput implements InnerFocusable {
       this.autocomplete = outerForm.getAttribute('autocomplete')
     }
 
-    if (outerForm || this.form) {
-      if (this.name) {
-        this.hiddenInput = document.createElement('input')
-        this.hiddenInput.dirName = this.dirname
-        this.hiddenInput.type = 'hidden'
-        this.hiddenInput.name = this.name
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.dirName = this.dirname
+      this.hiddenInput.name = this.name
 
-        if (this.form) {
-          this.hiddenInput.setAttribute('form', this.form)
-        }
-
-        if (this.value) {
-          this.hiddenInput.value = this.value
-        }
-
-        this.el.appendChild(this.hiddenInput)
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+
+      this.el.appendChild(this.hiddenInput)
     }
 
     this.el.querySelectorAll('ld-button').forEach((button) => {

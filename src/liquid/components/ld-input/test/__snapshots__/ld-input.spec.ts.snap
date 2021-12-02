@@ -18,7 +18,7 @@ exports[`ld-input creates hidden input field, if form attribute is added 1`] = `
     <input form="test" name="example" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
-  <input form="test" name="example">
+  <input form="test" name="example" type="hidden">
 </ld-input>
 `;
 
@@ -51,7 +51,7 @@ exports[`ld-input creates hidden input field, if name attribute is added 1`] = `
     <input name="test" part="input focusable">
     <slot name="end"></slot>
   </mock:shadow-root>
-  <input name="test">
+  <input name="test" type="hidden">
 </ld-input>
 `;
 
