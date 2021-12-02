@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-toggle creates hidden input field, if inside a form 1`] = `
-<ld-toggle class="ld-toggle">
+<ld-toggle class="ld-toggle" name="example">
   <mock:shadow-root>
     <input part="input focusable" type="checkbox">
     <span class="ld-toggle__knob" part="knob"></span>
   </mock:shadow-root>
-  <input type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
+  <input name="example" type="checkbox" style="visibility: hidden; position: absolute; pointer-events: none;">
 </ld-toggle>
 `;
 
