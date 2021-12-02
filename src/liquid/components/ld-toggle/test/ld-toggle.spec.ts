@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+jest.mock('../../../utils/cloneAttributes')
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
 
@@ -144,10 +145,9 @@ describe('ld-toggle', () => {
   it('sets initial state on hidden input', async () => {
     const { root } = await newSpecPage({
       components: [LdToggle],
-      html: `<form><ld-toggle name="example" checked required /></form>`,
+      html: `<form><ld-toggle name="example" checked /></form>`,
     })
     expect(root.querySelector('input')).toHaveProperty('name', 'example')
-    expect(root.querySelector('input')).toHaveProperty('required', true)
   })
 
   it('updates hidden input field', async () => {
@@ -160,7 +160,6 @@ describe('ld-toggle', () => {
 
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldToggle.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldToggle.querySelector('input')).toHaveProperty('required', false)
 
     ldToggle.setAttribute('name', 'test')
     await waitForChanges()
@@ -181,11 +180,6 @@ describe('ld-toggle', () => {
     await waitForChanges()
 
     expect(ldToggle.querySelector('input')).toHaveProperty('checked', true)
-
-    ldToggle.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldToggle.querySelector('input')).toHaveProperty('required', true)
 
     ldToggle.setAttribute('value', 'test')
     await waitForChanges()
