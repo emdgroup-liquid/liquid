@@ -28,9 +28,18 @@ title: Introduction
 
 Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
+## Links
 
+- [Getting started](https://emdgroup-liquid.github.io/liquid/introduction/getting-started/)
+- [Sandbox apps](https://emdgroup-liquid.github.io/liquid/introduction/sandbox-applications/)
+- [Feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature+label%3A"needed%3A+votes")
+- [Liquid Design System on Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310)
 
-<h2>License</h2>
+## Contributing
+
+If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](CONTRIBUTING.md).
+
+## License
 
 Liquid Oxygen is available under a [custom license](https://emdgroup-liquid.github.io/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
 
