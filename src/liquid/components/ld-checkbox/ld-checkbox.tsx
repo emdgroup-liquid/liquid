@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -17,29 +18,47 @@ export class LdCheckbox implements InnerFocusable {
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
+  /** Hint for form autofill feature. */
+  @Prop({ mutable: true, reflect: true }) autocomplete?: string
+
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus?: boolean
+
+  /** Indicates whether the checkbox is checked. */
+  @Prop({ mutable: true, reflect: true }) checked: boolean
+
+  /** Disabled state of the checkbox. */
+  @Prop() disabled: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /**
+   * Set this property to `true` to indicate that the checkbox's value is neither true nor false.
+   * The prop is removed automatically as soon as the checkbox is clicked (if not disabled).
+   */
+  @Prop({ mutable: true }) indeterminate?: boolean
+
+  /** Set this property to `true` in order to mark the checkbox visually as invalid. */
+  @Prop() invalid: boolean
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
   /** Used to specify the name of the control. */
   @Prop() name: string
 
-  /** The input value. */
-  @Prop() value: string
+  /** The value is not editable. */
+  @Prop() readonly?: boolean
+
+  /** Set this property to `true` in order to mark the checkbox as required. */
+  @Prop() required: boolean
 
   /** Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
 
-  /** Disabled state of the checkbox. */
-  @Prop() disabled: boolean
-
   /** The input value. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
-
-  /** Set this property to `true` in order to mark the checkbox visually as invalid. */
-  @Prop() invalid: boolean
-
-  /** Set this property to `true` in order to mark the checkbox as required. */
-  @Prop() required: boolean
+  @Prop() value: string
 
   /**
    * Sets focus on the checkbox
@@ -52,26 +71,55 @@ export class LdCheckbox implements InnerFocusable {
   }
 
   @Watch('checked')
+  updateIndeterminate() {
+    this.indeterminate = undefined
+  }
+
+  @Watch('checked')
   @Watch('name')
-  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
-    if (this.hiddenInput) {
-      this.hiddenInput.checked = this.checked
-      this.hiddenInput.required = this.required
+    const outerForm = this.el.closest('form')
+    if (!this.hiddenInput && this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+    }
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
-      } else {
-        this.hiddenInput.removeAttribute('name')
+    if (this.hiddenInput) {
+      if (!this.name) {
+        this.hiddenInput.remove()
+        this.hiddenInput = undefined
+        return
       }
+
+      this.hiddenInput.name = this.name
+      this.hiddenInput.checked = this.checked
 
       if (this.value) {
         this.hiddenInput.value = this.value
       } else {
         this.hiddenInput.removeAttribute('value')
       }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      } else if (this.hiddenInput.getAttribute('form')) {
+        if (outerForm) {
+          this.hiddenInput.removeAttribute('form')
+        } else {
+          this.hiddenInput.remove()
+          this.hiddenInput = undefined
+        }
+      }
     }
+  }
+
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'checkbox'
+    this.hiddenInput.style.visibility = 'hidden'
+    this.hiddenInput.style.position = 'absolute'
+    this.hiddenInput.style.pointerEvents = 'none'
+    this.el.appendChild(this.hiddenInput)
   }
 
   private handleBlur(ev) {
@@ -104,42 +152,50 @@ export class LdCheckbox implements InnerFocusable {
   }
 
   componentWillLoad() {
-    if (this.el.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'checkbox'
-      this.hiddenInput.style.visibility = 'hidden'
-      this.hiddenInput.style.position = 'absolute'
-      this.hiddenInput.style.pointerEvents = 'none'
-      this.hiddenInput.checked = this.checked
+    const outerForm = this.el.closest('form')
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
+    if (outerForm && !this.autocomplete) {
+      this.autocomplete = outerForm.getAttribute('autocomplete')
+    }
+
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.name
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
 
       if (this.value) {
         this.hiddenInput.value = this.value
       }
+    }
+  }
 
-      this.el.appendChild(this.hiddenInput)
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
     }
   }
 
   render() {
-    let cl = 'ld-checkbox'
-    if (this.mode) cl += ` ld-checkbox--${this.mode}`
-    if (this.tone) cl += ` ld-checkbox--${this.tone}`
-    if (this.invalid) cl += ' ld-checkbox--invalid'
+    const cl = [
+      'ld-checkbox',
+      this.mode && `ld-checkbox--${this.mode}`,
+      this.tone && `ld-checkbox--${this.tone}`,
+      this.invalid && 'ld-checkbox--invalid',
+    ]
 
     return (
-      <Host part="root" class={cl} onClick={this.handleClick}>
+      <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
           part="input focusable"
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
           type="checkbox"
-          {...cloneAttributes(this.el)}
+          {...cloneAttributes(this.el, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
         />

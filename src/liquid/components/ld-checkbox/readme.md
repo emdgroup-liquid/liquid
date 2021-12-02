@@ -174,6 +174,68 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 > **Note:** When `aria-disabled` is applied on the checkbox, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the checkbox yourself.
 
+### Indeterminate
+
+If the `indeterminate` attribute is present on the `ld-checkbox` component, the checkbox's value is neither `true` nor `false`, but is instead _indeterminate_, meaning that its state cannot be determined or stated in pure binary terms. This may happen, for instance, if the state of the checkbox depends on multiple other checkboxes, and those checkboxes have different values. However, the control is never a true tri-state control, even if the element's indeterminate attribute is set to true. The indeterminate IDL attribute only gives the appearance of a third state.
+
+> **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
+
+{% example 'html', false, false, 'light' %}
+<ld-checkbox indeterminate></ld-checkbox>
+
+<ld-checkbox indeterminate disabled></ld-checkbox>
+
+<!-- CSS component -->
+
+<div id="example-indeterminate-1" class="ld-checkbox">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+
+<div id="example-indeterminate-2" class="ld-checkbox">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+
+<script>
+document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminate-2 input')
+  .forEach(input => input.indeterminate = true)
+</script>
+
+{% endexample %}
+
 ### Dark
 
 > **Note**: Dark tone checkboxes should only be used on white backgrounds.
@@ -334,7 +396,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 ### Danger
 
-The checkbox in mode "danger" looks and behaves the same as a checkbox with the [`invalid`](#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code. 
+The checkbox in mode "danger" looks and behaves the same as a checkbox with the [`invalid`](components/ld-checkbox/#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code. 
 
 {% example %}
 <ld-checkbox mode="danger"></ld-checkbox>
@@ -586,18 +648,23 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                    | Type                      | Default     |
-| ---------- | ---------- | ------------------------------------------------------------------------------ | ------------------------- | ----------- |
-| `checked`  | `checked`  | The input value.                                                               | `boolean`                 | `undefined` |
-| `disabled` | `disabled` | Disabled state of the checkbox.                                                | `boolean`                 | `undefined` |
-| `invalid`  | `invalid`  | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`                 | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists                       | `string \| number`        | `undefined` |
-| `mode`     | `mode`     | Display mode.                                                                  | `"danger" \| "highlight"` | `undefined` |
-| `name`     | `name`     | Used to specify the name of the control.                                       | `string`                  | `undefined` |
-| `ref`      | `ref`      | reference to component                                                         | `any`                     | `undefined` |
-| `required` | `required` | Set this property to `true` in order to mark the checkbox as required.         | `boolean`                 | `undefined` |
-| `tone`     | `tone`     | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
-| `value`    | `value`    | The input value.                                                               | `string`                  | `undefined` |
+| Property        | Attribute       | Description                                                                                                                                                                          | Type                      | Default     |
+| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | ----------- |
+| `autocomplete`  | `autocomplete`  | Hint for form autofill feature.                                                                                                                                                      | `string`                  | `undefined` |
+| `autofocus`     | `autofocus`     | Automatically focus the form control when the page is loaded.                                                                                                                        | `boolean`                 | `undefined` |
+| `checked`       | `checked`       | Indicates whether the checkbox is checked.                                                                                                                                           | `boolean`                 | `undefined` |
+| `disabled`      | `disabled`      | Disabled state of the checkbox.                                                                                                                                                      | `boolean`                 | `undefined` |
+| `form`          | `form`          | Associates the control with a form element.                                                                                                                                          | `string`                  | `undefined` |
+| `indeterminate` | `indeterminate` | Set this property to `true` to indicate that the checkbox's value is neither true nor false. The prop is removed automatically as soon as the checkbox is clicked (if not disabled). | `boolean`                 | `undefined` |
+| `invalid`       | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid.                                                                                                       | `boolean`                 | `undefined` |
+| `key`           | `key`           | for tracking the node's identity when working with lists                                                                                                                             | `string \| number`        | `undefined` |
+| `mode`          | `mode`          | Display mode.                                                                                                                                                                        | `"danger" \| "highlight"` | `undefined` |
+| `name`          | `name`          | Used to specify the name of the control.                                                                                                                                             | `string`                  | `undefined` |
+| `readonly`      | `readonly`      | The value is not editable.                                                                                                                                                           | `boolean`                 | `undefined` |
+| `ref`           | `ref`           | reference to component                                                                                                                                                               | `any`                     | `undefined` |
+| `required`      | `required`      | Set this property to `true` in order to mark the checkbox as required.                                                                                                               | `boolean`                 | `undefined` |
+| `tone`          | `tone`          | Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone.                                                                                                           | `"dark"`                  | `undefined` |
+| `value`         | `value`         | The input value.                                                                                                                                                                     | `string`                  | `undefined` |
 
 
 ## Methods

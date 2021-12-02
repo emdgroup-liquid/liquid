@@ -403,7 +403,7 @@ When displaying input messages conditionally (i.e. an error message becomes visi
 
 ### With slotted elements
 
-You can use [slots](#slots) in order to add static or interactive elements, such as icons or buttons into the input component.
+You can use [slots](components/ld-input/#slots) in order to add static or interactive elements, such as icons or buttons into the input component.
 
 #### With icon
 
@@ -963,16 +963,16 @@ The `ld-input` Web Component does not provide any properties or methods for vali
     return true
   }
   username.addEventListener('input', ev => {
-    validateInput(username, usernameErrorMessage)
+    validateInput(username, form.login.value, usernameErrorMessage)
   })
   username.addEventListener('blur', ev => {
-    validateInput(username, usernameErrorMessage)
+    validateInput(username, form.login.value, usernameErrorMessage)
   })
   password.addEventListener('input', ev => {
-    validateInput(password, passwordErrorMessage)
+    validateInput(password, form.password.value, passwordErrorMessage)
   })
   password.addEventListener('blur', ev => {
-    validateInput(password, passwordErrorMessage)
+    validateInput(password, form.password.value, passwordErrorMessage)
   })
   form.addEventListener('submit', ev => {
     ev.preventDefault()
@@ -997,14 +997,30 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 
 | Property       | Attribute      | Description                                                                                                           | Type               | Default     |
 | -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `accept`       | `accept`       | Hint for expected file type in file upload controls.                                                                  | `string`           | `undefined` |
 | `autocomplete` | `autocomplete` | Hint for form autofill feature.                                                                                       | `string`           | `undefined` |
+| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`          | `undefined` |
+| `capture`      | `capture`      | Media capture input method in file upload controls.                                                                   | `string`           | `undefined` |
+| `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`           | `undefined` |
+| `disabled`     | `disabled`     | Whether the form control is disabled.                                                                                 | `boolean`          | `undefined` |
+| `form`         | `form`         | Associates the control with a form element.                                                                           | `string`           | `undefined` |
 | `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
 | `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
+| `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.                                                | `string`           | `undefined` |
+| `max`          | `max`          | Maximum value.                                                                                                        | `string`           | `undefined` |
+| `maxlength`    | `maxlength`    | Maximum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
+| `min`          | `min`          | Minimum value.                                                                                                        | `string`           | `undefined` |
+| `minlength`    | `minlength`    | Minimum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
 | `multiline`    | `multiline`    | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
+| `multiple`     | `multiple`     | Boolean. Whether to allow multiple values.                                                                            | `boolean`          | `undefined` |
 | `name`         | `name`         | Used to specify the name of the control.                                                                              | `string`           | `undefined` |
+| `pattern`      | `pattern`      | Pattern the `value` must match to be valid.                                                                           | `string`           | `undefined` |
 | `placeholder`  | `placeholder`  | The input placeholder.                                                                                                | `string`           | `undefined` |
+| `readonly`     | `readonly`     | The value is not editable.                                                                                            | `boolean`          | `undefined` |
 | `ref`          | `ref`          | reference to component                                                                                                | `any`              | `undefined` |
+| `required`     | `required`     | A value is required for the form to be submittable.                                                                   | `boolean`          | `undefined` |
 | `size`         | `size`         | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |
+| `step`         | `step`         | Incremental values that are valid.                                                                                    | `string`           | `undefined` |
 | `tone`         | `tone`         | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`           | `undefined` |
 | `type`         | `type`         | The input type.                                                                                                       | `string`           | `undefined` |
 | `value`        | `value`        | The input value.                                                                                                      | `string`           | `undefined` |

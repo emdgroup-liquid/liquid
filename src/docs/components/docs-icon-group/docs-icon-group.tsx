@@ -13,7 +13,7 @@ export class DocsIconGroup {
   render() {
     return (
       <Host class="docs-icon-group">
-        <ld-typo variant="h4" tag="h3">
+        <ld-typo class="docs-icon-group__headline" variant="h4" tag="h3">
           {this.name}
         </ld-typo>
         <div class="docs-icon-group__icons">

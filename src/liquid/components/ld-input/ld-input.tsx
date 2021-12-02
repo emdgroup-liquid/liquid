@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * The `ld-input` component. You can use it in conjunction with the `ld-label`
@@ -31,35 +32,83 @@ export class LdInput implements InnerFocusable {
   private hiddenInput?: HTMLInputElement
   private input: HTMLInputElement | HTMLTextAreaElement
 
-  /** Used to specify the name of the control. */
-  @Prop() name?: string
-
-  /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
-  @Prop() tone: 'dark'
-
-  /** The input value. */
-  @Prop({ mutable: true, reflect: true }) value: string
-
-  /** Set this property to `true` in order to mark the field visually as invalid. */
-  @Prop() invalid: boolean
-
-  /** The input placeholder. */
-  @Prop() placeholder: string
+  /** Hint for expected file type in file upload controls. */
+  @Prop() accept?: string
 
   /** Hint for form autofill feature. */
-  @Prop({ mutable: true, reflect: true }) autocomplete: string
+  @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
-  /** The input type. */
-  @Prop() type: string
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus?: boolean
 
-  /** Size of the input. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Media capture input method in file upload controls. */
+  @Prop() capture?: string
+
+  /** Name of form field to use for sending the element's directionality in form submission. */
+  @Prop() dirname?: string
+
+  /** Whether the form control is disabled. */
+  @Prop() disabled?: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /** Set this property to `true` in order to mark the field visually as invalid. */
+  @Prop() invalid?: boolean
+
+  /** Value of the id attribute of the `<datalist>` of autocomplete options. */
+  @Prop() list?: string
+
+  /** Maximum value. */
+  @Prop() max?: string
+
+  /** Maximum length (number of characters) of `value`. */
+  @Prop() maxlength?: string
+
+  /** Minimum value. */
+  @Prop() min?: string
+
+  /** Minimum length (number of characters) of `value`. */
+  @Prop() minlength?: string
 
   /**
    * Uses textarea instead of input internally. Setting this attribute to true
    * disables the attribute type and both slots.
    */
-  @Prop() multiline: boolean
+  @Prop() multiline?: boolean
+
+  /** Boolean. Whether to allow multiple values. */
+  @Prop() multiple?: boolean
+
+  /** Used to specify the name of the control. */
+  @Prop() name?: string
+
+  /** Pattern the `value` must match to be valid. */
+  @Prop() pattern?: string
+
+  /** The input placeholder. */
+  @Prop() placeholder?: string
+
+  /** The value is not editable. */
+  @Prop() readonly?: boolean
+
+  /** A value is required for the form to be submittable. */
+  @Prop() required?: boolean
+
+  /** Size of the input. */
+  @Prop() size?: 'sm' | 'lg'
+
+  /** Incremental values that are valid. */
+  @Prop() step?: string
+
+  /** Input tone. Use `'dark'` on white backgrounds. Default is a light tone. */
+  @Prop() tone?: 'dark'
+
+  /** The input type. */
+  @Prop() type: string
+
+  /** The input value. */
+  @Prop({ mutable: true }) value?: string
 
   /**
    * Sets focus on the input
@@ -71,30 +120,71 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  @Watch('dirname')
+  @Watch('form')
+  @Watch('name')
   @Watch('value')
-  updateValue() {
-    if (this.hiddenInput) {
-      this.hiddenInput.value = this.value
+  updateHiddenInput() {
+    const outerForm = this.el.closest('form')
+    if (!this.hiddenInput && this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
     }
+
+    if (this.hiddenInput) {
+      this.hiddenInput.dirName = this.dirname
+
+      if (this.name) {
+        this.hiddenInput.name = this.name
+      } else if (this.hiddenInput.name) {
+        this.hiddenInput.remove()
+        this.hiddenInput = undefined
+        return
+      }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      } else if (this.hiddenInput.getAttribute('form')) {
+        if (outerForm) {
+          this.hiddenInput.removeAttribute('form')
+        } else {
+          this.hiddenInput.remove()
+          this.hiddenInput = undefined
+          return
+        }
+      }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      } else if (this.hiddenInput.value) {
+        this.hiddenInput.removeAttribute('value')
+      }
+    }
+  }
+
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'hidden'
+    this.el.appendChild(this.hiddenInput)
   }
 
   componentWillLoad() {
     const outerForm = this.el.closest('form')
 
-    if (outerForm) {
-      if (!this.autocomplete) {
-        this.autocomplete = outerForm.getAttribute('autocomplete')
+    if (outerForm && !this.autocomplete) {
+      this.autocomplete = outerForm.getAttribute('autocomplete')
+    }
+
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.dirName = this.dirname
+      this.hiddenInput.name = this.name
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
 
-      if (this.name) {
-        this.hiddenInput = document.createElement('input')
-        this.hiddenInput.type = 'hidden'
-        this.hiddenInput.name = this.name
-        if (this.value) {
-          this.hiddenInput.value = this.value
-        }
-
-        this.el.appendChild(this.hiddenInput)
+      if (this.value) {
+        this.hiddenInput.value = this.value
       }
     }
 
@@ -134,6 +224,12 @@ export class LdInput implements InnerFocusable {
         icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
       }
     })
+  }
+
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
+    }
   }
 
   private handleBlur = (ev: FocusEvent) => {
@@ -186,10 +282,12 @@ export class LdInput implements InnerFocusable {
   }
 
   render() {
-    let cl = 'ld-input'
-    if (this.size) cl += ` ld-input--${this.size}`
-    if (this.tone) cl += ` ld-input--${this.tone}`
-    if (this.invalid) cl += ' ld-input--invalid'
+    const cl = getClassNames([
+      'ld-input',
+      this.size && `ld-input--${this.size}`,
+      this.tone && `ld-input--${this.tone}`,
+      this.invalid && 'ld-input--invalid',
+    ])
 
     if (this.multiline) {
       return (
@@ -199,10 +297,8 @@ export class LdInput implements InnerFocusable {
             onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
             part="input focusable"
-            placeholder={this.placeholder}
             ref={(el) => (this.input = el)}
-            {...cloneAttributes(this.el)}
-            value={this.value}
+            {...cloneAttributes(this.el, ['multiline', 'type'])}
           />
           {this.type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
@@ -217,17 +313,14 @@ export class LdInput implements InnerFocusable {
       <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
+          autocomplete={this.autocomplete}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onInput={this.handleInput.bind(this)}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
-          placeholder={this.placeholder}
           ref={(el) => (this.input = el)}
-          type={this.type}
-          {...cloneAttributes(this.el)}
-          autocomplete={this.autocomplete}
-          value={this.value}
+          {...cloneAttributes(this.el, ['autocomplete'])}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">

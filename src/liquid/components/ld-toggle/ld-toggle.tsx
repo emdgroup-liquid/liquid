@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
  * @virtualProp ref - reference to component
@@ -17,30 +18,46 @@ import { getClassNames } from '../../utils/getClassNames'
 })
 export class LdToggle implements InnerFocusable {
   @Element() el: HTMLElement
+
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
   private hasIcons: boolean
 
-  /** Size of the toggle. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
-  /** Disabled state of the toggle. */
+  /** Hint for form autofill feature. */
+  @Prop({ mutable: true, reflect: true }) autocomplete?: string
+
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus?: boolean
+
+  /** Indicates whether the toggle is "on". */
+  @Prop({ mutable: true, reflect: true }) checked: boolean
+
+  /** Disabled state of the checkbox. */
   @Prop() disabled: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /** Set this property to `true` in order to mark the checkbox visually as invalid. */
+  @Prop() invalid: boolean
 
   /** Used to specify the name of the control. */
   @Prop() name: string
 
+  /** The value is not editable. */
+  @Prop() readonly?: boolean
+
+  /** Set this property to `true` in order to mark the checkbox as required. */
+  @Prop() required: boolean
+
+  /** Size of the toggle. */
+  @Prop() size?: 'sm' | 'lg'
+
   /** The input value. */
   @Prop() value: string
-
-  /** Alternative disabled state that keeps element focusable */
-  @Prop() ariaDisabled: string
-
-  /** The input value. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
-
-  /** Set this property to `true` in order to mark the toggle as required. */
-  @Prop() required: boolean
 
   /**
    * Sets focus on the toggle
@@ -54,25 +71,49 @@ export class LdToggle implements InnerFocusable {
 
   @Watch('checked')
   @Watch('name')
-  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
-    if (this.hiddenInput) {
-      this.hiddenInput.checked = this.checked
-      this.hiddenInput.required = this.required
+    const outerForm = this.el.closest('form')
+    if (!this.hiddenInput && this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+    }
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
-      } else {
-        this.hiddenInput.removeAttribute('name')
+    if (this.hiddenInput) {
+      if (!this.name) {
+        this.hiddenInput.remove()
+        this.hiddenInput = undefined
+        return
       }
+
+      this.hiddenInput.name = this.name
+      this.hiddenInput.checked = this.checked
 
       if (this.value) {
         this.hiddenInput.value = this.value
       } else {
         this.hiddenInput.removeAttribute('value')
       }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      } else if (this.hiddenInput.getAttribute('form')) {
+        if (outerForm) {
+          this.hiddenInput.removeAttribute('form')
+        } else {
+          this.hiddenInput.remove()
+          this.hiddenInput = undefined
+        }
+      }
     }
+  }
+
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'checkbox'
+    this.hiddenInput.style.visibility = 'hidden'
+    this.hiddenInput.style.position = 'absolute'
+    this.hiddenInput.style.pointerEvents = 'none'
+    this.el.appendChild(this.hiddenInput)
   }
 
   private handleBlur = (ev: FocusEvent) => {
@@ -102,24 +143,30 @@ export class LdToggle implements InnerFocusable {
       !!this.el.querySelector('[slot="icon-start"]') ||
       !!this.el.querySelector('[slot="icon-end"]')
 
-    if (this.el.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'checkbox'
-      this.hiddenInput.style.visibility = 'hidden'
-      this.hiddenInput.style.position = 'absolute'
-      this.hiddenInput.style.pointerEvents = 'none'
-      this.hiddenInput.checked = this.checked
+    const outerForm = this.el.closest('form')
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
+    if (outerForm && !this.autocomplete) {
+      this.autocomplete = outerForm.getAttribute('autocomplete')
+    }
+
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.name
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
 
       if (this.value) {
         this.hiddenInput.value = this.value
       }
+    }
+  }
 
-      this.el.appendChild(this.hiddenInput)
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
     }
   }
 
@@ -135,14 +182,15 @@ export class LdToggle implements InnerFocusable {
       >
         <input
           aria-disabled={this.ariaDisabled}
-          checked={this.checked}
-          disabled={this.disabled}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           part="input focusable"
           ref={(ref) => (this.input = ref)}
           required={this.required}
           type="checkbox"
+          {...cloneAttributes(this.el, ['autocomplete', 'size'])}
+          checked={this.checked}
+          disabled={this.disabled}
         />
         <span class="ld-toggle__knob" part="knob" />
         {this.hasIcons && (

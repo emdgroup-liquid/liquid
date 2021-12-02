@@ -1,4 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
+jest.mock('../../../utils/cloneAttributes')
 import { LdRadio } from '../ld-radio'
 
 describe('ld-radio', () => {
@@ -291,7 +292,7 @@ describe('ld-radio', () => {
   it('creates hidden input field, if inside a form', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio /></form>`,
+      html: `<form><ld-radio name="example" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio).toMatchSnapshot()
@@ -300,12 +301,11 @@ describe('ld-radio', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio name="example" checked required value="test" /></form>`,
+      html: `<form><ld-radio name="example" checked value="test" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
   })
 
@@ -319,7 +319,6 @@ describe('ld-radio', () => {
 
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
 
     ldRadio.setAttribute('name', 'test')
     await waitForChanges()
@@ -329,17 +328,17 @@ describe('ld-radio', () => {
     ldRadio.removeAttribute('name')
     await waitForChanges()
 
-    expect(ldRadio.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldRadio.querySelector('input')).toEqual(null)
+
+    ldRadio.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
     ldRadio.dispatchEvent(new Event('click'))
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-
-    ldRadio.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
 
     ldRadio.setAttribute('value', 'test')
     await waitForChanges()
@@ -350,5 +349,16 @@ describe('ld-radio', () => {
     await waitForChanges()
 
     expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdRadio],
+      html: '<ld-radio name="example" form="yolo" />',
+    })
+    const ldRadio = root
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
   })
 })
