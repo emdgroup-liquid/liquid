@@ -178,7 +178,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 If the `indeterminate` attribute is present on the `ld-checkbox` component, the checkbox's value is neither `true` nor `false`, but is instead _indeterminate_, meaning that its state cannot be determined or stated in pure binary terms. This may happen, for instance, if the state of the checkbox depends on multiple other checkboxes, and those checkboxes have different values.
 
-> **Note**: When using the CSS Component you need to take care of removing the indeterminate prop yourself.  
+> **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
 
 {% example 'html', false, false, 'light' %}
 <ld-checkbox indeterminate></ld-checkbox>
@@ -187,53 +187,52 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
 
 <!-- CSS component -->
 
+<div id="example-indeterminate-1" class="ld-checkbox">
+  <input type="checkbox">
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+
+<div id="example-indeterminate-2" class="ld-checkbox">
+  <input type="checkbox" disabled>
+  <svg
+    class="ld-checkbox__check"
+    width="14"
+    height="14"
+    fill="none"
+    viewBox="0 0 14 14"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 4L5.40795 10L2 6.63964"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <div class="ld-checkbox__box"></div>
+</div>
+
 <script>
-document.addEventListener('input', ev => {
-  ev.target.removeAttribute('indeterminate')
-})
+document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminate-2 input')
+  .forEach(input => input.indeterminate = true)
 </script>
-
-<div class="ld-checkbox">
-  <input type="checkbox" indeterminate>
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div class="ld-checkbox">
-  <input type="checkbox" indeterminate disabled>
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
 
 {% endexample %}
 
@@ -653,13 +652,12 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | ----------- |
 | `autocomplete`  | `autocomplete`  | Hint for form autofill feature.                                                                                                                                                      | `string`                  | `undefined` |
 | `autofocus`     | `autofocus`     | Automatically focus the form control when the page is loaded.                                                                                                                        | `boolean`                 | `undefined` |
-| `checked`       | `checked`       | The input value.                                                                                                                                                                     | `boolean`                 | `undefined` |
+| `checked`       | `checked`       | Indicates whether the checkbox is checked.                                                                                                                                           | `boolean`                 | `undefined` |
 | `disabled`      | `disabled`      | Disabled state of the checkbox.                                                                                                                                                      | `boolean`                 | `undefined` |
 | `form`          | `form`          | Associates the control with a form element.                                                                                                                                          | `string`                  | `undefined` |
 | `indeterminate` | `indeterminate` | Set this property to `true` to indicate that the checkbox's value is neither true nor false. The prop is removed automatically as soon as the checkbox is clicked (if not disabled). | `boolean`                 | `undefined` |
 | `invalid`       | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid.                                                                                                       | `boolean`                 | `undefined` |
 | `key`           | `key`           | for tracking the node's identity when working with lists                                                                                                                             | `string \| number`        | `undefined` |
-| `list`          | `list`          | Value of the id attribute of the `<datalist>` of autocomplete options.                                                                                                               | `string`                  | `undefined` |
 | `mode`          | `mode`          | Display mode.                                                                                                                                                                        | `"danger" \| "highlight"` | `undefined` |
 | `name`          | `name`          | Used to specify the name of the control.                                                                                                                                             | `string`                  | `undefined` |
 | `readonly`      | `readonly`      | The value is not editable.                                                                                                                                                           | `boolean`                 | `undefined` |

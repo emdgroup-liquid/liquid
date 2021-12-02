@@ -286,10 +286,15 @@ describe('ld-checkbox', () => {
     it('css component', async () => {
       const page = await getPageWithContent(
         `<div class="ld-checkbox">
-          <input type="checkbox" indeterminate></input>${checkAndBox}
+          <input type="checkbox"></input>${checkAndBox}
         </div>`,
         { components: LdCheckbox }
       )
+      await page.evaluate(() => {
+        ;(
+          document.querySelector('input[type="checkbox"]') as HTMLInputElement
+        ).indeterminate = true
+      })
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
@@ -309,6 +314,11 @@ describe('ld-checkbox', () => {
         </div>`,
         { components: LdCheckbox }
       )
+      await page.evaluate(() => {
+        ;(
+          document.querySelector('input[type="checkbox"]') as HTMLInputElement
+        ).indeterminate = true
+      })
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
