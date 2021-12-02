@@ -359,18 +359,23 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                 | Type                      | Default     |
-| ---------- | ---------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `checked`  | `checked`  | The input value.                                                            | `boolean`                 | `undefined` |
-| `disabled` | `disabled` | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
-| `invalid`  | `invalid`  | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
-| `mode`     | `mode`     | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
-| `name`     | `name`     | Used to specify the name of the control.                                    | `string`                  | `undefined` |
-| `ref`      | `ref`      | reference to component                                                      | `any`                     | `undefined` |
-| `required` | `required` | Set this property to `true` in order to mark the checkbox as required.      | `boolean`                 | `undefined` |
-| `tone`     | `tone`     | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
-| `value`    | `value`    | The input value.                                                            | `string`                  | `undefined` |
+| Property       | Attribute      | Description                                                                 | Type                      | Default     |
+| -------------- | -------------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
+| `autocomplete` | `autocomplete` | Hint for form autofill feature.                                             | `string`                  | `undefined` |
+| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.               | `boolean`                 | `undefined` |
+| `checked`      | `checked`      | The input value.                                                            | `boolean`                 | `undefined` |
+| `disabled`     | `disabled`     | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
+| `form`         | `form`         | Associates the control with a form element.                                 | `string`                  | `undefined` |
+| `invalid`      | `invalid`      | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
+| `key`          | `key`          | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
+| `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.      | `string`                  | `undefined` |
+| `mode`         | `mode`         | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
+| `name`         | `name`         | Used to specify the name of the control.                                    | `string`                  | `undefined` |
+| `readonly`     | `readonly`     | The value is not editable.                                                  | `boolean`                 | `undefined` |
+| `ref`          | `ref`          | reference to component                                                      | `any`                     | `undefined` |
+| `required`     | `required`     | Set this property to `true` in order to mark the checkbox as required.      | `boolean`                 | `undefined` |
+| `tone`         | `tone`         | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
+| `value`        | `value`        | The input value.                                                            | `string`                  | `undefined` |
 
 
 ## Methods

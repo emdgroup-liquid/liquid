@@ -291,7 +291,7 @@ describe('ld-radio', () => {
   it('creates hidden input field, if inside a form', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio /></form>`,
+      html: `<form><ld-radio name="example" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio).toMatchSnapshot()
@@ -329,7 +329,12 @@ describe('ld-radio', () => {
     ldRadio.removeAttribute('name')
     await waitForChanges()
 
-    expect(ldRadio.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldRadio.querySelector('input')).toEqual(null)
+
+    ldRadio.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
     ldRadio.dispatchEvent(new Event('click'))
     await waitForChanges()
@@ -350,5 +355,16 @@ describe('ld-radio', () => {
     await waitForChanges()
 
     expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdRadio],
+      html: '<ld-radio name="example" form="yolo" />',
+    })
+    const ldRadio = root
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
   })
 })

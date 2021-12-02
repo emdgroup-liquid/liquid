@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -17,29 +18,44 @@ export class LdRadio implements InnerFocusable {
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
+  /** Hint for form autofill feature. */
+  @Prop({ mutable: true, reflect: true }) autocomplete?: string
+
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus?: boolean
+
+  /** The input value. */
+  @Prop({ mutable: true, reflect: true }) checked: boolean
+
+  /** Disabled state of the radio. */
+  @Prop() disabled: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /** Set this property to `true` in order to mark the radio visually as invalid. */
+  @Prop() invalid: boolean
+
+  /** Value of the id attribute of the `<datalist>` of autocomplete options. */
+  @Prop() list?: string
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
   /** Used to specify the name of the control. */
   @Prop() name: string
 
-  /** The input value. */
-  @Prop() value: string
+  /** The value is not editable. */
+  @Prop() readonly?: boolean
+
+  /** Set this property to `true` in order to mark the checkbox as required. */
+  @Prop() required: boolean
 
   /** radio tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'
 
-  /** Disabled state of the radio. */
-  @Prop() disabled: boolean
-
   /** The input value. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
-
-  /** Set this property to `true` in order to mark the radio visually as invalid. */
-  @Prop() invalid: boolean
-
-  /** Set this property to `true` in order to mark the checkbox as required. */
-  @Prop() required: boolean
+  @Prop() value: string
 
   /** Sets focus on the radio button. */
   @Method()
@@ -50,24 +66,43 @@ export class LdRadio implements InnerFocusable {
   }
 
   @Watch('checked')
+  @Watch('form')
   @Watch('name')
   @Watch('required')
   @Watch('value')
   updateHiddenInput() {
+    const outerForm = this.el.closest('form')
+    if (!this.hiddenInput && this.name && (outerForm || this.form)) {
+      this.hiddenInput = document.createElement('input')
+      this.el.appendChild(this.hiddenInput)
+    }
+
     if (this.hiddenInput) {
+      if (!this.name) {
+        this.hiddenInput.remove()
+        this.hiddenInput = undefined
+        return
+      }
+
+      this.hiddenInput.name = this.name
       this.hiddenInput.checked = this.checked
       this.hiddenInput.required = this.required
-
-      if (this.name) {
-        this.hiddenInput.name = this.name
-      } else {
-        this.hiddenInput.removeAttribute('name')
-      }
 
       if (this.value) {
         this.hiddenInput.value = this.value
       } else {
         this.hiddenInput.removeAttribute('value')
+      }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      } else if (this.hiddenInput.getAttribute('form')) {
+        if (outerForm) {
+          this.hiddenInput.removeAttribute('form')
+        } else {
+          this.hiddenInput.remove()
+          this.hiddenInput = undefined
+        }
       }
     }
   }
@@ -146,35 +181,52 @@ export class LdRadio implements InnerFocusable {
   }
 
   componentWillLoad() {
-    if (this.el.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'radio'
-      this.hiddenInput.style.visibility = 'hidden'
-      this.hiddenInput.style.position = 'absolute'
-      this.hiddenInput.style.pointerEvents = 'none'
-      this.hiddenInput.checked = this.checked
+    const outerForm = this.el.closest('form')
 
-      if (this.value) {
-        this.hiddenInput.value = this.value
-      }
+    if (outerForm && !this.autocomplete) {
+      this.autocomplete = outerForm.getAttribute('autocomplete')
+    }
 
+    if (outerForm || this.form) {
       if (this.name) {
+        this.hiddenInput = document.createElement('input')
+        this.hiddenInput.required = this.required
+        this.hiddenInput.type = 'radio'
+        this.hiddenInput.style.visibility = 'hidden'
+        this.hiddenInput.style.position = 'absolute'
+        this.hiddenInput.style.pointerEvents = 'none'
+        this.hiddenInput.checked = this.checked
         this.hiddenInput.name = this.name
-      }
 
-      this.el.appendChild(this.hiddenInput)
+        if (this.form) {
+          this.hiddenInput.setAttribute('form', this.form)
+        }
+
+        if (this.value) {
+          this.hiddenInput.value = this.value
+        }
+
+        this.el.appendChild(this.hiddenInput)
+      }
+    }
+  }
+
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
     }
   }
 
   render() {
-    let cl = 'ld-radio'
-    if (this.mode) cl += ` ld-radio--${this.mode}`
-    if (this.tone) cl += ` ld-radio--${this.tone}`
-    if (this.invalid) cl += ' ld-radio--invalid'
+    const cl = [
+      'ld-radio',
+      this.mode && `ld-radio--${this.mode}`,
+      this.tone && `ld-radio--${this.tone}`,
+      this.invalid && 'ld-radio--invalid',
+    ]
 
     return (
-      <Host part="root" class={cl} onClick={this.handleClick}>
+      <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
           part="input focusable"
           onBlur={this.handleBlur}
