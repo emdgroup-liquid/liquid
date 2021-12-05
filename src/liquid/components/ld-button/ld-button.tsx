@@ -52,7 +52,7 @@ export class LdButton implements InnerFocusable {
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
    * for more information on the `href` attribute.
    */
-  @Prop() href?: string
+  @Prop({ reflect: true }) href?: string
 
   /** Justify content. */
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
@@ -218,6 +218,7 @@ export class LdButton implements InnerFocusable {
           'progress',
           'size',
         ])}
+        href={this.href}
       >
         <slot />
         {hasProgress && (
