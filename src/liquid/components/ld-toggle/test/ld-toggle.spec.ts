@@ -1,5 +1,4 @@
 import { newSpecPage } from '@stencil/core/testing'
-jest.mock('../../../utils/cloneAttributes')
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
 

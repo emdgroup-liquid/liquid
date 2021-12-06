@@ -195,7 +195,7 @@ export class LdCheckbox implements InnerFocusable {
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
           type="checkbox"
-          {...cloneAttributes(this.el, ['autocomplete', 'tone', 'mode'])}
+          {...cloneAttributes.call(this, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
         />

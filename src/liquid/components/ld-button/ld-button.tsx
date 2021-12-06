@@ -52,7 +52,7 @@ export class LdButton implements InnerFocusable {
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
    * for more information on the `href` attribute.
    */
-  @Prop({ reflect: true }) href?: string
+  @Prop() href?: string
 
   /** Justify content. */
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
@@ -211,14 +211,14 @@ export class LdButton implements InnerFocusable {
         part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        {...cloneAttributes(this.el, [
+        {...cloneAttributes.call(this, [
           'align-text',
           'justify-content',
           'mode',
           'progress',
           'size',
+          this.type === 'submit' ? 'type' : undefined, // submit is default
         ])}
-        href={this.href}
       >
         <slot />
         {hasProgress && (

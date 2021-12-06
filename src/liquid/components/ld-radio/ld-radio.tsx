@@ -227,7 +227,7 @@ export class LdRadio implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"
-          {...cloneAttributes(this.el, ['autocomplete', 'tone', 'mode'])}
+          {...cloneAttributes.call(this, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
           tabIndex={

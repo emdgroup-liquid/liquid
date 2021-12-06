@@ -56,7 +56,7 @@ export class LdLabel {
         class={cl}
         onClick={this.handleClick}
         part="tag"
-        {...cloneAttributes(this.el, ['align-message', 'position', 'size'])}
+        {...cloneAttributes.call(this, ['align-message', 'position', 'size'])}
       >
         <slot></slot>
       </label>

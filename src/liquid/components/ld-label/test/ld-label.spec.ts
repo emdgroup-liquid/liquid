@@ -1,4 +1,3 @@
-jest.mock('../../../utils/cloneAttributes')
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../../ld-input/ld-input'
 import { LdCheckbox } from '../../ld-checkbox/ld-checkbox'

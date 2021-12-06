@@ -188,7 +188,7 @@ export class LdToggle implements InnerFocusable {
           ref={(ref) => (this.input = ref)}
           required={this.required}
           type="checkbox"
-          {...cloneAttributes(this.el, ['autocomplete', 'size'])}
+          {...cloneAttributes.call(this, ['autocomplete', 'size'])}
           checked={this.checked}
           disabled={this.disabled}
         />

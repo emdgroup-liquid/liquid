@@ -126,7 +126,7 @@ export class LdTypo {
         class={`ld-typo ld-typo--${this.variant}`}
         part="tag"
         ref={(ref: HTMLElement) => (this.root = ref)}
-        {...cloneAttributes(this.el)}
+        {...cloneAttributes.call(this, ['tag', 'variant'])}
       >
         <slot></slot>
       </HTag>

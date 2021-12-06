@@ -1,5 +1,4 @@
 import { newSpecPage } from '@stencil/core/testing'
-jest.mock('../../../utils/cloneAttributes')
 import { LdRadio } from '../ld-radio'
 
 describe('ld-radio', () => {

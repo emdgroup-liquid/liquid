@@ -298,7 +298,7 @@ export class LdInput implements InnerFocusable {
             onInput={this.handleInput.bind(this)}
             part="input focusable"
             ref={(el) => (this.input = el)}
-            {...cloneAttributes(this.el, ['multiline', 'type'])}
+            {...cloneAttributes.call(this, ['multiline', 'type'])}
           />
           {this.type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
@@ -320,7 +320,7 @@ export class LdInput implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
-          {...cloneAttributes(this.el, ['autocomplete'])}
+          {...cloneAttributes.call(this, ['autocomplete'])}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">
