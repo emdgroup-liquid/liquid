@@ -1,5 +1,7 @@
 export function cloneAttributes(attributesToIgnore: string[] = []) {
   const attributes = []
+
+  // Clone attributes from props.
   for (const key in this) {
     // Component props are getters. Getters don't have a descriptor.
     // So we can check for component props as follows:
@@ -14,6 +16,15 @@ export function cloneAttributes(attributesToIgnore: string[] = []) {
       })
     }
   }
+
+  // Also clone attributes not defined as props (non-reactive).
+  for (const attr of this.el.attributes) {
+    attributes.push({
+      name: attr.name,
+      value: attr.value,
+    })
+  }
+
   return Object.values(attributes).reduce((acc, { name, value }) => {
     if (
       !name ||
