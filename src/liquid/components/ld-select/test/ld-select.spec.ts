@@ -1958,6 +1958,106 @@ describe('ld-select', () => {
     expect(page.body).toMatchSnapshot()
   })
 
+  it('updates hidden input fields on attribute changes', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit" multiple>
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="pear">Pear</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-select>
+        </form>
+      `,
+    })
+
+    const ldSelect = page.root
+    ldSelect.setAttribute('name', 'food')
+
+    await page.waitForChanges()
+
+    expect(ldSelect).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, if form attribute is set', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit" form="yolo" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, after adding form attribute', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+
+    ldSelect.setAttribute('form', 'yolo')
+
+    await page.waitForChanges()
+
+    expect(ldSelect).toMatchSnapshot()
+  })
+
+  it('removes hidden input field, after removing name attribute', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit" form="yolo" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+
+    ldSelect.removeAttribute('name')
+
+    await page.waitForChanges()
+
+    expect(ldSelect).toMatchSnapshot()
+  })
+
+  it('removes hidden input field, after removing form attribute', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit" form="yolo" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+
+    ldSelect.removeAttribute('form')
+
+    await page.waitForChanges()
+
+    expect(ldSelect).toMatchSnapshot()
+  })
+
   it('observes slot content changes and updates internal options in popper and hidden input fields', async () => {
     const page = await newSpecPage({
       components,
