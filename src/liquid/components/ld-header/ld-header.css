@@ -1,0 +1,37 @@
+:host {
+  --ld-header-height: 3.125rem;
+
+  background-color: var(--ld-thm-primary);
+  color: var(--ld-col-wht);
+  display: flex;
+  width: 100%;
+
+  header {
+    align-items: center;
+    display: flex;
+    height: var(--ld-header-height);
+    justify-content: space-between;
+    margin: 0 var(--ld-sp-16);
+    max-width: 80rem;
+    width: 100%;
+  }
+}
+
+::slotted([slot='menu']) {
+  flex: 1;
+  margin-left: var(--ld-sp-16);
+}
+
+::slotted([slot='buttons']) {
+  margin-left: var(--ld-sp-16);
+}
+
+.ld-header__logo {
+  --ld-icon-size-md: 2rem;
+  color: var(--ld-thm-warning);
+  margin-right: var(--ld-sp-16);
+}
+
+.ld-header__buttons {
+  display: flex;
+}
