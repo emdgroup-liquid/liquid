@@ -44,6 +44,9 @@ export class LdInput implements InnerFocusable {
   /** Media capture input method in file upload controls. */
   @Prop() capture?: string
 
+  /** The number of columns. */
+  @Prop() cols?: number
+
   /** Name of form field to use for sending the element's directionality in form submission. */
   @Prop() dirname?: string
 
@@ -94,6 +97,9 @@ export class LdInput implements InnerFocusable {
 
   /** A value is required for the form to be submittable. */
   @Prop() required?: boolean
+
+  /** The number of rows. */
+  @Prop() rows?: number
 
   /** Size of the input. */
   @Prop() size?: 'sm' | 'lg'

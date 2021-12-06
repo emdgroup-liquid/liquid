@@ -1001,6 +1001,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `autocomplete` | `autocomplete` | Hint for form autofill feature.                                                                                       | `string`           | `undefined` |
 | `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`          | `undefined` |
 | `capture`      | `capture`      | Media capture input method in file upload controls.                                                                   | `string`           | `undefined` |
+| `cols`         | `cols`         | The number of columns.                                                                                                | `number`           | `undefined` |
 | `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`           | `undefined` |
 | `disabled`     | `disabled`     | Whether the form control is disabled.                                                                                 | `boolean`          | `undefined` |
 | `form`         | `form`         | Associates the control with a form element.                                                                           | `string`           | `undefined` |
@@ -1019,6 +1020,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `readonly`     | `readonly`     | The value is not editable.                                                                                            | `boolean`          | `undefined` |
 | `ref`          | `ref`          | reference to component                                                                                                | `any`              | `undefined` |
 | `required`     | `required`     | A value is required for the form to be submittable.                                                                   | `boolean`          | `undefined` |
+| `rows`         | `rows`         | The number of rows.                                                                                                   | `number`           | `undefined` |
 | `size`         | `size`         | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |
 | `step`         | `step`         | Incremental values that are valid.                                                                                    | `string`           | `undefined` |
 | `tone`         | `tone`         | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`           | `undefined` |
