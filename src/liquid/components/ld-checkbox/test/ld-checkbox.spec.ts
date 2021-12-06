@@ -172,6 +172,7 @@ describe('ld-checkbox', () => {
     expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
 
     ldCheckbox.removeAttribute('value')
+    ldCheckbox.value = undefined
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(

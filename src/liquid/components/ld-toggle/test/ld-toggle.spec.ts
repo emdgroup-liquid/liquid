@@ -166,6 +166,7 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
     ldToggle.removeAttribute('name')
+    ldToggle.name = undefined
     await waitForChanges()
 
     expect(ldToggle.querySelector('input')).toEqual(null)
@@ -186,6 +187,7 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('value', 'test')
 
     ldToggle.removeAttribute('value')
+    ldToggle.value = undefined
     await waitForChanges()
 
     expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)

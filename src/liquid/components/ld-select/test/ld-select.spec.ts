@@ -2052,6 +2052,7 @@ describe('ld-select', () => {
     const ldSelect = page.root
 
     ldSelect.removeAttribute('form')
+    ldSelect.form = undefined
 
     await page.waitForChanges()
 

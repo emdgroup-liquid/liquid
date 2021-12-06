@@ -370,18 +370,23 @@ describe('ld-input', () => {
   })
 
   it('removes hidden input field attributes', async () => {
-    const { root, waitForChanges } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdInput],
       html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
     })
 
-    root.removeAttribute('dirname')
-    root.removeAttribute('form')
-    root.removeAttribute('value')
-    await waitForChanges()
+    const ldInput = page.body.querySelector('ld-input')
 
-    expect(root).toMatchSnapshot()
-    expect(root.querySelector('input').dirName).toBeNull()
+    ldInput.removeAttribute('dirname')
+    ldInput.dirname = undefined
+    ldInput.removeAttribute('form')
+    ldInput.form = undefined
+    ldInput.removeAttribute('value')
+    ldInput.value = undefined
+    await page.waitForChanges()
+
+    expect(ldInput).toMatchSnapshot()
+    expect(ldInput.querySelector('input').getAttribute('dirname')).toBeNull()
   })
 
   it('removes hidden input field, if name attribute is removed', async () => {
@@ -391,6 +396,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('name')
+    root.name = undefined
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -402,6 +408,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('form')
+    root.form = undefined
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })

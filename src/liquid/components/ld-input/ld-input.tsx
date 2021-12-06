@@ -137,7 +137,9 @@ export class LdInput implements InnerFocusable {
     }
 
     if (this.hiddenInput) {
-      this.hiddenInput.dirName = this.dirname
+      if (this.dirname) {
+        this.hiddenInput.dirName = this.dirname
+      }
 
       if (this.name) {
         this.hiddenInput.name = this.name
@@ -182,8 +184,11 @@ export class LdInput implements InnerFocusable {
 
     if (this.name && (outerForm || this.form)) {
       this.createHiddenInput()
-      this.hiddenInput.dirName = this.dirname
       this.hiddenInput.name = this.name
+
+      if (this.dirname) {
+        this.hiddenInput.dirName = this.dirname
+      }
 
       if (this.form) {
         this.hiddenInput.setAttribute('form', this.form)
