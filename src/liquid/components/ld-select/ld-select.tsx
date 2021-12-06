@@ -43,7 +43,7 @@ export class LdSelect implements InnerFocusable {
   private observer: MutationObserver
 
   /** Hint for form autofill feature. */
-  @Prop() autocomplete?: string
+  // @Prop() autocomplete?: string // TODO
 
   /**
    * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
@@ -57,7 +57,7 @@ export class LdSelect implements InnerFocusable {
   /**
    * The form element to associate the select with (its form owner).
    */
-  @Prop() form?: string
+  @Prop() form?: string // TODO
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
@@ -138,7 +138,7 @@ export class LdSelect implements InnerFocusable {
     this.updateTriggerMoreIndicator(true)
 
     if (this.renderHiddenInput) {
-      this.updateHiddenInput(newSelection)
+      this.updateSelectedHiddenInputs(newSelection)
     }
 
     this.input.emit(newValues)
@@ -416,10 +416,12 @@ export class LdSelect implements InnerFocusable {
     this.updateTriggerMoreIndicator(true)
   }
 
-  private updateHiddenInput = (selected: SelectOption[]) => {
+  private updateSelectedHiddenInputs = (selected: SelectOption[]) => {
     const selectedValues = selected.map(({ value }) => value)
     const inputs = this.el.querySelectorAll('input')
 
+    // For each existing input, remove it from DOM if not in selected.
+    // Remove each value from selectedValues if hidden input already exists.
     inputs.forEach((hiddenInput) => {
       const index = selectedValues.indexOf(hiddenInput.value)
       if (index >= 0) {
@@ -429,18 +431,20 @@ export class LdSelect implements InnerFocusable {
       }
     })
 
+    // If nothing is selected we need only one hidden input without value.
     if (selected.length === 0) {
       this.appendHiddenInput()
       return
     }
 
+    // Else add hidden inputs for each value in selectedValues.
     selectedValues.forEach(this.appendHiddenInput)
   }
 
   private appendHiddenInput = (value?: string) => {
     const hiddenInput = document.createElement('input')
 
-    // Slot required to keep the hidden input outside the popper
+    // Slot required to keep the hidden input outside the popper.
     hiddenInput.setAttribute('slot', 'hidden')
     hiddenInput.name = this.name
     hiddenInput.type = 'hidden'
@@ -450,6 +454,34 @@ export class LdSelect implements InnerFocusable {
     }
 
     this.el.appendChild(hiddenInput)
+  }
+
+  @Watch('name')
+  @Watch('form')
+  updateHiddenInputs() {
+    const hiddenInputs = this.el.querySelectorAll('input')
+
+    const outerForm = this.el.closest('form')
+    if (!this.name || !(outerForm || this.form)) {
+      hiddenInputs.forEach((hiddenInput) => {
+        hiddenInput.remove()
+      })
+      return
+    }
+
+    if (!hiddenInputs.length) {
+      this.updateSelectedHiddenInputs(this.selected)
+      return
+    }
+
+    hiddenInputs.forEach((hiddenInput) => {
+      hiddenInput.name = this.name
+      if (this.form) {
+        hiddenInput.setAttribute('form', this.form)
+      } else if (hiddenInput.getAttribute('form')) {
+        hiddenInput.removeAttribute('form')
+      }
+    })
   }
 
   private handleSlotChange(mutationsList: MutationRecord[]) {
@@ -858,7 +890,7 @@ export class LdSelect implements InnerFocusable {
   componentWillLoad() {
     const outerForm = this.el.closest('form')
 
-    if (outerForm && this.name) {
+    if (this.name && (outerForm || this.form)) {
       this.renderHiddenInput = true
     }
 
@@ -876,7 +908,7 @@ export class LdSelect implements InnerFocusable {
     this.initOptions()
 
     if (this.renderHiddenInput) {
-      this.updateHiddenInput(this.selected)
+      this.updateSelectedHiddenInputs(this.selected)
     }
   }
 
