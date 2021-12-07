@@ -58,16 +58,14 @@ export class LdButton implements InnerFocusable {
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
 
   /** Display mode. */
-  @Prop() mode?:
-    | 'highlight'
-    | 'secondary'
-    | 'ghost'
-    | 'danger'
-    | 'on-brand-color'
-    | 'secondary-on-brand-color'
+  @Prop() mode?: 'highlight' | 'secondary' | 'ghost' | 'danger'
 
   /** Used to specify the name of the control. */
   @Prop() name?: string
+
+  // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
+  /** Style the button so that it looks good on the current theme's primary color. */
+  @Prop() brandColor?: boolean
 
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress?: 'pending' | number
@@ -117,7 +115,6 @@ export class LdButton implements InnerFocusable {
   }
 
   private clickHiddenButton() {
-    console.log('drin')
     const button = document.createElement('button')
 
     button.style.pointerEvents = 'none'
@@ -185,10 +182,11 @@ export class LdButton implements InnerFocusable {
   render() {
     const cl = getClassNames([
       'ld-button',
-      this.size && `ld-button--${this.size}`,
-      this.mode && `ld-button--${this.mode}`,
       this.alignText && `ld-button--align-text-${this.alignText}`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
+      this.mode && `ld-button--${this.mode}`,
+      this.brandColor && `ld-button--brand-color`,
+      this.size && `ld-button--${this.size}`,
     ])
 
     const Tag = this.href ? 'a' : 'button'

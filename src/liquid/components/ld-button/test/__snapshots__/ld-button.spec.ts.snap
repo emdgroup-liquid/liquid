@@ -46,6 +46,39 @@ exports[`ld-button as progress button pending 1`] = `
 </ld-button>
 `;
 
+exports[`ld-button brand-color (default) 1`] = `
+<ld-button brand-color="">
+  <mock:shadow-root>
+    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color" part="button focusable">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Text
+</ld-button>
+`;
+
+exports[`ld-button brand-color (ghost) 1`] = `
+<ld-button brand-color="" mode="ghost">
+  <mock:shadow-root>
+    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--ghost" part="button focusable">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Text
+</ld-button>
+`;
+
+exports[`ld-button brand-color (secondary) 1`] = `
+<ld-button brand-color="" mode="secondary">
+  <mock:shadow-root>
+    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--secondary" part="button focusable">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Text
+</ld-button>
+`;
+
 exports[`ld-button danger 1`] = `
 <ld-button mode="danger">
   <mock:shadow-root>
@@ -101,17 +134,6 @@ exports[`ld-button justify content 1`] = `
 </ld-button>
 `;
 
-exports[`ld-button on-brand-color 1`] = `
-<ld-button mode="on-brand-color">
-  <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--on-brand-color" part="button focusable">
-      <slot></slot>
-    </button>
-  </mock:shadow-root>
-  Text
-</ld-button>
-`;
-
 exports[`ld-button removes size from ld-icon css component 1`] = `
 <ld-button>
   <mock:shadow-root>
@@ -151,17 +173,6 @@ exports[`ld-button secondary 1`] = `
 <ld-button mode="secondary">
   <mock:shadow-root>
     <button aria-live="polite" class="ld-button ld-button--secondary" part="button focusable">
-      <slot></slot>
-    </button>
-  </mock:shadow-root>
-  Text
-</ld-button>
-`;
-
-exports[`ld-button secondary-on-brand-color 1`] = `
-<ld-button mode="secondary-on-brand-color">
-  <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--secondary-on-brand-color" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
