@@ -40,8 +40,9 @@ export class DocsPageNav {
           <div class="docs-page-nav__content">
             {this.prevHref ? (
               <ld-button
+                brand-color
                 class="docs-page-nav__pull"
-                mode="secondary-on-brand-color"
+                mode="secondary"
                 href={this.prevHref}
               >
                 {this.prevTitle}
@@ -51,8 +52,8 @@ export class DocsPageNav {
             )}
             {this.nextHref ? (
               <ld-button
+                brand-color
                 class="docs-page-nav__push"
-                mode="on-brand-color"
                 href={this.nextHref}
               >
                 {this.nextTitle}
