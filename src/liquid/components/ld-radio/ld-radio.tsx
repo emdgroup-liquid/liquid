@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 
@@ -12,14 +21,13 @@ import { getClassNames } from '../../utils/getClassNames'
   styleUrl: 'ld-radio.css',
   shadow: true,
 })
-export class LdRadio implements InnerFocusable {
+export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLInputElement
+
+  private attributesObserver: MutationObserver
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
-
-  /** Hint for form autofill feature. */
-  @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
@@ -53,6 +61,8 @@ export class LdRadio implements InnerFocusable {
 
   /** The input value. */
   @Prop() value: string
+
+  @State() clonedAttributes
 
   /** Sets focus on the radio button. */
   @Method()
@@ -183,11 +193,9 @@ export class LdRadio implements InnerFocusable {
   }
 
   componentWillLoad() {
-    const outerForm = this.el.closest('form')
+    this.attributesObserver = cloneAttributes.call(this, ['tone', 'mode'])
 
-    if (outerForm && !this.autocomplete) {
-      this.autocomplete = outerForm.getAttribute('autocomplete')
-    }
+    const outerForm = this.el.closest('form')
 
     if (this.name && (outerForm || this.form)) {
       this.createHiddenInput()
@@ -210,6 +218,10 @@ export class LdRadio implements InnerFocusable {
     }
   }
 
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     const cl = [
       'ld-radio',
@@ -221,13 +233,13 @@ export class LdRadio implements InnerFocusable {
     return (
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
+          {...this.clonedAttributes}
           part="input focusable"
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"
-          {...cloneAttributes.call(this, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
           tabIndex={

@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdRadio } from '../ld-radio'
+import '../../../utils/mutationObserver'
 
 describe('ld-radio', () => {
   it('renders', async () => {

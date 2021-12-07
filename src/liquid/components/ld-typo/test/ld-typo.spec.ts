@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdTypo } from '../ld-typo'
+import '../../../utils/mutationObserver'
 
 describe('ld-typo', () => {
   it('renders', async () => {

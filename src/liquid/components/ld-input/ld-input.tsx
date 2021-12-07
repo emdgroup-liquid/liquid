@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 
@@ -27,8 +36,11 @@ import { getClassNames } from '../../utils/getClassNames'
   styleUrl: 'ld-input.css',
   shadow: true,
 })
-export class LdInput implements InnerFocusable {
+export class LdInput implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLInputElement | HTMLTextAreaElement
+
+  private attributesObserver: MutationObserver
+
   private hiddenInput?: HTMLInputElement
   private input: HTMLInputElement | HTMLTextAreaElement
 
@@ -116,6 +128,8 @@ export class LdInput implements InnerFocusable {
   /** The input value. */
   @Prop({ mutable: true }) value?: string
 
+  @State() clonedAttributes
+
   /**
    * Sets focus on the input
    */
@@ -176,6 +190,11 @@ export class LdInput implements InnerFocusable {
   }
 
   componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'multiline',
+      'autocomplete',
+    ])
+
     const outerForm = this.el.closest('form')
 
     if (outerForm && !this.autocomplete) {
@@ -292,6 +311,10 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     const cl = getClassNames([
       'ld-input',
@@ -304,12 +327,12 @@ export class LdInput implements InnerFocusable {
       return (
         <Host class={cl} onClick={this.handleClick}>
           <textarea
+            {...this.clonedAttributes}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
             part="input focusable"
             ref={(el) => (this.input = el)}
-            {...cloneAttributes.call(this, ['multiline', 'type'])}
           />
           {this.type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
@@ -324,6 +347,7 @@ export class LdInput implements InnerFocusable {
       <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
+          {...this.clonedAttributes}
           autocomplete={this.autocomplete}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
@@ -331,7 +355,6 @@ export class LdInput implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
-          {...cloneAttributes.call(this, ['autocomplete'])}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">

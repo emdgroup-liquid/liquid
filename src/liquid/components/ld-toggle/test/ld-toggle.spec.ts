@@ -1,6 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
+import '../../../utils/mutationObserver'
 
 describe('ld-toggle', () => {
   it('renders default', async () => {

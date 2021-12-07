@@ -1,10 +1,10 @@
-import MutationObserver from 'mutation-observer'
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
 import { LdSelect } from '../ld-select'
 import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
+import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
 const components = [
   LdSelect,
@@ -13,15 +13,6 @@ const components = [
   LdOptionInternal,
   LdLabel,
 ]
-
-let triggerableMutationObserver
-const TriggerableMutationObserver = function (cb) {
-  triggerableMutationObserver = new MutationObserver(cb)
-  triggerableMutationObserver.trigger = cb
-  return triggerableMutationObserver
-}
-
-global.MutationObserver = TriggerableMutationObserver as MutationObserver
 
 class FocusManager {
   focus(el) {
@@ -2082,7 +2073,7 @@ describe('ld-select', () => {
 
     slottedOptions[2].setAttribute('selected', '')
     await page.waitForChanges()
-    triggerableMutationObserver.trigger([])
+    getTriggerableMutationObserver().trigger([])
 
     await page.waitForChanges()
 

@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop, State } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
@@ -12,8 +12,10 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
   styleUrl: 'ld-label.css',
   shadow: true,
 })
-export class LdLabel {
+export class LdLabel implements ClonesAttributes {
   @Element() el: HTMLLabelElement
+
+  private attributesObserver: MutationObserver
 
   /** Align input message with input position. */
   @Prop() alignMessage: boolean
@@ -23,6 +25,8 @@ export class LdLabel {
 
   /** Size of the label. Default is small. */
   @Prop() size: 'm'
+
+  @State() clonedAttributes
 
   private handleClick = async (event: MouseEvent) => {
     const inputElement: HTMLElement = this.el.querySelector(
@@ -43,6 +47,18 @@ export class LdLabel {
     }
   }
 
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'align-message',
+      'position',
+      'size',
+    ])
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     const cl = getClassNames([
       'ld-label',
@@ -52,12 +68,7 @@ export class LdLabel {
     ])
 
     return (
-      <label
-        class={cl}
-        onClick={this.handleClick}
-        part="tag"
-        {...cloneAttributes.call(this, ['align-message', 'position', 'size'])}
-      >
+      <label class={cl} onClick={this.handleClick} part="tag">
         <slot></slot>
       </label>
     )

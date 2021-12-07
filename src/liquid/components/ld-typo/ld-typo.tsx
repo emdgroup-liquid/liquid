@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop, State } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
@@ -11,8 +11,10 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-typo.css',
   shadow: true,
 })
-export class LdTypo {
+export class LdTypo implements ClonesAttributes {
   @Element() el: HTMLElement
+
+  private attributesObserver: MutationObserver
 
   private root: HTMLElement
 
@@ -61,6 +63,8 @@ export class LdTypo {
    * inner HTML that should not be part of the label), you can use this property.
    */
   @Prop() ariaLabel: string
+
+  @State() clonedAttributes
 
   private applyAriaLabel() {
     const isUppercase = [
@@ -114,8 +118,16 @@ export class LdTypo {
       xh6: 'h6',
     }[this.variant] ?? 'p')
 
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, ['tag', 'variant'])
+  }
+
   componentDidRender() {
     this.applyAriaLabel()
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
   }
 
   render() {
@@ -123,10 +135,10 @@ export class LdTypo {
 
     return (
       <HTag
+        {...this.clonedAttributes}
         class={`ld-typo ld-typo--${this.variant}`}
         part="tag"
         ref={(ref: HTMLElement) => (this.root = ref)}
-        {...cloneAttributes.call(this, ['tag', 'variant'])}
       >
         <slot></slot>
       </HTag>

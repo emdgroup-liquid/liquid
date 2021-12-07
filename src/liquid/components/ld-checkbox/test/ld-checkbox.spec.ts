@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdCheckbox } from '../ld-checkbox'
+import '../../../utils/mutationObserver'
 
 describe('ld-checkbox', () => {
   it('renders', async () => {

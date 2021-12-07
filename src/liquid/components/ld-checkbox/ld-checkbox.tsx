@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 
@@ -12,14 +21,13 @@ import { getClassNames } from '../../utils/getClassNames'
   styleUrl: 'ld-checkbox.css',
   shadow: true,
 })
-export class LdCheckbox implements InnerFocusable {
+export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLInputElement
+
+  private attributesObserver: MutationObserver
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
-
-  /** Hint for form autofill feature. */
-  @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
@@ -59,6 +67,8 @@ export class LdCheckbox implements InnerFocusable {
 
   /** The input value. */
   @Prop() value: string
+
+  @State() clonedAttributes
 
   /**
    * Sets focus on the checkbox
@@ -152,11 +162,9 @@ export class LdCheckbox implements InnerFocusable {
   }
 
   componentWillLoad() {
-    const outerForm = this.el.closest('form')
+    this.attributesObserver = cloneAttributes.call(this, ['tone', 'mode'])
 
-    if (outerForm && !this.autocomplete) {
-      this.autocomplete = outerForm.getAttribute('autocomplete')
-    }
+    const outerForm = this.el.closest('form')
 
     if (this.name && (outerForm || this.form)) {
       this.createHiddenInput()
@@ -179,6 +187,10 @@ export class LdCheckbox implements InnerFocusable {
     }
   }
 
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     const cl = [
       'ld-checkbox',
@@ -190,12 +202,12 @@ export class LdCheckbox implements InnerFocusable {
     return (
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
+          {...this.clonedAttributes}
           part="input focusable"
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus}
           ref={(ref) => (this.input = ref)}
           type="checkbox"
-          {...cloneAttributes.call(this, ['autocomplete', 'tone', 'mode'])}
           disabled={this.disabled}
           checked={this.checked}
         />

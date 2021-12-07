@@ -1,4 +1,4 @@
-import { Component, Element, h, Method, Prop } from '@stencil/core'
+import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
@@ -13,9 +13,11 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-button.css',
   shadow: true,
 })
-export class LdButton implements InnerFocusable {
+export class LdButton implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLElement
   private button: HTMLAnchorElement | HTMLButtonElement
+
+  private attributesObserver: MutationObserver
 
   /** Align text. */
   @Prop({ mutable: true }) alignText?: 'left' | 'right'
@@ -88,6 +90,8 @@ export class LdButton implements InnerFocusable {
   /** Defines the value associated with the button’s `name` when it’s submitted with the form data. */
   @Prop() value?: string
 
+  @State() clonedAttributes
+
   /**
    * Sets focus on the button
    */
@@ -114,6 +118,7 @@ export class LdButton implements InnerFocusable {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
     })
+    this.attributesObserver.disconnect()
   }
 
   private clickHiddenButton() {
@@ -162,6 +167,15 @@ export class LdButton implements InnerFocusable {
   }
 
   componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'align-text',
+      'justify-content',
+      'mode',
+      'progress',
+      'size',
+      this.type === 'submit' ? 'type' : undefined, // submit is default
+    ])
+
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
       if (this.size !== undefined) {
         icon.setAttribute('size', this.size)
@@ -193,7 +207,7 @@ export class LdButton implements InnerFocusable {
 
     const Tag = this.href ? 'a' : 'button'
 
-    const hasProgress = this.progress !== undefined
+    const hasProgress = this.progress !== undefined && this.progress !== null
 
     const styleProgress = !isNaN(parseFloat(this.progress + ''))
       ? { '--ld-button-progress': this.progress + '' }
@@ -204,6 +218,7 @@ export class LdButton implements InnerFocusable {
 
     return (
       <Tag
+        {...this.clonedAttributes}
         aria-busy={hasProgress ? 'true' : undefined}
         aria-disabled={this.disabled ? 'true' : undefined}
         aria-live="polite"
@@ -211,14 +226,6 @@ export class LdButton implements InnerFocusable {
         part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        {...cloneAttributes.call(this, [
-          'align-text',
-          'justify-content',
-          'mode',
-          'progress',
-          'size',
-          this.type === 'submit' ? 'type' : undefined, // submit is default
-        ])}
       >
         <slot />
         {hasProgress && (

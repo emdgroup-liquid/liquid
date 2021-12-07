@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
+import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
 describe('ld-input', () => {
   it('renders', async () => {
@@ -291,6 +292,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('name', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -310,6 +312,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('form', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -363,6 +366,12 @@ describe('ld-input', () => {
     root.setAttribute('form', 'test')
     root.setAttribute('name', 'test')
     root.setAttribute('value', 'test')
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'name' },
+      { attributeName: 'value' },
+    ])
     await waitForChanges()
 
     expect(root).toMatchSnapshot()
@@ -378,11 +387,13 @@ describe('ld-input', () => {
     const ldInput = page.body.querySelector('ld-input')
 
     ldInput.removeAttribute('dirname')
-    ldInput.dirname = undefined
     ldInput.removeAttribute('form')
-    ldInput.form = undefined
     ldInput.removeAttribute('value')
-    ldInput.value = undefined
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'value' },
+    ])
     await page.waitForChanges()
 
     expect(ldInput).toMatchSnapshot()
@@ -396,7 +407,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('name')
-    root.name = undefined
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -408,7 +419,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('form')
-    root.form = undefined
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
