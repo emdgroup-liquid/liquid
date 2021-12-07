@@ -9,7 +9,6 @@ export function cloneAttributes(attributesToIgnore: string[] = []) {
       !Object.getOwnPropertyDescriptor(this, key) &&
       this[key] !== undefined
     ) {
-      if (key === 'dirname') console.info(key, this[key])
       attributes.push({
         name: key.replaceAll(/([A-Z])/g, '-$1').toLowerCase(),
         value: this[key],
