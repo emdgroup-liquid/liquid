@@ -50,18 +50,26 @@ describe('ld-button', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('on-brand-color', async () => {
+  it('brand-color (default)', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button mode="on-brand-color">Text</ld-button>`,
+      html: `<ld-button brand-color>Text</ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })
 
-  it('secondary-on-brand-color', async () => {
+  it('brand-color (secondary)', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button mode="secondary-on-brand-color">Text</ld-button>`,
+      html: `<ld-button mode="secondary" brand-color>Text</ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('brand-color (ghost)', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button mode="ghost" brand-color>Text</ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })

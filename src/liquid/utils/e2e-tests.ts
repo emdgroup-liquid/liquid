@@ -13,6 +13,7 @@ type Component = Record<string, unknown> & {
 export const getPageWithContent = async (
   content,
   config?: {
+    bgColor?: string
     components?: unknown
   }
 ) => {
@@ -25,6 +26,7 @@ export const getPageWithContent = async (
   await page.addStyleTag({
     content: `body {
   margin: 0;
+  ${config?.bgColor ? `background-color: ${config.bgColor};` : ''}
 }
 *:focus,
 ::part(focusable) {
