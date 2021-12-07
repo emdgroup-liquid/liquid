@@ -12,7 +12,7 @@ export class DocsViewOnFigma {
     return (
       <Host class="docs-view-on-figma">
         <ld-button
-          mode="on-brand-color"
+          brand-color
           href="https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310"
           target="_blank"
         >
