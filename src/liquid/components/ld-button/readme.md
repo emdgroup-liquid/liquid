@@ -91,34 +91,6 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--secondary" disabled>Text</button>
 {% endexample %}
 
-### On brand color
-
-{% example 'html', false, false, 'brand' %}
-<ld-button mode="on-brand-color">Text</ld-button>
-
-<ld-button mode="on-brand-color" disabled>Text</ld-button>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--on-brand-color">Text</button>
-
-<button class="ld-button ld-button--on-brand-color" disabled>Text</button>
-{% endexample %}
-
-### Secondary on brand color
-
-{% example 'html', false, false, 'brand' %}
-<ld-button mode="secondary-on-brand-color">Text</ld-button>
-
-<ld-button mode="secondary-on-brand-color" disabled>Text</ld-button>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--secondary-on-brand-color">Text</button>
-
-<button class="ld-button ld-button--secondary-on-brand-color" disabled>Text</button>
-{% endexample %}
-
 ### Ghost
 
 {% example %}
@@ -131,6 +103,36 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--ghost">Text</button>
 
 <button class="ld-button ld-button--ghost" disabled>Text</button>
+{% endexample %}
+
+### On brand color
+
+{% example 'html', false, false, 'brand' %}
+<ld-button brand-color>Text</ld-button>
+
+<ld-button brand-color disabled>Text</ld-button>
+
+<ld-button mode="secondary" brand-color>Text</ld-button>
+
+<ld-button mode="secondary" brand-color disabled>Text</ld-button>
+
+<ld-button mode="ghost" brand-color>Text</ld-button>
+
+<ld-button mode="ghost" brand-color disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--brand-color" disabled>Text</button>
+
+<button class="ld-button ld-button--secondary ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--secondary ld-button--brand-color" disabled>Text</button>
+
+<button class="ld-button ld-button--ghost ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--ghost ld-button--brand-color" disabled>Text</button>
 {% endexample %}
 
 ### Highlight
@@ -483,28 +485,29 @@ You can align the text inside the button using the `align-text` propperty.
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                                                                  | Default     |
-| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                                                                   | `undefined` |
-| `autofocus`      | `autofocus`       | Automatically focus the form control when the page is loaded.                                                                                                                                                         | `boolean`                                                                                             | `undefined` |
-| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                                                                             | `undefined` |
-| `form`           | `form`            | Associates the control with a form element.                                                                                                                                                                           | `string`                                                                                              | `undefined` |
-| `formaction`     | `formaction`      | Overrides the `action` attribute of the button's form owner.                                                                                                                                                          | `"application/x-www-form-urlencoded" \| "multipart/form-data" \| "text/plain"`                        | `undefined` |
-| `formenctype`    | `formenctype`     | Overrides the `enctype` attribute of the button's form owner.                                                                                                                                                         | `string`                                                                                              | `undefined` |
-| `formmethod`     | `formmethod`      | Overrides the `method` attribute of the button's form owner.                                                                                                                                                          | `"get" \| "post"`                                                                                     | `undefined` |
-| `formnovalidate` | `formnovalidate`  | Overrides the `novalidate` attribute of the button's form owner.                                                                                                                                                      | `boolean`                                                                                             | `undefined` |
-| `formtarget`     | `formtarget`      | Overrides the `target` attribute of the button's form owner.                                                                                                                                                          | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
-| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                                              | `undefined` |
-| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                                       | `undefined` |
-| `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                                                    | `undefined` |
-| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "on-brand-color" \| "secondary" \| "secondary-on-brand-color"` | `undefined` |
-| `name`           | `name`            | Used to specify the name of the control.                                                                                                                                                                              | `string`                                                                                              | `undefined` |
-| `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                                                 | `undefined` |
-| `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                                                 | `undefined` |
-| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
-| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
-| `type`           | `type`            | Specifies the default behavior of the button.                                                                                                                                                                         | `"button" \| "reset" \| "submit"`                                                                     | `'submit'`  |
-| `value`          | `value`           | Defines the value associated with the button’s `name` when it’s submitted with the form data.                                                                                                                         | `string`                                                                                              | `undefined` |
+| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                                           | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------- |
+| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                                            | `undefined` |
+| `autofocus`      | `autofocus`       | Automatically focus the form control when the page is loaded.                                                                                                                                                         | `boolean`                                                                      | `undefined` |
+| `brandColor`     | `brand-color`     | Style the button so that it looks good on the current theme's primary color.                                                                                                                                          | `boolean`                                                                      | `undefined` |
+| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                                                      | `undefined` |
+| `form`           | `form`            | Associates the control with a form element.                                                                                                                                                                           | `string`                                                                       | `undefined` |
+| `formaction`     | `formaction`      | Overrides the `action` attribute of the button's form owner.                                                                                                                                                          | `"application/x-www-form-urlencoded" \| "multipart/form-data" \| "text/plain"` | `undefined` |
+| `formenctype`    | `formenctype`     | Overrides the `enctype` attribute of the button's form owner.                                                                                                                                                         | `string`                                                                       | `undefined` |
+| `formmethod`     | `formmethod`      | Overrides the `method` attribute of the button's form owner.                                                                                                                                                          | `"get" \| "post"`                                                              | `undefined` |
+| `formnovalidate` | `formnovalidate`  | Overrides the `novalidate` attribute of the button's form owner.                                                                                                                                                      | `boolean`                                                                      | `undefined` |
+| `formtarget`     | `formtarget`      | Overrides the `target` attribute of the button's form owner.                                                                                                                                                          | `"_blank" \| "_parent" \| "_self" \| "_top"`                                   | `undefined` |
+| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                       | `undefined` |
+| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                | `undefined` |
+| `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                             | `undefined` |
+| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "secondary"`                            | `undefined` |
+| `name`           | `name`            | Used to specify the name of the control.                                                                                                                                                                              | `string`                                                                       | `undefined` |
+| `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                          | `undefined` |
+| `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                          | `undefined` |
+| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                 | `undefined` |
+| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                   | `undefined` |
+| `type`           | `type`            | Specifies the default behavior of the button.                                                                                                                                                                         | `"button" \| "reset" \| "submit"`                                              | `'submit'`  |
+| `value`          | `value`           | Defines the value associated with the button’s `name` when it’s submitted with the form data.                                                                                                                         | `string`                                                                       | `undefined` |
 
 
 ## Methods
