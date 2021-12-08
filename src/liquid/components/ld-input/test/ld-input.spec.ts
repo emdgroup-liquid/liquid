@@ -384,7 +384,7 @@ describe('ld-input', () => {
       html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
     })
 
-    const ldInput = page.body.querySelector('ld-input')
+    const ldInput = page.root
 
     ldInput.removeAttribute('dirname')
     ldInput.removeAttribute('form')
