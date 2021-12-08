@@ -1,6 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
-jest.mock('../../../utils/cloneAttributes')
 import { LdRadio } from '../ld-radio'
+import '../../../utils/mutationObserver'
 
 describe('ld-radio', () => {
   it('renders', async () => {
@@ -326,6 +326,7 @@ describe('ld-radio', () => {
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
     ldRadio.removeAttribute('name')
+    ldRadio.name = undefined
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toEqual(null)
@@ -346,6 +347,7 @@ describe('ld-radio', () => {
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
 
     ldRadio.removeAttribute('value')
+    ldRadio.value = undefined
     await waitForChanges()
 
     expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)

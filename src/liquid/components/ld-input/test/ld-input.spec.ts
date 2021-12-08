@@ -1,6 +1,6 @@
-jest.mock('../../../utils/cloneAttributes')
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
+import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
 describe('ld-input', () => {
   it('renders', async () => {
@@ -292,6 +292,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('name', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -311,6 +312,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('form', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -364,6 +366,12 @@ describe('ld-input', () => {
     root.setAttribute('form', 'test')
     root.setAttribute('name', 'test')
     root.setAttribute('value', 'test')
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'name' },
+      { attributeName: 'value' },
+    ])
     await waitForChanges()
 
     expect(root).toMatchSnapshot()
@@ -371,18 +379,25 @@ describe('ld-input', () => {
   })
 
   it('removes hidden input field attributes', async () => {
-    const { root, waitForChanges } = await newSpecPage({
+    const page = await newSpecPage({
       components: [LdInput],
       html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
     })
 
-    root.removeAttribute('dirname')
-    root.removeAttribute('form')
-    root.removeAttribute('value')
-    await waitForChanges()
+    const ldInput = page.root
 
-    expect(root).toMatchSnapshot()
-    expect(root.querySelector('input').dirName).toBeNull()
+    ldInput.removeAttribute('dirname')
+    ldInput.removeAttribute('form')
+    ldInput.removeAttribute('value')
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'value' },
+    ])
+    await page.waitForChanges()
+
+    expect(ldInput).toMatchSnapshot()
+    expect(ldInput.querySelector('input').getAttribute('dirname')).toBeNull()
   })
 
   it('removes hidden input field, if name attribute is removed', async () => {
@@ -392,6 +407,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('name')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -403,6 +419,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('form')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })

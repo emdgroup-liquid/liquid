@@ -1,6 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
-jest.mock('../../../utils/cloneAttributes')
 import { LdCheckbox } from '../ld-checkbox'
+import '../../../utils/mutationObserver'
 
 describe('ld-checkbox', () => {
   it('renders', async () => {
@@ -173,6 +173,7 @@ describe('ld-checkbox', () => {
     expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
 
     ldCheckbox.removeAttribute('value')
+    ldCheckbox.value = undefined
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(
