@@ -81,7 +81,7 @@ export class LdTabs {
       )
     }
 
-    ;((newActiveTab as unknown) as LdTab).select()
+    ;(newActiveTab as unknown as LdTab).select()
   }
 
   componentDidRender() {
@@ -90,7 +90,10 @@ export class LdTabs {
     let selectedIndex
     this.el.querySelectorAll('ld-tab').forEach((tab, index) => {
       tab.id = `${this.idDescriber}-tab-${index}`
-      if (tab.hasAttribute('selected')) {
+      if (
+        tab.hasAttribute('selected') &&
+        tab.getAttribute('selected') !== 'false'
+      ) {
         selectedIndex = index
       }
     })
