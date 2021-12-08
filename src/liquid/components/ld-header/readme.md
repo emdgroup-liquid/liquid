@@ -20,7 +20,7 @@ A header component including a logo, site name, menu and optional additional but
 {% example %}
 <ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#">
   <ld-menu slot="menu">
-    <ld-menu-item href="#">Home</ld-menu-item>
+    <ld-menu-item selected href="#">Home</ld-menu-item>
     <ld-menu-item href="#">
       Products
       <ld-menu title="Products">
@@ -39,8 +39,8 @@ A header component including a logo, site name, menu and optional additional but
     </ld-menu-item>
     <ld-menu-item href="#">Support</ld-menu-item>
   </ld-menu>
-  <ld-button mode="on-brand-color" size="sm" slot="buttons">Register</ld-button>
-  <ld-button mode="secondary-on-brand-color" size="sm" slot="buttons">Login</ld-button>
+  <ld-button brand-color size="sm" slot="buttons">Register</ld-button>
+  <ld-button brand-color mode="secondary" size="sm" slot="buttons">Login</ld-button>
 </ld-header>
 {% endexample %}
 

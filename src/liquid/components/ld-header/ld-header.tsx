@@ -19,7 +19,7 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
   shadow: true,
 })
 export class LdHeader {
-  @Element() element: HTMLElement
+  @Element() el: HTMLElement
 
   /** Hide the header when the user scrolls down and show it again, when the user scrolls up. */
   @Prop() hideOnScroll = false
@@ -36,25 +36,46 @@ export class LdHeader {
   /** Name shown on the right side of the logo. */
   @Prop() siteName?: string
 
+  componentWillLoad() {
+    this.el
+      .querySelectorAll<HTMLLdButtonElement>(':scope > ld-button')
+      .forEach((ldButton) => {
+        // ldButton.brandColor = true
+        ldButton.size = 'sm'
+      })
+    this.el.querySelectorAll(':scope > .ld-button').forEach((cssButton) => {
+      cssButton.classList.add('ld-button--brand-color')
+      cssButton.classList.add('ld-button--sm')
+      cssButton.classList.remove('ld-button--lg')
+    })
+    this.el.querySelector('ld-menu').orientation = 'horizontal'
+  }
+
   render() {
     const cl = getClassNames([
       'ld-header',
       this.hideOnScroll && 'ld-header--hide-on-scroll',
       this.sticky && 'ld-header--sticky',
     ])
+
     return (
       <Host class={cl} role="banner">
         <header part="container">
           <slot name="logo">
             {this.logoUrl ? (
               <a href={this.logoUrl} title={this.logoTitle}>
-                <ld-icon part="logo" class="ld-header__logo" name="m" />
+                <ld-icon class="ld-header__logo" name="m" part="logo" />
               </a>
             ) : (
-              <ld-icon part="logo" class="ld-header__logo" name="m" />
+              <ld-icon
+                class="ld-header__logo"
+                name="m"
+                part="logo"
+                title={this.logoTitle}
+              />
             )}
           </slot>
-          <ld-typo variant="h5" tag="div" part="site-name">
+          <ld-typo part="site-name" tag="div" variant="h5">
             {this.siteName}
           </ld-typo>
           <slot name="menu" />
