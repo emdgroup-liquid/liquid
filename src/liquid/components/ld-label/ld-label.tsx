@@ -68,7 +68,12 @@ export class LdLabel implements ClonesAttributes {
     ])
 
     return (
-      <label class={cl} onClick={this.handleClick} part="tag">
+      <label
+        {...this.clonedAttributes}
+        class={cl}
+        onClick={this.handleClick}
+        part="tag"
+      >
         <slot></slot>
       </label>
     )
