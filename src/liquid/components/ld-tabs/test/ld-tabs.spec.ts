@@ -7,7 +7,7 @@ import { LdTabpanel } from '../ld-tabpanel/ld-tabpanel'
 
 class FocusManager {
   focus(el) {
-    const doc = (document as unknown) as { activeElement: Element }
+    const doc = document as unknown as { activeElement: Element }
     doc.activeElement = el
   }
 }
@@ -25,6 +25,29 @@ describe('ld-tabs', () => {
             <ld-tab selected>Fruits</ld-tab>
             <ld-tab>Vegetables</ld-tab>
             <ld-tab>Nuts</ld-tab>
+            <ld-tab disabled>Grain</ld-tab>
+          </ld-tablist>
+          <ld-tabpanellist>
+            <ld-tabpanel>Apple, orange, banana</ld-tabpanel>
+            <ld-tabpanel>Potato, cucumber, tomato</ld-tabpanel>
+            <ld-tabpanel>Walnut, chestnut, strawberry</ld-tabpanel>
+            <ld-tabpanel>Maize, rice, soybeans, wheat</ld-tabpanel>
+          </ld-tabpanellist>
+        </ld-tabs>
+      `,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('shows tabpanel according to the preselected tab', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-tabs>
+          <ld-tablist>
+            <ld-tab>Fruits</ld-tab>
+            <ld-tab selected>Vegetables</ld-tab>
+            <ld-tab selected="false">Nuts</ld-tab>
             <ld-tab disabled>Grain</ld-tab>
           </ld-tablist>
           <ld-tabpanellist>
