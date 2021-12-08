@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core'
+import { Component, Host, h, Prop, Element, Watch } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
@@ -22,6 +22,7 @@ export class LdMenu {
   /** Title of the menu. */
   @Prop() menuTitle?: string
 
+  @Watch('orientation')
   componentWillLoad() {
     if (this.orientation === 'horizontal') {
       this.el

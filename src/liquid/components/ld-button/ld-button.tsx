@@ -25,6 +25,10 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
 
+  // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
+  /** Style the button so that it looks good on the current theme's primary color. */
+  @Prop() brandColor?: boolean
+
   /** Disabled state of the button. */
   @Prop() disabled?: boolean
 
@@ -64,10 +68,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
   /** Used to specify the name of the control. */
   @Prop() name?: string
-
-  // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
-  /** Style the button so that it looks good on the current theme's primary color. */
-  @Prop() brandColor?: boolean
 
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress?: 'pending' | number
@@ -166,6 +166,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
       'align-text',
+      'brand-color',
       'justify-content',
       'mode',
       'progress',

@@ -18,32 +18,84 @@ A header component including a logo, site name, menu and optional additional but
 ### Default
 
 {% example %}
-<ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#">
-  <ld-menu slot="menu">
-    <ld-menu-item selected href="#">Home</ld-menu-item>
-    <ld-menu-item href="#">
-      Products
-      <ld-menu title="Products">
-        <ld-menu-item href="#">Product 1</ld-menu-item>
-        <ld-menu-item href="#">Product 2</ld-menu-item>
-        <ld-menu-item href="#">Product 3</ld-menu-item>
-        <ld-menu-item href="#">
-          Product 4
-          <ld-menu title="Product 4">
-            <ld-menu-item href="#">Features</ld-menu-item>
-            <ld-menu-item href="#">Pricing</ld-menu-item>
-            <ld-menu-item href="#">Resources</ld-menu-item>
-          </ld-menu>
-        </ld-menu-item>
-      </ld-menu>
-    </ld-menu-item>
-    <ld-menu-item href="#">Support</ld-menu-item>
-  </ld-menu>
-  <ld-button brand-color size="sm" slot="buttons">Register</ld-button>
-  <ld-button brand-color mode="secondary" size="sm" slot="buttons">Login</ld-button>
+<ld-header site-name="Liquid Oxygen" logo-title="Home"></ld-header>
+{% endexample %}
+
+### With linked logo
+
+{% example %}
+<ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#"></ld-header>
+{% endexample %}
+
+### With custom logo
+
+{% example %}
+<ld-header site-name="Rocket Science" logo-title="Home">
+  <ld-icon name="rocket" size="lg" slot="logo"></ld-icon>
 </ld-header>
 {% endexample %}
 
+### With buttons
+
+{% example %}
+<ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#">
+  <ld-button id="register" slot="end" type="button">
+    <ld-icon name="pen"></ld-icon>
+    Register
+  </ld-button>
+  <ld-button id="login-lg" mode="ghost" slot="end" title="Login" type="button">
+    <ld-icon name="user"></ld-icon>
+  </ld-button>
+  <ld-button id="login-sm" mode="secondary" slot="end" type="button">
+    <ld-icon name="user"></ld-icon>
+    <span>Login</span>
+  </ld-button>
+</ld-header>
+
+<style>
+  #register ld-icon {
+    display: none;
+  }
+
+  #login-sm {
+    display: none;
+  }
+
+  @media (min-width: 52rem) {
+    #register ld-icon {
+      display: block;
+    }
+
+    #login-sm {
+      display: block;
+    }
+
+    #login-lg {
+      display: none;
+    }
+  }
+</style>
+{% endexample %}
+
+### With burger menu button
+
+{% example %}
+<ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#">
+  <ld-button mode="ghost" slot="start" type="button">
+    <ld-icon name="burger-menu"></ld-icon>
+  </ld-button>
+</ld-header>
+{% endexample %}
+
+### Sticky
+
+You can add the `sticky` property to the `ld-header` web component, to make the component stick to the top of the page. It's necessary that you place your component as a direct child of the `<body>` to make the stickiness work.
+
+### Hide on scroll
+
+If you want the header to hide (slide up behind the top of the window) when the user is scrolling down, you can add the `hide-on-scroll` prop to the `ld-header` web component. With this prop set, the header will hide when scrolling down and show again, when scrolling up.
+
+> This prop only works in combination with the `sticky` prop.
 
 <!-- Auto Generated Below -->
 
@@ -63,20 +115,20 @@ A header component including a logo, site name, menu and optional additional but
 
 ## Slots
 
-| Slot        | Description                                       |
-| ----------- | ------------------------------------------------- |
-| `"buttons"` | (optional) Items on the right side of the header. |
-| `"logo"`    | (optional) Custom logo.                           |
-| `"menu"`    | Main menu.                                        |
+| Slot      | Description                            |
+| --------- | -------------------------------------- |
+| `"end"`   | Items on the right side of the header. |
+| `"logo"`  | Custom logo.                           |
+| `"menu"`  | Main menu.                             |
+| `"start"` | Items on the left side of the header.  |
 
 
 ## Shadow Parts
 
 | Part          | Description                                                       |
 | ------------- | ----------------------------------------------------------------- |
-| `"buttons"`   | Wrapper around the buttons slot                                   |
 | `"container"` | Actual header element that limits the width of the header content |
-| `"logo"`      | Logo                                                              |
+| `"logo"`      | `ld-icon` element containing the default logo                     |
 | `"site-name"` | `ld-typo` element containing the site name                        |
 
 

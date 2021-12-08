@@ -11,6 +11,7 @@
 }
 
 .ld-menu-item {
+  font: var(--ld-typo-body-m);
   text-decoration: none;
 }
 
