@@ -3,5 +3,5 @@ interface InnerFocusable {
 }
 
 interface ClonesAttributes {
-  clonedAttributes: Record<string, string | number> // should use State decorator
+  clonedAttributes: Record<string, string | number | boolean> // should use State decorator
 }
