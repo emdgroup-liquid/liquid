@@ -175,7 +175,7 @@ exports[`ld-input renders as dark input with prop tone set to "dark" 1`] = `
 
 exports[`ld-input renders type file (multiline) 1`] = `
 <ld-input class="ld-input" multiline="" type="file">
-  <mock:shadow-root><textarea part="input focusable" type="file"></textarea>
+  <mock:shadow-root><textarea part="input focusable"></textarea>
     <span class="ld-input__placeholder" part="placeholder"></span>
   </mock:shadow-root>
 </ld-input>

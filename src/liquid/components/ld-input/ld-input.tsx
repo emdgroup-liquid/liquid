@@ -324,10 +324,12 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     ])
 
     if (this.multiline) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { type, ...clonedAttributesWithoutType } = this.clonedAttributes
       return (
         <Host class={cl} onClick={this.handleClick}>
           <textarea
-            {...this.clonedAttributes}
+            {...clonedAttributesWithoutType}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
