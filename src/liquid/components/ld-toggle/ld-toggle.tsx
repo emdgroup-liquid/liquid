@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
@@ -16,8 +25,10 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-toggle.css',
   shadow: true,
 })
-export class LdToggle implements InnerFocusable {
+export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLElement
+
+  private attributesObserver: MutationObserver
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
@@ -25,9 +36,6 @@ export class LdToggle implements InnerFocusable {
 
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
-
-  /** Hint for form autofill feature. */
-  @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop() autofocus?: boolean
@@ -58,6 +66,8 @@ export class LdToggle implements InnerFocusable {
 
   /** The input value. */
   @Prop() value: string
+
+  @State() clonedAttributes
 
   /**
    * Sets focus on the toggle
@@ -139,15 +149,13 @@ export class LdToggle implements InnerFocusable {
   }
 
   componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, ['size'])
+
     this.hasIcons =
       !!this.el.querySelector('[slot="icon-start"]') ||
       !!this.el.querySelector('[slot="icon-end"]')
 
     const outerForm = this.el.closest('form')
-
-    if (outerForm && !this.autocomplete) {
-      this.autocomplete = outerForm.getAttribute('autocomplete')
-    }
 
     if (this.name && (outerForm || this.form)) {
       this.createHiddenInput()
@@ -170,6 +178,10 @@ export class LdToggle implements InnerFocusable {
     }
   }
 
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     return (
       <Host
@@ -181,6 +193,7 @@ export class LdToggle implements InnerFocusable {
         onClick={this.handleClick}
       >
         <input
+          {...this.clonedAttributes}
           aria-disabled={this.ariaDisabled}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
@@ -188,7 +201,6 @@ export class LdToggle implements InnerFocusable {
           ref={(ref) => (this.input = ref)}
           required={this.required}
           type="checkbox"
-          {...cloneAttributes(this.el, ['autocomplete', 'size'])}
           checked={this.checked}
           disabled={this.disabled}
         />

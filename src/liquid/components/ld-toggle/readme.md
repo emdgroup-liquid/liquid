@@ -438,7 +438,6 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | Property       | Attribute       | Description                                                                    | Type               | Default     |
 | -------------- | --------------- | ------------------------------------------------------------------------------ | ------------------ | ----------- |
 | `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                        | `string`           | `undefined` |
-| `autocomplete` | `autocomplete`  | Hint for form autofill feature.                                                | `string`           | `undefined` |
 | `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `undefined` |
 | `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `undefined` |
 | `disabled`     | `disabled`      | Disabled state of the checkbox.                                                | `boolean`          | `undefined` |

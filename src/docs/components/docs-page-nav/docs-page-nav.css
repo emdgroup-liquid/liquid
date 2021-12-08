@@ -56,7 +56,10 @@
 
 .docs-page-nav__push {
   margin-left: auto;
-  margin-right: var(--ld-sp-16);
+
+  .docs-page-nav--has-slot & {
+    margin-right: var(--ld-sp-16);
+  }
 }
 
 .docs-page-nav--has-slot {

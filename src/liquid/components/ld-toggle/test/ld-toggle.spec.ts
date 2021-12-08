@@ -1,7 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing'
-jest.mock('../../../utils/cloneAttributes')
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
+import '../../../utils/mutationObserver'
 
 describe('ld-toggle', () => {
   it('renders default', async () => {
@@ -167,6 +167,7 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
     ldToggle.removeAttribute('name')
+    ldToggle.name = undefined
     await waitForChanges()
 
     expect(ldToggle.querySelector('input')).toEqual(null)
@@ -187,6 +188,7 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('value', 'test')
 
     ldToggle.removeAttribute('value')
+    ldToggle.value = undefined
     await waitForChanges()
 
     expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)

@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 
@@ -27,8 +36,11 @@ import { getClassNames } from '../../utils/getClassNames'
   styleUrl: 'ld-input.css',
   shadow: true,
 })
-export class LdInput implements InnerFocusable {
+export class LdInput implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLInputElement | HTMLTextAreaElement
+
+  private attributesObserver: MutationObserver
+
   private hiddenInput?: HTMLInputElement
   private input: HTMLInputElement | HTMLTextAreaElement
 
@@ -43,6 +55,9 @@ export class LdInput implements InnerFocusable {
 
   /** Media capture input method in file upload controls. */
   @Prop() capture?: string
+
+  /** The number of columns. */
+  @Prop() cols?: number
 
   /** Name of form field to use for sending the element's directionality in form submission. */
   @Prop() dirname?: string
@@ -95,6 +110,9 @@ export class LdInput implements InnerFocusable {
   /** A value is required for the form to be submittable. */
   @Prop() required?: boolean
 
+  /** The number of rows. */
+  @Prop() rows?: number
+
   /** Size of the input. */
   @Prop() size?: 'sm' | 'lg'
 
@@ -109,6 +127,8 @@ export class LdInput implements InnerFocusable {
 
   /** The input value. */
   @Prop({ mutable: true }) value?: string
+
+  @State() clonedAttributes
 
   /**
    * Sets focus on the input
@@ -131,7 +151,9 @@ export class LdInput implements InnerFocusable {
     }
 
     if (this.hiddenInput) {
-      this.hiddenInput.dirName = this.dirname
+      if (this.dirname) {
+        this.hiddenInput.dirName = this.dirname
+      }
 
       if (this.name) {
         this.hiddenInput.name = this.name
@@ -168,6 +190,11 @@ export class LdInput implements InnerFocusable {
   }
 
   componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'multiline',
+      'autocomplete',
+    ])
+
     const outerForm = this.el.closest('form')
 
     if (outerForm && !this.autocomplete) {
@@ -176,8 +203,11 @@ export class LdInput implements InnerFocusable {
 
     if (this.name && (outerForm || this.form)) {
       this.createHiddenInput()
-      this.hiddenInput.dirName = this.dirname
       this.hiddenInput.name = this.name
+
+      if (this.dirname) {
+        this.hiddenInput.dirName = this.dirname
+      }
 
       if (this.form) {
         this.hiddenInput.setAttribute('form', this.form)
@@ -281,6 +311,10 @@ export class LdInput implements InnerFocusable {
     }
   }
 
+  disconnectedCallback() {
+    this.attributesObserver.disconnect()
+  }
+
   render() {
     const cl = getClassNames([
       'ld-input',
@@ -290,15 +324,17 @@ export class LdInput implements InnerFocusable {
     ])
 
     if (this.multiline) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { type, ...clonedAttributesWithoutType } = this.clonedAttributes
       return (
         <Host class={cl} onClick={this.handleClick}>
           <textarea
+            {...clonedAttributesWithoutType}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onInput={this.handleInput.bind(this)}
             part="input focusable"
             ref={(el) => (this.input = el)}
-            {...cloneAttributes(this.el, ['multiline', 'type'])}
           />
           {this.type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
@@ -313,6 +349,7 @@ export class LdInput implements InnerFocusable {
       <Host class={cl} onClick={this.handleClick}>
         <slot name="start"></slot>
         <input
+          {...this.clonedAttributes}
           autocomplete={this.autocomplete}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
@@ -320,7 +357,6 @@ export class LdInput implements InnerFocusable {
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
-          {...cloneAttributes(this.el, ['autocomplete'])}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">

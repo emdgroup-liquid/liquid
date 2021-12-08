@@ -1,6 +1,6 @@
-jest.mock('../../../utils/cloneAttributes')
 import { newSpecPage } from '@stencil/core/testing'
 import { LdButton } from '../ld-button'
+import '../../../utils/mutationObserver'
 
 const mockClickHiddenButton = (
   form: HTMLFormElement,
