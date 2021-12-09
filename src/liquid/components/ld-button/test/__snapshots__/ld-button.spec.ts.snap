@@ -49,7 +49,7 @@ exports[`ld-button as progress button pending 1`] = `
 exports[`ld-button brand-color (default) 1`] = `
 <ld-button brand-color="">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -60,7 +60,7 @@ exports[`ld-button brand-color (default) 1`] = `
 exports[`ld-button brand-color (ghost) 1`] = `
 <ld-button brand-color="" mode="ghost">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--ghost" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color ld-button--ghost" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -71,7 +71,7 @@ exports[`ld-button brand-color (ghost) 1`] = `
 exports[`ld-button brand-color (secondary) 1`] = `
 <ld-button brand-color="" mode="secondary">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--secondary" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color ld-button--secondary" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
