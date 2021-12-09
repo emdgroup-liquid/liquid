@@ -1,53 +1,10 @@
-.docs-topbar {
-  --docs-topbar-aside-width: 17rem;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--docs-topbar-height);
-  background-color: var(--ld-thm-primary);
-  box-shadow: var(--ld-shadow-hover);
+.docs-topbar::part(container) {
+  --ld-header-max-width: 89rem;
+  margin: 0 var(--ld-sp-8);
 }
 
-.docs-topbar__content {
-  display: flex;
-  padding: 0 var(--ld-sp-32);
-  align-items: center;
-  max-width: var(--docs-max-width);
-  height: 100%;
-  margin: 0 auto;
-  color: var(--ld-col-wht);
-
-  .docs-btn-dots-grid__btn {
-    margin-right: var(--ld-sp-24);
-  }
-
-  @media (max-width: 48rem) {
-    padding: 0 var(--ld-sp-24);
-  }
-}
-
-.docs-topbar__link-home {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  margin-right: auto;
-  transform: translateX(calc(-1 * var(--ld-sp-4)));
-
-  img {
-    margin-right: var(--ld-sp-12);
-  }
-}
-
-.docs-topbar__external-links {
-  display: flex;
-  padding-left: var(--ld-sp-32);
-  width: var(--docs-topbar-aside-width);
-
-  @media (max-width: 80rem) {
-    width: auto;
-  }
+.docs-topbar__logo {
+  display: block;
 }
 
 .docs-topbar__link {
@@ -55,7 +12,7 @@
   height: var(--ld-sp-24);
 
   &:not(:last-of-type) {
-    margin-right: var(--ld-sp-24);
+    margin-right: var(--ld-sp-8);
   }
 
   @media (hover: hover) {
@@ -70,6 +27,8 @@
 
 .docs-topbar__headline {
   color: var(--ld-col-wht);
+  font-family: var(--ld-font-body);
+  margin-left: var(--ld-sp-16);
 
   b {
     font-weight: 900;

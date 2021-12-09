@@ -143,15 +143,18 @@
 }
 
 .docs-nav__content {
-  width: var(--docs-nav-width);
-  position: fixed;
+  bottom: 0;
   height: calc(100% - var(--docs-topbar-height));
   overflow: hidden auto;
   overscroll-behavior: contain;
   padding: var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-32);
+  position: fixed;
+  top: 3.125rem;
+  width: var(--docs-nav-width);
 
   @media (max-width: 48rem) {
     position: fixed;
+    top: 0;
   }
 }
 
