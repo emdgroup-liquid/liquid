@@ -1028,6 +1028,16 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `value`        | `value`        | The input value.                                                                                                      | `string`           | `undefined` |
 
 
+## Events
+
+| Event    | Description                            | Type                      |
+| -------- | -------------------------------------- | ------------------------- |
+| `blur`   | Emitted when the input looses focus.   | `CustomEvent<FocusEvent>` |
+| `change` | Emitted when the input value changes.  | `CustomEvent<string>`     |
+| `focus`  | Emitted when the input receives focus. | `CustomEvent<FocusEvent>` |
+| `input`  | Emitted when the input value changes.  | `CustomEvent<string>`     |
+
+
 ## Methods
 
 ### `focusInner() => Promise<void>`

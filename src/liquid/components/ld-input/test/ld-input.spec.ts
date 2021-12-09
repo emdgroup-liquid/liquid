@@ -81,14 +81,32 @@ describe('ld-input', () => {
     const spyFocus = jest.spyOn(handlers, 'onFocus')
     ldInput.addEventListener('focus', handlers.onFocus)
     input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
     expect(spyFocus).toHaveBeenCalled()
 
     const spyBlur = jest.spyOn(handlers, 'onBlur')
     ldInput.addEventListener('blur', handlers.onBlur)
     input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
     expect(spyBlur).toHaveBeenCalled()
+  })
+
+  it('emits input and change event', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const spyInput = jest.fn()
+    ldInput.addEventListener('input', spyInput)
+    const spyChange = jest.fn()
+    ldInput.addEventListener('change', spyChange)
+
+    input.value = 'test'
+    input.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
+
+    expect(spyInput).toHaveBeenCalledTimes(1)
+    expect(spyChange).toHaveBeenCalledTimes(1)
   })
 
   it('renders with slot start', async () => {

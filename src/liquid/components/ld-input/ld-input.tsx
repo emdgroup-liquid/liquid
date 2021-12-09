@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -42,7 +44,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   private attributesObserver: MutationObserver
 
   private hiddenInput?: HTMLInputElement
-  private input: HTMLInputElement | HTMLTextAreaElement
+  private inputEl: HTMLInputElement | HTMLTextAreaElement
 
   /** Hint for expected file type in file upload controls. */
   @Prop() accept?: string
@@ -131,12 +133,32 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @State() clonedAttributes
 
   /**
+   * Emitted when the input looses focus.
+   */
+  @Event() blur: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input value changes.
+   */
+  @Event() change: EventEmitter<string>
+
+  /**
+   * Emitted when the input receives focus.
+   */
+  @Event() focus: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input value changes.
+   */
+  @Event() input: EventEmitter<string>
+
+  /**
    * Sets focus on the input
    */
   @Method()
   async focusInner() {
-    if (this.input !== undefined) {
-      this.input.focus()
+    if (this.inputEl !== undefined) {
+      this.inputEl.focus()
     }
   }
 
@@ -268,23 +290,24 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   private handleBlur = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+    ev.stopImmediatePropagation()
+    this.blur.emit(ev)
   }
 
   private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+    ev.stopImmediatePropagation()
+    this.focus.emit(ev)
   }
 
-  private handleInput() {
-    if (!(this.input.getAttribute('aria-disabled') === 'true')) {
-      this.value = this.input.value
+  private handleInput = (ev) => {
+    ev.stopImmediatePropagation()
+    if (!(this.inputEl.getAttribute('aria-disabled') === 'true')) {
+      this.value = this.inputEl.value
+      this.input.emit(this.value)
+      this.change.emit(this.value)
       return
     }
-    this.input.value = this.value ?? ''
+    this.inputEl.value = this.value ?? ''
   }
 
   private handleClick = (ev: MouseEvent) => {
@@ -300,10 +323,10 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     if (target.closest('ld-button')) return
 
     if (target === this.el) {
-      this.input.focus()
-      this.input.dispatchEvent(new Event('click', { bubbles: false }))
+      this.inputEl.focus()
+      this.inputEl.dispatchEvent(new window.Event('click', { bubbles: false }))
     } else {
-      this.input.focus()
+      this.inputEl.focus()
     }
   }
 
@@ -343,14 +366,14 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
             {...clonedAttributesWithoutType}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            onInput={this.handleInput.bind(this)}
+            onInput={this.handleInput}
             part="input focusable"
-            ref={(el) => (this.input = el)}
+            ref={(el) => (this.inputEl = el)}
             value={this.value}
           />
           {type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
-              {this.input?.value || this.placeholder}
+              {this.inputEl?.value || this.placeholder}
             </span>
           )}
         </Host>
@@ -365,15 +388,15 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           autocomplete={this.autocomplete}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
-          onInput={this.handleInput.bind(this)}
+          onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
-          ref={(el) => (this.input = el)}
+          ref={(el) => (this.inputEl = el)}
           value={this.value}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">
-            {this.input?.value || this.placeholder}
+            {this.inputEl?.value || this.placeholder}
           </span>
         )}
         <slot name="end"></slot>
