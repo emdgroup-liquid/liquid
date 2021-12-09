@@ -1,28 +1,36 @@
 :host {
   --ld-header-height: 3.125rem;
+  --ld-header-max-width: 90rem;
 
   background-color: var(--ld-thm-primary);
   color: var(--ld-col-wht);
   display: flex;
+  justify-content: center;
   width: 100%;
-
-  header {
-    align-items: center;
-    display: flex;
-    height: var(--ld-header-height);
-    justify-content: space-between;
-    margin-right: var(--ld-sp-16);
-    max-width: 80rem;
-    width: 100%;
-  }
 }
 
-::slotted(ld-button:not(:first-child):not([mode='ghost'])),
-::slotted(ld-menu) {
+:host(.ld-header--sticky) {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.ld-header__container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: var(--ld-header-height);
+  justify-content: space-between;
+  max-width: var(--ld-header-max-width);
+  padding-right: var(--ld-sp-16);
+  width: 100%;
+}
+
+::slotted(*:not(:first-child):not([mode='ghost'])) {
   margin-left: var(--ld-sp-16);
 }
 
-::slotted(ld-button[mode='ghost']) {
+::slotted([mode='ghost']) {
   margin: 0 calc(var(--ld-sp-8) * -1) 0 var(--ld-sp-8);
 }
 

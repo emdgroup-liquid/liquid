@@ -78,7 +78,7 @@ export class LdHeader {
 
     return (
       <Host class={cl} role="banner">
-        <header part="container">
+        <header class="ld-header__container" part="container">
           <slot name="start" />
           {this.logoUrl ? (
             <a
@@ -103,6 +103,7 @@ export class LdHeader {
                 {this.siteName}
               </ld-typo>
             )}
+            <slot />
             <slot name="menu" />
           </div>
           <slot name="end" />
