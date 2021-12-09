@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.20](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.19...v1.0.0-rc.20) (2021-12-09)
+
+
+### Bug Fixes
+
+* **ld-tabs:** show tabpanel according to preselected tab ([1428d3d](https://github.com/emdgroup-liquid/liquid/commit/1428d3dd105a91bcbcd9ab7eaa722dd150c49b6c)), closes [#179](https://github.com/emdgroup-liquid/liquid/issues/179)
+* clone attributes from component props instead of attributes ([b5d13f1](https://github.com/emdgroup-liquid/liquid/commit/b5d13f115b742ea6d08ea12f4d586f3dc1da974c))
+* **ld-button:** quick-fix anchor button not working in docs-page-nav ([1b7add7](https://github.com/emdgroup-liquid/liquid/commit/1b7add77711d27004a157d2113afeb4deb23db2f))
+* **ld-select:** update hidden inputs on attribute changes ([256c37c](https://github.com/emdgroup-liquid/liquid/commit/256c37c525924951b95f878d0d4fa4b45cedd64f))
+
+
+### Features
+
+* **ld-button:** add ghost on brand variant ([032bc31](https://github.com/emdgroup-liquid/liquid/commit/032bc3144f0d31e52394d18650be5eb81fbae54e))
+
 # [1.0.0-rc.19](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.18...v1.0.0-rc.19) (2021-12-02)
 
 
