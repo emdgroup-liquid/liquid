@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.20](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.19...v1.0.0-rc.20) (2021-12-09)
+
+
+### Bug Fixes
+
+* **ld-tabs:** show tabpanel according to preselected tab ([1428d3d](https://github.com/emdgroup-liquid/liquid/commit/1428d3dd105a91bcbcd9ab7eaa722dd150c49b6c)), closes [#179](https://github.com/emdgroup-liquid/liquid/issues/179)
+* clone attributes from component props instead of attributes ([b5d13f1](https://github.com/emdgroup-liquid/liquid/commit/b5d13f115b742ea6d08ea12f4d586f3dc1da974c))
+* **ld-button:** quick-fix anchor button not working in docs-page-nav ([1b7add7](https://github.com/emdgroup-liquid/liquid/commit/1b7add77711d27004a157d2113afeb4deb23db2f))
+* **ld-select:** update hidden inputs on attribute changes ([256c37c](https://github.com/emdgroup-liquid/liquid/commit/256c37c525924951b95f878d0d4fa4b45cedd64f))
+
+
+### Features
+
+* **ld-button:** add ghost on brand variant ([032bc31](https://github.com/emdgroup-liquid/liquid/commit/032bc3144f0d31e52394d18650be5eb81fbae54e))
+
+# [1.0.0-rc.19](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.18...v1.0.0-rc.19) (2021-12-02)
+
+
+### Bug Fixes
+
+* **ld-input:** remove unnecessary watch decorator on required prop ([c31237d](https://github.com/emdgroup-liquid/liquid/commit/c31237d2cc2788f4a477394507ad67d78ddf57d2))
+* remove unnecessary append child call ([8688ba6](https://github.com/emdgroup-liquid/liquid/commit/8688ba63d61808ff64a2d262fd15fb3054e24319))
+* **ld-button:** prop forwarding ([dfd53da](https://github.com/emdgroup-liquid/liquid/commit/dfd53da913ea986ad9307bd9dcfbfc0992254cd2))
+* **ld-button:** prop forwarding ([e086a62](https://github.com/emdgroup-liquid/liquid/commit/e086a624d45288d84da2720ad0d686b5ad4b97a0))
+* **ld-checkbox:** prop forwarding and indeterminate state ([572e711](https://github.com/emdgroup-liquid/liquid/commit/572e711aa831699c858a82494eeba19f6f33a133))
+* **ld-checkbox:** prop forwarding and indeterminate state ([e3274e6](https://github.com/emdgroup-liquid/liquid/commit/e3274e6e331ecf4164e0a05f35ecd78d0bfaa500))
+* **ld-icon:** keep xmlns string in icon assets for a better dx ([ffb144c](https://github.com/emdgroup-liquid/liquid/commit/ffb144c1540f0bd93cc02b375338017dcb1943ee))
+* **ld-input:** hidden input ([690e495](https://github.com/emdgroup-liquid/liquid/commit/690e495bd6feec2b081933d5a7507e68f73fc32c))
+* **ld-input:** prop forwarding ([191e048](https://github.com/emdgroup-liquid/liquid/commit/191e048adafcaa91a9e43d8e5ccbe8b4127e78da))
+* **ld-radio:** prop forwarding ([5f7026b](https://github.com/emdgroup-liquid/liquid/commit/5f7026bfcb91af25ea271b37348c922d7f1448eb))
+* **ld-radio:** prop forwarding ([58daab5](https://github.com/emdgroup-liquid/liquid/commit/58daab526eb1ad14f33f92a9105d9cff981b73ea))
+* **ld-select:** prop forwarding ([9273538](https://github.com/emdgroup-liquid/liquid/commit/92735381e3e1dc73aacf7df371ab36de7ac7d08a))
+* **ld-select:** remove unnecessary settimeout for autofocus ([9fcd2c6](https://github.com/emdgroup-liquid/liquid/commit/9fcd2c623d82585fe31de87177750932ace87646))
+* **ld-toggle:** prop forwarding ([eb3d168](https://github.com/emdgroup-liquid/liquid/commit/eb3d168475cb3f22f38cae61a1225617c071db36))
+* **ld-toggle:** prop forwarding ([bbf9a29](https://github.com/emdgroup-liquid/liquid/commit/bbf9a29c20cd64ac09a3cbffe035b18b4a9ef3f7))
+
 # [1.0.0-rc.18](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.17...v1.0.0-rc.18) (2021-11-25)
 
 
