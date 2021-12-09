@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core'
+import { Component, Host, h, Prop, Element, Watch } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
@@ -20,6 +20,11 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
 })
 export class LdHeader {
   @Element() el: HTMLElement
+  private lastOffset?: number
+  private currentHeight?: number
+
+  /** Hides header. */
+  @Prop({ mutable: true }) hidden = false
 
   /** Hide the header when the user scrolls down and show it again, when the user scrolls up. */
   @Prop() hideOnScroll = false
@@ -36,12 +41,42 @@ export class LdHeader {
   /** Name shown on the right side of the logo. */
   @Prop() siteName?: string
 
+  private updateScrollDirection = () => {
+    const offset = window.pageYOffset || document.documentElement.scrollTop
+
+    if (offset > this.lastOffset && offset > this.currentHeight) {
+      console.log('true')
+      this.hidden = true
+    } else {
+      console.log('false')
+      this.hidden = false
+    }
+
+    // For mobile or negative scrolling
+    this.lastOffset = offset <= 0 ? 0 : offset
+  }
+
+  @Watch('hideOnScroll')
+  connectedCallback() {
+    if (this.hideOnScroll) {
+      window.addEventListener('scroll', this.updateScrollDirection, false)
+    } else {
+      this.disconnectedCallback()
+    }
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('scroll', this.updateScrollDirection, false)
+  }
+
   componentDidLoad() {
     const ldMenu = this.el.querySelector('ld-menu')
 
     if (ldMenu) {
       ldMenu.orientation = 'horizontal'
     }
+
+    this.currentHeight = this.el.getBoundingClientRect().height
 
     this.el
       .querySelectorAll<HTMLLdButtonElement>('ld-header > ld-button')
@@ -72,7 +107,7 @@ export class LdHeader {
   render() {
     const cl = getClassNames([
       'ld-header',
-      this.hideOnScroll && 'ld-header--hide-on-scroll',
+      this.hidden && 'ld-header--hidden',
       this.sticky && 'ld-header--sticky',
     ])
 

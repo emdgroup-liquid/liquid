@@ -12,9 +12,9 @@ export class DocsTopbar {
     return (
       <ld-header
         class="docs-topbar ld-theme-bubblegum"
-        sticky
         logo-title="Home"
         logo-url="/"
+        sticky
       >
         <img
           alt="Logo"

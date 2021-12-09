@@ -104,6 +104,7 @@ If you want the header to hide (slide up behind the top of the window) when the 
 
 | Property       | Attribute        | Description                                                                             | Type               | Default     |
 | -------------- | ---------------- | --------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `hidden`       | `hidden`         | Hides header.                                                                           | `boolean`          | `false`     |
 | `hideOnScroll` | `hide-on-scroll` | Hide the header when the user scrolls down and show it again, when the user scrolls up. | `boolean`          | `false`     |
 | `key`          | `key`            | for tracking the node's identity when working with lists                                | `string \| number` | `undefined` |
 | `logoTitle`    | `logo-title`     | Title attribute of the logo link.                                                       | `string`           | `undefined` |

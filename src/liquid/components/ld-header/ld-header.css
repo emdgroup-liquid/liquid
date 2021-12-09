@@ -7,12 +7,17 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  transition: transform 100ms ease-in-out;
 }
 
 :host(.ld-header--sticky) {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+:host(.ld-header--hidden) {
+  transform: translateY(calc(var(--ld-header-height) * -1));
 }
 
 .ld-header__container {
