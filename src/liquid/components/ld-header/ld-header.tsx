@@ -59,6 +59,7 @@ export class LdHeader {
   @Watch('hideOnScroll')
   connectedCallback() {
     if (this.hideOnScroll) {
+      this.lastOffset = window.pageYOffset || document.documentElement.scrollTop
       window.addEventListener('scroll', this.updateScrollDirection, false)
     } else {
       this.disconnectedCallback()

@@ -4672,6 +4672,45 @@
       "isMobile": false
     },
     {
+      "id": "caf8d673",
+      "image": "b7776206ba9b59f879e80edcb2fa83d2.png",
+      "userAgent": "default",
+      "desc": "ld-header hidden",
+      "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "9b124dca",
+      "image": "02a18380b14e6eae9bcefb6a2e436c3d.png",
+      "userAgent": "default",
+      "desc": "ld-header sticky",
+      "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "ba27d3d9",
+      "image": "ecf385dc516f12c7bdd0944960b9ac53.png",
+      "userAgent": "default",
+      "desc": "ld-header sticky after scroll",
+      "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "bd1ad143",
       "image": "6bbc5f0691771cf7fa89143513bccebe.png",
       "userAgent": "default",

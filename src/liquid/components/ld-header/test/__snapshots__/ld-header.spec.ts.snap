@@ -3,7 +3,7 @@
 exports[`ld-header renders 1`] = `
 <ld-header class="ld-header" logo-title="Home" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -14,6 +14,30 @@ exports[`ld-header renders 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
+        <slot name="menu"></slot>
+      </div>
+      <slot name="end"></slot>
+    </header>
+  </mock:shadow-root>
+</ld-header>
+`;
+
+exports[`ld-header renders sticky 1`] = `
+<ld-header class="ld-header ld-header--sticky" logo-title="Home" role="banner" site-name="Liquid Oxygen" sticky="">
+  <mock:shadow-root>
+    <header class="ld-header__container" part="container">
+      <slot name="start"></slot>
+      <div class="ld-header__logo">
+        <slot name="logo">
+          <ld-icon name="m" part="logo" title="Home"></ld-icon>
+        </slot>
+      </div>
+      <div class="ld-header__grow-wrapper">
+        <ld-typo part="site-name" tag="div" variant="h5">
+          Liquid Oxygen
+        </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -25,7 +49,7 @@ exports[`ld-header renders 1`] = `
 exports[`ld-header renders with burger menu button 1`] = `
 <ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -40,6 +64,7 @@ exports[`ld-header renders with burger menu button 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -63,7 +88,7 @@ exports[`ld-header renders with burger menu button 1`] = `
 exports[`ld-header renders with buttons 1`] = `
 <ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -74,6 +99,7 @@ exports[`ld-header renders with buttons 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -101,7 +127,7 @@ exports[`ld-header renders with buttons 1`] = `
 exports[`ld-header renders with clickable logo 1`] = `
 <ld-header class="ld-header" logo-title="Home" logo-url="#" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <a class="ld-header__logo" href="#" title="Home">
         <slot name="logo">
@@ -112,6 +138,7 @@ exports[`ld-header renders with clickable logo 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -123,7 +150,7 @@ exports[`ld-header renders with clickable logo 1`] = `
 exports[`ld-header renders with custom clickable logo 1`] = `
 <ld-header class="ld-header" logo-title="Home" logo-url="#" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <a class="ld-header__logo" href="#" title="Home">
         <slot name="logo">
@@ -138,6 +165,7 @@ exports[`ld-header renders with custom clickable logo 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -154,7 +182,7 @@ exports[`ld-header renders with custom clickable logo 1`] = `
 exports[`ld-header renders with custom logo 1`] = `
 <ld-header class="ld-header" logo-title="Home" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -169,6 +197,7 @@ exports[`ld-header renders with custom logo 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -185,7 +214,7 @@ exports[`ld-header renders with custom logo 1`] = `
 exports[`ld-header renders with menu 1`] = `
 <ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -196,6 +225,7 @@ exports[`ld-header renders with menu 1`] = `
         <ld-typo part="site-name" tag="div" variant="h5">
           Liquid Oxygen
         </ld-typo>
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>
@@ -244,7 +274,7 @@ exports[`ld-header renders with menu 1`] = `
 exports[`ld-header renders without site name 1`] = `
 <ld-header class="ld-header" role="banner">
   <mock:shadow-root>
-    <header part="container">
+    <header class="ld-header__container" part="container">
       <slot name="start"></slot>
       <div class="ld-header__logo">
         <slot name="logo">
@@ -252,6 +282,7 @@ exports[`ld-header renders without site name 1`] = `
         </slot>
       </div>
       <div class="ld-header__grow-wrapper">
+        <slot></slot>
         <slot name="menu"></slot>
       </div>
       <slot name="end"></slot>

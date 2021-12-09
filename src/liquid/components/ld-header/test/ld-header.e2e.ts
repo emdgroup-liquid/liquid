@@ -137,4 +137,38 @@ describe('ld-header', () => {
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
   })
+
+  it('sticky', async () => {
+    const page = await getPageWithContent(
+      `
+      <ld-header site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
+      <p>I am content.</p>`,
+      { notWrapped: true }
+    )
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
+  it('sticky after scroll', async () => {
+    const page = await getPageWithContent(
+      `
+      <ld-header site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
+      <p>I am content.</p>`,
+      { notWrapped: true }
+    )
+    await page.mouse.wheel({ deltaY: 25 })
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
+  it('hidden', async () => {
+    const page = await getPageWithContent(
+      `
+      <ld-header hidden site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
+      <p>I am content.</p>`,
+      { notWrapped: true }
+    )
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 })

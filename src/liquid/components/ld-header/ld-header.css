@@ -31,6 +31,7 @@
   width: 100%;
 }
 
+::slotted(ld-menu),
 ::slotted(*:not(:first-child):not([mode='ghost'])) {
   margin-left: var(--ld-sp-16);
 }

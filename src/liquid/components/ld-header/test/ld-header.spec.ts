@@ -92,4 +92,12 @@ describe('ld-header', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('renders sticky', async () => {
+    const page = await newSpecPage({
+      components: [LdHeader],
+      html: `<ld-header site-name="Liquid Oxygen" logo-title="Home" sticky></ld-header>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })
