@@ -423,4 +423,59 @@ describe('ld-input', () => {
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
+
+  it('requests submit on enter, if inside a form', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+
+    const form = body.querySelector('form')
+    form.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(form.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('requests submit on enter, if form attribute is given', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `
+      <form id="test"></form>
+      <ld-input form="test" name="example" />`,
+    })
+
+    const form = body.querySelector('form')
+    form.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(form.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('prefers form attribute over surrounding form when requesting submit', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `
+      <form id="test"></form>
+      <form id="surrounding"><ld-input form="test" name="example" /></form>`,
+    })
+
+    const referencedForm = body.querySelector<HTMLFormElement>('form#test')
+    const surroundingForm = body.querySelector<HTMLFormElement>('#surrounding')
+    referencedForm.requestSubmit = jest.fn()
+    surroundingForm.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(referencedForm.requestSubmit).toHaveBeenCalled()
+    expect(surroundingForm.requestSubmit).not.toHaveBeenCalled()
+  })
 })
