@@ -303,11 +303,18 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   private handleKeyDown = (ev: KeyboardEvent) => {
+    const outerForm = this.el.closest('form')
+    const formToSubmit = this.form
+      ? document.querySelector<HTMLFormElement>(`#${this.form}`) ?? outerForm
+      : outerForm
+
     if (
       this.el.getAttribute('aria-disabled') === 'true' &&
-      !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.code)
+      !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.key)
     ) {
       ev.preventDefault()
+    } else if (!this.multiline && ev.key === 'Enter' && formToSubmit) {
+      formToSubmit.requestSubmit()
     }
   }
 
@@ -324,7 +331,6 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     ])
 
     if (this.multiline) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { type, ...clonedAttributesWithoutType } = this.clonedAttributes
       return (
         <Host class={cl} onClick={this.handleClick}>
@@ -336,7 +342,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
             part="input focusable"
             ref={(el) => (this.input = el)}
           />
-          {this.type === 'file' && (
+          {type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
               {this.input?.value || this.placeholder}
             </span>
