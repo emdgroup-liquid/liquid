@@ -340,4 +340,12 @@ describe('ld-button', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('clones attributes to inner button', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button size="sm" aria-label="yolo" hidden></ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })
