@@ -179,7 +179,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   }
 
   disconnectedCallback() {
-    this.attributesObserver.disconnect()
+    this.attributesObserver?.disconnect()
   }
 
   render() {

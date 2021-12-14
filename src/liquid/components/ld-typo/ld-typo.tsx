@@ -127,7 +127,7 @@ export class LdTypo implements ClonesAttributes {
   }
 
   disconnectedCallback() {
-    this.attributesObserver.disconnect()
+    this.attributesObserver?.disconnect()
   }
 
   render() {

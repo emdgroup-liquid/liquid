@@ -56,7 +56,7 @@ export class LdLabel implements ClonesAttributes {
   }
 
   disconnectedCallback() {
-    this.attributesObserver.disconnect()
+    this.attributesObserver?.disconnect()
   }
 
   render() {
