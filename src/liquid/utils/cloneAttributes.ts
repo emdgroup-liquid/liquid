@@ -8,39 +8,18 @@ export function cloneAttributes(attributesToIgnore: string[] = []) {
     ...attributesToIgnore,
   ])
 
-  // Get attributes from props.
-  const attributesFromProps = {}
-  for (const key in this) {
-    // Component props are getters. Getters don't have a descriptor.
-    // So we can check for component props as follows:
-    if (
-      !Object.getOwnPropertyDescriptor(this, key) &&
-      this[key] !== undefined &&
-      this[key] !== null
-    ) {
-      const attrName = key.replaceAll(/([A-Z])/g, '-$1').toLowerCase()
-
-      if (!attributesToIgnoreSet.has(attrName)) {
-        attributesFromProps[attrName] = this[key]
-      }
-    }
-  }
-
   // Get attributes not in props.
-  const attributesNotInProps = {}
+  const attributesToClone = {}
   for (const attr of this.el.attributes) {
-    if (
-      attr.name in attributesFromProps ||
-      attributesToIgnoreSet.has(attr.name)
-    ) {
+    if (attributesToIgnoreSet.has(attr.name)) {
       continue
     }
-    attributesNotInProps[attr.name] = attr.value
+    const valueToClone = attr.value === '' ? true : attr.value
+    attributesToClone[attr.name] = valueToClone
   }
 
   // Update cloned attributes state.
-  const allAttributes = { ...attributesFromProps, ...attributesNotInProps }
-  this.clonedAttributes = allAttributes
+  this.clonedAttributes = attributesToClone
 
   // Set up attributes observer.
   const callback = (mutationsList) => {
