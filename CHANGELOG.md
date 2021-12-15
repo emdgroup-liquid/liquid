@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.22](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.21...v1.0.0-rc.22) (2021-12-15)
+
+
+### Bug Fixes
+
+* **ld-input:** submit associated form on return ([ec0332d](https://github.com/emdgroup-liquid/liquid/commit/ec0332dcf61f7d9fbced59ffb78e4acefc6ea2bb))
+* conditionally disconnect attribute observer ([84259b9](https://github.com/emdgroup-liquid/liquid/commit/84259b9c232e974dcbbec8b0f8c9d0d8b1e77870))
+
 # [1.0.0-rc.21](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.20...v1.0.0-rc.21) (2021-12-14)
 
 
