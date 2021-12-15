@@ -1,6 +1,6 @@
 .docs-topbar::part(container) {
-  --ld-header-max-width: 89rem;
-  margin: 0 var(--ld-sp-8);
+  padding: 0 var(--ld-sp-24);
+  margin: 0 var(--ld-sp-4);
 }
 
 .docs-topbar__logo {
@@ -22,13 +22,16 @@
     &:hover {
       opacity: 1;
     }
-  }
+  }y
+}
+
+.docs-topbar__headlines {
+  flex-grow: 1;
 }
 
 .docs-topbar__headline {
   color: var(--ld-col-wht);
   font-family: var(--ld-font-body);
-  margin-left: var(--ld-sp-16);
 
   b {
     font-weight: 900;
