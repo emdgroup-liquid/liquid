@@ -189,35 +189,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     this.el.appendChild(this.hiddenInput)
   }
 
-  componentWillLoad() {
-    this.attributesObserver = cloneAttributes.call(this, [
-      'multiline',
-      'autocomplete',
-    ])
-
-    const outerForm = this.el.closest('form')
-
-    if (outerForm && !this.autocomplete) {
-      this.autocomplete = outerForm.getAttribute('autocomplete')
-    }
-
-    if (this.name && (outerForm || this.form)) {
-      this.createHiddenInput()
-      this.hiddenInput.name = this.name
-
-      if (this.dirname) {
-        this.hiddenInput.dirName = this.dirname
-      }
-
-      if (this.form) {
-        this.hiddenInput.setAttribute('form', this.form)
-      }
-
-      if (this.value) {
-        this.hiddenInput.value = this.value
-      }
-    }
-
+  @Watch('size')
+  private updateIconAndButtonSize() {
     this.el.querySelectorAll('ld-button').forEach((button) => {
       if (this.size !== undefined) {
         button.setAttribute('size', this.size)
@@ -254,6 +227,38 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
       }
     })
+  }
+
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'multiline',
+      'autocomplete',
+    ])
+
+    const outerForm = this.el.closest('form')
+
+    if (outerForm && !this.autocomplete) {
+      this.autocomplete = outerForm.getAttribute('autocomplete')
+    }
+
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.name = this.name
+
+      if (this.dirname) {
+        this.hiddenInput.dirName = this.dirname
+      }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      }
+
+      if (this.value) {
+        this.hiddenInput.value = this.value
+      }
+    }
+
+    this.updateIconAndButtonSize()
   }
 
   componentDidLoad() {

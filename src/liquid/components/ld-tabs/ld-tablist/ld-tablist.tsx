@@ -1,5 +1,14 @@
 import '../../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { LdTab } from '../ld-tab/ld-tab'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
@@ -48,8 +57,8 @@ export class LdTablist {
   private updateScrollable() {
     const scrollButtonsWidth =
       2 * this.btnScrollLeftRef.getBoundingClientRect().width
-    const scrollContainerWidth = this.slotContainerRef.getBoundingClientRect()
-      .width
+    const scrollContainerWidth =
+      this.slotContainerRef.getBoundingClientRect().width
     const contentWidth = Array.from(this.el.children)
       .map((child) => child.getBoundingClientRect().width)
       .reduce((a, b) => a + b)
@@ -85,7 +94,7 @@ export class LdTablist {
         ? prevLdTab.previousElementSibling
         : prevLdTab.nextElementSibling
     if (currentTab) {
-      ;((currentTab as unknown) as LdTab).focusInner()
+      ;(currentTab as unknown as LdTab).focusInner()
       currentTab.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
@@ -123,6 +132,7 @@ export class LdTablist {
     }
   }
 
+  @Watch('size')
   componentWillLoad() {
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
       if (this.size !== undefined) {

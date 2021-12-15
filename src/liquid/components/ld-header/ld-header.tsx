@@ -2,10 +2,6 @@ import { Component, Host, h, Prop, Element, Watch } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
- * @slot end - Items on the right side of the header.
- * @slot logo - Custom logo.
- * @slot menu - Main menu.
- * @slot start - Items on the left side of the header.
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part container - Actual header element that limits the width of the header content
@@ -42,18 +38,18 @@ export class LdHeader {
   @Prop() siteName?: string
 
   private updateScrollDirection = () => {
-    const offset = window.pageYOffset || document.documentElement.scrollTop
+    const offset = window.pageYOffset ?? document.documentElement.scrollTop
 
-    if (offset > this.lastOffset && offset > this.currentHeight) {
-      console.log('true')
+    if (window.innerHeight + offset >= document.body.offsetHeight) {
+      this.hidden = false
+    } else if (offset > this.lastOffset && offset > this.currentHeight) {
       this.hidden = true
     } else {
-      console.log('false')
       this.hidden = false
     }
 
     // For mobile or negative scrolling
-    this.lastOffset = offset <= 0 ? 0 : offset
+    this.lastOffset = offset < 0 ? 0 : offset
   }
 
   @Watch('hideOnScroll')
@@ -100,9 +96,26 @@ export class LdHeader {
         }
       })
 
-    this.el.querySelectorAll('ld-header > .ld-button').forEach((cssButton) => {
-      cssButton.classList.add('ld-button--brand-color')
-    })
+    this.el
+      .querySelectorAll<HTMLElement>('ld-header > .ld-button')
+      .forEach((cssButton) => {
+        cssButton.classList.add('ld-button--brand-color')
+        cssButton.classList.add('ld-button--sm')
+        cssButton.classList.remove('ld-button--lg')
+
+        if (cssButton.classList.contains('ld-button--ghost')) {
+          const textInButton = cssButton.textContent.trim()
+          const iconInButton = cssButton.querySelector<HTMLElement>('.ld-icon')
+
+          if (iconInButton && !textInButton) {
+            iconInButton.style.setProperty('--ld-icon-size-lg', '1.5rem')
+            iconInButton.style.setProperty('--ld-icon-size-md', '1.5rem')
+            iconInButton.style.setProperty('--ld-icon-size-sm', '1.5rem')
+            cssButton.style.setProperty('--ld-button-padding-x-sm', '0')
+            cssButton.style.setProperty('--ld-button-padding-y-sm', '0')
+          }
+        }
+      })
   }
 
   render() {
@@ -115,34 +128,7 @@ export class LdHeader {
     return (
       <Host class={cl} role="banner">
         <header class="ld-header__container" part="container">
-          <slot name="start" />
-          {this.logoUrl ? (
-            <a
-              class="ld-header__logo"
-              href={this.logoUrl}
-              title={this.logoTitle}
-            >
-              <slot name="logo">
-                <ld-icon name="m" part="logo" />
-              </slot>
-            </a>
-          ) : (
-            <div class="ld-header__logo">
-              <slot name="logo">
-                <ld-icon name="m" part="logo" title={this.logoTitle} />
-              </slot>
-            </div>
-          )}
-          <div class="ld-header__grow-wrapper">
-            {this.siteName && (
-              <ld-typo part="site-name" tag="div" variant="h5">
-                {this.siteName}
-              </ld-typo>
-            )}
-            <slot />
-            <slot name="menu" />
-          </div>
-          <slot name="end" />
+          <slot />
         </header>
       </Host>
     )

@@ -4660,7 +4660,7 @@
     },
     {
       "id": "74286ff2",
-      "image": "50cfdfc1769950dfa26c77185dfcd882.png",
+      "image": "9dfea090e2070e8968e8887d2c5932db.png",
       "userAgent": "default",
       "desc": "ld-header default",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4686,7 +4686,7 @@
     },
     {
       "id": "9b124dca",
-      "image": "02a18380b14e6eae9bcefb6a2e436c3d.png",
+      "image": "9dac023a2c49691ed4ab02f2156a4072.png",
       "userAgent": "default",
       "desc": "ld-header sticky",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4698,21 +4698,8 @@
       "isMobile": false
     },
     {
-      "id": "ba27d3d9",
-      "image": "ecf385dc516f12c7bdd0944960b9ac53.png",
-      "userAgent": "default",
-      "desc": "ld-header sticky after scroll",
-      "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "bd1ad143",
-      "image": "6bbc5f0691771cf7fa89143513bccebe.png",
+      "image": "435d94ff605e1b22121012fb6894bb65.png",
       "userAgent": "default",
       "desc": "ld-header with burger menu button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4725,7 +4712,7 @@
     },
     {
       "id": "59eaac53",
-      "image": "24aa505d63a0690a7c1dde8869f76793.png",
+      "image": "01d35c35de9d72f8c24da5d25cab1350.png",
       "userAgent": "default",
       "desc": "ld-header with buttons",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4738,7 +4725,7 @@
     },
     {
       "id": "c1904754",
-      "image": "4c9e32ea58b02145da9db2d004583685.png",
+      "image": "f727dfc047ba386ebb464d4b18438a07.png",
       "userAgent": "default",
       "desc": "ld-header with icon only ghost button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4751,7 +4738,7 @@
     },
     {
       "id": "67f02bdc",
-      "image": "db1b431b11acc1ddfe84c5c6dfe27d47.png",
+      "image": "bd6c141ceb52debccc72920cd08164d6.png",
       "userAgent": "default",
       "desc": "ld-header with menu",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4764,7 +4751,7 @@
     },
     {
       "id": "f7a422c2",
-      "image": "5432585f4c53eab0b87b9a12ef1cac68.png",
+      "image": "71c966f04ced7c0d54be1387f0b9a371.png",
       "userAgent": "default",
       "desc": "ld-header with menu and burger menu button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4777,7 +4764,7 @@
     },
     {
       "id": "d37337c9",
-      "image": "146a46db9eaac18ef3550c17f12423c7.png",
+      "image": "02633749e77af290cd6160e92a67f9e4.png",
       "userAgent": "default",
       "desc": "ld-header with menu and button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4789,21 +4776,8 @@
       "isMobile": false
     },
     {
-      "id": "37ddbe14",
-      "image": "ffed0061d32b1e88691f7814c4d37e47.png",
-      "userAgent": "default",
-      "desc": "ld-header without custom logo",
-      "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "57782029",
-      "image": "50cfdfc1769950dfa26c77185dfcd882.png",
+      "image": "9dfea090e2070e8968e8887d2c5932db.png",
       "userAgent": "default",
       "desc": "ld-header without logo link",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4816,7 +4790,7 @@
     },
     {
       "id": "9de175f9",
-      "image": "c076d31015df1b3ff1648a7edcc64457.png",
+      "image": "38030abfca85f1993ae3fc04848db913.png",
       "userAgent": "default",
       "desc": "ld-header without site name",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",

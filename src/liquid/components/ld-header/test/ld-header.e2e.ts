@@ -2,10 +2,40 @@ import { getPageWithContent } from '../../../utils/e2e-tests'
 
 jest.useRealTimers()
 
+const logo = `<ld-typo class="logo" tag="div" variant="b6">M</ld-typo>`
+const siteName = (flexGrow = false) =>
+  `<ld-typo tag="div" variant="h5"${
+    flexGrow ? ' style="flex-grow: 1"' : ''
+  }>Liquid Oxygen</ld-typo>`
+const defaultContent = `${logo}
+${siteName()}`
+const menu = (flexGrow = false) => `<ld-menu${
+  flexGrow ? ' style="flex-grow: 1"' : ''
+}>
+  <ld-menu-item selected href="#">Home</ld-menu-item>
+  <ld-menu-item href="#">Products</ld-menu-item>
+  <ld-menu-item href="#">Support</ld-menu-item>
+</ld-menu>`
+const burgerMenu = `<ld-button mode="ghost" type="button">
+<ld-icon name="burger-menu"></ld-icon>
+</ld-button>`
+const logoStyle = `<style>
+  .logo {
+    color: var(--ld-thm-warning);
+    margin-top: calc(var(--ld-sp-8) * -1);
+  }
+</style>`
+
 describe('ld-header', () => {
   it('default', async () => {
     const page = await getPageWithContent(
-      `<ld-header site-name="Liquid Oxygen" logo-url="#"></ld-header>`
+      `<ld-header>
+        <a href="#" title="Home" style="text-decoration: none">
+          ${logo}
+        </a>
+        ${siteName()}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -13,7 +43,11 @@ describe('ld-header', () => {
 
   it('without logo link', async () => {
     const page = await getPageWithContent(
-      `<ld-header site-name="Liquid Oxygen"></ld-header>`
+      `
+      <ld-header>
+        ${defaultContent}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -21,18 +55,10 @@ describe('ld-header', () => {
 
   it('without site name', async () => {
     const page = await getPageWithContent(
-      `<ld-header logo-url="#"></ld-header>`
-    )
-    const results = await page.compareScreenshot()
-    expect(results).toMatchScreenshot()
-  })
-
-  it('without custom logo', async () => {
-    const page = await getPageWithContent(
-      `
-      <ld-header logo-url="#">
-        <ld-icon name="rocket" slot="logo"></ld-icon>
-      </ld-header>`
+      `<ld-header>
+        ${logo}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -41,16 +67,19 @@ describe('ld-header', () => {
   it('with buttons', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-button slot="end" type="button">
+      <ld-header>
+        ${logo}
+        ${siteName(true)}
+        <ld-button type="button">
           <ld-icon name="pen"></ld-icon>
           Register
         </ld-button>
-        <ld-button mode="secondary" slot="end" type="button">
+        <ld-button mode="secondary" type="button">
           <ld-icon name="user"></ld-icon>
           Login
         </ld-button>
-      </ld-header>`
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -59,15 +88,18 @@ describe('ld-header', () => {
   it('with icon only ghost button', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-button slot="end" type="button">
+      <ld-header>
+        ${logo}
+        ${siteName(true)}
+        <ld-button type="button">
           <ld-icon name="pen"></ld-icon>
           Register
         </ld-button>
-        <ld-button mode="ghost" slot="end" type="button">
+        <ld-button mode="ghost" title="Login" type="button">
           <ld-icon name="user"></ld-icon>
         </ld-button>
-      </ld-header>`
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -76,11 +108,11 @@ describe('ld-header', () => {
   it('with burger menu button', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-button mode="ghost" slot="start" type="button">
-          <ld-icon name="burger-menu"></ld-icon>
-        </ld-button>
-      </ld-header>`
+      <ld-header>
+        ${burgerMenu}
+        ${defaultContent}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -89,13 +121,11 @@ describe('ld-header', () => {
   it('with menu', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-menu slot="menu">
-          <ld-menu-item selected href="#">Home</ld-menu-item>
-          <ld-menu-item href="#">Products</ld-menu-item>
-          <ld-menu-item href="#">Support</ld-menu-item>
-        </ld-menu>
-      </ld-header>`
+      <ld-header>
+        ${defaultContent}
+        ${menu()}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -104,17 +134,15 @@ describe('ld-header', () => {
   it('with menu and button', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-menu slot="menu">
-          <ld-menu-item selected href="#">Home</ld-menu-item>
-          <ld-menu-item href="#">Products</ld-menu-item>
-          <ld-menu-item href="#">Support</ld-menu-item>
-        </ld-menu>
-        <ld-button mode="secondary" slot="end" type="button">
+      <ld-header>
+        ${defaultContent}
+        ${menu(true)}
+        <ld-button mode="secondary" type="button">
           <ld-icon name="user"></ld-icon>
           Profile
         </ld-button>
-      </ld-header>`
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -123,16 +151,12 @@ describe('ld-header', () => {
   it('with menu and burger menu button', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#">
-        <ld-button mode="ghost" slot="start" type="button">
-          <ld-icon name="burger-menu"></ld-icon>
-        </ld-button>
-        <ld-menu slot="menu">
-          <ld-menu-item selected href="#">Home</ld-menu-item>
-          <ld-menu-item href="#">Products</ld-menu-item>
-          <ld-menu-item href="#">Support</ld-menu-item>
-        </ld-menu>
-      </ld-header>`
+      <ld-header>
+        ${burgerMenu}
+        ${defaultContent}
+        ${menu()}
+      </ld-header>
+      ${logoStyle}`
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -141,19 +165,25 @@ describe('ld-header', () => {
   it('sticky', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
-      <p>I am content.</p>`,
+      <ld-header sticky>
+        ${defaultContent}
+      </ld-header>
+      <p>I am content.</p>
+      ${logoStyle}`,
       { notWrapped: true }
     )
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
   })
 
-  it('sticky after scroll', async () => {
+  xit('sticky after scroll', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
-      <p>I am content.</p>`,
+      <ld-header sticky>
+        ${defaultContent}
+      </ld-header>
+      <p>I am content.</p>
+      ${logoStyle}`,
       { notWrapped: true }
     )
     await page.mouse.wheel({ deltaY: 25 })
@@ -164,8 +194,11 @@ describe('ld-header', () => {
   it('hidden', async () => {
     const page = await getPageWithContent(
       `
-      <ld-header hidden site-name="Liquid Oxygen" logo-url="#" sticky></ld-header>
-      <p>I am content.</p>`,
+      <ld-header hidden sticky>
+        ${defaultContent}
+      </ld-header>
+      <p>I am content.</p>
+      ${logoStyle}`,
       { notWrapped: true }
     )
     const results = await page.compareScreenshot()

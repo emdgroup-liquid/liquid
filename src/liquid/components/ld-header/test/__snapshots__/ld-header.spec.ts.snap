@@ -1,292 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-header renders 1`] = `
-<ld-header class="ld-header" logo-title="Home" role="banner" site-name="Liquid Oxygen">
+<ld-header class="ld-header" role="banner">
   <mock:shadow-root>
     <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon name="m" part="logo" title="Home"></ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
+      <slot></slot>
+    </header>
+  </mock:shadow-root>
+</ld-header>
+`;
+
+exports[`ld-header renders hidden 1`] = `
+<ld-header class="ld-header ld-header--hidden ld-header--sticky" hidden="" role="banner" sticky="">
+  <mock:shadow-root>
+    <header class="ld-header__container" part="container">
+      <slot></slot>
+    </header>
+  </mock:shadow-root>
+</ld-header>
+`;
+
+exports[`ld-header renders hide-on-scroll 1`] = `
+<ld-header class="ld-header ld-header--sticky" hide-on-scroll="" role="banner" sticky="">
+  <mock:shadow-root>
+    <header class="ld-header__container" part="container">
+      <slot></slot>
     </header>
   </mock:shadow-root>
 </ld-header>
 `;
 
 exports[`ld-header renders sticky 1`] = `
-<ld-header class="ld-header ld-header--sticky" logo-title="Home" role="banner" site-name="Liquid Oxygen" sticky="">
+<ld-header class="ld-header ld-header--sticky" role="banner" sticky="">
   <mock:shadow-root>
     <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon name="m" part="logo" title="Home"></ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
+      <slot></slot>
     </header>
   </mock:shadow-root>
 </ld-header>
 `;
 
-exports[`ld-header renders with burger menu button 1`] = `
-<ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon class="ld-icon" part="logo" role="presentation">
-            <mock:shadow-root>
-              Not Found
-            </mock:shadow-root>
-          </ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-  <ld-button slot="start" type="button">
-    <mock:shadow-root>
-      <button aria-live="polite" class="ld-button" part="button focusable">
-        <slot></slot>
-      </button>
-    </mock:shadow-root>
-    <ld-icon class="ld-icon" name="burger-menu" role="presentation">
-      <mock:shadow-root>
-        Not Found
-      </mock:shadow-root>
-    </ld-icon>
-  </ld-button>
-</ld-header>
-`;
-
-exports[`ld-header renders with buttons 1`] = `
-<ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon name="m" part="logo"></ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-  <ld-button slot="end" type="button">
-    <mock:shadow-root>
-      <button aria-live="polite" class="ld-button" part="button focusable">
-        <slot></slot>
-      </button>
-    </mock:shadow-root>
-    Register
-  </ld-button>
-  <ld-button mode="secondary" slot="end" type="button">
-    <mock:shadow-root>
-      <button aria-live="polite" class="ld-button ld-button--secondary" part="button focusable">
-        <slot></slot>
-      </button>
-    </mock:shadow-root>
-    Login
-  </ld-button>
-</ld-header>
-`;
-
-exports[`ld-header renders with clickable logo 1`] = `
-<ld-header class="ld-header" logo-title="Home" logo-url="#" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <a class="ld-header__logo" href="#" title="Home">
-        <slot name="logo">
-          <ld-icon name="m" part="logo"></ld-icon>
-        </slot>
-      </a>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-</ld-header>
-`;
-
-exports[`ld-header renders with custom clickable logo 1`] = `
-<ld-header class="ld-header" logo-title="Home" logo-url="#" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <a class="ld-header__logo" href="#" title="Home">
-        <slot name="logo">
-          <ld-icon class="ld-icon" part="logo" role="presentation">
-            <mock:shadow-root>
-              Not Found
-            </mock:shadow-root>
-          </ld-icon>
-        </slot>
-      </a>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-  <ld-icon class="ld-icon ld-icon--lg" name="rocket" role="presentation" size="lg" slot="logo">
-    <mock:shadow-root>
-      Not Found
-    </mock:shadow-root>
-  </ld-icon>
-</ld-header>
-`;
-
-exports[`ld-header renders with custom logo 1`] = `
-<ld-header class="ld-header" logo-title="Home" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon class="ld-icon" part="logo" role="presentation" title="Home">
-            <mock:shadow-root>
-              Not Found
-            </mock:shadow-root>
-          </ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-  <ld-icon class="ld-icon ld-icon--lg" name="rocket" role="presentation" size="lg" slot="logo">
-    <mock:shadow-root>
-      Not Found
-    </mock:shadow-root>
-  </ld-icon>
-</ld-header>
-`;
-
-exports[`ld-header renders with menu 1`] = `
-<ld-header class="ld-header" role="banner" site-name="Liquid Oxygen">
-  <mock:shadow-root>
-    <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon name="m" part="logo"></ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <ld-typo part="site-name" tag="div" variant="h5">
-          Liquid Oxygen
-        </ld-typo>
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
-    </header>
-  </mock:shadow-root>
-  <ld-menu class="ld-menu ld-menu--vertical" role="navigation" slot="menu">
-    <mock:shadow-root>
-      <ul class="ld-menu__items" part="list">
-        <slot></slot>
-      </ul>
-    </mock:shadow-root>
-    <ld-menu-item href="#">
-      <mock:shadow-root>
-        <li>
-          <a class="ld-menu-item ld-menu-item--list" href="#" part="link">
-            <slot></slot>
-          </a>
-        </li>
-      </mock:shadow-root>
-      Menu Item 1
-      <ld-menu-item href="#">
-        <mock:shadow-root>
-          <li>
-            <a class="ld-menu-item ld-menu-item--list" href="#" part="link">
-              <slot></slot>
-            </a>
-          </li>
-        </mock:shadow-root>
-        Menu Item 2
-        <ld-menu-item href="#">
-          <mock:shadow-root>
-            <li>
-              <a class="ld-menu-item ld-menu-item--list" href="#" part="link">
-                <slot></slot>
-              </a>
-            </li>
-          </mock:shadow-root>
-          Menu Item 3
-        </ld-menu-item>
-      </ld-menu-item>
-    </ld-menu-item>
-  </ld-menu>
-</ld-header>
-`;
-
-exports[`ld-header renders without site name 1`] = `
+exports[`ld-header renders with content 1`] = `
 <ld-header class="ld-header" role="banner">
   <mock:shadow-root>
     <header class="ld-header__container" part="container">
-      <slot name="start"></slot>
-      <div class="ld-header__logo">
-        <slot name="logo">
-          <ld-icon name="m" part="logo"></ld-icon>
-        </slot>
-      </div>
-      <div class="ld-header__grow-wrapper">
-        <slot></slot>
-        <slot name="menu"></slot>
-      </div>
-      <slot name="end"></slot>
+      <slot></slot>
     </header>
   </mock:shadow-root>
+  <ld-typo>
+    Liquid Oxygen
+  </ld-typo>
 </ld-header>
 `;
