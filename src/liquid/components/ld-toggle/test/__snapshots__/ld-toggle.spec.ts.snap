@@ -70,12 +70,3 @@ exports[`ld-toggle renders with icons 1`] = `
   </ld-icon>
 </ld-toggle>
 `;
-
-exports[`ld-toggle updates checked prop on checked value change 1`] = `
-<ld-toggle checked="" class="ld-toggle">
-  <mock:shadow-root>
-    <input checked="" part="input focusable" type="checkbox">
-    <span class="ld-toggle__knob" part="knob"></span>
-  </mock:shadow-root>
-</ld-toggle>
-`;

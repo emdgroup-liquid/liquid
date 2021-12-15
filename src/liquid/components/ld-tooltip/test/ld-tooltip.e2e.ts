@@ -26,7 +26,8 @@ describe('ld-tooltip', () => {
       `<ld-tooltip>
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     const results = await page.compareScreenshot()
 
@@ -38,7 +39,8 @@ describe('ld-tooltip', () => {
       `<ld-tooltip trigger-type="click">
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     await page.keyboard.press('Tab')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -52,7 +54,8 @@ describe('ld-tooltip', () => {
       `<ld-tooltip trigger-type="click">
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     await page.hover('ld-tooltip')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -68,7 +71,8 @@ describe('ld-tooltip', () => {
         <ld-button slot="trigger">Click me</ld-button>
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     const results = await page.compareScreenshot()
 
@@ -81,7 +85,8 @@ describe('ld-tooltip', () => {
         <ld-button slot="trigger">Click me</ld-button>
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     await page.keyboard.press('Tab')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -97,7 +102,8 @@ describe('ld-tooltip', () => {
         <ld-button slot="trigger">Click me</ld-button>
         <ld-typo variant="h4" style="margin-bottom: 10px">Headline</ld-typo>
         <ld-typo>${loremipsum}</ld-typo>
-      </ld-tooltip>`
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
     )
     await page.hover('ld-tooltip')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -118,8 +124,10 @@ describe('ld-tooltip', () => {
             ${loremipsum}
           </ld-typo>
         </ld-tooltip>
-      trigger!</p>`
+      trigger!</p>`,
+      { disableAllTransitions: true }
     )
+    await new Promise((resolve) => setTimeout(resolve, 200))
     const results = await page.compareScreenshot()
 
     expect(results).toMatchScreenshot()
@@ -136,7 +144,8 @@ describe('ld-tooltip', () => {
             ${loremipsum}
           </ld-typo>
         </ld-tooltip>
-      trigger!</p>`
+      trigger!</p>`,
+      { disableAllTransitions: true }
     )
     await page.keyboard.press('Tab')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -157,7 +166,8 @@ describe('ld-tooltip', () => {
             ${loremipsum}
           </ld-typo>
         </ld-tooltip>
-      trigger!</p>`
+      trigger!</p>`,
+      { disableAllTransitions: true }
     )
     await page.hover('ld-tooltip')
     await new Promise((resolve) => setTimeout(resolve, 200))
@@ -172,7 +182,8 @@ describe('ld-tooltip', () => {
       const page = await getPageWithContent(
         `<ld-tooltip position="${position}">
           <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
-        </ld-tooltip>`
+        </ld-tooltip>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       await new Promise((resolve) => setTimeout(resolve, 200))
@@ -186,7 +197,8 @@ describe('ld-tooltip', () => {
       const page = await getPageWithContent(
         `<ld-tooltip arrow position="${position}">
           <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
-        </ld-tooltip>`
+        </ld-tooltip>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       await new Promise((resolve) => setTimeout(resolve, 200))
@@ -201,7 +213,8 @@ describe('ld-tooltip', () => {
         `<ld-tooltip position="${position}">
           <ld-button slot="trigger">Trigger</ld-button>
           <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
-        </ld-tooltip>`
+        </ld-tooltip>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       await new Promise((resolve) => setTimeout(resolve, 200))
@@ -216,7 +229,8 @@ describe('ld-tooltip', () => {
         `<ld-tooltip arrow position="${position}">
           <ld-button slot="trigger">Trigger</ld-button>
           <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
-        </ld-tooltip>`
+        </ld-tooltip>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       await new Promise((resolve) => setTimeout(resolve, 200))

@@ -32,7 +32,7 @@ exports[`ld-select creates hidden input field, after adding form attribute 1`] =
         <div part="options-container">
           <ld-option-internal mode="checkbox" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -45,7 +45,7 @@ exports[`ld-select creates hidden input field, after adding form attribute 1`] =
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="pear">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -58,7 +58,7 @@ exports[`ld-select creates hidden input field, after adding form attribute 1`] =
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -128,7 +128,7 @@ exports[`ld-select creates hidden input field, if form attribute is set 1`] = `
         <div part="options-container">
           <ld-option-internal mode="checkbox" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -141,7 +141,7 @@ exports[`ld-select creates hidden input field, if form attribute is set 1`] = `
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="pear">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -154,7 +154,7 @@ exports[`ld-select creates hidden input field, if form attribute is set 1`] = `
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -224,7 +224,7 @@ exports[`ld-select creates hidden input field, if inside a form 1`] = `
         <div part="options-container">
           <ld-option-internal value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <svg class="ld-option-internal__check" fill="none" height="20" part="check" role="presentation" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15 7L8.40795 13L5 9.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="visibility: hidden;"></path>
                 </svg>
@@ -237,7 +237,7 @@ exports[`ld-select creates hidden input field, if inside a form 1`] = `
           </ld-option-internal>
           <ld-option-internal value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <svg class="ld-option-internal__check" fill="none" height="20" part="check" role="presentation" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15 7L8.40795 13L5 9.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="visibility: hidden;"></path>
                 </svg>
@@ -303,7 +303,7 @@ exports[`ld-select observes slot content changes and updates internal options in
             <div part="options-container">
               <ld-option-internal class="ld-option" value="apple">
                 <mock:shadow-root>
-                  <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+                  <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                     <svg class="ld-option-internal__check" fill="none" height="20" part="check" role="presentation" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 7L8.40795 13L5 9.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="visibility: hidden;"></path>
                     </svg>
@@ -316,7 +316,7 @@ exports[`ld-select observes slot content changes and updates internal options in
               </ld-option-internal>
               <ld-option-internal class="ld-option" value="pear">
                 <mock:shadow-root>
-                  <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+                  <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                     <svg class="ld-option-internal__check" fill="none" height="20" part="check" role="presentation" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 7L8.40795 13L5 9.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="visibility: hidden;"></path>
                     </svg>
@@ -329,7 +329,7 @@ exports[`ld-select observes slot content changes and updates internal options in
               </ld-option-internal>
               <ld-option-internal class="ld-option" selected="" value="banana">
                 <mock:shadow-root>
-                  <div aria-disabled="false" aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+                  <div aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                     <svg class="ld-option-internal__check" fill="none" height="20" part="check" role="presentation" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 7L8.40795 13L5 9.63964" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" style="visibility: inherit;"></path>
                     </svg>
@@ -401,7 +401,7 @@ exports[`ld-select removes hidden input field, after removing form attribute 1`]
         <div part="options-container">
           <ld-option-internal mode="checkbox" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -414,7 +414,7 @@ exports[`ld-select removes hidden input field, after removing form attribute 1`]
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="pear">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -427,7 +427,7 @@ exports[`ld-select removes hidden input field, after removing form attribute 1`]
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -496,7 +496,7 @@ exports[`ld-select removes hidden input field, after removing name attribute 1`]
         <div part="options-container">
           <ld-option-internal mode="checkbox" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -509,7 +509,7 @@ exports[`ld-select removes hidden input field, after removing name attribute 1`]
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="pear">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -522,7 +522,7 @@ exports[`ld-select removes hidden input field, after removing name attribute 1`]
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -629,7 +629,7 @@ exports[`ld-select renders initially selected options as internal options and hi
         <div part="options-container">
           <ld-option-internal mode="checkbox" selected="" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox checked="" class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -642,7 +642,7 @@ exports[`ld-select renders initially selected options as internal options and hi
           </ld-option-internal>
           <ld-option-internal mode="checkbox" selected="" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox checked="" class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -707,7 +707,7 @@ exports[`ld-select updates hidden input fields on attribute changes 1`] = `
         <div part="options-container">
           <ld-option-internal mode="checkbox" value="apple">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -720,7 +720,7 @@ exports[`ld-select updates hidden input fields on attribute changes 1`] = `
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="pear">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -733,7 +733,7 @@ exports[`ld-select updates hidden input fields on attribute changes 1`] = `
           </ld-option-internal>
           <ld-option-internal mode="checkbox" value="banana">
             <mock:shadow-root>
-              <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
                 <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
                   <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
                 </div>
@@ -871,7 +871,7 @@ exports[`ld-select updates internal options in popper and hidden input fields 1`
     <div part="options-container">
       <ld-option-internal mode="checkbox" value="apple">
         <mock:shadow-root>
-          <div aria-disabled="false" aria-selected="false" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+          <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
             <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
               <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
             </div>
@@ -884,7 +884,7 @@ exports[`ld-select updates internal options in popper and hidden input fields 1`
       </ld-option-internal>
       <ld-option-internal mode="checkbox" selected="" value="pear">
         <mock:shadow-root>
-          <div aria-disabled="false" aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+          <div aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
             <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
               <ld-checkbox checked="" class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
             </div>
@@ -897,7 +897,7 @@ exports[`ld-select updates internal options in popper and hidden input fields 1`
       </ld-option-internal>
       <ld-option-internal mode="checkbox" selected="" value="banana">
         <mock:shadow-root>
-          <div aria-disabled="false" aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+          <div aria-selected="true" class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
             <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
               <ld-checkbox checked="" class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
             </div>

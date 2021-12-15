@@ -40,6 +40,10 @@ export const config: Config = {
     allowableMismatchedPixels: 0,
     moduleDirectories: ['node_modules', './'],
     timers: 'fake',
+    // browserHeadless: false,
+    // browserDevtools: true,
+    // browserSlowMo: 1000, // milliseconds
+    browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
   },
   buildEs5: false,
   extras: {

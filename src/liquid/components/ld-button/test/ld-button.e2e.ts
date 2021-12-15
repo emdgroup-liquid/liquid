@@ -33,7 +33,7 @@ describe('ld-button', () => {
       const attributeStr = attribute ? ` ${attribute}` : ''
 
       describe(`${modeDescription}${attributeStr}`, () => {
-        it(`default`, async () => {
+        it('default', async () => {
           const page = await getPageWithContent(
             `<ld-button${
               modeStr + attributeStr
@@ -45,7 +45,8 @@ describe('ld-button', () => {
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
-        it(`hover`, async () => {
+        // TODO: reactivate test when upstream issue is fixed (https://github.com/ionic-team/stencil/issues/3188)
+        it('hover', async () => {
           const page = await getPageWithContent(
             `<ld-button${
               modeStr + attributeStr
@@ -58,7 +59,7 @@ describe('ld-button', () => {
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
-        it(`focus`, async () => {
+        it('focus', async () => {
           const page = await getPageWithContent(
             `<ld-button${
               modeStr + attributeStr
@@ -71,7 +72,7 @@ describe('ld-button', () => {
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
-        it(`active`, async () => {
+        it('active', async () => {
           const page = await getPageWithContent(
             `<ld-button${
               modeStr + attributeStr
@@ -87,7 +88,7 @@ describe('ld-button', () => {
         })
 
         describe('disabled', () => {
-          it(`default`, async () => {
+          it('default', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -99,7 +100,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`hover`, async () => {
+          it('hover', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -112,7 +113,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`focus`, async () => {
+          it('focus', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -125,7 +126,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`active`, async () => {
+          it('active', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -142,7 +143,7 @@ describe('ld-button', () => {
         })
 
         describe('aria-disabled', () => {
-          it(`default`, async () => {
+          it('default', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -154,7 +155,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`hover`, async () => {
+          it('hover', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -167,7 +168,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`focus`, async () => {
+          it('focus', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -180,7 +181,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`active`, async () => {
+          it('active', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
@@ -197,24 +198,26 @@ describe('ld-button', () => {
         })
 
         describe('progress button', () => {
-          it(`default`, async () => {
+          it('default', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
               } progress="0.75">Text</ld-button>`,
               {
+                disableAllTransitions: true,
                 bgColor,
               }
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`hover`, async () => {
+          it('hover', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
               } progress="0.75">Text</ld-button>`,
               {
+                disableAllTransitions: true,
                 bgColor,
               }
             )
@@ -222,12 +225,13 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`focus`, async () => {
+          it('focus', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
               } progress="0.75">Text</ld-button>`,
               {
+                disableAllTransitions: true,
                 bgColor,
               }
             )
@@ -235,12 +239,13 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`active`, async () => {
+          it('active', async () => {
             const page = await getPageWithContent(
               `<ld-button${
                 modeStr + attributeStr
               } progress="0.75">Text</ld-button>`,
               {
+                disableAllTransitions: true,
                 bgColor,
               }
             )
@@ -256,7 +261,7 @@ describe('ld-button', () => {
           const attributeModifier = attribute ? ` ld-button--${attribute}` : ''
           const modifiers = modeModifier + attributeModifier
 
-          it(`default`, async () => {
+          it('default', async () => {
             const page = await getPageWithContent(
               `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
               {
@@ -267,7 +272,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`hover`, async () => {
+          it('hover', async () => {
             const page = await getPageWithContent(
               `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
               {
@@ -279,7 +284,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`focus`, async () => {
+          it('focus', async () => {
             const page = await getPageWithContent(
               `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
               {
@@ -291,7 +296,7 @@ describe('ld-button', () => {
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
-          it(`active`, async () => {
+          it('active', async () => {
             const page = await getPageWithContent(
               `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
               {
@@ -306,7 +311,7 @@ describe('ld-button', () => {
           })
 
           describe('disabled', () => {
-            it(`default`, async () => {
+            it('default', async () => {
               const page = await getPageWithContent(
                 `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -317,7 +322,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`hover`, async () => {
+            it('hover', async () => {
               const page = await getPageWithContent(
                 `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -329,7 +334,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`focus`, async () => {
+            it('focus', async () => {
               const page = await getPageWithContent(
                 `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -341,7 +346,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`active`, async () => {
+            it('active', async () => {
               const page = await getPageWithContent(
                 `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -357,7 +362,7 @@ describe('ld-button', () => {
           })
 
           describe('aria-disabled', () => {
-            it(`default`, async () => {
+            it('default', async () => {
               const page = await getPageWithContent(
                 `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -368,7 +373,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`hover`, async () => {
+            it('hover', async () => {
               const page = await getPageWithContent(
                 `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -380,7 +385,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`focus`, async () => {
+            it('focus', async () => {
               const page = await getPageWithContent(
                 `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -392,7 +397,7 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`active`, async () => {
+            it('active', async () => {
               const page = await getPageWithContent(
                 `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
                 {
@@ -408,13 +413,14 @@ describe('ld-button', () => {
           })
 
           describe('progress button', () => {
-            it(`default`, async () => {
+            it('default', async () => {
               const page = await getPageWithContent(
                 `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
                 Text
                 <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
               </button>`,
                 {
+                  disableAllTransitions: true,
                   bgColor,
                   components: LdButton,
                 }
@@ -422,13 +428,14 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`hover`, async () => {
+            it('hover', async () => {
               const page = await getPageWithContent(
                 `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
                 Text
                 <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
               </button>`,
                 {
+                  disableAllTransitions: true,
                   bgColor,
                   components: LdButton,
                 }
@@ -437,13 +444,14 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`focus`, async () => {
+            it('focus', async () => {
               const page = await getPageWithContent(
                 `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
                 Text
                 <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
               </button>`,
                 {
+                  disableAllTransitions: true,
                   bgColor,
                   components: LdButton,
                 }
@@ -452,13 +460,14 @@ describe('ld-button', () => {
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
-            it(`active`, async () => {
+            it('active', async () => {
               const page = await getPageWithContent(
                 `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
                 Text
                 <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
               </button>`,
                 {
+                  disableAllTransitions: true,
                   bgColor,
                   components: LdButton,
                 }

@@ -1,5 +1,5 @@
 node_modules
-bin
+.stencil
 dist
 dist_docs
 coverage

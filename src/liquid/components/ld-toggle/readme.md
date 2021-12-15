@@ -439,7 +439,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | -------------- | --------------- | ------------------------------------------------------------------------------ | ------------------ | ----------- |
 | `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                        | `string`           | `undefined` |
 | `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `undefined` |
-| `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `undefined` |
+| `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `false`     |
 | `disabled`     | `disabled`      | Disabled state of the checkbox.                                                | `boolean`          | `undefined` |
 | `form`         | `form`          | Associates the control with a form element.                                    | `string`           | `undefined` |
 | `invalid`      | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`          | `undefined` |

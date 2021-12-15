@@ -6,7 +6,7 @@
   "screenshots": [
     {
       "id": "d4180b1a",
-      "image": "ccf666d245041e03b630a20db51e6f9a.png",
+      "image": "8c7d88309af50761a7f679a70b1daab7.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component default",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -19,7 +19,7 @@
     },
     {
       "id": "13ac6905",
-      "image": "e30e5df2e64e1b9c0777097d53b00d4d.png",
+      "image": "77cbd1576501a0672c770bd2499ea313.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type bioreliance",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -32,7 +32,7 @@
     },
     {
       "id": "faa21405",
-      "image": "c26dd180f9f5dec5bf694f5e0ef8b561.png",
+      "image": "8a39125adc5dd045e50350ea3fc52f16.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type f",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -45,7 +45,7 @@
     },
     {
       "id": "b2400420",
-      "image": "fce56200c516c0cbd672c2da63abf832.png",
+      "image": "0178e092afecf413cf09ea3089f691f9.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type hexagon",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -58,7 +58,7 @@
     },
     {
       "id": "89d83327",
-      "image": "718eac25c9427c3bad5c1c07966f7aef.png",
+      "image": "1e7e4e86bce71b4f7a4f9a4aa0f5ef17.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type millipore",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -71,7 +71,7 @@
     },
     {
       "id": "3fac627e",
-      "image": "6511a03bd11f96e58e1eaff6a4477862.png",
+      "image": "3e73adeb377d44e3c325add0cab5224d.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type qa-x2f-qc",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -84,7 +84,7 @@
     },
     {
       "id": "d7796855",
-      "image": "ccf666d245041e03b630a20db51e6f9a.png",
+      "image": "8c7d88309af50761a7f679a70b1daab7.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type safc",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -97,7 +97,7 @@
     },
     {
       "id": "344b18f6",
-      "image": "ac874717c8862d3d6e9bd8c92d83c4ef.png",
+      "image": "b9e4f20f468e64c0d04e7475e4512969.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type sigma-aldrich",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -110,7 +110,7 @@
     },
     {
       "id": "c82fadbe",
-      "image": "a1551a8558b62d80b6bd3ad3fd639953.png",
+      "image": "0d12f1567ce00b9f8301fe66d0afad94.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type t",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -123,7 +123,7 @@
     },
     {
       "id": "45a6e6c9",
-      "image": "2c35ec5eef3a2a1c690b8da2ea37c8e9.png",
+      "image": "d81c7858e112371c86dae67bad242c7d.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component type tile",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -136,7 +136,7 @@
     },
     {
       "id": "0229b96c",
-      "image": "ffdb0cee900f186cae17e7addfdeb5a1.png",
+      "image": "09a41b558cbaa27c0ad41cf98e6a54d7.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component with custom css vars",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -149,7 +149,7 @@
     },
     {
       "id": "b19ed956",
-      "image": "ccf666d245041e03b630a20db51e6f9a.png",
+      "image": "8c7d88309af50761a7f679a70b1daab7.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component with repeating cell pattern",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -162,7 +162,7 @@
     },
     {
       "id": "c1d7c1a4",
-      "image": "ecad7a639bbc2caa9ad3e5575dc0e0db.png",
+      "image": "f8dd0674f94f07ff938aa83bea145974.png",
       "userAgent": "default",
       "desc": "ld-bg-cells web component with scrollable content",
       "testPath": "./src/liquid/components/ld-bg-cells/test/ld-bg-cells.e2e.ts",
@@ -175,7 +175,7 @@
     },
     {
       "id": "c5c7582a",
-      "image": "14491627fd42cda2011fffd92544352c.png",
+      "image": "e0193ce006e37fabf36900daaadd0712.png",
       "userAgent": "default",
       "desc": "ld-button as anchor anchor with target blank",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -240,7 +240,7 @@
     },
     {
       "id": "9de4f768",
-      "image": "82073962f1c0f167bd5263058dfbbc53.png",
+      "image": "3068cb2b80201182d4f6ea41455426fd.png",
       "userAgent": "default",
       "desc": "ld-button justify content with custom width justify center",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -279,7 +279,7 @@
     },
     {
       "id": "6171609d",
-      "image": "c3dadc154be333d8c594cf4552f110de.png",
+      "image": "0564f7e80ba9ce3431093bf15cab7047.png",
       "userAgent": "default",
       "desc": "ld-button mode danger active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -292,7 +292,7 @@
     },
     {
       "id": "79a7c42b",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -305,7 +305,7 @@
     },
     {
       "id": "72371bd1",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -318,7 +318,7 @@
     },
     {
       "id": "3141e075",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -331,7 +331,7 @@
     },
     {
       "id": "2f7277f9",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -344,7 +344,7 @@
     },
     {
       "id": "b9bfec1d",
-      "image": "1761556c486817a90da819968af40a1b.png",
+      "image": "02a7f28ecb22e54f4e24ad2585cccc7d.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -357,7 +357,7 @@
     },
     {
       "id": "35786387",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -370,7 +370,7 @@
     },
     {
       "id": "51b217e8",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -383,7 +383,7 @@
     },
     {
       "id": "ef865d98",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -396,7 +396,7 @@
     },
     {
       "id": "d69803cf",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -409,7 +409,7 @@
     },
     {
       "id": "7788317b",
-      "image": "c4b9382c40ba595648262b854b84b9d3.png",
+      "image": "131bdd7303499d679d9a821f25bfeef9.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -422,7 +422,7 @@
     },
     {
       "id": "05f50ea4",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -435,7 +435,7 @@
     },
     {
       "id": "93372f92",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -448,7 +448,7 @@
     },
     {
       "id": "eacf6227",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -461,7 +461,7 @@
     },
     {
       "id": "731c19f5",
-      "image": "3712c33c0e0d255d44510228f4a72ed0.png",
+      "image": "9eda26fe21b627de17a534cd8a2ec7e6.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -474,7 +474,7 @@
     },
     {
       "id": "0d048264",
-      "image": "fe5a79d4a90ed0d8dac5bb305e39fe71.png",
+      "image": "770a85f97581f0f1465e290e5c870114.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -487,7 +487,7 @@
     },
     {
       "id": "b3d0430b",
-      "image": "804d277c4c635cd5227a568b6f3283be.png",
+      "image": "bf3978d685af951626f4af0816f565f4.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -500,7 +500,7 @@
     },
     {
       "id": "10c692af",
-      "image": "4e55b4fdfda45a9d29abc604159aec42.png",
+      "image": "e071773a778e82cc01de80dd00443618.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -513,7 +513,7 @@
     },
     {
       "id": "9a0384e5",
-      "image": "8cd5872d628d66c8e4b4882c10859927.png",
+      "image": "5d127be4dd2985057c7da2a1bf1f25dc.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -526,7 +526,7 @@
     },
     {
       "id": "ddd66135",
-      "image": "0198b4848ebf96fb9c62bffa936ee989.png",
+      "image": "c66118be56e83655f1cbc6e1b94eaeee.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -539,7 +539,7 @@
     },
     {
       "id": "cd63ee91",
-      "image": "0bc81aab1ffed0296438862eb2d93ae9.png",
+      "image": "812a6b19edf6bc003851fad42182eb94.png",
       "userAgent": "default",
       "desc": "ld-button mode danger css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -552,7 +552,7 @@
     },
     {
       "id": "8b911e10",
-      "image": "3475c98d693a0007d160b09361d94004.png",
+      "image": "5030791da097dcba5329004ef93793cb.png",
       "userAgent": "default",
       "desc": "ld-button mode danger default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -565,7 +565,7 @@
     },
     {
       "id": "77e67504",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -578,7 +578,7 @@
     },
     {
       "id": "4c5807e4",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -591,7 +591,7 @@
     },
     {
       "id": "66467ab7",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -604,7 +604,7 @@
     },
     {
       "id": "3e3f5895",
-      "image": "01dbdc3e799cf7fab99c6a97ec5e5c83.png",
+      "image": "add3bfc7f822c1bbafaf10ec9444823b.png",
       "userAgent": "default",
       "desc": "ld-button mode danger disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -617,7 +617,7 @@
     },
     {
       "id": "70a0fbd5",
-      "image": "789458307384eedaddf1455419e731ad.png",
+      "image": "49720183bc86830549d3dfe3bfd1430f.png",
       "userAgent": "default",
       "desc": "ld-button mode danger focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -630,7 +630,7 @@
     },
     {
       "id": "18154da8",
-      "image": "655cab0eed05cbd58c7557a1e565f6cc.png",
+      "image": "430f31311799887095bb9e6ae86e98e1.png",
       "userAgent": "default",
       "desc": "ld-button mode danger hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -643,7 +643,7 @@
     },
     {
       "id": "09fe84d0",
-      "image": "4e55b4fdfda45a9d29abc604159aec42.png",
+      "image": "e071773a778e82cc01de80dd00443618.png",
       "userAgent": "default",
       "desc": "ld-button mode danger progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -656,7 +656,7 @@
     },
     {
       "id": "fe1d96b1",
-      "image": "8cd5872d628d66c8e4b4882c10859927.png",
+      "image": "5d127be4dd2985057c7da2a1bf1f25dc.png",
       "userAgent": "default",
       "desc": "ld-button mode danger progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -669,7 +669,7 @@
     },
     {
       "id": "ff2e296c",
-      "image": "0198b4848ebf96fb9c62bffa936ee989.png",
+      "image": "c66118be56e83655f1cbc6e1b94eaeee.png",
       "userAgent": "default",
       "desc": "ld-button mode danger progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -682,7 +682,7 @@
     },
     {
       "id": "3d32b39d",
-      "image": "0bc81aab1ffed0296438862eb2d93ae9.png",
+      "image": "5d127be4dd2985057c7da2a1bf1f25dc.png",
       "userAgent": "default",
       "desc": "ld-button mode danger progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -695,7 +695,7 @@
     },
     {
       "id": "30e9e81e",
-      "image": "64684c78b0c2d870ac3aef4da85c7e00.png",
+      "image": "67293f31018960a5f46afea6e97a5fcd.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -708,7 +708,7 @@
     },
     {
       "id": "83694080",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -721,7 +721,7 @@
     },
     {
       "id": "43999a25",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -734,7 +734,7 @@
     },
     {
       "id": "bb339579",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -747,7 +747,7 @@
     },
     {
       "id": "5334c5b0",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -760,7 +760,7 @@
     },
     {
       "id": "7effe43a",
-      "image": "dbc9440d95e9ddae2f8e998b2e3425c8.png",
+      "image": "55c037ea8cac5b093385540072236a46.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -773,7 +773,7 @@
     },
     {
       "id": "7f10dfef",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -786,7 +786,7 @@
     },
     {
       "id": "92270893",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -799,7 +799,7 @@
     },
     {
       "id": "028d1370",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -812,7 +812,7 @@
     },
     {
       "id": "6fb22c2f",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -825,7 +825,7 @@
     },
     {
       "id": "53a279a4",
-      "image": "e0a2be33daf296200f2262a40733c4ca.png",
+      "image": "6b4f59fe617619f9ae894cf190c67d86.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -838,7 +838,7 @@
     },
     {
       "id": "2896bc55",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -851,7 +851,7 @@
     },
     {
       "id": "fff47df1",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -864,7 +864,7 @@
     },
     {
       "id": "b9974da1",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -877,7 +877,7 @@
     },
     {
       "id": "dc367be7",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -890,7 +890,7 @@
     },
     {
       "id": "fc893a35",
-      "image": "8005256ba45d9d05ad142109416554e2.png",
+      "image": "583be3491a6268014e28b6578599b6fb.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -903,7 +903,7 @@
     },
     {
       "id": "bd514f3f",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -916,7 +916,7 @@
     },
     {
       "id": "e881b3c5",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -929,7 +929,7 @@
     },
     {
       "id": "44f73d64",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -942,7 +942,7 @@
     },
     {
       "id": "0db301b9",
-      "image": "e4cfada339991289beeba319deddcb46.png",
+      "image": "724d9862201a7e81847a85417d4ace42.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -955,7 +955,7 @@
     },
     {
       "id": "679b1f3a",
-      "image": "1fbe58b4b23f9e0203ced81812921c2a.png",
+      "image": "b653e234aec7c02558b7a9f6e75b27a0.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -968,7 +968,7 @@
     },
     {
       "id": "96c2fd68",
-      "image": "d0b2da8f36ea499b426255620f952a14.png",
+      "image": "991b4b23308f82b2ac9b3818e645b22b.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -981,7 +981,7 @@
     },
     {
       "id": "5da8e855",
-      "image": "2848d0e4f9369be5aebcc6647399cd8c.png",
+      "image": "7c73f206b1b609ca1a6cd8067efd1075.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -994,7 +994,7 @@
     },
     {
       "id": "9520fb70",
-      "image": "968cad673ba4e13684548840af4a1390.png",
+      "image": "75371654cc487b5bf25cb5663479b024.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1007,7 +1007,7 @@
     },
     {
       "id": "1a6f4183",
-      "image": "e348ca24cacd57a6d113c6c0144d9130.png",
+      "image": "5af23743865d7d17ebc3b3ce3e8db911.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1020,7 +1020,7 @@
     },
     {
       "id": "2eb2e6a7",
-      "image": "7a1a0aaca441487bffdd962d07f1bb58.png",
+      "image": "7a7a3a4574fcd4489e481d563c8da4bb.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1033,7 +1033,7 @@
     },
     {
       "id": "5e5396d7",
-      "image": "10b9d06ee3d4115fdb79e70df4393698.png",
+      "image": "1ba93c895ab827fe5f29f34996d795da.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1046,7 +1046,7 @@
     },
     {
       "id": "46f04d0c",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1059,7 +1059,7 @@
     },
     {
       "id": "c47b06ee",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1072,7 +1072,7 @@
     },
     {
       "id": "6f61e3c3",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1085,7 +1085,7 @@
     },
     {
       "id": "0ed2f853",
-      "image": "9d82496ae17b2370a225a4485cf75325.png",
+      "image": "c87dac697ede875bdca115d2e7470245.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1098,7 +1098,7 @@
     },
     {
       "id": "4bb6d33b",
-      "image": "20d25ff3afafd74992cee51e1b074d0b.png",
+      "image": "08e13d73e550827ac6b75f6702597979.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1111,7 +1111,7 @@
     },
     {
       "id": "4d33c96c",
-      "image": "81708467fd1882862661baa133b637ea.png",
+      "image": "3761361e1ae0ef5cdcbd33b2516f7512.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1124,7 +1124,7 @@
     },
     {
       "id": "ab984fae",
-      "image": "2848d0e4f9369be5aebcc6647399cd8c.png",
+      "image": "7c73f206b1b609ca1a6cd8067efd1075.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1137,7 +1137,7 @@
     },
     {
       "id": "bc689410",
-      "image": "968cad673ba4e13684548840af4a1390.png",
+      "image": "75371654cc487b5bf25cb5663479b024.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1150,7 +1150,7 @@
     },
     {
       "id": "f3b64389",
-      "image": "e348ca24cacd57a6d113c6c0144d9130.png",
+      "image": "5af23743865d7d17ebc3b3ce3e8db911.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1163,7 +1163,7 @@
     },
     {
       "id": "5cd0ad90",
-      "image": "7a1a0aaca441487bffdd962d07f1bb58.png",
+      "image": "7a7a3a4574fcd4489e481d563c8da4bb.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost brand-color progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1176,7 +1176,7 @@
     },
     {
       "id": "e1b2b6ba",
-      "image": "3ed9927f7fac1658210eb6854a2c2f53.png",
+      "image": "87b8635bddff0ec53063df435b8fd6c0.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1189,7 +1189,7 @@
     },
     {
       "id": "8f86763a",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1202,7 +1202,7 @@
     },
     {
       "id": "747a2019",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1215,7 +1215,7 @@
     },
     {
       "id": "f51b9558",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1228,7 +1228,7 @@
     },
     {
       "id": "620920d1",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1241,7 +1241,7 @@
     },
     {
       "id": "b5f01fe1",
-      "image": "adcdadd4cee0ff8f584e39eb85d14e74.png",
+      "image": "0cf4b03268ceed571f1080a6b05173f7.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1254,7 +1254,7 @@
     },
     {
       "id": "3f58d07d",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1267,7 +1267,7 @@
     },
     {
       "id": "ec8e6724",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1280,7 +1280,7 @@
     },
     {
       "id": "98e8ee18",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1293,7 +1293,7 @@
     },
     {
       "id": "79957b84",
-      "image": "1a59ffcdd42f86b6529a1cada4fef369.png",
+      "image": "cf092fe9af35ce6641033c4618480c65.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1306,7 +1306,7 @@
     },
     {
       "id": "f51320a5",
-      "image": "d60e0fa8d3ce6165d3d5ec063f115292.png",
+      "image": "577eb88029da9964236241187fbd86e8.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1319,7 +1319,7 @@
     },
     {
       "id": "d1b97cda",
-      "image": "1fc50af662971a3d8eda4782fc071f72.png",
+      "image": "2335e0225c2c1c8397a00cd35fc68682.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1332,7 +1332,7 @@
     },
     {
       "id": "63b14b5f",
-      "image": "6959b8a8f4788bdaa384cb58b4765348.png",
+      "image": "a03c005434fe88519d0831a6640adb2d.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1345,7 +1345,7 @@
     },
     {
       "id": "1e3d1c9f",
-      "image": "dd4b8ae05bcfa52cd5dac5029a8fc585.png",
+      "image": "72b7699dc7636528db61292f93ce1b75.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1358,7 +1358,7 @@
     },
     {
       "id": "68eb104f",
-      "image": "b7920c7ddd4b0f32e324116a2de51759.png",
+      "image": "22d8678227560a09734291bdaf7feb90.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1371,7 +1371,7 @@
     },
     {
       "id": "cc0016dc",
-      "image": "4567cae87cc4fcec8247dcf1c5aaea4b.png",
+      "image": "952cf107c8657a54ca6b64fa69fc79d3.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1384,7 +1384,7 @@
     },
     {
       "id": "2f535188",
-      "image": "eff0d33fdd3bd063461dd6e8e02ac13f.png",
+      "image": "c8112c8aa25da45be31742bc3d87bf76.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1397,7 +1397,7 @@
     },
     {
       "id": "cb1a61fa",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1410,7 +1410,7 @@
     },
     {
       "id": "4095db7f",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1423,7 +1423,7 @@
     },
     {
       "id": "49179d96",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1436,7 +1436,7 @@
     },
     {
       "id": "8c02c23e",
-      "image": "3132fb385b0edb7df2af57664bc6ac88.png",
+      "image": "dd2bc4c9b56205b54a79f8bb2dbdf79c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1449,7 +1449,7 @@
     },
     {
       "id": "358a8ea5",
-      "image": "ae994eca6c746d404882c4d6483d9c35.png",
+      "image": "fd51048cab98589108d13a2bed0927d9.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1462,7 +1462,7 @@
     },
     {
       "id": "0e0ed0f6",
-      "image": "664a204334d82a79249ca954b111f3fe.png",
+      "image": "b957e9c27a6501ae5f57f2c753e5612c.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1475,7 +1475,7 @@
     },
     {
       "id": "2961ef83",
-      "image": "6959b8a8f4788bdaa384cb58b4765348.png",
+      "image": "a03c005434fe88519d0831a6640adb2d.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1488,7 +1488,7 @@
     },
     {
       "id": "6545c866",
-      "image": "dd4b8ae05bcfa52cd5dac5029a8fc585.png",
+      "image": "72b7699dc7636528db61292f93ce1b75.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1501,7 +1501,7 @@
     },
     {
       "id": "80174ad7",
-      "image": "b7920c7ddd4b0f32e324116a2de51759.png",
+      "image": "22d8678227560a09734291bdaf7feb90.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1514,7 +1514,7 @@
     },
     {
       "id": "d45cbc2c",
-      "image": "4567cae87cc4fcec8247dcf1c5aaea4b.png",
+      "image": "952cf107c8657a54ca6b64fa69fc79d3.png",
       "userAgent": "default",
       "desc": "ld-button mode ghost progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1527,7 +1527,7 @@
     },
     {
       "id": "617984be",
-      "image": "e6f367a7ea06bca90b84aaf5cecea628.png",
+      "image": "a0c9b4f9fb91262d7ffbbe2081c8823d.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1540,7 +1540,7 @@
     },
     {
       "id": "8ce7612a",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1553,7 +1553,7 @@
     },
     {
       "id": "43b8a3e9",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1566,7 +1566,7 @@
     },
     {
       "id": "e4916215",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1579,7 +1579,7 @@
     },
     {
       "id": "05bef829",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1592,7 +1592,7 @@
     },
     {
       "id": "9215d103",
-      "image": "beed2d954758dcbca14bcaa6cfddd2da.png",
+      "image": "a857456adbf6df6e4bb40629232e9c4b.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1605,7 +1605,7 @@
     },
     {
       "id": "1f626064",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1618,7 +1618,7 @@
     },
     {
       "id": "c3437ed5",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1631,7 +1631,7 @@
     },
     {
       "id": "1ba3b61f",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1644,7 +1644,7 @@
     },
     {
       "id": "666e9da8",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "b17cb131",
-      "image": "340282e416a2b08a25fbcbdc2f183273.png",
+      "image": "859173f807155f50acd9c744e4f8b3bd.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1670,7 +1670,7 @@
     },
     {
       "id": "990ec0ea",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1683,7 +1683,7 @@
     },
     {
       "id": "29e3065a",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1696,7 +1696,7 @@
     },
     {
       "id": "a7fa1b51",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1709,7 +1709,7 @@
     },
     {
       "id": "59daf80e",
-      "image": "30f617c9beba563a10d9d25a4d618cd0.png",
+      "image": "39dbca3d8fb0d82cb7511689178a60c9.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1722,7 +1722,7 @@
     },
     {
       "id": "77fa817f",
-      "image": "0a60702471dd55f0b41f72374dd7b36c.png",
+      "image": "66c0df06315924eee13a5ea856cac897.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1735,7 +1735,7 @@
     },
     {
       "id": "2c1587b4",
-      "image": "319361896b41b3b1f474aa0961d662f7.png",
+      "image": "b7d7dc4c725b3e526fc6231b5bcd441b.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1748,7 +1748,7 @@
     },
     {
       "id": "be13e068",
-      "image": "e4f7fe0ce907f4c7850ac32bd5a2b698.png",
+      "image": "8a414db324031ff8feab62f2b70a4f65.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1761,7 +1761,7 @@
     },
     {
       "id": "4ab44ad3",
-      "image": "7c1ce3757c1f789f796bbadfba32e414.png",
+      "image": "453bfc489a6ed946b937382184e473ef.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1774,7 +1774,7 @@
     },
     {
       "id": "7e03f219",
-      "image": "3e63d0cd81417003ec0206740827d5cc.png",
+      "image": "3517fbbbe643ad138ab4442b560a55b4.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1787,7 +1787,7 @@
     },
     {
       "id": "45f7c0a1",
-      "image": "8da289be661b649ba920ce93adb4eb77.png",
+      "image": "a594266b82f2a34b7e5e7df3b6454e91.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1800,7 +1800,7 @@
     },
     {
       "id": "1723c0a3",
-      "image": "87f645a267510a2ff420cf4057b5dec0.png",
+      "image": "e645c74d7093a2596b9980c711deca56.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1813,7 +1813,7 @@
     },
     {
       "id": "b86bb712",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1826,7 +1826,7 @@
     },
     {
       "id": "60ad6717",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1839,7 +1839,7 @@
     },
     {
       "id": "bc05f15c",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1852,7 +1852,7 @@
     },
     {
       "id": "e8de0036",
-      "image": "56f221793243e61ddccfffedea201c42.png",
+      "image": "231a529a139a48a36e3a02ba4daea46e.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1865,7 +1865,7 @@
     },
     {
       "id": "ad2dfc92",
-      "image": "862da97a4f2561edd0b17aa56dc85b1b.png",
+      "image": "85717de3949185ccbf433dbf99b580f1.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1878,7 +1878,7 @@
     },
     {
       "id": "5a0315d1",
-      "image": "d0b2507ebe2ca056a67fb44cfd207af4.png",
+      "image": "b3ccb2f2b7e6d71a8286393c4a977de8.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1891,7 +1891,7 @@
     },
     {
       "id": "33e99e01",
-      "image": "e4f7fe0ce907f4c7850ac32bd5a2b698.png",
+      "image": "8a414db324031ff8feab62f2b70a4f65.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1904,7 +1904,7 @@
     },
     {
       "id": "fa360f7c",
-      "image": "7c1ce3757c1f789f796bbadfba32e414.png",
+      "image": "453bfc489a6ed946b937382184e473ef.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1917,7 +1917,7 @@
     },
     {
       "id": "e6b78791",
-      "image": "3e63d0cd81417003ec0206740827d5cc.png",
+      "image": "3517fbbbe643ad138ab4442b560a55b4.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1930,7 +1930,7 @@
     },
     {
       "id": "6f3d2219",
-      "image": "8da289be661b649ba920ce93adb4eb77.png",
+      "image": "a594266b82f2a34b7e5e7df3b6454e91.png",
       "userAgent": "default",
       "desc": "ld-button mode highlight progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1943,7 +1943,7 @@
     },
     {
       "id": "0d7577aa",
-      "image": "8e34fdd4fcdfb8c8d5717c6af1615582.png",
+      "image": "b35a530df68161ffaa23a779daa34fba.png",
       "userAgent": "default",
       "desc": "ld-button mode none active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1956,7 +1956,7 @@
     },
     {
       "id": "4bc9e477",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1969,7 +1969,7 @@
     },
     {
       "id": "c0d1b1da",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1982,7 +1982,7 @@
     },
     {
       "id": "88678f01",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1995,7 +1995,7 @@
     },
     {
       "id": "4779313b",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2008,7 +2008,7 @@
     },
     {
       "id": "8fbf925d",
-      "image": "26fdf821abcb8d851d0df87aaa423b12.png",
+      "image": "58e695d210236c83b143b534f36c138f.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2021,7 +2021,7 @@
     },
     {
       "id": "8ed9bf7f",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2034,7 +2034,7 @@
     },
     {
       "id": "0e9de8fc",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2047,7 +2047,7 @@
     },
     {
       "id": "1286f8e6",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2060,7 +2060,7 @@
     },
     {
       "id": "27fca60c",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2073,7 +2073,7 @@
     },
     {
       "id": "db05c0c2",
-      "image": "3cc2e83ef2043fca23febf3ac6ed6251.png",
+      "image": "dbf3672aae7a866908ce1995c8d9c938.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2086,7 +2086,7 @@
     },
     {
       "id": "d37bde9d",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2099,7 +2099,7 @@
     },
     {
       "id": "f7867b90",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2112,7 +2112,7 @@
     },
     {
       "id": "0bbb27c6",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2125,7 +2125,7 @@
     },
     {
       "id": "f8a2e48c",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2138,7 +2138,7 @@
     },
     {
       "id": "f1cfe6aa",
-      "image": "358e4a18a3282e7eec11c058d72d5795.png",
+      "image": "d7e2a9a272c5c6c2069247aad2447273.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2151,7 +2151,7 @@
     },
     {
       "id": "73cf9090",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2164,7 +2164,7 @@
     },
     {
       "id": "0f87fd34",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2177,7 +2177,7 @@
     },
     {
       "id": "033d7866",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2190,7 +2190,7 @@
     },
     {
       "id": "66c2330f",
-      "image": "097d49136d5ede6189fc93a63c059ff7.png",
+      "image": "33d800ab804e8ec31062e40496b2943d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2203,7 +2203,7 @@
     },
     {
       "id": "e8d48c47",
-      "image": "c24112e3d6a207b43f9e98bf4a5e9202.png",
+      "image": "773ef19dbbef909f024c0f39939b76a7.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2216,7 +2216,7 @@
     },
     {
       "id": "7dc8ce83",
-      "image": "fa7b19ae697c84f184ec65f5db5217f9.png",
+      "image": "15d2fac6c728bc8a9361c21be422d56c.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2229,7 +2229,7 @@
     },
     {
       "id": "48249f77",
-      "image": "63c1663086d9b842be18f2a9ac130d20.png",
+      "image": "b3f471f4b08924902056ae37599ac6ac.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2242,7 +2242,7 @@
     },
     {
       "id": "ec3c6be2",
-      "image": "88164cb26db12536206782d6bd989269.png",
+      "image": "b7a91a1a294218e1667ebb7e4f8e8803.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2255,7 +2255,7 @@
     },
     {
       "id": "f94b0888",
-      "image": "0c2691f76f77c80944a5eef29e86805c.png",
+      "image": "644364e3d341478384a961f50f958ea7.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2268,7 +2268,7 @@
     },
     {
       "id": "826cdc30",
-      "image": "283a16e79cff2ebf21df5562ca399f52.png",
+      "image": "47aafd28d62cabef34d299bf67a310bc.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2281,7 +2281,7 @@
     },
     {
       "id": "196e815a",
-      "image": "f05bc1df89d04e84a00082ce4f2dd95e.png",
+      "image": "6b3fbff1d6883b7dfa7944f2dbc95bf5.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2294,7 +2294,7 @@
     },
     {
       "id": "d3ed61a6",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2307,7 +2307,7 @@
     },
     {
       "id": "30dd8bb8",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2320,7 +2320,7 @@
     },
     {
       "id": "e42b5960",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2333,7 +2333,7 @@
     },
     {
       "id": "29fe580f",
-      "image": "77225b691c8b29ef7d4d0e44bd61bf9a.png",
+      "image": "e3019d071709f1c689db86023c16bcf8.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2346,7 +2346,7 @@
     },
     {
       "id": "3124e788",
-      "image": "d0811535a0bb7961581368f3c8253bb8.png",
+      "image": "237f7e6e00466fe7b261415e37560e0c.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2359,7 +2359,7 @@
     },
     {
       "id": "521b589a",
-      "image": "59c89cf98309c1d584a36a4f0759e771.png",
+      "image": "8db49933a265dfde8ca72da2f6888e2d.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2372,7 +2372,7 @@
     },
     {
       "id": "064f6221",
-      "image": "63c1663086d9b842be18f2a9ac130d20.png",
+      "image": "b3f471f4b08924902056ae37599ac6ac.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2385,7 +2385,7 @@
     },
     {
       "id": "974ed780",
-      "image": "88164cb26db12536206782d6bd989269.png",
+      "image": "b7a91a1a294218e1667ebb7e4f8e8803.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2398,7 +2398,7 @@
     },
     {
       "id": "3d00d0de",
-      "image": "0c2691f76f77c80944a5eef29e86805c.png",
+      "image": "644364e3d341478384a961f50f958ea7.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2411,7 +2411,7 @@
     },
     {
       "id": "a84e350f",
-      "image": "283a16e79cff2ebf21df5562ca399f52.png",
+      "image": "47aafd28d62cabef34d299bf67a310bc.png",
       "userAgent": "default",
       "desc": "ld-button mode none brand-color progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2424,7 +2424,7 @@
     },
     {
       "id": "68634e19",
-      "image": "6dda79a6918c73672c084f748401b0c6.png",
+      "image": "aad5d23fa72a8bcdb0fd2f647de69597.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2437,7 +2437,7 @@
     },
     {
       "id": "748e2b5b",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2450,7 +2450,7 @@
     },
     {
       "id": "67d06e63",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2463,7 +2463,7 @@
     },
     {
       "id": "999e5d60",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2476,7 +2476,7 @@
     },
     {
       "id": "bb6a1272",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2489,7 +2489,7 @@
     },
     {
       "id": "480281a1",
-      "image": "65b376ac070c3e7646df23dd6975c6be.png",
+      "image": "98e7fdfaa78133e1014ca517e0422ad4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2502,7 +2502,7 @@
     },
     {
       "id": "4e82c2bf",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2515,7 +2515,7 @@
     },
     {
       "id": "a389d363",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2528,7 +2528,7 @@
     },
     {
       "id": "2543ae3d",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2541,7 +2541,7 @@
     },
     {
       "id": "c0f1074e",
-      "image": "bd8edf0aeeb64eca23547a21e655c9d5.png",
+      "image": "3314671f0054163a64f7eb7ee251e1a4.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2554,7 +2554,7 @@
     },
     {
       "id": "de9142b9",
-      "image": "9338475e947b16bb9596d69811223af6.png",
+      "image": "db53df3f687e30218375adb8970bacd6.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2567,7 +2567,7 @@
     },
     {
       "id": "1720f1f8",
-      "image": "3d17c51dc45583d91f9e69b2b294d04c.png",
+      "image": "7b1c882f44fbb27af0b5fa17d1c2d415.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2580,7 +2580,7 @@
     },
     {
       "id": "ff780262",
-      "image": "67a92c335300e5400260becd432e2d6c.png",
+      "image": "1587f971cc3bddacabe0d5680f0ac43e.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2593,7 +2593,7 @@
     },
     {
       "id": "cba506cf",
-      "image": "03c66fa4dac4f0608312f65d28f2830a.png",
+      "image": "1abd4f21da933e0fe8aad4b9f164eb8d.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2606,7 +2606,7 @@
     },
     {
       "id": "3d109a05",
-      "image": "688c01a9fe4f2a10dcffe5a5ae3a9acd.png",
+      "image": "cf338080be170580de93b5ff27365f2f.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2619,7 +2619,7 @@
     },
     {
       "id": "30e7d90d",
-      "image": "f690d90401888167a0fcaca057a5fc90.png",
+      "image": "6b4957e2fa88d680d1d5020029de9198.png",
       "userAgent": "default",
       "desc": "ld-button mode none css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2632,7 +2632,7 @@
     },
     {
       "id": "73e523fb",
-      "image": "14491627fd42cda2011fffd92544352c.png",
+      "image": "e0193ce006e37fabf36900daaadd0712.png",
       "userAgent": "default",
       "desc": "ld-button mode none default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2645,7 +2645,7 @@
     },
     {
       "id": "e3a9491c",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2658,7 +2658,7 @@
     },
     {
       "id": "eb06d2a6",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2671,7 +2671,7 @@
     },
     {
       "id": "680875a0",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2684,7 +2684,7 @@
     },
     {
       "id": "7d1288d8",
-      "image": "8a06ba424b8322f6bc31a3feda5a0aef.png",
+      "image": "544c214ff1949279aac4842b11145859.png",
       "userAgent": "default",
       "desc": "ld-button mode none disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2697,7 +2697,7 @@
     },
     {
       "id": "8cf6277e",
-      "image": "a5456ec66ad2563dce2f8a1dbb06e45b.png",
+      "image": "01dad6e0ffc6b4dd6e54e1b91b811abe.png",
       "userAgent": "default",
       "desc": "ld-button mode none focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2710,7 +2710,7 @@
     },
     {
       "id": "1bf28cbc",
-      "image": "aebac8132cb3344982dd8b6d25c1dd40.png",
+      "image": "4353d29b4d419d5ce9244c1c0e2a9a6b.png",
       "userAgent": "default",
       "desc": "ld-button mode none hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2723,7 +2723,7 @@
     },
     {
       "id": "fdf82d63",
-      "image": "67a92c335300e5400260becd432e2d6c.png",
+      "image": "1587f971cc3bddacabe0d5680f0ac43e.png",
       "userAgent": "default",
       "desc": "ld-button mode none progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2736,7 +2736,7 @@
     },
     {
       "id": "774a9c01",
-      "image": "03c66fa4dac4f0608312f65d28f2830a.png",
+      "image": "1abd4f21da933e0fe8aad4b9f164eb8d.png",
       "userAgent": "default",
       "desc": "ld-button mode none progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2749,7 +2749,7 @@
     },
     {
       "id": "d9471fc5",
-      "image": "688c01a9fe4f2a10dcffe5a5ae3a9acd.png",
+      "image": "cf338080be170580de93b5ff27365f2f.png",
       "userAgent": "default",
       "desc": "ld-button mode none progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2762,7 +2762,7 @@
     },
     {
       "id": "60d7b510",
-      "image": "f690d90401888167a0fcaca057a5fc90.png",
+      "image": "6b4957e2fa88d680d1d5020029de9198.png",
       "userAgent": "default",
       "desc": "ld-button mode none progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2775,7 +2775,7 @@
     },
     {
       "id": "d7568e0f",
-      "image": "7e97b6bade1303b46a587741627a54b3.png",
+      "image": "8a7d686bc882b91ccaef52d88c10fd4c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2788,7 +2788,7 @@
     },
     {
       "id": "6541ff6d",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2801,7 +2801,7 @@
     },
     {
       "id": "37067d75",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2814,7 +2814,7 @@
     },
     {
       "id": "9f647bb0",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2827,7 +2827,7 @@
     },
     {
       "id": "09ff3e19",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2840,7 +2840,7 @@
     },
     {
       "id": "c1750b7e",
-      "image": "4666c1b61920046c62a199a0827a4fc7.png",
+      "image": "5b48c3b9fec461f78f59845caa1c43fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2853,7 +2853,7 @@
     },
     {
       "id": "8166a073",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2866,7 +2866,7 @@
     },
     {
       "id": "5138051c",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2879,7 +2879,7 @@
     },
     {
       "id": "3c0894b0",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2892,7 +2892,7 @@
     },
     {
       "id": "fdbae976",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2905,7 +2905,7 @@
     },
     {
       "id": "62b3bd92",
-      "image": "12e9c8dcefc1501dac4c782666c3cf4e.png",
+      "image": "744e99e0663dab5cc3651d3d45dbcad0.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2918,7 +2918,7 @@
     },
     {
       "id": "dd467637",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2931,7 +2931,7 @@
     },
     {
       "id": "082ba293",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2944,7 +2944,7 @@
     },
     {
       "id": "a1915ef5",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2957,7 +2957,7 @@
     },
     {
       "id": "3e141e78",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2970,7 +2970,7 @@
     },
     {
       "id": "0356802f",
-      "image": "8277462b81eaa71e32a1b87811fa7c91.png",
+      "image": "021afc9381f602ff9ef7918c590b5b7c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2983,7 +2983,7 @@
     },
     {
       "id": "6a0569a8",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2996,7 +2996,7 @@
     },
     {
       "id": "f3daa4bf",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3009,7 +3009,7 @@
     },
     {
       "id": "4f64d1d5",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3022,7 +3022,7 @@
     },
     {
       "id": "d3852001",
-      "image": "8d503085c88747011c8a12f8ea4c2197.png",
+      "image": "1ab21dd75c21bd9161f2ba200d27ea67.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3035,7 +3035,7 @@
     },
     {
       "id": "1c82889d",
-      "image": "3f221c51bfd2a963ac9a0036d9028f3b.png",
+      "image": "05f72abb7e099d81481ddcb16a551bbb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3048,7 +3048,7 @@
     },
     {
       "id": "efa5acbc",
-      "image": "a05008aaeef508ba500bcdf9412d0614.png",
+      "image": "dac9e166115be5ca301c3bff732d7648.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3061,7 +3061,7 @@
     },
     {
       "id": "34ae5946",
-      "image": "29c4b7a67343f2bd6c2731685cae0730.png",
+      "image": "a08c6446594a051be0a0cae2ba80439c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3074,7 +3074,7 @@
     },
     {
       "id": "338f85a4",
-      "image": "eb5ba305035736554a474dcbdb112dd0.png",
+      "image": "a6421b709d6c3c7d9440a496e8198068.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3087,7 +3087,7 @@
     },
     {
       "id": "18325bf2",
-      "image": "8df3f8ba954e6252f9b40607784d02b8.png",
+      "image": "66de52193f4d71c5e75b34811d1c9138.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3100,7 +3100,7 @@
     },
     {
       "id": "09ae889e",
-      "image": "b3175af8a42e099ec8d1c70182acc733.png",
+      "image": "685fc70916d2a3999687ba50f6162e3c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3113,7 +3113,7 @@
     },
     {
       "id": "f66b5f3b",
-      "image": "ae2a046aff437d4bc5b0a9679e98f193.png",
+      "image": "83032fbd5d7dfd69c37674c96f30b58d.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3126,7 +3126,7 @@
     },
     {
       "id": "2291e5c7",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3139,7 +3139,7 @@
     },
     {
       "id": "c83e947b",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3152,7 +3152,7 @@
     },
     {
       "id": "4438e05f",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3165,7 +3165,7 @@
     },
     {
       "id": "92433515",
-      "image": "e317e5b117e0875e503a422f46e34f55.png",
+      "image": "fec3db32b0db29bbae5379be0d3b57fd.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3178,7 +3178,7 @@
     },
     {
       "id": "7dc54581",
-      "image": "290fb621bcec877e177a2db7a4cdd2ea.png",
+      "image": "8ff325f58e7edcdd411bee0c833d93fc.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3191,7 +3191,7 @@
     },
     {
       "id": "9b5197f3",
-      "image": "163f5ade6f0eb84e9ba255b8e611432b.png",
+      "image": "351aae69f7cb9725f8fb470874b7467d.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3204,7 +3204,7 @@
     },
     {
       "id": "896399bc",
-      "image": "29c4b7a67343f2bd6c2731685cae0730.png",
+      "image": "a08c6446594a051be0a0cae2ba80439c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3217,7 +3217,7 @@
     },
     {
       "id": "9a20fd8a",
-      "image": "eb5ba305035736554a474dcbdb112dd0.png",
+      "image": "a6421b709d6c3c7d9440a496e8198068.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3230,7 +3230,7 @@
     },
     {
       "id": "905002a9",
-      "image": "8df3f8ba954e6252f9b40607784d02b8.png",
+      "image": "66de52193f4d71c5e75b34811d1c9138.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3243,7 +3243,7 @@
     },
     {
       "id": "583fac1d",
-      "image": "b3175af8a42e099ec8d1c70182acc733.png",
+      "image": "685fc70916d2a3999687ba50f6162e3c.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary brand-color progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3256,7 +3256,7 @@
     },
     {
       "id": "8a508c02",
-      "image": "33aca051221f60ee3fe8ec2b6d44eb7e.png",
+      "image": "bfe0c49a26c0f76fcffe92135e16f20b.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3269,7 +3269,7 @@
     },
     {
       "id": "9a33bb9c",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3282,7 +3282,7 @@
     },
     {
       "id": "b0ca39e3",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3295,7 +3295,7 @@
     },
     {
       "id": "4e4b1138",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3308,7 +3308,7 @@
     },
     {
       "id": "f4e316af",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3321,7 +3321,7 @@
     },
     {
       "id": "67859155",
-      "image": "eeac47073a05d9c241fd5fb209af059b.png",
+      "image": "6bcf735903a89ad399251f16992e4113.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3334,7 +3334,7 @@
     },
     {
       "id": "f21dd5fb",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3347,7 +3347,7 @@
     },
     {
       "id": "b2d013db",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3360,7 +3360,7 @@
     },
     {
       "id": "65f2bdfc",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3373,7 +3373,7 @@
     },
     {
       "id": "c3077d80",
-      "image": "3572efe606d2bb0ca0ccf260ded7172d.png",
+      "image": "2502e3f00c6cc41443da0c3ccbb135bb.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3386,7 +3386,7 @@
     },
     {
       "id": "1991b7ad",
-      "image": "c5bb5ac27835092bb8fa6e00b257dbea.png",
+      "image": "255c0a9e6aa5206592c4cb026109af95.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3399,7 +3399,7 @@
     },
     {
       "id": "4be282ec",
-      "image": "36d0a7a1a7b92807823dcdbbd9a432c9.png",
+      "image": "cbf72555dde1ef89f222b90f2ed37245.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3412,7 +3412,7 @@
     },
     {
       "id": "ceb4ba76",
-      "image": "cd6c307427e030b3986e2b98971e6534.png",
+      "image": "c2befb118c249704de772e4b845446f7.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3425,7 +3425,7 @@
     },
     {
       "id": "137d7895",
-      "image": "f7345389284ee9075c856588eec153b4.png",
+      "image": "7d8f267aca8e06c6410cd2df46defa54.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3438,7 +3438,7 @@
     },
     {
       "id": "0969e53d",
-      "image": "f8cda65279835dfe52d22226de972c0b.png",
+      "image": "7a124b74bcb737728d3ea71541c20bef.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3451,7 +3451,7 @@
     },
     {
       "id": "b2d999ea",
-      "image": "b2446711b789fffece779d953284b89d.png",
+      "image": "3508721e8193f730a73f5e11ecdea479.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3464,7 +3464,7 @@
     },
     {
       "id": "1ea871ef",
-      "image": "63ef0128c8063d59f173c29a22d58423.png",
+      "image": "347ab29f01a20ed860ba167430a584a8.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3477,7 +3477,7 @@
     },
     {
       "id": "11b3cf42",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3490,7 +3490,7 @@
     },
     {
       "id": "754c1d6d",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3503,7 +3503,7 @@
     },
     {
       "id": "6786adee",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3516,7 +3516,7 @@
     },
     {
       "id": "20daeda3",
-      "image": "c4b3e5858baca13b24dcd1c801d464b1.png",
+      "image": "c51c58e4ec683ed39ed58ea958a41ac3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3529,7 +3529,7 @@
     },
     {
       "id": "243a0adc",
-      "image": "c52dba8b3cc60d03e5a5428d5537ccaf.png",
+      "image": "84a699cea884c0566885226c433869b3.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3542,7 +3542,7 @@
     },
     {
       "id": "8f48d205",
-      "image": "3e7810c2c02711b98bd2b9a16fa25a35.png",
+      "image": "6294306d36ef0de3323779464499e525.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3555,7 +3555,7 @@
     },
     {
       "id": "aeb112be",
-      "image": "cd6c307427e030b3986e2b98971e6534.png",
+      "image": "c2befb118c249704de772e4b845446f7.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3568,7 +3568,7 @@
     },
     {
       "id": "ac142970",
-      "image": "f7345389284ee9075c856588eec153b4.png",
+      "image": "7d8f267aca8e06c6410cd2df46defa54.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3581,7 +3581,7 @@
     },
     {
       "id": "ea53f5c7",
-      "image": "f8cda65279835dfe52d22226de972c0b.png",
+      "image": "7a124b74bcb737728d3ea71541c20bef.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3594,7 +3594,7 @@
     },
     {
       "id": "92df4a96",
-      "image": "b2446711b789fffece779d953284b89d.png",
+      "image": "3508721e8193f730a73f5e11ecdea479.png",
       "userAgent": "default",
       "desc": "ld-button mode secondary progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3607,7 +3607,7 @@
     },
     {
       "id": "fd8b2d91",
-      "image": "42da61d0ab6dd04f9e9a83e282237deb.png",
+      "image": "9cc63c2a8ac746d6979309825a7989aa.png",
       "userAgent": "default",
       "desc": "ld-button multiline with text align multiline text centered",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3633,7 +3633,7 @@
     },
     {
       "id": "596fed9e",
-      "image": "2c56f719de1133eaa7205c85c6e3738f.png",
+      "image": "9ea40faed0a2677599301765feb26398.png",
       "userAgent": "default",
       "desc": "ld-button multiline with text align multiline text right",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -3659,7 +3659,7 @@
     },
     {
       "id": "2ad24f4c",
-      "image": "8d6ced08ec18e83d7f8c8834719107b2.png",
+      "image": "87e48e83509ea939f85d68065baee14b.png",
       "userAgent": "default",
       "desc": "ld-button sizes sm",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -4348,7 +4348,7 @@
     },
     {
       "id": "5be7f310",
-      "image": "00430d23cc3fc1ca13e629cc24513e8e.png",
+      "image": "d48b0cde8ffbe0ab2476f10e892eeef1.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark css component default",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4452,7 +4452,7 @@
     },
     {
       "id": "e01daca2",
-      "image": "d3eca2e2d82dd3fc1099b03ce9a730a8.png",
+      "image": "950a4a3617775dbc7ff23d1c300d2d19.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark css component focus",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4478,7 +4478,7 @@
     },
     {
       "id": "d919c909",
-      "image": "00430d23cc3fc1ca13e629cc24513e8e.png",
+      "image": "d48b0cde8ffbe0ab2476f10e892eeef1.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark css component hover",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4504,7 +4504,7 @@
     },
     {
       "id": "8863a0d4",
-      "image": "00430d23cc3fc1ca13e629cc24513e8e.png",
+      "image": "d48b0cde8ffbe0ab2476f10e892eeef1.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark default",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4517,7 +4517,7 @@
     },
     {
       "id": "f126817b",
-      "image": "00430d23cc3fc1ca13e629cc24513e8e.png",
+      "image": "d48b0cde8ffbe0ab2476f10e892eeef1.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark default checked",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4608,7 +4608,7 @@
     },
     {
       "id": "a6933662",
-      "image": "d3eca2e2d82dd3fc1099b03ce9a730a8.png",
+      "image": "950a4a3617775dbc7ff23d1c300d2d19.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark focus",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -4634,7 +4634,7 @@
     },
     {
       "id": "ae425d94",
-      "image": "00430d23cc3fc1ca13e629cc24513e8e.png",
+      "image": "d48b0cde8ffbe0ab2476f10e892eeef1.png",
       "userAgent": "default",
       "desc": "ld-checkbox tone dark hover",
       "testPath": "./src/liquid/components/ld-checkbox/test/ld-checkbox.e2e.ts",
@@ -5375,7 +5375,7 @@
     },
     {
       "id": "ab9cae96",
-      "image": "6b11baeb77f4acbd9c2231aafa449edc.png",
+      "image": "8ea54fac3f833befad027158419e51cf.png",
       "userAgent": "default",
       "desc": "ld-input multiline css component",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -5388,7 +5388,7 @@
     },
     {
       "id": "fdd9fe79",
-      "image": "6b11baeb77f4acbd9c2231aafa449edc.png",
+      "image": "8ea54fac3f833befad027158419e51cf.png",
       "userAgent": "default",
       "desc": "ld-input multiline web component",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
@@ -5427,7 +5427,7 @@
     },
     {
       "id": "0e8aa120",
-      "image": "2a73834379097663ea0436f0b11e7a76.png",
+      "image": "49cf8056a2bd02a09c3d154a3be6a8b8.png",
       "userAgent": "default",
       "desc": "ld-label position renders at the top by default",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5440,7 +5440,7 @@
     },
     {
       "id": "0d269bfe",
-      "image": "2a73834379097663ea0436f0b11e7a76.png",
+      "image": "49cf8056a2bd02a09c3d154a3be6a8b8.png",
       "userAgent": "default",
       "desc": "ld-label position renders at the top by default as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5479,7 +5479,7 @@
     },
     {
       "id": "6ffdca34",
-      "image": "0e46247f879a3ebcf6746efda8293e83.png",
+      "image": "04bcfc805fdee3f6fdf4a3f0d3260075.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5492,7 +5492,7 @@
     },
     {
       "id": "4b59f367",
-      "image": "0e46247f879a3ebcf6746efda8293e83.png",
+      "image": "04bcfc805fdee3f6fdf4a3f0d3260075.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5505,7 +5505,7 @@
     },
     {
       "id": "59a24750",
-      "image": "b05d4134e3f35fe58a6d1d44c8043176.png",
+      "image": "4c322bfb30ed50ac50d8dacf6575196e.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5518,7 +5518,7 @@
     },
     {
       "id": "7e25f49d",
-      "image": "b05d4134e3f35fe58a6d1d44c8043176.png",
+      "image": "4c322bfb30ed50ac50d8dacf6575196e.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with input message at the bottom as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5531,7 +5531,7 @@
     },
     {
       "id": "2aba4500",
-      "image": "47b50ab9ebefbe4e7bb68338cb52066d.png",
+      "image": "4ce36ab4818f0d436a3095deb824e96b.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with left-aligned input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5544,7 +5544,7 @@
     },
     {
       "id": "e6a17041",
-      "image": "47b50ab9ebefbe4e7bb68338cb52066d.png",
+      "image": "4ce36ab4818f0d436a3095deb824e96b.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the left with left-aligned input message at the bottom as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5557,7 +5557,7 @@
     },
     {
       "id": "40e7ebf4",
-      "image": "c3e2e5cdce82364a3bb1546c5842117a.png",
+      "image": "738b27d491f8901705d5c2ee92e1879a.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5570,7 +5570,7 @@
     },
     {
       "id": "5100db8a",
-      "image": "c3e2e5cdce82364a3bb1546c5842117a.png",
+      "image": "738b27d491f8901705d5c2ee92e1879a.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5583,7 +5583,7 @@
     },
     {
       "id": "8e808ff3",
-      "image": "f99aa6b83e089e4ca6c2463399deb187.png",
+      "image": "cdf2a9f9f8c0f6912ed454078004725e.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5596,7 +5596,7 @@
     },
     {
       "id": "b25472c1",
-      "image": "f99aa6b83e089e4ca6c2463399deb187.png",
+      "image": "cdf2a9f9f8c0f6912ed454078004725e.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with input message at the bottom as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5609,7 +5609,7 @@
     },
     {
       "id": "e32c3429",
-      "image": "18202831627e0238d8e26f730d746e6f.png",
+      "image": "55a78a7ceee4631aaa3d9acabd49e126.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with left-aligned input message at the bottom",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5622,7 +5622,7 @@
     },
     {
       "id": "04f92920",
-      "image": "18202831627e0238d8e26f730d746e6f.png",
+      "image": "55a78a7ceee4631aaa3d9acabd49e126.png",
       "userAgent": "default",
       "desc": "ld-label position renders on the right with left-aligned input message at the bottom as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5635,7 +5635,7 @@
     },
     {
       "id": "a5d91b19",
-      "image": "78400d30f0e4ba59ab9019e5523d1541.png",
+      "image": "eae72a220ad0daa71a2e55feb06c1ed9.png",
       "userAgent": "default",
       "desc": "ld-label renders",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5648,7 +5648,7 @@
     },
     {
       "id": "6bfa3f1a",
-      "image": "78400d30f0e4ba59ab9019e5523d1541.png",
+      "image": "eae72a220ad0daa71a2e55feb06c1ed9.png",
       "userAgent": "default",
       "desc": "ld-label renders as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5687,7 +5687,7 @@
     },
     {
       "id": "83bda761",
-      "image": "cc80c77e78a7d2fdc15d9aa8ec130a63.png",
+      "image": "2ab642692c741313c30c810a130f1f55.png",
       "userAgent": "default",
       "desc": "ld-label with html content renders with html content",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -5700,7 +5700,7 @@
     },
     {
       "id": "9ccfc0d3",
-      "image": "cc80c77e78a7d2fdc15d9aa8ec130a63.png",
+      "image": "2ab642692c741313c30c810a130f1f55.png",
       "userAgent": "default",
       "desc": "ld-label with html content renders with html content as css component",
       "testPath": "./src/liquid/components/ld-label/test/ld-label.e2e.ts",
@@ -6454,7 +6454,7 @@
     },
     {
       "id": "6cdc7194",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark css component default",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6558,7 +6558,7 @@
     },
     {
       "id": "c2850155",
-      "image": "46bbe33ceef3e5dccbcd5a848476129d.png",
+      "image": "f59b213b0907c4d1acb7d8be9c33eeac.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark css component focus",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6584,7 +6584,7 @@
     },
     {
       "id": "34a3b26b",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark css component hover",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6610,7 +6610,7 @@
     },
     {
       "id": "bd826268",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark default",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6623,7 +6623,7 @@
     },
     {
       "id": "6bb931c8",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark default checked",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6714,7 +6714,7 @@
     },
     {
       "id": "20712070",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark focus",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6740,7 +6740,7 @@
     },
     {
       "id": "f978ec11",
-      "image": "b1aeac1b39652032d360fbb739811add.png",
+      "image": "abf476c7f69aa5eb85f6f4b6c9614508.png",
       "userAgent": "default",
       "desc": "ld-radio tone dark hover",
       "testPath": "./src/liquid/components/ld-radio/test/ld-radio.e2e.ts",
@@ -6766,7 +6766,7 @@
     },
     {
       "id": "1e681179",
-      "image": "f99dd5cd570d7695135b8cc657c94314.png",
+      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6779,7 +6779,7 @@
     },
     {
       "id": "c81472bd",
-      "image": "6c089bd459432703fcb4a1b68145e30d.png",
+      "image": "8a219a49aed7d4fe7b021bcb0f31d8dc.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6792,7 +6792,7 @@
     },
     {
       "id": "39b220d2",
-      "image": "f99dd5cd570d7695135b8cc657c94314.png",
+      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6805,7 +6805,7 @@
     },
     {
       "id": "14b1db42",
-      "image": "1332d681357568918945e1a369d70f7f.png",
+      "image": "3e7f6b1253fef8d2a6376e33be0828ee.png",
       "userAgent": "default",
       "desc": "ld-select css component default",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6818,7 +6818,7 @@
     },
     {
       "id": "d70f534e",
-      "image": "cf258d92f8cf352f9f03f2ec0f7755d3.png",
+      "image": "042931a4afa98c43347e4aa2bddcb776.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6831,7 +6831,7 @@
     },
     {
       "id": "45047c2f",
-      "image": "cf258d92f8cf352f9f03f2ec0f7755d3.png",
+      "image": "042931a4afa98c43347e4aa2bddcb776.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6844,7 +6844,7 @@
     },
     {
       "id": "78e632e6",
-      "image": "cf258d92f8cf352f9f03f2ec0f7755d3.png",
+      "image": "042931a4afa98c43347e4aa2bddcb776.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6857,7 +6857,7 @@
     },
     {
       "id": "65b326f8",
-      "image": "5c06fc911b9a0c5dc1fea1eee3333a3e.png",
+      "image": "01f4bf087e30eeeeab50e0875f2172ca.png",
       "userAgent": "default",
       "desc": "ld-select css component focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6870,7 +6870,7 @@
     },
     {
       "id": "85c791c5",
-      "image": "983e68b535d6b90b66a8685fe0a0ecfd.png",
+      "image": "78dabb2e2b7a85aed38c0b127b87ce2a.png",
       "userAgent": "default",
       "desc": "ld-select css component hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6883,7 +6883,7 @@
     },
     {
       "id": "82fda3bf",
-      "image": "2bf16778e39e0b2b169708663a8d6542.png",
+      "image": "38f4e2bff513005979f678290d352b37.png",
       "userAgent": "default",
       "desc": "ld-select multiple default",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6896,7 +6896,7 @@
     },
     {
       "id": "d3f60bfd",
-      "image": "58ec53299e6603e824cb462f1202caa8.png",
+      "image": "98adfadcd9ab89c6d37fb3c8a412bb51.png",
       "userAgent": "default",
       "desc": "ld-select multiple focus clear all button",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6909,7 +6909,7 @@
     },
     {
       "id": "caff0703",
-      "image": "f67b3a6d8d62b3cfc6067cdc19788e87.png",
+      "image": "719ff1e4accb1c85be30689667184993.png",
       "userAgent": "default",
       "desc": "ld-select multiple focus selection",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6922,7 +6922,7 @@
     },
     {
       "id": "19e0c69d",
-      "image": "5abe6eb653e3eaf223c30eab07690f32.png",
+      "image": "de5ec7e14a0c6e2bc1fdeae6df82a20a.png",
       "userAgent": "default",
       "desc": "ld-select multiple hover clear all button",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6935,7 +6935,7 @@
     },
     {
       "id": "3aeb98c0",
-      "image": "0620edb47cde5ebaac1058d9f15a1217.png",
+      "image": "d93c07b764ac499e25dcab157daf9fe3.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6948,7 +6948,7 @@
     },
     {
       "id": "2b4df52f",
-      "image": "e392eaeb7ea16f2a6155d0102cedb31e.png",
+      "image": "d234bdacd88b3f76e6d9cba63a764438.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6961,7 +6961,7 @@
     },
     {
       "id": "375c49e2",
-      "image": "573e7c7fd049357530b8d8007dabfc31.png",
+      "image": "091559a49c5e4d0a10c6d2068d653ee7.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6974,7 +6974,7 @@
     },
     {
       "id": "f34a20e3",
-      "image": "3c7cbf1f1b0d3750c5c5ef3ec3ee93df.png",
+      "image": "65f2900c98ecc148a3311911fd800bc9.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -6987,7 +6987,7 @@
     },
     {
       "id": "ff3d71ae",
-      "image": "0bc6978c18a2a84b812398759ddc01fd.png",
+      "image": "64ed41b88970324d6995e2a5508e76c5.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7000,7 +7000,7 @@
     },
     {
       "id": "e1e5bcbd",
-      "image": "f53c6dbc406bdc274be10bb584d5e4cc.png",
+      "image": "c7b36710e93f532c29b776377fc5df65.png",
       "userAgent": "default",
       "desc": "ld-select multiple invalid selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7013,7 +7013,7 @@
     },
     {
       "id": "b18f6122",
-      "image": "5bc91394ef3a47831293745b6167225a.png",
+      "image": "6a6a5c317986d04b2d2b85545d0d5935.png",
       "userAgent": "default",
       "desc": "ld-select multiple max-rows",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7026,7 +7026,7 @@
     },
     {
       "id": "e0c87412",
-      "image": "0c9d48ed0a61bfa39109710d65c15c59.png",
+      "image": "ff32f2ef967f31888f1c51dc24e8cc03.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7039,7 +7039,7 @@
     },
     {
       "id": "fbe7018f",
-      "image": "8ea77da3707febb7908ef8b9b866ab1a.png",
+      "image": "75a4ac296e62574b2b1240ad8c0bff57.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected aria-disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7052,7 +7052,7 @@
     },
     {
       "id": "ad433d72",
-      "image": "8ea77da3707febb7908ef8b9b866ab1a.png",
+      "image": "75a4ac296e62574b2b1240ad8c0bff57.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7065,7 +7065,7 @@
     },
     {
       "id": "b8ee6307",
-      "image": "7870c812969ea1835f199cba03812ab9.png",
+      "image": "77cd1a6ba5075d309c4b38bc23840c66.png",
       "userAgent": "default",
       "desc": "ld-select multiple size lg selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7078,7 +7078,7 @@
     },
     {
       "id": "5691a7c9",
-      "image": "4ca76b9a4a03565e7cfb12dcc73712de.png",
+      "image": "eee6d15dba5d2bc86c2e49f9e49b9fe8.png",
       "userAgent": "default",
       "desc": "ld-select multiple size sm selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7091,7 +7091,7 @@
     },
     {
       "id": "dbb14d2e",
-      "image": "f99dd5cd570d7695135b8cc657c94314.png",
+      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
       "desc": "ld-select single aria-disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7104,7 +7104,7 @@
     },
     {
       "id": "8b95634a",
-      "image": "6c089bd459432703fcb4a1b68145e30d.png",
+      "image": "8a219a49aed7d4fe7b021bcb0f31d8dc.png",
       "userAgent": "default",
       "desc": "ld-select single aria-disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7117,7 +7117,7 @@
     },
     {
       "id": "eeda90cd",
-      "image": "6d0f058d3a87bbe01a31a7549d52ce3b.png",
+      "image": "41df382b74b91f514ff254abcb6bd101.png",
       "userAgent": "default",
       "desc": "ld-select single custom trigger icon  default",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7130,7 +7130,7 @@
     },
     {
       "id": "5e7363b7",
-      "image": "0d5b0ab73a82b2b6ce48c57e3191045a.png",
+      "image": "7f174d58654dce8ea3a4441b2ec53eb7.png",
       "userAgent": "default",
       "desc": "ld-select single custom trigger icon  size lg selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7143,7 +7143,7 @@
     },
     {
       "id": "9e1d7853",
-      "image": "e8ac467fa1cc0be915263a5a04743767.png",
+      "image": "51102ebe188cc45f0bbcf526c39f27f4.png",
       "userAgent": "default",
       "desc": "ld-select single custom trigger icon  size sm",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7156,7 +7156,7 @@
     },
     {
       "id": "5ef92e2d",
-      "image": "1332d681357568918945e1a369d70f7f.png",
+      "image": "3e7f6b1253fef8d2a6376e33be0828ee.png",
       "userAgent": "default",
       "desc": "ld-select single default",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7169,7 +7169,7 @@
     },
     {
       "id": "a7ec437a",
-      "image": "f99dd5cd570d7695135b8cc657c94314.png",
+      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
       "desc": "ld-select single disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7182,7 +7182,7 @@
     },
     {
       "id": "55717bfb",
-      "image": "f99dd5cd570d7695135b8cc657c94314.png",
+      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
       "desc": "ld-select single disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7195,7 +7195,7 @@
     },
     {
       "id": "82b03955",
-      "image": "5c06fc911b9a0c5dc1fea1eee3333a3e.png",
+      "image": "01f4bf087e30eeeeab50e0875f2172ca.png",
       "userAgent": "default",
       "desc": "ld-select single focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7208,7 +7208,7 @@
     },
     {
       "id": "2b11e429",
-      "image": "c55aa0294aecdf663a21340225427df8.png",
+      "image": "1371d2f0f2abf24ed98b124fe511c42d.png",
       "userAgent": "default",
       "desc": "ld-select single internal option disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7221,7 +7221,7 @@
     },
     {
       "id": "b76c94f7",
-      "image": "5bfb9ba2b50ceef8dc293fb63797030c.png",
+      "image": "295976af2f6f7cee92781a6ebf3df38d.png",
       "userAgent": "default",
       "desc": "ld-select single internal option disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7234,7 +7234,7 @@
     },
     {
       "id": "23ba4777",
-      "image": "daf355ed5ffb702f4153f546bc2775da.png",
+      "image": "f1758b567b189316ca9508d9bb39a808.png",
       "userAgent": "default",
       "desc": "ld-select single internal option focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7247,7 +7247,7 @@
     },
     {
       "id": "75214b07",
-      "image": "a305fa019774424f190fdccfba3d79be.png",
+      "image": "5fc5148906d5c5a9805095119e418e8c.png",
       "userAgent": "default",
       "desc": "ld-select single internal option selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7260,7 +7260,7 @@
     },
     {
       "id": "7751a87e",
-      "image": "3a99f1436d60118ab5d7881e1bf33aa2.png",
+      "image": "f08e3895200f1ac2657389899ae69852.png",
       "userAgent": "default",
       "desc": "ld-select single internal option selected focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7273,7 +7273,7 @@
     },
     {
       "id": "c03b695e",
-      "image": "70155ff39f8c32830ff36d2ce6e5c815.png",
+      "image": "a8ff9a29d87874291206b2e0659bfe28.png",
       "userAgent": "default",
       "desc": "ld-select single invalid",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7286,7 +7286,7 @@
     },
     {
       "id": "156f5f2d",
-      "image": "122fd790c5120321d870eaf5a298eb4b.png",
+      "image": "2a17f0030d7534067b8d9e5728ee4abc.png",
       "userAgent": "default",
       "desc": "ld-select single selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7299,7 +7299,7 @@
     },
     {
       "id": "b89ec3a2",
-      "image": "f6ec5d84202bc4c1681391e6946cd4ef.png",
+      "image": "4c3b766a2ebe9c02a51c50cc6c031757.png",
       "userAgent": "default",
       "desc": "ld-select single size lg selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7312,7 +7312,7 @@
     },
     {
       "id": "fbbedabb",
-      "image": "964e313d04b2b7963273a72887772c82.png",
+      "image": "49816943ecc06a53d909ec4d0aa977cd.png",
       "userAgent": "default",
       "desc": "ld-select single size sm",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -7325,7 +7325,7 @@
     },
     {
       "id": "bb91d7c2",
-      "image": "879394238f2b876def0e1c5c70f408e5.png",
+      "image": "e634824fcd34b8dd56b58e746de39a06.png",
       "userAgent": "default",
       "desc": "ld-tabs active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7338,7 +7338,7 @@
     },
     {
       "id": "bd26e7be",
-      "image": "7c12dd09134bd7fad2f226319c1439a5.png",
+      "image": "e8e5bca3cb7de30a3701c08e419d9517.png",
       "userAgent": "default",
       "desc": "ld-tabs active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7351,7 +7351,7 @@
     },
     {
       "id": "3f1bfaaf",
-      "image": "7e4b96c375bef29e9c8b8a5a3c4755a4.png",
+      "image": "3cbba52e24b4bf87986469ebd97a000c.png",
       "userAgent": "default",
       "desc": "ld-tabs active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7364,7 +7364,7 @@
     },
     {
       "id": "c2d3e959",
-      "image": "f810eec3675a9b2437b3f4fc5f3fafa4.png",
+      "image": "0b4e385d49aaddbb806af9afaa45d18b.png",
       "userAgent": "default",
       "desc": "ld-tabs default",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7377,7 +7377,7 @@
     },
     {
       "id": "7bf7eb80",
-      "image": "6cb18af3b7046e9c413073b97d5240f8.png",
+      "image": "150ae6757a7fdd763db981ff67783db7.png",
       "userAgent": "default",
       "desc": "ld-tabs focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7390,7 +7390,7 @@
     },
     {
       "id": "bb479102",
-      "image": "7c12dd09134bd7fad2f226319c1439a5.png",
+      "image": "e8e5bca3cb7de30a3701c08e419d9517.png",
       "userAgent": "default",
       "desc": "ld-tabs focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7403,7 +7403,7 @@
     },
     {
       "id": "070c1f21",
-      "image": "af7d7b5f1810398856730d1249f9e3c2.png",
+      "image": "fc584f9d96f64cb845d6622650ac886c.png",
       "userAgent": "default",
       "desc": "ld-tabs focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7416,7 +7416,7 @@
     },
     {
       "id": "7bfdafa9",
-      "image": "dbd8f36c4a159bb8509cec98e87d0ca3.png",
+      "image": "6eaefa69ffb3063e7566fe78ee49a19a.png",
       "userAgent": "default",
       "desc": "ld-tabs hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7429,7 +7429,7 @@
     },
     {
       "id": "5cb93c89",
-      "image": "bebacf98a9ef4c0ce8c4ecaac513a0b9.png",
+      "image": "22856d337ff0f77e669cbac8e552d785.png",
       "userAgent": "default",
       "desc": "ld-tabs hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7442,7 +7442,7 @@
     },
     {
       "id": "e66ed10f",
-      "image": "9315d4a6a5fb57c7aab16afa0e8e9d60.png",
+      "image": "b91d4d217696aa686989ae1c72308680.png",
       "userAgent": "default",
       "desc": "ld-tabs hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7455,7 +7455,7 @@
     },
     {
       "id": "8d23279d",
-      "image": "96dc24519d2158fe344ab625e1fa07f9.png",
+      "image": "8de9b78a783354fdb56533755caf7dff.png",
       "userAgent": "default",
       "desc": "ld-tabs many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7468,7 +7468,7 @@
     },
     {
       "id": "26f970a4",
-      "image": "c9b51a07d485f64428ef7a2da390645f.png",
+      "image": "a0abc88aafd73c93277af806cda59e78.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7481,7 +7481,7 @@
     },
     {
       "id": "74213732",
-      "image": "76aa735bc88edecefe4b441a4804006d.png",
+      "image": "f8dd4a05d267b202006a8301834b45d9.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7494,7 +7494,7 @@
     },
     {
       "id": "bec71f43",
-      "image": "c9f900d5bfdc1f0b661b168a943d0ac8.png",
+      "image": "53a3656716d620df50a30f67d576ad5d.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7507,7 +7507,7 @@
     },
     {
       "id": "9cd89398",
-      "image": "3b928db7282d0c75b89c209d46372e71.png",
+      "image": "977808fad54722a9c8f5d1666593cd77.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7520,7 +7520,7 @@
     },
     {
       "id": "68fc006b",
-      "image": "4f225b1d19cbd7703368363f31e4779b.png",
+      "image": "ab13566bf30adc759a63e9df72bf7f2b.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7533,7 +7533,7 @@
     },
     {
       "id": "9d2286ae",
-      "image": "c9f900d5bfdc1f0b661b168a943d0ac8.png",
+      "image": "53a3656716d620df50a30f67d576ad5d.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7546,7 +7546,7 @@
     },
     {
       "id": "463c3a2e",
-      "image": "f698d1c86f1015f9b4c47dda4fc45383.png",
+      "image": "9274f9469aaa1ddbcca6b114d57e4889.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7559,7 +7559,7 @@
     },
     {
       "id": "be30d974",
-      "image": "a243c1fb6669bc48a2561ece850c02e1.png",
+      "image": "2d3f742417b28e06f9c11123443298e9.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7572,7 +7572,7 @@
     },
     {
       "id": "5b37c37d",
-      "image": "14e5f02d6ba7e40e31ffd610fb0c1b67.png",
+      "image": "802a7b340a28c92509dec0794ad9b90b.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7585,7 +7585,7 @@
     },
     {
       "id": "cb077e56",
-      "image": "0797a00ba19dda4f10a1477e7b8f0754.png",
+      "image": "053d0eeab87d1b015a715ec8035d4360.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7598,7 +7598,7 @@
     },
     {
       "id": "9f5e68dc",
-      "image": "c89b50ae75538c99431ffb185aa58ebf.png",
+      "image": "0c8a6d080b84003a5dbb87ccd24883a7.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7611,7 +7611,7 @@
     },
     {
       "id": "b4286d39",
-      "image": "bb346fca1e018460206defb45f3adabb.png",
+      "image": "d4c2a6d4e101ae5c099e5b96de8a3540.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7624,7 +7624,7 @@
     },
     {
       "id": "8b10cb36",
-      "image": "022921f5c2d350fdb838c48f79d88eab.png",
+      "image": "bedf3424bd156daadf563acb31693b05.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7637,7 +7637,7 @@
     },
     {
       "id": "7ba19f98",
-      "image": "fd3e3ba4da06c35787990741c08aa1fc.png",
+      "image": "134940b5dc89f54a1447d6d41c969272.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7650,7 +7650,7 @@
     },
     {
       "id": "849f9c9a",
-      "image": "ad3c22566d207c89a91b9994eeffd502.png",
+      "image": "b44f43ec4be1d6c7ed324e4f30c6c9a1.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7663,7 +7663,7 @@
     },
     {
       "id": "56854b1f",
-      "image": "593701380f68170f87ba7072b7d20345.png",
+      "image": "c16395418e2bd620d4487a2c9d9a41fe.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7676,7 +7676,7 @@
     },
     {
       "id": "72a1ba6c",
-      "image": "fd3e3ba4da06c35787990741c08aa1fc.png",
+      "image": "134940b5dc89f54a1447d6d41c969272.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7689,7 +7689,7 @@
     },
     {
       "id": "495f0868",
-      "image": "6a1e5608f2181a54e130ecd043458043.png",
+      "image": "21930ec5cebb452430119347f5259b28.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7702,7 +7702,7 @@
     },
     {
       "id": "871f061e",
-      "image": "93f32a997502089bfe9ccdeb720667ea.png",
+      "image": "e70c0565641a0379fae9cf925dbee877.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7715,7 +7715,7 @@
     },
     {
       "id": "23ad1045",
-      "image": "4999932694f61ce022332ea05532036d.png",
+      "image": "77cf386decc5c8a57d18f06f6e4a9988.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7728,7 +7728,7 @@
     },
     {
       "id": "8530dfb9",
-      "image": "ac4344539be089c299461a292cb6470f.png",
+      "image": "8072144c73bfc63ae97e18e37922f816.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7741,7 +7741,7 @@
     },
     {
       "id": "4b95e534",
-      "image": "04e701b5465d5b44b822e26e6d24e6b1.png",
+      "image": "2f9df7ef56f4a5197e09553b796d58ea.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7754,7 +7754,7 @@
     },
     {
       "id": "81432695",
-      "image": "9464bc799375078523756da09d61e908.png",
+      "image": "5fcf881b65e9c480ef58594635dfefc3.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded all",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7767,7 +7767,7 @@
     },
     {
       "id": "16ac09cd",
-      "image": "761631136a8325e1bd0ce79f5b97c39e.png",
+      "image": "1a981971416c2bde519497b22bf09794.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded all-lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7780,7 +7780,7 @@
     },
     {
       "id": "a8b25514",
-      "image": "1e3c971040134663c99c7db59985ab4f.png",
+      "image": "64c550f393bd515c28d939b9f47ec6b3.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded top",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7793,7 +7793,7 @@
     },
     {
       "id": "5d530a01",
-      "image": "b13b5b2528fd6c37729a6615ce3f09aa.png",
+      "image": "939d7eab63322cdf1ca9457d3283c38d.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded top-lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7806,7 +7806,7 @@
     },
     {
       "id": "094e2970",
-      "image": "7dbd7bfb23f34a9c2cc36abbd716899c.png",
+      "image": "3353dd346c2f1e175d8a96f86a01a92b.png",
       "userAgent": "default",
       "desc": "ld-tabs size size lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7819,7 +7819,7 @@
     },
     {
       "id": "e1f969f1",
-      "image": "f3157225e91062e0293dbda8eaf9f925.png",
+      "image": "638450c0d2df1ebacdae0dd65b23efd1.png",
       "userAgent": "default",
       "desc": "ld-tabs size size sm",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7832,7 +7832,7 @@
     },
     {
       "id": "3b38dae2",
-      "image": "7894096abbee2aff196123bb1cdca2ae.png",
+      "image": "f0fb22b4a4382dda2b440c1ab0bbb8dc.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon and text size lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -7845,7 +7845,7 @@
     },
     {
       "id": "2a447e97",
-      "image": "6a981c716a74c1b809f7b8b0890d785d.png",
+      "image": "b1be54e495c067e47efe6ffb0f9a9b9d.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon and text size sm",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -9444,7 +9444,7 @@
     },
     {
       "id": "8bb871b2",
-      "image": "c635e5f16be428b85d832c3a7b440a5c.png",
+      "image": "3079bac8b3618d543226b27db5e7f906.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom clickable trigger",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9457,7 +9457,7 @@
     },
     {
       "id": "da1e0eed",
-      "image": "c635e5f16be428b85d832c3a7b440a5c.png",
+      "image": "893e6db71e96ce4c8ad54cd2f66385f6.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom clickable trigger (focus)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9470,7 +9470,7 @@
     },
     {
       "id": "dad9e9c9",
-      "image": "fb4d0817ed74c3e3e533529263a6a4d9.png",
+      "image": "94926c8033adb58bd321e9fdf52407a6.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom clickable trigger (hover)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9483,7 +9483,7 @@
     },
     {
       "id": "d4c44bf4",
-      "image": "fb0a039868d568673703e9d4f9dd7e54.png",
+      "image": "2d4c710520e586f6d476f9fb82f882df.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom inline trigger",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9496,7 +9496,7 @@
     },
     {
       "id": "f698d77f",
-      "image": "fb0a039868d568673703e9d4f9dd7e54.png",
+      "image": "2d4c710520e586f6d476f9fb82f882df.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom inline trigger (focus)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9509,7 +9509,7 @@
     },
     {
       "id": "163af998",
-      "image": "fb0a039868d568673703e9d4f9dd7e54.png",
+      "image": "2d4c710520e586f6d476f9fb82f882df.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom inline trigger (hover)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9522,7 +9522,7 @@
     },
     {
       "id": "dec07434",
-      "image": "8e04277841bb07750a16bc69d7296ed5.png",
+      "image": "8a86b52ae90c2b5e7edba714d50ce6cf.png",
       "userAgent": "default",
       "desc": "ld-tooltip default trigger",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9561,7 +9561,7 @@
     },
     {
       "id": "12040300",
-      "image": "c6802cd3a9c8558c09f20e4b016cbf41.png",
+      "image": "378db8200c3039b48a276d228ac1aa94.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9574,7 +9574,7 @@
     },
     {
       "id": "25e24757",
-      "image": "1f7712eecd6e11d16ac7ca47ddbf1699.png",
+      "image": "8844dc81f33920a41ddef7189796395e.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9587,7 +9587,7 @@
     },
     {
       "id": "724e5094",
-      "image": "a9bb8fb3091179d398c261cc6fa859be.png",
+      "image": "c0862ddbc77881f62acb99fcb2f5c5ca.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9600,7 +9600,7 @@
     },
     {
       "id": "e7f9b1c8",
-      "image": "09f5903c336c11f39c65e7375398077a.png",
+      "image": "4963b68d14bc30e6c2af01678e798e7d.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9613,7 +9613,7 @@
     },
     {
       "id": "24a06edc",
-      "image": "271264eaa641adcc14ee5dcd8285cbc1.png",
+      "image": "f8f2ae4b27642bd68bdf8b2d4ecc3722.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9626,7 +9626,7 @@
     },
     {
       "id": "6b3dd4ee",
-      "image": "302bc8220570230d6f07ab4580437aa2.png",
+      "image": "00e710c18d9f9ed6a1c133ecf6550017.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9639,7 +9639,7 @@
     },
     {
       "id": "9e0a0840",
-      "image": "1e3936f7c39856b8aa3d297995c3aa65.png",
+      "image": "4e34b8550b4db6e6403a615b8c6c5198.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9652,7 +9652,7 @@
     },
     {
       "id": "2f2fddfc",
-      "image": "e1c716ab0207474c024eb830f7d2eb04.png",
+      "image": "807a7abebc4ed0b2bc84f89c4bac39a4.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9665,7 +9665,7 @@
     },
     {
       "id": "4e5fc1e7",
-      "image": "0945f32775e0c00e848c9d4ab5ce25b8.png",
+      "image": "8e6935c6f386ce8297c787920e51314c.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9678,7 +9678,7 @@
     },
     {
       "id": "b17ed959",
-      "image": "7ac03d93992c827c3942038fff0c0b4a.png",
+      "image": "facbd8088f17ad2b57f68d7bcb8cdf05.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9691,7 +9691,7 @@
     },
     {
       "id": "5e0adeb7",
-      "image": "f6e34d197671818827ff064e30614084.png",
+      "image": "cffee33300485bb0a93cc8e5120246bf.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9704,7 +9704,7 @@
     },
     {
       "id": "9c8addc1",
-      "image": "06fb252bd9ec5c108b627b88eb0997d3.png",
+      "image": "1dfe381f7ccd61781985ca3ba278f0f2.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9717,7 +9717,7 @@
     },
     {
       "id": "db2b822e",
-      "image": "bab0f54f953f7012f97ac65afe1ad603.png",
+      "image": "d4ed879f998e647548fe0b9571c861b6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9730,7 +9730,7 @@
     },
     {
       "id": "85777673",
-      "image": "83f9e39b9b8cd86673c3b05fdf8e058f.png",
+      "image": "63bcd5f57eacfb28540a0ab2ca48dae4.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9743,7 +9743,7 @@
     },
     {
       "id": "9c09a56f",
-      "image": "6ac983cf30afaa39b59322ed8dd66d96.png",
+      "image": "f7866013b9434a4af032abef42d3e728.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9756,7 +9756,7 @@
     },
     {
       "id": "0fe38626",
-      "image": "527cf47c87f2c95851c0b66c676f349a.png",
+      "image": "ea7bfa516e6032958a261ff460d2886c.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9769,7 +9769,7 @@
     },
     {
       "id": "0faecd22",
-      "image": "ffb45e8dd06c6162f01310929f08dd0a.png",
+      "image": "2ddbb04a6c74c3c5c5c2206315f0b3c6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9782,7 +9782,7 @@
     },
     {
       "id": "6d242080",
-      "image": "41276e5318037700e666f0da2506c841.png",
+      "image": "10552aad1e4a57872b9a0acec5cf0489.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9795,7 +9795,7 @@
     },
     {
       "id": "4f0dff03",
-      "image": "a891dd7b7ef69d85426517a54a16d20b.png",
+      "image": "111f1a28850c4200689185fb14f13b27.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9808,7 +9808,7 @@
     },
     {
       "id": "93e8c86c",
-      "image": "4ac121937563acb44998f8a1b4b22534.png",
+      "image": "258097ff620ccc4936f0a44ee01bd24f.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9821,7 +9821,7 @@
     },
     {
       "id": "bab244c7",
-      "image": "c3aef446d6d738db5bcd894889d6a1ca.png",
+      "image": "d9dee5345f49bcc079befde04c2d829e.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9834,7 +9834,7 @@
     },
     {
       "id": "e6ac2c79",
-      "image": "46c57db77b95016a622062f1fe143f54.png",
+      "image": "0d0134dd4c3e977ac4a18b0b53319cd7.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9847,7 +9847,7 @@
     },
     {
       "id": "d3f70794",
-      "image": "b65217fc1ff9c4a6a31896ba5a9bc028.png",
+      "image": "bfab4c1c1343eb56c88712a45b9ccd4d.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9860,7 +9860,7 @@
     },
     {
       "id": "779fb3ac",
-      "image": "1508e8bfb616d1aea3e03b2cecd2f283.png",
+      "image": "da9b7db1de6f804986ab61dd8b7c7899.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9873,7 +9873,7 @@
     },
     {
       "id": "0febc432",
-      "image": "23fd409794bc50e72fbbea6ba8593c6d.png",
+      "image": "1869d9ef34a626c73f2a862d7909f305.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9886,7 +9886,7 @@
     },
     {
       "id": "30a85944",
-      "image": "5d19651178106a8288fa87d22062a772.png",
+      "image": "a3b889ae4679b5e9f4dcbe991575e628.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9899,7 +9899,7 @@
     },
     {
       "id": "bceca270",
-      "image": "79c046bfb663c08b8ae3521bcc4c183b.png",
+      "image": "bcb5d679d0cc24fd1044eaa45a822473.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9912,7 +9912,7 @@
     },
     {
       "id": "b583cfed",
-      "image": "a61b5b185fe59fae43a01b06bbe428c4.png",
+      "image": "4b33c3e88134bfbdd0857d33f309cf05.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9925,7 +9925,7 @@
     },
     {
       "id": "d3dcd0c2",
-      "image": "508528c3da2fe240fbeed9e0edb78353.png",
+      "image": "132836b6f710ffb5ebf7938e340e5d20.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9938,7 +9938,7 @@
     },
     {
       "id": "4ed0e06e",
-      "image": "8643a2b7bdad1860b37099459a4d385d.png",
+      "image": "8eeabb9c5bfdd6a9017befec4e8d5486.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9951,7 +9951,7 @@
     },
     {
       "id": "c39d6bec",
-      "image": "d9e6eaee48a625e2f380085f77308c60.png",
+      "image": "b2607383b73dca5db78ae5d3ffd3f27f.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9964,7 +9964,7 @@
     },
     {
       "id": "a8eab426",
-      "image": "8f8aec0117d16cee7c8c37e95a7080c6.png",
+      "image": "f50dd55e0018fadf489a508d89429635.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9977,7 +9977,7 @@
     },
     {
       "id": "2eb11e83",
-      "image": "876e2e07511b57da0ddbf52c1d1744ac.png",
+      "image": "23b4b286149dd5d5d975ce4f241c8f5a.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -9990,7 +9990,7 @@
     },
     {
       "id": "9aa57255",
-      "image": "9af2f2f78afa7a07d53fd74efa722238.png",
+      "image": "80f0508f2c86e5c7535fb535a8d438ac.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10003,7 +10003,7 @@
     },
     {
       "id": "6a429848",
-      "image": "0ac75c8c157cfdb8b63e729bedd26b52.png",
+      "image": "f604afa0061f61937d168fbbdea7b463.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10016,7 +10016,7 @@
     },
     {
       "id": "e02d3866",
-      "image": "16d8398675994f4ba335f7901af7c4fe.png",
+      "image": "ea8da14bc2509ff94d412b5a1ec27992.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10029,7 +10029,7 @@
     },
     {
       "id": "e600d83d",
-      "image": "c9b7dbe3b9e2aedd68ba13ec6f36e9f4.png",
+      "image": "537b819ab864c187f8e62fac3967264c.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10042,7 +10042,7 @@
     },
     {
       "id": "f94a5581",
-      "image": "d2d7ef88d418ed9e478f21444c901d59.png",
+      "image": "eae879d63d6568e059ec3ade595d3590.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10055,7 +10055,7 @@
     },
     {
       "id": "a9fd09f1",
-      "image": "3b6ee990d4b81a826c10e91c764965b1.png",
+      "image": "f427c69e3f239a1a21779beef9337032.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10068,7 +10068,7 @@
     },
     {
       "id": "fb2a0ff8",
-      "image": "58d97124df7990ef6232065ec8d34eeb.png",
+      "image": "1f5fdee819947f64fa51576ae59caf34.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10081,7 +10081,7 @@
     },
     {
       "id": "58c20943",
-      "image": "624c7701d27dee0f6e4116173a10fb1a.png",
+      "image": "21cf906d289c8e8d711ad731a7c29372.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10094,7 +10094,7 @@
     },
     {
       "id": "6e7ef4f6",
-      "image": "8422763751856ec838fce09413db2f64.png",
+      "image": "a932e7947376a855caab677fa4b580aa.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10107,7 +10107,7 @@
     },
     {
       "id": "90584139",
-      "image": "60b3c5793fdbe390064eda5387abf490.png",
+      "image": "239a6fd4d85bad4f3e645627fdfe4878.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10120,7 +10120,7 @@
     },
     {
       "id": "825713d6",
-      "image": "669b10639a7d45ca3870eba19a5ff316.png",
+      "image": "45b164dcbe4cda1e28a5ce163d4a4955.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10133,7 +10133,7 @@
     },
     {
       "id": "c89fffd3",
-      "image": "857c5381c38143eaa0c3bc7567e7a112.png",
+      "image": "dd1ced1004e57252bcdbce3ceed357a8.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10146,7 +10146,7 @@
     },
     {
       "id": "14a32e43",
-      "image": "509e8b1d9eb7d9cf97e025d86f800f52.png",
+      "image": "ba99be1cc7d777ddb555368afc61a030.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10159,7 +10159,7 @@
     },
     {
       "id": "9114b54d",
-      "image": "72394ae242a2a0c6ca12db08f2d3a44f.png",
+      "image": "2d1ff8c1ee984da5ef685536f7e2afc4.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (default)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -10172,7 +10172,7 @@
     },
     {
       "id": "3a14c2f4",
-      "image": "64bad41dfcf1ec13c6a495b38c3f12b7.png",
+      "image": "906e92de77946f6034f965d715160677.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
