@@ -49,7 +49,7 @@ describe('ld-radio', () => {
       html: `<ld-radio></ld-radio>`,
     })
     const ldRadio = page.root
-    expect(ldRadio.checked).toBe(undefined)
+    expect(ldRadio.checked).toBe(false)
 
     const input = ldRadio.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
@@ -57,7 +57,7 @@ describe('ld-radio', () => {
     ldRadio.click()
     await page.waitForChanges()
 
-    expect(ldRadio.getAttribute('checked')).not.toBe(null)
+    expect(ldRadio.checked).toBe(true)
     expect(input.checked).toBe(true)
   })
 
@@ -140,10 +140,10 @@ describe('ld-radio', () => {
     ldRadios[0].click()
     await page.waitForChanges()
 
-    expect(ldRadios[0].getAttribute('checked')).not.toBe(null)
-    expect(ldRadios[1].getAttribute('checked')).toBe(null)
-    expect(ldRadios[2].getAttribute('checked')).toBe(null)
-    expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
+    expect(ldRadios[0].checked).toBe(true)
+    expect(ldRadios[1].checked).toBe(false)
+    expect(ldRadios[2].checked).toBe(false)
+    expect(ldRadios[3].checked).toBe(true)
   })
 
   it('moves focus and selection', async () => {

@@ -41,7 +41,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Prop() autofocus?: boolean
 
   /** Indicates whether the toggle is "on". */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
+  @Prop({ mutable: true }) checked = false
 
   /** Disabled state of the checkbox. */
   @Prop() disabled: boolean
@@ -203,6 +203,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
           type="checkbox"
           checked={this.checked}
           disabled={this.disabled}
+          value={this.value}
         />
         <span class="ld-toggle__knob" part="knob" />
         {this.hasIcons && (

@@ -6,7 +6,8 @@ describe('ld-notification', () => {
   describe('placement', () => {
     it('renders placed at the top with prop placement set to "top"', async () => {
       const page = await getPageWithContent(
-        `<ld-notification placement="top"></ld-notification>`
+        `<ld-notification placement="top"></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -21,6 +22,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -28,7 +32,8 @@ describe('ld-notification', () => {
 
     it('renders placed at the bottom with prop placement set to "bottom"', async () => {
       const page = await getPageWithContent(
-        `<ld-notification placement="bottom"></ld-notification>`
+        `<ld-notification placement="bottom"></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -43,6 +48,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -52,7 +60,8 @@ describe('ld-notification', () => {
   describe('notification types', () => {
     it(`renders a notification of type "info"`, async () => {
       const page = await getPageWithContent(
-        `<ld-notification></ld-notification>`
+        `<ld-notification></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -67,6 +76,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -74,7 +86,8 @@ describe('ld-notification', () => {
 
     it(`renders a notification of type "warn"`, async () => {
       const page = await getPageWithContent(
-        `<ld-notification></ld-notification>`
+        `<ld-notification></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -89,6 +102,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -96,7 +112,8 @@ describe('ld-notification', () => {
 
     it(`renders a notification of type "alert"`, async () => {
       const page = await getPageWithContent(
-        `<ld-notification></ld-notification>`
+        `<ld-notification></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -111,6 +128,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -120,7 +140,8 @@ describe('ld-notification', () => {
   describe('notification hierarchy', () => {
     it('queues potentially less important notifications behind notifications of type "alert"', async () => {
       const page = await getPageWithContent(
-        `<ld-notification></ld-notification>`
+        `<ld-notification></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -134,6 +155,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -146,6 +170,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -158,6 +185,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -170,6 +200,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -182,6 +215,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -194,6 +230,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -206,6 +245,9 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -215,7 +257,8 @@ describe('ld-notification', () => {
   describe('notification content', () => {
     it('renders a notification with HTML content', async () => {
       const page = await getPageWithContent(
-        `<ld-notification></ld-notification>`
+        `<ld-notification></ld-notification>`,
+        { disableAllTransitions: true }
       )
 
       page.evaluate(() => {
@@ -231,6 +274,9 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
+      await page['_client'].send('Animation.setPlaybackRate', {
+        playbackRate: 2,
+      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

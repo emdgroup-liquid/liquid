@@ -341,6 +341,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
             onInput={this.handleInput.bind(this)}
             part="input focusable"
             ref={(el) => (this.input = el)}
+            value={this.value}
           />
           {type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
@@ -363,6 +364,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
+          value={this.value}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">
