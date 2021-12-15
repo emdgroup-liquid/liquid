@@ -66,6 +66,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 │                             # enable prettier in your code editor of choice.
 ├── .releaserc.js             # Config file for semantic-release.
 │                             # See https://semantic-release.gitbook.io/semantic-release/
+├── bin                       # Contains scripts to be included in the boundle for execution with npx.
 ├── Dockerfile                # You can startup your dev environment in a Docker container.
 │                             # This may come in handy for Windows users who encounter problems.
 │                             # More about this below.

@@ -218,12 +218,17 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       <Tag
         {...this.clonedAttributes}
         aria-busy={hasProgress ? 'true' : undefined}
-        aria-disabled={this.disabled ? 'true' : undefined}
+        aria-disabled={
+          this.disabled || this.el.getAttribute('aria-disabled') === 'true'
+            ? 'true'
+            : undefined
+        }
         aria-live="polite"
         class={cl}
         part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        value={this.value}
       >
         <slot />
         {hasProgress && (

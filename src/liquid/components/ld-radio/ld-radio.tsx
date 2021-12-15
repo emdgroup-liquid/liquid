@@ -33,7 +33,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() autofocus?: boolean
 
   /** Indicates whether the radio button is selected. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
+  @Prop({ mutable: true }) checked = false
 
   /** Disabled state of the radio. */
   @Prop() disabled: boolean
@@ -162,7 +162,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
       Array.from(document.querySelectorAll('ld-radio'))
         .filter((ldRadio) => ldRadio.getAttribute('name') === this.name)
         .forEach((ldRadio) => {
-          ldRadio.removeAttribute('checked')
+          ldRadio.checked = false
         })
     }
 
@@ -247,6 +247,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
               ? parseInt(this.el.getAttribute('tabindex')) || undefined
               : -1
           }
+          value={this.value}
         />
         <div part="dot" class="ld-radio__dot"></div>
         <div class="ld-radio__box" part="box"></div>

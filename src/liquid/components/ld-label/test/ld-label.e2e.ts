@@ -191,7 +191,10 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        { components: [LdIcon, LdToggle, LdInputMessage, LdLabel] }
+        {
+          components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
+          disableAllTransitions: true,
+        }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -285,7 +288,10 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        { components: [LdIcon, LdToggle, LdInputMessage, LdLabel] }
+        {
+          components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
+          disableAllTransitions: true,
+        }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

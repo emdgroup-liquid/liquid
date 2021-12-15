@@ -45,7 +45,7 @@ describe('ld-toggle', () => {
       html: `<ld-toggle></ld-toggle>`,
     })
     const ldToggle = page.root
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
 
     const input = ldToggle.shadowRoot.querySelector('input')
     expect(input).toHaveProperty('checked', false)
@@ -54,8 +54,6 @@ describe('ld-toggle', () => {
     await page.waitForChanges()
     expect(input).toHaveProperty('checked', true)
     expect(ldToggle.checked).toBe(true)
-
-    expect(page.root).toMatchSnapshot()
   })
 
   it('emits focus and blur event', async () => {
@@ -95,7 +93,7 @@ describe('ld-toggle', () => {
     })
     const ldToggle = page.root
 
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
 
     const input = ldToggle.shadowRoot.querySelector('input')
 
@@ -103,7 +101,7 @@ describe('ld-toggle', () => {
     await page.waitForChanges()
 
     expect(input).toHaveProperty('checked', false)
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
     expect(page.root).toMatchSnapshot()
   })
 

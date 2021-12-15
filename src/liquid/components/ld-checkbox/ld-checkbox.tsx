@@ -33,7 +33,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop() autofocus?: boolean
 
   /** Indicates whether the checkbox is checked. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
+  @Prop({ mutable: true }) checked = false
 
   /** Disabled state of the checkbox. */
   @Prop() disabled: boolean
@@ -210,6 +210,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
           type="checkbox"
           disabled={this.disabled}
           checked={this.checked}
+          value={this.value}
         />
         <svg
           class="ld-checkbox__check"

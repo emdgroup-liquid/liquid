@@ -129,8 +129,8 @@ export class LdOptionInternal {
           ])}
           role="option"
           ref={(el) => (this.optionRef = el as HTMLElement)}
-          aria-selected={this.selected ? 'true' : 'false'}
-          aria-disabled={this.disabled ? 'true' : 'false'}
+          aria-selected={this.selected ? 'true' : undefined}
+          aria-disabled={this.disabled ? 'true' : undefined}
           onClick={this.handleClick.bind(this)}
           onFocus={() => (this.hasFocus = true)}
           onBlur={() => (this.hasFocus = false)}

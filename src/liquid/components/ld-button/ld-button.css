@@ -66,14 +66,12 @@
       );
       color: var(--ld-button-text-color-focus, var(--ld-thm-primary-active));
     }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-bg-color-hover,
-          var(--ld-thm-primary-hover)
-        );
-        color: var(--ld-button-text-color-hover, var(--ld-col-wht));
-      }
+    &:where(:hover) {
+      background-color: var(
+        --ld-button-bg-color-hover,
+        var(--ld-thm-primary-hover)
+      );
+      color: var(--ld-button-text-color-hover, var(--ld-col-wht));
     }
     &:where(:active),
     &:where(:active:focus-visible) {
@@ -209,13 +207,11 @@
         var(--ld-thm-warning-focus)
       );
     }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-highlight-bg-color-hover,
-          var(--ld-thm-warning-hover)
-        );
-      }
+    &:where(:hover) {
+      background-color: var(
+        --ld-button-highlight-bg-color-hover,
+        var(--ld-thm-warning-hover)
+      );
     }
     &:where(:active),
     &:where(:active:focus-visible) {
@@ -264,20 +260,18 @@
         );
       }
     }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-danger-bg-color-hover,
-          var(--ld-thm-error-hover)
-        );
-        color: var(--ld-button-danger-text-color-hover, var(--ld-col-wht));
+    &:where(:hover) {
+      background-color: var(
+        --ld-button-danger-bg-color-hover,
+        var(--ld-thm-error-hover)
+      );
+      color: var(--ld-button-danger-text-color-hover, var(--ld-col-wht));
 
-        .ld-button__progress::after {
-          background-color: var(
-            --ld-button-danger-progress-color,
-            var(--ld-thm-error)
-          );
-        }
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-progress-color,
+          var(--ld-thm-error)
+        );
       }
     }
     &:where(:active),
@@ -324,23 +318,21 @@
         );
       }
     }
-    @media (hover: hover) {
-      &:where(:hover) {
+    &:where(:hover) {
+      background-color: var(
+        --ld-button-ghost-bg-color-hover,
+        var(--ld-thm-primary-alpha-lowest)
+      );
+      color: var(
+        --ld-button-ghost-text-color-hover,
+        var(--ld-thm-primary-hover)
+      );
+
+      .ld-button__progress::after {
         background-color: var(
-          --ld-button-ghost-bg-color-hover,
-          var(--ld-thm-primary-alpha-lowest)
-        );
-        color: var(
-          --ld-button-ghost-text-color-hover,
+          --ld-button-ghost-progress-color-hover,
           var(--ld-thm-primary-hover)
         );
-
-        .ld-button__progress::after {
-          background-color: var(
-            --ld-button-ghost-progress-color-hover,
-            var(--ld-thm-primary-hover)
-          );
-        }
       }
     }
     &:where(:active),
@@ -376,11 +368,9 @@
     );
   }
 
-  @media (hover: hover) {
-    &:where(:hover) {
-      .ld-button__progress {
-        background-color: transparent;
-      }
+  &:where(:hover) {
+    .ld-button__progress {
+      background-color: transparent;
     }
   }
   &:where(:active),
@@ -403,13 +393,11 @@
           var(--ld-thm-primary-focus)
         );
       }
-      @media (hover: hover) {
-        &:where(:hover) {
-          background-color: var(
-            --ld-button-brand-bg-color-hover,
-            var(--ld-col-wht-alpha-high)
-          );
-        }
+      &:where(:hover) {
+        background-color: var(
+          --ld-button-brand-bg-color-hover,
+          var(--ld-col-wht-alpha-high)
+        );
       }
       &:where(:active),
       &:where(:active:focus-visible) {

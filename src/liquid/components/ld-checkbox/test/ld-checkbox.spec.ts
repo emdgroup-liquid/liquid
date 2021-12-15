@@ -49,7 +49,7 @@ describe('ld-checkbox', () => {
       html: `<ld-checkbox></ld-checkbox>`,
     })
     const ldCheckbox = page.root
-    expect(ldCheckbox.checked).toBe(undefined)
+    expect(ldCheckbox.checked).toBe(false)
 
     const input = ldCheckbox.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
