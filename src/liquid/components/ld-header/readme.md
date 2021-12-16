@@ -118,7 +118,9 @@ Also, you can easily make the header sticky and make it hide when the user is sc
   <a href="#" title="Home">
     <ld-typo class="logo" tag="div" variant="b6">M</ld-typo>
   </a>
-  <ld-typo tag="div" variant="h5" style="flex-grow: 1">Liquid Oxygen</ld-typo>
+  <ld-typo tag="div" variant="h5" style="flex-grow: 1">
+    Liquid<span class="hide-on-sm"> Oxygen</span>
+  </ld-typo>
   <ld-button id="register" type="button">
     <ld-icon name="pen"></ld-icon>
     Register
@@ -138,6 +140,10 @@ Also, you can easily make the header sticky and make it hide when the user is sc
     margin-top: calc(var(--ld-sp-8) * -1);
   }
 
+  .hide-on-sm {
+    display: none;
+  }
+
   #register ld-icon {
     display: none;
   }
@@ -147,6 +153,10 @@ Also, you can easily make the header sticky and make it hide when the user is sc
   }
 
   @media (min-width: 52rem) {
+    .hide-on-sm {
+      display: inline;
+    }
+
     #register ld-icon {
       display: block;
     }
@@ -166,7 +176,9 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 <header class="ld-header">
   <div class="ld-header__container">
     <div class="logo ld-typo--b6" title="Logo">M</div>
-    <div class="ld-typo--h5" style="flex-grow: 1">Liquid Oxygen</div>
+    <div class="ld-typo--h5" style="flex-grow: 1">
+      Liquid<span class="hide-on-sm"> Oxygen</span>
+    </div>
     <button class="ld-button ld-button--brand-color ld-button--sm" id="register" type="button">
       <svg class="ld-icon ld-icon--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.6192 15.1453a3.806 3.806 0 0 1 1.5674.3358c.4564.2056 1.0133.1824 1.3673-.1716L19.4353 4.4282c.4358-.4358.3698-1.1738-.227-1.3275A3.1966 3.1966 0 0 0 18.4098 3c-.5539 0-1.074.2154-1.4654.6068L5.5567 14.9944c-.0557.0557-.0163.1509.0625.1509zm.3803 1.3126H5.154a.5.5 0 0 0-.485.3787l-.639 2.5557c-.0894.3571.0277.6916.2536.9168.2252.2259.5597.3428.916.2536l2.5565-.639a.5.5 0 0 0 .3787-.4851v-.8455c0-1.1772-.958-2.1352-2.1354-2.1352zM21.5923 6.1824c0 .5542-.2154 1.0744-.6068 1.4658L9.5979 19.036c-.0557.0556-.1508.0162-.1508-.0625a3.806 3.806 0 0 0-.3358-1.5673c-.2057-.4565-.1826-1.0135.1715-1.3675L20.1635 5.1582c.4362-.4362 1.1748-.3697 1.3285.2276a3.194 3.194 0 0 1 .1003.7966z" fill="currentcolor"/></svg>
       Register
@@ -187,6 +199,10 @@ Also, you can easily make the header sticky and make it hide when the user is sc
     margin-top: calc(var(--ld-sp-8) * -1);
   }
 
+  .hide-on-sm {
+    display: none;
+  }
+
   #register .ld-icon {
     display: none;
   }
@@ -202,6 +218,10 @@ Also, you can easily make the header sticky and make it hide when the user is sc
   }
 
   @media (min-width: 52rem) {
+    .hide-on-sm {
+      display: inline;
+    }
+
     #register .ld-icon {
       display: block;
     }
@@ -285,10 +305,7 @@ If you want the header to hide (slide up behind the top of the window) when the 
 | `hidden`       | `hidden`         | Hides header.                                                                           | `boolean`          | `false`     |
 | `hideOnScroll` | `hide-on-scroll` | Hide the header when the user scrolls down and show it again, when the user scrolls up. | `boolean`          | `false`     |
 | `key`          | `key`            | for tracking the node's identity when working with lists                                | `string \| number` | `undefined` |
-| `logoTitle`    | `logo-title`     | Title attribute of the logo link.                                                       | `string`           | `undefined` |
-| `logoUrl`      | `logo-url`       | URL that the logo links to.                                                             | `string`           | `undefined` |
 | `ref`          | `ref`            | reference to component                                                                  | `any`              | `undefined` |
-| `siteName`     | `site-name`      | Name shown on the right side of the logo.                                               | `string`           | `undefined` |
 | `sticky`       | `sticky`         | Make the header sticky.                                                                 | `boolean`          | `false`     |
 
 
@@ -297,8 +314,6 @@ If you want the header to hide (slide up behind the top of the window) when the 
 | Part          | Description                                                       |
 | ------------- | ----------------------------------------------------------------- |
 | `"container"` | Actual header element that limits the width of the header content |
-| `"logo"`      | `ld-icon` element containing the default logo                     |
-| `"site-name"` | `ld-typo` element containing the site name                        |
 
 
 ----------------------------------------------

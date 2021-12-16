@@ -5,8 +5,6 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part container - Actual header element that limits the width of the header content
- * @part logo - `ld-icon` element containing the default logo
- * @part site-name - `ld-typo` element containing the site name
  */
 @Component({
   assetsDirs: ['assets'],
@@ -25,17 +23,8 @@ export class LdHeader {
   /** Hide the header when the user scrolls down and show it again, when the user scrolls up. */
   @Prop() hideOnScroll = false
 
-  /** Title attribute of the logo link. */
-  @Prop() logoTitle?: string
-
-  /** URL that the logo links to. */
-  @Prop() logoUrl?: string
-
   /** Make the header sticky. */
   @Prop() sticky = false
-
-  /** Name shown on the right side of the logo. */
-  @Prop() siteName?: string
 
   private updateScrollDirection = () => {
     const offset = window.pageYOffset ?? document.documentElement.scrollTop
