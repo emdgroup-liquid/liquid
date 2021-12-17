@@ -28,77 +28,40 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 ### Default
 
 {% example %}
-<ld-header>
-  <ld-typo class="logo" tag="div" variant="b6" title="Logo">M</ld-typo>
-  <ld-typo tag="div" variant="h5">Liquid Oxygen</ld-typo>
-</ld-header>
-
-<style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-</style>
+<ld-header site-name="Liquid Oxygen"></ld-header>
 
 <!-- CSS component -->
 
 <header class="ld-header">
   <div class="ld-header__container">
-    <div class="logo ld-typo--b6" title="Logo">M</div>
-    <div class="ld-typo--h5">Liquid Oxygen</div>
+    <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
-
-<style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-</style>
 {% endexample %}
 
 ### With linked logo
 
 {% example %}
-<ld-header>
-  <a href="#" title="Home">
-    <ld-typo class="logo" tag="div" variant="b6">M</ld-typo>
-  </a>
-  <ld-typo tag="div" variant="h5">Liquid Oxygen</ld-typo>
-</ld-header>
-
-<style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-</style>
+<ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#"></ld-header>
 
 <!-- CSS component -->
 
 <header class="ld-header">
   <div class="ld-header__container">
-    <a href="#" title="Home">
-      <div class="logo ld-typo--b6" title="Logo">M</div>
+    <a class="ld-header__logo-link" href="#" title="Home">
+      <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
     </a>
-    <div class="ld-typo--h5">Liquid Oxygen</div>
+    <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
-
-<style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-</style>
 {% endexample %}
 
 ### With custom logo
 
 {% example %}
-<ld-header>
-  <ld-icon name="rocket" size="lg" title="Logo"></ld-icon>
-  <ld-typo tag="div" variant="h5">Rocket Science</ld-typo>
+<ld-header site-name="Rocket Science">
+  <ld-icon name="rocket" size="lg" slot="logo"></ld-icon>
 </ld-header>
 
 <!-- CSS component -->
@@ -106,7 +69,7 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 <header class="ld-header">
   <div class="ld-header__container">
     <svg class="ld-icon ld-icon--lg" title="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.9524 14.422.0379.0948c.6824 1.4596.3791 3.2036-.7773 4.36l-1.6492 1.6492c-.3602.3792-.9857.2654-1.2132-.2085l-1.2322-2.6729-1.4407.9099c-.3602.2086-.8152.1517-1.0995-.1327l-3.981-3.9809a.8934.8934 0 0 1-.1326-1.0995l.9099-1.4407-2.673-1.2322c-.4738-.2085-.5876-.834-.2084-1.2132L5.1423 7.806c1.1564-1.1374 2.8814-1.4597 4.36-.7773l.0759.019c4.4927-4.2463 8.7039-3.882 10.2773-3.6924A.726.726 0 0 1 20.5 4c.1896 1.5734.6987 5.9292-3.5476 10.422zm-3.7345-6.4833c-.7962.7962-.7962 2.0663 0 2.8625.7962.7773 2.0852.7773 2.8624 0 .7773-.7962.7962-2.0663 0-2.8624-.7961-.7962-2.0662-.7962-2.8624 0zm-7.6587 10.161c0 .2085.1706.3601.3602.3601.0415-.0023.0866-.0046.135-.0071.3502-.0178.8746-.0446 1.4573-.1445l1.3468.626c.0661.0308.0778.1198.0206.1651-1.5787 1.253-3.6632 1.2568-4.7117 1.2587a17.4489 17.4489 0 0 0-.3072.0022c-.2085 0-.3602-.1706-.3602-.3602l.0021-.1117c.0174-.9543.0564-3.0902 1.399-4.7683a.098.098 0 0 1 .1651.0204l.6447 1.3669c-.1138.6635-.1517 1.2511-.1517 1.5924z" fill="currentcolor"/></svg>
-    <div class="ld-typo--h5">Rocket Science</div>
+    <div class="ld-header_site-name ld-typo--h5">Rocket Science</div>
   </div>
 </header>
 {% endexample %}
@@ -115,31 +78,23 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 
 {% example %}
 <ld-header>
-  <a href="#" title="Home">
-    <ld-typo class="logo" tag="div" variant="b6">M</ld-typo>
-  </a>
-  <ld-typo tag="div" variant="h5" style="flex-grow: 1">
+  <ld-typo tag="div" variant="h5">
     Liquid<span class="hide-on-sm"> Oxygen</span>
   </ld-typo>
-  <ld-button id="register" type="button">
+  <ld-button id="register" slot="end" type="button">
     <ld-icon name="pen"></ld-icon>
     Register
   </ld-button>
-  <ld-button id="login-sm" mode="ghost" title="Login" type="button">
+  <ld-button id="login-sm" mode="ghost" slot="end" title="Login" type="button">
     <ld-icon name="user"></ld-icon>
   </ld-button>
-  <ld-button id="login-lg" mode="secondary" type="button">
+  <ld-button id="login-lg" mode="secondary" slot="end" type="button">
     <ld-icon name="user"></ld-icon>
     Login
   </ld-button>
 </ld-header>
 
 <style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-
   .hide-on-sm {
     display: none;
   }
@@ -175,8 +130,8 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 
 <header class="ld-header">
   <div class="ld-header__container">
-    <div class="logo ld-typo--b6" title="Logo">M</div>
-    <div class="ld-typo--h5" style="flex-grow: 1">
+    <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <div class="ld-header_site-name ld-header__grow ld-typo--h5">
       Liquid<span class="hide-on-sm"> Oxygen</span>
     </div>
     <button class="ld-button ld-button--brand-color ld-button--sm" id="register" type="button">
@@ -194,11 +149,6 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 </header>
 
 <style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-
   .hide-on-sm {
     display: none;
   }
@@ -210,7 +160,6 @@ Also, you can easily make the header sticky and make it hide when the user is sc
   #login-sm {
     --ld-button-padding-x-sm: 0;
     --ld-button-padding-y-sm: 0;
-    margin: 0 calc(var(--ld-sp-8) * -1) 0 var(--ld-sp-8);
   }
 
   #login-lg {
@@ -240,22 +189,11 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 ### With burger menu button
 
 {% example %}
-<ld-header>
-  <ld-button mode="ghost" type="button">
+<ld-header site-name="Liquid Oxygen">
+  <ld-button mode="ghost" slot="start" type="button">
     <ld-icon name="burger-menu"></ld-icon>
   </ld-button>
-  <a href="#" title="Home">
-    <ld-typo class="logo" tag="div" variant="b6">M</ld-typo>
-  </a>
-  <ld-typo tag="div" variant="h5">Liquid Oxygen</ld-typo>
 </ld-header>
-
-<style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-</style>
 
 <!-- CSS component -->
 
@@ -264,21 +202,15 @@ Also, you can easily make the header sticky and make it hide when the user is sc
     <button class="ld-button ld-button--brand-color ld-button--ghost ld-button--sm" id="burger-menu" title="Login" type="button">
       <svg class="ld-icon ld-icon--lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><rect x="5" y="6" width="14" height="2" rx="1" fill="currentcolor"/><rect x="5" y="11" width="14" height="2" rx="1" fill="currentcolor"/><rect x="5" y="16" width="14" height="2" rx="1" fill="currentcolor"/></svg>
     </button>
-    <div class="logo ld-typo--b6" title="Logo">M</div>
-    <div class="ld-typo--h5">Liquid Oxygen</div>
+    <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
 
 <style>
-  .logo {
-    color: var(--ld-thm-warning);
-    margin-top: calc(var(--ld-sp-8) * -1);
-  }
-
   #burger-menu {
     --ld-button-padding-x-sm: 0;
     --ld-button-padding-y-sm: 0;
-    margin: 0 calc(var(--ld-sp-8) * -1);
   }
 </style>
 {% endexample %}
@@ -286,6 +218,20 @@ Also, you can easily make the header sticky and make it hide when the user is sc
 ### Sticky
 
 You can add the `sticky` property to the `ld-header` web component, to make the component stick to the top of the page.
+
+{% example %}
+<ld-header site-name="Liquid Oxygen" sticky></ld-header>
+
+<!-- CSS component -->
+
+<!-- Add the class `ld-header--hidden` to hide the sticky header. -->
+<header class="ld-header ld-header--sticky">
+  <div class="ld-header__container">
+    <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
+  </div>
+</header>
+{% endexample %}
 
 > As the CSS property `position: sticky;` is used here to achieve this behavior, the `ld-header` "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the `ld-header` in the DOM.
 
@@ -305,8 +251,20 @@ If you want the header to hide (slide up behind the top of the window) when the 
 | `hidden`       | `hidden`         | Hides header.                                                                           | `boolean`          | `false`     |
 | `hideOnScroll` | `hide-on-scroll` | Hide the header when the user scrolls down and show it again, when the user scrolls up. | `boolean`          | `false`     |
 | `key`          | `key`            | for tracking the node's identity when working with lists                                | `string \| number` | `undefined` |
+| `logoTitle`    | `logo-title`     | Title attribute of the logo link.                                                       | `string`           | `undefined` |
+| `logoUrl`      | `logo-url`       | URL that the logo links to.                                                             | `string`           | `undefined` |
 | `ref`          | `ref`            | reference to component                                                                  | `any`              | `undefined` |
+| `siteName`     | `site-name`      | Name shown on the right side of the logo.                                               | `string`           | `undefined` |
 | `sticky`       | `sticky`         | Make the header sticky.                                                                 | `boolean`          | `false`     |
+
+
+## Slots
+
+| Slot      | Description                            |
+| --------- | -------------------------------------- |
+| `"end"`   | Items on the right side of the header. |
+| `"logo"`  | Custom logo.                           |
+| `"start"` | Items on the left side of the header.  |
 
 
 ## Shadow Parts
@@ -314,7 +272,24 @@ If you want the header to hide (slide up behind the top of the window) when the 
 | Part          | Description                                                       |
 | ------------- | ----------------------------------------------------------------- |
 | `"container"` | Actual header element that limits the width of the header content |
+| `"logo"`      |                                                                   |
+| `"site-name"` |                                                                   |
 
+
+## Dependencies
+
+### Depends on
+
+- [ld-icon](../ld-icon)
+- [ld-typo](../ld-typo)
+
+### Graph
+```mermaid
+graph TD;
+  ld-header --> ld-icon
+  ld-header --> ld-typo
+  style ld-header fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

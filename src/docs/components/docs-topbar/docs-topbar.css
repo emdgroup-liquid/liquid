@@ -1,6 +1,7 @@
 .docs-topbar::part(container) {
-  padding: 0 var(--ld-sp-24);
   margin: 0 var(--ld-sp-4);
+  min-width: 20rem;
+  padding: 0 var(--ld-sp-24);
 }
 
 .docs-topbar__logo {
