@@ -187,6 +187,45 @@
       "isMobile": false
     },
     {
+      "id": "47001b8a",
+      "image": "b89912d0e9b0de84066e680da7d2e196.png",
+      "userAgent": "default",
+      "desc": "ld-button icon only ghost default",
+      "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "f8538f84",
+      "image": "58e681936602acfbc52165f7d14ff446.png",
+      "userAgent": "default",
+      "desc": "ld-button icon only ghost lg",
+      "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "7f014d9e",
+      "image": "94465345e89514df085281fcbdc56a29.png",
+      "userAgent": "default",
+      "desc": "ld-button icon only ghost sm",
+      "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "3c3a00b1",
       "image": "b1ee60d448f78e6a2c8d159fd2633a57.png",
       "userAgent": "default",

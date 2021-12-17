@@ -11,6 +11,33 @@ describe('ld-header', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('renders with site name', async () => {
+    const page = await newSpecPage({
+      components: [LdHeader],
+      html: `
+      <ld-header site-name="Liquid Oxygen"></ld-header>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('renders with linked logo', async () => {
+    const page = await newSpecPage({
+      components: [LdHeader],
+      html: `
+      <ld-header logo-title="Home" logo-url="#"></ld-header>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('renders with logo title', async () => {
+    const page = await newSpecPage({
+      components: [LdHeader],
+      html: `
+      <ld-header logo-title="Logo"></ld-header>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   it('renders with content', async () => {
     const page = await newSpecPage({
       components: [LdHeader],

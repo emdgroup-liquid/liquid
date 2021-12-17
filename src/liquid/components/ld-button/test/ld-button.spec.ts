@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdButton } from '../ld-button'
+import { LdIcon } from '../../ld-icon/ld-icon'
 import '../../../utils/mutationObserver'
 
 const mockClickHiddenButton = (
@@ -86,6 +87,17 @@ describe('ld-button', () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="danger">Text</ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('icon only', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `
+      <ld-button>
+        <ld-icon name="placeholder"></ld-icon>
+      </ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -299,7 +311,7 @@ describe('ld-button', () => {
 
   it('removes size from ld-icon web component', async () => {
     const page = await newSpecPage({
-      components: [LdButton],
+      components: [LdButton, LdIcon],
       html: `<ld-button>
         <ld-icon name="placeholder" size="sm"></ld-icon>
         <ld-icon name="placeholder" size="lg"></ld-icon>
@@ -321,7 +333,7 @@ describe('ld-button', () => {
 
   it('sets size on ld-icon web component', async () => {
     const page = await newSpecPage({
-      components: [LdButton],
+      components: [LdButton, LdIcon],
       html: `<ld-button size="sm">
         <ld-icon name="placeholder"></ld-icon>
         <ld-icon name="placeholder" size="lg"></ld-icon>

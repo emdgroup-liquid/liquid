@@ -97,6 +97,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() value?: string
 
   @State() clonedAttributes
+  @State() iconOnly = false
 
   /**
    * Sets focus on the button
@@ -173,20 +174,19 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
   @Watch('size')
   private updateIconSize() {
+    const forceLargeIcon = this.mode === 'ghost' && this.iconOnly
+
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
-      if (this.size !== undefined) {
-        icon.setAttribute('size', this.size)
-      } else {
-        icon.removeAttribute('size')
-      }
+      icon.size = forceLargeIcon ? 'lg' : this.size
     })
+
     this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'sm') {
-        icon.classList.remove('ld-icon--lg')
-        icon.classList.add('ld-icon--sm')
-      } else if (this.size === 'lg') {
+      if (this.size === 'lg' || forceLargeIcon) {
         icon.classList.remove('ld-icon--sm')
         icon.classList.add('ld-icon--lg')
+      } else if (this.size === 'sm') {
+        icon.classList.remove('ld-icon--lg')
+        icon.classList.add('ld-icon--sm')
       } else {
         icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
       }
@@ -204,6 +204,12 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.type === 'submit' ? 'type' : undefined, // submit is default
     ])
 
+    const textInButton = this.el.textContent.trim()
+
+    if (!textInButton) {
+      this.iconOnly = true
+    }
+
     this.updateIconSize()
   }
 
@@ -211,9 +217,10 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     const cl = getClassNames([
       'ld-button',
       this.alignText && `ld-button--align-text-${this.alignText}`,
+      this.brandColor && `ld-button--brand-color`,
+      this.iconOnly && `ld-button--icon-only`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
       this.mode && `ld-button--${this.mode}`,
-      this.brandColor && `ld-button--brand-color`,
       this.size && `ld-button--${this.size}`,
     ])
 

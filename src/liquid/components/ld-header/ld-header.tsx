@@ -72,12 +72,6 @@ export class LdHeader {
   }
 
   componentDidLoad() {
-    const ldMenu = this.el.querySelector('ld-menu')
-
-    if (ldMenu) {
-      ldMenu.orientation = 'horizontal'
-    }
-
     this.currentHeight = this.el.getBoundingClientRect().height
 
     this.el
@@ -85,20 +79,6 @@ export class LdHeader {
       .forEach((ldButton) => {
         ldButton.size = 'sm'
         ldButton.brandColor = true
-
-        if (ldButton.mode === 'ghost') {
-          const textInButton = ldButton.textContent.trim()
-          const iconInButton = ldButton.querySelector<HTMLElement>('.ld-icon')
-          const innerButton = ldButton.shadowRoot.querySelector('button')
-
-          if (iconInButton && !textInButton) {
-            iconInButton.style.setProperty('--ld-icon-size-lg', '1.5rem')
-            iconInButton.style.setProperty('--ld-icon-size-md', '1.5rem')
-            iconInButton.style.setProperty('--ld-icon-size-sm', '1.5rem')
-            innerButton.style.setProperty('--ld-button-padding-x-sm', '0')
-            innerButton.style.setProperty('--ld-button-padding-y-sm', '0')
-          }
-        }
       })
 
     this.el
@@ -107,19 +87,6 @@ export class LdHeader {
         cssButton.classList.add('ld-button--brand-color')
         cssButton.classList.add('ld-button--sm')
         cssButton.classList.remove('ld-button--lg')
-
-        if (cssButton.classList.contains('ld-button--ghost')) {
-          const textInButton = cssButton.textContent.trim()
-          const iconInButton = cssButton.querySelector<HTMLElement>('.ld-icon')
-
-          if (iconInButton && !textInButton) {
-            iconInButton.style.setProperty('--ld-icon-size-lg', '1.5rem')
-            iconInButton.style.setProperty('--ld-icon-size-md', '1.5rem')
-            iconInButton.style.setProperty('--ld-icon-size-sm', '1.5rem')
-            cssButton.style.setProperty('--ld-button-padding-x-sm', '0')
-            cssButton.style.setProperty('--ld-button-padding-y-sm', '0')
-          }
-        }
       })
   }
 
