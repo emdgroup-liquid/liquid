@@ -4803,7 +4803,7 @@
     },
     {
       "id": "3a410d02",
-      "image": "e9668f8ff25340d66597ba5f537ec166.png",
+      "image": "dfbb954c018faadc9405eacdf199be87.png",
       "userAgent": "default",
       "desc": "ld-header css component with linked logo",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4829,7 +4829,7 @@
     },
     {
       "id": "5261f40a",
-      "image": "e9668f8ff25340d66597ba5f537ec166.png",
+      "image": "dfbb954c018faadc9405eacdf199be87.png",
       "userAgent": "default",
       "desc": "ld-header web component default",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4855,7 +4855,7 @@
     },
     {
       "id": "1fc8f688",
-      "image": "9790a67a3a4ecabeb288f5b32c253f64.png",
+      "image": "c818cdda5b5d41661543e8191ac44bdb.png",
       "userAgent": "default",
       "desc": "ld-header web component sticky",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4868,7 +4868,7 @@
     },
     {
       "id": "ca9066cc",
-      "image": "2d183cb5cbd7ec6e9fb5d8a502e2a207.png",
+      "image": "73c9fa2556ad7afe211af7cd815462f3.png",
       "userAgent": "default",
       "desc": "ld-header web component with burger menu button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4881,7 +4881,7 @@
     },
     {
       "id": "1a616c12",
-      "image": "36eb9520c4b104d864693c82ac54cd2d.png",
+      "image": "b7519dc88f8a21898e2170e1e0352866.png",
       "userAgent": "default",
       "desc": "ld-header web component with buttons",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4907,7 +4907,7 @@
     },
     {
       "id": "30da2887",
-      "image": "8fe99983389fe80332bf089ddd16ca94.png",
+      "image": "b59a36d01a6327c06f4ea1d841aa1778.png",
       "userAgent": "default",
       "desc": "ld-header web component with custom site name",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4933,7 +4933,7 @@
     },
     {
       "id": "4497b732",
-      "image": "e9668f8ff25340d66597ba5f537ec166.png",
+      "image": "dfbb954c018faadc9405eacdf199be87.png",
       "userAgent": "default",
       "desc": "ld-header web component with linked logo",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
