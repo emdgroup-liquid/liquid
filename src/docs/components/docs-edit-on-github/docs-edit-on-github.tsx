@@ -14,10 +14,11 @@ export class DocsEditOnGithub {
   render() {
     return (
       <Host class="docs-edit-on-github">
-        <ld-button
-          size="sm"
+        <a
+          class="ld-button ld-button--sm"
           href={`https://github.com/emdgroup-liquid/liquid/blob/develop/${this.path}`}
           target="_blank"
+          rel="noreferrer noopener"
         >
           <ld-icon>
             <svg
@@ -34,7 +35,7 @@ export class DocsEditOnGithub {
             </svg>
           </ld-icon>
           Edit this page on GitHub
-        </ld-button>
+        </a>
       </Host>
     )
   }
