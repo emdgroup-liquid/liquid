@@ -52,16 +52,6 @@ import { LdButton } from '@emdgroup-liquid/liquid/dist/components/ld-button'
 customElements.define('ld-button', LdButton)
 ```
 
-### dist-custom-elements-bundle
-
-The [dist-custom-elements-bundle](https://stenciljs.com/docs/custom-elements-bundle) is a "single" and still tree-shakable bundle of custom elements.
-
-```js
-import { LdButton } from '@emdgroup-liquid/liquid/dist/custom-elements'
-
-customElements.define('ld-button', LdButton)
-```
-
 Learn more about the differences in the [Stencil docs](https://stenciljs.com/docs/output-targets).
 
 ## Import stylesheets
