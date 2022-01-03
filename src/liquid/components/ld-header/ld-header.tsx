@@ -61,14 +61,16 @@ export class LdHeader {
   connectedCallback() {
     if (this.hideOnScroll) {
       this.lastOffset = window.pageYOffset || document.documentElement.scrollTop
-      window.addEventListener('scroll', this.updateScrollDirection, false)
+      window.addEventListener('scroll', this.updateScrollDirection, {
+        passive: true,
+      })
     } else {
       this.disconnectedCallback()
     }
   }
 
   disconnectedCallback() {
-    window.removeEventListener('scroll', this.updateScrollDirection, false)
+    window.removeEventListener('scroll', this.updateScrollDirection)
   }
 
   componentDidLoad() {
@@ -103,23 +105,40 @@ export class LdHeader {
           <slot name="start" />
           {this.logoUrl ? (
             <a
+              aria-label={this.logoTitle}
               class="ld-header__logo-wrapper"
               href={this.logoUrl}
               part="logo-wrapper"
-              title={this.logoTitle}
             >
               <slot name="logo">
-                <ld-icon class="ld-header__logo" name="initial-m" part="logo" />
-              </slot>
-            </a>
-          ) : (
-            <div class="ld-header__logo-wrapper" part="logo-wrapper">
-              <slot name="logo">
                 <ld-icon
+                  aria-label={
+                    this.logoTitle
+                      ? undefined
+                      : 'Merck KGaA, Darmstadt, Germany'
+                  }
                   class="ld-header__logo"
                   name="initial-m"
                   part="logo"
-                  title={this.logoTitle}
+                />
+              </slot>
+            </a>
+          ) : (
+            <div
+              aria-label={this.logoTitle}
+              class="ld-header__logo-wrapper"
+              part="logo-wrapper"
+            >
+              <slot name="logo">
+                <ld-icon
+                  aria-label={
+                    this.logoTitle
+                      ? undefined
+                      : 'Merck KGaA, Darmstadt, Germany'
+                  }
+                  class="ld-header__logo"
+                  name="initial-m"
+                  part="logo"
                 />
               </slot>
             </div>

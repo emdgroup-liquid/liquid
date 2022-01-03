@@ -7,7 +7,7 @@ exports[`ld-header renders 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -25,7 +25,7 @@ exports[`ld-header renders hidden 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -43,7 +43,7 @@ exports[`ld-header renders hide-on-scroll 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -61,7 +61,7 @@ exports[`ld-header renders sticky 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -79,7 +79,7 @@ exports[`ld-header renders with content 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -98,7 +98,7 @@ exports[`ld-header renders with linked logo 1`] = `
   <mock:shadow-root>
     <header class="ld-header__container" part="container">
       <slot name="start"></slot>
-      <a class="ld-header__logo-wrapper" href="#" part="logo-wrapper" title="Home">
+      <a aria-label="Home" class="ld-header__logo-wrapper" href="#" part="logo-wrapper">
         <slot name="logo">
           <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
@@ -116,9 +116,9 @@ exports[`ld-header renders with logo title 1`] = `
   <mock:shadow-root>
     <header class="ld-header__container" part="container">
       <slot name="start"></slot>
-      <div class="ld-header__logo-wrapper" part="logo-wrapper">
+      <div aria-label="Logo" class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo" title="Logo"></ld-icon>
+          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <slot></slot>
@@ -136,7 +136,7 @@ exports[`ld-header renders with site name 1`] = `
       <slot name="start"></slot>
       <div class="ld-header__logo-wrapper" part="logo-wrapper">
         <slot name="logo">
-          <ld-icon class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
+          <ld-icon aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo" name="initial-m" part="logo"></ld-icon>
         </slot>
       </div>
       <ld-typo class="ld-header_site-name" part="site-name" tag="div" variant="h5">
