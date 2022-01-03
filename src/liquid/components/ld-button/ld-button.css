@@ -6,7 +6,7 @@
   }
 }
 
-:where(.ld-button) {
+.ld-button {
   --ld-button-icon-size-sm: 1rem;
   --ld-button-icon-size-md: 1.25rem;
   --ld-button-icon-size-lg: 1.5rem;
