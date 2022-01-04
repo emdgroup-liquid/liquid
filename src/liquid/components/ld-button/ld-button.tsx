@@ -1,4 +1,12 @@
-import { Component, Element, h, Method, Prop, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
@@ -23,7 +31,11 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) alignText?: 'left' | 'right'
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
+
+  // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
+  /** Style the button so that it looks good on the current theme's primary color. */
+  @Prop() brandColor?: boolean
 
   /** Disabled state of the button. */
   @Prop() disabled?: boolean
@@ -65,10 +77,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Used to specify the name of the control. */
   @Prop() name?: string
 
-  // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
-  /** Style the button so that it looks good on the current theme's primary color. */
-  @Prop() brandColor?: boolean
-
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress?: 'pending' | number
 
@@ -89,6 +97,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() value?: string
 
   @State() clonedAttributes
+  @State() iconOnly = false
 
   /**
    * Sets focus on the button
@@ -163,9 +172,31 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     }
   }
 
+  @Watch('size')
+  private updateIconSize() {
+    const forceLargeIcon = this.mode === 'ghost' && this.iconOnly
+
+    this.el.querySelectorAll('ld-icon').forEach((icon) => {
+      icon.size = forceLargeIcon ? 'lg' : this.size
+    })
+
+    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
+      if (this.size === 'lg' || forceLargeIcon) {
+        icon.classList.remove('ld-icon--sm')
+        icon.classList.add('ld-icon--lg')
+      } else if (this.size === 'sm') {
+        icon.classList.remove('ld-icon--lg')
+        icon.classList.add('ld-icon--sm')
+      } else {
+        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
+      }
+    })
+  }
+
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
       'align-text',
+      'brand-color',
       'justify-content',
       'mode',
       'progress',
@@ -173,33 +204,23 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.type === 'submit' ? 'type' : undefined, // submit is default
     ])
 
-    this.el.querySelectorAll('ld-icon').forEach((icon) => {
-      if (this.size !== undefined) {
-        icon.setAttribute('size', this.size)
-      } else {
-        icon.removeAttribute('size')
-      }
-    })
-    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'sm') {
-        icon.classList.remove('ld-icon--lg')
-        icon.classList.add('ld-icon--sm')
-      } else if (this.size === 'lg') {
-        icon.classList.remove('ld-icon--sm')
-        icon.classList.add('ld-icon--lg')
-      } else {
-        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
-      }
-    })
+    const textInButton = this.el.textContent.trim()
+
+    if (!textInButton) {
+      this.iconOnly = true
+    }
+
+    this.updateIconSize()
   }
 
   render() {
     const cl = getClassNames([
       'ld-button',
       this.alignText && `ld-button--align-text-${this.alignText}`,
+      this.brandColor && `ld-button--brand-color`,
+      this.iconOnly && `ld-button--icon-only`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
       this.mode && `ld-button--${this.mode}`,
-      this.brandColor && `ld-button--brand-color`,
       this.size && `ld-button--${this.size}`,
     ])
 

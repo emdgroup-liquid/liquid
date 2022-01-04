@@ -999,7 +999,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
 | `accept`       | `accept`       | Hint for expected file type in file upload controls.                                                                  | `string`           | `undefined` |
 | `autocomplete` | `autocomplete` | Hint for form autofill feature.                                                                                       | `string`           | `undefined` |
-| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`          | `undefined` |
+| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`          | `false`     |
 | `capture`      | `capture`      | Media capture input method in file upload controls.                                                                   | `string`           | `undefined` |
 | `cols`         | `cols`         | The number of columns.                                                                                                | `number`           | `undefined` |
 | `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`           | `undefined` |

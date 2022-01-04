@@ -21,10 +21,13 @@ export const getPageWithContent = async (
     components?: unknown
     disableAllTransitions?: boolean
     enforceAnimationDurationSeconds?: number
+    notWrapped?: boolean
   }
 ) => {
   const page = (await newE2EPage({
-    html: `<div class="e2e-container">${content}</div>`,
+    html: config?.notWrapped
+      ? content
+      : `<div class="e2e-container">${content}</div>`,
     // TODO: test, if this helps the asset loading...
     waitUntil: 'domcontentloaded',
   })) as PatchedE2EPage
@@ -52,6 +55,7 @@ export const getPageWithContent = async (
     body {
       margin: 0;
       ${config?.bgColor ? `background-color: ${config.bgColor};` : ''}
+      height: 900px;
     }
     *:focus,
     ::part(focusable) {

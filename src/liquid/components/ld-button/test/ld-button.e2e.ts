@@ -529,6 +529,36 @@ describe('ld-button', () => {
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
+
+    describe('ghost', () => {
+      it('default', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+      it('sm', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost" size="sm"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+      it('lg', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost" size="lg"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+    })
   })
 
   describe('justify content with custom width', () => {

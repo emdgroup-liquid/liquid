@@ -49,7 +49,7 @@ exports[`ld-button as progress button pending 1`] = `
 exports[`ld-button brand-color (default) 1`] = `
 <ld-button brand-color="">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -60,7 +60,7 @@ exports[`ld-button brand-color (default) 1`] = `
 exports[`ld-button brand-color (ghost) 1`] = `
 <ld-button brand-color="" mode="ghost">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--ghost" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color ld-button--ghost" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -71,7 +71,7 @@ exports[`ld-button brand-color (ghost) 1`] = `
 exports[`ld-button brand-color (secondary) 1`] = `
 <ld-button brand-color="" mode="secondary">
   <mock:shadow-root>
-    <button aria-live="polite" brand-color="" class="ld-button ld-button--brand-color ld-button--secondary" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--brand-color ld-button--secondary" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -82,7 +82,7 @@ exports[`ld-button brand-color (secondary) 1`] = `
 exports[`ld-button clones attributes to inner button 1`] = `
 <ld-button aria-label="yolo" hidden="" size="sm">
   <mock:shadow-root>
-    <button aria-label="yolo" aria-live="polite" class="ld-button ld-button--sm" hidden="" part="button focusable">
+    <button aria-label="yolo" aria-live="polite" class="ld-button ld-button--icon-only ld-button--sm" hidden="" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -133,6 +133,17 @@ exports[`ld-button highlight 1`] = `
 </ld-button>
 `;
 
+exports[`ld-button icon only 1`] = `
+<ld-button>
+  <mock:shadow-root>
+    <button aria-live="polite" class="ld-button ld-button--icon-only" part="button focusable">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  <ld-icon name="placeholder"></ld-icon>
+</ld-button>
+`;
+
 exports[`ld-button justify content 1`] = `
 <ld-button justify-content="end">
   <mock:shadow-root>
@@ -147,7 +158,7 @@ exports[`ld-button justify content 1`] = `
 exports[`ld-button removes size from ld-icon css component 1`] = `
 <ld-button>
   <mock:shadow-root>
-    <button aria-live="polite" class="ld-button" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--icon-only" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -159,12 +170,20 @@ exports[`ld-button removes size from ld-icon css component 1`] = `
 exports[`ld-button removes size from ld-icon web component 1`] = `
 <ld-button>
   <mock:shadow-root>
-    <button aria-live="polite" class="ld-button" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--icon-only" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
-  <ld-icon name="placeholder"></ld-icon>
-  <ld-icon name="placeholder"></ld-icon>
+  <ld-icon class="ld-icon" name="placeholder" role="presentation" size="sm">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+  <ld-icon class="ld-icon" name="placeholder" role="presentation" size="lg">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
 </ld-button>
 `;
 
@@ -193,7 +212,7 @@ exports[`ld-button secondary 1`] = `
 exports[`ld-button sets size on ld-icon css component 1`] = `
 <ld-button size="sm">
   <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--sm" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--icon-only ld-button--sm" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -205,12 +224,20 @@ exports[`ld-button sets size on ld-icon css component 1`] = `
 exports[`ld-button sets size on ld-icon web component 1`] = `
 <ld-button size="sm">
   <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--sm" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--icon-only ld-button--sm" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
-  <ld-icon name="placeholder" size="sm"></ld-icon>
-  <ld-icon name="placeholder" size="sm"></ld-icon>
+  <ld-icon class="ld-icon ld-icon--sm" name="placeholder" role="presentation">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+  <ld-icon class="ld-icon ld-icon--sm" name="placeholder" role="presentation" size="lg">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
 </ld-button>
 `;
 

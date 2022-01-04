@@ -66,9 +66,8 @@ title: Introduction
       `docs-theme-${!this.isDark ? 'dark' : 'light'}`
     )
   </script>
+  <docs-topbar></docs-topbar>
   <docs-layout id="docs-layout" style="visibility: hidden">
-    <docs-topbar></docs-topbar>
-
     <docs-nav>
       {% set navPages = collections.all | eleventyNavigation %}
       {% macro renderNavListItem(entry) %}

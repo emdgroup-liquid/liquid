@@ -18,6 +18,7 @@ log.txt
 .vscode/
 .sass-cache/
 .versions/
+.yarn/
 node_modules/
 coverage/
 tmp/

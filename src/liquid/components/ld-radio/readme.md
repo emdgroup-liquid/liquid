@@ -361,7 +361,7 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 
 | Property    | Attribute   | Description                                                                 | Type                      | Default     |
 | ----------- | ----------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `autofocus` | `autofocus` | Automatically focus the form control when the page is loaded.               | `boolean`                 | `undefined` |
+| `autofocus` | `autofocus` | Automatically focus the form control when the page is loaded.               | `boolean`                 | `false`     |
 | `checked`   | `checked`   | Indicates whether the radio button is selected.                             | `boolean`                 | `false`     |
 | `disabled`  | `disabled`  | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
 | `form`      | `form`      | Associates the control with a form element.                                 | `string`                  | `undefined` |

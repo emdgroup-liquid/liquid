@@ -30,7 +30,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   private hiddenInput: HTMLInputElement
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
 
   /** Indicates whether the radio button is selected. */
   @Prop({ mutable: true }) checked = false
