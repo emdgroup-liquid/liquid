@@ -56,6 +56,7 @@ describe('ld-button', () => {
             }
           )
           await page.hover('ld-button')
+          await page.waitForChanges()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
@@ -110,6 +111,7 @@ describe('ld-button', () => {
               }
             )
             await page.hover('ld-button')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -165,6 +167,7 @@ describe('ld-button', () => {
               }
             )
             await page.hover('ld-button')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -222,6 +225,7 @@ describe('ld-button', () => {
               }
             )
             await page.hover('ld-button')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -281,6 +285,7 @@ describe('ld-button', () => {
               }
             )
             await page.hover('.ld-button')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -331,6 +336,7 @@ describe('ld-button', () => {
                 }
               )
               await page.hover('.ld-button')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -382,6 +388,7 @@ describe('ld-button', () => {
                 }
               )
               await page.hover('.ld-button')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -441,6 +448,7 @@ describe('ld-button', () => {
                 }
               )
               await page.hover('.ld-button')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
