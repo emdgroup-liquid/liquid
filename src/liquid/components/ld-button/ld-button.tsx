@@ -219,9 +219,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
         {...this.clonedAttributes}
         aria-busy={hasProgress ? 'true' : undefined}
         aria-disabled={
-          this.disabled || this.el.getAttribute('aria-disabled') === 'true'
-            ? 'true'
-            : undefined
+          this.disabled || this.el.ariaDisabled ? 'true' : undefined
         }
         aria-live="polite"
         class={cl}
