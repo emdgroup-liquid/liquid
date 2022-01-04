@@ -51,7 +51,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
 
   /** Media capture input method in file upload controls. */
   @Prop() capture?: string

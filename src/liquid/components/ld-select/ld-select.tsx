@@ -49,7 +49,7 @@ export class LdSelect implements InnerFocusable {
    * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
    * Only one form element in a document can have the autofocus attribute.
    */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
 
   /** Disabled state of the component. */
   @Prop() disabled: boolean

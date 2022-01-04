@@ -31,7 +31,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) alignText?: 'left' | 'right'
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
 
   // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
   /** Style the button so that it looks good on the current theme's primary color. */
