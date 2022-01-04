@@ -152,6 +152,15 @@
     justify-content: space-between;
   }
 
+  &:where(.ld-button--icon-only) {
+    --ld-button-padding-x-sm: 0;
+    --ld-button-padding-y-sm: 0;
+    --ld-button-padding-x-md: 0;
+    --ld-button-padding-y-md: 0;
+    --ld-button-padding-x-lg: 0;
+    --ld-button-padding-y-lg: 0;
+  }
+
   &[aria-busy='true'] {
     cursor: progress;
   }

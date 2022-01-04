@@ -273,11 +273,13 @@ Left-click an icon below to download its SVG file. To download all icons at once
 
 ### Used by
 
+ - [ld-header](../ld-header)
  - [ld-input-message](../ld-input-message)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-header --> ld-icon
   ld-input-message --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

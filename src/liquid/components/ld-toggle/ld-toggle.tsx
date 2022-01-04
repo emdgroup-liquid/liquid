@@ -38,7 +38,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Prop() ariaDisabled: string
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus?: boolean
+  @Prop() autofocus = false
 
   /** Indicates whether the toggle is "on". */
   @Prop({ mutable: true }) checked = false

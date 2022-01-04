@@ -410,6 +410,19 @@ Here are some examples on how you can apply different colors on headings:
 | `"tag"` | Actual tag  |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-header](../ld-header)
+
+### Graph
+```mermaid
+graph TD;
+  ld-header --> ld-typo
+  style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  
