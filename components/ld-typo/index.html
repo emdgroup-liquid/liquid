@@ -406,6 +406,29 @@
         
           
             {
+              title: 'Header',
+              tags: '',
+              url: '/liquid/components/ld-header/',
+              headings: 'ExamplesDefaultWith linked logoWith custom logoWith buttonsWith burger menu buttonStickyHide on scrollCSS VariablesPropertiesSlotsShadow PartsDependenciesDepends onGraph',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Header'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Icon',
               tags: '',
               url: '/liquid/components/ld-icon/',
@@ -833,7 +856,7 @@
               title: 'Typography',
               tags: '',
               url: '/liquid/components/ld-typo/',
-              headings: 'ExamplesDefaultParagraphsLabelsCaptionsHeadingsBranding variants b*Large heading variants xh*Large branding variants xb*Custom tagColorsPropertiesShadow Parts',
+              headings: 'ExamplesDefaultParagraphsLabelsCaptionsHeadingsBranding variants b*Large heading variants xh*Large branding variants xb*Custom tagColorsPropertiesShadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -1100,9 +1123,8 @@
       `docs-theme-${!this.isDark ? 'dark' : 'light'}`
     )
   </script>
+  <docs-topbar></docs-topbar>
   <docs-layout id="docs-layout" style="visibility: hidden">
-    <docs-topbar></docs-topbar>
-
     <docs-nav>
       
       
@@ -1350,6 +1372,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-header/">Header</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-icon/">Icon</a>
             
           </li>
@@ -1534,7 +1564,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#paragraphs">Paragraphs</a></li><li><a href="#labels">Labels</a></li><li><a href="#captions">Captions</a></li><li><a href="#headings">Headings</a></li><li><a href="#branding-variants-b*">Branding variants b*</a></li><li><a href="#large-heading-variants-xh*">Large heading variants xh*</a></li><li><a href="#large-branding-variants-xb*">Large branding variants xb*</a></li><li><a href="#custom-tag">Custom tag</a></li></ol></li><li><a href="#colors">Colors</a></li><li><a href="#properties">Properties</a></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#paragraphs">Paragraphs</a></li><li><a href="#labels">Labels</a></li><li><a href="#captions">Captions</a></li><li><a href="#headings">Headings</a></li><li><a href="#branding-variants-b*">Branding variants b*</a></li><li><a href="#large-heading-variants-xh*">Large heading variants xh*</a></li><li><a href="#large-branding-variants-xb*">Large branding variants xb*</a></li><li><a href="#custom-tag">Custom tag</a></li></ol></li><li><a href="#colors">Colors</a></li><li><a href="#properties">Properties</a></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
       </nav>
       </docs-toc>
     
@@ -1914,6 +1944,16 @@
 </tr>
 </tbody>
 </table>
+<h2 id="dependencies">Dependencies <a class="header-anchor" href="components/ld-typo/#dependencies"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="used-by">Used by <a class="header-anchor" href="components/ld-typo/#used-by"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<ul>
+<li><a href="../ld-header">ld-header</a></li>
+</ul>
+<h3 id="graph">Graph <a class="header-anchor" href="components/ld-typo/#graph"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<pre class="mermaid">graph TD;
+  ld-header --> ld-typo
+  style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
+</pre>
 <hr>
 
       
