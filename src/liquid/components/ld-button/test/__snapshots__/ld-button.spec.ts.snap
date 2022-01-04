@@ -82,7 +82,7 @@ exports[`ld-button brand-color (secondary) 1`] = `
 exports[`ld-button clones attributes to inner button 1`] = `
 <ld-button aria-label="yolo" hidden="" size="sm">
   <mock:shadow-root>
-    <button aria-label="yolo" aria-live="polite" class="ld-button ld-button--sm" hidden="" part="button focusable">
+    <button aria-label="yolo" aria-live="polite" class="ld-button ld-button--icon-only ld-button--sm" hidden="" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>
