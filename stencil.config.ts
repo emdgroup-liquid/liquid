@@ -43,7 +43,6 @@ export const config: Config = {
     // browserHeadless: false,
     // browserDevtools: true,
     // browserSlowMo: 1000, // milliseconds
-    browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
   },
   buildEs5: false,
   extras: {
