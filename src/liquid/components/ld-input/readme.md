@@ -1008,9 +1008,9 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
 | `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
 | `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.                                                | `string`           | `undefined` |
-| `max`          | `max`          | Maximum value.                                                                                                        | `string`           | `undefined` |
+| `max`          | `max`          | Maximum value.                                                                                                        | `number \| string` | `undefined` |
 | `maxlength`    | `maxlength`    | Maximum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
-| `min`          | `min`          | Minimum value.                                                                                                        | `string`           | `undefined` |
+| `min`          | `min`          | Minimum value.                                                                                                        | `number \| string` | `undefined` |
 | `minlength`    | `minlength`    | Minimum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
 | `multiline`    | `multiline`    | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
 | `multiple`     | `multiple`     | Boolean. Whether to allow multiple values.                                                                            | `boolean`          | `undefined` |

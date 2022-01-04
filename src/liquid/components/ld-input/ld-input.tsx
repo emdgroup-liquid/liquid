@@ -77,13 +77,13 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop() list?: string
 
   /** Maximum value. */
-  @Prop() max?: string
+  @Prop() max?: string | number
 
   /** Maximum length (number of characters) of `value`. */
   @Prop() maxlength?: string
 
   /** Minimum value. */
-  @Prop() min?: string
+  @Prop() min?: string | number
 
   /** Minimum length (number of characters) of `value`. */
   @Prop() minlength?: string
