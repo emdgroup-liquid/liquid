@@ -45,7 +45,6 @@ describe('ld-button', () => {
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
-        // TODO: reactivate test when upstream issue is fixed (https://github.com/ionic-team/stencil/issues/3188)
         it('hover', async () => {
           const page = await getPageWithContent(
             `<ld-button${
