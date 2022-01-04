@@ -682,7 +682,7 @@
     },
     {
       "id": "3d32b39d",
-      "image": "5d127be4dd2985057c7da2a1bf1f25dc.png",
+      "image": "812a6b19edf6bc003851fad42182eb94.png",
       "userAgent": "default",
       "desc": "ld-button mode danger progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
