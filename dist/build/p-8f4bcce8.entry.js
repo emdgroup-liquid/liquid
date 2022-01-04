@@ -1,1 +1,0 @@
-import{r,h as s,H as l}from"./p-4bb69ba2.js";let o=class{constructor(s){r(this,s)}render(){return s(l,{class:"ld-sr-only"},s("slot",null))}};o.style=".ld-sr-only,:host{position:absolute;width:var(--ld-sp-1);height:var(--ld-sp-1);padding:0;overflow:hidden;clip:rect(0,0,0,0);border-width:0}";export{o as ld_sr_only}
