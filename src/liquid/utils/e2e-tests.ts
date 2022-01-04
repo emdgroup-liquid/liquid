@@ -29,6 +29,8 @@ export const getPageWithContent = async (
     waitUntil: 'domcontentloaded',
   })
 
+  // TODO: The following monkey patch is required until the upstream issue
+  //  https://github.com/ionic-team/stencil/issues/3188) is fixed:
   const screenshot = (page as PatchedE2EPage).screenshot
   ;(page as PatchedE2EPage).screenshot = async function () {
     return screenshot.call(page, {
