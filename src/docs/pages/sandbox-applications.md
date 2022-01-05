@@ -16,5 +16,6 @@ In order to help you get started with Liquid we have begun implementing small sa
 - Liquid + **Vue 3 + Typescript + Tailwind CSS + Vite** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-vue-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-vue-tailwind-w5b2c))
 - Liquid + **SvelteKit + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-sveltekit-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-sveltekit-tailwind-g5w7w))
 - Liquid + **React + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-react-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-react-tailwind-vbsuw))
+- Liquid + **Next + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-next-tailwind-nhjjf))
 
 <docs-page-nav prev-href="introduction/design-tokens/" next-title="FAQ" next-href="introduction/faq/"></docs-page-nav>
