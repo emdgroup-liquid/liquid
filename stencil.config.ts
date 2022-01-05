@@ -35,6 +35,7 @@ export const config: Config = {
   plugins: [postcss(postcssConfig)],
   testing: {
     allowableMismatchedPixels: 0,
+    setupFiles: ['./jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
     timers: 'fake',
     // browserHeadless: false,

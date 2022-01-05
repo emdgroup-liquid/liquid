@@ -1030,12 +1030,9 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 
 ## Events
 
-| Event    | Description                            | Type                      |
-| -------- | -------------------------------------- | ------------------------- |
-| `blur`   | Emitted when the input looses focus.   | `CustomEvent<FocusEvent>` |
-| `change` | Emitted when the input value changes.  | `CustomEvent<string>`     |
-| `focus`  | Emitted when the input receives focus. | `CustomEvent<FocusEvent>` |
-| `input`  | Emitted when the input value changes.  | `CustomEvent<string>`     |
+| Event      | Description                                                       | Type                  |
+| ---------- | ----------------------------------------------------------------- | --------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>` |
 
 
 ## Methods
