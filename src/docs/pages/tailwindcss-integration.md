@@ -22,6 +22,10 @@ module.exports = {
 }
 ```
 
+## Previewing the Tailwind config
+
+After you have configured Tailwind with Liquid's preset, you may want to use the awesome [Tailwind Config Viewer](https://www.npmjs.com/package/tailwind-config-viewer) as a dev dependency in your project in order to learn which Tailwind utility classes are available to you.
+
 ## Disabling Tailwind’s default configuration
 
 Liquid's Tailwind preset extends Tailwind's [default configuration](https://unpkg.com/browse/tailwindcss@%5E2/stubs/defaultConfig.stub.js) by default. If you want Liquid's preset to **not** extend Tailwind's default configuration, include an empty `presets` key in the preset: 
