@@ -1,11 +1,26 @@
-.docs-topbar::part(container) {
-  margin: 0 var(--ld-sp-4);
+.docs-topbar {
   min-width: 20rem;
-  padding: 0 var(--ld-sp-24);
+
+  &::part(container) {
+    margin: 0 var(--ld-sp-4);
+    padding: 0 var(--ld-sp-24);
+  }
 }
 
 .docs-topbar__logo {
   display: block;
+  margin-left: calc(-1 * var(--ld-sp-6));
+}
+
+.docs-topbar__links {
+  margin-right: 0;
+  width: var(--docs-toc-width);
+  padding-left: calc(var(--ld-sp-24));
+
+  @media (max-width: 80rem) {
+    width: auto;
+    padding-left: 0;
+  }
 }
 
 .docs-topbar__link {
@@ -13,7 +28,7 @@
   height: var(--ld-sp-24);
 
   &:not(:last-of-type) {
-    margin-right: var(--ld-sp-8);
+    margin-right: var(--ld-sp-24);
   }
 
   @media (hover: hover) {
@@ -26,8 +41,9 @@
   }
 }
 
-.docs-topbar__headlines {
+.docs-topbar__headline-link {
   flex-grow: 1;
+  text-decoration: none;
 }
 
 .docs-topbar__headline {

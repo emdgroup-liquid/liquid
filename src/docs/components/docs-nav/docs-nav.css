@@ -194,7 +194,6 @@
   }
 
   a {
-    display: block;
     padding-left: var(--ld-sp-40);
 
     &::after {
@@ -208,6 +207,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      pointer-events: none;
     }
 
     &::before {
