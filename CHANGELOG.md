@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.23](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.22...v1.0.0-rc.23) (2022-01-05)
+
+
+### Bug Fixes
+
+* **ld-button:** revert removal of hover media query ([c0cdc1d](https://github.com/emdgroup-liquid/liquid/commit/c0cdc1d443367c1e133841d1c8bb9e59a45f9eea))
+* **ld-button:** revert removal of hover media query ([02ba181](https://github.com/emdgroup-liquid/liquid/commit/02ba1818baf4534d8567e35d8a90c3802b465eb7))
+* **ld-input:** submit associated form on return ([f74d88c](https://github.com/emdgroup-liquid/liquid/commit/f74d88c123cc331860d54e3edca84eebbc336890))
+* conditionally disconnect attribute observer ([99f6494](https://github.com/emdgroup-liquid/liquid/commit/99f649433bd830859d592ee2942ad9b4bd3b1783))
+
+
+### Features
+
+* **ld-header:** add basic header component ([fa4b1c8](https://github.com/emdgroup-liquid/liquid/commit/fa4b1c83e2963aa5c896a6a24f051259587f743b))
+* **ld-header:** add basic header component ([db51098](https://github.com/emdgroup-liquid/liquid/commit/db51098949b9f1a17890dd94ff2a68ae823c33ff))
+
 # [1.0.0-rc.22](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.21...v1.0.0-rc.22) (2021-12-15)
 
 
