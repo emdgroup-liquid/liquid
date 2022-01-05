@@ -1,6 +1,9 @@
 body {
   overscroll-behavior-x: none;
   -webkit-text-size-adjust: none;
+  --docs-max-width: 90rem;
+  --docs-nav-width: 17rem;
+  --docs-toc-width: 17rem;
 }
 
 .docs-main {
@@ -26,9 +29,6 @@ body {
 }
 
 .docs-layout {
-  --docs-max-width: 90rem;
-  --docs-nav-width: 17rem;
-  --docs-toc-width: 17rem;
   max-width: var(--docs-max-width);
   margin: 0 auto;
   font-family: var(--ld-font-body);

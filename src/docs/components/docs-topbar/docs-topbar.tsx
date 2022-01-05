@@ -23,7 +23,7 @@ export class DocsTopbar {
           slot="logo"
           src={getAssetPath('./assets/logo.svg')}
         />
-        <a class="docs-topbar__headlines" href="/" title="Home">
+        <a class="docs-topbar__headline-link" href="/" title="Home">
           <p class="docs-topbar__headline docs-topbar__headline--long">
             <b>Liquid Oxygen</b> Documentation
           </p>
@@ -31,32 +31,34 @@ export class DocsTopbar {
             <b>Liquid</b> Docs
           </p>
         </a>
-        <a
-          class="docs-topbar__link"
-          href="https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310"
-          rel="noreferrer noopener"
-          slot="end"
-          target="_blank"
-        >
-          <img
-            src={getAssetPath('./assets/figma.svg')}
-            alt="Liquid Oxygen on Figma"
-            role="presentation"
-          />
-        </a>
-        <a
-          class="docs-topbar__link"
-          href="https://github.com/emdgroup-liquid/liquid"
-          rel="noreferrer noopener"
-          slot="end"
-          target="_blank"
-        >
-          <img
-            src={getAssetPath('./assets/github.svg')}
-            alt="Liquid Oxygen on GitHub"
-            role="presentation"
-          />
-        </a>
+        <div slot="end" class="docs-topbar__links">
+          <a
+            class="docs-topbar__link"
+            href="https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310"
+            rel="noreferrer noopener"
+            slot="end"
+            target="_blank"
+          >
+            <img
+              src={getAssetPath('./assets/figma.svg')}
+              alt="Liquid Oxygen on Figma"
+              role="presentation"
+            />
+          </a>
+          <a
+            class="docs-topbar__link"
+            href="https://github.com/emdgroup-liquid/liquid"
+            rel="noreferrer noopener"
+            slot="end"
+            target="_blank"
+          >
+            <img
+              src={getAssetPath('./assets/github.svg')}
+              alt="Liquid Oxygen on GitHub"
+              role="presentation"
+            />
+          </a>
+        </div>
       </ld-header>
     )
   }
