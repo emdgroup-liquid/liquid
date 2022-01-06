@@ -61,6 +61,8 @@ describe('ld-input', () => {
     expect(ldInput).toMatchSnapshot()
   })
 
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
   xit('emits focus and blur event', async () => {
     const page = await newSpecPage({
       components: [LdInput],
