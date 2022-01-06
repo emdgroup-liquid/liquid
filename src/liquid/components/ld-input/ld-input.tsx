@@ -44,7 +44,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   private attributesObserver: MutationObserver
 
   private hiddenInput?: HTMLInputElement
-  private inputEl: HTMLInputElement | HTMLTextAreaElement
+  private input: HTMLInputElement | HTMLTextAreaElement
 
   /** Hint for expected file type in file upload controls. */
   @Prop() accept?: string
@@ -142,8 +142,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
    */
   @Method()
   async focusInner() {
-    if (this.inputEl !== undefined) {
-      this.inputEl.focus()
+    if (this.input !== undefined) {
+      this.input.focus()
     }
   }
 
@@ -280,13 +280,13 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   private handleInput = (ev: InputEvent) => {
-    if (this.inputEl.getAttribute('aria-disabled') === 'true') {
+    if (this.input.getAttribute('aria-disabled') === 'true') {
       ev.stopImmediatePropagation()
     } else {
-      this.value = this.inputEl.value
+      this.value = this.input.value
       return
     }
-    this.inputEl.value = this.value ?? ''
+    this.input.value = this.value ?? ''
   }
 
   private handleClick = (ev: MouseEvent) => {
@@ -302,10 +302,10 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     if (target.closest('ld-button')) return
 
     if (target === this.el) {
-      this.inputEl.focus()
-      this.inputEl.dispatchEvent(new window.Event('click', { bubbles: false }))
+      this.input.focus()
+      this.input.dispatchEvent(new window.Event('click', { bubbles: false }))
     } else {
-      this.inputEl.focus()
+      this.input.focus()
     }
   }
 
@@ -346,12 +346,12 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
             onChange={this.handleChange}
             onInput={this.handleInput}
             part="input focusable"
-            ref={(el) => (this.inputEl = el)}
+            ref={(el) => (this.input = el)}
             value={this.value}
           />
           {type === 'file' && (
             <span class="ld-input__placeholder" part="placeholder">
-              {this.inputEl?.value || this.placeholder}
+              {this.input?.value || this.placeholder}
             </span>
           )}
         </Host>
@@ -368,12 +368,12 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
-          ref={(el) => (this.inputEl = el)}
+          ref={(el) => (this.input = el)}
           value={this.value}
         />
         {this.type === 'file' && (
           <span class="ld-input__placeholder" part="placeholder">
-            {this.inputEl?.value || this.placeholder}
+            {this.input?.value || this.placeholder}
           </span>
         )}
         <slot name="end"></slot>
