@@ -3,23 +3,32 @@
 
   &::part(container) {
     margin: 0 var(--ld-sp-4);
-    padding: 0 var(--ld-sp-24);
+    padding: 0 var(--ld-sp-32);
+    max-width: calc(var(--docs-max-width) - var(--ld-sp-8));
   }
 }
 
 .docs-topbar__logo {
   display: block;
-  margin-left: calc(-1 * var(--ld-sp-6));
+  margin-left: calc(-1 * var(--ld-sp-16));
+
+  @media (min-width: 48rem) {
+    margin-left: calc(-1 * var(--ld-sp-8));
+  }
 }
 
 .docs-topbar__links {
-  margin-right: 0;
   width: var(--docs-toc-width);
-  padding-left: calc(var(--ld-sp-24));
+  padding-left: var(--ld-sp-40);
+  margin-right: var(--ld-sp-6);
+
+  @media (max-width: 48rem) {
+    margin-right: calc(-1 * var(--ld-sp-12));
+  }
 
   @media (max-width: 80rem) {
     width: auto;
-    padding-left: 0;
+    padding-left: var(--ld-sp-24);
   }
 }
 
