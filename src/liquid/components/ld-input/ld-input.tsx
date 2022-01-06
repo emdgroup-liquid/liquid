@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -75,13 +77,13 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop() list?: string
 
   /** Maximum value. */
-  @Prop() max?: string
+  @Prop() max?: string | number
 
   /** Maximum length (number of characters) of `value`. */
   @Prop() maxlength?: string
 
   /** Minimum value. */
-  @Prop() min?: string
+  @Prop() min?: string | number
 
   /** Minimum length (number of characters) of `value`. */
   @Prop() minlength?: string
@@ -129,6 +131,11 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) value?: string
 
   @State() clonedAttributes
+
+  /**
+   * Emitted when the input value changed and the element loses focus.
+   */
+  @Event() ldchange: EventEmitter<string>
 
   /**
    * Sets focus on the input
@@ -267,20 +274,15 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     }
   }
 
-  private handleBlur = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+  private handleChange = (ev: InputEvent) => {
+    this.el.dispatchEvent(new InputEvent('change', ev))
+    this.ldchange.emit(this.value)
   }
 
-  private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
-  }
-
-  private handleInput() {
-    if (!(this.input.getAttribute('aria-disabled') === 'true')) {
+  private handleInput = (ev: InputEvent) => {
+    if (this.input.getAttribute('aria-disabled') === 'true') {
+      ev.stopImmediatePropagation()
+    } else {
       this.value = this.input.value
       return
     }
@@ -301,7 +303,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
 
     if (target === this.el) {
       this.input.focus()
-      this.input.dispatchEvent(new Event('click', { bubbles: false }))
+      this.input.dispatchEvent(new window.Event('click', { bubbles: false }))
     } else {
       this.input.focus()
     }
@@ -341,9 +343,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         <Host class={cl} onClick={this.handleClick}>
           <textarea
             {...clonedAttributesWithoutType}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            onInput={this.handleInput.bind(this)}
+            onChange={this.handleChange}
+            onInput={this.handleInput}
             part="input focusable"
             ref={(el) => (this.input = el)}
             value={this.value}
@@ -363,9 +364,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         <input
           {...this.clonedAttributes}
           autocomplete={this.autocomplete}
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
-          onInput={this.handleInput.bind(this)}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
