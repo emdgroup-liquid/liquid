@@ -14,42 +14,39 @@ Some Liquid Web Components include assets which need to be loaded during runtime
 
 ## Tweaking the bundler and adjusting the assets path
 
-Suppose you have a [Next.js](https://nextjs.org/) application which requires you to put all statically served assets into a folder called `public` in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the webpack config as follows:
+Suppose you have a [Vue.js](https://vuejs.org/) application which requires you to put all statically served assets into a folder called `public` in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the rollup config as follows:
 
 ```js
-// next.config.js
-const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// vite.config.js
+import { defineConfig } from 'vite'
+import copy from 'rollup-plugin-copy'
 
-module.exports = {
-  webpack: (config) => {
-    config.plugins.push(new CopyWebpackPlugin({
-      patterns: [
+export default defineConfig({
+  plugins: [
+    copy({
+      targets: [
         {
-          from: 'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets',
-          to: path.join(__dirname, 'public/assets'),
-        }
-      ]
-    }))
-    return config
-  },
-}
+          src: 'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets/*',
+          dest: 'public/assets',
+        },
+      ],
+      hook: 'buildStart',
+    }),
+    // ...
+  ],
+  // ...
+})
 ```
 
 Now all you need to do is "tell" the Liquid components where they have to load their assets from by using [`setAssetPath`](https://github.com/ionic-team/stencil/blob/f09abe6455887025d508e645e7c8c024a5c42fa2/src/declarations/stencil-public-runtime.ts#L290):
 
 ```tsx
-// _app.tsx
-import { defineCustomElements, setAssetPath } from '@emdgroup-liquid/liquid'
+// main.ts
+import { setAssetPath } from '@emdgroup-liquid/liquid/dist/components'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(()=>{
-    setAssetPath(location.origin)
-    defineCustomElements()
-  }, []);
-
-  return <Component {...pageProps} />
-}
+setAssetPath(window.location.origin)
 ```
+
+For more examples check out our [sandbox apps](introduction/sandbox-applications/).
 
 <docs-page-nav prev-href="introduction/css-vs-web-components/" next-title="Type checking and intellisense" next-href="introduction/type-checking-and-intellisense/"></docs-page-nav>
