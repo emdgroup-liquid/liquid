@@ -478,7 +478,7 @@
               title: 'Input',
               tags: '',
               url: '/liquid/components/ld-input/',
-              headings: 'ExamplesDefaultDisabledDarkInvalidType dateType emailType fileType numberType passwordType searchType telType timeType urlMultiline (as textarea)SizeWith labelWith label and input messageWith slotted elementsInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;SlotsShadow Parts',
+              headings: 'ExamplesDefaultDisabledDarkInvalidType dateType emailType fileType numberType passwordType searchType telType timeType urlMultiline (as textarea)SizeWith labelWith label and input messageWith slotted elementsInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;SlotsShadow Parts',
               breadcrumbs: [
                 
                 
@@ -1564,7 +1564,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#dark">Dark</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#type-date">Type date</a></li><li><a href="#type-email">Type email</a></li><li><a href="#type-file">Type file</a></li><li><a href="#type-number">Type number</a></li><li><a href="#type-password">Type password</a></li><li><a href="#type-search">Type search</a></li><li><a href="#type-tel">Type tel</a></li><li><a href="#type-time">Type time</a></li><li><a href="#type-url">Type url</a></li><li><a href="#multiline-(as-textarea)">Multiline (as textarea)</a></li><li><a href="#size">Size</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#with-slotted-elements">With slotted elements</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#slots">Slots</a></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#dark">Dark</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#type-date">Type date</a></li><li><a href="#type-email">Type email</a></li><li><a href="#type-file">Type file</a></li><li><a href="#type-number">Type number</a></li><li><a href="#type-password">Type password</a></li><li><a href="#type-search">Type search</a></li><li><a href="#type-tel">Type tel</a></li><li><a href="#type-time">Type time</a></li><li><a href="#type-url">Type url</a></li><li><a href="#multiline-(as-textarea)">Multiline (as textarea)</a></li><li><a href="#size">Size</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#with-slotted-elements">With slotted elements</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#slots">Slots</a></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -2522,7 +2522,7 @@
 <td><code>max</code></td>
 <td><code>max</code></td>
 <td>Maximum value.</td>
-<td><code>string</code></td>
+<td><code>number \| string</code></td>
 <td><code>undefined</code></td>
 </tr>
 <tr>
@@ -2536,7 +2536,7 @@
 <td><code>min</code></td>
 <td><code>min</code></td>
 <td>Minimum value.</td>
-<td><code>string</code></td>
+<td><code>number \| string</code></td>
 <td><code>undefined</code></td>
 </tr>
 <tr>
@@ -2643,6 +2643,23 @@
 <td>The input value.</td>
 <td><code>string</code></td>
 <td><code>undefined</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events <a class="header-anchor" href="components/ld-input/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldchange</code></td>
+<td>Emitted when the input value changed and the element loses focus.</td>
+<td><code>CustomEvent&lt;string&gt;</code></td>
 </tr>
 </tbody>
 </table>
