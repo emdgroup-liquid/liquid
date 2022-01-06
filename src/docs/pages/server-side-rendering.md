@@ -28,10 +28,10 @@ You can also import the components you use on client side only, if you want to l
 ```js
 if (typeof window !== 'undefined') {
   const { setAssetPath } = await import('@emdgroup-liquid/liquid/dist/components')
-    const modules = await Promise.all([
-      import('@emdgroup-liquid/liquid/dist/components/ld-button'),
-      import('@emdgroup-liquid/liquid/dist/components/ld-checkbox'),
-    ])
+  const modules = await Promise.all([
+    import('@emdgroup-liquid/liquid/dist/components/ld-button'),
+    import('@emdgroup-liquid/liquid/dist/components/ld-checkbox'),
+  ])
   setAssetPath(window.location.origin)
   modules.forEach((module) => {
     module.defineCustomElement()
