@@ -119,7 +119,7 @@
               title: 'Getting started',
               tags: '',
               url: '/liquid/introduction/getting-started/',
-              headings: 'InstallImport and register Web Componentsself-lazy-loading bundledist-custom-elementsImport stylesheets',
+              headings: 'InstallImport and register Web ComponentsImport stylesheets',
               breadcrumbs: [
                 
                 
@@ -206,7 +206,7 @@
               title: 'Server-side rendering',
               tags: '',
               url: '/liquid/introduction/server-side-rendering/',
-              headings: 'Known issues and workarounds',
+              headings: '',
               breadcrumbs: [
                 
                 
@@ -1146,7 +1146,8 @@
             
               <details open>
                 <summary class="docs-nav__summary docs-nav__summary--introduction">
-                  <a href="/liquid/"><span aria-label="Introduction">Introduction</span></a>
+                  <a href="/liquid/"><span aria-label="Introduction">Introduction</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
                   
@@ -1251,7 +1252,8 @@
             
               <details>
                 <summary class="docs-nav__summary docs-nav__summary--globals">
-                  <a href="/liquid/global/"><span aria-label="Globals">Globals</span></a>
+                  <a href="/liquid/global/"><span aria-label="Globals">Globals</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
                   
@@ -1340,7 +1342,8 @@
             
               <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
-                  <a href="/liquid/components/"><span aria-label="Components">Components</span></a>
+                  <a href="/liquid/components/"><span aria-label="Components">Components</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
                   
@@ -1454,7 +1457,8 @@
             
               <details>
                 <summary class="docs-nav__summary docs-nav__summary--select">
-                  <a href="/liquid/components/ld-select/"><span aria-label="Select">Select</span></a>
+                  <a href="/liquid/components/ld-select/"><span aria-label="Select">Select</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
                   
@@ -1479,7 +1483,8 @@
             
               <details>
                 <summary class="docs-nav__summary docs-nav__summary--tabs">
-                  <a href="/liquid/components/ld-tabs/"><span aria-label="Tabs">Tabs</span></a>
+                  <a href="/liquid/components/ld-tabs/"><span aria-label="Tabs">Tabs</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
                   
@@ -1562,12 +1567,6 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
-      <docs-toc style="order: 2;">
-        <nav class="docs-toc__nav" >
-        <ol><li><a href="#known-issues-and-workarounds">Known issues and workarounds</a></li></ol>
-      </nav>
-      </docs-toc>
-    
 
     <docs-main>
       <header>
@@ -1590,25 +1589,16 @@
       <h1 id="server-side-rendering">Server-side rendering <a class="header-anchor" href="introduction/server-side-rendering/#server-side-rendering"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Custom elements should be defined on client-side only. There are a couple of things you can do to ensure this.</p>
 <p>You can implement a condition which checks for the environment such as the following one:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid'</span><br><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><br><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
 <p>You can also import the components you use on client side only, if you want to leverage code splitting and lazy loading:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/custom-elements'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">liquid</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token operator">=</span> liquid<br>    customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> setAssetPath <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> modules <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-checkbox'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>  <span class="token punctuation">]</span><span class="token punctuation">)</span><br>  <span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span><br>  modules<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">module</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    module<span class="token punctuation">.</span><span class="token function">defineCustomElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
 <p>If you have lifecycle hooks to your disposal for running code on the client side only, you should use these. For instance, in React based applications you can use the <a href="https://reactjs.org/docs/hooks-effect.html">effect hook</a> for this purpose:</p>
-<pre class="language-js"><code class="language-js"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<h2 id="known-issues-and-workarounds">Known issues and workarounds <a class="header-anchor" href="introduction/server-side-rendering/#known-issues-and-workarounds"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>If you run into warnings or errors mentioning <strong>hydration</strong> or some sort of client-server missmatch, it has most likely to do with code being executed on server-side which should be executed on client-side only.</p>
-<p>For instance in <a href="https://nextjs.org/">Next.js</a>, even after conditionally defining custom elements on client-side only, you may run into the following warning, when adding event handlers to Liquid components:</p>
-<blockquote>
-<p>Warning: Extra attributes from the server</p>
-</blockquote>
-<p>You can work around this issue by conditionally passing handlers to the component:</p>
-<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">typeof</span> window <span class="token operator">===</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">click me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
-<p>For convenience, you can create a conditional object which holds all your handlers on client-side and then reference your handlers via that object:</p>
-<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> methods <span class="token operator">=</span> <span class="token keyword">typeof</span> window <span class="token operator">===</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token operator">:</span> <span class="token punctuation">{</span><br>  <span class="token function-variable function">handleClick</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token comment">/* ... */</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token keyword">return</span> <span class="token punctuation">(</span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>methods<span class="token punctuation">.</span>handleClick<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">click me</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token punctuation">)</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>  <span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>For working examples check out our <a href="introduction/sandbox-applications/">sandbox apps</a>.</p>
 <p><docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="React bindings" next-href="introduction/react-bindings/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
       
     </docs-main>
 
