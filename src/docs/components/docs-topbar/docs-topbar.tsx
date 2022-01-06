@@ -8,12 +8,14 @@ import { Component, h, getAssetPath } from '@stencil/core'
   assetsDirs: ['assets'],
 })
 export class DocsTopbar {
+  private base = document.querySelector('base').href
+
   render() {
     return (
       <ld-header
         class="docs-topbar ld-theme-bubblegum"
         logo-title="Home"
-        logo-url="/"
+        logo-url={this.base}
         sticky
       >
         <img

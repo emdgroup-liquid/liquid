@@ -19,23 +19,20 @@
   }
   .docs-nav__summary--introduction,
   .docs-nav__summary--introduction + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-dark.svg');
-      content: '';
     }
   }
   .docs-nav__summary--globals,
   .docs-nav__summary--globals + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-globals-dark.svg');
-      content: '';
     }
   }
   .docs-nav__summary--components,
   .docs-nav__summary--components + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-components-dark.svg');
-      content: '';
     }
   }
   .docs-nav__li--active .docs-nav__summary--introduction {
@@ -68,24 +65,40 @@
     }
   }
   .docs-nav__summary--introduction,
+  .docs-nav__summary--introduction + ul .docs-nav__summary,
+  .docs-nav__summary--globals,
+  .docs-nav__summary--globals + ul .docs-nav__summary,
+  .docs-nav__summary--components,
+  .docs-nav__summary--components + ul .docs-nav__summary {
+    .docs-nav__summary-toggle {
+      display: block;
+    }
+  }
+  .docs-nav__summary--introduction,
   .docs-nav__summary--introduction + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-light.svg');
-      content: '';
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rb);
     }
   }
   .docs-nav__summary--globals,
   .docs-nav__summary--globals + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-globals-light.svg');
-      content: '';
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rp);
     }
   }
   .docs-nav__summary--components,
   .docs-nav__summary--components + ul .docs-nav__summary {
-    a::after {
+    .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-components-light.svg');
-      content: '';
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rg);
     }
   }
   .docs-nav__li--active .docs-nav__summary--introduction {
@@ -129,10 +142,11 @@
   }
 
   ul {
+    pointer-events: all;
     list-style: none;
   }
 
-  details[open] > summary a::after {
+  details[open] > summary .docs-nav__arrow {
     transform: rotate(90deg);
   }
 
@@ -187,6 +201,7 @@
   text-transform: uppercase;
   user-select: none;
   width: 100%;
+  pointer-events: none;
 
   &::marker,
   &::-webkit-details-marker {
@@ -195,20 +210,7 @@
 
   a {
     padding-left: var(--ld-sp-40);
-
-    &::after {
-      position: absolute;
-      right: 0;
-      top: calc(-1 * var(--ld-sp-1));
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 0.8rem;
-      height: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
+    pointer-events: all;
 
     &::before {
       position: absolute;
@@ -237,6 +239,38 @@
 
   li ul li.docs-nav__li--active > details > & {
     font-weight: 700;
+  }
+}
+
+.docs-nav__arrow {
+  position: absolute;
+  right: 0;
+  top: calc(-1 * var(--ld-sp-1));
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 0.8rem;
+  height: 1rem;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.docs-nav__summary-toggle {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(-1 * var(--ld-sp-1));
+  width: var(--ld-sp-24);
+  height: var(--ld-sp-24);
+  pointer-events: all;
+  transform: translate(25%, -20%);
+  outline: none;
+  opacity: 0;
+  border-radius: var(--ld-br-m);
+
+  &:hover {
+    opacity: 0.5;
   }
 }
 
