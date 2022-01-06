@@ -25,7 +25,7 @@ export class DocsTopbar {
           slot="logo"
           src={getAssetPath('./assets/logo.svg')}
         />
-        <a class="docs-topbar__headline-link" href="/" title="Home">
+        <a class="docs-topbar__headline-link" href={this.base} title="Home">
           <p class="docs-topbar__headline docs-topbar__headline--long">
             <b>Liquid Oxygen</b> Documentation
           </p>
