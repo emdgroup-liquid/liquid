@@ -1,4 +1,13 @@
 import { E2EPage, newE2EPage } from '@stencil/core/testing'
+import { resolve } from 'path'
+import { realpathSync } from 'fs'
+import * as axe from 'axe-core'
+import { printReceived } from 'jest-matcher-utils'
+
+const PATH_TO_AXE = './node_modules/axe-core/axe.min.js'
+const appDirectory = realpathSync(process.cwd())
+
+const resolvePath = (relativePath) => resolve(appDirectory, relativePath)
 
 interface PatchedE2EPage extends E2EPage {
   screenshot: () => void
@@ -55,7 +64,7 @@ export const getPageWithContent = async (
     body {
       margin: 0;
       ${config?.bgColor ? `background-color: ${config.bgColor};` : ''}
-      height: 900px;
+      height: 600px;
     }
     *:focus,
     ::part(focusable) {
@@ -83,3 +92,98 @@ export const getPageWithContent = async (
 
   return page
 }
+
+export const analyzeAccessibility = async (page, options = {}) => {
+  const defaultOptions = { rules: {} }
+  const disabledRuleIds = [
+    'document-title',
+    'html-has-lang',
+    'label',
+    'landmark-one-main',
+    'page-has-heading-one',
+    'region',
+  ]
+  disabledRuleIds.forEach((ruleId) => {
+    defaultOptions.rules[ruleId] = { enabled: false }
+  })
+
+  const finalOptions = Object.assign({}, defaultOptions, options)
+
+  // Inject the axe script in our page.
+  await page.addScriptTag({ path: resolvePath(PATH_TO_AXE) })
+  // Make sure that axe is executed in the next tick after
+  // the page emits the load event, giving priority to other scripts.
+  const accessibilityReport = await page.evaluate((axeOptions) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 0)
+    }).then(() => axe.run(axeOptions))
+  }, finalOptions)
+
+  return accessibilityReport
+}
+
+function getInvalidNodeInfo(node) {
+  return `- ${printReceived(node.html)}\n\t${node.any
+    .map((check) => check.message)
+    .join('\n\t')}`
+}
+
+function getInvalidRuleInfo(rule) {
+  return `[rule id: ${rule.id}] ${printReceived(rule.help)} on ${
+    rule.nodes.length
+  } nodes\r\n${rule.nodes.map(getInvalidNodeInfo).join('\n')}`
+}
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Matchers<R> {
+      toHaveNoAccessibilityIssues(): R
+    }
+  }
+}
+
+// Add a new method to expect assertions with a very detailed error report
+expect.extend({
+  toHaveNoAccessibilityIssues(accessibilityReport, options) {
+    let violations = []
+    let incomplete = []
+
+    const defaultOptions = {
+      violationsThreshold: 0,
+      incompleteThreshold: 0,
+    }
+
+    const finalOptions = Object.assign({}, defaultOptions, options)
+
+    if (
+      accessibilityReport.violations.length > finalOptions.violationsThreshold
+    ) {
+      violations = [
+        `Expected to have no more than ${finalOptions.violationsThreshold} violations. Detected ${accessibilityReport.violations.length} violations:\n`,
+      ].concat(accessibilityReport.violations.map(getInvalidRuleInfo))
+    }
+
+    if (
+      finalOptions.incompleteThreshold !== false &&
+      accessibilityReport.incomplete.length > finalOptions.incompleteThreshold
+    ) {
+      incomplete = [
+        `Expected to have no more than ${finalOptions.incompleteThreshold} incomplete. Detected ${accessibilityReport.incomplete.length} incomplete:\n`,
+      ].concat(accessibilityReport.incomplete.map(getInvalidRuleInfo))
+    }
+
+    const message = [].concat(violations, incomplete).join('\n')
+    const pass =
+      accessibilityReport.violations.length <=
+        finalOptions.violationsThreshold &&
+      (finalOptions.incompleteThreshold === false ||
+        accessibilityReport.incomplete.length <=
+          finalOptions.incompleteThreshold)
+
+    return {
+      pass,
+      message: () => message,
+    }
+  },
+})
