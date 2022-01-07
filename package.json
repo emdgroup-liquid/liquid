@@ -39,7 +39,7 @@
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
     "build:stencil:react": "tsc -p tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",
-    "build:styles": "run-p build:styles:liquid:components build:styles:liquid:globals",
+    "build:styles": "run-s build:styles:liquid:components build:styles:liquid:globals",
     "build:styles:liquid:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' ; cat dist/css/*.css > dist/css/liquid.css",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
     "build:styles:docs": "run-s build:styles:docs:components build:styles:docs:docs build:styles:docs:liquid",
