@@ -20,7 +20,7 @@
   --ld-input-time-min-width-lg: 7.5rem;
 
   /* colors */
-  --ld-input-bg-col-disabled: var(--ld-col-wht-alpha-none);
+  --ld-input-bg-col-disabled: var(--ld-col-neutral-010);
   --ld-input-bg-col-invalid-focus: var(--ld-col-wht);
   --ld-input-bg-col-invalid: var(--ld-thm-error-disabled);
   --ld-input-bg-col: var(--ld-col-wht);
