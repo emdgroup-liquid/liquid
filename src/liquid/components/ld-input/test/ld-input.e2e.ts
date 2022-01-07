@@ -1,4 +1,7 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
+import {
+  getPageWithContent,
+  analyzeAccessibility,
+} from '../../../utils/e2e-tests'
 import { LdInput } from '../ld-input'
 
 jest.useRealTimers()
@@ -25,6 +28,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -32,6 +38,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`hover${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -40,6 +49,9 @@ describe('ld-input', () => {
       await page.hover('ld-input')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`focus${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -48,6 +60,9 @@ describe('ld-input', () => {
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
     // Disabled Web Component
@@ -57,6 +72,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -64,6 +82,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -89,6 +110,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`aria-disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -231,6 +255,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
     it('css component', async () => {

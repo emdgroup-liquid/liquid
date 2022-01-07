@@ -1,4 +1,7 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
+import {
+  analyzeAccessibility,
+  getPageWithContent,
+} from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdButton } from '../ld-button'
 
@@ -44,6 +47,9 @@ describe('ld-button', () => {
           )
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
+
+          const accessibilityReport = await analyzeAccessibility(page)
+          expect(accessibilityReport).toHaveNoAccessibilityIssues()
         })
         it('hover', async () => {
           const page = await getPageWithContent(
@@ -69,6 +75,7 @@ describe('ld-button', () => {
             }
           )
           await page.keyboard.press('Tab')
+          await page.waitForChanges()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
@@ -83,6 +90,7 @@ describe('ld-button', () => {
           )
           await page.keyboard.press('Tab')
           await page.keyboard.down('Space')
+          await page.waitForChanges()
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
         })
@@ -99,6 +107,9 @@ describe('ld-button', () => {
             )
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
+
+            const accessibilityReport = await analyzeAccessibility(page)
+            expect(accessibilityReport).toHaveNoAccessibilityIssues()
           })
           it('hover', async () => {
             const page = await getPageWithContent(
@@ -124,6 +135,7 @@ describe('ld-button', () => {
               }
             )
             await page.keyboard.press('Tab')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -138,6 +150,7 @@ describe('ld-button', () => {
             )
             await page.keyboard.press('Tab')
             await page.keyboard.down('Space')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -180,6 +193,7 @@ describe('ld-button', () => {
               }
             )
             await page.keyboard.press('Tab')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -194,6 +208,7 @@ describe('ld-button', () => {
             )
             await page.keyboard.press('Tab')
             await page.keyboard.down('Space')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -239,6 +254,7 @@ describe('ld-button', () => {
               }
             )
             await page.keyboard.press('Tab')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -254,6 +270,7 @@ describe('ld-button', () => {
             )
             await page.keyboard.press('Tab')
             await page.keyboard.down('Space')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -297,6 +314,7 @@ describe('ld-button', () => {
               }
             )
             await page.keyboard.press('Tab')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -310,6 +328,7 @@ describe('ld-button', () => {
             )
             await page.keyboard.press('Tab')
             await page.keyboard.down('Space')
+            await page.waitForChanges()
             const results = await page.compareScreenshot()
             expect(results).toMatchScreenshot()
           })
@@ -348,6 +367,7 @@ describe('ld-button', () => {
                 }
               )
               await page.keyboard.press('Tab')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -361,6 +381,7 @@ describe('ld-button', () => {
               )
               await page.keyboard.press('Tab')
               await page.keyboard.down('Space')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -400,6 +421,7 @@ describe('ld-button', () => {
                 }
               )
               await page.keyboard.press('Tab')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -413,6 +435,7 @@ describe('ld-button', () => {
               )
               await page.keyboard.press('Tab')
               await page.keyboard.down('Space')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -464,6 +487,7 @@ describe('ld-button', () => {
                 }
               )
               await page.keyboard.press('Tab')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -481,6 +505,7 @@ describe('ld-button', () => {
               )
               await page.keyboard.press('Tab')
               await page.keyboard.down('Space')
+              await page.waitForChanges()
               const results = await page.compareScreenshot()
               expect(results).toMatchScreenshot()
             })
@@ -497,6 +522,9 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('lg', async () => {
       const page = await getPageWithContent(
@@ -517,10 +545,13 @@ describe('ld-button', () => {
     })
     it('icon button sm', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="sm"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
+        '<ld-button size="sm"><ld-icon name="placeholder"></ld-icon><ld-sr-only>Text</ld-sr-only></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('icon button lg', async () => {
       const page = await getPageWithContent(
@@ -537,6 +568,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
+        await page.waitForChanges()
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
       })
@@ -546,6 +578,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
+        await page.waitForChanges()
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
       })
@@ -555,6 +588,7 @@ describe('ld-button', () => {
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
+        await page.waitForChanges()
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
       })
@@ -599,6 +633,9 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('multiline text left', async () => {
       const page = await getPageWithContent(
@@ -623,6 +660,9 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
   })
 
