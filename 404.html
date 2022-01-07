@@ -16,6 +16,11 @@
   <meta name="theme-color" content="#ffffff">
 
   <script>
+    if ("serviceWorker" in navigator)
+      navigator.serviceWorker.register("/liquid/service-worker.js");
+  </script>
+
+  <script>
     __docsSearchIndex__ = [
     
       
