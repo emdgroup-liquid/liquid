@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.24](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.23...v1.0.0-rc.24) (2022-01-10)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([b081be2](https://github.com/emdgroup-liquid/liquid/commit/b081be28f516e89d2f8df27963af16d4e13078ff))
+* **ld-input:** change ld-input disabled background color to grey ([6fc32e0](https://github.com/emdgroup-liquid/liquid/commit/6fc32e0197cb3ee3f4b7ec8a1ec171b82a3ca714)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+
 # [1.0.0-rc.23](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.22...v1.0.0-rc.23) (2022-01-05)
 
 
