@@ -22,7 +22,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### As error message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message>This field is required.</ld-input-message>
 
 <!-- CSS component -->
@@ -40,7 +40,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### As info message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
 
 <!-- CSS component -->
@@ -58,7 +58,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### As success message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message mode="valid">That's correct!</ld-input-message>
 
 <!-- CSS component -->

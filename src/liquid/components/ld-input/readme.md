@@ -103,7 +103,7 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 > **Note**: Dark tone inputs should only be used on white backgrounds.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input tone="dark" placeholder="Placeholder"></ld-input>
 
 <ld-input tone="dark" placeholder="Placeholder" disabled></ld-input>

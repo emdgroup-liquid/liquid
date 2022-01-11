@@ -19,7 +19,7 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ## Examples
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-sr-only>Hello screen reader</ld-sr-only>
 
 <!-- CSS component -->

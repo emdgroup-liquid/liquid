@@ -180,7 +180,7 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
 
 > **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-checkbox indeterminate></ld-checkbox>
 
 <ld-checkbox indeterminate disabled></ld-checkbox>
@@ -240,7 +240,7 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 
 > **Note**: Dark tone checkboxes should only be used on white backgrounds.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-checkbox tone="dark"></ld-checkbox>
 
 <ld-checkbox tone="dark" disabled></ld-checkbox>
