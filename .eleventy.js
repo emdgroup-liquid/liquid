@@ -158,8 +158,6 @@ module.exports = function (eleventyConfig) {
     return output
   })
 
-  eleventyConfig.addFilter('fromJson', JSON.parse)
-
   return {
     dir: {
       input: './src',
