@@ -21,7 +21,7 @@ Icon-buttons without visual text should either contain a [screen-reader-only](co
 
 ### Primary
 
-{% example '{ "background": "brand" }' %}
+{% example %}
 <ld-button>Text</ld-button>
 
 <!-- CSS component -->
