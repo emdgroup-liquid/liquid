@@ -105,6 +105,7 @@ module.exports = function (eleventyConfig) {
       opened: false,
       background: undefined,
       themable: true,
+      hasPadding: true,
       heighlight: undefined,
       heighlightCssComponent: undefined,
     }
@@ -125,6 +126,7 @@ module.exports = function (eleventyConfig) {
       output += ` background="${finalConfig.background}"`
     }
     output += `${finalConfig.themable ? ' themable' : ''}`
+    output += `${finalConfig.hasPadding ? ' has-padding' : ''}`
     output += '>\n'
     output += `<div slot="code">\n\n`
     output += `\`\`\`${finalConfig.lang}${

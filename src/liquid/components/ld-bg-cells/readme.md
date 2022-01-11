@@ -18,7 +18,7 @@ A background pattern with the Merck cells as additional visual element.
 
 ## Default
 
-{% example %}
+{% example '{ "hasPadding": false }' %}
 <ld-bg-cells class="box1-16/9"></ld-bg-cells>
 
 <style>
@@ -28,138 +28,66 @@ A background pattern with the Merck cells as additional visual element.
 </style>
 {% endexample %}
 
-<!-- CSS component -->
-
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box1-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box1-16\/9 {
-    padding-top: 56.25%;
-  }
-</style> -->
-
 ## Cell types
 
-{% example %}
-<ld-bg-cells type="bioreliance" class="box2-16/9">
-  <ld-typo>type: bioreliance</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="f" class="box2-16/9">
-  <ld-typo>type: f</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="hexagon" class="box2-16/9">
-  <ld-typo>type: hexagon</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="millipore" class="box2-16/9">
-  <ld-typo>type: millipore</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="qa-x2f-qc" class="box2-16/9">
-  <ld-typo>type: qa-x2f-qc</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="safc" class="box2-16/9">
-  <ld-typo>type: safc</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="sigma-aldrich" class="box2-16/9">
-  <ld-typo>type: sigma-aldrich</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="t" class="box2-16/9">
-  <ld-typo>type: t</ld-typo>
-</ld-bg-cells>
-<ld-bg-cells type="tile" class="box2-16/9">
-  <ld-typo>type: tile</ld-typo>
-</ld-bg-cells>
+### bioreliance
 
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
-
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style>
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="bioreliance" style="height: 16rem;">
+</ld-bg-cells>
 {% endexample %}
 
-<!-- CSS component -->
+### f
 
-<!-- <div class="ld-bg-cells ld-bg-cells--bioreliance box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: bioreliance</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--f box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: f</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--hexagon box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: hexagon</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--millipore box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: millipore</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--qa-x2f-qc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: qa-x2f-qc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--safc box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: safc</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--sigma-aldrich box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: sigma-aldrich</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--t box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: t</p>
-  </div>
-</div>
-<div class="ld-bg-cells ld-bg-cells--tile box2-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-  <div class="ld-bg-cells__content">
-    <p class="ld-typo">type: tile</p>
-  </div>
-</div>
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="f" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
 
-<style>
-  .box2-16\/9 {
-    height: 12.3046875rem;
-    width: 21.875rem;
-  }
+### hexagon
 
-  .box2-16\/9 .ld-bg-cells__content {
-    align-items: center;
-    color: var(--ld-col-wht);
-    display: flex;
-    justify-content: center;
-  }
-</style> -->
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="hexagon" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### millipore
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="millipore" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### qa
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="qa-x2f-qc" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### safc
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="safc" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### sigma
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="sigma-aldrich" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### t
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="t" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
+
+### tile
+
+{% example '{ "hasPadding": false }' %}
+<ld-bg-cells type="tile" style="height: 16rem;"></ld-bg-cells>
+{% endexample %}
 
 ## Custom position, size and colors
 
-{% example %}
+{% example '{ "hasPadding": false }' %}
 <ld-bg-cells class="box3-16/9"></ld-bg-cells>
 
 <style>
@@ -173,23 +101,6 @@ A background pattern with the Merck cells as additional visual element.
   }
 </style>
 {% endexample %}
-
-<!-- CSS component -->
-
-<!-- <div class="ld-bg-cells ld-bg-cells--safc box3-16/9">
-  <div class="ld-bg-cells__pattern"></div>
-</div>
-
-<style>
-  .box3-16\/9 {
-    --ld-bg-cells-bg-col: var(--ld-col-vm-300);
-    --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
-
-    padding-top: 56.25%;
-  }
-</style> -->
 
 ## CSS Variables
 
