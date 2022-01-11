@@ -17,7 +17,7 @@ The `ld-tabs` component hides content behind selectable items and thereby helps 
 
 Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn contains a number of `ld-tab` items - and a container `ld-tabpanellist` which contains the same number of corresponding `ld-tabpanel` items.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs>
   <ld-tablist>
     <ld-tab selected>Fruits</ld-tab>
@@ -46,7 +46,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 ### Disabled
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs>
   <ld-tablist>
     <ld-tab selected>Fruits</ld-tab>
@@ -118,7 +118,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 ### Size
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs>
   <ld-tablist size="sm">
     <ld-tab selected>Fruits</ld-tab>
@@ -146,7 +146,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 ### With icons
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs>
   <ld-tablist>
     <ld-tab selected><ld-icon name="placeholder" aria-label="Fruits"></ld-icon></ld-tab>
@@ -168,7 +168,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 You should try to avoid using tab bars with more than five tab items. But if you really must, the `ld-tabs` component has got you covered:
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs>
   <ld-tablist>
     <ld-tab selected>Classical</ld-tab>
@@ -197,7 +197,7 @@ You should try to avoid using tab bars with more than five tab items. But if you
 
 ### Full width
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-tabs style="width: 100%">
   <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>

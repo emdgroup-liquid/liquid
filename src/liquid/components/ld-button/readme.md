@@ -107,7 +107,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### On brand color
 
-{% example 'html', false, false, 'brand' %}
+{% example '{ "background": "brand" }' %}
 <ld-button brand-color>Text</ld-button>
 
 <ld-button brand-color disabled>Text</ld-button>
@@ -422,7 +422,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### Anchor button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button href="#" target="_blank">Text</ld-button>
 
 <!-- CSS component -->
@@ -434,7 +434,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### Progress button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button progress="0.75">Text</ld-button>
 
 <ld-button progress="pending">Text</ld-button>

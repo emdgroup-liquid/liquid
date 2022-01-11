@@ -23,7 +23,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Default
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo>
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -37,7 +37,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Paragraphs
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="body-xs">
   <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </ld-typo>
@@ -83,7 +83,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Labels
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="label-s">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -105,7 +105,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Captions
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="cap-m">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -133,7 +133,7 @@ Headings are used as an introduction into a topic or a content section and for v
 > 
 > If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="h1">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -189,7 +189,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `b*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="b1">
   Lorem ipsum
 </ld-typo>
@@ -243,7 +243,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ### Large heading variants `xh*`
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="xh1">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -299,7 +299,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `xb*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="xb1">
   Lipsum
 </ld-typo>
@@ -331,7 +331,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `xb*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="body-m" tag="h1">
   I'm actually a level 1 heading
 </ld-typo>
@@ -360,7 +360,7 @@ You may have noticed that all `b*` and `xb*` variants use a color given by the c
 
 Here are some examples on how you can apply different colors on headings:
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <style>
 .custom-color { color: var(--ld-col-vm); }
 </style>

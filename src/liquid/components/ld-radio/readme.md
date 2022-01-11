@@ -107,7 +107,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 > **Note**: Dark tone checkboxes should only be used on white backgrounds.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-radio name="example-4" tone="dark"></ld-radio>
 <ld-radio name="example-4" tone="dark" checked></ld-radio>
 

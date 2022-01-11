@@ -1,5 +1,4 @@
 const fetch = require('node-fetch')
-const pluginPWA = require('eleventy-plugin-pwa')
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
@@ -7,8 +6,6 @@ const markdownItAnchor = require('markdown-it-anchor')
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(pluginPWA)
-
   eleventyConfig.setWatchJavaScriptDependencies(false)
 
   // Navigation
@@ -101,67 +98,65 @@ module.exports = function (eleventyConfig) {
   )
 
   // Code example short codes
-  eleventyConfig.addPairedShortcode(
-    'example',
-    function (
-      code,
-      lang = 'html',
-      stacked,
-      opened,
-      background,
-      themable = true,
-      heighlight,
-      heighlightCssComponent
-    ) {
-      const [codeWebComponent, codeCssComponent] = code
-        .split('<!-- CSS component -->')
-        .map((c) => c.trim())
-      let output = '<docs-example '
-      output += `code="${encodeURIComponent(codeWebComponent)}" `
+  eleventyConfig.addPairedShortcode('example', function (code, config) {
+    const defaultConfig = {
+      lang: 'html',
+      stacked: false,
+      opened: false,
+      background: undefined,
+      themable: true,
+      heighlight: undefined,
+      heighlightCssComponent: undefined,
+    }
+    const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
+    const [codeWebComponent, codeCssComponent] = code
+      .split('<!-- CSS component -->')
+      .map((c) => c.trim())
+    let output = '<docs-example '
+    output += `code="${encodeURIComponent(codeWebComponent)}" `
 
-      if (codeCssComponent) {
-        output += `code-css-component="${encodeURIComponent(
-          codeCssComponent
-        )}" `
-      }
+    if (codeCssComponent) {
+      output += `code-css-component="${encodeURIComponent(codeCssComponent)}" `
+    }
 
-      output += `${stacked ? ' stacked' : ''}`
-      output += `${opened ? ' opened' : ''}`
-      if (background) {
-        output += ` background="${background}"`
-      }
-      output += `${themable ? ' themable' : ''}`
-      output += '>\n'
-      output += `<div slot="code">\n\n`
-      output += `\`\`\`${lang}${
-        heighlight ? '/' + heighlight : ''
-      } \n${codeWebComponent}\n\`\`\``
+    output += `${finalConfig.stacked ? ' stacked' : ''}`
+    output += `${finalConfig.opened ? ' opened' : ''}`
+    if (finalConfig.background) {
+      output += ` background="${finalConfig.background}"`
+    }
+    output += `${finalConfig.themable ? ' themable' : ''}`
+    output += '>\n'
+    output += `<div slot="code">\n\n`
+    output += `\`\`\`${finalConfig.lang}${
+      finalConfig.heighlight ? '/' + finalConfig.heighlight : ''
+    } \n${codeWebComponent}\n\`\`\``
+    output += '\n</div>'
+
+    if (codeCssComponent) {
+      output += `<div slot="codeCssComponent">\n\n`
+      output += `\`\`\`${finalConfig.lang}${
+        finalConfig.heighlightCssComponent
+          ? '/' + finalConfig.heighlightCssComponent
+          : ''
+      } \n${codeCssComponent.trim()}\n\`\`\``
       output += '\n</div>'
+    }
 
-      if (codeCssComponent) {
-        output += `<div slot="codeCssComponent">\n\n`
-        output += `\`\`\`${lang}${
-          heighlightCssComponent ? '/' + heighlightCssComponent : ''
-        } \n${codeCssComponent.trim()}\n\`\`\``
-        output += '\n</div>'
-      }
+    output += `<div slot="show">${codeWebComponent.replaceAll(
+      /\n\n/g,
+      '\n'
+    )}</div>`
 
-      output += `<div slot="show">${codeWebComponent.replaceAll(
+    if (codeCssComponent) {
+      output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(
         /\n\n/g,
         '\n'
       )}</div>`
-
-      if (codeCssComponent) {
-        output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(
-          /\n\n/g,
-          '\n'
-        )}</div>`
-      }
-
-      output += '</docs-example>'
-      return output
     }
-  )
+
+    output += '</docs-example>'
+    return output
+  })
 
   return {
     dir: {
