@@ -99,6 +99,17 @@ export class LdSelect implements InnerFocusable {
    */
   @Prop() preventDeselection: boolean
 
+  /**
+   * A Boolean attribute indicating that an option with a non-empty string value must be selected.
+   */
+  @Prop() required?: boolean
+
+  /**
+   * Currently selected option(s)
+   * @internal
+   */
+  @Prop({ mutable: true }) selected: SelectOption[] = []
+
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'
 
@@ -107,11 +118,6 @@ export class LdSelect implements InnerFocusable {
    */
   @Prop({ mutable: true }) tetherOptions = '{}'
 
-  /**
-   * A Boolean attribute indicating that an option with a non-empty string value must be selected.
-   */
-  @Prop() required?: boolean
-
   @State() ariaDisabled = false
   @State() expanded = false
   @State() hasCustomIcon = false
@@ -119,7 +125,6 @@ export class LdSelect implements InnerFocusable {
   @State() initialized = false
   @State() internalOptionsHTML: string
   @State() renderHiddenInput = false
-  @State() selected: SelectOption[] = []
   @State() theme: string
   @State() typeAheadQuery: string
   @State() typeAheadTimeout: number
@@ -183,24 +188,6 @@ export class LdSelect implements InnerFocusable {
    * Emitted with an array of selected values when an alteration to the selection is committed by the user.
    */
   @Event() input: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component gets focus.
-   */
-  @Event({ bubbles: false, cancelable: false, composed: true })
-  focus: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component looses focus.
-   */
-  @Event({ bubbles: false, cancelable: false, composed: true })
-  blur: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component looses focus.
-   */
-  @Event({ bubbles: true, cancelable: false, composed: true })
-  focusout: EventEmitter<string[]>
 
   /** Sets focus on the trigger button. */
   @Method()
@@ -826,16 +813,13 @@ export class LdSelect implements InnerFocusable {
     this.handleClickOutside(ev)
   }
 
-  private handleFocusout(ev) {
-    // Emit blur event if focus is not within the select component.
-    ev.stopImmediatePropagation()
+  private handleFocusEvent = (ev: FocusEvent) => {
+    // Emit event only, if focus is not within the select component.
     if (
-      ev.relatedTarget?.tagName !== 'LD-OPTION-INTERNAL' &&
-      ev.relatedTarget !== this.el
+      (ev.relatedTarget as HTMLElement)?.tagName === 'LD-OPTION-INTERNAL' ||
+      ev.relatedTarget === this.el
     ) {
-      const selectedValues = this.selected.map((option) => option.value)
-      this.blur.emit(selectedValues)
-      this.focusout.emit(selectedValues)
+      ev.stopImmediatePropagation()
     }
   }
 
@@ -851,15 +835,6 @@ export class LdSelect implements InnerFocusable {
     if (this.disabled || this.ariaDisabled) return
 
     this.expand()
-  }
-
-  private handleTriggerFocus(ev: FocusEvent) {
-    if (
-      (ev.relatedTarget as HTMLElement)?.closest('[role="listbox"]') !==
-      this.listboxRef
-    ) {
-      this.focus.emit(this.selected.map((option) => option.value))
-    }
   }
 
   private handleClearClick(ev: MouseEvent) {
@@ -977,7 +952,8 @@ export class LdSelect implements InnerFocusable {
           class={getClassNames(cl)}
           aria-disabled={this.disabled || this.ariaDisabled}
           part="root"
-          onFocusout={this.handleFocusout.bind(this)}
+          onBlur={this.handleFocusEvent}
+          onFocusout={this.handleFocusEvent}
           style={
             this.expanded
               ? {
@@ -1007,7 +983,6 @@ export class LdSelect implements InnerFocusable {
               aria-expanded={this.expanded ? 'true' : 'false'}
               aria-label={triggerText}
               onClick={this.handleTriggerClick.bind(this)}
-              onFocus={this.handleTriggerFocus.bind(this)}
               ref={(el) => (this.triggerRef = el as HTMLElement)}
             >
               {this.multiple && this.selected.length ? (
@@ -1153,7 +1128,8 @@ export class LdSelect implements InnerFocusable {
             </div>
           </div>
           <ld-select-popper
-            onFocusout={this.handleFocusout.bind(this)}
+            onBlur={this.handleFocusEvent}
+            onFocusout={this.handleFocusEvent}
             popperClass={this.popperClass}
             ref={(el) => (this.listboxRef = el as HTMLElement)}
             role="listbox"
