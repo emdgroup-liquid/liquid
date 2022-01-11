@@ -44,6 +44,17 @@ export class DocsNav {
     }
   }
 
+  componentWillLoad() {
+    // Make sure the sidenav-open hash is removed on page reload
+    // when the sidenav is open.
+    if (location.hash === '#sidenav-open') {
+      location.hash = ''
+      setTimeout(() => {
+        history.replaceState({}, '', window.location.pathname)
+      })
+    }
+  }
+
   componentDidLoad() {
     eventBus.on(NavEventType.open, this.onNavOpen.bind(this))
     eventBus.on(NavEventType.close, this.onNavClose.bind(this))
