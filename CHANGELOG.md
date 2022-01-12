@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.25](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.24...v1.0.0-rc.25) (2022-01-12)
+
+
+### Features
+
+* **ld-input:** add resize prop ([fb30f1b](https://github.com/emdgroup-liquid/liquid/commit/fb30f1bd2abe233e1f8ab97bb83a05b12d2c977b))
+
 # [1.0.0-rc.24](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.23...v1.0.0-rc.24) (2022-01-10)
 
 
