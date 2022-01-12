@@ -5686,10 +5686,36 @@
       "isMobile": false
     },
     {
+      "id": "29473521",
+      "image": "aac575ef4227c83422c0cb5c177045d8.png",
+      "userAgent": "default",
+      "desc": "ld-input multiline css component resize",
+      "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "fdd9fe79",
       "image": "8ea54fac3f833befad027158419e51cf.png",
       "userAgent": "default",
       "desc": "ld-input multiline web component",
+      "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "1cc78539",
+      "image": "aac575ef4227c83422c0cb5c177045d8.png",
+      "userAgent": "default",
+      "desc": "ld-input multiline web component resize",
       "testPath": "./src/liquid/components/ld-input/test/ld-input.e2e.ts",
       "width": 600,
       "height": 600,

@@ -260,9 +260,28 @@ describe('ld-input', () => {
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
+    it('web component resize', async () => {
+      const page = await getPageWithContent(
+        `<ld-input resize="none" class="resize-none" placeholder="Placeholder" multiline rows="5" cols="33"></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
     it('css component', async () => {
       const page = await getPageWithContent(
         `<div class="ld-input">
+          <textarea placeholder="Placeholder" rows="5" cols="33"></textarea>
+        </div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component resize', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input ld-input--resize-none">
           <textarea placeholder="Placeholder" rows="5" cols="33"></textarea>
         </div>`,
         { components: LdInput }
