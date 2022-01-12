@@ -9,7 +9,7 @@ permalink: components/ld-select/ld-option/
 
 # ld-option
 
-The `ld-option` component is a sub-component for `ld-select`.
+The `ld-option` component is a subcomponent for `ld-select`.
 
 Please refer to the [`ld-select` documentation](components/ld-select) for usage examples.
 

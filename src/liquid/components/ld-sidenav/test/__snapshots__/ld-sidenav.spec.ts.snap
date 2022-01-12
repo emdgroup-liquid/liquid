@@ -1,0 +1,1646 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-sidenav aligns to the right 1`] = `
+<ld-sidenav align="right" aria-label="Side navigation" class="ld-sidenav ld-sidenav--closable ld-sidenav--fully-collapsible ld-sidenav--right" role="navigation">
+  <mock:shadow-root>
+    <div class="ld-sidenav__content">
+      <div class="ld-sidenav__slot-container-top" part="slot-container-top">
+        <slot name="top"></slot>
+      </div>
+      <ld-sidenav-scroller-internal class="ld-sidenav__scroller" part="scroll-container">
+        <div class="ld-sidenav__slot-container-default" part="slot-container">
+          <slot></slot>
+        </div>
+      </ld-sidenav-scroller-internal>
+      <div class="ld-sidenav__slot-container-bottom" part="slot-container-bottom">
+        <slot name="bottom"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ld-sidenav>
+`;
+
+exports[`ld-sidenav collapses to narrow 1`] = `
+<ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsed ld-sidenav--collapsible ld-sidenav--has-active-subnav ld-sidenav--open ld-sidenav--transitions" collapsible="" narrow="" open="" role="navigation">
+  <mock:shadow-root>
+    <ld-button aria-checked="false" class="ld-sidenav__toggle" part="toggle" role="switch">
+      <mock:shadow-root>
+        <button aria-checked="true" aria-live="polite" class="ld-button ld-button--sm" part="button focusable" role="switch">
+          <slot></slot>
+        </button>
+      </mock:shadow-root>
+      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
+        <title>
+          Collapse side navigation
+        </title>
+        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+    </ld-button>
+    <div class="ld-sidenav__content">
+      <div class="ld-sidenav__slot-container-top" part="slot-container-top">
+        <slot name="top"></slot>
+      </div>
+      <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed ld-sidenav__scroller" data-needs-bottom data-needs-top part="scroll-container">
+        <mock:shadow-root>
+          <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+          <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <mock:shadow-root>
+              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+            </mock:shadow-root>
+          </ld-sidenav-separator>
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <mock:shadow-root>
+              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+            </mock:shadow-root>
+          </ld-sidenav-separator>
+          <slot></slot>
+        </mock:shadow-root>
+        <div class="ld-sidenav__slot-container-default" part="slot-container">
+          <slot></slot>
+        </div>
+      </ld-sidenav-scroller-internal>
+      <div class="ld-sidenav__slot-container-bottom" part="slot-container-bottom">
+        <slot name="bottom"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ld-sidenav-back slot="top">
+    <mock:shadow-root>
+      <div aria-label="Back" class="ld-sidenav-back ld-sidenav-back--collapsed ld-sidenav-back--is-back" role="button" tabindex="0">
+        <div class="ld-sidenav-back__btn-back" part="back">
+          <div class="ld-sidenav-back__icon" part="icon-container">
+            <svg fill="none" height="12" part="icon" width="12" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.333 1.832 1 5.999l3.333 4.166M1 6h10" stroke="#F8F8FC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </div>
+          <span class="ld-sidenav-back__btn-back-label" part="label">
+            Outline of Computer Science
+          </span>
+        </div>
+        <div class="ld-sidenav-back__slot-container" part="slot-container">
+          <slot></slot>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <ld-sidenav-navitem>
+      <mock:shadow-root>
+        <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              OO
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Outline of Computer Science
+    </ld-sidenav-navitem>
+  </ld-sidenav-back>
+  <ld-sidenav-slider class="ld-sidenav-slider ld-sidenav-slider--subnav-active" current-subnav="artificial-intelligence" label="Outline of Computer Science" style="transform: translateX(-100%); visibility: hidden;">
+    <mock:shadow-root>
+      <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container">
+        <mock:shadow-root>
+          <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+          <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <mock:shadow-root>
+              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+            </mock:shadow-root>
+          </ld-sidenav-separator>
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <mock:shadow-root>
+              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+            </mock:shadow-root>
+          </ld-sidenav-separator>
+          <slot></slot>
+        </mock:shadow-root>
+        <slot></slot>
+      </ld-sidenav-scroller-internal>
+    </mock:shadow-root>
+    <ld-sidenav-heading class="ld-sidenav-heading">
+      <mock:shadow-root>
+        <ld-typo part="typo" variant="cap-m">
+          <slot></slot>
+        </ld-typo>
+      </mock:shadow-root>
+      Subfields
+    </ld-sidenav-heading>
+    <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              M
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Mathematical foundations
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="algorithms-and-data-structures" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              AA
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Algorithms and data structures
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              AI
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Artificial intelligence
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CA
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Communication and security
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem active="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      <svg slot="icon" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" fill="var(--ld-col-vm)" r="10"></circle>
+      </svg>
+      Artificial intelligence
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CA
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Communication and security
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="computer-architecture" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CA
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Computer architecture
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="computer-graphics" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CG
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Computer graphics
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="concurrent-parallel-and-distributed-systems" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CP
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Concurrent, parallel, and distributed systems
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="databases" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              DA
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Databases
+    </ld-sidenav-navitem>
+    <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+      </mock:shadow-root>
+    </ld-sidenav-separator>
+    <ld-sidenav-navitem to="programming-languages-and-compilers" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              PL
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Programming languages and compilers
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="scientific-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              SC
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Scientific computing
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="software-engineering" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              SE
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Software engineering
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="theory-of-computation" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              TO
+            </span>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Theory of computation
+    </ld-sidenav-navitem>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="mathematical-foundations" label="Mathematical foundations">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Mathematical foundations
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Coding theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Game theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Discrete Mathematics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Graph theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Mathematical logic
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Number theory
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="algorithms-and-data-structures" label="Algorithms and data structures">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Algorithms and data structures
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Algorithms
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Data structures
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+              <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+                M
+              </span>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Mathematical Foundations
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav ld-sidenav-subnav--active" id="artificial-intelligence" label="Artificial intelligence">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: visible;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Artificial intelligence
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Artificial intelligence
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Automated reasoning
+      </ld-sidenav-navitem>
+      <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+        </mock:shadow-root>
+      </ld-sidenav-separator>
+      <ld-sidenav-navitem href="https://en.wikipedia.org/wiki/Computer_vision" mode="secondary" target="_blank" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <a class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" href="https://en.wikipedia.org/wiki/Computer_vision" rel="noreferrer noopener">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </a>
+        </mock:shadow-root>
+        Computer vision
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem to="soft-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+              <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+                SC
+              </span>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Soft computing
+      </ld-sidenav-navitem>
+      <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+        </mock:shadow-root>
+      </ld-sidenav-separator>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Natural language processing
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Robotics
+      </ld-sidenav-navitem>
+      <ld-sidenav-subnav class="ld-sidenav-subnav ld-sidenav-subnav--has-parent-subnav" id="soft-computing" label="Soft computing">
+        <mock:shadow-root>
+          <div class="ld-sidenav-subnav__background"></div>
+          <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+            <mock:shadow-root>
+              <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+              <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+                <mock:shadow-root>
+                  <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                </mock:shadow-root>
+              </ld-sidenav-separator>
+              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+                <mock:shadow-root>
+                  <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                </mock:shadow-root>
+              </ld-sidenav-separator>
+              <slot></slot>
+            </mock:shadow-root>
+            <slot></slot>
+          </ld-sidenav-scroller-internal>
+        </mock:shadow-root>
+        <ld-sidenav-heading class="ld-sidenav-heading">
+          <mock:shadow-root>
+            <ld-typo part="typo" variant="cap-m">
+              <slot></slot>
+            </ld-typo>
+          </mock:shadow-root>
+          Soft computing
+        </ld-sidenav-heading>
+        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+          <mock:shadow-root>
+            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+              <div class="ld-sidenav-navitem__dot" part="dot"></div>
+              <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+                <slot name="icon"></slot>
+              </div>
+              <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+                <slot></slot>
+              </div>
+            </button>
+          </mock:shadow-root>
+          Machine learning
+        </ld-sidenav-navitem>
+        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+          <mock:shadow-root>
+            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+              <div class="ld-sidenav-navitem__dot" part="dot"></div>
+              <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+                <slot name="icon"></slot>
+              </div>
+              <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+                <slot></slot>
+              </div>
+            </button>
+          </mock:shadow-root>
+          Evolutionary computing
+        </ld-sidenav-navitem>
+      </ld-sidenav-subnav>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="communication-and-security" label="Communication and security">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Communication and security
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Networking
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computer security
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Cryptography
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="computer-architecture" label="Computer architecture">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Computer architecture
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computer architecture{' '}
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Operating systems
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="computer-graphics" label="Computer graphics">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Computer graphics
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computer graphics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Image processing
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Information visualization
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="concurrent-parallel-and-distributed-systems" label="Concurrent parallel and distributed systems">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Concurrent parallel and distributed systems
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Parallel computing
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Concurrency (computer science)
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Distributed computing
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="databases" label="Databases">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Databases
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Relational databases
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Structured Storage
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Data mining
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="programming-languages-and-compilers" label="Programming languages and compilers">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Programming languages and compilers
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Compiler theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Programming language pragmatics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Programming language theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Formal semantics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Type theory
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="scientific-computing" label="Scientific computing">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Scientific computing
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational science
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Numerical analysis
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Symbolic computation
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational physics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational chemistry
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Bioinformatics and Computational biology
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational neuroscience
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="software-engineering" label="Software engineering">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Software engineering
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational science
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Formal methods
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Software engineering
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Algorithm design
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computer programming
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Human–computer interaction
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Reverse engineering
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+    <ld-sidenav-subnav class="ld-sidenav-subnav" id="theory-of-computation" label="Theory of computation">
+      <mock:shadow-root>
+        <div class="ld-sidenav-subnav__background"></div>
+        <ld-sidenav-scroller-internal class="ld-sidenav-scroller-internal ld-sidenav-scroller-internal--collapsed" data-needs-bottom data-needs-top part="scroll-container" style="visibility: hidden;">
+          <mock:shadow-root>
+            <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
+            <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <mock:shadow-root>
+                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              </mock:shadow-root>
+            </ld-sidenav-separator>
+            <slot></slot>
+          </mock:shadow-root>
+          <slot></slot>
+        </ld-sidenav-scroller-internal>
+      </mock:shadow-root>
+      <ld-sidenav-heading class="ld-sidenav-heading">
+        <mock:shadow-root>
+          <ld-typo part="typo" variant="cap-m">
+            <slot></slot>
+          </ld-typo>
+        </mock:shadow-root>
+        Theory of computation
+      </ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Automata theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computability theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational complexity theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+              <slot name="icon"></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Quantum computing theory
+      </ld-sidenav-navitem>
+    </ld-sidenav-subnav>
+  </ld-sidenav-slider>
+  <ld-sidenav-navitem rounded="" slot="bottom">
+    <mock:shadow-root>
+      <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--rounded">
+        <div class="ld-sidenav-navitem__dot" part="dot"></div>
+        <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
+          <slot name="icon"></slot>
+          <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+            SP
+          </span>
+        </div>
+        <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+          <slot></slot>
+        </div>
+      </button>
+    </mock:shadow-root>
+    Student profile
+  </ld-sidenav-navitem>
+</ld-sidenav>
+`;
+
+exports[`ld-sidenav collapsible mode is collapsed 1`] = `
+<ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsed ld-sidenav--collapsible ld-sidenav--fully-collapsible" collapsed="" collapsible="" role="navigation">
+  <mock:shadow-root>
+    <ld-button aria-checked="false" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
+      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
+        <title>
+          Collapse side navigation
+        </title>
+        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+    </ld-button>
+    <div class="ld-sidenav__content">
+      <div class="ld-sidenav__slot-container-top" part="slot-container-top">
+        <slot name="top"></slot>
+      </div>
+      <ld-sidenav-scroller-internal class="ld-sidenav__scroller" part="scroll-container">
+        <div class="ld-sidenav__slot-container-default" part="slot-container">
+          <slot></slot>
+        </div>
+      </ld-sidenav-scroller-internal>
+      <div class="ld-sidenav__slot-container-bottom" part="slot-container-bottom">
+        <slot name="bottom"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ld-sidenav>
+`;
+
+exports[`ld-sidenav collapsible mode is collapsible 1`] = `
+<ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsible ld-sidenav--fully-collapsible" collapsible="" role="navigation">
+  <mock:shadow-root>
+    <ld-button aria-checked="true" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
+      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
+        <title>
+          Expand side navigation
+        </title>
+        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+    </ld-button>
+    <div class="ld-sidenav__content">
+      <div class="ld-sidenav__slot-container-top" part="slot-container-top">
+        <slot name="top"></slot>
+      </div>
+      <ld-sidenav-scroller-internal class="ld-sidenav__scroller" part="scroll-container">
+        <div class="ld-sidenav__slot-container-default" part="slot-container">
+          <slot></slot>
+        </div>
+      </ld-sidenav-scroller-internal>
+      <div class="ld-sidenav__slot-container-bottom" part="slot-container-bottom">
+        <slot name="bottom"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ld-sidenav>
+`;
+
+exports[`ld-sidenav renders 1`] = `
+<ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--fully-collapsible" role="navigation">
+  <mock:shadow-root>
+    <div class="ld-sidenav__content">
+      <div class="ld-sidenav__slot-container-top" part="slot-container-top">
+        <slot name="top"></slot>
+      </div>
+      <ld-sidenav-scroller-internal class="ld-sidenav__scroller" part="scroll-container">
+        <div class="ld-sidenav__slot-container-default" part="slot-container">
+          <slot></slot>
+        </div>
+      </ld-sidenav-scroller-internal>
+      <div class="ld-sidenav__slot-container-bottom" part="slot-container-bottom">
+        <slot name="bottom"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ld-sidenav>
+`;

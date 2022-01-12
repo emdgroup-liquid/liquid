@@ -1,0 +1,18 @@
+.ld-sidenav-separator {
+  margin: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x) 0;
+  border: 0;
+  border-radius: var(--ld-br-full);
+  height: var(--ld-sp-1);
+  transform: scaleY(1.5); /* 1.5px */
+  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transform-origin: left;
+  background-color: var(--ld-col-neutral-100);
+
+  &--collapsed {
+    transform: translateY(var(--ld-slider-navitem-move-up, 0px))
+      translateX(
+        calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
+      )
+      scaleY(1.5) scaleX(var(--ld-sidenav-separator-scale-x-collapsed));
+  }
+}

@@ -9,7 +9,7 @@ permalink: components/ld-tabs/ld-tabpanellist/
 
 # ld-tabpanellist
 
-The `ld-tabpanellist` component is a sub-component for `ld-tabs`.
+The `ld-tabpanellist` component is a subcomponent for `ld-tabs`.
 
 Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage examples.
 

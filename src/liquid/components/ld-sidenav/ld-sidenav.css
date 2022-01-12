@@ -1,0 +1,191 @@
+:host {
+  /* layout */
+  --ld-sidenav-closable-min-width: 20rem;
+  --ld-sidenav-padding-x: 1rem;
+  --ld-sidenav-padding-y: 1rem;
+  --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
+  --ld-sidenav-transition-duration: 0.2s;
+  --ld-sidenav-transition-delay: 0.1s;
+  --ld-sidenav-width: 15.625rem;
+  --ld-sidenav-width-collapsed: 4.5rem;
+  --ld-sidenav-width-fully-collapsed: 1rem;
+
+  /* colors */
+  --ld-sidenav-bg-color: var(--ld-col-wht);
+  --ld-sidenav-subnav-bg-color: var(--ld-thm-primary-alpha-lowest);
+
+  position: var(--ld-sidenav-position, fixed);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--ld-sidenav-width);
+  background-color: var(--ld-sidenav-bg-color);
+  box-sizing: border-box;
+  text-align: left;
+  z-index: 0; /* create own stacking context */
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: var(--ld-sp-1);
+    background-color: var(--ld-col-neutral-050);
+    transform: scaleX(1.5) translateX(100%);
+  }
+
+  &(.ld-sidenav--transitions) {
+    transition: transform var(--ld-sidenav-transition-duration) ease;
+
+    .ld-sidenav__content {
+      transition: opacity var(--ld-sidenav-transition-duration) linear;
+    }
+  }
+
+  &(.ld-sidenav--collapsed:not(.ld-sidenav--closable)) {
+    transform: translateX(calc(-100% + var(--ld-sidenav-width-collapsed)));
+  }
+
+  &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable)) {
+    transform: translateX(
+      calc(-100% + var(--ld-sidenav-width-fully-collapsed))
+    );
+
+    .ld-sidenav__content {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible.ld-sidenav--transitions:not(.ld-sidenav--closable)) {
+    .ld-sidenav__content {
+      transition: opacity var(--ld-sidenav-transition-duration) linear,
+        visibility 0s var(--ld-sidenav-transition-duration) linear;
+    }
+  }
+
+  &(.ld-sidenav--right) {
+    left: unset;
+    right: 0;
+
+    &::before {
+      right: unset;
+      left: 0;
+      transform: scaleX(1.5) translateX(-100%);
+    }
+  }
+
+  &(.ld-sidenav--right.ld-sidenav--collapsed:not(.ld-sidenav--closable)) {
+    transform: translateX(calc(100% - var(--ld-sidenav-width-collapsed)));
+  }
+
+  &(.ld-sidenav--right.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable)) {
+    transform: translateX(calc(100% - var(--ld-sidenav-width-fully-collapsed)));
+  }
+
+  &(.ld-sidenav--closable) {
+    width: 100%;
+    min-width: var(--ld-sidenav-closable-min-width);
+    transform: translateX(-100%);
+  }
+
+  &(.ld-sidenav--closable.ld-sidenav--open) {
+    transform: translateX(0);
+  }
+
+  @media (prefers-reduced-motion) {
+    /* Not using 0s here because we rely on the transition end event. */
+    --ld-sidenav-transition-duration: 0.001s;
+    --ld-sidenav-transition-delay: 0s;
+  }
+
+  ::slotted(ld-sidenav-navitem:last-of-type) {
+    margin-bottom: var(--ld-sidenav-padding-y);
+  }
+
+  ::slotted(ld-sidenav-navitem) {
+    margin: var(--ld-sidenav-padding-y) 0 0;
+  }
+}
+
+.ld-sidenav__toggle {
+  position: absolute;
+  overflow: hidden;
+  border-radius: var(--ld-br-full);
+  top: var(--ld-sidenav-toggle-top, 3.5rem);
+  transform: translateX(50%) scale(0.75);
+  box-shadow: var(--ld-shadow-sticky);
+  z-index: 1;
+  right: 0;
+  will-change: transform; /* fixes rendering issue */
+
+  :host(.ld-sidenav--right) & {
+    transform: translateX(-50%) scale(0.75);
+    right: unset;
+    left: 0;
+  }
+}
+
+.ld-sidenav__toggle-icon {
+  transform-origin: center;
+  transform: translateX(-1px) scale(1.5) rotate(180deg);
+
+  :host(.ld-sidenav--collapsed) & {
+    transform: translateX(1px) scale(1.5);
+  }
+
+  :host(.ld-sidenav--right) & {
+    transform: translateX(1px) scale(1.5);
+  }
+  :host(.ld-sidenav--right.ld-sidenav--collapsed) & {
+    transform: translateX(-1px) scale(1.5) rotate(180deg);
+  }
+}
+
+.ld-sidenav__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform; /* fixes overflow not working on slide transition */
+}
+
+.ld-sidenav__slot-container-default {
+  height: 100%;
+  position: relative;
+}
+
+.ld-sidenav__slot-container-top,
+.ld-sidenav__slot-container-bottom {
+  background-color: var(--ld-sidenav-bg-color);
+  z-index: 1;
+  position: relative;
+}
+
+.ld-sidenav__slot-container-bottom {
+  ld-sidenav-navitem {
+    padding: var(--ld-sidenav-padding-y) 0;
+  }
+}
+
+.ld-sidenav__slot-container-top,
+.ld-sidenav__slot-container-default,
+.ld-sidenav__slot-container-bottom {
+  &::before {
+    visibility: visible;
+    z-index: 0;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--ld-sidenav-subnav-bg-color);
+    transition: opacity var(--ld-sidenav-transition-duration) linear;
+  }
+
+  :host(.ld-sidenav--has-active-subnav) & {
+    &::before {
+      opacity: 1;
+    }
+  }
+}

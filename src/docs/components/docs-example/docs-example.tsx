@@ -9,6 +9,9 @@ import { getClassNames } from '../../../liquid/utils/getClassNames'
   shadow: false,
 })
 export class DocsExample {
+  /** Background color mode. */
+  @Prop() background: 'brand' | 'light'
+
   /** Center examples. */
   @Prop() centered = false
 
@@ -18,20 +21,23 @@ export class DocsExample {
   /** CSS component markup encoded as URI component. */
   @Prop() codeCssComponent: string
 
-  /** Stack examples (use display block). */
-  @Prop() stacked = false
+  /** Adds a thin border to the container. */
+  @Prop() hasBorder = false
+
+  /** Puts some space between content and container. */
+  @Prop() hasPadding = false
 
   /** Opens code view on initial load. */
   @Prop() opened = false
 
-  /** Background color mode. */
-  @Prop() background: 'brand' | 'light'
+  /** Stack examples (use display block). */
+  @Prop() stacked = false
+
+  /** Custom show-container styles. */
+  @Prop() styles = '{}'
 
   /** Enables theme switch. */
   @Prop() themable = false
-
-  /** Puts some space between content and container. */
-  @Prop() hasPadding = false
 
   /** Current theme. */
   @State() currentTheme = 'ocean'
@@ -61,6 +67,7 @@ export class DocsExample {
     const cl = [
       'docs-example',
       this.isCodeVisible && 'docs-example--code-visible',
+      this.hasBorder && 'docs-example--has-border',
       this.hasPadding && 'docs-example--has-padding',
       this.isWebComponent
         ? 'docs-example--web-component'
@@ -77,7 +84,7 @@ export class DocsExample {
 
     return (
       <Host class={getClassNames(cl)}>
-        <div class={clShow}>
+        <div class={clShow} style={JSON.parse(this.styles)}>
           <slot name="show"></slot>
           <slot name="showCssComponent"></slot>
         </div>

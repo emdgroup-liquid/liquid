@@ -948,7 +948,7 @@ __metadata:
     "@lottiefiles/lottie-player": ^1.5.1
     "@semantic-release/changelog": ^5.0.1
     "@semantic-release/git": ^9.0.0
-    "@stencil/core": ^2.12.1
+    "@stencil/core": ^2.13.0
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
     "@stencil/react-output-target": ^0.2.0
@@ -975,6 +975,7 @@ __metadata:
     husky: ^7.0.1
     jest: ^26.6.3
     jest-cli: ^26.6.3
+    jest-matchmedia-mock: ^1.1.0
     lint-staged: ^10.5.4
     live-server: ^1.2.1
     lodash.memoize: ^4.1.2
@@ -1839,12 +1840,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.12.1":
-  version: 2.12.1
-  resolution: "@stencil/core@npm:2.12.1"
+"@stencil/core@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "@stencil/core@npm:2.13.0"
   bin:
     stencil: bin/stencil
-  checksum: acbd781a8073eb155cabad9375fda080ee38cb642f63fda2ae8c09811f996c6282ff84cd60f7796827e31fbce4eccc3c17f2041d9c5fec2df08947ebf8bcb0ac
+  checksum: 9ac7fdb7fa90e7b1e40c12820aab9a284c0bcbc1bf80b36dd3324d86ee07a9ece7e0e54231ea3a7210ffa44ece1c285bcb6778c4ac2e8dae041550494a442bf3
   languageName: node
   linkType: hard
 
@@ -8281,6 +8282,15 @@ cors@latest:
     jest-get-type: ^26.3.0
     pretty-format: ^26.6.2
   checksum: 74d2165c1ac7fe98fe27cd2b5407499478e6b2fe99dd54e26d8ee5c9f5f913bdd7bdc07c7221b9b04df0c15e9be0e866ff3455b03e38cc66c480d9996d6d5405
+  languageName: node
+  linkType: hard
+
+"jest-matchmedia-mock@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "jest-matchmedia-mock@npm:1.1.0"
+  peerDependencies:
+    jest: ">=13"
+  checksum: e812b9dce5a3b55057ec0db47fe07737d24f248d0ee5eb41754244ecb8ea9b906581af2c1ae434b4db8a037ce3e437af6c53075ac86538a56ce55e2645ea0138
   languageName: node
   linkType: hard
 

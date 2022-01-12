@@ -106,8 +106,11 @@
   border-top-right-radius: var(--ld-br-l);
   overflow: hidden;
 
-  .docs-example--has-padding & {
+  .docs-example--has-border & {
     border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+  }
+
+  .docs-example--has-padding & {
     padding: 0 var(--ld-sp-8) var(--ld-sp-24);
 
     @media (max-width: 48rem) {
@@ -136,6 +139,7 @@
 .docs-example__show--stacked {
   > div {
     flex-direction: column;
+    align-items: stretch;
   }
 }
 
