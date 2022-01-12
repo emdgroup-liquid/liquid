@@ -112,6 +112,9 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   /** A value is required for the form to be submittable. */
   @Prop() required?: boolean
 
+  /** Whether the multiline input is resizable, and if so, in which directions. */
+  @Prop() resize?: 'none' | 'both' | 'horizontal' | 'vertical' = 'both'
+
   /** The number of rows. */
   @Prop() rows?: number
 
@@ -335,6 +338,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
       this.size && `ld-input--${this.size}`,
       this.tone && `ld-input--${this.tone}`,
       this.invalid && 'ld-input--invalid',
+      this.multiline && this.resize && `ld-input--resize-${this.resize}`,
     ])
 
     if (this.multiline) {

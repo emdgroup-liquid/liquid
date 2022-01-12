@@ -14,7 +14,7 @@ Liquid ships both, CSS Components and Web Components. For instance, you can use 
 
 <link rel="stylesheet" href="css_components/ld-button.css">
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button>Text</ld-button>
 <button class="ld-button">Text</button>
 {% endexample %}
