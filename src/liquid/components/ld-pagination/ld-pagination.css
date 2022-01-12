@@ -1,0 +1,105 @@
+.ld-pagination {
+  --ld-pagination-sm-item-width: 2rem;
+  --ld-pagination-md-item-width: 2.5rem;
+  --ld-pagination-lg-item-width: 3.125rem;
+  --ld-pagination-item-space: calc(
+    var(--ld-pagination-item-width) + var(--ld-sp-4)
+  );
+  --ld-pagination-item-width: var(--ld-pagination-md-item-width);
+
+  align-items: center;
+  display: inline-flex;
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+
+  &--sm {
+    --ld-pagination-item-width: var(--ld-pagination-sm-item-width);
+  }
+
+  &--lg {
+    --ld-pagination-item-width: var(--ld-pagination-lg-item-width);
+  }
+}
+
+.ld-pagination__arrow:not(:last-child) {
+  margin-right: var(--ld-sp-4);
+}
+
+.ld-pagination__dots,
+.ld-pagination__item {
+  transition: opacity 100ms ease-in-out;
+}
+
+.ld-pagination__dots {
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  width: 0;
+
+  &--visible {
+    opacity: 1;
+  }
+
+  &--start {
+    left: calc(var(--ld-pagination-item-width) / 2 - var(--ld-sp-4));
+  }
+
+  &--end {
+    left: calc(var(--ld-pagination-item-width) / 2 * -1 - var(--ld-sp-4) * 2);
+  }
+}
+
+.ld-pagination__slide-wrapper {
+  position: relative;
+  width: calc(
+    var(--ld-pagination-slider-cols) * var(--ld-pagination-item-space)
+  );
+}
+
+.ld-pagination__items {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  pointer-events: none;
+  transform: translateX(
+    calc(var(--ld-pagination-slide-index) * var(--ld-pagination-item-space))
+  );
+  transition: transform 100ms ease-in-out;
+}
+
+.ld-pagination__item {
+  margin-right: var(--ld-sp-4);
+  opacity: 1;
+  pointer-events: auto;
+  width: var(--ld-pagination-item-width);
+
+  ld-button::part(button) {
+    padding: 0;
+  }
+
+  &--hidden-start,
+  &--hidden-end {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &--selected ld-button {
+    --ld-button-bg-color: transparent;
+  }
+}
+
+.ld-pagination__marker {
+  background: var(--ld-thm-primary);
+  border-radius: var(--ld-br-m);
+  height: var(--ld-pagination-item-width);
+  position: absolute;
+  width: var(--ld-pagination-item-width);
+  z-index: -1;
+  transform: translateX(
+    calc(var(--ld-pagination-item-space) * var(--ld-pagination-selected-index))
+  );
+  transition: transform 100ms ease-in-out;
+}

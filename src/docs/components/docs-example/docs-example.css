@@ -128,6 +128,11 @@
     width: 100%;
   }
 }
+.docs-example__show--centered {
+  > div {
+    align-items: center;
+  }
+}
 .docs-example__show--stacked {
   > div {
     flex-direction: column;
