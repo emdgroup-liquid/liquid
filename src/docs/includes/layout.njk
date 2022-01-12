@@ -19,11 +19,6 @@ title: Introduction
   <meta name="theme-color" content="#ffffff">
 
   <script>
-    if ("serviceWorker" in navigator)
-      navigator.serviceWorker.register("{{ env.base }}/service-worker.js");
-  </script>
-
-  <script>
     __docsSearchIndex__ = [
     {% for item in collections.all %}
       {% if not item.data.excludeFromSitemap %}
