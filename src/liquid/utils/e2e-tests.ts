@@ -134,15 +134,6 @@ function getInvalidRuleInfo(rule) {
   } nodes\r\n${rule.nodes.map(getInvalidNodeInfo).join('\n')}`
 }
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace jest {
-    interface Matchers<R> {
-      toHaveNoAccessibilityIssues(): R
-    }
-  }
-}
-
 // Add a new method to expect assertions with a very detailed error report
 expect.extend({
   toHaveNoAccessibilityIssues(accessibilityReport, options) {
