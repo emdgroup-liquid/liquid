@@ -16,7 +16,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 ## Examples
 
 {% example '{ "centered": true, "stacked": true }' %}
-<ld-pagination length="15"></ld-pagination>
+<ld-pagination length="4444"></ld-pagination>
 <ld-pagination length="8"></ld-pagination>
 <ld-pagination length="7"></ld-pagination>
 <ld-pagination length="6"></ld-pagination>

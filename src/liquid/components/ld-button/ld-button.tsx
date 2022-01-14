@@ -174,14 +174,12 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
   @Watch('size')
   private updateIconSize() {
-    const forceLargeIcon = this.mode === 'ghost' && this.iconOnly
-
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
-      icon.size = forceLargeIcon ? 'lg' : this.size
+      icon.size = this.size
     })
 
     this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'lg' || forceLargeIcon) {
+      if (this.size === 'lg') {
         icon.classList.remove('ld-icon--sm')
         icon.classList.add('ld-icon--lg')
       } else if (this.size === 'sm') {

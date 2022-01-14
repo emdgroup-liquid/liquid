@@ -33,10 +33,12 @@
 }
 
 .ld-pagination__dots {
+  color: var(--ld-thm-primary);
   opacity: 0;
   pointer-events: none;
   position: relative;
   text-align: center;
+  white-space: nowrap;
   width: 0;
 
   &--visible {
@@ -88,11 +90,16 @@
 
   &--selected ld-button {
     --ld-button-bg-color: transparent;
+
+    &::part(button) {
+      color: var(--thm-primary-active);
+      font-weight: 900;
+    }
   }
 }
 
 .ld-pagination__marker {
-  background: var(--ld-thm-primary);
+  background: var(--ld-thm-primary-alpha-lowest);
   border-radius: var(--ld-br-m);
   height: var(--ld-pagination-item-width);
   position: absolute;
