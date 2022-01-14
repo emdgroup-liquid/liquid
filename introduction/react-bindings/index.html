@@ -160,7 +160,7 @@
               title: 'React bindings',
               tags: '',
               url: '/liquid/introduction/react-bindings/',
-              headings: 'Custom Elements are defined automatically',
+              headings: 'Custom Elements are defined automaticallySetting the asset path',
               breadcrumbs: [
                 
                 
@@ -1569,7 +1569,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#custom-elements-are-defined-automatically">Custom Elements are defined automatically</a></li></ol>
+        <ol><li><a href="#custom-elements-are-defined-automatically">Custom Elements are defined automatically</a></li><li><a href="#setting-the-asset-path">Setting the asset path</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -1599,6 +1599,9 @@
 <h2 id="custom-elements-are-defined-automatically">Custom Elements are defined automatically <a class="header-anchor" href="introduction/react-bindings/#custom-elements-are-defined-automatically"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>A positive side-effect of using React bindings is, that you do not need to call the <code>defineCustomElements</code> method manually, as the React bindings automatically take care of that.</p>
 <p>For more details on React integration read the <a href="https://stenciljs.com/docs/react">Stencil documentation</a>.</p>
+<h2 id="setting-the-asset-path">Setting the asset path <a class="header-anchor" href="introduction/react-bindings/#setting-the-asset-path"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>When using React bindings, you do not need to use the <code>setAssetPath</code> function to define the asset path for components like <code>ld-icon</code>. All you need to do is define a global variable on the <code>window</code> object to &quot;tell&quot; the Liquid components where they have to load their assets from:</p>
+<pre class="language-js"><code class="language-js">  <span class="token comment">// if-clause only required when your code might also be executed</span><br>  <span class="token comment">// on the server-side like with Next.js</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">"undefined"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin <span class="token operator">+</span> <span class="token string">'/path/to/your/assets/'</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
 <p><docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav></p>
 
       

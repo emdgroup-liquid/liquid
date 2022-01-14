@@ -160,7 +160,7 @@
               title: 'React bindings',
               tags: '',
               url: '/liquid/introduction/react-bindings/',
-              headings: 'Custom Elements are defined automatically',
+              headings: 'Custom Elements are defined automaticallySetting the asset path',
               breadcrumbs: [
                 
                 
@@ -1599,11 +1599,14 @@
 <pre class="language-js"><code class="language-js"><span class="token comment">// vite.config.js</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite'</span><br><span class="token keyword">import</span> copy <span class="token keyword">from</span> <span class="token string">'rollup-plugin-copy'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><br>    <span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>      targets<span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">{</span><br>          src<span class="token operator">:</span> <span class="token string">'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets/*'</span><span class="token punctuation">,</span><br>          dest<span class="token operator">:</span> <span class="token string">'public/assets'</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>      <span class="token punctuation">]</span><span class="token punctuation">,</span><br>      hook<span class="token operator">:</span> <span class="token string">'buildStart'</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token comment">// ...</span><br>  <span class="token punctuation">]</span><span class="token punctuation">,</span><br>  <span class="token comment">// ...</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>Now all you need to do is &quot;tell&quot; the Liquid components where they have to load their assets from by using <a href="https://github.com/ionic-team/stencil/blob/f09abe6455887025d508e645e7c8c024a5c42fa2/src/declarations/stencil-public-runtime.ts#L290"><code>setAssetPath</code></a>:</p>
 <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// main.ts</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> setAssetPath <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components'</span><br><br><span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p><code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings#setting-the-asset-path">React bindings docs</a> for an alternative approach.</p>
+</blockquote>
 <p>For more examples check out our <a href="introduction/sandbox-applications/">sandbox apps</a>.</p>
 <p><docs-page-nav prev-href="introduction/css-vs-web-components/" next-title="Type checking and intellisense" next-href="introduction/type-checking-and-intellisense/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 

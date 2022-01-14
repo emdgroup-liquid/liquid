@@ -1,0 +1,1 @@
+import{a as n}from"./p-4bb69ba2.js";const o=o=>{if("undefined"!=typeof window&&window.__LD_ASSET_PATH__){let n=o;return o.startsWith("./")&&(n=o.substring(2)),window.__LD_ASSET_PATH__.endsWith("/")||(n="/"+n),window.__LD_ASSET_PATH__+n}return n(o)};export{o as g}
