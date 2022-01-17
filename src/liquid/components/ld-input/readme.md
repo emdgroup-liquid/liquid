@@ -52,11 +52,11 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <!-- CSS component -->
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input placeholder="Placeholder" disabled>
 </div>
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input placeholder="Placeholder" value="Value" disabled>
 </div>
 {% endexample %}
@@ -70,14 +70,14 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <!-- CSS component -->
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input
     placeholder="Placeholder"
     aria-disabled="true"
     id="focusable-disabled-input-1">
 </div>
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input
     placeholder="Placeholder"
     value="Value"
@@ -114,7 +114,7 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
   <input placeholder="Placeholder">
 </div>
 
-<div class="ld-input ld-input--dark" disabled>
+<div class="ld-input ld-input--dark ld-input--disabled">
   <input placeholder="Placeholder" disabled>
 </div>
 {% endexample %}

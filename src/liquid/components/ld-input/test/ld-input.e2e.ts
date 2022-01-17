@@ -178,7 +178,7 @@ describe('ld-input', () => {
     // Disabled CSS component
     it(`css component disabled${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       const results = await page.compareScreenshot()
@@ -186,7 +186,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled value="Value"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled value="Value"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       const results = await page.compareScreenshot()
@@ -194,7 +194,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       await page.hover('.ld-input')
@@ -203,7 +203,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled focus${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       await page.keyboard.press('Tab')
