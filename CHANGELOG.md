@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.26](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.25...v1.0.0-rc.26) (2022-01-17)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([658a838](https://github.com/emdgroup-liquid/liquid/commit/658a8382c0d6468e10d8dee98694497e459ce69b))
+* **ld-input:** change ld-input disabled background color to grey ([8de9e7a](https://github.com/emdgroup-liquid/liquid/commit/8de9e7a6ec41a0bc52a8c1b3f5e7f7cfe2f2d9b3)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+* **react:** add alternative approach for setting the asset path ([7b7f044](https://github.com/emdgroup-liquid/liquid/commit/7b7f044a90b47b8217324596c18e5be30cf342ca))
+
+
+### Features
+
+* **ld-input:** add resize prop ([8d699c0](https://github.com/emdgroup-liquid/liquid/commit/8d699c0260de29a017a4e8bdfa2a73331f7a255c)), closes [#223](https://github.com/emdgroup-liquid/liquid/issues/223)
+
 # [1.0.0-rc.25](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.24...v1.0.0-rc.25) (2022-01-12)
 
 
