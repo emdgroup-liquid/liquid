@@ -1207,10 +1207,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stencil/core@^2.12.0":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.12.0.tgz#5b12517dd367908026692d3b00fa1aab39638ab9"
-  integrity sha512-hQlQKh5CUJe8g3L5avLLsfgVu95HMS2LToTtS7gpvvP0eKes1VvAC56uhI+vH4u44GZl9ck/g1rJBVRmMWu0LA==
+"@stencil/core@^2.12.1":
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.12.1.tgz#92364d3e57337b8d36dd9b70cfbed2833929f22d"
+  integrity sha512-u24TZ+FEvjnZt5ZgIkLjLpUNsO6Ml3mUZqwmqk81w6RWWz75hgB5p4RFI5rvuErFeh2xvMIGo+pNdG24XUBz1A==
 
 "@stencil/eslint-plugin@^0.3.1":
   version "0.3.1"
@@ -7259,6 +7259,11 @@ markdown-it-anchor@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-7.1.0.tgz#30fb21497bf59e83ff4d1ddc052d821962e2489e"
   integrity sha512-loQggrwsIkkP7TOrESvmYkV2ikbQNNKhHcWyqC7/C2CmfHl1tkUizJJU8C5aGgg7J6oXVQJx17gk7i47tNn/lQ==
+
+markdown-it-replace-link@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-replace-link/-/markdown-it-replace-link-1.1.0.tgz#cab2343eb27928db1c836e10cd518aaf60a0bd50"
+  integrity sha512-P+4D/Z16utgQVjMumA5W3lMbxWYk4iwg1Fk59wShFm7MRgzbjJm++tvI18LdYwiG8CKNA1TFWvHcbtehvMuViA==
 
 markdown-it@^12.3.2:
   version "12.3.2"

@@ -8,18 +8,19 @@
       > p,
       > ol,
       > ul,
-      > #css-variables + table,
-      > #properties + table,
-      > #events + table,
-      > #slots + table {
+      > [id^='css-variables'] + table,
+      > [id^='properties'] + table,
+      > [id^='events'] + table,
+      > [id^='slots'] + table,
+      > [id^='methods'] ~ h3 {
         code {
           box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-100);
           background-color: var(--ld-col-neutral-010);
         }
       }
 
-      #css-variables + table td,
-      #properties + table td {
+      [id^='css-variables'] + table td,
+      [id^='properties'] + table td {
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
@@ -78,17 +79,18 @@
       > p,
       > ol,
       > ul,
-      > #css-variables + table,
-      > #properties + table,
-      > #events + table,
-      > #slots + table {
+      > [id^='css-variables'] + table,
+      > [id^='properties'] + table,
+      > [id^='events'] + table,
+      > [id^='slots'] + table,
+      > [id^='methods'] ~ h3 {
         code {
           box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-400);
           background-color: var(--ld-col-neutral-600);
         }
       }
 
-      #properties + table td {
+      [id^='properties'] + table td {
         &:first-of-type,
         &:nth-of-type(2),
         &:nth-of-type(4) {
@@ -102,7 +104,7 @@
         }
       }
 
-      #css-variables + table td {
+      [id^='css-variables'] + table td {
         &:first-of-type,
         &:nth-of-type(3) {
           code {
@@ -213,8 +215,12 @@
       border: 0;
       height: var(--ld-sp-1);
 
-      &:last-of-type + p {
+      &:last-of-type {
         display: none;
+
+        & + p {
+          display: none;
+        }
       }
     }
 
@@ -232,16 +238,18 @@
       margin-top: var(--ld-sp-40);
     }
 
-    #shadow-parts,
-    #shadow-parts + table,
-    #dependencies,
-    #depends-on,
-    #depends-on + ul,
-    #used-by,
-    #used-by + ul,
-    #graph,
+    /*
     .mermaid,
-    .mermaid + hr {
+    .mermaid + hr,
+    [id^='dependencies'],
+    [id^='used-by'],
+    [id^='used-by'] + ul,
+    [id^='depends-on'],
+    [id^='depends-on'] + ul*/
+    [id^='graph'],
+    [id^='graph'] + pre,
+    [id^='shadow-parts'],
+    [id^='shadow-parts'] + table {
       display: none;
     }
 
@@ -353,7 +361,7 @@
       }
     }
 
-    > #properties + table {
+    > [id^='properties'] + table {
       --table-min-width: 72rem;
 
       td,
@@ -411,7 +419,7 @@
       }
     }
 
-    > #css-variables + table {
+    > [id^='css-variables'] + table {
       --table-min-width: 62rem;
 
       td,
@@ -456,7 +464,7 @@
       }
     }
 
-    > #events + table {
+    > [id^='events'] + table {
       --table-min-width: 64rem;
 
       td,
@@ -480,9 +488,10 @@
       }
     }
 
-    > #methods {
+    > [id^='methods'] {
       ~ h3 code {
         font: var(--ld-typo-body-s);
+        line-height: 1;
         font-weight: 400;
         font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono',
           monospace;
@@ -492,7 +501,7 @@
       }
     }
 
-    > #slots + table {
+    > [id^='slots'] + table {
       --table-min-width: 50rem;
 
       td,
@@ -506,10 +515,10 @@
       }
     }
 
-    > #css-variables + table,
-    > #properties + table,
-    > #events + table,
-    > #slots + table {
+    > [id^='css-variables'] + table,
+    > [id^='properties'] + table,
+    > [id^='events'] + table,
+    > [id^='slots'] + table {
       font: var(--ld-typo-body-m);
 
       thead,
@@ -525,7 +534,7 @@
       }
     }
 
-    > #components ~ #status ~ table {
+    > [id^='components'] ~ [id^='status'] ~ table {
       td,
       th {
         width: var(--table-cell-width-sm);
@@ -567,17 +576,31 @@
   }
 }
 
-#properties + table::after {
+[id^='properties'] + table::after {
   content: '* required';
 }
 
-#slots,
-#events,
-#properties,
-#shadow-parts {
+[id^='slots'],
+[id^='events'],
+[id^='properties'],
+[id^='shadow-parts'] {
   + table + hr {
     display: none;
   }
+}
+
+.language-mermaid {
+  & + hr {
+    display: none;
+  }
+
+  code > :nth-last-child(-n + 3) {
+    display: none;
+  }
+}
+
+[id^='returns'] + p + hr {
+  display: none;
 }
 
 .header-anchor {
