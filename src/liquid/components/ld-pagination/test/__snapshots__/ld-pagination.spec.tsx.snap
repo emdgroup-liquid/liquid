@@ -1,0 +1,1315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-pagination renders default 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 6;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 7;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              15
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              16
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              17
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              18
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              19
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with custom item label 1`] = `
+<body>
+  <ld-pagination role="navigation">
+    <mock:shadow-root>
+      <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+        <li class="ld-pagination__arrow">
+          <ld-button disabled="" mode="ghost">
+            <ld-icon name="arrow-double-left"></ld-icon>
+          </ld-button>
+        </li>
+        <li class="ld-pagination__arrow">
+          <ld-button disabled="" mode="ghost">
+            <ld-icon name="arrow-left"></ld-icon>
+          </ld-button>
+        </li>
+        <li class="ld-pagination__dots">
+          <span>
+            . . .
+          </span>
+        </li>
+        <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+          <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+            <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+            <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+              <ld-button aria-current="true" aria-label="Slide 1" mode="ghost">
+                1
+              </ld-button>
+            </li>
+            <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+              <ld-button aria-label="Slide 2" mode="ghost">
+                2
+              </ld-button>
+            </li>
+            <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+              <ld-button aria-label="Slide 3" mode="ghost">
+                3
+              </ld-button>
+            </li>
+            <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+              <ld-button aria-label="Slide 4" mode="ghost">
+                4
+              </ld-button>
+            </li>
+            <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+              <ld-button aria-label="Slide 5" mode="ghost">
+                5
+              </ld-button>
+            </li>
+            <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+              <ld-button aria-label="Slide 6" mode="ghost">
+                6
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 6;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                7
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 7;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                8
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                9
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                10
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                11
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                12
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                13
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                14
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                15
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                16
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                17
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                18
+              </ld-button>
+            </li>
+            <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+              <ld-button ld-tabindex="-1" mode="ghost">
+                19
+              </ld-button>
+            </li>
+          </ul>
+        </li>
+        <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+          <span>
+            . . .
+          </span>
+        </li>
+        <li class="ld-pagination__arrow">
+          <ld-button mode="ghost">
+            <ld-icon name="arrow-right"></ld-icon>
+          </ld-button>
+        </li>
+      </ul>
+    </mock:shadow-root>
+  </ld-pagination>
+</body>
+`;
+
+exports[`ld-pagination renders with custom offset 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 5;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 4;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 5;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 6;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 7;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              15
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              16
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              17
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              18
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              19
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with determined length 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 6;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 7;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              15
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with different size 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default ld-pagination--lg">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost" size="lg">
+          <ld-icon name="arrow-double-left" size="lg"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost" size="lg">
+          <ld-icon name="arrow-left" size="lg"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost" size="lg">
+              1
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost" size="lg">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost" size="lg">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost" size="lg">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost" size="lg">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost" size="lg">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 6;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              7
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 7;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              15
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              16
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              17
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              18
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+            <ld-button ld-tabindex="-1" mode="ghost" size="lg">
+              19
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost" size="lg">
+          <ld-icon name="arrow-right" size="lg"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with one item only 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 1;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with one sticky item only 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 1" mode="ghost">
+          1
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 0;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 1;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+        </ul>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with pre-selected index 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 4;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 7;"></li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 0;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 1;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 2;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 3;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 4;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 6;">
+            <ld-button aria-label="Page 7" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 7;">
+            <ld-button aria-current="true" aria-label="Page 8" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 8;">
+            <ld-button aria-label="Page 9" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 9;">
+            <ld-button aria-label="Page 10" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              15
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              16
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              17
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              18
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              19
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 19;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              20
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 20;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              21
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 21;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              22
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 22;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              23
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 23;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              24
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 24;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              25
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 25;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              26
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with sticky items 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 1" mode="ghost">
+          1
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 2" mode="ghost">
+          2
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 2;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 6;">
+            <ld-button aria-label="Page 7" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 7;">
+            <ld-button aria-label="Page 8" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button mode="ghost">
+          14
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button mode="ghost">
+          15
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with sticky items only on one side 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 1" mode="ghost">
+          1
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 2" mode="ghost">
+          2
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 2;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost">
+              5
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost">
+              6
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 6;">
+            <ld-button aria-label="Page 7" mode="ghost">
+              7
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 7;">
+            <ld-button aria-label="Page 8" mode="ghost">
+              8
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 8;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              9
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 9;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              10
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 10;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              11
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 11;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              12
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 12;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              13
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 13;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              14
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 14;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              15
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 15;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              16
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 16;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              17
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 17;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              18
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 18;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              19
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders without dots 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 5;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-current="true" aria-label="Page 1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-label="Page 4" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost">
+              5
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders without offset 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 3;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 1;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 2;"></li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 0;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              1
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 1;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              2
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-current="true" aria-label="Page 3" mode="ghost">
+              3
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 3;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              4
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 4;">
+            <ld-button ld-tabindex="-1" mode="ghost">
+              5
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__dots ld-pagination__dots--end ld-pagination__dots--visible">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders without slidable elements 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default">
+      <li class="ld-pagination__arrow">
+        <ld-button disabled="" mode="ghost">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 1" mode="ghost">
+          1
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 2" mode="ghost">
+          2
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button aria-label="Page 3" mode="ghost">
+          3
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper" style="--ld-pagination-slider-cols: 0;">
+        <ul class="ld-pagination__items" style="--ld-pagination-slide-index: 3;">
+          <li class="ld-pagination__marker" style="--ld-pagination-selected-index: 0;"></li>
+        </ul>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button mode="ghost">
+          4
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button mode="ghost">
+          5
+        </ld-button>
+      </li>
+      <li class="ld-pagination__sticky">
+        <ld-button mode="ghost">
+          6
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button mode="ghost">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;

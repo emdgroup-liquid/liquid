@@ -15,12 +15,36 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 ## Examples
 
+### Default
+
 {% example '{ "centered": true, "stacked": true }' %}
-<ld-pagination length="4444"></ld-pagination>
-<ld-pagination length="8"></ld-pagination>
-<ld-pagination length="7"></ld-pagination>
-<ld-pagination length="6"></ld-pagination>
-<ld-pagination length="5"></ld-pagination>
+<ld-pagination length="9999"></ld-pagination>
+{% endexample %}
+
+### With sticky items
+
+{% example '{ "centered": true, "stacked": true }' %}
+<ld-pagination sticky="1" length="15"></ld-pagination>
+<ld-pagination sticky="3" length="15"></ld-pagination>
+{% endexample %}
+
+### Offset
+
+{% example %}
+<ld-pagination offset="1" length="15"></ld-pagination>
+<ld-pagination offset="0" length="15"></ld-pagination>
+{% endexample %}
+
+### Indefinite length
+
+{% example %}
+<ld-pagination></ld-pagination>
+{% endexample %}
+
+### Item label
+
+{% example %}
+<ld-pagination item-label="Slide" length="15"></ld-pagination>
 {% endexample %}
 
 ### Dots mode
@@ -43,24 +67,46 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 <ld-pagination length="15"></ld-pagination>
 
 <ld-pagination length="15" size="lg"></ld-pagination>
-
-<ld-pagination length="15" mode="dots" size="sm"></ld-pagination>
-
-<ld-pagination length="15" mode="dots"></ld-pagination>
-
-<ld-pagination length="15" mode="dots" size="lg"></ld-pagination>
-
-<ld-pagination length="15" mode="select" size="sm"></ld-pagination>
-
-<ld-pagination length="15" mode="select"></ld-pagination>
-
-<ld-pagination length="15" mode="select" size="lg"></ld-pagination>
 {% endexample %}
 
 ### Preselected index
 
 {% example %}
-<ld-pagination selectedIndex="7" length="15"></ld-pagination>
+<ld-pagination selected-index="7" length="15"></ld-pagination>
+{% endexample %}
+
+### Programmatic manipulation
+
+{% example %}
+<ld-button onclick="jump(-10);"><< 10</ld-button>
+<ld-pagination id="pagination-1" length="15"></ld-pagination>
+<ld-button onclick="jump(10);">>> 10</ld-button>
+<ld-button onclick="add(-10);">Remove 10</ld-button>
+<ld-button onclick="add(10);">Add 10</ld-button>
+
+<script>
+  const pagination1 = document.getElementById('pagination-1')
+  function jump(steps) {
+    pagination1.selectedIndex += steps;
+  }
+
+  function add(amount) {
+    pagination1.length += amount;
+  }
+</script>
+{% endexample %}
+
+### Event handling
+
+{% example %}
+<ld-pagination id="pagination-2" length="15"></ld-pagination>
+
+<script>
+  const pagination2 = document.getElementById('pagination-2');
+  pagination2.addEventListener("ldchange", (event) => {
+    console.log("Selected index is:", event.detail)
+  })
+</script>
 {% endexample %}
 
 <!-- Auto Generated Below -->
@@ -74,9 +120,11 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 | `key`           | `key`            | for tracking the node's identity when working with lists                  | `string \| number`   | `undefined` |
 | `length`        | `length`         | The maximum number of items.                                              | `number`             | `Infinity`  |
 | `mode`          | `mode`           | Mode of the pagination.                                                   | `"dots" \| "select"` | `undefined` |
+| `offset`        | `offset`         | Number of next/previous items visible.                                    | `number`             | `2`         |
 | `ref`           | `ref`            | reference to component                                                    | `any`                | `undefined` |
 | `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected). | `number`             | `0`         |
 | `size`          | `size`           | Size of the pagination.                                                   | `"lg" \| "sm"`       | `undefined` |
+| `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                     | `number`             | `0`         |
 
 
 ## Events
