@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.27](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.26...v1.0.0-rc.27) (2022-01-18)
+
+
+### Bug Fixes
+
+* make disabled attributes work with false in react ([5a3ee62](https://github.com/emdgroup-liquid/liquid/commit/5a3ee624b771da5e384bc0f0f2e503530aa96cf7)), closes [#229](https://github.com/emdgroup-liquid/liquid/issues/229) [#235](https://github.com/emdgroup-liquid/liquid/issues/235)
+
 # [1.0.0-rc.26](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.25...v1.0.0-rc.26) (2022-01-17)
 
 
