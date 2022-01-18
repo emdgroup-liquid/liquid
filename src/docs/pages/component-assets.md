@@ -47,7 +47,7 @@ import { setAssetPath } from '@emdgroup-liquid/liquid/dist/components'
 setAssetPath(window.location.origin)
 ```
 
-> `setAssetPath` does not work for React bindings. Please take a look at the [React bindings docs](introduction/react-bindings#setting-the-asset-path) for an alternative approach.
+> **Note**: `setAssetPath` does not work for React bindings. Please take a look at the [React bindings docs](introduction/react-bindings#setting-the-asset-path) for an alternative approach.
 
 For more examples check out our [sandbox apps](introduction/sandbox-applications/).
 
