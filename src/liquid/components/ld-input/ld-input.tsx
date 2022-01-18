@@ -73,6 +73,9 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   /** Set this property to `true` in order to mark the field visually as invalid. */
   @Prop() invalid?: boolean
 
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
+
   /** Value of the id attribute of the `<datalist>` of autocomplete options. */
   @Prop() list?: string
 
@@ -351,6 +354,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
             onInput={this.handleInput}
             part="input focusable"
             ref={(el) => (this.input = el)}
+            tabIndex={this.ldTabindex}
             value={this.value}
           />
           {type === 'file' && (
@@ -373,6 +377,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           onKeyDown={this.handleKeyDown}
           part="input focusable"
           ref={(el) => (this.input = el)}
+          tabIndex={this.ldTabindex}
           value={this.value}
         />
         {this.type === 'file' && (

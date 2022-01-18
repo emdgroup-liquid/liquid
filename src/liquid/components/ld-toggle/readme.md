@@ -444,6 +444,7 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `form`         | `form`          | Associates the control with a form element.                                    | `string`           | `undefined` |
 | `invalid`      | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`          | `undefined` |
 | `key`          | `key`           | for tracking the node's identity when working with lists                       | `string \| number` | `undefined` |
+| `ldTabindex`   | `ld-tabindex`   | Tab index of the input.                                                        | `number`           | `undefined` |
 | `name`         | `name`          | Used to specify the name of the control.                                       | `string`           | `undefined` |
 | `readonly`     | `readonly`      | The value is not editable.                                                     | `boolean`          | `undefined` |
 | `ref`          | `ref`           | reference to component                                                         | `any`              | `undefined` |
