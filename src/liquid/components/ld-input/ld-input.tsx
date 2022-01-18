@@ -335,6 +335,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   render() {
     const cl = getClassNames([
       'ld-input',
+      this.disabled && `ld-input--disabled`,
       this.size && `ld-input--${this.size}`,
       this.tone && `ld-input--${this.tone}`,
       this.invalid && 'ld-input--invalid',

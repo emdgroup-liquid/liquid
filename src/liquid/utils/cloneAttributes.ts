@@ -1,3 +1,7 @@
+function isFalsy(value: string | null | undefined) {
+  return value === undefined || value === null || value === 'false'
+}
+
 export function cloneAttributes(attributesToIgnore: string[] = []) {
   const attributesToIgnoreSet = new Set([
     'style',
@@ -11,7 +15,7 @@ export function cloneAttributes(attributesToIgnore: string[] = []) {
   // Get attributes not in props.
   const attributesToClone = {}
   for (const attr of this.el.attributes) {
-    if (attributesToIgnoreSet.has(attr.name)) {
+    if (attributesToIgnoreSet.has(attr.name) || isFalsy(attr.value)) {
       continue
     }
     const valueToClone = attr.value === '' ? true : attr.value
@@ -28,7 +32,7 @@ export function cloneAttributes(attributesToIgnore: string[] = []) {
       const { attributeName } = mutation
       if (!attributesToIgnoreSet.has(attributeName)) {
         const attrValue = this.el.getAttribute(attributeName)
-        if (attrValue === undefined || attrValue === null) {
+        if (isFalsy(attrValue)) {
           delete this.clonedAttributes[attributeName]
         } else {
           this.clonedAttributes[attributeName] = attrValue

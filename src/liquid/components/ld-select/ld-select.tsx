@@ -946,6 +946,7 @@ export class LdSelect implements InnerFocusable {
 
     const cl = [
       'ld-select',
+      this.disabled && 'ld-select--disabled',
       this.size && `ld-select--${this.size}`,
       this.invalid && 'ld-select--invalid',
       this.expanded && 'ld-select--expanded',
