@@ -114,17 +114,16 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 ## Properties
 
-| Property        | Attribute        | Description                                                               | Type                 | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------------- | -------------------- | ----------- |
-| `itemLabel`     | `item-label`     | Label to communicate the type of an item.                                 | `string`             | `'Page'`    |
-| `key`           | `key`            | for tracking the node's identity when working with lists                  | `string \| number`   | `undefined` |
-| `length`        | `length`         | The maximum number of items.                                              | `number`             | `Infinity`  |
-| `mode`          | `mode`           | Mode of the pagination.                                                   | `"dots" \| "select"` | `undefined` |
-| `offset`        | `offset`         | Number of next/previous items visible.                                    | `number`             | `2`         |
-| `ref`           | `ref`            | reference to component                                                    | `any`                | `undefined` |
-| `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected). | `number`             | `0`         |
-| `size`          | `size`           | Size of the pagination.                                                   | `"lg" \| "sm"`       | `undefined` |
-| `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                     | `number`             | `0`         |
+| Property        | Attribute        | Description                                                               | Type               | Default     |
+| --------------- | ---------------- | ------------------------------------------------------------------------- | ------------------ | ----------- |
+| `itemLabel`     | `item-label`     | Label to communicate the type of an item.                                 | `string`           | `'Page'`    |
+| `key`           | `key`            | for tracking the node's identity when working with lists                  | `string \| number` | `undefined` |
+| `length`        | `length`         | The maximum number of items.                                              | `number`           | `Infinity`  |
+| `offset`        | `offset`         | Number of next/previous items visible.                                    | `number`           | `2`         |
+| `ref`           | `ref`            | reference to component                                                    | `any`              | `undefined` |
+| `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected). | `number`           | `0`         |
+| `size`          | `size`           | Size of the pagination.                                                   | `"lg" \| "sm"`     | `undefined` |
+| `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                     | `number`           | `0`         |
 
 
 ## Events

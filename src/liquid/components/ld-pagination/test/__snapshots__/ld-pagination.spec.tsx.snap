@@ -3,7 +3,7 @@
 exports[`ld-pagination re-renders on item selection 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -72,7 +72,7 @@ exports[`ld-pagination re-renders on item selection 1`] = `
 exports[`ld-pagination renders default 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -207,7 +207,7 @@ exports[`ld-pagination renders with custom item label 1`] = `
 <body>
   <ld-pagination role="navigation">
     <mock:shadow-root>
-      <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+      <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
         <li class="ld-pagination__arrow">
           <ld-button disabled="" mode="ghost" part="arrow start">
             <ld-icon name="arrow-double-left"></ld-icon>
@@ -342,7 +342,7 @@ exports[`ld-pagination renders with custom item label 1`] = `
 exports[`ld-pagination renders with custom offset 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -476,7 +476,7 @@ exports[`ld-pagination renders with custom offset 1`] = `
 exports[`ld-pagination renders with determined length 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -595,7 +595,7 @@ exports[`ld-pagination renders with determined length 1`] = `
 exports[`ld-pagination renders with different size 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default ld-pagination--lg" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--lg" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start" size="lg">
           <ld-icon name="arrow-double-left" size="lg"></ld-icon>
@@ -729,7 +729,7 @@ exports[`ld-pagination renders with different size 1`] = `
 exports[`ld-pagination renders with dots hidden at the end on last sliding position (with sticky items) 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -838,7 +838,7 @@ exports[`ld-pagination renders with dots hidden at the end on last sliding posit
 exports[`ld-pagination renders with dots hidden at the end on last sliding position 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -957,7 +957,7 @@ exports[`ld-pagination renders with dots hidden at the end on last sliding posit
 exports[`ld-pagination renders with dots hidden at the start before sliding begins (with sticky items) 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -1066,7 +1066,7 @@ exports[`ld-pagination renders with dots hidden at the start before sliding begi
 exports[`ld-pagination renders with dots hidden at the start before sliding begins 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1185,7 +1185,7 @@ exports[`ld-pagination renders with dots hidden at the start before sliding begi
 exports[`ld-pagination renders with dots shown at the end on penultimate sliding position (with sticky items) 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -1294,7 +1294,7 @@ exports[`ld-pagination renders with dots shown at the end on penultimate sliding
 exports[`ld-pagination renders with dots shown at the end on penultimate sliding position 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1413,7 +1413,7 @@ exports[`ld-pagination renders with dots shown at the end on penultimate sliding
 exports[`ld-pagination renders with dots shown at the start after sliding once (with sticky items) 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -1522,7 +1522,7 @@ exports[`ld-pagination renders with dots shown at the start after sliding once (
 exports[`ld-pagination renders with dots shown at the start after sliding once 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1641,7 +1641,7 @@ exports[`ld-pagination renders with dots shown at the start after sliding once 1
 exports[`ld-pagination renders with one item only 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1680,7 +1680,7 @@ exports[`ld-pagination renders with one item only 1`] = `
 exports[`ld-pagination renders with one sticky item only 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -1709,7 +1709,7 @@ exports[`ld-pagination renders with one sticky item only 1`] = `
 exports[`ld-pagination renders with pre-selected index 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1878,7 +1878,7 @@ exports[`ld-pagination renders with pre-selected index 1`] = `
 exports[`ld-pagination renders with sticky items 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -1987,7 +1987,7 @@ exports[`ld-pagination renders with sticky items 1`] = `
 exports[`ld-pagination renders with sticky items but without dots 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -2066,7 +2066,7 @@ exports[`ld-pagination renders with sticky items but without dots 1`] = `
 exports[`ld-pagination renders with sticky items only on one side 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>
@@ -2195,7 +2195,7 @@ exports[`ld-pagination renders with sticky items only on one side 1`] = `
 exports[`ld-pagination renders without dots 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -2254,7 +2254,7 @@ exports[`ld-pagination renders without dots 1`] = `
 exports[`ld-pagination renders without offset 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button mode="ghost" part="arrow start">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -2323,7 +2323,7 @@ exports[`ld-pagination renders without offset 1`] = `
 exports[`ld-pagination renders without slidable elements 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--default" part="wrapper">
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
       <li class="ld-pagination__arrow">
         <ld-button disabled="" mode="ghost" part="arrow prev">
           <ld-icon name="arrow-left"></ld-icon>

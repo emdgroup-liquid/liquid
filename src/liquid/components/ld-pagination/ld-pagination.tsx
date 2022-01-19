@@ -42,9 +42,6 @@ export class LdPagination {
   /** The maximum number of items. */
   @Prop({ mutable: true }) length = Infinity
 
-  /** Mode of the pagination. */
-  @Prop() mode?: 'dots' | 'select'
-
   /** The currently selected item (an index of `-1` means nothing is selected). */
   @Prop({ mutable: true }) selectedIndex = 0
 
@@ -197,7 +194,6 @@ export class LdPagination {
           class={getClassNames([
             'ld-pagination',
             this.size && `ld-pagination--${this.size}`,
-            `ld-pagination--${this.mode ?? 'default'}`,
           ])}
           part="wrapper"
         >
