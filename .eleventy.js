@@ -1,8 +1,10 @@
+require('dotenv').config()
 const fetch = require('node-fetch')
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
+const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function (eleventyConfig) {
@@ -58,10 +60,30 @@ module.exports = function (eleventyConfig) {
   }
   eleventyConfig.setLibrary(
     'md',
-    markdownIt({ html: true }).use(markdownItAnchor, {
-      permalink: true,
-      renderPermalink,
+    markdownIt({
+      html: true,
+      linkify: true,
+      replaceLink: (link, env) => {
+        // Convert relative links to absolute links
+        const base = process.env.MODE === 'gh_pages' ? '/liquid' : ''
+        if (link.startsWith('./')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 1, 0, link.substr(2))
+          return base + splitted.join('/')
+        }
+        if (link.startsWith('../')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 2, 1, link.substr(3))
+          return base + splitted.join('/')
+        }
+        return link
+      },
     })
+      .use(markdownItAnchor, {
+        permalink: true,
+        renderPermalink,
+      })
+      .use(markdownItReplaceLink)
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
 
