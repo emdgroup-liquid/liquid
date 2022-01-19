@@ -1600,13 +1600,13 @@
 <p>Now all you need to do is &quot;tell&quot; the Liquid components where they have to load their assets from by using <a href="https://github.com/ionic-team/stencil/blob/f09abe6455887025d508e645e7c8c024a5c42fa2/src/declarations/stencil-public-runtime.ts#L290"><code>setAssetPath</code></a>:</p>
 <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// main.ts</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> setAssetPath <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components'</span><br><br><span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span></code></pre>
 <blockquote>
-<p><code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings#setting-the-asset-path">React bindings docs</a> for an alternative approach.</p>
+<p><strong>Note</strong>: <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings#setting-the-asset-path">React bindings docs</a> for an alternative approach.</p>
 </blockquote>
 <p>For more examples check out our <a href="introduction/sandbox-applications/">sandbox apps</a>.</p>
 <p><docs-page-nav prev-href="introduction/css-vs-web-components/" next-title="Type checking and intellisense" next-href="introduction/type-checking-and-intellisense/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
       
     </docs-main>
 
