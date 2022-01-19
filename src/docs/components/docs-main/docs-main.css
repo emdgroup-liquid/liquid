@@ -238,14 +238,6 @@
       margin-top: var(--ld-sp-40);
     }
 
-    /*
-    .mermaid,
-    .mermaid + hr,
-    [id^='dependencies'],
-    [id^='used-by'],
-    [id^='used-by'] + ul,
-    [id^='depends-on'],
-    [id^='depends-on'] + ul*/
     [id^='graph'],
     [id^='graph'] + pre,
     [id^='shadow-parts'],
