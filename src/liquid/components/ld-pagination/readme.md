@@ -140,6 +140,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 | `"arrow"`         | all arrow items (`ld-button` elements)                          |
 | `"dots"`          | list-items containing dots                                      |
 | `"end"`           | arrow to jump to the last item (`ld-button` element)            |
+| `"focusable"`     |                                                                 |
 | `"item"`          | all pagination items containing a number (`ld-button` elements) |
 | `"items"`         | list containing all slidable items and the marker               |
 | `"list-wrapper"`  | list-item containing the `ul` element with slidable items       |

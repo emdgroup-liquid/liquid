@@ -103,7 +103,7 @@ export class LdPagination {
           onClick={() => {
             this.selectedIndex = itemNumber - 1
           }}
-          part="item"
+          part="item focusable"
           size={this.size}
         >
           {itemNumber}
@@ -200,12 +200,13 @@ export class LdPagination {
           {this.sticky === 0 && (
             <li class="ld-pagination__arrow">
               <ld-button
+                aria-label={`First ${this.itemLabel.toLocaleLowerCase()}`}
                 disabled={this.selectedIndex < 1 ? true : undefined}
                 mode="ghost"
                 onClick={() => {
                   this.selectedIndex = 0
                 }}
-                part="arrow start"
+                part="arrow start focusable"
                 size={this.size}
               >
                 <ld-icon name="arrow-double-left" size={this.size} />
@@ -214,12 +215,13 @@ export class LdPagination {
           )}
           <li class="ld-pagination__arrow">
             <ld-button
+              aria-label={`Previous ${this.itemLabel.toLocaleLowerCase()}`}
               disabled={this.selectedIndex < 1}
               mode="ghost"
               onClick={() => {
                 this.selectedIndex -= 1
               }}
-              part="arrow prev"
+              part="arrow prev focusable"
               size={this.size}
             >
               <ld-icon name="arrow-left" size={this.size} />
@@ -236,7 +238,7 @@ export class LdPagination {
                       onClick={() => {
                         this.selectedIndex = index
                       }}
-                      part="sticky item"
+                      part="sticky item focusable"
                       size={this.size}
                     >
                       {index + 1}
@@ -324,7 +326,7 @@ export class LdPagination {
                       onClick={() => {
                         this.selectedIndex = itemNumber - 1
                       }}
-                      part="sticky item"
+                      part="sticky item focusable"
                       size={this.size}
                     >
                       {itemNumber}
@@ -335,12 +337,13 @@ export class LdPagination {
               .reverse()}
           <li class="ld-pagination__arrow">
             <ld-button
+              aria-label={`Next ${this.itemLabel.toLocaleLowerCase()}`}
               disabled={this.selectedIndex >= this.length - 1}
               mode="ghost"
               onClick={() => {
                 this.selectedIndex += 1
               }}
-              part="arrow next"
+              part="arrow next focusable"
               size={this.size}
             >
               <ld-icon name="arrow-right" size={this.size} />
@@ -349,12 +352,13 @@ export class LdPagination {
           {this.sticky === 0 && this.length < Infinity && (
             <li class="ld-pagination__arrow">
               <ld-button
+                aria-label={`Last ${this.itemLabel.toLocaleLowerCase()}`}
                 disabled={this.selectedIndex >= this.length - 1}
                 mode="ghost"
                 onClick={() => {
                   this.selectedIndex = this.length - 1
                 }}
-                part="arrow end"
+                part="arrow end focusable"
                 size={this.size}
               >
                 <ld-icon name="arrow-double-right" size={this.size} />
