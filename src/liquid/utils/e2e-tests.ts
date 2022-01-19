@@ -4,6 +4,8 @@ import { realpathSync } from 'fs'
 import * as axe from 'axe-core'
 import { printReceived } from 'jest-matcher-utils'
 
+jest.useRealTimers()
+
 const PATH_TO_AXE = './node_modules/axe-core/axe.min.js'
 const appDirectory = realpathSync(process.cwd())
 
@@ -24,12 +26,11 @@ type Component = Record<string, unknown> & {
 }
 
 export const getPageWithContent = async (
-  content,
+  content: string,
   config?: {
     bgColor?: string
     components?: unknown
     disableAllTransitions?: boolean
-    enforceAnimationDurationSeconds?: number
     notWrapped?: boolean
   }
 ) => {

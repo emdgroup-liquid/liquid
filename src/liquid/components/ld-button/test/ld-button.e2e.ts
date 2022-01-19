@@ -5,8 +5,6 @@ import {
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdButton } from '../ld-button'
 
-jest.useRealTimers()
-
 const modes = ['', 'highlight', 'secondary', 'ghost', 'danger']
 const attributes = ['', 'brand-color']
 
