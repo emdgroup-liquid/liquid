@@ -1,109 +1,308 @@
-import { h, Fragment } from '@stencil/core'
+import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdPagination } from '../ld-pagination'
 
 describe('ld-pagination', () => {
-  it('renders default', async () => {
+  describe('renders', () => {
+    it('default', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with custom item label', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination itemLabel="Slide" />,
+      })
+      expect(page.body).toMatchSnapshot()
+    })
+
+    it('with determined length', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with pre-selected index', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination selectedIndex={7} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with custom offset', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination offset={1} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without offset', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination offset={0} selectedIndex={2} length={5} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with different size', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination size="lg" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with sticky items', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination sticky={2} length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with sticky items only on one side', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination sticky={2} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without dots', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={5} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with sticky items but without dots', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination sticky={2} length={11} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without slidable elements', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={6} sticky={3} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with one item only', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={1} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with one sticky item only', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={1} sticky={3} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+  })
+
+  describe('renders with dots', () => {
+    it('hidden at the start before sliding begins', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination selectedIndex={3} length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('shown at the start after sliding once', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination selectedIndex={4} length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('shown at the end on penultimate sliding position', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination selectedIndex={10} length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('hidden at the end on last sliding position', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination selectedIndex={11} length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('hidden at the start before sliding begins (with sticky items)', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination sticky={2} selectedIndex={5} length={15} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('shown at the start after sliding once (with sticky items)', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination sticky={2} selectedIndex={6} length={15} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('shown at the end on penultimate sliding position (with sticky items)', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination sticky={2} selectedIndex={8} length={15} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('hidden at the end on last sliding position (with sticky items)', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination sticky={2} selectedIndex={9} length={15} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+  })
+
+  it('re-renders on item selection', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination />,
+      template: () => <ld-pagination length={7} />,
     })
+    const changeHandler = jest.fn()
+
+    page.root.addEventListener('ldchange', changeHandler)
+    // :nth-child(4) = item no 2, because of the marker at index 1
+    const item = page.root.shadowRoot.querySelector<HTMLLdButtonElement>(
+      'li:nth-child(4) > ld-button'
+    )
+    item.click()
+
     expect(page.root).toMatchSnapshot()
   })
 
-  it('renders with custom item label', async () => {
+  it('corrects initial length < 1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination itemLabel="Slide" />,
+      template: () => <ld-pagination length={0} />,
     })
-    expect(page.body).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+    expect(ldPagination.length).toBe(1)
   })
 
-  it('renders with determined length', async () => {
+  it('corrects initially selected index >= length', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination length={15} />,
+      template: () => <ld-pagination length={7} selectedIndex={7} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+    expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('renders with pre-selected index', async () => {
+  it('corrects initially selected index < 0', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination selectedIndex={7} />,
+      template: () => <ld-pagination length={7} selectedIndex={-1} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+    expect(ldPagination.selectedIndex).toBe(0)
   })
 
-  it('renders with custom offset', async () => {
+  it('corrects changed length < 1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination offset={1} />,
+      template: () => <ld-pagination length={7} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+
+    ldPagination.length = 0
+    expect(ldPagination.length).toBe(1)
   })
 
-  it('renders without offset', async () => {
+  it('corrects changed selected index >= length', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination offset={0} selectedIndex={2} length={5} />,
+      template: () => <ld-pagination length={7} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+
+    ldPagination.selectedIndex = 7
+    expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('renders with different size', async () => {
+  it('corrects changed selected index < 0', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination size="lg" />,
+      template: () => <ld-pagination length={7} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const ldPagination = page.root as HTMLLdPaginationElement
+
+    ldPagination.selectedIndex = -1
+    expect(ldPagination.selectedIndex).toBe(0)
   })
 
-  it('renders with sticky items', async () => {
+  it('emits custom event', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination sticky={2} length={15} />,
+      template: () => <ld-pagination length={7} />,
     })
-    expect(page.root).toMatchSnapshot()
+    const changeHandler = jest.fn()
+
+    page.root.addEventListener('ldchange', changeHandler)
+    // :nth-child(4) = item no 2, because of the marker at index 1
+    const item = page.root.shadowRoot.querySelector<HTMLLdButtonElement>(
+      'li:nth-child(4) > ld-button'
+    )
+    item.click()
+
+    expect(changeHandler).toHaveBeenCalledWith(
+      expect.objectContaining({ detail: 2 })
+    )
   })
 
-  it('renders with sticky items only on one side', async () => {
+  it('emits custom event only once when correcting changed selected index', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination sticky={2} />,
+      template: () => <ld-pagination length={7} />,
     })
-    expect(page.root).toMatchSnapshot()
-  })
+    const changeHandler = jest.fn()
+    const ldPagination = page.root as HTMLLdPaginationElement
 
-  it('renders without dots', async () => {
-    const page = await newSpecPage({
-      components: [LdPagination],
-      template: () => <ld-pagination length={5} />,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
+    ldPagination.addEventListener('ldchange', changeHandler)
+    ldPagination.selectedIndex = -1
 
-  it('renders without slidable elements', async () => {
-    const page = await newSpecPage({
-      components: [LdPagination],
-      template: () => <ld-pagination length={6} sticky={3} />,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-
-  it('renders with one item only', async () => {
-    const page = await newSpecPage({
-      components: [LdPagination],
-      template: () => <ld-pagination length={1} />,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-
-  it('renders with one sticky item only', async () => {
-    const page = await newSpecPage({
-      components: [LdPagination],
-      template: () => <ld-pagination length={1} sticky={3} />,
-    })
-    expect(page.root).toMatchSnapshot()
+    expect(changeHandler).toHaveBeenCalledTimes(1)
+    expect(changeHandler).toHaveBeenCalledWith(
+      expect.objectContaining({ detail: 0 })
+    )
   })
 })

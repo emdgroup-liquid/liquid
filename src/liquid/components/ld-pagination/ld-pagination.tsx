@@ -12,10 +12,20 @@ import {
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
- * @slot - (optional) Custom SVG pagination (only valid without name prop).
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part pagination - Actual SVG element
+ * @part arrow - all arrow items (`ld-button` elements)
+ * @part dots - list-items containing dots
+ * @part end - arrow to jump to the last item (`ld-button` element)
+ * @part item - all pagination items containing a number (`ld-button` elements)
+ * @part items - list containing all slidable items and the marker
+ * @part list-wrapper - list-item containing the `ul` element with slidable items
+ * @part marker - marker highlighting the selected item
+ * @part next - arrow to go to the next item (`ld-button` element)
+ * @part prev - arrow to go to the previous item (`ld-button` element)
+ * @part start - arrow to jump to the first item (`ld-button` element)
+ * @part sticky - all sticky items (`ld-button` elements)
+ * @part wrapper - list containing all pagination items
  */
 @Component({
   assetsDirs: ['assets'],
@@ -30,7 +40,7 @@ export class LdPagination {
   @Prop() itemLabel = 'Page'
 
   /** The maximum number of items. */
-  @Prop() length = Infinity
+  @Prop({ mutable: true }) length = Infinity
 
   /** Mode of the pagination. */
   @Prop() mode?: 'dots' | 'select'
@@ -91,12 +101,13 @@ export class LdPagination {
         <ld-button
           aria-current={isSelected ? 'true' : undefined}
           aria-label={isHidden ? undefined : `${this.itemLabel} ${itemNumber}`}
+          ld-tabindex={isHidden ? -1 : undefined}
           mode="ghost"
           onClick={() => {
             this.selectedIndex = itemNumber - 1
           }}
+          part="item"
           size={this.size}
-          ld-tabindex={isHidden ? -1 : undefined}
         >
           {itemNumber}
         </ld-button>
@@ -188,6 +199,7 @@ export class LdPagination {
             this.size && `ld-pagination--${this.size}`,
             `ld-pagination--${this.mode ?? 'default'}`,
           ])}
+          part="wrapper"
         >
           {this.sticky === 0 && (
             <li class="ld-pagination__arrow">
@@ -197,6 +209,7 @@ export class LdPagination {
                 onClick={() => {
                   this.selectedIndex = 0
                 }}
+                part="arrow start"
                 size={this.size}
               >
                 <ld-icon name="arrow-double-left" size={this.size} />
@@ -210,6 +223,7 @@ export class LdPagination {
               onClick={() => {
                 this.selectedIndex -= 1
               }}
+              part="arrow prev"
               size={this.size}
             >
               <ld-icon name="arrow-left" size={this.size} />
@@ -226,6 +240,7 @@ export class LdPagination {
                       onClick={() => {
                         this.selectedIndex = index
                       }}
+                      part="sticky item"
                       size={this.size}
                     >
                       {index + 1}
@@ -240,12 +255,14 @@ export class LdPagination {
                 'ld-pagination__dots',
                 showStartDots && 'ld-pagination__dots--visible',
               ])}
+              part="dots"
             >
               <span>. . .</span>
             </li>
           )}
           <li
             class="ld-pagination__slide-wrapper"
+            part="slide-wrapper"
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
                 this.slidableItems.length,
@@ -255,6 +272,7 @@ export class LdPagination {
           >
             <ul
               class="ld-pagination__items"
+              part="items"
               style={{
                 '--ld-pagination-slide-index': `${Math.max(
                   Math.min(
@@ -271,6 +289,7 @@ export class LdPagination {
               <li
                 class="ld-pagination__marker"
                 key="marker"
+                part="marker"
                 style={{
                   '--ld-pagination-selected-index': `${this.selectedIndex}`,
                 }}
@@ -287,6 +306,7 @@ export class LdPagination {
                 'ld-pagination__dots ld-pagination__dots--end',
                 showEndDots && 'ld-pagination__dots--visible',
               ])}
+              part="dots"
             >
               <span>. . .</span>
             </li>
@@ -308,6 +328,7 @@ export class LdPagination {
                       onClick={() => {
                         this.selectedIndex = itemNumber - 1
                       }}
+                      part="sticky item"
                       size={this.size}
                     >
                       {itemNumber}
@@ -320,10 +341,11 @@ export class LdPagination {
             <ld-button
               disabled={this.selectedIndex >= this.length - 1}
               mode="ghost"
-              size={this.size}
               onClick={() => {
                 this.selectedIndex += 1
               }}
+              part="arrow next"
+              size={this.size}
             >
               <ld-icon name="arrow-right" size={this.size} />
             </ld-button>
@@ -336,6 +358,7 @@ export class LdPagination {
                 onClick={() => {
                   this.selectedIndex = this.length - 1
                 }}
+                part="arrow end"
                 size={this.size}
               >
                 <ld-icon name="arrow-double-right" size={this.size} />

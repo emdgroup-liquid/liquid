@@ -18,7 +18,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 ### Default
 
 {% example '{ "centered": true, "stacked": true }' %}
-<ld-pagination length="9999"></ld-pagination>
+<ld-pagination length="15"></ld-pagination>
 {% endexample %}
 
 ### With sticky items
@@ -134,18 +134,23 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 | `ldchange` | Dispatched, if the selected index changes. | `CustomEvent<number>` |
 
 
-## Slots
-
-| Slot | Description                                                      |
-| ---- | ---------------------------------------------------------------- |
-|      | (optional) Custom SVG pagination (only valid without name prop). |
-
-
 ## Shadow Parts
 
-| Part           | Description        |
-| -------------- | ------------------ |
-| `"pagination"` | Actual SVG element |
+| Part              | Description                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| `"arrow"`         | all arrow items (`ld-button` elements)                          |
+| `"dots"`          | list-items containing dots                                      |
+| `"end"`           | arrow to jump to the last item (`ld-button` element)            |
+| `"item"`          | all pagination items containing a number (`ld-button` elements) |
+| `"items"`         | list containing all slidable items and the marker               |
+| `"list-wrapper"`  | list-item containing the `ul` element with slidable items       |
+| `"marker"`        | marker highlighting the selected item                           |
+| `"next"`          | arrow to go to the next item (`ld-button` element)              |
+| `"prev"`          | arrow to go to the previous item (`ld-button` element)          |
+| `"slide-wrapper"` |                                                                 |
+| `"start"`         | arrow to jump to the first item (`ld-button` element)           |
+| `"sticky"`        | all sticky items (`ld-button` elements)                         |
+| `"wrapper"`       | list containing all pagination items                            |
 
 
 ## Dependencies
