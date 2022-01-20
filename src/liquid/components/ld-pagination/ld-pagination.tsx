@@ -15,7 +15,7 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part arrow - all arrow items (`ld-button` elements)
- * @part dots - list-items containing dots
+ * @part more-indicator - list-items containing more-indicator
  * @part end - arrow to jump to the last item (`ld-button` element)
  * @part item - all pagination items containing a number (`ld-button` elements)
  * @part items - list containing all slidable items and the marker
@@ -36,6 +36,12 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
 export class LdPagination {
   @Element() element: HTMLElement
 
+  /** Hide the buttons to navigate forward/backward. */
+  @Prop() hidePrevNext = false
+
+  /** Hide the buttons to navigate to the first/last item. */
+  @Prop() hideStartEnd = false
+
   /** Label to communicate the type of an item. */
   @Prop() itemLabel = 'Page'
 
@@ -45,17 +51,29 @@ export class LdPagination {
   /** The currently selected item (an index of `-1` means nothing is selected). */
   @Prop({ mutable: true }) selectedIndex = 0
 
+  /** Label text for the end button (replaces the icon). */
+  @Prop() endLabel?: string
+
+  /** Label text for the forward button (replaces the icon). */
+  @Prop() nextLabel?: string
+
   /** Number of next/previous items visible. */
   @Prop() offset = 2
 
+  /** Label text for the backward button (replaces the icon). */
+  @Prop() prevLabel?: string
+
   /** Size of the pagination. */
   @Prop() size?: 'sm' | 'lg'
+
+  /** Label text for the start button (replaces the icon). */
+  @Prop() startLabel?: string
 
   /** Number of items permanently visible at the start/end. */
   @Prop() sticky = 0
 
   @State() maxSliderColumns = 0
-  @State() renderDots = false
+  @State() renderMoreIndicators = false
   @State() renderSticky = false
   @State() slidableItems: number[] = []
   @State() sliderContent: number[] = []
@@ -82,7 +100,8 @@ export class LdPagination {
     showTo: number
   ) => {
     const isHidden =
-      this.renderDots && (itemNumber < showFrom || itemNumber > showTo)
+      this.renderMoreIndicators &&
+      (itemNumber < showFrom || itemNumber > showTo)
     const isSelected = itemNumber === this.selectedIndex + 1
     return (
       <li
@@ -135,7 +154,7 @@ export class LdPagination {
     const maxVisibleItems = this.sticky * 2 + this.visibleItemsInSlider
     this.maxSliderColumns = this.visibleItemsInSlider + 2
     this.renderSticky = this.sticky > 0
-    this.renderDots = this.length > maxVisibleItems + 2
+    this.renderMoreIndicators = this.length > maxVisibleItems + 2
     this.slidableItems = Array.from({
       length: this.length === Infinity ? 9999 : this.length - this.sticky * 2,
     }).map((_, index) => index + this.sticky + 1)
@@ -159,11 +178,12 @@ export class LdPagination {
 
   render() {
     // +1 because it must be the index right to the centered item
-    const showStartDots =
-      this.renderDots && this.selectedIndex > this.sticky + this.offset + 1
+    const showStartMoreIndicator =
+      this.renderMoreIndicators &&
+      this.selectedIndex > this.sticky + this.offset + 1
     // -1 because it is 0-based and another -1 because it must be the index left to the centered item
-    const showEndDots =
-      this.renderDots &&
+    const showEndMoreIndicator =
+      this.renderMoreIndicators &&
       this.selectedIndex < this.length - this.offset - this.sticky - 2
     const showFrom =
       // +1 because it is not 0-based
@@ -172,7 +192,7 @@ export class LdPagination {
           this.selectedIndex -
             this.offset -
             // start hiding numbers
-            (showStartDots ? 0 : 1),
+            (showStartMoreIndicator ? 0 : 1),
           this.length - this.visibleItemsInSlider - this.sticky - 1
         ),
         this.sticky
@@ -181,7 +201,7 @@ export class LdPagination {
     const showTo =
       Math.min(
         Math.max(
-          this.selectedIndex + (showEndDots ? 0 : 1),
+          this.selectedIndex + (showEndMoreIndicator ? 0 : 1),
           this.offset + this.sticky + 1
         ) + this.offset,
         this.length - this.sticky
@@ -197,10 +217,14 @@ export class LdPagination {
           ])}
           part="wrapper"
         >
-          {this.sticky === 0 && (
+          {!this.hideStartEnd && (
             <li class="ld-pagination__arrow">
               <ld-button
-                aria-label={`First ${this.itemLabel.toLocaleLowerCase()}`}
+                aria-label={
+                  this.startLabel
+                    ? undefined
+                    : `First ${this.itemLabel.toLocaleLowerCase()}`
+                }
                 disabled={this.selectedIndex < 1 ? true : undefined}
                 mode="ghost"
                 onClick={() => {
@@ -209,24 +233,38 @@ export class LdPagination {
                 part="arrow start focusable"
                 size={this.size}
               >
-                <ld-icon name="arrow-double-left" size={this.size} />
+                {this.startLabel ? (
+                  this.startLabel
+                ) : (
+                  <ld-icon name="arrow-double-left" size={this.size} />
+                )}
               </ld-button>
             </li>
           )}
-          <li class="ld-pagination__arrow">
-            <ld-button
-              aria-label={`Previous ${this.itemLabel.toLocaleLowerCase()}`}
-              disabled={this.selectedIndex < 1}
-              mode="ghost"
-              onClick={() => {
-                this.selectedIndex -= 1
-              }}
-              part="arrow prev focusable"
-              size={this.size}
-            >
-              <ld-icon name="arrow-left" size={this.size} />
-            </ld-button>
-          </li>
+          {!this.hidePrevNext && (
+            <li class="ld-pagination__arrow">
+              <ld-button
+                aria-label={
+                  this.prevLabel
+                    ? undefined
+                    : `Previous ${this.itemLabel.toLocaleLowerCase()}`
+                }
+                disabled={this.selectedIndex < 1}
+                mode="ghost"
+                onClick={() => {
+                  this.selectedIndex -= 1
+                }}
+                part="arrow prev focusable"
+                size={this.size}
+              >
+                {this.prevLabel ? (
+                  this.prevLabel
+                ) : (
+                  <ld-icon name="arrow-left" size={this.size} />
+                )}
+              </ld-button>
+            </li>
+          )}
           {this.renderSticky &&
             Array.from({ length: Math.min(this.sticky, this.length) }).map(
               (_: unknown, index: number) => {
@@ -247,13 +285,14 @@ export class LdPagination {
                 )
               }
             )}
-          {this.renderDots && (
+          {this.renderMoreIndicators && (
             <li
               class={getClassNames([
-                'ld-pagination__dots',
-                showStartDots && 'ld-pagination__dots--visible',
+                'ld-pagination__more-indicator',
+                showStartMoreIndicator &&
+                  'ld-pagination__more-indicator--visible',
               ])}
-              part="dots"
+              part="more-indicator"
             >
               <span>. . .</span>
             </li>
@@ -298,13 +337,14 @@ export class LdPagination {
                 )}
             </ul>
           </li>
-          {this.renderDots && (
+          {this.renderMoreIndicators && (
             <li
               class={getClassNames([
-                'ld-pagination__dots ld-pagination__dots--end',
-                showEndDots && 'ld-pagination__dots--visible',
+                'ld-pagination__more-indicator ld-pagination__more-indicator--end',
+                showEndMoreIndicator &&
+                  'ld-pagination__more-indicator--visible',
               ])}
-              part="dots"
+              part="more-indicator"
             >
               <span>. . .</span>
             </li>
@@ -335,24 +375,38 @@ export class LdPagination {
                 )
               })
               .reverse()}
-          <li class="ld-pagination__arrow">
-            <ld-button
-              aria-label={`Next ${this.itemLabel.toLocaleLowerCase()}`}
-              disabled={this.selectedIndex >= this.length - 1}
-              mode="ghost"
-              onClick={() => {
-                this.selectedIndex += 1
-              }}
-              part="arrow next focusable"
-              size={this.size}
-            >
-              <ld-icon name="arrow-right" size={this.size} />
-            </ld-button>
-          </li>
-          {this.sticky === 0 && this.length < Infinity && (
+          {!this.hidePrevNext && (
             <li class="ld-pagination__arrow">
               <ld-button
-                aria-label={`Last ${this.itemLabel.toLocaleLowerCase()}`}
+                aria-label={
+                  this.nextLabel
+                    ? undefined
+                    : `Next ${this.itemLabel.toLocaleLowerCase()}`
+                }
+                disabled={this.selectedIndex >= this.length - 1}
+                mode="ghost"
+                onClick={() => {
+                  this.selectedIndex += 1
+                }}
+                part="arrow next focusable"
+                size={this.size}
+              >
+                {this.nextLabel ? (
+                  this.nextLabel
+                ) : (
+                  <ld-icon name="arrow-right" size={this.size} />
+                )}
+              </ld-button>
+            </li>
+          )}
+          {this.length < Infinity && !this.hideStartEnd && (
+            <li class="ld-pagination__arrow">
+              <ld-button
+                aria-label={
+                  this.endLabel
+                    ? undefined
+                    : `Last ${this.itemLabel.toLocaleLowerCase()}`
+                }
                 disabled={this.selectedIndex >= this.length - 1}
                 mode="ghost"
                 onClick={() => {
@@ -361,7 +415,11 @@ export class LdPagination {
                 part="arrow end focusable"
                 size={this.size}
               >
-                <ld-icon name="arrow-double-right" size={this.size} />
+                {this.endLabel ? (
+                  this.endLabel
+                ) : (
+                  <ld-icon name="arrow-double-right" size={this.size} />
+                )}
               </ld-button>
             </li>
           )}

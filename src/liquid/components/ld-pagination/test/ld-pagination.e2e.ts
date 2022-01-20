@@ -65,7 +65,7 @@ describe('ld-pagination', () => {
   describe('sticky', () => {
     it('start', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15"></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -76,7 +76,7 @@ describe('ld-pagination', () => {
 
     it('middle', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -84,7 +84,7 @@ describe('ld-pagination', () => {
 
     it('end', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="14"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="14"></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -95,7 +95,7 @@ describe('ld-pagination', () => {
 
     it('single', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="1"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="1"></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -103,7 +103,7 @@ describe('ld-pagination', () => {
 
     it('without dots', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="11"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="11"></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -186,7 +186,7 @@ describe('ld-pagination', () => {
 
     it('first sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -200,7 +200,7 @@ describe('ld-pagination', () => {
 
     it('slidable item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -214,7 +214,7 @@ describe('ld-pagination', () => {
 
     it('selected item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -231,7 +231,7 @@ describe('ld-pagination', () => {
 
     it('last sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -308,7 +308,7 @@ describe('ld-pagination', () => {
 
     it('first sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -323,7 +323,7 @@ describe('ld-pagination', () => {
 
     it('slidable item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -338,7 +338,7 @@ describe('ld-pagination', () => {
 
     it('selected item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -356,7 +356,7 @@ describe('ld-pagination', () => {
 
     it('last sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       const item = await page.find(
@@ -429,7 +429,7 @@ describe('ld-pagination', () => {
 
     it('first sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       await page.keyboard.press('Tab')
@@ -441,7 +441,7 @@ describe('ld-pagination', () => {
 
     it('slidable item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       await page.keyboard.press('Tab')
@@ -456,7 +456,7 @@ describe('ld-pagination', () => {
 
     it('selected item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       await page.keyboard.press('Tab')
@@ -475,7 +475,7 @@ describe('ld-pagination', () => {
 
     it('last sticky item', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination sticky="2" length="15" selected-index="7"></ld-pagination>'
+        '<ld-pagination hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>'
       )
 
       await page.keyboard.press('Tab')
@@ -528,6 +528,64 @@ describe('ld-pagination', () => {
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+    })
+  })
+
+  describe('without arrows', () => {
+    it('start', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination hide-prev-next hide-start-end length="15"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('middle', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination hide-prev-next hide-start-end length="15" selected-index="7"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('end', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination hide-prev-next hide-start-end length="15" selected-index="14"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
+
+  describe('with text navigation', () => {
+    it('start', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination end-label="Last" length="15" next-label="Next" prev-label="Prev" start-label="First"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
+    })
+
+    it('middle', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination end-label="Last" length="15" next-label="Next" prev-label="Prev" selected-index="7" start-label="First"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('end', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination end-label="Last" length="15" next-label="Next" prev-label="Prev" selected-index="14" start-label="First"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
   })
 })

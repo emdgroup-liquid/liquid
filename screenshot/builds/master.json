@@ -6155,7 +6155,7 @@
     },
     {
       "id": "261f27ce",
-      "image": "c617989e262c64fb2f4195182614e8ba.png",
+      "image": "08d3fe6839ab9d9d0f21729495048bf7.png",
       "userAgent": "default",
       "desc": "ld-pagination active end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6168,7 +6168,7 @@
     },
     {
       "id": "6a397edd",
-      "image": "69d7d994a71c205404318882fd2b2124.png",
+      "image": "1371d8b3fff3b7033494baaf064c4dd4.png",
       "userAgent": "default",
       "desc": "ld-pagination active first sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6181,7 +6181,7 @@
     },
     {
       "id": "c8e157d2",
-      "image": "75d2e2f37f05f720bb8acf51a66165ad.png",
+      "image": "d598319d5868d458f9edfce246d88a1f.png",
       "userAgent": "default",
       "desc": "ld-pagination active last sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6194,7 +6194,7 @@
     },
     {
       "id": "5f059380",
-      "image": "49e97b60446aadf4bb22e1c757b27376.png",
+      "image": "47bb8dc5aec11e1e9388d4409988c8e5.png",
       "userAgent": "default",
       "desc": "ld-pagination active next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6207,7 +6207,7 @@
     },
     {
       "id": "bc9d0e47",
-      "image": "b884ea743c5670cb471e53a858de8b69.png",
+      "image": "2d8720714c177bd5de96a5294d8db162.png",
       "userAgent": "default",
       "desc": "ld-pagination active prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6220,7 +6220,7 @@
     },
     {
       "id": "a2a08953",
-      "image": "3b4118ba954aa41b66069e682de28658.png",
+      "image": "9ac7208c4e70fec39cf07b736af99f69.png",
       "userAgent": "default",
       "desc": "ld-pagination active selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6233,7 +6233,7 @@
     },
     {
       "id": "3126b3cc",
-      "image": "ef33881a94dcdae4dc55c6cd5f39ab45.png",
+      "image": "0c33424d8f2293b9463ca25e3f8ab884.png",
       "userAgent": "default",
       "desc": "ld-pagination active slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6246,7 +6246,7 @@
     },
     {
       "id": "1c574ae7",
-      "image": "fce15cf62a3f57eba846432d7b27f08e.png",
+      "image": "90181901a4400639eee89f6395eaa0ab.png",
       "userAgent": "default",
       "desc": "ld-pagination active start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6259,7 +6259,7 @@
     },
     {
       "id": "05c33b24",
-      "image": "0d62624a6f491a66331b41a163779a16.png",
+      "image": "5c7cf6b8ac65f70c4d1d8ebf3b3211a9.png",
       "userAgent": "default",
       "desc": "ld-pagination default end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6272,7 +6272,7 @@
     },
     {
       "id": "7c3e0c65",
-      "image": "aa2b261c66108d09bad83d46761771ca.png",
+      "image": "95bc6b11c0bdcb6d35851abe9b637370.png",
       "userAgent": "default",
       "desc": "ld-pagination default middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6298,7 +6298,7 @@
     },
     {
       "id": "d92406d9",
-      "image": "7024cab8245cf56fdb7b38bca55210c8.png",
+      "image": "159069a077fc2fe327290369572368aa.png",
       "userAgent": "default",
       "desc": "ld-pagination default start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6324,7 +6324,7 @@
     },
     {
       "id": "524567e7",
-      "image": "bc99931e79b1f9ac02e87ffee66ff6ed.png",
+      "image": "1d36b8727bbeb018da9317cf1fa8c178.png",
       "userAgent": "default",
       "desc": "ld-pagination focus end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6337,7 +6337,7 @@
     },
     {
       "id": "337b59f2",
-      "image": "7597b16eddf9f9630f5861b5c1ba14fa.png",
+      "image": "b167629b504cc009b2e629d4d127b05a.png",
       "userAgent": "default",
       "desc": "ld-pagination focus first sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6350,7 +6350,7 @@
     },
     {
       "id": "69f38a77",
-      "image": "a57c3657259116c2264e862eb54c086b.png",
+      "image": "3c6bba7ebaefacfa711421c0fef826a9.png",
       "userAgent": "default",
       "desc": "ld-pagination focus last sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6363,7 +6363,7 @@
     },
     {
       "id": "103cb232",
-      "image": "9b32972bd3f341076ee9efc4adb6c127.png",
+      "image": "cb9059de47db2594dcca2b89280928b9.png",
       "userAgent": "default",
       "desc": "ld-pagination focus next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6376,7 +6376,7 @@
     },
     {
       "id": "ac7cc3be",
-      "image": "9b87d47ba066e5329b085d1e56987fc2.png",
+      "image": "24e327eaef64b6f1e584d48899f83fda.png",
       "userAgent": "default",
       "desc": "ld-pagination focus prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6389,7 +6389,7 @@
     },
     {
       "id": "6554efaa",
-      "image": "a0a03614fab1691876974540caf3ef51.png",
+      "image": "8990d8c3c414ee5350344eca8e988cd4.png",
       "userAgent": "default",
       "desc": "ld-pagination focus selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6402,7 +6402,7 @@
     },
     {
       "id": "1753defa",
-      "image": "8c0ad34821996b687a2d216f1d6a603c.png",
+      "image": "3f6273a50904b41512e1974a30c977ab.png",
       "userAgent": "default",
       "desc": "ld-pagination focus slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6415,7 +6415,7 @@
     },
     {
       "id": "ef2ac9a8",
-      "image": "00b0f5850528cfdf359d54d626da1554.png",
+      "image": "b1f8813e1ee8ded0ead4ec74f4c5bb45.png",
       "userAgent": "default",
       "desc": "ld-pagination focus start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6428,7 +6428,7 @@
     },
     {
       "id": "6790208e",
-      "image": "6430cd2f53b581f314a22f0652f8b36d.png",
+      "image": "2e8f57327a9fc0a0a320b25167148d65.png",
       "userAgent": "default",
       "desc": "ld-pagination hover end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6441,7 +6441,7 @@
     },
     {
       "id": "b9d0a343",
-      "image": "f367fd362c755e68210f022124c279dc.png",
+      "image": "168609da47798313485eed20b8291b23.png",
       "userAgent": "default",
       "desc": "ld-pagination hover first sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6454,7 +6454,7 @@
     },
     {
       "id": "fba7ae77",
-      "image": "44e8aabc2c5fb63a14cadbdf44aaad11.png",
+      "image": "efbacb31464494d84a094c7dc84a6c35.png",
       "userAgent": "default",
       "desc": "ld-pagination hover last sticky item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6467,7 +6467,7 @@
     },
     {
       "id": "4987abcd",
-      "image": "a224e86223ba1a3cd319a6a554ebdeef.png",
+      "image": "14199f4eae607f547956869d00424d8b.png",
       "userAgent": "default",
       "desc": "ld-pagination hover next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6480,7 +6480,7 @@
     },
     {
       "id": "76bb6b43",
-      "image": "3d05d4f978c4ff742bd38ac759862a5f.png",
+      "image": "f760ef659abf1439c5ff044b3caeb9af.png",
       "userAgent": "default",
       "desc": "ld-pagination hover prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6493,7 +6493,7 @@
     },
     {
       "id": "3bcceae7",
-      "image": "ed34a945e496c36ffafd8dcf05b55e4b.png",
+      "image": "f387b8406198a5a78696ef6dafe012d9.png",
       "userAgent": "default",
       "desc": "ld-pagination hover selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6506,7 +6506,7 @@
     },
     {
       "id": "af19f650",
-      "image": "49ab4390caf6ff6377a92fb7ea2d0095.png",
+      "image": "b78ccdab10b5031c68e4e257a991ec7a.png",
       "userAgent": "default",
       "desc": "ld-pagination hover slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6519,7 +6519,7 @@
     },
     {
       "id": "b607c53a",
-      "image": "70f7f09cc9611ff37683180734126a52.png",
+      "image": "ca687ec826744102d9a76dc4324093b7.png",
       "userAgent": "default",
       "desc": "ld-pagination hover start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6532,7 +6532,7 @@
     },
     {
       "id": "27b2014b",
-      "image": "2ad5faf3316211342e92b5d32a948004.png",
+      "image": "cd0341d700ef8afd6dfe253ee8ac4e96.png",
       "userAgent": "default",
       "desc": "ld-pagination indefinite middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6545,7 +6545,7 @@
     },
     {
       "id": "8d6cb8b6",
-      "image": "c4f4c9361d45003d6503a1c65f7b5f45.png",
+      "image": "7cc4c9c6b1d9d7a1ff3c4c5f61527eaa.png",
       "userAgent": "default",
       "desc": "ld-pagination indefinite start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6558,7 +6558,7 @@
     },
     {
       "id": "bab86fe3",
-      "image": "273538d7674b787f662e660edf8ed97d.png",
+      "image": "349c204d5e67e2f7e792718868013311.png",
       "userAgent": "default",
       "desc": "ld-pagination sticky end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6571,7 +6571,7 @@
     },
     {
       "id": "a00ce27c",
-      "image": "a6047b5bc7e833161ab504b6d2ec6bbe.png",
+      "image": "be9634a503e2e05feb8b6f841164521a.png",
       "userAgent": "default",
       "desc": "ld-pagination sticky middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6597,7 +6597,7 @@
     },
     {
       "id": "02d0a330",
-      "image": "8b7ceefcac6f12875691ed219e8d2a8b.png",
+      "image": "5d0bbc64023b2c3bcf9d3a7f6ad06821.png",
       "userAgent": "default",
       "desc": "ld-pagination sticky start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6622,8 +6622,86 @@
       "isMobile": false
     },
     {
+      "id": "e56f1d3e",
+      "image": "c56edec392c3476a6c42ffe93c90a160.png",
+      "userAgent": "default",
+      "desc": "ld-pagination with text navigation end",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "c611bae5",
+      "image": "cf92c2668b303a6398e41bdf64d2c9a7.png",
+      "userAgent": "default",
+      "desc": "ld-pagination with text navigation middle",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "add4abdf",
+      "image": "eef8fef335a49f104092dc821df072c5.png",
+      "userAgent": "default",
+      "desc": "ld-pagination with text navigation start",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "f9be2030",
+      "image": "d82fe0be1fc8104054f8a6e7b53a7af8.png",
+      "userAgent": "default",
+      "desc": "ld-pagination without arrows end",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "7b795257",
+      "image": "fbeb9fcabd5afa76854eea385352d807.png",
+      "userAgent": "default",
+      "desc": "ld-pagination without arrows middle",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2dc73fb3",
+      "image": "901f182ea4b9fe921e323581f3cb55d8.png",
+      "userAgent": "default",
+      "desc": "ld-pagination without arrows start",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "a4949859",
-      "image": "7d1f96e712f3b178db941c667e4b1fee.png",
+      "image": "0661ed5b6bc97312387f706d30f3cbb4.png",
       "userAgent": "default",
       "desc": "ld-pagination without offset end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6636,7 +6714,7 @@
     },
     {
       "id": "245deb37",
-      "image": "e581d2ca2644d1d79aaaf72a74a1e7a9.png",
+      "image": "4a8544c04c813fc69d5aa49337dd481a.png",
       "userAgent": "default",
       "desc": "ld-pagination without offset middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -6662,7 +6740,7 @@
     },
     {
       "id": "8b93d189",
-      "image": "5385c279ae18488a59202c74378fe507.png",
+      "image": "a9e7b8d0fdd59c547381af0bd327de2f.png",
       "userAgent": "default",
       "desc": "ld-pagination without offset start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",

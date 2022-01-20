@@ -2,11 +2,12 @@
   --ld-pagination-sm-item-size: 2rem;
   --ld-pagination-md-item-size: 2.5rem;
   --ld-pagination-lg-item-size: 3.125rem;
-  --ld-pagination-items-space: var(--ld-sp-4);
   --ld-pagination-column-size: calc(
     var(--ld-pagination-item-size) + var(--ld-pagination-items-space)
   );
+  --ld-pagination-more-indicator-font: var(--ld-typo-body-m);
   --ld-pagination-item-size: var(--ld-pagination-md-item-size);
+  --ld-pagination-items-space: var(--ld-sp-4);
 
   align-items: center;
   display: inline-flex;
@@ -18,10 +19,12 @@
   position: relative;
 
   &--sm {
+    --ld-pagination-more-indicator-font: var(--ld-typo-body-s);
     --ld-pagination-item-size: var(--ld-pagination-sm-item-size);
   }
 
   &--lg {
+    --ld-pagination-more-indicator-font: var(--ld-typo-body-l);
     --ld-pagination-item-size: var(--ld-pagination-lg-item-size);
   }
 }
@@ -40,13 +43,17 @@
   }
 }
 
-.ld-pagination__dots,
+.ld-pagination__more-indicator,
 .ld-pagination__item {
   transition: opacity 100ms ease-in-out;
 }
 
-.ld-pagination__dots {
+.ld-pagination__more-indicator {
   color: var(--ld-thm-primary);
+  font: var(--ld-pagination-more-indicator-font);
+  font-weight: 700;
+  height: var(--ld-pagination-item-size);
+  line-height: 1;
   opacity: 0;
   pointer-events: none;
   position: relative;

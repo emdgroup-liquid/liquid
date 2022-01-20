@@ -78,7 +78,7 @@ describe('ld-pagination', () => {
       expect(page.root).toMatchSnapshot()
     })
 
-    it('without dots', async () => {
+    it('without more-indicators', async () => {
       const page = await newSpecPage({
         components: [LdPagination],
         template: () => <ld-pagination length={5} />,
@@ -86,7 +86,7 @@ describe('ld-pagination', () => {
       expect(page.root).toMatchSnapshot()
     })
 
-    it('with sticky items but without dots', async () => {
+    it('with sticky items but without more-indicators', async () => {
       const page = await newSpecPage({
         components: [LdPagination],
         template: () => <ld-pagination sticky={2} length={11} />,
@@ -117,9 +117,33 @@ describe('ld-pagination', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('without arrows', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination hidePrevNext hideStartEnd length={15} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with text navigation', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination
+            endLabel="Last"
+            length={15}
+            nextLabel="Next"
+            prevLabel="Prev"
+            startLabel="First"
+          />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
-  describe('renders with dots', () => {
+  describe('renders with more-indicators', () => {
     it('hidden at the start before sliding begins', async () => {
       const page = await newSpecPage({
         components: [LdPagination],
