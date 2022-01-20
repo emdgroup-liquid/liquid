@@ -261,7 +261,7 @@ describe('ld-select', () => {
     expect(internalOptions[1].getAttribute('selected')).toEqual(null)
   })
 
-  it('emits input event on selection of an option', async () => {
+  it('emits events on selection of an option', async () => {
     const page = await newSpecPage({
       components,
       html: `
@@ -277,14 +277,30 @@ describe('ld-select', () => {
 
     const ldSelect = page.root
 
-    const spyInput = jest.fn()
-    ldSelect.addEventListener('input', spyInput)
+    const changeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldSelect.addEventListener('change', changeHandler)
+    ldSelect.addEventListener('input', inputHandler)
+    ldSelect.addEventListener('ldchange', ldchangeHandler)
+    ldSelect.addEventListener('ldinput', ldinputHandler)
 
     internalOptions[0].click()
     await page.waitForChanges()
 
-    expect(spyInput).toHaveBeenCalledTimes(1)
-    expect(spyInput).toHaveBeenCalledWith(
+    expect(changeHandler).toHaveBeenCalledTimes(1)
+    expect(ldchangeHandler).toHaveBeenCalledTimes(1)
+    expect(ldchangeHandler).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: ['apple'],
+      })
+    )
+
+    expect(inputHandler).toHaveBeenCalledTimes(1)
+    expect(ldinputHandler).toHaveBeenCalledTimes(1)
+    expect(ldinputHandler).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: ['apple'],
       })
@@ -293,8 +309,17 @@ describe('ld-select', () => {
     internalOptions[1].click()
     await page.waitForChanges()
 
-    expect(spyInput).toHaveBeenCalledTimes(2)
-    expect(spyInput).toHaveBeenCalledWith(
+    expect(ldinputHandler).toHaveBeenCalledTimes(2)
+    expect(ldchangeHandler).toHaveBeenCalledTimes(2)
+    expect(ldchangeHandler).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: ['banana'],
+      })
+    )
+
+    expect(inputHandler).toHaveBeenCalledTimes(2)
+    expect(ldinputHandler).toHaveBeenCalledTimes(2)
+    expect(ldinputHandler).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: ['banana'],
       })

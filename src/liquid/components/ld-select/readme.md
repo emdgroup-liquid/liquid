@@ -1248,10 +1248,10 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ## Events
 
-| Event    | Description                                                                                            | Type                    |
-| -------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `change` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
-| `input`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| Event      | Description                                                                                            | Type                    |
+| ---------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `ldchange` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| `ldinput`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
 
 
 ## Methods
