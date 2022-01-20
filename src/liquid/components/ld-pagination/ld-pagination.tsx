@@ -3,13 +3,14 @@ import {
   Host,
   h,
   Prop,
-  Element,
   Event,
   EventEmitter,
   Watch,
   State,
 } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
+
+const BUFFER_SIZE = 20
 
 /**
  * @virtualProp ref - reference to component
@@ -34,8 +35,6 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
   shadow: true,
 })
 export class LdPagination {
-  @Element() element: HTMLElement
-
   /** Hide the buttons to navigate forward/backward. */
   @Prop() hidePrevNext = false
 
@@ -45,7 +44,7 @@ export class LdPagination {
   /** Label to communicate the type of an item. */
   @Prop() itemLabel = 'Page'
 
-  /** The maximum number of items. */
+  /** The number of items/pages available for pagination (required to let the user jump to the last item/page). */
   @Prop({ mutable: true }) length = Infinity
 
   /** The currently selected item (an index of `-1` means nothing is selected). */
@@ -131,19 +130,20 @@ export class LdPagination {
     )
   }
 
-  @Watch('selectedIndex')
-  calculateSliderContent() {
-    const newSliderContent = this.slidableItems.filter(
-      (itemNumber) =>
-        itemNumber > this.selectedIndex - 20 &&
-        itemNumber < this.selectedIndex + 20
-    )
+  private calculateSliderContent = () => {
+    const directlyReachableFirstItems = this.maxSliderColumns + this.sticky - 1
+    const directlyReachableLastItems =
+      this.length - this.maxSliderColumns - this.sticky + 1
 
-    // Required because the rendering does not work properly and thus we
-    // have to await the animation before updating the slider content.
-    setTimeout(() => {
-      this.sliderContent = newSliderContent
-    }, 100)
+    this.sliderContent = this.slidableItems.filter(
+      (itemNumber) =>
+        (itemNumber > this.selectedIndex - BUFFER_SIZE &&
+          itemNumber <= this.selectedIndex + BUFFER_SIZE) ||
+        // render the first/last items in case the user can navigate there directly
+        ((!this.hideStartEnd || this.sticky > 0) &&
+          (itemNumber <= directlyReachableFirstItems ||
+            itemNumber > directlyReachableLastItems))
+    )
   }
 
   @Watch('length')
@@ -169,11 +169,7 @@ export class LdPagination {
       this.selectedIndex = this.length - 1
     }
 
-    this.sliderContent = this.slidableItems.filter(
-      (itemNumber) =>
-        itemNumber > this.selectedIndex - 20 &&
-        itemNumber < this.selectedIndex + 20
-    )
+    this.calculateSliderContent()
   }
 
   render() {
@@ -326,6 +322,7 @@ export class LdPagination {
               <li
                 class="ld-pagination__marker"
                 key="marker"
+                onTransitionEnd={this.calculateSliderContent}
                 part="marker"
                 style={{
                   '--ld-pagination-selected-index': `${this.selectedIndex}`,

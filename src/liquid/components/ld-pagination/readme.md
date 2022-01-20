@@ -116,22 +116,22 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 ## Properties
 
-| Property        | Attribute        | Description                                                               | Type               | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------------- | ------------------ | ----------- |
-| `endLabel`      | `end-label`      | Label text for the end button (replaces the icon).                        | `string`           | `undefined` |
-| `hidePrevNext`  | `hide-prev-next` | Hide the buttons to navigate forward/backward.                            | `boolean`          | `false`     |
-| `hideStartEnd`  | `hide-start-end` | Hide the buttons to navigate to the first/last item.                      | `boolean`          | `false`     |
-| `itemLabel`     | `item-label`     | Label to communicate the type of an item.                                 | `string`           | `'Page'`    |
-| `key`           | `key`            | for tracking the node's identity when working with lists                  | `string \| number` | `undefined` |
-| `length`        | `length`         | The maximum number of items.                                              | `number`           | `Infinity`  |
-| `nextLabel`     | `next-label`     | Label text for the forward button (replaces the icon).                    | `string`           | `undefined` |
-| `offset`        | `offset`         | Number of next/previous items visible.                                    | `number`           | `2`         |
-| `prevLabel`     | `prev-label`     | Label text for the backward button (replaces the icon).                   | `string`           | `undefined` |
-| `ref`           | `ref`            | reference to component                                                    | `any`              | `undefined` |
-| `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected). | `number`           | `0`         |
-| `size`          | `size`           | Size of the pagination.                                                   | `"lg" \| "sm"`     | `undefined` |
-| `startLabel`    | `start-label`    | Label text for the start button (replaces the icon).                      | `string`           | `undefined` |
-| `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                     | `number`           | `0`         |
+| Property        | Attribute        | Description                                                                                               | Type               | Default     |
+| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `endLabel`      | `end-label`      | Label text for the end button (replaces the icon).                                                        | `string`           | `undefined` |
+| `hidePrevNext`  | `hide-prev-next` | Hide the buttons to navigate forward/backward.                                                            | `boolean`          | `false`     |
+| `hideStartEnd`  | `hide-start-end` | Hide the buttons to navigate to the first/last item.                                                      | `boolean`          | `false`     |
+| `itemLabel`     | `item-label`     | Label to communicate the type of an item.                                                                 | `string`           | `'Page'`    |
+| `key`           | `key`            | for tracking the node's identity when working with lists                                                  | `string \| number` | `undefined` |
+| `length`        | `length`         | The number of items/pages available for pagination (required to let the user jump to the last item/page). | `number`           | `Infinity`  |
+| `nextLabel`     | `next-label`     | Label text for the forward button (replaces the icon).                                                    | `string`           | `undefined` |
+| `offset`        | `offset`         | Number of next/previous items visible.                                                                    | `number`           | `2`         |
+| `prevLabel`     | `prev-label`     | Label text for the backward button (replaces the icon).                                                   | `string`           | `undefined` |
+| `ref`           | `ref`            | reference to component                                                                                    | `any`              | `undefined` |
+| `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected).                                 | `number`           | `0`         |
+| `size`          | `size`           | Size of the pagination.                                                                                   | `"lg" \| "sm"`     | `undefined` |
+| `startLabel`    | `start-label`    | Label text for the start button (replaces the icon).                                                      | `string`           | `undefined` |
+| `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                                                     | `number`           | `0`         |
 
 
 ## Events

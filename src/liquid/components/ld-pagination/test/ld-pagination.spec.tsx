@@ -141,6 +141,22 @@ describe('ld-pagination', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('a buffer of next items and the last items in the slider', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('a buffer of previous items and the first items in the slider', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} selectedIndex={98} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   describe('renders with more-indicators', () => {
