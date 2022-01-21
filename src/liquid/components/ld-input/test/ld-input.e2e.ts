@@ -1,7 +1,8 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
+import {
+  getPageWithContent,
+  analyzeAccessibility,
+} from '../../../utils/e2e-tests'
 import { LdInput } from '../ld-input'
-
-jest.useRealTimers()
 
 const tones = [undefined, 'dark']
 
@@ -25,6 +26,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -32,6 +36,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`hover${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -40,6 +47,9 @@ describe('ld-input', () => {
       await page.hover('ld-input')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`focus${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -48,6 +58,9 @@ describe('ld-input', () => {
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
     // Disabled Web Component
@@ -57,6 +70,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -64,6 +80,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -89,6 +108,9 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it(`aria-disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
@@ -154,7 +176,7 @@ describe('ld-input', () => {
     // Disabled CSS component
     it(`css component disabled${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       const results = await page.compareScreenshot()
@@ -162,7 +184,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled with value${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled value="Value"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled value="Value"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       const results = await page.compareScreenshot()
@@ -170,7 +192,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled hover${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       await page.hover('.ld-input')
@@ -179,7 +201,7 @@ describe('ld-input', () => {
     })
     it(`css component disabled focus${toneStr}`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-input${toneModifier}" disabled><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
+        `<div class="ld-input${toneModifier} ld-input--disabled"><input disabled placeholder="Placeholder"></input>${cssIconComponent}</div>`,
         { components: LdInput }
       )
       await page.keyboard.press('Tab')
@@ -231,11 +253,33 @@ describe('ld-input', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
+    })
+
+    it('web component resize', async () => {
+      const page = await getPageWithContent(
+        `<ld-input resize="none" class="resize-none" placeholder="Placeholder" multiline rows="5" cols="33"></ld-input>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
     })
 
     it('css component', async () => {
       const page = await getPageWithContent(
         `<div class="ld-input">
+          <textarea placeholder="Placeholder" rows="5" cols="33"></textarea>
+        </div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component resize', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input ld-input--resize-none">
           <textarea placeholder="Placeholder" rows="5" cols="33"></textarea>
         </div>`,
         { components: LdInput }

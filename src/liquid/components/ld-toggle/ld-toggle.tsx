@@ -52,6 +52,9 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
+
   /** Used to specify the name of the control. */
   @Prop() name: string
 
@@ -195,14 +198,15 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
         <input
           {...this.clonedAttributes}
           aria-disabled={this.ariaDisabled}
+          checked={this.checked}
+          disabled={this.disabled}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           part="input focusable"
           ref={(ref) => (this.input = ref)}
           required={this.required}
+          tabIndex={this.ldTabindex}
           type="checkbox"
-          checked={this.checked}
-          disabled={this.disabled}
           value={this.value}
         />
         <span class="ld-toggle__knob" part="knob" />

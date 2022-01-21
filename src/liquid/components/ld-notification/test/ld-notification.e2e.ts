@@ -1,7 +1,5 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 
-jest.useRealTimers()
-
 describe('ld-notification', () => {
   describe('placement', () => {
     it('renders placed at the top with prop placement set to "top"', async () => {

@@ -44,6 +44,9 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   /** Set this property to `true` in order to mark the radio visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -242,11 +245,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
           type="radio"
           disabled={this.disabled}
           checked={this.checked}
-          tabIndex={
-            this.checked
-              ? parseInt(this.el.getAttribute('tabindex')) || undefined
-              : -1
-          }
+          tabIndex={this.checked ? this.ldTabindex : -1}
           value={this.value}
         />
         <div part="dot" class="ld-radio__dot"></div>

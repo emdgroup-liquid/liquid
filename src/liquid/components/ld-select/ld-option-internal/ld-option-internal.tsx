@@ -118,6 +118,7 @@ export class LdOptionInternal {
     return (
       <Host
         class={getClassNames([
+          this.disabled && 'ld-option-internal--disabled',
           this.hasFocus && 'ld-option-internal--focus-within',
           this.hasHover && 'ld-option-internal--hover-within',
         ])}

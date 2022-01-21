@@ -52,11 +52,11 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <!-- CSS component -->
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input placeholder="Placeholder" disabled>
 </div>
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input placeholder="Placeholder" value="Value" disabled>
 </div>
 {% endexample %}
@@ -70,14 +70,14 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <!-- CSS component -->
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input
     placeholder="Placeholder"
     aria-disabled="true"
     id="focusable-disabled-input-1">
 </div>
 
-<div class="ld-input" disabled>
+<div class="ld-input ld-input--disabled">
   <input
     placeholder="Placeholder"
     value="Value"
@@ -103,7 +103,7 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 > **Note**: Dark tone inputs should only be used on white backgrounds.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input tone="dark" placeholder="Placeholder"></ld-input>
 
 <ld-input tone="dark" placeholder="Placeholder" disabled></ld-input>
@@ -114,7 +114,7 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
   <input placeholder="Placeholder">
 </div>
 
-<div class="ld-input ld-input--dark" disabled>
+<div class="ld-input ld-input--dark ld-input--disabled">
   <input placeholder="Placeholder" disabled>
 </div>
 {% endexample %}
@@ -249,6 +249,26 @@ The `multiline` attribute transforms the component to a textarea element instead
 <!-- CSS component -->
 
 <div class="ld-input">
+  <textarea placeholder="Tell us your story..." rows="5" cols="33"></textarea>
+</div>
+{% endexample %}
+
+#### Resizing
+
+You can change the way how the multiline input element can be resized by the user by applying the `resize` prop on the `ld-input` element.
+
+{% example %}
+<ld-input resize="horizontal" placeholder="Tell us your story..." multiline rows="5" cols="33"></ld-input>
+
+<ld-input resize="vertical" placeholder="Tell us your story..." multiline rows="5" cols="33"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input ld-input--resize-horizontal">
+  <textarea placeholder="Tell us your story..." rows="5" cols="33"></textarea>
+</div>
+
+<div class="ld-input ld-input--resize-vertical">
   <textarea placeholder="Tell us your story..." rows="5" cols="33"></textarea>
 </div>
 {% endexample %}
@@ -995,37 +1015,39 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 
 ## Properties
 
-| Property       | Attribute      | Description                                                                                                           | Type               | Default     |
-| -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `accept`       | `accept`       | Hint for expected file type in file upload controls.                                                                  | `string`           | `undefined` |
-| `autocomplete` | `autocomplete` | Hint for form autofill feature.                                                                                       | `string`           | `undefined` |
-| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`          | `false`     |
-| `capture`      | `capture`      | Media capture input method in file upload controls.                                                                   | `string`           | `undefined` |
-| `cols`         | `cols`         | The number of columns.                                                                                                | `number`           | `undefined` |
-| `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`           | `undefined` |
-| `disabled`     | `disabled`     | Whether the form control is disabled.                                                                                 | `boolean`          | `undefined` |
-| `form`         | `form`         | Associates the control with a form element.                                                                           | `string`           | `undefined` |
-| `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`          | `undefined` |
-| `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number` | `undefined` |
-| `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.                                                | `string`           | `undefined` |
-| `max`          | `max`          | Maximum value.                                                                                                        | `number \| string` | `undefined` |
-| `maxlength`    | `maxlength`    | Maximum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
-| `min`          | `min`          | Minimum value.                                                                                                        | `number \| string` | `undefined` |
-| `minlength`    | `minlength`    | Minimum length (number of characters) of `value`.                                                                     | `string`           | `undefined` |
-| `multiline`    | `multiline`    | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`          | `undefined` |
-| `multiple`     | `multiple`     | Boolean. Whether to allow multiple values.                                                                            | `boolean`          | `undefined` |
-| `name`         | `name`         | Used to specify the name of the control.                                                                              | `string`           | `undefined` |
-| `pattern`      | `pattern`      | Pattern the `value` must match to be valid.                                                                           | `string`           | `undefined` |
-| `placeholder`  | `placeholder`  | The input placeholder.                                                                                                | `string`           | `undefined` |
-| `readonly`     | `readonly`     | The value is not editable.                                                                                            | `boolean`          | `undefined` |
-| `ref`          | `ref`          | reference to component                                                                                                | `any`              | `undefined` |
-| `required`     | `required`     | A value is required for the form to be submittable.                                                                   | `boolean`          | `undefined` |
-| `rows`         | `rows`         | The number of rows.                                                                                                   | `number`           | `undefined` |
-| `size`         | `size`         | Size of the input.                                                                                                    | `"lg" \| "sm"`     | `undefined` |
-| `step`         | `step`         | Incremental values that are valid.                                                                                    | `string`           | `undefined` |
-| `tone`         | `tone`         | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`           | `undefined` |
-| `type`         | `type`         | The input type.                                                                                                       | `string`           | `undefined` |
-| `value`        | `value`        | The input value.                                                                                                      | `string`           | `undefined` |
+| Property       | Attribute      | Description                                                                                                           | Type                                             | Default     |
+| -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------- |
+| `accept`       | `accept`       | Hint for expected file type in file upload controls.                                                                  | `string`                                         | `undefined` |
+| `autocomplete` | `autocomplete` | Hint for form autofill feature.                                                                                       | `string`                                         | `undefined` |
+| `autofocus`    | `autofocus`    | Automatically focus the form control when the page is loaded.                                                         | `boolean`                                        | `false`     |
+| `capture`      | `capture`      | Media capture input method in file upload controls.                                                                   | `string`                                         | `undefined` |
+| `cols`         | `cols`         | The number of columns.                                                                                                | `number`                                         | `undefined` |
+| `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`                                         | `undefined` |
+| `disabled`     | `disabled`     | Whether the form control is disabled.                                                                                 | `boolean`                                        | `undefined` |
+| `form`         | `form`         | Associates the control with a form element.                                                                           | `string`                                         | `undefined` |
+| `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`                                        | `undefined` |
+| `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number`                               | `undefined` |
+| `ldTabindex`   | `ld-tabindex`  | Tab index of the input.                                                                                               | `number`                                         | `undefined` |
+| `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.                                                | `string`                                         | `undefined` |
+| `max`          | `max`          | Maximum value.                                                                                                        | `number \| string`                               | `undefined` |
+| `maxlength`    | `maxlength`    | Maximum length (number of characters) of `value`.                                                                     | `string`                                         | `undefined` |
+| `min`          | `min`          | Minimum value.                                                                                                        | `number \| string`                               | `undefined` |
+| `minlength`    | `minlength`    | Minimum length (number of characters) of `value`.                                                                     | `string`                                         | `undefined` |
+| `multiline`    | `multiline`    | Uses textarea instead of input internally. Setting this attribute to true disables the attribute type and both slots. | `boolean`                                        | `undefined` |
+| `multiple`     | `multiple`     | Boolean. Whether to allow multiple values.                                                                            | `boolean`                                        | `undefined` |
+| `name`         | `name`         | Used to specify the name of the control.                                                                              | `string`                                         | `undefined` |
+| `pattern`      | `pattern`      | Pattern the `value` must match to be valid.                                                                           | `string`                                         | `undefined` |
+| `placeholder`  | `placeholder`  | The input placeholder.                                                                                                | `string`                                         | `undefined` |
+| `readonly`     | `readonly`     | The value is not editable.                                                                                            | `boolean`                                        | `undefined` |
+| `ref`          | `ref`          | reference to component                                                                                                | `any`                                            | `undefined` |
+| `required`     | `required`     | A value is required for the form to be submittable.                                                                   | `boolean`                                        | `undefined` |
+| `resize`       | `resize`       | Whether the multiline input is resizable, and if so, in which directions.                                             | `"both" \| "horizontal" \| "none" \| "vertical"` | `'both'`    |
+| `rows`         | `rows`         | The number of rows.                                                                                                   | `number`                                         | `undefined` |
+| `size`         | `size`         | Size of the input.                                                                                                    | `"lg" \| "sm"`                                   | `undefined` |
+| `step`         | `step`         | Incremental values that are valid.                                                                                    | `string`                                         | `undefined` |
+| `tone`         | `tone`         | Input tone. Use `'dark'` on white backgrounds. Default is a light tone.                                               | `"dark"`                                         | `undefined` |
+| `type`         | `type`         | The input type.                                                                                                       | `string`                                         | `undefined` |
+| `value`        | `value`        | The input value.                                                                                                      | `string`                                         | `undefined` |
 
 
 ## Events

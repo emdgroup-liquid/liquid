@@ -180,7 +180,7 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
 
 > **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-checkbox indeterminate></ld-checkbox>
 
 <ld-checkbox indeterminate disabled></ld-checkbox>
@@ -240,7 +240,7 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 
 > **Note**: Dark tone checkboxes should only be used on white backgrounds.
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-checkbox tone="dark"></ld-checkbox>
 
 <ld-checkbox tone="dark" disabled></ld-checkbox>
@@ -657,6 +657,7 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `indeterminate` | `indeterminate` | Set this property to `true` to indicate that the checkbox's value is neither true nor false. The prop is removed automatically as soon as the checkbox is clicked (if not disabled). | `boolean`                 | `undefined` |
 | `invalid`       | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid.                                                                                                       | `boolean`                 | `undefined` |
 | `key`           | `key`           | for tracking the node's identity when working with lists                                                                                                                             | `string \| number`        | `undefined` |
+| `ldTabindex`    | `ld-tabindex`   | Tab index of the input.                                                                                                                                                              | `number`                  | `undefined` |
 | `mode`          | `mode`          | Display mode.                                                                                                                                                                        | `"danger" \| "highlight"` | `undefined` |
 | `name`          | `name`          | Used to specify the name of the control.                                                                                                                                             | `string`                  | `undefined` |
 | `readonly`      | `readonly`      | The value is not editable.                                                                                                                                                           | `boolean`                 | `undefined` |

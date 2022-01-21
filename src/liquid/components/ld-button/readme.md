@@ -107,7 +107,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### On brand color
 
-{% example 'html', false, false, 'brand' %}
+{% example '{ "background": "brand" }' %}
 <ld-button brand-color>Text</ld-button>
 
 <ld-button brand-color disabled>Text</ld-button>
@@ -422,7 +422,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### Anchor button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button href="#" target="_blank">Text</ld-button>
 
 <!-- CSS component -->
@@ -434,7 +434,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### Progress button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button progress="0.75">Text</ld-button>
 
 <ld-button progress="pending">Text</ld-button>
@@ -500,6 +500,7 @@ You can align the text inside the button using the `align-text` propperty.
 | `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                       | `undefined` |
 | `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                | `undefined` |
 | `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                             | `undefined` |
+| `ldTabindex`     | `ld-tabindex`     | Tab index of the button.                                                                                                                                                                                              | `number`                                                                       | `undefined` |
 | `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "secondary"`                            | `undefined` |
 | `name`           | `name`            | Used to specify the name of the control.                                                                                                                                                                              | `string`                                                                       | `undefined` |
 | `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                          | `undefined` |
@@ -530,6 +531,19 @@ Type: `Promise<void>`
 | `"button"`       | Actual button or anchor element |
 | `"progress-bar"` | Progress bar                    |
 
+
+## Dependencies
+
+### Used by
+
+ - [ld-pagination](../ld-pagination)
+
+### Graph
+```mermaid
+graph TD;
+  ld-pagination --> ld-button
+  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

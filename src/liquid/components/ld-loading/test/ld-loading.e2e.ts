@@ -1,8 +1,6 @@
 import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
 import { LdLoading } from '../ld-loading'
 
-jest.useRealTimers()
-
 describe('ld-loading', () => {
   it('renders', async () => {
     const page = await getPageWithContent(

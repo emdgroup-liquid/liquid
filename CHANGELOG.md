@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.27](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.26...v1.0.0-rc.27) (2022-01-18)
+
+
+### Bug Fixes
+
+* make disabled attributes work with false in react ([5a3ee62](https://github.com/emdgroup-liquid/liquid/commit/5a3ee624b771da5e384bc0f0f2e503530aa96cf7)), closes [#229](https://github.com/emdgroup-liquid/liquid/issues/229) [#235](https://github.com/emdgroup-liquid/liquid/issues/235)
+
+# [1.0.0-rc.26](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.25...v1.0.0-rc.26) (2022-01-17)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([658a838](https://github.com/emdgroup-liquid/liquid/commit/658a8382c0d6468e10d8dee98694497e459ce69b))
+* **ld-input:** change ld-input disabled background color to grey ([8de9e7a](https://github.com/emdgroup-liquid/liquid/commit/8de9e7a6ec41a0bc52a8c1b3f5e7f7cfe2f2d9b3)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+* **react:** add alternative approach for setting the asset path ([7b7f044](https://github.com/emdgroup-liquid/liquid/commit/7b7f044a90b47b8217324596c18e5be30cf342ca))
+
+
+### Features
+
+* **ld-input:** add resize prop ([8d699c0](https://github.com/emdgroup-liquid/liquid/commit/8d699c0260de29a017a4e8bdfa2a73331f7a255c)), closes [#223](https://github.com/emdgroup-liquid/liquid/issues/223)
+
+# [1.0.0-rc.25](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.24...v1.0.0-rc.25) (2022-01-12)
+
+
+### Features
+
+* **ld-input:** add resize prop ([fb30f1b](https://github.com/emdgroup-liquid/liquid/commit/fb30f1bd2abe233e1f8ab97bb83a05b12d2c977b))
+
+# [1.0.0-rc.24](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.23...v1.0.0-rc.24) (2022-01-10)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([b081be2](https://github.com/emdgroup-liquid/liquid/commit/b081be28f516e89d2f8df27963af16d4e13078ff))
+* **ld-input:** change ld-input disabled background color to grey ([6fc32e0](https://github.com/emdgroup-liquid/liquid/commit/6fc32e0197cb3ee3f4b7ec8a1ec171b82a3ca714)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+
 # [1.0.0-rc.23](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.22...v1.0.0-rc.23) (2022-01-05)
 
 

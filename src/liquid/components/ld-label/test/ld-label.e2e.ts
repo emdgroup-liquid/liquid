@@ -6,8 +6,6 @@ import { LdInput } from '../../ld-input/ld-input'
 import { LdToggle } from '../../ld-toggle/ld-toggle'
 import { LdLabel } from '../ld-label'
 
-jest.useRealTimers()
-
 describe('ld-label', () => {
   it('renders', async () => {
     const page = await getPageWithContent('<ld-label>Email Address</ld-label>')

@@ -91,7 +91,6 @@
     flex: 1 0;
     align-items: center;
     justify-content: flex-end;
-    /*margin: -0.5rem 0;*/
 
     > :not(:first-child) {
       margin-left: var(--ld-sp-12);
@@ -102,15 +101,23 @@
 .docs-example__show {
   background-color: var(--ld-col-neutral-010);
   color: var(--ld-col-neutral-900);
-  border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
   border-bottom-width: 0;
   border-top-left-radius: var(--ld-br-l);
   border-top-right-radius: var(--ld-br-l);
-  padding: 0 var(--ld-sp-8) var(--ld-sp-24);
   overflow: hidden;
 
-  @media (max-width: 48rem) {
-    padding: 0 0 var(--ld-sp-24);
+  .docs-example--has-padding & {
+    border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+    padding: 0 var(--ld-sp-8) var(--ld-sp-24);
+
+    @media (max-width: 48rem) {
+      padding: 0 0 var(--ld-sp-24);
+    }
+
+    > div > * {
+      margin: var(--ld-sp-24) var(--ld-sp-24) 0;
+      max-width: calc(100% - 2 * var(--ld-sp-24));
+    }
   }
 
   > div {
@@ -119,11 +126,11 @@
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
-
-    > * {
-      margin: var(--ld-sp-24) var(--ld-sp-24) 0;
-      max-width: calc(100% - 2 * var(--ld-sp-24));
-    }
+  }
+}
+.docs-example__show--centered {
+  > div {
+    align-items: center;
   }
 }
 .docs-example__show--stacked {

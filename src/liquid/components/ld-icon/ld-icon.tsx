@@ -1,5 +1,5 @@
 import { Build, Component, Host, h, Prop, Watch, Element } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 import { fetchIcon } from './fetchIcon'
 
 /**

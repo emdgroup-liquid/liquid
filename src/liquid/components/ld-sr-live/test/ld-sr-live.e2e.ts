@@ -1,11 +1,8 @@
-import { newE2EPage } from '@stencil/core/testing'
-
-jest.useRealTimers()
+import { getPageWithContent } from '../../../utils/e2e-tests'
 
 describe('ld-sr-live', () => {
   it('renders', async () => {
-    const page = await newE2EPage()
-    await page.setContent('<ld-sr-live />')
+    const page = await getPageWithContent('<ld-sr-live />')
 
     const element = await page.find('ld-sr-live')
     expect(element).toHaveClass('hydrated')

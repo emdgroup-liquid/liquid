@@ -24,6 +24,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./src/liquid", "./src/types"],
+  "include": ["./src/liquid", "./src/types", "./globals.d.ts"],
   "exclude": ["node_modules", "bin", "./src/liquid/**/*.a11y.ts"]
 }

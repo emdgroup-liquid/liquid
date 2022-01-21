@@ -19,7 +19,7 @@ Liquid comes with multiple themes for theming its UI components. Most of the exa
 
 You apply a theme by wrapping whatever needs to be themed in an element with a `ld-theme-<themename>` CSS class.
 
-{% example 'html', false, true, false, false %}
+{% example '{ "opened": true, "themable": false }' %}
 <div class="ld-theme-bubblegum">
   <ld-button>Text</ld-button>
 </div>
@@ -35,7 +35,7 @@ You apply a theme by wrapping whatever needs to be themed in an element with a `
 
 In rare cases you may want to have a theming element wrapped by another theming element. Liquid supports unlimited theme inception (nested themes). Here is an example of a two-level theme inception:
 
-{% example 'html', false, true, false, false %}
+{% example '{ "opened": true, "themable": false }' %}
 <div class="ld-theme-bubblegum" style="display: flex;">
   <ld-button>Text</ld-button>
   <div class="ld-theme-tea" style="display: flex;">

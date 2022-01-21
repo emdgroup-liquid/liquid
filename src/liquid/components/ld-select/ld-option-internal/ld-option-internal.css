@@ -99,7 +99,7 @@
     }
   }
 
-  &:where(:not([disabled]):not([aria-disabled='true'])) {
+  &:where(:not(.ld-option-internal--disabled):not([aria-disabled='true'])) {
     :where(.ld-option-internal__check) {
       color: var(--ld-option-thm-col);
     }

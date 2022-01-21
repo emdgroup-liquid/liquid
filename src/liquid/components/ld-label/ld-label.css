@@ -86,7 +86,3 @@
   font: var(--ld-typo-label-m);
   line-height: 1;
 }
-
-:where(.ld-label[disabled]) {
-  color: var(--ld-label-disabled-col);
-}
