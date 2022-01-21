@@ -1,8 +1,6 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdCheckbox } from '../ld-checkbox'
 
-jest.useRealTimers()
-
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 

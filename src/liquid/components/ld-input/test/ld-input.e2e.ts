@@ -4,8 +4,6 @@ import {
 } from '../../../utils/e2e-tests'
 import { LdInput } from '../ld-input'
 
-jest.useRealTimers()
-
 const tones = [undefined, 'dark']
 
 const cssIconComponent = `

@@ -71,6 +71,9 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Justify content. */
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
 
+  /** Tab index of the button. */
+  @Prop() ldTabindex: number | undefined
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'secondary' | 'ghost' | 'danger'
 
@@ -174,14 +177,12 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
   @Watch('size')
   private updateIconSize() {
-    const forceLargeIcon = this.mode === 'ghost' && this.iconOnly
-
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
-      icon.size = forceLargeIcon ? 'lg' : this.size
+      icon.size = this.size
     })
 
     this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'lg' || forceLargeIcon) {
+      if (this.size === 'lg') {
         icon.classList.remove('ld-icon--sm')
         icon.classList.add('ld-icon--lg')
       } else if (this.size === 'sm') {
@@ -198,6 +199,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       'align-text',
       'brand-color',
       'justify-content',
+      'ld-tabindex',
       'mode',
       'progress',
       'size',
@@ -247,9 +249,11 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
         }
         aria-live="polite"
         class={cl}
+        disabled={this.disabled}
         part="button focusable"
         ref={(el: HTMLAnchorElement | HTMLButtonElement) => (this.button = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        tabIndex={this.ldTabindex}
         value={this.value}
       >
         <slot />

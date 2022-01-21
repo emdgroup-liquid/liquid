@@ -9,6 +9,9 @@ import { getClassNames } from '../../../liquid/utils/getClassNames'
   shadow: false,
 })
 export class DocsExample {
+  /** Center examples. */
+  @Prop() centered = false
+
   /** Web Component markup encoded as URI component. */
   @Prop() code!: string
 
@@ -68,6 +71,7 @@ export class DocsExample {
     if (this.themable && this.currentTheme) {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }
+    if (this.centered) clShow += ' docs-example__show--centered'
     if (this.stacked) clShow += ' docs-example__show--stacked'
     if (this.background) clShow += ` docs-example__show--${this.background}`
 

@@ -1,7 +1,5 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 
-jest.useRealTimers()
-
 const positions = [
   'bottom center',
   'bottom left',

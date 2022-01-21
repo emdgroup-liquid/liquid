@@ -122,14 +122,15 @@ module.exports = function (eleventyConfig) {
   // Code example short codes
   eleventyConfig.addPairedShortcode('example', function (code, config) {
     const defaultConfig = {
-      lang: 'html',
-      stacked: false,
-      opened: false,
       background: undefined,
-      themable: true,
+      centered: false,
       hasPadding: true,
       heighlight: undefined,
       heighlightCssComponent: undefined,
+      lang: 'html',
+      opened: false,
+      stacked: false,
+      themable: true,
     }
     const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
     const [codeWebComponent, codeCssComponent] = code
@@ -142,6 +143,7 @@ module.exports = function (eleventyConfig) {
       output += `code-css-component="${encodeURIComponent(codeCssComponent)}" `
     }
 
+    output += `${finalConfig.centered ? ' centered' : ''}`
     output += `${finalConfig.stacked ? ' stacked' : ''}`
     output += `${finalConfig.opened ? ' opened' : ''}`
     if (finalConfig.background) {

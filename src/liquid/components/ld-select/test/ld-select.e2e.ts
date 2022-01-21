@@ -1,8 +1,6 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdSelect } from '../ld-select'
 
-jest.useRealTimers()
-
 const selectIcon = `
 <svg
   role="presentation"

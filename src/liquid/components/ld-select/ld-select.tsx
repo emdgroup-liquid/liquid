@@ -62,6 +62,9 @@ export class LdSelect implements InnerFocusable {
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Tab index of the trigger button. */
+  @Prop() ldTabindex = 0
+
   /**
    * Constrains the height of the trigger button by replacing overflowing selection
    * with a "+X more" indicator.
@@ -1000,7 +1003,11 @@ export class LdSelect implements InnerFocusable {
               class={getClassNames(triggerCl)}
               role="button"
               part="btn-trigger focusable"
-              tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
+              tabindex={
+                this.disabled && !this.ariaDisabled
+                  ? undefined
+                  : this.ldTabindex
+              }
               aria-disabled={
                 this.disabled || this.ariaDisabled ? 'true' : 'false'
               }

@@ -50,6 +50,9 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -203,13 +206,14 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
           {...this.clonedAttributes}
-          part="input focusable"
+          checked={this.checked}
+          disabled={this.disabled}
           onBlur={this.handleBlur.bind(this)}
           onFocus={this.handleFocus}
+          part="input focusable"
           ref={(ref) => (this.input = ref)}
+          tabIndex={this.ldTabindex}
           type="checkbox"
-          disabled={this.disabled}
-          checked={this.checked}
           value={this.value}
         />
         <svg

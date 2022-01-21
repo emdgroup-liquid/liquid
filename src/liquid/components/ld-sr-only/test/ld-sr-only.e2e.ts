@@ -1,11 +1,10 @@
-import { newE2EPage } from '@stencil/core/testing'
-
-jest.useRealTimers()
+import { getPageWithContent } from '../../../utils/e2e-tests'
 
 describe('ld-sr-only', () => {
   it('renders', async () => {
-    const page = await newE2EPage()
-    await page.setContent('<ld-sr-only>Hello screen reader</ld-sr-only>')
+    const page = await getPageWithContent(
+      '<ld-sr-only>Hello screen reader</ld-sr-only>'
+    )
 
     const element = await page.find('ld-sr-only')
     expect(element).toHaveClass('hydrated')

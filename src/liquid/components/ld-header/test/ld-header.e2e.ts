@@ -4,8 +4,6 @@ import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdTypo } from '../../ld-typo/ld-typo'
 import { LdHeader } from '../ld-header'
 
-jest.useRealTimers()
-
 describe('ld-header', () => {
   describe('web component', () => {
     it('default', async () => {
@@ -67,7 +65,7 @@ describe('ld-header', () => {
             Register
           </ld-button>
           <ld-button mode="ghost" slot="end" title="Login" type="button">
-            <ld-icon name="user"></ld-icon>
+            <ld-icon name="user" size="lg"></ld-icon>
           </ld-button>
         </ld-header>`)
       const results = await page.compareScreenshot()
@@ -78,7 +76,7 @@ describe('ld-header', () => {
       const page = await getPageWithContent(`
         <ld-header site-name="Liquid Oxygen">
           <ld-button mode="ghost" slot="start" type="button">
-            <ld-icon name="burger-menu"></ld-icon>
+            <ld-icon name="burger-menu" size="lg"></ld-icon>
           </ld-button>
         </ld-header>`)
       const results = await page.compareScreenshot()

@@ -1,7 +1,5 @@
 import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
 
-jest.useRealTimers()
-
 const rounded = ['all', 'all-lg', 'top', 'top-lg']
 
 const sizes = ['sm', 'lg']
