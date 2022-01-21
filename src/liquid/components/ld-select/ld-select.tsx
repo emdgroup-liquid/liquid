@@ -511,7 +511,7 @@ export class LdSelect implements InnerFocusable {
     this.updatePopperShadowHeight()
   }
 
-  @Listen('ldOptionSelect', { target: 'window', passive: true })
+  @Listen('ldoptionselect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
     const target = ev.target as HTMLElement
 
