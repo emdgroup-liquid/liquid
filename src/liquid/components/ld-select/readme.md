@@ -1134,92 +1134,9 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 
 ### Input validation
 
-The `ld-select` Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for `focus`, `change`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-select` Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-end;
-  flex: 1 0 auto;
-}
-#example-form ld-button {
-  margin-bottom: 1.7rem;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-template-columns: 1fr auto;
-  }
-}
-#example-form ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label>
-    Fruits*
-    <ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="1">
-      <ld-option value="apple">Apple</ld-option>
-      <ld-option value="banana">Banana</ld-option>
-      <ld-option value="strawberry">Strawberry</ld-option>
-      <ld-option value="watermelon" disabled>Watermelon</ld-option>
-      <ld-option value="honeymelon">Honeymelon</ld-option>
-      <ld-option value="rasberry">Rasberry</ld-option>
-      <ld-option value="cherry">Cherry</ld-option>
-      <ld-option value="blueberry">Blueberry</ld-option>
-      <ld-option value="peach">Peach</ld-option>
-      <ld-option value="grape">Grape</ld-option>
-      <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
-      <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
-      <ld-option value="pear">Pear</ld-option>
-      <ld-option value="pineapple">Pineapple</ld-option>
-      <ld-option value="plum">Plum</ld-option>
-    </ld-select>
-    <ld-input-message visible="false">Pick at least 3 fruits.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const select = document.querySelector('#example-form ld-select')
-  const errorMessage = document.querySelector('#example-form ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  let selectDirty = false
-  function validateInput() {
-    if (selectDirty && (!form.fruits || !form.fruits.length || form.fruits.length < 3)) {
-      select.setAttribute('invalid', 'true')
-      errorMessage.style.visibility = 'inherit'
-      return false
-    }
-    select.removeAttribute('invalid')
-    errorMessage.style.visibility = 'hidden'
-    return true
-  }
-  select.addEventListener('change', ev => {
-    validateInput()
-  })
-  select.addEventListener('blur', ev => {
-    selectDirty = true
-    validateInput()
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    selectDirty = true
-    const isValid = validateInput()
-    setTimeout(() => {
-      if (isValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
 
 <!-- Auto Generated Below -->
 

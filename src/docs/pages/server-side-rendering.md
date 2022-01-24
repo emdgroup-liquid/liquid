@@ -49,4 +49,4 @@ useEffect(()=>{
 
 For working examples check out our [sandbox apps](introduction/sandbox-applications/).
 
-<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="React bindings" next-href="introduction/react-bindings/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Event handling" next-href="introduction/event-handling/"></docs-page-nav>

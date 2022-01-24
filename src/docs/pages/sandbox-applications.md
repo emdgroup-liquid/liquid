@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Sandbox applications
   parent: Introduction
-  order: 10
+  order: 12
 layout: layout.njk
 title: Sandbox applications
 permalink: introduction/sandbox-applications/

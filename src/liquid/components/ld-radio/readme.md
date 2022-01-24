@@ -279,80 +279,9 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 
 ### Input validation
 
-The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-start;
-  flex: 1 0 auto;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-label ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label position="right" size="m">
-    Orange*
-    <ld-radio value="orange" name="example-10" required></ld-radio>
-    <ld-input-message>You must pick a team.</ld-input-message>
-  </ld-label>
-  
-  <ld-label position="right" size="m">
-    Banana*
-    <ld-radio value="banana" name="example-10" required></ld-radio>
-    <ld-input-message>You must pick a team.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const orangeRadio = document.querySelector('#example-form ld-label:first-of-type ld-radio')
-  const bananaRadio = document.querySelector('#example-form ld-label:last-of-type ld-radio')
-  const orangeMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
-  const bananaMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput() {
-    value = orangeRadio.checked || bananaRadio.checked
-    if (!value) {
-      orangeRadio.setAttribute('invalid', 'true')
-      bananaRadio.setAttribute('invalid', 'true')
-      orangeMessage.style.visibility = 'inherit'
-      bananaMessage.style.visibility = 'inherit'
-      return false
-    }
-    orangeRadio.removeAttribute('invalid')
-    bananaRadio.removeAttribute('invalid')
-    orangeMessage.style.visibility = 'hidden'
-    bananaMessage.style.visibility = 'hidden'
-    return true
-  }
-  orangeRadio.addEventListener('input', validateInput)
-  orangeRadio.addEventListener('blur', validateInput)
-  bananaRadio.addEventListener('input', validateInput)
-  bananaRadio.addEventListener('blur', validateInput)
-  submitButton.addEventListener('click', ev => {
-    ev.preventDefault()
-    const isValid = validateInput()
-    setTimeout(() => {
-      if (isValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
 
 <!-- Auto Generated Below -->
 

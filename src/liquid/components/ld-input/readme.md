@@ -927,87 +927,9 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 ### Input validation
 
-The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-end;
-  flex: 1 0 auto;
-}
-#example-form ld-button {
-  margin-bottom: 1.7rem;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label>
-    Login*
-    <ld-input name="login" required placeholder="login"></ld-input>
-    <ld-input-message visible="false">This field is required.</ld-input-message>
-  </ld-label>
-  <ld-label>
-    Password*
-    <ld-input name="password" required placeholder="password" type="password"></ld-input>
-    <ld-input-message visible="false">This field is required.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const username = document.querySelector('#example-form ld-label:first-of-type ld-input')
-  const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
-  const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
-  const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(ldInput, value, ldInputMessage) {
-    if (!value) {
-      ldInput.setAttribute('invalid', 'true')
-      ldInputMessage.style.visibility = 'inherit'
-      return false
-    }
-    ldInput.removeAttribute('invalid')
-    ldInputMessage.style.visibility = 'hidden'
-    return true
-  }
-  username.addEventListener('input', ev => {
-    validateInput(username, form.login.value, usernameErrorMessage)
-  })
-  username.addEventListener('blur', ev => {
-    validateInput(username, form.login.value, usernameErrorMessage)
-  })
-  password.addEventListener('input', ev => {
-    validateInput(password, form.password.value, passwordErrorMessage)
-  })
-  password.addEventListener('blur', ev => {
-    validateInput(password, form.password.value, passwordErrorMessage)
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    const isUsernameValid = validateInput(username, form.login.value, usernameErrorMessage)
-    const isPasswordValid = validateInput(password, form.password.value, passwordErrorMessage)
-    setTimeout(() => {
-      if (isUsernameValid && isPasswordValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
 
 
 <!-- Auto Generated Below -->

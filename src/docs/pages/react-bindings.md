@@ -2,14 +2,14 @@
 eleventyNavigation:
   key: React bindings
   parent: Introduction
-  order: 7
+  order: 9
 layout: layout.njk
 title: React bindings
 permalink: introduction/react-bindings/
 ---
 
 
-# React Bindings
+# React bindings
 
 Setting event listeners via `on<EventName>`-prop on Liquid Oxygen Web Components does not work properly in React. For this reason, we provide special React bindings for Liquid Oxygen. They allow you to set event listeners via prop just like you are used to do in React without having to use `reference`.
 
@@ -43,4 +43,4 @@ When using React bindings, you do not need to use the `setAssetPath` function to
   }
 ```
 
-<docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/form-validation/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav>

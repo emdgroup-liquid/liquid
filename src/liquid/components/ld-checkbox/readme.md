@@ -573,75 +573,9 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 
 ### Input validation
 
-The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-start;
-  flex: 1 0 auto;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-label:first-of-type ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label position="right" size="m">
-    I have read the terms of service.*
-    <ld-checkbox id="example-form-terms" name="terms" required></ld-checkbox>
-    <ld-input-message id="example-form-terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
-  </ld-label>
-  <ld-label position="right" size="m">
-    I'd like to receive a weekly newsletter.
-    <ld-checkbox id="newsletter" name="newsletter"></ld-checkbox>
-    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const termsConfirmation = document.querySelector('#example-form-terms')
-  const termsErrorMessage = document.querySelector('#example-form-terms-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput() {
-    if (!form.terms.checked) {
-      termsConfirmation.setAttribute('invalid', 'true')
-      termsErrorMessage.style.visibility = 'inherit'
-      return false
-    }
-    termsConfirmation.removeAttribute('invalid')
-    termsErrorMessage.style.visibility = 'hidden'
-    return true
-  }
-  termsConfirmation.addEventListener('input', ev => {
-    validateInput()
-  })
-  termsConfirmation.addEventListener('blur', ev => {
-    validateInput()
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    const isTermsConfirmationValid = validateInput()
-    setTimeout(() => {
-      if (isTermsConfirmationValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
 
 <!-- Auto Generated Below -->
 
