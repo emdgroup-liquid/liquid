@@ -93,6 +93,29 @@
         
           
             {
+              title: 'Event handling',
+              tags: '',
+              url: '/liquid/introduction/event-handling/',
+              headings: 'ExamplesVanilla JSReact',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Event handling'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'FAQ',
               tags: '',
               url: '/liquid/introduction/faq/',
@@ -105,6 +128,29 @@
                   'Introduction',
                 
                   'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Form validation',
+              tags: '',
+              url: '/liquid/introduction/form-validation/',
+              headings: 'Form associationExampleAccessing propsExampleUsing event detailsExample',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Form validation'
                 
               ]
             },
@@ -386,7 +432,7 @@
               title: 'Checkbox',
               tags: '',
               url: '/liquid/components/ld-checkbox/',
-              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
+              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -593,7 +639,7 @@
               title: 'Radio Button',
               tags: '',
               url: '/liquid/components/ld-radio/',
-              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -833,7 +879,7 @@
               title: 'Toggle',
               tags: '',
               url: '/liquid/components/ld-toggle/',
-              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messagePropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -1219,6 +1265,22 @@
           <li class="docs-nav__li">
             
               <a href="/liquid/introduction/server-side-rendering/">Server-side rendering</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/event-handling/">Event handling</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/form-validation/">Form validation</a>
             
           </li>
         
@@ -1818,10 +1880,10 @@
   </ld-tablist>
 </ld-tabs></div></docs-example>
 <h2 id="events">Events <a class="header-anchor" href="components/ld-tabs/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>The <code>ld-tabs</code> component emits the <code>tabChange</code> event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.</p>
-<docs-example code="%3Cld-tabs%20id%3D%22tabs_events%22%3E%0A%20%20%3Cld-tablist%20mode%3D%22ghost%22%3E%0A%20%20%20%20%3Cld-tab%20selected%3EFruits%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%3EVegetables%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%3ENuts%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%20disabled%3EGrain%3C%2Fld-tab%3E%0A%20%20%3C%2Fld-tablist%3E%0A%3C%2Fld-tabs%3E%0A%0A%3Cscript%3E%0A%20%20document.getElementById('tabs_events').addEventListener('tabChange'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20window.alert(%60Current%20tab%20index%20is%3A%20%24%7Bev.detail%7D%60)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable has-padding>
+<p>The <code>ld-tabs</code> component emits the <code>ldtabchange</code> event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.</p>
+<docs-example code="%3Cld-tabs%20id%3D%22tabs_events%22%3E%0A%20%20%3Cld-tablist%20mode%3D%22ghost%22%3E%0A%20%20%20%20%3Cld-tab%20selected%3EFruits%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%3EVegetables%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%3ENuts%3C%2Fld-tab%3E%0A%20%20%20%20%3Cld-tab%20disabled%3EGrain%3C%2Fld-tab%3E%0A%20%20%3C%2Fld-tablist%3E%0A%3C%2Fld-tabs%3E%0A%0A%3Cscript%3E%0A%20%20document.getElementById('tabs_events').addEventListener('ldtabchange'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20window.alert(%60Current%20tab%20index%20is%3A%20%24%7Bev.detail%7D%60)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable has-padding>
 <div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tabs</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabs_events<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tablist</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghost<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>Fruits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span><span class="token punctuation">></span></span>Vegetables<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span><span class="token punctuation">></span></span>Nuts<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span>Grain<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tablist</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tabs</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'tabs_events'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'tabChange'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Current tab index is: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ev<span class="token punctuation">.</span>detail<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tabs</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tabs_events<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tablist</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghost<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>Fruits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span><span class="token punctuation">></span></span>Vegetables<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span><span class="token punctuation">></span></span>Nuts<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tab</span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span>Grain<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tab</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tablist</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tabs</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'tabs_events'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'ldtabchange'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Current tab index is: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ev<span class="token punctuation">.</span>detail<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 </div><div slot="show"><ld-tabs id="tabs_events">
   <ld-tablist mode="ghost">
     <ld-tab selected>Fruits</ld-tab>
@@ -1831,7 +1893,7 @@
   </ld-tablist>
 </ld-tabs>
 <script>
-  document.getElementById('tabs_events').addEventListener('tabChange', ev => {
+  document.getElementById('tabs_events').addEventListener('ldtabchange', ev => {
     window.alert(`Current tab index is: ${ev.detail}`)
   })
 </script></div></docs-example>
@@ -1951,7 +2013,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>tabChange</code></td>
+<td><code>ldtabchange</code></td>
 <td>Emitted with the id of the selected tab.</td>
 <td><code>CustomEvent&lt;string&gt;</code></td>
 </tr>

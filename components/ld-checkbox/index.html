@@ -93,6 +93,29 @@
         
           
             {
+              title: 'Event handling',
+              tags: '',
+              url: '/liquid/introduction/event-handling/',
+              headings: 'ExamplesVanilla JSReact',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Event handling'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'FAQ',
               tags: '',
               url: '/liquid/introduction/faq/',
@@ -105,6 +128,29 @@
                   'Introduction',
                 
                   'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Form validation',
+              tags: '',
+              url: '/liquid/introduction/form-validation/',
+              headings: 'Form associationExampleAccessing propsExampleUsing event detailsExample',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Form validation'
                 
               ]
             },
@@ -386,7 +432,7 @@
               title: 'Checkbox',
               tags: '',
               url: '/liquid/components/ld-checkbox/',
-              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
+              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -593,7 +639,7 @@
               title: 'Radio Button',
               tags: '',
               url: '/liquid/components/ld-radio/',
-              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -833,7 +879,7 @@
               title: 'Toggle',
               tags: '',
               url: '/liquid/components/ld-toggle/',
-              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messagePropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -1226,6 +1272,22 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/introduction/event-handling/">Event handling</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/form-validation/">Form validation</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/introduction/react-bindings/">React bindings</a>
             
           </li>
@@ -1600,7 +1662,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#primary">Primary</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#indeterminate">Indeterminate</a></li><li><a href="#dark">Dark</a></li><li><a href="#highlight">Highlight</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#danger">Danger</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#primary">Primary</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#indeterminate">Indeterminate</a></li><li><a href="#dark">Dark</a></li><li><a href="#highlight">Highlight</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#danger">Danger</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
       </nav>
       </docs-toc>
     
@@ -2133,75 +2195,10 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
   </label>
 </div></div></docs-example>
 <h3 id="input-validation">Input validation <a class="header-anchor" href="components/ld-checkbox/#input-validation"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>The <code>ld-checkbox</code> Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events and setting error / info messages via the <a href="components/ld-input-message/"><code>ld-input-message</code></a> component. The following is an example on how you could implement input validation with vanilla JS:</p>
-<docs-example code="%3Cstyle%3E%0A%23example-form%20%7B%0A%20%20display%3A%20grid%3B%0A%20%20gap%3A%201rem%3B%0A%20%20width%3A%20100%25%3B%0A%7D%0A%23example-form%20%3E%20*%20%7B%0A%20%20align-self%3A%20flex-start%3B%0A%20%20flex%3A%201%200%20auto%3B%0A%7D%0A%40media%20(min-width%3A%2052rem)%20%7B%0A%20%20%23example-form%20%7B%0A%20%20%20%20grid-auto-flow%3A%20column%3B%0A%20%20%7D%0A%7D%0A%23example-form%20ld-label%3Afirst-of-type%20ld-input-message%20%7B%0A%20%20visibility%3A%20hidden%3B%0A%7D%0A%3C%2Fstyle%3E%0A%3Cform%20id%3D%22example-form%22%20novalidate%3E%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I%20have%20read%20the%20terms%20of%20service.*%0A%20%20%20%20%3Cld-checkbox%20id%3D%22example-form-terms%22%20name%3D%22terms%22%20required%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%20id%3D%22example-form-terms-message%22%20visible%3D%22false%22%3ETo%20proceed%2C%20you%20must%20except%20the%20terms%20of%20service.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-label%20position%3D%22right%22%20size%3D%22m%22%3E%0A%20%20%20%20I'd%20like%20to%20receive%20a%20weekly%20newsletter.%0A%20%20%20%20%3Cld-checkbox%20id%3D%22newsletter%22%20name%3D%22newsletter%22%3E%3C%2Fld-checkbox%3E%0A%20%20%20%20%3Cld-input-message%20mode%3D%22info%22%3EYou%20may%20unsubscribe%20at%20any%20given%20time.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-button%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fform%3E%0A%3Cscript%3E%0A%20%20const%20form%20%3D%20document.querySelector('%23example-form')%0A%20%20const%20termsConfirmation%20%3D%20document.querySelector('%23example-form-terms')%0A%20%20const%20termsErrorMessage%20%3D%20document.querySelector('%23example-form-terms-message')%0A%20%20const%20submitButton%20%3D%20document.querySelector('%23example-form%20ld-button')%0A%20%20function%20validateInput()%20%7B%0A%20%20%20%20if%20(!form.terms.checked)%20%7B%0A%20%20%20%20%20%20termsConfirmation.setAttribute('invalid'%2C%20'true')%0A%20%20%20%20%20%20termsErrorMessage.style.visibility%20%3D%20'inherit'%0A%20%20%20%20%20%20return%20false%0A%20%20%20%20%7D%0A%20%20%20%20termsConfirmation.removeAttribute('invalid')%0A%20%20%20%20termsErrorMessage.style.visibility%20%3D%20'hidden'%0A%20%20%20%20return%20true%0A%20%20%7D%0A%20%20termsConfirmation.addEventListener('input'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20validateInput()%0A%20%20%7D)%0A%20%20termsConfirmation.addEventListener('blur'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20validateInput()%0A%20%20%7D)%0A%20%20form.addEventListener('submit'%2C%20ev%20%3D%3E%20%7B%0A%20%20%20%20ev.preventDefault()%0A%20%20%20%20const%20isTermsConfirmationValid%20%3D%20validateInput()%0A%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20if%20(isTermsConfirmationValid)%20%7B%0A%20%20%20%20%20%20%20%20window.alert('Form%20submitted.')%0A%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20window.alert('Form%20is%20invalid.')%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%20100)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable has-padding>
-<div slot="code">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css"><br><span class="token selector">#example-form</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">gap</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">#example-form > *</span> <span class="token punctuation">{</span><br>  <span class="token property">align-self</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span><br>  <span class="token property">flex</span><span class="token punctuation">:</span> 1 0 auto<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 52rem<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token selector">#example-form</span> <span class="token punctuation">{</span><br>    <span class="token property">grid-auto-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><span class="token selector">#example-form ld-label:first-of-type ld-input-message</span> <span class="token punctuation">{</span><br>  <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-form<span class="token punctuation">"</span></span> <span class="token attr-name">novalidate</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I have read the terms of service.*<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-form-terms<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>terms<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-form-terms-message<span class="token punctuation">"</span></span> <span class="token attr-name">visible</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>To proceed, you must except the terms of service.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-label</span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    I'd like to receive a weekly newsletter.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-checkbox</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>newsletter<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>newsletter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-checkbox</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input-message</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>You may unsubscribe at any given time.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input-message</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-label</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">const</span> form <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> termsConfirmation <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form-terms'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> termsErrorMessage <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form-terms-message'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> submitButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#example-form ld-button'</span><span class="token punctuation">)</span><br>  <span class="token keyword">function</span> <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>form<span class="token punctuation">.</span>terms<span class="token punctuation">.</span>checked<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>      termsConfirmation<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><br>      termsErrorMessage<span class="token punctuation">.</span>style<span class="token punctuation">.</span>visibility <span class="token operator">=</span> <span class="token string">'inherit'</span><br>      <span class="token keyword">return</span> <span class="token boolean">false</span><br>    <span class="token punctuation">}</span><br>    termsConfirmation<span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><br>    termsErrorMessage<span class="token punctuation">.</span>style<span class="token punctuation">.</span>visibility <span class="token operator">=</span> <span class="token string">'hidden'</span><br>    <span class="token keyword">return</span> <span class="token boolean">true</span><br>  <span class="token punctuation">}</span><br>  termsConfirmation<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  termsConfirmation<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  form<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    ev<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">const</span> isTermsConfirmationValid <span class="token operator">=</span> <span class="token function">validateInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      <span class="token keyword">if</span> <span class="token punctuation">(</span>isTermsConfirmationValid<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Form submitted.'</span><span class="token punctuation">)</span><br>      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>        window<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Form is invalid.'</span><span class="token punctuation">)</span><br>      <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-start;
-  flex: 1 0 auto;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-label:first-of-type ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label position="right" size="m">
-    I have read the terms of service.*
-    <ld-checkbox id="example-form-terms" name="terms" required></ld-checkbox>
-    <ld-input-message id="example-form-terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
-  </ld-label>
-  <ld-label position="right" size="m">
-    I'd like to receive a weekly newsletter.
-    <ld-checkbox id="newsletter" name="newsletter"></ld-checkbox>
-    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const termsConfirmation = document.querySelector('#example-form-terms')
-  const termsErrorMessage = document.querySelector('#example-form-terms-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput() {
-    if (!form.terms.checked) {
-      termsConfirmation.setAttribute('invalid', 'true')
-      termsErrorMessage.style.visibility = 'inherit'
-      return false
-    }
-    termsConfirmation.removeAttribute('invalid')
-    termsErrorMessage.style.visibility = 'hidden'
-    return true
-  }
-  termsConfirmation.addEventListener('input', ev => {
-    validateInput()
-  })
-  termsConfirmation.addEventListener('blur', ev => {
-    validateInput()
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    const isTermsConfirmationValid = validateInput()
-    setTimeout(() => {
-      if (isTermsConfirmationValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script></div></docs-example>
+<p>The <code>ld-checkbox</code> Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events.</p>
+<blockquote>
+<p><strong>Note:</strong> You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.</p>
+</blockquote>
 <!-- Auto Generated Below -->
 <h2 id="properties">Properties <a class="header-anchor" href="components/ld-checkbox/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
@@ -2322,9 +2319,31 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 </tr>
 </tbody>
 </table>
+<h2 id="events">Events <a class="header-anchor" href="components/ld-checkbox/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldchange</code></td>
+<td>Emitted when the input value changed and the element loses focus.</td>
+<td><code>CustomEvent&lt;boolean&gt;</code></td>
+</tr>
+<tr>
+<td><code>ldinput</code></td>
+<td>Emitted when the input value changed.</td>
+<td><code>CustomEvent&lt;boolean&gt;</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="methods">Methods <a class="header-anchor" href="components/ld-checkbox/#methods"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <h3 id="focusinner()-%3D%3E-promise%3Cvoid%3E"><code>focusInner() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-checkbox/#focusinner()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>Sets focus on the checkbox</p>
+<p>Sets focus on the checkbox.</p>
 <h4 id="returns">Returns <a class="header-anchor" href="components/ld-checkbox/#returns"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <p>Type: <code>Promise&lt;void&gt;</code></p>
 <h2 id="shadow-parts">Shadow Parts <a class="header-anchor" href="components/ld-checkbox/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>

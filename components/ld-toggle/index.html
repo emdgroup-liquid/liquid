@@ -93,6 +93,29 @@
         
           
             {
+              title: 'Event handling',
+              tags: '',
+              url: '/liquid/introduction/event-handling/',
+              headings: 'ExamplesVanilla JSReact',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Event handling'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'FAQ',
               tags: '',
               url: '/liquid/introduction/faq/',
@@ -105,6 +128,29 @@
                   'Introduction',
                 
                   'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Form validation',
+              tags: '',
+              url: '/liquid/introduction/form-validation/',
+              headings: 'Form associationExampleAccessing propsExampleUsing event detailsExample',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Form validation'
                 
               ]
             },
@@ -386,7 +432,7 @@
               title: 'Checkbox',
               tags: '',
               url: '/liquid/components/ld-checkbox/',
-              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
+              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -593,7 +639,7 @@
               title: 'Radio Button',
               tags: '',
               url: '/liquid/components/ld-radio/',
-              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -833,7 +879,7 @@
               title: 'Toggle',
               tags: '',
               url: '/liquid/components/ld-toggle/',
-              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messagePropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -1226,6 +1272,22 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/introduction/event-handling/">Event handling</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/form-validation/">Form validation</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/introduction/react-bindings/">React bindings</a>
             
           </li>
@@ -1600,7 +1662,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#primary">Primary</a></li><li><a href="#large">Large</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#with-icons">With icons</a></li><li><a href="#with-icons-(disabled)">With icons (disabled)</a></li><li><a href="#with-icons-(invalid)">With icons (invalid)</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#primary">Primary</a></li><li><a href="#large">Large</a></li><li><a href="#invalid">Invalid</a></li><li><a href="#disabled">Disabled</a></li><li><a href="#with-icons">With icons</a></li><li><a href="#with-icons-(disabled)">With icons (disabled)</a></li><li><a href="#with-icons-(invalid)">With icons (invalid)</a></li><li><a href="#with-label">With label</a></li><li><a href="#with-label-and-input-message">With label and input message</a></li><li><a href="#input-validation">Input validation</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#methods">Methods</a><ol><li><a href="#focusinner()-%3D%3E-promise%3Cvoid%3E">focusInner() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -1982,6 +2044,11 @@
     </span>
   </label>
 </div></div></docs-example>
+<h3 id="input-validation">Input validation <a class="header-anchor" href="components/ld-toggle/#input-validation"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>The <code>ld-toggle</code> Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events.</p>
+<blockquote>
+<p><strong>Note:</strong> You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.</p>
+</blockquote>
 <!-- Auto Generated Below -->
 <h2 id="properties">Properties <a class="header-anchor" href="components/ld-toggle/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
@@ -2095,9 +2162,31 @@
 </tr>
 </tbody>
 </table>
+<h2 id="events">Events <a class="header-anchor" href="components/ld-toggle/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldchange</code></td>
+<td>Emitted when the input value changed and the element loses focus.</td>
+<td><code>CustomEvent&lt;boolean&gt;</code></td>
+</tr>
+<tr>
+<td><code>ldinput</code></td>
+<td>Emitted when the input value changed.</td>
+<td><code>CustomEvent&lt;boolean&gt;</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="methods">Methods <a class="header-anchor" href="components/ld-toggle/#methods"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <h3 id="focusinner()-%3D%3E-promise%3Cvoid%3E"><code>focusInner() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-toggle/#focusinner()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<p>Sets focus on the toggle</p>
+<p>Sets focus on the toggle.</p>
 <h4 id="returns">Returns <a class="header-anchor" href="components/ld-toggle/#returns"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <p>Type: <code>Promise&lt;void&gt;</code></p>
 <h2 id="shadow-parts">Shadow Parts <a class="header-anchor" href="components/ld-toggle/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>

@@ -93,6 +93,29 @@
         
           
             {
+              title: 'Event handling',
+              tags: '',
+              url: '/liquid/introduction/event-handling/',
+              headings: 'ExamplesVanilla JSReact',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Event handling'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'FAQ',
               tags: '',
               url: '/liquid/introduction/faq/',
@@ -105,6 +128,29 @@
                   'Introduction',
                 
                   'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Form validation',
+              tags: '',
+              url: '/liquid/introduction/form-validation/',
+              headings: 'Form associationExampleAccessing propsExampleUsing event detailsExample',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Form validation'
                 
               ]
             },
@@ -386,7 +432,7 @@
               title: 'Checkbox',
               tags: '',
               url: '/liquid/components/ld-checkbox/',
-              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
+              headings: 'ExamplesPrimaryDisabledIndeterminateDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow PartsDependenciesUsed byGraph',
               breadcrumbs: [
                 
                 
@@ -593,7 +639,7 @@
               title: 'Radio Button',
               tags: '',
               url: '/liquid/components/ld-radio/',
-              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryDisabledDarkHighlightInvalidDangerWith labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -833,7 +879,7 @@
               title: 'Toggle',
               tags: '',
               url: '/liquid/components/ld-toggle/',
-              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messagePropertiesMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
+              headings: 'ExamplesPrimaryLargeInvalidDisabledWith iconsWith icons (disabled)With icons (invalid)With labelWith label and input messageInput validationPropertiesEventsMethodsfocusInner() =&gt; Promise&lt;void&gt;Shadow Parts',
               breadcrumbs: [
                 
                 
@@ -1219,6 +1265,22 @@
           <li class="docs-nav__li">
             
               <a href="/liquid/introduction/server-side-rendering/">Server-side rendering</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/event-handling/">Event handling</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/form-validation/">Form validation</a>
             
           </li>
         
@@ -1623,7 +1685,7 @@
         
         <docs-edit-on-github path="./src/docs/pages/react-bindings.md"></docs-edit-on-github>
       </header>
-      <h1 id="react-bindings">React Bindings <a class="header-anchor" href="introduction/react-bindings/#react-bindings"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+      <h1 id="react-bindings">React bindings <a class="header-anchor" href="introduction/react-bindings/#react-bindings"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Setting event listeners via <code>on&lt;EventName&gt;</code>-prop on Liquid Oxygen Web Components does not work properly in React. For this reason, we provide special React bindings for Liquid Oxygen. They allow you to set event listeners via prop just like you are used to do in React without having to use <code>reference</code>.</p>
 <p>All you need to do is to import and use the React binding of a Liquid Oxygen component instead of using the web component directly.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/react'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> buttonProps <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>  <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span><br>  <span class="token operator">&lt;</span>LdButton <span class="token punctuation">{</span><span class="token operator">...</span>buttonProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span><br>  <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span><br><span class="token punctuation">)</span></code></pre>
@@ -1633,7 +1695,7 @@
 <h2 id="setting-the-asset-path">Setting the asset path <a class="header-anchor" href="introduction/react-bindings/#setting-the-asset-path"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>When using React bindings, you do not need to use the <code>setAssetPath</code> function to define the asset path for components like <code>ld-icon</code>. All you need to do is define a global variable on the <code>window</code> object to &quot;tell&quot; the Liquid components where they have to load their assets from:</p>
 <pre class="language-js"><code class="language-js">  <span class="token comment">// if-clause only required when your code might also be executed</span><br>  <span class="token comment">// on the server-side like with Next.js</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">"undefined"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin <span class="token operator">+</span> <span class="token string">'/path/to/your/assets/'</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
-<p><docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav></p>
+<p><docs-page-nav prev-href="introduction/form-validation/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav></p>
 
       
         <docs-contributors contributors='[]'></docs-contributors>

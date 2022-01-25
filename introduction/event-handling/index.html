@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Server-side rendering</title>
+  <title>Liquid – Event handling</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/assets/favicon-32x32.png">
@@ -1262,7 +1262,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/introduction/server-side-rendering/">Server-side rendering</a>
             
@@ -1270,7 +1270,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/introduction/event-handling/">Event handling</a>
             
@@ -1660,6 +1660,12 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav" >
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#vanilla-js">Vanilla JS</a></li><li><a href="#react">React</a></li></ol></li></ol>
+      </nav>
+      </docs-toc>
+    
 
     <docs-main>
       <header>
@@ -1673,22 +1679,26 @@
               </li>
             
             <li>
-              <a href="/liquid/introduction/server-side-rendering/" aria-current="page">Server-side rendering</a>
+              <a href="/liquid/introduction/event-handling/" aria-current="page">Event handling</a>
             </li>
           </docs-breadcrumbs>
         
-        <docs-edit-on-github path="./src/docs/pages/server-side-rendering.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/event-handling.md"></docs-edit-on-github>
       </header>
-      <h1 id="server-side-rendering">Server-side rendering <a class="header-anchor" href="introduction/server-side-rendering/#server-side-rendering"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Custom elements should be defined on client-side only. There are a couple of things you can do to ensure this.</p>
-<p>You can implement a condition which checks for the environment such as the following one:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><br><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
-<p>You can also import the components you use on client side only, if you want to leverage code splitting and lazy loading:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> setAssetPath <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> modules <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-checkbox'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>  <span class="token punctuation">]</span><span class="token punctuation">)</span><br>  <span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span><br>  modules<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">module</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    module<span class="token punctuation">.</span><span class="token function">defineCustomElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
-<p>If you have lifecycle hooks to your disposal for running code on the client side only, you should use these. For instance, in React based applications you can use the <a href="https://reactjs.org/docs/hooks-effect.html">effect hook</a> for this purpose:</p>
-<pre class="language-js"><code class="language-js"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>  <span class="token function">setAssetPath</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<p>For working examples check out our <a href="introduction/sandbox-applications/">sandbox apps</a>.</p>
-<p><docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Event handling" next-href="introduction/event-handling/"></docs-page-nav></p>
+      <h1 id="event-handling">Event handling <a class="header-anchor" href="introduction/event-handling/#event-handling"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>Liquid Oxygen aims to stick to the browser standards where possible. That is why we try to use as few custom events as possible. This is especially the case for components that are mainly meant to just &quot;skin&quot; native HTML elements with a Liquid Oxygen look, like <code>ld-input</code>. But Web Components are a bit tricky here: There are many events, especially the ones that are the result of a direct user interaction, like <code>click</code>, <code>focusin/focusout</code> that bubble just fine from inside a Web Component's shadow DOM into the light DOM. But others, like the <code>change</code> event, don't. The difference between those events is that the former are defined as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/composed">composed events</a>, while the latter are not.</p>
+<p>We try to dispatch non-composed events by manually creating them on the Web Component's host elements, but they do not behave 1:1 like their native equivalents. This results in unexpected behavior, for example React &quot;swallowing&quot; <code>change</code> events that are created in such a way and event handlers set with the <code>onChange</code> prop not being invoked.</p>
+<p>Because of that, Liquid Oxygen components dispatch custom events that are named like the native events they are meant to replace, but prefixed with &quot;ld&quot;. So form components like <code>ld-input</code>, for example, dispatch an <code>ldchange</code> event. Which custom events are available is documented in the &quot;Events&quot; section of each component's documentation page.</p>
+<h2 id="examples">Examples <a class="header-anchor" href="introduction/event-handling/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>These examples show how to use the custom &quot;ld&quot;-prefixed events with Vanilla JS and React.</p>
+<h3 id="vanilla-js">Vanilla JS <a class="header-anchor" href="introduction/event-handling/#vanilla-js"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br><span class="token keyword">const</span> <span class="token function-variable function">handleLdchange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'ldchange'</span><span class="token punctuation">,</span> handleLdchange<span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="react">React <a class="header-anchor" href="introduction/event-handling/#react"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">MyApp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> handleLdchange <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">onLdchange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleLdchange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br><span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> React usually triggers event handlers set with the <code>onChange</code> prop differently than browsers actually handle <code>change</code> events. Event handlers set with the <code>onChange</code> prop usually are invoked everytime the element's value changes in React, while by definition the <code>change</code> event is only dispatched after the element loses focus.<br/><br/>Liquid Oxygen components stick to that browser default behavior and only dispatch the <code>ldchange</code>/<code>change</code> events after an element loses focus. Thus, you cannot expect an event handler set neither via <code>onLdchange</code> nor <code>onChange</code> to be invoked everytime the value changes. If you want that, the <code>input</code> event is exactly what you're looking for, so please use the <code>onInput</code> prop in these cases, instead. (There is no custom <code>ldinput</code> event, as the <code>input</code> event is a composed native event that bubbles into the light DOM.)</p>
+</blockquote>
+<p><docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Form validation" next-href="introduction/form-validation/"></docs-page-nav></p>
 
       
         <docs-contributors contributors='[]'></docs-contributors>
