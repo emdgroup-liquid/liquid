@@ -89,10 +89,7 @@ export class LdSelect implements InnerFocusable {
   /** A Boolean attribute indicating that an option with a non-empty string value must be selected. */
   @Prop() required?: boolean
 
-  /**
-   * Currently selected option(s)
-   * @internal
-   */
+  /** Currently selected option(s) (read only!) */
   @Prop({ mutable: true }) selected: SelectOption[] = []
 
   /** Size of the select trigger button. */
