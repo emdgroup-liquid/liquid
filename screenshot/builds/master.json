@@ -8261,7 +8261,7 @@
     },
     {
       "id": "bb91d7c2",
-      "image": "e634824fcd34b8dd56b58e746de39a06.png",
+      "image": "b1aa5613b94f4bab06280bcb1b16941d.png",
       "userAgent": "default",
       "desc": "ld-tabs active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8274,7 +8274,7 @@
     },
     {
       "id": "bd26e7be",
-      "image": "e8e5bca3cb7de30a3701c08e419d9517.png",
+      "image": "497c0542d6017f71f213eb3f9ac6b645.png",
       "userAgent": "default",
       "desc": "ld-tabs active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8287,7 +8287,7 @@
     },
     {
       "id": "3f1bfaaf",
-      "image": "3cbba52e24b4bf87986469ebd97a000c.png",
+      "image": "f282270e89aebc1d361d4c9221e925b5.png",
       "userAgent": "default",
       "desc": "ld-tabs active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8300,7 +8300,7 @@
     },
     {
       "id": "c2d3e959",
-      "image": "0b4e385d49aaddbb806af9afaa45d18b.png",
+      "image": "d9268fd35b8e0d56dc5ee810a1bd789d.png",
       "userAgent": "default",
       "desc": "ld-tabs default",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8313,7 +8313,7 @@
     },
     {
       "id": "7bf7eb80",
-      "image": "150ae6757a7fdd763db981ff67783db7.png",
+      "image": "212fa28690d0c26455647d7be2d1f376.png",
       "userAgent": "default",
       "desc": "ld-tabs focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8326,7 +8326,7 @@
     },
     {
       "id": "bb479102",
-      "image": "e8e5bca3cb7de30a3701c08e419d9517.png",
+      "image": "497c0542d6017f71f213eb3f9ac6b645.png",
       "userAgent": "default",
       "desc": "ld-tabs focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8339,7 +8339,7 @@
     },
     {
       "id": "070c1f21",
-      "image": "fc584f9d96f64cb845d6622650ac886c.png",
+      "image": "1f67314c8fbcdc15a6792de800e06ded.png",
       "userAgent": "default",
       "desc": "ld-tabs focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8352,7 +8352,7 @@
     },
     {
       "id": "7bfdafa9",
-      "image": "6eaefa69ffb3063e7566fe78ee49a19a.png",
+      "image": "6af0532d8e4572520445c96cf3f50a3c.png",
       "userAgent": "default",
       "desc": "ld-tabs hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8365,7 +8365,7 @@
     },
     {
       "id": "5cb93c89",
-      "image": "22856d337ff0f77e669cbac8e552d785.png",
+      "image": "85f0a64aec420b07d2b36296d53736d1.png",
       "userAgent": "default",
       "desc": "ld-tabs hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8378,7 +8378,7 @@
     },
     {
       "id": "e66ed10f",
-      "image": "b91d4d217696aa686989ae1c72308680.png",
+      "image": "a8c0b841c1e92783e448ca4d0fffc74f.png",
       "userAgent": "default",
       "desc": "ld-tabs hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8391,7 +8391,7 @@
     },
     {
       "id": "8d23279d",
-      "image": "8de9b78a783354fdb56533755caf7dff.png",
+      "image": "4f5b296e6c84af21ccd10abd56e17e85.png",
       "userAgent": "default",
       "desc": "ld-tabs many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8404,7 +8404,7 @@
     },
     {
       "id": "26f970a4",
-      "image": "a0abc88aafd73c93277af806cda59e78.png",
+      "image": "9e5a4b613614e0626168f0701ba132ed.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8417,7 +8417,7 @@
     },
     {
       "id": "74213732",
-      "image": "f8dd4a05d267b202006a8301834b45d9.png",
+      "image": "1d35b6753dd3cb0a91d9ca5ec6c147e9.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8430,7 +8430,7 @@
     },
     {
       "id": "bec71f43",
-      "image": "53a3656716d620df50a30f67d576ad5d.png",
+      "image": "d156e9e37ac6c2dd5d00c4b8f0b8e008.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8443,7 +8443,7 @@
     },
     {
       "id": "9cd89398",
-      "image": "977808fad54722a9c8f5d1666593cd77.png",
+      "image": "f595ca615fe65e141caff375142dd65a.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8456,7 +8456,7 @@
     },
     {
       "id": "68fc006b",
-      "image": "ab13566bf30adc759a63e9df72bf7f2b.png",
+      "image": "a81d74f047abd1e75eeb9b1b166f2c80.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8469,7 +8469,7 @@
     },
     {
       "id": "9d2286ae",
-      "image": "53a3656716d620df50a30f67d576ad5d.png",
+      "image": "d156e9e37ac6c2dd5d00c4b8f0b8e008.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8482,7 +8482,7 @@
     },
     {
       "id": "463c3a2e",
-      "image": "9274f9469aaa1ddbcca6b114d57e4889.png",
+      "image": "fc29593ec92e6fa362c494f6fcc15dc6.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8495,7 +8495,7 @@
     },
     {
       "id": "be30d974",
-      "image": "2d3f742417b28e06f9c11123443298e9.png",
+      "image": "6f9df85aef3e4586b3791a645e9a8f84.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8508,7 +8508,7 @@
     },
     {
       "id": "5b37c37d",
-      "image": "802a7b340a28c92509dec0794ad9b90b.png",
+      "image": "da64bdcaa6e2cffdb6a80f4d0894b874.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8521,7 +8521,7 @@
     },
     {
       "id": "cb077e56",
-      "image": "053d0eeab87d1b015a715ec8035d4360.png",
+      "image": "584bc7cfa3002a7177924b58eac90dad.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8534,7 +8534,7 @@
     },
     {
       "id": "9f5e68dc",
-      "image": "0c8a6d080b84003a5dbb87ccd24883a7.png",
+      "image": "6eec6e24c3afb78627f616ff6bad0840.png",
       "userAgent": "default",
       "desc": "ld-tabs mode brand-color many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8547,7 +8547,7 @@
     },
     {
       "id": "b4286d39",
-      "image": "d4c2a6d4e101ae5c099e5b96de8a3540.png",
+      "image": "a07e1d13055f9070cd4a4ed81eb1dde5.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8560,7 +8560,7 @@
     },
     {
       "id": "8b10cb36",
-      "image": "bedf3424bd156daadf563acb31693b05.png",
+      "image": "9bf2c81458ee2ba718750d8a6176a6d3.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8573,7 +8573,7 @@
     },
     {
       "id": "7ba19f98",
-      "image": "134940b5dc89f54a1447d6d41c969272.png",
+      "image": "ddfe0b4a33a93b24604267489bf4c7f9.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8586,7 +8586,7 @@
     },
     {
       "id": "849f9c9a",
-      "image": "b44f43ec4be1d6c7ed324e4f30c6c9a1.png",
+      "image": "aab55145afbb9fd71efef7ff700ac0e6.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8599,7 +8599,7 @@
     },
     {
       "id": "56854b1f",
-      "image": "c16395418e2bd620d4487a2c9d9a41fe.png",
+      "image": "5c02dae12af366f28369de929f08a37a.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8612,7 +8612,7 @@
     },
     {
       "id": "72a1ba6c",
-      "image": "134940b5dc89f54a1447d6d41c969272.png",
+      "image": "ddfe0b4a33a93b24604267489bf4c7f9.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8625,7 +8625,7 @@
     },
     {
       "id": "495f0868",
-      "image": "21930ec5cebb452430119347f5259b28.png",
+      "image": "11a2a476cee0da2bb854279381fecde7.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8638,7 +8638,7 @@
     },
     {
       "id": "871f061e",
-      "image": "e70c0565641a0379fae9cf925dbee877.png",
+      "image": "31f9ea4d23c7d8cfcb6bf5fa321608af.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8651,7 +8651,7 @@
     },
     {
       "id": "23ad1045",
-      "image": "77cf386decc5c8a57d18f06f6e4a9988.png",
+      "image": "3a410b8a584f67139a1dbcde07bdb22e.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8664,7 +8664,7 @@
     },
     {
       "id": "8530dfb9",
-      "image": "8072144c73bfc63ae97e18e37922f816.png",
+      "image": "91a26b511ef5d84425a74dd7ff61f070.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8677,7 +8677,7 @@
     },
     {
       "id": "4b95e534",
-      "image": "2f9df7ef56f4a5197e09553b796d58ea.png",
+      "image": "a8bc6695c8b52f2f60f6b773d891061b.png",
       "userAgent": "default",
       "desc": "ld-tabs mode ghost many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8690,7 +8690,7 @@
     },
     {
       "id": "81432695",
-      "image": "5fcf881b65e9c480ef58594635dfefc3.png",
+      "image": "8fde2b0ef736cba7513fa21a563587eb.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded all",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8703,7 +8703,7 @@
     },
     {
       "id": "16ac09cd",
-      "image": "1a981971416c2bde519497b22bf09794.png",
+      "image": "67dae3339d48ff1b952e0728d11994b2.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded all-lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8716,7 +8716,7 @@
     },
     {
       "id": "a8b25514",
-      "image": "64c550f393bd515c28d939b9f47ec6b3.png",
+      "image": "ca3d9945522584ffa441dccc00793187.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded top",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8729,7 +8729,7 @@
     },
     {
       "id": "5d530a01",
-      "image": "939d7eab63322cdf1ca9457d3283c38d.png",
+      "image": "951ae02d1f941ae4b12d5c7bb3efe298.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded top-lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8742,7 +8742,7 @@
     },
     {
       "id": "094e2970",
-      "image": "3353dd346c2f1e175d8a96f86a01a92b.png",
+      "image": "9e8207eb3b8b03ffa4908ca2ad43e957.png",
       "userAgent": "default",
       "desc": "ld-tabs size size lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8755,7 +8755,7 @@
     },
     {
       "id": "e1f969f1",
-      "image": "638450c0d2df1ebacdae0dd65b23efd1.png",
+      "image": "ac05a43ffbcd8a5bf0c9bbf4353055dd.png",
       "userAgent": "default",
       "desc": "ld-tabs size size sm",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8768,7 +8768,7 @@
     },
     {
       "id": "3b38dae2",
-      "image": "f0fb22b4a4382dda2b440c1ab0bbb8dc.png",
+      "image": "134d35ab95eaf8b5b09b757c8dd8fd1d.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon and text size lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8781,7 +8781,7 @@
     },
     {
       "id": "2a447e97",
-      "image": "b1be54e495c067e47efe6ffb0f9a9b9d.png",
+      "image": "a97645ae440ba788de64fc172c5baa1f.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon and text size sm",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8794,7 +8794,7 @@
     },
     {
       "id": "17c9a80b",
-      "image": "2c3e48fa1d42e0b4f7d7e5f2340d3561.png",
+      "image": "3a0bee0bc3d78c5dbfe9c84a28885dba.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon only size lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -8807,7 +8807,7 @@
     },
     {
       "id": "087691c1",
-      "image": "fde12c7158d52448086e828a9357dfcb.png",
+      "image": "4f883d1a5793138ab6121805964af7e2.png",
       "userAgent": "default",
       "desc": "ld-tabs with icons icon only size sm",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
