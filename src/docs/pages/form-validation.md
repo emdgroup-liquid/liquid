@@ -11,7 +11,7 @@ permalink: introduction/form-validation/
 
 # Form validation
 
-Liquid Oxygen wants to make integrating form components with forms and form validation libraries as easy as possible. There are mainly three possible ways of accessing the values of form-related components:
+Liquid Oxygen aims to make integrating form components with forms and form validation libraries as easy as possible. There are mainly three possible ways of accessing the values of form-related components:
 
 - Integrating the Web Components with an associated `<form>` element and accessing their values using the `FormData` of the form
 - Directly accessing the props of a Web Component
@@ -19,7 +19,7 @@ Liquid Oxygen wants to make integrating form components with forms and form vali
 
 ## Form association
 
-There are two ways of associating a form-related with an existing `<form>` element:
+There are two ways of associating a form-related Web Component with an existing `<form>` element:
 
 ```js
 // Using the form prop
@@ -103,7 +103,7 @@ ${key}: ${value}`
 
 ## Accessing props
 
-Accessing props works just as it would with native input elements. The props that a Liquid Oxygen component holds its content in can be found on the component's documentation page.
+Accessing props works just as it would with native input elements. The props, which allow you to access component-specific values, are documented in each component's documentation page.
 
 ### Example
 
