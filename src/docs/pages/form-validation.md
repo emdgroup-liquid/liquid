@@ -165,7 +165,7 @@ ${selectField2.name}: ${selectField2.selected[0].value} (${selectField2.selected
 
 ## Using event details
 
-Accessing props works just as it would with native input elements. The props that a Liquid Oxygen component holds its content in can be found on the component's documentation page.
+Custom events dispatched by Liquid Oxygen Web Components contain the relevant information about the component's state in their `detail` attribute. It's an easy way of accessing the current value of an input without having to access the props of the component itself.
 
 ### Example
 
