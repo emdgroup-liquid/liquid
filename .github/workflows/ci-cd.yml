@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
@@ -24,7 +24,9 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn set version stable
+          yarn install --frozen-lockfile
 
       - name: Build
         run: npm run build
@@ -109,16 +111,20 @@ jobs:
 
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 17
           registry-url: https://registry.npmjs.org/
 
       - name: Install
-        run: yarn config delete proxy && yarn config delete https-proxy && yarn install --frozen-lockfile --network-timeout 100000
+        run: |
+          yarn config delete proxy
+          yarn config delete https-proxy
+          yarn set version stable
+          yarn install --frozen-lockfile --network-timeout 100000
         env:
           CI: true
 
