@@ -27,7 +27,7 @@ export class LdTabs {
   /**
    * Emitted with the id of the selected tab.
    */
-  @Event() tabChange: EventEmitter<string>
+  @Event() ldtabchange: EventEmitter<string>
 
   private idDescriber = `ld-tabs-${tabsCount++}`
 
@@ -57,12 +57,12 @@ export class LdTabs {
       ?.removeAttribute('hidden')
   }
 
-  private handleTabSelect(ev) {
+  private handleLdtabselect = (ev: CustomEvent<undefined>) => {
     ev.stopImmediatePropagation()
-    const currentLdTab = ev.target
+    const currentLdTab = ev.target as HTMLLdTabElement
     this.updateTabs(currentLdTab)
     this.updateTabPanels(currentLdTab.id)
-    this.tabChange.emit(currentLdTab.id)
+    this.ldtabchange.emit(currentLdTab.id)
   }
 
   /** Set selected tab to a certain index */
@@ -109,7 +109,7 @@ export class LdTabs {
 
   render() {
     return (
-      <Host onTabSelect={this.handleTabSelect.bind(this)} class="ld-tabs">
+      <Host onLdtabselect={this.handleLdtabselect} class="ld-tabs">
         <slot></slot>
       </Host>
     )

@@ -430,6 +430,12 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 </div>
 {% endexample %}
 
+### Input validation
+
+The `ld-toggle` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
+
+> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
+
 <!-- Auto Generated Below -->
 
 
@@ -453,11 +459,19 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 | `value`        | `value`         | The input value.                                                               | `string`           | `undefined` |
 
 
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
+
+
 ## Methods
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the toggle
+Sets focus on the toggle.
 
 #### Returns
 

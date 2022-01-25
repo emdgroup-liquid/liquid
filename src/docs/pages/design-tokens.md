@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Design tokens
   parent: Introduction
-  order: 9
+  order: 11
 layout: layout.njk
 title: Design tokens
 permalink: introduction/design-tokens/

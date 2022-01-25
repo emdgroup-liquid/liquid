@@ -52,7 +52,7 @@ export class LdTab implements InnerFocusable {
   /**
    * Emitted with the id of the selected tab.
    */
-  @Event() tabSelect: EventEmitter<string>
+  @Event() ldtabselect: EventEmitter<undefined>
 
   private handleTabClick(event: MouseEvent) {
     event.preventDefault()
@@ -64,7 +64,7 @@ export class LdTab implements InnerFocusable {
   emitEvent(newSelected: boolean, oldSelected: boolean) {
     if (!newSelected || newSelected === oldSelected) return
 
-    this.tabSelect.emit()
+    this.ldtabselect.emit()
   }
 
   /** Set selected tab to a certain index */

@@ -225,7 +225,7 @@ You should try to avoid using tab bars with more than five tab items. But if you
 
 ## Events
 
-The `ld-tabs` component emits the `tabChange` event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.
+The `ld-tabs` component emits the `ldtabchange` event which you can use to bind custom event handlers. The event is only emmitted on clicks on non-disabled and non-selected tabs.
 
 {% example %}
 <ld-tabs id="tabs_events">
@@ -238,7 +238,7 @@ The `ld-tabs` component emits the `tabChange` event which you can use to bind cu
 </ld-tabs>
 
 <script>
-  document.getElementById('tabs_events').addEventListener('tabChange', ev => {
+  document.getElementById('tabs_events').addEventListener('ldtabchange', ev => {
     window.alert(`Current tab index is: ${ev.detail}`)
   })
 </script>
@@ -340,9 +340,9 @@ There are two ways to programmatically select a tab:
 
 ## Events
 
-| Event       | Description                              | Type                  |
-| ----------- | ---------------------------------------- | --------------------- |
-| `tabChange` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+| Event         | Description                              | Type                  |
+| ------------- | ---------------------------------------- | --------------------- |
+| `ldtabchange` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
 
 
 ## Methods

@@ -56,7 +56,9 @@ describe('ld-toggle', () => {
     expect(ldToggle.checked).toBe(true)
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur events', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
       html: `<ld-toggle></ld-toggle>`,
@@ -64,26 +66,94 @@ describe('ld-toggle', () => {
     const ldToggle = page.root
     const input = ldToggle.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
+    const focusHandler = jest.fn()
+    ldToggle.addEventListener('focus', focusHandler)
+    input.dispatchEvent(
+      new FocusEvent('focus', { bubbles: true, composed: true })
+    )
+    expect(focusHandler).toHaveBeenCalled()
 
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldToggle.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
+    const blurHandler = jest.fn()
+    ldToggle.addEventListener('blur', blurHandler)
+    input.dispatchEvent(
+      new FocusEvent('blur', { bubbles: true, composed: true })
+    )
+    expect(blurHandler).toHaveBeenCalled()
+  })
 
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldToggle.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+  it('emits change and ldchange events', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+
+    ldToggle.addEventListener('change', changeHandler)
+    ldToggle.addEventListener('ldchange', ldchangeHandler)
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldToggle.addEventListener('input', inputHandler)
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(inputHandler).toHaveBeenCalled()
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldToggle.addEventListener('ldinput', ldinputHandler)
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(ldinputHandler).toHaveBeenCalled()
+  })
+
+  it('emits events on programmatic click', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldToggle.addEventListener('change', changeHandler)
+    ldToggle.addEventListener('ldchange', ldchangeHandler)
+    ldToggle.addEventListener('input', inputHandler)
+    ldToggle.addEventListener('ldinput', ldinputHandler)
+    ldToggle.click()
+
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(inputHandler).toHaveBeenCalled()
+    expect(ldinputHandler).toHaveBeenCalled()
   })
 
   it('prevents input value changes with an aria-disabled attribute', async () => {

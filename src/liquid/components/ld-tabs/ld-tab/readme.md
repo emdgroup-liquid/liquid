@@ -32,9 +32,9 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ## Events
 
-| Event       | Description                              | Type                  |
-| ----------- | ---------------------------------------- | --------------------- |
-| `tabSelect` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+| Event         | Description                              | Type                     |
+| ------------- | ---------------------------------------- | ------------------------ |
+| `ldtabselect` | Emitted with the id of the selected tab. | `CustomEvent<undefined>` |
 
 
 ## Methods

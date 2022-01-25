@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -66,6 +68,12 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() value: string
 
   @State() clonedAttributes
+
+  /** Emitted when the input value changed and the element loses focus. */
+  @Event() ldchange: EventEmitter<boolean>
+
+  /** Emitted when the input value changed. */
+  @Event() ldinput: EventEmitter<boolean>
 
   /** Sets focus on the radio button. */
   @Method()
@@ -139,16 +147,9 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
     }
   }
 
-  private handleBlur = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
-  }
-
-  private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+  private handleChange = (event: InputEvent) => {
+    this.el.dispatchEvent(new InputEvent('change', event))
+    this.ldchange.emit(this.checked)
   }
 
   private handleClick = (ev?: MouseEvent) => {
@@ -175,9 +176,16 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
       // This happens, when a click event is dispatched on the host element
       // from the outside i.e. on click on a parent ld-label element.
       this.el.dispatchEvent(
-        new Event('input', { bubbles: true, composed: true })
+        new InputEvent('input', { bubbles: true, composed: true })
       )
+      this.handleInput()
+      this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+      this.ldchange.emit(this.checked)
     }
+  }
+
+  private handleInput = () => {
+    this.ldinput.emit(this.checked)
   }
 
   private focusAndSelect(dir: 'next' | 'prev') {
@@ -238,8 +246,8 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
         <input
           {...this.clonedAttributes}
           part="input focusable"
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
           type="radio"

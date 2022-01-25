@@ -89,10 +89,7 @@ export class LdSelect implements InnerFocusable {
   /** A Boolean attribute indicating that an option with a non-empty string value must be selected. */
   @Prop() required?: boolean
 
-  /**
-   * Currently selected option(s)
-   * @internal
-   */
+  /** Currently selected option(s) (read only!) */
   @Prop({ mutable: true }) selected: SelectOption[] = []
 
   /** Size of the select trigger button. */
@@ -511,7 +508,7 @@ export class LdSelect implements InnerFocusable {
     this.updatePopperShadowHeight()
   }
 
-  @Listen('ldOptionSelect', { target: 'window', passive: true })
+  @Listen('ldoptionselect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
     const target = ev.target as HTMLElement
 
