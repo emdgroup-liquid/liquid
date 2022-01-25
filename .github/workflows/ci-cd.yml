@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn set version latest
+          yarn set version 3.x
           yarn install --frozen-lockfile
 
       - name: Build
