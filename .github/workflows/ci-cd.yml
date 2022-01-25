@@ -24,7 +24,9 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn set version latest
+          yarn install --frozen-lockfile
 
       - name: Build
         run: npm run build
