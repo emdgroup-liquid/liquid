@@ -138,10 +138,11 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
 
   @State() clonedAttributes
 
-  /**
-   * Emitted when the input value changed and the element loses focus.
-   */
+  /** Emitted when the input value changed and the element loses focus. */
   @Event() ldchange: EventEmitter<string>
+
+  /** Emitted when the input value changed. */
+  @Event() ldinput: EventEmitter<string>
 
   /**
    * Sets focus on the input
@@ -288,11 +289,12 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   private handleInput = (ev: InputEvent) => {
     if (this.input.getAttribute('aria-disabled') === 'true') {
       ev.stopImmediatePropagation()
-    } else {
-      this.value = this.input.value
+      this.input.value = this.value ?? ''
       return
     }
-    this.input.value = this.value ?? ''
+
+    this.value = this.input.value
+    this.ldinput.emit(this.value)
   }
 
   private handleClick = (ev: MouseEvent) => {
@@ -307,11 +309,10 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
 
     if (target.closest('ld-button')) return
 
+    this.input.focus()
+
     if (target === this.el) {
-      this.input.focus()
-      this.input.dispatchEvent(new window.Event('click', { bubbles: false }))
-    } else {
-      this.input.focus()
+      this.input.dispatchEvent(new MouseEvent('click', { bubbles: false }))
     }
   }
 

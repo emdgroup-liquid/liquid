@@ -977,6 +977,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | Event      | Description                                                       | Type                  |
 | ---------- | ----------------------------------------------------------------- | --------------------- |
 | `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<string>` |
 
 
 ## Methods

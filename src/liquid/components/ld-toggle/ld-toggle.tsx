@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -72,9 +74,13 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
 
   @State() clonedAttributes
 
-  /**
-   * Sets focus on the toggle
-   */
+  /** Emitted when the input value changed and the element loses focus. */
+  @Event() ldchange: EventEmitter<boolean>
+
+  /** Emitted when the input value changed. */
+  @Event() ldinput: EventEmitter<boolean>
+
+  /** Sets focus on the toggle. */
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
@@ -129,16 +135,9 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
     this.el.appendChild(this.hiddenInput)
   }
 
-  private handleBlur = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
-  }
-
-  private handleFocus = (event: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(event)
-    })
+  private handleChange = (event: InputEvent) => {
+    this.el.dispatchEvent(new InputEvent('change', event))
+    this.ldchange.emit(this.checked)
   }
 
   private handleClick = (event: MouseEvent) => {
@@ -148,7 +147,21 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
     }
 
     this.checked = !this.checked
-    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
+
+    if (!event.isTrusted) {
+      // This happens, when a click event is dispatched on the host element
+      // from the outside i.e. on click on a parent ld-label element.
+      this.el.dispatchEvent(
+        new InputEvent('input', { bubbles: true, composed: true })
+      )
+      this.handleInput()
+      this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+      this.ldchange.emit(this.checked)
+    }
+  }
+
+  private handleInput = () => {
+    this.ldinput.emit(this.checked)
   }
 
   componentWillLoad() {
@@ -200,8 +213,8 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
           aria-disabled={this.ariaDisabled}
           checked={this.checked}
           disabled={this.disabled}
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
           part="input focusable"
           ref={(ref) => (this.input = ref)}
           required={this.required}

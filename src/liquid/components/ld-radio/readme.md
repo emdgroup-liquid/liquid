@@ -306,6 +306,14 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 | `value`      | `value`       | The input value.                                                            | `string`                  | `undefined` |
 
 
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
+
+
 ## Methods
 
 ### `focusInner() => Promise<void>`

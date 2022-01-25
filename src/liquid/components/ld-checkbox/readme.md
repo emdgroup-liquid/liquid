@@ -601,11 +601,19 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `value`         | `value`         | The input value.                                                                                                                                                                     | `string`                  | `undefined` |
 
 
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
+
+
 ## Methods
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the checkbox
+Sets focus on the checkbox.
 
 #### Returns
 
