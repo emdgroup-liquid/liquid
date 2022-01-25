@@ -1,5 +1,4 @@
 require('dotenv').config()
-const fetch = require('node-fetch')
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
@@ -95,6 +94,7 @@ module.exports = function (eleventyConfig) {
 
       let commits
       try {
+        const fetch = await import('node-fetch')
         const res = await fetch(
           `https://api.github.com/repos/emdgroup-liquid/liquid/commits?path=${path}`,
           {
