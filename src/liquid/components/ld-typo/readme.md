@@ -415,11 +415,13 @@ Here are some examples on how you can apply different colors on headings:
 ### Used by
 
  - [ld-header](../ld-header)
+ - [ld-notice](../ld-notice)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-header --> ld-typo
+  ld-notice --> ld-typo
   style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
