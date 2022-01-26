@@ -1,5 +1,6 @@
 :host,
 :where(.ld-icon) {
+  --ld-icon-secondary-col: var(--ld-col-wht);
   --ld-icon-size-sm: 1rem;
   --ld-icon-size-md: 1.25rem;
   --ld-icon-size-lg: 1.5rem;

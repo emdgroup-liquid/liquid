@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-notice renders default 1`] = `
+<ld-notice class="ld-notice ld-notice--info">
+  <mock:shadow-root>
+    <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-notice>
+`;
+
+exports[`ld-notice renders with headline 1`] = `
+<ld-notice class="ld-notice ld-notice--info">
+  <mock:shadow-root>
+    <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+    <ld-typo class="ld-notice__headline" part="headline" tag="p" variant="h4">
+      Headline
+    </ld-typo>
+    <slot></slot>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-notice>
+`;
+
+exports[`ld-notice renders with mode 1`] = `
+<ld-notice class="ld-notice ld-notice--error">
+  <mock:shadow-root>
+    <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-notice>
+`;
