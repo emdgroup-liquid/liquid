@@ -1,8 +1,8 @@
 :host,
 .ld-notice {
-  --ld-notice-error-text-col: var(--ld-thm-error);
-  --ld-notice-info-text-col: var(--ld-thm-primary);
-  --ld-notice-warning-text-col: var(--ld-thm-warning);
+  --ld-notice-error-icon-col: var(--ld-thm-error);
+  --ld-notice-info-icon-col: var(--ld-thm-primary);
+  --ld-notice-warning-icon-col: var(--ld-thm-warning);
 
   align-items: baseline;
   border-radius: var(--ld-br-l);
@@ -18,11 +18,9 @@
 
 :host(.ld-notice--error),
 .ld-notice--error {
-  background: var(--ld-thm-error-highlight);
-  
   .ld-notice__icon,
   .ld-notice__headline {
-    color: var(--ld-notice-error-text-col);
+    color: var(--ld-notice-error-icon-col);
   }
 
   .ld-notice__icon {
@@ -32,12 +30,9 @@
 
 :host(.ld-notice--info),
 .ld-notice--info {
-  .ld-notice__icon {
-    color: var(--ld-notice-info-text-col);
-  }
-
+  .ld-notice__icon,
   .ld-notice__headline {
-    color: var(--ld-notice-info-text-col);
+    color: var(--ld-notice-info-icon-col);
   }
 }
 
@@ -46,8 +41,8 @@
   background: var(--ld-thm-warning-highlight);
 
   .ld-notice__icon {
-    color: var(--ld-notice-warning-text-col);
     --ld-icon-secondary-col: var(--ld-col-neutral-900);
+    color: var(--ld-notice-warning-icon-col);
   }
 
   .ld-notice__headline {

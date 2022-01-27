@@ -6064,7 +6064,7 @@
     },
     {
       "id": "ad43b06f",
-      "image": "b728c4848c1c23bbd81f8c6190c101f3.png",
+      "image": "8b91e83528f3d3980c313baa9a0a6ad5.png",
       "userAgent": "default",
       "desc": "ld-notice css component with headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6103,7 +6103,7 @@
     },
     {
       "id": "eba9d27f",
-      "image": "763136d88f532b45b203aaea6c0cdd76.png",
+      "image": "81d94be4776f4c6c42998787b881a53e.png",
       "userAgent": "default",
       "desc": "ld-notice css component without headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6142,7 +6142,7 @@
     },
     {
       "id": "d21736c2",
-      "image": "b728c4848c1c23bbd81f8c6190c101f3.png",
+      "image": "8b91e83528f3d3980c313baa9a0a6ad5.png",
       "userAgent": "default",
       "desc": "ld-notice web component with headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6181,7 +6181,7 @@
     },
     {
       "id": "449daf7a",
-      "image": "763136d88f532b45b203aaea6c0cdd76.png",
+      "image": "81d94be4776f4c6c42998787b881a53e.png",
       "userAgent": "default",
       "desc": "ld-notice web component without headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
