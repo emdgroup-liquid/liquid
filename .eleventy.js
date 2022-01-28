@@ -94,7 +94,7 @@ module.exports = function (eleventyConfig) {
 
       let commits
       try {
-        const fetch = await import('node-fetch')
+        const fetch = (await import('node-fetch')).default
         const res = await fetch(
           `https://api.github.com/repos/emdgroup-liquid/liquid/commits?path=${path}`,
           {
