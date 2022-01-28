@@ -33,7 +33,7 @@ export class DocsPickTheme {
 
             <ld-select
               class="docs-pick-theme__select"
-              onInput={this.handleChange.bind(this)}
+              onLdchange={this.handleChange.bind(this)}
               preventDeselection
               mode="ghost"
               tetherOptions={JSON.stringify({
