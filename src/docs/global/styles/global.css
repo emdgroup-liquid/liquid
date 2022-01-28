@@ -16,11 +16,6 @@
   body::before {
     background-color: var(--ld-col-neutral-800);
   }
-
-  .ld-notice:where(:not(.docs-ui-light *):not(.docs-example__show *)) {
-    box-shadow: none;
-    filter: hue-rotate(180deg) invert(0.85);
-  }
 }
 
 @mixin docs-ui-light;
