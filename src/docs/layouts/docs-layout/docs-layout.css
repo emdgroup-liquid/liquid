@@ -34,8 +34,6 @@ body {
   font-family: var(--ld-font-body);
   display: flex;
   min-height: 100vh;
-  position: relative;
-  z-index: 0;
 
   &.hydrated {
     visibility: visible !important;
