@@ -959,6 +959,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.16.1
     "@typescript-eslint/parser": ^4.16.1
     axe-core: ^4.3.5
+    cheerio: ^1.0.0-rc.10
     chokidar-cli: ^2.1.0
     cssnano: ^4.1.10
     dotenv-cli: ^4.0.0
@@ -976,6 +977,7 @@ __metadata:
     jest-cli: ^26.6.3
     lint-staged: ^10.5.4
     live-server: ^1.2.1
+    lodash.memoize: ^4.1.2
     markdown-it-anchor: ^7.1.0
     markdown-it-replace-link: ^1.1.0
     mutation-observer: ^1.0.3

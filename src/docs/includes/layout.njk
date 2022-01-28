@@ -28,7 +28,7 @@ title: Introduction
               title: '{{ item.data.title or item.data.renderData.title }}',
               tags: '{{ item.data.tags }}',
               url: '{{ env.base }}{{ item.url }}',
-              headings: '{{ item.data.content | toc | safe | striptags(true) }}',
+              headings: '{{ item.data.content | memoizedHeadings }}',
               breadcrumbs: [
                 {% set navPages = collections.all | eleventyNavigationBreadcrumb(item.data.title or item.data.renderData.title) %}
                 {% macro renderBreadcrumb(entry) %}
