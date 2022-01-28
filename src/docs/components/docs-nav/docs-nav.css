@@ -125,6 +125,7 @@
   overflow: hidden auto;
   z-index: 2;
   flex-shrink: 0;
+  pointer-events: none;
 
   &::before {
     content: '';
@@ -152,6 +153,7 @@
 }
 
 .docs-nav__content {
+  pointer-events: all;
   bottom: 0;
   height: calc(100% - var(--docs-topbar-height));
   overflow: hidden auto;
