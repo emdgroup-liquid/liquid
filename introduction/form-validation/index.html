@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1695,9 +1726,9 @@
 <h2 id="form-association">Form association <a class="header-anchor" href="introduction/form-validation/#form-association"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>There are two ways of associating a form-related Web Component with an existing <code>&lt;form&gt;</code> element:</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// Using the form prop</span><br><span class="token operator">&lt;</span>form id<span class="token operator">=</span><span class="token string">"registrationForm"</span> <span class="token operator">/</span><span class="token operator">></span><br><span class="token operator">&lt;</span>ld<span class="token operator">-</span>input form<span class="token operator">=</span><span class="token string">"registrationForm"</span> name<span class="token operator">=</span><span class="token string">"firstName"</span> <span class="token operator">/</span><span class="token operator">></span><br><br><span class="token comment">// or wrapping it with a form element</span><br><span class="token operator">&lt;</span>form<span class="token operator">></span><br>  <span class="token operator">&lt;</span>ld<span class="token operator">-</span>input name<span class="token operator">=</span><span class="token string">"firstName"</span> <span class="token operator">/</span><span class="token operator">></span><br><span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span></code></pre>
-<blockquote>
-<p>To make the Web Component accessible via the <code>FormData</code> of the <code>&lt;form&gt;</code> element, the <code>name</code> prop of the component has to be set.</p>
-</blockquote>
+<ld-notice mode="warning">
+  To make the Web Component accessible via the <code>FormData</code> of the <code>&lt;form&gt;</code> element, the <code>name</code> prop of the component has to be set.
+</ld-notice>
 <p>If a form-related component is associated with a form in one of the above ways, the component's current value can be accessed using the form itself like it would be the case for a native <code>&lt;input&gt;</code> element.</p>
 <h3 id="example">Example <a class="header-anchor" href="introduction/form-validation/#example"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cform%20name%3D%22registrationForm1%22%20style%3D%22display%3Aflex%3Balign-items%3Acenter%22%3E%0A%20%20%3Cld-label%3E%0A%20%20%20%20First%20Name*%0A%20%20%20%20%3Cld-input%20name%3D%22firstName%22%20placeholder%3D%22Jane%20Doe%22%20required%3E%3C%2Fld-input%3E%0A%20%20%20%20%3Cld-input-message%20style%3D%22visibility%3Ahidden%22%3EThis%20field%20is%20required.%3C%2Fld-input-message%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-button%20style%3D%22margin%3A-0.3rem%200%200%201rem%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fform%3E%0A%0A%3Cscript%3E%0A%20%20const%20form%20%3D%20document.registrationForm1%0A%20%20const%20inputField1%20%3D%20form.querySelector('ld-input')%0A%20%20const%20inputMessage1%20%3D%20form.querySelector('ld-input-message')%0A%0A%20%20function%20validateInput1()%20%7B%0A%20%20%20%20const%20formData%20%3D%20new%20FormData(form)%0A%0A%20%20%20%20if%20(!formData.get('firstName'))%20%7B%0A%20%20%20%20%20%20inputField1.invalid%20%3D%20true%0A%20%20%20%20%20%20inputMessage1.style.visibility%20%3D%20'inherit'%0A%20%20%20%20%20%20return%20false%0A%20%20%20%20%7D%0A%0A%20%20%20%20inputField1.invalid%20%3D%20false%0A%20%20%20%20inputMessage1.style.visibility%20%3D%20'hidden'%0A%20%20%20%20return%20true%0A%20%20%7D%0A%0A%20%20inputField1.addEventListener('input'%2C%20validateInput1)%0A%0A%20%20inputField1.addEventListener('blur'%2C%20validateInput1)%0A%0A%20%20function%20getValues()%20%7B%0A%20%20%20%20const%20formData%20%3D%20new%20FormData(form)%0A%20%20%20%20let%20values%20%3D%20''%3B%0A%0A%20%20%20%20formData.forEach((value%2C%20key)%20%3D%3E%20%7B%0A%20%20%20%20%20%20values%20%2B%3D%20%60%0A%24%7Bkey%7D%3A%20%24%7Bvalue%7D%60%0A%20%20%20%20%7D)%0A%0A%20%20%20%20return%20values%0A%20%20%7D%0A%0A%20%20form.addEventListener('submit'%2C%20event%20%3D%3E%20%7B%0A%20%20%20%20event.preventDefault()%0A%20%20%20%20const%20isValid%20%3D%20validateInput1()%0A%20%20%20%20const%20values%20%3D%20getValues()%0A%0A%20%20%20%20%2F%2F%20setTimeout%20is%20used%20in%20order%20to%20let%20the%20style%20update%20before%20showing%20the%20alert.%0A%20%20%20%20%2F%2F%20You%20can%20probably%20dismiss%20the%20timeout%2C%20if%20you're%20using%20a%20UI%20framework%20like%20React%20or%20Vue.%0A%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20if%20(isValid)%20%7B%0A%20%20%20%20%20%20%20%20window.alert(%60Form%20submitted.%20FormData%3A%24%7Bvalues%7D%60)%0A%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20window.alert('Form%20is%20invalid.')%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%20100)%0A%20%20%7D)%0A%3C%2Fscript%3E"  opened themable has-padding>

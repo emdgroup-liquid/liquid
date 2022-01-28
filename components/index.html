@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1686,19 +1717,9 @@
 <p>If you do not find a component that you need within Liquid, it may be because it has not been implemented yet. In that case it is either already listed in our <a href="components/#feature-backlog">feature backlog</a>, and you can upvote or comment on the respective issue, or it has not been added to the backlog yet, and you can <a href="components/#submitting-a-feature-request">create a feature request</a> yourself.</p>
 <h2 id="feature-backlog">Feature backlog <a class="header-anchor" href="components/#feature-backlog"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>We manage our <a href="https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature">feature backlog on GitHub</a> and prioritise issues based on upvotes. Upvote the top comment of an issue with 👍 if you want that feature to be prioritised higher. To request a new feature, please <a href="components/#submitting-a-feature-request">submit a feature request</a>.</p>
-<!-- TODO: Replace with <ld-message /> component, as soon as it exists. -->
-<style>
-  #before-blue-info-box + blockquote {
-    background: var(--ld-thm-primary-highlight);
-    border-color: var(--ld-thm-primary);
-    color: var(--ld-thm-primary-active);
-  }
-</style>
-<div id="before-blue-info-box"></div>
-<blockquote>
-<h1 id="submitting-a-feature-request"><strong>Submitting a feature request</strong> <a class="header-anchor" href="components/#submitting-a-feature-request"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>If you have a suggestion for a new component not listed in the <a href="components/#feature-backlog">feature backlog</a> or would like to suggest a new feature for an existing component, you can create a <a href="https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md">feature request on GitHub</a>. Please read our <a href="https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features">contributing guidelines on submitting feature requests</a> before submitting your first request.</p>
-</blockquote>
+<ld-notice headline="Submitting a feature request">
+  If you have a suggestion for a new component not listed in the <a href="components/#feature-backlog">feature backlog</a> or would like to suggest a new feature for an existing component, you can create a <a href="https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md" rel="noreferrer noopener" target="_blank">feature request on GitHub</a>. Please read our <a href="https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features" rel="noreferrer noopener" target="_blank">contributing guidelines on submitting feature requests</a> before submitting your first request.
+</ld-notice>
 <h2 id="milestones">Milestones <a class="header-anchor" href="components/#milestones"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>To give you an overview when to expect new features, we are using <a href="https://github.com/emdgroup-liquid/liquid/milestones">GitHub milestones</a>. All milestones are tied to a due date giving you an orientation on the estimated time of arrival for the new features that are assigned to these milestones. If you want to know about when to expect a certain feature that is no longer labeled as <strong>needed: votes</strong> and you can't find it in any of the existing milestones, please feel free to reach out to us by leaving a comment in the feature request issue or using our <a href="https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&amp;tenantId=db76fb59-a377-4120-bc54-59dead7d39c9">Teams channel</a>.</p>
 

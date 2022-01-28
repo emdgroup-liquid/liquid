@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1695,9 +1726,9 @@
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br><span class="token keyword">const</span> <span class="token function-variable function">handleLdchange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'ldchange'</span><span class="token punctuation">,</span> handleLdchange<span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="react">React <a class="header-anchor" href="introduction/event-handling/#react"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">MyApp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> handleLdchange <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">onLdchange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleLdchange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br><span class="token punctuation">}</span></code></pre>
-<blockquote>
-<p><strong>Note:</strong> React usually triggers event handlers set with the <code>onChange</code> prop differently than browsers actually handle <code>change</code> events. Event handlers set with the <code>onChange</code> prop usually are invoked everytime the element's value changes in React, while by definition the <code>change</code> event is only dispatched after the element loses focus.<br/><br/>Liquid Oxygen components stick to that browser default behavior and only dispatch the <code>ldchange</code>/<code>change</code> events after an element loses focus. Thus, you cannot expect an event handler set neither via <code>onLdchange</code> nor <code>onChange</code> to be invoked everytime the value changes. If you want that, the <code>input</code> event is exactly what you're looking for, so please use the <code>onInput</code> prop in these cases, instead. (There is no custom <code>ldinput</code> event, as the <code>input</code> event is a composed native event that bubbles into the light DOM.)</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  React usually triggers event handlers set with the <code>onChange</code> prop differently than browsers actually handle <code>change</code> events. Event handlers set with the <code>onChange</code> prop usually are invoked everytime the element's value changes in React, while by definition the <code>change</code> event is only dispatched after the element loses focus.<br/><br/>Liquid Oxygen components stick to that browser default behavior and only dispatch the <code>ldchange</code>/<code>change</code> events after an element loses focus. Thus, you cannot expect an event handler set neither via <code>onLdchange</code> nor <code>onChange</code> to be invoked everytime the value changes. If you want that, the <code>input</code> event is exactly what you're looking for, so please use the <code>onInput</code> prop in these cases, instead. (There is no custom <code>ldinput</code> event, as the <code>input</code> event is a composed native event that bubbles into the light DOM.)
+</ld-notice>
 <p><docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Form validation" next-href="introduction/form-validation/"></docs-page-nav></p>
 
       

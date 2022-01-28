@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1691,9 +1722,9 @@
 <h2 id="how-it-works">How it works <a class="header-anchor" href="components/ld-sr-live/#how-it-works"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Add the component to your application, preferably close after the opening <code>&lt;body&gt;</code> tag. The component is invisible as it uses the <a href="components/ld-sr-only/"><code>ld-sr-only</code> class</a>. It listens to two <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">custom events</a> on the <code>window</code>, the <code>ldSrLiveInfo</code> and the <code>ldSrLiveAlert</code> event. As soon as one of those events reaches the <code>window</code>, the component updates the content of one of two contained <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions"><code>aria-live</code> reagions</a>, either the one with <code>role=&quot;status&quot;</code> or the one with <code>role=&quot;alert&quot;</code>, depending on the event. For the content it uses the value of <code>event.detail</code>. The &quot;politeness setting&quot; is set to <code>polite</code>, meaning that the screen reader delays new messages until it has finished announcing the current ones. Here is an example on how you can trigger an event including an info message that will be spoken by a screen reader:</p>
 <pre class="language-js"><code class="language-js"><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">'ldSrLiveInfo'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  detail<span class="token operator">:</span> <span class="token string">'Session expired. You have been logged out.'</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p><strong>Note</strong>: You should not use more than one <code>ld-sr-live</code> component in your app. It acts like a speaker to whome you give a bunch of sentences to speak, and it wouldn't make much sense to have multiple speakers talking at the same time, would it? Technically a screen reader would not speak more than one sentence at a time anyway, no matter how many <code>aria-live</code> regions you use. Though you can of course use additional <code>aria-live</code> regions, if it makes sense for your application.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You should not use more than one <code>ld-sr-live</code> component in your app. It acts like a speaker to whome you give a bunch of sentences to speak, and it wouldn't make much sense to have multiple speakers talking at the same time, would it? Technically a screen reader would not speak more than one sentence at a time anyway, no matter how many <code>aria-live</code> regions you use. Though you can of course use additional <code>aria-live</code> regions, if it makes sense for your application.
+</ld-notice>
 <h2 id="example">Example <a class="header-anchor" href="components/ld-sr-live/#example"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>You can test the component in the following example (obviously you'll need to turn on a screen reader of your choice in order to hear the announcements):</p>
 <docs-example code="%3Cstyle%3E%0A%23form-info%2C%0A%23form-alert%20%7B%0A%20%20display%3A%20grid%3B%0A%20%20grid-auto-flow%3A%20column%3B%0A%20%20align-items%3A%20flex-end%3B%0A%20%20grid-gap%3A%201rem%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cld-sr-live%3E%3C%2Fld-sr-live%3E%0A%0A%3Cform%20id%3D%22form-info%22%3E%0A%20%20%3Cld-label%3E%0A%20%20%20%20Info%20message%0A%20%20%20%20%3Cld-input%20id%3D%22input-info%22%3E%3C%2Fld-input%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-button%20type%3D%22submit%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fform%3E%0A%0A%3Cform%20id%3D%22form-alert%22%3E%0A%20%20%3Cld-label%3E%0A%20%20%20%20Alert%20message%0A%20%20%20%20%3Cld-input%20id%3D%22input-alert%22%3E%3C%2Fld-input%3E%0A%20%20%3C%2Fld-label%3E%0A%20%20%3Cld-button%20type%3D%22submit%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fform%3E%0A%0A%3Cscript%3E%0Aconst%20formInfo%20%3D%20document.getElementById('form-info')%0Aconst%20inputInfo%20%3D%20document.getElementById('input-info')%0AformInfo.addEventListener('submit'%2C%20ev%20%3D%3E%20%7B%0A%20%20ev.preventDefault()%0A%20%20dispatchEvent(new%20CustomEvent('ldSrLiveInfo'%2C%20%7B%0A%20%20%20%20detail%3A%20inputInfo.value%20%7C%7C%20''%0A%20%20%7D))%0A%7D)%0A%0Aconst%20formAlert%20%3D%20document.getElementById('form-alert')%0Aconst%20inputAlert%20%3D%20document.getElementById('input-alert')%0AformAlert.addEventListener('submit'%2C%20ev%20%3D%3E%20%7B%0A%20%20ev.preventDefault()%0A%20%20dispatchEvent(new%20CustomEvent('ldSrLiveAlert'%2C%20%7B%0A%20%20%20%20detail%3A%20inputAlert.value%20%7C%7C%20''%0A%20%20%7D))%0A%7D)%0A%3C%2Fscript%3E"  themable has-padding>

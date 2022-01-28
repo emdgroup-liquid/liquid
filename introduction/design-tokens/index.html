@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1700,15 +1731,15 @@
 <p>Copy <a href="https://www.figma.com/file/JcDMeUwec9e185HfBgT9XE/Liquid-Oxygen?node-id=2615%3A28396">Liquid's token file on Figma</a>, adjust it to your needs and auto-generate your <code>design-tokens.json</code> and a <code>liquid.globals.css</code> file with values from your own Figma token file by running a command from the <code>@emdgroup-liquid/liquid</code> package using <a href="https://docs.npmjs.com/cli/v7/commands/npx"><code>npx</code></a>.</p>
 </li>
 </ol>
-<blockquote>
-<p><strong>Note</strong>: You should <strong>not</strong> change the structure of the Figma token file nor the naming of elements within the file. You should only alter the element values.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You should <strong>not</strong> change the structure of the Figma token file nor the naming of elements within the file. You should only alter the element values.
+</ld-notice>
 <p>Here is an example illustrating how to invoke the command mentioned above:</p>
 <pre class="language-shell"><code class="language-shell"><span class="token assign-left variable">FIGMA_API_KEY</span><span class="token operator">=</span>your-api-key npx @emdgroup-liquid/liquid apply-design-tokens --path <span class="token string">"src/your/output/path"</span> --figma-file <span class="token string">"https://www.figma.com/file/&lt;figma_id>/&lt;file_name>?node-id=&lt;node_id>"</span></code></pre>
 <p>As you can see, the command is invoked with <code>npx</code>. It uses an environment variable <code>FIGMA_API_KEY</code>, which you will have to provide in order to be able to fetch data from the Figma API, and executes the <code>apply-design-tokens</code> task. It also uses two application parameters: <code>--figma-file</code>, which is the URL to your Figma token file, and <code>--path</code>, which is the output path that points to a directory in your project where you would like to save the generated CSS file containing the CSS custom props. The command will save the <code>design-tokens.json</code> file in the root of your project. When you <code>require</code> the <a href="https://tailwindcss.com/docs/presets">Tailwind CSS preset</a> file from <code>@emdgroup-liquid/liquid/dist/css/tailwind-preset.js</code>, it will look for a token file in your project root.</p>
-<blockquote>
-<p><strong>Note</strong>: Asset loading (including fonts) is not taken care of automatically when you use custom design tokens, so you will have to take care of that yourself.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  Asset loading (including fonts) is not taken care of automatically when you use custom design tokens, so you will have to take care of that yourself. 
+</ld-notice>
 <p><docs-page-nav prev-href="introduction/tailwindcss-integration/" next-title="Sandbox applications" next-href="introduction/sandbox-applications/"></docs-page-nav></p>
 
       

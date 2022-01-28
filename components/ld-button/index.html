@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1737,9 +1768,9 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
     ev.stopImmediatePropagation()
   })
 </script></div></docs-example>
-<blockquote>
-<p><strong>Note:</strong> When <code>aria-disabled</code> is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> and <code>stopImmediatePropagation()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> and <code>stopImmediatePropagation()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+</ld-notice>
 <h3 id="secondary">Secondary <a class="header-anchor" href="components/ld-button/#secondary"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-button%20mode%3D%22secondary%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20mode%3D%22secondary%22%20disabled%3EText%3C%2Fld-button%3E" code-css-component="%3Cbutton%20class%3D%22ld-button%20ld-button--secondary%22%3EText%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--secondary%22%20disabled%3EText%3C%2Fbutton%3E"  themable has-padding>
 <div slot="code">
@@ -1956,9 +1987,9 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
   </span>
 </button></div></docs-example>
 <h3 id="multi-line">Multi-line <a class="header-anchor" href="components/ld-button/#multi-line"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<blockquote>
-<p><strong>Note</strong>: You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+</ld-notice>
 <p>You can align the text inside the button using the <code>align-text</code> propperty.</p>
 <docs-example code="%3Cld-button%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%3C%2Fld-button%3E%0A%0A%3Cld-button%20align-text%3D%22left%22%3E%0A%20%20%3Cld-icon%20name%3D%22placeholder%22%3E%3C%2Fld-icon%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%20%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%20%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%3C%2Fld-button%3E%0A%0A%3Cld-button%20align-text%3D%22right%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%20%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%20%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%20%20%3Cld-icon%20name%3D%22placeholder%22%3E%3C%2Fld-icon%3E%0A%3C%2Fld-button%3E" code-css-component="%3Cbutton%20class%3D%22ld-button%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%20%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%20%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--align-text-left%22%3E%0A%20%20%3Cspan%20class%3D%22ld-icon%22%20role%3D%22presentation%22%3E%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%221.5%22%20y%3D%221.5%22%20width%3D%2221%22%20height%3D%2221%22%20rx%3D%224.5%22%20stroke%3D%22currentColor%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%224.5%22%20stroke%3D%22currentColor%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20%3C%2Fspan%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%20%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%20%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--align-text-right%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%20%0A%20%20A%20shining%20crescent%20far%20beneath%20the%20flying%20vessel.%20%0A%20%20Then%20came%20the%20night%20of%20the%20first%20falling%20star.%0A%20%20%3Cspan%20class%3D%22ld-icon%22%20role%3D%22presentation%22%3E%0A%20%20%20%20%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%20%20%3Crect%20x%3D%221.5%22%20y%3D%221.5%22%20width%3D%2221%22%20height%3D%2221%22%20rx%3D%224.5%22%20stroke%3D%22currentColor%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%224.5%22%20stroke%3D%22currentColor%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E%0A%20%20%3C%2Fspan%3E%0A%3C%2Fbutton%3E"  themable has-padding>
 <div slot="code">
@@ -2015,9 +2046,9 @@ Although <code>aria-disabled=&quot;true&quot;</code> is not necessary on a <code
 </div><div slot="codeCssComponent">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>noreferrer noopener<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
 </div><div slot="show"><ld-button href="#" target="_blank">Text</ld-button></div><div slot="showCssComponent"><a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">Text</a></div></docs-example>
-<blockquote>
-<p><strong>Note:</strong> When using <code>target=&quot;_blank&quot;</code> a <code>rel</code> attribute with the value <code>noreferrer noopener</code> is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See <a href="https://web.dev/external-anchors-use-rel-noopener/">https://web.dev/external-anchors-use-rel-noopener/</a></p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  When using <code>target="_blank"</code>, a <code>rel</code> attribute with the value <code>noreferrer noopener</code> is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See <a href="https://web.dev/external-anchors-use-rel-noopener/" rel="noreferrer noopener" target="_blank">https://web.dev/external-anchors-use-rel-noopener/</a>
+</ld-notice>
 <h3 id="progress-button">Progress button <a class="header-anchor" href="components/ld-button/#progress-button"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-button%20progress%3D%220.75%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20progress%3D%22pending%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20progress%3D%22pending%22%20mode%3D%22highlight%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20progress%3D%22pending%22%20mode%3D%22danger%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20progress%3D%22pending%22%20mode%3D%22secondary%22%3EText%3C%2Fld-button%3E%0A%0A%3Cld-button%20progress%3D%22pending%22%20mode%3D%22ghost%22%3EText%3C%2Fld-button%3E" code-css-component="%3Cbutton%20class%3D%22ld-button%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%22%20style%3D%22--ld-button-progress%3A%200.75%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%20ld-button__progress--pending%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--highlight%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%20ld-button__progress--pending%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--danger%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%20ld-button__progress--pending%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--secondary%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%20ld-button__progress--pending%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E%0A%0A%3Cbutton%20class%3D%22ld-button%20ld-button--ghost%22%20aria-busy%3D%22true%22%20aria-live%3D%22polite%22%3E%0A%20%20Text%0A%20%20%3Cspan%20class%3D%22ld-button__progress%20ld-button__progress--pending%22%3E%3C%2Fspan%3E%0A%3C%2Fbutton%3E"  opened themable has-padding>
 <div slot="code">

@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -2092,9 +2123,9 @@
     />
   </svg>
 </div></div></docs-example>
-<blockquote>
-<p><strong>Note</strong>: When aria-disabled is applied on the Web Component, it will prevent user interaction. With the CSS Component version on the other hand, after applying aria-disabled on the select element, you will need to take care of preventing its default behaviour yourself.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  When aria-disabled is applied on the Web Component, it will prevent user interaction. With the CSS Component version on the other hand, after applying aria-disabled on the select element, you will need to take care of preventing its default behaviour yourself.
+</ld-notice>
 <h3 id="invalid">Invalid <a class="header-anchor" href="components/ld-select/#invalid"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-select%20placeholder%3D%22Pick%20a%20fruit%22%20name%3D%22fruit%22%20invalid%3E%0A%20%20%3Cld-option%20value%3D%22apple%22%3EApple%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22banana%22%3EBanana%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22strawberry%22%3EStrawberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22watermelon%22%20disabled%3EWatermelon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22honeymelon%22%3EHoneymelon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22rasberry%22%3ERasberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22cherry%22%3ECherry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22blueberry%22%3EBlueberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22peach%22%3EPeach%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22grape%22%3EGrape%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22fuyu%20persimmon%22%3EFuyu%20Persimmon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22monstera%20deliciosa%22%3EMonstera%20Deliciosa%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22pear%22%3EPear%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22pineapple%22%3EPineapple%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22plum%22%3EPlum%3C%2Fld-option%3E%0A%3C%2Fld-select%3E%0A%0A%3Cld-select%20placeholder%3D%22Pick%20some%20fruits%22%20name%3D%22fruits%22%20multiple%20invalid%3E%0A%20%20%3Cld-option%20value%3D%22apple%22%3EApple%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22banana%22%20selected%3EBanana%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22strawberry%22%3EStrawberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22watermelon%22%20disabled%3EWatermelon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22honeymelon%22%3EHoneymelon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22rasberry%22%3ERasberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22cherry%22%20selected%3ECherry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22blueberry%22%3EBlueberry%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22peach%22%3EPeach%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22grape%22%3EGrape%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22fuyu%20persimmon%22%20selected%3EFuyu%20Persimmon%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22monstera%20deliciosa%22%3EMonstera%20Deliciosa%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22pear%22%3EPear%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22pineapple%22%3EPineapple%3C%2Fld-option%3E%0A%20%20%3Cld-option%20value%3D%22plum%22%3EPlum%3C%2Fld-option%3E%0A%3C%2Fld-select%3E" code-css-component="%3Cdiv%20class%3D'ld-select%20ld-select--invalid'%3E%0A%20%20%3Cselect%20name%3D%22fruits%22%3E%0A%20%20%20%20%3Coption%20value%3D%22%22%3EPick%20a%20fruit%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22apple%22%3EApple%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22banana%22%3EBanana%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22strawberry%22%3EStrawberry%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22watermelon%22%20disabled%3EWatermelon%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22honeymelon%22%3EHoneymelon%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22rasberry%22%3ERasberry%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22cherry%22%3ECherry%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22blueberry%22%3EBlueberry%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22peach%22%3EPeach%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22grape%22%3EGrape%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22fuyu%20persimmon%22%3EFuyu%20Persimmon%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22monstera%20deliciosa%22%3EMonstera%20Deliciosa%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22pear%22%3EPear%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22pineapple%22%3EPineapple%3C%2Foption%3E%0A%20%20%20%20%3Coption%20value%3D%22plum%22%3EPlum%3C%2Foption%3E%0A%20%20%3C%2Fselect%3E%0A%20%20%3Csvg%0A%20%20%20%20role%3D%22presentation%22%0A%20%20%20%20class%3D%22ld-select__icon%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20%20viewBox%3D%220%200%2016%2016%22%0A%20%20%3E%0A%20%20%20%20%3Cpath%0A%20%20%20%20%20%20stroke%3D%22currentColor%22%0A%20%20%20%20%20%20stroke-linecap%3D%22round%22%0A%20%20%20%20%20%20stroke-linejoin%3D%22round%22%0A%20%20%20%20%20%20stroke-width%3D%223%22%0A%20%20%20%20%20%20d%3D%22M3%206l5%204%205-4%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fsvg%3E%0A%3C%2Fdiv%3E"  themable has-padding>
 <div slot="code">
@@ -2744,9 +2775,9 @@
 </label></div></docs-example>
 <h3 id="input-validation">Input validation <a class="header-anchor" href="components/ld-select/#input-validation"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The <code>ld-select</code> Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events, as well as custom events (see <a href="components/ld-input/#events">Events</a> for details).</p>
-<blockquote>
-<p><strong>Note:</strong> You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 <!-- Auto Generated Below -->
 <h2 id="properties">Properties <a class="header-anchor" href="components/ld-select/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>

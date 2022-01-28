@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1680,16 +1711,16 @@
         <docs-edit-on-github path="./src/liquid/global/styles/focus/index.md"></docs-edit-on-github>
       </header>
       <h1 id="focus">Focus <a class="header-anchor" href="global/focus/#focus"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<blockquote>
-<p>Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
-<a href="https://www.w3.org/TR/WCAG21/#focus-visible">https://www.w3.org/TR/WCAG21/#focus-visible</a></p>
-</blockquote>
+<ld-notice mode="warning">
+  Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.
+  <a href="https://www.w3.org/TR/WCAG21/#focus-visible" rel="noreferrer noopener" target="_blank">https://www.w3.org/TR/WCAG21/#focus-visible</a>
+</ld-notice>
 <p>Focus handling is taken care of by Liquid's global CSS, so there's no work to do on your side, except for loading the required CSS file. Please refer to our documentation on <a href="http://localhost:8080/#import-stylesheets">importing stylesheets</a> from Liquid.</p>
 <p>The strategy used for focus handing consists of combining individual visual UI component focus states with the browser default outline based focus indicators, enabled only when the user is navigating using the keyboard. The latter is achieved using this code snippet as part of the Liquid globals CSS bundle:</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">:focus:not(:focus-visible)</span> <span class="token punctuation">{</span><br>  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 
       
-        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 

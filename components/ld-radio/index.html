@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1763,13 +1794,13 @@
     })
   })
 </script></div></docs-example>
-<blockquote>
-<p><strong>Note:</strong> When <code>aria-disabled</code> is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.
+</ld-notice>
 <h3 id="dark">Dark <a class="header-anchor" href="components/ld-radio/#dark"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<blockquote>
-<p><strong>Note</strong>: Dark tone checkboxes should only be used on white backgrounds.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  Dark tone checkboxes should only be used on white backgrounds.
+</ld-notice>
 <docs-example code="%3Cld-radio%20name%3D%22example-4%22%20tone%3D%22dark%22%3E%3C%2Fld-radio%3E%0A%3Cld-radio%20name%3D%22example-4%22%20tone%3D%22dark%22%20checked%3E%3C%2Fld-radio%3E" code-css-component="%3Cdiv%20class%3D%22ld-radio%20ld-radio--dark%22%3E%0A%20%20%3Cinput%20type%3D%22radio%22%20name%3D%22example-4-css%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22ld-radio%20ld-radio--dark%22%3E%0A%20%20%3Cinput%20type%3D%22radio%22%20name%3D%22example-4-css%22%20checked%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  background="light" themable has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-radio</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-4<span class="token punctuation">"</span></span> <span class="token attr-name">tone</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-radio</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-radio</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-4<span class="token punctuation">"</span></span> <span class="token attr-name">tone</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dark<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-radio</span><span class="token punctuation">></span></span></code></pre>
@@ -1918,9 +1949,9 @@
 </label></div></docs-example>
 <h3 id="input-validation">Input validation <a class="header-anchor" href="components/ld-radio/#input-validation"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The <code>ld-radio</code> Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for <code>focus</code>, <code>input</code> and <code>blur</code> events.</p>
-<blockquote>
-<p><strong>Note:</strong> You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 <!-- Auto Generated Below -->
 <h2 id="properties">Properties <a class="header-anchor" href="components/ld-radio/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>

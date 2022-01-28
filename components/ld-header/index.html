@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1861,14 +1892,14 @@
     <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header></div></docs-example>
-<blockquote>
-<p>As the CSS property <code>position: sticky;</code> is used here to achieve this behavior, the <code>ld-header</code> &quot;sticks&quot; to its nearest ancestor that has a &quot;scrolling mechanism&quot; (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the <code>ld-header</code> in the DOM.</p>
-</blockquote>
+<ld-notice mode="warning">
+  As the CSS property <code>position: sticky;</code> is used here to achieve this behavior, the <code>ld-header</code> "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the <code>ld-header</code> in the DOM.
+</ld-notice>
 <h3 id="hide-on-scroll">Hide on scroll <a class="header-anchor" href="components/ld-header/#hide-on-scroll"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>If you want the header to hide (slide up behind the top of the window) when the user is scrolling down, you can add the <code>hide-on-scroll</code> prop to the <code>ld-header</code> web component. With this prop set, the header will hide when scrolling down and show again, when scrolling up.</p>
-<blockquote>
-<p>This prop only works in combination with the <code>sticky</code> prop.</p>
-</blockquote>
+<ld-notice mode="warning">
+  This prop only works in combination with the <code>sticky</code> prop.
+</ld-notice>
 <h2 id="css-variables">CSS Variables <a class="header-anchor" href="components/ld-header/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>

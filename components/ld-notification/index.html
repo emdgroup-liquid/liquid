@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1506,6 +1529,14 @@
         
       
         
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
           <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/components/ld-notification/">Notification</a>
@@ -1691,9 +1722,9 @@
 <h2 id="how-it-works">How it works <a class="header-anchor" href="components/ld-notification/#how-it-works"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Add the component to your application, preferably close after the opening <code>&lt;body&gt;</code> tag. The component is invisible as long as no new notifications are triggered. It listens to three <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">custom events</a> on the <code>window</code>: the <code>ldNotificationAdd</code> the <code>ldNotificationDismiss</code> and the <code>ldNotificationClear</code> event. As soon as one of those events reaches the <code>window</code>, the component either queues and displays new notifications or removes queued notifications from its queue. The content and type of each notification is set via the <code>event.detail</code> property. Here is an example on how you can trigger a notification containing an alert message:</p>
 <pre class="language-js"><code class="language-js"><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">'ldNotificationAdd'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  detail<span class="token operator">:</span> <span class="token punctuation">{</span><br>    content<span class="token operator">:</span> <span class="token string">'Something went wrong.'</span><span class="token punctuation">,</span><br>    type<span class="token operator">:</span> <span class="token string">'alert'</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p><strong>Note</strong>: You should not use more than one <code>ld-notification</code> component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  You should not use more than one <code>ld-notification</code> component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?
+</ld-notice>
 <h2 id="accessibility">Accessibility <a class="header-anchor" href="components/ld-notification/#accessibility"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Each notification item that appears on the screen has either the ARIA role <code>status</code> or <code>alert</code>, so that assistive technology should announce the notification content to the user.</p>
 <p>Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons etc. Thus, we recommend you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they</p>

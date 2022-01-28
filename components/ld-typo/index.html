@@ -590,6 +590,29 @@
         
           
             {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As error message  As info message  As warning message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Notification',
               tags: '',
               url: '/liquid/components/ld-notification/',
@@ -1508,6 +1531,14 @@
         
           <li class="docs-nav__li">
             
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
               <a href="/liquid/components/ld-notification/">Notification</a>
             
           </li>
@@ -1692,10 +1723,11 @@
       <link rel="stylesheet" href="css_components/ld-typo.css">
 <h1 id="ld-typo">ld-typo <a class="header-anchor" href="components/ld-typo/#ld-typo"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>To give text a certain style of typography, you can use the <code>ld-typo</code> component. Every variant has its own semantic HTML tag that it gets rendered with. Heading styles render with their respective heading tag (<code>h1</code>, <code>h2</code>, etc). You can use the <code>tag</code> attribute, to render the variant with a different HTML tag, while keeping the visual variant style.</p>
-<blockquote>
-<p>Please be aware of our brand guidelines regarding typography.</p>
-<p>For more information visit <a href="https://brand-hub.merckgroup.com/en/design-basics/typography.html">Brand Hub: Typography</a>.</p>
-</blockquote>
+<ld-notice mode="warning">
+  Please be aware of our brand guidelines regarding typography.
+  <br />
+  For more information visit <a href="https://brand-hub.merckgroup.com/en/design-basics/typography.html" rel="noreferrer noopener" target="_blank">Brand Hub: Typography</a>.
+</ld-notice>
 <hr>
 <h2 id="examples">Examples <a class="header-anchor" href="components/ld-typo/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <h3 id="default">Default <a class="header-anchor" href="components/ld-typo/#default"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
@@ -1780,10 +1812,11 @@
 </p></div></docs-example>
 <h3 id="headings">Headings <a class="header-anchor" href="components/ld-typo/#headings"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.</p>
-<blockquote>
-<p><strong>Note</strong>: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.</p>
-<p>If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the <code>variant</code> property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the <code>level</code> prop.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+  <br />
+  If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the <code>variant</code> property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the <code>level</code> prop. 
+</ld-notice>
 <docs-example code="%3Cld-typo%20variant%3D%22h1%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h2%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h3%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h4%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h5%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h6%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E" code-css-component="%3Ch1%20class%3D%22ld-typo--h1%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh1%3E%0A%0A%3Ch2%20class%3D%22ld-typo--h2%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh2%3E%0A%0A%3Ch3%20class%3D%22ld-typo--h3%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh3%3E%0A%0A%3Ch4%20class%3D%22ld-typo--h4%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh4%3E%0A%0A%3Ch5%20class%3D%22ld-typo--h5%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh5%3E%0A%0A%3Ch6%20class%3D%22ld-typo--h6%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh6%3E"  stacked themable has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">variant</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Almost before we knew it, we had left the ground.<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span></code></pre>
@@ -1951,9 +1984,9 @@
 </p></div></docs-example>
 <h2 id="colors">Colors <a class="header-anchor" href="components/ld-typo/#colors"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>You may have noticed that all <code>b*</code> and <code>xb*</code> variants use a color given by the current theme, while all other variants inherit their color. While this is the default behaviour, you can still apply a different color on both types of headings. This may be usefull, if, for instance, you need to display a <code>b1</code> heading in &quot;vibrant yellow&quot; on top of a background using a &quot;rich color&quot;.</p>
-<blockquote>
-<p><strong>Note</strong>: With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">insufficiant contrast</a>.</p>
-</blockquote>
+<ld-notice headline="Note" mode="warning">
+  With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" rel="noreferrer noopener" target="_blank">insufficiant contrast</a>.
+</ld-notice>
 <p>Here are some examples on how you can apply different colors on headings:</p>
 <docs-example code="%3Cstyle%3E%0A.custom-color%20%7B%20color%3A%20var(--ld-col-vm)%3B%20%7D%0A%3C%2Fstyle%3E%0A%0A%3Cld-typo%20variant%3D%22b1%22%20class%3D%22custom-color%22%3E%0A%20%20Lorem%20ipsum%0A%3C%2Fld-typo%3E%0A%0A%3Cld-typo%20variant%3D%22h1%22%20style%3D%22color%3A%20var(--ld-col-vc-600)%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fld-typo%3E" code-css-component="%3Cstyle%3E%0A.custom-color%20%7B%20color%3A%20var(--ld-col-vm)%3B%20%7D%0A%3C%2Fstyle%3E%0A%0A%3Ch1%20class%3D%22ld-typo%20ld-typo--b1%20custom-color%22%20aria-label%3D%22Lorem%20ipsum%22%3E%0A%20%20Lorem%20ipsum%0A%3C%2Fh1%3E%0A%0A%3Ch1%20class%3D%22ld-typo--h1%22%20style%3D%22color%3A%20var(--ld-col-vc-600)%22%3E%0A%20%20Almost%20before%20we%20knew%20it%2C%20we%20had%20left%20the%20ground.%0A%3C%2Fh1%3E"  stacked themable has-padding>
 <div slot="code">
@@ -2046,13 +2079,14 @@
 <h3 id="used-by">Used by <a class="header-anchor" href="components/ld-typo/#used-by"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <ul>
 <li><a href="/liquid/components/ld-header/">ld-header</a></li>
+<li><a href="/liquid/components/ld-notice/">ld-notice</a></li>
 </ul>
 <h3 id="graph">Graph <a class="header-anchor" href="components/ld-typo/#graph"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<pre class="language-mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TD<span class="token punctuation">;</span><br>  ld-header <span class="token arrow operator">--></span> ld-typo<br>  <span class="token keyword">style</span> ld-typo <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span></code></pre>
+<pre class="language-mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TD<span class="token punctuation">;</span><br>  ld-header <span class="token arrow operator">--></span> ld-typo<br>  ld-notice <span class="token arrow operator">--></span> ld-typo<br>  <span class="token keyword">style</span> ld-typo <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span></code></pre>
 <hr>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
       
     </docs-main>
 
