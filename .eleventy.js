@@ -5,6 +5,8 @@ const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
+const cheerio = require('cheerio')
+const memoize = require('lodash.memoize')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false)
@@ -85,6 +87,18 @@ module.exports = function (eleventyConfig) {
       .use(markdownItReplaceLink)
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
+
+  // Memoized serch index filter for headings
+  eleventyConfig.addNunjucksFilter(
+    'memoizedHeadings',
+    memoize((value) =>
+      Array.from(cheerio.load(value)('h2, h3').contents())
+        .filter((elem) => elem.type === 'text')
+        .map((elem) => elem.data)
+        .join(' ')
+        .replaceAll(/(\n|\r)/g, ' ')
+    )
+  )
 
   // Contributors short code (used in layout.njk)
   eleventyConfig.addNunjucksAsyncShortcode(
