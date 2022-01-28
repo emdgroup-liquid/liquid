@@ -1,8 +1,7 @@
 :host,
 .ld-input-message {
-  --ld-input-message-error-text-col: var(--ld-thm-error);
-  --ld-input-message-info-text-col: var(--ld-thm-warning);
   --ld-input-message-valid-text-col: var(--ld-thm-success);
+  --ld-input-message-error-text-col: var(--ld-thm-error);
 
   display: inline-flex;
   align-items: baseline;
@@ -10,23 +9,22 @@
   line-height: 1.5;
 }
 
-:host(.ld-input-message--error),
-.ld-input-message--error {
-  color: var(--ld-input-message-error-text-col);
-}
-
 :host(.ld-input-message--info),
 .ld-input-message--info {
-  color: var(--ld-input-message-info-text-col);
-
   .ld-input-message__icon {
     --ld-icon-secondary-col: var(--ld-col-neutral-900);
+    color: var(--ld-thm-warning);
   }
 }
 
 :host(.ld-input-message--valid),
 .ld-input-message--valid {
   color: var(--ld-input-message-valid-text-col);
+}
+
+:host(.ld-input-message--error),
+.ld-input-message--error {
+  color: var(--ld-input-message-error-text-col);
 }
 
 .ld-input-message__icon {

@@ -97,6 +97,9 @@ export const getPageWithContent = async (
 export const analyzeAccessibility = async (page, options = {}) => {
   const defaultOptions = { rules: {} }
   const disabledRuleIds = [
+    // TODO: this should be disabled only for certain elements (ld-button), if possible
+    'aria-allowed-attr',
+    'bypass',
     'document-title',
     'html-has-lang',
     'label',

@@ -6064,7 +6064,7 @@
     },
     {
       "id": "ad43b06f",
-      "image": "8b91e83528f3d3980c313baa9a0a6ad5.png",
+      "image": "8de2fff40c31e45ba6569ee598bdabdd.png",
       "userAgent": "default",
       "desc": "ld-notice css component with headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6077,7 +6077,7 @@
     },
     {
       "id": "2fb2ba54",
-      "image": "5fe7d12c13877d80552f75d8ddd72591.png",
+      "image": "fced5a91942b7814d913a07d19651b3b.png",
       "userAgent": "default",
       "desc": "ld-notice css component with headline info",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6090,7 +6090,7 @@
     },
     {
       "id": "58285396",
-      "image": "dfeef23478f8e4194218302b7c8405da.png",
+      "image": "5caa5dbc281ef43749620319063e9298.png",
       "userAgent": "default",
       "desc": "ld-notice css component with headline warning",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6103,7 +6103,7 @@
     },
     {
       "id": "eba9d27f",
-      "image": "81d94be4776f4c6c42998787b881a53e.png",
+      "image": "f99d3e1b6f2fb11df091620d5df64a97.png",
       "userAgent": "default",
       "desc": "ld-notice css component without headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6116,7 +6116,7 @@
     },
     {
       "id": "3abbecbf",
-      "image": "3c01307fe790737af4e62da4ad19ef22.png",
+      "image": "0397d19b0f1a064d96b6c663e4767cef.png",
       "userAgent": "default",
       "desc": "ld-notice css component without headline info",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6129,7 +6129,7 @@
     },
     {
       "id": "3c944857",
-      "image": "a570d2d006ae22e68ac19196e3430471.png",
+      "image": "f95c893839469df1941338d342d7c388.png",
       "userAgent": "default",
       "desc": "ld-notice css component without headline warning",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6142,7 +6142,7 @@
     },
     {
       "id": "d21736c2",
-      "image": "8b91e83528f3d3980c313baa9a0a6ad5.png",
+      "image": "8de2fff40c31e45ba6569ee598bdabdd.png",
       "userAgent": "default",
       "desc": "ld-notice web component with headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6155,7 +6155,7 @@
     },
     {
       "id": "795d4a70",
-      "image": "5fe7d12c13877d80552f75d8ddd72591.png",
+      "image": "fced5a91942b7814d913a07d19651b3b.png",
       "userAgent": "default",
       "desc": "ld-notice web component with headline info",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6168,7 +6168,7 @@
     },
     {
       "id": "48dd46c1",
-      "image": "dfeef23478f8e4194218302b7c8405da.png",
+      "image": "5caa5dbc281ef43749620319063e9298.png",
       "userAgent": "default",
       "desc": "ld-notice web component with headline warning",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6181,7 +6181,7 @@
     },
     {
       "id": "449daf7a",
-      "image": "81d94be4776f4c6c42998787b881a53e.png",
+      "image": "f99d3e1b6f2fb11df091620d5df64a97.png",
       "userAgent": "default",
       "desc": "ld-notice web component without headline error",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6194,7 +6194,7 @@
     },
     {
       "id": "05f32254",
-      "image": "3c01307fe790737af4e62da4ad19ef22.png",
+      "image": "0397d19b0f1a064d96b6c663e4767cef.png",
       "userAgent": "default",
       "desc": "ld-notice web component without headline info",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
@@ -6207,7 +6207,7 @@
     },
     {
       "id": "4a2ee30f",
-      "image": "a570d2d006ae22e68ac19196e3430471.png",
+      "image": "f95c893839469df1941338d342d7c388.png",
       "userAgent": "default",
       "desc": "ld-notice web component without headline warning",
       "testPath": "./src/liquid/components/ld-notice/test/ld-notice.e2e.ts",
