@@ -22,13 +22,17 @@ export class LdNotice {
   render() {
     return (
       <Host class={`ld-notice ld-notice--${this.mode}`}>
-        <ld-icon
-          class="ld-notice__icon"
-          name="info"
-          part="icon"
-          size="lg"
-        />
-        {this.headline && <ld-typo class="ld-notice__headline" variant="h4" tag="p" part="headline">{this.headline}</ld-typo>}
+        <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg" />
+        {this.headline && (
+          <ld-typo
+            class="ld-notice__headline"
+            variant="h4"
+            tag="p"
+            part="headline"
+          >
+            {this.headline}
+          </ld-typo>
+        )}
         <slot></slot>
       </Host>
     )
