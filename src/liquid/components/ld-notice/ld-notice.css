@@ -4,16 +4,29 @@
   --ld-notice-info-icon-col: var(--ld-thm-primary);
   --ld-notice-warning-icon-col: var(--ld-thm-warning);
 
-  align-items: baseline;
+  background: var(--ld-col-wht);
   border-radius: var(--ld-br-l);
   box-shadow: var(--ld-shadow-stacked);
   color: var(--ld-col-neutral-800);
-  display: flex;
-  flex-direction: column;
+  display: block;
   font: var(--ld-typo-body-s);
   padding: var(--ld-sp-24);
   padding-left: calc(var(--ld-sp-24) + var(--ld-sp-40));
   position: relative;
+
+  ::slotted(a),
+  a {
+    color: var(--ld-thm-primary);
+    text-decoration: underline;
+  }
+
+  ::slotted(code),
+  code {
+    background-color: var(--ld-col-neutral-010);
+    border-radius: var(--ld-br-s);
+    box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-100);
+    padding: 0 var(--ld-sp-2);
+  }
 }
 
 :host(.ld-notice--error),

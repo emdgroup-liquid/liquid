@@ -23,7 +23,9 @@ dispatchEvent(new CustomEvent('ldSrLiveInfo', {
 }))
 ```
 
-> **Note**: You should not use more than one `ld-sr-live` component in your app. It acts like a speaker to whome you give a bunch of sentences to speak, and it wouldn't make much sense to have multiple speakers talking at the same time, would it? Technically a screen reader would not speak more than one sentence at a time anyway, no matter how many `aria-live` regions you use. Though you can of course use additional `aria-live` regions, if it makes sense for your application.
+<ld-notice headline="Note" mode="warning">
+  You should not use more than one <code>ld-sr-live</code> component in your app. It acts like a speaker to whome you give a bunch of sentences to speak, and it wouldn't make much sense to have multiple speakers talking at the same time, would it? Technically a screen reader would not speak more than one sentence at a time anyway, no matter how many <code>aria-live</code> regions you use. Though you can of course use additional <code>aria-live</code> regions, if it makes sense for your application.
+</ld-notice>
 
 ## Example
 

@@ -40,6 +40,8 @@ module.exports = {
 }
 ```
 
-> **Note**: Not extending Tailwind's default configuration is the same as completely removing Tailwinds default CSS utility classes.
+<ld-notice headline="Note" mode="warning">
+  Not extending Tailwind's default configuration is the same as completely removing Tailwinds default CSS utility classes.
+</ld-notice>
 
 <docs-page-nav prev-href="introduction/react-bindings/" next-title="Design tokens" next-href="introduction/design-tokens/"></docs-page-nav>

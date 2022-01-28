@@ -101,11 +101,15 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.
+</ld-notice>
 
 ### Dark
 
-> **Note**: Dark tone checkboxes should only be used on white backgrounds.
+<ld-notice headline="Note" mode="warning">
+  Dark tone checkboxes should only be used on white backgrounds.
+</ld-notice>
 
 {% example '{ "background": "light" }' %}
 <ld-radio name="example-4" tone="dark"></ld-radio>
@@ -281,7 +285,9 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 
 The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
 
-> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 <!-- Auto Generated Below -->
 

@@ -75,7 +75,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> and <code>stopImmediatePropagation()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+</ld-notice>
 
 ### Secondary
 
@@ -362,7 +364,9 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 
 ### Multi-line
 
-> **Note**: You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+<ld-notice headline="Note" mode="warning">
+  You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+</ld-notice>
 
 You can align the text inside the button using the `align-text` propperty.
 
@@ -430,7 +434,9 @@ You can align the text inside the button using the `align-text` propperty.
 <a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">Text</a>
 {% endexample %}
 
-> __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
+<ld-notice headline="Note" mode="warning">
+  When using <code>target="_blank"</code>, a <code>rel</code> attribute with the value <code>noreferrer noopener</code> is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See <a href="https://web.dev/external-anchors-use-rel-noopener/" rel="noreferrer noopener" target="_blank">https://web.dev/external-anchors-use-rel-noopener/</a>
+</ld-notice>
 
 ### Progress button
 

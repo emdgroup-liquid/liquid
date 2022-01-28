@@ -17,19 +17,9 @@ If you do not find a component that you need within Liquid, it may be because it
 
 We manage our [feature backlog on GitHub](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature) and prioritise issues based on upvotes. Upvote the top comment of an issue with 👍 if you want that feature to be prioritised higher. To request a new feature, please [submit a feature request](components/#submitting-a-feature-request).
 
-<!-- TODO: Replace with <ld-message /> component, as soon as it exists. -->
-<style>
-  #before-blue-info-box + blockquote {
-    background: var(--ld-thm-primary-highlight);
-    border-color: var(--ld-thm-primary);
-    color: var(--ld-thm-primary-active);
-  }
-</style>
-<div id="before-blue-info-box"></div>
-
-> # **Submitting a feature request**
->
-> If you have a suggestion for a new component not listed in the [feature backlog](components/#feature-backlog) or would like to suggest a new feature for an existing component, you can create a [feature request on GitHub](https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md). Please read our [contributing guidelines on submitting feature requests](https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features) before submitting your first request.
+<ld-notice headline="Submitting a feature request">
+  If you have a suggestion for a new component not listed in the <a href="components/#feature-backlog">feature backlog</a> or would like to suggest a new feature for an existing component, you can create a <a href="https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md" rel="noreferrer noopener" target="_blank">feature request on GitHub</a>. Please read our <a href="https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features" rel="noreferrer noopener" target="_blank">contributing guidelines on submitting feature requests</a> before submitting your first request.
+</ld-notice>
 
 ## Milestones
 
