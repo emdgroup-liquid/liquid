@@ -221,13 +221,17 @@ You can add the `sticky` property to the `ld-header` web component, to make the 
 </header>
 {% endexample %}
 
-> As the CSS property `position: sticky;` is used here to achieve this behavior, the `ld-header` "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the `ld-header` in the DOM.
+<ld-notice mode="warning">
+  As the CSS property <code>position: sticky;</code> is used here to achieve this behavior, the <code>ld-header</code> "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the <code>ld-header</code> in the DOM.
+</ld-notice>
 
 ### Hide on scroll
 
 If you want the header to hide (slide up behind the top of the window) when the user is scrolling down, you can add the `hide-on-scroll` prop to the `ld-header` web component. With this prop set, the header will hide when scrolling down and show again, when scrolling up.
 
-> This prop only works in combination with the `sticky` prop.
+<ld-notice mode="warning">
+  This prop only works in combination with the <code>sticky</code> prop.
+</ld-notice>
 
 ## CSS Variables
 

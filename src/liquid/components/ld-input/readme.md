@@ -97,11 +97,15 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 </script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of `ld-input` with `aria-disabled`, you will have to prevent the default behaviour of the input element yourself. 
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of <code>ld-input</code> with <code>aria-disabled</code>, you will have to prevent the default behaviour of the input element yourself. 
+</ld-notice>
 
 ### Dark
 
-> **Note**: Dark tone inputs should only be used on white backgrounds.
+<ld-notice headline="Note" mode="warning">
+  Dark tone inputs should only be used on white backgrounds.
+</ld-notice>
 
 {% example '{ "background": "light" }' %}
 <ld-input tone="dark" placeholder="Placeholder"></ld-input>
@@ -590,7 +594,9 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </div>
 {% endexample %}
 
-> **Note**: The Web Component `ld-input` listens for `click` events on the contained `ld-icon` component and automatically focuses the input field on icon click. The CSS component version of `ld-input` doesn't do that.
+<ld-notice headline="Note" mode="warning">
+  The Web Component <code>ld-input</code> listens for <code>click</code> events on the contained <code>ld-icon</code> component and automatically focuses the input field on icon click. The CSS component version of <code>ld-input</code> doesn't do that.
+</ld-notice>
 
 #### With button
 
@@ -929,7 +935,9 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
-> **Note:** You can find examples for different kinds of input validation in the [Form validation](introduction/form-validation/) documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our [Event handling](introduction/event-handling/) documentation.
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 
 <!-- Auto Generated Below -->

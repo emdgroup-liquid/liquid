@@ -32,7 +32,9 @@ There are two ways of associating a form-related Web Component with an existing 
 </form>
 ```
 
-> To make the Web Component accessible via the `FormData` of the `<form>` element, the `name` prop of the component has to be set.
+<ld-notice mode="warning">
+  To make the Web Component accessible via the <code>FormData</code> of the <code>&lt;form&gt;</code> element, the <code>name</code> prop of the component has to be set.
+</ld-notice>
 
 If a form-related component is associated with a form in one of the above ways, the component's current value can be accessed using the form itself like it would be the case for a native `<input>` element.
 
