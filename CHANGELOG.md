@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.28](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.27...v1.0.0-rc.28) (2022-01-31)
+
+
+### Bug Fixes
+
+* **eleventy:** dynamic import of node-fetch ([162f48f](https://github.com/emdgroup-liquid/liquid/commit/162f48f87ef9d156fe0c7d8a807d75ff4a54ddcd))
+* **ld-button:** remove Safari button styles when type prop is used ([ffa69f6](https://github.com/emdgroup-liquid/liquid/commit/ffa69f6cd2a2ee99241306bd7d9e873b010e4564))
+
+
+### Features
+
+* **ld-icon:** add hyperlink and copy icon ([77a058f](https://github.com/emdgroup-liquid/liquid/commit/77a058f05bbadc32791cfc728fc15cf2da0f2fc1)), closes [#258](https://github.com/emdgroup-liquid/liquid/issues/258) [#259](https://github.com/emdgroup-liquid/liquid/issues/259)
+* **ld-notice:** add text notice component ([b10ca2a](https://github.com/emdgroup-liquid/liquid/commit/b10ca2a4e82cba78916cb98310cb630be0f6294a))
+* **ld-notice:** remove bg color of error mode ([fbed5d6](https://github.com/emdgroup-liquid/liquid/commit/fbed5d68c775737797b8f802a44a795c89da84b9))
+* unify event handling ([59b4e28](https://github.com/emdgroup-liquid/liquid/commit/59b4e287356adf4784877ec706b69ab3dd47c3fb))
+* **ld-pagination:** add pagination component ([978a58e](https://github.com/emdgroup-liquid/liquid/commit/978a58e490c68ac838b3a069b7242cbe107c7b94))
+* recursively auto-define children components ([3f7b305](https://github.com/emdgroup-liquid/liquid/commit/3f7b30516865c5fc98c6fff52d6efe7e21acc905)), closes [#244](https://github.com/emdgroup-liquid/liquid/issues/244)
+
 # [1.0.0-rc.27](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.26...v1.0.0-rc.27) (2022-01-18)
 
 
