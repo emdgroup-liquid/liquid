@@ -99,11 +99,52 @@ describe('ld-input', () => {
 
     input.value = 'test'
     input.dispatchEvent(new Event('change', { bubbles: true }))
-    input.dispatchEvent(new CustomEvent('ldchange', { bubbles: true }))
     await page.waitForChanges()
 
     expect(changeHandler).toHaveBeenCalledTimes(1)
     expect(ldchangeHandler).toHaveBeenCalledTimes(1)
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldInput.addEventListener('input', inputHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    await page.waitForChanges()
+
+    expect(inputHandler).toHaveBeenCalledTimes(1)
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldInput.addEventListener('ldinput', ldinputHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    await page.waitForChanges()
+
+    expect(ldinputHandler).toHaveBeenCalledTimes(1)
   })
 
   it('renders with slot start', async () => {

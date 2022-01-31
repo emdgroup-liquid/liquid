@@ -498,7 +498,7 @@ describe('ld-tabs', () => {
   })
 
   describe('events', () => {
-    it('emits tabChange event', async () => {
+    it('emits ldtabchange event', async () => {
       const page = await newSpecPage({
         components,
         html: `
@@ -520,18 +520,12 @@ describe('ld-tabs', () => {
       const ldTabBtn1 = ldTabItems[1]
       ldTabBtn1.scrollIntoView = jest.fn()
       const tabBtn1 = ldTabBtn1.shadowRoot.querySelector('button')
+      const handleLdtabchange = jest.fn()
 
-      const handlers = {
-        onTabChange() {
-          return
-        },
-      }
-
-      const spyTabChange = jest.spyOn(handlers, 'onTabChange')
-      ldTabs.addEventListener('tabChange', handlers.onTabChange)
+      ldTabs.addEventListener('ldtabchange', handleLdtabchange)
       tabBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
-      expect(spyTabChange).toHaveBeenCalled()
+      expect(handleLdtabchange).toHaveBeenCalled()
     })
   })
 })

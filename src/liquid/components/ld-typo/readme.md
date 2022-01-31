@@ -13,9 +13,11 @@ permalink: components/ld-typo/
 
 To give text a certain style of typography, you can use the `ld-typo` component. Every variant has its own semantic HTML tag that it gets rendered with. Heading styles render with their respective heading tag (`h1`, `h2`, etc). You can use the `tag` attribute, to render the variant with a different HTML tag, while keeping the visual variant style.
 
-> Please be aware of our brand guidelines regarding typography.
-> 
-> For more information visit [Brand Hub: Typography](https://brand-hub.merckgroup.com/en/design-basics/typography.html).
+<ld-notice mode="warning">
+  Please be aware of our brand guidelines regarding typography.
+  <br />
+  For more information visit <a href="https://brand-hub.merckgroup.com/en/design-basics/typography.html" rel="noreferrer noopener" target="_blank">Brand Hub: Typography</a>.
+</ld-notice>
 
 ---
 
@@ -129,9 +131,11 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
 
-> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
-> 
-> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
+<ld-notice headline="Note" mode="warning">
+  A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+  <br />
+  If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the <code>variant</code> property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the <code>level</code> prop. 
+</ld-notice>
 
 {% example '{ "stacked": true }' %}
 <ld-typo variant="h1">
@@ -356,7 +360,9 @@ Headings are used as an introduction into a topic or a content section and for v
 
 You may have noticed that all `b*` and `xb*` variants use a color given by the current theme, while all other variants inherit their color. While this is the default behaviour, you can still apply a different color on both types of headings. This may be usefull, if, for instance, you need to display a `b1` heading in "vibrant yellow" on top of a background using a "rich color".
 
-> **Note**: With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as [insufficiant contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+<ld-notice headline="Note" mode="warning">
+  With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" rel="noreferrer noopener" target="_blank">insufficiant contrast</a>.
+</ld-notice>
 
 Here are some examples on how you can apply different colors on headings:
 
@@ -415,11 +421,13 @@ Here are some examples on how you can apply different colors on headings:
 ### Used by
 
  - [ld-header](../ld-header)
+ - [ld-notice](../ld-notice)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-header --> ld-typo
+  ld-notice --> ld-typo
   style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -29,14 +29,17 @@ export class LdTab implements InnerFocusable {
   private btnRef: HTMLButtonElement
 
   /**
-   * If present, this boolean attribute indicates that the tab is selected.
-   */
-  @Prop({ mutable: true, reflect: true }) selected?: boolean
-
-  /**
    * Disables the tab.
    */
   @Prop() disabled?: boolean
+
+  /** Tab index of the tab. */
+  @Prop() ldTabindex: number | undefined
+
+  /**
+   * If present, this boolean attribute indicates that the tab is selected.
+   */
+  @Prop({ mutable: true, reflect: true }) selected?: boolean
 
   /**
    * Focuses the tab
@@ -49,7 +52,7 @@ export class LdTab implements InnerFocusable {
   /**
    * Emitted with the id of the selected tab.
    */
-  @Event() tabSelect: EventEmitter<string>
+  @Event() ldtabselect: EventEmitter<undefined>
 
   private handleTabClick(event: MouseEvent) {
     event.preventDefault()
@@ -61,7 +64,7 @@ export class LdTab implements InnerFocusable {
   emitEvent(newSelected: boolean, oldSelected: boolean) {
     if (!newSelected || newSelected === oldSelected) return
 
-    this.tabSelect.emit()
+    this.ldtabselect.emit()
   }
 
   /** Set selected tab to a certain index */
@@ -84,7 +87,7 @@ export class LdTab implements InnerFocusable {
         part="button focusable"
         ref={(el) => (this.btnRef = el as HTMLButtonElement)}
         role="tab"
-        tabindex={this.selected ? undefined : '-1'}
+        tabindex={this.selected ? this.ldTabindex : '-1'}
       >
         <span class="ld-tab__spacer" part="spacer spacer-left" />
         <span class="ld-tab__content" part="content">

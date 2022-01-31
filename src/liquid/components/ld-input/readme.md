@@ -97,11 +97,15 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 </script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of `ld-input` with `aria-disabled`, you will have to prevent the default behaviour of the input element yourself. 
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the input, the component will try to prevent user input by resetting the input to its previous value on each input event. However, if you are using the CSS component version of <code>ld-input</code> with <code>aria-disabled</code>, you will have to prevent the default behaviour of the input element yourself. 
+</ld-notice>
 
 ### Dark
 
-> **Note**: Dark tone inputs should only be used on white backgrounds.
+<ld-notice headline="Note" mode="warning">
+  Dark tone inputs should only be used on white backgrounds.
+</ld-notice>
 
 {% example '{ "background": "light" }' %}
 <ld-input tone="dark" placeholder="Placeholder"></ld-input>
@@ -590,7 +594,9 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </div>
 {% endexample %}
 
-> **Note**: The Web Component `ld-input` listens for `click` events on the contained `ld-icon` component and automatically focuses the input field on icon click. The CSS component version of `ld-input` doesn't do that.
+<ld-notice headline="Note" mode="warning">
+  The Web Component <code>ld-input</code> listens for <code>click</code> events on the contained <code>ld-icon</code> component and automatically focuses the input field on icon click. The CSS component version of <code>ld-input</code> doesn't do that.
+</ld-notice>
 
 #### With button
 
@@ -927,87 +933,11 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 ### Input validation
 
-The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-input` Web Component does not provide any properties or methods for validating the input value internally. Instead, it provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-end;
-  flex: 1 0 auto;
-}
-#example-form ld-button {
-  margin-bottom: 1.7rem;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label>
-    Login*
-    <ld-input name="login" required placeholder="login"></ld-input>
-    <ld-input-message visible="false">This field is required.</ld-input-message>
-  </ld-label>
-  <ld-label>
-    Password*
-    <ld-input name="password" required placeholder="password" type="password"></ld-input>
-    <ld-input-message visible="false">This field is required.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const username = document.querySelector('#example-form ld-label:first-of-type ld-input')
-  const usernameErrorMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
-  const password = document.querySelector('#example-form ld-label:last-of-type ld-input')
-  const passwordErrorMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput(ldInput, value, ldInputMessage) {
-    if (!value) {
-      ldInput.setAttribute('invalid', 'true')
-      ldInputMessage.style.visibility = 'inherit'
-      return false
-    }
-    ldInput.removeAttribute('invalid')
-    ldInputMessage.style.visibility = 'hidden'
-    return true
-  }
-  username.addEventListener('input', ev => {
-    validateInput(username, form.login.value, usernameErrorMessage)
-  })
-  username.addEventListener('blur', ev => {
-    validateInput(username, form.login.value, usernameErrorMessage)
-  })
-  password.addEventListener('input', ev => {
-    validateInput(password, form.password.value, passwordErrorMessage)
-  })
-  password.addEventListener('blur', ev => {
-    validateInput(password, form.password.value, passwordErrorMessage)
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    const isUsernameValid = validateInput(username, form.login.value, usernameErrorMessage)
-    const isPasswordValid = validateInput(password, form.password.value, passwordErrorMessage)
-    setTimeout(() => {
-      if (isUsernameValid && isPasswordValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 
 <!-- Auto Generated Below -->
@@ -1027,6 +957,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | `form`         | `form`         | Associates the control with a form element.                                                                           | `string`                                         | `undefined` |
 | `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`                                        | `undefined` |
 | `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number`                               | `undefined` |
+| `ldTabindex`   | `ld-tabindex`  | Tab index of the input.                                                                                               | `number`                                         | `undefined` |
 | `list`         | `list`         | Value of the id attribute of the `<datalist>` of autocomplete options.                                                | `string`                                         | `undefined` |
 | `max`          | `max`          | Maximum value.                                                                                                        | `number \| string`                               | `undefined` |
 | `maxlength`    | `maxlength`    | Maximum length (number of characters) of `value`.                                                                     | `string`                                         | `undefined` |
@@ -1054,6 +985,7 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 | Event      | Description                                                       | Type                  |
 | ---------- | ----------------------------------------------------------------- | --------------------- |
 | `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<string>` |
 
 
 ## Methods

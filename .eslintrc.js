@@ -1,21 +1,22 @@
 const commonTSConfig = {
   extends: [
-    'prettier',
     'eslint:recommended',
     'plugin:compat/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@stencil/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'promise'],
+  plugins: ['@typescript-eslint', 'prettier', 'promise'],
   rules: {
+    '@stencil/decorators-style': 0,
+    '@stencil/element-type': 0,
+    '@stencil/strict-boolean-conditions': 0,
+    '@stencil/strict-mutable': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-extra-semi': 0,
-    '@stencil/strict-boolean-conditions': 0,
-    '@stencil/element-type': 0,
-    '@stencil/decorators-style': 0,
-    '@stencil/strict-mutable': 0,
+    'prettier/prettier': 'error',
     'react/jsx-no-bind': 0,
   },
 }

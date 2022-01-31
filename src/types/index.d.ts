@@ -1,5 +1,6 @@
 interface InnerFocusable {
   focusInner: () => Promise<void>
+  ldTabindex: number | undefined
 }
 
 interface ClonesAttributes {

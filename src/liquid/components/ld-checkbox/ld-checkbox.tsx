@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -50,6 +52,9 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
   @Prop() invalid: boolean
 
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
+
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
@@ -70,9 +75,13 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
 
   @State() clonedAttributes
 
-  /**
-   * Sets focus on the checkbox
-   */
+  /** Emitted when the input value changed and the element loses focus. */
+  @Event() ldchange: EventEmitter<boolean>
+
+  /** Emitted when the input value changed. */
+  @Event() ldinput: EventEmitter<boolean>
+
+  /** Sets focus on the checkbox. */
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
@@ -132,21 +141,14 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
     this.el.appendChild(this.hiddenInput)
   }
 
-  private handleBlur(ev) {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+  private handleChange = (ev: InputEvent) => {
+    this.el.dispatchEvent(new InputEvent('change', ev))
+    this.ldchange.emit(this.checked)
   }
 
-  private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
-  }
-
-  private handleClick = (ev?: MouseEvent) => {
+  private handleClick = (ev: MouseEvent) => {
     if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
-      ev?.preventDefault()
+      ev.preventDefault()
       return
     }
 
@@ -156,9 +158,16 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
       // This happens, when a click event is dispatched on the host element
       // from the outside i.e. on click on a parent ld-label element.
       this.el.dispatchEvent(
-        new Event('input', { bubbles: true, composed: true })
+        new InputEvent('input', { bubbles: true, composed: true })
       )
+      this.handleInput()
+      this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+      this.ldchange.emit(this.checked)
     }
+  }
+
+  private handleInput = () => {
+    this.ldinput.emit(this.checked)
   }
 
   componentWillLoad() {
@@ -203,13 +212,14 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
           {...this.clonedAttributes}
-          part="input focusable"
-          onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus}
-          ref={(ref) => (this.input = ref)}
-          type="checkbox"
-          disabled={this.disabled}
           checked={this.checked}
+          disabled={this.disabled}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
+          part="input focusable"
+          ref={(ref) => (this.input = ref)}
+          tabIndex={this.ldTabindex}
+          type="checkbox"
           value={this.value}
         />
         <svg

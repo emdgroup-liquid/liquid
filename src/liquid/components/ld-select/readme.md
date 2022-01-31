@@ -447,7 +447,9 @@ If you have limited vertical space (this may especially be the case on mobile de
 </div>
 {% endexample %}
 
-> **Note**: When aria-disabled is applied on the Web Component, it will prevent user interaction. With the CSS Component version on the other hand, after applying aria-disabled on the select element, you will need to take care of preventing its default behaviour yourself.
+<ld-notice headline="Note" mode="warning">
+  When aria-disabled is applied on the Web Component, it will prevent user interaction. With the CSS Component version on the other hand, after applying aria-disabled on the select element, you will need to take care of preventing its default behaviour yourself.
+</ld-notice>
 
 ### Invalid
 
@@ -1134,92 +1136,11 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 
 ### Input validation
 
-The `ld-select` Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for `focus`, `change`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-select` Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-end;
-  flex: 1 0 auto;
-}
-#example-form ld-button {
-  margin-bottom: 1.7rem;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-template-columns: 1fr auto;
-  }
-}
-#example-form ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label>
-    Fruits*
-    <ld-select placeholder="Pick some fruits" name="fruits" multiple max-rows="1">
-      <ld-option value="apple">Apple</ld-option>
-      <ld-option value="banana">Banana</ld-option>
-      <ld-option value="strawberry">Strawberry</ld-option>
-      <ld-option value="watermelon" disabled>Watermelon</ld-option>
-      <ld-option value="honeymelon">Honeymelon</ld-option>
-      <ld-option value="rasberry">Rasberry</ld-option>
-      <ld-option value="cherry">Cherry</ld-option>
-      <ld-option value="blueberry">Blueberry</ld-option>
-      <ld-option value="peach">Peach</ld-option>
-      <ld-option value="grape">Grape</ld-option>
-      <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
-      <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
-      <ld-option value="pear">Pear</ld-option>
-      <ld-option value="pineapple">Pineapple</ld-option>
-      <ld-option value="plum">Plum</ld-option>
-    </ld-select>
-    <ld-input-message visible="false">Pick at least 3 fruits.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const select = document.querySelector('#example-form ld-select')
-  const errorMessage = document.querySelector('#example-form ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  let selectDirty = false
-  function validateInput() {
-    if (selectDirty && (!form.fruits || !form.fruits.length || form.fruits.length < 3)) {
-      select.setAttribute('invalid', 'true')
-      errorMessage.style.visibility = 'inherit'
-      return false
-    }
-    select.removeAttribute('invalid')
-    errorMessage.style.visibility = 'hidden'
-    return true
-  }
-  select.addEventListener('change', ev => {
-    validateInput()
-  })
-  select.addEventListener('blur', ev => {
-    selectDirty = true
-    validateInput()
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    selectDirty = true
-    const isValid = validateInput()
-    setTimeout(() => {
-      if (isValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 <!-- Auto Generated Below -->
 
@@ -1233,6 +1154,7 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                | `string`                            | `undefined` |
 | `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                   | `boolean`                           | `undefined` |
 | `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                       | `string \| number`                  | `undefined` |
+| `ldTabindex`         | `ld-tabindex`         | Tab index of the trigger button.                                                                                                                                               | `number`                            | `0`         |
 | `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator.                                                                     | `number`                            | `undefined` |
 | `mode`               | `mode`                | Display mode.                                                                                                                                                                  | `"detached" \| "ghost" \| "inline"` | `undefined` |
 | `multiple`           | `multiple`            | Multiselect mode.                                                                                                                                                              | `boolean`                           | `undefined` |
@@ -1242,6 +1164,7 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                                                                                       | `boolean`                           | `undefined` |
 | `ref`                | `ref`                 | reference to component                                                                                                                                                         | `any`                               | `undefined` |
 | `required`           | `required`            | A Boolean attribute indicating that an option with a non-empty string value must be selected.                                                                                  | `boolean`                           | `undefined` |
+| `selected`           | --                    | Currently selected option(s) (read only!)                                                                                                                                      | `SelectOption[]`                    | `[]`        |
 | `size`               | `size`                | Size of the select trigger button.                                                                                                                                             | `"lg" \| "sm"`                      | `undefined` |
 | `tetherOptions`      | `tether-options`      | Stringified tether options object to be merged with the default options.                                                                                                       | `string`                            | `'{}'`      |
 
@@ -1250,11 +1173,8 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 | Event      | Description                                                                                            | Type                    |
 | ---------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `blur`     | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
-| `change`   | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
-| `focus`    | Emitted with an array of selected values when the select component gets focus.                         | `CustomEvent<string[]>` |
-| `focusout` | Emitted with an array of selected values when the select component looses focus.                       | `CustomEvent<string[]>` |
-| `input`    | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| `ldchange` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| `ldinput`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
 
 
 ## Methods

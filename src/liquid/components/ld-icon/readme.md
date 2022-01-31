@@ -240,6 +240,8 @@ Left-click an icon below to download its SVG file. To download all icons at once
   <docs-icon identifier="calendar" name="Calendar"></docs-icon>
   <docs-icon identifier="clock" name="Clock"></docs-icon>
   <docs-icon identifier="bell" name="Bell"></docs-icon>
+  <docs-icon identifier="copy" name="Copy"></docs-icon>
+  <docs-icon identifier="hyperlink" name="Hyperlink"></docs-icon>
 </docs-icon-group>
 
 <!-- Auto Generated Below -->
@@ -275,12 +277,16 @@ Left-click an icon below to download its SVG file. To download all icons at once
 
  - [ld-header](../ld-header)
  - [ld-input-message](../ld-input-message)
+ - [ld-notice](../ld-notice)
+ - [ld-pagination](../ld-pagination)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-header --> ld-icon
   ld-input-message --> ld-icon
+  ld-notice --> ld-icon
+  ld-pagination --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

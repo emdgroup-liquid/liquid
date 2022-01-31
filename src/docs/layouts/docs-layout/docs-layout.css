@@ -49,7 +49,7 @@ body {
     z-index: -1;
   }
 
-  :where(a:not([class*='ld-']):not([class*='docs-'])) {
+  :where(a:not([class*='ld-']):not([class*='docs-']):not(.ld-notice *)) {
     text-decoration: none;
     color: inherit;
   }

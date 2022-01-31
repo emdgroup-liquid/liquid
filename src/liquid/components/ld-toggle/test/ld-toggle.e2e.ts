@@ -2,8 +2,6 @@ import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
 
-jest.useRealTimers()
-
 const checkedStates = [false, true]
 
 const iconStart = `

@@ -14,8 +14,6 @@ const cellTypes = [
   'tile',
 ]
 
-jest.useRealTimers()
-
 describe('ld-bg-cells', () => {
   describe('web component', () => {
     it(`default`, async () => {

@@ -21,19 +21,20 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ## Properties
 
-| Property   | Attribute  | Description                                                            | Type               | Default     |
-| ---------- | ---------- | ---------------------------------------------------------------------- | ------------------ | ----------- |
-| `disabled` | `disabled` | Disables the tab.                                                      | `boolean`          | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists               | `string \| number` | `undefined` |
-| `ref`      | `ref`      | reference to component                                                 | `any`              | `undefined` |
-| `selected` | `selected` | If present, this boolean attribute indicates that the tab is selected. | `boolean`          | `undefined` |
+| Property     | Attribute     | Description                                                            | Type               | Default     |
+| ------------ | ------------- | ---------------------------------------------------------------------- | ------------------ | ----------- |
+| `disabled`   | `disabled`    | Disables the tab.                                                      | `boolean`          | `undefined` |
+| `key`        | `key`         | for tracking the node's identity when working with lists               | `string \| number` | `undefined` |
+| `ldTabindex` | `ld-tabindex` | Tab index of the tab.                                                  | `number`           | `undefined` |
+| `ref`        | `ref`         | reference to component                                                 | `any`              | `undefined` |
+| `selected`   | `selected`    | If present, this boolean attribute indicates that the tab is selected. | `boolean`          | `undefined` |
 
 
 ## Events
 
-| Event       | Description                              | Type                  |
-| ----------- | ---------------------------------------- | --------------------- |
-| `tabSelect` | Emitted with the id of the selected tab. | `CustomEvent<string>` |
+| Event         | Description                              | Type                     |
+| ------------- | ---------------------------------------- | ------------------------ |
+| `ldtabselect` | Emitted with the id of the selected tab. | `CustomEvent<undefined>` |
 
 
 ## Methods

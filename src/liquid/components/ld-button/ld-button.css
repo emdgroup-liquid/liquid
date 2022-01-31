@@ -1,4 +1,5 @@
 :host {
+  appearance: none !important; /* Safari browser reset */
   display: inline-flex;
 
   > :where(.ld-button) {

@@ -66,7 +66,7 @@ export class LdOptionInternal {
   /**
    * Emitted on either selection or de-selection of the option.
    */
-  @Event() ldOptionSelect: EventEmitter<boolean>
+  @Event() ldoptionselect: EventEmitter<boolean>
 
   @State() title: string
 
@@ -89,7 +89,7 @@ export class LdOptionInternal {
       this.hasHover = false
     }
 
-    this.ldOptionSelect.emit(this.selected)
+    this.ldoptionselect.emit(this.selected)
   }
 
   @Listen('keydown', { passive: false })

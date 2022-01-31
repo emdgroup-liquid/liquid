@@ -1,9 +1,13 @@
-const fetch = require('node-fetch')
+require('dotenv').config()
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
+const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
+const cheerio = require('cheerio')
+const memoize = require('lodash.memoize')
+const fetch = require('node-fetch')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false)
@@ -58,12 +62,44 @@ module.exports = function (eleventyConfig) {
   }
   eleventyConfig.setLibrary(
     'md',
-    markdownIt({ html: true }).use(markdownItAnchor, {
-      permalink: true,
-      renderPermalink,
+    markdownIt({
+      html: true,
+      linkify: true,
+      replaceLink: (link, env) => {
+        // Convert relative links to absolute links
+        const base = process.env.MODE === 'gh_pages' ? '/liquid' : ''
+        if (link.startsWith('./')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 1, 0, link.substr(2))
+          return base + splitted.join('/')
+        }
+        if (link.startsWith('../')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 2, 1, link.substr(3))
+          return base + splitted.join('/')
+        }
+        return link
+      },
     })
+      .use(markdownItAnchor, {
+        permalink: true,
+        renderPermalink,
+      })
+      .use(markdownItReplaceLink)
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
+
+  // Memoized serch index filter for headings
+  eleventyConfig.addNunjucksFilter(
+    'memoizedHeadings',
+    memoize((value) =>
+      Array.from(cheerio.load(value)('h2, h3').contents())
+        .filter((elem) => elem.type === 'text')
+        .map((elem) => elem.data)
+        .join(' ')
+        .replaceAll(/(\n|\r)/g, ' ')
+    )
+  )
 
   // Contributors short code (used in layout.njk)
   eleventyConfig.addNunjucksAsyncShortcode(
@@ -100,14 +136,15 @@ module.exports = function (eleventyConfig) {
   // Code example short codes
   eleventyConfig.addPairedShortcode('example', function (code, config) {
     const defaultConfig = {
-      lang: 'html',
-      stacked: false,
-      opened: false,
       background: undefined,
-      themable: true,
+      centered: false,
       hasPadding: true,
       heighlight: undefined,
       heighlightCssComponent: undefined,
+      lang: 'html',
+      opened: false,
+      stacked: false,
+      themable: true,
     }
     const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
     const [codeWebComponent, codeCssComponent] = code
@@ -120,6 +157,7 @@ module.exports = function (eleventyConfig) {
       output += `code-css-component="${encodeURIComponent(codeCssComponent)}" `
     }
 
+    output += `${finalConfig.centered ? ' centered' : ''}`
     output += `${finalConfig.stacked ? ' stacked' : ''}`
     output += `${finalConfig.opened ? ' opened' : ''}`
     if (finalConfig.background) {

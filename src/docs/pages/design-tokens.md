@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Design tokens
   parent: Introduction
-  order: 9
+  order: 11
 layout: layout.njk
 title: Design tokens
 permalink: introduction/design-tokens/
@@ -27,7 +27,9 @@ You have at least two options:
 
 2. Copy [Liquid's token file on Figma][liquid tokens on figma], adjust it to your needs and auto-generate your `design-tokens.json` and a `liquid.globals.css` file with values from your own Figma token file by running a command from the `@emdgroup-liquid/liquid` package using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx).
 
-> **Note**: You should **not** change the structure of the Figma token file nor the naming of elements within the file. You should only alter the element values.
+<ld-notice headline="Note" mode="warning">
+  You should <strong>not</strong> change the structure of the Figma token file nor the naming of elements within the file. You should only alter the element values.
+</ld-notice>
 
 Here is an example illustrating how to invoke the command mentioned above:
 
@@ -37,7 +39,9 @@ FIGMA_API_KEY=your-api-key npx @emdgroup-liquid/liquid apply-design-tokens --pat
 
 As you can see, the command is invoked with `npx`. It uses an environment variable `FIGMA_API_KEY`, which you will have to provide in order to be able to fetch data from the Figma API, and executes the `apply-design-tokens` task. It also uses two application parameters: `--figma-file`, which is the URL to your Figma token file, and `--path`, which is the output path that points to a directory in your project where you would like to save the generated CSS file containing the CSS custom props. The command will save the `design-tokens.json` file in the root of your project. When you `require` the [Tailwind CSS preset](https://tailwindcss.com/docs/presets) file from `@emdgroup-liquid/liquid/dist/css/tailwind-preset.js`, it will look for a token file in your project root.
 
-> **Note**: Asset loading (including fonts) is not taken care of automatically when you use custom design tokens, so you will have to take care of that yourself. 
+<ld-notice headline="Note" mode="warning">
+  Asset loading (including fonts) is not taken care of automatically when you use custom design tokens, so you will have to take care of that yourself. 
+</ld-notice>
 
 <docs-page-nav prev-href="introduction/tailwindcss-integration/" next-title="Sandbox applications" next-href="introduction/sandbox-applications/"></docs-page-nav>
 

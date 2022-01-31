@@ -172,13 +172,17 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the checkbox, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the checkbox yourself.
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the checkbox, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the checkbox yourself.
+</ld-notice>
 
 ### Indeterminate
 
 If the `indeterminate` attribute is present on the `ld-checkbox` component, the checkbox's value is neither `true` nor `false`, but is instead _indeterminate_, meaning that its state cannot be determined or stated in pure binary terms. This may happen, for instance, if the state of the checkbox depends on multiple other checkboxes, and those checkboxes have different values. However, the control is never a true tri-state control, even if the element's indeterminate attribute is set to true. The indeterminate IDL attribute only gives the appearance of a third state.
 
-> **Note**: When using the CSS Component you need to take care of setting the indeterminate **prop** on the input element with JavaScript.  
+<ld-notice headline="Note" mode="warning">
+  When using the CSS Component you need to take care of setting the indeterminate <strong>prop</strong> on the input element with JavaScript.  
+</ld-notice>
 
 {% example '{ "background": "light" }' %}
 <ld-checkbox indeterminate></ld-checkbox>
@@ -238,7 +242,9 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 
 ### Dark
 
-> **Note**: Dark tone checkboxes should only be used on white backgrounds.
+<ld-notice headline="Note" mode="warning">
+  Dark tone checkboxes should only be used on white backgrounds.
+</ld-notice>
 
 {% example '{ "background": "light" }' %}
 <ld-checkbox tone="dark"></ld-checkbox>
@@ -573,75 +579,11 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 
 ### Input validation
 
-The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-checkbox` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-start;
-  flex: 1 0 auto;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-label:first-of-type ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label position="right" size="m">
-    I have read the terms of service.*
-    <ld-checkbox id="example-form-terms" name="terms" required></ld-checkbox>
-    <ld-input-message id="example-form-terms-message" visible="false">To proceed, you must except the terms of service.</ld-input-message>
-  </ld-label>
-  <ld-label position="right" size="m">
-    I'd like to receive a weekly newsletter.
-    <ld-checkbox id="newsletter" name="newsletter"></ld-checkbox>
-    <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const form = document.querySelector('#example-form')
-  const termsConfirmation = document.querySelector('#example-form-terms')
-  const termsErrorMessage = document.querySelector('#example-form-terms-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput() {
-    if (!form.terms.checked) {
-      termsConfirmation.setAttribute('invalid', 'true')
-      termsErrorMessage.style.visibility = 'inherit'
-      return false
-    }
-    termsConfirmation.removeAttribute('invalid')
-    termsErrorMessage.style.visibility = 'hidden'
-    return true
-  }
-  termsConfirmation.addEventListener('input', ev => {
-    validateInput()
-  })
-  termsConfirmation.addEventListener('blur', ev => {
-    validateInput()
-  })
-  form.addEventListener('submit', ev => {
-    ev.preventDefault()
-    const isTermsConfirmationValid = validateInput()
-    setTimeout(() => {
-      if (isTermsConfirmationValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 <!-- Auto Generated Below -->
 
@@ -657,6 +599,7 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `indeterminate` | `indeterminate` | Set this property to `true` to indicate that the checkbox's value is neither true nor false. The prop is removed automatically as soon as the checkbox is clicked (if not disabled). | `boolean`                 | `undefined` |
 | `invalid`       | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid.                                                                                                       | `boolean`                 | `undefined` |
 | `key`           | `key`           | for tracking the node's identity when working with lists                                                                                                                             | `string \| number`        | `undefined` |
+| `ldTabindex`    | `ld-tabindex`   | Tab index of the input.                                                                                                                                                              | `number`                  | `undefined` |
 | `mode`          | `mode`          | Display mode.                                                                                                                                                                        | `"danger" \| "highlight"` | `undefined` |
 | `name`          | `name`          | Used to specify the name of the control.                                                                                                                                             | `string`                  | `undefined` |
 | `readonly`      | `readonly`      | The value is not editable.                                                                                                                                                           | `boolean`                 | `undefined` |
@@ -666,11 +609,19 @@ The `ld-checkbox` Web Component provides a low level API for integrating the com
 | `value`         | `value`         | The input value.                                                                                                                                                                     | `string`                  | `undefined` |
 
 
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
+
+
 ## Methods
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the checkbox
+Sets focus on the checkbox.
 
 #### Returns
 

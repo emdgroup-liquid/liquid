@@ -61,7 +61,9 @@ describe('ld-radio', () => {
     expect(input.checked).toBe(true)
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur events', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
       html: `<ld-radio></ld-radio>`,
@@ -69,40 +71,92 @@ describe('ld-radio', () => {
     const ldRadio = page.root
     const input = ldRadio.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
+    const focusHandler = jest.fn()
+    ldRadio.addEventListener('focus', focusHandler)
+    input.dispatchEvent(new FocusEvent('focus'))
+    expect(focusHandler).toHaveBeenCalled()
 
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldRadio.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
-
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldRadio.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+    const blurHandler = jest.fn()
+    ldRadio.addEventListener('blur', blurHandler)
+    input.dispatchEvent(new FocusEvent('blur'))
+    expect(blurHandler).toHaveBeenCalled()
   })
 
-  it('emits input event on click', async () => {
+  it('emits change and ldchange events', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<ld-radio />`,
+      html: `<ld-radio></ld-radio>`,
     })
     const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
 
-    const spyInput = jest.fn()
-    ldRadio.addEventListener('input', spyInput)
+    const changeHandler = jest.fn()
+    ldRadio.addEventListener('change', changeHandler)
+    const ldchangeHandler = jest.fn()
+    ldRadio.addEventListener('ldchange', ldchangeHandler)
+
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldRadio.addEventListener('input', inputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(inputHandler).toHaveBeenCalled()
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldRadio.addEventListener('ldinput', ldinputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(ldinputHandler).toHaveBeenCalled()
+  })
+
+  it('emits events on programmatic click', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldRadio.addEventListener('change', changeHandler)
+    ldRadio.addEventListener('ldchange', ldchangeHandler)
+    ldRadio.addEventListener('input', inputHandler)
+    ldRadio.addEventListener('ldinput', ldinputHandler)
     ldRadio.click()
 
-    expect(spyInput).toHaveBeenCalled()
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(inputHandler).toHaveBeenCalled()
+    expect(ldinputHandler).toHaveBeenCalled()
   })
 
   it('allows to set inner focus', async () => {

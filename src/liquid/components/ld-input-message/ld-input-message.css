@@ -9,6 +9,14 @@
   line-height: 1.5;
 }
 
+:host(.ld-input-message--info),
+.ld-input-message--info {
+  .ld-input-message__icon {
+    --ld-icon-secondary-col: var(--ld-col-neutral-900);
+    color: var(--ld-thm-warning);
+  }
+}
+
 :host(.ld-input-message--valid),
 .ld-input-message--valid {
   color: var(--ld-input-message-valid-text-col);
