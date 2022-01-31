@@ -139,8 +139,8 @@ module.exports = function (eleventyConfig) {
       background: undefined,
       centered: false,
       hasPadding: true,
-      heighlight: undefined,
-      heighlightCssComponent: undefined,
+      highlight: undefined,
+      highlightCssComponent: undefined,
       lang: 'html',
       opened: false,
       stacked: false,
@@ -168,15 +168,15 @@ module.exports = function (eleventyConfig) {
     output += '>\n'
     output += `<div slot="code">\n\n`
     output += `\`\`\`${finalConfig.lang}${
-      finalConfig.heighlight ? '/' + finalConfig.heighlight : ''
+      finalConfig.highlight ? '/' + finalConfig.highlight : ''
     } \n${codeWebComponent}\n\`\`\``
     output += '\n</div>'
 
     if (codeCssComponent) {
       output += `<div slot="codeCssComponent">\n\n`
       output += `\`\`\`${finalConfig.lang}${
-        finalConfig.heighlightCssComponent
-          ? '/' + finalConfig.heighlightCssComponent
+        finalConfig.highlightCssComponent
+          ? '/' + finalConfig.highlightCssComponent
           : ''
       } \n${codeCssComponent.trim()}\n\`\`\``
       output += '\n</div>'
