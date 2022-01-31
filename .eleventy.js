@@ -7,6 +7,7 @@ const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
 const cheerio = require('cheerio')
 const memoize = require('lodash.memoize')
+const fetch = require('node-fetch')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false)
@@ -108,7 +109,6 @@ module.exports = function (eleventyConfig) {
 
       let commits
       try {
-        const fetch = (await import('node-fetch')).default
         const res = await fetch(
           `https://api.github.com/repos/emdgroup-liquid/liquid/commits?path=${path}`,
           {
