@@ -187,6 +187,25 @@ describe('ld-input', () => {
     expect(input.focus).toHaveBeenCalledTimes(2)
   })
 
+  it('does not focus the input on click of non-interactive elment inside the component if already focused', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input><span slot="end"><span id="banana">🍌</span></span></ld-input>`,
+    })
+    const ldInput = page.root
+    const banana = ldInput.querySelector('#banana') as HTMLElement
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const doc = ldInput.shadowRoot as unknown as { activeElement: Element }
+    doc.activeElement = input
+
+    input.focus = jest.fn()
+    banana.dispatchEvent(new Event('click', { bubbles: true }))
+    ldInput.dispatchEvent(new Event('click'))
+
+    expect(input.focus).not.toHaveBeenCalled()
+  })
+
   it('forwards click to input (default)', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],
