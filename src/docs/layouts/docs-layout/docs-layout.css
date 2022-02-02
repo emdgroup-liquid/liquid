@@ -1,3 +1,7 @@
+html {
+  scroll-padding-top: 5rem;
+}
+
 body {
   overscroll-behavior-x: none;
   -webkit-text-size-adjust: none;
