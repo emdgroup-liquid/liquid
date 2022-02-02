@@ -309,7 +309,9 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
 
     if (target.closest('ld-button')) return
 
-    this.input.focus()
+    if (this.el.shadowRoot.activeElement !== this.input) {
+      this.input.focus()
+    }
 
     if (target === this.el) {
       this.input.dispatchEvent(new MouseEvent('click', { bubbles: false }))
