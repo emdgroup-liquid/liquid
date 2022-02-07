@@ -13,7 +13,7 @@ import { Component, h, Prop, Host } from '@stencil/core'
   shadow: true,
 })
 export class LdNotice {
-  /** Mode of the notice. */
+  /** Headline of the notice. */
   @Prop() headline?: string
 
   /** Mode of the notice. */

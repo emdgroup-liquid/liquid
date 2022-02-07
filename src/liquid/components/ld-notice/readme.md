@@ -82,7 +82,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 | Property   | Attribute  | Description                                              | Type                             | Default     |
 | ---------- | ---------- | -------------------------------------------------------- | -------------------------------- | ----------- |
-| `headline` | `headline` | Mode of the notice.                                      | `string`                         | `undefined` |
+| `headline` | `headline` | Headline of the notice.                                  | `string`                         | `undefined` |
 | `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number`               | `undefined` |
 | `mode`     | `mode`     | Mode of the notice.                                      | `"error" \| "info" \| "warning"` | `'info'`    |
 | `ref`      | `ref`      | reference to component                                   | `any`                            | `undefined` |
