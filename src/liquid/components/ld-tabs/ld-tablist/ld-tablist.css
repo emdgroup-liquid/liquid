@@ -1,6 +1,6 @@
 :host {
   /* colors */
-  --ld-tablist-border-col: var(--ld-col-neutral-050);
+  --ld-tablist-border-col: var(--ld-col-neutral-100);
   --ld-tablist-border-height: 0.1875rem;
   --ld-tablist-btn-scroll-col: var(--ld-col-neutral-900);
   --ld-tablist-btn-scroll-col-active: var(--ld-col-neutral-900);
@@ -9,7 +9,7 @@
   --ld-tablist-btn-scroll-bg-col-active: var(--ld-col-neutral-300);
 
   /* theme colors */
-  --ld-tablist-border-brand-col: var(--ld-thm-primary-active);
+  --ld-tablist-border-brand-col: var(--ld-thm-primary-hover);
   --ld-tablist-btn-scroll-bg-brand-col-active: var(--ld-thm-primary-active);
   --ld-tablist-btn-scroll-bg-brand-col-hover: var(--ld-thm-primary-hover);
   --ld-tablist-btn-scroll-bg-brand-col: var(--ld-thm-primary);
