@@ -21,11 +21,10 @@ export class DocsPickTheme {
   private themes = ['ocean', 'bubblegum', 'shake', 'solvent', 'tea']
 
   render() {
-    let cl = 'docs-pick-theme'
-    cl += ` ld-theme-${this.currentTheme.toLowerCase()}`
-
     return (
-      <Host class={cl}>
+      <Host
+        class={`docs-pick-theme ld-theme-${this.currentTheme.toLowerCase()}`}
+      >
         <form>
           <fieldset class="docs-pick-theme__fieldset">
             <ld-sr-only>
@@ -34,7 +33,7 @@ export class DocsPickTheme {
 
             <ld-select
               class="docs-pick-theme__select"
-              onInput={this.handleChange.bind(this)}
+              onLdchange={this.handleChange.bind(this)}
               preventDeselection
               mode="ghost"
               tetherOptions={JSON.stringify({

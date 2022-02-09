@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdCheckbox } from '../ld-checkbox'
+import '../../../utils/mutationObserver'
 
 describe('ld-checkbox', () => {
   it('renders', async () => {
@@ -48,7 +49,7 @@ describe('ld-checkbox', () => {
       html: `<ld-checkbox></ld-checkbox>`,
     })
     const ldCheckbox = page.root
-    expect(ldCheckbox.checked).toBe(undefined)
+    expect(ldCheckbox.checked).toBe(false)
 
     const input = ldCheckbox.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
@@ -60,7 +61,9 @@ describe('ld-checkbox', () => {
     expect(input.checked).toBe(true)
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur events', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox></ld-checkbox>`,
@@ -68,40 +71,94 @@ describe('ld-checkbox', () => {
     const ldCheckbox = page.root
     const input = ldCheckbox.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
-
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldCheckbox.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
+    const focusHandler = jest.fn()
+    ldCheckbox.addEventListener('focus', focusHandler)
+    input.dispatchEvent(new FocusEvent('focus'))
     jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
+    expect(focusHandler).toHaveBeenCalled()
 
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldCheckbox.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
+    const blurHandler = jest.fn()
+    ldCheckbox.addEventListener('blur', blurHandler)
+    input.dispatchEvent(new FocusEvent('blur'))
     jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+    expect(blurHandler).toHaveBeenCalled()
   })
 
-  it('emits input event on click', async () => {
+  it('emits change and ldchange events', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
       html: `<ld-checkbox></ld-checkbox>`,
     })
     const ldCheckbox = page.root
+    const input = ldCheckbox.shadowRoot.querySelector('input')
 
-    const spyInput = jest.fn()
-    ldCheckbox.addEventListener('input', spyInput)
+    const changeHandler = jest.fn()
+    ldCheckbox.addEventListener('change', changeHandler)
+    const ldchangeHandler = jest.fn()
+    ldCheckbox.addEventListener('ldchange', ldchangeHandler)
+
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+    const input = ldCheckbox.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldCheckbox.addEventListener('input', inputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(inputHandler).toHaveBeenCalled()
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+    const input = ldCheckbox.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldCheckbox.addEventListener('ldinput', ldinputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(ldinputHandler).toHaveBeenCalled()
+  })
+
+  it('emits events on programmatic click', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldCheckbox.addEventListener('change', changeHandler)
+    ldCheckbox.addEventListener('ldchange', ldchangeHandler)
+    ldCheckbox.addEventListener('input', inputHandler)
+    ldCheckbox.addEventListener('ldinput', ldinputHandler)
     ldCheckbox.click()
 
-    expect(spyInput).toHaveBeenCalled()
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(inputHandler).toHaveBeenCalled()
+    expect(ldinputHandler).toHaveBeenCalled()
   })
 
   it('allows to set inner focus', async () => {
@@ -121,7 +178,7 @@ describe('ld-checkbox', () => {
   it('creates hidden input field, if inside a form', async () => {
     const { root } = await newSpecPage({
       components: [LdCheckbox],
-      html: `<form><ld-checkbox /></form>`,
+      html: `<form><ld-checkbox name="example" /></form>`,
     })
     expect(root).toMatchSnapshot()
   })
@@ -129,11 +186,10 @@ describe('ld-checkbox', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
-      html: `<form><ld-checkbox name="example" checked required /></form>`,
+      html: '<form><ld-checkbox name="example" checked /></form>',
     })
     const ldCheckbox = page.root
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
   })
 
   it('updates hidden input field', async () => {
@@ -146,7 +202,6 @@ describe('ld-checkbox', () => {
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', false)
 
     ldCheckbox.setAttribute('name', 'test')
     await waitForChanges()
@@ -156,17 +211,17 @@ describe('ld-checkbox', () => {
     ldCheckbox.removeAttribute('name')
     await waitForChanges()
 
-    expect(ldCheckbox.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldCheckbox.querySelector('input')).toEqual(null)
+
+    ldCheckbox.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'test')
 
     ldCheckbox.dispatchEvent(new Event('click'))
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('checked', true)
-
-    ldCheckbox.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldCheckbox.querySelector('input')).toHaveProperty('required', true)
 
     ldCheckbox.setAttribute('value', 'test')
     await waitForChanges()
@@ -174,10 +229,22 @@ describe('ld-checkbox', () => {
     expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
 
     ldCheckbox.removeAttribute('value')
+    ldCheckbox.value = undefined
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(
       null
     )
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdCheckbox],
+      html: '<ld-checkbox name="example" form="yolo" />',
+    })
+    const ldCheckbox = root
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
   })
 })

@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
+import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
 describe('ld-input', () => {
   it('renders', async () => {
@@ -60,7 +61,9 @@ describe('ld-input', () => {
     expect(ldInput).toMatchSnapshot()
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur event', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input />`,
@@ -68,26 +71,80 @@ describe('ld-input', () => {
     const ldInput = page.root
     const input = page.root.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
+    const blurHandler = jest.fn()
+    const focusHandler = jest.fn()
 
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldInput.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
+    ldInput.addEventListener('focus', focusHandler)
+    input.dispatchEvent(new Event('focus', { bubbles: true, composed: true }))
+    ldInput.addEventListener('blur', blurHandler)
+    input.dispatchEvent(new Event('blur', { bubbles: true, composed: true }))
+    await page.waitForChanges()
 
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldInput.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+    expect(focusHandler).toHaveBeenCalled()
+    expect(blurHandler).toHaveBeenCalled()
+  })
+
+  it('emits change and ldchange events', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const changeHandler = jest.fn()
+    ldInput.addEventListener('change', changeHandler)
+    const ldchangeHandler = jest.fn()
+    ldInput.addEventListener('ldchange', ldchangeHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    await page.waitForChanges()
+
+    expect(changeHandler).toHaveBeenCalledTimes(1)
+    expect(ldchangeHandler).toHaveBeenCalledTimes(1)
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldInput.addEventListener('input', inputHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    await page.waitForChanges()
+
+    expect(inputHandler).toHaveBeenCalledTimes(1)
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldInput.addEventListener('ldinput', ldinputHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    await page.waitForChanges()
+
+    expect(ldinputHandler).toHaveBeenCalledTimes(1)
   })
 
   it('renders with slot start', async () => {
@@ -128,6 +185,25 @@ describe('ld-input', () => {
     ldInput.dispatchEvent(new Event('click'))
 
     expect(input.focus).toHaveBeenCalledTimes(2)
+  })
+
+  it('does not focus the input on click of non-interactive elment inside the component if already focused', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input><span slot="end"><span id="banana">🍌</span></span></ld-input>`,
+    })
+    const ldInput = page.root
+    const banana = ldInput.querySelector('#banana') as HTMLElement
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const doc = ldInput.shadowRoot as unknown as { activeElement: Element }
+    doc.activeElement = input
+
+    input.focus = jest.fn()
+    banana.dispatchEvent(new Event('click', { bubbles: true }))
+    ldInput.dispatchEvent(new Event('click'))
+
+    expect(input.focus).not.toHaveBeenCalled()
   })
 
   it('forwards click to input (default)', async () => {
@@ -284,13 +360,44 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
-  it('copies form autocomplete attribute, if it has not one of its own', async () => {
+  it('creates hidden input field, if name attribute is added', async () => {
     const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input /></form>`,
+    })
+
+    root.setAttribute('name', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, if form attribute is given', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input form="example-form" name="example" />`,
+    })
+    expect(root).toMatchSnapshot()
+  })
+
+  it('creates hidden input field, if form attribute is added', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input name="example" />`,
+    })
+
+    root.setAttribute('form', 'test')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('copies form autocomplete attribute, if it has not one of its own', async () => {
+    const page = await newSpecPage({
       components: [LdInput],
       html: `<form autocomplete="off"><ld-input name="example" /></form>`,
     })
-    await waitForChanges()
-    expect(root).toMatchSnapshot()
+    expect(page.root).toMatchSnapshot()
   })
 
   it('uses own autocomplete attribute even if the form has a different one', async () => {
@@ -302,15 +409,15 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
-  it('fills hidden input field with initial value', async () => {
+  it('fills hidden input field with initial attributes', async () => {
     const { root } = await newSpecPage({
       components: [LdInput],
-      html: `<form><ld-input name="example" value="hello" /></form>`,
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello"  /></form>`,
     })
     expect(root).toMatchSnapshot()
   })
 
-  it('updates hidden input field', async () => {
+  it('updates hidden input field value', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdInput],
       html: `<form><ld-input name="example" /></form>`,
@@ -322,5 +429,128 @@ describe('ld-input', () => {
     await waitForChanges()
 
     expect(root).toMatchSnapshot()
+  })
+
+  it('updates hidden input field attributes', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+
+    root.setAttribute('dirname', 'test.dir')
+    root.setAttribute('form', 'test')
+    root.setAttribute('name', 'test')
+    root.setAttribute('value', 'test')
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'name' },
+      { attributeName: 'value' },
+    ])
+    await waitForChanges()
+
+    expect(root).toMatchSnapshot()
+    expect(root.querySelector('input').dirName).toBe('test.dir')
+  })
+
+  it('removes hidden input field attributes', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
+    })
+
+    const ldInput = page.root
+
+    ldInput.removeAttribute('dirname')
+    ldInput.removeAttribute('form')
+    ldInput.removeAttribute('value')
+    getTriggerableMutationObserver().trigger([
+      { attributeName: 'dirname' },
+      { attributeName: 'form' },
+      { attributeName: 'value' },
+    ])
+    await page.waitForChanges()
+
+    expect(ldInput).toMatchSnapshot()
+    expect(ldInput.querySelector('input').getAttribute('dirname')).toBeNull()
+  })
+
+  it('removes hidden input field, if name attribute is removed', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input dirname="example.dir" form="formName" name="example" value="hello" /></form>`,
+    })
+
+    root.removeAttribute('name')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('removes hidden input field, if form attribute is removed', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input form="example-form" name="example" />`,
+    })
+
+    root.removeAttribute('form')
+    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
+    await waitForChanges()
+    expect(root).toMatchSnapshot()
+  })
+
+  it('requests submit on enter, if inside a form', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" /></form>`,
+    })
+
+    const form = body.querySelector('form')
+    form.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(form.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('requests submit on enter, if form attribute is given', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `
+      <form id="test"></form>
+      <ld-input form="test" name="example" />`,
+    })
+
+    const form = body.querySelector('form')
+    form.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(form.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('prefers form attribute over surrounding form when requesting submit', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `
+      <form id="test"></form>
+      <form id="surrounding"><ld-input form="test" name="example" /></form>`,
+    })
+
+    const referencedForm = body.querySelector<HTMLFormElement>('form#test')
+    const surroundingForm = body.querySelector<HTMLFormElement>('#surrounding')
+    referencedForm.requestSubmit = jest.fn()
+    surroundingForm.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(referencedForm.requestSubmit).toHaveBeenCalled()
+    expect(surroundingForm.requestSubmit).not.toHaveBeenCalled()
   })
 })

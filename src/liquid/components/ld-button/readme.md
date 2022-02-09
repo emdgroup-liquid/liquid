@@ -7,8 +7,8 @@ title: Button
 permalink: components/ld-button/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-button.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
 
 # ld-button
 
@@ -48,7 +48,7 @@ Icon-buttons without visual text should either contain a [screen-reader-only](co
 {% endexample %}
 
 The `disabled` attribute applies both attributes, `disabled` and `aria-disabled="true"` on the rendered component.
-Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an [anchor button](#anchor-button).
+Although `aria-disabled="true"` is not necessary on a `button` element (or any other HTML control which supports the disabled attribute natively), it is applied just in case you use an [anchor button](components/ld-button/#anchor-button).
 
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
@@ -75,7 +75,9 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` and `stopImmediatePropagation()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the button, either explicitly or implicitly, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> and <code>stopImmediatePropagation()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the button yourself. 
+</ld-notice>
 
 ### Secondary
 
@@ -91,34 +93,6 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--secondary" disabled>Text</button>
 {% endexample %}
 
-### On brand color
-
-{% example 'html', false, false, 'brand' %}
-<ld-button mode="on-brand-color">Text</ld-button>
-
-<ld-button mode="on-brand-color" disabled>Text</ld-button>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--on-brand-color">Text</button>
-
-<button class="ld-button ld-button--on-brand-color" disabled>Text</button>
-{% endexample %}
-
-### Secondary on brand color
-
-{% example 'html', false, false, 'brand' %}
-<ld-button mode="secondary-on-brand-color">Text</ld-button>
-
-<ld-button mode="secondary-on-brand-color" disabled>Text</ld-button>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--secondary-on-brand-color">Text</button>
-
-<button class="ld-button ld-button--secondary-on-brand-color" disabled>Text</button>
-{% endexample %}
-
 ### Ghost
 
 {% example %}
@@ -131,6 +105,36 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--ghost">Text</button>
 
 <button class="ld-button ld-button--ghost" disabled>Text</button>
+{% endexample %}
+
+### On brand color
+
+{% example '{ "background": "brand" }' %}
+<ld-button brand-color>Text</ld-button>
+
+<ld-button brand-color disabled>Text</ld-button>
+
+<ld-button mode="secondary" brand-color>Text</ld-button>
+
+<ld-button mode="secondary" brand-color disabled>Text</ld-button>
+
+<ld-button mode="ghost" brand-color>Text</ld-button>
+
+<ld-button mode="ghost" brand-color disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--brand-color" disabled>Text</button>
+
+<button class="ld-button ld-button--secondary ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--secondary ld-button--brand-color" disabled>Text</button>
+
+<button class="ld-button ld-button--ghost ld-button--brand-color">Text</button>
+
+<button class="ld-button ld-button--ghost ld-button--brand-color" disabled>Text</button>
 {% endexample %}
 
 ### Highlight
@@ -360,7 +364,9 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 
 ### Multi-line
 
-> **Note**: You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+<ld-notice headline="Note" mode="warning">
+  You shouldn't use a button with too much text in it! Instead, put the description in a label outside the button.
+</ld-notice>
 
 You can align the text inside the button using the `align-text` propperty.
 
@@ -420,7 +426,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 ### Anchor button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button href="#" target="_blank">Text</ld-button>
 
 <!-- CSS component -->
@@ -428,11 +434,13 @@ You can align the text inside the button using the `align-text` propperty.
 <a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">Text</a>
 {% endexample %}
 
-> __Note:__ When using `target="_blank"` a `rel` attribute with the value `noreferrer noopener` is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See [https://web.dev/external-anchors-use-rel-noopener/](https://web.dev/external-anchors-use-rel-noopener/)
+<ld-notice headline="Note" mode="warning">
+  When using <code>target="_blank"</code>, a <code>rel</code> attribute with the value <code>noreferrer noopener</code> is applied automatically. Just in case. If you are using the CSS component version of the button, you will need to take care of this yourself. See <a href="https://web.dev/external-anchors-use-rel-noopener/" rel="noreferrer noopener" target="_blank">https://web.dev/external-anchors-use-rel-noopener/</a>
+</ld-notice>
 
 ### Progress button
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-button progress="0.75">Text</ld-button>
 
 <ld-button progress="pending">Text</ld-button>
@@ -483,18 +491,30 @@ You can align the text inside the button using the `align-text` propperty.
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                                                                  | Default     |
-| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                                                                   | `undefined` |
-| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                                                                             | `undefined` |
-| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                                              | `undefined` |
-| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                                       | `undefined` |
-| `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                                                    | `undefined` |
-| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "on-brand-color" \| "secondary" \| "secondary-on-brand-color"` | `undefined` |
-| `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                                                 | `undefined` |
-| `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                                                 | `undefined` |
-| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                                        | `undefined` |
-| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                          | `undefined` |
+| Property         | Attribute         | Description                                                                                                                                                                                                           | Type                                                                           | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------- |
+| `alignText`      | `align-text`      | Align text.                                                                                                                                                                                                           | `"left" \| "right"`                                                            | `undefined` |
+| `autofocus`      | `autofocus`       | Automatically focus the form control when the page is loaded.                                                                                                                                                         | `boolean`                                                                      | `false`     |
+| `brandColor`     | `brand-color`     | Style the button so that it looks good on the current theme's primary color.                                                                                                                                          | `boolean`                                                                      | `undefined` |
+| `disabled`       | `disabled`        | Disabled state of the button.                                                                                                                                                                                         | `boolean`                                                                      | `undefined` |
+| `form`           | `form`            | Associates the control with a form element.                                                                                                                                                                           | `string`                                                                       | `undefined` |
+| `formaction`     | `formaction`      | Overrides the `action` attribute of the button's form owner.                                                                                                                                                          | `"application/x-www-form-urlencoded" \| "multipart/form-data" \| "text/plain"` | `undefined` |
+| `formenctype`    | `formenctype`     | Overrides the `enctype` attribute of the button's form owner.                                                                                                                                                         | `string`                                                                       | `undefined` |
+| `formmethod`     | `formmethod`      | Overrides the `method` attribute of the button's form owner.                                                                                                                                                          | `"get" \| "post"`                                                              | `undefined` |
+| `formnovalidate` | `formnovalidate`  | Overrides the `novalidate` attribute of the button's form owner.                                                                                                                                                      | `boolean`                                                                      | `undefined` |
+| `formtarget`     | `formtarget`      | Overrides the `target` attribute of the button's form owner.                                                                                                                                                          | `"_blank" \| "_parent" \| "_self" \| "_top"`                                   | `undefined` |
+| `href`           | `href`            | Transforms the button to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                       | `string`                                                                       | `undefined` |
+| `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                | `undefined` |
+| `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                             | `undefined` |
+| `ldTabindex`     | `ld-tabindex`     | Tab index of the button.                                                                                                                                                                                              | `number`                                                                       | `undefined` |
+| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "secondary"`                            | `undefined` |
+| `name`           | `name`            | Used to specify the name of the control.                                                                                                                                                                              | `string`                                                                       | `undefined` |
+| `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                          | `undefined` |
+| `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                          | `undefined` |
+| `size`           | `size`            | Size of the button.                                                                                                                                                                                                   | `"lg" \| "sm"`                                                                 | `undefined` |
+| `target`         | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"`                                   | `undefined` |
+| `type`           | `type`            | Specifies the default behavior of the button.                                                                                                                                                                         | `"button" \| "reset" \| "submit"`                                              | `'submit'`  |
+| `value`          | `value`           | Defines the value associated with the button’s `name` when it’s submitted with the form data.                                                                                                                         | `string`                                                                       | `undefined` |
 
 
 ## Methods
@@ -517,6 +537,19 @@ Type: `Promise<void>`
 | `"button"`       | Actual button or anchor element |
 | `"progress-bar"` | Progress bar                    |
 
+
+## Dependencies
+
+### Used by
+
+ - [ld-pagination](../ld-pagination)
+
+### Graph
+```mermaid
+graph TD;
+  ld-pagination --> ld-button
+  style ld-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -7,7 +7,7 @@ title: Tooltip
 permalink: components/ld-tooltip/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-button.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
 
 # ld-tooltip
 

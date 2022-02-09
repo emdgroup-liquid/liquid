@@ -1,6 +1,7 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
+import '../../../utils/mutationObserver'
 
 describe('ld-toggle', () => {
   it('renders default', async () => {
@@ -44,7 +45,7 @@ describe('ld-toggle', () => {
       html: `<ld-toggle></ld-toggle>`,
     })
     const ldToggle = page.root
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
 
     const input = ldToggle.shadowRoot.querySelector('input')
     expect(input).toHaveProperty('checked', false)
@@ -53,11 +54,11 @@ describe('ld-toggle', () => {
     await page.waitForChanges()
     expect(input).toHaveProperty('checked', true)
     expect(ldToggle.checked).toBe(true)
-
-    expect(page.root).toMatchSnapshot()
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur events', async () => {
     const page = await newSpecPage({
       components: [LdToggle],
       html: `<ld-toggle></ld-toggle>`,
@@ -65,26 +66,94 @@ describe('ld-toggle', () => {
     const ldToggle = page.root
     const input = ldToggle.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
+    const focusHandler = jest.fn()
+    ldToggle.addEventListener('focus', focusHandler)
+    input.dispatchEvent(
+      new FocusEvent('focus', { bubbles: true, composed: true })
+    )
+    expect(focusHandler).toHaveBeenCalled()
 
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldToggle.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
+    const blurHandler = jest.fn()
+    ldToggle.addEventListener('blur', blurHandler)
+    input.dispatchEvent(
+      new FocusEvent('blur', { bubbles: true, composed: true })
+    )
+    expect(blurHandler).toHaveBeenCalled()
+  })
 
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldToggle.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+  it('emits change and ldchange events', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+
+    ldToggle.addEventListener('change', changeHandler)
+    ldToggle.addEventListener('ldchange', ldchangeHandler)
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldToggle.addEventListener('input', inputHandler)
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(inputHandler).toHaveBeenCalled()
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const input = ldToggle.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldToggle.addEventListener('ldinput', ldinputHandler)
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(ldinputHandler).toHaveBeenCalled()
+  })
+
+  it('emits events on programmatic click', async () => {
+    const page = await newSpecPage({
+      components: [LdToggle],
+      html: `<ld-toggle></ld-toggle>`,
+    })
+    const ldToggle = page.root
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldToggle.addEventListener('change', changeHandler)
+    ldToggle.addEventListener('ldchange', ldchangeHandler)
+    ldToggle.addEventListener('input', inputHandler)
+    ldToggle.addEventListener('ldinput', ldinputHandler)
+    ldToggle.click()
+
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(inputHandler).toHaveBeenCalled()
+    expect(ldinputHandler).toHaveBeenCalled()
   })
 
   it('prevents input value changes with an aria-disabled attribute', async () => {
@@ -94,7 +163,7 @@ describe('ld-toggle', () => {
     })
     const ldToggle = page.root
 
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
 
     const input = ldToggle.shadowRoot.querySelector('input')
 
@@ -102,7 +171,7 @@ describe('ld-toggle', () => {
     await page.waitForChanges()
 
     expect(input).toHaveProperty('checked', false)
-    expect(ldToggle.checked).toBe(undefined)
+    expect(ldToggle.checked).toBe(false)
     expect(page.root).toMatchSnapshot()
   })
 
@@ -136,7 +205,7 @@ describe('ld-toggle', () => {
   it('creates hidden input field, if inside a form', async () => {
     const { root } = await newSpecPage({
       components: [LdToggle],
-      html: `<form><ld-toggle /></form>`,
+      html: `<form><ld-toggle name="example" /></form>`,
     })
     expect(root).toMatchSnapshot()
   })
@@ -144,10 +213,9 @@ describe('ld-toggle', () => {
   it('sets initial state on hidden input', async () => {
     const { root } = await newSpecPage({
       components: [LdToggle],
-      html: `<form><ld-toggle name="example" checked required /></form>`,
+      html: `<form><ld-toggle name="example" checked /></form>`,
     })
     expect(root.querySelector('input')).toHaveProperty('name', 'example')
-    expect(root.querySelector('input')).toHaveProperty('required', true)
   })
 
   it('updates hidden input field', async () => {
@@ -160,7 +228,6 @@ describe('ld-toggle', () => {
 
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldToggle.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldToggle.querySelector('input')).toHaveProperty('required', false)
 
     ldToggle.setAttribute('name', 'test')
     await waitForChanges()
@@ -168,19 +235,20 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
     ldToggle.removeAttribute('name')
+    ldToggle.name = undefined
     await waitForChanges()
 
-    expect(ldToggle.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldToggle.querySelector('input')).toEqual(null)
+
+    ldToggle.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'test')
 
     ldToggle.dispatchEvent(new Event('click'))
     await waitForChanges()
 
     expect(ldToggle.querySelector('input')).toHaveProperty('checked', true)
-
-    ldToggle.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldToggle.querySelector('input')).toHaveProperty('required', true)
 
     ldToggle.setAttribute('value', 'test')
     await waitForChanges()
@@ -188,8 +256,20 @@ describe('ld-toggle', () => {
     expect(ldToggle.querySelector('input')).toHaveProperty('value', 'test')
 
     ldToggle.removeAttribute('value')
+    ldToggle.value = undefined
     await waitForChanges()
 
     expect(ldToggle.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdToggle],
+      html: '<ld-toggle name="example" form="yolo" />',
+    })
+    const ldToggle = root
+    await waitForChanges()
+
+    expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
   })
 })

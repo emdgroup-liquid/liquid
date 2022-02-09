@@ -26,7 +26,9 @@ dispatchEvent(new CustomEvent('ldNotificationAdd', {
 }))
 ```
 
-> **Note**: You should not use more than one `ld-notification` component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?
+<ld-notice headline="Note" mode="warning">
+  You should not use more than one <code>ld-notification</code> component in your app. It wouldn't make much sense to have multiple components managing notification queues and displaying them independently, would it?
+</ld-notice>
 
 ## Accessibility
 
@@ -125,7 +127,7 @@ Notifications of type `'info'` can be themed by wrapping `ld-notification` in a 
 
 The examples below illustrate how you can trigger notifications using different parameters:
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <style>
 .notification-form {
   display: grid;

@@ -1,7 +1,5 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 
-jest.useRealTimers()
-
 const svg = `
 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -34,6 +32,18 @@ describe('ld-icon', () => {
     expect(results).toMatchScreenshot()
   })
 
+  it('replaces existing icon on icon name change', async () => {
+    const page = await getPageWithContent(`<ld-icon name="add"></ld-icon>`)
+    const ldIcon = await page.find('ld-icon')
+    expect(ldIcon).toHaveClasses(['hydrated'])
+
+    ldIcon.setProperty('name', 'matryoshka')
+    await page.waitForChanges()
+
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
   describe('sizes', () => {
     it('sm', async () => {
       const page = await getPageWithContent(
@@ -59,6 +69,25 @@ describe('ld-icon', () => {
     it('lg with custom svg', async () => {
       const page = await getPageWithContent(
         `<ld-icon size="lg">${svg}</ld-icon>`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
+
+  describe('color', () => {
+    it('web component', async () => {
+      const page = await getPageWithContent(
+        '<ld-icon name="placeholder" style="color: var(--ld-col-vc)"></ld-icon>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it('css component', async () => {
+      const page = await getPageWithContent(
+        `<span style="color: var(--ld-col-vg)">
+          <ld-icon name="placeholder"></ld-icon>
+        </span>`
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

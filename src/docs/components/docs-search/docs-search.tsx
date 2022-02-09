@@ -64,9 +64,11 @@ export class DocsSearch {
           document.activeElement.closest('.docs-search__input') ===
           this.searchInput
         ) {
-          ;(this.searchResults.querySelector(
-            '.docs-search__result > a'
-          ) as HTMLAnchorElement)?.focus()
+          ;(
+            this.searchResults.querySelector(
+              '.docs-search__result > a'
+            ) as HTMLAnchorElement
+          )?.focus()
           return
         }
 
@@ -105,9 +107,9 @@ export class DocsSearch {
 
         if (focusedSearchResult) {
           ev.preventDefault()
-          window.location.href = (focusedSearchResult.querySelector(
-            'a'
-          ) as HTMLAnchorElement).href
+          window.location.href = (
+            focusedSearchResult.querySelector('a') as HTMLAnchorElement
+          ).href
         }
         return
       }

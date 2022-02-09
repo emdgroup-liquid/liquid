@@ -1,44 +1,23 @@
-@define-mixin docs-icon-group-ui-light {
-  .docs-icon-group__icons {
-    background-color: var(--ld-col-neutral-010);
-    border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
-  }
-}
-@define-mixin docs-icon-group-ui-dark {
-  .docs-icon-group__icons {
-    background-color: var(--ld-col-neutral-600);
-    border: var(--ld-sp-1) solid transparent;
-  }
-}
-
-@mixin docs-icon-group-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-icon-group-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-icon-group-ui-light;
-}
-.docs-ui-dark {
-  @mixin docs-icon-group-ui-dark;
-}
-
 .docs-icon-group {
   margin-bottom: var(--ld-sp-32);
   display: block;
 
-  .ld-typo {
-    margin-bottom: var(--ld-sp-12);
+  &__headline {
+    margin-bottom: var(--ld-sp-16);
   }
 }
 
 .docs-icon-group__icons {
   border-radius: var(--ld-br-l);
-  display: flex;
-  flex-wrap: wrap;
-  padding: var(--ld-sp-8) 0 0 var(--ld-sp-8);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  > docs-icon {
-    margin: 0 var(--ld-sp-8) var(--ld-sp-8) 0;
+  @media (min-width: 70rem) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 32rem) and (max-width: 48rem),
+    (min-width: 60rem) and (max-width: 70rem) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

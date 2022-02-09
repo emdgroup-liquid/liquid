@@ -66,7 +66,7 @@ export class LdOptionInternal {
   /**
    * Emitted on either selection or de-selection of the option.
    */
-  @Event() ldOptionSelect: EventEmitter<boolean>
+  @Event() ldoptionselect: EventEmitter<boolean>
 
   @State() title: string
 
@@ -89,7 +89,7 @@ export class LdOptionInternal {
       this.hasHover = false
     }
 
-    this.ldOptionSelect.emit(this.selected)
+    this.ldoptionselect.emit(this.selected)
   }
 
   @Listen('keydown', { passive: false })
@@ -118,6 +118,7 @@ export class LdOptionInternal {
     return (
       <Host
         class={getClassNames([
+          this.disabled && 'ld-option-internal--disabled',
           this.hasFocus && 'ld-option-internal--focus-within',
           this.hasHover && 'ld-option-internal--hover-within',
         ])}
@@ -129,8 +130,8 @@ export class LdOptionInternal {
           ])}
           role="option"
           ref={(el) => (this.optionRef = el as HTMLElement)}
-          aria-selected={this.selected ? 'true' : 'false'}
-          aria-disabled={this.disabled ? 'true' : 'false'}
+          aria-selected={this.selected ? 'true' : undefined}
+          aria-disabled={this.disabled ? 'true' : undefined}
           onClick={this.handleClick.bind(this)}
           onFocus={() => (this.hasFocus = true)}
           onBlur={() => (this.hasFocus = false)}

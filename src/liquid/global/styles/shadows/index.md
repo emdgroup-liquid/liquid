@@ -13,14 +13,6 @@ All shadows listed below are available as global CSS custom properties after [im
 
 ## Box shadows
 
-### Active
-
-<docs-shadow var="--ld-shadow-active"></docs-shadow>
-
-### Hover
-
-<docs-shadow var="--ld-shadow-hover"></docs-shadow>
-
 ### Stacked
 
 <docs-shadow var="--ld-shadow-stacked"></docs-shadow>
@@ -29,15 +21,15 @@ All shadows listed below are available as global CSS custom properties after [im
 
 <docs-shadow var="--ld-shadow-sticky"></docs-shadow>
 
-## Drop-shadows (CSS filter)
+### Hover
+
+<docs-shadow var="--ld-shadow-hover"></docs-shadow>
 
 ### Active
 
-<docs-shadow filter var="--ld-drop-shadow-active"></docs-shadow>
+<docs-shadow var="--ld-shadow-active"></docs-shadow>
 
-### Hover
-
-<docs-shadow filter var="--ld-drop-shadow-hover"></docs-shadow>
+## Drop-shadows (CSS filter)
 
 ### Stacked
 
@@ -46,3 +38,11 @@ All shadows listed below are available as global CSS custom properties after [im
 ### Sticky
 
 <docs-shadow filter var="--ld-drop-shadow-sticky"></docs-shadow>
+
+### Hover
+
+<docs-shadow filter var="--ld-drop-shadow-hover"></docs-shadow>
+
+### Active
+
+<docs-shadow filter var="--ld-drop-shadow-active"></docs-shadow>

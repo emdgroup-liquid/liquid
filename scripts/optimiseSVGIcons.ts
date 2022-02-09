@@ -7,7 +7,7 @@ const { readFile, writeFile } = require('fs').promises
 const svgoConfig = [
   { name: 'removeViewBox', active: false },
   { name: 'removeDimensions', active: true },
-  { name: 'removeXMLNS', active: true },
+  { name: 'removeXMLNS', active: false },
   {
     name: 'convertPathData',
     params: {

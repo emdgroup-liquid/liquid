@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdRadio } from '../ld-radio'
+import '../../../utils/mutationObserver'
 
 describe('ld-radio', () => {
   it('renders', async () => {
@@ -48,7 +49,7 @@ describe('ld-radio', () => {
       html: `<ld-radio></ld-radio>`,
     })
     const ldRadio = page.root
-    expect(ldRadio.checked).toBe(undefined)
+    expect(ldRadio.checked).toBe(false)
 
     const input = ldRadio.shadowRoot.querySelector('input')
     expect(input.checked).toBe(false)
@@ -56,11 +57,13 @@ describe('ld-radio', () => {
     ldRadio.click()
     await page.waitForChanges()
 
-    expect(ldRadio.getAttribute('checked')).not.toBe(null)
+    expect(ldRadio.checked).toBe(true)
     expect(input.checked).toBe(true)
   })
 
-  it('emits focus and blur event', async () => {
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits focus and blur events', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
       html: `<ld-radio></ld-radio>`,
@@ -68,40 +71,92 @@ describe('ld-radio', () => {
     const ldRadio = page.root
     const input = ldRadio.shadowRoot.querySelector('input')
 
-    const handlers = {
-      onFocus() {
-        return
-      },
-      onBlur() {
-        return
-      },
-    }
+    const focusHandler = jest.fn()
+    ldRadio.addEventListener('focus', focusHandler)
+    input.dispatchEvent(new FocusEvent('focus'))
+    expect(focusHandler).toHaveBeenCalled()
 
-    const spyFocus = jest.spyOn(handlers, 'onFocus')
-    ldRadio.addEventListener('focus', handlers.onFocus)
-    input.dispatchEvent(new Event('focus'))
-    jest.advanceTimersByTime(0)
-    expect(spyFocus).toHaveBeenCalled()
-
-    const spyBlur = jest.spyOn(handlers, 'onBlur')
-    ldRadio.addEventListener('blur', handlers.onBlur)
-    input.dispatchEvent(new Event('blur'))
-    jest.advanceTimersByTime(0)
-    expect(spyBlur).toHaveBeenCalled()
+    const blurHandler = jest.fn()
+    ldRadio.addEventListener('blur', blurHandler)
+    input.dispatchEvent(new FocusEvent('blur'))
+    expect(blurHandler).toHaveBeenCalled()
   })
 
-  it('emits input event on click', async () => {
+  it('emits change and ldchange events', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<ld-radio />`,
+      html: `<ld-radio></ld-radio>`,
     })
     const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
 
-    const spyInput = jest.fn()
-    ldRadio.addEventListener('input', spyInput)
+    const changeHandler = jest.fn()
+    ldRadio.addEventListener('change', changeHandler)
+    const ldchangeHandler = jest.fn()
+    ldRadio.addEventListener('ldchange', ldchangeHandler)
+
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+  })
+
+  // TODO: Uncomment, as soon as Stencil's JSDom implementation
+  // supports bubbling of composed events into the light DOM.
+  xit('emits input event', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
+
+    const inputHandler = jest.fn()
+    ldRadio.addEventListener('input', inputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(inputHandler).toHaveBeenCalled()
+  })
+
+  it('emits ldinput event', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const input = ldRadio.shadowRoot.querySelector('input')
+
+    const ldinputHandler = jest.fn()
+    ldRadio.addEventListener('ldinput', ldinputHandler)
+
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    expect(ldinputHandler).toHaveBeenCalled()
+  })
+
+  it('emits events on programmatic click', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio></ld-radio>`,
+    })
+    const ldRadio = page.root
+    const changeHandler = jest.fn()
+    const ldchangeHandler = jest.fn()
+    const inputHandler = jest.fn()
+    const ldinputHandler = jest.fn()
+
+    ldRadio.addEventListener('change', changeHandler)
+    ldRadio.addEventListener('ldchange', ldchangeHandler)
+    ldRadio.addEventListener('input', inputHandler)
+    ldRadio.addEventListener('ldinput', ldinputHandler)
     ldRadio.click()
 
-    expect(spyInput).toHaveBeenCalled()
+    expect(changeHandler).toHaveBeenCalled()
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(inputHandler).toHaveBeenCalled()
+    expect(ldinputHandler).toHaveBeenCalled()
   })
 
   it('allows to set inner focus', async () => {
@@ -139,10 +194,10 @@ describe('ld-radio', () => {
     ldRadios[0].click()
     await page.waitForChanges()
 
-    expect(ldRadios[0].getAttribute('checked')).not.toBe(null)
-    expect(ldRadios[1].getAttribute('checked')).toBe(null)
-    expect(ldRadios[2].getAttribute('checked')).toBe(null)
-    expect(ldRadios[3].getAttribute('checked')).not.toBe(null)
+    expect(ldRadios[0].checked).toBe(true)
+    expect(ldRadios[1].checked).toBe(false)
+    expect(ldRadios[2].checked).toBe(false)
+    expect(ldRadios[3].checked).toBe(true)
   })
 
   it('moves focus and selection', async () => {
@@ -291,7 +346,7 @@ describe('ld-radio', () => {
   it('creates hidden input field, if inside a form', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio /></form>`,
+      html: `<form><ld-radio name="example" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio).toMatchSnapshot()
@@ -300,12 +355,11 @@ describe('ld-radio', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdRadio],
-      html: `<form><ld-radio name="example" checked required value="test" /></form>`,
+      html: `<form><ld-radio name="example" checked value="test" /></form>`,
     })
     const ldRadio = page.root
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
   })
 
@@ -319,7 +373,6 @@ describe('ld-radio', () => {
 
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', false)
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', false)
 
     ldRadio.setAttribute('name', 'test')
     await waitForChanges()
@@ -327,19 +380,20 @@ describe('ld-radio', () => {
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
     ldRadio.removeAttribute('name')
+    ldRadio.name = undefined
     await waitForChanges()
 
-    expect(ldRadio.querySelector('input').getAttribute('name')).toEqual(null)
+    expect(ldRadio.querySelector('input')).toEqual(null)
+
+    ldRadio.setAttribute('name', 'test')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'test')
 
     ldRadio.dispatchEvent(new Event('click'))
     await waitForChanges()
 
     expect(ldRadio.querySelector('input')).toHaveProperty('checked', true)
-
-    ldRadio.setAttribute('required', '')
-    await waitForChanges()
-
-    expect(ldRadio.querySelector('input')).toHaveProperty('required', true)
 
     ldRadio.setAttribute('value', 'test')
     await waitForChanges()
@@ -347,8 +401,20 @@ describe('ld-radio', () => {
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
 
     ldRadio.removeAttribute('value')
+    ldRadio.value = undefined
     await waitForChanges()
 
     expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('uses hidden input field with referenced form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdRadio],
+      html: '<ld-radio name="example" form="yolo" />',
+    })
+    const ldRadio = root
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
   })
 })

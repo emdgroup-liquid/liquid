@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [15]
+        node: [17]
 
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
 
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
@@ -24,7 +24,9 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn set version stable
+          yarn install --frozen-lockfile
 
       - name: Build
         run: npm run build
@@ -41,13 +43,11 @@ jobs:
       #  run: npm run test:e2e
 
       - name: Build docs
+        if: github.ref == 'refs/heads/develop'
         run: npm run build:docs
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           MODE: gh_pages
-
-      #- name: Run a11y tests
-      #  run: npm run test:a11y
 
       #- name: Comment on test coverage
       #  if: github.event_name == 'pull_request'
@@ -56,12 +56,14 @@ jobs:
       #    github-token: ${{ secrets.GITHUB_TOKEN }}
       #    lcov-file: ./coverage/lcov.info
 
-      - name: Archive dist artifacts
+      - name: Archive bin_dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
         uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: bin_dist
+          path: |
+            bin
+            dist
           retention-days: 1
 
       - name: Archive dist_docs artifacts
@@ -109,28 +111,32 @@ jobs:
 
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 15
+          node-version: 17
           registry-url: https://registry.npmjs.org/
 
       - name: Install
-        run: yarn config delete proxy && yarn config delete https-proxy && yarn install --frozen-lockfile --network-timeout 100000
+        run: |
+          yarn config delete proxy
+          yarn config delete https-proxy
+          yarn set version stable
+          yarn install --frozen-lockfile --network-timeout 100000
         env:
           CI: true
 
-      - name: Download dist artifacts
+      - name: Download bin_dist artifacts
         uses: actions/download-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: bin_dist
+          path: ./
 
       - name: Semantic Release
         if: success()
-        run: npx semantic-release
+        run: yarn semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

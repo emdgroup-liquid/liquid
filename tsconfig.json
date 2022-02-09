@@ -9,7 +9,7 @@
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-    "lib": ["dom", "es2019"],
+    "lib": ["dom", "es2021"],
     "module": "esnext",
     "moduleResolution": "node",
     "noUnusedLocals": true,
@@ -24,6 +24,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./src/liquid", "./src/types"],
-  "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]
+  "include": ["./src/liquid", "./src/types", "./globals.d.ts"],
+  "exclude": ["node_modules", "bin", "./src/liquid/**/*.a11y.ts"]
 }

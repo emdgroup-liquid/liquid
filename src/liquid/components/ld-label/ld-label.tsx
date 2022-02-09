@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, Element, h, Prop, State } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
@@ -12,8 +12,10 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
   styleUrl: 'ld-label.css',
   shadow: true,
 })
-export class LdLabel {
+export class LdLabel implements ClonesAttributes {
   @Element() el: HTMLLabelElement
+
+  private attributesObserver: MutationObserver
 
   /** Align input message with input position. */
   @Prop() alignMessage: boolean
@@ -23,6 +25,8 @@ export class LdLabel {
 
   /** Size of the label. Default is small. */
   @Prop() size: 'm'
+
+  @State() clonedAttributes
 
   private handleClick = async (event: MouseEvent) => {
     const inputElement: HTMLElement = this.el.querySelector(
@@ -34,7 +38,7 @@ export class LdLabel {
 
     if (inputElement && !clickedInsideInputElement) {
       if ('focusInner' in inputElement) {
-        await ((inputElement as unknown) as InnerFocusable).focusInner()
+        await (inputElement as unknown as InnerFocusable).focusInner()
       } else {
         inputElement.focus()
       }
@@ -43,18 +47,32 @@ export class LdLabel {
     }
   }
 
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'align-message',
+      'position',
+      'size',
+    ])
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver?.disconnect()
+  }
+
   render() {
+    const cl = getClassNames([
+      'ld-label',
+      this.alignMessage && 'ld-label--align-message',
+      this.position && `ld-label--${this.position}`,
+      this.size && `ld-label--${this.size}`,
+    ])
+
     return (
       <label
-        class={getClassNames([
-          'ld-label',
-          this.alignMessage && 'ld-label--align-message',
-          this.position && `ld-label--${this.position}`,
-          this.size && `ld-label--${this.size}`,
-        ])}
+        {...this.clonedAttributes}
+        class={cl}
         onClick={this.handleClick}
         part="tag"
-        {...cloneAttributes(this.el)}
       >
         <slot></slot>
       </label>

@@ -109,3 +109,113 @@ exports[`ld-tabs renders 1`] = `
   </ld-tabpanellist>
 </ld-tabs>
 `;
+
+exports[`ld-tabs shows tabpanel according to the preselected tab 1`] = `
+<ld-tabs class="ld-tabs">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ld-tablist role="tablist">
+    <mock:shadow-root>
+      <div class="ld-tablist" part="wrapper">
+        <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+            <title>
+              Scroll left
+            </title>
+            <path d="M10 13L6 8L10 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+        <div class="ld-tablist__scroll-container" part="scroll-container">
+          <slot></slot>
+        </div>
+        <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+            <title>
+              Scroll right
+            </title>
+            <path d="M6 13L10 8L6 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+        </button>
+      </div>
+    </mock:shadow-root>
+    <ld-tab id="ld-tabs-1-tab-0">
+      <mock:shadow-root>
+        <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+          <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+          <span class="ld-tab__content" part="content">
+            <slot></slot>
+          </span>
+          <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+        </button>
+      </mock:shadow-root>
+      Fruits
+    </ld-tab>
+    <ld-tab id="ld-tabs-1-tab-1" selected="">
+      <mock:shadow-root>
+        <button aria-selected="true" class="ld-tab" part="button focusable" role="tab">
+          <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+          <span class="ld-tab__content" part="content">
+            <slot></slot>
+          </span>
+          <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+        </button>
+      </mock:shadow-root>
+      Vegetables
+    </ld-tab>
+    <ld-tab id="ld-tabs-1-tab-2" selected="false">
+      <mock:shadow-root>
+        <button class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+          <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+          <span class="ld-tab__content" part="content">
+            <slot></slot>
+          </span>
+          <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+        </button>
+      </mock:shadow-root>
+      Nuts
+    </ld-tab>
+    <ld-tab disabled="" id="ld-tabs-1-tab-3">
+      <mock:shadow-root>
+        <button aria-disabled="true" class="ld-tab" part="button focusable" role="tab" tabindex="-1">
+          <span class="ld-tab__spacer" part="spacer spacer-left"></span>
+          <span class="ld-tab__content" part="content">
+            <slot></slot>
+          </span>
+          <span class="ld-tab__spacer" part="spacer spacer-right"></span>
+        </button>
+      </mock:shadow-root>
+      Grain
+    </ld-tab>
+  </ld-tablist>
+  <ld-tabpanellist class="ld-tabpanellist">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    <ld-tabpanel aria-labelledby="ld-tabs-1-tab-0" class="ld-tabpanel" hidden="true" role="tabpanel" tabindex="-1">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      Apple, orange, banana
+    </ld-tabpanel>
+    <ld-tabpanel aria-labelledby="ld-tabs-1-tab-1" class="ld-tabpanel" role="tabpanel" tabindex="-1">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      Potato, cucumber, tomato
+    </ld-tabpanel>
+    <ld-tabpanel aria-labelledby="ld-tabs-1-tab-2" class="ld-tabpanel" hidden="true" role="tabpanel" tabindex="-1">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      Walnut, chestnut, strawberry
+    </ld-tabpanel>
+    <ld-tabpanel aria-labelledby="ld-tabs-1-tab-3" class="ld-tabpanel" hidden="true" role="tabpanel" tabindex="-1">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      Maize, rice, soybeans, wheat
+    </ld-tabpanel>
+  </ld-tabpanellist>
+</ld-tabs>
+`;

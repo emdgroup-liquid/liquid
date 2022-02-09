@@ -7,10 +7,10 @@ title: Radio Button
 permalink: components/ld-radio/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-radio.css">
-<link rel="stylesheet" href="/css_components/ld-label.css">
-<link rel="stylesheet" href="/css_components/ld-input-message.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-radio.css">
+<link rel="stylesheet" href="css_components/ld-label.css">
+<link rel="stylesheet" href="css_components/ld-input-message.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
 
 # ld-radio
 
@@ -101,13 +101,17 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </script>
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the radio button, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the radio button yourself.
+</ld-notice>
 
 ### Dark
 
-> **Note**: Dark tone checkboxes should only be used on white backgrounds.
+<ld-notice headline="Note" mode="warning">
+  Dark tone checkboxes should only be used on white backgrounds.
+</ld-notice>
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-radio name="example-4" tone="dark"></ld-radio>
 <ld-radio name="example-4" tone="dark" checked></ld-radio>
 
@@ -169,7 +173,7 @@ An invalid state for a radio inputs inside a group makes sense, if for instance 
 
 ### Danger
 
-The radio button in mode "danger" looks and behaves the same as a radio button with the [`invalid`](#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.
+The radio button in mode "danger" looks and behaves the same as a radio button with the [`invalid`](components/ld-radio/#invalid) property. The only difference lies in the semantics of the properties, which helps to understand the context when reading the code.
 
 {% example %}
 <ld-radio name="example-7" mode="danger"></ld-radio>
@@ -279,98 +283,41 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
 
 ### Input validation
 
-The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events and setting error / info messages via the [`ld-input-message`](components/ld-input-message/) component. The following is an example on how you could implement input validation with vanilla JS:
+The `ld-radio` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
 
-{% example %}
-<style>
-#example-form {
-  display: grid;
-  gap: 1rem;
-  width: 100%;
-}
-#example-form > * {
-  align-self: flex-start;
-  flex: 1 0 auto;
-}
-@media (min-width: 52rem) {
-  #example-form {
-    grid-auto-flow: column;
-  }
-}
-#example-form ld-label ld-input-message {
-  visibility: hidden;
-}
-</style>
-<form id="example-form" novalidate>
-  <ld-label position="right" size="m">
-    Orange*
-    <ld-radio value="orange" name="example-10" required></ld-radio>
-    <ld-input-message>You must pick a team.</ld-input-message>
-  </ld-label>
-  
-  <ld-label position="right" size="m">
-    Banana*
-    <ld-radio value="banana" name="example-10" required></ld-radio>
-    <ld-input-message>You must pick a team.</ld-input-message>
-  </ld-label>
-  <ld-button>Submit</ld-button>
-</form>
-<script>
-  const orangeRadio = document.querySelector('#example-form ld-label:first-of-type ld-radio')
-  const bananaRadio = document.querySelector('#example-form ld-label:last-of-type ld-radio')
-  const orangeMessage = document.querySelector('#example-form ld-label:first-of-type ld-input-message')
-  const bananaMessage = document.querySelector('#example-form ld-label:last-of-type ld-input-message')
-  const submitButton = document.querySelector('#example-form ld-button')
-  function validateInput() {
-    value = orangeRadio.checked || bananaRadio.checked
-    if (!value) {
-      orangeRadio.setAttribute('invalid', 'true')
-      bananaRadio.setAttribute('invalid', 'true')
-      orangeMessage.style.visibility = 'inherit'
-      bananaMessage.style.visibility = 'inherit'
-      return false
-    }
-    orangeRadio.removeAttribute('invalid')
-    bananaRadio.removeAttribute('invalid')
-    orangeMessage.style.visibility = 'hidden'
-    bananaMessage.style.visibility = 'hidden'
-    return true
-  }
-  orangeRadio.addEventListener('input', validateInput)
-  orangeRadio.addEventListener('blur', validateInput)
-  bananaRadio.addEventListener('input', validateInput)
-  bananaRadio.addEventListener('blur', validateInput)
-  submitButton.addEventListener('click', ev => {
-    ev.preventDefault()
-    const isValid = validateInput()
-    setTimeout(() => {
-      if (isValid) {
-        window.alert('Form submitted.')
-      } else {
-        window.alert('Form is invalid.')
-      }
-    }, 100)
-  })
-</script>
-{% endexample %}
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                 | Type                      | Default     |
-| ---------- | ---------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `checked`  | `checked`  | The input value.                                                            | `boolean`                 | `undefined` |
-| `disabled` | `disabled` | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
-| `invalid`  | `invalid`  | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
-| `mode`     | `mode`     | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
-| `name`     | `name`     | Used to specify the name of the control.                                    | `string`                  | `undefined` |
-| `ref`      | `ref`      | reference to component                                                      | `any`                     | `undefined` |
-| `required` | `required` | Set this property to `true` in order to mark the checkbox as required.      | `boolean`                 | `undefined` |
-| `tone`     | `tone`     | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
-| `value`    | `value`    | The input value.                                                            | `string`                  | `undefined` |
+| Property     | Attribute     | Description                                                                 | Type                      | Default     |
+| ------------ | ------------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
+| `autofocus`  | `autofocus`   | Automatically focus the form control when the page is loaded.               | `boolean`                 | `false`     |
+| `checked`    | `checked`     | Indicates whether the radio button is selected.                             | `boolean`                 | `false`     |
+| `disabled`   | `disabled`    | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
+| `form`       | `form`        | Associates the control with a form element.                                 | `string`                  | `undefined` |
+| `invalid`    | `invalid`     | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
+| `key`        | `key`         | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
+| `ldTabindex` | `ld-tabindex` | Tab index of the input.                                                     | `number`                  | `undefined` |
+| `mode`       | `mode`        | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
+| `name`       | `name`        | Used to specify the name of the control.                                    | `string`                  | `undefined` |
+| `readonly`   | `readonly`    | The value is not editable.                                                  | `boolean`                 | `undefined` |
+| `ref`        | `ref`         | reference to component                                                      | `any`                     | `undefined` |
+| `required`   | `required`    | Set this property to `true` in order to mark the checkbox as required.      | `boolean`                 | `undefined` |
+| `tone`       | `tone`        | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
+| `value`      | `value`       | The input value.                                                            | `string`                  | `undefined` |
+
+
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
 
 
 ## Methods

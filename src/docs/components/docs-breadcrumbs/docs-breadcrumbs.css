@@ -1,3 +1,27 @@
+@define-mixin docs-breadcrumbs-ui-light {
+  .docs-breadcrumbs__list li::after {
+    background-image: url('dist/build/assets/chevron-dark.svg');
+  }
+}
+
+@define-mixin docs-breadcrumbs-ui-dark {
+  .docs-breadcrumbs__list li::after {
+    background-image: url('dist/build/assets/chevron-light.svg');
+  }
+}
+
+@mixin docs-breadcrumbs-ui-light;
+
+@media (prefers-color-scheme: dark) {
+  @mixin docs-breadcrumbs-ui-dark;
+}
+.docs-ui-dark {
+  @mixin docs-breadcrumbs-ui-dark;
+}
+.docs-ui-light {
+  @mixin docs-breadcrumbs-ui-light;
+}
+
 docs-breadcrumbs,
 .docs-breadcrumbs {
   min-height: 1.75rem;
@@ -15,7 +39,6 @@ docs-breadcrumbs,
 
     &::after {
       content: '';
-      background-image: url('dist/build/assets/chevron.svg');
       background-repeat: no-repeat;
       width: 0.8rem;
       height: 1.375rem;

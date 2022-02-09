@@ -9,36 +9,18 @@ permalink: components/
 
 # Components
 
-## Status
+Liquid's components allow you to quickly construct the UI of your app.
 
-When we add, make significant updates, or deprecate a component we update their status so that it’s clear what’s available to use.
+If you do not find a component that you need within Liquid, it may be because it has not been implemented yet. In that case it is either already listed in our [feature backlog](components/#feature-backlog), and you can upvote or comment on the respective issue, or it has not been added to the backlog yet, and you can [create a feature request](components/#submitting-a-feature-request) yourself.
 
-If you have a suggestion for a new component not listed here, create an [issue on GitHub](https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md).
+## Feature backlog
 
-| Component                                           | Design            | Development        |
-|-----------------------------------------------------|-------------------|--------------------|
-| ld-accordion                                        | done              | todo               |
-| [ld-bg-cells](components/ld-bg-cells)               | done              | done               |
-| ld-breadcrumbs                                      | done              | todo               |
-| [ld-button](components/ld-button/)                  | done              | done               |
-| ld-card                                             | done              | todo               |
-| [ld-checkbox](components/ld-checkbox)               | done              | done               |
-| [ld-icon](components/ld-icon/)                      | in progress       | done               |
-| [ld-input](components/ld-input/)                    | done              | done               |
-| [ld-input-message](components/ld-input-message/)    | done              | done               |
-| [ld-label](components/ld-label/)                    | done              | done               |
-| ld-link                                             | done              | todo               |
-| [ld-loading](components/ld-loading/)                | done              | done               |
-| ld-logo (brand)                                     | done              | todo               |
-| ld-modal                                            | done              | todo               |
-| [ld-notification](components/ld-notification)       | done              | done               |
-| ld-pagination                                       | done              | todo               |
-| ld-progress                                         | done              | todo               |
-| [ld-radio](components/ld-radio)                     | done              | done               |
-| [ld-select](components/ld-select)                   | done              | done               |
-| [ld-sr-only](components/ld-sr-only/)                | not needed        | done               |
-| [ld-sr-live](components/ld-sr-live/)                | not needed        | done               |
-| [ld-tabs](components/ld-tabs)                       | done              | done               |
-| [ld-toggle](components/ld-toggle)                   | done              | done               |
-| [ld-tooltip](components/ld-tooltip)                 | done              | done               |
-| [ld-typo](components/ld-typo/)                      | done              | done               |
+We manage our [feature backlog on GitHub](https://github.com/emdgroup-liquid/liquid/issues?q=sort%3Areactions-%2B1-desc+label%3Afeature) and prioritise issues based on upvotes. Upvote the top comment of an issue with 👍 if you want that feature to be prioritised higher. To request a new feature, please [submit a feature request](components/#submitting-a-feature-request).
+
+<ld-notice headline="Submitting a feature request">
+  If you have a suggestion for a new component not listed in the <a href="components/#feature-backlog">feature backlog</a> or would like to suggest a new feature for an existing component, you can create a <a href="https://github.com/emdgroup-liquid/liquid/issues/new?template=feature_request.md" rel="noreferrer noopener" target="_blank">feature request on GitHub</a>. Please read our <a href="https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md#requesting-new-features" rel="noreferrer noopener" target="_blank">contributing guidelines on submitting feature requests</a> before submitting your first request.
+</ld-notice>
+
+## Milestones
+
+To give you an overview when to expect new features, we are using [GitHub milestones](https://github.com/emdgroup-liquid/liquid/milestones). All milestones are tied to a due date giving you an orientation on the estimated time of arrival for the new features that are assigned to these milestones. If you want to know about when to expect a certain feature that is no longer labeled as **needed: votes** and you can't find it in any of the existing milestones, please feel free to reach out to us by leaving a comment in the feature request issue or using our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).

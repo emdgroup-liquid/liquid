@@ -1,4 +1,4 @@
-import { getAssetPath } from '@stencil/core'
+import { getLdAssetPath } from '../../utils/getLdAssetPath'
 
 const iconCache = {}
 const requestCache = {}
@@ -8,7 +8,7 @@ export async function fetchIcon(icon: string): Promise<string> {
     return iconCache[icon]
   }
   if (!requestCache[icon]) {
-    requestCache[icon] = fetch(getAssetPath(`./assets/${icon}.svg`))
+    requestCache[icon] = fetch(getLdAssetPath(`./assets/${icon}.svg`))
       .then((resp) => resp.text())
       .catch((err) => {
         console.error(`"${icon}" is not a valid name`, err)

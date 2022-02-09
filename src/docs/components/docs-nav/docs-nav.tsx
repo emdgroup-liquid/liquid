@@ -44,6 +44,17 @@ export class DocsNav {
     }
   }
 
+  componentWillLoad() {
+    // Make sure the sidenav-open hash is removed on page reload
+    // when the sidenav is open.
+    if (location.hash === '#sidenav-open') {
+      location.hash = ''
+      setTimeout(() => {
+        history.replaceState({}, '', window.location.pathname)
+      })
+    }
+  }
+
   componentDidLoad() {
     eventBus.on(NavEventType.open, this.onNavOpen.bind(this))
     eventBus.on(NavEventType.close, this.onNavClose.bind(this))
@@ -92,8 +103,9 @@ export class DocsNav {
           </div>
           <div class="docs-nav__section">
             <p class="docs-nav__legal-links">
-              <a href="legal/privacy">Privacy Statement</a>
+              <a href="legal/license">License</a>
               <a href="legal/terms">Terms and Conditions</a>
+              <a href="legal/privacy">Privacy Statement</a>
               <a href="legal/imprint">Imprint</a>
             </p>
           </div>

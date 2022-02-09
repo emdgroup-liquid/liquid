@@ -7,7 +7,7 @@ title: Screen Reader Only
 permalink: components/ld-sr-only/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-sr-only.css">
+<link rel="stylesheet" href="css_components/ld-sr-only.css">
 
 # ld-sr-only
 
@@ -19,7 +19,7 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ## Examples
 
-{% example 'html', false, true %}
+{% example '{ "opened": true }' %}
 <ld-sr-only>Hello screen reader</ld-sr-only>
 
 <!-- CSS component -->

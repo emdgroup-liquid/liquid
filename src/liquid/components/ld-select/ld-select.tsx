@@ -10,10 +10,10 @@ import {
   State,
   Watch,
   EventEmitter,
+  Method,
 } from '@stencil/core'
 import Tether from 'tether'
-import { LdSelectPopper } from './ld-select-popper/ld-select-popper'
-import { LdOptionInternal } from './ld-option-internal/ld-option-internal'
+import { getClassNames } from '../../utils/getClassNames'
 
 type SelectOption = { value: string; text: string }
 
@@ -28,80 +28,104 @@ type SelectOption = { value: string; text: string }
   styleUrl: 'ld-select.css',
   shadow: true,
 })
-export class LdSelect {
-  @Element() el: HTMLElement
-
-  private selectRef!: HTMLElement
-  private triggerRef!: HTMLElement
-  private selectionListRef!: HTMLElement
-  private internalOptionsContainerRef!: HTMLElement
-  private listboxRef!: HTMLElement
+export class LdSelect implements InnerFocusable {
+  @Element() el: HTMLLdSelectElement
+  private selectRef!: HTMLDivElement
+  private triggerRef!: HTMLDivElement
+  private selectionListRef!: HTMLUListElement
+  private internalOptionsContainerRef!: HTMLDivElement
+  private listboxRef!: HTMLLdSelectPopperElement
   private btnClearRef: HTMLButtonElement
   private popper: Tether
   private observer: MutationObserver
 
+  /** Hint for form autofill feature. */
+  // @Prop() autocomplete?: string // TODO
+
   /**
-   * Used as trigger button label in multiselect mode
-   * and in single select mode if nothing is selected.
+   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+   * Only one form element in a document can have the autofocus attribute.
    */
-  @Prop() placeholder: string
-
-  /** Used to specify the name of the control. */
-  @Prop() name: string
-
-  /** Multiselect mode. */
-  @Prop() multiple: boolean
+  @Prop() autofocus = false
 
   /** Disabled state of the component. */
   @Prop() disabled: boolean
 
+  /** The form element to associate the select with (its form owner). */
+  @Prop() form?: string // TODO
+
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
 
-  /**
-   * Prevents a state with no options selected after
-   * initial selection in single select mode.
-   */
-  @Prop() preventDeselection: boolean
+  /** Tab index of the trigger button. */
+  @Prop() ldTabindex = 0
+
+  /** Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator. */
+  @Prop({ mutable: true }) maxRows?: number
 
   // prettier-ignore
-  /**
-   * Display mode.
-   */
+  /** Display mode. */
   @Prop() mode?:
     // default
     | 'detached' // = default  + small gap between trigger button and popper
     | 'inline' //   = detached + minumum trigger button width
     | 'ghost' //    = inline   + transparent background and borders
 
-  /** Size of the select trigger button. */
-  @Prop() size?: 'sm' | 'lg'
+  /** Multiselect mode. */
+  @Prop() multiple: boolean
 
-  /**
-   * Constrains the height of the trigger button by replacing overflowing selection
-   * with a "+X more" indicator.
-   */
-  @Prop({ mutable: true }) maxRows?: number
+  /** Used to specify the name of the control. */
+  @Prop() name: string
+
+  /** Used as trigger button label in multiselect mode and in single select mode if nothing is selected. */
+  @Prop() placeholder: string
 
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass?: string
 
-  /**
-   * Stringified tether options object to be merged with the default options.
-   */
+  /** Prevents a state with no options selected after initial selection in single select mode. */
+  @Prop() preventDeselection: boolean
+
+  /** A Boolean attribute indicating that an option with a non-empty string value must be selected. */
+  @Prop() required?: boolean
+
+  /** Currently selected option(s) (read only!) */
+  @Prop({ mutable: true }) selected: SelectOption[] = []
+
+  /** Size of the select trigger button. */
+  @Prop() size?: 'sm' | 'lg'
+
+  /** Stringified tether options object to be merged with the default options. */
   @Prop({ mutable: true }) tetherOptions = '{}'
 
-  @State() initialized = false
-  @State() expanded = false
-  @State() selected: SelectOption[] = []
-  @State() theme: string
   @State() ariaDisabled = false
+  @State() expanded = false
+  @State() hasCustomIcon = false
+  @State() hasMore = false
+  @State() initialized = false
+  @State() internalOptionsHTML: string
+  @State() renderHiddenInput = false
+  @State() theme: string
   @State() typeAheadQuery: string
   @State() typeAheadTimeout: number
-  @State() internalOptionsHTML: string
-  @State() hasMore = false
-  @State() hasCustomIcon = false
-  @State() renderHiddenInput = false
+
+  /**
+   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
+   */
+  @Event() ldchange: EventEmitter<string[]>
+
+  /**
+   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
+   */
+  @Event() ldinput: EventEmitter<string[]>
+
+  /** Sets focus on the trigger button. */
+  @Method()
+  async focusInner() {
+    if (!this.disabled) {
+      this.triggerRef.focus()
+    }
+  }
 
   @Watch('selected')
   emitEventsAndUpdateHidden(
@@ -117,20 +141,24 @@ export class LdSelect {
     this.updateTriggerMoreIndicator(true)
 
     if (this.renderHiddenInput) {
-      this.updateHiddenInput(newSelection)
+      this.updateSelectedHiddenInputs(newSelection)
     }
 
-    this.input.emit(newValues)
-    this.change.emit(newValues)
+    this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    this.el.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    this.ldchange.emit(newValues)
+    this.ldinput.emit(newValues)
   }
 
   @Watch('typeAheadQuery')
   handleTypeAhead(newQuery?: string) {
     if (!newQuery) return
 
-    const options = (Array.from(
+    const options = Array.from(
       this.listboxRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as LdOptionInternal[]
+    )
     const values = options.map((option) => option.value)
     let index = values.findIndex(
       (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
@@ -153,34 +181,6 @@ export class LdSelect {
     }
   }
 
-  /**
-   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
-   */
-  @Event() change: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when an alteration to the selection is committed by the user.
-   */
-  @Event() input: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component gets focus.
-   */
-  @Event({ bubbles: false, cancelable: false, composed: true })
-  focus: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component looses focus.
-   */
-  @Event({ bubbles: false, cancelable: false, composed: true })
-  blur: EventEmitter<string[]>
-
-  /**
-   * Emitted with an array of selected values when the select component looses focus.
-   */
-  @Event({ bubbles: true, cancelable: false, composed: true })
-  focusout: EventEmitter<string[]>
-
   private isOverflowing() {
     return (
       this.selectionListRef.scrollHeight > this.selectionListRef.clientHeight
@@ -200,7 +200,7 @@ export class LdSelect {
       if (!this.selectionListRef) return
 
       const selectionListItems = Array.from(
-        this.selectionListRef.querySelectorAll(
+        this.selectionListRef.querySelectorAll<HTMLLIElement>(
           '.ld-select__selection-list-item'
         )
       )
@@ -235,7 +235,7 @@ export class LdSelect {
         selectionListItems.forEach((el) => {
           const overflowing = overflowingTotal
             ? true
-            : (el as HTMLElement).offsetTop >= maxOffset
+            : el.offsetTop >= maxOffset
           el.classList[overflowing ? 'add' : 'remove'](
             'ld-select__selection-list-item--overflowing'
           )
@@ -282,7 +282,7 @@ export class LdSelect {
   }
 
   private updatePopperShadowHeight() {
-    const ldPopper = (this.listboxRef as unknown) as LdSelectPopper
+    const ldPopper = this.listboxRef
     ldPopper.updateShadowHeight(
       `calc(100% + ${this.triggerRef.getBoundingClientRect().height}px)`
     )
@@ -334,14 +334,9 @@ export class LdSelect {
 
   private initOptions() {
     const initialized = this.initialized
-    let children
-    if (!initialized) {
-      children = this.el.querySelectorAll('ld-option')
-    } else {
-      children = this.internalOptionsContainerRef.querySelectorAll(
-        'ld-option-internal'
-      )
-    }
+    const children = initialized
+      ? this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
+      : this.el.querySelectorAll('ld-option')
 
     if (!children.length) {
       throw new TypeError(
@@ -349,11 +344,11 @@ export class LdSelect {
       )
     }
 
-    const selectedChildren = Array.from<HTMLElement>(children).filter(
-      (child) => {
-        return ((child as unknown) as LdOptionInternal).selected
-      }
-    )
+    const selectedChildren = Array.from<
+      HTMLLdOptionInternalElement | HTMLLdOptionElement
+    >(children).filter((child) => {
+      return child.selected
+    })
 
     if (selectedChildren.length > 1 && !this.multiple) {
       throw new TypeError(
@@ -363,7 +358,7 @@ export class LdSelect {
 
     if (!initialized) {
       let internalOptionsHTML = ''
-      for (const ldOption of children) {
+      children.forEach((ldOption: HTMLLdOptionElement) => {
         const classStr = ldOption.classList.toString()
         internalOptionsHTML += `<ld-option-internal${
           classStr ? ' class="' + classStr + '"' : ''
@@ -377,10 +372,10 @@ export class LdSelect {
           /<ld-icon (.|\n|\r)*slot="icon"(.|\n|\r)*>(.|\n|\r)*<\/ld-icon>/g,
           ''
         )}</ld-option-internal>`
-      }
+      })
       this.internalOptionsHTML = internalOptionsHTML
     }
-    this.selected = selectedChildren.map((child: HTMLLdOptionElement) => ({
+    this.selected = selectedChildren.map((child) => ({
       value: child.value,
       text: child.innerText,
     }))
@@ -388,10 +383,12 @@ export class LdSelect {
     this.updateTriggerMoreIndicator(true)
   }
 
-  private updateHiddenInput = (selected: SelectOption[]) => {
+  private updateSelectedHiddenInputs = (selected: SelectOption[]) => {
     const selectedValues = selected.map(({ value }) => value)
     const inputs = this.el.querySelectorAll('input')
 
+    // For each existing input, remove it from DOM if not in selected.
+    // Remove each value from selectedValues if hidden input already exists.
     inputs.forEach((hiddenInput) => {
       const index = selectedValues.indexOf(hiddenInput.value)
       if (index >= 0) {
@@ -401,18 +398,20 @@ export class LdSelect {
       }
     })
 
+    // If nothing is selected we need only one hidden input without value.
     if (selected.length === 0) {
       this.appendHiddenInput()
       return
     }
 
+    // Else add hidden inputs for each value in selectedValues.
     selectedValues.forEach(this.appendHiddenInput)
   }
 
   private appendHiddenInput = (value?: string) => {
     const hiddenInput = document.createElement('input')
 
-    // Slot required to keep the hidden input outside the popper
+    // Slot required to keep the hidden input outside the popper.
     hiddenInput.setAttribute('slot', 'hidden')
     hiddenInput.name = this.name
     hiddenInput.type = 'hidden'
@@ -422,6 +421,34 @@ export class LdSelect {
     }
 
     this.el.appendChild(hiddenInput)
+  }
+
+  @Watch('name')
+  @Watch('form')
+  updateHiddenInputs() {
+    const hiddenInputs = this.el.querySelectorAll('input')
+
+    const outerForm = this.el.closest('form')
+    if (!this.name || !(outerForm || this.form)) {
+      hiddenInputs.forEach((hiddenInput) => {
+        hiddenInput.remove()
+      })
+      return
+    }
+
+    if (!hiddenInputs.length) {
+      this.updateSelectedHiddenInputs(this.selected)
+      return
+    }
+
+    hiddenInputs.forEach((hiddenInput) => {
+      hiddenInput.name = this.name
+      if (this.form) {
+        hiddenInput.setAttribute('form', this.form)
+      } else if (hiddenInput.getAttribute('form')) {
+        hiddenInput.removeAttribute('form')
+      }
+    })
   }
 
   private handleSlotChange(mutationsList: MutationRecord[]) {
@@ -466,7 +493,7 @@ export class LdSelect {
   private clearSelection() {
     Array.from(this.listboxRef.querySelectorAll('ld-option-internal')).forEach(
       (option) => {
-        ;((option as unknown) as LdOptionInternal).selected = false
+        option.selected = false
       }
     )
     this.selected = []
@@ -481,7 +508,7 @@ export class LdSelect {
     this.updatePopperShadowHeight()
   }
 
-  @Listen('ldOptionSelect', { target: 'window', passive: true })
+  @Listen('ldoptionselect', { target: 'window', passive: true })
   handleSelect(ev: CustomEvent<boolean>) {
     const target = ev.target as HTMLElement
 
@@ -490,18 +517,13 @@ export class LdSelect {
 
     if (!this.multiple) {
       // Deselect currently selected option, if it's not the target option.
-      ;((Array.from(
-        this.listboxRef.querySelectorAll('ld-option-internal')
-      ) as unknown) as HTMLOptionElement[]).forEach((option) => {
-        if (
-          option !==
-          ((target.closest(
-            'ld-option-internal'
-          ) as unknown) as HTMLOptionElement)
-        ) {
-          option.selected = false
-        }
-      })
+      this.listboxRef
+        .querySelectorAll('ld-option-internal')
+        .forEach((option) => {
+          if (option !== target.closest('ld-option-internal')) {
+            option.selected = false
+          }
+        })
       this.togglePopper()
     }
     this.initOptions()
@@ -539,18 +561,18 @@ export class LdSelect {
   private handleEnd(ev) {
     // Move focus to the last option.
     ev.preventDefault()
-    const options = (Array.from(
+    const options = Array.from(
       this.listboxRef.querySelectorAll('ld-option-internal')
-    ) as unknown) as LdOptionInternal[]
-    if (
-      document.activeElement !==
-      ((options[options.length - 1] as unknown) as HTMLElement)
-    ) {
+    )
+    if (document.activeElement !== options[options.length - 1]) {
       options[options.length - 1].focusOption()
     }
   }
 
-  private selectAndFocus(ev, ldOption: LdOptionInternal) {
+  private selectAndFocus(
+    ev: KeyboardEvent,
+    ldOption: HTMLLdOptionInternalElement
+  ) {
     if (!ldOption) return
 
     if (this.multiple && ev.shiftKey) {
@@ -563,9 +585,8 @@ export class LdSelect {
         )
       }
       ldOption.focusOption()
-      const ldOptionHTMLEl = (ldOption as unknown) as HTMLElement
-      if (!ldOptionHTMLEl.hasAttribute('selected')) {
-        ldOptionHTMLEl.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
+      if (!ldOption.hasAttribute('selected')) {
+        ldOption.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
       }
     } else {
       ldOption.focusOption()
@@ -670,8 +691,8 @@ export class LdSelect {
         ) {
           this.selectAndFocus(
             ev,
-            (document.activeElement
-              .previousElementSibling as unknown) as LdOptionInternal
+            document.activeElement
+              .previousElementSibling as HTMLLdOptionInternalElement
           )
           return
         }
@@ -754,11 +775,6 @@ export class LdSelect {
     ) {
       this.expanded = false
     }
-
-    if (ev.target.closest('ld-label')?.querySelector('ld-select') === this.el) {
-      ev.preventDefault()
-      this.triggerRef.focus()
-    }
   }
 
   // Mobile Safari in some cases does not react to click events on elements
@@ -771,16 +787,13 @@ export class LdSelect {
     this.handleClickOutside(ev)
   }
 
-  private handleFocusout(ev) {
-    // Emit blur event if focus is not within the select component.
-    ev.stopImmediatePropagation()
+  private handleFocusEvent = (ev: FocusEvent) => {
+    // Emit event only, if focus is not within the select component.
     if (
-      ev.relatedTarget?.tagName !== 'LD-OPTION-INTERNAL' &&
-      ev.relatedTarget !== this.el
+      (ev.relatedTarget as HTMLElement)?.tagName === 'LD-OPTION-INTERNAL' ||
+      ev.relatedTarget === this.el
     ) {
-      const selectedValues = this.selected.map((option) => option.value)
-      this.blur.emit(selectedValues)
-      this.focusout.emit(selectedValues)
+      ev.stopImmediatePropagation()
     }
   }
 
@@ -796,15 +809,6 @@ export class LdSelect {
     if (this.disabled || this.ariaDisabled) return
 
     this.expand()
-  }
-
-  private handleTriggerFocus(ev: FocusEvent) {
-    if (
-      (ev.relatedTarget as HTMLElement)?.closest('[role="listbox"]') !==
-      this.listboxRef
-    ) {
-      this.focus.emit(this.selected.map((option) => option.value))
-    }
   }
 
   private handleClearClick(ev: MouseEvent) {
@@ -835,7 +839,7 @@ export class LdSelect {
   componentWillLoad() {
     const outerForm = this.el.closest('form')
 
-    if (outerForm && this.name) {
+    if (this.name && (outerForm || this.form)) {
       this.renderHiddenInput = true
     }
 
@@ -853,7 +857,7 @@ export class LdSelect {
     this.initOptions()
 
     if (this.renderHiddenInput) {
-      this.updateHiddenInput(this.selected)
+      this.updateSelectedHiddenInputs(this.selected)
     }
   }
 
@@ -862,6 +866,9 @@ export class LdSelect {
       this.initObserver()
       this.initialized = true
     })
+    if (this.autofocus) {
+      this.focusInner()
+    }
   }
 
   componentDidUpdate() {
@@ -886,22 +893,29 @@ export class LdSelect {
     // Disallow ghost in combination with multiple select mode.
     const ghost = !this.multiple && this.mode === 'ghost'
 
-    let cl = 'ld-select'
-    if (this.size) cl += ` ld-select--${this.size}`
-    if (this.invalid) cl += ' ld-select--invalid'
-    if (this.expanded) cl += ' ld-select--expanded'
-    if (detached) cl += ' ld-select--detached'
-    if (inline) cl += ' ld-select--inline'
-    if (ghost) cl += ' ld-select--ghost'
+    const cl = [
+      'ld-select',
+      this.disabled && 'ld-select--disabled',
+      this.size && `ld-select--${this.size}`,
+      this.invalid && 'ld-select--invalid',
+      this.expanded && 'ld-select--expanded',
+      detached && 'ld-select--detached',
+      inline && 'ld-select--inline',
+      ghost && 'ld-select--ghost',
+    ]
 
-    let triggerCl = 'ld-select__btn-trigger'
-    if (this.invalid) triggerCl += ' ld-select__btn-trigger--invalid'
-    if (detached) triggerCl += ' ld-select__btn-trigger--detached'
-    if (inline) triggerCl += ' ld-select__btn-trigger--inline'
-    if (ghost) triggerCl += ' ld-select__btn-trigger--ghost'
+    const triggerCl = [
+      'ld-select__btn-trigger',
+      this.invalid && 'ld-select__btn-trigger--invalid',
+      detached && 'ld-select__btn-trigger--detached',
+      inline && 'ld-select__btn-trigger--inline',
+      ghost && 'ld-select__btn-trigger--ghost',
+    ]
 
-    let triggerIconCl = 'ld-select__icon'
-    if (this.expanded) triggerIconCl += ' ld-select__icon--rotated'
+    const triggerIconCl = [
+      'ld-select__icon',
+      this.expanded && 'ld-select__icon--rotated',
+    ]
 
     const triggerText = this.multiple
       ? this.placeholder
@@ -910,10 +924,11 @@ export class LdSelect {
     return (
       <Host>
         <div
-          class={cl}
+          class={getClassNames(cl)}
           aria-disabled={this.disabled || this.ariaDisabled}
           part="root"
-          onFocusout={this.handleFocusout.bind(this)}
+          onBlur={this.handleFocusEvent}
+          onFocusout={this.handleFocusEvent}
           style={
             this.expanded
               ? {
@@ -929,13 +944,17 @@ export class LdSelect {
           <div
             class="ld-select__select"
             part="select"
-            ref={(el) => (this.selectRef = el as HTMLElement)}
+            ref={(el) => (this.selectRef = el)}
           >
             <div
-              class={triggerCl}
+              class={getClassNames(triggerCl)}
               role="button"
               part="btn-trigger focusable"
-              tabindex={this.disabled && !this.ariaDisabled ? undefined : '0'}
+              tabindex={
+                this.disabled && !this.ariaDisabled
+                  ? undefined
+                  : this.ldTabindex
+              }
               aria-disabled={
                 this.disabled || this.ariaDisabled ? 'true' : 'false'
               }
@@ -943,15 +962,14 @@ export class LdSelect {
               aria-expanded={this.expanded ? 'true' : 'false'}
               aria-label={triggerText}
               onClick={this.handleTriggerClick.bind(this)}
-              onFocus={this.handleTriggerFocus.bind(this)}
-              ref={(el) => (this.triggerRef = el as HTMLElement)}
+              ref={(el) => (this.triggerRef = el)}
             >
               {this.multiple && this.selected.length ? (
                 <ul
                   class="ld-select__selection-list"
                   part="selection-list"
                   aria-label="Selected options"
-                  ref={(el) => (this.selectionListRef = el as HTMLElement)}
+                  ref={(el) => (this.selectionListRef = el)}
                   style={{
                     maxHeight:
                       this.maxRows && this.maxRows > 0
@@ -1038,7 +1056,7 @@ export class LdSelect {
                     this.disabled || this.ariaDisabled ? true : undefined
                   }
                   onClick={this.handleClearClick.bind(this)}
-                  ref={(el) => (this.btnClearRef = el as HTMLButtonElement)}
+                  ref={(el) => (this.btnClearRef = el)}
                   part="btn-clear focusable"
                 >
                   <svg
@@ -1071,7 +1089,7 @@ export class LdSelect {
               <slot name="icon"></slot>
               {!this.hasCustomIcon && (
                 <svg
-                  class={triggerIconCl}
+                  class={getClassNames(triggerIconCl)}
                   role={'presentation'}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -1089,9 +1107,10 @@ export class LdSelect {
             </div>
           </div>
           <ld-select-popper
-            onFocusout={this.handleFocusout.bind(this)}
+            onBlur={this.handleFocusEvent}
+            onFocusout={this.handleFocusEvent}
             popperClass={this.popperClass}
-            ref={(el) => (this.listboxRef = el as HTMLElement)}
+            ref={(el) => (this.listboxRef = el)}
             role="listbox"
             expanded={this.expanded}
             size={this.size}
@@ -1099,9 +1118,7 @@ export class LdSelect {
             theme={this.theme}
           >
             <div
-              ref={(el) =>
-                (this.internalOptionsContainerRef = el as HTMLElement)
-              }
+              ref={(el) => (this.internalOptionsContainerRef = el)}
               innerHTML={this.internalOptionsHTML}
               part="options-container"
             ></div>

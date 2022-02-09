@@ -7,11 +7,17 @@ title: Typography
 permalink: components/ld-typo/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-typo.css">
+<link rel="stylesheet" href="css_components/ld-typo.css">
 
 # ld-typo
 
 To give text a certain style of typography, you can use the `ld-typo` component. Every variant has its own semantic HTML tag that it gets rendered with. Heading styles render with their respective heading tag (`h1`, `h2`, etc). You can use the `tag` attribute, to render the variant with a different HTML tag, while keeping the visual variant style.
+
+<ld-notice mode="warning">
+  Please be aware of our brand guidelines regarding typography.
+  <br />
+  For more information visit <a href="https://brand-hub.merckgroup.com/en/design-basics/typography.html" rel="noreferrer noopener" target="_blank">Brand Hub: Typography</a>.
+</ld-notice>
 
 ---
 
@@ -19,7 +25,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Default
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo>
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -33,7 +39,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Paragraphs
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="body-xs">
   <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </ld-typo>
@@ -79,7 +85,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Labels
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="label-s">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -101,7 +107,7 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 ### Captions
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="cap-m">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -125,11 +131,13 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 
 Headings are used as an introduction into a topic or a content section and for visual and semantic differentiation between content blocks.
 
-> **Note**: A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
-> 
-> If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the `variant` property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the `level` prop. 
+<ld-notice headline="Note" mode="warning">
+  A common navigation technique for users of screen reading software is jumping from heading to heading to quickly determine the content of the page. Because of this, it is important to not skip one or more heading levels. Doing so may create confusion, as the person navigating this way may be left wondering where the missing heading is.
+  <br />
+  If you really must place headings in a way that they are visually not following a semantic hirarchicy, use the <code>variant</code> property for visually styling the heading according to the design given, while still applying correct semantical heading levels using the <code>level</code> prop. 
+</ld-notice>
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="h1">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -185,7 +193,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `b*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="b1">
   Lorem ipsum
 </ld-typo>
@@ -239,7 +247,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ### Large heading variants `xh*`
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="xh1">
   Almost before we knew it, we had left the ground.
 </ld-typo>
@@ -295,7 +303,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `xb*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="xb1">
   Lipsum
 </ld-typo>
@@ -327,7 +335,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 `xb*` headings should be only a couple of words long.
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <ld-typo variant="body-m" tag="h1">
   I'm actually a level 1 heading
 </ld-typo>
@@ -352,11 +360,13 @@ Headings are used as an introduction into a topic or a content section and for v
 
 You may have noticed that all `b*` and `xb*` variants use a color given by the current theme, while all other variants inherit their color. While this is the default behaviour, you can still apply a different color on both types of headings. This may be usefull, if, for instance, you need to display a `b1` heading in "vibrant yellow" on top of a background using a "rich color".
 
-> **Note**: With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as [insufficiant contrast](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+<ld-notice headline="Note" mode="warning">
+  With great power comes great responsibility. Make sure you follow the brand guidelines. Especially make sure that the text remains readable at all times. Check the text for accessibility issues, such as <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" rel="noreferrer noopener" target="_blank">insufficiant contrast</a>.
+</ld-notice>
 
 Here are some examples on how you can apply different colors on headings:
 
-{% example "html", true %}
+{% example '{ "stacked": true }' %}
 <style>
 .custom-color { color: var(--ld-col-vm); }
 </style>
@@ -405,6 +415,21 @@ Here are some examples on how you can apply different colors on headings:
 | ------- | ----------- |
 | `"tag"` | Actual tag  |
 
+
+## Dependencies
+
+### Used by
+
+ - [ld-header](../ld-header)
+ - [ld-notice](../ld-notice)
+
+### Graph
+```mermaid
+graph TD;
+  ld-header --> ld-typo
+  ld-notice --> ld-typo
+  style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

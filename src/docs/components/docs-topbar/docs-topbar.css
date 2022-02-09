@@ -1,60 +1,45 @@
 .docs-topbar {
-  --docs-topbar-aside-width: 17rem;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--docs-topbar-height);
-  background-color: var(--ld-col-rp);
-  box-shadow: var(--ld-shadow-hover);
+  min-width: 20rem;
+
+  &::part(container) {
+    margin: 0 var(--ld-sp-4);
+    padding: 0 var(--ld-sp-32);
+    max-width: calc(var(--docs-max-width) - var(--ld-sp-8));
+  }
 }
 
-.docs-topbar__content {
-  display: flex;
-  padding: 0 var(--ld-sp-32);
-  align-items: center;
-  max-width: var(--docs-max-width);
-  height: 100%;
-  margin: 0 auto;
-  color: var(--ld-col-wht);
+.docs-topbar__logo {
+  display: block;
+  margin-left: calc(-1 * var(--ld-sp-16));
 
-  .docs-btn-dots-grid__btn {
-    margin-right: var(--ld-sp-24);
+  @media (min-width: 48rem) {
+    margin-left: calc(-1 * var(--ld-sp-8));
   }
+}
+
+.docs-topbar__links {
+  width: var(--docs-toc-width);
+  padding-left: var(--ld-sp-40);
+  margin-right: var(--ld-sp-6);
 
   @media (max-width: 48rem) {
-    padding: 0 var(--ld-sp-24);
-  }
-}
-
-.docs-topbar__link-home {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  margin-right: auto;
-  transform: translateX(calc(-1 * var(--ld-sp-4)));
-
-  img {
-    margin-right: var(--ld-sp-12);
-  }
-}
-
-.docs-topbar__external-links {
-  display: flex;
-  padding-left: var(--ld-sp-32);
-  width: var(--docs-topbar-aside-width);
-
-  @media (max-width: 40rem) {
-    display: none;
+    margin-right: calc(-1 * var(--ld-sp-12));
   }
 
   @media (max-width: 80rem) {
     width: auto;
+    padding-left: var(--ld-sp-24);
   }
 }
 
-.docs-topbar__link-github {
+.docs-topbar__link {
+  width: var(--ld-sp-24);
+  height: var(--ld-sp-24);
+
+  &:not(:last-of-type) {
+    margin-right: var(--ld-sp-24);
+  }
+
   @media (hover: hover) {
     transition: opacity 0.2s linear;
     opacity: 0.8;
@@ -65,11 +50,30 @@
   }
 }
 
+.docs-topbar__headline-link {
+  text-decoration: none;
+}
+
 .docs-topbar__headline {
   color: var(--ld-col-wht);
+  font-family: var(--ld-font-body);
 
   b {
     font-weight: 900;
     margin-right: var(--ld-sp-8);
+  }
+}
+
+.docs-topbar__headline--long {
+  @media (max-width: 40rem) {
+    display: none;
+  }
+}
+
+.docs-topbar__headline--short {
+  display: none;
+
+  @media (max-width: 40rem) {
+    display: block;
   }
 }

@@ -7,10 +7,10 @@ title: Toggle
 permalink: components/ld-toggle/
 ---
 
-<link rel="stylesheet" href="/css_components/ld-toggle.css">
-<link rel="stylesheet" href="/css_components/ld-label.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
-<link rel="stylesheet" href="/css_components/ld-input-message.css">
+<link rel="stylesheet" href="css_components/ld-toggle.css">
+<link rel="stylesheet" href="css_components/ld-label.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-input-message.css">
 
 # ld-toggle
 
@@ -119,7 +119,9 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 {% endexample %}
 
-> **Note:** When `aria-disabled` is applied on the toggle, the component will try to prevent user interaction using an internal click event handler, calling `preventDefault()` on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the toggle yourself.
+<ld-notice headline="Note" mode="warning">
+  When <code>aria-disabled</code> is applied on the toggle, the component will try to prevent user interaction using an internal click event handler, calling <code>preventDefault()</code> on the click event. With the CSS component version on the other hand, you will need to take care of preventing the default behaviour of the toggle yourself.
+</ld-notice>
 
 ### With icons
 
@@ -430,29 +432,50 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 </div>
 {% endexample %}
 
+### Input validation
+
+The `ld-toggle` Web Component provides a low level API for integrating the component with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events.
+
+<ld-notice headline="Note" mode="warning">
+  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+</ld-notice>
+
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property       | Attribute       | Description                                                          | Type               | Default     |
-| -------------- | --------------- | -------------------------------------------------------------------- | ------------------ | ----------- |
-| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable              | `string`           | `undefined` |
-| `checked`      | `checked`       | The input value.                                                     | `boolean`          | `undefined` |
-| `disabled`     | `disabled`      | Disabled state of the toggle.                                        | `boolean`          | `undefined` |
-| `key`          | `key`           | for tracking the node's identity when working with lists             | `string \| number` | `undefined` |
-| `name`         | `name`          | Used to specify the name of the control.                             | `string`           | `undefined` |
-| `ref`          | `ref`           | reference to component                                               | `any`              | `undefined` |
-| `required`     | `required`      | Set this property to `true` in order to mark the toggle as required. | `boolean`          | `undefined` |
-| `size`         | `size`          | Size of the toggle.                                                  | `"lg" \| "sm"`     | `undefined` |
-| `value`        | `value`         | The input value.                                                     | `string`           | `undefined` |
+| Property       | Attribute       | Description                                                                    | Type               | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------ | ------------------ | ----------- |
+| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                        | `string`           | `undefined` |
+| `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `false`     |
+| `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `false`     |
+| `disabled`     | `disabled`      | Disabled state of the checkbox.                                                | `boolean`          | `undefined` |
+| `form`         | `form`          | Associates the control with a form element.                                    | `string`           | `undefined` |
+| `invalid`      | `invalid`       | Set this property to `true` in order to mark the checkbox visually as invalid. | `boolean`          | `undefined` |
+| `key`          | `key`           | for tracking the node's identity when working with lists                       | `string \| number` | `undefined` |
+| `ldTabindex`   | `ld-tabindex`   | Tab index of the input.                                                        | `number`           | `undefined` |
+| `name`         | `name`          | Used to specify the name of the control.                                       | `string`           | `undefined` |
+| `readonly`     | `readonly`      | The value is not editable.                                                     | `boolean`          | `undefined` |
+| `ref`          | `ref`           | reference to component                                                         | `any`              | `undefined` |
+| `required`     | `required`      | Set this property to `true` in order to mark the checkbox as required.         | `boolean`          | `undefined` |
+| `size`         | `size`          | Size of the toggle.                                                            | `"lg" \| "sm"`     | `undefined` |
+| `value`        | `value`         | The input value.                                                               | `string`           | `undefined` |
+
+
+## Events
+
+| Event      | Description                                                       | Type                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<boolean>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
 
 
 ## Methods
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the toggle
+Sets focus on the toggle.
 
 #### Returns
 
@@ -465,7 +488,6 @@ Type: `Promise<void>`
 
 | Part                   | Description               |
 | ---------------------- | ------------------------- |
-| `"focusable"`          |                           |
 | `"icon-wrapper"`       | Both wrappers of icons    |
 | `"icon-wrapper-end"`   | Wrapper of the end icon   |
 | `"icon-wrapper-start"` | Wrapper of the start icon |

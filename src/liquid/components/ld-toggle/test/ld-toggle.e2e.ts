@@ -2,8 +2,6 @@ import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdToggle } from '../ld-toggle'
 
-jest.useRealTimers()
-
 const checkedStates = [false, true]
 
 const iconStart = `
@@ -25,12 +23,16 @@ describe('ld-toggle', () => {
     const checkedStateStr = checkedState ? ' checked' : ''
 
     it(`default${checkedStateStr}`, async () => {
-      const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`)
+      const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`, {
+        disableAllTransitions: true,
+      })
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`focus${checkedStateStr}`, async () => {
-      const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`)
+      const page = await getPageWithContent(`<ld-toggle${checkedStateStr} />`, {
+        disableAllTransitions: true,
+      })
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -39,14 +41,16 @@ describe('ld-toggle', () => {
     // Large
     it(`large${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle size="lg"${checkedStateStr} />`
+        `<ld-toggle size="lg"${checkedStateStr} />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`large focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle size="lg"${checkedStateStr} />`
+        `<ld-toggle size="lg"${checkedStateStr} />`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -59,7 +63,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr}>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -69,7 +74,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr}>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -82,7 +88,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr}>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -92,7 +99,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr}>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -102,14 +110,16 @@ describe('ld-toggle', () => {
     // Disabled
     it(`disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} disabled />`
+        `<ld-toggle${checkedStateStr} disabled />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} disabled />`
+        `<ld-toggle${checkedStateStr} disabled />`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -122,7 +132,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} disabled>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -132,7 +143,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} disabled>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -145,7 +157,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} disabled>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -155,7 +168,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} disabled>
           <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
           <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-        </ld-toggle>`
+        </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -165,14 +179,16 @@ describe('ld-toggle', () => {
     // Aria-disabled
     it(`aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} aria-disabled="true" />`
+        `<ld-toggle${checkedStateStr} aria-disabled="true" />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`aria-disabled focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} aria-disabled="true" />`
+        `<ld-toggle${checkedStateStr} aria-disabled="true" />`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -185,7 +201,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} aria-disabled="true">
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -195,7 +212,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} aria-disabled="true">
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -208,7 +226,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -218,7 +237,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} aria-disabled="true">
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -228,28 +248,32 @@ describe('ld-toggle', () => {
     // Invalid
     it(`invalid${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} required />`
+        `<ld-toggle${checkedStateStr} required />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`invalid disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} required disabled />`
+        `<ld-toggle${checkedStateStr} required disabled />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`invalid aria-disabled${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} required aria-disabled="true" />`
+        `<ld-toggle${checkedStateStr} required aria-disabled="true" />`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
     it(`invalid focus${checkedStateStr}`, async () => {
       const page = await getPageWithContent(
-        `<ld-toggle${checkedStateStr} required />`
+        `<ld-toggle${checkedStateStr} required />`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -262,7 +286,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} required>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -272,7 +297,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} required disabled>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -282,7 +308,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} required aria-disabled="true">
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -292,7 +319,8 @@ describe('ld-toggle', () => {
         `<ld-toggle${checkedStateStr} required>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -305,7 +333,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} required>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -315,7 +344,8 @@ describe('ld-toggle', () => {
         `<ld-toggle size="lg"${checkedStateStr} required>
         <ld-icon name="placeholder" size="sm" slot="icon-start"></ld-icon>
         <ld-icon name="placeholder" size="sm" slot="icon-end"></ld-icon>
-      </ld-toggle>`
+      </ld-toggle>`,
+        { disableAllTransitions: true }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -329,7 +359,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -340,7 +370,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -354,7 +384,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -365,7 +395,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -381,7 +411,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -394,7 +424,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -410,7 +440,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -423,7 +453,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -437,7 +467,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} disabled />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -448,7 +478,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} disabled />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -464,7 +494,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -477,7 +507,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -493,7 +523,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -506,7 +536,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -520,7 +550,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} aria-disabled="true" />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -531,7 +561,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} aria-disabled="true" />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -547,7 +577,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -560,7 +590,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -576,7 +606,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -589,7 +619,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -603,7 +633,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} required />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -614,7 +644,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} required disabled />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -625,7 +655,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} required aria-disabled="true" />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -636,7 +666,7 @@ describe('ld-toggle', () => {
           <input type="checkbox"${checkedStateStr} required />
           <span class="ld-toggle__knob"></span>
         </div>`,
-        { components: LdToggle }
+        { disableAllTransitions: true, components: LdToggle }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -652,7 +682,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -665,7 +695,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -678,7 +708,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -691,7 +721,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -707,7 +737,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -720,7 +750,7 @@ describe('ld-toggle', () => {
           ${iconStart}
           ${iconEnd}
         </div>`,
-        { components: [LdToggle, LdIcon] }
+        { disableAllTransitions: true, components: [LdToggle, LdIcon] }
       )
       await page.keyboard.press('Tab')
       const results = await page.compareScreenshot()
@@ -731,7 +761,9 @@ describe('ld-toggle', () => {
   // Test is necessary, as unit tests can only test key events,
   // if a key event handler is explicitly assigned
   it('toggles on space key', async () => {
-    const page = await getPageWithContent(`<ld-toggle />`)
+    const page = await getPageWithContent(`<ld-toggle />`, {
+      disableAllTransitions: true,
+    })
     const input = await page.find('ld-toggle >>> input')
 
     await page.keyboard.press('Tab')

@@ -1,5 +1,6 @@
 import '../../../components' // type definitions for type checking and intelliSense
 import { Component, h, Host, Prop, Listen, State } from '@stencil/core'
+import { getClassNames } from '../../../liquid/utils/getClassNames'
 
 /** @internal **/
 @Component({
@@ -8,6 +9,9 @@ import { Component, h, Host, Prop, Listen, State } from '@stencil/core'
   shadow: false,
 })
 export class DocsExample {
+  /** Center examples. */
+  @Prop() centered = false
+
   /** Web Component markup encoded as URI component. */
   @Prop() code!: string
 
@@ -25,6 +29,9 @@ export class DocsExample {
 
   /** Enables theme switch. */
   @Prop() themable = false
+
+  /** Puts some space between content and container. */
+  @Prop() hasPadding = false
 
   /** Current theme. */
   @State() currentTheme = 'ocean'
@@ -51,25 +58,25 @@ export class DocsExample {
   }
 
   render() {
-    let cl = 'docs-example'
-    if (this.isCodeVisible) {
-      cl += ' docs-example--code-visible'
-    }
-    if (this.isWebComponent) {
-      cl += ' docs-example--web-component'
-    } else {
-      cl += ' docs-example--css-component'
-    }
+    const cl = [
+      'docs-example',
+      this.isCodeVisible && 'docs-example--code-visible',
+      this.hasPadding && 'docs-example--has-padding',
+      this.isWebComponent
+        ? 'docs-example--web-component'
+        : ' docs-example--css-component',
+    ]
 
     let clShow = 'docs-example__show'
     if (this.themable && this.currentTheme) {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }
+    if (this.centered) clShow += ' docs-example__show--centered'
     if (this.stacked) clShow += ' docs-example__show--stacked'
     if (this.background) clShow += ` docs-example__show--${this.background}`
 
     return (
-      <Host class={cl}>
+      <Host class={getClassNames(cl)}>
         <div class={clShow}>
           <slot name="show"></slot>
           <slot name="showCssComponent"></slot>

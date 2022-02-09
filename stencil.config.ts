@@ -17,7 +17,8 @@ export const config: Config = {
       type: 'dist',
     },
     {
-      type: 'dist-custom-elements-bundle',
+      type: 'dist-custom-elements',
+      autoDefineCustomElements: true,
     },
     {
       type: 'docs-readme',
@@ -35,8 +36,12 @@ export const config: Config = {
   plugins: [postcss(postcssConfig)],
   testing: {
     allowableMismatchedPixels: 0,
+    setupFiles: ['./jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
     timers: 'fake',
+    // browserHeadless: false,
+    // browserDevtools: true,
+    // browserSlowMo: 1000, // milliseconds
   },
   buildEs5: false,
   extras: {

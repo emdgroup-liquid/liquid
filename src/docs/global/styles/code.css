@@ -121,7 +121,7 @@ code .highlight-line:before {
     color: var(--ld-col-neutral-300);
   }
   .highlight-line.highlight-line-active {
-    background-color: var(--ld-thm-warning);
+    background-color: var(--ld-col-vy-100);
   }
 }
 
@@ -174,7 +174,7 @@ code .highlight-line:before {
     color: var(--ld-col-neutral-600);
   }
   .highlight-line.highlight-line-active {
-    background-color: var(--ld-col-vy);
+    background-color: var(--ld-col-vy-100);
     color: var(--ld-col-neutral-900);
 
     .token.comment,

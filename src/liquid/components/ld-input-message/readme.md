@@ -9,20 +9,24 @@ permalink: components/ld-input-message/
 
 # ld-input-message
 
-<link rel="stylesheet" href="/css_components/ld-input-message.css">
-<link rel="stylesheet" href="/css_components/ld-icon.css">
+<link rel="stylesheet" href="css_components/ld-input-message.css">
+<link rel="stylesheet" href="css_components/ld-icon.css">
 
 This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 
-> **Note**: The `ld-input-message` with a mode other than `"info"` is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 
+<ld-notice headline="Note" mode="warning">
+  The <code>ld-input-message</code> with a mode other than <code>"info"</code> is supposed to be used on white background only, as on other backgrounds the color contrast of the text is insufficient against the background. 
+</ld-notice>
 
-> **Note**: If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) for this matter.
+<ld-notice headline="Note" mode="warning">
+  If you choose to use the CSS component and plan to conditionally show the message, such as when an input field becomes invalid after user interaction, you will need to make sure that screen readers or other assistive technology become aware of a message as soon as it becomes visible. You might want to use <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions" rel="noreferrer noopener" target="_blank">ARIA live regions</a> for this matter.
+</ld-notice>
 
 ## Examples
 
 ### As error message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message>This field is required.</ld-input-message>
 
 <!-- CSS component -->
@@ -40,7 +44,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### As info message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
 
 <!-- CSS component -->
@@ -58,7 +62,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ### As success message
 
-{% example 'html', false, false, 'light' %}
+{% example '{ "background": "light" }' %}
 <ld-input-message mode="valid">That's correct!</ld-input-message>
 
 <!-- CSS component -->

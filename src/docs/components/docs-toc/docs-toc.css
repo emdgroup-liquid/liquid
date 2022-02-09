@@ -50,6 +50,7 @@
 
   a {
     font: var(--ld-typo-label-s);
+    text-decoration: none;
 
     &::before {
       content: '';

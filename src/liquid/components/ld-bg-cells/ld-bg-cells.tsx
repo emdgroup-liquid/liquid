@@ -1,5 +1,6 @@
-import { Component, getAssetPath, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { getLdAssetPath } from '../../utils/getLdAssetPath'
 import '../../components' // type definitions for type checks and intelliSense
 
 export type CellType =
@@ -30,7 +31,7 @@ export class LdBgCells {
   @Prop() type: CellType = 'safc'
 
   render() {
-    const assetPath = getAssetPath(`./assets/${this.type}-cell.svg`)
+    const assetPath = getLdAssetPath(`./assets/${this.type}-cell.svg`)
 
     return (
       <Host class={getClassNames(['ld-bg-cells', `ld-bg-cells--${this.type}`])}>

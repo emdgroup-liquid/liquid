@@ -30,29 +30,11 @@ pnpm add @emdgroup-liquid/liquid
 
 We recommend importing and registering Liquid Web Components in a central place respectively the entry file of your application.
 
-There are two options to choose from when importing and registering Liquid Web Components. Depending on your needs you should choose one or the other.
-
-### self-lazy-loading bundle
-
-The _self-lazy-loading bundle_ is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.
-
 ```js
-import { defineCustomElements } from '@emdgroup-liquid/liquid'
-
-defineCustomElements()
-```
-
-### custom-elements bundle
-
-The _custom-elements bundle_ is a tree-shakable bundle that does not apply polyfills, nor define any custom element automatically. Using this bundle may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.
-
-```js
-import { LdButton } from '@emdgroup-liquid/liquid/dist/custom-elements'
+import { LdButton } from '@emdgroup-liquid/liquid/dist/components/ld-button'
 
 customElements.define('ld-button', LdButton)
 ```
-
-Learn more about the differences in the [Stencil docs](https://stenciljs.com/docs/distribution#how-is-this-different-than-dist-custom-elements-bundle-output-target).
 
 ## Import stylesheets
 

@@ -1,8 +1,6 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdCheckbox } from '../ld-checkbox'
 
-jest.useRealTimers()
-
 const tones = [undefined, 'dark']
 const checkedStates = [false, true]
 
@@ -240,6 +238,87 @@ describe('ld-checkbox', () => {
 
       const checked = await input.getProperty('checked')
       expect(checked).toBe(false)
+    })
+  })
+
+  it('emits input event', async () => {
+    const page = await getPageWithContent(
+      `
+      <form id="example-form" novalidate>
+        <ld-checkbox id="example-form-terms" name="terms" required checked></ld-checkbox>
+      </form>
+      <script>
+        const form = document.querySelector('#example-form')
+        const ldCheckbox = document.querySelector('#example-form-terms')
+        function validateInput() {
+          if (!form.terms.checked) {
+            ldCheckbox.setAttribute('invalid', 'true')
+            return false
+          }
+          ldCheckbox.removeAttribute('invalid')
+          return true
+        }
+        ldCheckbox.addEventListener('input', ev => {
+          validateInput()
+        })
+      </script>`
+    )
+    const ldCheckbox = await page.find('ld-checkbox')
+    expect(ldCheckbox).not.toHaveAttribute('invalid')
+
+    ldCheckbox.click()
+    await page.waitForChanges()
+
+    expect(ldCheckbox).toHaveAttribute('invalid')
+  })
+
+  describe('indeterminate', () => {
+    it('web component', async () => {
+      const page = await getPageWithContent(
+        '<ld-checkbox indeterminate></ld-checkbox>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-checkbox">
+          <input type="checkbox"></input>${checkAndBox}
+        </div>`,
+        { components: LdCheckbox }
+      )
+      await page.evaluate(() => {
+        ;(
+          document.querySelector('input[type="checkbox"]') as HTMLInputElement
+        ).indeterminate = true
+      })
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('web component disabled', async () => {
+      const page = await getPageWithContent(
+        '<ld-checkbox indeterminate disabled></ld-checkbox>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component disabled', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-checkbox">
+          <input type="checkbox" indeterminate disabled></input>${checkAndBox}
+        </div>`,
+        { components: LdCheckbox }
+      )
+      await page.evaluate(() => {
+        ;(
+          document.querySelector('input[type="checkbox"]') as HTMLInputElement
+        ).indeterminate = true
+      })
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
     })
   })
 })

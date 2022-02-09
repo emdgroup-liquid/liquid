@@ -6,8 +6,6 @@ import { LdInput } from '../../ld-input/ld-input'
 import { LdToggle } from '../../ld-toggle/ld-toggle'
 import { LdLabel } from '../ld-label'
 
-jest.useRealTimers()
-
 describe('ld-label', () => {
   it('renders', async () => {
     const page = await getPageWithContent('<ld-label>Email Address</ld-label>')
@@ -191,7 +189,10 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        { components: [LdIcon, LdToggle, LdInputMessage, LdLabel] }
+        {
+          components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
+          disableAllTransitions: true,
+        }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -285,7 +286,10 @@ describe('ld-label', () => {
             Recommended.
           </span>
         </label>`,
-        { components: [LdIcon, LdToggle, LdInputMessage, LdLabel] }
+        {
+          components: [LdIcon, LdToggle, LdInputMessage, LdLabel],
+          disableAllTransitions: true,
+        }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

@@ -1,9 +1,13 @@
-const fetch = require('node-fetch')
+require('dotenv').config()
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
+const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
+const cheerio = require('cheerio')
+const memoize = require('lodash.memoize')
+const fetch = require('node-fetch')
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setWatchJavaScriptDependencies(false)
@@ -58,12 +62,44 @@ module.exports = function (eleventyConfig) {
   }
   eleventyConfig.setLibrary(
     'md',
-    markdownIt({ html: true }).use(markdownItAnchor, {
-      permalink: true,
-      renderPermalink,
+    markdownIt({
+      html: true,
+      linkify: true,
+      replaceLink: (link, env) => {
+        // Convert relative links to absolute links
+        const base = process.env.MODE === 'gh_pages' ? '/liquid' : ''
+        if (link.startsWith('./')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 1, 0, link.substr(2))
+          return base + splitted.join('/')
+        }
+        if (link.startsWith('../')) {
+          const splitted = env.page.url.split('/')
+          splitted.splice(splitted.length - 2, 1, link.substr(3))
+          return base + splitted.join('/')
+        }
+        return link
+      },
     })
+      .use(markdownItAnchor, {
+        permalink: true,
+        renderPermalink,
+      })
+      .use(markdownItReplaceLink)
   )
   eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
+
+  // Memoized serch index filter for headings
+  eleventyConfig.addNunjucksFilter(
+    'memoizedHeadings',
+    memoize((value) =>
+      Array.from(cheerio.load(value)('h2, h3').contents())
+        .filter((elem) => elem.type === 'text')
+        .map((elem) => elem.data)
+        .join(' ')
+        .replaceAll(/(\n|\r)/g, ' ')
+    )
+  )
 
   // Contributors short code (used in layout.njk)
   eleventyConfig.addNunjucksAsyncShortcode(
@@ -98,67 +134,69 @@ module.exports = function (eleventyConfig) {
   )
 
   // Code example short codes
-  eleventyConfig.addPairedShortcode(
-    'example',
-    function (
-      code,
-      lang = 'html',
-      stacked,
-      opened,
-      background,
-      themable = true,
-      heighlight,
-      heighlightCssComponent
-    ) {
-      const [codeWebComponent, codeCssComponent] = code
-        .split('<!-- CSS component -->')
-        .map((c) => c.trim())
-      let output = '<docs-example '
-      output += `code="${encodeURIComponent(codeWebComponent)}" `
+  eleventyConfig.addPairedShortcode('example', function (code, config) {
+    const defaultConfig = {
+      background: undefined,
+      centered: false,
+      hasPadding: true,
+      highlight: undefined,
+      highlightCssComponent: undefined,
+      lang: 'html',
+      opened: false,
+      stacked: false,
+      themable: true,
+    }
+    const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
+    const [codeWebComponent, codeCssComponent] = code
+      .split('<!-- CSS component -->')
+      .map((c) => c.trim())
+    let output = '<docs-example '
+    output += `code="${encodeURIComponent(codeWebComponent)}" `
 
-      if (codeCssComponent) {
-        output += `code-css-component="${encodeURIComponent(
-          codeCssComponent
-        )}" `
-      }
+    if (codeCssComponent) {
+      output += `code-css-component="${encodeURIComponent(codeCssComponent)}" `
+    }
 
-      output += `${stacked ? ' stacked' : ''}`
-      output += `${opened ? ' opened' : ''}`
-      if (background) {
-        output += ` background="${background}"`
-      }
-      output += `${themable ? ' themable' : ''}`
-      output += '>\n'
-      output += `<div slot="code">\n\n`
-      output += `\`\`\`${lang}${
-        heighlight ? '/' + heighlight : ''
-      } \n${codeWebComponent}\n\`\`\``
+    output += `${finalConfig.centered ? ' centered' : ''}`
+    output += `${finalConfig.stacked ? ' stacked' : ''}`
+    output += `${finalConfig.opened ? ' opened' : ''}`
+    if (finalConfig.background) {
+      output += ` background="${finalConfig.background}"`
+    }
+    output += `${finalConfig.themable ? ' themable' : ''}`
+    output += `${finalConfig.hasPadding ? ' has-padding' : ''}`
+    output += '>\n'
+    output += `<div slot="code">\n\n`
+    output += `\`\`\`${finalConfig.lang}${
+      finalConfig.highlight ? '/' + finalConfig.highlight : ''
+    } \n${codeWebComponent}\n\`\`\``
+    output += '\n</div>'
+
+    if (codeCssComponent) {
+      output += `<div slot="codeCssComponent">\n\n`
+      output += `\`\`\`${finalConfig.lang}${
+        finalConfig.highlightCssComponent
+          ? '/' + finalConfig.highlightCssComponent
+          : ''
+      } \n${codeCssComponent.trim()}\n\`\`\``
       output += '\n</div>'
+    }
 
-      if (codeCssComponent) {
-        output += `<div slot="codeCssComponent">\n\n`
-        output += `\`\`\`${lang}${
-          heighlightCssComponent ? '/' + heighlightCssComponent : ''
-        } \n${codeCssComponent.trim()}\n\`\`\``
-        output += '\n</div>'
-      }
+    output += `<div slot="show">${codeWebComponent.replaceAll(
+      /\n\n/g,
+      '\n'
+    )}</div>`
 
-      output += `<div slot="show">${codeWebComponent.replaceAll(
+    if (codeCssComponent) {
+      output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(
         /\n\n/g,
         '\n'
       )}</div>`
-
-      if (codeCssComponent) {
-        output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(
-          /\n\n/g,
-          '\n'
-        )}</div>`
-      }
-
-      output += '</docs-example>'
-      return output
     }
-  )
+
+    output += '</docs-example>'
+    return output
+  })
 
   return {
     dir: {

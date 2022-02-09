@@ -1,5 +1,5 @@
 import '../../../components' // type definitions for type checks and intelliSense
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 
 /** @internal **/
 @Component({
@@ -8,6 +8,8 @@ import { Component, h, Host, Prop } from '@stencil/core'
   shadow: false,
 })
 export class DocsPageNav {
+  @Element() el: HTMLElement
+
   /** Href to previous page. */
   @Prop() prevHref: string
 
@@ -20,15 +22,27 @@ export class DocsPageNav {
   /** Title of next page. */
   @Prop() nextTitle = 'Next'
 
+  @State() hasSlot = false
+
+  componentWillLoad() {
+    this.hasSlot = this.el.childNodes.length > 2
+  }
+
   render() {
     return (
-      <Host class="docs-page-nav">
-        <div class="docs-page-nav__dark">
+      <Host
+        class={{
+          'docs-page-nav': true,
+          'docs-page-nav--has-slot': this.hasSlot,
+        }}
+      >
+        <div class="docs-page-nav__container docs-page-nav__dark">
           <div class="docs-page-nav__content">
             {this.prevHref ? (
               <ld-button
+                brand-color
                 class="docs-page-nav__pull"
-                mode="secondary-on-brand-color"
+                mode="secondary"
                 href={this.prevHref}
               >
                 {this.prevTitle}
@@ -38,8 +52,8 @@ export class DocsPageNav {
             )}
             {this.nextHref ? (
               <ld-button
+                brand-color
                 class="docs-page-nav__push"
-                mode="on-brand-color"
                 href={this.nextHref}
               >
                 {this.nextTitle}
@@ -49,7 +63,7 @@ export class DocsPageNav {
             )}
           </div>
         </div>
-        <div class="docs-page-nav__light">
+        <div class="docs-page-nav__container docs-page-nav__light">
           <div class="docs-page-nav__content">
             {this.prevHref ? (
               <ld-button
@@ -71,6 +85,7 @@ export class DocsPageNav {
             )}
           </div>
         </div>
+        <slot></slot>
       </Host>
     )
   }

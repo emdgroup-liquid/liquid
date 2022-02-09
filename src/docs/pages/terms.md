@@ -8,7 +8,9 @@ permalink: legal/terms/
 
 # Terms and Conditions
  
-> Please, read this notice carefully. Access to and use of the Liquid Design System including this website (hereinafter also referred to as “Liquid” and “Website”) are subject to the following conditions. Should you disagree with these conditions, we must ask you not to use the Liquid Design System. By using the Liquid Design System, you declare that you accept the following Terms of Use.
+<ld-notice mode="warning">
+  Please, read this notice carefully. Access to and use of the Liquid Design System including this website (hereinafter also referred to as “Liquid” and “Website”) are subject to the following conditions. Should you disagree with these conditions, we must ask you not to use the Liquid Design System. By using the Liquid Design System, you declare that you accept the following Terms of Use.
+</ld-notice>
 
 ## Access to this platform
 

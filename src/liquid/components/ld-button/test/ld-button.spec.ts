@@ -1,5 +1,22 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdButton } from '../ld-button'
+import { LdIcon } from '../../ld-icon/ld-icon'
+import '../../../utils/mutationObserver'
+
+const mockClickHiddenButton = (
+  form: HTMLFormElement,
+  buttonType: 'submit' | 'reset'
+) => {
+  // Mock clickHiddenButton (actual implementation tested in e2e test).
+  jest
+    .spyOn(
+      LdButton.prototype as unknown as { clickHiddenButton: () => void },
+      'clickHiddenButton'
+    )
+    .mockImplementation(() => {
+      form.dispatchEvent(new Event(buttonType))
+    })
+}
 
 describe('ld-button', () => {
   it('renders', async () => {
@@ -34,18 +51,26 @@ describe('ld-button', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('on-brand-color', async () => {
+  it('brand-color (default)', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button mode="on-brand-color">Text</ld-button>`,
+      html: `<ld-button brand-color>Text</ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })
 
-  it('secondary-on-brand-color', async () => {
+  it('brand-color (secondary)', async () => {
     const page = await newSpecPage({
       components: [LdButton],
-      html: `<ld-button mode="secondary-on-brand-color">Text</ld-button>`,
+      html: `<ld-button mode="secondary" brand-color>Text</ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('brand-color (ghost)', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button mode="ghost" brand-color>Text</ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -62,6 +87,17 @@ describe('ld-button', () => {
     const page = await newSpecPage({
       components: [LdButton],
       html: `<ld-button mode="danger">Text</ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('icon only', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `
+      <ld-button>
+        <ld-icon name="placeholder"></ld-icon>
+      </ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })
@@ -178,20 +214,6 @@ describe('ld-button', () => {
   })
 
   describe('implicit form submission', () => {
-    beforeAll(() => {
-      // Mock clickFakeButton (actual implementation tested in e2e test).
-      jest
-        .spyOn(
-          (LdButton.prototype as unknown) as { clickFakeButton },
-          'clickFakeButton'
-        )
-        .mockImplementation(
-          (form: HTMLFormElement, buttonType: 'submit' | 'reset') => {
-            form.dispatchEvent(new Event(buttonType))
-          }
-        )
-    })
-
     afterAll(() => {
       jest.restoreAllMocks()
     })
@@ -203,12 +225,12 @@ describe('ld-button', () => {
       })
       const form = page.body.querySelector('form')
 
+      mockClickHiddenButton(form, page.rootInstance.type)
+
       const ldButton = page.body.querySelector('ld-button')
       const submitHandler = jest.fn()
-      const resetHandler = jest.fn()
 
       form.addEventListener('submit', submitHandler)
-      form.addEventListener('reset', resetHandler)
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
@@ -216,7 +238,6 @@ describe('ld-button', () => {
       jest.advanceTimersByTime(0)
 
       expect(submitHandler).toHaveBeenCalled()
-      expect(resetHandler).not.toHaveBeenCalled()
     })
 
     it('does not submit a form as an anchor', async () => {
@@ -226,12 +247,12 @@ describe('ld-button', () => {
       })
       const form = page.body.querySelector('form')
 
+      mockClickHiddenButton(form, page.rootInstance.type)
+
       const ldButton = page.body.querySelector('ld-button')
       const submitHandler = jest.fn()
-      const resetHandler = jest.fn()
 
       form.addEventListener('submit', submitHandler)
-      form.addEventListener('reset', resetHandler)
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
@@ -239,7 +260,6 @@ describe('ld-button', () => {
       jest.advanceTimersByTime(0)
 
       expect(submitHandler).not.toHaveBeenCalled()
-      expect(resetHandler).not.toHaveBeenCalled()
     })
 
     it('does not submit a form if event is prevented', async () => {
@@ -249,12 +269,12 @@ describe('ld-button', () => {
       })
       const form = page.body.querySelector('form')
 
+      mockClickHiddenButton(form, page.rootInstance.type)
+
       const ldButton = page.body.querySelector('ld-button')
       const submitHandler = jest.fn()
-      const resetHandler = jest.fn()
 
       form.addEventListener('submit', submitHandler)
-      form.addEventListener('reset', resetHandler)
       const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
       ldButton.dispatchEvent(ev)
       // preventing after dispatching only works with setTimeout implementation
@@ -264,7 +284,6 @@ describe('ld-button', () => {
       jest.advanceTimersByTime(0)
 
       expect(submitHandler).not.toHaveBeenCalled()
-      expect(resetHandler).not.toHaveBeenCalled()
     })
 
     it('resets a form', async () => {
@@ -274,11 +293,11 @@ describe('ld-button', () => {
       })
       const form = page.body.querySelector('form')
 
+      mockClickHiddenButton(form, page.rootInstance.type)
+
       const ldButton = page.body.querySelector('ld-button')
-      const submitHandler = jest.fn()
       const resetHandler = jest.fn()
 
-      form.addEventListener('submit', submitHandler)
       form.addEventListener('reset', resetHandler)
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
@@ -286,14 +305,13 @@ describe('ld-button', () => {
 
       jest.advanceTimersByTime(0)
 
-      expect(submitHandler).not.toHaveBeenCalled()
       expect(resetHandler).toHaveBeenCalled()
     })
   })
 
   it('removes size from ld-icon web component', async () => {
     const page = await newSpecPage({
-      components: [LdButton],
+      components: [LdButton, LdIcon],
       html: `<ld-button>
         <ld-icon name="placeholder" size="sm"></ld-icon>
         <ld-icon name="placeholder" size="lg"></ld-icon>
@@ -315,7 +333,7 @@ describe('ld-button', () => {
 
   it('sets size on ld-icon web component', async () => {
     const page = await newSpecPage({
-      components: [LdButton],
+      components: [LdButton, LdIcon],
       html: `<ld-button size="sm">
         <ld-icon name="placeholder"></ld-icon>
         <ld-icon name="placeholder" size="lg"></ld-icon>
@@ -331,6 +349,14 @@ describe('ld-button', () => {
         <svg class="ld-icon"></svg>
         <svg class="ld-icon ld-icon--lg"></svg>
       </ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('clones attributes to inner button', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button size="sm" aria-label="yolo" hidden></ld-button>`,
     })
     expect(page.root).toMatchSnapshot()
   })

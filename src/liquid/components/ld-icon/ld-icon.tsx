@@ -1,5 +1,5 @@
 import { Build, Component, Host, h, Prop, Watch, Element } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 import { fetchIcon } from './fetchIcon'
 
 /**
@@ -32,7 +32,15 @@ export class LdIcon {
     const div = document.createElement('div')
     const iconString = await fetchIcon(this.name)
 
-    div.innerHTML = iconString.replace('<svg', '<svg part="icon"')
+    div.innerHTML = iconString.replace(
+      '<svg',
+      '<svg class="ld-icon__svg" part="icon"'
+    )
+    Array.from(this.element.shadowRoot.children).forEach((child) => {
+      if (child.tagName !== 'STYLE') {
+        this.element.shadowRoot.removeChild(child)
+      }
+    })
     this.element.shadowRoot.appendChild(div.firstChild)
   }
 

@@ -3,23 +3,316 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.29](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.28...v1.0.0-rc.29) (2022-02-02)
+
+
+### Bug Fixes
+
+* **ld-input:** cannot focus year on safari ([0c2137d](https://github.com/emdgroup-liquid/liquid/commit/0c2137d588672f853470a4592bd168fe2a57359d))
+
+# [1.0.0-rc.28](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.27...v1.0.0-rc.28) (2022-01-31)
+
+
+### Bug Fixes
+
+* **eleventy:** dynamic import of node-fetch ([162f48f](https://github.com/emdgroup-liquid/liquid/commit/162f48f87ef9d156fe0c7d8a807d75ff4a54ddcd))
+* **ld-button:** remove Safari button styles when type prop is used ([ffa69f6](https://github.com/emdgroup-liquid/liquid/commit/ffa69f6cd2a2ee99241306bd7d9e873b010e4564))
+
+
+### Features
+
+* **ld-icon:** add hyperlink and copy icon ([77a058f](https://github.com/emdgroup-liquid/liquid/commit/77a058f05bbadc32791cfc728fc15cf2da0f2fc1)), closes [#258](https://github.com/emdgroup-liquid/liquid/issues/258) [#259](https://github.com/emdgroup-liquid/liquid/issues/259)
+* **ld-notice:** add text notice component ([b10ca2a](https://github.com/emdgroup-liquid/liquid/commit/b10ca2a4e82cba78916cb98310cb630be0f6294a))
+* **ld-notice:** remove bg color of error mode ([fbed5d6](https://github.com/emdgroup-liquid/liquid/commit/fbed5d68c775737797b8f802a44a795c89da84b9))
+* unify event handling ([59b4e28](https://github.com/emdgroup-liquid/liquid/commit/59b4e287356adf4784877ec706b69ab3dd47c3fb))
+* **ld-pagination:** add pagination component ([978a58e](https://github.com/emdgroup-liquid/liquid/commit/978a58e490c68ac838b3a069b7242cbe107c7b94))
+* recursively auto-define children components ([3f7b305](https://github.com/emdgroup-liquid/liquid/commit/3f7b30516865c5fc98c6fff52d6efe7e21acc905)), closes [#244](https://github.com/emdgroup-liquid/liquid/issues/244)
+
+# [1.0.0-rc.27](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.26...v1.0.0-rc.27) (2022-01-18)
+
+
+### Bug Fixes
+
+* make disabled attributes work with false in react ([5a3ee62](https://github.com/emdgroup-liquid/liquid/commit/5a3ee624b771da5e384bc0f0f2e503530aa96cf7)), closes [#229](https://github.com/emdgroup-liquid/liquid/issues/229) [#235](https://github.com/emdgroup-liquid/liquid/issues/235)
+
+# [1.0.0-rc.26](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.25...v1.0.0-rc.26) (2022-01-17)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([658a838](https://github.com/emdgroup-liquid/liquid/commit/658a8382c0d6468e10d8dee98694497e459ce69b))
+* **ld-input:** change ld-input disabled background color to grey ([8de9e7a](https://github.com/emdgroup-liquid/liquid/commit/8de9e7a6ec41a0bc52a8c1b3f5e7f7cfe2f2d9b3)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+* **react:** add alternative approach for setting the asset path ([7b7f044](https://github.com/emdgroup-liquid/liquid/commit/7b7f044a90b47b8217324596c18e5be30cf342ca))
+
+
+### Features
+
+* **ld-input:** add resize prop ([8d699c0](https://github.com/emdgroup-liquid/liquid/commit/8d699c0260de29a017a4e8bdfa2a73331f7a255c)), closes [#223](https://github.com/emdgroup-liquid/liquid/issues/223)
+
+# [1.0.0-rc.25](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.24...v1.0.0-rc.25) (2022-01-12)
+
+
+### Features
+
+* **ld-input:** add resize prop ([fb30f1b](https://github.com/emdgroup-liquid/liquid/commit/fb30f1bd2abe233e1f8ab97bb83a05b12d2c977b))
+
+# [1.0.0-rc.24](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.23...v1.0.0-rc.24) (2022-01-10)
+
+
+### Bug Fixes
+
+* **ld-button:** non-reflected props are not cloned as attributes ([b081be2](https://github.com/emdgroup-liquid/liquid/commit/b081be28f516e89d2f8df27963af16d4e13078ff))
+* **ld-input:** change ld-input disabled background color to grey ([6fc32e0](https://github.com/emdgroup-liquid/liquid/commit/6fc32e0197cb3ee3f4b7ec8a1ec171b82a3ca714)), closes [#214](https://github.com/emdgroup-liquid/liquid/issues/214)
+
+# [1.0.0-rc.23](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.22...v1.0.0-rc.23) (2022-01-05)
+
+
+### Bug Fixes
+
+* **ld-button:** revert removal of hover media query ([c0cdc1d](https://github.com/emdgroup-liquid/liquid/commit/c0cdc1d443367c1e133841d1c8bb9e59a45f9eea))
+* **ld-button:** revert removal of hover media query ([02ba181](https://github.com/emdgroup-liquid/liquid/commit/02ba1818baf4534d8567e35d8a90c3802b465eb7))
+* **ld-input:** submit associated form on return ([f74d88c](https://github.com/emdgroup-liquid/liquid/commit/f74d88c123cc331860d54e3edca84eebbc336890))
+* conditionally disconnect attribute observer ([99f6494](https://github.com/emdgroup-liquid/liquid/commit/99f649433bd830859d592ee2942ad9b4bd3b1783))
+
+
+### Features
+
+* **ld-header:** add basic header component ([fa4b1c8](https://github.com/emdgroup-liquid/liquid/commit/fa4b1c83e2963aa5c896a6a24f051259587f743b))
+* **ld-header:** add basic header component ([db51098](https://github.com/emdgroup-liquid/liquid/commit/db51098949b9f1a17890dd94ff2a68ae823c33ff))
+
+# [1.0.0-rc.22](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.21...v1.0.0-rc.22) (2021-12-15)
+
+
+### Bug Fixes
+
+* **ld-input:** submit associated form on return ([ec0332d](https://github.com/emdgroup-liquid/liquid/commit/ec0332dcf61f7d9fbced59ffb78e4acefc6ea2bb))
+* conditionally disconnect attribute observer ([84259b9](https://github.com/emdgroup-liquid/liquid/commit/84259b9c232e974dcbbec8b0f8c9d0d8b1e77870))
+
+# [1.0.0-rc.21](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.20...v1.0.0-rc.21) (2021-12-14)
+
+
+### Bug Fixes
+
+* **clone-attributes:** determining attributes from props is unnecessary ([a0648ef](https://github.com/emdgroup-liquid/liquid/commit/a0648eff6f7806b25db7783f518190ca5223e9f5)), closes [#190](https://github.com/emdgroup-liquid/liquid/issues/190)
+* **ld-tabs:** show tabpanel according to preselected tab ([b52263f](https://github.com/emdgroup-liquid/liquid/commit/b52263ff6343c5585296a2ec88540bfc51ff6ae4)), closes [#179](https://github.com/emdgroup-liquid/liquid/issues/179)
+* clone attributes from component props instead of attributes ([d468293](https://github.com/emdgroup-liquid/liquid/commit/d468293ba259ae0ae1dd9357dc1cb119705126af))
+* **ld-button:** quick-fix anchor button not working in docs-page-nav ([7c1d388](https://github.com/emdgroup-liquid/liquid/commit/7c1d3889869e6bd3250bbdc29e45713703d47e2c))
+* **ld-select:** update hidden inputs on attribute changes ([29f4680](https://github.com/emdgroup-liquid/liquid/commit/29f4680b0f40fe05996f1d12fb4dd4adc4d14e5c))
+
+
+### Features
+
+* **ld-button:** add ghost on brand variant ([2540246](https://github.com/emdgroup-liquid/liquid/commit/25402466f5fe05e7d8b46ae4f270af6e7f3f7273))
+
+# [1.0.0-rc.20](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.19...v1.0.0-rc.20) (2021-12-09)
+
+
+### Bug Fixes
+
+* **ld-tabs:** show tabpanel according to preselected tab ([1428d3d](https://github.com/emdgroup-liquid/liquid/commit/1428d3dd105a91bcbcd9ab7eaa722dd150c49b6c)), closes [#179](https://github.com/emdgroup-liquid/liquid/issues/179)
+* clone attributes from component props instead of attributes ([b5d13f1](https://github.com/emdgroup-liquid/liquid/commit/b5d13f115b742ea6d08ea12f4d586f3dc1da974c))
+* **ld-button:** quick-fix anchor button not working in docs-page-nav ([1b7add7](https://github.com/emdgroup-liquid/liquid/commit/1b7add77711d27004a157d2113afeb4deb23db2f))
+* **ld-select:** update hidden inputs on attribute changes ([256c37c](https://github.com/emdgroup-liquid/liquid/commit/256c37c525924951b95f878d0d4fa4b45cedd64f))
+
+
+### Features
+
+* **ld-button:** add ghost on brand variant ([032bc31](https://github.com/emdgroup-liquid/liquid/commit/032bc3144f0d31e52394d18650be5eb81fbae54e))
+
+# [1.0.0-rc.19](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.18...v1.0.0-rc.19) (2021-12-02)
+
+
+### Bug Fixes
+
+* **ld-input:** remove unnecessary watch decorator on required prop ([c31237d](https://github.com/emdgroup-liquid/liquid/commit/c31237d2cc2788f4a477394507ad67d78ddf57d2))
+* remove unnecessary append child call ([8688ba6](https://github.com/emdgroup-liquid/liquid/commit/8688ba63d61808ff64a2d262fd15fb3054e24319))
+* **ld-button:** prop forwarding ([dfd53da](https://github.com/emdgroup-liquid/liquid/commit/dfd53da913ea986ad9307bd9dcfbfc0992254cd2))
+* **ld-button:** prop forwarding ([e086a62](https://github.com/emdgroup-liquid/liquid/commit/e086a624d45288d84da2720ad0d686b5ad4b97a0))
+* **ld-checkbox:** prop forwarding and indeterminate state ([572e711](https://github.com/emdgroup-liquid/liquid/commit/572e711aa831699c858a82494eeba19f6f33a133))
+* **ld-checkbox:** prop forwarding and indeterminate state ([e3274e6](https://github.com/emdgroup-liquid/liquid/commit/e3274e6e331ecf4164e0a05f35ecd78d0bfaa500))
+* **ld-icon:** keep xmlns string in icon assets for a better dx ([ffb144c](https://github.com/emdgroup-liquid/liquid/commit/ffb144c1540f0bd93cc02b375338017dcb1943ee))
+* **ld-input:** hidden input ([690e495](https://github.com/emdgroup-liquid/liquid/commit/690e495bd6feec2b081933d5a7507e68f73fc32c))
+* **ld-input:** prop forwarding ([191e048](https://github.com/emdgroup-liquid/liquid/commit/191e048adafcaa91a9e43d8e5ccbe8b4127e78da))
+* **ld-radio:** prop forwarding ([5f7026b](https://github.com/emdgroup-liquid/liquid/commit/5f7026bfcb91af25ea271b37348c922d7f1448eb))
+* **ld-radio:** prop forwarding ([58daab5](https://github.com/emdgroup-liquid/liquid/commit/58daab526eb1ad14f33f92a9105d9cff981b73ea))
+* **ld-select:** prop forwarding ([9273538](https://github.com/emdgroup-liquid/liquid/commit/92735381e3e1dc73aacf7df371ab36de7ac7d08a))
+* **ld-select:** remove unnecessary settimeout for autofocus ([9fcd2c6](https://github.com/emdgroup-liquid/liquid/commit/9fcd2c623d82585fe31de87177750932ace87646))
+* **ld-toggle:** prop forwarding ([eb3d168](https://github.com/emdgroup-liquid/liquid/commit/eb3d168475cb3f22f38cae61a1225617c071db36))
+* **ld-toggle:** prop forwarding ([bbf9a29](https://github.com/emdgroup-liquid/liquid/commit/bbf9a29c20cd64ac09a3cbffe035b18b4a9ef3f7))
+
+# [1.0.0-rc.18](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.17...v1.0.0-rc.18) (2021-11-25)
+
+
+### Bug Fixes
+
+* **ld-input:** let textarea inherit max/min sizes ([60afed0](https://github.com/emdgroup-liquid/liquid/commit/60afed0f64aa985198cfb325c63eae312da23eb5))
+* **ld-notification:** center content vertically ([99fd1bc](https://github.com/emdgroup-liquid/liquid/commit/99fd1bca590cc909250bdbc1a9b1a62a688ffdca))
+* **ld-select:** focus outline styles for Safari ([86a3c3c](https://github.com/emdgroup-liquid/liquid/commit/86a3c3ca062f25ea6ec906b14837dcaa11963128))
+* **ld-select:** ld-select not opening up on mobile safari ([5762271](https://github.com/emdgroup-liquid/liquid/commit/57622714e4707f54a717a446bd6d347bb6386145)), closes [#122](https://github.com/emdgroup-liquid/liquid/issues/122)
+
+
+### Features
+
+* **design-tokens:** add bin command to generate custom design tokens ([2ea32c1](https://github.com/emdgroup-liquid/liquid/commit/2ea32c1f3e2abdac9a687ab72a0b161125843f3a))
+
+# [1.0.0-rc.17](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.16...v1.0.0-rc.17) (2021-11-25)
+
+
+### Bug Fixes
+
+* **ld-input:** let textarea inherit max/min sizes ([6c80ffb](https://github.com/emdgroup-liquid/liquid/commit/6c80ffbdbee7c86f78f86b66bf7926988937b7bc))
+* **ld-notification:** center content vertically ([5b114fe](https://github.com/emdgroup-liquid/liquid/commit/5b114fe47c202b95dc32715ecc324b1c221ed09b))
+* **ld-select:** focus outline styles for Safari ([16c1f30](https://github.com/emdgroup-liquid/liquid/commit/16c1f30e14d3af5c137ac1abd45062b2edf94097))
+* **ld-select:** ld-select not opening up on mobile safari ([8eb01c3](https://github.com/emdgroup-liquid/liquid/commit/8eb01c3f4e03830411dc9d20687b612d6835e77b)), closes [#122](https://github.com/emdgroup-liquid/liquid/issues/122)
+
+
+### Features
+
+* **design-tokens:** add bin command to generate custom design tokens ([37cd41b](https://github.com/emdgroup-liquid/liquid/commit/37cd41beb2b4b7665c111ca936e9dabab8cfa2e3))
+
+# [1.0.0-rc.16](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-11-20)
+
+
+### Bug Fixes
+
+* **dist-custom-elements:** build custom elements bundle ([8bf6210](https://github.com/emdgroup-liquid/liquid/commit/8bf62103ff6b6efc9838132870d07941d89230f7))
+* **ld-button:** reset margin for safari ([58f0e3f](https://github.com/emdgroup-liquid/liquid/commit/58f0e3f1aaefe342b10075c37bb9d799ad496d7e))
+* **ld-checkbox:** emits input event on click from outside ([f456f50](https://github.com/emdgroup-liquid/liquid/commit/f456f5094e8e7de6adf6b9a8f1049d7e0457231c))
+* **ld-icon:** make sure shadow dom style element is not removed ([7cb5746](https://github.com/emdgroup-liquid/liquid/commit/7cb5746ea5d1d64bcdbd5f25b15891312e7e7b9d)), closes [#124](https://github.com/emdgroup-liquid/liquid/issues/124)
+* **ld-radio:** emits input event on click from outside ([d465d2b](https://github.com/emdgroup-liquid/liquid/commit/d465d2bc0b564e5b4580a66782125aa9a7357e02))
+* **ld-select:** add focus inner method for click on label ([cad4501](https://github.com/emdgroup-liquid/liquid/commit/cad450167645710748cef33a9e665ab673d721bf))
+
+# [1.0.0-rc.15](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-11-17)
+
+
+### Bug Fixes
+
+* **dist-custom-elements:** build custom elements bundle ([2a03561](https://github.com/emdgroup-liquid/liquid/commit/2a03561cb4773b08abf5fe9f4662358c2a763fad))
+
+# [1.0.0-rc.14](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-checkbox:** emits input event on click from outside ([bf2985c](https://github.com/emdgroup-liquid/liquid/commit/bf2985c3ab3a1e815161afd01983720ff46cef90))
+* **ld-radio:** emits input event on click from outside ([c07d5a1](https://github.com/emdgroup-liquid/liquid/commit/c07d5a172b6e7f0b01a0b6d911fb64a6f2b65a4b))
+* **ld-select:** add focus inner method for click on label ([700da3b](https://github.com/emdgroup-liquid/liquid/commit/700da3b1123fe21fa760202a85cbbb1a7de157d0))
+
+# [1.0.0-rc.13](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-checkbox:** remove redundant input event dispatch ([0e95969](https://github.com/emdgroup-liquid/liquid/commit/0e95969bf07c16b0eb48d5b3a890f5404275e394))
+* **ld-icon:** replace icon instead of appending it on name change ([90fbcfe](https://github.com/emdgroup-liquid/liquid/commit/90fbcfeafbbd8a5c3e3b6b0563b0bdb1309c354f))
+* **ld-input:** add box-sizing border-box to textarea ([31a60c1](https://github.com/emdgroup-liquid/liquid/commit/31a60c1cb2c9d71bea8cf87a1c40d0723396d1a8))
+* **ld-radio:** remove redundant input event dispatch ([b063726](https://github.com/emdgroup-liquid/liquid/commit/b06372676c60d8cafaacf6671b3534c2be414cfa))
+
+# [1.0.0-rc.12](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-11-16)
+
+
+### Bug Fixes
+
+* **ld-icon:** replace icon instead of appending it on name change ([16605f0](https://github.com/emdgroup-liquid/liquid/commit/16605f068c9d7f87a929d0585d4b92df99661a9a))
+
+# [1.0.0-rc.11](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2021-11-16)
+
+
+### Bug Fixes
+
+* **changelog:** remove redundant entries ([f1bb6bc](https://github.com/emdgroup-liquid/liquid/commit/f1bb6bc28ba945cb99b3b0f9636a5c56f8038cbb))
+* **ld-input:** add box-sizing border-box to textarea ([dc689e4](https://github.com/emdgroup-liquid/liquid/commit/dc689e4b754336a36bbc4ef6edbb44ad5c17c3e1))
+
+# [1.0.0-rc.10](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2021-11-15)
+
+
+### Bug Fixes
+
+* **css-reset:** make css reset work in safari ([2b2d98d](https://github.com/emdgroup-liquid/liquid/commit/2b2d98d0b809f66134c87c1c67f078699c25c7a3))
+* **l-heading:** theming selectors specifity ([81d1b27](https://github.com/emdgroup-liquid/liquid/commit/81d1b27d23ed11e6576863873bc1433e000f4b5e))
+* **ld-button:** active states on safari ([2a1eaa5](https://github.com/emdgroup-liquid/liquid/commit/2a1eaa5ce5e75a07f4800adc7e3d8a3ca3123479))
+* **ld-button:** progress bar overflow issue on safari ([ad010bd](https://github.com/emdgroup-liquid/liquid/commit/ad010bd8822fcf5735c168c77c428a3f85c77622)), closes [#32](https://github.com/emdgroup-liquid/liquid/issues/32)
+* **ld-button, ld-heading:** host style ([b1e90e6](https://github.com/emdgroup-liquid/liquid/commit/b1e90e6ad4943bcfc69d960435eaa431826b3639))
+* **ld-icon:** apply styles on slotted svg ([cded2ef](https://github.com/emdgroup-liquid/liquid/commit/cded2ef25f7bb193e2853171b5a86118c7ec1911))
+* **ld-input:** button and icon styles ([f0eb0ac](https://github.com/emdgroup-liquid/liquid/commit/f0eb0ac75ec24dbe657445a65ffc03a696da97b8))
+* **ld-input:** clean up styling ([8e2c462](https://github.com/emdgroup-liquid/liquid/commit/8e2c46240e79f04eec47a7d1951fd412f5696219))
+* **ld-input:** click event handler fired twice ([21b2274](https://github.com/emdgroup-liquid/liquid/commit/21b2274a8211e4b66bbb9ebe3bdb6eaeca74bb15))
+* **ld-label:** focus inner input element on click (wip) ([ba22b1b](https://github.com/emdgroup-liquid/liquid/commit/ba22b1b06944970d4618aeb8dc3e769905b8ce7d))
+* **ld-option-internal:** disabled text color ([d6db1bc](https://github.com/emdgroup-liquid/liquid/commit/d6db1bcc1e6a3530662db101f720b05747b66c5d))
+* **ld-radio:** change selection with arrow buttons ([a071221](https://github.com/emdgroup-liquid/liquid/commit/a0712210c718f61157f93a191c0eb06e66ce0a78))
+* **ld-select:** always set ignore slot changes to false on next tick ([06e4cd1](https://github.com/emdgroup-liquid/liquid/commit/06e4cd15289b913878889b54ac19bcc9caf36f3e))
+* **ld-select:** css component ([1a3bcab](https://github.com/emdgroup-liquid/liquid/commit/1a3bcab8c4694913e2bd47faab4d101c2e4fbd2d))
+* **ld-select:** custom popper class ([936f6d7](https://github.com/emdgroup-liquid/liquid/commit/936f6d7176314b24dbee153d236b9d0c2d2eeb3d))
+* **ld-select:** form validation / event timing ([8a4a58e](https://github.com/emdgroup-liquid/liquid/commit/8a4a58e8154716b802e2c5f14804f61144d02000))
+* **ld-select:** init ld-option-internal with up-to-date props ([6eb4216](https://github.com/emdgroup-liquid/liquid/commit/6eb4216ce407b2b301aefb395b27da2625bc9d2b))
+* **ld-select:** mutation observer and click on disabled and focus outline ([d0428a3](https://github.com/emdgroup-liquid/liquid/commit/d0428a3825afeba749e7161928df2514999bae81))
+* **ld-select:** use value instead of get attribute value ([7e6d98f](https://github.com/emdgroup-liquid/liquid/commit/7e6d98f743496e2a2652d7c3619905805f5c1744))
+* **ld-select-popper:** use up-to-date css custom props ([626dfe2](https://github.com/emdgroup-liquid/liquid/commit/626dfe2580dff55a3a58e397bc79e1cce9eb8606))
+* **ld-toggle:** icon placement in safari ([3f0e35d](https://github.com/emdgroup-liquid/liquid/commit/3f0e35defd3007b6bebaa94197b3981a1bd25a16))
+* **ld-toggle:** update to match current design ([8a5b800](https://github.com/emdgroup-liquid/liquid/commit/8a5b800df6772574fb9cc8c29271622dde27402e))
+* **theming:** update success theme colors ([c8015db](https://github.com/emdgroup-liquid/liquid/commit/c8015db102466102d903f40fe435bfa56715399f))
+* 1.0rem safari issue ([3b2bbfe](https://github.com/emdgroup-liquid/liquid/commit/3b2bbfe68941a341278f2a3795bbec7a31424f4d))
+* default color refs, allow non-default refs in tailwind preset ([0bd1849](https://github.com/emdgroup-liquid/liquid/commit/0bd1849bbdc50379559771d5a685096ac7ca695a))
+* properly create default colors, remove color variants ([0479741](https://github.com/emdgroup-liquid/liquid/commit/047974119918063ba716ef1f319938c1ae597775))
+* **ld-select:** pinned mode ([63d0e41](https://github.com/emdgroup-liquid/liquid/commit/63d0e414fbc4d46c931af8e1939d8eb06c49c999))
+* **ld-select:** swap more indicator color and background-color ([c0e580b](https://github.com/emdgroup-liquid/liquid/commit/c0e580b7677a3bb50504424600269e30b88db227))
+* **ld-sr-live:** use aria-relevant all to also announce first message ([5c607b7](https://github.com/emdgroup-liquid/liquid/commit/5c607b7cf3ad583956e38e55fd6ae945c482e09b))
+* **ld-tabs:** emit tab change event from within the ld-tabs component ([6b31d70](https://github.com/emdgroup-liquid/liquid/commit/6b31d702a047d5d1089e0272df9f028c72094d45))
+* **ld-typo:** apply code review suggestions ([1f87846](https://github.com/emdgroup-liquid/liquid/commit/1f878466b33637cd384dd2e660d6918469662a8e))
+* **reset:** apply reset to everything except examples ([b84d631](https://github.com/emdgroup-liquid/liquid/commit/b84d6315d6a1fd143977beb6a9a0e81a6b044007))
+* **types:** annotate boolean prop types explicitly as booleans ([c1e3b38](https://github.com/emdgroup-liquid/liquid/commit/c1e3b38cb4d1d081a0e38377d305d57041d54982))
+* **utils:** do not clone slot-attribute ([6e3673c](https://github.com/emdgroup-liquid/liquid/commit/6e3673c2e63df3606ee9715de5939d849483c1eb))
+* TS error ([28e5794](https://github.com/emdgroup-liquid/liquid/commit/28e57940ffb61f2df41d0d4b704f22d480a7a9fd))
+
+
+### Features
+
+* **cloneAttributes:** test for name, exclude part ([caf5270](https://github.com/emdgroup-liquid/liquid/commit/caf5270dbbf566754b5fa84ea63377fee5597c40))
+* **ld-button:** add parts ([6d16834](https://github.com/emdgroup-liquid/liquid/commit/6d1683459553325b551d72a81851b90c17381a5d))
+* **ld-button, ld-input:** manipulate size attributes of slotted components ([ccc0271](https://github.com/emdgroup-liquid/liquid/commit/ccc027182dc58699b92f402622cf308a402ba233))
+* **ld-icon:** add parts ([91fa753](https://github.com/emdgroup-liquid/liquid/commit/91fa7537ec9bc81484db825b8aa28cc51a283c46))
+* **ld-input:** autocomplete support for input field ([b88369f](https://github.com/emdgroup-liquid/liquid/commit/b88369fd99caab61835f8b0f21e266ff294d2f15))
+* **ld-input:** make component fully themeable ([4507c5c](https://github.com/emdgroup-liquid/liquid/commit/4507c5ce07f19421f42895dae0de41776316fc70))
+* **ld-input-message:** add theme colors to icons ([8c4e768](https://github.com/emdgroup-liquid/liquid/commit/8c4e768632a27e2f0f20564e034455493aadd425))
+* import border radii from Figma ([b344954](https://github.com/emdgroup-liquid/liquid/commit/b344954edf0e48214187f3864ec1d4f64dcb6701))
+* **ld-button:** implicit form submit ([821c7ae](https://github.com/emdgroup-liquid/liquid/commit/821c7ae3182bb6d0ac58edd7568b637e41f678b6))
+* **ld-checkbox:** use shadow dom ([f4d6787](https://github.com/emdgroup-liquid/liquid/commit/f4d6787f3779e804c0c02899178ebb6fdc024252))
+* **ld-heading:** add parts ([6a704fe](https://github.com/emdgroup-liquid/liquid/commit/6a704feabf40e25b176c1caba05e6edfc0c0e432))
+* **ld-input:** add parts ([180bd39](https://github.com/emdgroup-liquid/liquid/commit/180bd39b4347a05e17f1681e54f95bdb970aaba1))
+* **ld-input-message:** add parts ([76ba14d](https://github.com/emdgroup-liquid/liquid/commit/76ba14ded8f24c01e6e277de19ab69f0f30270e8))
+* **ld-input, ld-select:** hidden inputs inside form ([958937c](https://github.com/emdgroup-liquid/liquid/commit/958937c9b7568cc7f3dbf4f4e4adce6df37f7e6d))
+* **ld-label:** add parts ([97c7244](https://github.com/emdgroup-liquid/liquid/commit/97c72442fd8c15b1a8aeb0ab74fc499b2a0f39d3))
+* **ld-label:** use up-to-date css custom props ([8d1c931](https://github.com/emdgroup-liquid/liquid/commit/8d1c931689648e7221a9311ae8379ebe912550a0))
+* **ld-loading:** use new color vars ([c681698](https://github.com/emdgroup-liquid/liquid/commit/c68169883b9cf87f853372bdaa75a1c4215ded6c))
+* **ld-notification:** add part focusable ([999f036](https://github.com/emdgroup-liquid/liquid/commit/999f036f272d47bda6726d8a56168d343363bde7))
+* **ld-notification:** use shadow dom ([22cdd6d](https://github.com/emdgroup-liquid/liquid/commit/22cdd6df73fabf6c45668073735a32bc328d2b4b))
+* **ld-notification:** use up-to-date css custom props ([3abda92](https://github.com/emdgroup-liquid/liquid/commit/3abda92afe55ebcdf504ecb4035054b929a81348))
+* **ld-select:** use up-to-date css custom props ([151edcb](https://github.com/emdgroup-liquid/liquid/commit/151edcb63a0bcaf7be14591f31bc69d6f8d85904))
+* **ld-tabs:** use new color vars ([ccbe7db](https://github.com/emdgroup-liquid/liquid/commit/ccbe7db7eb888c6cdedf6bf05c389874bddd6a10))
+* **ld-theme:** replace component with global css classes ([b78df5f](https://github.com/emdgroup-liquid/liquid/commit/b78df5fc193498c7ad022ad3263020e0fc9db174))
+* **ld-tooltip:** use up-to-date css custom props ([9084bf3](https://github.com/emdgroup-liquid/liquid/commit/9084bf3e155afab4b1d63e165092881ee453a472))
+* add font-weight to design tokens ([b026440](https://github.com/emdgroup-liquid/liquid/commit/b026440ce98b97097d71abbf8f96a667cc079a5d))
+* add ld-typo component ([275a908](https://github.com/emdgroup-liquid/liquid/commit/275a90817ed595607ebbaeb49a77db091b49b6b7))
+* add react bindings ([b1cc028](https://github.com/emdgroup-liquid/liquid/commit/b1cc0289057a452fd98998d1fcc8f812073b87e6))
+* convert ld-input-message and ld-heading to shadow dom ([53e22aa](https://github.com/emdgroup-liquid/liquid/commit/53e22aaf58e566f504655dba17495d6ab0e6b8bd))
+* replace headings and paragraphs with ld-typo ([455f455](https://github.com/emdgroup-liquid/liquid/commit/455f455d6c5b71e9476f2ab1163a9edad165e7e0))
+* update design tokens and color vars ([44c3bc4](https://github.com/emdgroup-liquid/liquid/commit/44c3bc496ae75430bb0796ad972f8100ed4f5d32))
+* **ld-tabs:** add methods for switching tabs ([e6efa27](https://github.com/emdgroup-liquid/liquid/commit/e6efa277a9fd6100532919376e2cb5b5b26a72f5))
+* **ld-tabs:** add parts ([79592fb](https://github.com/emdgroup-liquid/liquid/commit/79592fb3dbc7fe16737eba874aa93a8b4254d1cb))
+* **ld-tabs:** scrollable tab list ([787c5ba](https://github.com/emdgroup-liquid/liquid/commit/787c5ba50b2c655a670d28ff263583c15108835a))
+* **ld-tabs:** support full width tabs ([4337569](https://github.com/emdgroup-liquid/liquid/commit/433756958501c27c1487ad30c6add7ecad29277c))
+* **ld-tabs:** tabs tablist tab tabpanellist tabpanel ([acc5964](https://github.com/emdgroup-liquid/liquid/commit/acc5964ee770e3627a45a6da4a4149d85acd25b1))
+* **ld-toggle:** hidden input inside form ([43cb8e6](https://github.com/emdgroup-liquid/liquid/commit/43cb8e68646ff339d979aa9ee9e85f00ed8e6c89))
+* **ld-toggle:** use up-to-date css custom props ([ced2d59](https://github.com/emdgroup-liquid/liquid/commit/ced2d5911a727369a671f743dc5cd4b9589e5a78))
+* move alpha to colors, add disabled variant ([25b00f1](https://github.com/emdgroup-liquid/liquid/commit/25b00f1e9246445ddd9ee340b705fcb647dc57b3))
+* update tailwind preset, add sensitive colors ([0b7cfe0](https://github.com/emdgroup-liquid/liquid/commit/0b7cfe0d9d4b5a5acbe48fb265fee2a523f496fb))
+
 # [1.0.0-rc.9](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2021-09-21)
 
 
 ### Bug Fixes
 
-* **ld-button:** active states on safari ([37ba9ef](https://github.com/emdgroup-liquid/liquid/commit/37ba9ef2d16a6a7fc75c1695324c4e85b9feff29))
-* **ld-button:** progress bar overflow issue on safari ([c02d350](https://github.com/emdgroup-liquid/liquid/commit/c02d350d300584f09b8f6c56940b5083906c1830)), closes [#32](https://github.com/emdgroup-liquid/liquid/issues/32)
-* **ld-select:** swap more indicator color and background-color ([848d82c](https://github.com/emdgroup-liquid/liquid/commit/848d82ca5c9f7109cb040b5562ada4fbdafa8ec1))
-* **ld-tabs:** emit tab change event from within the ld-tabs component ([28b8185](https://github.com/emdgroup-liquid/liquid/commit/28b81854c142b48d472e7dd85cab2bc4bebb3368))
-
-
-### Features
-
-* add react bindings ([b93b93c](https://github.com/emdgroup-liquid/liquid/commit/b93b93c27e078b4a7fe2fd765deab63f302d920d))
-* **ld-tabs:** scrollable tab list ([9ad487a](https://github.com/emdgroup-liquid/liquid/commit/9ad487add3f4a5eacb93af69f661e12f9620b2dc))
-* **ld-tabs:** support full width tabs ([6201704](https://github.com/emdgroup-liquid/liquid/commit/62017045990c62071e8f24a0d94de5ed0e2c2ece))
-* **ld-tabs:** tabs tablist tab tabpanellist tabpanel ([b50de93](https://github.com/emdgroup-liquid/liquid/commit/b50de93e72f6431849d6771b43ffe88a96772273))
+* **changelog:** remove redundant entries ([54a5a32](https://github.com/emdgroup-liquid/liquid/commit/54a5a3267e7319eb0b99bfde1637299daa6591b3))
 
 # [1.0.0-rc.8](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2021-09-02)
 

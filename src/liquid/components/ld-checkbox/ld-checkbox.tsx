@@ -1,5 +1,17 @@
-import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
@@ -11,11 +23,37 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-checkbox.css',
   shadow: true,
 })
-export class LdCheckbox implements InnerFocusable {
+export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Element() el: HTMLInputElement
+
+  private attributesObserver: MutationObserver
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
+
+  /** Automatically focus the form control when the page is loaded. */
+  @Prop() autofocus = false
+
+  /** Indicates whether the checkbox is checked. */
+  @Prop({ mutable: true }) checked = false
+
+  /** Disabled state of the checkbox. */
+  @Prop() disabled: boolean
+
+  /** Associates the control with a form element. */
+  @Prop() form?: string
+
+  /**
+   * Set this property to `true` to indicate that the checkbox's value is neither true nor false.
+   * The prop is removed automatically as soon as the checkbox is clicked (if not disabled).
+   */
+  @Prop({ mutable: true }) indeterminate?: boolean
+
+  /** Set this property to `true` in order to mark the checkbox visually as invalid. */
+  @Prop() invalid: boolean
+
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
 
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
@@ -23,27 +61,27 @@ export class LdCheckbox implements InnerFocusable {
   /** Used to specify the name of the control. */
   @Prop() name: string
 
-  /** The input value. */
-  @Prop() value: string
-
-  /** Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone. */
-  @Prop() tone: 'dark'
-
-  /** Disabled state of the checkbox. */
-  @Prop() disabled: boolean
-
-  /** The input value. */
-  @Prop({ mutable: true, reflect: true }) checked: boolean
-
-  /** Set this property to `true` in order to mark the checkbox visually as invalid. */
-  @Prop() invalid: boolean
+  /** The value is not editable. */
+  @Prop() readonly?: boolean
 
   /** Set this property to `true` in order to mark the checkbox as required. */
   @Prop() required: boolean
 
-  /**
-   * Sets focus on the checkbox
-   */
+  /** Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone. */
+  @Prop() tone: 'dark'
+
+  /** The input value. */
+  @Prop() value: string
+
+  @State() clonedAttributes
+
+  /** Emitted when the input value changed and the element loses focus. */
+  @Event() ldchange: EventEmitter<boolean>
+
+  /** Emitted when the input value changed. */
+  @Event() ldinput: EventEmitter<boolean>
+
+  /** Sets focus on the checkbox. */
   @Method()
   async focusInner() {
     if (this.input !== undefined) {
@@ -52,89 +90,137 @@ export class LdCheckbox implements InnerFocusable {
   }
 
   @Watch('checked')
+  updateIndeterminate() {
+    this.indeterminate = undefined
+  }
+
+  @Watch('checked')
   @Watch('name')
-  @Watch('required')
   @Watch('value')
   updateHiddenInput() {
-    if (this.hiddenInput) {
-      this.hiddenInput.checked = this.checked
-      this.hiddenInput.required = this.required
+    const outerForm = this.el.closest('form')
+    if (!this.hiddenInput && this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+    }
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
-      } else {
-        this.hiddenInput.removeAttribute('name')
+    if (this.hiddenInput) {
+      if (!this.name) {
+        this.hiddenInput.remove()
+        this.hiddenInput = undefined
+        return
       }
+
+      this.hiddenInput.name = this.name
+      this.hiddenInput.checked = this.checked
 
       if (this.value) {
         this.hiddenInput.value = this.value
       } else {
         this.hiddenInput.removeAttribute('value')
       }
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
+      } else if (this.hiddenInput.getAttribute('form')) {
+        if (outerForm) {
+          this.hiddenInput.removeAttribute('form')
+        } else {
+          this.hiddenInput.remove()
+          this.hiddenInput = undefined
+        }
+      }
     }
   }
 
-  private handleBlur(ev) {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+  private createHiddenInput() {
+    this.hiddenInput = document.createElement('input')
+    this.hiddenInput.type = 'checkbox'
+    this.hiddenInput.style.visibility = 'hidden'
+    this.hiddenInput.style.position = 'absolute'
+    this.hiddenInput.style.pointerEvents = 'none'
+    this.el.appendChild(this.hiddenInput)
   }
 
-  private handleFocus = (ev: FocusEvent) => {
-    setTimeout(() => {
-      this.el.dispatchEvent(ev)
-    })
+  private handleChange = (ev: InputEvent) => {
+    this.el.dispatchEvent(new InputEvent('change', ev))
+    this.ldchange.emit(this.checked)
   }
 
-  private handleClick = (ev?: MouseEvent) => {
+  private handleClick = (ev: MouseEvent) => {
     if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
-      ev?.preventDefault()
+      ev.preventDefault()
       return
     }
 
     this.checked = !this.checked
-    this.el.dispatchEvent(new Event('input', { bubbles: true, composed: true }))
+
+    if (!ev.isTrusted) {
+      // This happens, when a click event is dispatched on the host element
+      // from the outside i.e. on click on a parent ld-label element.
+      this.el.dispatchEvent(
+        new InputEvent('input', { bubbles: true, composed: true })
+      )
+      this.handleInput()
+      this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+      this.ldchange.emit(this.checked)
+    }
+  }
+
+  private handleInput = () => {
+    this.ldinput.emit(this.checked)
   }
 
   componentWillLoad() {
-    if (this.el.closest('form')) {
-      this.hiddenInput = document.createElement('input')
-      this.hiddenInput.required = this.required
-      this.hiddenInput.type = 'checkbox'
-      this.hiddenInput.style.visibility = 'hidden'
-      this.hiddenInput.style.position = 'absolute'
-      this.hiddenInput.style.pointerEvents = 'none'
-      this.hiddenInput.checked = this.checked
+    this.attributesObserver = cloneAttributes.call(this, ['tone', 'mode'])
 
-      if (this.name) {
-        this.hiddenInput.name = this.name
+    const outerForm = this.el.closest('form')
+
+    if (this.name && (outerForm || this.form)) {
+      this.createHiddenInput()
+      this.hiddenInput.checked = this.checked
+      this.hiddenInput.name = this.name
+
+      if (this.form) {
+        this.hiddenInput.setAttribute('form', this.form)
       }
 
       if (this.value) {
         this.hiddenInput.value = this.value
       }
-
-      this.el.appendChild(this.hiddenInput)
     }
   }
 
+  componentDidLoad() {
+    if (this.autofocus) {
+      this.focusInner()
+    }
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver?.disconnect()
+  }
+
   render() {
-    let cl = 'ld-checkbox'
-    if (this.mode) cl += ` ld-checkbox--${this.mode}`
-    if (this.tone) cl += ` ld-checkbox--${this.tone}`
-    if (this.invalid) cl += ' ld-checkbox--invalid'
+    const cl = [
+      'ld-checkbox',
+      this.mode && `ld-checkbox--${this.mode}`,
+      this.tone && `ld-checkbox--${this.tone}`,
+      this.invalid && 'ld-checkbox--invalid',
+    ]
 
     return (
-      <Host part="root" class={cl} onClick={this.handleClick}>
+      <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
-          part="input focusable"
-          onBlur={this.handleBlur.bind(this)}
-          onFocus={this.handleFocus}
-          ref={(ref) => (this.input = ref)}
-          type="checkbox"
-          {...cloneAttributes(this.el)}
-          disabled={this.disabled}
+          {...this.clonedAttributes}
           checked={this.checked}
+          disabled={this.disabled}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
+          part="input focusable"
+          ref={(ref) => (this.input = ref)}
+          tabIndex={this.ldTabindex}
+          type="checkbox"
+          value={this.value}
         />
         <svg
           class="ld-checkbox__check"

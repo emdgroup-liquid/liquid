@@ -1,18 +1,12 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
+import {
+  analyzeAccessibility,
+  getPageWithContent,
+} from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdButton } from '../ld-button'
 
-jest.useRealTimers()
-
-const modes = [
-  '',
-  'highlight',
-  'secondary',
-  'on-brand-color',
-  'secondary-on-brand-color',
-  'ghost',
-  'danger',
-]
+const modes = ['', 'highlight', 'secondary', 'ghost', 'danger']
+const attributes = ['', 'brand-color']
 
 const cssIconComponent = `
   <span class="ld-icon" role="presentation">
@@ -24,288 +18,500 @@ const cssIconComponent = `
 `
 
 describe('ld-button', () => {
-  for (const mode of modes) {
-    const modeStr = mode ? `mode ${mode}` : 'mode none'
-    describe(modeStr, () => {
-      it(`default ${modeStr}`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`hover`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.hover('ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`focus`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`active`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+  modes.forEach((mode) => {
+    attributes.forEach((attribute) => {
+      if (
+        attribute === 'brand-color' &&
+        (mode === 'highlight' || mode === 'danger')
+      ) {
+        return
+      }
 
-      // Disabled
-      it(`disabled`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`disabled hover`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.hover('ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`disabled focus`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`disabled active`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+      const bgColor =
+        attribute === 'brand-color' ? 'var(--ld-thm-primary)' : undefined
+      const modeDescription = mode ? `mode ${mode}` : 'mode none'
+      const modeStr = mode ? ` mode="${mode}"` : ''
+      const attributeStr = attribute ? ` ${attribute}` : ''
 
-      // Aria-disabled
-      it(`aria-disabled`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`aria-disabled hover`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.hover('ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`aria-disabled focus`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`aria-disabled active`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button mode="${mode}" aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+      describe(`${modeDescription}${attributeStr}`, () => {
+        it('default', async () => {
+          const page = await getPageWithContent(
+            `<ld-button${
+              modeStr + attributeStr
+            }>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+            {
+              bgColor,
+            }
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot()
 
-      // Progress button
-      it(`progress button`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button progress="0.75">Text</ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          const accessibilityReport = await analyzeAccessibility(page)
+          expect(accessibilityReport).toHaveNoAccessibilityIssues()
+        })
+        it('hover', async () => {
+          const page = await getPageWithContent(
+            `<ld-button${
+              modeStr + attributeStr
+            }>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+            {
+              bgColor,
+            }
+          )
+          await page.hover('ld-button')
+          await page.waitForChanges()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot()
+        })
+        it('focus', async () => {
+          const page = await getPageWithContent(
+            `<ld-button${
+              modeStr + attributeStr
+            }>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+            {
+              bgColor,
+            }
+          )
+          await page.keyboard.press('Tab')
+          await page.waitForChanges()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot()
+        })
+        it('active', async () => {
+          const page = await getPageWithContent(
+            `<ld-button${
+              modeStr + attributeStr
+            }>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+            {
+              bgColor,
+            }
+          )
+          await page.keyboard.press('Tab')
+          await page.keyboard.down('Space')
+          await page.waitForChanges()
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot()
+        })
 
-      it(`progress button secondary`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button progress="0.75" mode="secondary">Text</ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        describe('disabled', () => {
+          it('default', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
 
-      it(`progress button ghost`, async () => {
-        const page = await getPageWithContent(
-          `<ld-button progress="0.75" mode="ghost">Text</ld-button>`
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+            const accessibilityReport = await analyzeAccessibility(page)
+            expect(accessibilityReport).toHaveNoAccessibilityIssues()
+          })
+          it('hover', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.hover('ld-button')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('focus', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('active', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } disabled>Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.keyboard.down('Space')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+        })
 
-      // CSS component
-      const modeModifier = mode ? ` ld-button--${mode}` : ''
-      it(`css component default ${modeStr}`, async () => {
-        const page = await getPageWithContent(
-          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component hover`, async () => {
-        const page = await getPageWithContent(
-          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.hover('.ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component focus`, async () => {
-        const page = await getPageWithContent(
-          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component active`, async () => {
-        const page = await getPageWithContent(
-          `<button class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        describe('aria-disabled', () => {
+          it('default', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('hover', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.hover('ld-button')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('focus', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('active', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } aria-disabled="true">Text<ld-icon name="placeholder"></ld-icon></ld-button>`,
+              {
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.keyboard.down('Space')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+        })
 
-      // Disabled CSS component
-      it(`css component disabled`, async () => {
-        const page = await getPageWithContent(
-          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component disabled hover`, async () => {
-        const page = await getPageWithContent(
-          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.hover('.ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component disabled focus`, async () => {
-        const page = await getPageWithContent(
-          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component disabled active`, async () => {
-        const page = await getPageWithContent(
-          `<button disabled class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        describe('progress button', () => {
+          it('default', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } progress="0.75">Text</ld-button>`,
+              {
+                disableAllTransitions: true,
+                bgColor,
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('hover', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } progress="0.75">Text</ld-button>`,
+              {
+                disableAllTransitions: true,
+                bgColor,
+              }
+            )
+            await page.hover('ld-button')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('focus', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } progress="0.75">Text</ld-button>`,
+              {
+                disableAllTransitions: true,
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('active', async () => {
+            const page = await getPageWithContent(
+              `<ld-button${
+                modeStr + attributeStr
+              } progress="0.75">Text</ld-button>`,
+              {
+                disableAllTransitions: true,
+                bgColor,
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.keyboard.down('Space')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+        })
 
-      // Aria-disabled CSS component
-      it(`css component aria-disabled`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component aria-disabled hover`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.hover('.ld-button')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component aria-disabled focus`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
-      it(`css component aria-disabled active`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-disabled="true" class="ld-button${modeModifier}">Text${cssIconComponent}</button>`,
-          { components: [LdButton, LdIcon] }
-        )
-        await page.keyboard.press('Tab')
-        await page.keyboard.down('Space')
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+        describe('css component', () => {
+          const modeModifier = mode ? ` ld-button--${mode}` : ''
+          const attributeModifier = attribute ? ` ld-button--${attribute}` : ''
+          const modifiers = modeModifier + attributeModifier
 
-      // Progress button CSS component
-      it(`css component progress button`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-busy="true" aria-live="polite" class="ld-button">
-            Text
-            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-          </button>`,
-          { components: LdButton }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          it('default', async () => {
+            const page = await getPageWithContent(
+              `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+              {
+                bgColor,
+                components: [LdButton, LdIcon],
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('hover', async () => {
+            const page = await getPageWithContent(
+              `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+              {
+                bgColor,
+                components: [LdButton, LdIcon],
+              }
+            )
+            await page.hover('.ld-button')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('focus', async () => {
+            const page = await getPageWithContent(
+              `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+              {
+                bgColor,
+                components: [LdButton, LdIcon],
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+          it('active', async () => {
+            const page = await getPageWithContent(
+              `<button class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+              {
+                bgColor,
+                components: [LdButton, LdIcon],
+              }
+            )
+            await page.keyboard.press('Tab')
+            await page.keyboard.down('Space')
+            await page.waitForChanges()
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
 
-      it(`css component progress button secondary`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--secondary">
-            Text
-            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-          </button>`,
-          { components: LdButton }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
-      })
+          describe('disabled', () => {
+            it('default', async () => {
+              const page = await getPageWithContent(
+                `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('hover', async () => {
+              const page = await getPageWithContent(
+                `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.hover('.ld-button')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('focus', async () => {
+              const page = await getPageWithContent(
+                `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('active', async () => {
+              const page = await getPageWithContent(
+                `<button disabled class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
 
-      it(`css component progress button ghost`, async () => {
-        const page = await getPageWithContent(
-          `<button aria-busy="true" aria-live="polite" class="ld-button ld-button--ghost">
-            Text
-            <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
-          </button>`,
-          { components: LdButton }
-        )
-        const results = await page.compareScreenshot()
-        expect(results).toMatchScreenshot()
+          describe('aria-disabled', () => {
+            it('default', async () => {
+              const page = await getPageWithContent(
+                `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('hover', async () => {
+              const page = await getPageWithContent(
+                `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.hover('.ld-button')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('focus', async () => {
+              const page = await getPageWithContent(
+                `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('active', async () => {
+              const page = await getPageWithContent(
+                `<button aria-disabled="true" class="ld-button${modifiers}">Text${cssIconComponent}</button>`,
+                {
+                  bgColor,
+                  components: [LdButton, LdIcon],
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('progress button', () => {
+            it('default', async () => {
+              const page = await getPageWithContent(
+                `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
+                Text
+                <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+              </button>`,
+                {
+                  disableAllTransitions: true,
+                  bgColor,
+                  components: LdButton,
+                }
+              )
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('hover', async () => {
+              const page = await getPageWithContent(
+                `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
+                Text
+                <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+              </button>`,
+                {
+                  disableAllTransitions: true,
+                  bgColor,
+                  components: LdButton,
+                }
+              )
+              await page.hover('.ld-button')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('focus', async () => {
+              const page = await getPageWithContent(
+                `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
+                Text
+                <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+              </button>`,
+                {
+                  disableAllTransitions: true,
+                  bgColor,
+                  components: LdButton,
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+            it('active', async () => {
+              const page = await getPageWithContent(
+                `<button aria-busy="true" aria-live="polite" class="ld-button${modifiers}">
+                Text
+                <span class="ld-button__progress" style="--ld-button-progress: 0.75"></span>
+              </button>`,
+                {
+                  disableAllTransitions: true,
+                  bgColor,
+                  components: LdButton,
+                }
+              )
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+        })
       })
     })
-  }
+  })
 
   describe('sizes', () => {
     it('sm', async () => {
@@ -314,6 +520,9 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('lg', async () => {
       const page = await getPageWithContent(
@@ -334,10 +543,13 @@ describe('ld-button', () => {
     })
     it('icon button sm', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="sm"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
+        '<ld-button size="sm"><ld-icon name="placeholder"></ld-icon><ld-sr-only>Text</ld-sr-only></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('icon button lg', async () => {
       const page = await getPageWithContent(
@@ -345,6 +557,39 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+    })
+
+    describe('ghost', () => {
+      it('default', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+      it('sm', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost" size="sm"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+      it('lg', async () => {
+        const page = await getPageWithContent(
+          '<ld-button mode="ghost" size="lg"><ld-icon name="placeholder"></ld-icon></ld-button>'
+        )
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
     })
   })
 
@@ -386,6 +631,9 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
     it('multiline text left', async () => {
       const page = await getPageWithContent(
@@ -410,16 +658,19 @@ describe('ld-button', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
   })
 
-  describe('implicit form submission', () => {
+  describe('implicit form interaction', () => {
     it('submits form implicitly', async () => {
       const page = await getPageWithContent(
         `<form><ld-button>Text</ld-button></form>`
       )
       const form = await page.find('form')
-      expect(form).not.toBeNull()
+      const formResetSpy = await form.spyOnEvent('reset')
       const formSubmitSpy = await form.spyOnEvent('submit')
 
       // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
@@ -429,7 +680,27 @@ describe('ld-button', () => {
       })
       page.waitForChanges()
 
+      expect(formResetSpy).not.toHaveReceivedEvent()
       expect(formSubmitSpy).toHaveReceivedEvent()
+    })
+
+    it('resets form implicitly', async () => {
+      const page = await getPageWithContent(
+        `<form><ld-button type="reset">Text</ld-button></form>`
+      )
+      const form = await page.find('form')
+      const formResetSpy = await form.spyOnEvent('reset')
+      const formSubmitSpy = await form.spyOnEvent('submit')
+
+      // Using ldButton.click here leads to Error: Node is either not visible or not an HTMLElement
+      await page.evaluate(() => document.querySelector('ld-button').click())
+      await page.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve))
+      })
+      page.waitForChanges()
+
+      expect(formResetSpy).toHaveReceivedEvent()
+      expect(formSubmitSpy).not.toHaveReceivedEvent()
     })
   })
 })

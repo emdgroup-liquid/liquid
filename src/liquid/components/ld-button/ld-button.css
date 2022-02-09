@@ -1,4 +1,5 @@
 :host {
+  appearance: none !important; /* Safari browser reset */
   display: inline-flex;
 
   > :where(.ld-button) {
@@ -24,6 +25,7 @@
   --ld-button-gap-lg: 1.1875rem;
   background-color: var(--ld-button-bg-color, var(--ld-thm-primary));
   box-sizing: border-box;
+  margin: 0;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;
@@ -149,6 +151,15 @@
 
   &:where(.ld-button--justify-between) {
     justify-content: space-between;
+  }
+
+  &:where(.ld-button--icon-only) {
+    --ld-button-padding-x-sm: 0;
+    --ld-button-padding-y-sm: 0;
+    --ld-button-padding-x-md: 0;
+    --ld-button-padding-y-md: 0;
+    --ld-button-padding-x-lg: 0;
+    --ld-button-padding-y-lg: 0;
   }
 
   &[aria-busy='true'] {
@@ -390,86 +401,92 @@
   }
 }
 
-.ld-button--on-brand-color {
-  background-color: var(--ld-button-on-brand-bg-color, var(--ld-col-wht));
-  color: var(--ld-button-on-brand-text-color, var(--ld-thm-primary));
+.ld-button--brand-color {
+  &:where(:not(.ld-button--secondary):not(.ld-button--ghost)) {
+    background-color: var(--ld-button-brand-bg-color, var(--ld-col-wht));
+    color: var(--ld-button-brand-text-color, var(--ld-thm-primary));
 
-  &:where(&:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      color: var(
-        --ld-button-on-brand-text-color-focus,
-        var(--ld-thm-primary-focus)
-      );
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-on-brand-bg-color-hover,
-          var(--ld-col-wht-alpha-high)
+    &:where(&:not(:disabled):not([aria-disabled='true'])) {
+      &:where(:focus:focus-visible) {
+        color: var(
+          --ld-button-brand-text-color-focus,
+          var(--ld-thm-primary-focus)
         );
       }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(
-        --ld-button-on-brand-bg-color-active,
-        var(--ld-col-wht-alpha-medium)
-      );
+      @media (hover: hover) {
+        &:where(:hover) {
+          background-color: var(
+            --ld-button-brand-bg-color-hover,
+            var(--ld-col-wht-alpha-high)
+          );
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        background-color: var(
+          --ld-button-brand-bg-color-active,
+          var(--ld-col-wht-alpha-medium)
+        );
+      }
     }
   }
-}
 
-.ld-button--secondary-on-brand-color {
-  background-color: transparent;
-  color: var(--ld-button-secondary-on-brand-text-color, var(--ld-col-wht));
-  box-shadow: inset 0px 0px 0px 2px;
+  &.ld-button--secondary,
+  &.ld-button--ghost {
+    background-color: transparent;
+    color: var(--ld-button-secondary-brand-text-color, var(--ld-col-wht));
 
-  .ld-button__progress::after {
-    background-color: var(
-      --ld-button-secondary-on-brand-progress-color,
-      var(--ld-col-wht)
-    );
-  }
-
-  &:where(&:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      color: var(
-        --ld-button-secondary-on-brand-text-color,
-        var(--ld-col-wht-alpha-high)
+    .ld-button__progress::after {
+      background-color: var(
+        --ld-button-secondary-brand-progress-color,
+        var(--ld-col-wht)
       );
+    }
 
-      .ld-button__progress::after {
-        background-color: var(
-          --ld-button-secondary-on-brand-progress-color-focus,
+    &:where(&:not(:disabled):not([aria-disabled='true'])) {
+      &:where(:focus:focus-visible) {
+        color: var(
+          --ld-button-secondary-brand-text-color,
           var(--ld-col-wht-alpha-high)
         );
-      }
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-secondary-on-brand-bg-color-hover,
-          var(--ld-col-wht-alpha-low)
-        );
-      }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(
-        --ld-button-secondary-on-brand-bg-color-active,
-        var(--ld-col-wht-alpha-lowest)
-      );
-      color: var(
-        --ld-button-secondary-on-brand-text-color,
-        var(--ld-col-wht-alpha-highest)
-      );
 
-      .ld-button__progress::after {
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-secondary-brand-progress-color-focus,
+            var(--ld-col-wht-alpha-high)
+          );
+        }
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          background-color: var(
+            --ld-button-secondary-brand-bg-color-hover,
+            var(--ld-col-wht-alpha-low)
+          );
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
         background-color: var(
-          --ld-button-secondary-on-brand-progress-color-active,
+          --ld-button-secondary-brand-bg-color-active,
+          var(--ld-col-wht-alpha-lowest)
+        );
+        color: var(
+          --ld-button-secondary-brand-text-color,
           var(--ld-col-wht-alpha-highest)
         );
+
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-secondary-brand-progress-color-active,
+            var(--ld-col-wht-alpha-highest)
+          );
+        }
       }
     }
+  }
+
+  &.ld-button--secondary {
+    box-shadow: inset 0px 0px 0px 2px;
   }
 }
