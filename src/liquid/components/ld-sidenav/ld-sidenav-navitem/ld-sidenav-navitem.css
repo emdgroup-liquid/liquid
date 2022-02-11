@@ -11,14 +11,17 @@
 
   /* colors */
   --ld-sidenav-navitem-col: var(--ld-col-neutral-800);
+  --ld-sidenav-navitem-col-active: var(--ld-thm-primary-active);
+  --ld-sidenav-navitem-col-hover: var(--ld-thm-primary);
+  --ld-sidenav-navitem-col-focus: var(--ld-thm-primary);
   --ld-sidenav-navitem-indicator-col: transparent;
+  --ld-sidenav-navitem-indicator-col-focus: var(--ld-thm-primary-focus);
 
   background-color: transparent;
   margin: 0 var(--ld-sidenav-padding-x);
   position: relative;
   font: var(--ld-typo-body-s);
   border: 0;
-  border-radius: var(--ld-sidenav-navitem-border-radius);
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
@@ -51,7 +54,7 @@
     display: block;
     background-color: var(--ld-sidenav-navitem-indicator-col);
     opacity: 0.2;
-    transition: transform var(--ld-sidenav-transition-duration) ease;
+    z-index: -1;
   }
 
   &.ld-sidenav-navitem--collapsed {
@@ -122,7 +125,7 @@
 
   @media (hover: hover) {
     &:where(:hover) {
-      --ld-sidenav-navitem-col: var(--ld-thm-primary);
+      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-hover);
       --ld-sidenav-navitem-indicator-col: var(--ld-col-neutral-300);
 
       .ld-sidenav-navitem__slot-container-icon::after {
@@ -131,16 +134,18 @@
     }
   }
 
-  &:focus:focus-visible {
-    --ld-sidenav-navitem-col: var(--ld-thm-primary);
-    --ld-sidenav-navitem-indicator-col: var(--ld-thm-primary-focus);
+  &:focus {
+    --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-focus);
+    --ld-sidenav-navitem-indicator-col: var(
+      --ld-sidenav-navitem-indicator-col-focus
+    );
 
     .ld-sidenav-navitem__slot-container-icon::after {
       box-shadow: var(--ld-shadow-sticky);
     }
 
     &:active {
-      --ld-sidenav-navitem-col: var(--ld-thm-primary-active);
+      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-active);
 
       .ld-sidenav-navitem__slot-container-icon::after {
         box-shadow: var(--ld-shadow-active);
@@ -165,9 +170,7 @@
     transition: opacity var(--ld-sidenav-transition-duration) linear,
       transform var(--ld-sidenav-transition-duration) ease;
     opacity: 0;
-    transform: translateX(
-      calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-    );
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
   }
 
   .ld-sidenav-navitem--secondary &,
@@ -229,9 +232,7 @@
   }
 
   .ld-sidenav-navitem--collapsed & {
-    transform: translateX(
-      calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-    );
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
   }
 
   &::after {
@@ -260,9 +261,7 @@
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
-    transform: translateX(
-      calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-    );
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
     transition: opacity var(--ld-sidenav-transition-duration) linear,
       transform var(--ld-sidenav-transition-duration) ease;
   }

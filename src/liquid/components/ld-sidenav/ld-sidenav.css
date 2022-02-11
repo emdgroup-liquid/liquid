@@ -4,15 +4,26 @@
   --ld-sidenav-padding-x: 1rem;
   --ld-sidenav-padding-y: 1rem;
   --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
+  --ld-sidenav-toggle-top: 3.5rem;
   --ld-sidenav-transition-duration: 0.2s;
   --ld-sidenav-transition-delay: 0.1s;
   --ld-sidenav-width: 15.625rem;
   --ld-sidenav-width-collapsed: 4.5rem;
   --ld-sidenav-width-fully-collapsed: 1rem;
+  --ld-sidenav-translate-x-direction: 1;
+  --ld-sidenav-translate-x-delta: calc(
+    var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)
+  );
 
   /* colors */
   --ld-sidenav-bg-color: var(--ld-col-wht);
   --ld-sidenav-subnav-bg-color: var(--ld-thm-primary-alpha-lowest);
+
+  @media (prefers-reduced-motion) {
+    /* Not using 0s here because we rely on the transition end event. */
+    --ld-sidenav-transition-duration: 0.001s;
+    --ld-sidenav-transition-delay: 0s;
+  }
 
   position: var(--ld-sidenav-position, fixed);
   top: 0;
@@ -44,12 +55,20 @@
   }
 
   &(.ld-sidenav--collapsed:not(.ld-sidenav--closable)) {
-    transform: translateX(calc(-100% + var(--ld-sidenav-width-collapsed)));
+    transform: translateX(
+      calc(
+        var(--ld-sidenav-translate-x-direction) *
+          (-100% + var(--ld-sidenav-width-collapsed))
+      )
+    );
   }
 
   &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable)) {
     transform: translateX(
-      calc(-100% + var(--ld-sidenav-width-fully-collapsed))
+      calc(
+        var(--ld-sidenav-translate-x-direction) *
+          (-100% + var(--ld-sidenav-width-fully-collapsed))
+      )
     );
 
     .ld-sidenav__content {
@@ -66,6 +85,8 @@
   }
 
   &(.ld-sidenav--right) {
+    --ld-sidenav-translate-x-direction: -1;
+    --ld-sidenav-translate-x-delta: 0;
     left: unset;
     right: 0;
 
@@ -76,28 +97,16 @@
     }
   }
 
-  &(.ld-sidenav--right.ld-sidenav--collapsed:not(.ld-sidenav--closable)) {
-    transform: translateX(calc(100% - var(--ld-sidenav-width-collapsed)));
-  }
-
-  &(.ld-sidenav--right.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable)) {
-    transform: translateX(calc(100% - var(--ld-sidenav-width-fully-collapsed)));
-  }
-
   &(.ld-sidenav--closable) {
     width: 100%;
     min-width: var(--ld-sidenav-closable-min-width);
-    transform: translateX(-100%);
+    transform: translateX(
+      calc(var(--ld-sidenav-translate-x-direction) * -100%)
+    );
   }
 
   &(.ld-sidenav--closable.ld-sidenav--open) {
     transform: translateX(0);
-  }
-
-  @media (prefers-reduced-motion) {
-    /* Not using 0s here because we rely on the transition end event. */
-    --ld-sidenav-transition-duration: 0.001s;
-    --ld-sidenav-transition-delay: 0s;
   }
 
   ::slotted(ld-sidenav-navitem:last-of-type) {
@@ -113,7 +122,7 @@
   position: absolute;
   overflow: hidden;
   border-radius: var(--ld-br-full);
-  top: var(--ld-sidenav-toggle-top, 3.5rem);
+  top: var(--ld-sidenav-toggle-top);
   transform: translateX(50%) scale(0.75);
   box-shadow: var(--ld-shadow-sticky);
   z-index: 1;
@@ -161,12 +170,6 @@
   background-color: var(--ld-sidenav-bg-color);
   z-index: 1;
   position: relative;
-}
-
-.ld-sidenav__slot-container-bottom {
-  ld-sidenav-navitem {
-    padding: var(--ld-sidenav-padding-y) 0;
-  }
 }
 
 .ld-sidenav__slot-container-top,

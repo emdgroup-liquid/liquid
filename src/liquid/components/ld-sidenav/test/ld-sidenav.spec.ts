@@ -57,13 +57,13 @@ describe('ld-sidenav', () => {
       components: [LdSidenav],
       html: '<ld-sidenav></ld-sidenav>',
     })
-    expect(page.root.classList.contains('ld-sidenav--closable')).toBe(false)
+    expect(page.root).not.toHaveClass('ld-sidenav--closable')
 
     const mediaQueries = matchMedia.getMediaQueries()
     matchMedia.useMediaQuery(mediaQueries[0])
     await page.waitForChanges()
 
-    expect(page.root.classList.contains('ld-sidenav--closable')).toBe(true)
+    expect(page.root).toHaveClass('ld-sidenav--closable')
   })
 
   it('applies open class', async () => {
@@ -71,10 +71,10 @@ describe('ld-sidenav', () => {
       components: [LdSidenav],
       html: '<ld-sidenav></ld-sidenav>',
     })
-    expect(page.root.classList.contains('ld-sidenav--open')).toBe(false)
+    expect(page.root).not.toHaveClass('ld-sidenav--open')
     page.root.setAttribute('open', '')
     await page.waitForChanges()
-    expect(page.root.classList.contains('ld-sidenav--open')).toBe(true)
+    expect(page.root).toHaveClass('ld-sidenav--open')
   })
 
   it('aligns to the right', async () => {

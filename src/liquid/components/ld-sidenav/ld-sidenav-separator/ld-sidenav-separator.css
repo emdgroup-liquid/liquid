@@ -10,9 +10,7 @@
 
   &--collapsed {
     transform: translateY(var(--ld-slider-navitem-move-up, 0px))
-      translateX(
-        calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-      )
-      scaleY(1.5) scaleX(var(--ld-sidenav-separator-scale-x-collapsed));
+      translateX(var(--ld-sidenav-translate-x-delta)) scaleY(1.5)
+      scaleX(var(--ld-sidenav-separator-scale-x-collapsed));
   }
 }

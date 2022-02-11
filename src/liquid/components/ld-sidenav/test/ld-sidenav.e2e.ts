@@ -227,6 +227,66 @@ describe('ld-sidenav', () => {
     })
   })
 
+  describe('with subnavigation aligned to the right', () => {
+    it('is expanded on the right', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithSubnavigation({
+          align: 'right',
+          collapsible: true,
+          narrow: true,
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('collapses to the right', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithSubnavigation({
+          align: 'right',
+          collapsible: true,
+          collapsed: true,
+          currentSubnav: 'artificial-intelligence',
+          narrow: true,
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('collapses fully in narrow mode', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithSubnavigation({
+          align: 'right',
+          collapsible: true,
+          collapsed: true,
+          currentSubnav: 'mathematical-foundations',
+          narrow: true,
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+  })
+
   describe('nav item', () => {
     it('uses a custom icon', async () => {
       const page = await getPageWithContent(

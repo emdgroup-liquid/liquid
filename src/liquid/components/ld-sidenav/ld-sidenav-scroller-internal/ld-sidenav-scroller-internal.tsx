@@ -30,13 +30,13 @@ export class LdSidenavScrollerInternal {
   @State() sidenavCollapsed: boolean
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev) {
+  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavCollapsed = ev.detail
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
-  handleSidenavBreakpointChange(ev) {
+  handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
   }

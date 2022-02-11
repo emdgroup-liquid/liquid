@@ -12,8 +12,6 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import { LdSidenavSlider } from './ld-sidenav-slider/ld-sidenav-slider'
-import { LdSidenavBack } from './ld-sidenav-back/ld-sidenav-back'
 
 /**
  * @slot - default slot, vertically scrollable.
@@ -28,7 +26,7 @@ import { LdSidenavBack } from './ld-sidenav-back/ld-sidenav-back'
   shadow: true,
 })
 export class LdSidenav {
-  @Element() el: HTMLElement
+  @Element() el: HTMLLdSidenavElement
 
   private mediaQuery: MediaQueryList
 
@@ -84,7 +82,10 @@ export class LdSidenav {
    */
   @Prop() narrow = false
 
-  /** Indicates that the navigation is visible in a narrow viewport. */
+  /**
+   * Indicates that the navigation is visible in a viewport
+   * which is smaller than the value of the `breakpoint` prop.
+   */
   @Prop({ mutable: true }) open = false
 
   @State() closable
@@ -128,21 +129,21 @@ export class LdSidenav {
   @Listen('click', {
     target: 'window',
   })
-  handleClickOutside(ev) {
+  handleClickOutside(ev: MouseEvent) {
     if (
       ['clickoutside', 'mouseout'].includes(this.collapseTrigger) &&
-      ev.target.closest('ld-sidenav') !== this.el
+      (ev.target as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
       this.collapsed = true
     }
   }
 
   @Listen('mouseout')
-  handleMouseOut(ev) {
+  handleMouseOut(ev: MouseEvent) {
     if (
       this.collapseTrigger === 'mouseout' &&
       ev.relatedTarget &&
-      ev.relatedTarget.closest('ld-sidenav') !== this.el
+      (ev.relatedTarget as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
       this.collapsed = true
     }
@@ -167,16 +168,12 @@ export class LdSidenav {
 
   @Listen('ldSidenavBack')
   handleSlideBack() {
-    ;(
-      this.el.querySelector('.ld-sidenav-slider') as unknown as LdSidenavSlider
-    ).navigateBack()
+    this.el.querySelector('ld-sidenav-slider').navigateBack()
   }
 
   @Listen('ldSidenavSliderChange')
   slideToHandler(ev: CustomEvent<{ id: string; label: string } | undefined>) {
-    ;(
-      this.el.querySelector('ld-sidenav-back') as unknown as LdSidenavBack
-    )?.updateLabel(ev.detail?.label)
+    this.el.querySelector('ld-sidenav-back')?.updateLabel(ev.detail?.label)
 
     // Check if current subnav is fully collapsable.
     this.hasActiveSubnav = !!ev.detail
@@ -198,7 +195,7 @@ export class LdSidenav {
     this.collapsed = !this.collapsed
   }
 
-  private onMatchMediaChange = (ev) => {
+  private onMatchMediaChange = (ev: MediaQueryListEvent) => {
     this.closable = ev.matches
     if (this.closable) {
       this.el.classList.remove('ld-sidenav--transitions')
@@ -262,7 +259,7 @@ export class LdSidenav {
               part="toggle-icon"
             >
               <title>
-                {this.collapsed ? this.labelCollapse : this.labelExpand}
+                {this.collapsed ? this.labelExpand : this.labelCollapse}
               </title>
               <path
                 d="m2 2 3 3-3 3"

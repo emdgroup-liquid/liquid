@@ -37,7 +37,10 @@
     .ld-sidenav-scroller-internal__shadow-top,
     .ld-sidenav-scroller-internal__shadow-bottom {
       transform: translateX(
-        calc(50% - (0.5 * var(--ld-sidenav-width-collapsed)))
+        calc(
+          var(--ld-sidenav-translate-x-direction) *
+            (50% - (0.5 * var(--ld-sidenav-width-collapsed)))
+        )
       );
     }
   }

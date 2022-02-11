@@ -11,7 +11,6 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
-import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
 import { closest } from '../../../utils/closest'
 
 /**
@@ -26,7 +25,7 @@ import { closest } from '../../../utils/closest'
 export class LdSidenavSubnav {
   @Element() el: HTMLElement
   private sidenav: HTMLLdSidenavElement
-  private scrollerRef: LdSidenavScrollerInternal
+  private scrollerRef: HTMLLdSidenavScrollerInternalElement
   private bgRef: HTMLElement
 
   /**
@@ -134,7 +133,8 @@ export class LdSidenavSubnav {
           }}
           part="scroll-container"
           ref={(el) =>
-            (this.scrollerRef = el as unknown as LdSidenavScrollerInternal)
+            (this.scrollerRef =
+              el as unknown as HTMLLdSidenavScrollerInternalElement)
           }
         >
           <slot></slot>

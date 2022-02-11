@@ -31,7 +31,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </mock:shadow-root>
       <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
         <title>
-          Collapse side navigation
+          Expand side navigation
         </title>
         <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
       </svg>
@@ -1575,7 +1575,7 @@ exports[`ld-sidenav collapsible mode is collapsed 1`] = `
     <ld-button aria-checked="false" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
       <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
         <title>
-          Collapse side navigation
+          Expand side navigation
         </title>
         <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
       </svg>
@@ -1603,7 +1603,7 @@ exports[`ld-sidenav collapsible mode is collapsible 1`] = `
     <ld-button aria-checked="true" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
       <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
         <title>
-          Expand side navigation
+          Collapse side navigation
         </title>
         <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
       </svg>

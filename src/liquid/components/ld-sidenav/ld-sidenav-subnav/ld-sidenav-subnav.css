@@ -29,9 +29,7 @@
       transform var(--ld-sidenav-transition-duration) ease;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(
-      calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-    );
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
   }
 }
 

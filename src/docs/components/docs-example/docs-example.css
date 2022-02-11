@@ -139,7 +139,11 @@
 .docs-example__show--stacked {
   > div {
     flex-direction: column;
-    align-items: stretch;
+  }
+  &:not(.docs-example__show--centered) {
+    > div {
+      align-items: stretch;
+    }
   }
 }
 

@@ -12,7 +12,6 @@ import {
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
 import { toggleStackToTop } from '../utils/toggleStackToTop'
-import { LdSidenav } from '../ld-sidenav'
 
 /**
  * @slot - default slot for the nav item label.
@@ -67,16 +66,16 @@ export class LdSidenavNavitem {
   @State() sidenavCollapsed: boolean
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev) {
+  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavCollapsed = ev.detail
-    if ((this.sidenav as unknown as LdSidenav).narrow) {
+    if (this.sidenav.narrow) {
       toggleStackToTop(this.el, this.sidenavCollapsed)
     }
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
-  handleSidenavBreakpointChange(ev) {
+  handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
   }
@@ -86,7 +85,7 @@ export class LdSidenavNavitem {
       const words = this.el.textContent.trim().split(' ')
       const chars =
         words.length > 1
-          ? words.map((s) => s.match(/[a-zA-Z]/g)[0])
+          ? words.map((s) => s.match(/[a-zA-Z]/)[0])
           : words[0].match(/[a-zA-Z]/g)
       return (
         chars

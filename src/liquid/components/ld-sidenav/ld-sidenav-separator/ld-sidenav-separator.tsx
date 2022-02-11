@@ -3,7 +3,6 @@ import { Component, Element, h, Listen, State } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
 import { toggleStackToTop } from '../utils/toggleStackToTop'
-import { LdSidenav } from '../ld-sidenav'
 
 /**
  * @virtualProp ref - reference to component
@@ -23,7 +22,7 @@ export class LdSidenavSeparator {
   @State() scaleXCollapsed: number
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev) {
+  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     if (
       this.el.parentElement &&
@@ -34,13 +33,13 @@ export class LdSidenavSeparator {
       return
     }
     this.sidenavCollapsed = ev.detail
-    if ((this.sidenav as unknown as LdSidenav).narrow) {
+    if (this.sidenav.narrow) {
       toggleStackToTop(this.el, this.sidenavCollapsed)
     }
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
-  handleSidenavBreakpointChange(ev) {
+  handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
   }

@@ -12,9 +12,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import { LdSidenavSubnav } from '../ld-sidenav-subnav/ld-sidenav-subnav'
 import { getClassNames } from '../../../utils/getClassNames'
-import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
 import { closest } from '../../../utils/closest'
 
 /**
@@ -27,11 +25,11 @@ import { closest } from '../../../utils/closest'
   shadow: true,
 })
 export class LdSidenavSlider {
-  @Element() el: HTMLElement
+  @Element() el: HTMLLdSidenavSliderElement
   private sidenav: HTMLLdSidenavElement
-  private scrollerRef: LdSidenavScrollerInternal
+  private scrollerRef: HTMLLdSidenavScrollerInternalElement
 
-  private sidenavsToDeactivate: HTMLLdSidenavSubnavElement[] = []
+  private subnavsToDeactivate: HTMLLdSidenavSubnavElement[] = []
 
   /** ID of the subnav that shall be shown on initial render. */
   @Prop({ mutable: true }) currentSubnav: string
@@ -40,9 +38,8 @@ export class LdSidenavSlider {
   @Prop() label: string
 
   @State() currentNavLevel: number
-  @State() transitioning = false
   @State() activeSubnavs: HTMLLdSidenavSubnavElement[] = []
-  @State() isInert = false
+  @State() isFirstLevelHidden = false
 
   /**
    * Emitted on navigation (after transition, if applicable).
@@ -53,22 +50,18 @@ export class LdSidenavSlider {
 
   @Watch('currentSubnav')
   navigateToSubnav() {
-    this.transitioning = true
-
     // Make current subnav and all ancestor subnavs active.
-    let parentSubnav
+    let parentSubnav: HTMLLdSidenavSubnavElement
     let subnavId = this.currentSubnav
-    this.sidenavsToDeactivate = [...this.activeSubnavs]
+    this.subnavsToDeactivate = this.activeSubnavs
     this.activeSubnavs = []
     while (subnavId) {
       const subnav = document.querySelector<HTMLLdSidenavSubnavElement>(
         `#${subnavId}`
       )
       if (subnav) {
-        ;(subnav as unknown as LdSidenavSubnav).active = true
-        parentSubnav = subnav.closest<HTMLLdSidenavSubnavElement>(
-          `ld-sidenav-subnav:not(#${subnavId})`
-        )
+        subnav.active = true
+        parentSubnav = subnav.closest(`ld-sidenav-subnav:not(#${subnavId})`)
         this.activeSubnavs.unshift(subnav)
         if (parentSubnav) {
           subnavId = parentSubnav.id
@@ -91,7 +84,9 @@ export class LdSidenavSlider {
         this.updateAncestor()
       }
       this.currentNavLevel = this.activeSubnavs.length
-      if (needsInertUpdate) this.updateInert()
+      if (needsInertUpdate) this.updateFirstLevelHidden()
+
+      this.updateActiveBeforeTransition()
     } else {
       // This condition applies if navigating to a subnav
       // which has the same level as the currently active subnav.
@@ -99,20 +94,16 @@ export class LdSidenavSlider {
       // the outside.
       this.updateActive()
       this.updateAncestor()
-      this.updateInert()
+      this.updateFirstLevelHidden()
       this.scrollInactiveToTop()
-      this.transitioning = false
     }
 
-    this.updateActiveBeforeTransition()
     this.emitSlidenavChange()
   }
 
   @Listen('ldSidenavNavitemTo')
   slideToHandler(ev: CustomEvent<{ id: string; label: string }>) {
-    if (!this.transitioning) {
-      this.currentSubnav = ev.detail.id
-    }
+    this.currentSubnav = ev.detail.id
   }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
@@ -129,7 +120,7 @@ export class LdSidenavSlider {
   /** Navigates back to the parent nav. */
   @Method()
   async navigateBack() {
-    if (this.currentNavLevel > 0 && !this.transitioning) {
+    if (this.currentNavLevel > 0) {
       const parentSubnav = this.activeSubnavs[this.activeSubnavs.length - 2]
       this.currentSubnav = parentSubnav?.id || ''
     }
@@ -138,8 +129,8 @@ export class LdSidenavSlider {
   private emitSlidenavChange() {
     const activeSubnav = this.activeSubnavs[this.activeSubnavs.length - 1]
     if (activeSubnav) {
-      const parentSubnav = (this.activeSubnavs[this.activeSubnavs.length - 2] ||
-        this.el) as unknown as LdSidenavSubnav
+      const parentSubnav =
+        this.activeSubnavs[this.activeSubnavs.length - 2] || this.el
       this.ldSidenavSliderChange.emit({
         id: activeSubnav.id,
         label: parentSubnav.label,
@@ -151,49 +142,43 @@ export class LdSidenavSlider {
 
   private updateActiveBeforeTransition = () => {
     // reset
-    this.sidenavsToDeactivate.forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.activeBeforeTransition = false
+    this.subnavsToDeactivate.forEach((subnav) => {
+      subnav.activeBeforeTransition = false
     })
 
     // update
     this.activeSubnavs.forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.activeBeforeTransition = true
+      subnav.activeBeforeTransition = true
     })
   }
 
   private updateActive = () => {
     // reset
-    this.sidenavsToDeactivate.forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.active = false
+    this.subnavsToDeactivate.forEach((subnav) => {
+      subnav.active = false
     })
-    this.sidenavsToDeactivate = []
+    this.subnavsToDeactivate = []
 
     // update
     this.activeSubnavs.forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.active = true
+      subnav.active = true
     })
   }
 
   private updateAncestor = () => {
     // reset
-    this.sidenavsToDeactivate.forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.ancestor = false
+    this.subnavsToDeactivate.forEach((subnav) => {
+      subnav.ancestor = false
     })
 
     // update
     this.activeSubnavs.forEach((subnav, index) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      subnavComponent.ancestor = index < this.activeSubnavs.length - 1
+      subnav.ancestor = index < this.activeSubnavs.length - 1
     })
   }
 
-  private updateInert = () => {
-    this.isInert = this.currentNavLevel > 0
+  private updateFirstLevelHidden = () => {
+    this.isFirstLevelHidden = this.currentNavLevel > 0
   }
 
   private scrollInactiveToTop = () => {
@@ -201,18 +186,16 @@ export class LdSidenavSlider {
     Array.from(
       this.el.querySelectorAll<HTMLLdSidenavSubnavElement>('ld-sidenav-subnav')
     ).forEach((subnav) => {
-      const subnavComponent = subnav as unknown as LdSidenavSubnav
-      if (!subnavComponent.active) {
-        subnavComponent.scrollToTop()
+      if (!subnav.active) {
+        subnav.scrollToTop()
       }
     })
   }
 
   private onTransitionEnd = () => {
-    this.transitioning = false
     this.updateActive()
     this.updateAncestor()
-    this.updateInert()
+    this.updateFirstLevelHidden()
     this.scrollInactiveToTop()
   }
 
@@ -236,16 +219,10 @@ export class LdSidenavSlider {
     this.sidenav = closest('ld-sidenav', this.el)
     if (this.currentSubnav) {
       this.navigateToSubnav()
-      this.transitioning = false
     }
-  }
-
-  componentDidLoad() {
-    setTimeout(() => {
-      if (this.currentNavLevel === undefined) {
-        this.currentNavLevel = 0
-      }
-    })
+    if (this.currentNavLevel === undefined) {
+      this.currentNavLevel = 0
+    }
   }
 
   render() {
@@ -260,13 +237,14 @@ export class LdSidenavSlider {
         class={cl}
         style={{
           transform: `translateX(-${this.currentNavLevel}00%)`,
-          visibility: this.isInert ? 'hidden' : 'inherit',
+          visibility: this.isFirstLevelHidden ? 'hidden' : 'inherit',
         }}
       >
         <ld-sidenav-scroller-internal
           part="scroll-container"
           ref={(el) =>
-            (this.scrollerRef = el as unknown as LdSidenavScrollerInternal)
+            (this.scrollerRef =
+              el as unknown as HTMLLdSidenavScrollerInternalElement)
           }
         >
           <slot></slot>
