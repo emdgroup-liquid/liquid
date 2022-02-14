@@ -229,6 +229,7 @@ export class LdSidenav {
     const cl = [
       'ld-sidenav',
       this.align === 'right' && 'ld-sidenav--right',
+      this.initialized && 'ld-sidenav--initialized',
       this.collapsible && this.collapsed && 'ld-sidenav--collapsed',
       this.collapsible && 'ld-sidenav--collapsible',
       this.fullyCollapsible && 'ld-sidenav--fully-collapsible',
