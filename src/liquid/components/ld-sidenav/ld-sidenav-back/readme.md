@@ -46,6 +46,8 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 | Part               | Description |
 | ------------------ | ----------- |
 | `"back"`           |             |
+| `"btn-back"`       |             |
+| `"focusable"`      |             |
 | `"icon"`           |             |
 | `"icon-container"` |             |
 | `"label"`          |             |

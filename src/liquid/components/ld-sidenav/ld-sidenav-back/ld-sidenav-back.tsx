@@ -92,8 +92,9 @@ export class LdSidenavBack {
         class={cl}
         onClick={this.onClick}
         onKeyDown={this.onKeyDown}
+        part="back focusable"
       >
-        <div class="ld-sidenav-back__btn-back" part="back">
+        <div class="ld-sidenav-back__btn-back" part="btn-back">
           <div class="ld-sidenav-back__icon" part="icon-container">
             <svg
               part="icon"

@@ -192,6 +192,8 @@ body {
 | ----------------------- | ----------- |
 | `"abbreviation"`        |             |
 | `"dot"`                 |             |
+| `"focusable"`           |             |
+| `"navitem"`             |             |
 | `"slot-container"`      |             |
 | `"slot-container-icon"` |             |
 

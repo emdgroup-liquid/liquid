@@ -163,16 +163,46 @@ export class LdSidenav {
 
   @Listen('ldSidenavClose')
   handleClose() {
+    clearTimeout(this.focusTimeout)
     this.open = false
   }
 
   @Listen('ldSidenavBack')
   handleSlideBack() {
+    clearTimeout(this.focusTimeout)
+    const currentSubnav = Array.from(
+      this.el.querySelectorAll('.ld-sidenav-subnav--active')
+    ).pop()
+    const currentSubnavId = currentSubnav?.id
+    const parentSubnav = currentSubnav?.parentElement
     this.el.querySelector('ld-sidenav-slider').navigateBack()
+
+    // Set focus on parent nav-item element as soon as back button looses focus.
+    this.toFocus = parentSubnav
+      ?.querySelector<HTMLLdSidenavNavitemElement>(`[to='${currentSubnavId}']`)
+      .shadowRoot.querySelector<HTMLButtonElement | HTMLAnchorElement>(
+        '[part*="focusable"]'
+      )
+  }
+
+  @Listen('ldSidenavNavitemTo')
+  slideToHandler() {
+    clearTimeout(this.focusTimeout)
+    // set focus on back button
+    const ldSidenavBack = this.el
+      .querySelector('ld-sidenav-back')
+      ?.shadowRoot.querySelector<HTMLElement>('.ld-sidenav-back')
+    this.toFocus = ldSidenavBack
+    setTimeout(() => {
+      this.updateFocus()
+    })
   }
 
   @Listen('ldSidenavSliderChange')
-  slideToHandler(ev: CustomEvent<{ id: string; label: string } | undefined>) {
+  slideChangeHandler(
+    ev: CustomEvent<{ id: string; label: string } | undefined>
+  ) {
+    clearTimeout(this.focusTimeout)
     this.el.querySelector('ld-sidenav-back')?.updateLabel(ev.detail?.label)
 
     // Check if current subnav is fully collapsable.
@@ -188,6 +218,28 @@ export class LdSidenav {
     // when the sidebar is initially loaded.
     if (this.initialized) {
       this.collapsed = false
+    }
+
+    setTimeout(() => {
+      this.updateFocus()
+    })
+  }
+
+  private toFocus: HTMLElement = undefined
+  private focusTimeout = undefined
+  private updateFocus = () => {
+    // HACK: Using recursive call with timeout to account for fast user interactions during transitions.
+    clearTimeout(this.focusTimeout)
+    if (this.toFocus) {
+      if (
+        this.toFocus.tabIndex === -1 ||
+        window.getComputedStyle(this.toFocus).visibility === 'hidden'
+      ) {
+        this.focusTimeout = setTimeout(this.updateFocus, 10)
+        return
+      }
+      this.toFocus.focus()
+      this.toFocus = undefined
     }
   }
 

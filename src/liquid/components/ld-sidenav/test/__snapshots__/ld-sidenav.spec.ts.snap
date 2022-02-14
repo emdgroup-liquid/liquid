@@ -67,8 +67,8 @@ exports[`ld-sidenav collapses to narrow 1`] = `
   </mock:shadow-root>
   <ld-sidenav-back slot="top">
     <mock:shadow-root>
-      <div aria-label="Back" class="ld-sidenav-back ld-sidenav-back--collapsed ld-sidenav-back--is-back" role="button" tabindex="0">
-        <div class="ld-sidenav-back__btn-back" part="back">
+      <div aria-label="Back" class="ld-sidenav-back ld-sidenav-back--collapsed ld-sidenav-back--is-back" part="back focusable" role="button" tabindex="0">
+        <div class="ld-sidenav-back__btn-back" part="btn-back">
           <div class="ld-sidenav-back__icon" part="icon-container">
             <svg fill="none" height="12" part="icon" width="12" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.333 1.832 1 5.999l3.333 4.166M1 6h10" stroke="#F8F8FC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
@@ -85,7 +85,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </mock:shadow-root>
     <ld-sidenav-navitem>
       <mock:shadow-root>
-        <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -132,7 +132,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-heading>
     <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -149,7 +149,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="algorithms-and-data-structures" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -166,7 +166,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -183,7 +183,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -200,7 +200,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem active="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -217,7 +217,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -234,7 +234,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="computer-architecture" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -251,7 +251,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="computer-graphics" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -268,7 +268,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="concurrent-parallel-and-distributed-systems" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -285,7 +285,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="databases" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -307,7 +307,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-separator>
     <ld-sidenav-navitem to="programming-languages-and-compilers" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -324,7 +324,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="scientific-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -341,7 +341,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="software-engineering" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -358,7 +358,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="theory-of-computation" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+        <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
           <div class="ld-sidenav-navitem__dot" part="dot"></div>
           <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
             <slot name="icon"></slot>
@@ -405,7 +405,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -419,7 +419,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -433,7 +433,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -447,7 +447,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -461,7 +461,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -475,7 +475,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -520,7 +520,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -534,7 +534,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -548,7 +548,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -596,7 +596,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -610,7 +610,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -629,7 +629,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-separator>
       <ld-sidenav-navitem href="https://en.wikipedia.org/wiki/Computer_vision" mode="secondary" target="_blank" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <a class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" href="https://en.wikipedia.org/wiki/Computer_vision" rel="noreferrer noopener">
+          <a class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" href="https://en.wikipedia.org/wiki/Computer_vision" part="navitem focusable" rel="noreferrer noopener">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -643,7 +643,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem to="soft-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed">
+          <button aria-expanded="false" aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -665,7 +665,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-separator>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -679,7 +679,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -723,7 +723,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </ld-sidenav-heading>
         <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
-            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__dot" part="dot"></div>
               <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
                 <slot name="icon"></slot>
@@ -737,7 +737,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </ld-sidenav-navitem>
         <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
-            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__dot" part="dot"></div>
               <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
                 <slot name="icon"></slot>
@@ -783,7 +783,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -797,7 +797,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -811,7 +811,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -856,7 +856,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -870,7 +870,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -915,7 +915,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -929,7 +929,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -943,7 +943,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -988,7 +988,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1002,7 +1002,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1016,7 +1016,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1061,7 +1061,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1075,7 +1075,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1089,7 +1089,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1134,7 +1134,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1148,7 +1148,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1162,7 +1162,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1176,7 +1176,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1190,7 +1190,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1235,7 +1235,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1249,7 +1249,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1263,7 +1263,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1277,7 +1277,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1291,7 +1291,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1305,7 +1305,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1319,7 +1319,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1364,7 +1364,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1378,7 +1378,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1392,7 +1392,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1406,7 +1406,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1420,7 +1420,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1434,7 +1434,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1448,7 +1448,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1493,7 +1493,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-heading>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1507,7 +1507,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1521,7 +1521,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1535,7 +1535,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary">
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__dot" part="dot"></div>
             <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
               <slot name="icon"></slot>
@@ -1551,7 +1551,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
   </ld-sidenav-slider>
   <ld-sidenav-navitem rounded="" slot="bottom">
     <mock:shadow-root>
-      <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--rounded">
+      <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--rounded" part="navitem focusable">
         <div class="ld-sidenav-navitem__dot" part="dot"></div>
         <div aria-hidden="true" class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon">
           <slot name="icon"></slot>

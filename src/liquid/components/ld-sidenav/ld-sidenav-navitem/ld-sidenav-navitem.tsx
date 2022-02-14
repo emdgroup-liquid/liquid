@@ -56,7 +56,7 @@ export class LdSidenavNavitem {
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   /** Accepts an id of an ld-subnav component to navigate to it on click. */
-  @Prop() to?: string
+  @Prop({ reflect: true }) to?: string
 
   /** Emitted on click if prop to is set. */
   @Event() ldSidenavNavitemTo: EventEmitter<{ id: string; label: string }>
@@ -130,6 +130,7 @@ export class LdSidenavNavitem {
 
     return (
       <Tag
+        part="navitem focusable"
         class={cl}
         href={this.href}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}

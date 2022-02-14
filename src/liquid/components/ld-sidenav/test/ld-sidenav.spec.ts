@@ -22,6 +22,18 @@ async function transitionEnd(page) {
   await page.waitForChanges()
 }
 
+function mockFocus(page) {
+  page.root
+    .querySelectorAll('ld-sidenav-navitem')
+    .forEach(
+      (item) =>
+        (item.shadowRoot.querySelector('.ld-sidenav-navitem').focus = jest.fn())
+    )
+  page.root
+    .querySelector('ld-sidenav-back')
+    .shadowRoot.querySelector('.ld-sidenav-back').focus = jest.fn()
+}
+
 const sidenavComponents = [
   LdButton,
   LdSidenav,
@@ -296,6 +308,7 @@ describe('ld-sidenav', () => {
       html: getSidenavWithSubnavigation(),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       false
@@ -339,6 +352,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       true
@@ -372,6 +386,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
 
     const subnavArtInt = ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
@@ -404,6 +419,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
 
     const subnavAlgDS = ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
@@ -447,6 +463,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     const ldSidenavBack =
       ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
     const ldSidenavBackButton =
@@ -471,6 +488,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     expect(ldSidenav.classList.contains('ld-sidenav--collapsible')).toBe(true)
     expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
     expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
@@ -497,6 +515,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     expect(ldSidenav.classList.contains('ld-sidenav--collapsible')).toBe(true)
     expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
     expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
@@ -525,6 +544,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
@@ -578,6 +598,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
 
     const ldSidenavBack =
       ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
@@ -594,6 +615,7 @@ describe('ld-sidenav', () => {
       html: getSidenavWithSubnavigation(),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
     await page.waitForChanges()
@@ -610,6 +632,7 @@ describe('ld-sidenav', () => {
       }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
     jest.advanceTimersByTime(0)
     await page.waitForChanges()
@@ -624,6 +647,7 @@ describe('ld-sidenav', () => {
       html: getSidenavWithSubnavigation({ currentSubnav: 'yolo' }),
     })
     const ldSidenav = page.root
+    mockFocus(page)
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       false

@@ -42,7 +42,7 @@ export class LdSidenavSlider {
   @State() isFirstLevelHidden = false
 
   /**
-   * Emitted on navigation (after transition, if applicable).
+   * Emitted on navigation (before transition ends).
    */
   @Event() ldSidenavSliderChange: EventEmitter<
     { id: string; label: string } | undefined
@@ -98,7 +98,7 @@ export class LdSidenavSlider {
       this.scrollInactiveToTop()
     }
 
-    this.emitSlidenavChange()
+    this.emitChange()
   }
 
   @Listen('ldSidenavNavitemTo')
@@ -126,7 +126,7 @@ export class LdSidenavSlider {
     }
   }
 
-  private emitSlidenavChange() {
+  private emitChange() {
     const activeSubnav = this.activeSubnavs[this.activeSubnavs.length - 1]
     if (activeSubnav) {
       const parentSubnav =
