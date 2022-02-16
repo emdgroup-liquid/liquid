@@ -178,18 +178,66 @@ On narrow view ports the sidenav works differently than on wide view ports. It t
   <ld-sidenav id="sidenav" breakpoint="30rem"></ld-sidenav>
 </div>
 <script>
-  let open = false
-  const hamburger = document.getElementById('hamburger')
-  const sidenav = document.getElementById('sidenav')
-  hamburger.addEventListener('click', () => {
-    if (sidenav.hasAttribute('open')) {
-      hamburger.setAttribute('aria-checked', 'false')
-      sidenav.removeAttribute('open')
-    } else {
-      hamburger.setAttribute('aria-checked', 'true')
-      sidenav.setAttribute('open', '')
-    }
-  })
+  ;(() => {
+    let open = false
+    const hamburger = document.getElementById('hamburger')
+    const sidenav = document.getElementById('sidenav')
+    hamburger.addEventListener('click', () => {
+      if (sidenav.open) {
+        hamburger.setAttribute('aria-checked', 'false')
+        sidenav.removeAttribute('open')
+      } else {
+        hamburger.setAttribute('aria-checked', 'true')
+        sidenav.setAttribute('open', '')
+      }
+    })
+  })()
+</script>
+{% endexample %}
+
+### Focus trapping
+
+The user should be able to focus interactive UI elements using the keyboard. However, when the `ld-sidenav` opens to full width, it covers the main part of the screen and with that hides potentially focusable elements. In order to reflect the hidden state of these elements, **you should enable focus trapping** in the `ld-sidenav` component, meaning that the component will make sure the user can not focus UI elements behind the sidenav. 
+
+To enable focus trapping, use the `trap-focus` prop and set a CSS selector for elements, which are still visible and allowed to receive focus when the sidenav is open to full width, as the prop value.
+
+{% example '{ "hasPadding": false, "stacked": true, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
+<style>
+  #my-hamburger { display: none; }
+  @media (max-width: 30rem) {
+    #my-hamburger { display: unset; }
+  }
+</style>
+<ld-header site-name="Liquid Oxygen">
+  <ld-button role="switch" aria-haspopup="true" aria-checked="false" id="my-hamburger" mode="ghost" slot="start" title="Toggle menu" type="button">
+    <ld-icon aria-label="Open menu" name="burger-menu" size="lg"></ld-icon>
+  </ld-button>
+</ld-header>
+<div style="position: relative; height: 8rem;">
+  <ld-sidenav
+    open
+    id="my-sidenav"
+    breakpoint="30rem"
+    trap-focus="ld-header *"
+  >
+    <div style="display: block; padding: 1rem"><ld-button mode="highlight">I'm focusable</ld-button></div>
+  </ld-sidenav>
+</div>
+<script>
+  ;(() => {
+    let open = false
+    const hamburger = document.getElementById('my-hamburger')
+    const sidenav = document.getElementById('my-sidenav')
+    hamburger.addEventListener('click', () => {
+      if (sidenav.open) {
+        hamburger.setAttribute('aria-checked', 'false')
+        sidenav.removeAttribute('open')
+      } else {
+        hamburger.setAttribute('aria-checked', 'true')
+        sidenav.setAttribute('open', '')
+      }
+    })
+  })()
 </script>
 {% endexample %}
 
@@ -530,6 +578,7 @@ The sidenav only collapses to narrow mode, if navigation to a sub-nav is possibl
 | `narrow`          | `narrow`           | Set to true if where you'd like to have a sidenav which partially collapses in way, that slotted ld-navitem components are displayed as icon buttons.                                                                                                                                                                                                               | `boolean`                                  | `false`                      |
 | `open`            | `open`             | Indicates that the navigation is visible in a viewport which is smaller than the value of the `breakpoint` prop.                                                                                                                                                                                                                                                    | `boolean`                                  | `false`                      |
 | `ref`             | `ref`              | reference to component                                                                                                                                                                                                                                                                                                                                              | `any`                                      | `undefined`                  |
+| `trapFocus`       | `trap-focus`       | Enables focus trapping. Accespts a CSS selector which indicates what is still focusable outside the sidenav, when the sidenav is closable and open (i.e. "ld-header *"). Use an empty string to enable focus trapping without specifying focusable elements outside the sidenav component.                                                                          | `string`                                   | `undefined`                  |
 
 
 ## Events

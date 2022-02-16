@@ -56,6 +56,14 @@
     }
   }
 
+  &(.ld-sidenav--transitions.ld-sidenav--closable:not(.ld-sidenav--open)) {
+    .ld-sidenav__content {
+      transition: opacity var(--ld-sidenav-transition-duration) linear,
+        visibility 0s var(--ld-sidenav-transition-duration) linear;
+      visibility: hidden;
+    }
+  }
+
   &(.ld-sidenav--collapsed:not(.ld-sidenav--closable)) {
     transform: translateX(
       calc(

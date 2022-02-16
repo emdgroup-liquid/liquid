@@ -12,6 +12,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { getFirstFocusable } from '../../utils/focus'
 
 /**
  * @slot - default slot, vertically scrollable.
@@ -87,6 +88,15 @@ export class LdSidenav {
    * which is smaller than the value of the `breakpoint` prop.
    */
   @Prop({ mutable: true }) open = false
+
+  /**
+   * Enables focus trapping. Accespts a CSS selector which indicates
+   * what is still focusable outside the sidenav, when the sidenav is
+   * closable and open (i.e. "ld-header *"). Use an empty string to
+   * enable focus trapping without specifying focusable elements
+   * outside the sidenav component.
+   */
+  @Prop() trapFocus?: string
 
   @State() closable
   @State() fullyCollapsible = false
@@ -223,6 +233,61 @@ export class LdSidenav {
     setTimeout(() => {
       this.updateFocus()
     })
+  }
+
+  @Listen('keydown', { passive: true, target: 'window' })
+  handleKeyDown(ev: KeyboardEvent) {
+    // Ignore events if sidenav has no focus and is not closable.
+    const hasSidenavFocus =
+      document.activeElement.closest('ld-sidenav') === this.el
+    if (!hasSidenavFocus && !this.closable) {
+      return
+    }
+
+    const slider = this.el.querySelector('ld-sidenav-slider')
+
+    if (ev.key === 'Escape') {
+      if (!slider && this.closable) {
+        this.open = false
+        return
+      }
+
+      if (this.hasActiveSubnav) {
+        this.handleSlideBack()
+      } else if (this.closable) {
+        this.open = false
+      }
+    }
+  }
+
+  @Listen('focusout', { passive: true, target: 'window' })
+  handleFocusout(ev: FocusEvent) {
+    // If the sidenav is closable, trap the focus.
+    // Do not trap the focus as long as the sidenav is not closable or not open.
+    if (!this.closable || !this.open) return
+
+    // Do not trap the focus if the trap focus prop is not set.
+    if (typeof this.trapFocus === 'undefined') return
+
+    const relatedTarget = ev.relatedTarget as HTMLElement | undefined
+
+    // Do not trap the focus as long as the focus remains within the sidenav.
+    const isFocusInSidenav = relatedTarget?.closest('ld-sidenav') === this.el
+    if (isFocusInSidenav) return
+
+    // Do not trap the focus when it moves to an element which matches
+    // the trap focus selector.
+    const isFocusInKeepFocusable =
+      this.trapFocus && relatedTarget?.matches(this.trapFocus)
+    if (isFocusInKeepFocusable) return
+
+    // Keep the focus where it was before.
+    const target = ev.target as HTMLElement
+    const lastFocused = target.shadowRoot
+      ? getFirstFocusable(target.shadowRoot)
+      : target
+
+    lastFocused.focus()
   }
 
   private toFocus: HTMLElement = undefined
