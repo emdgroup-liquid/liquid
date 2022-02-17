@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export function getSidenavWithoutSubnavigation(options?: {
   align?: 'left' | 'right'
   collapsible?: boolean

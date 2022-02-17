@@ -220,7 +220,7 @@ To enable focus trapping, use the `trap-focus` prop and set a CSS selector for e
     breakpoint="30rem"
     trap-focus="ld-header *"
   >
-    <div style="display: block; padding: 1rem"><ld-button mode="highlight">I'm focusable</ld-button></div>
+    <ld-button style="margin: 1rem" mode="highlight">I'm focusable</ld-button>
   </ld-sidenav>
 </div>
 <script>

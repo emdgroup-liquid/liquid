@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-sidenav aligns to the right 1`] = `
-<ld-sidenav align="right" aria-label="Side navigation" class="ld-sidenav ld-sidenav--closable ld-sidenav--fully-collapsible ld-sidenav--right" role="navigation">
+<ld-sidenav align="right" aria-label="Side navigation" class="ld-sidenav ld-sidenav--fully-collapsible ld-sidenav--right" role="navigation">
   <mock:shadow-root>
     <div class="ld-sidenav__content">
       <div class="ld-sidenav__slot-container-top" part="slot-container-top">

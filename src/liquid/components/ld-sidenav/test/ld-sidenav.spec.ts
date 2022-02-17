@@ -47,12 +47,11 @@ const sidenavComponents = [
 ]
 
 describe('ld-sidenav', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     matchMedia = new MatchMediaMock()
   })
 
   afterEach(() => {
-    matchMedia.clear()
     jest.advanceTimersToNextTimer()
   })
 
@@ -62,6 +61,19 @@ describe('ld-sidenav', () => {
       html: '<ld-sidenav></ld-sidenav>',
     })
     expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets initialized class after timeout in order to enable transitions', async () => {
+    const page = await newSpecPage({
+      components: [LdSidenav],
+      html: '<ld-sidenav></ld-sidenav>',
+    })
+    expect(page.root).not.toHaveClass('ld-sidenav--initialized')
+
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+
+    expect(page.root).toHaveClass('ld-sidenav--initialized')
   })
 
   it('updates closable state on breakpoint change', async () => {
@@ -102,10 +114,6 @@ describe('ld-sidenav', () => {
       matchMedia = new MatchMediaMock()
     })
 
-    afterEach(() => {
-      matchMedia.clear()
-    })
-
     it('is collapsible', async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
@@ -128,19 +136,19 @@ describe('ld-sidenav', () => {
         html: '<ld-sidenav collapsible collapsed></ld-sidenav>',
       })
       const ldSidenav = page.root
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       const ev = new MouseEvent('mouseenter')
       ldSidenav.dispatchEvent(ev)
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
         '.ld-sidenav__toggle'
       )
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     })
 
     it('expands on mouse enter', async () => {
@@ -149,23 +157,23 @@ describe('ld-sidenav', () => {
         html: '<ld-sidenav collapsible collapsed expand-trigger="mouseenter"></ld-sidenav>',
       })
       const ldSidenav = page.root
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       const ev = new MouseEvent('mouseenter')
       ldSidenav.dispatchEvent(ev)
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
         '.ld-sidenav__toggle'
       )
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     })
 
     it('collapses on toggle', async () => {
@@ -174,7 +182,7 @@ describe('ld-sidenav', () => {
         html: '<ld-sidenav collapsible></ld-sidenav>',
       })
       const ldSidenav = page.root
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       const ev = new MouseEvent('mouseout', {
         relatedTarget: page.body,
@@ -182,11 +190,11 @@ describe('ld-sidenav', () => {
       ldSidenav.dispatchEvent(ev)
 
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       page.body.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
         '.ld-sidenav__toggle'
@@ -194,7 +202,7 @@ describe('ld-sidenav', () => {
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
 
     it('collapses on click outside', async () => {
@@ -203,7 +211,7 @@ describe('ld-sidenav', () => {
         html: '<ld-sidenav collapsible collapse-trigger="clickoutside"></ld-sidenav>',
       })
       const ldSidenav = page.root
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       const ev = new MouseEvent('mouseout', {
         relatedTarget: page.body,
@@ -211,11 +219,11 @@ describe('ld-sidenav', () => {
       ldSidenav.dispatchEvent(ev)
 
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       page.body.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
         '.ld-sidenav__toggle'
@@ -223,11 +231,11 @@ describe('ld-sidenav', () => {
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
 
     it('collapses on mouse out', async () => {
@@ -236,7 +244,7 @@ describe('ld-sidenav', () => {
         html: '<ld-sidenav collapsible collapse-trigger="mouseout"></ld-sidenav>',
       })
       const ldSidenav = page.root
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       const ev = new MouseEvent('mouseout', {
         relatedTarget: page.body,
@@ -244,7 +252,7 @@ describe('ld-sidenav', () => {
       ldSidenav.dispatchEvent(ev)
 
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
         '.ld-sidenav__toggle'
@@ -252,19 +260,19 @@ describe('ld-sidenav', () => {
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       page.body.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
       btnToggle.click()
       await page.waitForChanges()
-      expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
   })
 
@@ -274,15 +282,15 @@ describe('ld-sidenav', () => {
       html: '<ld-sidenav></ld-sidenav>',
     })
     const ldSidenav = page.root
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(false)
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
 
     ldSidenav.setAttribute('open', '')
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(true)
+    expect(ldSidenav).toHaveClass('ld-sidenav--open')
 
     ldSidenav.removeAttribute('open')
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(false)
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
   })
 
   it('opens and closes via events', async () => {
@@ -291,15 +299,15 @@ describe('ld-sidenav', () => {
       html: '<ld-sidenav></ld-sidenav>',
     })
     const ldSidenav = page.root
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(false)
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
 
     ldSidenav.dispatchEvent(new CustomEvent('ldSidenavOpen'))
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(true)
+    expect(ldSidenav).toHaveClass('ld-sidenav--open')
 
     ldSidenav.dispatchEvent(new CustomEvent('ldSidenavClose'))
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--open')).toBe(false)
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
   })
 
   it('slides', async () => {
@@ -342,6 +350,33 @@ describe('ld-sidenav', () => {
     expect(
       ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
     ).toBe(true)
+  })
+
+  it('expands on slide', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: getSidenavWithSubnavigation({
+        collapsible: true,
+        collapsed: true,
+        narrow: true,
+      }),
+    })
+    const ldSidenav = page.root
+    mockFocus(page)
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+
+    expect(page.root).toHaveClass('ld-sidenav--initialized')
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+
+    const ldSidenavNavitemArtInt =
+      ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
+        'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
+      )
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
+    await page.waitForChanges()
+
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
   })
 
   it('slides back', async () => {
@@ -489,8 +524,8 @@ describe('ld-sidenav', () => {
     })
     const ldSidenav = page.root
     mockFocus(page)
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsible')).toBe(true)
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
       true
     )
@@ -502,7 +537,7 @@ describe('ld-sidenav', () => {
     ldSidenavToggle.click()
 
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
   })
 
   it('collapses to narrow', async () => {
@@ -516,8 +551,8 @@ describe('ld-sidenav', () => {
     })
     const ldSidenav = page.root
     mockFocus(page)
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsible')).toBe(true)
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(false)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
       false
     )
@@ -529,7 +564,7 @@ describe('ld-sidenav', () => {
     ldSidenavToggle.click()
 
     await page.waitForChanges()
-    expect(ldSidenav.classList.contains('ld-sidenav--collapsed')).toBe(true)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
     expect(page.root).toMatchSnapshot()
   })
@@ -652,5 +687,370 @@ describe('ld-sidenav', () => {
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       false
     )
+  })
+
+  describe('keyboard navigation', () => {
+    beforeEach(() => {
+      matchMedia = new MatchMediaMock()
+    })
+
+    it('navigates back on escape key press', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithSubnavigation({
+          currentSubnav: 'artificial-intelligence',
+        }),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--has-active-subnav')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = document.body
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+      await page.waitForChanges()
+      await transitionEnd(page)
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--has-active-subnav')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      doc.activeElement = ldSidenav
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+      await page.waitForChanges()
+      await transitionEnd(page)
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--has-active-subnav')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+    })
+
+    it('does not close on escape key press when not closable', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: '<ld-sidenav open></ld-sidenav>',
+      })
+      const ldSidenav = page.root
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
+
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = document.body
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+    })
+
+    it('closes on escape key press when closable', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: '<ld-sidenav open></ld-sidenav>',
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = document.body
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+      await page.waitForChanges()
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+    })
+
+    it('closes on escape key press when in first level and closable', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithSubnavigation(),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = document.body
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+      await page.waitForChanges()
+      await transitionEnd(page)
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+    })
+
+    it('does not trap the focus if the trap-focus prop is is not set', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open>
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: page.body,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      expect(anchor.focus).not.toHaveBeenCalled()
+    })
+
+    it('does not trap the focus if the sidebar is not closable', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: page.body,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      expect(anchor.focus).not.toHaveBeenCalled()
+    })
+
+    it('does not trap the focus if the sidebar is closable but not open', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav trap-focus="">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: page.body,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      expect(anchor.focus).not.toHaveBeenCalled()
+    })
+
+    it('does not trap the focus as long as the focus remains in the sidenav', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="">
+          <a href="#">I'm focusable</a>
+          <button>I'm also focusable</button>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const button = ldSidenav.querySelector('button')
+      button.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: button,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(anchor.focus).not.toHaveBeenCalled()
+    })
+
+    it('does not trap the focus when it moves to an element which matches the trap focus selector', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="#asdf">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav><button id="asdf">I'm also focusable</button>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const button = page.body.querySelector('button')
+      button.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: button,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(anchor.focus).not.toHaveBeenCalled()
+    })
+
+    it('traps the focus if the sidebar is closable and open with trap-focus set', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: page.body,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(anchor.focus).toHaveBeenCalled()
+    })
+
+    it('traps the focus when it moves out from an element which matches the trap focus selector', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="#asdf">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>
+        <button id="asdf">I'm also focusable</button>
+        <main tabindex="-1"></main>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const button = page.body.querySelector('button')
+      button.focus = jest.fn()
+
+      const main = page.body.querySelector('main')
+      main.focus = jest.fn()
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: main,
+        bubbles: true,
+      } as unknown as FocusEvent
+      button.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(button.focus).toHaveBeenCalled()
+    })
+
+    it('traps the focus in the shadow dom of a web component within the sidenav', async () => {
+      const page = await newSpecPage({
+        components: [LdButton, LdSidenav],
+        html: `<ld-sidenav open trap-focus="">
+          <ld-button>I'm focusable</ld-button>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+      await page.waitForChanges()
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const ldButton = ldSidenav.querySelector('ld-button')
+      await page.waitForChanges()
+      jest.advanceTimersToNextTimer()
+      await page.waitForChanges()
+
+      const button = ldButton.shadowRoot.querySelector('button')
+      button.focus = jest.fn()
+
+      ldButton.shadowRoot.querySelectorAll = jest.fn(() => {
+        return [button]
+      }) as never
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: page.body,
+        bubbles: true,
+        composed: true,
+      } as unknown as FocusEvent
+      ldButton.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(button.focus).toHaveBeenCalled()
+    })
   })
 })

@@ -96,7 +96,11 @@ export class LdSidenav {
    * enable focus trapping without specifying focusable elements
    * outside the sidenav component.
    */
-  @Prop() trapFocus?: string
+  @Prop() trapFocus?: string // The focus trap feature is
+  // disabled by default in order to not violate WCAG 2.1.2 (see
+  // https://www.w3.org/WAI/WCAG21/Understanding/no-keyboard-trap.html).
+  // It needs to be enabled explicitly, making sure that all visible
+  // UI elements are still focusable when the sidenav is opened.
 
   @State() closable
   @State() fullyCollapsible = false
@@ -278,7 +282,7 @@ export class LdSidenav {
     // Do not trap the focus when it moves to an element which matches
     // the trap focus selector.
     const isFocusInKeepFocusable =
-      this.trapFocus && relatedTarget?.matches(this.trapFocus)
+      this.trapFocus !== '' && relatedTarget?.matches(this.trapFocus)
     if (isFocusInKeepFocusable) return
 
     // Keep the focus where it was before.
