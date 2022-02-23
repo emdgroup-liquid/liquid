@@ -185,10 +185,10 @@ On narrow view ports the sidenav works differently than on wide view ports. It t
     hamburger.addEventListener('click', () => {
       if (sidenav.open) {
         hamburger.setAttribute('aria-checked', 'false')
-        sidenav.removeAttribute('open')
+        sidenav.open = false
       } else {
         hamburger.setAttribute('aria-checked', 'true')
-        sidenav.setAttribute('open', '')
+        sidenav.open = true
       }
     })
   })()
@@ -208,33 +208,49 @@ To enable focus trapping, use the `trap-focus` prop and set a CSS selector for e
     #my-hamburger { display: unset; }
   }
 </style>
-<ld-header site-name="Liquid Oxygen">
-  <ld-button role="switch" aria-haspopup="true" aria-checked="false" id="my-hamburger" mode="ghost" slot="start" title="Toggle menu" type="button">
+<ld-header id="my-header" site-name="Liquid Oxygen">
+  <ld-button role="switch" aria-haspopup="true" aria-checked="false" id="my-hamburger-left" mode="ghost" slot="start" title="Toggle menu" type="button">
+    <ld-icon aria-label="Open menu" name="burger-menu" size="lg"></ld-icon>
+  </ld-button>
+  <ld-button role="switch" aria-haspopup="true" aria-checked="false" id="my-hamburger-right" mode="ghost" slot="end" title="Toggle menu" type="button">
     <ld-icon aria-label="Open menu" name="burger-menu" size="lg"></ld-icon>
   </ld-button>
 </ld-header>
 <div style="position: relative; height: 8rem;">
-  <ld-sidenav
-    open
-    id="my-sidenav"
-    breakpoint="30rem"
-    trap-focus="ld-header *"
-  >
+  <ld-sidenav breakpoint="30rem" id="my-sidenav-left" trap-focus="#my-header *">
     <ld-button style="margin: 1rem" mode="highlight">I'm focusable</ld-button>
+  </ld-sidenav>
+  <ld-sidenav align="right" breakpoint="30rem" id="my-sidenav-right" trap-focus="#my-header *">
+    <ld-button style="margin: 1rem" mode="highlight">I'm focusable on the right</ld-button>
   </ld-sidenav>
 </div>
 <script>
   ;(() => {
     let open = false
-    const hamburger = document.getElementById('my-hamburger')
-    const sidenav = document.getElementById('my-sidenav')
-    hamburger.addEventListener('click', () => {
-      if (sidenav.open) {
-        hamburger.setAttribute('aria-checked', 'false')
-        sidenav.removeAttribute('open')
+    const hamburgerLeft = document.getElementById('my-hamburger-left')
+    const sidenavLeft = document.getElementById('my-sidenav-left')
+    const hamburgerRight = document.getElementById('my-hamburger-right')
+    const sidenavRight = document.getElementById('my-sidenav-right')
+    hamburgerLeft.addEventListener('click', () => {
+      if (sidenavLeft.open) {
+        hamburgerLeft.setAttribute('aria-checked', 'false')
+        sidenavLeft.open = false
       } else {
-        hamburger.setAttribute('aria-checked', 'true')
-        sidenav.setAttribute('open', '')
+        hamburgerLeft.setAttribute('aria-checked', 'true')
+        hamburgerRight.setAttribute('aria-checked', 'false')
+        sidenavLeft.open = true
+        sidenavRight.open = false
+      }
+    })
+    hamburgerRight.addEventListener('click', () => {
+      if (sidenavRight.open) {
+        hamburgerRight.setAttribute('aria-checked', 'false')
+        sidenavRight.open = false
+      } else {
+        hamburgerLeft.setAttribute('aria-checked', 'false')
+        hamburgerRight.setAttribute('aria-checked', 'true')
+        sidenavLeft.open = false
+        sidenavRight.open = true
       }
     })
   })()

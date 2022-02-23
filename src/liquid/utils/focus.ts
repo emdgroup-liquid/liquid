@@ -1,4 +1,4 @@
-export const getFirstFocusable = (el: HTMLElement | ShadowRoot) => {
+export const getFirstFocusable = (el: HTMLElement): HTMLElement | undefined => {
   const focusableSelector = [
     '.hydrated',
     'a[href]',
@@ -16,10 +16,17 @@ export const getFirstFocusable = (el: HTMLElement | ShadowRoot) => {
   ]
     .map((selector) => selector + ':not([tabindex^="-"])')
     .join(',')
+  const focusableElements = [
+    el,
+    ...Array.from(el.querySelectorAll<HTMLElement>(focusableSelector)),
+  ]
 
-  return Array.from(el.querySelectorAll(focusableSelector)).find((el) => {
+  return focusableElements.find((el) => {
     return (
-      !el.classList.contains('.hydrated') || getFirstFocusable(el.shadowRoot)
+      !el.classList.contains('.hydrated') ||
+      Array.from(
+        el.shadowRoot.querySelectorAll<HTMLElement>(focusableSelector)
+      ).find(getFirstFocusable)
     )
   })
 }

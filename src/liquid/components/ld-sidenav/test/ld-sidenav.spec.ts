@@ -1,3 +1,5 @@
+jest.mock('../../../utils/focus')
+
 import MatchMediaMock from 'jest-matchmedia-mock'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdSidenav } from '../ld-sidenav'
@@ -9,10 +11,12 @@ import { LdSidenavSeparator } from '../ld-sidenav-separator/ld-sidenav-separator
 import { LdSidenavHeading } from '../ld-sidenav-heading/ld-sidenav-heading'
 import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
 import { LdButton } from '../../ld-button/ld-button'
+import { getFirstFocusable } from '../../../utils/focus'
 import '../../../utils/mutationObserver'
 import { getSidenavWithSubnavigation } from './utils'
 
 let matchMedia
+const mockedGetFirstFocusable = getFirstFocusable as jest.Mock
 
 async function transitionEnd(page) {
   const transitionEndHandler = page.root
@@ -53,6 +57,7 @@ describe('ld-sidenav', () => {
 
   afterEach(() => {
     jest.advanceTimersToNextTimer()
+    jest.clearAllMocks()
   })
 
   it('renders', async () => {
@@ -959,6 +964,7 @@ describe('ld-sidenav', () => {
 
       const anchor = ldSidenav.querySelector('a')
       anchor.focus = jest.fn()
+      mockedGetFirstFocusable.mockImplementationOnce(() => anchor)
 
       const ev = {
         type: 'focusout',
@@ -970,45 +976,6 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
 
       expect(anchor.focus).toHaveBeenCalled()
-    })
-
-    it('traps the focus when it moves out from an element which matches the trap focus selector', async () => {
-      const page = await newSpecPage({
-        components: [LdSidenav],
-        html: `<ld-sidenav open trap-focus="#asdf">
-          <a href="#">I'm focusable</a>
-        </ld-sidenav>
-        <button id="asdf">I'm also focusable</button>
-        <main tabindex="-1"></main>`,
-      })
-      const ldSidenav = page.root
-
-      const mediaQueries = matchMedia.getMediaQueries()
-      matchMedia.useMediaQuery(mediaQueries[0])
-      await page.waitForChanges()
-
-      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
-      expect(ldSidenav).toHaveClass('ld-sidenav--open')
-
-      const anchor = ldSidenav.querySelector('a')
-      anchor.focus = jest.fn()
-
-      const button = page.body.querySelector('button')
-      button.focus = jest.fn()
-
-      const main = page.body.querySelector('main')
-      main.focus = jest.fn()
-
-      const ev = {
-        type: 'focusout',
-        relatedTarget: main,
-        bubbles: true,
-      } as unknown as FocusEvent
-      button.dispatchEvent(ev)
-
-      await page.waitForChanges()
-
-      expect(button.focus).toHaveBeenCalled()
     })
 
     it('traps the focus in the shadow dom of a web component within the sidenav', async () => {
@@ -1035,10 +1002,7 @@ describe('ld-sidenav', () => {
 
       const button = ldButton.shadowRoot.querySelector('button')
       button.focus = jest.fn()
-
-      ldButton.shadowRoot.querySelectorAll = jest.fn(() => {
-        return [button]
-      }) as never
+      mockedGetFirstFocusable.mockImplementationOnce(() => ldButton)
 
       const ev = {
         type: 'focusout',
@@ -1051,6 +1015,182 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
 
       expect(button.focus).toHaveBeenCalled()
+    })
+
+    it('loops the focus back to the first focusable element in the sidenav, when it moves out from an element which matches the trap focus selector', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="#asdf">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>
+        <button id="asdf">I'm also focusable</button>
+        <main tabindex="-1"></main>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+      anchor.focus = jest.fn()
+
+      const button = page.body.querySelector('button')
+      mockedGetFirstFocusable
+        .mockImplementationOnce(() => anchor)
+        .mockImplementationOnce(() => button)
+
+      const main = page.body.querySelector('main')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: main,
+        bubbles: true,
+      } as unknown as FocusEvent
+      button.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(anchor.focus).toHaveBeenCalled()
+    })
+
+    it('loops the focus back to the first focusable element matching the focus selector, when it moves out from the sidenav', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="#asdf">
+          <a href="#">I'm focusable</a>
+        </ld-sidenav>
+        <button id="asdf">I'm also focusable</button>
+        <main tabindex="-1"></main>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor = ldSidenav.querySelector('a')
+
+      const button = page.body.querySelector('button')
+      button.focus = jest.fn()
+      mockedGetFirstFocusable
+        .mockImplementationOnce(() => anchor)
+        .mockImplementationOnce(() => button)
+
+      const main = page.body.querySelector('main')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: main,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(button.focus).toHaveBeenCalled()
+    })
+
+    it('loops the focus back to the last focusable element in the sidenav, when it moves out from the first element matching the trap focus selector', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<div id="asdf">
+          <button id="button1">I'm also focusable</button>
+          <button id="button2">I'm also focusable</button>
+        </div>
+        <ld-sidenav open trap-focus="#asdf *">
+          <a id="anchor1" href="#">I'm focusable</a>
+          <a id="anchor2" href="#">I'm focusable</a>
+        </ld-sidenav>
+        <main tabindex="-1"></main>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor1 = ldSidenav.querySelector<HTMLElement>('#anchor1')
+      const anchor2 = ldSidenav.querySelector<HTMLElement>('#anchor2')
+      anchor2.focus = jest.fn()
+
+      const button1 = page.body.querySelector<HTMLElement>('#button1')
+      const button2 = page.body.querySelector<HTMLElement>('#button2')
+      mockedGetFirstFocusable
+        .mockImplementationOnce(() => anchor1)
+        .mockImplementationOnce(() => button1)
+        .mockImplementationOnce(() => button2)
+        .mockImplementationOnce(() => anchor2)
+
+      const main = page.body.querySelector('main')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: main,
+        bubbles: true,
+      } as unknown as FocusEvent
+      button1.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(anchor2.focus).toHaveBeenCalled()
+    })
+
+    it('loops the focus back to the last focusable element matching the focus selector, when it moves out backwards from the sidenav', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav open trap-focus="#asdf *">
+          <a id="anchor1" href="#">I'm focusable</a>
+          <a id="anchor2" href="#">I'm focusable</a>
+        </ld-sidenav>
+        <div id="asdf">
+          <button id="button1">I'm also focusable</button>
+          <button id="button2">I'm also focusable</button>
+        </div>
+        <main tabindex="-1"></main>`,
+      })
+      const ldSidenav = page.root
+
+      const mediaQueries = matchMedia.getMediaQueries()
+      matchMedia.useMediaQuery(mediaQueries[0])
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+      expect(ldSidenav).toHaveClass('ld-sidenav--open')
+
+      const anchor1 = ldSidenav.querySelector<HTMLElement>('#anchor1')
+      const anchor2 = ldSidenav.querySelector<HTMLElement>('#anchor2')
+
+      const button1 = page.body.querySelector<HTMLElement>('#button1')
+      const button2 = page.body.querySelector<HTMLElement>('#button2')
+      button2.focus = jest.fn()
+      mockedGetFirstFocusable
+        .mockImplementationOnce(() => anchor1)
+        .mockImplementationOnce(() => button1)
+        .mockImplementationOnce(() => button2)
+        .mockImplementationOnce(() => anchor2)
+
+      const main = page.body.querySelector('main')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: main,
+        bubbles: true,
+      } as unknown as FocusEvent
+      anchor1.dispatchEvent(ev)
+
+      await page.waitForChanges()
+
+      expect(button2.focus).toHaveBeenCalled()
     })
   })
 })

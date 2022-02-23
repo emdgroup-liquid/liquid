@@ -135,9 +135,7 @@ export class LdSidenav {
     // Same applies here as for onCollapsedChange.
     this.el.classList.add('ld-sidenav--transitions')
 
-    if (this.closable) {
-      this.ldSidenavOpenChange.emit(open)
-    }
+    this.ldSidenavOpenChange.emit(open)
   }
 
   @Listen('click', {
@@ -280,18 +278,57 @@ export class LdSidenav {
     if (isFocusInSidenav) return
 
     // Do not trap the focus when it moves to an element which matches
-    // the trap focus selector.
+    // the trap focus selector or no element will be focused.
     const isFocusInKeepFocusable =
-      this.trapFocus !== '' && relatedTarget?.matches(this.trapFocus)
+      this.trapFocus !== '' &&
+      (!relatedTarget || relatedTarget?.matches(this.trapFocus))
     if (isFocusInKeepFocusable) return
 
-    // Keep the focus where it was before.
+    // Loop the focus between the ld-sidenav and the elements matching
+    // the trap focus selector.
     const target = ev.target as HTMLElement
-    const lastFocused = target.shadowRoot
-      ? getFirstFocusable(target.shadowRoot)
-      : target
+    const isLeavingSidenav = target.closest('ld-sidenav') === this.el
+    const isLeavingFocusSelectorElement =
+      this.trapFocus !== '' && !!target.closest(this.trapFocus)
 
-    lastFocused.focus()
+    if (!isLeavingSidenav && !isLeavingFocusSelectorElement) return
+
+    const firstFocusableInSidenav = getFirstFocusable(this.el)
+    const trapFocusSelectorElements =
+      this.trapFocus === ''
+        ? [firstFocusableInSidenav]
+        : Array.from(document.querySelectorAll<HTMLElement>(this.trapFocus))
+    const firstFocusableFromSelectorElements =
+      trapFocusSelectorElements.find(getFirstFocusable)
+    const isLeavingFirstFocusableInSidenav = firstFocusableInSidenav === target
+    const isLeavingFirstFocusableFromSelectorElements =
+      firstFocusableFromSelectorElements === target
+    const lastFocusableInSidenav = Array.from(
+      this.el.querySelectorAll<HTMLElement>('*')
+    )
+      .reverse()
+      .find(getFirstFocusable)
+    const lastFocusableFromSelectorElements = trapFocusSelectorElements
+      .reverse()
+      .find(getFirstFocusable)
+    const nextFocused = isLeavingSidenav
+      ? isLeavingFirstFocusableInSidenav
+        ? lastFocusableFromSelectorElements
+        : firstFocusableFromSelectorElements
+      : isLeavingFirstFocusableFromSelectorElements
+      ? lastFocusableInSidenav
+      : firstFocusableInSidenav
+
+    if (!nextFocused) return
+
+    if ('focusInner' in nextFocused) {
+      ;(nextFocused as unknown as InnerFocusable).focusInner()
+    } else {
+      if (nextFocused && !nextFocused.focus) {
+        console.log({ isLeavingSidenav, nextFocused: nextFocused.id })
+      }
+      nextFocused?.focus()
+    }
   }
 
   private toFocus: HTMLElement = undefined
