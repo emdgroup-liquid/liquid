@@ -242,6 +242,31 @@ export class LdSidenav {
     // Ignore events if sidenav has no focus and is not closable.
     const hasSidenavFocus =
       document.activeElement.closest('ld-sidenav') === this.el
+
+    if (
+      hasSidenavFocus &&
+      ev.key === 'Tab' &&
+      document.activeElement === this.el.querySelector('ld-sidenav-back')
+    ) {
+      const { currentSubnav } = this.el.querySelector('ld-sidenav-slider')
+
+      if (currentSubnav) {
+        const firstItemOfCurrentSubnav = getFirstFocusable(
+          this.el.querySelector<HTMLLdSidenavSubnavElement>(`#${currentSubnav}`)
+        )
+
+        setTimeout(async () => {
+          if ('focusInner' in firstItemOfCurrentSubnav) {
+            await (
+              firstItemOfCurrentSubnav as unknown as InnerFocusable
+            ).focusInner()
+          } else {
+            firstItemOfCurrentSubnav.focus()
+          }
+        })
+      }
+    }
+
     if (!hasSidenavFocus && !this.closable) {
       return
     }
@@ -263,7 +288,7 @@ export class LdSidenav {
   }
 
   @Listen('focusout', { passive: true, target: 'window' })
-  handleFocusout(ev: FocusEvent) {
+  async handleFocusout(ev: FocusEvent) {
     // If the sidenav is closable, trap the focus.
     // Do not trap the focus as long as the sidenav is not closable or not open.
     if (!this.closable || !this.open) return
@@ -322,11 +347,8 @@ export class LdSidenav {
     if (!nextFocused) return
 
     if ('focusInner' in nextFocused) {
-      ;(nextFocused as unknown as InnerFocusable).focusInner()
+      await (nextFocused as unknown as InnerFocusable).focusInner()
     } else {
-      if (nextFocused && !nextFocused.focus) {
-        console.log({ isLeavingSidenav, nextFocused: nextFocused.id })
-      }
       nextFocused?.focus()
     }
   }

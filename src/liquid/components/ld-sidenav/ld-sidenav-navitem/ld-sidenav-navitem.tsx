@@ -6,6 +6,7 @@ import {
   EventEmitter,
   h,
   Listen,
+  Method,
   Prop,
   State,
 } from '@stencil/core'
@@ -24,9 +25,10 @@ import { toggleStackToTop } from '../utils/toggleStackToTop'
   styleUrl: 'ld-sidenav-navitem.css',
   shadow: true,
 })
-export class LdSidenavNavitem {
+export class LdSidenavNavitem implements InnerFocusable {
   @Element() el: HTMLElement
   private sidenav: HTMLLdSidenavElement
+  private focusableElement: HTMLAnchorElement | HTMLButtonElement
 
   /** Sets visual indicator to denote that the nav item is currently active. */
   @Prop() active = false
@@ -48,6 +50,9 @@ export class LdSidenavNavitem {
   /** Applies full border-radius. */
   @Prop() rounded = false
 
+  /** Tab index of the button. */
+  @Prop() ldTabindex: number | undefined
+
   /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
@@ -64,6 +69,14 @@ export class LdSidenavNavitem {
   @State() abbreviation: string
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
+
+  /**
+   * Sets focus on the anchor or button
+   */
+  @Method()
+  async focusInner() {
+    this.focusableElement?.focus()
+  }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
   handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
@@ -133,10 +146,12 @@ export class LdSidenavNavitem {
         part="navitem focusable"
         class={cl}
         href={this.href}
+        ref={(el) => (this.focusableElement = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         onClick={this.onClick}
         aria-haspopup={this.to ? 'true' : undefined}
         aria-expanded={this.to ? 'false' : undefined}
+        tabIndex={this.ldTabindex}
       >
         <div class="ld-sidenav-navitem__dot" part="dot"></div>
         <div

@@ -23,7 +23,7 @@ export const getFirstFocusable = (el: HTMLElement): HTMLElement | undefined => {
 
   return focusableElements.find((el) => {
     return (
-      !el.classList.contains('.hydrated') ||
+      !el.classList.contains('hydrated') ||
       Array.from(
         el.shadowRoot.querySelectorAll<HTMLElement>(focusableSelector)
       ).find(getFirstFocusable)
