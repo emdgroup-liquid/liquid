@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn set version stable
-          yarn install --frozen-lockfile
+          yarn install --immutable
 
       - name: Build
         run: npm run build
@@ -124,7 +124,7 @@ jobs:
           yarn config delete proxy
           yarn config delete https-proxy
           yarn set version stable
-          yarn install --frozen-lockfile --network-timeout 100000
+          yarn install --immutable --network-timeout 100000
         env:
           CI: true
 
