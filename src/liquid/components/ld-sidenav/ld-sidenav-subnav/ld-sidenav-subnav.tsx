@@ -132,10 +132,7 @@ export class LdSidenavSubnav {
             visibility: !this.active || this.ancestor ? 'hidden' : 'visible',
           }}
           part="scroll-container"
-          ref={(el) =>
-            (this.scrollerRef =
-              el as unknown as HTMLLdSidenavScrollerInternalElement)
-          }
+          ref={(el) => (this.scrollerRef = el)}
         >
           <slot></slot>
         </ld-sidenav-scroller-internal>

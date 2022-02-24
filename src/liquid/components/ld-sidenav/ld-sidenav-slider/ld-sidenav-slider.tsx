@@ -242,10 +242,7 @@ export class LdSidenavSlider {
       >
         <ld-sidenav-scroller-internal
           part="scroll-container"
-          ref={(el) =>
-            (this.scrollerRef =
-              el as unknown as HTMLLdSidenavScrollerInternalElement)
-          }
+          ref={(el) => (this.scrollerRef = el)}
         >
           <slot></slot>
         </ld-sidenav-scroller-internal>

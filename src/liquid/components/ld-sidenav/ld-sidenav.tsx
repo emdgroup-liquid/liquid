@@ -205,9 +205,7 @@ export class LdSidenav {
       .querySelector('ld-sidenav-back')
       ?.shadowRoot.querySelector<HTMLElement>('.ld-sidenav-back')
     this.toFocus = ldSidenavBack
-    setTimeout(() => {
-      this.updateFocus()
-    })
+    this.updateFocus()
   }
 
   @Listen('ldSidenavSliderChange')
@@ -232,9 +230,7 @@ export class LdSidenav {
       this.collapsed = false
     }
 
-    setTimeout(() => {
-      this.updateFocus()
-    })
+    this.updateFocus()
   }
 
   @Listen('keydown', { passive: true, target: 'window' })
@@ -246,6 +242,7 @@ export class LdSidenav {
     if (
       hasSidenavFocus &&
       ev.key === 'Tab' &&
+      !ev.shiftKey &&
       document.activeElement === this.el.querySelector('ld-sidenav-back')
     ) {
       const { currentSubnav } = this.el.querySelector('ld-sidenav-slider')
