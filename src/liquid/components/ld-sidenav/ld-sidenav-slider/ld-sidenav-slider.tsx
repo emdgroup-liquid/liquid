@@ -29,8 +29,6 @@ export class LdSidenavSlider {
   private sidenav: HTMLLdSidenavElement
   private scrollerRef: HTMLLdSidenavScrollerInternalElement
 
-  private subnavsToDeactivate: HTMLLdSidenavSubnavElement[] = []
-
   /** ID of the subnav that shall be shown on initial render. */
   @Prop({ mutable: true }) currentSubnav: string
 
@@ -48,12 +46,10 @@ export class LdSidenavSlider {
     { id: string; label: string } | undefined
   >
 
-  @Watch('currentSubnav')
-  navigateToSubnav() {
+  private navigateToSubnav() {
     // Make current subnav and all ancestor subnavs active.
     let parentSubnav: HTMLLdSidenavSubnavElement
     let subnavId = this.currentSubnav
-    this.subnavsToDeactivate = this.activeSubnavs
     this.activeSubnavs = []
     while (subnavId) {
       const subnav = document.querySelector<HTMLLdSidenavSubnavElement>(
@@ -87,7 +83,7 @@ export class LdSidenavSlider {
       if (needsInertUpdate) this.updateFirstLevelHidden()
 
       this.updateActiveBeforeTransition()
-    } else {
+    } else if (this.activeSubnavs.length > 0) {
       // This condition applies if navigating to a subnav
       // which has the same level as the currently active subnav.
       // This happens on change of the currentSubnav prop from
@@ -97,7 +93,11 @@ export class LdSidenavSlider {
       this.updateFirstLevelHidden()
       this.scrollInactiveToTop()
     }
+  }
 
+  @Watch('currentSubnav')
+  handleSubnavChange() {
+    this.navigateToSubnav()
     this.emitChange()
   }
 
@@ -135,14 +135,14 @@ export class LdSidenavSlider {
         id: activeSubnav.id,
         label: parentSubnav.label,
       })
-    } else {
+    } else if (!this.currentSubnav) {
       this.ldSidenavSliderChange.emit()
     }
   }
 
   private updateActiveBeforeTransition = () => {
     // reset
-    this.subnavsToDeactivate.forEach((subnav) => {
+    this.el.querySelectorAll('ld-sidenav-subnav').forEach((subnav) => {
       subnav.activeBeforeTransition = false
     })
 
@@ -154,10 +154,9 @@ export class LdSidenavSlider {
 
   private updateActive = () => {
     // reset
-    this.subnavsToDeactivate.forEach((subnav) => {
+    this.el.querySelectorAll('ld-sidenav-subnav').forEach((subnav) => {
       subnav.active = false
     })
-    this.subnavsToDeactivate = []
 
     // update
     this.activeSubnavs.forEach((subnav) => {
@@ -167,7 +166,7 @@ export class LdSidenavSlider {
 
   private updateAncestor = () => {
     // reset
-    this.subnavsToDeactivate.forEach((subnav) => {
+    this.el.querySelectorAll('ld-sidenav-subnav').forEach((subnav) => {
       subnav.ancestor = false
     })
 
@@ -192,7 +191,9 @@ export class LdSidenavSlider {
     })
   }
 
-  private onTransitionEnd = () => {
+  private onTransitionEnd = (event) => {
+    if (event.target !== this.el) return
+
     this.updateActive()
     this.updateAncestor()
     this.updateFirstLevelHidden()
@@ -218,7 +219,7 @@ export class LdSidenavSlider {
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
     if (this.currentSubnav) {
-      this.navigateToSubnav()
+      this.handleSubnavChange()
     }
     if (this.currentNavLevel === undefined) {
       this.currentNavLevel = 0

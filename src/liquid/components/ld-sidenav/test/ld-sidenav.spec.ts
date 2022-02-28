@@ -22,7 +22,7 @@ async function transitionEnd(page) {
   const transitionEndHandler = page.root
     .querySelector('ld-sidenav-slider')
     ['__listeners'].find((l) => l.type === 'transitionEnd').handler
-  transitionEndHandler()
+  transitionEndHandler({ target: page.root.querySelector('ld-sidenav-slider') })
   await page.waitForChanges()
 }
 
