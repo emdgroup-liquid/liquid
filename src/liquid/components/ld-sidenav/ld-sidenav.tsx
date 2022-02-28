@@ -245,6 +245,9 @@ export class LdSidenav {
       !ev.shiftKey &&
       document.activeElement === this.el.querySelector('ld-sidenav-back')
     ) {
+      // This block prevents the focus from being set to the wrong element,
+      // when a user quickly hits the [Tab] key after triggering the
+      // transition to a subnav.
       const { currentSubnav } = this.el.querySelector('ld-sidenav-slider')
 
       if (currentSubnav) {
