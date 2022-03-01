@@ -146,7 +146,7 @@ export class LdSidenav {
       ['clickoutside', 'mouseout'].includes(this.collapseTrigger) &&
       (ev.target as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
-      this.collapsed = true
+      this.collapsed = this.collapsible && true
     }
   }
 
@@ -157,7 +157,7 @@ export class LdSidenav {
       ev.relatedTarget &&
       (ev.relatedTarget as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
-      this.collapsed = true
+      this.collapsed = this.collapsible && true
     }
   }
 
@@ -392,7 +392,7 @@ export class LdSidenav {
   }
 
   componentDidLoad() {
-    this.ldSidenavCollapsedChange.emit(this.collapsed)
+    this.ldSidenavCollapsedChange.emit(this.collapsible && this.collapsed)
     this.ldSidenavOpenChange.emit(this.open)
     this.ldSidenavBreakpointChange.emit(this.closable)
 
