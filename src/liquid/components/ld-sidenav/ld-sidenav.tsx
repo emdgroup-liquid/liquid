@@ -220,9 +220,10 @@ export class LdSidenav {
     const activeSubnav = ev.detail
       ? document.getElementById(ev.detail.id)
       : this.el.querySelector('ld-sidenav-slider')
-    const activeSubnavContainsSubnav =
-      !!activeSubnav.querySelectorAll('ld-sidenav-subnav').length
-    this.fullyCollapsible = !this.narrow || !activeSubnavContainsSubnav
+    const activeSubnavContainsIcons = !!Array.from(
+      activeSubnav.querySelectorAll('ld-sidenav-navitem')
+    ).find(({ mode }) => !mode)
+    this.fullyCollapsible = !this.narrow || !activeSubnavContainsIcons
 
     // Always expand sidebar on slide change, except for
     // when the sidebar is initially loaded.
