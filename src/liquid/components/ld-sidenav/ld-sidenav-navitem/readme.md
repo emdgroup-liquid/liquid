@@ -205,6 +205,7 @@ Type: `Promise<void>`
 | Part                    | Description |
 | ----------------------- | ----------- |
 | `"abbreviation"`        |             |
+| `"bg"`                  |             |
 | `"dot"`                 |             |
 | `"focusable"`           |             |
 | `"navitem"`             |             |
