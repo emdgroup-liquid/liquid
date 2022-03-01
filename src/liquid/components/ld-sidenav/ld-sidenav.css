@@ -102,7 +102,7 @@
 
     &::before {
       right: unset;
-      left: 0;
+      left: var(--ld-sp-1);
       transform: scaleX(1.5) translateX(-100%);
     }
   }
