@@ -155,59 +155,70 @@
   );
   display: block;
   opacity: 0.2;
-  z-index: -1;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
     transform var(--ld-sidenav-transition-duration) ease;
+}
 
-  &-left,
-  &-right,
-  &-center {
-    background-color: var(--ld-sidenav-navitem-indicator-col);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    transition: transform var(--ld-sidenav-transition-duration) ease;
+.ld-sidenav-navitem__bg-left,
+.ld-sidenav-navitem__bg-right,
+.ld-sidenav-navitem__bg-center {
+  background-color: var(--ld-sidenav-navitem-indicator-col);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: transform var(--ld-sidenav-transition-duration) ease;
+}
+
+.ld-sidenav-navitem__bg-left,
+.ld-sidenav-navitem__bg-right {
+  width: var(--ld-sp-12);
+}
+
+.ld-sidenav-navitem__bg-left {
+  left: 0;
+  border-bottom-left-radius: calc(
+    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
+  );
+  border-top-left-radius: calc(
+    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
+  );
+}
+
+.ld-sidenav-navitem__bg-right {
+  right: 0;
+  border-bottom-right-radius: calc(
+    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
+  );
+  border-top-right-radius: calc(
+    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
+  );
+
+  .ld-sidenav-navitem--collapsed & {
+    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
   }
+}
 
-  &-left,
-  &-right {
-    width: var(--ld-sp-12);
+.ld-sidenav-navitem__bg-center {
+  left: var(--ld-sp-12);
+  right: var(--ld-sp-12);
+  transform-origin: left;
+
+  .ld-sidenav-navitem--collapsed & {
+    transform: scaleX(var(--ld-sidenav-navitem-scale-x-collapsed));
   }
+}
 
-  &-left {
-    left: 0;
-    border-bottom-left-radius: calc(
-      var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
-    );
-    border-top-left-radius: calc(
-      var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
-    );
-  }
-
-  &-right {
-    right: 0;
-    border-bottom-right-radius: calc(
-      var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
-    );
-    border-top-right-radius: calc(
-      var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-12)
-    );
-
-    .ld-sidenav-navitem--collapsed & {
-      transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
-    }
-  }
-
-  &-center {
-    left: var(--ld-sp-12);
-    right: var(--ld-sp-12);
-    transform-origin: left;
-
-    .ld-sidenav-navitem--collapsed & {
-      transform: scaleX(var(--ld-sidenav-navitem-scale-x-collapsed));
-    }
-  }
+/*
+Using z-index -1 on .ld-sidenav-navitem__bg results
+in .ld-sidenav-navitem__bg not being clickable.
+That's why we set z-index 0 on the following elements.
+*/
+.ld-sidenav-navitem__dot,
+.ld-sidenav-navitem__slot-container,
+.ld-sidenav-navitem__slot-container-icon {
+  position: relative;
+  z-index: 0;
 }
 
 .ld-sidenav-navitem__dot {

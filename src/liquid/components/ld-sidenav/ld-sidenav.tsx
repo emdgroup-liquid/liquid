@@ -295,7 +295,7 @@ export class LdSidenav {
 
     // If focus is outside the sidenav and the collapse trigger is set
     // to 'mouseout', collapse the sidenav.
-    if (!isFocusInSidenav) {
+    if (!isFocusInSidenav && relatedTarget !== null) {
       if (this.collapseTrigger === 'mouseout') {
         this.collapsed = this.collapsible && true
       }

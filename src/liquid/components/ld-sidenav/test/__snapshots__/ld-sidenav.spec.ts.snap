@@ -67,8 +67,13 @@ exports[`ld-sidenav collapses to narrow 1`] = `
   </mock:shadow-root>
   <ld-sidenav-back slot="top">
     <mock:shadow-root>
-      <div aria-label="Back" class="ld-sidenav-back ld-sidenav-back--collapsed ld-sidenav-back--is-back" part="back focusable" role="button" tabindex="0">
+      <div aria-label="Back" class="ld-sidenav-back ld-sidenav-back--collapsed ld-sidenav-back--is-back" part="back focusable" role="button" tabindex="0" style="--ld-sidenav-back-scale-x-collapsed: NaN;">
         <div class="ld-sidenav-back__btn-back" part="btn-back">
+          <div class="ld-sidenav-back__bg" part="bg">
+            <div class="ld-sidenav-back__bg-left"></div>
+            <div class="ld-sidenav-back__bg-center"></div>
+            <div class="ld-sidenav-back__bg-right"></div>
+          </div>
           <div class="ld-sidenav-back__icon" part="icon-container">
             <svg fill="none" height="12" part="icon" width="12" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.333 1.832 1 5.999l3.333 4.166M1 6h10" stroke="#F8F8FC" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>

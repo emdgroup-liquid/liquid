@@ -1,5 +1,6 @@
 .ld-sidenav-back {
   /* layout */
+  --ld-sidenav-back-bg-inset: var(--ld-sp-6);
   --ld-sidenav-back-border-radius: var(--ld-br-l);
   --ld-sidenav-back-icon-size: var(--ld-sp-40);
 
@@ -38,6 +39,14 @@
     margin-top: var(--ld-sidenav-padding-y);
     margin-bottom: var(--ld-sidenav-padding-y);
   }
+
+  &.ld-sidenav-back--collapsed {
+    .ld-sidenav-back__bg {
+      transform: translateX(
+        calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
+      );
+    }
+  }
 }
 
 .ld-sidenav-back__btn-back {
@@ -61,23 +70,78 @@
   outline: none;
   margin: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
   -webkit-touch-callout: none;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: calc(-1 * var(--ld-sp-6));
-    border-radius: calc(var(--ld-sidenav-back-border-radius) + var(--ld-sp-6));
-    display: block;
-    background-color: var(--ld-sidenav-back-indicator-col);
-    opacity: 0.2;
-    z-index: -1;
+.ld-sidenav-back__bg {
+  position: absolute;
+  inset: calc(-1 * var(--ld-sidenav-back-bg-inset));
+  border-radius: calc(
+    var(--ld-sidenav-back-border-radius) + var(--ld-sidenav-back-bg-inset)
+  );
+  display: block;
+  opacity: 0.2;
+  transition: opacity var(--ld-sidenav-transition-duration)
+      var(--ld-sidenav-transition-delay) linear,
+    transform var(--ld-sidenav-transition-duration) ease;
+}
 
-    .ld-sidenav-back--collapsed & {
-      left: calc(
-        var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed) -
-          var(--ld-sp-6)
-      );
-    }
+/*
+Using z-index -1 on .ld-sidenav-back__bg results
+in .ld-sidenav-back__bg not being clickable.
+That's why we set z-index 0 on the following elements.
+*/
+.ld-sidenav-back__icon,
+.ld-sidenav-back__btn-back-label {
+  position: relative;
+  z-index: 0;
+}
+
+.ld-sidenav-back__bg-left,
+.ld-sidenav-back__bg-right,
+.ld-sidenav-back__bg-center {
+  background-color: var(--ld-sidenav-back-indicator-col);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: transform var(--ld-sidenav-transition-duration) ease;
+}
+
+.ld-sidenav-back__bg-left,
+.ld-sidenav-back__bg-right {
+  width: var(--ld-sp-12);
+}
+
+.ld-sidenav-back__bg-left {
+  left: 0;
+  border-bottom-left-radius: calc(
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+  );
+  border-top-left-radius: calc(
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+  );
+}
+
+.ld-sidenav-back__bg-right {
+  right: 0;
+  border-bottom-right-radius: calc(
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+  );
+  border-top-right-radius: calc(
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+  );
+
+  .ld-sidenav-back--collapsed & {
+    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
+  }
+}
+
+.ld-sidenav-back__bg-center {
+  left: var(--ld-sp-12);
+  right: var(--ld-sp-12);
+  transform-origin: left;
+
+  .ld-sidenav-back--collapsed & {
+    transform: scaleX(var(--ld-sidenav-back-scale-x-collapsed));
   }
 }
 
