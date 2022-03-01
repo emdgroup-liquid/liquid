@@ -25,6 +25,7 @@ export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
     if (el === elem) break
 
     if (
+      elem.tagName === 'LD-SIDENAV-SUBNAV' ||
       elem.tagName === 'LD-SIDENAV-SEPARATOR' ||
       (elem.tagName === 'LD-SIDENAV-NAVITEM' &&
         !['secondary', 'tertiary'].includes(

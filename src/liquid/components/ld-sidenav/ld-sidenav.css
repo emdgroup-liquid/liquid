@@ -42,7 +42,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    right: var(--ld-sp-1);
     width: var(--ld-sp-1);
     background-color: var(--ld-col-neutral-050);
     transform: scaleX(1.5) translateX(100%);
