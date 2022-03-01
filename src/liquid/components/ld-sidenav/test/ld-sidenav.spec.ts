@@ -279,6 +279,43 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
+
+    it('collapses on focus out', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: '<ld-sidenav collapsible collapse-trigger="mouseout"></ld-sidenav>',
+      })
+      const ldSidenav = page.root
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+
+      const ev = new FocusEvent('focusout', {
+        relatedTarget: page.body,
+      })
+      ldSidenav.dispatchEvent(ev)
+
+      await page.waitForChanges()
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+
+      const btnToggle = ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
+        '.ld-sidenav__toggle'
+      )
+
+      btnToggle.click()
+      await page.waitForChanges()
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+
+      page.body.click()
+      await page.waitForChanges()
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+
+      btnToggle.click()
+      await page.waitForChanges()
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+
+      btnToggle.click()
+      await page.waitForChanges()
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    })
   })
 
   it('opens and closes via prop', async () => {

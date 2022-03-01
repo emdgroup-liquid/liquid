@@ -48,7 +48,7 @@ export class LdSidenav {
    * Makes the navigation collapse either on
    * - explicit toggle button click,
    * - when the user clicks somewhere outside the element or
-   * - when the user moves the cursor outside the element.
+   * - when the user moves the cursor / focus outside the element.
    * The modes are inclusive from right to left:
    * - clickoutside applies if the collapse trigger is set to mouseout
    * - toggle applies if the collapse trigger is set to clickoutside
@@ -289,6 +289,17 @@ export class LdSidenav {
 
   @Listen('focusout', { passive: true, target: 'window' })
   async handleFocusout(ev: FocusEvent) {
+    const relatedTarget = ev.relatedTarget as HTMLElement | undefined
+    const isFocusInSidenav = relatedTarget?.closest('ld-sidenav') === this.el
+
+    // If focus is outside the sidenav and the collapse trigger is set
+    // to 'mouseout', collapse the sidenav.
+    if (!isFocusInSidenav) {
+      if (this.collapseTrigger === 'mouseout') {
+        this.collapsed = this.collapsible && true
+      }
+    }
+
     // If the sidenav is closable, trap the focus.
     // Do not trap the focus as long as the sidenav is not closable or not open.
     if (!this.closable || !this.open) return
@@ -296,10 +307,7 @@ export class LdSidenav {
     // Do not trap the focus if the trap focus prop is not set.
     if (typeof this.trapFocus === 'undefined') return
 
-    const relatedTarget = ev.relatedTarget as HTMLElement | undefined
-
     // Do not trap the focus as long as the focus remains within the sidenav.
-    const isFocusInSidenav = relatedTarget?.closest('ld-sidenav') === this.el
     if (isFocusInSidenav) return
 
     // Do not trap the focus when it moves to an element which matches
