@@ -28,7 +28,7 @@ They are not rules. So use your best judgment, and feel free to propose changes 
 
 ## Code of conduct
 
-This project and everyone who participates in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [liquid@emdgroup.com](liquid@emdgroup.com).
+This project and everyone who participates in it is governed by our [Code of Conduct][code of conduct]. By participating, you are expected to uphold this code. Please report unacceptable behavior to [liquid@emdgroup.com](liquid@emdgroup.com).
 
 ## I don't want to read this whole thing I just have a question!!!
 
@@ -307,6 +307,7 @@ While the prerequisites above must be satisfied prior to having your pull reques
 
 A lists of all labels we use in order to help us track and manage issues and pull requests can be found [here](https://github.com/emdgroup-liquid/liquid/labels).
 
+[code of conduct]: https://www.merckgroup.com/company/responsibility/en/regulations-and-guidelines/code-of-conduct.pdf
 [discussions]: https://github.com/emdgroup-liquid/liquid/discussions
 [teams]: https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9
 [feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+
