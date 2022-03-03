@@ -44,8 +44,9 @@
     bottom: 0;
     right: 0;
     width: var(--ld-sp-1);
-    background-color: var(--ld-col-neutral-050);
-    transform:  translateX(50%) scaleX(1.5);
+    background-color: var(--ld-col-neutral-100);
+    transform: translateX(50%) scaleX(1.5);
+    z-index: 1;
   }
 
   &(.ld-sidenav--transitions) {

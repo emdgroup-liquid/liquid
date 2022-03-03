@@ -20,16 +20,9 @@
   &(.ld-sidenav-scroller-internal--relative) {
     position: relative;
 
-    .ld-sidenav-scroller-internal__hr-top {
-      width: calc(100% - 2 * var(--ld-sidenav-padding-y));
-      position: absolute;
-    }
-
+    .ld-sidenav-scroller-internal__hr-top,
     .ld-sidenav-scroller-internal__hr-bottom {
       position: sticky;
-      top: 100%;
-      transform: translateY(-1.5px);
-      margin-top: calc(-1 * var(--ld-sidenav-padding-y));
     }
   }
 
@@ -95,19 +88,15 @@
 
 .ld-sidenav-scroller-internal__hr-top,
 .ld-sidenav-scroller-internal__hr-bottom {
+  margin-top: 0;
   position: absolute;
-  width: 100%;
+  width: calc(100% - 2 * var(--ld-sidenav-padding-y));
 }
 
 .ld-sidenav-scroller-internal__hr-top {
   top: 0;
-
-  &::part(hr) {
-    margin-top: 0;
-  }
 }
 
 .ld-sidenav-scroller-internal__hr-bottom {
-  top: 100%;
-  transform: translateY(-100%);
+  top: calc(100% - var(--ld-sp-1) * 1.5);
 }

@@ -1,5 +1,5 @@
 import '../../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Listen, State } from '@stencil/core'
+import { Component, Element, h, Host, Listen, State } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
 import { toggleStackToTop } from '../utils/toggleStackToTop'
@@ -80,14 +80,15 @@ export class LdSidenavSeparator {
     ])
 
     return (
-      <hr
+      <Host
         style={{
           '--ld-sidenav-separator-scale-x-collapsed':
             this.scaleXCollapsed.toString(),
         }}
         class={cl}
-        part="hr"
-      ></hr>
+      >
+        <hr class="ld-sidenav-separator-line" part="hr" />
+      </Host>
     )
   }
 }
