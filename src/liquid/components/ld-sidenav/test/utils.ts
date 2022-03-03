@@ -22,12 +22,13 @@ export function getSidenavWithSubnavigation(options?: {
   collapsible?: boolean
   collapsed?: boolean
   narrow?: boolean
+  neutral?: boolean
   roundedBackButton?: boolean
 }) {
   return `
     <ld-sidenav open${options?.collapsible ? ' collapsible' : ''}${
     options?.collapsed ? ' collapsed' : ''
-  }${options?.narrow ? ' narrow' : ''}${
+  }${options?.narrow ? ' narrow' : ''}${options?.neutral ? ' neutral' : ''}${
     options?.align ? ' align="' + options.align + '"' : ''
   }>
       <ld-sidenav-back slot="top">

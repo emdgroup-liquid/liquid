@@ -77,11 +77,17 @@ export class LdSidenav {
   @Prop() labelExpand = 'Expand side navigation'
 
   /**
-   * Set to true if where you'd like to have a sidenav which partially
+   * Set to true if you'd like to have a sidenav which partially
    * collapses in way, that slotted ld-navitem components are displayed
    * as icon buttons.
    */
   @Prop() narrow = false
+
+  /**
+   * Set to true if the subnav should use a neutral background color
+   * instead of theme colors.
+   */
+  @Prop() neutral = false
 
   /**
    * Indicates that the navigation is visible in a viewport
@@ -424,14 +430,15 @@ export class LdSidenav {
       'ld-sidenav',
       this.align === 'right' && 'ld-sidenav--right',
       this.initialized && 'ld-sidenav--initialized',
+      this.closable && 'ld-sidenav--closable',
       this.collapsible && this.collapsed && 'ld-sidenav--collapsed',
       this.collapsible && 'ld-sidenav--collapsible',
       this.fullyCollapsible && 'ld-sidenav--fully-collapsible',
-      this.open && 'ld-sidenav--open',
       this.hasActiveSubnav && 'ld-sidenav--has-active-subnav',
       this.hasShadowTop && 'ld-sidenav--has-shadow-top',
       this.hasShadowBottom && 'ld-sidenav--has-shadow-bottom',
-      this.closable && 'ld-sidenav--closable',
+      this.neutral && 'ld-sidenav--neutral',
+      this.open && 'ld-sidenav--open',
     ]
 
     return (

@@ -543,6 +543,34 @@ The sidenav only collapses to narrow mode, if navigation to a sub-nav is possibl
   Narrow mode works best in a sidenav containing <code>ld-sidenav-navitem</code> components exclusively, or as little as possible other components, which eventually get hidden on collapse. This ensures that transitions are minimalistic and there is no unnecessary scrolling when the scroll container content is reduced to <code>ld-sidenav-navitem</code> components only.
 </ld-notice>
 
+### Neutral mode
+
+Use the prop `neutral` in use cases, when a less colorful navigation is desired. With the prop `neutral` applied the subnavigations use a neutral background color instead of using theme colors.
+
+{% example '{ "hasPadding": false, "styles": { "minHeight": "20rem", "position": "relative" } }' %}
+<ld-sidenav open neutral>
+  <ld-sidenav-back slot="top">
+    <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
+  </ld-sidenav-back>
+  <ld-sidenav-slider label="Outline of CS" current-subnav="artific-intelligence">
+    <ld-sidenav-heading>Subfields</ld-sidenav-heading>
+    <ld-sidenav-navitem to="artific-intelligence">Artificial intelligence</ld-sidenav-navitem>
+    <ld-sidenav-subnav id="artific-intelligence" label="Artificial intelligence">
+      <ld-sidenav-heading>Artificial intelligence</ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary">Automated reasoning</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Computer vision</ld-sidenav-navitem>
+      <ld-sidenav-navitem to="so-computing">Soft computing</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Natural language processing</ld-sidenav-navitem>
+      <ld-sidenav-subnav id="so-computing" label="Soft computing">
+        <ld-sidenav-heading>Soft computing</ld-sidenav-heading>
+        <ld-sidenav-navitem mode="secondary">Machine learning</ld-sidenav-navitem>
+        <ld-sidenav-navitem mode="secondary">Evolutionary computing</ld-sidenav-navitem>
+      </ld-sidenav-subnav>
+    </ld-sidenav-subnav>
+  </ld-sidenav-slider>
+</ld-sidenav>
+{% endexample %}
+
 ---
 
 ## CSS Variables
@@ -575,7 +603,8 @@ The sidenav only collapses to narrow mode, if navigation to a sub-nav is possibl
 | `label`           | `label`            | Label to be used for the landmark element (the sidenav itself).                                                                                                                                                                                                                                                                                                             | `string`                                   | `'Side navigation'`          |
 | `labelCollapse`   | `label-collapse`   | Label to be used for the toggle button when navigation is expanded.                                                                                                                                                                                                                                                                                                         | `string`                                   | `'Collapse side navigation'` |
 | `labelExpand`     | `label-expand`     | Label to be used for the toggle button when navigation is collapsed.                                                                                                                                                                                                                                                                                                        | `string`                                   | `'Expand side navigation'`   |
-| `narrow`          | `narrow`           | Set to true if where you'd like to have a sidenav which partially collapses in way, that slotted ld-navitem components are displayed as icon buttons.                                                                                                                                                                                                                       | `boolean`                                  | `false`                      |
+| `narrow`          | `narrow`           | Set to true if you'd like to have a sidenav which partially collapses in way, that slotted ld-navitem components are displayed as icon buttons.                                                                                                                                                                                                                             | `boolean`                                  | `false`                      |
+| `neutral`         | `neutral`          | Set to true if the subnav should use a neutral background color instead of theme colors.                                                                                                                                                                                                                                                                                    | `boolean`                                  | `false`                      |
 | `open`            | `open`             | Indicates that the navigation is visible in a viewport which is smaller than the value of the `breakpoint` prop.                                                                                                                                                                                                                                                            | `boolean`                                  | `false`                      |
 | `ref`             | `ref`              | reference to component                                                                                                                                                                                                                                                                                                                                                      | `any`                                      | `undefined`                  |
 | `trapFocus`       | `trap-focus`       | Enables focus trapping. Accespts a CSS selector which indicates what is still focusable outside the sidenav, when the sidenav is closable and open (i.e. "ld-header *"). Use an empty string to enable focus trapping without specifying focusable elements outside the sidenav component.                                                                                  | `string`                                   | `undefined`                  |

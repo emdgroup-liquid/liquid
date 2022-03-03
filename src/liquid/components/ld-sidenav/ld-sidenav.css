@@ -27,6 +27,10 @@
     }
   }
 
+  &(.ld-sidenav--neutral) {
+    --ld-sidenav-subnav-bg-color: var(--ld-col-neutral-050);
+  }
+
   position: var(--ld-sidenav-position, fixed);
   top: 0;
   bottom: 0;

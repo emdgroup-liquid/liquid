@@ -8663,6 +8663,19 @@
       "isMobile": false
     },
     {
+      "id": "5fae3b76",
+      "image": "8f6ba2f19ba4ef1899f0ea69725694ae.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation neutral mode uses neutral background color",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "9e87791c",
       "image": "a67f8d63ff0b390550051c6726726726.png",
       "userAgent": "default",

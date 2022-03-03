@@ -225,6 +225,25 @@ describe('ld-sidenav', () => {
         expect(result).toMatchScreenshot()
       })
     })
+
+    describe('neutral mode', () => {
+      it('uses neutral background color', async () => {
+        const page = await getPageWithContent(
+          getSidenavWithSubnavigation({
+            currentSubnav: 'artificial-intelligence',
+            neutral: true,
+          })
+        )
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        page.waitForChanges()
+        await new Promise((resolve) => setTimeout(resolve, 100))
+
+        const result = await page.compareScreenshot()
+        expect(result).toMatchScreenshot()
+      })
+    })
   })
 
   describe('with subnavigation aligned to the right', () => {

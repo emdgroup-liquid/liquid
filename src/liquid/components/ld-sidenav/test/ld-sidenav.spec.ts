@@ -114,6 +114,14 @@ describe('ld-sidenav', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('applies neutral class', async () => {
+    const page = await newSpecPage({
+      components: [LdSidenav],
+      html: '<ld-sidenav neutral></ld-sidenav>',
+    })
+    expect(page.root).toHaveClass('ld-sidenav--neutral')
+  })
+
   describe('collapsible mode', () => {
     beforeAll(() => {
       matchMedia = new MatchMediaMock()
