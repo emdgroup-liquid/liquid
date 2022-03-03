@@ -44,14 +44,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         <mock:shadow-root>
           <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
           <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
             <mock:shadow-root>
-              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              <hr class="ld-sidenav-separator-line" part="hr">
             </mock:shadow-root>
           </ld-sidenav-separator>
-          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
             <mock:shadow-root>
-              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              <hr class="ld-sidenav-separator-line" part="hr">
             </mock:shadow-root>
           </ld-sidenav-separator>
           <slot></slot>
@@ -117,14 +117,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         <mock:shadow-root>
           <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
           <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
             <mock:shadow-root>
-              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              <hr class="ld-sidenav-separator-line" part="hr">
             </mock:shadow-root>
           </ld-sidenav-separator>
-          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+          <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
             <mock:shadow-root>
-              <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+              <hr class="ld-sidenav-separator-line" part="hr">
             </mock:shadow-root>
           </ld-sidenav-separator>
           <slot></slot>
@@ -360,9 +360,9 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </mock:shadow-root>
       Databases
     </ld-sidenav-navitem>
-    <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+    <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
-        <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+        <hr class="ld-sidenav-separator-line" part="hr">
       </mock:shadow-root>
     </ld-sidenav-separator>
     <ld-sidenav-navitem to="programming-languages-and-compilers" style="--ld-slider-navitem-move-up: -NaNpx;">
@@ -460,14 +460,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -605,14 +605,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -696,14 +696,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -757,9 +757,9 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Automated reasoning
       </ld-sidenav-navitem>
-      <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+          <hr class="ld-sidenav-separator-line" part="hr">
         </mock:shadow-root>
       </ld-sidenav-separator>
       <ld-sidenav-navitem href="https://en.wikipedia.org/wiki/Computer_vision" mode="secondary" target="_blank" style="--ld-slider-navitem-move-up: -NaNpx;">
@@ -803,9 +803,9 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Soft computing
       </ld-sidenav-navitem>
-      <ld-sidenav-separator style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <hr class="ld-sidenav-separator ld-sidenav-separator--collapsed" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+          <hr class="ld-sidenav-separator-line" part="hr">
         </mock:shadow-root>
       </ld-sidenav-separator>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
@@ -853,14 +853,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             <mock:shadow-root>
               <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
               <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
                 <mock:shadow-root>
-                  <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                  <hr class="ld-sidenav-separator-line" part="hr">
                 </mock:shadow-root>
               </ld-sidenav-separator>
-              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+              <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
                 <mock:shadow-root>
-                  <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                  <hr class="ld-sidenav-separator-line" part="hr">
                 </mock:shadow-root>
               </ld-sidenav-separator>
               <slot></slot>
@@ -923,14 +923,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1011,14 +1011,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1080,14 +1080,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1168,14 +1168,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1256,14 +1256,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1344,14 +1344,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1470,14 +1470,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1634,14 +1634,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
@@ -1798,14 +1798,14 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <mock:shadow-root>
             <div class="ld-sidenav-scroller-internal__shadow-top" part="shadow-top" style="opacity: 0;"></div>
             <div class="ld-sidenav-scroller-internal__shadow-bottom" part="shadow-bottom" style="opacity: 0;"></div>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-top ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
-            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom" style="opacity: 1;">
+            <ld-sidenav-separator class="ld-sidenav-scroller-internal__hr-bottom ld-sidenav-separator" style="opacity: 1; --ld-sidenav-separator-scale-x-collapsed: 1;">
               <mock:shadow-root>
-                <hr class="ld-sidenav-separator" part="hr" style="--ld-sidenav-separator-scale-x-collapsed: 1;">
+                <hr class="ld-sidenav-separator-line" part="hr">
               </mock:shadow-root>
             </ld-sidenav-separator>
             <slot></slot>
