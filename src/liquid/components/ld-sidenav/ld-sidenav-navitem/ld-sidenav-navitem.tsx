@@ -69,7 +69,6 @@ export class LdSidenavNavitem implements InnerFocusable {
   @State() abbreviation: string
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
-  @State() scaleXCollapsed: number
 
   /**
    * Sets focus on the anchor or button
@@ -127,30 +126,6 @@ export class LdSidenavNavitem implements InnerFocusable {
     ) {
       this.abbreviation = this.getabbreviation()
     }
-    this.scaleXCollapsed = this.computeScaleXCollapsed()
-  }
-
-  private computeScaleXCollapsed = () => {
-    const bgInset = 6
-    const sidenavWidth = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-width')
-    )
-    const sidenavPaddingY = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-padding-y')
-    )
-    const sidenavWidthCollapsed = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-width-collapsed')
-    )
-    return (
-      (sidenavWidthCollapsed - 2 * sidenavPaddingY) /
-      (sidenavWidth - 2 * sidenavPaddingY + bgInset / 2)
-    )
   }
 
   render() {
@@ -168,10 +143,6 @@ export class LdSidenavNavitem implements InnerFocusable {
 
     return (
       <Tag
-        style={{
-          '--ld-sidenav-navitem-scale-x-collapsed':
-            this.scaleXCollapsed.toString(),
-        }}
         part="navitem focusable"
         class={cl}
         href={this.href}

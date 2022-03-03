@@ -75,14 +75,12 @@
 .ld-sidenav-back__bg {
   position: absolute;
   inset: calc(-1 * var(--ld-sidenav-back-bg-inset));
-  border-radius: calc(
-    var(--ld-sidenav-back-border-radius) + var(--ld-sidenav-back-bg-inset)
-  );
   display: block;
   opacity: 0.2;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
     transform var(--ld-sidenav-transition-duration) ease;
+  pointer-events: none;
 }
 
 /*
@@ -104,30 +102,31 @@ That's why we set z-index 0 on the following elements.
   top: 0;
   bottom: 0;
   transition: transform var(--ld-sidenav-transition-duration) ease;
+  pointer-events: all;
 }
 
 .ld-sidenav-back__bg-left,
 .ld-sidenav-back__bg-right {
-  width: var(--ld-sp-12);
+  width: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
 }
 
 .ld-sidenav-back__bg-left {
   left: 0;
   border-bottom-left-radius: calc(
-    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-6)
   );
   border-top-left-radius: calc(
-    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-6)
   );
 }
 
 .ld-sidenav-back__bg-right {
   right: 0;
   border-bottom-right-radius: calc(
-    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-6)
   );
   border-top-right-radius: calc(
-    var(--ld-sidenav-back-border-radius) + var(--ld-sp-12)
+    var(--ld-sidenav-back-border-radius) + var(--ld-sp-6)
   );
 
   .ld-sidenav-back--collapsed & {
@@ -136,12 +135,12 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-back__bg-center {
-  left: var(--ld-sp-12);
-  right: var(--ld-sp-12);
+  left: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
+  right: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
   transform-origin: left;
 
   .ld-sidenav-back--collapsed & {
-    transform: scaleX(var(--ld-sidenav-back-scale-x-collapsed));
+    transform: scaleX(0);
   }
 }
 

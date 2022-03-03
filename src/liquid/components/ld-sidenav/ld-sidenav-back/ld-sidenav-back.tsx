@@ -36,7 +36,6 @@ export class LdSidenavBack {
   @State() rounded = false
   @State() sidenavCollapsed: boolean
   @State() sidenavClosable: boolean
-  @State() scaleXCollapsed: number
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
   handleSidenavCollapsedChange(ev) {
@@ -73,30 +72,6 @@ export class LdSidenavBack {
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
     this.rounded = !!this.el.querySelector('ld-sidenav-navitem[rounded]')
-    this.scaleXCollapsed = this.computeScaleXCollapsed()
-  }
-
-  private computeScaleXCollapsed = () => {
-    const bgInset = 6
-    const sidenavWidth = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-width')
-    )
-    const sidenavPaddingY = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-padding-y')
-    )
-    const sidenavWidthCollapsed = parseFloat(
-      window
-        .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-width-collapsed')
-    )
-    return (
-      (sidenavWidthCollapsed - 2 * sidenavPaddingY) /
-      (sidenavWidth - 2 * sidenavPaddingY + bgInset / 2)
-    )
   }
 
   render() {
@@ -111,10 +86,6 @@ export class LdSidenavBack {
 
     return (
       <div
-        style={{
-          '--ld-sidenav-back-scale-x-collapsed':
-            this.scaleXCollapsed.toString(),
-        }}
         tabIndex={this.parentLabel ? 0 : undefined}
         role={this.parentLabel ? 'button' : undefined}
         aria-label={this.backLabel}
