@@ -301,6 +301,11 @@ export class LdSidenav {
       }
     }
 
+    // If focus is inside the sidenav expand the sidenav.
+    if (isFocusInSidenav) {
+      this.collapsed = false
+    }
+
     // If the sidenav is closable, trap the focus.
     // Do not trap the focus as long as the sidenav is not closable or not open.
     if (!this.closable || !this.open) return

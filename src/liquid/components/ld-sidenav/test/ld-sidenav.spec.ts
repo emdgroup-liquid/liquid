@@ -181,6 +181,28 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     })
 
+    it('expands on focus inside', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav collapsible collapsed>
+          <button>foobar</button>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const button = ldSidenav.querySelector('button')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: button,
+        bubbles: true,
+      } as unknown as FocusEvent
+      ldSidenav.dispatchEvent(ev)
+      await page.waitForChanges()
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    })
+
     it('collapses on toggle', async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
