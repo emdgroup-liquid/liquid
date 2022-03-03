@@ -22,17 +22,26 @@
     .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-dark.svg');
     }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rb);
+    }
   }
   .docs-nav__summary--globals,
   .docs-nav__summary--globals + ul .docs-nav__summary {
     .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-globals-dark.svg');
     }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rp);
+    }
   }
   .docs-nav__summary--components,
   .docs-nav__summary--components + ul .docs-nav__summary {
     .docs-nav__arrow {
       background-image: url('dist/build/assets/chevron-components-dark.svg');
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-rg);
     }
   }
   .docs-nav__li--active .docs-nav__summary--introduction {
@@ -62,11 +71,6 @@
     a:hover,
     &.docs-nav__li--active {
       color: var(--ld-col-wht);
-    }
-  }
-  .docs-nav__summary {
-    .docs-nav__summary-toggle {
-      display: block;
     }
   }
   .docs-nav__summary--introduction,
@@ -156,7 +160,7 @@
   pointer-events: all;
   bottom: 0;
   height: calc(100% - var(--docs-topbar-height));
-  overflow: hidden auto;
+  overflow: hidden scroll;
   overscroll-behavior: contain;
   padding: var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-32);
   position: fixed;
@@ -254,7 +258,6 @@
 }
 
 .docs-nav__summary-toggle {
-  display: none;
   position: absolute;
   right: 0;
   top: calc(-1 * var(--ld-sp-1));
