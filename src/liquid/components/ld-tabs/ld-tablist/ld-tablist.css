@@ -1,4 +1,7 @@
 :host {
+  /* layout */
+  --ld-tablist-max-height: 2.5rem;
+
   /* colors */
   --ld-tablist-border-col: var(--ld-col-neutral-100);
   --ld-tablist-border-height: 0.1875rem;
@@ -32,6 +35,9 @@
   overflow: hidden;
   z-index: 0;
   background-color: var(--ld-tablist-btn-scroll-bg-col);
+  max-height: var(
+    --ld-tablist-max-height
+  ); /* required to fix scrollbar issue on windows */
 
   &::after {
     content: '';
@@ -62,20 +68,28 @@
     --ld-tab-indicator-height: var(--ld-tablist-border-height);
   }
 
-  &--sm ::slotted(ld-tab) {
-    --ld-tab-font: var(--ld-typo-body-s);
-    --ld-tab-gap: 0.375rem;
-    --ld-tab-min-height: 2rem;
-    --ld-tab-padding-x: 0.625rem;
-    --ld-tab-padding-y: 0.5rem;
+  &--sm {
+    --ld-tablist-max-height: 2rem;
+
+    ::slotted(ld-tab) {
+      --ld-tab-font: var(--ld-typo-body-s);
+      --ld-tab-gap: 0.375rem;
+      --ld-tab-min-height: 2rem;
+      --ld-tab-padding-x: 0.625rem;
+      --ld-tab-padding-y: 0.5rem;
+    }
   }
 
-  &--lg ::slotted(ld-tab) {
-    --ld-tab-font: var(--ld-typo-body-l);
-    --ld-tab-gap: 0.875rem;
-    --ld-tab-min-height: 3.125rem;
-    --ld-tab-padding-x: 1.3125rem;
-    --ld-tab-padding-y: 0.75rem;
+  &--lg {
+    --ld-tablist-max-height: 3.125rem;
+
+    ::slotted(ld-tab) {
+      --ld-tab-font: var(--ld-typo-body-l);
+      --ld-tab-gap: 0.875rem;
+      --ld-tab-min-height: 3.125rem;
+      --ld-tab-padding-x: 1.3125rem;
+      --ld-tab-padding-y: 0.75rem;
+    }
   }
 
   &--ghost {
