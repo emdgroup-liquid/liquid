@@ -1,0 +1,102 @@
+:host {
+  --ld-scroll-shadow-height: 1.5rem;
+  --ld-scroll-shadow-intensity: 0.1;
+  overflow: auto;
+  overscroll-behavior: contain;
+  height: 100%;
+  width: 100%;
+  padding-right: var(--ld-sp-32);
+  display: flex;
+  flex-direction: column;
+
+  ::slotted(ld-sidenav-navitem) {
+    margin: var(--ld-sidenav-padding-y) 0 0;
+  }
+
+  ::slotted(ld-sidenav-navitem:last-of-type) {
+    margin-bottom: var(--ld-sidenav-padding-y);
+  }
+
+  &(.ld-sidenav-scroller-internal--relative) {
+    position: relative;
+
+    .ld-sidenav-scroller-internal__hr-top,
+    .ld-sidenav-scroller-internal__hr-bottom {
+      position: sticky;
+    }
+  }
+
+  &(.ld-sidenav-scroller-internal--collapsed) {
+    .ld-sidenav-scroller-internal__shadow-top,
+    .ld-sidenav-scroller-internal__shadow-bottom {
+      transform: translateX(
+        calc(
+          var(--ld-sidenav-translate-x-direction) *
+            (50% - (0.5 * var(--ld-sidenav-width-collapsed)))
+        )
+      );
+    }
+  }
+}
+
+.ld-sidenav-scroller-internal__shadow-top,
+.ld-sidenav-scroller-internal__shadow-bottom {
+  position: sticky;
+  pointer-events: none;
+  height: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  left: 0;
+  transition: opacity var(--ld-sidenav-transition-duration) linear,
+    transform var(--ld-sidenav-transition-duration) ease;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: var(--ld-scroll-shadow-height);
+  }
+}
+
+.ld-sidenav-scroller-internal__shadow-top {
+  top: 0;
+
+  &::after {
+    background: radial-gradient(
+        farthest-side at 50% 0,
+        rgb(0, 0, 0, var(--ld-scroll-shadow-intensity)),
+        rgb(0, 0, 0, 0)
+      )
+      0 100% no-repeat;
+  }
+}
+
+.ld-sidenav-scroller-internal__shadow-bottom {
+  top: 100%;
+
+  &::after {
+    background: radial-gradient(
+        farthest-side at 50% 100%,
+        rgb(0, 0, 0, var(--ld-scroll-shadow-intensity)),
+        rgb(0, 0, 0, 0)
+      )
+      0 100% no-repeat;
+    transform: translateY(-100%);
+  }
+}
+
+.ld-sidenav-scroller-internal__hr-top,
+.ld-sidenav-scroller-internal__hr-bottom {
+  margin-top: 0;
+  position: absolute;
+  width: calc(100% - 2 * var(--ld-sidenav-padding-y));
+}
+
+.ld-sidenav-scroller-internal__hr-top {
+  top: 0;
+}
+
+.ld-sidenav-scroller-internal__hr-bottom {
+  top: calc(100% - var(--ld-sp-1) * 1.5);
+}

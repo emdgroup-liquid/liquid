@@ -1,7 +1,10 @@
 declare global {
   namespace jest {
     interface Matchers<R> {
-      toHaveNoAccessibilityIssues(): R
+      toHaveNoAccessibilityIssues(options?: {
+        violationsThreshold?: number
+        incompleteThreshold?: number
+      }): R
     }
   }
 

@@ -12,6 +12,7 @@ export function makeInert(el: HTMLElement) {
   }
 
   if (el.children) Array.from(el.children).forEach(makeInert)
+  if (el.shadowRoot) Array.from(el.shadowRoot.children).forEach(makeInert)
 }
 
 export function unmakeInert(el: HTMLElement) {
@@ -36,4 +37,5 @@ export function unmakeInert(el: HTMLElement) {
   }
 
   if (el.children) Array.from(el.children).forEach(unmakeInert)
+  if (el.shadowRoot) Array.from(el.shadowRoot.children).forEach(unmakeInert)
 }

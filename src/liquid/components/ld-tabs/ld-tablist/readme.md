@@ -9,7 +9,7 @@ permalink: components/ld-tabs/ld-tablist/
 
 # ld-tablist
 
-The `ld-tablist` component is a sub-component for `ld-tabs`.
+The `ld-tablist` component is a subcomponent for `ld-tabs`.
 
 Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage examples.
 

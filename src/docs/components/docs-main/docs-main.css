@@ -300,7 +300,7 @@
     }
 
     > table {
-      --table-cell-width-sm: 12rem;
+      --table-cell-width-sm: 14rem;
       --table-cell-width: 20rem;
       --table-cell-width-lg: 30rem;
       overflow-x: scroll;
