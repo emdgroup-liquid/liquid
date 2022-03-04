@@ -1,0 +1,59 @@
+:host {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(100%);
+  display: none;
+  z-index: 1; /* makes the scrollbar of the parent scroll-container disappear, */
+  background: var(
+    --ld-sidenav-bg-color
+  ); /* which only works with a background color */
+  visibility: hidden;
+
+  &(.ld-sidenav-subnav--active) {
+    display: block;
+  }
+
+  ::slotted(:where(:not(ld-sidenav-separator):not(ld-sidenav-navitem):not(ld-sidenav-subnav))) {
+    margin-top: var(--ld-sidenav-padding-y);
+    transition: opacity var(--ld-sidenav-transition-duration)
+        var(--ld-sidenav-transition-delay) linear,
+      transform var(--ld-sidenav-transition-duration) ease;
+    will-change: opacity, transform; /* fixes flickering on slide */
+  }
+
+  ::slotted(.ld-sidenav-subnav__hidden) {
+    transition: opacity var(--ld-sidenav-transition-duration) linear,
+      visibility 0s var(--ld-sidenav-transition-duration) linear,
+      transform var(--ld-sidenav-transition-duration) ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
+  }
+}
+
+.ld-sidenav-subnav__background {
+  opacity: 0;
+  transition: opacity var(--ld-sidenav-transition-duration) linear;
+  position: absolute;
+  inset: 0;
+  background-color: var(--ld-sidenav-bg-color);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--ld-sidenav-subnav-bg-color);
+  }
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+:host(.ld-sidenav-subnav--has-parent-subnav) {
+  .ld-sidenav-subnav__background {
+    opacity: 1;
+  }
+}

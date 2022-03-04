@@ -18,7 +18,7 @@ A background pattern with the Merck cells as additional visual element.
 
 ## Default
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells class="box1-16/9"></ld-bg-cells>
 
 <style>
@@ -32,62 +32,62 @@ A background pattern with the Merck cells as additional visual element.
 
 ### bioreliance
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="bioreliance" style="height: 16rem;">
 </ld-bg-cells>
 {% endexample %}
 
 ### f
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="f" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### hexagon
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="hexagon" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### millipore
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="millipore" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### qa
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="qa-x2f-qc" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### safc
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="safc" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### sigma
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="sigma-aldrich" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### t
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="t" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ### tile
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="tile" style="height: 16rem;"></ld-bg-cells>
 {% endexample %}
 
 ## Custom position, size and colors
 
-{% example '{ "hasPadding": false }' %}
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells class="box3-16/9"></ld-bg-cells>
 
 <style>

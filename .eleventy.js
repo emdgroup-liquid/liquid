@@ -138,6 +138,7 @@ module.exports = function (eleventyConfig) {
     const defaultConfig = {
       background: undefined,
       centered: false,
+      hasBorder: true,
       hasPadding: true,
       highlight: undefined,
       highlightCssComponent: undefined,
@@ -164,7 +165,11 @@ module.exports = function (eleventyConfig) {
       output += ` background="${finalConfig.background}"`
     }
     output += `${finalConfig.themable ? ' themable' : ''}`
+    output += `${finalConfig.hasBorder ? ' has-border' : ''}`
     output += `${finalConfig.hasPadding ? ' has-padding' : ''}`
+    if (finalConfig.styles) {
+      output += ` styles='${JSON.stringify(finalConfig.styles)}'`
+    }
     output += '>\n'
     output += `<div slot="code">\n\n`
     output += `\`\`\`${finalConfig.lang}${

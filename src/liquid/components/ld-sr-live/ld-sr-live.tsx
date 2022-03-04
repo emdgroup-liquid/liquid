@@ -25,7 +25,6 @@ export class LdSrLive {
     // in order to repeat an alert message, without altering the printed message displayed on the screen.
     this.infoSuffix = this.infoSuffix ? '' : '​'
     this.info = event.detail + this.infoSuffix
-    event.stopImmediatePropagation()
   }
 
   @Listen('ldSrLiveAlert', {
@@ -37,7 +36,6 @@ export class LdSrLive {
     // in order to repeat an alert message, without altering the printed message displayed on the screen.
     this.alertSuffix = this.alertSuffix ? '' : '​'
     this.alert = event.detail + this.alertSuffix
-    event.stopImmediatePropagation()
   }
 
   render() {
