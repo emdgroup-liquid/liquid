@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0...v1.1.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* **ld-tabs:** scrollbar issue on windows ([552b2e3](https://github.com/emdgroup-liquid/liquid/commit/552b2e37705698f1e2665609c5445ef696ebe19a))
+
+
+### Features
+
+* **ld-sidenav:** implement side navigation component ([a3a2633](https://github.com/emdgroup-liquid/liquid/commit/a3a26330e3bc63e912d69b49a27976777ca32f4f))
+
 # 1.0.0 (2022-02-09)
 
 
