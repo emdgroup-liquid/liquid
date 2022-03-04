@@ -152,7 +152,7 @@ export class LdSidenav {
       ['clickoutside', 'mouseout'].includes(this.collapseTrigger) &&
       (ev.target as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
-      this.collapsed = this.collapsible && true
+      this.collapsed = this.collapsible
     }
   }
 
@@ -163,7 +163,7 @@ export class LdSidenav {
       ev.relatedTarget &&
       (ev.relatedTarget as HTMLElement).closest('ld-sidenav') !== this.el
     ) {
-      this.collapsed = this.collapsible && true
+      this.collapsed = this.collapsible
     }
   }
 
@@ -303,7 +303,7 @@ export class LdSidenav {
     // to 'mouseout', collapse the sidenav.
     if (!isFocusInSidenav && relatedTarget !== null) {
       if (this.collapseTrigger === 'mouseout') {
-        this.collapsed = this.collapsible && true
+        this.collapsed = this.collapsible
       }
     }
 
