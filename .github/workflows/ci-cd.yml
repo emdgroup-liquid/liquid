@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn set version stable
+          yarn set version 3.2.0
           yarn install --immutable
 
       - name: Build
@@ -123,7 +123,7 @@ jobs:
         run: |
           yarn config delete proxy
           yarn config delete https-proxy
-          yarn set version stable
+          yarn set version 3.2.0
           yarn install --immutable --network-timeout 100000
         env:
           CI: true
