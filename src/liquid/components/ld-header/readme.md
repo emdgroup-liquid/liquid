@@ -82,14 +82,14 @@ You can easily make the header sticky and make it hide when the user is scrollin
     Liquid<span class="hide-on-sm"> Oxygen</span>
   </ld-typo>
   <ld-button id="register" slot="end" type="button">
-    <ld-icon name="pen"></ld-icon>
+    <ld-icon name="pen" size="sm"></ld-icon>
     Register
   </ld-button>
   <ld-button id="login-sm" mode="ghost" slot="end" title="Login" type="button">
     <ld-icon aria-label="Login" name="user" size="lg"></ld-icon>
   </ld-button>
   <ld-button id="login-lg" mode="secondary" slot="end" type="button">
-    <ld-icon name="user"></ld-icon>
+    <ld-icon name="user" size="sm"></ld-icon>
     Login
   </ld-button>
 </ld-header>

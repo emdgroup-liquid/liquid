@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Method,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core'
+import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
@@ -175,25 +167,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     }
   }
 
-  @Watch('size')
-  private updateIconSize() {
-    this.el.querySelectorAll('ld-icon').forEach((icon) => {
-      icon.size = this.size
-    })
-
-    this.el.querySelectorAll('.ld-icon').forEach((icon) => {
-      if (this.size === 'lg') {
-        icon.classList.remove('ld-icon--sm')
-        icon.classList.add('ld-icon--lg')
-      } else if (this.size === 'sm') {
-        icon.classList.remove('ld-icon--lg')
-        icon.classList.add('ld-icon--sm')
-      } else {
-        icon.classList.remove('ld-icon--sm', 'ld-icon--lg')
-      }
-    })
-  }
-
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
       'align-text',
@@ -211,8 +184,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     if (!textInButton) {
       this.iconOnly = true
     }
-
-    this.updateIconSize()
   }
 
   render() {

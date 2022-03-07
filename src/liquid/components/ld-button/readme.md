@@ -187,7 +187,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% example %}
 <ld-button size="sm">
-  <ld-icon name="placeholder" aria-label="Text"></ld-icon>
+  <ld-icon name="placeholder" size="sm" aria-label="Text"></ld-icon>
 </ld-button>
 
 <ld-button>
@@ -195,11 +195,11 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </ld-button>
 
 <ld-button size="lg">
-  <ld-icon name="placeholder" aria-label="Text"></ld-icon>
+  <ld-icon name="placeholder" size="lg" aria-label="Text"></ld-icon>
 </ld-button>
 
 <ld-button mode="highlight" size="sm">
-  <ld-icon name="placeholder"></ld-icon>
+  <ld-icon name="placeholder" size="sm"></ld-icon>
   Text
 </ld-button>
 
@@ -209,7 +209,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 </ld-button>
 
 <ld-button mode="secondary" size="lg">
-  <ld-icon name="placeholder"></ld-icon>
+  <ld-icon name="placeholder" size="lg"></ld-icon>
   Text
 </ld-button>
 
