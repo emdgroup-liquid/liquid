@@ -61,7 +61,7 @@ describe('ld-header', () => {
       const page = await getPageWithContent(`
         <ld-header site-name="Liquid Oxygen">
           <ld-button slot="end" type="button">
-            <ld-icon name="pen"></ld-icon>
+            <ld-icon name="pen" size="sm"></ld-icon>
             Register
           </ld-button>
           <ld-button mode="ghost" slot="end" title="Login" type="button">
