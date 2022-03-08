@@ -516,7 +516,7 @@ describe('ld-button', () => {
   describe('sizes', () => {
     it('sm', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="sm">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
+        '<ld-button size="sm">Text<ld-icon name="placeholder" size="sm"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -526,7 +526,7 @@ describe('ld-button', () => {
     })
     it('lg', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="lg">Text<ld-icon name="placeholder"></ld-icon></ld-button>'
+        '<ld-button size="lg">Text<ld-icon name="placeholder" size="lg"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -543,7 +543,7 @@ describe('ld-button', () => {
     })
     it('icon button sm', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="sm"><ld-icon name="placeholder"></ld-icon><ld-sr-only>Text</ld-sr-only></ld-button>'
+        '<ld-button size="sm"><ld-icon name="placeholder" size="sm"></ld-icon><ld-sr-only>Text</ld-sr-only></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -553,7 +553,7 @@ describe('ld-button', () => {
     })
     it('icon button lg', async () => {
       const page = await getPageWithContent(
-        '<ld-button size="lg"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder"></ld-icon></ld-button>'
+        '<ld-button size="lg"><ld-sr-only>Text</ld-sr-only><ld-icon name="placeholder" size="lg"></ld-icon></ld-button>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -572,7 +572,7 @@ describe('ld-button', () => {
       })
       it('sm', async () => {
         const page = await getPageWithContent(
-          '<ld-button mode="ghost" size="sm"><ld-icon name="placeholder"></ld-icon></ld-button>'
+          '<ld-button mode="ghost" size="sm"><ld-icon name="placeholder" size="sm"></ld-icon></ld-button>'
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')
@@ -582,7 +582,7 @@ describe('ld-button', () => {
       })
       it('lg', async () => {
         const page = await getPageWithContent(
-          '<ld-button mode="ghost" size="lg"><ld-icon name="placeholder"></ld-icon></ld-button>'
+          '<ld-button mode="ghost" size="lg"><ld-icon name="placeholder" size="lg"></ld-icon></ld-button>'
         )
         await page.keyboard.press('Tab')
         await page.keyboard.down('Space')

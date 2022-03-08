@@ -4868,7 +4868,7 @@
     },
     {
       "id": "ca9066cc",
-      "image": "09f7fa27b7b500cc3f24235d7c366b15.png",
+      "image": "43cf8a51e169d42b8f315ccb156a3840.png",
       "userAgent": "default",
       "desc": "ld-header web component with burger menu button",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
@@ -4881,7 +4881,7 @@
     },
     {
       "id": "1a616c12",
-      "image": "f9a08104d9e3b30020536be6a00a8f2c.png",
+      "image": "76dd65b5eced693eda0e0e035766f6e6.png",
       "userAgent": "default",
       "desc": "ld-header web component with buttons",
       "testPath": "./src/liquid/components/ld-header/test/ld-header.e2e.ts",
