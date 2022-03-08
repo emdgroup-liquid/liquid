@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/emdgroup-liquid/liquid/compare/v1.1.0...v1.2.0) (2022-03-08)
+
+
+### Bug Fixes
+
+* **ld-button:** remove implicit icon size ([67a86a6](https://github.com/emdgroup-liquid/liquid/commit/67a86a624dc1908bfdfc7d90367a28a1d3e3cddf))
+* **ld-tabs:** scrollbar issue on windows ([a0fe251](https://github.com/emdgroup-liquid/liquid/commit/a0fe251d9e1d99f88823e9317a8f2115a7bbbd14))
+
+
+### Features
+
+* **ld-sidenav:** implement side navigation component ([e7b2abf](https://github.com/emdgroup-liquid/liquid/commit/e7b2abfb12a00ff77b2fe5160dd5bad5c40f430e))
+
 # [1.1.0](https://github.com/emdgroup-liquid/liquid/compare/v1.0.0...v1.1.0) (2022-03-04)
 
 
