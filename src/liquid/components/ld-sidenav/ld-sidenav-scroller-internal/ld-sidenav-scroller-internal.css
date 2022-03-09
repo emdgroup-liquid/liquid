@@ -1,7 +1,7 @@
 :host {
   --ld-scroll-shadow-height: 1.5rem;
   --ld-scroll-shadow-intensity: 0.1;
-  overflow: auto;
+  overflow: hidden auto;
   overscroll-behavior: contain;
   height: 100%;
   width: 100%;
@@ -11,6 +11,7 @@
 
   ::slotted(ld-sidenav-navitem) {
     margin: var(--ld-sidenav-padding-y) 0 0;
+    will-change: opacity; /* prevents flickering on transition in Safari */
   }
 
   ::slotted(ld-sidenav-navitem:last-of-type) {
