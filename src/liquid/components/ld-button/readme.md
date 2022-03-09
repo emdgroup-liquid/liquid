@@ -109,7 +109,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 ### On brand color
 
-{% example '{ "background": "brand" }' %}
+{% example '{ "background": "brand", "hasBorder": false }' %}
 <ld-button brand-color>Text</ld-button>
 
 <ld-button brand-color disabled>Text</ld-button>
