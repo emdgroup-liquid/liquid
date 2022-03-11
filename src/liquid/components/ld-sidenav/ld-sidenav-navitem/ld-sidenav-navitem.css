@@ -226,6 +226,7 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__dot {
+  align-self: start;
   display: none;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
@@ -341,19 +342,27 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__slot-container {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  padding-right: var(--ld-sp-6);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  line-height: 1.15;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
     transform var(--ld-sidenav-transition-duration) ease;
+  overflow: hidden;
+  padding-right: var(--ld-sp-6);
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
     transition: opacity var(--ld-sidenav-transition-duration) linear,
       transform var(--ld-sidenav-transition-duration) ease;
+  }
+
+  .ld-sidenav-navitem--secondary &,
+  .ld-sidenav-navitem--tertiary & {
+    align-self: start;
+    padding: var(--ld-sp-4) 0;
   }
 }
 

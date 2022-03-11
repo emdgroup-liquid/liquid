@@ -475,6 +475,26 @@ describe('ld-sidenav', () => {
       expect(result).toMatchScreenshot()
     })
 
+    it('truncates long titles', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
     it('is active and has hover state', async () => {
       const page = await getPageWithContent(
         `
