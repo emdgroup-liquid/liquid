@@ -8533,6 +8533,19 @@
       "isMobile": false
     },
     {
+      "id": "b5cd2a68",
+      "image": "4f4f3ca98fa0116adc84e971ba67f9ab.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item truncates long titles",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "83af979a",
       "image": "c43a4d5e85913ed757e1d9084f9439d5.png",
       "userAgent": "default",
