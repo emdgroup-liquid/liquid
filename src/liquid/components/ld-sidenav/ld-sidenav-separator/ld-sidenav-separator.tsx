@@ -50,20 +50,17 @@ export class LdSidenavSeparator {
         .getComputedStyle(this.sidenav)
         .getPropertyValue('--ld-sidenav-width')
     )
-    const sidenavPaddingY = parseFloat(
+    const sidenavPaddingX = parseFloat(
       window
         .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-padding-y')
+        .getPropertyValue('--ld-sidenav-padding-x')
     )
-    const sidenavWidthCollapsed = parseFloat(
+    const sidenavNavitemIconSize = parseFloat(
       window
         .getComputedStyle(this.sidenav)
-        .getPropertyValue('--ld-sidenav-width-collapsed')
+        .getPropertyValue('--ld-sidenav-navitem-icon-size')
     )
-    return (
-      (sidenavWidthCollapsed - 2 * sidenavPaddingY) /
-      (sidenavWidth - 2 * sidenavPaddingY)
-    )
+    return sidenavNavitemIconSize / (sidenavWidth - 2 * sidenavPaddingX)
   }
 
   componentWillLoad() {

@@ -2,7 +2,7 @@
   /* layout */
   --ld-sidenav-back-bg-inset: var(--ld-sp-6);
   --ld-sidenav-back-border-radius: var(--ld-br-l);
-  --ld-sidenav-back-icon-size: var(--ld-sp-40);
+  --ld-sidenav-back-icon-size: var(--ld-sp-24);
 
   /* colors */
   --ld-sidenav-back-col: var(--ld-col-neutral-800);
@@ -107,7 +107,7 @@ That's why we set z-index 0 on the following elements.
 
 .ld-sidenav-back__bg-left,
 .ld-sidenav-back__bg-right {
-  width: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
+  width: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
 }
 
 .ld-sidenav-back__bg-left {
@@ -135,8 +135,8 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-back__bg-center {
-  left: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
-  right: calc(0.5 * var(--ld-sidenav-back-icon-size) + var(--ld-sp-6));
+  left: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
+  right: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
   transform-origin: left;
 
   .ld-sidenav-back--collapsed & {
@@ -154,7 +154,7 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-back__icon {
-  width: var(--ld-sidenav-back-icon-size);
+  width: var(--ld-sidenav-navitem-icon-size);
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -168,12 +168,13 @@ That's why we set z-index 0 on the following elements.
 
   &::before {
     content: '';
-    position: absolute;
-    inset: var(--ld-sp-8);
     background-color: var(--ld-thm-primary-active);
-    z-index: -1;
     border-radius: var(--ld-br-full);
+    height: var(--ld-sidenav-back-icon-size);
     overflow: hidden;
+    position: absolute;
+    width: var(--ld-sidenav-back-icon-size);
+    z-index: -1;
   }
 }
 
