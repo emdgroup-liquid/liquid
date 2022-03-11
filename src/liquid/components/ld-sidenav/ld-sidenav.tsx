@@ -317,7 +317,7 @@ export class LdSidenav {
     if (!this.closable || !this.open) return
 
     // Do not trap the focus if the trap focus prop is not set.
-    if (typeof this.trapFocus === 'undefined') return
+    if (this.trapFocus === undefined) return
 
     // Do not trap the focus as long as the focus remains within the sidenav.
     if (isFocusInSidenav) return
