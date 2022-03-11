@@ -4,7 +4,6 @@
 
 .ld-sidenav-navitem {
   /* layout */
-  --ld-sidenav-navitem-icon-size: var(--ld-sp-40);
   --ld-sidenav-navitem-icon-font-size: 1rem;
   --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
   --ld-sidenav-navitem-border-radius: var(--ld-br-l);

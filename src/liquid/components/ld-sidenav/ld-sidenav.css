@@ -4,12 +4,20 @@
   --ld-sidenav-padding-x: 1rem;
   --ld-sidenav-padding-y: 1rem;
   --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
-  --ld-sidenav-toggle-top: 3.5rem;
+  --ld-sidenav-toggle-top: calc(
+    var(--ld-sidenav-padding-y) + var(--ld-sidenav-navitem-icon-size)
+  );
+
+  /* layout ld-navitem */
+  --ld-sidenav-navitem-icon-size: var(--ld-sp-32);
+
   /* Not using 0s here because we rely on the transition end event. */
   --ld-sidenav-transition-duration: 0.001s;
   --ld-sidenav-transition-delay: 0s;
   --ld-sidenav-width: 15.625rem;
-  --ld-sidenav-width-collapsed: 4.5rem;
+  --ld-sidenav-width-collapsed: calc(
+    2 * var(--ld-sidenav-padding-x) + var(--ld-sidenav-navitem-icon-size)
+  );
   --ld-sidenav-width-fully-collapsed: 1rem;
   --ld-sidenav-translate-x-direction: 1;
   --ld-sidenav-translate-x-delta: calc(
