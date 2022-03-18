@@ -220,7 +220,7 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__dot {
-  align-self: start;
+  align-self: center;
   display: none;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
@@ -314,6 +314,8 @@ That's why we set z-index 0 on the following elements.
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   display: -webkit-box;
+  max-height: 2.125rem;
+  text-overflow: ellipsis;
   line-height: 1.15;
   transition: opacity var(--ld-sidenav-transition-duration)
       var(--ld-sidenav-transition-delay) linear,
@@ -330,8 +332,7 @@ That's why we set z-index 0 on the following elements.
 
   .ld-sidenav-navitem--secondary &,
   .ld-sidenav-navitem--tertiary & {
-    align-self: start;
-    padding: var(--ld-sp-4) 0;
+    padding: 0;
   }
 }
 
