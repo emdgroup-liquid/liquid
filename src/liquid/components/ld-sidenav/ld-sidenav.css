@@ -4,8 +4,10 @@
   --ld-sidenav-padding-x: 1rem;
   --ld-sidenav-padding-y: 1rem;
   --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
+  --ld-sidenav-toggle-size: var(--ld-sp-24);
   --ld-sidenav-toggle-top: calc(
-    var(--ld-sidenav-padding-y) + var(--ld-sidenav-navitem-icon-size)
+    2 * var(--ld-sidenav-padding-y) + var(--ld-sidenav-navitem-icon-size) - 0.5 *
+      var(--ld-sidenav-toggle-size)
   );
 
   /* layout ld-navitem */
@@ -142,18 +144,57 @@
 }
 
 .ld-sidenav__toggle {
-  position: absolute;
-  overflow: hidden;
+  aspect-ratio: 1;
+  background-color: var(--ld-col-wht);
+  border: 0;
   border-radius: var(--ld-br-full);
-  top: var(--ld-sidenav-toggle-top);
-  transform: translateX(50%) scale(0.75);
-  box-shadow: var(--ld-shadow-sticky);
-  z-index: 1;
+  box-shadow: var(--ld-shadow-stacked);
+  color: var(--ld-thm-primary);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  position: absolute;
   right: 0;
+  top: var(--ld-sidenav-toggle-top);
+  touch-action: manipulation;
+  transform: translateX(50%);
+  width: var(--ld-sidenav-toggle-size);
   will-change: transform; /* fixes rendering issue */
+  z-index: 1;
+  -webkit-touch-callout: none;
+
+  /* increase click area */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--ld-sp-6));
+    display: block;
+    border-radius: inherit;
+    background-color: transparent;
+  }
+
+  &:hover,
+  &:focus:focus-visible {
+    &:not(:active) {
+      box-shadow: var(--ld-shadow-sticky);
+    }
+  }
+
+  &:where(:focus:focus-visible) {
+    color: var(--ld-thm-primary-focus);
+  }
+  @media (hover: hover) {
+    &:where(:hover) {
+      color: var(--ld-thm-primary-hover);
+    }
+  }
+  &:where(:active),
+  &:where(:active:focus-visible) {
+    color: var(--ld-thm-primary-active);
+  }
 
   :host(.ld-sidenav--right) & {
-    transform: translateX(-50%) scale(0.75);
+    transform: translateX(-50%);
     right: unset;
     left: 0;
   }
@@ -161,17 +202,16 @@
 
 .ld-sidenav__toggle-icon {
   transform-origin: center;
-  transform: translateX(-1px) scale(1.5) rotate(180deg);
 
   :host(.ld-sidenav--collapsed) & {
-    transform: translateX(1px) scale(1.5);
+    transform: rotate(180deg);
   }
 
   :host(.ld-sidenav--right) & {
-    transform: translateX(1px) scale(1.5);
+    transform: rotate(180deg);
   }
   :host(.ld-sidenav--right.ld-sidenav--collapsed) & {
-    transform: translateX(-1px) scale(1.5) rotate(180deg);
+    transform: none;
   }
 }
 

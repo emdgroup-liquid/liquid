@@ -444,34 +444,24 @@ export class LdSidenav {
     return (
       <Host class={getClassNames(cl)} role="navigation" aria-label={this.label}>
         {!this.closable && this.collapsible && (
-          <ld-button
+          <button
             role="switch"
+            brand-color
             aria-checked={this.collapsed ? 'false' : 'true'}
             class="ld-sidenav__toggle"
-            size="sm"
             onClick={this.toggleCollapsedState}
             part="toggle"
           >
-            <svg
-              class="ld-sidenav__toggle-icon"
-              width="7"
-              height="10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <ld-icon
               part="toggle-icon"
-            >
-              <title>
-                {this.collapsed ? this.labelExpand : this.labelCollapse}
-              </title>
-              <path
-                d="m2 2 3 3-3 3"
-                stroke="#fff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </ld-button>
+              size="sm"
+              name="arrow-left"
+              class="ld-sidenav__toggle-icon"
+            />
+            <ld-sr-only>
+              {this.collapsed ? this.labelExpand : this.labelCollapse}
+            </ld-sr-only>
+          </button>
         )}
         <div class="ld-sidenav__content">
           <div class="ld-sidenav__slot-container-top" part="slot-container-top">

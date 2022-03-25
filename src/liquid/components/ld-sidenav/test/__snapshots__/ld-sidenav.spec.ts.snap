@@ -23,19 +23,12 @@ exports[`ld-sidenav aligns to the right 1`] = `
 exports[`ld-sidenav collapses to narrow 1`] = `
 <ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsed ld-sidenav--collapsible ld-sidenav--has-active-subnav ld-sidenav--open ld-sidenav--transitions" collapsible="" narrow="" open="" role="navigation">
   <mock:shadow-root>
-    <ld-button aria-checked="false" class="ld-sidenav__toggle" part="toggle" role="switch">
-      <mock:shadow-root>
-        <button aria-checked="true" aria-live="polite" class="ld-button ld-button--sm" part="button focusable" role="switch">
-          <slot></slot>
-        </button>
-      </mock:shadow-root>
-      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
-        <title>
-          Expand side navigation
-        </title>
-        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-      </svg>
-    </ld-button>
+    <button aria-checked="false" brand-color="" class="ld-sidenav__toggle" part="toggle" role="switch">
+      <ld-icon class="ld-sidenav__toggle-icon" name="arrow-left" part="toggle-icon" size="sm"></ld-icon>
+      <ld-sr-only>
+        Expand side navigation
+      </ld-sr-only>
+    </button>
     <div class="ld-sidenav__content">
       <div class="ld-sidenav__slot-container-top" part="slot-container-top">
         <slot name="top"></slot>
@@ -1927,14 +1920,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
 exports[`ld-sidenav collapsible mode is collapsed 1`] = `
 <ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsed ld-sidenav--collapsible ld-sidenav--fully-collapsible" collapsed="" collapsible="" role="navigation">
   <mock:shadow-root>
-    <ld-button aria-checked="false" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
-      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
-        <title>
-          Expand side navigation
-        </title>
-        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-      </svg>
-    </ld-button>
+    <button aria-checked="false" brand-color="" class="ld-sidenav__toggle" part="toggle" role="switch">
+      <ld-icon class="ld-sidenav__toggle-icon" name="arrow-left" part="toggle-icon" size="sm"></ld-icon>
+      <ld-sr-only>
+        Expand side navigation
+      </ld-sr-only>
+    </button>
     <div class="ld-sidenav__content">
       <div class="ld-sidenav__slot-container-top" part="slot-container-top">
         <slot name="top"></slot>
@@ -1955,14 +1946,12 @@ exports[`ld-sidenav collapsible mode is collapsed 1`] = `
 exports[`ld-sidenav collapsible mode is collapsible 1`] = `
 <ld-sidenav aria-label="Side navigation" class="ld-sidenav ld-sidenav--collapsible ld-sidenav--fully-collapsible" collapsible="" role="navigation">
   <mock:shadow-root>
-    <ld-button aria-checked="true" class="ld-sidenav__toggle" part="toggle" role="switch" size="sm">
-      <svg class="ld-sidenav__toggle-icon" fill="none" height="10" part="toggle-icon" width="7" xmlns="http://www.w3.org/2000/svg">
-        <title>
-          Collapse side navigation
-        </title>
-        <path d="m2 2 3 3-3 3" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-      </svg>
-    </ld-button>
+    <button aria-checked="true" brand-color="" class="ld-sidenav__toggle" part="toggle" role="switch">
+      <ld-icon class="ld-sidenav__toggle-icon" name="arrow-left" part="toggle-icon" size="sm"></ld-icon>
+      <ld-sr-only>
+        Collapse side navigation
+      </ld-sr-only>
+    </button>
     <div class="ld-sidenav__content">
       <div class="ld-sidenav__slot-container-top" part="slot-container-top">
         <slot name="top"></slot>

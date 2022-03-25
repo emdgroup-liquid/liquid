@@ -604,7 +604,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 
@@ -631,7 +631,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 
@@ -655,7 +655,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 

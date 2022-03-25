@@ -644,13 +644,15 @@ Use the prop `neutral` in use cases, when a less colorful navigation is desired.
 
 ### Depends on
 
-- [ld-button](../ld-button)
+- [ld-icon](../ld-icon)
+- [ld-sr-only](../ld-sr-only)
 - ld-sidenav-scroller-internal
 
 ### Graph
 ```mermaid
 graph TD;
-  ld-sidenav --> ld-button
+  ld-sidenav --> ld-icon
+  ld-sidenav --> ld-sr-only
   ld-sidenav --> ld-sidenav-scroller-internal
   ld-sidenav-scroller-internal --> ld-sidenav-separator
   style ld-sidenav fill:#f9f,stroke:#333,stroke-width:4px
