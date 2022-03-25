@@ -213,6 +213,22 @@ Type: `Promise<void>`
 | `"slot-container-icon"` |             |
 
 
+## Dependencies
+
+### Depends on
+
+- [ld-tooltip](../../ld-tooltip)
+- [ld-typo](../../ld-typo)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sidenav-navitem --> ld-tooltip
+  ld-sidenav-navitem --> ld-typo
+  ld-tooltip --> ld-tooltip-popper
+  style ld-sidenav-navitem fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

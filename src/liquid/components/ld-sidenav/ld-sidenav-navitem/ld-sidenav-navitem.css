@@ -63,6 +63,12 @@
     }
   }
 
+  /*&:not(.ld-sidenav-navitem--collapsed) {
+    .ld-sidenav-navitem__tooltip {
+      display: block !important;
+    }
+  }*/
+
   &--active {
     --ld-sidenav-navitem-col: var(--ld-thm-primary);
     font-weight: 700;
@@ -307,6 +313,31 @@ That's why we set z-index 0 on the following elements.
     border-radius: calc(var(--ld-sidenav-navitem-border-radius));
     transform: scale(1.01); /* removes weird outline */
   }
+}
+
+.ld-sidenav-navitem__tooltip {
+  position: absolute;
+  inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
+  z-index: 1;
+}
+.ld-sidenav-navitem__tooltip-trigger {
+  position: relative;
+  cursor: pointer;
+  width: calc(
+    var(--ld-sidenav-navitem-icon-size) + 2 * var(--ld-sidenav-navitem-bg-inset)
+  );
+  aspect-ratio: 1;
+  border-radius: calc(
+    var(--ld-sidenav-navitem-active-indicator-border-width) +
+      var(--ld-sidenav-navitem-border-radius)
+  );
+
+  .ld-sidenav-navitem--rounded & {
+    border-radius: var(--ld-br-full);
+  }
+}
+.ld-sidenav-navitem__tooltip-content {
+  position: absolute;
 }
 
 .ld-sidenav-navitem__slot-container {

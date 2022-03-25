@@ -15,10 +15,9 @@
 .ld-tooltip {
   :host(&) {
     /* TODO: move to global vars? */
-    --ld-ad-default: 200ms; /* default animation duration */
     --ld-zi-max: 2147483647; /* max z-index */
 
-    --ld-tooltip-animation-duration: var(--ld-ad-default);
+    --ld-tooltip-animation-duration: 0s;
     --ld-tooltip-distance-from-trigger: var(--ld-sp-8);
     --ld-tooltip-max-width: 20rem;
     /* calculation does not work, if 0 is used instead of 0px */
@@ -28,6 +27,10 @@
     /* colors */
     --tooltip-col: var(--ld-col-neutral-900);
     --tooltip-bg-col: var(--ld-col-wht);
+
+    @media (prefers-reduced-motion: no-preference) {
+      --ld-tooltip-animation-duration: 0.2s;
+    }
 
     animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
     animation-fill-mode: forwards;

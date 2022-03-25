@@ -224,6 +224,52 @@ describe('ld-sidenav', () => {
         const result = await page.compareScreenshot()
         expect(result).toMatchScreenshot()
       })
+
+      it('shows tooltip on the right', async () => {
+        const page = await getPageWithContent(
+          `
+          <ld-sidenav open collapsed collapsible narrow>
+            <ld-sidenav-slider label="Outline of CS">
+              <ld-sidenav-navitem>Liquid Oxygen</ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>`
+        )
+
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        page.waitForChanges()
+
+        await page.hover('ld-sidenav-navitem')
+        await page.waitForChanges()
+        await new Promise((resolve) => setTimeout(resolve, 250))
+
+        const result = await page.compareScreenshot()
+        expect(result).toMatchScreenshot()
+      })
+
+      it('shows tooltip on the left', async () => {
+        const page = await getPageWithContent(
+          `
+          <ld-sidenav open collapsed collapsible narrow align="right">
+            <ld-sidenav-slider label="Outline of CS">
+              <ld-sidenav-navitem>Liquid Oxygen</ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>`
+        )
+
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        page.waitForChanges()
+
+        await page.hover('ld-sidenav-navitem')
+        await page.waitForChanges()
+        await new Promise((resolve) => setTimeout(resolve, 250))
+
+        const result = await page.compareScreenshot()
+        expect(result).toMatchScreenshot()
+      })
     })
 
     describe('neutral mode', () => {

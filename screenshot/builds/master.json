@@ -8871,6 +8871,32 @@
       "isMobile": false
     },
     {
+      "id": "9e3419f8",
+      "image": "a50b82e5b5be67f041f0087045e75437.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the left",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "f8ade095",
+      "image": "87eb2120721b6e157be5c96c8eed18d3.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the right",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "5fae3b76",
       "image": "0fb03a4dcd4c09c73dd4fdab8c84780b.png",
       "userAgent": "default",

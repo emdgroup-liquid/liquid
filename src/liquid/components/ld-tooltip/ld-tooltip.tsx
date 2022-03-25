@@ -1,5 +1,14 @@
 import Tether from 'tether'
-import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
@@ -120,12 +129,17 @@ export class LdTooltip {
     this.visible = true
   }
 
-  private hideTooltip = () => {
-    this.popper.disable()
+  /** Hide tooltip */
+  @Method()
+  async hideTooltip() {
+    console.info('hide')
+    this.popper?.disable()
     this.visible = false
   }
 
-  private showTooltip = () => {
+  /** Show tooltip */
+  @Method()
+  async showTooltip() {
     this.popper.enable()
     this.visible = true
   }
@@ -151,7 +165,9 @@ export class LdTooltip {
     clearTimeout(this.delayTimeout)
 
     if (this.popper) {
-      this.delayTimeout = setTimeout(this.hideTooltip, this.hideDelay)
+      this.delayTimeout = setTimeout(() => {
+        this.hideTooltip()
+      }, this.hideDelay)
     }
   }
 
@@ -166,7 +182,10 @@ export class LdTooltip {
     if (this.popper === undefined) {
       this.delayTimeout = setTimeout(this.initTooltip, this.showDelay)
     } else {
-      this.delayTimeout = setTimeout(this.showTooltip, this.showDelay)
+      this.delayTimeout = setTimeout(
+        this.showTooltip.bind(this),
+        this.showDelay
+      )
     }
   }
 

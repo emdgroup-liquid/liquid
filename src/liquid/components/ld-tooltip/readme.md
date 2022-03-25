@@ -235,6 +235,29 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
 
+## Methods
+
+### `hideTooltip() => Promise<void>`
+
+Hide tooltip
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `showTooltip() => Promise<void>`
+
+Show tooltip
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Shadow Parts
 
 | Part          | Description                                                               |
@@ -247,6 +270,10 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 ## Dependencies
 
+### Used by
+
+ - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
+
 ### Depends on
 
 - ld-tooltip-popper
@@ -255,6 +282,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 ```mermaid
 graph TD;
   ld-tooltip --> ld-tooltip-popper
+  ld-sidenav-navitem --> ld-tooltip
   style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
