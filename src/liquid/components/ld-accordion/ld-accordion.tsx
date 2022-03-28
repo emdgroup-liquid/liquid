@@ -59,6 +59,21 @@ export class LdAccordion {
     const toggle = section.querySelector('ld-accordion-toggle')
     const panel = section.querySelector('ld-accordion-panel')
 
+    // singleModeDelta is the height of the currently open panel, that needs
+    // to be subtracted from the scroll amount in single mode.
+    const allSections = Array.from(section.parentElement.children)
+    const singleModeDelta =
+      this.single && !this.scrollIntoViewOnTransitionEnd
+        ? allSections
+            .slice(
+              0,
+              allSections.findIndex((sec) => sec === section)
+            )
+            .find((sec) =>
+              sec.classList.contains('ld-accordion-section--expanded')
+            )?.children[1].scrollHeight || 0
+        : 0
+
     const panelOffsetToScrollParent =
       scrollParent.scrollTop +
       panel.getBoundingClientRect().top -
@@ -74,7 +89,8 @@ export class LdAccordion {
       Math.min(
         panel.scrollHeight,
         scrollParent.clientHeight - toggle.clientHeight - scrollPaddingTop
-      )
+      ) -
+      singleModeDelta
 
     // If an accordion section expands at the bottom end of the accordion
     // The scroll container may not have a sufficient height at that time
