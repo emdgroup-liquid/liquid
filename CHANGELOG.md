@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/emdgroup-liquid/liquid/compare/v1.2.0...v1.2.1) (2022-03-11)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** change and centralize icon size ([#287](https://github.com/emdgroup-liquid/liquid/issues/287)) ([b37f2a3](https://github.com/emdgroup-liquid/liquid/commit/b37f2a3644ff67ea202c74c1c0c890f398e72e62))
+* **ld-sidenav:** horizontal scrollbars visible on windows ([5dc7222](https://github.com/emdgroup-liquid/liquid/commit/5dc7222989aabc268f78e0f1a329efc68f3ce07c))
+
 # [1.2.0](https://github.com/emdgroup-liquid/liquid/compare/v1.1.0...v1.2.0) (2022-03-08)
 
 
