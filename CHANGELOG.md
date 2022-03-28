@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/emdgroup-liquid/liquid/compare/v1.2.1...v1.3.0) (2022-03-28)
+
+
+### Bug Fixes
+
+* **ld-accordion:** single mode scroll into view ([89deb05](https://github.com/emdgroup-liquid/liquid/commit/89deb05e797134663c171c0f17e637475924804f))
+* **ld-sidenav:** change and centralize icon size ([#287](https://github.com/emdgroup-liquid/liquid/issues/287)) ([916d465](https://github.com/emdgroup-liquid/liquid/commit/916d465646692a5bf6b29a286e9e650da4bc27b3))
+* **ld-sidenav:** horizontal scrollbars visible on windows ([273e374](https://github.com/emdgroup-liquid/liquid/commit/273e374d37c33599aa6d957895949e548c7493da))
+
+
+### Features
+
+* **ld-accordion:** implement accordion component ([709ed6b](https://github.com/emdgroup-liquid/liquid/commit/709ed6be17b469eed8f4c29a008948ac3ae18e14)), closes [#127](https://github.com/emdgroup-liquid/liquid/issues/127)
+
 ## [1.2.1](https://github.com/emdgroup-liquid/liquid/compare/v1.2.0...v1.2.1) (2022-03-11)
 
 
