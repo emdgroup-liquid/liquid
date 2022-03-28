@@ -31,6 +31,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   private sidenav: HTMLLdSidenavElement
   private focusableElement: HTMLAnchorElement | HTMLButtonElement
   private tooltipRef: HTMLLdTooltipElement
+  private slotContainerRef: HTMLElement
 
   /** Sets visual indicator to denote that the nav item is currently active. */
   @Prop() active = false
@@ -139,6 +140,23 @@ export class LdSidenavNavitem implements InnerFocusable {
     }
   }
 
+  componentDidLoad() {
+    // HACK: Due to Safari's buggy line-clamp implementation we need
+    //  to trigger a re-render after a certain timeout in order for the
+    //  ellipsis to be rendered. In most cases the first timeout is enough
+    //  to trigger a re-render in Safari. However, in rare cases we need
+    //  to wait a little longer.
+    //  A re-render can be triggered by changing certain styles; in our
+    //  case we use box-sizing and align-items which otherwhise do not
+    //  effect the appearence of the element.
+    setTimeout(() => {
+      this.slotContainerRef.style.boxSizing = 'border-box'
+    })
+    setTimeout(() => {
+      this.slotContainerRef.style.alignItems = 'center'
+    }, 200)
+  }
+
   render() {
     const cl = getClassNames([
       'ld-sidenav-navitem',
@@ -202,7 +220,11 @@ export class LdSidenavNavitem implements InnerFocusable {
             </div>
           </ld-tooltip>
         </div>
-        <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+        <div
+          ref={(el) => (this.slotContainerRef = el)}
+          class="ld-sidenav-navitem__slot-container"
+          part="slot-container"
+        >
           <slot></slot>
         </div>
       </Tag>

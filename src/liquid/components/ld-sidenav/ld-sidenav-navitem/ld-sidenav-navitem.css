@@ -4,10 +4,11 @@
 
 .ld-sidenav-navitem {
   /* layout */
-  --ld-sidenav-navitem-icon-font-size: 1rem;
+  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
   --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
   --ld-sidenav-navitem-border-radius: var(--ld-br-l);
-  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
+  --ld-sidenav-navitem-height: var(--ld-sp-32);
+  --ld-sidenav-navitem-icon-font-size: 1rem;
 
   /* colors */
   --ld-sidenav-navitem-col: var(--ld-col-neutral-800);
@@ -345,7 +346,7 @@ That's why we set z-index 0 on the following elements.
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   display: -webkit-box;
-  max-height: 2.125rem;
+  max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
   text-overflow: ellipsis;
   line-height: 1.15;
   transition: opacity var(--ld-sidenav-transition-duration)

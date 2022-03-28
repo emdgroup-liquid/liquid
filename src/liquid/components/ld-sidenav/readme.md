@@ -29,7 +29,7 @@ body {
 </style>
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "40rem", "position": "relative" } }' %}
-<ld-sidenav open collapsed collapsible narrow style="--ld-sidenav-width: 20rem">
+<ld-sidenav open style="--ld-sidenav-width: 20rem">
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of Computer Science</ld-sidenav-navitem>
   </ld-sidenav-back>
