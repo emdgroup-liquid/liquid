@@ -71,12 +71,12 @@ module.exports = function (eleventyConfig) {
         if (link.startsWith('./')) {
           const splitted = env.page.url.split('/')
           splitted.splice(splitted.length - 1, 0, link.substr(2))
-          return base + splitted.join('/')
+          return base + splitted.join('/').replace(/\/$/, '')
         }
         if (link.startsWith('../')) {
           const splitted = env.page.url.split('/')
           splitted.splice(splitted.length - 2, 1, link.substr(3))
-          return base + splitted.join('/')
+          return base + splitted.join('/').replace(/\/$/, '')
         }
         return link
       },
