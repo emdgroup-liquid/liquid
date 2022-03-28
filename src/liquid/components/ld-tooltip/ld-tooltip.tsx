@@ -132,7 +132,7 @@ export class LdTooltip {
   /** Hide tooltip */
   @Method()
   async hideTooltip() {
-    console.info('hide')
+    clearTimeout(this.delayTimeout)
     this.popper?.disable()
     this.visible = false
   }
@@ -140,6 +140,7 @@ export class LdTooltip {
   /** Show tooltip */
   @Method()
   async showTooltip() {
+    clearTimeout(this.delayTimeout)
     this.popper.enable()
     this.visible = true
   }

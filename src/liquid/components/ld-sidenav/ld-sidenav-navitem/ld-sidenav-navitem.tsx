@@ -90,9 +90,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     if (this.sidenav.narrow) {
       toggleStackToTop(this.el, this.sidenavCollapsed)
     }
-    if (!this.sidenavCollapsed) {
-      ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
-    }
+    ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
@@ -124,6 +122,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     if (this.to) {
       this.ldSidenavNavitemTo.emit({ id: this.to, label: this.el.textContent })
     }
+    ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
   }
 
   componentWillLoad() {
