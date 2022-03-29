@@ -71,7 +71,6 @@ body {
 <ld-sidenav open>
   <ld-sidenav-slider label="Outline of CS">
     <ld-sidenav-navitem mode="secondary">Liquid Oxygen</ld-sidenav-navitem>
-    <ld-sidenav-navitem mode="tertiary">Introduction</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
 {% endexample %}
@@ -138,6 +137,34 @@ body {
     <ld-sidenav-navitem style="--ld-sidenav-navitem-icon-bg-col: var(--ld-col-rp)" >Liquid Oxygen</ld-sidenav-navitem>
     <ld-sidenav-navitem style="--ld-sidenav-navitem-icon-bg-col: var(--ld-col-rr)" mode="secondary">Liquid Oxygen</ld-sidenav-navitem>
     <ld-sidenav-navitem style="--ld-sidenav-navitem-icon-bg-col: var(--ld-col-rg)" mode="tertiary">Liquid Oxygen</ld-sidenav-navitem>
+  </ld-sidenav-slider>
+</ld-sidenav>
+{% endexample %}
+
+## Secondary icon
+
+{% example '{ "hasPadding": false, "styles": { "minHeight": "9.75rem", "position": "relative" } }' %}
+<ld-sidenav open>
+  <ld-sidenav-slider label="Outline of CS">
+    <ld-sidenav-navitem>
+      <svg slot="icon" viewBox="0 0 32 32">
+        <g transform="scale(0.75) translate(5, 5)">
+          <path d="M8.40273 3.00317C16.3674 -1.08484 30.9212 8.31547 30.2215 17.1105C29.5219 25.9055 13.8966 33.1344 6.62487 28.4376C-0.650379 23.7238 0.431303 7.10139 8.40273 3.00317Z" fill="#2DBECD"/>
+          <path d="M4.69207 12.6056C6.77561 6.76982 18.5736 4.62074 22.3863 9.39108C26.199 14.1614 21.7368 25.211 15.842 26.2848C9.93739 27.3517 2.60995 18.4498 4.69207 12.6056Z" fill="#FFC832"/>
+          <path d="M11.2893 10.9795C13.2965 8.19935 19.898 8.87655 21.1887 11.9997C22.4793 15.1229 18.4039 20.3071 15.1055 19.9688C11.803 19.6253 9.28149 13.7644 11.2893 10.9795Z" fill="#0F69AF"/>
+        </g>
+      </svg>
+      Liquid Oxygen
+      <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem mode="secondary">
+      Liquid Oxygen
+      <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem mode="tertiary">
+      Liquid Oxygen
+      <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+    </ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
 {% endexample %}
@@ -225,6 +252,7 @@ Type: `Promise<void>`
 graph TD;
   ld-sidenav-navitem --> ld-tooltip
   ld-sidenav-navitem --> ld-typo
+  ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
   style ld-sidenav-navitem fill:#f9f,stroke:#333,stroke-width:4px
 ```

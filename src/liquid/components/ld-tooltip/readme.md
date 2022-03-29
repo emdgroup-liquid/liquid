@@ -232,6 +232,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `position`    | `position`     | Position of the tooltip relative to the trigger element (also affects the arrow position) | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'top center'` |
 | `ref`         | `ref`          | reference to component                                                                    | `any`                                                                                                                                                                                                | `undefined`    |
 | `showDelay`   | `show-delay`   | Delay in ms until tooltip shows (only when trigger type is 'hover')                       | `number`                                                                                                                                                                                             | `0`            |
+| `tag`         | `tag`          | The rendered HTML tag for the tooltip trigger.                                            | `string`                                                                                                                                                                                             | `'button'`     |
 | `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
 
@@ -276,11 +277,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [ld-sr-only](../ld-sr-only)
 - ld-tooltip-popper
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
   ld-sidenav-navitem --> ld-tooltip
   style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px

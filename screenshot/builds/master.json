@@ -8625,7 +8625,7 @@
     },
     {
       "id": "0dcb75e6",
-      "image": "7fa9c3bc3326db553cd511c03e0e66ef.png",
+      "image": "9f18fca44da1592888f39ae3699a5140.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a custom background color",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8638,7 +8638,7 @@
     },
     {
       "id": "5dd9d6a2",
-      "image": "d83fb21f7ed4eeaf90d5a02f9d6bc67d.png",
+      "image": "3e470a3b61d7999cd2aa1ebf115f5034.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded active state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8651,7 +8651,7 @@
     },
     {
       "id": "8b2c1e54",
-      "image": "814e589188f65d9d24ab39569717f813.png",
+      "image": "e965b5318f804f1a6e7a3c1b0dd9b90a.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded focus state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8664,7 +8664,7 @@
     },
     {
       "id": "ff6a9a9b",
-      "image": "c582078131ae101c7ce3d7c0693e049e.png",
+      "image": "2e463c64631027bb86809b2869d631ca.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded hover state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8676,8 +8676,21 @@
       "isMobile": false
     },
     {
+      "id": "72ef711e",
+      "image": "00ac4a2773c5c94d717e927ab2798b7a.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item has a secondary icon",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "eb3477e0",
-      "image": "aa2fef5b081c98803f4c754cbcc32d2a.png",
+      "image": "69a4523ae67fdddad4d167f5c51992e9.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8690,7 +8703,7 @@
     },
     {
       "id": "3036928e",
-      "image": "550ecbf585fa5961fd6ee144496dd9d3.png",
+      "image": "d966d078ef015d99e7a3457106c201b1.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has active state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8703,7 +8716,7 @@
     },
     {
       "id": "830e66b1",
-      "image": "fae58521f727880c0c3bffe06569bba6.png",
+      "image": "45317e55e40857216e3ca4defa9375be.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has focus state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8716,7 +8729,7 @@
     },
     {
       "id": "3ccb1799",
-      "image": "8df14c0b2816753b75a2372822203018.png",
+      "image": "65d9c39d795bca3e9b3b1d0ef78815d3.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has hover state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8729,7 +8742,7 @@
     },
     {
       "id": "9f11495e",
-      "image": "6bc676cce6cdacf43d1cd72588310502.png",
+      "image": "fc7105181c60c854124584ae002c4cbc.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is rounded",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8742,7 +8755,7 @@
     },
     {
       "id": "b5cd2a68",
-      "image": "4f4f3ca98fa0116adc84e971ba67f9ab.png",
+      "image": "ed73919d98c34076904e323ec6ac6346.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item truncates long titles",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8755,7 +8768,7 @@
     },
     {
       "id": "83af979a",
-      "image": "c43a4d5e85913ed757e1d9084f9439d5.png",
+      "image": "63331023e8acdfd8ecba356f164e0220.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item uses a custom icon",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8768,7 +8781,7 @@
     },
     {
       "id": "514167fb",
-      "image": "394255dd541a4d74ad2312b892c458c5.png",
+      "image": "0cfb10b053ce41da0dbe9840e90c938d.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item uses a custom image",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8781,7 +8794,7 @@
     },
     {
       "id": "7d009fa9",
-      "image": "e43713b4dffe63fbf6e52af9187292e5.png",
+      "image": "1bf34f011fe09ba68a61310ecce3bec0.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item uses an icon fallback",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8794,7 +8807,7 @@
     },
     {
       "id": "651a4032",
-      "image": "82ee747b95d36e1216dc94d6602e6289.png",
+      "image": "c7d2cfbf8af00292bbe5ed90ffe0689f.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item uses secondary mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8807,7 +8820,7 @@
     },
     {
       "id": "e019b519",
-      "image": "0d00eea111ae9e68a945e077df8b4313.png",
+      "image": "18427e971125c261c9fc22e3380a6508.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item uses tertiary mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8820,7 +8833,7 @@
     },
     {
       "id": "d69ca70f",
-      "image": "4f1de1fb25963f7ab6dee02992284573.png",
+      "image": "752194c25409019cdd9bdd48fef4f66f.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right collapses fully in narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8833,7 +8846,7 @@
     },
     {
       "id": "3efde85c",
-      "image": "6880c9a2187d6119421ee5bd1fb514af.png",
+      "image": "a1b780a3b0759058b0e4ed4db2babd40.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right collapses to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8846,7 +8859,7 @@
     },
     {
       "id": "6d322e75",
-      "image": "c7fe682254aae8fb1b388653fb594b00.png",
+      "image": "0797093e5ee8f63c37f665c34316bedb.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right is expanded on the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8859,7 +8872,7 @@
     },
     {
       "id": "feb5e844",
-      "image": "7c24267f36a20f60cfc12b47c8f848c2.png",
+      "image": "9d34ec89b89112293c954793deba960e.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation in subnavigation with back button shows shadow separator line at the top and bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8872,7 +8885,7 @@
     },
     {
       "id": "13515603",
-      "image": "54895aaba261204baac30214c7ab6e95.png",
+      "image": "6e566e36195fc1d1b859854775d53da9.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode collapses to narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8911,7 +8924,7 @@
     },
     {
       "id": "5fae3b76",
-      "image": "0fb03a4dcd4c09c73dd4fdab8c84780b.png",
+      "image": "493025faa0a3a83636933e0b6111aebb.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation neutral mode uses neutral background color",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8924,7 +8937,7 @@
     },
     {
       "id": "9e87791c",
-      "image": "8cd70e953308a04ebbd19d88b04d0501.png",
+      "image": "89608000f2f4f7392a38934022a7d336.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the bottom and separator line at the top",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8937,7 +8950,7 @@
     },
     {
       "id": "1525503c",
-      "image": "bb9df3391c021393371e00f9a965bc5c.png",
+      "image": "1184fb5212a531e0edc1f43d7dbeb9e2.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the top and bottom when scrolling down",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8950,7 +8963,7 @@
     },
     {
       "id": "e91a437e",
-      "image": "9c4d1a33f16f3209aeb95eeac7a3cdf9.png",
+      "image": "a3d90979a1d408c7d25ba0c4bdda6e6e.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the top and separator line at the bottom when scrolled to the bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8963,7 +8976,7 @@
     },
     {
       "id": "497f5f7d",
-      "image": "64d099d58ec476d6014b92d762a4c65b.png",
+      "image": "73c44880030f2fe1b7bb633a5b3667e5.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is alignable collapses to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8989,7 +9002,7 @@
     },
     {
       "id": "33ef593d",
-      "image": "9d0f7c997020150ccfddd016dd5e122b.png",
+      "image": "ec49195821e025cae4ed277afd8f24ef.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is collapsible should be fully collapsed",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9002,7 +9015,7 @@
     },
     {
       "id": "b2512f84",
-      "image": "1f7d4e9fcf7e99d811dab79d26da4217.png",
+      "image": "672f311aceb4d0a3581993bc2a34adb9.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is collapsible should have a toggle button",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",

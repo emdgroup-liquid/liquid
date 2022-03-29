@@ -190,7 +190,7 @@ export class LdSidenavNavitem implements InnerFocusable {
         <div class="ld-sidenav-navitem__dot" part="dot"></div>
         <div
           class="ld-sidenav-navitem__slot-container-icon"
-          aria-hidden="true"
+          role="presentation"
           part="slot-container-icon"
         >
           <slot name="icon"></slot>
@@ -202,6 +202,7 @@ export class LdSidenavNavitem implements InnerFocusable {
 
           <ld-tooltip
             show-delay="250"
+            tag="span"
             ref={(el) => (this.tooltipRef = el)}
             class="ld-sidenav-navitem__tooltip"
             disabled={!this.sidenavCollapsed}
@@ -226,6 +227,9 @@ export class LdSidenavNavitem implements InnerFocusable {
           part="slot-container"
         >
           <slot></slot>
+        </div>
+        <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+          <slot name="icon-secondary"></slot>
         </div>
       </Tag>
     )

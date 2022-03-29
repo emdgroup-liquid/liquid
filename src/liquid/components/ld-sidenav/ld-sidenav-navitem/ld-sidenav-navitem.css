@@ -27,9 +27,7 @@
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-sidenav-navitem-col);
-  display: grid;
-  grid-template-columns: var(--ld-sidenav-navitem-icon-size) 1fr;
-  gap: var(--ld-sp-12);
+  display: flex;
   width: calc(100% - (2 * var(--ld-sidenav-padding-x)));
   align-items: center;
   box-sizing: border-box;
@@ -270,7 +268,12 @@ That's why we set z-index 0 on the following elements.
     }
   }
 
+  .ld-sidenav-navitem--secondary & {
+    width: var(--ld-sidenav-navitem-icon-size);
+  }
   .ld-sidenav-navitem--tertiary & {
+    width: calc(var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-6));
+
     &::before {
       background-color: transparent;
       box-shadow: inset 0 0 0 var(--ld-sp-2)
@@ -350,6 +353,8 @@ That's why we set z-index 0 on the following elements.
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   display: -webkit-box;
+  margin-left: var(--ld-sp-12);
+  margin-right: auto;
   max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
   text-overflow: ellipsis;
   line-height: 1.15;
@@ -357,7 +362,7 @@ That's why we set z-index 0 on the following elements.
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   overflow: hidden;
-  padding-right: var(--ld-sp-6);
+  padding-right: var(--ld-sp-4);
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
@@ -371,6 +376,12 @@ That's why we set z-index 0 on the following elements.
   .ld-sidenav-navitem--tertiary & {
     padding: 0;
   }
+}
+
+.ld-sidenav-navitem__slot-icon-secondary-container {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--ld-sp-4);
 }
 
 .ld-sidenav-navitem__abbr {

@@ -39,8 +39,6 @@ body {
     <ld-sidenav-navitem to="algorithms-and-data-structures">Algorithms and data structures</ld-sidenav-navitem>
     <ld-sidenav-navitem to="artificial-intelligence">Artificial intelligence</ld-sidenav-navitem>
     <ld-sidenav-navitem to="communication-and-security">Communication and security</ld-sidenav-navitem>
-    <ld-sidenav-navitem to="artificial-intelligence">Artificial intelligence</ld-sidenav-navitem>
-    <ld-sidenav-navitem to="communication-and-security">Communication and security</ld-sidenav-navitem>
     <ld-sidenav-navitem to="computer-architecture">Computer architecture</ld-sidenav-navitem>
     <ld-sidenav-navitem to="computer-graphics">Computer graphics</ld-sidenav-navitem>
     <ld-sidenav-navitem to="concurrent-parallel-and-distributed-systems">Concurrent, parallel, and distributed systems</ld-sidenav-navitem>
