@@ -96,6 +96,14 @@ export class LdSidenav {
   @Prop({ mutable: true }) open = false
 
   /**
+   * Disables transitions on collapsing and expansion of the sidenav.
+   * This is especially usefull when the page content gets pushed to
+   * the side on sidenav expansion, and you want to prevent too many
+   * layout shifts during the transition.
+   */
+  @Prop() toggleTransitionDisabled = false
+
+  /**
    * Enables focus trapping. Accespts a CSS selector which indicates
    * what is still focusable outside the sidenav, when the sidenav is
    * closable and open (i.e. "ld-header *"). Use an empty string to
@@ -439,6 +447,7 @@ export class LdSidenav {
       this.hasShadowBottom && 'ld-sidenav--has-shadow-bottom',
       this.neutral && 'ld-sidenav--neutral',
       this.open && 'ld-sidenav--open',
+      this.toggleTransitionDisabled && 'ld-sidenav--toggle-transition-disabled',
     ]
 
     return (

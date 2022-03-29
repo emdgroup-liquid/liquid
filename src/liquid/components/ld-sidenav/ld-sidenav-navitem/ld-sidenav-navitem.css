@@ -40,21 +40,22 @@
   -webkit-touch-callout: none;
 
   &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary) {
-    transition: transform var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) ease;
+    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) ease;
     transform: translateY(var(--ld-slider-navitem-move-up, 0px));
   }
 
   &.ld-sidenav-navitem--collapsed {
     &.ld-sidenav-navitem--secondary,
     &.ld-sidenav-navitem--tertiary {
-      transition: visibility 0s calc(2 * var(--ld-sidenav-transition-duration))
-        linear;
+      transition: visibility 0s
+        calc(2 * var(--ld-sidenav-transition-duration-collapse-expand)) linear;
       visibility: hidden;
     }
 
     &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary) {
-      transition: transform var(--ld-sidenav-transition-duration) ease;
+      transition: transform
+        var(--ld-sidenav-transition-duration-collapse-expand) ease;
     }
 
     .ld-sidenav-navitem__bg {
@@ -158,9 +159,9 @@
   inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
   display: block;
   opacity: 0.2;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   pointer-events: none;
 }
 
@@ -171,7 +172,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   pointer-events: all;
 }
 
@@ -229,13 +231,14 @@ That's why we set z-index 0 on the following elements.
 .ld-sidenav-navitem__dot {
   align-self: center;
   display: none;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
   .ld-sidenav-navitem--collapsed & {
-    transition: opacity var(--ld-sidenav-transition-duration) linear,
-      transform var(--ld-sidenav-transition-duration) ease;
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear,
+      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
   }
@@ -289,7 +292,8 @@ That's why we set z-index 0 on the following elements.
   align-items: center;
   width: var(--ld-sidenav-navitem-icon-size);
   height: var(--ld-sidenav-navitem-icon-size);
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   position: relative;
   z-index: 1;
 
@@ -349,17 +353,18 @@ That's why we set z-index 0 on the following elements.
   max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
   text-overflow: ellipsis;
   line-height: 1.15;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   overflow: hidden;
   padding-right: var(--ld-sp-6);
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-    transition: opacity var(--ld-sidenav-transition-duration) linear,
-      transform var(--ld-sidenav-transition-duration) ease;
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear,
+      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   }
 
   .ld-sidenav-navitem--secondary &,

@@ -9,22 +9,25 @@
     2 * var(--ld-sidenav-padding-y) + var(--ld-sidenav-navitem-icon-size) - 0.5 *
       var(--ld-sidenav-toggle-size)
   );
-
-  /* layout ld-navitem */
-  --ld-sidenav-navitem-icon-size: var(--ld-sp-32);
-
-  /* Not using 0s here because we rely on the transition end event. */
-  --ld-sidenav-transition-duration: 0.001s;
-  --ld-sidenav-transition-delay: 0s;
+  --ld-sidenav-translate-x-delta: calc(
+    var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)
+  );
   --ld-sidenav-width: 15.625rem;
   --ld-sidenav-width-collapsed: calc(
     2 * var(--ld-sidenav-padding-x) + var(--ld-sidenav-navitem-icon-size)
   );
   --ld-sidenav-width-fully-collapsed: 1rem;
+
+  /* layout ld-navitem */
+  --ld-sidenav-navitem-icon-size: var(--ld-sp-32);
+
+  /* transitions */
+  /* Not using 0s here because we rely on the transition end event. */
+  --ld-sidenav-transition-duration: 0.001s;
+  --ld-sidenav-transition-duration-collapse-expand: 0.001s;
+  --ld-sidenav-transition-delay: 0s;
+  --ld-sidenav-transition-delay-collapse-expand: 0s;
   --ld-sidenav-translate-x-direction: 1;
-  --ld-sidenav-translate-x-delta: calc(
-    var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)
-  );
 
   /* colors */
   --ld-sidenav-bg-color: var(--ld-col-wht);
@@ -33,7 +36,16 @@
   &(.ld-sidenav--initialized) {
     @media (prefers-reduced-motion: no-preference) {
       --ld-sidenav-transition-duration: 0.2s;
+      --ld-sidenav-transition-duration-collapse-expand: 0.2s;
       --ld-sidenav-transition-delay: 0.1s;
+      --ld-sidenav-transition-delay-collapse-expand: 0.1s;
+    }
+  }
+
+  &(.ld-sidenav--toggle-transition-disabled) {
+    @media (prefers-reduced-motion: no-preference) {
+      --ld-sidenav-transition-duration-collapse-expand: 0.001s;
+      --ld-sidenav-transition-delay-collapse-expand: 0s;
     }
   }
 
@@ -64,17 +76,21 @@
   }
 
   &(.ld-sidenav--transitions) {
-    transition: transform var(--ld-sidenav-transition-duration) ease;
+    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+      ease;
 
     .ld-sidenav__content {
-      transition: opacity var(--ld-sidenav-transition-duration) linear;
+      transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear;
     }
   }
 
   &(.ld-sidenav--transitions.ld-sidenav--closable:not(.ld-sidenav--open)) {
     .ld-sidenav__content {
-      transition: opacity var(--ld-sidenav-transition-duration) linear,
-        visibility 0s var(--ld-sidenav-transition-duration) linear;
+      transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+          linear,
+        visibility 0s var(--ld-sidenav-transition-duration-collapse-expand)
+          linear;
       visibility: hidden;
     }
   }
@@ -104,8 +120,10 @@
 
   &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible.ld-sidenav--transitions:not(.ld-sidenav--closable)) {
     .ld-sidenav__content {
-      transition: opacity var(--ld-sidenav-transition-duration) linear,
-        visibility 0s var(--ld-sidenav-transition-duration) linear;
+      transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+          linear,
+        visibility 0s var(--ld-sidenav-transition-duration-collapse-expand)
+          linear;
     }
   }
 
@@ -246,7 +264,8 @@
     position: absolute;
     inset: 0;
     background-color: var(--ld-sidenav-subnav-bg-color);
-    transition: opacity var(--ld-sidenav-transition-duration) linear;
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      linear;
   }
 
   :host(.ld-sidenav--has-active-subnav) & {
