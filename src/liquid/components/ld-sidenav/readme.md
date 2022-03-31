@@ -448,7 +448,7 @@ Use the [`ld-sidenav-heading`](./ld-sidenav-heading) component to display headin
 
 The [`ld-sidenav-separator`](./ld-sidenav-separator) component allows you to visually separate elements from each other within the sidenav by drawing a thin line and making some vertical space between them.
 
-{% example '{ "highlight": "10", "opened": true, "hasPadding": false, "styles": { "minHeight": "24rem", "position": "relative" } }' %}
+{% example '{ "highlight": "8", "opened": true, "hasPadding": false, "styles": { "minHeight": "24rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
