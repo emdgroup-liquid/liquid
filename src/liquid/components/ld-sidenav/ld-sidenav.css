@@ -188,7 +188,6 @@
     inset: calc(-1 * var(--ld-sp-6));
     display: block;
     border-radius: inherit;
-    background-color: transparent;
   }
 
   &:hover,
