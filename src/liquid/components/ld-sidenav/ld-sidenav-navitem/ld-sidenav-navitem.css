@@ -228,6 +228,7 @@ That's why we set z-index 0 on the following elements.
 
 .ld-sidenav-navitem__dot {
   align-self: center;
+  flex-shrink: 0;
   display: none;
   transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
