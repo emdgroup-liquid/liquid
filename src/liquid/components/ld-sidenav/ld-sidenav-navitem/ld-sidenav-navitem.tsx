@@ -13,6 +13,7 @@ import {
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
 import { toggleStackToTop } from '../utils/toggleStackToTop'
+import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
 
 /**
  * @slot - default slot for the nav item label.
@@ -29,6 +30,8 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Element() el: HTMLElement
   private sidenav: HTMLLdSidenavElement
   private focusableElement: HTMLAnchorElement | HTMLButtonElement
+  private tooltipRef: HTMLLdTooltipElement
+  private slotContainerRef: HTMLElement
 
   /** Sets visual indicator to denote that the nav item is currently active. */
   @Prop() active = false
@@ -66,9 +69,12 @@ export class LdSidenavNavitem implements InnerFocusable {
   /** Emitted on click if prop to is set. */
   @Event() ldSidenavNavitemTo: EventEmitter<{ id: string; label: string }>
 
+  @State() tooltipContent: string
   @State() abbreviation: string
+  @State() sidenavAlignement: 'left' | 'right'
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
+  @State() sidenavExpandsOnMouseEnter: boolean
 
   /**
    * Sets focus on the anchor or button
@@ -85,6 +91,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     if (this.sidenav.narrow) {
       toggleStackToTop(this.el, this.sidenavCollapsed)
     }
+    ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
@@ -116,16 +123,38 @@ export class LdSidenavNavitem implements InnerFocusable {
     if (this.to) {
       this.ldSidenavNavitemTo.emit({ id: this.to, label: this.el.textContent })
     }
+    ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
   }
 
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
+    this.sidenavAlignement = this.sidenav.align
+    this.sidenavExpandsOnMouseEnter =
+      this.sidenav.expandTrigger === 'mouseenter'
     if (
       !['secondary', 'tertiary'].includes(this.mode) &&
       !this.el.querySelector('[slot="icon"]')
     ) {
+      this.tooltipContent = this.el.textContent.trim()
       this.abbreviation = this.getabbreviation()
     }
+  }
+
+  componentDidLoad() {
+    // HACK: Due to Safari's buggy line-clamp implementation we need
+    //  to trigger a re-render after a certain timeout in order for the
+    //  ellipsis to be rendered. In most cases the first timeout is enough
+    //  to trigger a re-render in Safari. However, in rare cases we need
+    //  to wait a little longer.
+    //  A re-render can be triggered by changing certain styles; in our
+    //  case we use box-sizing and align-items which otherwhise do not
+    //  effect the appearence of the element.
+    setTimeout(() => {
+      this.slotContainerRef.style.boxSizing = 'border-box'
+    })
+    setTimeout(() => {
+      this.slotContainerRef.style.alignItems = 'center'
+    }, 200)
   }
 
   render() {
@@ -161,7 +190,7 @@ export class LdSidenavNavitem implements InnerFocusable {
         <div class="ld-sidenav-navitem__dot" part="dot"></div>
         <div
           class="ld-sidenav-navitem__slot-container-icon"
-          aria-hidden="true"
+          role="presentation"
           part="slot-container-icon"
         >
           <slot name="icon"></slot>
@@ -170,9 +199,37 @@ export class LdSidenavNavitem implements InnerFocusable {
               {this.abbreviation}
             </span>
           )}
+
+          <ld-tooltip
+            show-delay="250"
+            tag="span"
+            ref={(el) => (this.tooltipRef = el)}
+            class="ld-sidenav-navitem__tooltip"
+            disabled={!this.sidenavCollapsed}
+            arrow
+            position={
+              this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
+            }
+          >
+            <div
+              class="ld-sidenav-navitem__tooltip-trigger"
+              slot="trigger"
+              onClick={this.onClick}
+            />
+            <div class="ld-sidenav-navitem__tooltip-content">
+              <ld-typo>{this.tooltipContent}</ld-typo>
+            </div>
+          </ld-tooltip>
         </div>
-        <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+        <div
+          ref={(el) => (this.slotContainerRef = el)}
+          class="ld-sidenav-navitem__slot-container"
+          part="slot-container"
+        >
           <slot></slot>
+        </div>
+        <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+          <slot name="icon-secondary"></slot>
         </div>
       </Tag>
     )

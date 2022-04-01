@@ -77,9 +77,9 @@
   inset: calc(-1 * var(--ld-sidenav-back-bg-inset));
   display: block;
   opacity: 0.2;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   pointer-events: none;
 }
 
@@ -101,7 +101,8 @@ That's why we set z-index 0 on the following elements.
   position: absolute;
   top: 0;
   bottom: 0;
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   pointer-events: all;
 }
 
@@ -160,7 +161,8 @@ That's why we set z-index 0 on the following elements.
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
 
   .ld-sidenav-back--collapsed & {
     transform: translateX(var(--ld-sidenav-translate-x-delta));
@@ -185,8 +187,9 @@ That's why we set z-index 0 on the following elements.
   white-space: nowrap;
   padding-right: var(--ld-sp-6);
   position: relative;
-  transition: opacity var(--ld-sidenav-transition-duration) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
   .ld-sidenav-back--collapsed & {
     opacity: 0;
