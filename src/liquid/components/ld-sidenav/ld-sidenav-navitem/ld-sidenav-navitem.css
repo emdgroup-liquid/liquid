@@ -63,12 +63,6 @@
     }
   }
 
-  /*&:not(.ld-sidenav-navitem--collapsed) {
-    .ld-sidenav-navitem__tooltip {
-      display: block !important;
-    }
-  }*/
-
   &--active {
     --ld-sidenav-navitem-col: var(--ld-thm-primary);
     font-weight: 700;
