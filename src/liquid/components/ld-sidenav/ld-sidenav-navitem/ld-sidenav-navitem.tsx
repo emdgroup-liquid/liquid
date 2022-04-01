@@ -131,12 +131,12 @@ export class LdSidenavNavitem implements InnerFocusable {
     this.sidenavAlignement = this.sidenav.align
     this.sidenavExpandsOnMouseEnter =
       this.sidenav.expandTrigger === 'mouseenter'
-    if (
-      !['secondary', 'tertiary'].includes(this.mode) &&
-      !this.el.querySelector('[slot="icon"]')
-    ) {
+    if (!['secondary', 'tertiary'].includes(this.mode)) {
       this.tooltipContent = this.el.textContent.trim()
-      this.abbreviation = this.getabbreviation()
+
+      if (!this.el.querySelector('[slot="icon"]')) {
+        this.abbreviation = this.getabbreviation()
+      }
     }
   }
 

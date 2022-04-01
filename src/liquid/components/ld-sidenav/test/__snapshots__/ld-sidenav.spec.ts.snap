@@ -386,7 +386,9 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
               <div class="ld-sidenav-navitem__tooltip-content">
-                <ld-typo></ld-typo>
+                <ld-typo>
+                  Artificial intelligence
+                </ld-typo>
               </div>
             </ld-tooltip>
           </div>
