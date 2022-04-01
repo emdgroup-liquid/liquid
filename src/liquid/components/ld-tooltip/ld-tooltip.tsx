@@ -1,5 +1,14 @@
 import Tether from 'tether'
-import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
 
@@ -48,6 +57,9 @@ export class LdTooltip {
 
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position: Position = 'top center'
+
+  /** The rendered HTML tag for the tooltip trigger. */
+  @Prop() tag = 'button'
 
   /** Event type that triggers the tooltip */
   @Prop() triggerType: 'click' | 'hover' = 'hover'
@@ -120,12 +132,18 @@ export class LdTooltip {
     this.visible = true
   }
 
-  private hideTooltip = () => {
-    this.popper.disable()
+  /** Hide tooltip */
+  @Method()
+  async hideTooltip() {
+    clearTimeout(this.delayTimeout)
+    this.popper?.disable()
     this.visible = false
   }
 
-  private showTooltip = () => {
+  /** Show tooltip */
+  @Method()
+  async showTooltip() {
+    clearTimeout(this.delayTimeout)
     this.popper.enable()
     this.visible = true
   }
@@ -151,7 +169,9 @@ export class LdTooltip {
     clearTimeout(this.delayTimeout)
 
     if (this.popper) {
-      this.delayTimeout = setTimeout(this.hideTooltip, this.hideDelay)
+      this.delayTimeout = setTimeout(() => {
+        this.hideTooltip()
+      }, this.hideDelay)
     }
   }
 
@@ -166,7 +186,10 @@ export class LdTooltip {
     if (this.popper === undefined) {
       this.delayTimeout = setTimeout(this.initTooltip, this.showDelay)
     } else {
-      this.delayTimeout = setTimeout(this.showTooltip, this.showDelay)
+      this.delayTimeout = setTimeout(
+        this.showTooltip.bind(this),
+        this.showDelay
+      )
     }
   }
 
@@ -214,9 +237,11 @@ export class LdTooltip {
   }
 
   render() {
+    const TriggerTag = this.tag
+
     return (
       <Host>
-        <button
+        <TriggerTag
           aria-describedby={this.idDescriber}
           class={getClassNames([
             'ld-tooltip__trigger',
@@ -233,6 +258,7 @@ export class LdTooltip {
           }}
           type="button"
         >
+          <ld-sr-only>Info</ld-sr-only>
           <slot name="trigger">
             <svg
               class="ld-tooltip__icon"
@@ -241,7 +267,6 @@ export class LdTooltip {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>Info</title>
               <path
                 clip-rule="evenodd"
                 d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z"
@@ -257,7 +282,7 @@ export class LdTooltip {
               />
             </svg>
           </slot>
-        </button>
+        </TriggerTag>
         <ld-tooltip-popper
           aria-hidden={this.visible ? undefined : 'true'}
           arrow={this.arrow}

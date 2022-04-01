@@ -2,6 +2,7 @@ jest.mock('../../../utils/focus')
 
 import MatchMediaMock from 'jest-matchmedia-mock'
 import { newSpecPage } from '@stencil/core/testing'
+import { LdButton } from '../../ld-button/ld-button'
 import { LdSidenav } from '../ld-sidenav'
 import { LdSidenavSlider } from '../ld-sidenav-slider/ld-sidenav-slider'
 import { LdSidenavSubnav } from '../ld-sidenav-subnav/ld-sidenav-subnav'
@@ -10,7 +11,7 @@ import { LdSidenavBack } from '../ld-sidenav-back/ld-sidenav-back'
 import { LdSidenavSeparator } from '../ld-sidenav-separator/ld-sidenav-separator'
 import { LdSidenavHeading } from '../ld-sidenav-heading/ld-sidenav-heading'
 import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
-import { LdButton } from '../../ld-button/ld-button'
+import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
 import { getFirstFocusable } from '../../../utils/focus'
 import '../../../utils/mutationObserver'
 import { getSidenavWithSubnavigation } from './utils'
@@ -48,6 +49,7 @@ const sidenavComponents = [
   LdSidenavSeparator,
   LdSidenavSlider,
   LdSidenavSubnav,
+  LdTooltip,
 ]
 
 describe('ld-sidenav', () => {
@@ -604,7 +606,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 
@@ -631,7 +633,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 
@@ -655,7 +657,7 @@ describe('ld-sidenav', () => {
 
     const ldSidenavToggle =
       ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
-        'ld-button[role="switch"]'
+        'button[role="switch"]'
       )
     ldSidenavToggle.click()
 

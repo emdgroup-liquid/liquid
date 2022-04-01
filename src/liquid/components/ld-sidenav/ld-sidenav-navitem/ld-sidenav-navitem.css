@@ -4,10 +4,11 @@
 
 .ld-sidenav-navitem {
   /* layout */
-  --ld-sidenav-navitem-icon-font-size: 1rem;
+  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
   --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
   --ld-sidenav-navitem-border-radius: var(--ld-br-l);
-  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
+  --ld-sidenav-navitem-height: var(--ld-sp-32);
+  --ld-sidenav-navitem-icon-font-size: 1rem;
 
   /* colors */
   --ld-sidenav-navitem-col: var(--ld-col-neutral-800);
@@ -26,9 +27,7 @@
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-sidenav-navitem-col);
-  display: grid;
-  grid-template-columns: var(--ld-sidenav-navitem-icon-size) 1fr;
-  gap: var(--ld-sp-12);
+  display: flex;
   width: calc(100% - (2 * var(--ld-sidenav-padding-x)));
   align-items: center;
   box-sizing: border-box;
@@ -39,21 +38,22 @@
   -webkit-touch-callout: none;
 
   &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary) {
-    transition: transform var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) ease;
+    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) ease;
     transform: translateY(var(--ld-slider-navitem-move-up, 0px));
   }
 
   &.ld-sidenav-navitem--collapsed {
     &.ld-sidenav-navitem--secondary,
     &.ld-sidenav-navitem--tertiary {
-      transition: visibility 0s calc(2 * var(--ld-sidenav-transition-duration))
-        linear;
+      transition: visibility 0s
+        calc(2 * var(--ld-sidenav-transition-duration-collapse-expand)) linear;
       visibility: hidden;
     }
 
     &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary) {
-      transition: transform var(--ld-sidenav-transition-duration) ease;
+      transition: transform
+        var(--ld-sidenav-transition-duration-collapse-expand) ease;
     }
 
     .ld-sidenav-navitem__bg {
@@ -151,9 +151,9 @@
   inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
   display: block;
   opacity: 0.2;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   pointer-events: none;
 }
 
@@ -164,7 +164,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   pointer-events: all;
 }
 
@@ -220,14 +221,17 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__dot {
+  align-self: center;
+  flex-shrink: 0;
   display: none;
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
   .ld-sidenav-navitem--collapsed & {
-    transition: opacity var(--ld-sidenav-transition-duration) linear,
-      transform var(--ld-sidenav-transition-duration) ease;
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear,
+      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
   }
@@ -259,7 +263,12 @@ That's why we set z-index 0 on the following elements.
     }
   }
 
+  .ld-sidenav-navitem--secondary & {
+    width: var(--ld-sidenav-navitem-icon-size);
+  }
   .ld-sidenav-navitem--tertiary & {
+    width: calc(var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-6));
+
     &::before {
       background-color: transparent;
       box-shadow: inset 0 0 0 var(--ld-sp-2)
@@ -281,7 +290,8 @@ That's why we set z-index 0 on the following elements.
   align-items: center;
   width: var(--ld-sidenav-navitem-icon-size);
   height: var(--ld-sidenav-navitem-icon-size);
-  transition: transform var(--ld-sidenav-transition-duration) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   position: relative;
   z-index: 1;
 
@@ -309,21 +319,64 @@ That's why we set z-index 0 on the following elements.
   }
 }
 
+.ld-sidenav-navitem__tooltip {
+  position: absolute;
+  inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
+  z-index: 1;
+}
+.ld-sidenav-navitem__tooltip-trigger {
+  position: relative;
+  cursor: pointer;
+  width: calc(
+    var(--ld-sidenav-navitem-icon-size) + 2 * var(--ld-sidenav-navitem-bg-inset)
+  );
+  aspect-ratio: 1;
+  border-radius: calc(
+    var(--ld-sidenav-navitem-active-indicator-border-width) +
+      var(--ld-sidenav-navitem-border-radius)
+  );
+
+  .ld-sidenav-navitem--rounded & {
+    border-radius: var(--ld-br-full);
+  }
+}
+.ld-sidenav-navitem__tooltip-content {
+  position: absolute;
+}
+
 .ld-sidenav-navitem__slot-container {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  margin-left: var(--ld-sp-12);
+  margin-right: auto;
+  max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
   text-overflow: ellipsis;
+  line-height: 1.15;
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   overflow: hidden;
-  white-space: nowrap;
-  padding-right: var(--ld-sp-6);
-  transition: opacity var(--ld-sidenav-transition-duration)
-      var(--ld-sidenav-transition-delay) linear,
-    transform var(--ld-sidenav-transition-duration) ease;
+  padding-right: var(--ld-sp-4);
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-    transition: opacity var(--ld-sidenav-transition-duration) linear,
-      transform var(--ld-sidenav-transition-duration) ease;
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear,
+      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   }
+
+  .ld-sidenav-navitem--secondary &,
+  .ld-sidenav-navitem--tertiary & {
+    padding: 0;
+  }
+}
+
+.ld-sidenav-navitem__slot-icon-secondary-container {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--ld-sp-4);
 }
 
 .ld-sidenav-navitem__abbr {

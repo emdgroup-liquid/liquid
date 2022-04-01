@@ -280,6 +280,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
  - [ld-input-message](../ld-input-message)
  - [ld-notice](../ld-notice)
  - [ld-pagination](../ld-pagination)
+ - [ld-sidenav](../ld-sidenav)
 
 ### Graph
 ```mermaid
@@ -289,6 +290,7 @@ graph TD;
   ld-input-message --> ld-icon
   ld-notice --> ld-icon
   ld-pagination --> ld-icon
+  ld-sidenav --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

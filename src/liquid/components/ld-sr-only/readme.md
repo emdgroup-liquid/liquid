@@ -43,12 +43,16 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 
 ### Used by
 
+ - [ld-sidenav](../ld-sidenav)
  - [ld-sr-live](../ld-sr-live)
+ - [ld-tooltip](../ld-tooltip)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-sidenav --> ld-sr-only
   ld-sr-live --> ld-sr-only
+  ld-tooltip --> ld-sr-only
   style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
