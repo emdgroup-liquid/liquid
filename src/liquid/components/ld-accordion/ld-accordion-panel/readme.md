@@ -26,6 +26,33 @@ Please refer to the [`ld-accordion` documentation](components/ld-accordion) for 
 | `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
 
 
+## Events
+
+| Event                        | Description                                   | Type                  |
+| ---------------------------- | --------------------------------------------- | --------------------- |
+| `ldaccordionmaxheightchange` | Emitted on accordion panel max-height change. | `CustomEvent<number>` |
+
+
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"content"` |             |
+
+
+## Dependencies
+
+### Used by
+
+ - [ld-sidenav-accordion](../../ld-sidenav/ld-sidenav-accordion)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sidenav-accordion --> ld-accordion-panel
+  style ld-accordion-panel fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

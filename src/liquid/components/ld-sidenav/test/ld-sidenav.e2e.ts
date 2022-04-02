@@ -5,6 +5,7 @@ import {
 import {
   getSidenavWithoutSubnavigation,
   getSidenavWithSubnavigation,
+  getSidenavWithAccordion,
 } from './utils'
 
 describe('ld-sidenav', () => {
@@ -773,6 +774,64 @@ describe('ld-sidenav', () => {
         { name: 'prefers-reduced-motion', value: 'reduce' },
       ])
       page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+  })
+
+  describe('with accordion', () => {
+    it('supports nested accordions', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result0 = await page.compareScreenshot('collapsed accordion')
+      expect(result0).toMatchScreenshot()
+
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Space')
+      await page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result1 = await page.compareScreenshot('expanded accordion')
+      expect(result1).toMatchScreenshot()
+
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Space')
+      await page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result2 = await page.compareScreenshot('expanded nested accordion')
+      expect(result2).toMatchScreenshot()
+    })
+
+    it('collapses to narrow mode', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+          collapsible: true,
+          collapsed: true,
+          narrow: true,
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
 
       const result = await page.compareScreenshot()
       expect(result).toMatchScreenshot()

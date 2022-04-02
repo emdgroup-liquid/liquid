@@ -186,24 +186,26 @@ body {
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                                                                                                                                                                                          | Type                                         | Default     |
-| ------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
-| `active`     | `active`      | Sets visual indicator to denote that the nav item is currently active.                                                                                                                                                                                               | `boolean`                                    | `false`     |
-| `href`       | `href`        | Transforms the nav item to an anchor element.                                                                                                                                                                                                                        | `string`                                     | `undefined` |
-| `key`        | `key`         | for tracking the node's identity when working with lists                                                                                                                                                                                                             | `string \| number`                           | `undefined` |
-| `ldTabindex` | `ld-tabindex` | Tab index of the button.                                                                                                                                                                                                                                             | `number`                                     | `undefined` |
-| `mode`       | `mode`        | Display mode. In secondary mode the navitem is less high, displays a filled dot instead of the icon and is hidden when the sidenav collapses. The tertiary mode is similar to secondary mode, with the navitem indented and the dot being empty and having a border. | `"secondary" \| "tertiary"`                  | `undefined` |
-| `ref`        | `ref`         | reference to component                                                                                                                                                                                                                                               | `any`                                        | `undefined` |
-| `rounded`    | `rounded`     | Applies full border-radius.                                                                                                                                                                                                                                          | `boolean`                                    | `false`     |
-| `target`     | `target`      | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute.                                                | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
-| `to`         | `to`          | Accepts an id of an ld-subnav component to navigate to it on click.                                                                                                                                                                                                  | `string`                                     | `undefined` |
+| Property        | Attribute         | Description                                                                                                                                                                                                                                                          | Type                                         | Default     |
+| --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
+| `active`        | `active`          | Sets visual indicator to denote that the nav item is currently active.                                                                                                                                                                                               | `boolean`                                    | `false`     |
+| `expandOnClick` | `expand-on-click` | By default, the sidenav automatically expands on click of a navitem, which has a `to` property or acts as an accordion toggle. You can overwrite this behavior by using this prop to explicitly force or prevent expansion of the sidenav.                           | `boolean`                                    | `undefined` |
+| `href`          | `href`            | Transforms the nav item to an anchor element.                                                                                                                                                                                                                        | `string`                                     | `undefined` |
+| `key`           | `key`             | for tracking the node's identity when working with lists                                                                                                                                                                                                             | `string \| number`                           | `undefined` |
+| `ldTabindex`    | `ld-tabindex`     | Tab index of the button.                                                                                                                                                                                                                                             | `number`                                     | `undefined` |
+| `mode`          | `mode`            | Display mode. In secondary mode the navitem is less high, displays a filled dot instead of the icon and is hidden when the sidenav collapses. The tertiary mode is similar to secondary mode, with the navitem indented and the dot being empty and having a border. | `"secondary" \| "tertiary"`                  | `undefined` |
+| `ref`           | `ref`             | reference to component                                                                                                                                                                                                                                               | `any`                                        | `undefined` |
+| `rounded`       | `rounded`         | Applies full border-radius.                                                                                                                                                                                                                                          | `boolean`                                    | `false`     |
+| `target`        | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute.                                                | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
+| `to`            | `to`              | Accepts an id of an ld-subnav component to navigate to it on click.                                                                                                                                                                                                  | `string`                                     | `undefined` |
 
 
 ## Events
 
-| Event                | Description                         | Type                                          |
-| -------------------- | ----------------------------------- | --------------------------------------------- |
-| `ldSidenavNavitemTo` | Emitted on click if prop to is set. | `CustomEvent<{ id: string; label: string; }>` |
+| Event                   | Description                         | Type                                          |
+| ----------------------- | ----------------------------------- | --------------------------------------------- |
+| `ldSidenavNavitemClick` | Emitted on click.                   | `CustomEvent<any>`                            |
+| `ldSidenavNavitemTo`    | Emitted on click if prop to is set. | `CustomEvent<{ id: string; label: string; }>` |
 
 
 ## Methods
@@ -246,12 +248,14 @@ Type: `Promise<void>`
 
 - [ld-tooltip](../../ld-tooltip)
 - [ld-typo](../../ld-typo)
+- [ld-icon](../../ld-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-sidenav-navitem --> ld-tooltip
   ld-sidenav-navitem --> ld-typo
+  ld-sidenav-navitem --> ld-icon
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
   style ld-sidenav-navitem fill:#f9f,stroke:#333,stroke-width:4px

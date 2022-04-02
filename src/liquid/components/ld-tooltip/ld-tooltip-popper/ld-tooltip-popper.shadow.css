@@ -31,10 +31,6 @@
     --tooltip-col: var(--ld-col-neutral-900);
     --tooltip-bg-col: var(--ld-col-wht);
 
-    @media (prefers-reduced-motion: no-preference) {
-      --ld-tooltip-animation-duration: 0.2s;
-    }
-
     animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
     animation-fill-mode: forwards;
     background-color: var(--tooltip-bg-col);
@@ -50,6 +46,14 @@
     position: relative;
     transition: opacity var(--ld-tooltip-animation-duration) ease-in;
     z-index: var(--ld-zi-max);
+  }
+
+  &--initialized {
+    :host(&) {
+      @media (prefers-reduced-motion: no-preference) {
+        --ld-tooltip-animation-duration: 0.2s;
+      }
+    }
   }
 
   &--sm {

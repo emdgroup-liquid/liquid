@@ -1,11 +1,16 @@
 :host {
-  display: block;
+  display: flex;
+
+  &([slot="toggle"]) {
+    .ld-sidenav-navitem__bg {
+      width: var(--ld-sidenav-navitem-bg-width);
+    }
+  }
 }
 
 .ld-sidenav-navitem {
   /* layout */
   --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
-  --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
   --ld-sidenav-navitem-border-radius: var(--ld-br-l);
   --ld-sidenav-navitem-height: var(--ld-sp-32);
   --ld-sidenav-navitem-icon-font-size: 1rem;
@@ -22,6 +27,7 @@
   background-color: transparent;
   margin: 0 var(--ld-sidenav-padding-x);
   position: relative;
+  flex-grow: 1;
   font: var(--ld-typo-body-s);
   border: 0;
   cursor: pointer;
@@ -29,7 +35,6 @@
   touch-action: manipulation;
   color: var(--ld-sidenav-navitem-col);
   display: flex;
-  width: calc(100% - (2 * var(--ld-sidenav-padding-x)));
   align-items: center;
   box-sizing: border-box;
   padding: 0;
@@ -38,7 +43,7 @@
   outline: none;
   -webkit-touch-callout: none;
 
-  &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary) {
+  &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary):not(.ld-sidenav-navitem--in-accordion) {
     transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) ease;
     transform: translateY(var(--ld-slider-navitem-move-up, 0px));
@@ -62,6 +67,10 @@
         calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
       );
     }
+  }
+
+  &--in-accordion {
+    margin: 0;
   }
 
   &--active {
@@ -141,8 +150,8 @@
   }
 
   &--tertiary {
-    margin-left: calc(3 * var(--ld-sidenav-padding-x) + 0.3125rem);
-    width: calc(100% - (4 * var(--ld-sidenav-padding-x)) - 0.3125rem);
+    margin-left: var(--ld-sidenav-navitem-tertiary-indent);
+    width: var(--ld-sidenav-navitem-tertiary-width);
     gap: 0;
   }
 }
@@ -196,6 +205,17 @@
 
   .ld-sidenav-navitem--collapsed & {
     transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
+  }
+  .ld-sidenav-navitem--collapsed.ld-sidenav-navitem--in-accordion & {
+    transform: translateX(
+      calc(
+        (
+            var(--ld-sidenav-translate-x-delta) -
+              var(--ld-sidenav-navitem-icon-size) +
+              var(--ld-sidenav-navitem-bg-right-x-delta, 0px)
+          ) * -1
+      )
+    );
   }
 }
 
@@ -324,6 +344,7 @@ That's why we set z-index 0 on the following elements.
   position: absolute;
   inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
   z-index: 1;
+  pointer-events: all; /* overwrites pointer-events set on sidenav accordion */
 }
 .ld-sidenav-navitem__tooltip-trigger {
   position: relative;
@@ -376,10 +397,25 @@ That's why we set z-index 0 on the following elements.
   flex-shrink: 0;
   margin-right: var(--ld-sp-4);
   color: var(--ld-sidenav-navitem-secondary-icon-color);
+  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+
+  .ld-sidenav-navitem--collapsed & {
+    opacity: 0;
+    transform: translateX(var(--ld-sidenav-translate-x-delta));
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+        linear,
+      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  }
 }
 
 .ld-sidenav-navitem__abbr {
   font: var(--ld-typo-b6);
   font-size: var(--ld-sidenav-navitem-icon-font-size);
   transform: translateX(3%) translateY(-14%);
+}
+
+.ld-sidenav-navitem__icon-to {
+  transform: translateX(var(--ld-sp-6));
 }

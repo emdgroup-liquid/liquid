@@ -5,19 +5,23 @@
   --ld-accordion-col-hover: var(--ld-col-neutral-900);
   --ld-accordion-col-focus: var(--ld-col-neutral-900);
   --ld-accordion-bg-col: var(--ld-col-wht);
-  --ld-accordion-bg-col-disabled: var(--ld-col-neutral-100);
   --ld-accordion-bg-col-active: var(--ld-col-wht);
+  --ld-accordion-bg-col-disabled: var(--ld-col-neutral-100);
+  --ld-accordion-bg-col-focus: var(--ld-col-neutral-100);
+  --ld-accordion-bg-col-hover: var(--ld-col-neutral-050);
   --ld-accordion-trigger-icon-col-disabled: var(--ld-col-neutral-100);
 
   /* themable colors */
   --ld-accordion-col-active: var(--ld-thm-primary);
   --ld-accordion-col-selected: var(--ld-thm-primary);
-  --ld-accordion-bg-col-hover: var(--ld-col-neutral-050);
-  --ld-accordion-bg-col-focus: var(--ld-col-neutral-100);
+  --ld-accordion-toggle-col: inherit;
+  --ld-accordion-toggle-indicator-bg-col: transparent;
+  --ld-accordion-toggle-trigger-col: var(--ld-thm-primary);
   --ld-accordion-trigger-icon-col: var(--ld-thm-primary);
   --ld-accordion-trigger-icon-col-hover: var(--ld-thm-primary-hover);
   --ld-accordion-trigger-icon-col-focus: var(--ld-thm-primary-focus);
   --ld-accordion-trigger-icon-col-active: var(--ld-thm-primary-active);
+  --ld-accordion-toggle-expanded-col: var(--ld-thm-primary);
 
   /* layout */
   --ld-accordion-padding-y: 0.45rem;
@@ -26,8 +30,9 @@
   --ld-accordion-toggle-line-height: 180%;
   --ld-accordion-border-radius-size: 0;
   --ld-accordion-border-radius: var(--ld-accordion-border-radius-size);
-  --ld-accordion-gap: var(--ld-sp-1);
-  --ld-accordion-panel-border-top-color: var(--ld-col-neutral-050);
+  --ld-accordion-gap: var(--ld-sp-2);
+  --ld-accordion-gap-col: var(--ld-accordion-panel-border-top-col);
+  --ld-accordion-panel-border-top-col: var(--ld-col-neutral-010);
 
   &(:where(.ld-accordion)) {
     display: block;
@@ -40,6 +45,8 @@
 
   &(.ld-accordion--dark) {
     --ld-accordion-bg-col: var(--ld-col-neutral-010);
+    --ld-accordion-bg-col-active: var(--ld-col-neutral-010);
+    --ld-accordion-panel-border-top-col: var(--ld-col-neutral-050);
   }
 
   &(.ld-accordion--brand-color) {
@@ -49,6 +56,7 @@
 
   &(.ld-accordion--detached) {
     --ld-accordion-gap: var(--ld-sp-8);
+    --ld-accordion-gap-col: transparent;
   }
 
   &(.ld-accordion:not(.ld-accordion--detached)) {
@@ -66,6 +74,6 @@
   }
 
   ::slotted(ld-accordion-section:not(:first-of-type)) {
-    margin-top: var(--ld-accordion-gap);
+    border-top: solid var(--ld-accordion-gap) var(--ld-accordion-gap-col);
   }
 }

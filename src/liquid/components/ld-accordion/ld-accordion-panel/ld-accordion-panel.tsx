@@ -1,7 +1,15 @@
 import '../../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Host, Method, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  State,
+} from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
-import { closest } from '../../../utils/closest'
 
 /**
  * @virtualProp ref - reference to component
@@ -28,26 +36,8 @@ export class LdAccordionPanel {
   @State() resizeObserver: ResizeObserver
   @State() innerPanelExpanding = false
 
-  /**
-   * @internal
-   * Updates expanded state.
-   */
-  @Method()
-  async applyMaxHeight(additionalHeightFromInnerPanel = 0) {
-    if (additionalHeightFromInnerPanel) {
-      this.innerPanelExpanding = true
-    }
-
-    // Apply max height on outer panel inside nested accordion.
-    if (this.expanded) {
-      const closestPanel = closest('ld-accordion-panel', this.el.parentElement)
-      closestPanel?.applyMaxHeight(this.el.scrollHeight)
-    }
-
-    this.maxHeight = this.expanded
-      ? this.el.scrollHeight + additionalHeightFromInnerPanel
-      : 0
-  }
+  /** Emitted on accordion panel max-height change. */
+  @Event() ldaccordionmaxheightchange: EventEmitter<number>
 
   /**
    * @internal
@@ -58,6 +48,28 @@ export class LdAccordionPanel {
     this.expanded = expanded
 
     this.applyMaxHeight()
+  }
+
+  private applyMaxHeight = (additionalHeightFromInnerPanel = 0) => {
+    if (additionalHeightFromInnerPanel) {
+      this.innerPanelExpanding = true
+    }
+
+    // Apply max-height on outer panel inside nested accordion.
+    if (this.expanded) {
+      this.ldaccordionmaxheightchange.emit(this.el.scrollHeight)
+    }
+
+    this.maxHeight = this.expanded
+      ? this.el.scrollHeight + additionalHeightFromInnerPanel
+      : 0
+  }
+
+  private handleInnerMaxHeightChange = (ev: CustomEvent) => {
+    if (ev.target === this.el) return
+
+    ev.stopImmediatePropagation()
+    this.applyMaxHeight(ev.detail)
   }
 
   private onTransitionEnd = (ev: TransitionEvent) => {
@@ -98,8 +110,10 @@ export class LdAccordionPanel {
         style={{ '--ld-accordion-panel-max-height': this.maxHeight + 'px' }}
         class={cl}
         onTransitionEnd={this.onTransitionEnd}
+        onLdaccordionmaxheightchange={this.handleInnerMaxHeightChange}
       >
         <div
+          part="content"
           ref={(ref) => (this.contentRef = ref)}
           class="ld-accordion-panel__content"
         >

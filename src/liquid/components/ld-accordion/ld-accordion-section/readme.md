@@ -21,11 +21,11 @@ Please refer to the [`ld-accordion` documentation](components/ld-accordion) for 
 
 ## Properties
 
-| Property   | Attribute  | Description                                                            | Type               | Default     |
-| ---------- | ---------- | ---------------------------------------------------------------------- | ------------------ | ----------- |
-| `expanded` | `expanded` | If present, this boolean attribute indicates that the tab is expanded. | `boolean`          | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists               | `string \| number` | `undefined` |
-| `ref`      | `ref`      | reference to component                                                 | `any`              | `undefined` |
+| Property   | Attribute  | Description                                              | Type               | Default     |
+| ---------- | ---------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `expanded` | `expanded` | Indicates that the accordion section is expanded.        | `boolean`          | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`      | `ref`      | reference to component                                   | `any`              | `undefined` |
 
 
 ## Events
@@ -34,6 +34,19 @@ Please refer to the [`ld-accordion` documentation](components/ld-accordion) for 
 | ------------------- | ---------------------------------- | ---------------------- |
 | `ldaccordionchange` | Emitted on expansion and collapse. | `CustomEvent<boolean>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ld-sidenav-accordion](../../ld-sidenav/ld-sidenav-accordion)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sidenav-accordion --> ld-accordion-section
+  style ld-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -30,7 +30,8 @@ h3,
 h4,
 h5,
 h6 {
-  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *):not(.ld-notice
+        *)) {
     margin: 0;
     padding: 0;
   }
@@ -47,7 +48,8 @@ h6 {
   }
 }
 ul {
-  &:where(:not(.docs-example__show *):not(.ld-tether-element *)) {
+  &:where(:not(.docs-example__show *):not(.ld-tether-element *):not(.ld-notice
+        *)) {
     list-style: none;
   }
 }

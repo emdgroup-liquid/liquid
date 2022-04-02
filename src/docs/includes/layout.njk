@@ -80,7 +80,7 @@ title: Introduction
                   <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
-                  {% if (entry.title == 'Components') or (entry.title == 'Globals') %}
+                  {% if ("/components" in entry.url) or ("/globals" in entry.url) %}
                     {% for child in entry.children|sort(false, true, 'title') %}{{ renderNavListItem(child) }}{% endfor %}
                   {% else %}
                     {% for child in entry.children %}{{ renderNavListItem(child) }}{% endfor %}

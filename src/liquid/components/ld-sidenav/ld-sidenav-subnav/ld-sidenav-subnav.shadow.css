@@ -1,4 +1,6 @@
 :host {
+  --ld-sidenav-accordion-bg-col-hover: var(--ld-col-neutral-100);
+
   position: absolute;
   top: 0;
   height: 100%;
@@ -16,7 +18,7 @@
   }
 
   ::slotted(:where(:not(ld-sidenav-separator):not(ld-sidenav-navitem):not(ld-sidenav-subnav))) {
-    margin-top: var(--ld-sidenav-padding-y);
+    margin-bottom: var(--ld-sidenav-padding-y);
     transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
         var(--ld-sidenav-transition-delay-collapse-expand) linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
@@ -31,6 +33,10 @@
     opacity: 0;
     visibility: hidden;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
+  }
+
+  ::slotted(.ld-sidenav-accordion) {
+    transform: none;
   }
 }
 

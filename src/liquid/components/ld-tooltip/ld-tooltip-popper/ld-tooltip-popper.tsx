@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import '../../../components' // type definitions for type checks and intelliSense
 
@@ -10,6 +10,8 @@ import '../../../components' // type definitions for type checks and intelliSens
 })
 export class LdTooltipPopper {
   @Element() element: HTMLElement
+
+  @State() initialized = false
 
   /** Show arrow */
   @Prop() arrow: boolean
@@ -23,6 +25,12 @@ export class LdTooltipPopper {
   /** Whether the tooltip has a custom trigger or not */
   @Prop() hasDefaultTrigger: boolean
 
+  componentDidLoad() {
+    setTimeout(() => {
+      this.initialized = true
+    })
+  }
+
   render() {
     return (
       <Host
@@ -30,6 +38,7 @@ export class LdTooltipPopper {
           'ld-tooltip',
           this.arrow && 'ld-tooltip--with-arrow',
           this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
+          this.initialized && 'ld-tooltip--initialized',
           this.size && `ld-tooltip--${this.size}`,
           this.triggerType === 'click' && 'ld-tooltip--interactive',
         ])}

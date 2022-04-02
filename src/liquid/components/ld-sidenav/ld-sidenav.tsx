@@ -30,7 +30,6 @@ export class LdSidenav {
   @Element() el: HTMLLdSidenavElement
 
   private mediaQuery: MediaQueryList
-  private observer: MutationObserver
 
   /** Whether the nav should be aligned to the left or the right side of its container. */
   @Prop() align: 'left' | 'right' = 'left'
@@ -240,12 +239,6 @@ export class LdSidenav {
     ).find(({ mode }) => !mode)
     this.fullyCollapsible = !this.narrow || !activeSubnavContainsIcons
 
-    // Always expand sidebar on slide change, except for
-    // when the sidebar is initially loaded.
-    if (this.initialized) {
-      this.collapsed = false
-    }
-
     this.updateFocus()
   }
 
@@ -317,7 +310,7 @@ export class LdSidenav {
     }
 
     // If focus is inside the sidenav expand the sidenav.
-    if (isFocusInSidenav) {
+    if (this.expandTrigger === 'mouseenter' && isFocusInSidenav) {
       this.collapsed = false
     }
 
@@ -412,56 +405,18 @@ export class LdSidenav {
     this.ldSidenavBreakpointChange.emit(this.closable)
   }
 
-  private isLastNavItem = (
-    navitemOrSubnav: HTMLLdSidenavNavitemElement | HTMLLdSidenavSubnavElement
-  ) => {
-    const nextSibling = navitemOrSubnav.nextElementSibling as HTMLElement
-    if (!nextSibling) return true
-    if (nextSibling.tagName === 'LD-SIDENAV-NAVITEM') return false
-    if (nextSibling.tagName === 'LD-SIDENAV-SUBNAV') {
-      return this.isLastNavItem(nextSibling as HTMLLdSidenavSubnavElement)
-    }
-    return true
-  }
-
-  private updateNavitemsLast = () => {
-    this.el
-      .querySelectorAll('ld-sidenav-navitem')
-      .forEach((navitem: HTMLLdSidenavNavitemElement) => {
-        navitem.classList.toggle(
-          'ld-sidenav-navitem--last',
-          this.isLastNavItem(navitem)
-        )
-      })
-  }
-
-  private handleSlotChange() {
-    this.updateNavitemsLast()
-  }
-
-  private initObserver = () => {
-    this.observer = new MutationObserver(this.handleSlotChange.bind(this))
-    this.observer.observe(this.el, {
-      subtree: true,
-      childList: true,
-      attributes: false,
-    })
-  }
-
   componentWillLoad() {
     this.mediaQuery = window.matchMedia(`(max-width: ${this.breakpoint})`)
     this.mediaQuery.addEventListener('change', this.onMatchMediaChange)
     this.closable = this.mediaQuery.matches
     this.fullyCollapsible =
       !this.narrow || !this.el.querySelector('ld-sidenav-slider')
-    this.updateNavitemsLast()
   }
 
   componentDidLoad() {
     this.ldSidenavCollapsedChange.emit(this.collapsible && this.collapsed)
     this.ldSidenavOpenChange.emit(this.open)
     this.ldSidenavBreakpointChange.emit(this.closable)
-    this.initObserver()
 
     setTimeout(() => {
       this.initialized = true
@@ -470,7 +425,6 @@ export class LdSidenav {
 
   disconnectedCallback() {
     this.mediaQuery?.removeEventListener('change', this.onMatchMediaChange)
-    if (this.observer) this.observer.disconnect()
   }
 
   render() {
