@@ -173,9 +173,8 @@ export class LdTooltip {
     }
   }
 
-  private handleHideTrigger = (event: MouseEvent) => {
+  private handleHideTrigger = () => {
     if (this.triggerType === 'click' || this.disabled) {
-      event.stopPropagation()
       return
     }
 
@@ -188,9 +187,8 @@ export class LdTooltip {
     }
   }
 
-  private handleShowTrigger = (event: MouseEvent) => {
+  private handleShowTrigger = () => {
     if (this.triggerType === 'click' || this.disabled) {
-      event.stopPropagation()
       return
     }
 

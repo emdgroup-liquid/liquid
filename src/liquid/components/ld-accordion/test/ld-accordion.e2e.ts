@@ -32,6 +32,10 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()
   })
@@ -61,6 +65,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
     page.waitForChanges()
     await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -81,6 +88,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.hover('ld-accordion-toggle')
     await page.waitForChanges()
@@ -102,6 +112,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.waitForChanges()
@@ -123,6 +136,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.keyboard.down('Space')
@@ -157,6 +173,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-wht)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()
   })
@@ -189,6 +208,9 @@ describe('ld-accordion', () => {
         notWrapped: true,
       }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()
   })
@@ -206,6 +228,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-thm-primary)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.hover('ld-accordion-toggle')
     await page.waitForChanges()
@@ -227,6 +252,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-thm-primary)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.waitForChanges()
@@ -248,6 +276,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-thm-primary)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.keyboard.down('Space')
@@ -285,6 +316,10 @@ describe('ld-accordion', () => {
         notWrapped: true,
       }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()
   })
@@ -317,6 +352,10 @@ describe('ld-accordion', () => {
         notWrapped: true,
       }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()
   })
@@ -334,6 +373,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.waitForChanges()
@@ -355,6 +397,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     await page.keyboard.press('Tab')
     await page.keyboard.press('Tab')
@@ -414,6 +459,9 @@ describe('ld-accordion', () => {
       </ld-accordion>`,
       { notWrapped: true, bgColor: 'var(--ld-col-neutral-010)' }
     )
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
 
     const result = await page.compareScreenshot()
     expect(result).toMatchScreenshot()

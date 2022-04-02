@@ -264,7 +264,7 @@ In some cases you will want to make space for your main content. Use the `collap
 Use the expand trigger property to configure on which events the side navigation expands. You can configure it to expand
 
 - on explicit toggle button click,
-- when the user moves the cursor over the side navigation.
+- when the user moves the cursor over the side navigation or the sidenav receives focus-within.
 
 The trigger modes are inclusive as follows:
 - `'toggle'` applies as well if the collapse trigger is set to `'mouseenter'`
@@ -280,6 +280,10 @@ The trigger modes are inclusive as follows:
 {% example '{ "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav open collapsed collapsible expand-trigger="mouseenter"></ld-sidenav>
 {% endexample %}
+
+#### Customizing expansion on click of individual navitems
+
+By default, the sidenav automatically expands on click of an [`ld-sidenav-navitem`](./ld-sidenav-navitem), which has a `to` property, or acts as an accordion toggle within an [`ld-sidenav-accordion`](./ld-sidenav-accordion). You can overwrite this behavior by using the `expand-on-click` prop of each [`ld-sidenav-navitem`](./ld-sidenav-navitem) within your sidenav to explicitly force or prevent the expansion.
 
 ### Collapse trigger
 
@@ -401,7 +405,7 @@ The only thing that is missing in our example above for a fully working nav with
 
 The [`ld-sidenav-back`](./ld-sidenav-back) component will use the label prop on [`ld-sidenav-slider`](./ld-sidenav-slider) and [`ld-sidenav-subnav`](./ld-sidenav-subnav) to indicate where the user will navigate back to when clicking on the button. Also, it contains another [`ld-sidenav-navitem`](./ld-sidenav-navitem) in its slot, which is used as a fallback for when the user navigates back to the navigation root.
 
-{% example '{ "highlight": "1-5", "opened": true, "hasPadding": false, "styles": { "minHeight": "20rem", "position": "relative" } }' %}
+{% example '{ "highlight": "1-3", "opened": true, "hasPadding": false, "styles": { "minHeight": "20rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
@@ -426,7 +430,7 @@ The [`ld-sidenav-back`](./ld-sidenav-back) component will use the label prop on 
 
 Use the [`ld-sidenav-heading`](./ld-sidenav-heading) component to display headings in your sidenav.
 
-{% example '{ "highlight": "7,10,16", "opened": true, "hasPadding": false, "styles": { "minHeight": "20rem", "position": "relative" } }' %}
+{% example '{ "highlight": "5,8,14", "opened": true, "hasPadding": false, "styles": { "minHeight": "20rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
@@ -470,12 +474,73 @@ The [`ld-sidenav-separator`](./ld-sidenav-separator) component allows you to vis
 </ld-sidenav>
 {% endexample %}
 
+### `ld-sidenav-accordion`
+
+For deeper navigation hierarchies you may also want to structure certain navigation segments using an accordion. For this purpose you can use the [`ld-sidenav-accordion`](./ld-sidenav-accordion) component.
+
+<ld-notice headline="Note" mode="warning">
+  Some things to keep in mind when using the <code>ld-sidenav-accordion</code> component within the <code>ld-sidenav</code> component:
+  <ul style="margin:0">
+    <li>The <code>ld-sidenav-accordion</code> component must be a child (direct descendant) of either the <code>ld-sidenav-slider</code>, <code>ld-sidenav-subnav</code>  or another <code>ld-sidenav-accordion</code> component</li>
+    <li>Nested accordions are supported with a maximum nesting depth of two levels</li>
+  </ul>
+</ld-notice>
+
+{% example '{ "hasPadding": false, "styles": { "minHeight": "30rem", "position": "relative" } }' %}
+<ld-sidenav open narrow collapsible>
+  <ld-sidenav-back slot="top">
+    <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
+  </ld-sidenav-back>
+  <ld-sidenav-slider label="Outline of CS">
+    <ld-sidenav-heading>Subfields</ld-sidenav-heading>
+    <ld-sidenav-accordion>
+      <ld-sidenav-navitem slot="toggle">Mathematical foundations</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Game theory</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Discrete Mathematics</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Graph theory</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Mathematical logic</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Number theory</ld-sidenav-navitem>
+    </ld-sidenav-accordion>
+    <ld-sidenav-accordion split>
+      <ld-sidenav-navitem slot="toggle">Algorithms and data structures</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Algorithms</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Data structures</ld-sidenav-navitem>
+    </ld-sidenav-accordion>
+    <ld-sidenav-navitem to="artificial-inte">
+      Artificial intelligence
+    </ld-sidenav-navitem>
+    <ld-sidenav-accordion>
+      <ld-sidenav-navitem slot="toggle">Communication and security</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Networking</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Computer security</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Cryptography</ld-sidenav-navitem>
+    </ld-sidenav-accordion>
+    <ld-sidenav-subnav id="artificial-inte" label="Artificial intelligence">
+      <ld-sidenav-heading>Artificial intelligence</ld-sidenav-heading>
+      <ld-sidenav-navitem mode="secondary">Automated reasoning</ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary">Computer vision</ld-sidenav-navitem>
+      <ld-sidenav-accordion>
+        <ld-sidenav-navitem slot="toggle">Soft computing</ld-sidenav-navitem>
+        <ld-sidenav-accordion>
+          <ld-sidenav-navitem mode="secondary" slot="toggle">Machine learning</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="tertiary">Supervised learning</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="tertiary">Unsupervised learning</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="tertiary">Reinforcement learning</ld-sidenav-navitem>
+        </ld-sidenav-accordion>
+        <ld-sidenav-navitem mode="secondary">Evolutionary computing</ld-sidenav-navitem>
+      </ld-sidenav-accordion>
+    </ld-sidenav-subnav>
+  </ld-sidenav-slider>
+</ld-sidenav>
+{% endexample %}
+
 ## Listening for events
 
 The sidenav as well as its subcomponents emit different events which you can use in order to react to user interaction with the sidenav or changes to its context. The following example demonstrates just one possibility of how you could listen for some available events. Refer to the _Events_ section of each component to see a list of all available events.
 
 {% example '{ "opened": true, "hasPadding": false, "styles": { "minHeight": "24rem", "position": "relative" } }' %}
-<ld-sidenav open id="my-sidenav">
+<ld-sidenav open id="my-sidenav-with-events">
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
   </ld-sidenav-back>
@@ -498,17 +563,15 @@ The sidenav as well as its subcomponents emit different events which you can use
 </ld-sidenav>
 
 <script>
-  const mySidenav = document.getElementById('my-sidenav')
+  const mySidenav = document.getElementById('my-sidenav-with-events')
   mySidenav.addEventListener('ldSidenavSliderChange', ev => {
     console.info('sidenav slider change', ev.detail && ev.detail.id)
   })
   mySidenav.addEventListener('ldSidenavNavitemTo', ev => {
     console.info('sidenav navitem to click', ev.detail.id)
   })
-  mySidenav.addEventListener('click', ev => {
-    if (ev.target.tagName === 'LD-SIDENAV-NAVITEM') {
-      console.info('sidenav navitem click', ev.target.getAttribute('to'))
-    }
+  mySidenav.addEventListener('ldSidenavNavitemClick', ev => {
+    console.info('sidenav navitem click', ev.target.getAttribute('to'))
   })
 </script>
 {% endexample %}

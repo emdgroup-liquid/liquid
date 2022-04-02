@@ -38,6 +38,8 @@ export class LdAccordion {
 
   @Listen('ldaccordionchange', { passive: true })
   handleAccordionExpandChange(ev) {
+    if (ev.target.tagName !== 'LD-ACCORDION-SECTION') return
+
     // In single mode, close sibling sections of open section.
     if (this.single && ev.target.expanded) {
       const siblings = [...ev.target.parentElement.children].filter(

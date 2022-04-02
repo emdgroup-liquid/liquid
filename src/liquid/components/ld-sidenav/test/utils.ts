@@ -316,3 +316,83 @@ export function getSidenavWithSubnavigation(options?: {
     </ld-sidenav>
   `
 }
+
+export function getSidenavWithAccordion(options?: {
+  align?: 'left' | 'right'
+  currentSubnav?: string
+  collapsible?: boolean
+  collapsed?: boolean
+  narrow?: boolean
+  neutral?: boolean
+  preserveAccordionState?: boolean
+  roundedBackButton?: boolean
+}) {
+  const preserveAccordionStateProp =
+    options.preserveAccordionState === undefined ||
+    options.preserveAccordionState === true
+      ? ''
+      : ' preserve-state="false"'
+
+  return `
+    <ld-sidenav open${options?.collapsible ? ' collapsible' : ''}${
+    options?.collapsed ? ' collapsed' : ''
+  }${options?.narrow ? ' narrow' : ''}${options?.neutral ? ' neutral' : ''}${
+    options?.align ? ' align="' + options.align + '"' : ''
+  }>
+      <ld-sidenav-back slot="top">
+        <ld-sidenav-navitem ${
+          options?.roundedBackButton ? ' rounded' : ''
+        }>Outline of Computer Science</ld-sidenav-navitem>
+      </ld-sidenav-back>
+      <ld-sidenav-slider ${
+        options?.currentSubnav
+          ? 'current-subnav="' + options.currentSubnav + '" '
+          : ''
+      }label="Outline of Computer Science">
+        <ld-sidenav-heading>Subfields</ld-sidenav-heading>
+        <ld-sidenav-accordion${preserveAccordionStateProp}>
+          <ld-sidenav-navitem slot="toggle">Mathematical foundations</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Game theory</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Discrete Mathematics</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Graph theory</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Mathematical logic</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Number theory</ld-sidenav-navitem>
+        </ld-sidenav-accordion>
+        <ld-sidenav-accordion split>
+          <ld-sidenav-navitem slot="toggle">Algorithms and data structures</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Algorithms</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Data structures</ld-sidenav-navitem>
+        </ld-sidenav-accordion>
+        <ld-sidenav-navitem to="artificial-intelligence">
+          Artificial intelligence
+          <ld-icon slot="icon-secondary" name="arrow-right" size="sm" />
+        </ld-sidenav-navitem>
+        <ld-sidenav-accordion${preserveAccordionStateProp}>
+          <ld-sidenav-navitem slot="toggle">Communication and security</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Networking</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Computer security</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Cryptography</ld-sidenav-navitem>
+        </ld-sidenav-accordion>
+        <ld-sidenav-subnav id="artificial-intelligence" label="Artificial intelligence">
+          <ld-sidenav-heading>Artificial intelligence</ld-sidenav-heading>
+          <ld-sidenav-navitem mode="secondary">Automated reasoning</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">Computer vision</ld-sidenav-navitem>
+          <ld-sidenav-accordion${preserveAccordionStateProp}>
+            <ld-sidenav-navitem slot="toggle">Soft computing</ld-sidenav-navitem>
+            <ld-sidenav-accordion${preserveAccordionStateProp}>
+              <ld-sidenav-navitem mode="secondary" slot="toggle">Machine learning</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="tertiary">Supervised learning</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="tertiary">Unsupervised learning</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="tertiary">Reinforcement learning</ld-sidenav-navitem>
+            </ld-sidenav-accordion>
+            <ld-sidenav-navitem mode="secondary">Evolutionary computing</ld-sidenav-navitem>
+          </ld-sidenav-accordion>
+        </ld-sidenav-subnav>
+      </ld-sidenav-slider>
+      <ld-sidenav-navitem slot="bottom" rounded>
+        Student profile
+      </ld-sidenav-navitem>
+    </ld-sidenav>
+  `
+}

@@ -291,6 +291,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
   <docs-icon identifier="arrow-up-n-down" name="Arrow Up n’Down"></docs-icon>
   <docs-icon identifier="arrow-double-left" name="Arrow Double Left"></docs-icon>
   <docs-icon identifier="arrow-double-right" name="Arrow Double Right"></docs-icon>
+  <docs-icon identifier="real-arrow" name="Real Arrow"></docs-icon>
   <docs-icon identifier="star" name="Star"></docs-icon>
   <docs-icon identifier="half-star" name="Half Star"></docs-icon>
   <docs-icon identifier="dot" name="Dot"></docs-icon>
@@ -339,6 +340,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
  - [ld-notice](../ld-notice)
  - [ld-pagination](../ld-pagination)
  - [ld-sidenav](../ld-sidenav)
+ - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
 
 ### Graph
 ```mermaid
@@ -349,6 +351,7 @@ graph TD;
   ld-notice --> ld-icon
   ld-pagination --> ld-icon
   ld-sidenav --> ld-icon
+  ld-sidenav-navitem --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

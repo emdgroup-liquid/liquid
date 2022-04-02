@@ -1,5 +1,4 @@
 :host {
-  background-color: var(--ld-col-wht);
   display: block;
   border-radius: var(--ld-accordion-border-radius);
 }
@@ -25,6 +24,7 @@
   display: grid;
   font: var(--ld-typo-body-m);
   grid-template-columns: 1fr var(--ld-accordion-toggle-size);
+  direction: var(--ld-accordion-grid-dir);
   padding: 0;
   position: relative;
 
@@ -32,36 +32,64 @@
     color: var(--ld-accordion-col-disabled);
   }
 
-  &:not([aria-disabled]) {
-    cursor: pointer;
-
-    &:where(:focus:focus-visible) {
-      background-color: var(--ld-accordion-bg-col-focus);
-      color: var(--ld-accordion-col-focus);
+  :host(.ld-accordion-toggle:not(.ld-accordion-toggle--split)) & {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--ld-accordion-border-radius);
+      background-color: var(--ld-accordion-toggle-indicator-bg-col);
     }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(--ld-accordion-bg-col-hover);
-        color: var(--ld-accordion-col-hover);
+    &:not([aria-disabled]) {
+      &:where(:focus:focus-visible) {
+        --ld-accordion-toggle-indicator-bg-col: var(
+          --ld-accordion-bg-col-focus
+        );
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          --ld-accordion-toggle-indicator-bg-col: var(
+            --ld-accordion-bg-col-hover
+          );
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        --ld-accordion-toggle-indicator-bg-col: var(
+          --ld-accordion-bg-col-active
+        );
       }
     }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(--ld-accordion-bg-col-active);
-      color: var(--ld-accordion-col-active);
-    }
+  }
 
+  :host(.ld-accordion-toggle--expanded:not(.ld-accordion-toggle--split)) & {
+    &::before {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  :host(.ld-accordion-toggle:not(.ld-accordion-toggle--split):not(.ld-accordion-toggle--expanded))
+    & {
+    &:not([aria-disabled]) {
+      &:where(:focus:focus-visible) {
+        --ld-accordion-toggle-col: var(--ld-accordion-col-focus);
+      }
+      @media (hover: hover) {
+        &:where(:hover) {
+          --ld-accordion-toggle-col: var(--ld-accordion-col-hover);
+        }
+      }
+      &:where(:active),
+      &:where(:active:focus-visible) {
+        --ld-accordion-toggle-col: var(--ld-accordion-col-active);
+      }
+    }
+  }
+
+  &:not([aria-disabled]) {
     .ld-accordion-toggle__trigger {
       color: var(--ld-accordion-trigger-icon-col);
-    }
-
-    &:focus:focus-visible,
-    &:hover,
-    &:active,
-    &:active:focus-visible {
-      .ld-accordion-toggle__trigger {
-        color: inherit;
-      }
     }
   }
 }
@@ -70,7 +98,11 @@
 .ld-accordion-toggle__trigger {
   font: inherit;
   background-color: transparent;
+}
 
+button.ld-accordion-toggle__button,
+button.ld-accordion-toggle__label,
+button.ld-accordion-toggle__trigger {
   &:not([aria-disabled]) {
     cursor: pointer;
   }
@@ -79,6 +111,9 @@
 .ld-accordion-toggle__label {
   position: relative;
   padding: var(--ld-accordion-padding-y) var(--ld-accordion-padding-x);
+  border-radius: var(--ld-accordion-border-radius);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .ld-accordion-toggle__trigger {
@@ -87,6 +122,9 @@
   height: var(--ld-accordion-toggle-size);
   display: grid;
   place-items: center;
+  border-radius: var(--ld-accordion-border-radius);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
   overflow: hidden; /* resolves focus outline issue on safari */
 }
 
@@ -94,9 +132,18 @@
 .ld-accordion-toggle__trigger-content {
   position: relative;
   display: grid;
+  transform: translateX(calc(-1 * var(--ld-sp-1)));
+}
+
+.ld-accordion-toggle__label-content {
+  .ld-accordion-toggle__label:not([aria-disabled]) & {
+    color: var(--ld-accordion-toggle-col);
+  }
 }
 
 :host(.ld-accordion-toggle--expanded) {
+  --ld-accordion-toggle-col: var(--ld-accordion-toggle-expanded-col);
+
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
@@ -112,6 +159,7 @@
       content: '';
       position: absolute;
       inset: var(--ld-sp-4);
+      left: var(--ld-sp-2);
       border-radius: var(--ld-br-s);
     }
 
@@ -120,39 +168,61 @@
     }
   }
 
+  .ld-accordion-toggle__label::before {
+    background-color: var(--ld-accordion-toggle-label-indicator-bg-col);
+    transform: translateX(calc(var(--ld-sp-2)));
+  }
+
+  .ld-accordion-toggle__trigger::before {
+    background-color: var(--ld-accordion-toggle-trigger-indicator-bg-col);
+  }
+
   .ld-accordion-toggle__button:not([aria-disabled]) {
     background-color: var(--ld-accordion-bg-col);
+  }
 
-    .ld-accordion-toggle__label:not([aria-disabled]) {
-      color: var(--ld-accordion-col);
+  .ld-accordion-toggle__label:not([aria-disabled]) {
+    &:where(:focus:focus-visible) {
+      --ld-accordion-toggle-label-indicator-bg-col: var(
+        --ld-accordion-bg-col-focus
+      );
     }
-    .ld-accordion-toggle__trigger:not([aria-disabled]) {
-      color: var(--ld-thm-primary);
+    @media (hover: hover) {
+      &:where(:hover) {
+        --ld-accordion-toggle-label-indicator-bg-col: var(
+          --ld-accordion-bg-col-hover
+        );
+      }
     }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      --ld-accordion-toggle-label-indicator-bg-col: var(
+        --ld-accordion-bg-col-active
+      );
+    }
+  }
 
-    .ld-accordion-toggle__label:not([aria-disabled]),
-    .ld-accordion-toggle__trigger:not([aria-disabled]) {
-      &:where(:focus:focus-visible) {
-        color: var(--ld-accordion-col-focus);
-        &::before {
-          background-color: var(--ld-accordion-bg-col-focus);
-        }
+  .ld-accordion-toggle__trigger:not([aria-disabled]) {
+    &:where(:focus:focus-visible) {
+      --ld-accordion-toggle-trigger-col: var(--ld-accordion-col-focus);
+      --ld-accordion-toggle-trigger-indicator-bg-col: var(
+        --ld-accordion-bg-col-focus
+      );
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        --ld-accordion-toggle-trigger-col: var(--ld-accordion-col-hover);
+        --ld-accordion-toggle-trigger-indicator-bg-col: var(
+          --ld-accordion-bg-col-hover
+        );
       }
-      @media (hover: hover) {
-        &:where(:hover) {
-          color: var(--ld-accordion-col-hover);
-          &::before {
-            background-color: var(--ld-accordion-bg-col-hover);
-          }
-        }
-      }
-      &:where(:active),
-      &:where(:active:focus-visible) {
-        color: var(--ld-accordion-col-active);
-        &::before {
-          background-color: var(--ld-accordion-bg-col-active);
-        }
-      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      --ld-accordion-toggle-trigger-col: var(--ld-accordion-col-active);
+      --ld-accordion-toggle-trigger-indicator-bg-col: var(
+        --ld-accordion-bg-col-active
+      );
     }
   }
 }

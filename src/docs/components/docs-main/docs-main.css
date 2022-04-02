@@ -8,6 +8,7 @@
       > p,
       > ol,
       > ul,
+      > ld-notice,
       > [id^='css-variables'] + table,
       > [id^='properties'] + table,
       > [id^='events'] + table,
@@ -188,7 +189,12 @@
     > ol,
     > ul {
       font: var(--ld-typo-body-m);
+    }
 
+    > p,
+    > ol,
+    > ul,
+    > ld-notice {
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-4);

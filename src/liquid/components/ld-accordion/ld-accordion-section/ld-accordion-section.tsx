@@ -24,8 +24,8 @@ import { getClassNames } from '../../../utils/getClassNames'
 export class LdAccordionSection {
   @Element() el: HTMLElement
 
-  /** If present, this boolean attribute indicates that the tab is expanded. */
-  @Prop({ mutable: true, reflect: true }) expanded?: boolean
+  /** Indicates that the accordion section is expanded. */
+  @Prop({ mutable: true }) expanded?: boolean
 
   @State() initialized = false
 

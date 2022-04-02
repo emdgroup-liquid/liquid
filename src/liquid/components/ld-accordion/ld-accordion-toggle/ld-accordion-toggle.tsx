@@ -29,6 +29,13 @@ export class LdAccordionToggle implements InnerFocusable {
   /** Disables the toggle. */
   @Prop() disabled?: boolean
 
+  /**
+   * Tag to be used for the toggle label in split mode.
+   * This prop is especially usefull, if you want to place
+   * your own focusable element inside the toggle label element.
+   */
+  @Prop() labelTag: 'button' | 'div' = 'button'
+
   /** Tab index of the toggle. */
   @Prop() ldTabindex: number | undefined
 
@@ -94,7 +101,7 @@ export class LdAccordionToggle implements InnerFocusable {
     ])
 
     const toggleTriggerContent = (
-      <div class="ld-accordion-toggle__trigger-content">
+      <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
         <slot name="icon"></slot>
         {!this.hasCustomIcon && (
           <ld-icon
@@ -126,20 +133,21 @@ export class LdAccordionToggle implements InnerFocusable {
       </div>
     )
 
+    const ToggleLabelTag = this.labelTag
     const toggleLabel = this.split ? (
-      <button
-        part="label focusable"
+      <ToggleLabelTag
+        part={`label${this.labelTag === 'button' ? ' focusable' : ''}`}
         aria-disabled={this.disabled ? 'true' : undefined}
         class="ld-accordion-toggle__label"
         onClick={this.handleLabelClick}
       >
-        <div class="ld-accordion-toggle__label-content">
+        <div class="ld-accordion-toggle__label-content" part="label-content">
           <slot />
         </div>
-      </button>
+      </ToggleLabelTag>
     ) : (
       <div part="label" class="ld-accordion-toggle__label">
-        <div class="ld-accordion-toggle__label-content">
+        <div class="ld-accordion-toggle__label-content" part="label-content">
           <slot />
         </div>
       </div>
@@ -153,7 +161,7 @@ export class LdAccordionToggle implements InnerFocusable {
     )
 
     const toggle = this.split ? (
-      <div part="toggle focusable" class="ld-accordion-toggle__button">
+      <div part="toggle" class="ld-accordion-toggle__button">
         {toggleContent}
       </div>
     ) : (
@@ -164,7 +172,7 @@ export class LdAccordionToggle implements InnerFocusable {
         onClick={this.handleToggleClick}
         part="toggle focusable"
         ref={(el) => (this.btnRef = el as HTMLButtonElement)}
-        tab-index={this.ldTabindex}
+        tabindex={this.ldTabindex}
       >
         {toggleContent}
       </button>
