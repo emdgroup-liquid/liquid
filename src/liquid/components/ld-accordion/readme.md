@@ -352,6 +352,19 @@ You can nest an accordion inside another.
 | `tone`       | `tone`        | Use `'dark'` on white backgrounds. Default is a light tone. Takes only effect in conjunction with neutral mode. | `"dark"`           | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-sidenav-accordion](../ld-sidenav/ld-sidenav-accordion)
+
+### Graph
+```mermaid
+graph TD;
+  ld-sidenav-accordion --> ld-accordion
+  style ld-accordion fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
  

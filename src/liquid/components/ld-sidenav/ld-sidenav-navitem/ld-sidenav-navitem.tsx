@@ -57,6 +57,14 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop() ldTabindex: number | undefined
 
   /**
+   * By default, the sidenav automatically expands on click of a navitem,
+   * which has a `to` property or acts as an accordion toggle. You can
+   * overwrite this behavior by using this prop to explicitly force or
+   * prevent expansion of the sidenav.
+   */
+  @Prop() expandOnClick?: boolean
+
+  /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
    * for more information on the `target` attribute.
@@ -69,13 +77,20 @@ export class LdSidenavNavitem implements InnerFocusable {
   /** Emitted on click if prop to is set. */
   @Event() ldSidenavNavitemTo: EventEmitter<{ id: string; label: string }>
 
+  /** Emitted on click. */
+  @Event() ldSidenavNavitemClick: EventEmitter
+
   @State() tooltipContent: string
   @State() abbreviation: string
+  @State() inAccordion: boolean
+  @State() isAccordionToggle: boolean
   @State() sidenavAlignement: 'left' | 'right'
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavExpandsOnMouseEnter: boolean
   @State() secondaryIconHTML: string
+  @State() closestTheme: string
+  @State() themeClass: string
 
   /**
    * Sets focus on the anchor or button
@@ -127,20 +142,71 @@ export class LdSidenavNavitem implements InnerFocusable {
     }
   }
 
-  private onClick = () => {
+  // The mousedown event needs to be used instead of a click event because
+  // the click event is not triggered if the click target is lost due to a
+  // transition before the mouseup event is triggered; in our case
+  // this happens due to a transition triggered by a focus event.
+  private onMouseDown = (ev?: MouseEvent) => {
+    // Ignore right and middle mouse button clicks.
+    if (ev && ev.button !== 0) return
+
     if (this.to) {
+      // Trigger navigation to subnav.
       this.ldSidenavNavitemTo.emit({ id: this.to, label: this.el.textContent })
+    } else if (this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION') {
+      // Expand accordion.
+      if (this.expandOnClick !== false && this.sidenavCollapsed) {
+        ;(this.el.parentElement as HTMLLdSidenavAccordionElement).expanded =
+          true
+      }
     }
+    this.ldSidenavNavitemClick.emit()
+
+    // Hide tooltip.
     ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
+
+    // Expand sidenav.
+    if (
+      this.expandOnClick ||
+      ((this.to || this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION') &&
+        this.expandOnClick !== false)
+    ) {
+      this.sidenav.collapsed = false
+    }
+  }
+
+  // We need have an explicit keydown handler for keyboard navigation
+  // since we do not use click events (see comment above).
+  private onKeyDown = (ev) => {
+    if ([' ', 'Enter'].includes(ev.key) && this.sidenavCollapsed) {
+      ev.preventDefault()
+      this.onMouseDown()
+    }
+  }
+
+  private onTooltipClick = (ev: MouseEvent) => {
+    ev.stopPropagation()
   }
 
   private updateTooltipIcon = () => {
+    const themeEl = this.el.closest('[class*="ld-theme-"]')
+    if (!themeEl) return
+
+    // Array.from(themeEl.classList).find doesn't work in JSDom.
+    this.themeClass = themeEl.classList
+      .toString()
+      .split(' ')
+      .find((cl) => cl.startsWith('ld-theme-'))
+
     this.secondaryIconHTML = this.el.querySelector(
       '[slot="icon-secondary"]'
     )?.outerHTML
   }
 
   componentWillLoad() {
+    this.inAccordion = this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION'
+    this.isAccordionToggle =
+      this.inAccordion && this.el.getAttribute('slot') === 'toggle'
     this.sidenav = closest('ld-sidenav', this.el)
     if (this.sidenav) {
       this.sidenavAlignement = this.sidenav.align
@@ -177,6 +243,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     const cl = getClassNames([
       'ld-sidenav-navitem',
       this.active && 'ld-sidenav-navitem--active',
+      this.inAccordion && 'ld-sidenav-navitem--in-accordion',
       this.rounded && 'ld-sidenav-navitem--rounded',
       this.mode && `ld-sidenav-navitem--${this.mode}`,
       this.sidenavCollapsed &&
@@ -186,6 +253,14 @@ export class LdSidenavNavitem implements InnerFocusable {
 
     const Tag = this.href ? 'a' : 'button'
 
+    const tooltipIconStyle = {
+      color: 'var(--ld-thm-primary)',
+      display: 'inline-flex',
+      marginLeft: 'var(--ld-sp-6)',
+    }
+
+    const hasPopup = this.to || this.isAccordionToggle ? 'true' : undefined
+
     return (
       <Tag
         part="navitem focusable"
@@ -193,9 +268,9 @@ export class LdSidenavNavitem implements InnerFocusable {
         href={this.href}
         ref={(el) => (this.focusableElement = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        onClick={this.onClick}
-        aria-haspopup={this.to ? 'true' : undefined}
-        aria-expanded={this.to ? 'false' : undefined}
+        onMouseDown={this.onMouseDown}
+        onKeyDown={this.onKeyDown}
+        aria-haspopup={hasPopup}
         tabIndex={this.ldTabindex}
       >
         <div class="ld-sidenav-navitem__bg" part="bg">
@@ -224,17 +299,15 @@ export class LdSidenavNavitem implements InnerFocusable {
             ref={(el) => (this.tooltipRef = el)}
             show-delay="250"
             onMouseEnter={this.updateTooltipIcon}
+            onClick={this.onTooltipClick}
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
             tag="span"
           >
+            <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger" />
             <div
-              class="ld-sidenav-navitem__tooltip-trigger"
-              onClick={this.onClick}
-              slot="trigger"
-            />
-            <div
+              class={this.themeClass}
               style={{
                 display: 'grid',
                 gridAutoFlow: 'column',
@@ -242,15 +315,15 @@ export class LdSidenavNavitem implements InnerFocusable {
               }}
             >
               <ld-typo>{this.tooltipContent}</ld-typo>
-              {this.secondaryIconHTML && (
-                <span
-                  style={{
-                    color: 'var(--ld-thm-primary)',
-                    display: 'inline-flex',
-                    marginLeft: 'var(--ld-sp-6)',
-                  }}
-                  innerHTML={this.secondaryIconHTML}
-                />
+              {this.to ? (
+                <ld-icon style={tooltipIconStyle} name="real-arrow" />
+              ) : (
+                this.secondaryIconHTML && (
+                  <span
+                    style={tooltipIconStyle}
+                    innerHTML={this.secondaryIconHTML}
+                  />
+                )
               )}
             </div>
           </ld-tooltip>
@@ -263,7 +336,11 @@ export class LdSidenavNavitem implements InnerFocusable {
           <slot></slot>
         </div>
         <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-          <slot name="icon-secondary"></slot>
+          {this.to ? (
+            <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow" />
+          ) : (
+            <slot name="icon-secondary"></slot>
+          )}
         </div>
       </Tag>
     )

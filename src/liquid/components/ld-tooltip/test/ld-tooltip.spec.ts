@@ -20,6 +20,10 @@ const positions = [
 ]
 
 describe('ld-tooltip', () => {
+  afterEach(() => {
+    jest.advanceTimersToNextTimer()
+  })
+
   it('renders default', async () => {
     const page = await newSpecPage({
       components: [LdIcon, LdTooltip, LdTooltipPopper],

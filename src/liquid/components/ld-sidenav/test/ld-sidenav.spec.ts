@@ -1,3 +1,5 @@
+import { LdAccordion } from '../../ld-accordion/ld-accordion'
+
 jest.mock('../../../utils/focus')
 
 import MatchMediaMock from 'jest-matchmedia-mock'
@@ -11,9 +13,14 @@ import { LdSidenavBack } from '../ld-sidenav-back/ld-sidenav-back'
 import { LdSidenavSeparator } from '../ld-sidenav-separator/ld-sidenav-separator'
 import { LdSidenavHeading } from '../ld-sidenav-heading/ld-sidenav-heading'
 import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
+import { LdSidenavAccordion } from '../ld-sidenav-accordion/ld-sidenav-accordion'
 import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
 import { getFirstFocusable } from '../../../utils/focus'
-import { getSidenavWithSubnavigation } from './utils'
+import { getSidenavWithAccordion, getSidenavWithSubnavigation } from './utils'
+import { LdAccordionSection } from '../../ld-accordion/ld-accordion-section/ld-accordion-section'
+import { LdAccordionToggle } from '../../ld-accordion/ld-accordion-toggle/ld-accordion-toggle'
+import { LdAccordionPanel } from '../../ld-accordion/ld-accordion-panel/ld-accordion-panel'
+import '../../../utils/resizeObserver'
 import '../../../utils/mutationObserver'
 
 let matchMedia
@@ -40,8 +47,13 @@ function mockFocus(page) {
 }
 
 const sidenavComponents = [
+  LdAccordion,
+  LdAccordionSection,
+  LdAccordionToggle,
+  LdAccordionPanel,
   LdButton,
   LdSidenav,
+  LdSidenavAccordion,
   LdSidenavBack,
   LdSidenavHeading,
   LdSidenavNavitem,
@@ -191,10 +203,32 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
     })
 
-    it('expands on focus inside', async () => {
+    it('does not expands on focus inside', async () => {
       const page = await newSpecPage({
         components: [LdSidenav],
         html: `<ld-sidenav collapsible collapsed>
+          <button>foobar</button>
+        </ld-sidenav>`,
+      })
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const button = ldSidenav.querySelector('button')
+
+      const ev = {
+        type: 'focusout',
+        relatedTarget: button,
+        bubbles: true,
+      } as unknown as FocusEvent
+      ldSidenav.dispatchEvent(ev)
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    })
+
+    it('expands on focus inside with expand trigger mouseenter', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav],
+        html: `<ld-sidenav collapsible collapsed expand-trigger="mouseenter">
           <button>foobar</button>
         </ld-sidenav>`,
       })
@@ -348,6 +382,174 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
+
+    it('does not expand on click of navitem without to prop', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+
+      ldSidenavNavitem.shadowRoot
+        .querySelector('button')
+        .dispatchEvent(new Event('mousedown'))
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    })
+
+    it('expands on click of navitem with to prop', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem to="mathematical-foundations">Mathematical foundations</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+
+      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
+        new MouseEvent('mousedown', {
+          button: 0,
+        })
+      )
+      await page.waitForChanges()
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    })
+
+    it('does not expands on click of navitem with to prop with expand-on-click set to false', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem to="mathematical-foundations" expand-on-click="false">Mathematical foundations</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+
+      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
+        new MouseEvent('mousedown', {
+          button: 0,
+        })
+      )
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    })
+
+    it('expands on click of navitem without to prop with expand-on-click set to true', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem expand-on-click="true">Mathematical foundations</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
+
+      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
+        new MouseEvent('mousedown', {
+          button: 0,
+        })
+      )
+      await page.waitForChanges()
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    })
+
+    it('expands on click of sidenav accordion toggle', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-accordion slot="toggle">
+              <ld-sidenav-navitem expand-on-click="true">Mathematical foundations</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
+            </ld-sidenav-accordion>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector(
+        'ld-sidenav-navitem:first-of-type'
+      )
+      const ldAccordionSection = ldSidenav
+        .querySelector('ld-sidenav-accordion')
+        .shadowRoot.querySelector('ld-accordion-section')
+      expect(ldAccordionSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+
+      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
+        new MouseEvent('mousedown', {
+          button: 0,
+        })
+      )
+      await page.waitForChanges()
+
+      expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+      expect(ldAccordionSection).toHaveClass('ld-accordion-section--expanded')
+    })
+
+    it('does not expands on click of sidenav accordion toggle with expand-on-click set to false', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav collapsible collapsed>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-accordion slot="toggle">
+              <ld-sidenav-navitem expand-on-click="false">Mathematical foundations</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
+            </ld-sidenav-accordion>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      const ldSidenavNavitem = ldSidenav.querySelector(
+        'ld-sidenav-navitem:first-of-type'
+      )
+      const ldAccordionSection = ldSidenav
+        .querySelector('ld-sidenav-accordion')
+        .shadowRoot.querySelector('ld-accordion-section')
+      expect(ldAccordionSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+
+      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
+        new MouseEvent('mousedown', {
+          button: 0,
+        })
+      )
+      await page.waitForChanges()
+
+      expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+      expect(ldAccordionSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+    })
   })
 
   it('opens and closes via prop', async () => {
@@ -409,7 +611,11 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
+      new MouseEvent('mousedown', {
+        button: 0,
+      })
+    )
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       true
@@ -447,7 +653,11 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
+      new MouseEvent('mousedown', {
+        button: 0,
+      })
+    )
     await page.waitForChanges()
 
     expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
@@ -510,7 +720,11 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         '#artificial-intelligence > ld-sidenav-navitem:nth-child(6)'
       )
-    ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').click()
+    ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').dispatchEvent(
+      new MouseEvent('mousedown', {
+        button: 0,
+      })
+    )
     await page.waitForChanges()
 
     await transitionEnd(page)
@@ -550,7 +764,11 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         '#algorithms-and-data-structures > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemMath.shadowRoot.querySelector('button').click()
+    ldSidenavNavitemMath.shadowRoot.querySelector('button').dispatchEvent(
+      new MouseEvent('mousedown', {
+        button: 0,
+      })
+    )
     await page.waitForChanges()
 
     await transitionEnd(page)
@@ -761,36 +979,6 @@ describe('ld-sidenav', () => {
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       false
     )
-  })
-
-  it('sets last class on navitems', async () => {
-    const page = await newSpecPage({
-      components: sidenavComponents,
-      html: getSidenavWithSubnavigation({
-        collapsible: true,
-        narrow: true,
-      }),
-    })
-    const ldSidenav = page.root
-    mockFocus(page)
-    await page.waitForChanges()
-
-    const ldSidenavNavitemsTotal =
-      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
-        'ld-sidenav-navitem'
-      ).length
-    const ldSidenavNavitemsLastTotal =
-      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
-        '.ld-sidenav-navitem--last'
-      ).length
-
-    expect(ldSidenavNavitemsTotal).toEqual(70)
-
-    // nextElementSibling seems to be not supported in JSDOM, hence
-    // we end up with all navitems having that class. So we are
-    // basically testing here, that the class is set at least anyhow.
-    // e2e tests cover the actual visual expectation.
-    expect(ldSidenavNavitemsLastTotal).toEqual(70)
   })
 
   describe('keyboard navigation', () => {
@@ -1095,7 +1283,6 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--open')
 
       const ldButton = ldSidenav.querySelector('ld-button')
-      await page.waitForChanges()
       jest.advanceTimersToNextTimer()
       await page.waitForChanges()
 
@@ -1358,6 +1545,194 @@ describe('ld-sidenav', () => {
       )
 
       expect(abbr.textContent).toEqual('AD')
+    })
+  })
+
+  describe('sidenav accordion', () => {
+    it('renders with expanded accordion section', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+        }),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      const ldSidenavAccordionSoftComputing =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionSoftComputingSection =
+        ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+      const ldSidenavAccordionMachineLearning =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionMachineLearningSection =
+        ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+
+      ldSidenavAccordionSoftComputing.expanded = true
+
+      await page.waitForChanges()
+
+      expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+      expect(ldSidenavAccordionMachineLearningSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+    })
+
+    it('accordion does not collapses on sidenav slide change by default', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+        }),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      const ldSidenavAccordionSoftComputing =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionSoftComputingSection =
+        ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+      const ldSidenavAccordionMachineLearning =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionMachineLearningSection =
+        ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+
+      ldSidenavAccordionSoftComputing.expanded = true
+      ldSidenavAccordionMachineLearning.expanded = true
+
+      await page.waitForChanges()
+
+      expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+      expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+
+      const ldSidenavBack =
+        ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+
+      ldSidenavBack.shadowRoot
+        .querySelector<HTMLElement>('[role="button"]')
+        .click()
+
+      await page.waitForChanges()
+
+      await transitionEnd(page)
+      expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+      expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+    })
+
+    it('accordion collapses on sidenav slide change with preserve state set to false', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+          preserveAccordionState: false,
+        }),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      const ldSidenavAccordionSoftComputing =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionSoftComputingSection =
+        ldSidenavAccordionSoftComputing.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+      const ldSidenavAccordionMachineLearning =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion > ld-sidenav-accordion'
+        )
+      const ldSidenavAccordionMachineLearningSection =
+        ldSidenavAccordionMachineLearning.shadowRoot.querySelector(
+          'ld-accordion-section'
+        )
+
+      ldSidenavAccordionSoftComputing.expanded = true
+      ldSidenavAccordionMachineLearning.expanded = true
+
+      await page.waitForChanges()
+
+      expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+      expect(ldSidenavAccordionMachineLearningSection).toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+
+      const ldSidenavBack =
+        ldSidenav.querySelector<HTMLLdSidenavBackElement>('ld-sidenav-back')
+
+      ldSidenavBack.shadowRoot
+        .querySelector<HTMLElement>('[role="button"]')
+        .click()
+
+      await page.waitForChanges()
+
+      await transitionEnd(page)
+      expect(ldSidenavAccordionSoftComputingSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+      expect(ldSidenavAccordionMachineLearningSection).not.toHaveClass(
+        'ld-accordion-section--expanded'
+      )
+    })
+
+    it('accordion collapses to narrow', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+          collapsible: true,
+          narrow: true,
+        }),
+      })
+      const ldSidenav = page.root
+      mockFocus(page)
+
+      const ldSidenavAccordionSoftComputing =
+        ldSidenav.querySelector<HTMLLdSidenavAccordionElement>(
+          '#artificial-intelligence > ld-sidenav-accordion'
+        )
+
+      ldSidenavAccordionSoftComputing.expanded = true
+
+      await page.waitForChanges()
+
+      const ldSidenavToggle =
+        ldSidenav.shadowRoot.querySelector<HTMLButtonElement>(
+          'button[role="switch"]'
+        )
+      ldSidenavToggle.click()
+
+      await page.waitForChanges()
+
+      expect(page.root).toMatchSnapshot()
     })
   })
 })

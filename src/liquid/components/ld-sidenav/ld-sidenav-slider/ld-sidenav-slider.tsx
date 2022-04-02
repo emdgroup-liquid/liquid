@@ -206,8 +206,9 @@ export class LdSidenavSlider {
       // it is possible to wrap it in a div with display contents.
       if (
         ![
-          'LD-SIDENAV-SEPARATOR',
+          'LD-SIDENAV-ACCORDION',
           'LD-SIDENAV-NAVITEM',
+          'LD-SIDENAV-SEPARATOR',
           'LD-SIDENAV-SUBNAV',
         ].includes(el.tagName)
       ) {

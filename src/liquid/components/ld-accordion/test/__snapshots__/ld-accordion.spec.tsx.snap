@@ -5,7 +5,7 @@ exports[`ld-accordion renders 1`] = `
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <ld-accordion-section class="ld-accordion-section ld-accordion-section--expanded" expanded="">
+  <ld-accordion-section class="ld-accordion-section ld-accordion-section--expanded">
     <mock:shadow-root>
       <slot></slot>
     </mock:shadow-root>
@@ -14,12 +14,12 @@ exports[`ld-accordion renders 1`] = `
         <button aria-expanded="true" class="ld-accordion-toggle__button" part="toggle focusable">
           <div class="ld-accordion-toggle__content" part="content">
             <div class="ld-accordion-toggle__label" part="label">
-              <div class="ld-accordion-toggle__label-content">
+              <div class="ld-accordion-toggle__label-content" part="label-content">
                 <slot></slot>
               </div>
             </div>
             <div class="ld-accordion-toggle__trigger" part="trigger">
-              <div class="ld-accordion-toggle__trigger-content">
+              <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
                 <slot name="icon"></slot>
                 <ld-icon aria-hidden="true" class="ld-accordion-toggle__trigger-icon" name="arrow-down" part="trigger-icon" size="sm"></ld-icon>
               </div>
@@ -31,7 +31,7 @@ exports[`ld-accordion renders 1`] = `
     </ld-accordion-toggle>
     <ld-accordion-panel class="ld-accordion-panel ld-accordion-panel--expanded" style="--ld-accordion-panel-max-height: NaNpx;">
       <mock:shadow-root>
-        <div class="ld-accordion-panel__content">
+        <div class="ld-accordion-panel__content" part="content">
           <slot></slot>
         </div>
       </mock:shadow-root>
@@ -47,12 +47,12 @@ exports[`ld-accordion renders 1`] = `
         <button class="ld-accordion-toggle__button" part="toggle focusable">
           <div class="ld-accordion-toggle__content" part="content">
             <div class="ld-accordion-toggle__label" part="label">
-              <div class="ld-accordion-toggle__label-content">
+              <div class="ld-accordion-toggle__label-content" part="label-content">
                 <slot></slot>
               </div>
             </div>
             <div class="ld-accordion-toggle__trigger" part="trigger">
-              <div class="ld-accordion-toggle__trigger-content">
+              <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
                 <slot name="icon"></slot>
                 <ld-icon aria-hidden="true" class="ld-accordion-toggle__trigger-icon" name="arrow-down" part="trigger-icon" size="sm"></ld-icon>
               </div>
@@ -64,7 +64,7 @@ exports[`ld-accordion renders 1`] = `
     </ld-accordion-toggle>
     <ld-accordion-panel class="ld-accordion-panel" style="--ld-accordion-panel-max-height: 0px;">
       <mock:shadow-root>
-        <div class="ld-accordion-panel__content">
+        <div class="ld-accordion-panel__content" part="content">
           <slot></slot>
         </div>
       </mock:shadow-root>
@@ -80,12 +80,12 @@ exports[`ld-accordion renders 1`] = `
         <button aria-disabled="true" class="ld-accordion-toggle__button" part="toggle focusable">
           <div class="ld-accordion-toggle__content" part="content">
             <div class="ld-accordion-toggle__label" part="label">
-              <div class="ld-accordion-toggle__label-content">
+              <div class="ld-accordion-toggle__label-content" part="label-content">
                 <slot></slot>
               </div>
             </div>
             <div class="ld-accordion-toggle__trigger" part="trigger">
-              <div class="ld-accordion-toggle__trigger-content">
+              <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
                 <slot name="icon"></slot>
                 <ld-icon aria-hidden="true" class="ld-accordion-toggle__trigger-icon" name="arrow-down" part="trigger-icon" size="sm"></ld-icon>
               </div>
@@ -97,7 +97,7 @@ exports[`ld-accordion renders 1`] = `
     </ld-accordion-toggle>
     <ld-accordion-panel class="ld-accordion-panel" style="--ld-accordion-panel-max-height: 0px;">
       <mock:shadow-root>
-        <div class="ld-accordion-panel__content">
+        <div class="ld-accordion-panel__content" part="content">
           <slot></slot>
         </div>
       </mock:shadow-root>

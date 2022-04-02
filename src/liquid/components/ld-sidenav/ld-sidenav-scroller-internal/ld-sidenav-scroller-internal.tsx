@@ -99,6 +99,7 @@ export class LdSidenavScrollerInternal {
       <Host
         class={cl}
         onScroll={this.updateShadows.bind(this)}
+        onLdSidenavAccordionTransitionEnd={this.updateShadows.bind(this)}
         data-needs-bottom={this.needsHRBottom}
         data-needs-top={this.needsHRTop}
       >

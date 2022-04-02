@@ -25,8 +25,8 @@
   &(.ld-accordion-panel--expanded) {
     &::before {
       content: '';
-      height: var(--ld-sp-1);
-      background-color: var(--ld-accordion-panel-border-top-color);
+      height: var(--ld-sp-2);
+      background-color: var(--ld-accordion-panel-border-top-col);
       position: absolute;
       top: 0;
       left: 0;

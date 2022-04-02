@@ -20,6 +20,13 @@
 
   /* layout ld-navitem */
   --ld-sidenav-navitem-icon-size: var(--ld-sp-32);
+  --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
+  --ld-sidenav-navitem-tertiary-indent: calc(
+    3 * var(--ld-sidenav-padding-x) + 0.3125rem
+  );
+  --ld-sidenav-navitem-tertiary-width: calc(
+    100% - (4 * var(--ld-sidenav-padding-x)) - 0.3125rem
+  );
 
   /* transitions */
   /* Not using 0s here because we rely on the transition end event. */
@@ -153,11 +160,15 @@
   }
 
   ::slotted(ld-sidenav-navitem) {
+    margin-bottom: var(--ld-sidenav-padding-y);
+  }
+
+  ::slotted(ld-sidenav-navitem:first-of-type) {
     margin-top: var(--ld-sidenav-padding-y);
   }
 
-  ::slotted(.ld-sidenav-navitem--last) {
-    margin-bottom: var(--ld-sidenav-padding-y);
+  ::slotted(ld-sidenav-heading) {
+    margin: var(--ld-sidenav-padding-y) 0;
   }
 }
 
@@ -170,6 +181,7 @@
   color: var(--ld-thm-primary);
   cursor: pointer;
   display: grid;
+  outline-offset: var(--ld-sp-4);
   place-content: center;
   position: absolute;
   right: 0;
@@ -180,6 +192,15 @@
   will-change: transform; /* fixes rendering issue */
   z-index: 1;
   -webkit-touch-callout: none;
+
+  /* background color */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: block;
+    border-radius: inherit;
+  }
 
   /* increase click area */
   &::after {
@@ -198,7 +219,11 @@
   }
 
   &:where(:focus:focus-visible) {
-    color: var(--ld-thm-primary-focus);
+    color: var(--ld-thm-primary-hover);
+
+    &::before {
+      background-color: var(--ld-thm-primary-alpha-low);
+    }
   }
   @media (hover: hover) {
     &:where(:hover) {
@@ -219,6 +244,7 @@
 
 .ld-sidenav__toggle-icon {
   transform-origin: center;
+  position: relative;
 
   :host(.ld-sidenav--collapsed) & {
     transform: rotate(180deg);

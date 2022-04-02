@@ -6,7 +6,7 @@
   "screenshots": [
     {
       "id": "85cea231",
-      "image": "8412edfe77a00dbd21ac8733de7cd674.png",
+      "image": "54d69acc1fbcb4d2a048c193cab0e710.png",
       "userAgent": "default",
       "desc": "ld-accordion active",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -19,7 +19,7 @@
     },
     {
       "id": "530617cc",
-      "image": "fdaad58965e44e3207b581a995f23a8f.png",
+      "image": "bb2911a66c551b494a412f05a6053aa1.png",
       "userAgent": "default",
       "desc": "ld-accordion auto-scroll auto-scrolls, after expansion of inner panel",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -32,7 +32,7 @@
     },
     {
       "id": "a7a92ded",
-      "image": "ed3e04ea46b8f1765886cffca3c20ece.png",
+      "image": "536290b138d3751a0bc222e432de990a.png",
       "userAgent": "default",
       "desc": "ld-accordion auto-scroll auto-scrolls, after expansion of outer panel",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -45,7 +45,7 @@
     },
     {
       "id": "2c314b53",
-      "image": "93096990d6d56c8984397c43c940cc40.png",
+      "image": "81761c68acaaaccf5adb706e45728cdc.png",
       "userAgent": "default",
       "desc": "ld-accordion dark",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -58,7 +58,7 @@
     },
     {
       "id": "8ffb6073",
-      "image": "3e393f417b244ad45348ae038de3bfba.png",
+      "image": "17308302fc83f34793667adbc120c6b9.png",
       "userAgent": "default",
       "desc": "ld-accordion default",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -71,7 +71,7 @@
     },
     {
       "id": "0dfcabc5",
-      "image": "797c63c997908b064bfbfdd428eedd70.png",
+      "image": "48f676f75c1f145679d86ab82177e7a3.png",
       "userAgent": "default",
       "desc": "ld-accordion detached",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -84,7 +84,7 @@
     },
     {
       "id": "40ae5b92",
-      "image": "b276ce7160fc59d2f44e712284f6518a.png",
+      "image": "7d027d60ee73634ccb56bd17b3b6734d.png",
       "userAgent": "default",
       "desc": "ld-accordion focus",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -97,7 +97,7 @@
     },
     {
       "id": "90a92378",
-      "image": "6a3d2f5d69997b08e4d57d12d910d312.png",
+      "image": "a72016c6bf67850ff457b552b249d85c.png",
       "userAgent": "default",
       "desc": "ld-accordion hover",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -110,7 +110,7 @@
     },
     {
       "id": "3421a2a3",
-      "image": "f045d4123934fdc08c5ebccf9959bc1d.png",
+      "image": "8b92f82534e2bc706e2a7b7179614e90.png",
       "userAgent": "default",
       "desc": "ld-accordion nested",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -123,7 +123,7 @@
     },
     {
       "id": "14103e65",
-      "image": "f20d59ceee7f3e319fa24fe27301d1bd.png",
+      "image": "dde757429b773156df15a670c7309e97.png",
       "userAgent": "default",
       "desc": "ld-accordion on brand color",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -136,7 +136,7 @@
     },
     {
       "id": "9ecfc80b",
-      "image": "0c07b0d8b057c72861b4a6930daaee3e.png",
+      "image": "e1f8ce29fc72794e79b8765bd25fcabc.png",
       "userAgent": "default",
       "desc": "ld-accordion on brand color active",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -149,7 +149,7 @@
     },
     {
       "id": "74d4ca32",
-      "image": "2d7d26ffb7488aa821a0148c7d3f48a6.png",
+      "image": "dda6804d34408809dda6f94843d42c2a.png",
       "userAgent": "default",
       "desc": "ld-accordion on brand color focus",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -162,7 +162,7 @@
     },
     {
       "id": "ec6c8b95",
-      "image": "19796773fd85180c49ea3c1844edc5ed.png",
+      "image": "3ecd9d9acdad48dd6e47d3a89e5fd8fd.png",
       "userAgent": "default",
       "desc": "ld-accordion on brand color hover",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -175,7 +175,7 @@
     },
     {
       "id": "75c6a116",
-      "image": "316e34c0736fb9e823f537ed66ab05de.png",
+      "image": "ed415e12956d6c3b23058073acffbfc6.png",
       "userAgent": "default",
       "desc": "ld-accordion rounded",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -188,7 +188,7 @@
     },
     {
       "id": "3684a2d1",
-      "image": "1031d132d455336837fb0a102533678e.png",
+      "image": "20dee36377852e326eaddd8cad9f4d2f.png",
       "userAgent": "default",
       "desc": "ld-accordion split focus label",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -201,7 +201,7 @@
     },
     {
       "id": "54b9bb4c",
-      "image": "577a4b8a58d60a43c4240b1108effaaf.png",
+      "image": "73d9642c3b3fbd4c93580f2590dc48b9.png",
       "userAgent": "default",
       "desc": "ld-accordion split focus trigger",
       "testPath": "./src/liquid/components/ld-accordion/test/ld-accordion.e2e.ts",
@@ -9847,7 +9847,7 @@
     },
     {
       "id": "5dd9d6a2",
-      "image": "3e470a3b61d7999cd2aa1ebf115f5034.png",
+      "image": "ef1ec224ceeda603cc0bbcf3e6befe8d.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded active state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9860,7 +9860,7 @@
     },
     {
       "id": "8b2c1e54",
-      "image": "e965b5318f804f1a6e7a3c1b0dd9b90a.png",
+      "image": "ef1ec224ceeda603cc0bbcf3e6befe8d.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded focus state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9873,7 +9873,7 @@
     },
     {
       "id": "ff6a9a9b",
-      "image": "2e463c64631027bb86809b2869d631ca.png",
+      "image": "0f6175c0f9c57043e279ff2c4a4ae105.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a rounded hover state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9899,7 +9899,7 @@
     },
     {
       "id": "eb3477e0",
-      "image": "69a4523ae67fdddad4d167f5c51992e9.png",
+      "image": "aae580bac074cd87501caaf6eb66b5cd.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9912,7 +9912,7 @@
     },
     {
       "id": "3036928e",
-      "image": "d966d078ef015d99e7a3457106c201b1.png",
+      "image": "fdcccd9bd783354ca18729de7e770b4c.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has active state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9925,7 +9925,7 @@
     },
     {
       "id": "830e66b1",
-      "image": "45317e55e40857216e3ca4defa9375be.png",
+      "image": "fdcccd9bd783354ca18729de7e770b4c.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has focus state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -9938,7 +9938,7 @@
     },
     {
       "id": "3ccb1799",
-      "image": "65d9c39d795bca3e9b3b1d0ef78815d3.png",
+      "image": "0adfcd7ed2491d21dee26b62ee661da0.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item is active and has hover state",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10041,6 +10041,58 @@
       "isMobile": false
     },
     {
+      "id": "8fb8907e",
+      "image": "f53d55f9adea543b08c3e1600f426f45.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion collapses to narrow mode",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "e3446bae",
+      "image": "9469abf12129ac7a78bf63e76f6706be.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion supports nested accordions, collapsed accordion",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "ad69cf28",
+      "image": "5e4e0cb8efb6bb1dd9222d87ebf41ebc.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion supports nested accordions, expanded accordion",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "f26e6ff4",
+      "image": "27632ff1dfb3d83c26e9824ab939eefd.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion supports nested accordions, expanded nested accordion",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "d69ca70f",
       "image": "752194c25409019cdd9bdd48fef4f66f.png",
       "userAgent": "default",
@@ -10055,7 +10107,7 @@
     },
     {
       "id": "3efde85c",
-      "image": "a1b780a3b0759058b0e4ed4db2babd40.png",
+      "image": "ee2b6e7461ca72b6ffc7af62b63a10e0.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right collapses to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10068,7 +10120,7 @@
     },
     {
       "id": "6d322e75",
-      "image": "0797093e5ee8f63c37f665c34316bedb.png",
+      "image": "5e2c9d314638e658a3ddf84110fde08e.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right is expanded on the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10081,7 +10133,7 @@
     },
     {
       "id": "feb5e844",
-      "image": "a7225a7d9b894d3d256d26b76e034b0b.png",
+      "image": "b7812b9f2cf76bcd3cab51d166da840d.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation in subnavigation with back button shows shadow separator line at the top and bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10094,7 +10146,7 @@
     },
     {
       "id": "13515603",
-      "image": "b52b5bc0ef0cf28350d3d0729096061a.png",
+      "image": "919c82c9f52e1bbedb9919a17f56343a.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode collapses to narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10107,7 +10159,7 @@
     },
     {
       "id": "9e3419f8",
-      "image": "92efbc35a11276b332cb0e563fb05118.png",
+      "image": "8d5acede8775c82d1271dad2c15593f2.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the left",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10120,7 +10172,7 @@
     },
     {
       "id": "f8ade095",
-      "image": "edfbf1d6190dc3f14f8aacdd4f9fb17b.png",
+      "image": "05125a2ee0f90c2a6aa685a9145b7d2f.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10133,7 +10185,7 @@
     },
     {
       "id": "5fae3b76",
-      "image": "1c902caa3cb0db0ecebbb320d801b3f9.png",
+      "image": "327b56a541dbb7e64b576a3c5a7dcff2.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation neutral mode uses neutral background color",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10146,7 +10198,7 @@
     },
     {
       "id": "9e87791c",
-      "image": "89608000f2f4f7392a38934022a7d336.png",
+      "image": "d1cd323943ef572d80d0fb2952b7d88e.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the bottom and separator line at the top",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10159,7 +10211,7 @@
     },
     {
       "id": "1525503c",
-      "image": "1184fb5212a531e0edc1f43d7dbeb9e2.png",
+      "image": "0cf7d6e6d7a817aab5589f70a60925b9.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the top and bottom when scrolling down",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10172,7 +10224,7 @@
     },
     {
       "id": "e91a437e",
-      "image": "0c683986491e1113f44465b14d8e8069.png",
+      "image": "df41be73f3983c38095d4fdd30efada2.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the top and separator line at the bottom when scrolled to the bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10185,7 +10237,7 @@
     },
     {
       "id": "87792f19",
-      "image": "08732c6ebcd6fecfc05053d090e38341.png",
+      "image": "05125a2ee0f90c2a6aa685a9145b7d2f.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows tooltip with icon",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10198,7 +10250,7 @@
     },
     {
       "id": "497f5f7d",
-      "image": "73c44880030f2fe1b7bb633a5b3667e5.png",
+      "image": "752194c25409019cdd9bdd48fef4f66f.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is alignable collapses to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10211,7 +10263,7 @@
     },
     {
       "id": "a47bdd44",
-      "image": "a6169166a862544d774ff9412daffe5b.png",
+      "image": "05ed57d5a24a2ef8c1941629dd451695.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is alignable should align to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10224,7 +10276,7 @@
     },
     {
       "id": "33ef593d",
-      "image": "ec49195821e025cae4ed277afd8f24ef.png",
+      "image": "7cd53a0a5f805f3480515ca346520b15.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is collapsible should be fully collapsed",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10237,7 +10289,7 @@
     },
     {
       "id": "b2512f84",
-      "image": "672f311aceb4d0a3581993bc2a34adb9.png",
+      "image": "4ef738b09c7533302218a6d111b94284.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation is collapsible should have a toggle button",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10250,7 +10302,7 @@
     },
     {
       "id": "e1ab3ec0",
-      "image": "881b979a544119013eec638d977f8452.png",
+      "image": "1d5a55c8d4a2bddc0018c5bcaca73df3.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation shows shadows shows shadow at the bottom and separator line at the top",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10263,7 +10315,7 @@
     },
     {
       "id": "49de30d5",
-      "image": "0f6060d25d9663937f61bf93b1a92dec.png",
+      "image": "258069e0198f5438b8909ff869c5ec03.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation shows shadows shows shadow at the top and bottom when scrolling down",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -10276,7 +10328,7 @@
     },
     {
       "id": "6a1b6508",
-      "image": "9f6d62a80c8e7bcd6d48fcf022b2d579.png",
+      "image": "fd24a4695e1402df9178077e1c85814f.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation shows shadows shows shadow at the top and separator line at the bottom when scrolled to the bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
