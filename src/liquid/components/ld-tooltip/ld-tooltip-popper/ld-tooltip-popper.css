@@ -56,12 +56,6 @@
       --ld-tooltip-distance-from-trigger: calc(
         var(--ld-tooltip-arrow-size) + var(--ld-sp-8)
       );
-
-      &:before {
-        border: var(--ld-tooltip-arrow-size) solid transparent;
-        content: '';
-        position: absolute;
-      }
     }
   }
 
@@ -80,7 +74,7 @@
 
   &.ld-tether-element-attached-bottom {
     :host(&) {
-      &:before {
+      .ld-tooltip__arrow {
         bottom: var(--ld-tooltip-arrow-offset);
       }
     }
@@ -92,7 +86,7 @@
             var(--ld-tooltip-offset-y)
         );
 
-        &:before {
+        .ld-tooltip__arrow {
           border-top-color: var(--tooltip-bg-col);
           top: 100%;
         }
@@ -101,8 +95,10 @@
   }
 
   &.ld-tether-element-attached-center {
-    :host(&):before {
-      left: calc(50% - var(--ld-tooltip-arrow-size));
+    :host(&) {
+      .ld-tooltip__arrow {
+        left: calc(50% - var(--ld-tooltip-arrow-size));
+      }
     }
   }
 
@@ -112,7 +108,7 @@
         var(--ld-tooltip-offset-x) + var(--ld-tooltip-distance-from-trigger)
       );
 
-      &:before {
+      .ld-tooltip__arrow {
         border-right-color: var(--tooltip-bg-col);
         right: 100%;
       }
@@ -120,14 +116,16 @@
   }
 
   &.ld-tether-element-attached-middle {
-    :host(&):before {
-      top: calc(50% - var(--ld-tooltip-arrow-size));
+    :host(&) {
+      .ld-tooltip__arrow {
+        top: calc(50% - var(--ld-tooltip-arrow-size));
+      }
     }
   }
 
   &.ld-tether-element-attached-right {
     :host(&) {
-      &:before {
+      .ld-tooltip__arrow {
         right: var(--ld-tooltip-arrow-offset);
       }
     }
@@ -139,7 +137,7 @@
             var(--ld-tooltip-offset-x)
         );
 
-        &:before {
+        .ld-tooltip__arrow {
           border-left-color: var(--tooltip-bg-col);
           left: 100%;
         }
@@ -152,8 +150,7 @@
       margin-top: calc(
         var(--ld-tooltip-distance-from-trigger) + var(--ld-tooltip-offset-y)
       );
-
-      &:before {
+      .ld-tooltip__arrow {
         border-bottom-color: var(--tooltip-bg-col);
         bottom: 100%;
       }
@@ -191,4 +188,9 @@
       }
     }
   }
+}
+
+.ld-tooltip__arrow {
+  border: var(--ld-tooltip-arrow-size) solid transparent;
+  position: absolute;
 }
