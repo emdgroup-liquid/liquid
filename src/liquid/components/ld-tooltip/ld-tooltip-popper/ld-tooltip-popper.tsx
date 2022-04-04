@@ -31,6 +31,7 @@ export class LdTooltipPopper {
         ])}
         role="tooltip"
       >
+        {this.arrow && <span class="ld-tooltip__arrow" />}
         <slot />
       </Host>
     )
