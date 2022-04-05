@@ -8755,7 +8755,7 @@
     },
     {
       "id": "b5cd2a68",
-      "image": "ed73919d98c34076904e323ec6ac6346.png",
+      "image": "8844fd18cbf25696b5a5970c189fbc33.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item truncates long titles",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8872,7 +8872,7 @@
     },
     {
       "id": "feb5e844",
-      "image": "9d34ec89b89112293c954793deba960e.png",
+      "image": "ce58bd8017592fd646389ecc25e8db69.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation in subnavigation with back button shows shadow separator line at the top and bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8885,7 +8885,7 @@
     },
     {
       "id": "13515603",
-      "image": "6e566e36195fc1d1b859854775d53da9.png",
+      "image": "b52b5bc0ef0cf28350d3d0729096061a.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode collapses to narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8924,7 +8924,7 @@
     },
     {
       "id": "5fae3b76",
-      "image": "493025faa0a3a83636933e0b6111aebb.png",
+      "image": "779f0a84d25ef5c43baef10c829c89b8.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation neutral mode uses neutral background color",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
