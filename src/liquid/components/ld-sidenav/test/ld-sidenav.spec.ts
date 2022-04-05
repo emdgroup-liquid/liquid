@@ -763,6 +763,36 @@ describe('ld-sidenav', () => {
     )
   })
 
+  it('sets last class on navitems', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: getSidenavWithSubnavigation({
+        collapsible: true,
+        narrow: true,
+      }),
+    })
+    const ldSidenav = page.root
+    mockFocus(page)
+    await page.waitForChanges()
+
+    const ldSidenavNavitemsTotal =
+      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
+        'ld-sidenav-navitem'
+      ).length
+    const ldSidenavNavitemsLastTotal =
+      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
+        '.ld-sidenav-navitem--last'
+      ).length
+
+    expect(ldSidenavNavitemsTotal).toEqual(70)
+
+    // nextElementSibling seems to be not supported in JSDOM, hence
+    // we end up with all navitems having that class. So we are
+    // basically testing here, that the class is set at least anyhow.
+    // e2e tests cover the actual visual expectation.
+    expect(ldSidenavNavitemsLastTotal).toEqual(70)
+  })
+
   describe('keyboard navigation', () => {
     beforeEach(() => {
       matchMedia = new MatchMediaMock()
