@@ -152,12 +152,12 @@
     transform: translateX(0);
   }
 
-  ::slotted(ld-sidenav-navitem:last-of-type) {
-    margin-bottom: var(--ld-sidenav-padding-y);
+  ::slotted(ld-sidenav-navitem) {
+    margin-top: var(--ld-sidenav-padding-y);
   }
 
-  ::slotted(ld-sidenav-navitem) {
-    margin: var(--ld-sidenav-padding-y) 0 0;
+  ::slotted(.ld-sidenav-navitem--last) {
+    margin-bottom: var(--ld-sidenav-padding-y);
   }
 }
 

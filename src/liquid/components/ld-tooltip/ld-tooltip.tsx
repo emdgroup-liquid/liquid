@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
@@ -43,6 +44,12 @@ let tooltipCount = 0
 export class LdTooltip {
   @Element() element: HTMLElement
 
+  private delayTimeout?: NodeJS.Timeout
+  private idDescriber = `ld-tooltip-${++tooltipCount}`
+  private popper?: Tether
+  private tooltipRef!: HTMLElement
+  private triggerRef!: HTMLSpanElement
+
   /** Show arrow */
   @Prop() arrow: boolean
 
@@ -67,11 +74,12 @@ export class LdTooltip {
   @State() hasDefaultTrigger = true
   @State() visible = false
 
-  private delayTimeout?: NodeJS.Timeout
-  private idDescriber = `ld-tooltip-${++tooltipCount}`
-  private popper?: Tether
-  private tooltipRef!: HTMLElement
-  private triggerRef!: HTMLSpanElement
+  @Watch('disabled')
+  updatePopper(newDisabled: boolean) {
+    if (newDisabled) {
+      this.hideTooltip()
+    }
+  }
 
   private mapPositionToAttachment = (position: Position) => {
     return {
@@ -143,6 +151,8 @@ export class LdTooltip {
   /** Show tooltip */
   @Method()
   async showTooltip() {
+    if (this.disabled) return
+
     clearTimeout(this.delayTimeout)
     this.popper.enable()
     this.visible = true
