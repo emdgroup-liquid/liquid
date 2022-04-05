@@ -1,4 +1,5 @@
 :host {
+  display: block;
   margin: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x) 0;
   transform-origin: left;
   transition: transform var(--ld-sidenav-transition-duration-collapse-expand)

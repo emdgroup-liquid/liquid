@@ -128,9 +128,11 @@ export class LdSidenavNavitem implements InnerFocusable {
 
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
-    this.sidenavAlignement = this.sidenav.align
-    this.sidenavExpandsOnMouseEnter =
-      this.sidenav.expandTrigger === 'mouseenter'
+    if (this.sidenav) {
+      this.sidenavAlignement = this.sidenav.align
+      this.sidenavExpandsOnMouseEnter =
+        this.sidenav.expandTrigger === 'mouseenter'
+    }
     if (!['secondary', 'tertiary'].includes(this.mode)) {
       this.tooltipContent = this.el.textContent.trim()
 

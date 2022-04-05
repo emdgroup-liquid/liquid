@@ -10,12 +10,12 @@
   flex-direction: column;
 
   ::slotted(ld-sidenav-navitem) {
-    margin: var(--ld-sidenav-padding-y) 0 0;
+    margin-top: var(--ld-sidenav-padding-y);
     will-change: opacity; /* prevents flickering on transition in Safari */
   }
 
-  ::slotted(ld-sidenav-navitem:last-of-type) {
-    margin-bottom: var(--ld-sidenav-padding-y);
+  ::slotted(.ld-sidenav-navitem--last) {
+    margin-bottom: 0;
   }
 
   &(.ld-sidenav-scroller-internal--relative) {
