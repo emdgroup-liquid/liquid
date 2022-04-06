@@ -53,17 +53,20 @@ export class LdTooltip {
   /** Show arrow */
   @Prop() arrow: boolean
 
+  /** Disable tooltip trigger */
+  @Prop() disabled: boolean
+
   /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
   @Prop() hideDelay = 0
+
+  /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
+  @Prop() position: Position = 'top center'
 
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
   @Prop() showDelay = 0
 
-  /** Disable tooltip trigger */
-  @Prop() disabled: boolean
-
-  /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
-  @Prop() position: Position = 'top center'
+  /** The tooltip size (effects tooltip padding only) */
+  @Prop() size?: 'sm'
 
   /** The rendered HTML tag for the tooltip trigger. */
   @Prop() tag = 'button'
@@ -299,6 +302,7 @@ export class LdTooltip {
           hasDefaultTrigger={this.hasDefaultTrigger}
           id={this.idDescriber}
           part="popper"
+          size={this.size}
           ref={(element: HTMLElement) => {
             this.tooltipRef = element
           }}
