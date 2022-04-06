@@ -113,7 +113,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Outline of Computer Science
                 </ld-typo>
@@ -192,7 +192,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Mathematical foundations
                 </ld-typo>
@@ -241,7 +241,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Algorithms and data structures
                 </ld-typo>
@@ -290,7 +290,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Artificial intelligence
                 </ld-typo>
@@ -339,7 +339,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Communication and security
                 </ld-typo>
@@ -385,7 +385,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Artificial intelligence
                 </ld-typo>
@@ -437,7 +437,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Communication and security
                 </ld-typo>
@@ -486,7 +486,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Computer architecture
                 </ld-typo>
@@ -535,7 +535,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Computer graphics
                 </ld-typo>
@@ -584,7 +584,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Concurrent, parallel, and distributed systems
                 </ld-typo>
@@ -633,7 +633,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Databases
                 </ld-typo>
@@ -687,7 +687,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Programming languages and compilers
                 </ld-typo>
@@ -736,7 +736,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Scientific computing
                 </ld-typo>
@@ -785,7 +785,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Software engineering
                 </ld-typo>
@@ -834,7 +834,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip-popper>
               </mock:shadow-root>
               <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div class="ld-sidenav-navitem__tooltip-content">
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
                 <ld-typo>
                   Theory of computation
                 </ld-typo>
@@ -910,7 +910,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -954,7 +954,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -998,7 +998,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1042,7 +1042,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1086,7 +1086,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1130,7 +1130,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1205,7 +1205,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1249,7 +1249,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1296,7 +1296,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo>
                     Mathematical Foundations
                   </ld-typo>
@@ -1373,7 +1373,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1417,7 +1417,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1466,7 +1466,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1513,7 +1513,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo>
                     Soft computing
                   </ld-typo>
@@ -1564,7 +1564,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1608,7 +1608,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1682,7 +1682,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </ld-tooltip-popper>
                   </mock:shadow-root>
                   <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                  <div class="ld-sidenav-navitem__tooltip-content">
+                  <div style="display: grid; grid-auto-flow: column; align-items: center;">
                     <ld-typo></ld-typo>
                   </div>
                 </ld-tooltip>
@@ -1726,7 +1726,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </ld-tooltip-popper>
                   </mock:shadow-root>
                   <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                  <div class="ld-sidenav-navitem__tooltip-content">
+                  <div style="display: grid; grid-auto-flow: column; align-items: center;">
                     <ld-typo></ld-typo>
                   </div>
                 </ld-tooltip>
@@ -1802,7 +1802,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1846,7 +1846,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1890,7 +1890,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -1965,7 +1965,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2009,7 +2009,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2084,7 +2084,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2128,7 +2128,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2172,7 +2172,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2247,7 +2247,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2291,7 +2291,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2335,7 +2335,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2410,7 +2410,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2454,7 +2454,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2498,7 +2498,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2573,7 +2573,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2617,7 +2617,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2661,7 +2661,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2705,7 +2705,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2749,7 +2749,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2824,7 +2824,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2868,7 +2868,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2912,7 +2912,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -2956,7 +2956,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3000,7 +3000,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3044,7 +3044,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3088,7 +3088,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3163,7 +3163,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3207,7 +3207,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3251,7 +3251,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3295,7 +3295,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3339,7 +3339,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3383,7 +3383,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3427,7 +3427,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3502,7 +3502,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3546,7 +3546,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3590,7 +3590,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3634,7 +3634,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip-popper>
                 </mock:shadow-root>
                 <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div class="ld-sidenav-navitem__tooltip-content">
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
                   <ld-typo></ld-typo>
                 </div>
               </ld-tooltip>
@@ -3683,7 +3683,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip-popper>
             </mock:shadow-root>
             <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-            <div class="ld-sidenav-navitem__tooltip-content">
+            <div style="display: grid; grid-auto-flow: column; align-items: center;">
               <ld-typo>
                 Student profile
               </ld-typo>

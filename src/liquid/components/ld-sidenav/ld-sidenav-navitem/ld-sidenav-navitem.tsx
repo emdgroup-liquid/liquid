@@ -75,6 +75,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavExpandsOnMouseEnter: boolean
+  @State() secondaryIconHTML: string
 
   /**
    * Sets focus on the anchor or button
@@ -131,6 +132,12 @@ export class LdSidenavNavitem implements InnerFocusable {
       this.ldSidenavNavitemTo.emit({ id: this.to, label: this.el.textContent })
     }
     ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
+  }
+
+  private updateTooltipIcon = () => {
+    this.secondaryIconHTML = this.el.querySelector(
+      '[slot="icon-secondary"]'
+    )?.outerHTML
   }
 
   componentWillLoad() {
@@ -210,30 +217,48 @@ export class LdSidenavNavitem implements InnerFocusable {
           )}
 
           <ld-tooltip
-            show-delay="250"
-            tag="span"
-            ref={(el) => (this.tooltipRef = el)}
+            arrow
             class="ld-sidenav-navitem__tooltip"
             disabled={!this.sidenavCollapsed}
-            arrow
+            ref={(el) => (this.tooltipRef = el)}
+            show-delay="250"
+            onMouseEnter={this.updateTooltipIcon}
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
+            tag="span"
           >
             <div
               class="ld-sidenav-navitem__tooltip-trigger"
-              slot="trigger"
               onClick={this.onClick}
+              slot="trigger"
             />
-            <div class="ld-sidenav-navitem__tooltip-content">
+            <div
+              style={{
+                display: 'grid',
+                gridAutoFlow: 'column',
+                alignItems: 'center',
+              }}
+            >
               <ld-typo>{this.tooltipContent}</ld-typo>
+              {this.secondaryIconHTML && (
+                <span
+                  style={{
+                    color: 'var(--ld-thm-primary)',
+                    display: 'inline-flex',
+                    marginLeft: 'var(--ld-sp-6)',
+                  }}
+                  class="ld-sidenav-navitem__tooltip-icon"
+                  innerHTML={this.secondaryIconHTML}
+                />
+              )}
             </div>
           </ld-tooltip>
         </div>
         <div
-          ref={(el) => (this.slotContainerRef = el)}
           class="ld-sidenav-navitem__slot-container"
           part="slot-container"
+          ref={(el) => (this.slotContainerRef = el)}
         >
           <slot></slot>
         </div>

@@ -8975,6 +8975,19 @@
       "isMobile": false
     },
     {
+      "id": "87792f19",
+      "image": "a1f3e8fa5d5edca1e6011ca3fa6a5048.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation shows tooltip with icon",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "497f5f7d",
       "image": "73c44880030f2fe1b7bb633a5b3667e5.png",
       "userAgent": "default",
