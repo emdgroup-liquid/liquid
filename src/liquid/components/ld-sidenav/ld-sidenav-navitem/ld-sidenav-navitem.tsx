@@ -218,6 +218,7 @@ export class LdSidenavNavitem implements InnerFocusable {
 
           <ld-tooltip
             arrow
+            size="sm"
             class="ld-sidenav-navitem__tooltip"
             disabled={!this.sidenavCollapsed}
             ref={(el) => (this.tooltipRef = el)}

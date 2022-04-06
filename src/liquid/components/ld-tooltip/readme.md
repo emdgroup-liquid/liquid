@@ -37,6 +37,17 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 </ld-tooltip>
 {% endexample %}
 
+## Size
+
+{% example %}
+<ld-tooltip arrow>
+  <ld-typo>I'm the default size tooltip.</ld-typo>
+</ld-tooltip>
+<ld-tooltip arrow size="sm">
+  <ld-typo>I'm the small size tooltip.</ld-typo>
+</ld-tooltip>
+{% endexample %}
+
 ## With custom trigger
 
 {% example %}
@@ -232,6 +243,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `position`    | `position`     | Position of the tooltip relative to the trigger element (also affects the arrow position) | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'top center'` |
 | `ref`         | `ref`          | reference to component                                                                    | `any`                                                                                                                                                                                                | `undefined`    |
 | `showDelay`   | `show-delay`   | Delay in ms until tooltip shows (only when trigger type is 'hover')                       | `number`                                                                                                                                                                                             | `0`            |
+| `size`        | `size`         | The tooltip size (effects tooltip padding and font size)                                  | `"sm"`                                                                                                                                                                                               | `undefined`    |
 | `tag`         | `tag`          | The rendered HTML tag for the tooltip trigger.                                            | `string`                                                                                                                                                                                             | `'button'`     |
 | `triggerType` | `trigger-type` | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                 | `'hover'`      |
 
