@@ -24,6 +24,8 @@
     --ld-tooltip-offset-x: 0px;
     --ld-tooltip-offset-y: 0px;
 
+    --ld-tooltip-padding: var(--ld-sp-16);
+
     /* colors */
     --tooltip-col: var(--ld-col-neutral-900);
     --tooltip-bg-col: var(--ld-col-wht);
@@ -42,11 +44,17 @@
     margin-top: var(--ld-tooltip-offset-y);
     max-width: var(--ld-tooltip-max-width);
     opacity: 0;
-    padding: var(--ld-sp-16);
+    padding: var(--ld-tooltip-padding);
     pointer-events: none;
     position: relative;
     transition: opacity var(--ld-tooltip-animation-duration) ease-in;
     z-index: var(--ld-zi-max);
+  }
+
+  &--sm {
+    :host(&) {
+      --ld-tooltip-padding: var(--ld-sp-6) var(--ld-sp-8);
+    }
   }
 
   &--with-arrow {
