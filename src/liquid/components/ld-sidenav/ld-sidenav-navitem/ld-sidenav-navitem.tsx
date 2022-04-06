@@ -105,12 +105,19 @@ export class LdSidenavNavitem implements InnerFocusable {
       const words = this.el.textContent.trim().split(' ')
       const chars =
         words.length > 1
-          ? words.map((s) => s.match(/[a-zA-Z]/)[0])
+          ? words.map((s) => {
+              const char = s.match(/[a-zA-Z]/)
+              return (char && char[0]) || ''
+            })
           : words[0].match(/[a-zA-Z]/g)
       return (
         chars
+          .filter((c) => c)
           // The M character is twice as wide as other characters in the M-Font.
-          .slice(0, chars.some((char) => char.toLowerCase() === 'm') ? 1 : 2)
+          .slice(
+            0,
+            chars.slice(0, 2).some((char) => char.toLowerCase() === 'm') ? 1 : 2
+          )
           .join('')
           .toUpperCase()
       )
