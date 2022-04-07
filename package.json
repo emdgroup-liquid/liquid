@@ -51,7 +51,7 @@
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
-    "lint:ts": "tsc --noemit -p tsconfig.docs.json",
+    "lint:ts": "tsc --noemit -p ./src/docs/tsconfig.json",
     "optimise_svg_icons": "ts-node scripts/optimiseSVGIcons.ts",
     "prepare": "husky install",
     "start": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
