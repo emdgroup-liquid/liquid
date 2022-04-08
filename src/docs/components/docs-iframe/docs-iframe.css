@@ -3,7 +3,7 @@
   top: var(--docs-header-height);
   left: max(
     calc(var(--docs-nav-width) + 50vw - var(--docs-max-width) / 2),
-    calc(var(--docs-nav-width))
+    var(--docs-nav-width)
   );
   position: fixed;
 
