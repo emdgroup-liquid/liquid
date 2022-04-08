@@ -29,7 +29,9 @@ jobs:
           yarn install --immutable
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          npm run build:docs
 
       - name: Lint source files
         run: npm run lint
