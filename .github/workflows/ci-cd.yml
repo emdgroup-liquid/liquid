@@ -29,9 +29,14 @@ jobs:
           yarn install --immutable
 
       - name: Build
-        run: |
-          npm run build
-          npm run build:docs
+        run: npm run build
+
+      - name: Build docs
+        if: github.ref == 'refs/heads/develop'
+        run: npm run build:docs
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          MODE: gh_pages
 
       - name: Lint source files
         run: npm run lint
@@ -43,20 +48,6 @@ jobs:
       #- name: Run e2e tests
       #  if: github.event_name == 'pull_request'
       #  run: npm run test:e2e
-
-      - name: Build docs
-        if: github.ref == 'refs/heads/develop'
-        run: npm run build:docs
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          MODE: gh_pages
-
-      #- name: Comment on test coverage
-      #  if: github.event_name == 'pull_request'
-      #  uses: romeovs/lcov-reporter-action@v0.2.21
-      #  with:
-      #    github-token: ${{ secrets.GITHUB_TOKEN }}
-      #    lcov-file: ./coverage/lcov.info
 
       - name: Archive bin_dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
