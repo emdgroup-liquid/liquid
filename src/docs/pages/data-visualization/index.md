@@ -2,9 +2,8 @@
 eleventyNavigation:
   key: Data Visualization
   order: 3
-layout: layout.njk
+layout: redirect.njk
 title: Data Visualization
 permalink: data-visualization/
+destination: data-visualization/getting-started/
 ---
-
-<docs-iframe src="https://d2bfn5a2arsw4b.cloudfront.net/data-visualization"></docs-iframe>
