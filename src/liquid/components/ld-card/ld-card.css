@@ -1,0 +1,47 @@
+.ld-card {
+  --ld-card-bg-color: var(--ld-col-wht);
+  --ld-card-border-radius: var(--ld-br-l);
+  --ld-card-padding: var(--ld-sp-32);
+  --ld-card-padding-sm: var(--ld-sp-16);
+
+  box-sizing: border-box;
+  background-color: var(--ld-card-bg-color);
+  border-radius: var(--ld-card-border-radius);
+  display: block;
+  list-style: none;
+  padding: var(--ld-card-padding);
+  position: relative;
+
+  &::before {
+    content: '';
+    border-radius: inherit;
+    box-shadow: var(--ld-shadow-stacked);
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.2s ease-out;
+  }
+
+  &--sticky::before {
+    box-shadow: var(--ld-shadow-sticky);
+  }
+  &--hover::before {
+    box-shadow: var(--ld-shadow-hover);
+  }
+  &--active::before {
+    box-shadow: var(--ld-shadow-active);
+  }
+
+  &--sm {
+    padding: var(--ld-card-padding-sm);
+  }
+
+  &--interactive {
+    cursor: pointer;
+
+    &:hover::before,
+    &:focus-within::before {
+      opacity: 0.25;
+    }
+  }
+}
