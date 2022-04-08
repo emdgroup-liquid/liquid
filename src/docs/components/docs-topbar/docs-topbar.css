@@ -1,4 +1,6 @@
 .docs-topbar {
+  --ld-header-height: var(--docs-header-height);
+
   min-width: 20rem;
 
   &::part(container) {

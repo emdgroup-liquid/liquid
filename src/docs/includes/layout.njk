@@ -75,7 +75,7 @@ title: Introduction
           <li class="docs-nav__li{% if ((entry.url == '/') and ((page.url == '/') or ('introduction/' in page.url))) or ((entry.url != '/') and (entry.url in page.url)) %} docs-nav__li--active{% endif %}">
             {% if entry.children.length %}
               <details{% if ((entry.url == '/') and (('introduction/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
-                <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower }}">
+                <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower | replace(" ", "-") }}">
                   <a href="{{ env.base }}{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
                 </summary>

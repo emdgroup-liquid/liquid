@@ -44,6 +44,15 @@
       background-color: var(--ld-col-rg);
     }
   }
+  .docs-nav__summary--data-visualization,
+  .docs-nav__summary--data-visualization + ul .docs-nav__summary {
+    .docs-nav__arrow {
+      background-image: url('dist/build/assets/chevron-data-visualization-dark.svg');
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-vm);
+    }
+  }
   .docs-nav__li--active .docs-nav__summary--introduction {
     color: var(--ld-col-rb);
   }
@@ -52,6 +61,9 @@
   }
   .docs-nav__li--active .docs-nav__summary--components {
     color: var(--ld-col-rg);
+  }
+  .docs-nav__li--active .docs-nav__summary--data-visualization {
+    color: var(--ld-col-vm);
   }
 }
 @define-mixin docs-nav-ui-dark {
@@ -100,6 +112,15 @@
       background-color: var(--ld-col-rg);
     }
   }
+  .docs-nav__summary--data-visualization,
+  .docs-nav__summary--data-visualization + ul .docs-nav__summary {
+    .docs-nav__arrow {
+      background-image: url('dist/build/assets/chevron-data-visualization-light.svg');
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-vm);
+    }
+  }
   .docs-nav__li--active .docs-nav__summary--introduction {
     color: var(--ld-col-rb-400);
   }
@@ -108,6 +129,9 @@
   }
   .docs-nav__li--active .docs-nav__summary--components {
     color: var(--ld-col-rg-400);
+  }
+  .docs-nav__li--active .docs-nav__summary--data-visualization {
+    color: var(--ld-col-vm-400);
   }
 }
 
@@ -288,6 +312,11 @@ body:not(.safari) {
 
 .docs-nav__summary--components a::before {
   background-image: url('dist/build/assets/components.svg');
+  content: '';
+}
+
+.docs-nav__summary--data-visualization a::before {
+  background-image: url('dist/build/assets/data-visualization.svg');
   content: '';
 }
 
