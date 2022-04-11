@@ -11,7 +11,7 @@
     color: var(--ld-typo-text-brand-color);
   }
 
-  /* Reset within the shadow DOM. */
+  /* Reset within the shadow DOM */
   .ld-typo {
     color: inherit;
     margin: 0;
@@ -21,6 +21,11 @@
 :host,
 .ld-typo {
   --ld-typo-text-brand-color: var(--ld-thm-primary);
+}
+
+/* Reset for CSS component */
+:where(.ld-typo) {
+  margin: 0;
 }
 
 .ld-typo,
