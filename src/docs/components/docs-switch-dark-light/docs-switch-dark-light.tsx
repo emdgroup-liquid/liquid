@@ -11,7 +11,7 @@ export class DocsSwitchDarkLight {
 
   @Watch('isDark')
   updateIFrames(darkMode: boolean) {
-    const iframe = document.querySelector('docs-iframe')
+    const iframe = document.querySelector<HTMLDocsIframeElement>('docs-iframe')
 
     if (iframe) {
       iframe.setDarkMode(darkMode)
