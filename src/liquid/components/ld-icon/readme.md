@@ -9,6 +9,8 @@ permalink: components/ld-icon/
 
 # ld-icon
 
+<link rel="stylesheet" href="css_components/ld-icon.css">
+
 An icon provides a visual hint for content or interactions. Combine it with textual information for a better user experience. When using an icon on its own, make sure to either apply an [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) or use the [ld-sr-only](components/ld-sr-only/) component.
 
 ---
@@ -17,6 +19,15 @@ An icon provides a visual hint for content or interactions. Combine it with text
 
 {% example %}
 <ld-icon name="placeholder"></ld-icon>
+
+<!-- CSS component -->
+
+<span class="ld-icon" role="presentation">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</span>
 {% endexample %}
 
 ### Different sizes
@@ -27,6 +38,29 @@ An icon provides a visual hint for content or interactions. Combine it with text
 <ld-icon name="placeholder"></ld-icon>
 
 <ld-icon name="placeholder" size="lg"></ld-icon>
+
+<!-- CSS component -->
+
+<span class="ld-icon ld-icon--sm" role="presentation">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</span>
+
+<span class="ld-icon" role="presentation">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</span>
+
+<span class="ld-icon ld-icon--lg" role="presentation">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</span>
 {% endexample %}
 
 ### Color
@@ -39,6 +73,24 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 <span style="color: var(--ld-col-vg)">
   <ld-icon name="placeholder"></ld-icon>
 </span>
+
+<!-- CSS component -->
+
+<span class="ld-icon" role="presentation" style="color: var(--ld-col-vc)">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</span>
+
+<span style="color: var(--ld-col-vg)">
+  <span class="ld-icon" role="presentation">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+    </svg>
+  </span>
+</span>
 {% endexample %}
 
 ### With custom SVG icon
@@ -47,6 +99,12 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 <ld-icon>
   <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.48 20.335a3.622 3.622 0 01-7.244 0h7.244zm2.748-6.48l2.024 1.94c.297.284.464.677.464 1.088v.801c0 .833-.675 1.51-1.508 1.51h-14.7A1.51 1.51 0 014 17.683v-.76c0-.434.188-.848.516-1.134l1.922-1.683c.328-.286.516-.7.516-1.135V8.858a5.878 5.878 0 013.498-5.37c.556-.249.931-.78.931-1.39v-.622a1.476 1.476 0 112.952 0v.622c0 .61.375 1.141.931 1.39 2.06.918 3.5 2.97 3.5 5.37v3.908c0 .411.167.805.463 1.09z" fill-rule="evenodd"/></svg>
 </ld-icon>
+
+<!-- CSS component -->
+
+<span class="ld-icon" role="presentation">
+  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.48 20.335a3.622 3.622 0 01-7.244 0h7.244zm2.748-6.48l2.024 1.94c.297.284.464.677.464 1.088v.801c0 .833-.675 1.51-1.508 1.51h-14.7A1.51 1.51 0 014 17.683v-.76c0-.434.188-.848.516-1.134l1.922-1.683c.328-.286.516-.7.516-1.135V8.858a5.878 5.878 0 013.498-5.37c.556-.249.931-.78.931-1.39v-.622a1.476 1.476 0 112.952 0v.622c0 .61.375 1.141.931 1.39 2.06.918 3.5 2.97 3.5 5.37v3.908c0 .411.167.805.463 1.09z" fill-rule="evenodd"/></svg>
+</span>
 {% endexample %}
 
 ## Available icons

@@ -5244,6 +5244,19 @@
       "isMobile": false
     },
     {
+      "id": "12095320",
+      "image": "d7f5e16eb57a379a2de2c1969445ba69.png",
+      "userAgent": "default",
+      "desc": "ld-icon sizes lg CSS Component",
+      "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "e8ee7001",
       "image": "d7f5e16eb57a379a2de2c1969445ba69.png",
       "userAgent": "default",
@@ -5261,6 +5274,19 @@
       "image": "bd73c9dbafd62678b577f0a2606643e9.png",
       "userAgent": "default",
       "desc": "ld-icon sizes sm",
+      "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "377a774c",
+      "image": "9bbc4369ab5eedbafe59efad7d749e23.png",
+      "userAgent": "default",
+      "desc": "ld-icon sizes sm CSS Component",
       "testPath": "./src/liquid/components/ld-icon/test/ld-icon.e2e.ts",
       "width": 600,
       "height": 600,

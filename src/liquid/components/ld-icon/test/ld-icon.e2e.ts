@@ -1,4 +1,5 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
+import { LdIcon } from "../ld-icon";
 
 const svg = `
 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,6 +74,30 @@ describe('ld-icon', () => {
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
+    it('sm CSS Component', async () => {
+      const page = await getPageWithContent(
+        `<span class="ld-icon ld-icon--sm" role="presentation">
+          ${svg}
+        </span>`,
+        {
+          components: [LdIcon]
+        }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+    it('lg CSS Component', async () => {
+      const page = await getPageWithContent(
+        `<span class="ld-icon ld-icon--lg" role="presentation">
+          ${svg}
+        </span>`,
+        {
+          components: [LdIcon]
+        }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('color', () => {
@@ -86,8 +111,13 @@ describe('ld-icon', () => {
     it('css component', async () => {
       const page = await getPageWithContent(
         `<span style="color: var(--ld-col-vg)">
-          <ld-icon name="placeholder"></ld-icon>
-        </span>`
+          <span class="ld-icon" role="presentation">
+            ${svg}
+          </span>
+        </span>`,
+        {
+          components: [LdIcon]
+        }
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
