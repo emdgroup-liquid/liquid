@@ -31,7 +31,7 @@ const BUFFER_SIZE = 20
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-pagination',
-  styleUrl: 'ld-pagination.css',
+  styleUrl: 'ld-pagination.shadow.css',
   shadow: true,
 })
 export class LdPagination {

@@ -21,7 +21,7 @@ import { closest } from '../../../utils/closest'
  */
 @Component({
   tag: 'ld-sidenav-slider',
-  styleUrl: 'ld-sidenav-slider.css',
+  styleUrl: 'ld-sidenav-slider.shadow.css',
   shadow: true,
 })
 export class LdSidenavSlider {

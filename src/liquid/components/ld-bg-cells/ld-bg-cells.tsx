@@ -23,7 +23,7 @@ export type CellType =
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-bg-cells',
-  styleUrl: 'ld-bg-cells.css',
+  styleUrl: 'ld-bg-cells.shadow.css',
   shadow: true,
 })
 export class LdBgCells {

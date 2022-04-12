@@ -5,7 +5,7 @@ import '../../../components' // type definitions for type checks and intelliSens
 /** @internal **/
 @Component({
   tag: 'ld-tooltip-popper',
-  styleUrl: 'ld-tooltip-popper.css',
+  styleUrl: 'ld-tooltip-popper.shadow.css',
   shadow: true,
 })
 export class LdTooltipPopper {

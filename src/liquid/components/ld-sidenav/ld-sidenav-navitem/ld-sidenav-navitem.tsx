@@ -23,7 +23,7 @@ import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
  */
 @Component({
   tag: 'ld-sidenav-navitem',
-  styleUrl: 'ld-sidenav-navitem.css',
+  styleUrl: 'ld-sidenav-navitem.shadow.css',
   shadow: true,
 })
 export class LdSidenavNavitem implements InnerFocusable {

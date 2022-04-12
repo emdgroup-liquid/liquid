@@ -11,7 +11,7 @@ import { fetchIcon } from './fetchIcon'
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-icon',
-  styleUrl: 'ld-icon.css',
+  styleUrl: 'ld-icon.shadow.css',
   shadow: true,
 })
 export class LdIcon {

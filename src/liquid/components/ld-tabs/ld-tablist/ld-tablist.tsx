@@ -26,7 +26,7 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
  */
 @Component({
   tag: 'ld-tablist',
-  styleUrl: 'ld-tablist.css',
+  styleUrl: 'ld-tablist.shadow.css',
   shadow: true,
 })
 export class LdTablist {

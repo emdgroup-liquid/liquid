@@ -9,7 +9,7 @@ import { closest } from '../../../utils/closest'
  */
 @Component({
   tag: 'ld-accordion-panel',
-  styleUrl: 'ld-accordion-panel.css',
+  styleUrl: 'ld-accordion-panel.shadow.css',
   shadow: true,
 })
 export class LdAccordionPanel {

@@ -18,7 +18,7 @@ import { getClassNames } from '../../../utils/getClassNames'
  */
 @Component({
   tag: 'ld-accordion-section',
-  styleUrl: 'ld-accordion-section.css',
+  styleUrl: 'ld-accordion-section.shadow.css',
   shadow: true,
 })
 export class LdAccordionSection {

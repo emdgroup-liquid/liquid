@@ -38,7 +38,7 @@ let tooltipCount = 0
  */
 @Component({
   tag: 'ld-tooltip',
-  styleUrl: 'ld-tooltip.css',
+  styleUrl: 'ld-tooltip.shadow.css',
   shadow: true,
 })
 export class LdTooltip {

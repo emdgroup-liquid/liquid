@@ -23,7 +23,7 @@ import { getFirstFocusable } from '../../utils/focus'
  */
 @Component({
   tag: 'ld-sidenav',
-  styleUrl: 'ld-sidenav.css',
+  styleUrl: 'ld-sidenav.shadow.css',
   shadow: true,
 })
 export class LdSidenav {

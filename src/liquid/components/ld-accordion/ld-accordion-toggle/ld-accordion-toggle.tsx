@@ -18,7 +18,7 @@ import { getClassNames } from '../../../utils/getClassNames'
  */
 @Component({
   tag: 'ld-accordion-toggle',
-  styleUrl: 'ld-accordion-toggle.css',
+  styleUrl: 'ld-accordion-toggle.shadow.css',
   shadow: true,
 })
 export class LdAccordionToggle implements InnerFocusable {
