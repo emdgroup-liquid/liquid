@@ -7,7 +7,7 @@ import { Component, h, Host } from '@stencil/core'
  */
 @Component({
   tag: 'ld-sidenav-heading',
-  styleUrl: 'ld-sidenav-heading.css',
+  styleUrl: 'ld-sidenav-heading.shadow.css',
   shadow: true,
 })
 export class LdSidenavHeading {

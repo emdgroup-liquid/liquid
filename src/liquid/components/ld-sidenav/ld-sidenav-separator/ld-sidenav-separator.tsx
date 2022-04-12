@@ -10,7 +10,7 @@ import { toggleStackToTop } from '../utils/toggleStackToTop'
  */
 @Component({
   tag: 'ld-sidenav-separator',
-  styleUrl: 'ld-sidenav-separator.css',
+  styleUrl: 'ld-sidenav-separator.shadow.css',
   shadow: true,
 })
 export class LdSidenavSeparator {
@@ -19,11 +19,12 @@ export class LdSidenavSeparator {
 
   @State() sidenavCollapsed: boolean
   @State() sidenavClosable: boolean
-  @State() scaleXCollapsed: number
+  @State() scaleXCollapsed = 1
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
   handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
+    this.sidenavCollapsed = ev.detail
     if (
       this.el.parentElement &&
       !['LD-SIDENAV-SLIDER', 'LD-SIDENAV-SUBNAV'].includes(
@@ -32,7 +33,6 @@ export class LdSidenavSeparator {
     ) {
       return
     }
-    this.sidenavCollapsed = ev.detail
     if (this.sidenav.narrow) {
       toggleStackToTop(this.el, this.sidenavCollapsed)
     }
@@ -65,7 +65,9 @@ export class LdSidenavSeparator {
 
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
-    this.scaleXCollapsed = this.computeScaleXCollapsed() || 1
+    if (this.sidenav) {
+      this.scaleXCollapsed = this.computeScaleXCollapsed() || 1
+    }
   }
 
   render() {

@@ -9,7 +9,7 @@ import { getScrollParent } from '../../utils/scroll'
  */
 @Component({
   tag: 'ld-accordion',
-  styleUrl: 'ld-accordion.css',
+  styleUrl: 'ld-accordion.shadow.css',
   shadow: true,
 })
 export class LdAccordion {

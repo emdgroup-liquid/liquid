@@ -75,10 +75,6 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── dist                      # Here is the main juice which gets published to npm.
 ├── dist_docs                 # This folder is served during development. It contains the docs site
 │                             # as well as the necessary liquid distribution.
-├── jest.config.a11y.js       # This Jest config file is used for accessibility testing with pa11y.
-│                             # Note that accessibility tests run in their own process and not
-│                             # in the same process as regular Stencil unit or e2e tests.
-├── pa11y.json                # Config file for accessibility testing with pa11y.
 ├── package.json              # Please have a look at the scripts section inside the package.json file.
 │                             # You can also run `npm run` to get a list of all available commands.
 ├── postcss.config.docs.js    # PostCSS config file for the docs site CSS processing.
@@ -87,13 +83,16 @@ This project consists of different parts and pieces, each with its own purpose. 
 │                             # with Stencil. See https://stenciljs.com/docs/screenshot-visual-diff
 ├── scripts                   # Contains bash or node script files executed via npm script commands.
 ├── src                       # Well, that's the source folder. You probably guessed it.
+│   ├── _data                 # This folder contains data files. See https://www.11ty.dev/docs/data-global/
+│   │   └── env.js            # Environment variables injected during generation of the docs site.
 │   ├── docs                  # Everything inside this folder is for developing the docs site.
 │   │   ├── assets            # Static assets for the docs page reside here.
 │   │   ├── components        # Docs components live here.
 │   │   ├── global            # Docs global styles live here.
 │   │   ├── includes
-│   │   │  └── layout.njk     # The docs site is powered by 11ty. This is the default (and only)
-│   │   │                     # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
+│   │   │  ├── layout.njk     # The docs site is powered by 11ty. This is the default
+│   │   │  │                  # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
+│   │   │  └── redirect.njk   # This layout file handles redirects on pages behind authentication.
 │   │   ├── layouts           # There is one layout component which lives inside this folder.
 │   │   ├── pages             # This folder contains markdown files for general documentation pages, 
 │   │   │                     # legal stuff and the 404 page.
@@ -126,8 +125,9 @@ Some things are not linted but still are important:
 - We prefix Liquid components with `ld-` and docs components with `docs-`.
 - We use [BEM](http://getbem.com/introduction/) as a methodology for organizing CSS rules.
 - We use relative length units in CSS, mostly `rem`; absolute length units should be avoided (borders and outlines may count as an exception to the rule).
-- We use Shadow DOM wherever possible, especially in components which use slots: not using Shadow DOM in such components resutls in a worse performance (due to Stencil's custom _slot_ implementation performing expensive DOM operations) and quirks in React apps. We allow for custom styling of Web Component by applying [part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) attributes to component internal elements.
-- When ever possible, try to provide CSS components alongside Web components using the same CSS file; prefix CSS classes with `ld-` and use BEM.
+- We use Shadow DOM wherever possible, especially in components which use slots: not using Shadow DOM in such components resutls in a worse performance (due to Stencil's custom _slot_ implementation performing expensive DOM operations) and quirks in React apps. We allow for custom styling of Web Component by applying [part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) attributes to component internal elements and using component specific CSS custom properties where applicable.
+- When ever possible, try to provide CSS Components alongside WebComponents using the same CSS file; prefix CSS classes with `ld-` and use BEM.
+- Stylesheet files of WebComponents which have no CSS Component counterpart must include a `.shadow` suffix in the file name (for instance `ld-sidenav.shadow.css`). This will ensure the CSS does not end up in the CSS components bundle.
 - When writing CSS, we follow common best practices. We try to keep the CSS specificity to a minimum, in order to simplify component customization, but we also make sure that it's not low to an extent, where styles get overwritten by other libraries' reset or normalize styles (such as Tailwind's [Preflight](https://tailwindcss.com/docs/preflight)). In other words: If you're using the CSS `:where` trick to reduce CSS speceficity to zero, make sure the properties affected are not potential candidates for reset and normalize styles.
 - Due to an issue in stencil type declarations need to be either inlined or exported, as otherwise undefined types end up in the generated components.d.ts file. 
 - We enable type checking and intelliSense for Web Component attributes by importing the autogenerated components type definitions file (src/components.d.ts) at the top of all imports in each component: 
@@ -155,11 +155,12 @@ Branch names are linted using the following regular expression before push:
 ### How to run tests
 
 There are multiple commands available as npm scripts for running different kinds of tests:
-Unit tests and functional (e2e) tests and visual regression tests (using screenshots) are [handled by Stencil](https://stenciljs.com/docs/testing-overview).
+Unit tests, functional (e2e) tests as well as visual regression tests (using screenshots) are [handled by Stencil](https://stenciljs.com/docs/testing-overview). We also run accessibility tests within the functional test suits using [axe-core](https://github.com/dequelabs/axe-core).
 
-Accessibility tests are a bit special: You recognize accessibility test files by their suffix `.a11y.ts`. These tests are executed in a separate process using [puppeteer](https://pptr.dev) and [pa11y](https://pa11y.org) and require the docs to be built beforhand. If you look at pa11y.json, you will find an option which is responsible for hiding irrelevant stuff from the docs which shall not be tested using CSS selectors. One note regarding automated accessibility testing:
+One note regarding automated accessibility testing:
 
 > Automated accessibility testing helps comply with accessibility guidelines but does not guarantee that a website or app is accessible. You still need to perform manual testing using screen readers and involve disabled users in user testings. 
+
 You execute tests either by running one of the npm scripts which start with `test` (see package.json) or by executing the respective test commands directly with the options needed. Please refer to the docs of each test runner in question for available options.
 
 ### Relevant resources
@@ -170,9 +171,9 @@ here is a list of links to selected documentation sites and articles we found va
 - https://stenciljs.com
 - https://www.11ty.dev
 - https://postcss.org
-- https://pa11y.org
 - https://jestjs.io
 - https://pptr.dev
+- https://github.com/dequelabs/axe-core
 - https://yarnpkg.com
 - https://semantic-release.gitbook.io
 - https://www.conventionalcommits.org
@@ -276,11 +277,12 @@ Both issue lists are sorted by total number of comments. While not perfect, numb
 
 #### Local development
 
-1. [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) and [Yarn](https://yarnpkg.com/)
+1. [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) and [Yarn](https://yarnpkg.com/) (version 3 - head over to https://yarnpkg.com/getting-started/install for instructions on how to install the latest yarn version).
 need to be installed on your machine.
 2. Install dependencies by executing `yarn` inside the project folder.
-3. Start up the local development server with `yarn start`.
-4. Now head over to [localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site (on first build it may take a while until it shows up - relax and be patient).  
+3. Run `yarn build`. This step is necessary before first start up of the local dev server (it generates required type definitions within the src/liquid folder).
+4. Start up the local development server with `yarn start`.
+5. Now head over to [localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site.  
 > **If you are on a Windows machine**, you might need to start up the dev environment in a Docker container due to an [unresolved issue in Stencil](https://github.com/ionic-team/stencil/issues/2319) seeing _"Component tag name must be unique"_ in your command line app. So install [Docker](https://www.docker.com/products/docker-desktop) and execute the following command once inside the project folder to build a container for your dev environment: `docker build -t liquid .` Now you can start up the dev environment inside the Docker container: `docker run -p 8080:8080 liquid` If you can not or do not want to use Docker, you can still work around the _"Component tag name must be unique"_ issue by deleting the dist folder. Note though, that it may eventually be recreated, for instance if you run tests.
 
 ### Pull requests

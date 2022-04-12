@@ -5,8 +5,9 @@ html {
 body {
   overscroll-behavior-x: none;
   -webkit-text-size-adjust: none;
+  --docs-header-height: 3.125rem;
   --docs-max-width: 90rem;
-  --docs-nav-width: 17rem;
+  --docs-nav-width: 19rem;
   --docs-toc-width: 17rem;
 }
 
@@ -33,11 +34,11 @@ body {
 }
 
 .docs-layout {
-  max-width: var(--docs-max-width);
-  margin: 0 auto;
-  font-family: var(--ld-font-body);
   display: flex;
-  min-height: 100vh;
+  font-family: var(--ld-font-body);
+  margin: 0 auto;
+  max-width: var(--docs-max-width);
+  min-height: calc(100vh - var(--docs-header-height));
 
   &.hydrated {
     visibility: visible !important;

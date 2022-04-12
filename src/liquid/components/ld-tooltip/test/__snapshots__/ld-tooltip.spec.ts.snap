@@ -79,6 +79,7 @@ exports[`ld-tooltip renders with arrow 1`] = `
     </button>
     <ld-tooltip-popper aria-hidden="true" class="ld-tooltip ld-tooltip--with-arrow ld-tooltip--with-default-trigger" id="ld-tooltip-3" part="popper" role="tooltip">
       <mock:shadow-root>
+        <span class="ld-tooltip__arrow"></span>
         <slot></slot>
       </mock:shadow-root>
       <slot></slot>

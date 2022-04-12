@@ -23,7 +23,7 @@ import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
  */
 @Component({
   tag: 'ld-sidenav-navitem',
-  styleUrl: 'ld-sidenav-navitem.css',
+  styleUrl: 'ld-sidenav-navitem.shadow.css',
   shadow: true,
 })
 export class LdSidenavNavitem implements InnerFocusable {
@@ -75,6 +75,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavExpandsOnMouseEnter: boolean
+  @State() secondaryIconHTML: string
 
   /**
    * Sets focus on the anchor or button
@@ -105,12 +106,19 @@ export class LdSidenavNavitem implements InnerFocusable {
       const words = this.el.textContent.trim().split(' ')
       const chars =
         words.length > 1
-          ? words.map((s) => s.match(/[a-zA-Z]/)[0])
+          ? words.map((s) => {
+              const char = s.match(/[a-zA-Z]/)
+              return (char && char[0]) || ''
+            })
           : words[0].match(/[a-zA-Z]/g)
       return (
         chars
+          .filter((c) => c)
           // The M character is twice as wide as other characters in the M-Font.
-          .slice(0, chars.some((char) => char.toLowerCase() === 'm') ? 1 : 2)
+          .slice(
+            0,
+            chars.slice(0, 2).some((char) => char.toLowerCase() === 'm') ? 1 : 2
+          )
           .join('')
           .toUpperCase()
       )
@@ -126,17 +134,25 @@ export class LdSidenavNavitem implements InnerFocusable {
     ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
   }
 
+  private updateTooltipIcon = () => {
+    this.secondaryIconHTML = this.el.querySelector(
+      '[slot="icon-secondary"]'
+    )?.outerHTML
+  }
+
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
-    this.sidenavAlignement = this.sidenav.align
-    this.sidenavExpandsOnMouseEnter =
-      this.sidenav.expandTrigger === 'mouseenter'
-    if (
-      !['secondary', 'tertiary'].includes(this.mode) &&
-      !this.el.querySelector('[slot="icon"]')
-    ) {
+    if (this.sidenav) {
+      this.sidenavAlignement = this.sidenav.align
+      this.sidenavExpandsOnMouseEnter =
+        this.sidenav.expandTrigger === 'mouseenter'
+    }
+    if (!['secondary', 'tertiary'].includes(this.mode)) {
       this.tooltipContent = this.el.textContent.trim()
-      this.abbreviation = this.getabbreviation()
+
+      if (!this.el.querySelector('[slot="icon"]')) {
+        this.abbreviation = this.getabbreviation()
+      }
     }
   }
 
@@ -201,30 +217,48 @@ export class LdSidenavNavitem implements InnerFocusable {
           )}
 
           <ld-tooltip
-            show-delay="250"
-            tag="span"
-            ref={(el) => (this.tooltipRef = el)}
+            arrow
+            size="sm"
             class="ld-sidenav-navitem__tooltip"
             disabled={!this.sidenavCollapsed}
-            arrow
+            ref={(el) => (this.tooltipRef = el)}
+            show-delay="250"
+            onMouseEnter={this.updateTooltipIcon}
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
+            tag="span"
           >
             <div
               class="ld-sidenav-navitem__tooltip-trigger"
-              slot="trigger"
               onClick={this.onClick}
+              slot="trigger"
             />
-            <div class="ld-sidenav-navitem__tooltip-content">
+            <div
+              style={{
+                display: 'grid',
+                gridAutoFlow: 'column',
+                alignItems: 'center',
+              }}
+            >
               <ld-typo>{this.tooltipContent}</ld-typo>
+              {this.secondaryIconHTML && (
+                <span
+                  style={{
+                    color: 'var(--ld-thm-primary)',
+                    display: 'inline-flex',
+                    marginLeft: 'var(--ld-sp-6)',
+                  }}
+                  innerHTML={this.secondaryIconHTML}
+                />
+              )}
             </div>
           </ld-tooltip>
         </div>
         <div
-          ref={(el) => (this.slotContainerRef = el)}
           class="ld-sidenav-navitem__slot-container"
           part="slot-container"
+          ref={(el) => (this.slotContainerRef = el)}
         >
           <slot></slot>
         </div>

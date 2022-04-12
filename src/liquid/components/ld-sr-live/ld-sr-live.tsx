@@ -6,7 +6,7 @@ import { Component, h, Listen, State } from '@stencil/core'
  */
 @Component({
   tag: 'ld-sr-live',
-  styleUrl: 'ld-sr-live.css',
+  styleUrl: 'ld-sr-live.shadow.css',
   shadow: true,
 })
 export class LdSrLive {

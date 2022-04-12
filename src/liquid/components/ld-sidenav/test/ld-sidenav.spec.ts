@@ -13,8 +13,8 @@ import { LdSidenavHeading } from '../ld-sidenav-heading/ld-sidenav-heading'
 import { LdSidenavScrollerInternal } from '../ld-sidenav-scroller-internal/ld-sidenav-scroller-internal'
 import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
 import { getFirstFocusable } from '../../../utils/focus'
-import '../../../utils/mutationObserver'
 import { getSidenavWithSubnavigation } from './utils'
+import '../../../utils/mutationObserver'
 
 let matchMedia
 const mockedGetFirstFocusable = getFirstFocusable as jest.Mock
@@ -763,6 +763,36 @@ describe('ld-sidenav', () => {
     )
   })
 
+  it('sets last class on navitems', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: getSidenavWithSubnavigation({
+        collapsible: true,
+        narrow: true,
+      }),
+    })
+    const ldSidenav = page.root
+    mockFocus(page)
+    await page.waitForChanges()
+
+    const ldSidenavNavitemsTotal =
+      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
+        'ld-sidenav-navitem'
+      ).length
+    const ldSidenavNavitemsLastTotal =
+      ldSidenav.querySelectorAll<HTMLLdSidenavNavitemElement>(
+        '.ld-sidenav-navitem--last'
+      ).length
+
+    expect(ldSidenavNavitemsTotal).toEqual(70)
+
+    // nextElementSibling seems to be not supported in JSDOM, hence
+    // we end up with all navitems having that class. So we are
+    // basically testing here, that the class is set at least anyhow.
+    // e2e tests cover the actual visual expectation.
+    expect(ldSidenavNavitemsLastTotal).toEqual(70)
+  })
+
   describe('keyboard navigation', () => {
     beforeEach(() => {
       matchMedia = new MatchMediaMock()
@@ -1260,6 +1290,74 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
 
       expect(button2.focus).toHaveBeenCalled()
+    })
+  })
+
+  describe('navitem abbreviation', () => {
+    it('should abbreviate to one character if M is included', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
+        html: `<ld-sidenav open>
+            <ld-sidenav-slider label="Outline of Computer Science">
+              <ld-sidenav-navitem>
+                Mathematical foundations
+              </ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>
+        `,
+      })
+      await page.waitForChanges()
+
+      const ldSidenavNavitem = page.root.querySelector('ld-sidenav-navitem')
+      const abbr = ldSidenavNavitem.shadowRoot.querySelector(
+        '.ld-sidenav-navitem__abbr'
+      )
+
+      expect(abbr.textContent).toEqual('M')
+    })
+
+    it('should abbreviate to two character if M is not included', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
+        html: `<ld-sidenav open>
+            <ld-sidenav-slider label="Outline of Computer Science">
+              <ld-sidenav-navitem>
+                Artificial intelligence
+              </ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>
+        `,
+      })
+      await page.waitForChanges()
+
+      const ldSidenavNavitem = page.root.querySelector('ld-sidenav-navitem')
+      const abbr = ldSidenavNavitem.shadowRoot.querySelector(
+        '.ld-sidenav-navitem__abbr'
+      )
+
+      expect(abbr.textContent).toEqual('AI')
+    })
+
+    it('should abbreviate and ignore special characters', async () => {
+      const page = await newSpecPage({
+        components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
+        html: `<ld-sidenav open>
+            <ld-sidenav-slider label="Outline of Computer Science">
+              <ld-sidenav-navitem>
+                Algorithms & data structures
+              </ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>
+        `,
+      })
+      await page.waitForChanges()
+
+      const ldSidenavNavitem = page.root.querySelector('ld-sidenav-navitem')
+      const abbr = ldSidenavNavitem.shadowRoot.querySelector(
+        '.ld-sidenav-navitem__abbr'
+      )
+
+      expect(abbr.textContent).toEqual('AD')
     })
   })
 })

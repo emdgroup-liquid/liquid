@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import '../../components' // type definitions for type checks and intelliSense
@@ -37,26 +38,35 @@ let tooltipCount = 0
  */
 @Component({
   tag: 'ld-tooltip',
-  styleUrl: 'ld-tooltip.css',
+  styleUrl: 'ld-tooltip.shadow.css',
   shadow: true,
 })
 export class LdTooltip {
   @Element() element: HTMLElement
 
+  private delayTimeout?: NodeJS.Timeout
+  private idDescriber = `ld-tooltip-${++tooltipCount}`
+  private popper?: Tether
+  private tooltipRef!: HTMLElement
+  private triggerRef!: HTMLSpanElement
+
   /** Show arrow */
   @Prop() arrow: boolean
-
-  /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
-  @Prop() hideDelay = 0
-
-  /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
-  @Prop() showDelay = 0
 
   /** Disable tooltip trigger */
   @Prop() disabled: boolean
 
+  /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
+  @Prop() hideDelay = 0
+
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position: Position = 'top center'
+
+  /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
+  @Prop() showDelay = 0
+
+  /** The tooltip size (effects tooltip padding only) */
+  @Prop() size?: 'sm'
 
   /** The rendered HTML tag for the tooltip trigger. */
   @Prop() tag = 'button'
@@ -67,11 +77,12 @@ export class LdTooltip {
   @State() hasDefaultTrigger = true
   @State() visible = false
 
-  private delayTimeout?: NodeJS.Timeout
-  private idDescriber = `ld-tooltip-${++tooltipCount}`
-  private popper?: Tether
-  private tooltipRef!: HTMLElement
-  private triggerRef!: HTMLSpanElement
+  @Watch('disabled')
+  updatePopper(newDisabled: boolean) {
+    if (newDisabled) {
+      this.hideTooltip()
+    }
+  }
 
   private mapPositionToAttachment = (position: Position) => {
     return {
@@ -143,6 +154,8 @@ export class LdTooltip {
   /** Show tooltip */
   @Method()
   async showTooltip() {
+    if (this.disabled) return
+
     clearTimeout(this.delayTimeout)
     this.popper.enable()
     this.visible = true
@@ -289,6 +302,7 @@ export class LdTooltip {
           hasDefaultTrigger={this.hasDefaultTrigger}
           id={this.idDescriber}
           part="popper"
+          size={this.size}
           ref={(element: HTMLElement) => {
             this.tooltipRef = element
           }}

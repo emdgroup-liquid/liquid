@@ -7,7 +7,7 @@ import { Component, h, Host } from '@stencil/core'
  */
 @Component({
   tag: 'ld-tabpanel',
-  styleUrl: 'ld-tabpanel.css',
+  styleUrl: 'ld-tabpanel.shadow.css',
   shadow: true,
 })
 export class LdTabpanel {

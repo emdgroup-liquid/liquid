@@ -8677,7 +8677,7 @@
     },
     {
       "id": "72ef711e",
-      "image": "00ac4a2773c5c94d717e927ab2798b7a.png",
+      "image": "0a85974edc92c3d3ca664763102e2a79.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item has a secondary icon",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8755,7 +8755,7 @@
     },
     {
       "id": "b5cd2a68",
-      "image": "ed73919d98c34076904e323ec6ac6346.png",
+      "image": "8844fd18cbf25696b5a5970c189fbc33.png",
       "userAgent": "default",
       "desc": "ld-sidenav nav item truncates long titles",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8872,7 +8872,7 @@
     },
     {
       "id": "feb5e844",
-      "image": "9d34ec89b89112293c954793deba960e.png",
+      "image": "a7225a7d9b894d3d256d26b76e034b0b.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation in subnavigation with back button shows shadow separator line at the top and bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8885,7 +8885,7 @@
     },
     {
       "id": "13515603",
-      "image": "6e566e36195fc1d1b859854775d53da9.png",
+      "image": "b52b5bc0ef0cf28350d3d0729096061a.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode collapses to narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8898,7 +8898,7 @@
     },
     {
       "id": "9e3419f8",
-      "image": "a50b82e5b5be67f041f0087045e75437.png",
+      "image": "92efbc35a11276b332cb0e563fb05118.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the left",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8911,7 +8911,7 @@
     },
     {
       "id": "f8ade095",
-      "image": "87eb2120721b6e157be5c96c8eed18d3.png",
+      "image": "edfbf1d6190dc3f14f8aacdd4f9fb17b.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode shows tooltip on the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8924,7 +8924,7 @@
     },
     {
       "id": "5fae3b76",
-      "image": "493025faa0a3a83636933e0b6111aebb.png",
+      "image": "1c902caa3cb0db0ecebbb320d801b3f9.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation neutral mode uses neutral background color",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -8963,9 +8963,22 @@
     },
     {
       "id": "e91a437e",
-      "image": "a3d90979a1d408c7d25ba0c4bdda6e6e.png",
+      "image": "0c683986491e1113f44465b14d8e8069.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation shows shadows shows shadow at the top and separator line at the bottom when scrolled to the bottom",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "87792f19",
+      "image": "08732c6ebcd6fecfc05053d090e38341.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation shows tooltip with icon",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
       "width": 600,
       "height": 600,
@@ -9054,7 +9067,7 @@
     },
     {
       "id": "6a1b6508",
-      "image": "a3099c97f30f4373397b9cdb48dc45d5.png",
+      "image": "9f6d62a80c8e7bcd6d48fcf022b2d579.png",
       "userAgent": "default",
       "desc": "ld-sidenav without subnavigation shows shadows shows shadow at the top and separator line at the bottom when scrolled to the bottom",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -11917,6 +11930,19 @@
       "image": "906e92de77946f6034f965d715160677.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (with arrow)",
+      "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "b751c06f",
+      "image": "e353084a2c90360fd7a891373f707782.png",
+      "userAgent": "default",
+      "desc": "ld-tooltip size sm",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
       "width": 600,
       "height": 600,

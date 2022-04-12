@@ -12,7 +12,7 @@ const FADE_TRANSITION_DURATION = 200
 
 @Component({
   tag: 'ld-notification',
-  styleUrl: 'ld-notification.css',
+  styleUrl: 'ld-notification.shadow.css',
   shadow: true,
 })
 export class LdNotification {

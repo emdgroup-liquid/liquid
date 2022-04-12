@@ -5,7 +5,7 @@ import '../../../components' // type definitions for type checks and intelliSens
 /** @internal **/
 @Component({
   tag: 'ld-tooltip-popper',
-  styleUrl: 'ld-tooltip-popper.css',
+  styleUrl: 'ld-tooltip-popper.shadow.css',
   shadow: true,
 })
 export class LdTooltipPopper {
@@ -13,6 +13,9 @@ export class LdTooltipPopper {
 
   /** Show arrow */
   @Prop() arrow: boolean
+
+  /** The tooltip size (effects tooltip padding only) */
+  @Prop() size?: 'sm'
 
   /** Event type that triggers the tooltip */
   @Prop() triggerType: 'click' | 'hover' = 'hover'
@@ -27,10 +30,12 @@ export class LdTooltipPopper {
           'ld-tooltip',
           this.arrow && 'ld-tooltip--with-arrow',
           this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
+          this.size && `ld-tooltip--${this.size}`,
           this.triggerType === 'click' && 'ld-tooltip--interactive',
         ])}
         role="tooltip"
       >
+        {this.arrow && <span class="ld-tooltip__arrow" />}
         <slot />
       </Host>
     )

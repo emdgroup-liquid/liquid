@@ -238,4 +238,19 @@ describe('ld-tooltip', () => {
       expect(results).toMatchScreenshot()
     })
   })
+
+  it('size sm', async () => {
+    const page = await getPageWithContent(
+      `<ld-tooltip size="sm">
+        <ld-typo>I'm the small size tooltip.</ld-typo>
+      </ld-tooltip>`,
+      { disableAllTransitions: true }
+    )
+    await page.keyboard.press('Tab')
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
+    const results = await page.compareScreenshot()
+
+    expect(results).toMatchScreenshot()
+  })
 })

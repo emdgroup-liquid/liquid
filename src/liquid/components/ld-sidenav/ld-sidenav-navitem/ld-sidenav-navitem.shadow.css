@@ -17,6 +17,7 @@
   --ld-sidenav-navitem-col-focus: var(--ld-thm-primary);
   --ld-sidenav-navitem-indicator-col: transparent;
   --ld-sidenav-navitem-indicator-col-focus: var(--ld-thm-primary-focus);
+  --ld-sidenav-navitem-secondary-icon-color: var(--ld-thm-primary);
 
   background-color: transparent;
   margin: 0 var(--ld-sidenav-padding-x);
@@ -340,9 +341,6 @@ That's why we set z-index 0 on the following elements.
     border-radius: var(--ld-br-full);
   }
 }
-.ld-sidenav-navitem__tooltip-content {
-  position: absolute;
-}
 
 .ld-sidenav-navitem__slot-container {
   -webkit-box-orient: vertical;
@@ -377,6 +375,7 @@ That's why we set z-index 0 on the following elements.
   display: flex;
   flex-shrink: 0;
   margin-right: var(--ld-sp-4);
+  color: var(--ld-sidenav-navitem-secondary-icon-color);
 }
 
 .ld-sidenav-navitem__abbr {

@@ -1,4 +1,4 @@
-import { Component, h, Host, State, Listen } from '@stencil/core'
+import { Component, h, Host, State, Listen, Watch } from '@stencil/core'
 
 /** @internal **/
 @Component({
@@ -8,6 +8,15 @@ import { Component, h, Host, State, Listen } from '@stencil/core'
 })
 export class DocsSwitchDarkLight {
   @State() isDark: boolean
+
+  @Watch('isDark')
+  updateIFrames(darkMode: boolean) {
+    const iframe = document.querySelector<HTMLDocsIframeElement>('docs-iframe')
+
+    if (iframe) {
+      iframe.setDarkMode(darkMode)
+    }
+  }
 
   componentWillLoad() {
     const storedUIPref = window.localStorage.getItem('docs-ui')

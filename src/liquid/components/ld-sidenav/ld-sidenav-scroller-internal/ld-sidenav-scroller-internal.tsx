@@ -14,7 +14,7 @@ import { closest } from '../../../utils/closest'
 /** @internal **/
 @Component({
   tag: 'ld-sidenav-scroller-internal',
-  styleUrl: 'ld-sidenav-scroller-internal.css',
+  styleUrl: 'ld-sidenav-scroller-internal.shadow.css',
   shadow: true,
 })
 export class LdSidenavScrollerInternal {
@@ -73,6 +73,8 @@ export class LdSidenavScrollerInternal {
 
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
+    if (!this.sidenav) return
+
     this.needsHRTop = !!this.sidenav.querySelector('[slot="top"]')
     this.needsHRBottom = !!this.sidenav.querySelector('[slot="bottom"]')
     this.relative = !this.sidenav.querySelector('ld-sidenav-slider')
