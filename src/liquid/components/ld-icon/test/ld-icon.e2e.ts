@@ -1,5 +1,5 @@
 import { getPageWithContent } from '../../../utils/e2e-tests'
-import { LdIcon } from "../ld-icon";
+import { LdIcon } from '../ld-icon'
 
 const svg = `
 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ describe('ld-icon', () => {
           ${svg}
         </span>`,
         {
-          components: [LdIcon]
+          components: [LdIcon],
         }
       )
       const results = await page.compareScreenshot()
@@ -92,7 +92,7 @@ describe('ld-icon', () => {
           ${svg}
         </span>`,
         {
-          components: [LdIcon]
+          components: [LdIcon],
         }
       )
       const results = await page.compareScreenshot()
@@ -116,7 +116,7 @@ describe('ld-icon', () => {
           </span>
         </span>`,
         {
-          components: [LdIcon]
+          components: [LdIcon],
         }
       )
       const results = await page.compareScreenshot()
