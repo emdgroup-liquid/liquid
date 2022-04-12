@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/emdgroup-liquid/liquid/compare/v1.4.0...v1.5.0) (2022-04-12)
+
+
+### Bug Fixes
+
+* **css-bundle:** exclude pure web component css from css bundle ([220eec6](https://github.com/emdgroup-liquid/liquid/commit/220eec6106ad69a011b97ce15e70924ce154ecf9))
+* **ld-sidenav:** abbreviation with special characters ([74ba4ba](https://github.com/emdgroup-liquid/liquid/commit/74ba4baa46f821e26824ae82247056337eae90e8))
+* **ld-sidenav:** last navitem styling, tooltip, separator in slot top ([24a61f2](https://github.com/emdgroup-liquid/liquid/commit/24a61f265ce1b74be0ea6a017ec532aed62a99ea))
+* **ld-sidenav:** show secondary icon in tooltip and use theme color on icon ([e3153da](https://github.com/emdgroup-liquid/liquid/commit/e3153dad3e7f6c1c38023851a3fac005a6a8e6bf))
+* **ld-sidenav:** show tooltip with slotted icon ([7a8d409](https://github.com/emdgroup-liquid/liquid/commit/7a8d409218418bc32be747211f9ae49e825454d3))
+* **ld-tooltip:** move arrow into shadow dom ([198f91e](https://github.com/emdgroup-liquid/liquid/commit/198f91efb88c895b2e99b23863b383ccaa693575))
+* **ld-typo:** add reset for css component ([754a8a3](https://github.com/emdgroup-liquid/liquid/commit/754a8a3cb393f5cda64e5777e0fa16247c1a1563))
+
+
+### Features
+
+* **ld-sidenav:** sidenav improvements ([8a98100](https://github.com/emdgroup-liquid/liquid/commit/8a9810031fc55339ceb28afaa66dcaccbab99989))
+* **ld-tooltip:** size small ([c4d1328](https://github.com/emdgroup-liquid/liquid/commit/c4d1328c228b153fe9516aec14a00f537dcc9606))
+
 # [1.4.0](https://github.com/emdgroup-liquid/liquid/compare/v1.3.0...v1.4.0) (2022-04-01)
 
 
