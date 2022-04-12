@@ -20,7 +20,7 @@ import {
  */
 @Component({
   tag: 'ld-tab',
-  styleUrl: 'ld-tab.css',
+  styleUrl: 'ld-tab.shadow.css',
   shadow: true,
 })
 export class LdTab implements InnerFocusable {

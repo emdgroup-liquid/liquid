@@ -10,7 +10,7 @@ import { toggleStackToTop } from '../utils/toggleStackToTop'
  */
 @Component({
   tag: 'ld-sidenav-separator',
-  styleUrl: 'ld-sidenav-separator.css',
+  styleUrl: 'ld-sidenav-separator.shadow.css',
   shadow: true,
 })
 export class LdSidenavSeparator {

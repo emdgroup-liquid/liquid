@@ -14,7 +14,7 @@ import { closest } from '../../../utils/closest'
 /** @internal **/
 @Component({
   tag: 'ld-sidenav-scroller-internal',
-  styleUrl: 'ld-sidenav-scroller-internal.css',
+  styleUrl: 'ld-sidenav-scroller-internal.shadow.css',
   shadow: true,
 })
 export class LdSidenavScrollerInternal {

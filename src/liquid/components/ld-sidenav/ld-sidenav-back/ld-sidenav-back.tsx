@@ -19,7 +19,7 @@ import { closest } from '../../../utils/closest'
  */
 @Component({
   tag: 'ld-sidenav-back',
-  styleUrl: 'ld-sidenav-back.css',
+  styleUrl: 'ld-sidenav-back.shadow.css',
   shadow: true,
 })
 export class LdSidenavBack {

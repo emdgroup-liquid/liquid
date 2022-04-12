@@ -18,7 +18,7 @@ let tabsCount = 0
  */
 @Component({
   tag: 'ld-tabs',
-  styleUrl: 'ld-tabs.css',
+  styleUrl: 'ld-tabs.shadow.css',
   shadow: true,
 })
 export class LdTabs {
