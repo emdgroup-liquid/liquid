@@ -25,6 +25,7 @@
     --ld-tooltip-offset-y: 0px;
 
     --ld-tooltip-padding: var(--ld-sp-16);
+    --ld-tooltip-sm-padding: var(--ld-sp-6) var(--ld-sp-8);
 
     /* colors */
     --tooltip-col: var(--ld-col-neutral-900);
@@ -53,7 +54,7 @@
 
   &--sm {
     :host(&) {
-      --ld-tooltip-padding: var(--ld-sp-6) var(--ld-sp-8);
+      --ld-tooltip-padding: var(--ld-tooltip-sm-padding);
     }
   }
 
