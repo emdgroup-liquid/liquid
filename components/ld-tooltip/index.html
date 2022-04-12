@@ -1464,7 +1464,7 @@
               title: 'Tooltip',
               tags: '',
               url: '/liquid/components/ld-tooltip/',
-              headings: 'Default  With arrow  With custom trigger  Open on click  Positioning  Show/hide delay  CSS Variables  Properties  Methods      Shadow Parts  Dependencies  Used by  Depends on  Graph ',
+              headings: 'Default  With arrow  Size  With custom trigger  Open on click  Positioning  Show/hide delay  CSS Variables  Properties  Methods      Shadow Parts  Dependencies  Used by  Depends on  Graph ',
               breadcrumbs: [
                 
                 
@@ -2139,7 +2139,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#default">Default</a></li><li><a href="#with-arrow">With arrow</a></li><li><a href="#with-custom-trigger">With custom trigger</a></li><li><a href="#open-on-click">Open on click</a></li><li><a href="#positioning">Positioning</a></li><li><a href="#show%2Fhide-delay">Show/hide delay</a></li><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#hidetooltip()-%3D%3E-promise%3Cvoid%3E">hideTooltip() =&gt; Promise&lt;void&gt;</a></li><li><a href="#showtooltip()-%3D%3E-promise%3Cvoid%3E">showTooltip() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
+        <ol><li><a href="#default">Default</a></li><li><a href="#with-arrow">With arrow</a></li><li><a href="#size">Size</a></li><li><a href="#with-custom-trigger">With custom trigger</a></li><li><a href="#open-on-click">Open on click</a></li><li><a href="#positioning">Positioning</a></li><li><a href="#show%2Fhide-delay">Show/hide delay</a></li><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#hidetooltip()-%3D%3E-promise%3Cvoid%3E">hideTooltip() =&gt; Promise&lt;void&gt;</a></li><li><a href="#showtooltip()-%3D%3E-promise%3Cvoid%3E">showTooltip() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#used-by">Used by</a></li><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
       </nav>
       </docs-toc>
     
@@ -2185,6 +2185,16 @@
   <ld-typo>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   </ld-typo>
+</ld-tooltip></div></docs-example>
+<h2 id="size">Size <a class="header-anchor" href="components/ld-tooltip/#size"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<docs-example code="%3Cld-tooltip%20arrow%3E%0A%20%20%3Cld-typo%3EI'm%20the%20default%20size%20tooltip.%3C%2Fld-typo%3E%0A%3C%2Fld-tooltip%3E%0A%3Cld-tooltip%20arrow%20size%3D%22sm%22%3E%0A%20%20%3Cld-typo%3EI'm%20the%20small%20size%20tooltip.%3C%2Fld-typo%3E%0A%3C%2Fld-tooltip%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tooltip</span> <span class="token attr-name">arrow</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span><span class="token punctuation">></span></span>I'm the default size tooltip.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tooltip</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-tooltip</span> <span class="token attr-name">arrow</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span><span class="token punctuation">></span></span>I'm the small size tooltip.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-tooltip</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-tooltip arrow>
+  <ld-typo>I'm the default size tooltip.</ld-typo>
+</ld-tooltip>
+<ld-tooltip arrow size="sm">
+  <ld-typo>I'm the small size tooltip.</ld-typo>
 </ld-tooltip></div></docs-example>
 <h2 id="with-custom-trigger">With custom trigger <a class="header-anchor" href="components/ld-tooltip/#with-custom-trigger"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <docs-example code="%3Cp%3E%0A%20%20I%20am%20an%0A%20%20%3Cld-tooltip%20arrow%3E%0A%20%20%20%20%3Cspan%20slot%3D%22trigger%22%20style%3D%22text-decoration%3A%20underline%22%3Einline%3C%2Fspan%3E%0A%20%20%20%20%3Cld-typo%20variant%3D%22h4%22%20style%3D%22margin-bottom%3A%200.625rem%22%3EHeadline%3C%2Fld-typo%3E%0A%20%20%20%20%3Cld-typo%3E%0A%20%20%20%20%20%20Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit%2C%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%0A%20%20%20%20%3C%2Fld-typo%3E%0A%20%20%3C%2Fld-tooltip%3E%0A%20%20trigger!%0A%3C%2Fp%3E"  themable has-border has-padding>
@@ -2441,6 +2451,13 @@
 <td>Delay in ms until tooltip shows (only when trigger type is 'hover')</td>
 <td><code>number</code></td>
 <td><code>0</code></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>size</code></td>
+<td>The tooltip size (effects tooltip padding only)</td>
+<td><code>&quot;sm&quot;</code></td>
+<td><code>undefined</code></td>
 </tr>
 <tr>
 <td><code>tag</code></td>
