@@ -249,7 +249,6 @@ export class LdSidenavNavitem implements InnerFocusable {
                     display: 'inline-flex',
                     marginLeft: 'var(--ld-sp-6)',
                   }}
-                  class="ld-sidenav-navitem__tooltip-icon"
                   innerHTML={this.secondaryIconHTML}
                 />
               )}

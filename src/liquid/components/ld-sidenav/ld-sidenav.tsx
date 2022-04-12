@@ -461,9 +461,9 @@ export class LdSidenav {
     this.ldSidenavCollapsedChange.emit(this.collapsible && this.collapsed)
     this.ldSidenavOpenChange.emit(this.open)
     this.ldSidenavBreakpointChange.emit(this.closable)
+    this.initObserver()
 
     setTimeout(() => {
-      this.initObserver()
       this.initialized = true
     })
   }
