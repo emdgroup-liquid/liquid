@@ -206,9 +206,8 @@ export class LdTooltip {
     }
   }
 
-  private handleToggleTrigger = (event: MouseEvent) => {
+  private handleToggleTrigger = () => {
     if (this.triggerType === 'hover' || this.disabled) {
-      event.stopPropagation()
       return
     }
 
