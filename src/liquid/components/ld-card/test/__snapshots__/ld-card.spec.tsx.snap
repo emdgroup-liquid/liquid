@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-card renders 1`] = `
+<ld-card>
+  <mock:shadow-root>
+    <div class="ld-card ld-card--stacked" part="card">
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+  Hello
+</ld-card>
+`;
+
+exports[`ld-card renders with li tag 1`] = `
+<ld-card tag="li">
+  <mock:shadow-root>
+    <li class="ld-card ld-card--stacked" part="card">
+      <slot></slot>
+    </li>
+  </mock:shadow-root>
+  Hello
+</ld-card>
+`;

@@ -42,7 +42,7 @@
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-button-text-color, var(--ld-col-wht));
-  display: grid;
+  display: inline-grid;
   grid-auto-flow: column;
   gap: var(--ld-button-gap-md);
   align-items: center;
