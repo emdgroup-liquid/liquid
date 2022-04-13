@@ -219,25 +219,25 @@
 :host(.ld-input--resize-both),
 .ld-input--resize-both {
   > textarea {
-    resize: both;
+    resize: both; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
 }
 :host(.ld-input--resize-horizontal),
 .ld-input--resize-horizontal {
   > textarea {
-    resize: horizontal;
+    resize: horizontal; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
 }
 :host(.ld-input--resize-vertical),
 .ld-input--resize-vertical {
   > textarea {
-    resize: vertical;
+    resize: vertical; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
 }
 :host(.ld-input--resize-none),
 .ld-input--resize-none {
   > textarea {
-    resize: none;
+    resize: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   }
 }
 
