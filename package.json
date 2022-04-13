@@ -93,8 +93,8 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.3.1",
     "@types/jest": "^27.4.1",
-    "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15",
+    "@types/react": "^18.0.3",
+    "@types/react-dom": "^18.0.0",
     "@types/tether": "^1.4.6",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
@@ -172,8 +172,8 @@
     "supports es6-module and supports css-variables and last 2 versions"
   ],
   "optionalDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "packageManager": "yarn@3.2.0"
 }
