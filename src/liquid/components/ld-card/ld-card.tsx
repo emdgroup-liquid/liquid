@@ -16,8 +16,8 @@ export class LdCard {
   @Prop() shadow: 'active' | 'hover' | 'stacked' | 'sticky' = 'stacked'
 
   /**
-   * Adds cursor pointer as well as hover and focus-within states using an
-   * elevation transition from `shadow` (see above) to `shadowInteractive`.
+   * Adds hover and focus-within states using an elevation transition from
+   * `shadow` (see above) to `shadowInteractive`.
    */
   @Prop() shadowInteractive?: 'active' | 'hover' | 'stacked' | 'sticky'
 
