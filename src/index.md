@@ -37,7 +37,7 @@ Liquid is a UI component library based on the [Liquid Design System](https://www
 
 ## Contributing
 
-If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](CONTRIBUTING.md).
+If you'd like to contribute to the project, please read our [code of conduct](CODE_OF_CONDUCT.md). Then proceed to the [contributing docs](https://github.com/emdgroup-liquid/liquid/blob/develop/CONTRIBUTING.md).
 
 ## License
 
