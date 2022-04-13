@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/emdgroup-liquid/liquid/compare/v1.5.0...v1.6.0) (2022-04-13)
+
+
+### Bug Fixes
+
+* **ld-button:** make css button not scale to full width by default ([709e051](https://github.com/emdgroup-liquid/liquid/commit/709e051d55c9322a86e4e4c9f9921f3e2dee7c97))
+* **ld-icon:** CSS component ([df8f7c3](https://github.com/emdgroup-liquid/liquid/commit/df8f7c31a22b4490a8115bce53fb5097532f53e3))
+
+
+### Features
+
+* **ld-card:** implement card component ([30d301c](https://github.com/emdgroup-liquid/liquid/commit/30d301c7e6973ee23fdd1c635f4696217b7a1785))
+
 # [1.5.0](https://github.com/emdgroup-liquid/liquid/compare/v1.4.0...v1.5.0) (2022-04-12)
 
 
