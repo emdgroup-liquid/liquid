@@ -4,7 +4,7 @@ html {
 
 body {
   overscroll-behavior-x: none;
-  -webkit-text-size-adjust: none;
+  -webkit-text-size-adjust: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   --docs-header-height: 3.125rem;
   --docs-max-width: 90rem;
   --docs-nav-width: 19rem;
