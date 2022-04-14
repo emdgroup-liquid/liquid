@@ -10,7 +10,9 @@ const commonTSConfig = {
   plugins: ['@typescript-eslint', 'prettier', 'promise'],
   rules: {
     '@stencil/decorators-style': 0,
+    '@stencil/decorators-context': 0,
     '@stencil/element-type': 0,
+    '@stencil/no-unused-watch': 0,
     '@stencil/strict-boolean-conditions': 0,
     '@stencil/strict-mutable': 0,
     '@typescript-eslint/explicit-function-return-type': 0,

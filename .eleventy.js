@@ -82,8 +82,7 @@ module.exports = function (eleventyConfig) {
       },
     })
       .use(markdownItAnchor, {
-        permalink: true,
-        renderPermalink,
+        permalink: renderPermalink,
       })
       .use(markdownItReplaceLink)
   )
