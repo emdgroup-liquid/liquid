@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/emdgroup-liquid/liquid/compare/v1.6.0...v1.6.1) (2022-04-14)
+
+
+### Bug Fixes
+
+* **ld-tooltip:** remove stopPropagation for mouse events on triggerType hover ([907289d](https://github.com/emdgroup-liquid/liquid/commit/907289d9d6ee32935d42bd1e092e8a7fbf3c54fc))
+
 # [1.6.0](https://github.com/emdgroup-liquid/liquid/compare/v1.5.0...v1.6.0) (2022-04-13)
 
 
