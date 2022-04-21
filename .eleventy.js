@@ -10,6 +10,9 @@ const memoize = require('lodash.memoize')
 const fetch = require('node-fetch')
 
 module.exports = function (eleventyConfig) {
+  const buildstamp = process.env.MODE === 'gh_pages' ? Date.now() + '/' : ''
+  eleventyConfig.addGlobalData('buildstamp', buildstamp)
+
   eleventyConfig.setWatchJavaScriptDependencies(false)
 
   // Navigation
@@ -86,7 +89,19 @@ module.exports = function (eleventyConfig) {
       })
       .use(markdownItReplaceLink)
   )
-  eleventyConfig.addPassthroughCopy({ 'src/docs/assets': 'assets' })
+  eleventyConfig.addPassthroughCopy(
+    buildstamp
+      ? {
+          'src/docs/assets': `${buildstamp}assets`,
+          'dist_docs/css_components': `${buildstamp}css_components`,
+          'dist_docs/dist': `${buildstamp}dist`,
+          'dist_docs/docs.css': `${buildstamp}docs.css`,
+          'dist_docs/liquid.global.css': `${buildstamp}liquid.global.css`,
+        }
+      : {
+          'src/docs/assets': 'assets',
+        }
+  )
 
   // Memoized serch index filter for headings
   eleventyConfig.addNunjucksFilter(
