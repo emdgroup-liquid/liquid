@@ -201,113 +201,6 @@
   }
 }
 
-.ld-button--highlight {
-  background-color: var(--ld-button-highlight-bg-color, var(--ld-thm-warning));
-  color: var(--ld-button-highlight-text-color, var(--ld-thm-warning-active));
-
-  .ld-button__progress::after {
-    background-color: var(
-      --ld-button-highlight-progress-color,
-      var(--ld-thm-warning-active)
-    );
-  }
-
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      background-color: var(
-        --ld-button-highlight-bg-color-focus,
-        var(--ld-thm-warning-focus)
-      );
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-highlight-bg-color-hover,
-          var(--ld-thm-warning-hover)
-        );
-      }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(
-        --ld-button-highlight-bg-color-active,
-        var(--ld-thm-warning-active)
-      );
-
-      color: var(
-        --ld-button-highlight-text-color-active,
-        var(--ld-thm-warning-hover)
-      );
-
-      .ld-button__progress::after {
-        background-color: var(
-          --ld-button-highlight-progress-active,
-          var(--ld-thm-warning-hover)
-        );
-      }
-    }
-  }
-}
-
-.ld-button--danger {
-  background-color: var(--ld-button-danger-bg-color, var(--ld-thm-error));
-  color: var(--ld-button-danger-text-color, var(--ld-col-wht));
-
-  .ld-button__progress::after {
-    background-color: var(
-      --ld-button-danger-progress-color,
-      var(--ld-thm-error-hover)
-    );
-  }
-
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
-    &:where(:focus:focus-visible) {
-      background-color: var(
-        --ld-button-danger-bg-color-focus,
-        var(--ld-thm-error-focus)
-      );
-
-      .ld-button__progress::after {
-        background-color: var(
-          --ld-button-danger-progress-color,
-          var(--ld-thm-error-active)
-        );
-      }
-    }
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(
-          --ld-button-danger-bg-color-hover,
-          var(--ld-thm-error-hover)
-        );
-        color: var(--ld-button-danger-text-color-hover, var(--ld-col-wht));
-
-        .ld-button__progress::after {
-          background-color: var(
-            --ld-button-danger-progress-color,
-            var(--ld-thm-error)
-          );
-        }
-      }
-    }
-    &:where(:active),
-    &:where(:active:focus-visible) {
-      background-color: var(
-        --ld-button-danger-bg-color-active,
-        var(--ld-thm-error-active)
-      );
-      color: var(--ld-button-danger-text-color-active, var(--ld-col-wht));
-
-      .ld-button__progress::after {
-        background-color: var(
-          --ld-button-danger-progress-color,
-          var(--ld-thm-error)
-        );
-      }
-    }
-  }
-}
-
 .ld-button--secondary,
 .ld-button--ghost {
   background-color: transparent;
@@ -488,5 +381,112 @@
 
   &.ld-button--secondary {
     box-shadow: inset 0px 0px 0px 2px;
+  }
+}
+
+.ld-button--highlight {
+  background-color: var(--ld-button-highlight-bg-color, var(--ld-thm-warning));
+  color: var(--ld-button-highlight-text-color, var(--ld-thm-warning-active));
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-highlight-progress-color,
+      var(--ld-thm-warning-active)
+    );
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:focus:focus-visible) {
+      background-color: var(
+        --ld-button-highlight-bg-color-focus,
+        var(--ld-thm-warning-focus)
+      );
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(
+          --ld-button-highlight-bg-color-hover,
+          var(--ld-thm-warning-hover)
+        );
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(
+        --ld-button-highlight-bg-color-active,
+        var(--ld-thm-warning-active)
+      );
+
+      color: var(
+        --ld-button-highlight-text-color-active,
+        var(--ld-thm-warning-hover)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-highlight-progress-active,
+          var(--ld-thm-warning-hover)
+        );
+      }
+    }
+  }
+}
+
+.ld-button--danger {
+  background-color: var(--ld-button-danger-bg-color, var(--ld-thm-error));
+  color: var(--ld-button-danger-text-color, var(--ld-col-wht));
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-danger-progress-color,
+      var(--ld-thm-error-hover)
+    );
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:focus:focus-visible) {
+      background-color: var(
+        --ld-button-danger-bg-color-focus,
+        var(--ld-thm-error-focus)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-progress-color,
+          var(--ld-thm-error-active)
+        );
+      }
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(
+          --ld-button-danger-bg-color-hover,
+          var(--ld-thm-error-hover)
+        );
+        color: var(--ld-button-danger-text-color-hover, var(--ld-col-wht));
+
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-danger-progress-color,
+            var(--ld-thm-error)
+          );
+        }
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(
+        --ld-button-danger-bg-color-active,
+        var(--ld-thm-error-active)
+      );
+      color: var(--ld-button-danger-text-color-active, var(--ld-col-wht));
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-progress-color,
+          var(--ld-thm-error)
+        );
+      }
+    }
   }
 }
