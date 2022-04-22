@@ -11,6 +11,4 @@ class MockedEvent {
 global.FocusEvent = MockedEvent
 global.InputEvent = MockedEvent
 
-global.requestAnimationFrame = (cb) => {
-  setTimeout(cb)
-}
+global.requestAnimationFrame = (cb) => setTimeout(cb)
