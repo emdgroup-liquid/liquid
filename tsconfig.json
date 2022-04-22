@@ -25,5 +25,5 @@
     }
   },
   "include": ["./src/liquid", "./src/types", "./globals.d.ts"],
-  "exclude": ["node_modules", "bin", "./src/liquid/**/*.a11y.ts"]
+  "exclude": ["node_modules", "bin", "./src/liquid/**/*.a11y.ts", "./src/liquid/**/__mocks__"]
 }

@@ -13,6 +13,8 @@ const components = [
   LdAccordionPanel,
 ]
 
+jest.useFakeTimers('legacy')
+
 async function transitionEnd(page, target) {
   const transitionEndHandler = page.root['__listeners'].find(
     (l) => l.type === 'transitionEnd'
