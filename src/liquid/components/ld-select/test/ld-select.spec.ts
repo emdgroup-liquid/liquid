@@ -6,8 +6,6 @@ import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
 import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
-jest.useFakeTimers('legacy')
-
 const components = [
   LdSelect,
   LdSelectPopper,

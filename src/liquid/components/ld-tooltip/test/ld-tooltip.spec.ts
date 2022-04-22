@@ -19,8 +19,6 @@ const positions = [
   'top right',
 ]
 
-jest.useFakeTimers('legacy')
-
 describe('ld-tooltip', () => {
   it('renders default', async () => {
     const page = await newSpecPage({

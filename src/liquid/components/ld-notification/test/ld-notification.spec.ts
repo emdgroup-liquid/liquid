@@ -5,8 +5,6 @@ import { LdIcon } from '../../ld-icon/ld-icon'
 const DEFAULT_NOTIFICATION_TIMEOUT = 6000
 const FADE_TRANSITION_DURATION = 200
 
-jest.useFakeTimers('legacy')
-
 describe('ld-notification', () => {
   afterEach(() => {
     jest.clearAllTimers()
