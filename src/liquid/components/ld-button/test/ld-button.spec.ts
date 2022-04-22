@@ -17,6 +17,8 @@ const mockClickHiddenButton = (
     })
 }
 
+jest.useFakeTimers('legacy')
+
 describe('ld-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({

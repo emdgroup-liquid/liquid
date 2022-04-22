@@ -108,7 +108,7 @@ export class LdOptionInternal {
 
   componentWillLoad() {
     if (typeof this.value === 'undefined') {
-      window.requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         this.value = this.el.innerText
       })
     }

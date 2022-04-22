@@ -38,7 +38,6 @@ export const config: Config = {
     allowableMismatchedPixels: 0,
     setupFiles: ['./jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
-    timers: 'fake',
     // browserHeadless: false,
     // browserDevtools: true,
     // browserSlowMo: 1000, // milliseconds

@@ -6,6 +6,8 @@ import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
 import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
+jest.useFakeTimers('legacy')
+
 const components = [
   LdSelect,
   LdSelectPopper,
@@ -1831,6 +1833,8 @@ describe('ld-select', () => {
     expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
     window.dispatchEvent(new Event('resize'))
+
+    jest.advanceTimersToNextTimer()
 
     const selectionListItems = btnTrigger.querySelectorAll(
       '.ld-select__selection-list-item'

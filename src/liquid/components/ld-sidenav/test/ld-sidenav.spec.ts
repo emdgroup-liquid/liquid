@@ -19,6 +19,8 @@ import '../../../utils/mutationObserver'
 let matchMedia
 const mockedGetFirstFocusable = getFirstFocusable as jest.Mock
 
+jest.useFakeTimers('legacy')
+
 async function transitionEnd(page) {
   const transitionEndHandler = page.root
     .querySelector('ld-sidenav-slider')
