@@ -20,13 +20,6 @@ const cssIconComponent = `
 describe('ld-button', () => {
   modes.forEach((mode) => {
     attributes.forEach((attribute) => {
-      if (
-        attribute === 'brand-color' &&
-        (mode === 'highlight' || mode === 'danger')
-      ) {
-        return
-      }
-
       const bgColor =
         attribute === 'brand-color' ? 'var(--ld-thm-primary)' : undefined
       const modeDescription = mode ? `mode ${mode}` : 'mode none'
