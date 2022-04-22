@@ -5,8 +5,6 @@ import { LdTab } from '../ld-tab/ld-tab'
 import { LdTabpanellist } from '../ld-tabpanellist/ld-tabpanellist'
 import { LdTabpanel } from '../ld-tabpanel/ld-tabpanel'
 
-jest.useFakeTimers('legacy')
-
 class FocusManager {
   focus(el) {
     const doc = document as unknown as { activeElement: Element }
