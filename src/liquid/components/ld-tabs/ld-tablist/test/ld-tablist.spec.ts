@@ -1,6 +1,8 @@
 import { newSpecPage } from '@stencil/core/testing'
-import { LdTablist } from '../../ld-tablist/ld-tablist'
+import { LdTablist } from '../ld-tablist'
 import { LdTab } from '../../ld-tab/ld-tab'
+
+jest.useFakeTimers('legacy')
 
 const components = [LdTablist, LdTab]
 

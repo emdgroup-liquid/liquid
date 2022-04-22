@@ -107,7 +107,7 @@ export class LdSelect implements InnerFocusable {
   @State() renderHiddenInput = false
   @State() theme: string
   @State() typeAheadQuery: string
-  @State() typeAheadTimeout: number
+  @State() typeAheadTimeout: NodeJS.Timeout | null
 
   /**
    * Emitted with an array of selected values when an alteration to the selection is committed by the user.
@@ -196,7 +196,7 @@ export class LdSelect implements InnerFocusable {
 
     if (refresh) this.hasMore = false
 
-    window.requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       if (!this.selectionListRef) return
 
       const selectionListItems = Array.from(
@@ -264,7 +264,7 @@ export class LdSelect implements InnerFocusable {
             overflowingTotal++
             moreItem.innerText = `+${overflowingTotal}`
 
-            window.requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
               hideLastVisibleIfMoreIndicatorOverflowing()
             })
           }
@@ -597,9 +597,9 @@ export class LdSelect implements InnerFocusable {
     // Type a character: focus moves to the next item with a name that starts with the typed character.
     // Type multiple characters in rapid succession: focus moves to the next item with a name that starts
     // with the string of characters typed.
-    window.clearTimeout(this.typeAheadTimeout)
+    clearTimeout(this.typeAheadTimeout)
     this.typeAheadQuery = (this.typeAheadQuery || '') + key
-    this.typeAheadTimeout = window.setTimeout(() => {
+    this.typeAheadTimeout = setTimeout(() => {
       this.typeAheadQuery = ''
     }, 500)
   }
@@ -878,7 +878,7 @@ export class LdSelect implements InnerFocusable {
   }
 
   disconnectedCallback() {
-    window.clearTimeout(this.typeAheadTimeout)
+    clearTimeout(this.typeAheadTimeout)
     if (this.popper) this.popper.destroy()
     if (this.observer) this.observer.disconnect()
   }
