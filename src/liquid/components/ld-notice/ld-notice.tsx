@@ -1,4 +1,4 @@
-import '../../../components' // type definitions for type checks and intelliSense
+import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Prop, Host, State, Element } from '@stencil/core'
 import { HTMLStencilElement } from '@stencil/core/internal';
 
