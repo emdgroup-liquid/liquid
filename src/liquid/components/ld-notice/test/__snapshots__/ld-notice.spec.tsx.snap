@@ -10,6 +10,17 @@ exports[`ld-notice renders default 1`] = `
 </ld-notice>
 `;
 
+exports[`ld-notice renders with custom icon 1`] = `
+<ld-notice class="ld-notice ld-notice--success">
+  <mock:shadow-root>
+    <slot name="custom-icon"></slot>
+    <slot></slot>
+  </mock:shadow-root>
+  <ld-icon name="placeholder" size="lg" slot="custom-icon"></ld-icon>
+  Lorem ipsum dolor sit amet.
+</ld-notice>
+`;
+
 exports[`ld-notice renders with headline 1`] = `
 <ld-notice class="ld-notice ld-notice--info">
   <mock:shadow-root>

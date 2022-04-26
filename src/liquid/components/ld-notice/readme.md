@@ -17,6 +17,24 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 ## Examples
 
+### As success message
+
+{% example %}
+<ld-notice headline="Success message" mode="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>
+
+<!-- CSS component -->
+
+<div class="ld-notice ld-notice--success">
+  <!-- Note that you can use an img element with the class ld-notice__icon here, as well. -->
+  <svg class="ld-notice__icon ld-icon ld-icon--lg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 24.5C18.6274 24.5 24 19.1274 24 12.5C24 5.87258 18.6274 0.5 12 0.5C5.37258 0.5 0 5.87258 0 12.5C0 19.1274 5.37258 24.5 12 24.5Z" fill="currentColor"/>
+    <path d="M16.898 9.56123L10.4404 15.4388L7.10205 12.147" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p class="ld-notice__headline ld-typo--h4">Success message</p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</div>
+{% endexample %}
+
 ### As error message
 
 {% example %}
@@ -74,18 +92,36 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 </div>
 {% endexample %}
 
+### With custom Icon
+
+{% example %}
+<ld-notice headline="With custom Icon" mode="success">
+<ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</ld-notice>
+
+<!-- CSS component -->
+
+<div class="ld-notice ld-notice--success">
+  <!-- Note that you can use an img element with the class ld-notice__icon here, as well. -->
+  <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/></svg>
+  <p class="ld-notice__headline ld-typo--h4">With custom Icon</p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</div>
+{% endexample %}
+
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description                                              | Type                             | Default     |
-| ---------- | ---------- | -------------------------------------------------------- | -------------------------------- | ----------- |
-| `headline` | `headline` | Headline of the notice.                                  | `string`                         | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number`               | `undefined` |
-| `mode`     | `mode`     | Mode of the notice.                                      | `"error" \| "info" \| "warning"` | `'info'`    |
-| `ref`      | `ref`      | reference to component                                   | `any`                            | `undefined` |
+| Property   | Attribute  | Description                                              | Type                                          | Default     |
+| ---------- | ---------- | -------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `headline` | `headline` | Headline of the notice.                                  | `string`                                      | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number`                            | `undefined` |
+| `mode`     | `mode`     | Mode of the notice.                                      | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
+| `ref`      | `ref`      | reference to component                                   | `any`                                         | `undefined` |
 
 
 ## Shadow Parts
