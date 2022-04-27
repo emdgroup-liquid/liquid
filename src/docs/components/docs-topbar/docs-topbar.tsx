@@ -41,11 +41,28 @@ export class DocsTopbar {
             slot="end"
             target="_blank"
           >
-            <img
-              src={getAssetPath('./assets/figma.svg')}
-              alt="Liquid Oxygen on Figma"
-              role="presentation"
-            />
+            <ld-tooltip
+              class="docs-topbar__tooltip"
+              arrow
+              position="bottom right"
+              tetherOptions={JSON.stringify({
+                offset: '0px -12px',
+                constraints: [
+                  {
+                    to: 'window',
+                  },
+                ],
+              })}
+            >
+              <img
+                class="docs-topbar__tooltip-trigger"
+                slot="trigger"
+                src={getAssetPath('./assets/figma.svg')}
+                alt="Liquid Oxygen on Figma"
+                role="presentation"
+              />
+              <docs-figma-access-notice />
+            </ld-tooltip>
           </a>
           <a
             class="docs-topbar__link"
