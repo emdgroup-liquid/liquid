@@ -79,3 +79,9 @@
     display: block;
   }
 }
+
+.docs-topbar__tooltip {
+  &::part(trigger) {
+    cursor: pointer;
+  }
+}

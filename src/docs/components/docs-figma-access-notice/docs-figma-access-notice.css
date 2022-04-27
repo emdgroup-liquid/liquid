@@ -1,0 +1,10 @@
+.docs-figma-access-notice {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--ld-sp-16);
+  max-width: calc(100vw - 4rem);
+}
+
+.docs-figma-access-notice__icon {
+  color: var(--ld-thm-primary);
+}
