@@ -37,7 +37,7 @@ describe('ld-pagination', () => {
       expect(results).toMatchScreenshot()
     })
 
-    it('without dots', async () => {
+    it('without ellipsis', async () => {
       const page = await getPageWithContent(
         '<ld-pagination length="7"></ld-pagination>'
       )
@@ -586,6 +586,68 @@ describe('ld-pagination', () => {
 
       const accessibilityReport = await analyzeAccessibility(page)
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
+    })
+  })
+
+  describe('with dots mode', () => {
+    it('start', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" length="15"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('middle', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" length="15" selected-index="7"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('end', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" length="15" selected-index="14"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('single', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" length="1"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('without ellipsis', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" length="7"></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
+
+  describe('with on brand color', () => {
+    it('with dots mode', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination brand-color mode="dots" length="7" space="4"></ld-pagination>',
+        { bgColor: 'var(--ld-thm-primary)' }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('with default mode', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination brand-color length="7" space="4"></ld-pagination>',
+        { bgColor: 'var(--ld-thm-primary)' }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
     })
   })
 })

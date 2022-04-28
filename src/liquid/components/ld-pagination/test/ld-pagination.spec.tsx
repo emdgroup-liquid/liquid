@@ -157,6 +157,42 @@ describe('ld-pagination', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('with dots mode', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination
+            mode="dots"
+            hidePrevNext
+            hideStartEnd
+            selectedIndex={3}
+            length={7}
+          />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode on brand color', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination mode="dots" brandColor selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with default mode on brand color', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination brandColor selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   describe('renders with more-indicators', () => {

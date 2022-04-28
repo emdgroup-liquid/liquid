@@ -26,6 +26,8 @@ const BUFFER_SIZE = 20
  * @part prev - arrow to go to the previous item (`ld-button` element)
  * @part start - arrow to jump to the first item (`ld-button` element)
  * @part sticky - all sticky items (`ld-button` elements)
+ * @part mode - items display mode, 'dots' | 'numbers'(default)
+ * @part onBrand - switches the colors to white
  * @part wrapper - list containing all pagination items
  */
 @Component({
@@ -71,6 +73,12 @@ export class LdPagination {
   /** Number of items permanently visible at the start/end. */
   @Prop() sticky = 0
 
+  /** Items display mode, default as numbers */
+  @Prop() mode?: 'numbers' | 'dots' = 'numbers'
+
+  /** Defines space between items */
+  @Prop() brandColor?: boolean
+
   @State() maxSliderColumns = 0
   @State() renderMoreIndicators = false
   @State() renderSticky = false
@@ -96,12 +104,14 @@ export class LdPagination {
   private renderItem = (
     itemNumber: number,
     showFrom: number,
-    showTo: number
+    showTo: number,
+    mode: string
   ) => {
     const isHidden =
       this.renderMoreIndicators &&
       (itemNumber < showFrom || itemNumber > showTo)
     const isSelected = itemNumber === this.selectedIndex + 1
+    const isDots = mode === 'dots'
     return (
       <li
         aria-hidden={isHidden ? 'true' : undefined}
@@ -109,6 +119,7 @@ export class LdPagination {
           'ld-pagination__item',
           !isHidden && 'ld-pagination__item--visible',
           isSelected && 'ld-pagination__item--selected',
+          isDots && 'ld-pagination__item--dots',
         ])}
         key={itemNumber}
         style={{ '--ld-pagination-item-pos': `${itemNumber - 1}` }}
@@ -124,7 +135,7 @@ export class LdPagination {
           part="item focusable"
           size={this.size}
         >
-          {itemNumber}
+          {isDots ? <span class="ld-pagination__dot"></span> : itemNumber}
         </ld-button>
       </li>
     )
@@ -153,7 +164,7 @@ export class LdPagination {
     this.visibleItemsInSlider = this.offset * 2 + 1
     const maxVisibleItems = this.sticky * 2 + this.visibleItemsInSlider
     this.maxSliderColumns = this.visibleItemsInSlider + 2
-    this.renderSticky = this.sticky > 0
+    this.renderSticky = this.sticky > 0 && this.mode !== 'dots'
     this.renderMoreIndicators = this.length > maxVisibleItems + 2
     this.slidableItems = Array.from({
       length: this.length === Infinity ? 9999 : this.length - this.sticky * 2,
@@ -173,6 +184,7 @@ export class LdPagination {
   }
 
   render() {
+    const isDots = this.mode === 'dots'
     // +1 because it must be the index right to the centered item
     const showStartMoreIndicator =
       this.renderMoreIndicators &&
@@ -210,6 +222,8 @@ export class LdPagination {
           class={getClassNames([
             'ld-pagination',
             this.size && `ld-pagination--${this.size}`,
+            isDots && `ld-pagination--dots`,
+            this.brandColor && 'ld-pagination--brand-color',
           ])}
           part="wrapper"
         >
@@ -294,7 +308,10 @@ export class LdPagination {
             </li>
           )}
           <li
-            class="ld-pagination__slide-wrapper"
+            class={getClassNames([
+              'ld-pagination__slide-wrapper',
+              isDots && 'ld-pagination__slide-wrapper--dots',
+            ])}
             part="slide-wrapper"
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
@@ -319,18 +336,20 @@ export class LdPagination {
                 )}`,
               }}
             >
-              <li
-                class="ld-pagination__marker"
-                key="marker"
-                onTransitionEnd={this.calculateSliderContent}
-                part="marker"
-                style={{
-                  '--ld-pagination-selected-index': `${this.selectedIndex}`,
-                }}
-              />
+              {this.mode !== 'dots' && (
+                <li
+                  class="ld-pagination__marker"
+                  key="marker"
+                  onTransitionEnd={this.calculateSliderContent}
+                  part="marker"
+                  style={{
+                    '--ld-pagination-selected-index': `${this.selectedIndex}`,
+                  }}
+                />
+              )}
               {this.length > 0 &&
                 this.sliderContent.map((itemNumber) =>
-                  this.renderItem(itemNumber, showFrom, showTo)
+                  this.renderItem(itemNumber, showFrom, showTo, this.mode)
                 )}
             </ul>
           </li>
