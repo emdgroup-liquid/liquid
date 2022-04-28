@@ -77,7 +77,6 @@
   ::slotted(ld-icon),
   ::slotted(.ld-icon),
   .ld-notice__icon {
-    --ld-icon-secondary-col: var(--ld-col-neutral-900);
     color: var(--ld-notice-success-icon-col);
   }
 

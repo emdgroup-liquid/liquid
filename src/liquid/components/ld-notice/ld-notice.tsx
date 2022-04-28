@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Prop, Host, State, Element } from '@stencil/core'
+import { Component, h, Prop, Host, Element } from '@stencil/core'
 import { HTMLStencilElement } from '@stencil/core/internal'
 
 /**
@@ -23,27 +23,17 @@ export class LdNotice {
   /** Mode of the notice. */
   @Prop() mode: 'error' | 'info' | 'warning' | 'success' = 'info'
 
-  @State() hasCustomIcon: boolean
-
-  componentWillLoad() {
-    this.hasCustomIcon = !!this.hostElement.querySelector(
-      '[slot="custom-icon"]'
-    )
-  }
-
   render() {
     return (
       <Host class={`ld-notice ld-notice--${this.mode}`}>
-        {this.hasCustomIcon ? (
-          <slot name="custom-icon"></slot>
-        ) : (
+        <slot name="custom-icon">
           <ld-icon
             class="ld-notice__icon"
             name={this.mode === 'success' ? 'checkmark-filled' : 'info'}
             part="icon"
             size="lg"
           />
-        )}
+        </slot>
         {this.headline && (
           <ld-typo
             class="ld-notice__headline"

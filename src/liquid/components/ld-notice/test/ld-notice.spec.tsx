@@ -2,7 +2,7 @@ import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdNotice } from '../ld-notice'
 
-fdescribe('ld-notice', () => {
+describe('ld-notice', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
       components: [LdNotice],
@@ -28,7 +28,7 @@ fdescribe('ld-notice', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
-  fit('renders with custom icon', async () => {
+  it('renders with custom icon', async () => {
     const page = await newSpecPage({
       components: [LdNotice],
       template: () => (

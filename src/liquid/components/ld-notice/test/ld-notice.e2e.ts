@@ -89,9 +89,42 @@ describe('ld-notice', () => {
     })
 
     describe('with custom icon', () => {
-      it('custom icon', async () => {
+      it('info', async () => {
         const page = await getPageWithContent(
-          `<ld-notice headline="With custom Icon" mode="success">
+          `<ld-notice headline="With custom icon" mode="info">
+              <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+            </ld-notice>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('error', async () => {
+        const page = await getPageWithContent(
+          `<ld-notice headline="With custom icon" mode="error">
+              <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+            </ld-notice>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('warning', async () => {
+        const page = await getPageWithContent(
+          `<ld-notice headline="With custom icon" mode="warning">
+              <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+            </ld-notice>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('success', async () => {
+        const page = await getPageWithContent(
+          `<ld-notice headline="With custom icon" mode="success">
               <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
             </ld-notice>`
@@ -258,13 +291,69 @@ describe('ld-notice', () => {
     })
 
     describe('with custom icon', () => {
-      it('custom icon', async () => {
+      it('info', async () => {
         const page = await getPageWithContent(
-          `<div class="ld-notice ld-notice--success">
-            <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/></svg>
-            <p class="ld-notice__headline ld-typo--h4">With custom Icon</p>
+          `
+          <div class="ld-notice ld-notice--info">
+            <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/>
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
-          </div>`
+          </div>`,
+          { components: [LdIcon, LdNotice] }
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('error', async () => {
+        const page = await getPageWithContent(
+          `
+          <div class="ld-notice ld-notice--error">
+            <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/>
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+          </div>`,
+          { components: [LdIcon, LdNotice] }
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('warning', async () => {
+        const page = await getPageWithContent(
+          `
+          <div class="ld-notice ld-notice--warning">
+            <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/>
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+          </div>`,
+          { components: [LdIcon, LdNotice] }
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('success', async () => {
+        const page = await getPageWithContent(
+          `
+          <div class="ld-notice ld-notice--success">
+            <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/>
+              <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+          </div>`,
+          { components: [LdIcon, LdNotice] }
         )
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
