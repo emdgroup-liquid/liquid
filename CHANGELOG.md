@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/emdgroup-liquid/liquid/compare/v1.6.1...v1.7.0) (2022-04-29)
+
+
+### Bug Fixes
+
+* **ld-button:** enable danger/highlight on brand color ([eaf90b9](https://github.com/emdgroup-liquid/liquid/commit/eaf90b96cb858cbdf5e9a2959c8c5af67f00d48b))
+* **ld-sidenav:** toggle stack to top on breakpoint change ([18cf098](https://github.com/emdgroup-liquid/liquid/commit/18cf0982026ae8a4f7d4696b5ba47c86565cd0d4)), closes [#286](https://github.com/emdgroup-liquid/liquid/issues/286)
+
+
+### Features
+
+* **ld-sidenav:** integrate accordion with sidenav ([42ed614](https://github.com/emdgroup-liquid/liquid/commit/42ed6143f14c23a9517056ddda3d2bc2215ef4db))
+* **ld-tooltip:** allow passing custom tether options to tooltip ([e03d094](https://github.com/emdgroup-liquid/liquid/commit/e03d094539ca9f335a3f8825ff25120b36d569a6))
+
 ## [1.6.1](https://github.com/emdgroup-liquid/liquid/compare/v1.6.0...v1.6.1) (2022-04-14)
 
 
