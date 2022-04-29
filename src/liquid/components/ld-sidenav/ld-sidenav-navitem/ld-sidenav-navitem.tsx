@@ -114,6 +114,11 @@ export class LdSidenavNavitem implements InnerFocusable {
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
+    if (this.sidenavClosable) {
+      toggleStackToTop(this.el, false)
+    } else {
+      toggleStackToTop(this.el, this.sidenavCollapsed)
+    }
   }
 
   private getabbreviation = () => {

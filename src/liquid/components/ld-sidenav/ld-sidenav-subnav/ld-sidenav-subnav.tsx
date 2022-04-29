@@ -110,6 +110,17 @@ export class LdSidenavSubnav {
     }
   }
 
+  @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
+  handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
+    if (ev.target !== this.sidenav) return
+    const sidenavClosable = ev.detail
+    if (sidenavClosable) {
+      this.toggleVisibilityOnHidableContent(true)
+    } else {
+      this.toggleVisibilityOnHidableContent(!this.sidenav.collapsed)
+    }
+  }
+
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
     this.hasParentSubnav = this.el.parentElement.tagName === 'LD-SIDENAV-SUBNAV'
