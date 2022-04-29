@@ -152,7 +152,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         <slot></slot>
       </ld-sidenav-scroller-internal>
     </mock:shadow-root>
-    <ld-sidenav-heading class="ld-sidenav-heading">
+    <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-slider__hidden">
       <mock:shadow-root>
         <ld-typo part="typo" variant="cap-m">
           <slot></slot>
@@ -887,7 +887,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -1182,7 +1182,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -1351,7 +1351,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -1661,7 +1661,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             <slot></slot>
           </ld-sidenav-scroller-internal>
         </mock:shadow-root>
-        <ld-sidenav-heading class="ld-sidenav-heading">
+        <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
           <mock:shadow-root>
             <ld-typo part="typo" variant="cap-m">
               <slot></slot>
@@ -1781,7 +1781,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -1944,7 +1944,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -2063,7 +2063,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -2226,7 +2226,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -2389,7 +2389,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -2552,7 +2552,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -2803,7 +2803,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -3142,7 +3142,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -3481,7 +3481,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>
@@ -3923,7 +3923,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
         <slot></slot>
       </ld-sidenav-scroller-internal>
     </mock:shadow-root>
-    <ld-sidenav-heading class="ld-sidenav-heading">
+    <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-slider__hidden">
       <mock:shadow-root>
         <ld-typo part="typo" variant="cap-m">
           <slot></slot>
@@ -4761,7 +4761,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           <slot></slot>
         </ld-sidenav-scroller-internal>
       </mock:shadow-root>
-      <ld-sidenav-heading class="ld-sidenav-heading">
+      <ld-sidenav-heading class="ld-sidenav-heading ld-sidenav-subnav__hidden">
         <mock:shadow-root>
           <ld-typo part="typo" variant="cap-m">
             <slot></slot>

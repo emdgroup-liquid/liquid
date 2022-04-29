@@ -487,7 +487,7 @@ For deeper navigation hierarchies you may also want to structure certain navigat
 </ld-notice>
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "30rem", "position": "relative" } }' %}
-<ld-sidenav open narrow collapsible>
+<ld-sidenav open>
   <ld-sidenav-back slot="top">
     <ld-sidenav-navitem>Outline of CS</ld-sidenav-navitem>
   </ld-sidenav-back>

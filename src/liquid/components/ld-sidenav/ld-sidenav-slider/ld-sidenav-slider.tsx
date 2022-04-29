@@ -117,6 +117,17 @@ export class LdSidenavSlider {
     }
   }
 
+  @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
+  handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
+    if (ev.target !== this.sidenav) return
+    const sidenavClosable = ev.detail
+    if (sidenavClosable) {
+      this.toggleVisibilityOnHidableContent(true)
+    } else {
+      this.toggleVisibilityOnHidableContent(!this.sidenav.collapsed)
+    }
+  }
+
   /** Navigates back to the parent nav. */
   @Method()
   async navigateBack() {
