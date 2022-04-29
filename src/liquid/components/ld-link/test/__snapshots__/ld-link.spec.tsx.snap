@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-notice renders as disabled 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link ld-link--disabled" target="_self">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
+
+exports[`ld-notice renders default 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link" target="_self">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;
+
+exports[`ld-notice renders with chevron icon 1`] = `
+<ld-link show-icon="">
+  <mock:shadow-root>
+    <a class="ld-link" target="_self">
+      <ld-icon class="ld-link__icon" name="arrow-right" part="icon"></ld-icon>
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
+
+exports[`ld-notice renders with href 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link" href="http://testing.stenciljs.com/introduction/getting-started/" target="_self">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
+
+exports[`ld-notice renders with large size 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link ld-link--lg" target="_self">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
+
+exports[`ld-notice renders with small size 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link ld-link--sm" target="_self">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
+
+exports[`ld-notice renders with target _blank 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link" href="http://testing.stenciljs.com/introduction/getting-started/" target="_blank">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Lorem ipsum dolor sit amet.
+</ld-link>
+`;
