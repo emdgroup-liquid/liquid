@@ -130,6 +130,7 @@ dialog.ld-modal--blurry-backdrop,
   }
 }
 
+/* custom icon cross */
 .ld-modal__x {
   align-self: flex-start;
   appearance: none;

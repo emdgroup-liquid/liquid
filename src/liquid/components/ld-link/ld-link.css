@@ -1,11 +1,13 @@
 .ld-link {
   --ld-link-col: var(--ld-thm-primary);
-  --ld-link-chevron-width: 0.15em;
+  --ld-link-gap: 0.3em;
+  --ld-link-chevron-gap: 0em;
+  --ld-link-chevron-width: 0.135em;
 
   align-items: baseline;
   color: var(--ld-link-col);
   cursor: pointer;
-  gap: 0.3em;
+  gap: var(--ld-link-gap);
   font-family: var(--ld-font-body);
   font-size: inherit;
   font-weight: 700;
@@ -32,8 +34,16 @@
     cursor: default;
     opacity: 0.3;
   }
+
+  > ld-icon,
+  > .ld-icon,
+  > ::slotted(ld-icon),
+  > ::slotted(.ld-icon) {
+    transform: translateY(10%);
+  }
 }
 
+/* custom icon arrow-right */
 .ld-link--chevron-start,
 .ld-link--chevron-end {
   display: inline-flex;
@@ -42,31 +52,54 @@
   &::after {
     content: '';
     background-color: var(--ld-link-col);
-    border-radius: var(--ld-link-chevron-width);
+    border-radius: 99rem;
     display: block;
     flex-shrink: 0;
     height: 0.5em;
     transform-origin: right;
     width: var(--ld-link-chevron-width);
   }
-
-  &::before {
-    transform: translateX(calc(0.15em + 50%)) translateY(-60%) rotate(-40deg);
-  }
-  &::after {
-    transform: translateX(calc(-0.15em - 50%)) translateY(20%) rotate(40deg);
-  }
 }
 
 .ld-link--chevron-start {
+  margin-left: calc(0.5 * var(--ld-link-chevron-gap));
+
   &::before,
   &::after {
     order: -1;
   }
+
+  &::before {
+    transform: translateX(
+        calc(0.5 * (var(--ld-link-gap) - var(--ld-link-chevron-gap)) + 50%)
+      )
+      translateY(-65%) rotate(-40deg);
+  }
+  &::after {
+    transform: translateX(
+        calc(-0.5 * var(--ld-link-gap) - 0.5 * var(--ld-link-chevron-gap) - 50%)
+      )
+      translateY(20%) rotate(40deg);
+  }
 }
 .ld-link--chevron-end {
+  margin-right: calc(0.5 * var(--ld-link-chevron-gap));
+
   &::before,
   &::after {
     order: 1;
+  }
+
+  &::before {
+    transform: translateX(
+        calc(0.5 * (var(--ld-link-gap) + var(--ld-link-chevron-gap)) + 50%)
+      )
+      translateY(-65%) rotate(-40deg);
+  }
+  &::after {
+    transform: translateX(
+        calc(-0.5 * var(--ld-link-gap) + 0.5 * var(--ld-link-chevron-gap) - 50%)
+      )
+      translateY(20%) rotate(40deg);
   }
 }

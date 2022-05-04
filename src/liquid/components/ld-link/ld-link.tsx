@@ -1,9 +1,11 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
+ * @part anchor - the link anchor
+ * @virtualProp href - the URL that the hyperlink points to
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
@@ -13,9 +15,13 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
   styleUrl: 'ld-link.css',
   shadow: true,
 })
-export class LdLink implements ClonesAttributes {
+export class LdLink implements ClonesAttributes, InnerFocusable {
   @Element() el: HTMLElement
+  private anchor: HTMLAnchorElement
   private attributesObserver: MutationObserver
+
+  /** Displays chevron icon. */
+  @Prop() chevron?: 'start' | 'end'
 
   /**
    * The disabled attribute sets `aria-disabled="true"`
@@ -23,8 +29,8 @@ export class LdLink implements ClonesAttributes {
    */
   @Prop() disabled?: boolean
 
-  /** Displays chevron icon. */
-  @Prop() chevron?: 'start' | 'end'
+  /** Tab index of the input. */
+  @Prop() ldTabindex: number | undefined
 
   /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
@@ -34,6 +40,12 @@ export class LdLink implements ClonesAttributes {
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   @State() clonedAttributes
+
+  /** Sets focus on the anchor. */
+  @Method()
+  async focusInner() {
+    this.anchor.focus()
+  }
 
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
@@ -77,8 +89,11 @@ export class LdLink implements ClonesAttributes {
         aria-disabled={
           this.disabled || this.el.ariaDisabled ? 'true' : undefined
         }
+        ref={(ref) => (this.anchor = ref)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         disabled={this.disabled}
+        part="anchor focusable"
+        tabIndex={this.ldTabindex}
       >
         <slot></slot>
       </a>

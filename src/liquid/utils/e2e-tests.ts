@@ -96,6 +96,8 @@ export const getPageWithContent = async (
 
 export const analyzeAccessibility = async (page, options = {}) => {
   const defaultOptions = { rules: {} }
+  const finalOptions = Object.assign({}, defaultOptions, options)
+
   const disabledRuleIds = [
     // TODO: this should be disabled only for certain elements (ld-button), if possible
     'aria-allowed-attr',
@@ -108,10 +110,8 @@ export const analyzeAccessibility = async (page, options = {}) => {
     'region',
   ]
   disabledRuleIds.forEach((ruleId) => {
-    defaultOptions.rules[ruleId] = { enabled: false }
+    finalOptions.rules[ruleId] = { enabled: false }
   })
-
-  const finalOptions = Object.assign({}, defaultOptions, options)
 
   // Inject the axe script in our page.
   await page.addScriptTag({ path: resolvePath(PATH_TO_AXE) })

@@ -5,6 +5,12 @@
     }
 
     main {
+      > header {
+        ld-breadcrumbs {
+          filter: none;
+        }
+      }
+
       > p,
       > ol,
       > ul,
@@ -77,6 +83,12 @@
     }
 
     main {
+      > header {
+        ld-breadcrumbs {
+          filter: invert(1) hue-rotate(180deg);
+        }
+      }
+
       > p,
       > ol,
       > ul,
@@ -179,9 +191,14 @@
       display: flex;
       justify-content: flex-end;
       flex-wrap: wrap;
+      align-items: center;
+    }
 
-      > * + *:not(.docs-breadcrumbs) {
-        margin-top: var(--ld-sp-16);
+    > header {
+      ld-breadcrumbs {
+        flex-grow: 1;
+        margin-inline: 0 var(--ld-sp-24);
+        margin-block: var(--ld-sp-16);
       }
     }
 

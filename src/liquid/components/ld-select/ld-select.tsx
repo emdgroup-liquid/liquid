@@ -1010,6 +1010,7 @@ export class LdSelect implements InnerFocusable {
                               )
                             }}
                           >
+                            {/* custom icon cross */}
                             <svg
                               class="ld-select__btn-clear-single-icon"
                               part="icon-clear-single"
@@ -1058,6 +1059,7 @@ export class LdSelect implements InnerFocusable {
                   ref={(el) => (this.btnClearRef = el)}
                   part="btn-clear focusable"
                 >
+                  {/* custom icon cross */}
                   <svg
                     class="ld-select__btn-clear-icon"
                     fill="none"
@@ -1086,6 +1088,7 @@ export class LdSelect implements InnerFocusable {
 
               <slot name="icon"></slot>
               {!this.hasCustomIcon && (
+                /* custom icon arrow-down */
                 <svg
                   class={getClassNames(triggerIconCl)}
                   role={'presentation'}
