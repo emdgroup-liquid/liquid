@@ -1735,4 +1735,53 @@ describe('ld-sidenav', () => {
       expect(page.root).toMatchSnapshot()
     })
   })
+
+  it('updates hidden state for compoenents in slider and subnavs on slide change when closable', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: getSidenavWithSubnavigation({
+        collapsible: true,
+        collapsed: true,
+        narrow: true,
+      }),
+    })
+    const ldSidenav = page.root
+    mockFocus(page)
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--closable')
+
+    const mediaQueries = matchMedia.getMediaQueries()
+    matchMedia.useMediaQuery(mediaQueries[0])
+    await page.waitForChanges()
+
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+
+    const ldSidenavNavitemArtInt =
+      ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
+        'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
+      )
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
+      new MouseEvent('mousedown', {
+        button: 0,
+      })
+    )
+    await page.waitForChanges()
+    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
+      true
+    )
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav).toHaveClass('ld-sidenav--closable')
+
+    expect(
+      ldSidenav.querySelectorAll('.ld-sidenav-slider__hidden').length
+    ).toEqual(0)
+
+    expect(
+      ldSidenav.querySelectorAll('.ld-sidenav-subnav__hidden').length
+    ).toEqual(0)
+  })
 })

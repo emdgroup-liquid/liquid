@@ -139,9 +139,12 @@ export class LdSidenav {
     // which may happen on screen resize or orientation change events.
     if (!this.closable) {
       this.el.classList.add('ld-sidenav--transitions')
-
-      this.ldSidenavCollapsedChange.emit(collapsed)
     }
+    // The ldSidenavCollapsedChange event needs to be emitted even if the
+    // sidenav is currently not collapsible (when it is closable), because
+    // on breakpoint change its subcomponents need to be rendered according
+    // to the new state and thus need to update their state using the event.
+    this.ldSidenavCollapsedChange.emit(collapsed)
   }
 
   @Watch('open')
