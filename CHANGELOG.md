@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/emdgroup-liquid/liquid/compare/v1.7.0...v1.8.0) (2022-05-04)
+
+
+### Bug Fixes
+
+* **ld-button:** enable danger/highlight on brand color ([d3edb47](https://github.com/emdgroup-liquid/liquid/commit/d3edb4797ad9b26d85f5e9871e029bffcfb83353))
+* **ld-sidenav:** toggle stack to top on breakpoint change ([b116fd9](https://github.com/emdgroup-liquid/liquid/commit/b116fd926b0f5a96451c1d896f1ad66273a40630)), closes [#286](https://github.com/emdgroup-liquid/liquid/issues/286)
+* **ld-sidenav:** unhide elements on slide change ([89ec4fa](https://github.com/emdgroup-liquid/liquid/commit/89ec4fa0da8c97ea139215d48aaef3328d4a0c4a)), closes [#286](https://github.com/emdgroup-liquid/liquid/issues/286)
+* **ld-tooltip:** remove stopPropagation for mouse events on triggerType hover ([d9ec6f4](https://github.com/emdgroup-liquid/liquid/commit/d9ec6f444ea6b9c73f13b43a5bcfbe4a413c1523))
+
+
+### Features
+
+* **ld-notice:** add success mode and custom icon ([63572a6](https://github.com/emdgroup-liquid/liquid/commit/63572a634f27869b98d0f86d2262a9a0d8829e3e))
+* **ld-sidenav:** integrate accordion with sidenav ([94f73ee](https://github.com/emdgroup-liquid/liquid/commit/94f73eec1b90805d20ce8e6de7cfdd8974cf0606))
+* **ld-tooltip:** allow passing custom tether options to tooltip ([780c784](https://github.com/emdgroup-liquid/liquid/commit/780c7846a9fcf2e8d30856eea263d689dfd3c09d))
+
 # [1.7.0](https://github.com/emdgroup-liquid/liquid/compare/v1.6.1...v1.7.0) (2022-04-29)
 
 
