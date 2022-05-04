@@ -96,7 +96,7 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 {% example %}
 <ld-notice headline="With custom icon" mode="success">
-<ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+  <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </ld-notice>
 
