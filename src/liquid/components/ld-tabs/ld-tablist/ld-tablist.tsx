@@ -182,6 +182,7 @@ export class LdTablist {
             ref={(el) => (this.btnScrollLeftRef = el)}
             tabindex="-1"
           >
+            {/* custom icon arrow-left */}
             <svg
               fill="none"
               height="16"
@@ -215,6 +216,7 @@ export class LdTablist {
             part="arrow arrow-right"
             tabindex="-1"
           >
+            {/* custom icon arrow-right */}
             <svg
               fill="none"
               height="16"

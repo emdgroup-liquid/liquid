@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-breadcrumbs renders 1`] = `
+<ld-breadcrumbs>
+  <mock:shadow-root>
+    <nav aria-label="Breadcrumbs" class="ld-breadcrumbs">
+      <ol class="ld-breadcrumbs__list" part="list">
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    foo
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    bar
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link aria-current="page" class="ld-crumb__link ld-crumb__link--current" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    qux
+  </ld-crumb>
+</ld-breadcrumbs>
+`;
+
+exports[`ld-breadcrumbs updates current after addition of a crumb 1`] = `
+<ld-breadcrumbs>
+  <mock:shadow-root>
+    <nav aria-label="Breadcrumbs" class="ld-breadcrumbs">
+      <ol class="ld-breadcrumbs__list" part="list">
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    foo
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    bar
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    qux
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link aria-current="page" class="ld-crumb__link ld-crumb__link--current" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    baz
+  </ld-crumb>
+</ld-breadcrumbs>
+`;
+
+exports[`ld-breadcrumbs updates current after removal of current crumb 1`] = `
+<ld-breadcrumbs>
+  <mock:shadow-root>
+    <nav aria-label="Breadcrumbs" class="ld-breadcrumbs">
+      <ol class="ld-breadcrumbs__list" part="list">
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link chevron="end" class="ld-crumb__link" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    foo
+  </ld-crumb>
+  <ld-crumb>
+    <mock:shadow-root>
+      <li class="ld-crumb">
+        <ld-link aria-current="page" class="ld-crumb__link ld-crumb__link--current" part="link">
+          <slot></slot>
+        </ld-link>
+      </li>
+    </mock:shadow-root>
+    bar
+  </ld-crumb>
+</ld-breadcrumbs>
+`;

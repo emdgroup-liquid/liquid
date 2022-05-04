@@ -382,6 +382,58 @@
       "isMobile": false
     },
     {
+      "id": "eff4f911",
+      "image": "a37d4364febc6a1c279bb675ea0eb056.png",
+      "userAgent": "default",
+      "desc": "ld-breadcrumbs renders as CSS Component",
+      "testPath": "./src/liquid/components/ld-breadcrumbs/test/ld-breadcrumbs.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "f91c2718",
+      "image": "a37d4364febc6a1c279bb675ea0eb056.png",
+      "userAgent": "default",
+      "desc": "ld-breadcrumbs renders as Web Component",
+      "testPath": "./src/liquid/components/ld-breadcrumbs/test/ld-breadcrumbs.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "94e3f635",
+      "image": "053c6df29d132a360ae66ba7abd42795.png",
+      "userAgent": "default",
+      "desc": "ld-breadcrumbs renders with icons as CSS component",
+      "testPath": "./src/liquid/components/ld-breadcrumbs/test/ld-breadcrumbs.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "cdf7649b",
+      "image": "053c6df29d132a360ae66ba7abd42795.png",
+      "userAgent": "default",
+      "desc": "ld-breadcrumbs renders with icons as Web Component",
+      "testPath": "./src/liquid/components/ld-breadcrumbs/test/ld-breadcrumbs.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "c5c7582a",
       "image": "e0193ce006e37fabf36900daaadd0712.png",
       "userAgent": "default",
@@ -7377,7 +7429,7 @@
     },
     {
       "id": "11c3a598",
-      "image": "f63a4918e6f270256c006b1df8b99d6c.png",
+      "image": "796d9b032fbdbcef50000743d0889bc8.png",
       "userAgent": "default",
       "desc": "ld-link css component with chevron end",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7390,7 +7442,7 @@
     },
     {
       "id": "ebcd4fea",
-      "image": "f9c3e4ef4d16627a54a6ec0640ca4c50.png",
+      "image": "2507876c594192cb4fb29e004ae599df.png",
       "userAgent": "default",
       "desc": "ld-link css component with chevron start",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7429,7 +7481,7 @@
     },
     {
       "id": "a51ed960",
-      "image": "025b40f6e717937da79d23075f94454a.png",
+      "image": "6f0fe7041f6573b8a71a8622b40e7c22.png",
       "userAgent": "default",
       "desc": "ld-link web component with chevron end",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7442,7 +7494,7 @@
     },
     {
       "id": "235718a5",
-      "image": "db0056903ab347b75e15880aeed38984.png",
+      "image": "e180cf4b6a412aedb2a005aa9df45864.png",
       "userAgent": "default",
       "desc": "ld-link web component with chevron start",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",

@@ -112,18 +112,14 @@ title: Introduction
     <docs-main>
       <header>
         {% if 'Introduction' not in title and not '404' in title and not 'legal' in page.url %}
-          <docs-breadcrumbs>
+          <ld-breadcrumbs class="ld-theme-bubblegum">
             {% set navPages = collections.all | eleventyNavigationBreadcrumb(title) %}
             {% macro renderBreadcrumb(entry) %}
-              <li>
-                <a href="{{ env.base }}{{ entry.url }}">{{ entry.title }}</a>
-              </li>
+              <ld-crumb href="{{ env.base }}{{ entry.url }}">{{ entry.title }}</ld-crumb>
             {% endmacro %}
             {% for entry in navPages %}{{ renderBreadcrumb(entry) }}{% endfor %}
-            <li>
-              <a href="{{ env.base }}{{ page.url }}" aria-current="page">{{ title }}</a>
-            </li>
-          </docs-breadcrumbs>
+            <ld-crumb href="{{ env.base }}{{ page.url }}">{{ title }}</ld-crumb>
+          </ld-breadcrumbs>
         {% endif %}
         <docs-edit-on-github path="{{ page.inputPath }}"></docs-edit-on-github>
       </header>

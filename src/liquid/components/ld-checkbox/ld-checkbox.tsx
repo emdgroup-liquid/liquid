@@ -222,6 +222,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
           type="checkbox"
           value={this.value}
         />
+        {/* custom icon check */}
         <svg
           class="ld-checkbox__check"
           part="check"

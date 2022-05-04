@@ -112,14 +112,49 @@ There are several ways to disable a link. The simplest one is by not using a `hr
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                                                                                                           | Type                                         | Default     |
-| ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
-| `chevron`  | `chevron`  | Displays chevron icon.                                                                                                                                                                                                | `"end" \| "start"`                           | `undefined` |
-| `disabled` | `disabled` | The disabled attribute sets `aria-disabled="true"` on the rendered anchor element.                                                                                                                                    | `boolean`                                    | `undefined` |
-| `key`      | `key`      | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                           | `undefined` |
-| `ref`      | `ref`      | reference to component                                                                                                                                                                                                | `any`                                        | `undefined` |
-| `target`   | `target`   | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
+| Property     | Attribute     | Description                                                                                                                                                                                                           | Type                                         | Default     |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
+| `chevron`    | `chevron`     | Displays chevron icon.                                                                                                                                                                                                | `"end" \| "start"`                           | `undefined` |
+| `disabled`   | `disabled`    | The disabled attribute sets `aria-disabled="true"` on the rendered anchor element.                                                                                                                                    | `boolean`                                    | `undefined` |
+| `href`       | `href`        | the URL that the hyperlink points to                                                                                                                                                                                  | `any`                                        | `undefined` |
+| `key`        | `key`         | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                           | `undefined` |
+| `ldTabindex` | `ld-tabindex` | Tab index of the input.                                                                                                                                                                                               | `number`                                     | `undefined` |
+| `ref`        | `ref`         | reference to component                                                                                                                                                                                                | `any`                                        | `undefined` |
+| `target`     | `target`      | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
 
+
+## Methods
+
+### `focusInner() => Promise<void>`
+
+Sets focus on the anchor.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Shadow Parts
+
+| Part       | Description     |
+| ---------- | --------------- |
+| `"anchor"` | the link anchor |
+
+
+## Dependencies
+
+### Used by
+
+ - [ld-crumb](../ld-breadcrumbs/ld-crumb)
+
+### Graph
+```mermaid
+graph TD;
+  ld-crumb --> ld-link
+  style ld-link fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
