@@ -3,6 +3,7 @@
   --ld-notice-error-icon-col: var(--ld-thm-error);
   --ld-notice-info-icon-col: var(--ld-thm-primary);
   --ld-notice-warning-icon-col: var(--ld-thm-warning);
+  --ld-notice-success-icon-col: var(--ld-thm-success);
 
   background: var(--ld-col-wht);
   border-radius: var(--ld-br-l);
@@ -31,6 +32,9 @@
 
 :host(.ld-notice--error),
 .ld-notice--error {
+
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
   .ld-notice__icon,
   .ld-notice__headline {
     color: var(--ld-notice-error-icon-col);
@@ -43,6 +47,9 @@
 
 :host(.ld-notice--info),
 .ld-notice--info {
+
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
   .ld-notice__icon,
   .ld-notice__headline {
     color: var(--ld-notice-info-icon-col);
@@ -53,6 +60,8 @@
 .ld-notice--warning {
   background: var(--ld-thm-warning-highlight);
 
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
   .ld-notice__icon {
     --ld-icon-secondary-col: var(--ld-col-neutral-900);
     color: var(--ld-notice-warning-icon-col);
@@ -63,10 +72,25 @@
   }
 }
 
+:host(.ld-notice--success),
+.ld-notice--success {
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
+  .ld-notice__icon {
+    color: var(--ld-notice-success-icon-col);
+  }
+
+  .ld-notice__headline {
+    color: var(--ld-notice-success-icon-col);
+  }
+}
+
 .ld-notice__headline {
   margin: 0 0 var(--ld-sp-12);
 }
 
+::slotted(ld-icon),
+::slotted(.ld-icon),
 .ld-notice__icon {
   left: var(--ld-sp-24);
   position: absolute;

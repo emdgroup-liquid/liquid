@@ -28,4 +28,17 @@ describe('ld-notice', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+  it('renders with custom icon', async () => {
+    const page = await newSpecPage({
+      components: [LdNotice],
+      template: () => (
+        <ld-notice mode="success">
+          <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
+          Lorem ipsum dolor sit amet.
+        </ld-notice>
+      ),
+    })
+
+    expect(page.root).toMatchSnapshot()
+  })
 })

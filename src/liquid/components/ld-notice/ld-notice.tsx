@@ -1,5 +1,6 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Prop, Host } from '@stencil/core'
+import { Component, h, Prop, Host, Element } from '@stencil/core'
+import { HTMLStencilElement } from '@stencil/core/internal'
 
 /**
  * @virtualProp ref - reference to component
@@ -8,21 +9,31 @@ import { Component, h, Prop, Host } from '@stencil/core'
  * @part icon - Image tag used for the icon
  */
 @Component({
+  assetsDirs: ['assets'],
   tag: 'ld-notice',
   styleUrl: 'ld-notice.css',
   shadow: true,
 })
 export class LdNotice {
+  @Element() hostElement: HTMLStencilElement
+
   /** Headline of the notice. */
   @Prop() headline?: string
 
   /** Mode of the notice. */
-  @Prop() mode: 'error' | 'info' | 'warning' = 'info'
+  @Prop() mode: 'error' | 'info' | 'warning' | 'success' = 'info'
 
   render() {
     return (
       <Host class={`ld-notice ld-notice--${this.mode}`}>
-        <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg" />
+        <slot name="custom-icon">
+          <ld-icon
+            class="ld-notice__icon"
+            name={this.mode === 'success' ? 'checkmark-filled' : 'info'}
+            part="icon"
+            size="lg"
+          />
+        </slot>
         {this.headline && (
           <ld-typo
             class="ld-notice__headline"
