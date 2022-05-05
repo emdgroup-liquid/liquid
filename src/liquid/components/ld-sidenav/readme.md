@@ -510,7 +510,7 @@ For deeper navigation hierarchies you may also want to structure certain navigat
     <ld-sidenav-navitem to="artificial-inte">
       Artificial intelligence
     </ld-sidenav-navitem>
-    <ld-sidenav-accordion>
+    <ld-sidenav-accordion expanded>
       <ld-sidenav-navitem slot="toggle">Communication and security</ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary">Networking</ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary">Computer security</ld-sidenav-navitem>

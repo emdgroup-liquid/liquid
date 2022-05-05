@@ -134,6 +134,7 @@ export class LdSidenavAccordion {
       <Host class={cl}>
         <ld-accordion class="ld-sidenav-accordion__accordion">
           <ld-accordion-section
+            expanded={this.expanded}
             ref={(el) => (this.sectionRef = el)}
             class="ld-sidenav-accordion__accordion-section"
           >
