@@ -513,6 +513,26 @@ describe('ld-sidenav', () => {
       expect(ldAccordionSection).toHaveClass('ld-accordion-section--expanded')
     })
 
+    it('is expanded initially', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `<ld-sidenav>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-accordion slot="toggle" expanded>
+              <ld-sidenav-navitem expand-on-click="true">Mathematical foundations</ld-sidenav-navitem>
+              <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
+            </ld-sidenav-accordion>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+      })
+
+      const ldSidenav = page.root
+      const ldAccordionSection = ldSidenav
+        .querySelector('ld-sidenav-accordion')
+        .shadowRoot.querySelector('ld-accordion-section')
+      expect(ldAccordionSection).toHaveClass('ld-accordion-section--expanded')
+    })
+
     it('does not expands on click of sidenav accordion toggle with expand-on-click set to false', async () => {
       const page = await newSpecPage({
         components: sidenavComponents,

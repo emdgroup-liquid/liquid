@@ -97,7 +97,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-500" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-502" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -108,7 +108,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-500" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-502" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -176,7 +176,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-501" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-503" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -187,7 +187,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-501" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-503" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -226,7 +226,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-502" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-504" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -237,7 +237,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-502" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-504" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -276,103 +276,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-503" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                  <ld-sr-only>
-                    Info
-                  </ld-sr-only>
-                  <slot name="trigger">
-                    <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                      <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                    </svg>
-                  </slot>
-                </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-503" part="popper" size="sm" triggertype="hover">
-                  <slot></slot>
-                </ld-tooltip-popper>
-              </mock:shadow-root>
-              <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                <ld-typo>
-                  Artificial intelligence
-                </ld-typo>
-                <ld-icon name="real-arrow" style="color: var(--ld-thm-primary); display: inline-flex; margin-left: var(--ld-sp-6);"></ld-icon>
-              </div>
-            </ld-tooltip>
-          </div>
-          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-            <slot></slot>
-          </div>
-          <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-            <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
-          </div>
-        </button>
-      </mock:shadow-root>
-      Artificial intelligence
-    </ld-sidenav-navitem>
-    <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
-      <mock:shadow-root>
-        <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
-          <div class="ld-sidenav-navitem__bg" part="bg">
-            <div class="ld-sidenav-navitem__bg-left"></div>
-            <div class="ld-sidenav-navitem__bg-center"></div>
-            <div class="ld-sidenav-navitem__bg-right"></div>
-          </div>
-          <div class="ld-sidenav-navitem__dot" part="dot"></div>
-          <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-            <slot name="icon"></slot>
-            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
-              CA
-            </span>
-            <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-              <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-504" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                  <ld-sr-only>
-                    Info
-                  </ld-sr-only>
-                  <slot name="trigger">
-                    <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                      <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                    </svg>
-                  </slot>
-                </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-504" part="popper" size="sm" triggertype="hover">
-                  <slot></slot>
-                </ld-tooltip-popper>
-              </mock:shadow-root>
-              <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-              <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                <ld-typo>
-                  Communication and security
-                </ld-typo>
-                <ld-icon name="real-arrow" style="color: var(--ld-thm-primary); display: inline-flex; margin-left: var(--ld-sp-6);"></ld-icon>
-              </div>
-            </ld-tooltip>
-          </div>
-          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-            <slot></slot>
-          </div>
-          <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-            <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
-          </div>
-        </button>
-      </mock:shadow-root>
-      Communication and security
-    </ld-sidenav-navitem>
-    <ld-sidenav-navitem active="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
-      <mock:shadow-root>
-        <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed" part="navitem focusable">
-          <div class="ld-sidenav-navitem__bg" part="bg">
-            <div class="ld-sidenav-navitem__bg-left"></div>
-            <div class="ld-sidenav-navitem__bg-center"></div>
-            <div class="ld-sidenav-navitem__bg-right"></div>
-          </div>
-          <div class="ld-sidenav-navitem__dot" part="dot"></div>
-          <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-            <slot name="icon"></slot>
-            <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-              <mock:shadow-root>
                 <span aria-describedby="ld-tooltip-505" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
@@ -405,9 +308,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </div>
         </button>
       </mock:shadow-root>
-      <svg slot="icon" viewBox="0 0 40 40">
-        <circle cx="20" cy="20" fill="var(--ld-col-vm)" r="10"></circle>
-      </svg>
       Artificial intelligence
     </ld-sidenav-navitem>
     <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
@@ -460,6 +360,106 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       </mock:shadow-root>
       Communication and security
     </ld-sidenav-navitem>
+    <ld-sidenav-navitem active="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed" part="navitem focusable">
+          <div class="ld-sidenav-navitem__bg" part="bg">
+            <div class="ld-sidenav-navitem__bg-left"></div>
+            <div class="ld-sidenav-navitem__bg-center"></div>
+            <div class="ld-sidenav-navitem__bg-right"></div>
+          </div>
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+            <slot name="icon"></slot>
+            <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+              <mock:shadow-root>
+                <span aria-describedby="ld-tooltip-507" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <ld-sr-only>
+                    Info
+                  </ld-sr-only>
+                  <slot name="trigger">
+                    <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                      <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                    </svg>
+                  </slot>
+                </span>
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-507" part="popper" size="sm" triggertype="hover">
+                  <slot></slot>
+                </ld-tooltip-popper>
+              </mock:shadow-root>
+              <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                <ld-typo>
+                  Artificial intelligence
+                </ld-typo>
+                <ld-icon name="real-arrow" style="color: var(--ld-thm-primary); display: inline-flex; margin-left: var(--ld-sp-6);"></ld-icon>
+              </div>
+            </ld-tooltip>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+          <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+            <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
+          </div>
+        </button>
+      </mock:shadow-root>
+      <svg slot="icon" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" fill="var(--ld-col-vm)" r="10"></circle>
+      </svg>
+      Artificial intelligence
+    </ld-sidenav-navitem>
+    <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <mock:shadow-root>
+        <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
+          <div class="ld-sidenav-navitem__bg" part="bg">
+            <div class="ld-sidenav-navitem__bg-left"></div>
+            <div class="ld-sidenav-navitem__bg-center"></div>
+            <div class="ld-sidenav-navitem__bg-right"></div>
+          </div>
+          <div class="ld-sidenav-navitem__dot" part="dot"></div>
+          <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+            <slot name="icon"></slot>
+            <span class="ld-sidenav-navitem__abbr" part="abbreviation">
+              CA
+            </span>
+            <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+              <mock:shadow-root>
+                <span aria-describedby="ld-tooltip-508" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <ld-sr-only>
+                    Info
+                  </ld-sr-only>
+                  <slot name="trigger">
+                    <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                      <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                    </svg>
+                  </slot>
+                </span>
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-508" part="popper" size="sm" triggertype="hover">
+                  <slot></slot>
+                </ld-tooltip-popper>
+              </mock:shadow-root>
+              <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+              <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                <ld-typo>
+                  Communication and security
+                </ld-typo>
+                <ld-icon name="real-arrow" style="color: var(--ld-thm-primary); display: inline-flex; margin-left: var(--ld-sp-6);"></ld-icon>
+              </div>
+            </ld-tooltip>
+          </div>
+          <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+          <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+            <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
+          </div>
+        </button>
+      </mock:shadow-root>
+      Communication and security
+    </ld-sidenav-navitem>
     <ld-sidenav-navitem to="computer-architecture" style="--ld-slider-navitem-move-up: -NaNpx;">
       <mock:shadow-root>
         <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
@@ -476,7 +476,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-507" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-509" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -487,7 +487,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-507" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-509" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -526,7 +526,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-508" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-510" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -537,7 +537,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-508" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-510" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -576,7 +576,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-509" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-511" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -587,7 +587,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-509" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-511" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -626,7 +626,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-510" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-512" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -637,7 +637,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-510" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-512" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -681,7 +681,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-511" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-513" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -692,7 +692,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-511" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-513" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -731,7 +731,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-512" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-514" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -742,7 +742,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-512" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-514" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -781,7 +781,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-513" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-515" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -792,7 +792,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-513" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-515" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -831,7 +831,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-514" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-516" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -842,7 +842,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-514" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-516" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -908,94 +908,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-515" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-515" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Coding theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-516" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-516" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Game theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
                   <span aria-describedby="ld-tooltip-517" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
@@ -1025,7 +937,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Discrete Mathematics
+        Coding theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -1069,7 +981,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Graph theory
+        Game theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -1113,7 +1025,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Mathematical logic
+        Discrete Mathematics
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -1140,6 +1052,94 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-520" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Graph theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-521" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-521" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Mathematical logic
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-522" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-522" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1203,7 +1203,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-521" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-523" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1214,7 +1214,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-521" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-523" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1247,7 +1247,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-522" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-524" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1258,7 +1258,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-522" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-524" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1294,7 +1294,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-523" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-525" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1305,7 +1305,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-523" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-525" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1372,7 +1372,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-524" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-526" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1383,7 +1383,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-524" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-526" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1416,7 +1416,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-525" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-527" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1427,7 +1427,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-525" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-527" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1465,7 +1465,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-526" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-528" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1476,7 +1476,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-526" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-528" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1512,7 +1512,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-527" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-529" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1523,7 +1523,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-527" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-529" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1564,7 +1564,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-528" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-530" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1575,7 +1575,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-528" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-530" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1608,7 +1608,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-529" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-531" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1619,7 +1619,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-529" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-531" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1682,7 +1682,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-567" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-569" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -1693,7 +1693,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-567" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-569" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -1726,7 +1726,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-568" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-570" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -1737,7 +1737,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-568" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-570" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -1802,7 +1802,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-530" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-532" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1813,7 +1813,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-530" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-532" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1846,7 +1846,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-531" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-533" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1857,7 +1857,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-531" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-533" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1890,7 +1890,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-532" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-534" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1901,7 +1901,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-532" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-534" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -1965,7 +1965,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-533" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-535" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -1976,7 +1976,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-533" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-535" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2009,7 +2009,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-534" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-536" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2020,7 +2020,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-534" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-536" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2084,7 +2084,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-535" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-537" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2095,7 +2095,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-535" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-537" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2128,7 +2128,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-536" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-538" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2139,7 +2139,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-536" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-538" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2172,7 +2172,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-537" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-539" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2183,7 +2183,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-537" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-539" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2247,7 +2247,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-538" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-540" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2258,7 +2258,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-538" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-540" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2291,7 +2291,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-539" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-541" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2302,7 +2302,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-539" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-541" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2335,7 +2335,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-540" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-542" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2346,7 +2346,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-540" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-542" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2410,7 +2410,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-541" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-543" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2421,7 +2421,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-541" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-543" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2454,7 +2454,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-542" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-544" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2465,7 +2465,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-542" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-544" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2498,7 +2498,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-543" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-545" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -2509,7 +2509,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-543" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-545" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2573,94 +2573,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-544" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-544" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Compiler theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-545" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-545" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Programming language pragmatics
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
                   <span aria-describedby="ld-tooltip-546" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
@@ -2690,7 +2602,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Programming language theory
+        Compiler theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -2734,7 +2646,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Formal semantics
+        Programming language pragmatics
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -2761,6 +2673,94 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-548" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Programming language theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-549" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-549" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Formal semantics
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-550" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-550" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -2824,94 +2824,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-549" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-549" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Computational science
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-550" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-550" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Numerical analysis
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
                   <span aria-describedby="ld-tooltip-551" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
@@ -2941,7 +2853,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Symbolic computation
+        Computational science
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -2985,7 +2897,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Computational physics
+        Numerical analysis
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3029,7 +2941,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Computational chemistry
+        Symbolic computation
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3073,7 +2985,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Bioinformatics and Computational biology
+        Computational physics
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3100,6 +3012,94 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-555" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational chemistry
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-556" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-556" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Bioinformatics and Computational biology
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-557" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-557" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -3163,94 +3163,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-556" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-556" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Computational science
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-557" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-557" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Formal methods
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
                   <span aria-describedby="ld-tooltip-558" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
@@ -3280,7 +3192,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Software engineering
+        Computational science
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3324,7 +3236,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Algorithm design
+        Formal methods
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3368,7 +3280,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Computer programming
+        Software engineering
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3412,7 +3324,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Human–computer interaction
+        Algorithm design
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3439,6 +3351,94 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-562" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computer programming
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-563" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-563" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Human–computer interaction
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-564" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-564" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -3502,94 +3502,6 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-563" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-563" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Automata theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-564" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-564" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Computability theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
                   <span aria-describedby="ld-tooltip-565" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
@@ -3619,7 +3531,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Computational complexity theory
+        Automata theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -3663,6 +3575,94 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
+        Computability theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-567" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-567" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Computational complexity theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-568" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-568" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
         Quantum computing theory
       </ld-sidenav-navitem>
     </ld-sidenav-subnav>
@@ -3683,7 +3683,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </span>
           <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
             <mock:shadow-root>
-              <span aria-describedby="ld-tooltip-499" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+              <span aria-describedby="ld-tooltip-501" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                 <ld-sr-only>
                   Info
                 </ld-sr-only>
@@ -3694,7 +3694,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </svg>
                 </slot>
               </span>
-              <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-499" part="popper" size="sm" triggertype="hover">
+              <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-501" part="popper" size="sm" triggertype="hover">
                 <slot></slot>
               </ld-tooltip-popper>
             </mock:shadow-root>
@@ -3868,7 +3868,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-1138" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-1140" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -3879,7 +3879,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1138" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1140" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -3988,7 +3988,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1140" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1142" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -3999,7 +3999,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1140" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1142" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4022,94 +4022,6 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
         Mathematical foundations
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -0px;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1141" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1141" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Coding theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
-        <mock:shadow-root>
-          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
-            <div class="ld-sidenav-navitem__bg" part="bg">
-              <div class="ld-sidenav-navitem__bg-left"></div>
-              <div class="ld-sidenav-navitem__bg-center"></div>
-              <div class="ld-sidenav-navitem__bg-right"></div>
-            </div>
-            <div class="ld-sidenav-navitem__dot" part="dot"></div>
-            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-              <slot name="icon"></slot>
-              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1142" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                    <ld-sr-only>
-                      Info
-                    </ld-sr-only>
-                    <slot name="trigger">
-                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                      </svg>
-                    </slot>
-                  </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1142" part="popper" size="sm" triggertype="hover">
-                    <slot></slot>
-                  </ld-tooltip-popper>
-                </mock:shadow-root>
-                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                  <ld-typo></ld-typo>
-                </div>
-              </ld-tooltip>
-            </div>
-            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
-            </div>
-            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-              <slot name="icon-secondary"></slot>
-            </div>
-          </button>
-        </mock:shadow-root>
-        Game theory
-      </ld-sidenav-navitem>
-      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4151,7 +4063,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Discrete Mathematics
+        Coding theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -4195,7 +4107,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Graph theory
+        Game theory
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -4239,7 +4151,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </div>
           </button>
         </mock:shadow-root>
-        Mathematical logic
+        Discrete Mathematics
       </ld-sidenav-navitem>
       <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
@@ -4266,6 +4178,94 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1146" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Graph theory
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-1147" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1147" part="popper" size="sm" triggertype="hover">
+                    <slot></slot>
+                  </ld-tooltip-popper>
+                </mock:shadow-root>
+                <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                  <ld-typo></ld-typo>
+                </div>
+              </ld-tooltip>
+            </div>
+            <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+              <slot></slot>
+            </div>
+            <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+              <slot name="icon-secondary"></slot>
+            </div>
+          </button>
+        </mock:shadow-root>
+        Mathematical logic
+      </ld-sidenav-navitem>
+      <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <mock:shadow-root>
+          <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
+            <div class="ld-sidenav-navitem__bg" part="bg">
+              <div class="ld-sidenav-navitem__bg-left"></div>
+              <div class="ld-sidenav-navitem__bg-center"></div>
+              <div class="ld-sidenav-navitem__bg-right"></div>
+            </div>
+            <div class="ld-sidenav-navitem__dot" part="dot"></div>
+            <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+              <slot name="icon"></slot>
+              <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                <mock:shadow-root>
+                  <span aria-describedby="ld-tooltip-1148" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <ld-sr-only>
+                      Info
+                    </ld-sr-only>
+                    <slot name="trigger">
+                      <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                        <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                      </svg>
+                    </slot>
+                  </span>
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1148" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4343,7 +4343,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1147" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1149" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4354,7 +4354,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1147" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1149" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4389,7 +4389,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1148" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1150" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4400,7 +4400,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1148" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1150" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4433,7 +4433,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1149" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1151" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4444,7 +4444,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1149" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1151" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4481,7 +4481,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-1139" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-1141" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -4492,7 +4492,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1139" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1141" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
@@ -4573,7 +4573,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1150" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1152" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4584,7 +4584,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1150" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1152" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4619,7 +4619,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1151" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1153" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4630,7 +4630,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1151" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1153" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4663,7 +4663,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1152" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1154" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4674,7 +4674,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1152" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1154" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4707,7 +4707,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1153" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1155" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4718,7 +4718,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1153" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1155" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4782,7 +4782,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1154" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1156" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4793,7 +4793,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1154" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1156" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4826,7 +4826,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               <slot name="icon"></slot>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1155" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1157" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4837,7 +4837,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1155" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1157" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4914,7 +4914,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </span>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1156" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1158" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4925,7 +4925,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1156" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1158" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -5001,94 +5001,6 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   <slot name="icon"></slot>
                   <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                     <mock:shadow-root>
-                      <span aria-describedby="ld-tooltip-1158" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                        <ld-sr-only>
-                          Info
-                        </ld-sr-only>
-                        <slot name="trigger">
-                          <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                            <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                          </svg>
-                        </slot>
-                      </span>
-                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1158" part="popper" size="sm" triggertype="hover">
-                        <slot></slot>
-                      </ld-tooltip-popper>
-                    </mock:shadow-root>
-                    <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                    <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                      <ld-typo></ld-typo>
-                    </div>
-                  </ld-tooltip>
-                </div>
-                <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
-                </div>
-                <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-                  <slot name="icon-secondary"></slot>
-                </div>
-              </button>
-            </mock:shadow-root>
-            Machine learning
-          </ld-sidenav-navitem>
-          <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
-            <mock:shadow-root>
-              <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
-                <div class="ld-sidenav-navitem__bg" part="bg">
-                  <div class="ld-sidenav-navitem__bg-left"></div>
-                  <div class="ld-sidenav-navitem__bg-center"></div>
-                  <div class="ld-sidenav-navitem__bg-right"></div>
-                </div>
-                <div class="ld-sidenav-navitem__dot" part="dot"></div>
-                <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-                  <slot name="icon"></slot>
-                  <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                    <mock:shadow-root>
-                      <span aria-describedby="ld-tooltip-1159" class="ld-tooltip__trigger" part="trigger focusable" type="button">
-                        <ld-sr-only>
-                          Info
-                        </ld-sr-only>
-                        <slot name="trigger">
-                          <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
-                            <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
-                          </svg>
-                        </slot>
-                      </span>
-                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1159" part="popper" size="sm" triggertype="hover">
-                        <slot></slot>
-                      </ld-tooltip-popper>
-                    </mock:shadow-root>
-                    <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
-                    <div style="display: grid; grid-auto-flow: column; align-items: center;">
-                      <ld-typo></ld-typo>
-                    </div>
-                  </ld-tooltip>
-                </div>
-                <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
-                </div>
-                <div class="ld-sidenav-navitem__slot-icon-secondary-container">
-                  <slot name="icon-secondary"></slot>
-                </div>
-              </button>
-            </mock:shadow-root>
-            Supervised learning
-          </ld-sidenav-navitem>
-          <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
-            <mock:shadow-root>
-              <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
-                <div class="ld-sidenav-navitem__bg" part="bg">
-                  <div class="ld-sidenav-navitem__bg-left"></div>
-                  <div class="ld-sidenav-navitem__bg-center"></div>
-                  <div class="ld-sidenav-navitem__bg-right"></div>
-                </div>
-                <div class="ld-sidenav-navitem__dot" part="dot"></div>
-                <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
-                  <slot name="icon"></slot>
-                  <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
-                    <mock:shadow-root>
                       <span aria-describedby="ld-tooltip-1160" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                         <ld-sr-only>
                           Info
@@ -5118,7 +5030,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </div>
               </button>
             </mock:shadow-root>
-            Unsupervised learning
+            Machine learning
           </ld-sidenav-navitem>
           <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
             <mock:shadow-root>
@@ -5162,6 +5074,94 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </div>
               </button>
             </mock:shadow-root>
+            Supervised learning
+          </ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
+            <mock:shadow-root>
+              <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
+                <div class="ld-sidenav-navitem__bg" part="bg">
+                  <div class="ld-sidenav-navitem__bg-left"></div>
+                  <div class="ld-sidenav-navitem__bg-center"></div>
+                  <div class="ld-sidenav-navitem__bg-right"></div>
+                </div>
+                <div class="ld-sidenav-navitem__dot" part="dot"></div>
+                <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+                  <slot name="icon"></slot>
+                  <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                    <mock:shadow-root>
+                      <span aria-describedby="ld-tooltip-1162" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <ld-sr-only>
+                          Info
+                        </ld-sr-only>
+                        <slot name="trigger">
+                          <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                          </svg>
+                        </slot>
+                      </span>
+                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1162" part="popper" size="sm" triggertype="hover">
+                        <slot></slot>
+                      </ld-tooltip-popper>
+                    </mock:shadow-root>
+                    <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                    <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                      <ld-typo></ld-typo>
+                    </div>
+                  </ld-tooltip>
+                </div>
+                <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+                  <slot></slot>
+                </div>
+                <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+                  <slot name="icon-secondary"></slot>
+                </div>
+              </button>
+            </mock:shadow-root>
+            Unsupervised learning
+          </ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
+            <mock:shadow-root>
+              <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
+                <div class="ld-sidenav-navitem__bg" part="bg">
+                  <div class="ld-sidenav-navitem__bg-left"></div>
+                  <div class="ld-sidenav-navitem__bg-center"></div>
+                  <div class="ld-sidenav-navitem__bg-right"></div>
+                </div>
+                <div class="ld-sidenav-navitem__dot" part="dot"></div>
+                <div class="ld-sidenav-navitem__slot-container-icon" part="slot-container-icon" role="presentation">
+                  <slot name="icon"></slot>
+                  <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
+                    <mock:shadow-root>
+                      <span aria-describedby="ld-tooltip-1163" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <ld-sr-only>
+                          Info
+                        </ld-sr-only>
+                        <slot name="trigger">
+                          <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
+                            <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
+                          </svg>
+                        </slot>
+                      </span>
+                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1163" part="popper" size="sm" triggertype="hover">
+                        <slot></slot>
+                      </ld-tooltip-popper>
+                    </mock:shadow-root>
+                    <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger"></div>
+                    <div style="display: grid; grid-auto-flow: column; align-items: center;">
+                      <ld-typo></ld-typo>
+                    </div>
+                  </ld-tooltip>
+                </div>
+                <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+                  <slot></slot>
+                </div>
+                <div class="ld-sidenav-navitem__slot-icon-secondary-container">
+                  <slot name="icon-secondary"></slot>
+                </div>
+              </button>
+            </mock:shadow-root>
             Reinforcement learning
           </ld-sidenav-navitem>
         </ld-sidenav-accordion>
@@ -5178,7 +5178,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1157" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1159" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -5189,7 +5189,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1157" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1159" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -5228,7 +5228,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </span>
           <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
             <mock:shadow-root>
-              <span aria-describedby="ld-tooltip-1137" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+              <span aria-describedby="ld-tooltip-1139" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                 <ld-sr-only>
                   Info
                 </ld-sr-only>
@@ -5239,7 +5239,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   </svg>
                 </slot>
               </span>
-              <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1137" part="popper" size="sm" triggertype="hover">
+              <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1139" part="popper" size="sm" triggertype="hover">
                 <slot></slot>
               </ld-tooltip-popper>
             </mock:shadow-root>
