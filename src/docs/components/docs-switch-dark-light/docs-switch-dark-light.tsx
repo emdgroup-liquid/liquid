@@ -11,10 +11,10 @@ export class DocsSwitchDarkLight {
 
   @Watch('isDark')
   updateIFrames(darkMode: boolean) {
-    const iframe = document.querySelector<HTMLDocsIframeElement>('docs-iframe')
+    const iframe = document.querySelector('docs-iframe')
 
     if (iframe) {
-      iframe.setDarkMode(darkMode)
+      iframe['setDarkMode'](darkMode)
     }
   }
 
@@ -42,6 +42,7 @@ export class DocsSwitchDarkLight {
 
     document.body.classList.add(`docs-ui-${this.isDark ? 'dark' : 'light'}`)
     document.body.classList.remove(`docs-ui-${!this.isDark ? 'dark' : 'light'}`)
+    document.documentElement.style.colorScheme = this.isDark ? 'dark' : 'auto'
   }
 
   @Listen('click', { capture: true })
@@ -50,6 +51,7 @@ export class DocsSwitchDarkLight {
     window.localStorage.setItem('docs-ui', this.isDark ? 'dark' : 'light')
     document.body.classList.add(`docs-ui-${this.isDark ? 'dark' : 'light'}`)
     document.body.classList.remove(`docs-ui-${!this.isDark ? 'dark' : 'light'}`)
+    document.documentElement.style.colorScheme = this.isDark ? 'dark' : 'auto'
   }
 
   render() {

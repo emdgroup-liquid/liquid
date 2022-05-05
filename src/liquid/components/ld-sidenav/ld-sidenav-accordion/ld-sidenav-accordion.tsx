@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -59,6 +58,11 @@ export class LdSidenavAccordion {
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
+    if (this.sidenavClosable) {
+      toggleStackToTop(this.el, false)
+    } else {
+      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
+    }
   }
 
   @Listen('ldSidenavSliderChange', { target: 'window', passive: true })
@@ -81,13 +85,16 @@ export class LdSidenavAccordion {
   }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     // Collapse or expand accordion on sidenav collapse or expansion.
     if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail
-    if (this.sidenav.narrow) {
-      toggleStackToTop(this.el, this.sidenavCollapsed)
-    }
+    this.sidenavCollapsed = ev.detail.collapsed
+    toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
     if (this.sidenavCollapsed) {
       if (this.preserveState) {
         this.expandOnSidenavExpansion = this.sectionRef.expanded

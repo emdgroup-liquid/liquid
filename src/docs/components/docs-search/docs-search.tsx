@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checking and intelliSense
 import 'wicg-inert'
 import { Component, h, Listen, State, Host } from '@stencil/core'
 import Fuse from 'fuse.js'

@@ -10,10 +10,8 @@
 
 .ld-sidenav-navitem {
   /* layout */
-  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
-  --ld-sidenav-navitem-border-radius: var(--ld-br-l);
   --ld-sidenav-navitem-height: var(--ld-sp-32);
-  --ld-sidenav-navitem-icon-font-size: 1rem;
+  --ld-sidenav-navitem-icon-font-size: 90%;
 
   /* colors */
   --ld-sidenav-navitem-col: var(--ld-col-neutral-800);
@@ -29,6 +27,7 @@
   position: relative;
   flex-grow: 1;
   font: var(--ld-typo-body-s);
+  font-weight: 700;
   border: 0;
   cursor: pointer;
   user-select: none;
@@ -44,9 +43,13 @@
   -webkit-touch-callout: none;
 
   &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary):not(.ld-sidenav-navitem--in-accordion) {
-    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-      var(--ld-sidenav-transition-delay-collapse-expand) ease;
-    transform: translateY(var(--ld-slider-navitem-move-up, 0px));
+    transition: var(--ld-sidenav-stack-to-top-transition);
+    transform: translateY(
+      var(
+        --ld-slider-navitem-move-up-closable,
+        var(--ld-slider-navitem-move-up, 0px)
+      )
+    );
   }
 
   &.ld-sidenav-navitem--collapsed {
@@ -62,10 +65,12 @@
         var(--ld-sidenav-transition-duration-collapse-expand) ease;
     }
 
-    .ld-sidenav-navitem__bg {
-      transform: translateX(
-        calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-      );
+    &:not(.ld-sidenav-navitem--right-aligned) {
+      .ld-sidenav-navitem__bg {
+        transform: translateX(
+          calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
+        );
+      }
     }
   }
 
@@ -91,26 +96,11 @@
             var(--ld-sidenav-navitem-border-radius)
         );
       }
-
-      &::after {
-        inset: calc(
-          -1 * var(--ld-sidenav-navitem-active-indicator-border-width)
-        );
-        border-radius: calc(
-          var(--ld-sidenav-navitem-active-indicator-border-width) +
-            var(--ld-sidenav-navitem-border-radius)
-        );
-        box-shadow: var(--ld-shadow-sticky);
-      }
     }
   }
 
   &:active {
     --ld-sidenav-navitem-col: var(--ld-thm-primary-active);
-
-    .ld-sidenav-navitem__slot-container-icon::after {
-      box-shadow: var(--ld-shadow-active);
-    }
   }
 
   &--rounded {
@@ -123,10 +113,6 @@
     &:where(:hover) {
       --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-hover);
       --ld-sidenav-navitem-indicator-col: var(--ld-col-neutral-300);
-
-      .ld-sidenav-navitem__slot-container-icon::after {
-        box-shadow: var(--ld-shadow-sticky);
-      }
     }
   }
 
@@ -136,16 +122,8 @@
       --ld-sidenav-navitem-indicator-col-focus
     );
 
-    .ld-sidenav-navitem__slot-container-icon::after {
-      box-shadow: var(--ld-shadow-sticky);
-    }
-
     &:active {
       --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-active);
-
-      .ld-sidenav-navitem__slot-container-icon::after {
-        box-shadow: var(--ld-shadow-active);
-      }
     }
   }
 
@@ -204,7 +182,9 @@
   );
 
   .ld-sidenav-navitem--collapsed & {
-    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
+    transform: translateX(
+      calc(-1 * (var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)))
+    );
   }
   .ld-sidenav-navitem--collapsed.ld-sidenav-navitem--in-accordion & {
     transform: translateX(
@@ -304,7 +284,7 @@ That's why we set z-index 0 on the following elements.
     --ld-sidenav-navitem-icon-bg-col,
     var(--ld-thm-primary)
   );
-  color: var(--ld-col-wht);
+  color: var(--ld-sidenav-navitem-icon-col, var(--ld-thm-secondary-focus));
   border-radius: var(--ld-sidenav-navitem-border-radius);
   display: flex;
   justify-content: center;
@@ -323,13 +303,6 @@ That's why we set z-index 0 on the following elements.
 
   .ld-sidenav-navitem--collapsed & {
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: calc(var(--ld-sidenav-navitem-border-radius));
   }
 
   > ::slotted(*) {
@@ -411,9 +384,9 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__abbr {
-  font: var(--ld-typo-b6);
+  font: var(--ld-typo-cap-m);
   font-size: var(--ld-sidenav-navitem-icon-font-size);
-  transform: translateX(3%) translateY(-14%);
+  text-transform: uppercase;
 }
 
 .ld-sidenav-navitem__icon-to {

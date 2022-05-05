@@ -11,7 +11,6 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import '../../components' // type definitions for type checks and intelliSense
 
 export type Position =
   | 'bottom center'

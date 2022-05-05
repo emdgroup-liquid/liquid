@@ -1,4 +1,3 @@
-import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Prop, Host } from '@stencil/core'
 
 /**
@@ -21,7 +20,7 @@ export class LdInputMessage {
       <Host class={`ld-input-message ld-input-message--${this.mode}`}>
         <ld-icon
           class="ld-input-message__icon"
-          name={this.mode}
+          name={'ld-input-message-' + this.mode}
           part="icon"
           size="sm"
         />

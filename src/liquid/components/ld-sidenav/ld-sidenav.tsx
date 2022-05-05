@@ -1,4 +1,3 @@
-import '../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -7,6 +6,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -28,7 +28,6 @@ import { getFirstFocusable } from '../../utils/focus'
 })
 export class LdSidenav {
   @Element() el: HTMLLdSidenavElement
-
   private mediaQuery: MediaQueryList
 
   /** Whether the nav should be aligned to the left or the right side of its container. */
@@ -71,10 +70,6 @@ export class LdSidenav {
 
   /** Label to be used for the landmark element (the sidenav itself). */
   @Prop() label = 'Side navigation'
-  /** Label to be used for the toggle button when navigation is expanded. */
-  @Prop() labelCollapse = 'Collapse side navigation'
-  /** Label to be used for the toggle button when navigation is collapsed. */
-  @Prop() labelExpand = 'Expand side navigation'
 
   /**
    * Set to true if you'd like to have a sidenav which partially
@@ -82,12 +77,6 @@ export class LdSidenav {
    * as icon buttons.
    */
   @Prop() narrow = false
-
-  /**
-   * Set to true if the subnav should use a neutral background color
-   * instead of theme colors.
-   */
-  @Prop() neutral = false
 
   /**
    * Indicates that the navigation is visible in a viewport
@@ -121,10 +110,25 @@ export class LdSidenav {
   @State() hasActiveSubnav = false
   @State() hasShadowBottom = false
   @State() hasShadowTop = false
-  @State() initialized = false
+  @State() transitions = false
+
+  /**
+   * Toggles sidenav.
+   */
+  @Method()
+  async toggle() {
+    if (this.closable) {
+      this.open = !this.open
+    } else {
+      this.toggleCollapsedState()
+    }
+  }
 
   /** Emitted when the sidenav collapses or expands. */
-  @Event() ldSidenavCollapsedChange: EventEmitter<boolean>
+  @Event() ldSidenavCollapsedChange: EventEmitter<{
+    collapsed: boolean
+    fully: boolean
+  }>
 
   /** Emitted when the sidenav opens or closes. */
   @Event() ldSidenavOpenChange: EventEmitter<boolean>
@@ -134,25 +138,53 @@ export class LdSidenav {
 
   @Watch('collapsed')
   onCollapsedChange(collapsed) {
-    // Apply transitions class explicitly on collapsed state change
-    // in order to prevent transitions when closable state changes to false
-    // which may happen on screen resize or orientation change events.
-    if (!this.closable) {
-      this.el.classList.add('ld-sidenav--transitions')
-    }
     // The ldSidenavCollapsedChange event needs to be emitted even if the
     // sidenav is currently not collapsible (when it is closable), because
     // on breakpoint change its subcomponents need to be rendered according
     // to the new state and thus need to update their state using the event.
-    this.ldSidenavCollapsedChange.emit(collapsed)
+    this.ldSidenavCollapsedChange.emit({
+      collapsed,
+      fully: this.fullyCollapsible,
+    })
+
+    // If the sidenav was fully collapsed and is being expanded, set the focus
+    // on the first focusable element. If it is being collapsed, set the focus
+    // on the toggle outside if it is there.
+    if (this.fullyCollapsible) {
+      if (!collapsed) {
+        const firstFocusableInSidenav = getFirstFocusable(this.el)
+
+        // Timeout is required, because we need to wait for the element being
+        // focusable after expansion of the sidenav.
+        setTimeout(() => {
+          firstFocusableInSidenav.focus()
+        }, 200)
+      } else {
+        const previousElementSibling = this.el.previousElementSibling
+        if (previousElementSibling?.tagName === 'LD-SIDENAV-TOGGLE-OUTSIDE') {
+          // Timeout is required, because we need to wait for the element being
+          // focusable after expansion of the sidenav.
+          setTimeout(() => {
+            ;(
+              previousElementSibling as HTMLLdSidenavToggleOutsideElement
+            ).focusInner()
+          }, 200)
+        }
+      }
+    }
+
+    if (collapsed) {
+      this.open = false
+    }
   }
 
   @Watch('open')
   onOpenChange(open) {
-    // Same applies here as for onCollapsedChange.
-    this.el.classList.add('ld-sidenav--transitions')
-
     this.ldSidenavOpenChange.emit(open)
+
+    if (!open && this.collapsible) {
+      this.collapsed = true
+    }
   }
 
   @Listen('click', {
@@ -180,7 +212,7 @@ export class LdSidenav {
 
   @Listen('mouseenter')
   handleMouseIn() {
-    if (this.expandTrigger === 'mouseenter') {
+    if (this.fullyCollapsible || this.expandTrigger === 'mouseenter') {
       this.collapsed = false
     }
   }
@@ -212,6 +244,9 @@ export class LdSidenav {
       .shadowRoot.querySelector<HTMLButtonElement | HTMLAnchorElement>(
         '[part*="focusable"]'
       )
+
+    // Always expand side navigation on back button click.
+    this.collapsed = false
   }
 
   @Listen('ldSidenavNavitemTo')
@@ -240,7 +275,8 @@ export class LdSidenav {
     const activeSubnavContainsIcons = !!Array.from(
       activeSubnav.querySelectorAll('ld-sidenav-navitem')
     ).find(({ mode }) => !mode)
-    this.fullyCollapsible = !this.narrow || !activeSubnavContainsIcons
+    this.fullyCollapsible =
+      this.collapsible && (!this.narrow || !activeSubnavContainsIcons)
 
     this.updateFocus()
   }
@@ -378,6 +414,11 @@ export class LdSidenav {
     }
   }
 
+  @Listen('ldSidenavHeaderToggleClick')
+  handleHeaderToggleClick() {
+    this.toggle()
+  }
+
   private toFocus: HTMLElement = undefined
   private focusTimeout = undefined
   private updateFocus = () => {
@@ -402,9 +443,19 @@ export class LdSidenav {
 
   private onMatchMediaChange = (ev: MediaQueryListEvent) => {
     this.closable = ev.matches
-    if (this.closable) {
-      this.el.classList.remove('ld-sidenav--transitions')
-    }
+
+    // Remove transitions class on breakpoint change in order to prevent
+    // weird looking transitions on screen resize or orientation change events.
+    // Add it back instantly after style changes have been applied.
+    this.transitions = false
+    setTimeout(() => {
+      this.transitions = true
+    }, 100)
+
+    // When there is less space available than before the breakpoint change,
+    // collapse the side nav if it is collapsible.
+    if (this.closable && this.collapsible) this.collapsed = true
+
     this.ldSidenavBreakpointChange.emit(this.closable)
   }
 
@@ -413,16 +464,20 @@ export class LdSidenav {
     this.mediaQuery.addEventListener('change', this.onMatchMediaChange)
     this.closable = this.mediaQuery.matches
     this.fullyCollapsible =
-      !this.narrow || !this.el.querySelector('ld-sidenav-slider')
+      this.collapsible &&
+      (!this.narrow || !this.el.querySelector('ld-sidenav-slider'))
   }
 
   componentDidLoad() {
-    this.ldSidenavCollapsedChange.emit(this.collapsible && this.collapsed)
+    this.ldSidenavCollapsedChange.emit({
+      collapsed: this.collapsible && this.collapsed,
+      fully: this.fullyCollapsible,
+    })
     this.ldSidenavOpenChange.emit(this.open)
     this.ldSidenavBreakpointChange.emit(this.closable)
 
     setTimeout(() => {
-      this.initialized = true
+      this.transitions = true
     })
   }
 
@@ -434,7 +489,7 @@ export class LdSidenav {
     const cl = [
       'ld-sidenav',
       this.align === 'right' && 'ld-sidenav--right',
-      this.initialized && 'ld-sidenav--initialized',
+      this.transitions && 'ld-sidenav--transitions',
       this.closable && 'ld-sidenav--closable',
       this.collapsible && this.collapsed && 'ld-sidenav--collapsed',
       this.collapsible && 'ld-sidenav--collapsible',
@@ -442,33 +497,13 @@ export class LdSidenav {
       this.hasActiveSubnav && 'ld-sidenav--has-active-subnav',
       this.hasShadowTop && 'ld-sidenav--has-shadow-top',
       this.hasShadowBottom && 'ld-sidenav--has-shadow-bottom',
-      this.neutral && 'ld-sidenav--neutral',
       this.open && 'ld-sidenav--open',
       this.toggleTransitionDisabled && 'ld-sidenav--toggle-transition-disabled',
     ]
 
     return (
       <Host class={getClassNames(cl)} role="navigation" aria-label={this.label}>
-        {!this.closable && this.collapsible && (
-          <button
-            role="switch"
-            brand-color
-            aria-checked={this.collapsed ? 'false' : 'true'}
-            class="ld-sidenav__toggle"
-            onClick={this.toggleCollapsedState}
-            part="toggle"
-          >
-            <ld-icon
-              part="toggle-icon"
-              size="sm"
-              name="arrow-left"
-              class="ld-sidenav__toggle-icon"
-            />
-            <ld-sr-only>
-              {this.collapsed ? this.labelExpand : this.labelCollapse}
-            </ld-sr-only>
-          </button>
-        )}
+        <slot name="header"></slot>
         <div class="ld-sidenav__content">
           <div class="ld-sidenav__slot-container-top" part="slot-container-top">
             <slot name="top"></slot>
@@ -491,6 +526,10 @@ export class LdSidenav {
             <slot name="bottom"></slot>
           </div>
         </div>
+        <div
+          onClick={this.toggle.bind(this)}
+          class="ld-sidenav__fully-collapsed-click-area"
+        ></div>
       </Host>
     )
   }

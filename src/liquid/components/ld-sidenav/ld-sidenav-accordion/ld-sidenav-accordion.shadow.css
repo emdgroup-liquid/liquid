@@ -10,15 +10,16 @@
   --ld-accordion-toggle-size: var(--ld-sidenav-navitem-icon-size);
 
   --ld-sidenav-navitem-tertiary-indent: calc(
-    1 * var(--ld-sidenav-padding-x) + 0.3125rem
-  );
-  --ld-sidenav-navitem-tertiary-width: calc(
-    100% - (2 * var(--ld-sidenav-padding-x)) - 0.3125rem
+    2 * var(--ld-sidenav-padding-x) + 0.3125rem
   );
 
-  transform: translateY(var(--ld-slider-navitem-move-up, 0px));
-  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-    var(--ld-sidenav-transition-delay-collapse-expand) ease;
+  transform: translateY(
+    var(
+      --ld-slider-navitem-move-up-closable,
+      var(--ld-slider-navitem-move-up, 0px)
+    )
+  );
+  transition: var(--ld-sidenav-stack-to-top-transition);
 
   :host(.ld-sidenav-accordion--collapsed) & {
     pointer-events: none;
@@ -30,6 +31,10 @@
     --ld-accordion-padding-x: 0;
     margin: var(--ld-sp-6) calc(-1 * var(--ld-sidenav-padding-x)) var(--ld-sp-6)
       0;
+
+    .ld-sidenav-accordion__accordion-panel {
+      padding: 0 var(--ld-sidenav-padding-x) 0 0;
+    }
   }
 
   :host(:not(.ld-sidenav-accordion--transitions-enabled)) & {

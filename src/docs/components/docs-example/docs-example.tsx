@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checking and intelliSense
 import { Component, h, Host, Prop, Listen, State } from '@stencil/core'
 import { getClassNames } from '../../../liquid/utils/getClassNames'
 

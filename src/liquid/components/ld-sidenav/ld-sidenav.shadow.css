@@ -1,6 +1,5 @@
 :host {
   /* layout */
-  --ld-sidenav-closable-min-width: 20rem;
   --ld-sidenav-padding-x: 1rem;
   --ld-sidenav-padding-y: 1rem;
   --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);
@@ -16,11 +15,13 @@
   --ld-sidenav-width-collapsed: calc(
     2 * var(--ld-sidenav-padding-x) + var(--ld-sidenav-navitem-icon-size)
   );
-  --ld-sidenav-width-fully-collapsed: 1rem;
+  --ld-sidenav-width-fully-collapsed: calc(-1 * var(--ld-sp-1));
 
   /* layout ld-navitem */
+  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
   --ld-sidenav-navitem-icon-size: var(--ld-sp-32);
   --ld-sidenav-navitem-bg-inset: var(--ld-sp-6);
+  --ld-sidenav-navitem-border-radius: var(--ld-br-l);
   --ld-sidenav-navitem-tertiary-indent: calc(
     3 * var(--ld-sidenav-padding-x) + 0.3125rem
   );
@@ -29,18 +30,26 @@
   );
 
   /* transitions */
+  --ld-sidenav-collapse-content-transition: opacity
+      var(--ld-sidenav-transition-duration-collapse-expand)
+      var(--ld-sidenav-transition-delay-collapse-expand) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  --ld-sidenav-transition-delay: 0s;
+  --ld-sidenav-transition-delay-collapse-expand: 0s;
   /* Not using 0s here because we rely on the transition end event. */
   --ld-sidenav-transition-duration: 0.001s;
   --ld-sidenav-transition-duration-collapse-expand: 0.001s;
-  --ld-sidenav-transition-delay: 0s;
-  --ld-sidenav-transition-delay-collapse-expand: 0s;
   --ld-sidenav-translate-x-direction: 1;
+  --ld-sidenav-stack-to-top-transition: transform
+    var(--ld-sidenav-transition-duration-collapse-expand)
+    var(--ld-sidenav-transition-delay-collapse-expand) ease;
 
   /* colors */
   --ld-sidenav-bg-color: var(--ld-col-wht);
-  --ld-sidenav-subnav-bg-color: var(--ld-thm-primary-alpha-lowest);
+  --ld-sidenav-separator-line-bg-col: var(--ld-col-neutral-100);
+  --ld-sidenav-subnav-bg-color: var(--ld-col-wht);
 
-  &(.ld-sidenav--initialized) {
+  &(.ld-sidenav--transitions) {
     @media (prefers-reduced-motion: no-preference) {
       --ld-sidenav-transition-duration: 0.2s;
       --ld-sidenav-transition-duration-collapse-expand: 0.2s;
@@ -56,18 +65,20 @@
     }
   }
 
-  &(.ld-sidenav--neutral) {
-    --ld-sidenav-subnav-bg-color: var(--ld-col-neutral-050);
-  }
-
-  position: var(--ld-sidenav-position, fixed);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--ld-sidenav-width);
   background-color: var(--ld-sidenav-bg-color);
+  bottom: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font: var(--ld-typo-body-m);
+  left: 0;
+  overflow: hidden;
+  position: var(--ld-sidenav-position, fixed);
   text-align: left;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
+  top: 0;
+  width: var(--ld-sidenav-width);
   z-index: 0; /* create own stacking context */
 
   &::before {
@@ -76,23 +87,17 @@
     top: 0;
     bottom: 0;
     right: 0;
-    width: var(--ld-sp-1);
-    background-color: var(--ld-col-neutral-100);
-    transform: translateX(50%) scaleX(1.5);
-    z-index: 1;
+    width: var(--ld-sp-2);
+    background-color: var(--ld-sidenav-separator-line-bg-col);
+    z-index: 2;
   }
 
-  &(.ld-sidenav--transitions) {
-    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-      ease;
-
-    .ld-sidenav__content {
-      transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-        linear;
-    }
+  .ld-sidenav__content {
+    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+      linear;
   }
 
-  &(.ld-sidenav--transitions.ld-sidenav--closable:not(.ld-sidenav--open)) {
+  &(.ld-sidenav--closable:not(.ld-sidenav--open)) {
     .ld-sidenav__content {
       transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
           linear,
@@ -123,6 +128,10 @@
       opacity: 0;
       visibility: hidden;
     }
+
+    slot {
+      pointer-events: none;
+    }
   }
 
   &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible.ld-sidenav--transitions:not(.ld-sidenav--closable)) {
@@ -148,8 +157,11 @@
   }
 
   &(.ld-sidenav--closable) {
+    --ld-sidenav-collapse-content-transition: none;
+    --ld-sidenav-stack-to-top-transition: none;
+    --ld-slider-navitem-move-up-closable: 0;
+    --ld-sidenav-translate-x-delta: 0;
     width: 100%;
-    min-width: var(--ld-sidenav-closable-min-width);
     transform: translateX(
       calc(var(--ld-sidenav-translate-x-direction) * -100%)
     );
@@ -298,5 +310,17 @@
     &::before {
       opacity: 1;
     }
+  }
+}
+
+.ld-sidenav__fully-collapsed-click-area {
+  display: none;
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+
+  :host(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable))
+    & {
+    display: block;
   }
 }

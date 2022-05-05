@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -100,9 +99,14 @@ export class LdSidenavSubnav {
   }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     if (ev.target !== this.sidenav) return
-    if (ev.detail) {
+    if (ev.detail.collapsed) {
       this.scrollToTop(true)
       this.toggleVisibilityOnHidableContent(false)
     } else {

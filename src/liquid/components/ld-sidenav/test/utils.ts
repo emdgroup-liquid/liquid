@@ -6,6 +6,11 @@ export function getSidenavWithoutSubnavigation(options?: {
   collapsed?: boolean
 }) {
   return `
+    ${
+      options?.collapsible
+        ? '<ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>'
+        : ''
+    }
     <ld-sidenav open${options?.collapsible ? ' collapsible' : ''}${
     options?.collapsed ? ' collapsed' : ''
   }${options?.align ? ' align="' + options.align + '"' : ''}>
@@ -26,11 +31,17 @@ export function getSidenavWithSubnavigation(options?: {
   roundedBackButton?: boolean
 }) {
   return `
+    ${
+      options?.collapsible
+        ? '<ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>'
+        : ''
+    }
     <ld-sidenav open${options?.collapsible ? ' collapsible' : ''}${
     options?.collapsed ? ' collapsed' : ''
   }${options?.narrow ? ' narrow' : ''}${options?.neutral ? ' neutral' : ''}${
     options?.align ? ' align="' + options.align + '"' : ''
   }>
+      <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
       <ld-sidenav-back slot="top">
         <ld-sidenav-navitem ${
           options?.roundedBackButton ? ' rounded' : ''
@@ -334,11 +345,17 @@ export function getSidenavWithAccordion(options?: {
       : ' preserve-state="false"'
 
   return `
+    ${
+      options?.collapsible
+        ? '<ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>'
+        : ''
+    }
     <ld-sidenav open${options?.collapsible ? ' collapsible' : ''}${
     options?.collapsed ? ' collapsed' : ''
   }${options?.narrow ? ' narrow' : ''}${options?.neutral ? ' neutral' : ''}${
     options?.align ? ' align="' + options.align + '"' : ''
   }>
+      <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
       <ld-sidenav-back slot="top">
         <ld-sidenav-navitem ${
           options?.roundedBackButton ? ' rounded' : ''

@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for intelliSense
 import { Component, h, Host, State, Listen } from '@stencil/core'
 import eventBus from '../../utils/eventBus'
 import { NavEventType } from '../../utils/eventTypes'

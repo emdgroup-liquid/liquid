@@ -286,7 +286,9 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
+ - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
 
 ### Depends on
 
@@ -298,7 +300,9 @@ Type: `Promise<void>`
 graph TD;
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
+  ld-sidenav-header --> ld-tooltip
   ld-sidenav-navitem --> ld-tooltip
+  ld-sidenav-toggle-outside --> ld-tooltip
   style ld-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
