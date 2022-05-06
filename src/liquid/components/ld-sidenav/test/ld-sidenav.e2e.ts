@@ -317,6 +317,31 @@ describe('ld-sidenav', () => {
         expect(result).toMatchScreenshot()
       })
     })
+
+    fit('allows setting multiple navitems in top and bottom slots', async () => {
+      const page = await getPageWithContent(`
+        <ld-sidenav open>
+          <ld-sidenav-back slot="top">
+            <ld-sidenav-navitem>Foo</ld-sidenav-navitem>
+          </ld-sidenav-back>
+          <ld-sidenav-navitem slot="top">Bar</ld-sidenav-navitem>
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-heading>Baz</ld-sidenav-heading>
+            <ld-sidenav-navitem>Qux</ld-sidenav-navitem>
+          </ld-sidenav-slider>
+          <ld-sidenav-navitem slot="bottom" rounded>Corge</ld-sidenav-navitem>
+          <ld-sidenav-navitem slot="bottom" rounded>Grault</ld-sidenav-navitem>
+        </ld-sidenav>
+      `)
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
   })
 
   describe('with subnavigation aligned to the right', () => {
