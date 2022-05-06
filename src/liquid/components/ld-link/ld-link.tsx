@@ -1,15 +1,11 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Element, Host, h, Prop, State } from '@stencil/core'
+import { Component, Element, h, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part size - sets the size of the text
- * @part disabled - sets the disabled state
- * @part iconStart - displays chevron icon as prefix
- * @part iconEnd - displays chevron icon as suffix
  */
 
 @Component({
@@ -19,26 +15,28 @@ import { cloneAttributes } from '../../utils/cloneAttributes'
 })
 export class LdLink implements ClonesAttributes {
   @Element() el: HTMLElement
-  private anchor: HTMLAnchorElement
   private attributesObserver: MutationObserver
 
-  /** Sets the size of the text */
-  @Prop() size?: 'sm' | 'lg'
-
-  /** Sets the disabled state */
+  /**
+   * The disabled attribute sets `aria-disabled="true"`
+   * on the rendered anchor element.
+   */
   @Prop() disabled?: boolean
 
-  /** Displays chevron icon as prefix */
-  @Prop() iconStart?: boolean
+  /** Displays chevron icon. */
+  @Prop() chevron?: 'start' | 'end'
 
-  /** Displays chevron icon as suffix */
-  @Prop() iconEnd?: boolean
+  /**
+   * The `target` attributed can be used in conjunction with the `href` attribute.
+   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
+   * for more information on the `target` attribute.
+   */
+  @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   @State() clonedAttributes
 
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, [
-      'size',
       'iconStart',
       'iconEnd',
     ])
@@ -58,50 +56,32 @@ export class LdLink implements ClonesAttributes {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    const ariaDisabled = this.anchor.getAttribute('aria-disabled')
-
-    if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
+    if (this.disabled || this.el.ariaDisabled) {
       ev.preventDefault()
-      ev.stopImmediatePropagation()
       return
     }
   }
 
   render() {
+    const cl = getClassNames([
+      'ld-link',
+      this.chevron && `ld-link--chevron-${this.chevron}`,
+      this.disabled && `ld-link--disabled`,
+    ])
+
     return (
-      <Host>
-        <a
-          {...this.clonedAttributes}
-          ref={(el: HTMLAnchorElement) => (this.anchor = el)}
-          class={getClassNames([
-            'ld-link',
-            this.size && `ld-link--${this.size}`,
-            this.disabled && `ld-link--disabled`,
-          ])}
-          aria-disabled={
-            this.disabled || this.el.getAttribute('aria-disabled') === 'true'
-              ? 'true'
-              : undefined
-          }
-          disabled={this.disabled}
-        >
-          {this.iconStart && (
-            <ld-icon
-              class="ld-link__icon"
-              name="arrow-right"
-              size={this.size}
-            />
-          )}
-          <slot></slot>
-          {this.iconEnd && (
-            <ld-icon
-              class="ld-link__icon"
-              name="arrow-right"
-              size={this.size}
-            />
-          )}
-        </a>
-      </Host>
+      <a
+        {...this.clonedAttributes}
+        onClick={this.handleClick}
+        class={cl}
+        aria-disabled={
+          this.disabled || this.el.ariaDisabled ? 'true' : undefined
+        }
+        rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
+        disabled={this.disabled}
+      >
+        <slot></slot>
+      </a>
     )
   }
 }

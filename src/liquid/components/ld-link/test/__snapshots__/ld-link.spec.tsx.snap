@@ -33,45 +33,10 @@ exports[`ld-link renders with href 1`] = `
 </ld-link>
 `;
 
-exports[`ld-link renders with icon on end 1`] = `
-<ld-link icon-end="">
+exports[`ld-link renders with target _blank and rel 1`] = `
+<ld-link href="#" target="_blank">
   <mock:shadow-root>
-    <a class="ld-link" icon-end="">
-      <slot></slot>
-      <ld-icon class="ld-link__icon" name="arrow-right"></ld-icon>
-    </a>
-  </mock:shadow-root>
-  Link
-</ld-link>
-`;
-
-exports[`ld-link renders with icon on start 1`] = `
-<ld-link icon-start="">
-  <mock:shadow-root>
-    <a class="ld-link" icon-start="">
-      <ld-icon class="ld-link__icon" name="arrow-right"></ld-icon>
-      <slot></slot>
-    </a>
-  </mock:shadow-root>
-  Link
-</ld-link>
-`;
-
-exports[`ld-link renders with large size 1`] = `
-<ld-link>
-  <mock:shadow-root>
-    <a class="ld-link ld-link--lg">
-      <slot></slot>
-    </a>
-  </mock:shadow-root>
-  Link
-</ld-link>
-`;
-
-exports[`ld-link renders with small size 1`] = `
-<ld-link>
-  <mock:shadow-root>
-    <a class="ld-link ld-link--sm">
+    <a class="ld-link" href="#" rel="noreferrer noopener" target="_blank">
       <slot></slot>
     </a>
   </mock:shadow-root>

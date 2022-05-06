@@ -25,65 +25,86 @@ This component is meant to be used in conjunction with the [`ld-icon`](component
 <!-- CSS component -->
 
 <a class="ld-link">Link</a>
-
 {% endexample %}
 
 ### Different sizes
 
-{% example %}
-<ld-link size="sm">Link</ld-link>
-<ld-link>Link</ld-link>
-<ld-link size="lg">Link</ld-link>
+The `ld-link` component inherits its font-size and line-height.
+
+{% example '{ "stacked": true }' %}
+<ld-typo variant="body-xs">
+  <b>XS</b>: Lorem ipsum <ld-link>dolor sit amet</ld-link>, consectetur adipiscing elit.
+</ld-typo>
+
+<ld-typo variant="body-s">
+  <b>S</b>: Lorem ipsum <ld-link>dolor sit amet</ld-link>, consectetur adipiscing elit.
+</ld-typo>
+
+<ld-typo variant="body-m">
+  <b>M</b>: Lorem ipsum <ld-link>dolor sit amet</ld-link>, consectetur adipiscing elit.
+</ld-typo>
 
 <!-- CSS component -->
 
-<a class="ld-link ld-link--sm">Link</a>
-<a class="ld-link">Link</a>
-<a class="ld-link ld-link--lg">Link</a>
+<p class="ld-typo--body-xs">
+  <b>XS</b>: Lorem ipsum <a class="ld-link">dolor sit amet</a>, consectetur adipiscing elit.
+</p>
 
+<p class="ld-typo--body-s">
+  <b>S</b>: Lorem ipsum <a class="ld-link">dolor sit amet</a>, consectetur adipiscing elit.
+</p>
+
+<p class="ld-typo--body-m">
+  <b>M</b>: Lorem ipsum <a class="ld-link">dolor sit amet</a>, consectetur adipiscing elit.
+</p>
 {% endexample %}
 
 ### Disabled state
 
+There are several ways to disable a link. The simplest one is by not using a `href` prop. However, this renders the link non-focusable. If you want the link to stay focusable even when it is supposed to be disabled, use the `disabled` prop on the Web Component, respectively set the `aria-disabled` attribute to `true` on the CSS component and keep the `href` set. The Web Component version of the link will prevent the default behavior of the anchor element on click. The CSS component will obviously not do this out of the box, so you will have to handle this on your side.
+
 {% example %}
-<ld-link disabled>Link</ld-link>
+<ld-link href="#" disabled>Link</ld-link>
 
 <!-- CSS component -->
 
-<a class="ld-link ld-link--disabled">Link</a>
+<a id="disabled-link" class="ld-link" href="#" aria-disabled="true">Link</a>
 
+<script>
+  document.getElementById('disabled-link').addEventListener('click', (ev) => {
+    ev.preventDefault()
+  })
+</script>
 {% endexample %}
 
-### With link to new address
+### With target
+
+<ld-notice headline="Note" mode="warning">
+  When using <code>target="_blank"</code>, a <code>rel</code> attribute with the value <code>noreferrer noopener</code> is applied automatically. Just in case. If you are using the CSS component version of the link, you will need to take care of this yourself. See <a href="https://web.dev/external-anchors-use-rel-noopener/" rel="noreferrer noopener" target="_blank">https://web.dev/external-anchors-use-rel-noopener/</a>
+</ld-notice>
 
 {% example %}
-<ld-link href="#">Link</ld-link>
-<ld-link href="#" target="_blank">Link new tab</ld-link>
+<ld-link href="#" target="_blank">
+  Link which opens in a new tab
+</ld-link>
 
 <!-- CSS component -->
 
-<a href="#" class="ld-link">Link</a>
-<a href="#" target="_blank" class="ld-link">Link new tab</a>
-
+<a class="ld-link" href="#" target="_blank" rel="noreferrer noopener">
+  Link which opens in a new tab
+</a>
 {% endexample %}
 
 ### With chevron icon
 
 {% example %}
-<ld-link icon-start>Link</ld-link>
-<ld-link icon-end>Link</ld-link>
+<ld-link chevron="start">Link</ld-link>
+<ld-link chevron="end">Link</ld-link>
 
 <!-- CSS component -->
 
-<a class="ld-link">
-<svg class="ld-link__icon ld-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="m7 13 4-5-4-5" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>Link</a>
-
-<a class="ld-link">Link<svg class="ld-link__icon ld-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="m7 13 4-5-4-5" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></a>
-
+<a class="ld-link ld-link--chevron-start">Link</a>
+<a class="ld-link ld-link--chevron-end">Link</a>
 {% endexample %}
 
 <!-- Auto Generated Below -->
@@ -91,38 +112,14 @@ This component is meant to be used in conjunction with the [`ld-icon`](component
 
 ## Properties
 
-| Property    | Attribute    | Description                                              | Type               | Default     |
-| ----------- | ------------ | -------------------------------------------------------- | ------------------ | ----------- |
-| `disabled`  | `disabled`   | Sets the disabled state                                  | `boolean`          | `undefined` |
-| `iconEnd`   | `icon-end`   | Displays chevron icon as suffix                          | `boolean`          | `undefined` |
-| `iconStart` | `icon-start` | Displays chevron icon as prefix                          | `boolean`          | `undefined` |
-| `key`       | `key`        | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
-| `ref`       | `ref`        | reference to component                                   | `any`              | `undefined` |
-| `size`      | `size`       | Sets the size of the text                                | `"lg" \| "sm"`     | `undefined` |
+| Property   | Attribute  | Description                                                                                                                                                                                                           | Type                                         | Default     |
+| ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
+| `chevron`  | `chevron`  | Displays chevron icon.                                                                                                                                                                                                | `"end" \| "start"`                           | `undefined` |
+| `disabled` | `disabled` | The disabled attribute sets `aria-disabled="true"` on the rendered anchor element.                                                                                                                                    | `boolean`                                    | `undefined` |
+| `key`      | `key`      | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                           | `undefined` |
+| `ref`      | `ref`      | reference to component                                                                                                                                                                                                | `any`                                        | `undefined` |
+| `target`   | `target`   | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
 
-
-## Shadow Parts
-
-| Part          | Description                     |
-| ------------- | ------------------------------- |
-| `"disabled"`  | sets the disabled state         |
-| `"iconEnd"`   | displays chevron icon as suffix |
-| `"iconStart"` | displays chevron icon as prefix |
-| `"size"`      | sets the size of the text       |
-
-
-## Dependencies
-
-### Depends on
-
-- [ld-icon](../ld-icon)
-
-### Graph
-```mermaid
-graph TD;
-  ld-link --> ld-icon
-  style ld-link fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 
