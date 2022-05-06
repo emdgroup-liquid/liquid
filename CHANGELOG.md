@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/emdgroup-liquid/liquid/compare/v1.8.1...v1.8.2) (2022-05-06)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** click on navitem with href ([a444bbc](https://github.com/emdgroup-liquid/liquid/commit/a444bbc78b317250d20f1cbea0ed146466d59b8b))
+* **ld-sidenav:** navitem margins in slot top and bottom ([9d27cc0](https://github.com/emdgroup-liquid/liquid/commit/9d27cc04fd0f380238916d2e25b420ae502d4df1))
+
 ## [1.8.1](https://github.com/emdgroup-liquid/liquid/compare/v1.8.0...v1.8.1) (2022-05-05)
 
 
