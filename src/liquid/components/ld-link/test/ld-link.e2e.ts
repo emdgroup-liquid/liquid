@@ -2,7 +2,6 @@ import {
   analyzeAccessibility,
   getPageWithContent,
 } from '../../../utils/e2e-tests'
-import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdLink } from '../ld-link'
 
 describe('ld-link', () => {
@@ -34,9 +33,10 @@ describe('ld-link', () => {
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
-    // TODO: Element has insufficient color contrast
-    xit('disabled', async () => {
-      const page = await getPageWithContent('<ld-link disabled>Link</ld-link>')
+    it('with icon start', async () => {
+      const page = await getPageWithContent(
+        '<ld-link icon-start>Link</ld-link>'
+      )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
 
@@ -44,8 +44,8 @@ describe('ld-link', () => {
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
-    it('with icon', async () => {
-      const page = await getPageWithContent('<ld-link show-icon>Link</ld-link>')
+    it('with icon end', async () => {
+      const page = await getPageWithContent('<ld-link icon-end>Link</ld-link>')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
 
@@ -54,9 +54,7 @@ describe('ld-link', () => {
     })
 
     it('with href', async () => {
-      const page = await getPageWithContent(
-        '<ld-link href="introduction/getting-started/">Link</ld-link>'
-      )
+      const page = await getPageWithContent('<ld-link href="#">Link</ld-link>')
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
 
@@ -66,7 +64,7 @@ describe('ld-link', () => {
 
     it('with target', async () => {
       const page = await getPageWithContent(
-        '<ld-link target="_blank" href="introduction/getting-started/">Link</ld-link>'
+        '<ld-link target="_blank" href="#">Link</ld-link>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -112,39 +110,14 @@ describe('ld-link', () => {
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
-    // TODO: Element has insufficient color contrast
-    xit('disabled', async () => {
-      const page = await getPageWithContent(
-        '<a class="ld-link ld-link--disabled">Link</a>',
-        { components: [LdLink] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-
-      const accessibilityReport = await analyzeAccessibility(page)
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
-
-    it('with icon', async () => {
+    it('with icon start', async () => {
       const page = await getPageWithContent(
         `
         <a class="ld-link">
         <svg class="ld-link__icon ld-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="m7 13 4-5-4-5" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m7 13 4-5-4-5" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>Link</a>
         `,
-        { components: [LdLink, LdIcon] }
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-
-      const accessibilityReport = await analyzeAccessibility(page)
-      expect(accessibilityReport).toHaveNoAccessibilityIssues()
-    })
-
-    it('with href', async () => {
-      const page = await getPageWithContent(
-        '<a href="introduction/getting-started/" class="ld-link">Link</a>',
         { components: [LdLink] }
       )
       const results = await page.compareScreenshot()
@@ -154,9 +127,25 @@ describe('ld-link', () => {
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
     })
 
-    it('with target', async () => {
+    it('with icon end', async () => {
       const page = await getPageWithContent(
-        '<a target="_blank" href="introduction/getting-started/" class="ld-link">Link</a>',
+        `
+        <a class="ld-link">Link<svg class="ld-link__icon ld-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="m7 13 4-5-4-5" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg></a>
+        `,
+        { components: [LdLink] }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+
+      const accessibilityReport = await analyzeAccessibility(page)
+      expect(accessibilityReport).toHaveNoAccessibilityIssues()
+    })
+
+    it('with link', async () => {
+      const page = await getPageWithContent(
+        '<a target="_blank" href="#" class="ld-link">Link</a>',
         { components: [LdLink] }
       )
       const results = await page.compareScreenshot()

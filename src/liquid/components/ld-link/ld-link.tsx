@@ -1,16 +1,15 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Element, Host, h, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { cloneAttributes } from '../../utils/cloneAttributes'
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part arrow - adds chevron arrow before link text
  * @part size - sets the size of the text
- * @part href - sets the link address
  * @part disabled - sets the disabled state
- * @part target - sets target of the link
- * @part showIcon - displays chevron icon as prefix
+ * @part iconStart - displays chevron icon as prefix
+ * @part iconEnd - displays chevron icon as suffix
  */
 
 @Component({
@@ -18,43 +17,89 @@ import { getClassNames } from 'src/liquid/utils/getClassNames'
   styleUrl: 'ld-link.css',
   shadow: true,
 })
-export class LdLink {
+export class LdLink implements ClonesAttributes {
+  @Element() el: HTMLElement
+  private anchor: HTMLAnchorElement
+  private attributesObserver: MutationObserver
+
   /** Sets the size of the text */
   @Prop() size?: 'sm' | 'lg'
-
-  /** Sets the link address */
-  @Prop() href?: string
 
   /** Sets the disabled state */
   @Prop() disabled?: boolean
 
-  /** Sets target of the link - _blank|_self|_parent|_top|framename */
-  @Prop() target?: string
-
   /** Displays chevron icon as prefix */
-  @Prop() showIcon?: boolean
+  @Prop() iconStart?: boolean
+
+  /** Displays chevron icon as suffix */
+  @Prop() iconEnd?: boolean
+
+  @State() clonedAttributes
+
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'size',
+      'iconStart',
+      'iconEnd',
+    ])
+  }
+
+  connectedCallback() {
+    this.el.addEventListener('click', this.handleClick, {
+      capture: true,
+    })
+  }
+
+  disconnectedCallback() {
+    this.el.removeEventListener('click', this.handleClick, {
+      capture: true,
+    })
+    this.attributesObserver?.disconnect()
+  }
+
+  private handleClick = (ev: MouseEvent) => {
+    const ariaDisabled = this.anchor.getAttribute('aria-disabled')
+
+    if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
+      ev.preventDefault()
+      ev.stopImmediatePropagation()
+      return
+    }
+  }
 
   render() {
     return (
       <Host>
         <a
-          href={this.href}
-          target={this.target ?? '_self'}
+          {...this.clonedAttributes}
+          ref={(el: HTMLAnchorElement) => (this.anchor = el)}
           class={getClassNames([
             'ld-link',
             this.size && `ld-link--${this.size}`,
             this.disabled && `ld-link--disabled`,
           ])}
+          aria-disabled={
+            this.disabled || this.el.getAttribute('aria-disabled') === 'true'
+              ? 'true'
+              : undefined
+          }
+          disabled={this.disabled}
         >
-          {this.showIcon && (
+          {this.iconStart && (
             <ld-icon
               class="ld-link__icon"
               name="arrow-right"
-              part="icon"
               size={this.size}
             />
           )}
           <slot></slot>
+          {this.iconEnd && (
+            <ld-icon
+              class="ld-link__icon"
+              name="arrow-right"
+              size={this.size}
+            />
+          )}
         </a>
       </Host>
     )

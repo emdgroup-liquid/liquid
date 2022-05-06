@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-notice renders as disabled 1`] = `
+exports[`ld-link renders as disabled 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a class="ld-link ld-link--disabled" target="_self">
+    <a aria-disabled="true" class="ld-link ld-link--disabled" disabled="">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -11,10 +11,10 @@ exports[`ld-notice renders as disabled 1`] = `
 </ld-link>
 `;
 
-exports[`ld-notice renders default 1`] = `
+exports[`ld-link renders default 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a class="ld-link" target="_self">
+    <a class="ld-link">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -22,11 +22,10 @@ exports[`ld-notice renders default 1`] = `
 </ld-link>
 `;
 
-exports[`ld-notice renders with chevron icon 1`] = `
-<ld-link show-icon="">
+exports[`ld-link renders with href 1`] = `
+<ld-link href="#">
   <mock:shadow-root>
-    <a class="ld-link" target="_self">
-      <ld-icon class="ld-link__icon" name="arrow-right" part="icon"></ld-icon>
+    <a class="ld-link" href="#">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -34,10 +33,23 @@ exports[`ld-notice renders with chevron icon 1`] = `
 </ld-link>
 `;
 
-exports[`ld-notice renders with href 1`] = `
-<ld-link>
+exports[`ld-link renders with icon on end 1`] = `
+<ld-link icon-end="">
   <mock:shadow-root>
-    <a class="ld-link" href="http://testing.stenciljs.com/introduction/getting-started/" target="_self">
+    <a class="ld-link" icon-end="">
+      <slot></slot>
+      <ld-icon class="ld-link__icon" name="arrow-right"></ld-icon>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;
+
+exports[`ld-link renders with icon on start 1`] = `
+<ld-link icon-start="">
+  <mock:shadow-root>
+    <a class="ld-link" icon-start="">
+      <ld-icon class="ld-link__icon" name="arrow-right"></ld-icon>
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -45,10 +57,10 @@ exports[`ld-notice renders with href 1`] = `
 </ld-link>
 `;
 
-exports[`ld-notice renders with large size 1`] = `
+exports[`ld-link renders with large size 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a class="ld-link ld-link--lg" target="_self">
+    <a class="ld-link ld-link--lg">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -56,21 +68,10 @@ exports[`ld-notice renders with large size 1`] = `
 </ld-link>
 `;
 
-exports[`ld-notice renders with small size 1`] = `
+exports[`ld-link renders with small size 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a class="ld-link ld-link--sm" target="_self">
-      <slot></slot>
-    </a>
-  </mock:shadow-root>
-  Link
-</ld-link>
-`;
-
-exports[`ld-notice renders with target _blank 1`] = `
-<ld-link>
-  <mock:shadow-root>
-    <a class="ld-link" href="http://testing.stenciljs.com/introduction/getting-started/" target="_blank">
+    <a class="ld-link ld-link--sm">
       <slot></slot>
     </a>
   </mock:shadow-root>

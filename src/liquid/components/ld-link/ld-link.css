@@ -4,19 +4,19 @@
   --ld-link-size-lg: 1.125rem;
   --ld-typo-link-brand-color: var(--ld-thm-primary);
 
-  position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   color: var(--ld-typo-link-brand-color);
-  font-size: var(--ld-link-font-size);
-  font-weight: 700;
   text-decoration: none;
+  font-weight: 700;
+  font-family: var(--ld-font-body);
   
   &--sm {
-    --ld-link-font-size: var(--ld-link-size-sm);
+    font-size: var(--ld-link-size-sm);
   }
-  
+
   &--lg {
-    --ld-link-font-size: var(--ld-link-size-lg);
+    font-size: var(--ld-link-size-lg);
   }
 
   &:hover {
@@ -33,11 +33,12 @@
     outline: none;
   }
 
-  &:visited,
   &:active {
     color: var(--ld-thm-primary-active);
   }
 
+  &:where(:disabled),
+  &:where([aria-disabled='true']),
   &--disabled {
     opacity: 0.3;
     pointer-events: none;
@@ -49,4 +50,8 @@
   --ld-icon-size-sm: 0.625rem;
   --ld-icon-size-md: 0.750rem;
   --ld-icon-size-lg: 0.875rem;
+
+  &::part(arrow-right) {
+    stroke-width: 3;
+  }
 }

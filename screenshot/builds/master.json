@@ -7455,7 +7455,7 @@
     },
     {
       "id": "1c700f17",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "image": "ff1939571c2fde43291c64e3b1e47c26.png",
       "userAgent": "default",
       "desc": "ld-link css component basic",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7468,7 +7468,7 @@
     },
     {
       "id": "adadad6d",
-      "image": "725ca25a69b1de5a929100d5008d1c24.png",
+      "image": "904cdfdc085c75e8b183ccf8ad1caae2.png",
       "userAgent": "default",
       "desc": "ld-link css component large",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7481,7 +7481,7 @@
     },
     {
       "id": "4a5e264a",
-      "image": "7075797b81acb2387bbe5ba0256bfb5e.png",
+      "image": "69af759c36cae8a65b1bcb140d613ab0.png",
       "userAgent": "default",
       "desc": "ld-link css component small",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7493,10 +7493,10 @@
       "isMobile": false
     },
     {
-      "id": "b30f92a0",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "id": "83eefc7b",
+      "image": "62d0d0903365a26c2607fe008e6d4749.png",
       "userAgent": "default",
-      "desc": "ld-link css component with href",
+      "desc": "ld-link css component with icon end",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
       "width": 600,
       "height": 600,
@@ -7506,10 +7506,10 @@
       "isMobile": false
     },
     {
-      "id": "9addd87d",
-      "image": "74d35e3110db86fb83b86cb4aaf4a679.png",
+      "id": "cf6d6ddc",
+      "image": "9631e2667c09f63334fe170931be024f.png",
       "userAgent": "default",
-      "desc": "ld-link css component with icon",
+      "desc": "ld-link css component with icon start",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
       "width": 600,
       "height": 600,
@@ -7519,10 +7519,10 @@
       "isMobile": false
     },
     {
-      "id": "c92c56e9",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "id": "b91e22cd",
+      "image": "ff1939571c2fde43291c64e3b1e47c26.png",
       "userAgent": "default",
-      "desc": "ld-link css component with target",
+      "desc": "ld-link css component with link",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
       "width": 600,
       "height": 600,
@@ -7533,7 +7533,7 @@
     },
     {
       "id": "7c18ab36",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "image": "a90122fe4274e338c788c1c88b4e1d9f.png",
       "userAgent": "default",
       "desc": "ld-link web component basic",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7546,7 +7546,7 @@
     },
     {
       "id": "684faf65",
-      "image": "725ca25a69b1de5a929100d5008d1c24.png",
+      "image": "904cdfdc085c75e8b183ccf8ad1caae2.png",
       "userAgent": "default",
       "desc": "ld-link web component large",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7559,7 +7559,7 @@
     },
     {
       "id": "74577849",
-      "image": "e240c8244fcb62503956bf614a3e89e6.png",
+      "image": "69af759c36cae8a65b1bcb140d613ab0.png",
       "userAgent": "default",
       "desc": "ld-link web component small",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7572,7 +7572,7 @@
     },
     {
       "id": "737ee0ac",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "image": "a90122fe4274e338c788c1c88b4e1d9f.png",
       "userAgent": "default",
       "desc": "ld-link web component with href",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
@@ -7584,10 +7584,23 @@
       "isMobile": false
     },
     {
-      "id": "01a63e1e",
-      "image": "74d35e3110db86fb83b86cb4aaf4a679.png",
+      "id": "5830b906",
+      "image": "2754302075e229592b3076d5ff730449.png",
       "userAgent": "default",
-      "desc": "ld-link web component with icon",
+      "desc": "ld-link web component with icon end",
+      "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2311b553",
+      "image": "8c0917d073674bd7f18328f179922a8c.png",
+      "userAgent": "default",
+      "desc": "ld-link web component with icon start",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",
       "width": 600,
       "height": 600,
@@ -7598,7 +7611,7 @@
     },
     {
       "id": "a73c8da4",
-      "image": "2ff5eca22ed1c63808f773ae3f073a71.png",
+      "image": "a90122fe4274e338c788c1c88b4e1d9f.png",
       "userAgent": "default",
       "desc": "ld-link web component with target",
       "testPath": "./src/liquid/components/ld-link/test/ld-link.e2e.ts",

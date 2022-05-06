@@ -1,8 +1,9 @@
 import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdLink } from '../ld-link'
+import '../../../utils/mutationObserver'
 
-describe('ld-notice', () => {
+describe('ld-link', () => {
   it('renders default', async () => {
     const page = await newSpecPage({
       components: [LdLink],
@@ -45,10 +46,21 @@ describe('ld-notice', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('renders with chevron icon', async () => {
+  it('renders with icon on start', async () => {
     const page = await newSpecPage({
       components: [LdLink],
-      template: () => <ld-link show-icon>Link</ld-link>,
+      template: () => <ld-link icon-start>Link</ld-link>,
+    })
+
+    const icon = page.root.shadowRoot.querySelector<HTMLElement>('ld-icon')
+    expect(icon).not.toBeNull()
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('renders with icon on end', async () => {
+    const page = await newSpecPage({
+      components: [LdLink],
+      template: () => <ld-link icon-end>Link</ld-link>,
     })
 
     const icon = page.root.shadowRoot.querySelector<HTMLElement>('ld-icon')
@@ -57,31 +69,13 @@ describe('ld-notice', () => {
   })
 
   it('renders with href', async () => {
-    const url = 'http://testing.stenciljs.com/introduction/getting-started/'
     const page = await newSpecPage({
       components: [LdLink],
-      template: () => <ld-link href={url}>Link</ld-link>,
+      html: '<ld-link href="#">Link</ld-link>',
     })
 
     const anchorElement = page.root.shadowRoot.querySelector<HTMLElement>('a')
-    expect(anchorElement).toHaveProperty('href', url)
-    expect(page.root).toMatchSnapshot()
-  })
-
-  it('renders with target _blank', async () => {
-    const url = 'http://testing.stenciljs.com/introduction/getting-started/'
-    const target = '_blank'
-    const page = await newSpecPage({
-      components: [LdLink],
-      template: () => (
-        <ld-link href={url} target={target}>
-          Link
-        </ld-link>
-      ),
-    })
-
-    const anchorElement = page.root.shadowRoot.querySelector<HTMLElement>('a')
-    expect(anchorElement).toEqualAttribute('target', target)
+    expect(anchorElement).toHaveProperty('href')
     expect(page.root).toMatchSnapshot()
   })
 })
