@@ -10288,6 +10288,19 @@
       "isMobile": false
     },
     {
+      "id": "c4da0739",
+      "image": "2e6b2a451a32825b37e81f506ba8c34e.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with subnavigation allows setting multiple navitems in top and bottom slots",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "feb5e844",
       "image": "b7812b9f2cf76bcd3cab51d166da840d.png",
       "userAgent": "default",

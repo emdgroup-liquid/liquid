@@ -163,7 +163,8 @@
     margin-bottom: var(--ld-sidenav-padding-y);
   }
 
-  ::slotted(ld-sidenav-navitem:first-of-type) {
+  ::slotted(ld-sidenav-navitem[slot='top']),
+  ::slotted(ld-sidenav-navitem[slot='bottom']) {
     margin-top: var(--ld-sidenav-padding-y);
   }
 
