@@ -22,7 +22,7 @@
 
   :host(&.ld-header--hidden),
   &.ld-header--hidden {
-    transform: translateY(calc(var(--ld-header-height) * -1));
+    transform: translateY(-100%);
   }
 }
 
