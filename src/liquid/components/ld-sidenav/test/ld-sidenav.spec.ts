@@ -408,7 +408,7 @@ describe('ld-sidenav', () => {
     it('expands on click of navitem with to prop', async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
-        html: `<ld-sidenav collapsible collapsed>
+        html: `<ld-sidenav collapsible collapsed narrow>
           <ld-sidenav-slider label="Outline of Computer Science">
             <ld-sidenav-navitem to="mathematical-foundations">Mathematical foundations</ld-sidenav-navitem>
           </ld-sidenav-slider>
@@ -419,11 +419,7 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
       const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
-        new MouseEvent('mousedown', {
-          button: 0,
-        })
-      )
+      ldSidenavNavitem.shadowRoot.querySelector('button').click()
       await page.waitForChanges()
 
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
@@ -443,11 +439,7 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
       const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
-        new MouseEvent('mousedown', {
-          button: 0,
-        })
-      )
+      ldSidenavNavitem.shadowRoot.querySelector('button').click()
       await page.waitForChanges()
 
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
@@ -467,11 +459,7 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
       const ldSidenavNavitem = ldSidenav.querySelector('ld-sidenav-navitem')
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
-        new MouseEvent('mousedown', {
-          button: 0,
-        })
-      )
+      ldSidenavNavitem.shadowRoot.querySelector('button').click()
       await page.waitForChanges()
 
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
@@ -502,11 +490,7 @@ describe('ld-sidenav', () => {
         'ld-accordion-section--expanded'
       )
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
-        new MouseEvent('mousedown', {
-          button: 0,
-        })
-      )
+      ldSidenavNavitem.shadowRoot.querySelector('button').click()
       await page.waitForChanges()
 
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
@@ -558,11 +542,7 @@ describe('ld-sidenav', () => {
         'ld-accordion-section--expanded'
       )
 
-      ldSidenavNavitem.shadowRoot.querySelector('button').dispatchEvent(
-        new MouseEvent('mousedown', {
-          button: 0,
-        })
-      )
+      ldSidenavNavitem.shadowRoot.querySelector('button').click()
       await page.waitForChanges()
 
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
@@ -631,11 +611,7 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
-      new MouseEvent('mousedown', {
-        button: 0,
-      })
-    )
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       true
@@ -673,11 +649,7 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
-      new MouseEvent('mousedown', {
-        button: 0,
-      })
-    )
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
 
     expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
@@ -740,11 +712,7 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         '#artificial-intelligence > ld-sidenav-navitem:nth-child(6)'
       )
-    ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').dispatchEvent(
-      new MouseEvent('mousedown', {
-        button: 0,
-      })
-    )
+    ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
 
     await transitionEnd(page)
@@ -784,11 +752,7 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         '#algorithms-and-data-structures > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemMath.shadowRoot.querySelector('button').dispatchEvent(
-      new MouseEvent('mousedown', {
-        button: 0,
-      })
-    )
+    ldSidenavNavitemMath.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
 
     await transitionEnd(page)
@@ -1784,11 +1748,7 @@ describe('ld-sidenav', () => {
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
         'ld-sidenav-slider > ld-sidenav-navitem:nth-child(4)'
       )
-    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').dispatchEvent(
-      new MouseEvent('mousedown', {
-        button: 0,
-      })
-    )
+    ldSidenavNavitemArtInt.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
       true
