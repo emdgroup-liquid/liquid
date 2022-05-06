@@ -147,14 +147,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     }
   }
 
-  // The mousedown event needs to be used instead of a click event because
-  // the click event is not triggered if the click target is lost due to a
-  // transition before the mouseup event is triggered; in our case
-  // this happens due to a transition triggered by a focus event.
-  private onMouseDown = (ev?: MouseEvent) => {
-    // Ignore right and middle mouse button clicks.
-    if (ev && ev.button !== 0) return
-
+  private onClick = () => {
     if (this.to) {
       // Trigger navigation to subnav.
       this.ldSidenavNavitemTo.emit({ id: this.to, label: this.el.textContent })
@@ -180,17 +173,12 @@ export class LdSidenavNavitem implements InnerFocusable {
     }
   }
 
-  // We need have an explicit keydown handler for keyboard navigation
+  // We need to have an explicit keydown handler for keyboard navigation
   // since we do not use click events (see comment above).
   private onKeyDown = (ev) => {
-    if ([' ', 'Enter'].includes(ev.key) && this.sidenavCollapsed) {
-      ev.preventDefault()
-      this.onMouseDown()
+    if ([' ', 'Enter'].includes(ev.key)) {
+      this.onClick()
     }
-  }
-
-  private onTooltipClick = (ev: MouseEvent) => {
-    ev.stopPropagation()
   }
 
   private updateTooltipIcon = () => {
@@ -273,7 +261,7 @@ export class LdSidenavNavitem implements InnerFocusable {
         href={this.href}
         ref={(el) => (this.focusableElement = el)}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
-        onMouseDown={this.onMouseDown}
+        onClick={this.onClick}
         onKeyDown={this.onKeyDown}
         aria-haspopup={hasPopup}
         tabIndex={this.ldTabindex}
@@ -304,7 +292,6 @@ export class LdSidenavNavitem implements InnerFocusable {
             ref={(el) => (this.tooltipRef = el)}
             show-delay="250"
             onMouseEnter={this.updateTooltipIcon}
-            onClick={this.onTooltipClick}
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
