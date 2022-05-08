@@ -8196,7 +8196,7 @@
     },
     {
       "id": "a0bd2a80",
-      "image": "7a69c1d77ebd4ce0f329e1988ab75630.png",
+      "image": "fd0a8aad59f39a65c21609ce1700fe31.png",
       "userAgent": "default",
       "desc": "ld-pagination with dots mode end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8209,7 +8209,7 @@
     },
     {
       "id": "cdc776a6",
-      "image": "1e84f5f0a441c4466b938b5baaba1dfc.png",
+      "image": "5b33eb951e99ff6ebb314987fbf0e19c.png",
       "userAgent": "default",
       "desc": "ld-pagination with dots mode middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8222,7 +8222,7 @@
     },
     {
       "id": "4ae61654",
-      "image": "234816e5440dc40761f997d2d541dbe2.png",
+      "image": "88b7f836d2409a835953d8a5992c8e91.png",
       "userAgent": "default",
       "desc": "ld-pagination with dots mode single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8235,7 +8235,7 @@
     },
     {
       "id": "ab174308",
-      "image": "48efe9fd6e8eeadab177d4628b58a5b4.png",
+      "image": "6f92692fb2eb32b75a4217b74386bd6d.png",
       "userAgent": "default",
       "desc": "ld-pagination with dots mode start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8247,8 +8247,34 @@
       "isMobile": false
     },
     {
+      "id": "441196bd",
+      "image": "263a5e5a570af849e55cbd410df693a9.png",
+      "userAgent": "default",
+      "desc": "ld-pagination with dots mode with big space",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "9d2d56e7",
+      "image": "1ea8b6d8df948d87c38d1aee787d06e0.png",
+      "userAgent": "default",
+      "desc": "ld-pagination with dots mode with small space",
+      "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "777d63b4",
-      "image": "d132601b9f6d2edbf09cf0b04859c064.png",
+      "image": "6f92692fb2eb32b75a4217b74386bd6d.png",
       "userAgent": "default",
       "desc": "ld-pagination with dots mode without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8274,7 +8300,7 @@
     },
     {
       "id": "3b0faa1d",
-      "image": "2d174ad2b47358581f24dab726ff1886.png",
+      "image": "fff93eff35be66a6331951bdf38e81e0.png",
       "userAgent": "default",
       "desc": "ld-pagination with on brand color with dots mode",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",

@@ -1216,16 +1216,16 @@ exports[`ld-pagination renders with dots mode 1`] = `
 </ld-pagination>
 `;
 
-exports[`ld-pagination renders with dots mode on brand color 1`] = `
+exports[`ld-pagination renders with dots mode big space 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--brand-color ld-pagination--dots" part="wrapper">
-      <li class="ld-pagination__arrow">
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: 2rem;">
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
         <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
           <ld-icon name="arrow-double-left"></ld-icon>
         </ld-button>
       </li>
-      <li class="ld-pagination__arrow">
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
         <ld-button aria-label="Previous page" mode="ghost" part="arrow prev focusable">
           <ld-icon name="arrow-left"></ld-icon>
         </ld-button>
@@ -1269,12 +1269,148 @@ exports[`ld-pagination renders with dots mode on brand color 1`] = `
           </li>
         </ul>
       </li>
-      <li class="ld-pagination__arrow">
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
         <ld-button aria-label="Next page" mode="ghost" part="arrow next focusable">
           <ld-icon name="arrow-right"></ld-icon>
         </ld-button>
       </li>
-      <li class="ld-pagination__arrow">
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
+        <ld-button aria-label="Last page" mode="ghost" part="arrow end focusable">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with dots mode on brand color 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--brand-color ld-pagination--dots" part="wrapper">
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
+        <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
+        <ld-button aria-label="Previous page" mode="ghost" part="arrow prev focusable">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper ld-pagination__slide-wrapper--dots" part="slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" part="items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-label="Page 1" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-current="true" aria-label="Page 4" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 6;">
+            <ld-button aria-label="Page 7" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
+        <ld-button aria-label="Next page" mode="ghost" part="arrow next focusable">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
+        <ld-button aria-label="Last page" mode="ghost" part="arrow end focusable">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders with dots mode small space 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: -1rem;">
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
+        <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--left">
+        <ld-button aria-label="Previous page" mode="ghost" part="arrow prev focusable">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__slide-wrapper ld-pagination__slide-wrapper--dots" part="slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" part="items" style="--ld-pagination-slide-index: 0;">
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 0;">
+            <ld-button aria-label="Page 1" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 1;">
+            <ld-button aria-label="Page 2" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 2;">
+            <ld-button aria-label="Page 3" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 3;">
+            <ld-button aria-current="true" aria-label="Page 4" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 4;">
+            <ld-button aria-label="Page 5" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 5;">
+            <ld-button aria-label="Page 6" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--dots ld-pagination__item--visible" style="--ld-pagination-item-pos: 6;">
+            <ld-button aria-label="Page 7" mode="ghost" part="item focusable">
+              <span class="ld-pagination__dot"></span>
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
+        <ld-button aria-label="Next page" mode="ghost" part="arrow next focusable">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow ld-pagination__arrow--right">
         <ld-button aria-label="Last page" mode="ghost" part="arrow end focusable">
           <ld-icon name="arrow-double-right"></ld-icon>
         </ld-button>

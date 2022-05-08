@@ -629,12 +629,28 @@ describe('ld-pagination', () => {
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
+
+    it('with small space', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" space="-1" length="7" hide-prev-next hide-start-end></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('with big space', async () => {
+      const page = await getPageWithContent(
+        '<ld-pagination mode="dots" space="2" length="7" hide-prev-next hide-start-end></ld-pagination>'
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('with on brand color', () => {
     it('with dots mode', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination brand-color mode="dots" length="7" space="4"></ld-pagination>',
+        '<ld-pagination brand-color mode="dots" length="7"></ld-pagination>',
         { bgColor: 'var(--ld-thm-primary)' }
       )
       const results = await page.compareScreenshot()
@@ -643,7 +659,7 @@ describe('ld-pagination', () => {
 
     it('with default mode', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination brand-color length="7" space="4"></ld-pagination>',
+        '<ld-pagination brand-color length="7"></ld-pagination>',
         { bgColor: 'var(--ld-thm-primary)' }
       )
       const results = await page.compareScreenshot()

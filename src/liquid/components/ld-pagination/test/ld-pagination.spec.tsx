@@ -193,6 +193,26 @@ describe('ld-pagination', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('with dots mode small space', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination mode="dots" space={-1} selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode big space', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination mode="dots" space={2} selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   describe('renders with more-indicators', () => {
