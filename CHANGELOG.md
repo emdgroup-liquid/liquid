@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/emdgroup-liquid/liquid/compare/v1.8.2...v1.9.0) (2022-05-09)
+
+
+### Bug Fixes
+
+* **ld-tooltip:** prevent scrolling due to uninitialized tooltip ([2fb2dc6](https://github.com/emdgroup-liquid/liquid/commit/2fb2dc693a24c28092ed72ced847d0b1a40a7a16))
+
+
+### Features
+
+* **ld-link:** add ld-link component ([6718106](https://github.com/emdgroup-liquid/liquid/commit/6718106f1999598a8e3e9b868f6d53fe11d629a3))
+
 ## [1.8.2](https://github.com/emdgroup-liquid/liquid/compare/v1.8.1...v1.8.2) (2022-05-06)
 
 
