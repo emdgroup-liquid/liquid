@@ -117,7 +117,7 @@
       padding: 0 0 var(--ld-sp-24);
     }
 
-    > div > * {
+    > div > *:not(.ld-modal) {
       margin: var(--ld-sp-24) var(--ld-sp-24) 0;
       max-width: calc(100% - 2 * var(--ld-sp-24));
     }

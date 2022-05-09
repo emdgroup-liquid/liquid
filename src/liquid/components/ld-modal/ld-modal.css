@@ -1,0 +1,203 @@
+:host {
+  display: contents;
+}
+
+@keyframes ld-modal-in {
+  from {
+    transform: translateY(2rem);
+  }
+
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes ld-modal-out {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes ld-modal-out-mobile {
+  from {
+    transform: translateY(0rem);
+  }
+
+  to {
+    transform: translateY(2rem);
+  }
+}
+
+dialog.ld-modal,
+:host dialog {
+  --ld-modal-bg-col: var(--ld-col-wht);
+  --ld-modal-fixed-padding-x: var(--ld-sp-16);
+  --ld-modal-fixed-padding-y: var(--ld-sp-16);
+  --ld-modal-padding-x: var(--ld-sp-16);
+  --ld-modal-padding-y: var(--ld-sp-24);
+  --ld-modal-fixed-bg-col: var(--ld-col-neutral-010);
+  --ld-modal-transition-duration: 0.001s;
+  --ld-modal-max-inline-size: 30rem;
+  --ld-modal-max-block-size: 70rem;
+  --ld-modal-min-inline-size: 18rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-modal-transition-duration: 0.2s;
+  }
+
+  /* overwrites */
+  border: 0;
+  display: flex; /* allows for transitions */
+  flex-direction: column;
+  inset: 0; /* keeps the dialog positioned correctly during closing transition */
+  margin: auto;
+  overflow: visible; /* required due to scalehack */
+  padding: 0;
+  position: fixed; /* makes sure it stays fixed during closing transition */
+  z-index: 2147483647; /* makes sure it is not overlapped during closing transition */
+
+  animation: ld-modal-in var(--ld-modal-transition-duration) ease-out forwards;
+  border-radius: var(--ld-br-l);
+  box-shadow: var(--ld-shadow-active);
+
+  /* dimensions */
+  max-block-size: min(
+    /* account for additional margin bottom on mobile */
+      calc(100% - var(--ld-sp-24) - var(--ld-sp-40)),
+    var(--ld-modal-max-block-size)
+  );
+  max-inline-size: min(
+    calc(100% - var(--ld-sp-32)),
+    var(--ld-modal-max-inline-size)
+  );
+  min-inline-size: var(--ld-modal-min-inline-size);
+
+  transition: opacity var(--ld-modal-transition-duration) linear,
+    transform var(--ld-modal-transition-duration) ease;
+
+  @media (max-width: 32rem) {
+    /*
+    On mobile we place the dialog at the bottom of the screen
+    so that it is easier for the user to interact with it. */
+    margin-bottom: var(--ld-sp-40);
+  }
+
+  &:not([open]) {
+    animation: ld-modal-out var(--ld-modal-transition-duration) ease-in forwards;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--ld-modal-transition-duration) linear,
+      visibility 0s var(--ld-modal-transition-duration) linear,
+      transform var(--ld-modal-transition-duration) ease;
+    visibility: hidden;
+
+    @media (max-width: 32rem) {
+      /*
+      On mobile, since the dialog is placed at the bottom of the screen,
+      we transition it out slightly differently than on wide view ports. */
+      animation-name: ld-modal-out-mobile;
+    }
+  }
+
+  &::after {
+    background-color: var(--ld-modal-bg-col);
+    border-radius: inherit;
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::before {
+    background-color: var(--ld-thm-primary-active);
+    content: '';
+    inset: 0;
+    opacity: 0.3;
+    position: fixed;
+    transform: scale(99); /* scalehack required due to animation */
+    z-index: -2;
+  }
+}
+
+dialog.ld-modal--blurry-backdrop,
+:host(.ld-modal--blurry-backdrop) dialog {
+  &::backdrop {
+    backdrop-filter: blur(5px);
+  }
+}
+
+.ld-modal__x {
+  align-self: flex-start;
+  appearance: none;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: solid transparent var(--ld-sp-8);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  justify-self: flex-end;
+  margin: var(--ld-sp-8) calc(var(--ld-sp-8) * -1) var(--ld-sp-8) auto;
+  position: relative;
+  width: var(--ld-sp-32);
+
+  &::before,
+  &::after {
+    border-radius: 1rem;
+    background-color: var(--ld-col-neutral-900);
+    content: '';
+    display: block;
+    height: 125%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 0.15rem;
+  }
+
+  &::before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+}
+
+.ld-modal__content {
+  flex-grow: 1;
+  overflow: hidden auto;
+  overscroll-behavior: none;
+  padding: var(--ld-modal-padding-y) var(--ld-modal-padding-x);
+}
+
+.ld-modal__header,
+.ld-modal__footer {
+  align-items: center;
+  background-color: var(--ld-modal-fixed-bg-col);
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--ld-modal-fixed-padding-x);
+  padding: 0 var(--ld-modal-fixed-padding-x);
+}
+
+.ld-modal__header {
+  border-radius: var(--ld-br-l) var(--ld-br-l) 0 0;
+
+  > *:not(.ld-modal__x),
+  > ::slotted(*:not(.ld-modal__x)) {
+    padding: var(--ld-sp-12) 0;
+  }
+}
+
+.ld-modal__footer {
+  border-radius: 0 0 var(--ld-br-l) var(--ld-br-l);
+  justify-content: flex-end;
+
+  > *,
+  > ::slotted(*) {
+    margin: var(--ld-modal-fixed-padding-y) 0;
+  }
+}
