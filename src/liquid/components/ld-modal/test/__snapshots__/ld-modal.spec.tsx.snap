@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-modal does not display close button in header if not cancelable 1`] = `
+<ld-modal class="ld-modal" open="">
+  <mock:shadow-root>
+    <dialog open="">
+      <header class="ld-modal__header" part="header">
+        <slot name="header"></slot>
+      </header>
+      <div class="ld-modal__content" part="content">
+        <slot></slot>
+      </div>
+      <footer class="ld-modal__footer" part="footer">
+        <slot name="footer"></slot>
+      </footer>
+    </dialog>
+  </mock:shadow-root>
+  <span slot="header">
+    Hello
+  </span>
+  Hello
+</ld-modal>
+`;
+
+exports[`ld-modal is open 1`] = `
+<ld-modal class="ld-modal" open="">
+  <mock:shadow-root>
+    <dialog open="">
+      <header class="ld-modal__header" part="header">
+        <slot name="header"></slot>
+        <button aria-label="Dismiss" class="ld-modal__x"></button>
+      </header>
+      <div class="ld-modal__content" part="content">
+        <slot></slot>
+      </div>
+      <footer class="ld-modal__footer" part="footer">
+        <slot name="footer"></slot>
+      </footer>
+    </dialog>
+  </mock:shadow-root>
+  Hello
+</ld-modal>
+`;
+
+exports[`ld-modal renders 1`] = `
+<ld-modal class="ld-modal">
+  <mock:shadow-root>
+    <dialog>
+      <header class="ld-modal__header" part="header">
+        <slot name="header"></slot>
+        <button aria-label="Dismiss" class="ld-modal__x"></button>
+      </header>
+      <div class="ld-modal__content" part="content">
+        <slot></slot>
+      </div>
+      <footer class="ld-modal__footer" part="footer">
+        <slot name="footer"></slot>
+      </footer>
+    </dialog>
+  </mock:shadow-root>
+  Hello
+</ld-modal>
+`;
+
+exports[`ld-modal uses a blurry backdrop 1`] = `
+<ld-modal blurry-backdrop="" class="ld-modal ld-modal--blurry-backdrop" open="">
+  <mock:shadow-root>
+    <dialog open="">
+      <header class="ld-modal__header" part="header">
+        <slot name="header"></slot>
+        <button aria-label="Dismiss" class="ld-modal__x"></button>
+      </header>
+      <div class="ld-modal__content" part="content">
+        <slot></slot>
+      </div>
+      <footer class="ld-modal__footer" part="footer">
+        <slot name="footer"></slot>
+      </footer>
+    </dialog>
+  </mock:shadow-root>
+  Hello
+</ld-modal>
+`;
