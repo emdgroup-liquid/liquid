@@ -15,15 +15,28 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 
 ---
 
-## Primary mode
-
-### Custom icon
-
 <style>
 body {
   --ld-sidenav-position: absolute;
 }
 </style>
+
+## Primary mode
+
+### Icon
+
+{% example '{ "hasPadding": false, "styles": { "minHeight": "4.625rem", "position": "relative" } }' %}
+<ld-sidenav open>
+  <ld-sidenav-slider label="Outline of CS">
+    <ld-sidenav-navitem>
+      <ld-icon slot="icon" name="bottle"></ld-icon>
+      Liquid Oxygen
+    </ld-sidenav-navitem>
+  </ld-sidenav-slider>
+</ld-sidenav>
+{% endexample %}
+
+### Custom icon
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "4.625rem", "position": "relative" } }' %}
 <ld-sidenav open>

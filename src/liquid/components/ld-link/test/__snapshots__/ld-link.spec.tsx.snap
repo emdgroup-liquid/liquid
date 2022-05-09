@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-link renders as disabled 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a aria-disabled="true" class="ld-link ld-link--disabled" disabled="">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;
+
+exports[`ld-link renders default 1`] = `
+<ld-link>
+  <mock:shadow-root>
+    <a class="ld-link">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;
+
+exports[`ld-link renders with href 1`] = `
+<ld-link href="#">
+  <mock:shadow-root>
+    <a class="ld-link" href="#">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;
+
+exports[`ld-link renders with target _blank and rel 1`] = `
+<ld-link href="#" target="_blank">
+  <mock:shadow-root>
+    <a class="ld-link" href="#" rel="noreferrer noopener" target="_blank">
+      <slot></slot>
+    </a>
+  </mock:shadow-root>
+  Link
+</ld-link>
+`;

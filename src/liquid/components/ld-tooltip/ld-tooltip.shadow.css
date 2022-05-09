@@ -26,6 +26,7 @@
   + .ld-tooltip {
     opacity: 0;
     position: absolute;
+    display: none;
   }
 }
 

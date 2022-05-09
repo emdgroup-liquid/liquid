@@ -1,0 +1,72 @@
+.ld-link {
+  --ld-link-col: var(--ld-thm-primary);
+  --ld-link-chevron-width: 0.15em;
+
+  align-items: baseline;
+  color: var(--ld-link-col);
+  cursor: pointer;
+  gap: 0.3em;
+  font-family: var(--ld-font-body);
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  text-decoration: none;
+  touch-action: manipulation;
+
+  &:not([aria-disabled='true']) {
+    &:hover {
+      --ld-link-col: var(--ld-thm-primary-hover);
+    }
+
+    &:focus:focus-visible {
+      --ld-link-col: var(--ld-thm-primary-focus);
+    }
+
+    &:active {
+      --ld-link-col: var(--ld-thm-primary-active);
+    }
+  }
+
+  &:where([aria-disabled='true']) {
+    --ld-link-col: var(--ld-thm-primary);
+    cursor: default;
+    opacity: 0.3;
+  }
+}
+
+.ld-link--chevron-start,
+.ld-link--chevron-end {
+  display: inline-flex;
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: var(--ld-link-col);
+    border-radius: var(--ld-link-chevron-width);
+    display: block;
+    flex-shrink: 0;
+    height: 0.5em;
+    transform-origin: right;
+    width: var(--ld-link-chevron-width);
+  }
+
+  &::before {
+    transform: translateX(calc(0.15em + 50%)) translateY(-60%) rotate(-40deg);
+  }
+  &::after {
+    transform: translateX(calc(-0.15em - 50%)) translateY(20%) rotate(40deg);
+  }
+}
+
+.ld-link--chevron-start {
+  &::before,
+  &::after {
+    order: -1;
+  }
+}
+.ld-link--chevron-end {
+  &::before,
+  &::after {
+    order: 1;
+  }
+}
