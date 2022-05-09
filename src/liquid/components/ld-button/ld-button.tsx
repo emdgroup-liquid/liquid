@@ -151,7 +151,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
     if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
       ev.preventDefault()
-      ev.stopImmediatePropagation()
       return
     }
 
