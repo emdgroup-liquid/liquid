@@ -30,8 +30,8 @@ Liquid is a UI component library based on the [Liquid Design System](https://www
 
 ## Links
 
-- [Getting started](https://emdgroup-liquid.github.io/liquid/introduction/getting-started/)
-- [Sandbox apps](https://emdgroup-liquid.github.io/liquid/introduction/sandbox-applications/)
+- [Getting started](https://liquid.emd.design/liquid/introduction/getting-started/)
+- [Sandbox apps](https://liquid.emd.design/liquid/introduction/sandbox-applications/)
 - [Feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+)
 - [Liquid Design System on Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310)
 
@@ -41,7 +41,7 @@ If you'd like to contribute to the project, please read our [code of conduct](CO
 
 ## License
 
-Liquid Oxygen is available under a [custom license](https://emdgroup-liquid.github.io/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
+Liquid Oxygen is available under a [custom license](https://liquid.emd.design/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
 
 
 <docs-page-nav prev-title="Why Liquid" prev-href="introduction/why-liquid/" next-title="Get Started" next-href="introduction/getting-started/">

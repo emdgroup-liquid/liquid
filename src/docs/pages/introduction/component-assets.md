@@ -48,7 +48,7 @@ setAssetPath(window.location.origin)
 ```
 
 <ld-notice headline="Note" mode="warning">
-  <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings#setting-the-asset-path">React bindings docs</a> for an alternative approach.
+  <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings/#setting-the-asset-path">React bindings docs</a> for an alternative approach.
 </ld-notice>
 
 For more examples check out our [sandbox apps](introduction/sandbox-applications/).

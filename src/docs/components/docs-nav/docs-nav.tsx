@@ -103,10 +103,10 @@ export class DocsNav {
           </div>
           <div class="docs-nav__section">
             <p class="docs-nav__legal-links">
-              <a href="legal/license">License</a>
-              <a href="legal/terms">Terms and Conditions</a>
-              <a href="legal/privacy">Privacy Statement</a>
-              <a href="legal/imprint">Imprint</a>
+              <a href="legal/license/">License</a>
+              <a href="legal/terms/">Terms and Conditions</a>
+              <a href="legal/privacy/">Privacy Statement</a>
+              <a href="legal/imprint/">Imprint</a>
             </p>
           </div>
         </div>

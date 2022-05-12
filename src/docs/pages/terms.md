@@ -44,7 +44,7 @@ These terms and conditions are governed by German law. The Courts of Frankfurt a
 
 ## Disclaimer
 
-Merck KGaA, Darmstadt, Germany (“Merck”) and our licensors, vendors, agents, and/or our content providers retain ownership of all intellectual property rights of any kind related to the Liquid Design System and it’s visual / functional assets and the M Font including the website and services under https://emdgroup-liquid.github.io/liquid/ (“Website”). <br/> All rights are reserved to the copyright holders.
+Merck KGaA, Darmstadt, Germany (“Merck”) and our licensors, vendors, agents, and/or our content providers retain ownership of all intellectual property rights of any kind related to the Liquid Design System and it’s visual / functional assets and the M Font including the website and services under https://liquid.emd.design/liquid/ (“Website”). <br/> All rights are reserved to the copyright holders.
 
 Subject to the limitations set forth herein Merck grants to its partners, suppliers, agencies and other third parties working together with Merck delivering, supporting or facilitating digital products of Merck (“Partners” or “You”) the following license free-of-charge as long as such Partners have a current, non-expired and valid contractual relationship with Merck:
 
