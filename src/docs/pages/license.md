@@ -18,4 +18,4 @@ If the Liquid Design System uses free software that is covered by the licenses o
 
 International users must also observe the special provisions under local legislation.
 
-You may obtain a copy of the Terms of Use at [https://emdgroup-liquid.github.io/liquid/legal/terms/](https://emdgroup-liquid.github.io/liquid/legal/terms/).
+You may obtain a copy of the Terms of Use at [https://liquid.emd.design/liquid/legal/terms/](https://liquid.emd.design/liquid/legal/terms/).
