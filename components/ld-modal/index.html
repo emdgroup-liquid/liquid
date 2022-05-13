@@ -1,0 +1,2536 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/liquid/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquid – Modal</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1652446753689/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1652446753689/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1652446753689/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1652446753689/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1652446753689/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <meta name="msapplication-TileColor" content="#eb3c96">
+  <meta name="theme-color" content="#ffffff">
+
+  <script>
+    __docsSearchIndex__ = [
+    
+      
+    
+      
+        
+          
+            {
+              title: 'Getting Started',
+              tags: 'Overview,Dashboard Anatomy,Colors,Header Elements,5 Data Visualization Rules,Examples',
+              url: '/liquid/data-visualization/getting-started/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Data Visualization',
+                
+                  'Getting Started'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Data Visualization',
+              tags: '',
+              url: '/liquid/data-visualization/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Animations',
+              tags: '',
+              url: '/liquid/global/animations/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Animations'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Border-radius',
+              tags: '',
+              url: '/liquid/global/border-radius/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Border-radius'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Colors',
+              tags: '',
+              url: '/liquid/global/colors/',
+              headings: 'White  Grey scale colors  Rich colors  Rich Blue  Rich Green  Rich Purple  Rich Red  Vibrant colors  Vibrant Cyan  Vibrant Green  Vibrant Magenta  Vibrant Yellow  Sensitive Colors  Theme palettes ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Colors'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Focus',
+              tags: '',
+              url: '/liquid/global/focus/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Focus'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Fonts',
+              tags: '',
+              url: '/liquid/global/fonts/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Fonts'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Globals',
+              tags: '',
+              url: '/liquid/global/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Shadows',
+              tags: '',
+              url: '/liquid/global/shadows/',
+              headings: 'Box shadows  Stacked  Sticky  Hover  Active  Drop-shadows (CSS filter)  Stacked  Sticky  Hover  Active ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Shadows'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Spacings',
+              tags: '',
+              url: '/liquid/global/spacings/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Spacings'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Theming',
+              tags: '',
+              url: '/liquid/global/theming/',
+              headings: 'How to apply a theme  Theme inception  CSS Custom Properties  Examples ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Theming'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Typography',
+              tags: '',
+              url: '/liquid/global/typography/',
+              headings: 'Available CSS custom properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Components',
+                
+                  'Typography'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Component assets',
+              tags: '',
+              url: '/liquid/introduction/component-assets/',
+              headings: 'Tweaking the bundler and adjusting the assets path ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Component assets'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'CSS vs. Web Components',
+              tags: '',
+              url: '/liquid/introduction/css-vs-web-components/',
+              headings: 'When to use what ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'CSS vs. Web Components'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Design tokens',
+              tags: '',
+              url: '/liquid/introduction/design-tokens/',
+              headings: 'Accessing Liquid’s design tokens  Rolling your own design tokens ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Design tokens'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Event handling',
+              tags: '',
+              url: '/liquid/introduction/event-handling/',
+              headings: 'Examples  Vanilla JS  React ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Event handling'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'FAQ',
+              tags: '',
+              url: '/liquid/introduction/faq/',
+              headings: 'Do I have the legal rights to use Liquid?  Why should I use Liquid?  Can I use Liquid with framework X?  Which browsers are supported?  What is Shadow DOM?  Can I customize Liquid?  What happened to liquid-design-react?  Can Liquid Oxygen components be combined with the liquid-design-react library?  Can I personally contribute to Liquid Oxygen? ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'FAQ'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Form validation',
+              tags: '',
+              url: '/liquid/introduction/form-validation/',
+              headings: 'Form association  Example  Accessing props  Example  Using event details  Example ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Form validation'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Getting started',
+              tags: '',
+              url: '/liquid/introduction/getting-started/',
+              headings: 'Install  Import and register Web Components  Import stylesheets ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Getting started'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'React bindings',
+              tags: '',
+              url: '/liquid/introduction/react-bindings/',
+              headings: 'Custom Elements are defined automatically  Setting the asset path ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'React bindings'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sandbox applications',
+              tags: '',
+              url: '/liquid/introduction/sandbox-applications/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Sandbox applications'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Server-side rendering',
+              tags: '',
+              url: '/liquid/introduction/server-side-rendering/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Server-side rendering'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tailwind CSS integration',
+              tags: '',
+              url: '/liquid/introduction/tailwindcss-integration/',
+              headings: 'Previewing the Tailwind config  Disabling Tailwind’s default configuration ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Tailwind CSS integration'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Type checking and intellisense',
+              tags: '',
+              url: '/liquid/introduction/type-checking-and-intellisense/',
+              headings: 'With JSX  With vanilla HTML ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Type checking and intellisense'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Why Liquid',
+              tags: '',
+              url: '/liquid/introduction/why-liquid/',
+              headings: '',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Introduction',
+                
+                  'Why Liquid'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Introduction',
+              tags: '',
+              url: '/liquid/',
+              headings: 'Links  Contributing  License ',
+              breadcrumbs: [
+                
+                
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Components',
+              tags: '',
+              url: '/liquid/components/',
+              headings: 'Feature backlog  Milestones ',
+              breadcrumbs: [
+                
+                
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Accordion Panel',
+              tags: '',
+              url: '/liquid/components/ld-accordion/ld-accordion-panel/',
+              headings: 'Properties  Events  Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Accordion',
+                
+                  'Accordion Panel'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Accordion Section',
+              tags: '',
+              url: '/liquid/components/ld-accordion/ld-accordion-section/',
+              headings: 'Properties  Events  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Accordion',
+                
+                  'Accordion Section'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Accordion Toggle',
+              tags: '',
+              url: '/liquid/components/ld-accordion/ld-accordion-toggle/',
+              headings: 'Properties  Events  Methods    Shadow Parts  Dependencies  Used by  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Accordion',
+                
+                  'Accordion Toggle'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Accordion',
+              tags: 'squeezebox,garmon,bandoneon',
+              url: '/liquid/components/ld-accordion/',
+              headings: 'Usage  Default  Rounded  Dark  On brand color  Single mode  Detached mode  Split toggle  Events  Expand and collapse accordion sections programmatically  Nesting  Properties  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Accordion'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Background Cells',
+              tags: '',
+              url: '/liquid/components/ld-bg-cells/',
+              headings: 'Default  Cell types  bioreliance  f  hexagon  millipore  qa  safc  sigma  t  tile  Custom position, size and colors  CSS Variables  Properties  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Background Cells'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Button',
+              tags: '',
+              url: '/liquid/components/ld-button/',
+              headings: 'Examples  Primary  Disabled  Secondary  Ghost  On brand color  Highlight  Danger  Size  With icon  With custom width  Justify content  Multi-line  Anchor button  Progress button  Properties  Methods    Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Button'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Card',
+              tags: '',
+              url: '/liquid/components/ld-card/',
+              headings: 'Default  Size  Shadow  Shadow interactive  Properties  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Card'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Checkbox',
+              tags: '',
+              url: '/liquid/components/ld-checkbox/',
+              headings: 'Examples  Primary  Disabled  Indeterminate  Dark  Highlight  Invalid  Danger  With label  With label and input message  Input validation  Properties  Events  Methods    Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Checkbox'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Header',
+              tags: '',
+              url: '/liquid/components/ld-header/',
+              headings: 'Examples  Default  With linked logo  With custom logo  With buttons  With burger menu button  Sticky  Hide on scroll  CSS Variables  Properties  Slots  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Header'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Icon',
+              tags: '',
+              url: '/liquid/components/ld-icon/',
+              headings: 'Examples  Different sizes  Color  With custom SVG icon  Available icons  Properties  Slots  Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Icon'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Input Message',
+              tags: '',
+              url: '/liquid/components/ld-input-message/',
+              headings: 'Examples  As error message  As info message  As success message  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Input Message'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Input',
+              tags: '',
+              url: '/liquid/components/ld-input/',
+              headings: 'Examples  Default  Disabled  Dark  Invalid  Type date  Type email  Type file  Type number  Type password  Type search  Type tel  Type time  Type url  Multiline (as textarea)  Size  With label  With label and input message  With slotted elements  Input validation  Properties  Events  Methods    Slots  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Input'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Label',
+              tags: '',
+              url: '/liquid/components/ld-label/',
+              headings: 'Example  Size  Position  Align message with input  HTML Content  Properties  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Label'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Link',
+              tags: '',
+              url: '/liquid/components/ld-link/',
+              headings: 'Examples  Basic  Different sizes  Disabled state  With target  With chevron icon  Properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Link'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Loading Indicator',
+              tags: '',
+              url: '/liquid/components/ld-loading/',
+              headings: 'CSS Variables  Properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Loading Indicator'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Modal',
+              tags: 'dialog,alert,popup,popover,lightbox',
+              url: '/liquid/components/ld-modal/',
+              headings: 'Examples  With header and footer  Non-cancelable  With blurry backdrop  Properties  Events  Methods      Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Modal'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Notice',
+              tags: '',
+              url: '/liquid/components/ld-notice/',
+              headings: 'Examples  As success message  As error message  As info message  As warning message  With custom icon  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notice'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Notification',
+              tags: '',
+              url: '/liquid/components/ld-notification/',
+              headings: 'How it works  Accessibility  Notifications with interactive content  Notification hierarchy  Notification timeout  Preventing a timeout  Timeout handling for queued notifications  Notification content  Redundant notifications handling  Dismissing notificaitons  Dismissing current notificaiton  Clearing all notifications  Theming  Examples  Properties  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Notification'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Pagination',
+              tags: '',
+              url: '/liquid/components/ld-pagination/',
+              headings: 'Examples  Default  With sticky items  Offset  Indefinite length  Item label  Hide arrow buttons  Text instead of arrow buttons  Size  Preselected index  Programmatic manipulation  Event handling  Properties  Events  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Pagination'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Radio Button',
+              tags: '',
+              url: '/liquid/components/ld-radio/',
+              headings: 'Examples  Primary  Disabled  Dark  Highlight  Invalid  Danger  With label  With label and input message  Input validation  Properties  Events  Methods    Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Radio Button'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Option',
+              tags: '',
+              url: '/liquid/components/ld-select/ld-option/',
+              headings: 'Properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Select',
+                
+                  'Option'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Select',
+              tags: 'select,dropdown',
+              url: '/liquid/components/ld-select/',
+              headings: 'Examples  Single select mode  Multiple select mode  Disabled  Invalid  Detached  Inline  Ghost  Size  With custom trigger button icon  With label  With label and input message  Input validation  Properties  Events  Methods    Slots  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Select'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Accordion',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-accordion/',
+              headings: 'Properties  Events  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Accordion'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Back',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-back/',
+              headings: 'CSS Variables  Properties  Events  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Back'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Heading',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-heading/',
+              headings: 'Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Heading'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Navitem',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-navitem/',
+              headings: 'Primary mode  Icon  Custom icon  Custom image  Icon fallback  Secondary mode  Tertiary mode  Active  Rounded  Background color  Secondary icon  CSS Variables  Properties  Events  Methods    Slots  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Navitem'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Separator',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-separator/',
+              headings: 'Properties  Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Separator'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Slider',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-slider/',
+              headings: 'Properties  Events  Methods    Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Slider'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav Subnav',
+              tags: '',
+              url: '/liquid/components/ld-sidenav/ld-sidenav-subnav/',
+              headings: 'Properties  Methods    Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav',
+                
+                  'Sidenav Subnav'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Sidenav',
+              tags: 'navigation,menu',
+              url: '/liquid/components/ld-sidenav/',
+              headings: 'Introduction    Handing mobile  Focus trapping  Alignement  Collapsible mode  Expand trigger  Collapse trigger  Disable toggle transitions  Slots  Sub-navigation                Listening for events  Advanced settings  Narrow mode  Neutral mode  CSS Variables  Properties  Events  Slots  Shadow Parts  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Sidenav'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Screen Reader Live',
+              tags: '',
+              url: '/liquid/components/ld-sr-live/',
+              headings: 'How it works  Example  Properties  Dependencies  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Screen Reader Live'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Screen Reader Only',
+              tags: '',
+              url: '/liquid/components/ld-sr-only/',
+              headings: 'Examples  Properties  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Screen Reader Only'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tab',
+              tags: '',
+              url: '/liquid/components/ld-tabs/ld-tab/',
+              headings: 'Properties  Events  Methods      Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tabs',
+                
+                  'Tab'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tab List',
+              tags: '',
+              url: '/liquid/components/ld-tabs/ld-tablist/',
+              headings: 'Properties  Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tabs',
+                
+                  'Tab List'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tab Panel',
+              tags: '',
+              url: '/liquid/components/ld-tabs/ld-tabpanel/',
+              headings: 'Properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tabs',
+                
+                  'Tab Panel'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tab Panel List',
+              tags: '',
+              url: '/liquid/components/ld-tabs/ld-tabpanellist/',
+              headings: 'Properties ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tabs',
+                
+                  'Tab Panel List'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tabs',
+              tags: '',
+              url: '/liquid/components/ld-tabs/',
+              headings: 'Usage  Disabled  Ghost  Brand color  Rounded corners  Size  With icons  With many tabs  Full width  Events  Select a tab programmatically  Properties  Events  Methods   ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tabs'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Toggle',
+              tags: '',
+              url: '/liquid/components/ld-toggle/',
+              headings: 'Examples  Primary  Large  Invalid  Disabled  With icons  With icons (disabled)  With icons (invalid)  With label  With label and input message  Input validation  Properties  Events  Methods    Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Toggle'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Tooltip',
+              tags: '',
+              url: '/liquid/components/ld-tooltip/',
+              headings: 'Default  With arrow  Size  With custom trigger  Open on click  Positioning  Show/hide delay  CSS Variables  Properties  Methods      Shadow Parts  Dependencies  Used by  Depends on  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Tooltip'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Typography',
+              tags: '',
+              url: '/liquid/components/ld-typo/',
+              headings: 'Examples  Default  Paragraphs  Labels  Captions  Headings     Almost before we knew it, we had left the ground.     Almost before we knew it, we had left the ground.  Branding variants       Lorem ipsum     Lorem ipsum  Large heading variants       Almost before we knew it, we had left the ground.     Almost before we knew it, we had left the ground.     Almost before we knew it, we had left the ground.     Almost before we knew it, we had left the ground.     Almost before we knew it, we had left the ground.  Large branding variants       Lipsum     Lipsum  Custom tag  Colors  Properties  Shadow Parts  Dependencies  Used by  Graph ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Globals',
+                
+                  'Components',
+                
+                  'Typography'
+                
+              ]
+            }
+          
+        
+      
+    
+    ]
+  </script>
+
+  <link rel="stylesheet" href="/liquid/1652446753689/docs.css">
+  <link rel="stylesheet" href="/liquid/1652446753689/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1652446753689/css_components/ld-button.css">
+  <script type="module" src="/liquid/1652446753689/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1652446753689/dist/build/liquid.js"></script>
+</head>
+<body>
+  <script>
+    if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+      document.body.classList.add('sarari')
+    }
+
+    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var isDark = storedThemePref === 'dark' ? true : false
+    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
+    document.body.classList.remove(
+      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
+    )
+  </script>
+  <docs-topbar></docs-topbar>
+  <docs-layout id="docs-layout" style="visibility: hidden">
+    <docs-nav>
+      
+      
+
+      <ul>
+        
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--introduction">
+                  <a href="/liquid/"><span aria-label="Introduction">Introduction</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/why-liquid/">Why Liquid</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/getting-started/">Getting started</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/css-vs-web-components/">CSS vs. Web Components</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/component-assets/">Component assets</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/type-checking-and-intellisense/">Type checking and intellisense</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/server-side-rendering/">Server-side rendering</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/event-handling/">Event handling</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/form-validation/">Form validation</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/react-bindings/">React bindings</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/tailwindcss-integration/">Tailwind CSS integration</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/design-tokens/">Design tokens</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/sandbox-applications/">Sandbox applications</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/introduction/faq/">FAQ</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--globals">
+                  <a href="/liquid/global/"><span aria-label="Globals">Globals</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/animations/">Animations</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/border-radius/">Border-radius</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/colors/">Colors</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/focus/">Focus</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/fonts/">Fonts</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/shadows/">Shadows</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/spacings/">Spacings</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/theming/">Theming</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/global/typography/">Typography</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li docs-nav__li--active">
+            
+              <details open>
+                <summary class="docs-nav__summary docs-nav__summary--components">
+                  <a href="/liquid/components/"><span aria-label="Components">Components</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--accordion">
+                  <a href="/liquid/components/ld-accordion/"><span aria-label="Accordion">Accordion</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-accordion/ld-accordion-panel/">Accordion Panel</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-accordion/ld-accordion-section/">Accordion Section</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-accordion/ld-accordion-toggle/">Accordion Toggle</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-bg-cells/">Background Cells</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-button/">Button</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-card/">Card</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-checkbox/">Checkbox</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-header/">Header</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-icon/">Icon</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-input/">Input</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-input-message/">Input Message</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-label/">Label</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-link/">Link</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-loading/">Loading Indicator</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li docs-nav__li--active">
+            
+              <a href="/liquid/components/ld-modal/">Modal</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-notice/">Notice</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-notification/">Notification</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-pagination/">Pagination</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-radio/">Radio Button</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sr-live/">Screen Reader Live</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sr-only/">Screen Reader Only</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--select">
+                  <a href="/liquid/components/ld-select/"><span aria-label="Select">Select</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-select/ld-option/">Option</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--sidenav">
+                  <a href="/liquid/components/ld-sidenav/"><span aria-label="Sidenav">Sidenav</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-accordion/">Sidenav Accordion</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-back/">Sidenav Back</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-heading/">Sidenav Heading</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-navitem/">Sidenav Navitem</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-separator/">Sidenav Separator</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-slider/">Sidenav Slider</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-sidenav/ld-sidenav-subnav/">Sidenav Subnav</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--tabs">
+                  <a href="/liquid/components/ld-tabs/"><span aria-label="Tabs">Tabs</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-tabs/ld-tab/">Tab</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-tabs/ld-tablist/">Tab List</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-tabs/ld-tabpanel/">Tab Panel</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-tabs/ld-tabpanellist/">Tab Panel List</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-toggle/">Toggle</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-tooltip/">Tooltip</a>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-typo/">Typography</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
+                <summary class="docs-nav__summary docs-nav__summary--data-visualization">
+                  <a href="/liquid/data-visualization/"><span aria-label="Data Visualization">Data Visualization</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/data-visualization/getting-started/">Getting Started</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+      </ul>
+    </docs-nav>
+
+    <docs-nav-backdrop></docs-nav-backdrop>
+
+    <docs-btn-toggle-nav></docs-btn-toggle-nav>
+
+    
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav" >
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#with-header-and-footer">With header and footer</a></li><li><a href="#non-cancelable">Non-cancelable</a></li><li><a href="#with-blurry-backdrop">With blurry backdrop</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#methods">Methods</a><ol><li><a href="#close()-%3D%3E-promise%3Cvoid%3E">close() =&gt; Promise&lt;void&gt;</a></li><li><a href="#showmodal()-%3D%3E-promise%3Cvoid%3E">showModal() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
+      </nav>
+      </docs-toc>
+    
+
+    <docs-main>
+      <header>
+        
+          <docs-breadcrumbs>
+            
+            
+            
+              <li>
+                <a href="/liquid/components/">Components</a>
+              </li>
+            
+            <li>
+              <a href="/liquid/components/ld-modal/" aria-current="page">Modal</a>
+            </li>
+          </docs-breadcrumbs>
+        
+        <docs-edit-on-github path="./src/liquid/components/ld-modal/readme.md"></docs-edit-on-github>
+      </header>
+      <h1 id="ld-modal" tabindex="-1">ld-modal <a class="header-anchor" href="components/ld-modal/#ld-modal"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<link rel="stylesheet" href="css_components/ld-modal.css">
+<link rel="stylesheet" href="css_components/ld-typo.css">
+<link rel="stylesheet" href="css_components/ld-button.css">
+<p>The <code>ld-modal</code> component represents a dismissible modal dialog box.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> element acts as the foundation for both, the Web Component version and the CSS component version of the component. The <code>ld-modal</code> Web Component wraps a <code>&lt;dialog&gt;</code> element and enhances its functionality which otherwise is not natively implemented, such as by emitting additional events and handling clicks on the dialog backdrop.</p>
+<h2 id="examples" tabindex="-1">Examples <a class="header-anchor" href="components/ld-modal/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Here is a minimalistic example of a modal dialog:</p>
+<docs-example code="%3Cld-modal%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dialog</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><br>      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__x<span class="token punctuation">"</span></span><br>      <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Dismiss<span class="token punctuation">"</span></span><br>      <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><br>    <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>      I'm a modal dialog.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dialog</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-modal>
+  <ld-typo style="text-align: center">
+    I'm a modal dialog.
+  </ld-typo>
+</ld-modal>
+<ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button></div><div slot="showCssComponent"><dialog class="ld-modal">
+  <header class="ld-modal__header">
+    <button
+      class="ld-modal__x"
+      aria-label="Dismiss"
+      onclick="this.closest('dialog').close()"
+    ></button>
+  </header>
+  <div class="ld-modal__content">
+    <p class="ld-typo" style="text-align: center">
+      I'm a modal dialog.
+    </p>
+  </div>
+</dialog>
+<button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
+<h3 id="with-header-and-footer" tabindex="-1">With header and footer <a class="header-anchor" href="components/ld-modal/#with-header-and-footer"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>You have two additional slots to your disposal for altering the modal header and footer which are both positioned fixed at top and bottom of the dialog element.</p>
+<docs-example code="%3Cld-modal%3E%0A%20%20%3Cld-typo%20slot%3D%22header%22%3EHello%3C%2Fld-typo%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20mode%3D%22ghost%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ECancel%3C%2Fld-button%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%3EHello%3C%2Fp%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%20%20%3Cfooter%20class%3D%22ld-modal__footer%22%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%20ld-button--ghost%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ECancel%3C%2Fbutton%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ESubmit%3C%2Fbutton%3E%0A%20%20%3C%2Ffooter%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ghost<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'ld-modal'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Cancel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'ld-modal'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dialog</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><br>      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__x<span class="token punctuation">"</span></span><br>      <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Dismiss<span class="token punctuation">"</span></span><br>      <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><br>    <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>      I'm a modal dialog.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__footer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button ld-button--ghost<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Cancel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dialog</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-modal>
+  <ld-typo slot="header">Hello</ld-typo>
+  <ld-typo style="text-align: center">
+    I'm a modal dialog.
+  </ld-typo>
+  <ld-button slot="footer" style="width: 8rem" mode="ghost" onclick="this.closest('ld-modal').close()">Cancel</ld-button>
+  <ld-button slot="footer" style="width: 8rem" onclick="this.closest('ld-modal').close()">Submit</ld-button>
+</ld-modal>
+<ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button></div><div slot="showCssComponent"><dialog class="ld-modal">
+  <header class="ld-modal__header">
+    <p class="ld-typo">Hello</p>
+    <button
+      class="ld-modal__x"
+      aria-label="Dismiss"
+      onclick="this.closest('dialog').close()"
+    ></button>
+  </header>
+  <div class="ld-modal__content">
+    <p class="ld-typo" style="text-align: center">
+      I'm a modal dialog.
+    </p>
+  </div>
+  <footer class="ld-modal__footer">
+    <button class="ld-button ld-button--ghost" style="width: 8rem" onclick="this.closest('dialog').close()">Cancel</button>
+    <button class="ld-button" style="width: 8rem" onclick="this.closest('dialog').close()">Submit</button>
+  </footer>
+</dialog>
+<button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
+<h3 id="non-cancelable" tabindex="-1">Non-cancelable <a class="header-anchor" href="components/ld-modal/#non-cancelable"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-modal%20cancelable%3D%22false%22%3E%0A%20%20%3Cld-typo%20slot%3D%22header%22%3EHello%3C%2Fld-typo%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%20oncancel%3D%22event.preventDefault()%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%3EHello%3C%2Fp%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%20%20%3Cfooter%20class%3D%22ld-modal__footer%22%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ESubmit%3C%2Fbutton%3E%0A%20%20%3C%2Ffooter%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span> <span class="token attr-name">cancelable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'ld-modal'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dialog</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal<span class="token punctuation">"</span></span> <span class="token attr-name">oncancel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>event.preventDefault()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>      I'm a modal dialog.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__footer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dialog</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-modal cancelable="false">
+  <ld-typo slot="header">Hello</ld-typo>
+  <ld-typo style="text-align: center">
+    I'm a modal dialog.
+  </ld-typo>
+  <ld-button slot="footer" style="width: 8rem" onclick="this.closest('ld-modal').close()">Submit</ld-button>
+</ld-modal>
+<ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button></div><div slot="showCssComponent"><dialog class="ld-modal" oncancel="event.preventDefault()">
+  <header class="ld-modal__header">
+    <p class="ld-typo">Hello</p>
+  </header>
+  <div class="ld-modal__content">
+    <p class="ld-typo" style="text-align: center">
+      I'm a modal dialog.
+    </p>
+  </div>
+  <footer class="ld-modal__footer">
+    <button class="ld-button" style="width: 8rem" onclick="this.closest('dialog').close()">Submit</button>
+  </footer>
+</dialog>
+<button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
+<h3 id="with-blurry-backdrop" tabindex="-1">With blurry backdrop <a class="header-anchor" href="components/ld-modal/#with-blurry-backdrop"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-modal%20blurry-backdrop%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%20ld-modal--blurry-backdrop%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span> <span class="token attr-name">blurry-backdrop</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dialog</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal ld-modal--blurry-backdrop<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><br>      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__x<span class="token punctuation">"</span></span><br>      <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Dismiss<span class="token punctuation">"</span></span><br>      <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><br>    <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-modal__content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-typo<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>      I'm a modal dialog.<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dialog</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-button<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-modal blurry-backdrop>
+  <ld-typo style="text-align: center">
+    I'm a modal dialog.
+  </ld-typo>
+</ld-modal>
+<ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button></div><div slot="showCssComponent"><dialog class="ld-modal ld-modal--blurry-backdrop">
+  <header class="ld-modal__header">
+    <button
+      class="ld-modal__x"
+      aria-label="Dismiss"
+      onclick="this.closest('dialog').close()"
+    ></button>
+  </header>
+  <div class="ld-modal__content">
+    <p class="ld-typo" style="text-align: center">
+      I'm a modal dialog.
+    </p>
+  </div>
+</dialog>
+<button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
+<!-- Auto Generated Below -->
+<h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-modal/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>blurryBackdrop</code></td>
+<td><code>blurry-backdrop</code></td>
+<td>Use a blurry backdrop.</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>cancelable</code></td>
+<td><code>cancelable</code></td>
+<td>The modal is cancelable by default. However, you can change this using this prop.</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td><code>key</code></td>
+<td>for tracking the node's identity when working with lists</td>
+<td><code>string | number</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td><code>open</code></td>
+<td>Indicates that the modal dialog is active and can be interacted with.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td><code>ref</code></td>
+<td>reference to component</td>
+<td><code>any</code></td>
+<td><code>undefined</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="events" tabindex="-1">Events <a class="header-anchor" href="components/ld-modal/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldmodalclosed</code></td>
+<td>Emitted when modal has closed (after transition).</td>
+<td><code>CustomEvent&lt;any&gt;</code></td>
+</tr>
+<tr>
+<td><code>ldmodalclosing</code></td>
+<td>Emitted when modal is closing (before transition).</td>
+<td><code>CustomEvent&lt;any&gt;</code></td>
+</tr>
+<tr>
+<td><code>ldmodalopened</code></td>
+<td>Emitted when modal has opened (after transition).</td>
+<td><code>CustomEvent&lt;any&gt;</code></td>
+</tr>
+<tr>
+<td><code>ldmodalopening</code></td>
+<td>Emitted when modal is opening (before transition).</td>
+<td><code>CustomEvent&lt;any&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods" tabindex="-1">Methods <a class="header-anchor" href="components/ld-modal/#methods"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="close()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>close() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/#close()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>Closes the modal dialog.</p>
+<h4 id="returns" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/#returns"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<p>Type: <code>Promise&lt;void&gt;</code></p>
+<h3 id="showmodal()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>showModal() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/#showmodal()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>Opens the modal dialog.</p>
+<h4 id="returns-1" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/#returns-1"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<p>Type: <code>Promise&lt;void&gt;</code></p>
+<h2 id="shadow-parts" tabindex="-1">Shadow Parts <a class="header-anchor" href="components/ld-modal/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;content&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&quot;footer&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&quot;header&quot;</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+      
+        <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
+      
+    </docs-main>
+
+  </docs-layout>
+  <docs-search></docs-search>
+</body>
+</html>
