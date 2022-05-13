@@ -9,7 +9,7 @@ exports[`ld-tabs renders 1`] = `
     <mock:shadow-root>
       <div class="ld-tablist" part="wrapper">
         <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
-          <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
             <title>
               Scroll left
             </title>
@@ -20,7 +20,7 @@ exports[`ld-tabs renders 1`] = `
           <slot></slot>
         </div>
         <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
-          <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16">
             <title>
               Scroll right
             </title>
@@ -119,7 +119,7 @@ exports[`ld-tabs shows tabpanel according to the preselected tab 1`] = `
     <mock:shadow-root>
       <div class="ld-tablist" part="wrapper">
         <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
-          <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
             <title>
               Scroll left
             </title>
@@ -130,7 +130,7 @@ exports[`ld-tabs shows tabpanel according to the preselected tab 1`] = `
           <slot></slot>
         </div>
         <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right" hidden="" part="arrow arrow-right" tabindex="-1">
-          <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <svg fill="none" height="16" part="arrow-icon arrow-icon-right" viewBox="0 0 16 16" width="16">
             <title>
               Scroll right
             </title>

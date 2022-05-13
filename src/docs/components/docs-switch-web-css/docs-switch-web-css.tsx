@@ -41,11 +41,7 @@ export class DocsSwitchWebCss {
               this.isOn ? ' docs-switch-web-css__option--active' : ''
             }`}
           >
-            <svg
-              class="docs-switch-web-css__icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 800 800"
-            >
+            <svg class="docs-switch-web-css__icon" viewBox="0 0 800 800">
               <title>Web Component</title>
               <path
                 fill="currentColor"
@@ -58,11 +54,7 @@ export class DocsSwitchWebCss {
               !this.isOn ? ' docs-switch-web-css__option--active' : ''
             }`}
           >
-            <svg
-              class="docs-switch-web-css__icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 800 300"
-            >
+            <svg class="docs-switch-web-css__icon" viewBox="0 0 800 300">
               <title>CSS Component</title>
               <path
                 fill="currentColor"

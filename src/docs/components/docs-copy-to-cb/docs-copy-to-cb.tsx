@@ -39,11 +39,7 @@ export class DocsCopyToCb {
           <ld-icon size="sm" name="checkmark" key="check" />
         ) : (
           <ld-icon size="sm" key="success">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 17"
-            >
+            <svg fill="none" viewBox="0 0 17 17">
               <rect
                 stroke="currentcolor"
                 width="11"

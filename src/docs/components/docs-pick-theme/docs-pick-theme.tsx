@@ -54,7 +54,6 @@ export class DocsPickTheme {
                   <svg
                     role={'presentation'}
                     class="docs-pick-theme__option-pattern"
-                    xmlns="http://www.w3.org/2000/svg"
                     fill-rule="evenodd"
                     stroke-linejoin="round"
                     stroke-miterlimit="2"
@@ -75,7 +74,6 @@ export class DocsPickTheme {
               <ld-icon slot="icon">
                 <svg
                   class="docs-pick-theme__icon"
-                  xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 32 32"
                 >

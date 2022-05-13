@@ -217,7 +217,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <button class="ld-button ld-button--sm">
   <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -227,7 +227,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <button class="ld-button">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -237,7 +237,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <button class="ld-button ld-button--lg">
   <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -247,7 +247,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <button class="ld-button ld-button--highlight ld-button--sm">
   <span class="ld-icon ld-icon--sm" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -258,7 +258,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--danger">
   Text
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -267,7 +267,7 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 <button class="ld-button ld-button--secondary ld-button--lg">
     <span class="ld-icon ld-icon--lg" role="presentation">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -324,7 +324,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 <button style="width: 8rem" class="ld-button">
   Text
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -334,7 +334,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 <button style="width: 8rem" class="ld-button ld-button--justify-start">
   Text
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -344,7 +344,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 <button style="width: 8rem" class="ld-button ld-button--justify-end">
   Text
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -354,7 +354,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 <button style="width: 8rem" class="ld-button ld-button--justify-between">
   Text
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -401,7 +401,7 @@ You can align the text inside the button using the `align-text` propperty.
 
 <button class="ld-button ld-button--align-text-left">
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>
@@ -416,7 +416,7 @@ You can align the text inside the button using the `align-text` propperty.
   A shining crescent far beneath the flying vessel. 
   Then came the night of the first falling star.
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>

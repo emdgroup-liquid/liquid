@@ -23,7 +23,7 @@ An icon provides a visual hint for content or interactions. Combine it with text
 <!-- CSS component -->
 
 <span class="ld-icon" role="presentation">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
     <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
   </svg>
@@ -42,21 +42,21 @@ An icon provides a visual hint for content or interactions. Combine it with text
 <!-- CSS component -->
 
 <span class="ld-icon ld-icon--sm" role="presentation">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
     <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
   </svg>
 </span>
 
 <span class="ld-icon" role="presentation">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
     <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
   </svg>
 </span>
 
 <span class="ld-icon ld-icon--lg" role="presentation">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
     <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
   </svg>
@@ -77,7 +77,7 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 <!-- CSS component -->
 
 <span class="ld-icon" role="presentation" style="color: var(--ld-col-vc)">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 24 24" fill="none">
     <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
     <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
   </svg>
@@ -85,7 +85,7 @@ Liquid's icons use the [`currentColor`](https://developer.mozilla.org/en-US/docs
 
 <span style="color: var(--ld-col-vg)">
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
     </svg>

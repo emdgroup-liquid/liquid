@@ -188,7 +188,6 @@ export class LdTablist {
               part="arrow-icon arrow-icon-left"
               viewBox="0 0 16 16"
               width="16"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <title>Scroll left</title>
               <path
@@ -222,7 +221,6 @@ export class LdTablist {
               part="arrow-icon arrow-icon-right"
               viewBox="0 0 16 16"
               width="16"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <title>Scroll right</title>
               <path
