@@ -31,13 +31,7 @@ export class DocsViewOnFigma {
             target="_blank"
           >
             <ld-icon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                width="24"
-                height="24"
-                viewBox="0 0 16 24"
-              >
+              <svg fill="none" width="24" height="24" viewBox="0 0 16 24">
                 <g clip-path="url(#a)">
                   <path
                     fill="#0ACF83"

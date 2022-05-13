@@ -191,7 +191,6 @@ export class DocsSearch {
                 aria-hidden="true"
                 slot="start"
                 class="docs-search__input-icon"
-                xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 18 19"
               >

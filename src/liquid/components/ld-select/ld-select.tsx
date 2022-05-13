@@ -1013,7 +1013,6 @@ export class LdSelect implements InnerFocusable {
                             <svg
                               class="ld-select__btn-clear-single-icon"
                               part="icon-clear-single"
-                              xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 12 12"
                             >
@@ -1061,7 +1060,6 @@ export class LdSelect implements InnerFocusable {
                 >
                   <svg
                     class="ld-select__btn-clear-icon"
-                    xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 21 20"
                     part="icon-clear"
@@ -1091,7 +1089,6 @@ export class LdSelect implements InnerFocusable {
                 <svg
                   class={getClassNames(triggerIconCl)}
                   role={'presentation'}
-                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                   part="trigger-icon"
                 >

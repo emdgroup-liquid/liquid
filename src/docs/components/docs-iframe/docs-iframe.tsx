@@ -25,10 +25,10 @@ export class DocsIFrame {
   updateDarkMode(darkMode: boolean) {
     if (!this.loaded) return
 
-    this.iframe.contentWindow.postMessage(
-      { mode: 'updateDarkmode', darkMode: darkMode },
-      this.src
-    )
+    this.iframe.contentWindow.postMessage({
+      mode: 'updateDarkmode',
+      darkMode: darkMode,
+    })
   }
 
   componentDidLoad() {

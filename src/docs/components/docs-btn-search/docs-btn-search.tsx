@@ -57,7 +57,6 @@ export class DocsBtnSearch {
             height="16"
             viewBox="0 0 14 14"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <circle cx="5.90909" cy="5.90909" r="4.90909" stroke-width="2" />
             <path
@@ -74,7 +73,6 @@ export class DocsBtnSearch {
             height="17"
             viewBox="0 0 24 17"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
               fill-rule="evenodd"

@@ -8,7 +8,7 @@ exports[`ld-tooltip renders custom trigger 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -41,7 +41,7 @@ exports[`ld-tooltip renders default 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -71,7 +71,7 @@ exports[`ld-tooltip renders with arrow 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -102,7 +102,7 @@ exports[`ld-tooltip renders with position bottom center 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -123,7 +123,7 @@ exports[`ld-tooltip renders with position bottom left 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -144,7 +144,7 @@ exports[`ld-tooltip renders with position bottom right 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -165,7 +165,7 @@ exports[`ld-tooltip renders with position left bottom 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -186,7 +186,7 @@ exports[`ld-tooltip renders with position left middle 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -207,7 +207,7 @@ exports[`ld-tooltip renders with position left top 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -228,7 +228,7 @@ exports[`ld-tooltip renders with position right bottom 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -249,7 +249,7 @@ exports[`ld-tooltip renders with position right middle 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -270,7 +270,7 @@ exports[`ld-tooltip renders with position right top 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -291,7 +291,7 @@ exports[`ld-tooltip renders with position top center 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -312,7 +312,7 @@ exports[`ld-tooltip renders with position top left 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>
@@ -333,7 +333,7 @@ exports[`ld-tooltip renders with position top right 1`] = `
         Info
       </ld-sr-only>
       <slot name="trigger">
-        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ld-tooltip__icon" fill="none" part="icon" viewBox="0 0 24 24">
           <path clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.9249 18.0751 1 12 1C5.9249 1 1 5.9249 1 12C1 18.0751 5.9249 23 12 23Z" fill="currentColor" fill-rule="evenodd"></path>
           <path clip-rule="evenodd" d="M11.9996 8.6477C12.9254 8.6477 13.6758 7.8973 13.6758 6.9715C13.6758 6.0458 12.9254 5.2953 11.9996 5.2953C11.0739 5.2953 10.3235 6.0458 10.3235 6.9715C10.3235 7.8973 11.0739 8.6477 11.9996 8.6477ZM10.8453 17.8038C11.1932 18.1517 11.6736 18.3256 12.2865 18.3256H13.4545C13.6864 18.3256 13.8023 18.2263 13.8023 18.0275V12.2873C13.8023 11.6744 13.6284 11.1939 13.2805 10.8461C12.9326 10.4982 12.4522 10.3242 11.8393 10.3242H10.6713C10.4394 10.3242 10.3235 10.4236 10.3235 10.6224V16.3626C10.3235 16.9755 10.4974 17.456 10.8453 17.8038Z" fill="var(--ld-col-wht)" fill-rule="evenodd"></path>
         </svg>

@@ -229,7 +229,6 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
           height="14"
           fill="none"
           viewBox="0 0 14 14"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M12 4L5.40795 10L2 6.63964"

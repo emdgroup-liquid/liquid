@@ -101,13 +101,7 @@ export class LdSidenavBack {
             <div class="ld-sidenav-back__bg-right"></div>
           </div>
           <div class="ld-sidenav-back__icon" part="icon-container">
-            <svg
-              part="icon"
-              width="12"
-              height="12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg part="icon" width="12" height="12" fill="none">
               <path
                 d="M4.333 1.832 1 5.999l3.333 4.166M1 6h10"
                 stroke="#F8F8FC"

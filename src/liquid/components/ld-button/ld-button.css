@@ -7,6 +7,10 @@
   }
 }
 
+:where(.ld-button) {
+  margin: 0; /* margin reset for Safari must have zero specificity! */
+}
+
 .ld-button {
   --ld-button-icon-size-sm: 1rem;
   --ld-button-icon-size-md: 1.25rem;
@@ -25,7 +29,6 @@
   --ld-button-gap-lg: 1.1875rem;
   background-color: var(--ld-button-bg-color, var(--ld-thm-primary));
   box-sizing: border-box;
-  margin: 0;
   position: relative;
   font: var(--ld-typo-body-m);
   border: 0;

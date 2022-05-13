@@ -15,4 +15,4 @@ tags:
 permalink: data-visualization/getting-started/
 ---
 
-<docs-iframe src="https://d2bfn5a2arsw4b.cloudfront.net/data-visualization"></docs-iframe>
+<docs-iframe src="/../data-visualization"></docs-iframe>

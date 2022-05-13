@@ -347,7 +347,7 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
       <input placeholder="jane.doe@example.com" value="yolo" type="email">
     </div>
     <span class="ld-input-message ld-input-message--error">
-      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="currentColor"/>
         <path d="M4.66675 4.66699L9.33341 9.33366" stroke="var(--ld-col-wht)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M4.66675 9.33301L9.33341 4.66634" stroke="var(--ld-col-wht)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -362,7 +362,7 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
       <input type="password" value="asdf1234">
     </div>
     <span class="ld-input-message">
-      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="var(--ld-thm-warning)"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="var(--ld-col-neutral-900)"/>
         <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-col-neutral-900)"/>
@@ -398,7 +398,7 @@ By default, the input field stretches to the maximum width of its wrapping label
     <input placeholder="jane.doe@example.com" type="email">
   </div>
   <span class="ld-input-message">
-      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="var(--ld-thm-warning)"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="var(--ld-col-neutral-900)"/>
         <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-col-neutral-900)"/>
@@ -413,7 +413,7 @@ By default, the input field stretches to the maximum width of its wrapping label
     <input placeholder="jane.doe@example.com" type="email">
   </div>
   <span class="ld-input-message">
-    <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="ld-input-message__icon ld-icon ld-icon--sm" width="14" height="14" viewBox="0 0 14 14" fill="none">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="var(--ld-thm-warning)"/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M7.18234 11.0254C6.79228 11.0254 6.48657 10.9147 6.26518 10.6933C6.0438 10.472 5.93311 10.1662 5.93311 9.77618V6.12335C5.93311 5.99685 6.0069 5.93359 6.15449 5.93359H6.89771C7.28776 5.93359 7.59348 6.04428 7.81487 6.26567C8.03625 6.48705 8.14694 6.79277 8.14694 7.18283V10.8357C8.14694 10.9622 8.07315 11.0254 7.92556 11.0254H7.18234Z" fill="var(--ld-col-neutral-900)"/>
       <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-col-neutral-900)"/>
@@ -476,7 +476,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--sm">
   <input placeholder="Placeholder">
   <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -486,7 +486,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input ld-input--sm">
   <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -497,7 +497,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input ld-input--sm">
   <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -505,7 +505,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </span>
   <input placeholder="Placeholder">
   <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -516,7 +516,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input">
   <input placeholder="Placeholder">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -526,7 +526,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -537,7 +537,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -545,7 +545,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </span>
   <input placeholder="Placeholder">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -556,7 +556,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--lg">
   <input placeholder="Placeholder">
   <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -566,7 +566,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input ld-input--lg">
   <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -577,7 +577,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <div class="ld-input ld-input--lg">
   <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -585,7 +585,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </span>
   <input placeholder="Placeholder">
   <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
       <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -643,7 +643,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm" aria-label="Submit">
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -656,7 +656,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <button class="ld-button ld-button--sm">
     Submit
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -668,7 +668,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -681,7 +681,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <button class="ld-button">
     Submit
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -693,7 +693,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg" aria-label="Submit">
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -706,7 +706,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <button class="ld-button ld-button--lg">
     Submit
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -787,7 +787,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -798,7 +798,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -810,7 +810,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--sm">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -819,7 +819,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -831,7 +831,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -842,7 +842,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -854,7 +854,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -863,7 +863,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -875,7 +875,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -886,7 +886,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--lg">
   <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -898,7 +898,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <div class="ld-input ld-input--lg">
   <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
@@ -907,7 +907,7 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
     <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
       </svg>
