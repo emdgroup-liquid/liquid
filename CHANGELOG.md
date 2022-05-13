@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/emdgroup-liquid/liquid/compare/v1.9.0...v1.10.0) (2022-05-13)
+
+
+### Bug Fixes
+
+* update iframe postMessage origin ([5b4e63a](https://github.com/emdgroup-liquid/liquid/commit/5b4e63acc2f47ac9c58797c85a8abd5299e72ac7))
+
+
+### Features
+
+* **ld-modal:** add modal component ([59f22ec](https://github.com/emdgroup-liquid/liquid/commit/59f22ec6526d0d847abf3c9ca301076c87e99f79))
+
 # [1.9.0](https://github.com/emdgroup-liquid/liquid/compare/v1.8.2...v1.9.0) (2022-05-09)
 
 
