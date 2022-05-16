@@ -1,0 +1,75 @@
+:host,
+.ld-badge {
+  --ld-badge-size-md: 1.0625rem;
+  --ld-badge-size-lg: 1rem;
+  --ld-badge-icon-size-md: 0.5625rem;
+  --ld-badge-icon-size-lg: 0.75rem;
+  --ld-badge-bg-col: var(--ld-thm-primary);
+  --ld-badge-gap-md: var(--ld-sp-6);
+  --ld-badge-gap-lg: var(--ld-sp-8);
+  --ld-badge-padding-block-md: 0.2125rem;
+  --ld-badge-padding-block-lg: 0.25rem;
+  --ld-badge-padding-inline-md: 0.5rem;
+  --ld-badge-padding-inline-lg: 0.625rem;
+
+  align-items: center;
+  background-color: var(--ld-badge-bg-col);
+  border-radius: var(--ld-br-full);
+  box-sizing: border-box;
+  color: var(--ld-col-wht);
+  display: inline-flex;
+  font: var(--ld-typo-body-xs);
+  font-weight: bold;
+  gap: var(--ld-badge-gap-md);
+  justify-content: center;
+  line-height: 1.1;
+  padding-block: var(--ld-badge-padding-block-md);
+  padding-inline: var(--ld-badge-padding-inline-md);
+  position: relative;
+
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
+  > ld-icon,
+  > .ld-icon {
+    --ld-icon-size-md: var(--ld-badge-icon-size-md);
+    flex-shrink: 0;
+    margin: 0 calc(-1 * var(--ld-sp-8));
+  }
+
+  &.ld-badge--with-text {
+    &,
+    :host(&) {
+      ::slotted(ld-icon),
+      ::slotted(.ld-icon),
+      > ld-icon,
+      > .ld-icon {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.ld-badge--lg,
+:host(.ld-badge--lg) {
+  font: var(--ld-typo-body-s);
+  font-weight: bold;
+  gap: var(--ld-badge-gap-lg);
+  /*height: var(--ld-badge-size-lg);*/
+  line-height: 1.1;
+  padding-block: var(--ld-badge-padding-block-lg);
+  padding-inline: var(--ld-badge-padding-inline-lg);
+
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon),
+  > ld-icon,
+  > .ld-icon {
+    --ld-icon-size-md: var(--ld-badge-icon-size-lg);
+    transform: none;
+  }
+}
+
+.ld-badge--brand-color,
+:host(.ld-badge--brand-color) {
+  background-color: var(--ld-col-wht);
+  color: var(--ld-thm-primary);
+}
