@@ -2,7 +2,9 @@
 
 exports[`ld-card renders 1`] = `
 <ld-card class="ld-card ld-card--stacked">
-  <mock:shadow-root></mock:shadow-root>
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
   Hello
 </ld-card>
 `;
