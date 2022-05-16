@@ -335,6 +335,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
 ### Used by
 
  - [ld-accordion-toggle](../ld-accordion/ld-accordion-toggle)
+ - [ld-badge](../ld-badge)
  - [ld-header](../ld-header)
  - [ld-input-message](../ld-input-message)
  - [ld-notice](../ld-notice)
@@ -346,6 +347,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
 ```mermaid
 graph TD;
   ld-accordion-toggle --> ld-icon
+  ld-badge --> ld-icon
   ld-header --> ld-icon
   ld-input-message --> ld-icon
   ld-notice --> ld-icon

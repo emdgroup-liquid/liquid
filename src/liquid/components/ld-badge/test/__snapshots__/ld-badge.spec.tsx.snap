@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-badge renders 1`] = `
+<ld-badge class="ld-badge" icon="checkmark">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-badge>
+`;
+
+exports[`ld-badge renders on brand color 1`] = `
+<ld-badge brand-color="" class="ld-badge ld-badge--brand-color" icon="checkmark">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-badge>
+`;
+
+exports[`ld-badge renders with custom icon 1`] = `
+<ld-badge class="ld-badge">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+  <svg slot="icon" viewBox="0 0 14 14">
+    <path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+  </svg>
+</ld-badge>
+`;
+
+exports[`ld-badge renders with size lg 1`] = `
+<ld-badge class="ld-badge ld-badge--lg" icon="checkmark" size="lg">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-badge>
+`;
+
+exports[`ld-badge renders with text 1`] = `
+<ld-badge class="ld-badge ld-badge--with-text">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  Badge
+</ld-badge>
+`;
+
+exports[`ld-badge updates after addition of an icon 1`] = `
+<ld-badge class="ld-badge ld-badge--with-text">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+  Badge
+  <ld-icon class="ld-icon" name="placeholder" role="presentation" slot="icon">
+    <mock:shadow-root>
+      Not Found
+    </mock:shadow-root>
+  </ld-icon>
+</ld-badge>
+`;
+
+exports[`ld-badge updates after addition of text 1`] = `
+<ld-badge class="ld-badge ld-badge--with-text" icon="checkmark">
+  <mock:shadow-root>
+    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+      <slot name="icon"></slot>
+    </ld-icon>
+    <slot></slot>
+  </mock:shadow-root>
+  <span>
+    Badge
+  </span>
+</ld-badge>
+`;
