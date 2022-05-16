@@ -132,14 +132,6 @@ Use the `shadow-interactive` prop for a transition to a different shadow on hove
 | `shadow`            | `shadow`             | Simulates card elevation by setting the size of the card box shadow.                                               | `"active" \| "hover" \| "stacked" \| "sticky"` | `'stacked'` |
 | `shadowInteractive` | `shadow-interactive` | Adds hover and focus-within states using an elevation transition from `shadow` (see above) to `shadowInteractive`. | `"active" \| "hover" \| "stacked" \| "sticky"` | `undefined` |
 | `size`              | `size`               | The size prop effects the card padding only.                                                                       | `"sm"`                                         | `undefined` |
-| `tag`               | `tag`                | The rendered HTML tag for the card. Use `li` to group cards in a list.                                             | `string`                                       | `'div'`     |
-
-
-## Shadow Parts
-
-| Part     | Description |
-| -------- | ----------- |
-| `"card"` |             |
 
 
 ----------------------------------------------

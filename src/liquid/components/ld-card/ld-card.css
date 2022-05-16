@@ -1,3 +1,4 @@
+:host,
 .ld-card {
   --ld-card-bg-col: var(--ld-col-wht);
   --ld-card-border-radius: var(--ld-br-l);
@@ -31,36 +32,47 @@
   &::after {
     opacity: 0;
   }
+}
 
-  &--sticky::before,
-  &--interactive-sticky::after {
-    box-shadow: var(--ld-shadow-sticky);
-  }
-  &--hover::before,
-  &--interactive-hover::after {
-    box-shadow: var(--ld-shadow-hover);
-  }
-  &--active::before,
-  &--interactive-active::after {
-    box-shadow: var(--ld-shadow-active);
-  }
+:host(.ld-card--sticky)::before,
+.ld-card--sticky::before,
+:host(.ld-card--interactive-sticky)::after,
+.ld-card--interactive-sticky::after {
+  box-shadow: var(--ld-shadow-sticky);
+}
+:host(.ld-card--hover)::before,
+.ld-card--hover::before,
+:host(.ld-card--interactive-hover)::after,
+.ld-card--interactive-hover::after {
+  box-shadow: var(--ld-shadow-hover);
+}
+:host(.ld-card--active)::before,
+.ld-card--active::before,
+:host(.ld-card--interactive-active)::after,
+.ld-card--interactive-active::after {
+  box-shadow: var(--ld-shadow-active);
+}
 
-  &--interactive-stacked,
-  &--interactive-sticky,
-  &--interactive-hover,
-  &--interactive-active {
-    &:hover,
-    &:focus-within {
-      &::before {
-        opacity: 0;
-      }
-      &::after {
-        opacity: 1;
-      }
+.ld-card--interactive-stacked,
+.ld-card--interactive-sticky,
+.ld-card--interactive-hover,
+.ld-card--interactive-active {
+  &:hover,
+  &:focus-within {
+    :host(&)::before,
+    &::before {
+      opacity: 0;
+    }
+    :host(&)::after,
+    &::after {
+      opacity: 1;
     }
   }
+}
 
-  &--sm {
+.ld-card--sm {
+  :host(&),
+  & {
     padding: var(--ld-card-padding-sm);
   }
 }

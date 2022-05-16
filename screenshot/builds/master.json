@@ -4751,7 +4751,7 @@
     },
     {
       "id": "b2d4c090",
-      "image": "f371b5dd3afa2b89f108d9cf3448537d.png",
+      "image": "8f3ebe8cd402bd2b300fc22347daced2.png",
       "userAgent": "default",
       "desc": "ld-card appearance reset anchor card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4764,7 +4764,7 @@
     },
     {
       "id": "67568f17",
-      "image": "f371b5dd3afa2b89f108d9cf3448537d.png",
+      "image": "8f3ebe8cd402bd2b300fc22347daced2.png",
       "userAgent": "default",
       "desc": "ld-card appearance reset button card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4777,7 +4777,7 @@
     },
     {
       "id": "46e105aa",
-      "image": "f371b5dd3afa2b89f108d9cf3448537d.png",
+      "image": "8f3ebe8cd402bd2b300fc22347daced2.png",
       "userAgent": "default",
       "desc": "ld-card appearance reset list item card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4790,7 +4790,7 @@
     },
     {
       "id": "f18ad205",
-      "image": "bb59e6be4e5c40db60fd43eca35723df.png",
+      "image": "c9101be168cca7517d15e865d5f09929.png",
       "userAgent": "default",
       "desc": "ld-card interactive interactive card CSS Component focus",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4803,7 +4803,7 @@
     },
     {
       "id": "b7f05d28",
-      "image": "372023a90926fe1308c72ca7a006a31e.png",
+      "image": "629b979dbed0a7ea160c8302c97217e1.png",
       "userAgent": "default",
       "desc": "ld-card interactive interactive card CSS Component hover, hover button",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4816,7 +4816,7 @@
     },
     {
       "id": "223ac831",
-      "image": "ad2712c2a250cfb2022af4f973017eec.png",
+      "image": "37a5ec27abb80d8dd9b33a9b9f362f62.png",
       "userAgent": "default",
       "desc": "ld-card interactive interactive card CSS Component hover, hover card",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4829,7 +4829,7 @@
     },
     {
       "id": "158d9734",
-      "image": "fce250b33a0925c0ee9a8a18e78419c0.png",
+      "image": "c9101be168cca7517d15e865d5f09929.png",
       "userAgent": "default",
       "desc": "ld-card interactive interactive card Web Component focus",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4867,47 +4867,8 @@
       "isMobile": false
     },
     {
-      "id": "d61ac337",
-      "image": "a565d18b2bfbb0a735e533e9c41978f7.png",
-      "userAgent": "default",
-      "desc": "ld-card interactive interactive card WebComponent focus",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "5f281721",
-      "image": "372023a90926fe1308c72ca7a006a31e.png",
-      "userAgent": "default",
-      "desc": "ld-card interactive interactive card WebComponent hover, hover button",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "5bb058f1",
-      "image": "ad2712c2a250cfb2022af4f973017eec.png",
-      "userAgent": "default",
-      "desc": "ld-card interactive interactive card WebComponent hover, hover card",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "66ab3acf",
-      "image": "f371b5dd3afa2b89f108d9cf3448537d.png",
+      "image": "8f3ebe8cd402bd2b300fc22347daced2.png",
       "userAgent": "default",
       "desc": "ld-card renders as CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4932,21 +4893,8 @@
       "isMobile": false
     },
     {
-      "id": "36d0ddc7",
-      "image": "f371b5dd3afa2b89f108d9cf3448537d.png",
-      "userAgent": "default",
-      "desc": "ld-card renders as WebComponent",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "97f63660",
-      "image": "f48b2d99b406f814e17eddaf89429ac2.png",
+      "image": "56b7297a79c018b6efdaee6186200b78.png",
       "userAgent": "default",
       "desc": "ld-card shadow active shadow card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -4971,21 +4919,8 @@
       "isMobile": false
     },
     {
-      "id": "69a1d52a",
-      "image": "f48b2d99b406f814e17eddaf89429ac2.png",
-      "userAgent": "default",
-      "desc": "ld-card shadow active shadow card WebComponent",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "fc18a046",
-      "image": "911997bc233439e8fd40e2f7cd152861.png",
+      "image": "cca7ff1e58ab403f32f1881cf1976d5e.png",
       "userAgent": "default",
       "desc": "ld-card shadow hover shadow card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -5010,21 +4945,8 @@
       "isMobile": false
     },
     {
-      "id": "cb23c014",
-      "image": "911997bc233439e8fd40e2f7cd152861.png",
-      "userAgent": "default",
-      "desc": "ld-card shadow hover shadow card WebComponent",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "68453ae0",
-      "image": "909aa5738733c957ff807f5d82c8aeca.png",
+      "image": "637ee48e542fad27454800af189a7014.png",
       "userAgent": "default",
       "desc": "ld-card shadow sticky shadow card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -5049,21 +4971,8 @@
       "isMobile": false
     },
     {
-      "id": "a90577c9",
-      "image": "909aa5738733c957ff807f5d82c8aeca.png",
-      "userAgent": "default",
-      "desc": "ld-card shadow sticky shadow card WebComponent",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "71926aa4",
-      "image": "6d89a2ada90e7b8e634c52fb60a5cfba.png",
+      "image": "9feefd3bfdc28138af46ee9224d3079c.png",
       "userAgent": "default",
       "desc": "ld-card size small card CSS Component",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
@@ -5079,19 +4988,6 @@
       "image": "9feefd3bfdc28138af46ee9224d3079c.png",
       "userAgent": "default",
       "desc": "ld-card size small card Web Component",
-      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "f2699f7d",
-      "image": "6d89a2ada90e7b8e634c52fb60a5cfba.png",
-      "userAgent": "default",
-      "desc": "ld-card size small card WebComponent",
       "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
       "width": 600,
       "height": 600,

@@ -1,5 +1,5 @@
 import '../../components' // type definitions for type checks and intelliSense
-import { Component, h, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 
 /**
@@ -24,9 +24,6 @@ export class LdCard {
   /** The size prop effects the card padding only. */
   @Prop() size?: 'sm'
 
-  /** The rendered HTML tag for the card. Use `li` to group cards in a list. */
-  @Prop() tag = 'div'
-
   render() {
     const cl = getClassNames([
       'ld-card',
@@ -36,12 +33,10 @@ export class LdCard {
         `ld-card--interactive-${this.shadowInteractive}`,
     ])
 
-    const Tag = this.tag
-
     return (
-      <Tag class={cl} part="card">
+      <Host class={cl}>
         <slot></slot>
-      </Tag>
+      </Host>
     )
   }
 }
