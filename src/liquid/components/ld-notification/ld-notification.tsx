@@ -137,6 +137,7 @@ export class LdNotification {
           }
           part="btn-dismiss focusable"
         >
+          {/* custom icon cross */}
           <svg
             width="24"
             height="24"

@@ -1,0 +1,15 @@
+:host,
+.ld-breadcrumbs {
+  --ld-crumb-icon-gap: 0.5em;
+  --ld-crumb-gap: 0.6em;
+
+  line-height: 1.5;
+}
+
+.ld-breadcrumbs > ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

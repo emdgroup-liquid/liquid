@@ -3,7 +3,7 @@
 exports[`ld-link renders as disabled 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a aria-disabled="true" class="ld-link ld-link--disabled" disabled="">
+    <a aria-disabled="true" class="ld-link ld-link--disabled" disabled="" part="anchor focusable">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -14,7 +14,7 @@ exports[`ld-link renders as disabled 1`] = `
 exports[`ld-link renders default 1`] = `
 <ld-link>
   <mock:shadow-root>
-    <a class="ld-link">
+    <a class="ld-link" part="anchor focusable">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -25,7 +25,7 @@ exports[`ld-link renders default 1`] = `
 exports[`ld-link renders with href 1`] = `
 <ld-link href="#">
   <mock:shadow-root>
-    <a class="ld-link" href="#">
+    <a class="ld-link" href="#" part="anchor focusable">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -36,7 +36,7 @@ exports[`ld-link renders with href 1`] = `
 exports[`ld-link renders with target _blank and rel 1`] = `
 <ld-link href="#" target="_blank">
   <mock:shadow-root>
-    <a class="ld-link" href="#" rel="noreferrer noopener" target="_blank">
+    <a class="ld-link" href="#" part="anchor focusable" rel="noreferrer noopener" target="_blank">
       <slot></slot>
     </a>
   </mock:shadow-root>

@@ -35,4 +35,18 @@ describe('ld-link', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('allows to set inner focus', async () => {
+    const page = await newSpecPage({
+      components: [LdLink],
+      html: '<ld-link href="#">Link</ld-link>',
+    })
+    const ldLink = page.root
+    const anchor = ldLink.shadowRoot.children[0] as HTMLAnchorElement
+
+    anchor.focus = jest.fn()
+    await ldLink.focusInner()
+
+    expect(anchor.focus).toHaveBeenCalled()
+  })
 })
