@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/emdgroup-liquid/liquid/compare/v1.10.0...v1.11.0) (2022-05-18)
+
+
+### Features
+
+* **ld-breadcrumbs:** add ld-breadcrumbs component ([199b445](https://github.com/emdgroup-liquid/liquid/commit/199b4451cedcc4702227686d0810a5b17143a228))
+* **ld-card:** use host element only ([1249040](https://github.com/emdgroup-liquid/liquid/commit/1249040cfa761716e50f2d19089984455758c75e))
+
 # [1.10.0](https://github.com/emdgroup-liquid/liquid/compare/v1.9.0...v1.10.0) (2022-05-13)
 
 
