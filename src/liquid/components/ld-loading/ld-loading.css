@@ -1,26 +1,79 @@
-/**
- * @prop --ld-loading-col: Color of the loading indicator.
- * @prop --ld-loading-size: Size of the loading indicator.
- */
 :host,
-.ld-loading {
-  --ld-loading-size: 1.5rem;
-  --ld-loading-col: var(--ld-col-neutral-300);
+svg.ld-loading {
+  --ld-loading-col-base: var(--ld-thm-warning);
+  --ld-loading-col-primary: var(--ld-thm-primary);
+  --ld-loading-col-secondary: var(--ld-thm-secondary);
+  --ld-loading-play-state: running;
+  --ld-loading-size: var(--ld-sp-24);
+  --ld-loading-stretch-dur: 4s;
 
-  background: var(--ld-loading-col);
-  height: var(--ld-loading-size);
-  width: var(--ld-loading-size);
+  /* stylelint-disable-next-line */
+  &:host(.ld-loading--neutral), /* safari specific hack */
+  &.ld-loading--neutral {
+    --ld-loading-col-base: var(--ld-col-neutral-100);
+    --ld-loading-col-primary: var(--ld-col-neutral-700);
+    --ld-loading-col-secondary: var(--ld-col-neutral-400);
+  }
+
+  /* stylelint-disable-next-line */
+  &:host(.ld-loading--paused), /* safari specific hack */
+  &.ld-loading--paused {
+    --ld-loading-play-state: paused;
+  }
+
   display: inline-flex;
   flex-shrink: 0;
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 23"><defs/><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-dasharray="2.55 5" stroke-width="4"/></svg>');
-  animation: ld-loading-animation 1.5s linear infinite;
+  width: var(--ld-loading-size);
+  height: var(--ld-loading-size);
+  fill: none;
+  border-radius: 100%;
+  overflow: hidden;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 100"><defs/><circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="18"/></svg>');
+
+  circle {
+    transform-origin: center;
+    stroke: var(--ld-loading-col-base);
+    stroke-width: 40;
+    stroke-dashoffset: 330;
+    stroke-linecap: round;
+  }
+
+  g {
+    circle {
+      stroke-dasharray: 570;
+      animation: ld-loading-stretch var(--ld-loading-stretch-dur) ease infinite
+        var(--ld-loading-play-state);
+
+      &:nth-last-of-type(1) {
+        --ld-stroke-dashoffset-from: 420;
+        --ld-stroke-dashoffset-to: 540;
+      }
+      &:nth-last-of-type(2) {
+        --ld-stroke-dashoffset-from: 300;
+        --ld-stroke-dashoffset-to: 490;
+        stroke: var(--ld-loading-col-secondary);
+        animation-delay: calc(0.2 * var(--ld-loading-stretch-dur));
+        stroke-width: 39;
+      }
+      &:nth-last-of-type(3) {
+        --ld-stroke-dashoffset-from: 330;
+        --ld-stroke-dashoffset-to: 450;
+        stroke: var(--ld-loading-col-primary);
+        animation-delay: calc(0.4 * var(--ld-loading-stretch-dur));
+        stroke-width: 39;
+      }
+    }
+  }
 }
 
-@keyframes ld-loading-animation {
+@keyframes ld-loading-stretch {
   0% {
-    transform: rotate(0deg);
+    stroke-dashoffset: var(--ld-stroke-dashoffset-from);
+  }
+  50% {
+    stroke-dashoffset: var(--ld-stroke-dashoffset-to);
   }
   100% {
-    transform: rotate(360deg);
+    stroke-dashoffset: var(--ld-stroke-dashoffset-from);
   }
 }

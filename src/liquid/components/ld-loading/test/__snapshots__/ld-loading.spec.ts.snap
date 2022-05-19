@@ -1,7 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-loading is neutral 1`] = `
+<ld-loading class="ld-loading ld-loading--neutral" neutral="">
+  <mock:shadow-root>
+    <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
+      <title>
+        Loading
+      </title>
+      <circle cx="50" cy="50" r="50"></circle>
+      <g>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <animateTransform attributeName="transform" attributeType="XML" dur="0.9s" from="0 50 50" repeatCount="indefinite" to="360 50 50" type="rotate"></animateTransform>
+      </g>
+    </svg>
+  </mock:shadow-root>
+</ld-loading>
+`;
+
 exports[`ld-loading renders 1`] = `
 <ld-loading class="ld-loading">
-  <mock:shadow-root></mock:shadow-root>
+  <mock:shadow-root>
+    <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
+      <title>
+        Loading
+      </title>
+      <circle cx="50" cy="50" r="50"></circle>
+      <g>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <animateTransform attributeName="transform" attributeType="XML" dur="0.9s" from="0 50 50" repeatCount="indefinite" to="360 50 50" type="rotate"></animateTransform>
+      </g>
+    </svg>
+  </mock:shadow-root>
+</ld-loading>
+`;
+
+exports[`ld-loading uses custom label 1`] = `
+<ld-loading class="ld-loading ld-loading--neutral" label="Doing stuff..." neutral="">
+  <mock:shadow-root>
+    <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
+      <title>
+        Doing stuff...
+      </title>
+      <circle cx="50" cy="50" r="50"></circle>
+      <g>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <circle cx="50" cy="50" r="50"></circle>
+        <animateTransform attributeName="transform" attributeType="XML" dur="0.9s" from="0 50 50" repeatCount="indefinite" to="360 50 50" type="rotate"></animateTransform>
+      </g>
+    </svg>
+  </mock:shadow-root>
 </ld-loading>
 `;
