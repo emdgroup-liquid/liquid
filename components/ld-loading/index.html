@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Loading Indicator</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1653073910358/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1653073910358/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1653073910358/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1653073910358/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1653073910358/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1653297343294/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1653297343294/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1653297343294/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1653297343294/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1653297343294/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
 
@@ -1030,7 +1030,7 @@
               title: 'Loading Indicator',
               tags: '',
               url: '/liquid/components/ld-loading/',
-              headings: 'CSS Variables  Properties ',
+              headings: 'Basic  Neutral  CSS Variables  Properties ',
               breadcrumbs: [
                 
                 
@@ -1650,11 +1650,11 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1653073910358/docs.css">
-  <link rel="stylesheet" href="/liquid/1653073910358/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1653073910358/css_components/ld-button.css">
-  <script type="module" src="/liquid/1653073910358/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1653073910358/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1653297343294/docs.css">
+  <link rel="stylesheet" href="/liquid/1653297343294/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1653297343294/css_components/ld-button.css">
+  <script type="module" src="/liquid/1653297343294/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1653297343294/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2339,7 +2339,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol>
+        <ol><li><a href="#basic">Basic</a></li><li><a href="#neutral">Neutral</a></li><li><a href="#css-variables">CSS Variables</a></li><li><a href="#properties">Properties</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -2361,12 +2361,54 @@
       <link rel="stylesheet" href="css_components/ld-loading.css">
 <h1 id="ld-loading" tabindex="-1">ld-loading <a class="header-anchor" href="components/ld-loading/#ld-loading"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Use the <code>ld-loading</code> component to indicate that the user should wait for a process to complete. Combine it with textual information on what is going on for a better user experience.</p>
-<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Cspan%20class%3D%22ld-loading%22%3E%3C%2Fspan%3E"  themable has-border has-padding>
+<h2 id="basic" tabindex="-1">Basic <a class="header-anchor" href="components/ld-loading/#basic"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<docs-example code="%3Cld-loading%3E%3C%2Fld-loading%3E" code-css-component="%3Csvg%20class%3D%22ld-loading%22%20viewBox%3D%220%200%20100%20100%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%0A%20%20%3Ctitle%3ELoading%3C%2Ftitle%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3CanimateTransform%0A%20%20%20%20%20%20attributeName%3D%22transform%22%0A%20%20%20%20%20%20attributeType%3D%22XML%22%0A%20%20%20%20%20%20type%3D%22rotate%22%0A%20%20%20%20%20%20from%3D%220%2045%2045%22%0A%20%20%20%20%20%20to%3D%22360%2045%2045%22%0A%20%20%20%20%20%20dur%3D%220.8s%22%0A%20%20%20%20%20%20repeatCount%3D%22indefinite%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"  themable has-border has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
 </div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
-</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><span class="ld-loading"></span></div></docs-example>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 100 100<span class="token punctuation">"</span></span> <span class="token attr-name">preserveAspectRatio</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xMidYMid meet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Loading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>animateTransform</span><br>      <span class="token attr-name">attributeName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transform<span class="token punctuation">"</span></span><br>      <span class="token attr-name">attributeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>XML<span class="token punctuation">"</span></span><br>      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rotate<span class="token punctuation">"</span></span><br>      <span class="token attr-name">from</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 45 45<span class="token punctuation">"</span></span><br>      <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>360 45 45<span class="token punctuation">"</span></span><br>      <span class="token attr-name">dur</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.8s<span class="token punctuation">"</span></span><br>      <span class="token attr-name">repeatCount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>indefinite<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-loading></ld-loading></div><div slot="showCssComponent"><svg class="ld-loading" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+  <title>Loading</title>
+  <circle cx="50" cy="50" r="50" />
+  <g>
+    <circle cx="50" cy="50" r="50" />
+    <circle cx="50" cy="50" r="50" />
+    <circle cx="50" cy="50" r="50" />
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 45 45"
+      to="360 45 45"
+      dur="0.8s"
+      repeatCount="indefinite"
+    />
+  </g>
+</svg></div></docs-example>
+<h2 id="neutral" tabindex="-1">Neutral <a class="header-anchor" href="components/ld-loading/#neutral"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<docs-example code="%3Cld-loading%20neutral%3E%3C%2Fld-loading%3E" code-css-component="%3Csvg%20class%3D%22ld-loading%20ld-loading--neutral%22%20viewBox%3D%220%200%20100%20100%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%3E%0A%20%20%3Ctitle%3ELoading%3C%2Ftitle%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%3Cg%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20%2F%3E%0A%20%20%20%20%3CanimateTransform%0A%20%20%20%20%20%20attributeName%3D%22transform%22%0A%20%20%20%20%20%20attributeType%3D%22XML%22%0A%20%20%20%20%20%20type%3D%22rotate%22%0A%20%20%20%20%20%20from%3D%220%2045%2045%22%0A%20%20%20%20%20%20to%3D%22360%2045%2045%22%0A%20%20%20%20%20%20dur%3D%220.8s%22%0A%20%20%20%20%20%20repeatCount%3D%22indefinite%22%0A%20%20%20%20%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-loading</span> <span class="token attr-name">neutral</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-loading</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeCssComponent">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-loading ld-loading--neutral<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 100 100<span class="token punctuation">"</span></span> <span class="token attr-name">preserveAspectRatio</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xMidYMid meet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Loading<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>animateTransform</span><br>      <span class="token attr-name">attributeName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transform<span class="token punctuation">"</span></span><br>      <span class="token attr-name">attributeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>XML<span class="token punctuation">"</span></span><br>      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rotate<span class="token punctuation">"</span></span><br>      <span class="token attr-name">from</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 45 45<span class="token punctuation">"</span></span><br>      <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>360 45 45<span class="token punctuation">"</span></span><br>      <span class="token attr-name">dur</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.8s<span class="token punctuation">"</span></span><br>      <span class="token attr-name">repeatCount</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>indefinite<span class="token punctuation">"</span></span><br>    <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-loading neutral></ld-loading></div><div slot="showCssComponent"><svg class="ld-loading ld-loading--neutral" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+  <title>Loading</title>
+  <circle cx="50" cy="50" r="50" />
+  <g>
+    <circle cx="50" cy="50" r="50" />
+    <circle cx="50" cy="50" r="50" />
+    <circle cx="50" cy="50" r="50" />
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 45 45"
+      to="360 45 45"
+      dur="0.8s"
+      repeatCount="indefinite"
+    />
+  </g>
+</svg></div></docs-example>
 <h2 id="css-variables" tabindex="-1">CSS Variables <a class="header-anchor" href="components/ld-loading/#css-variables"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
@@ -2378,14 +2420,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>--ld-loading-col</code></td>
-<td>Color of the loading indicator.</td>
-<td><code>var(--ld-col-neutral-300)</code></td>
+<td><code>--ld-loading-col-base</code></td>
+<td>Base color of the loading indicator.</td>
+<td><code>var(--ld-thm-warning)</code></td>
+</tr>
+<tr>
+<td><code>--ld-loading-col-primary</code></td>
+<td>Primary color of the loading indicator.</td>
+<td><code>var(--ld-thm-primary)</code></td>
+</tr>
+<tr>
+<td><code>--ld-loading-col-secondary</code></td>
+<td>Secondary color of the loading indicator.</td>
+<td><code>var(--ld-thm-secondary)</code></td>
 </tr>
 <tr>
 <td><code>--ld-loading-size</code></td>
 <td>Size of the loading indicator.</td>
-<td><code>1.5rem</code></td>
+<td><code>var(--ld-sp-24)</code></td>
 </tr>
 </tbody>
 </table>
@@ -2410,6 +2462,27 @@
 <td><code>undefined</code></td>
 </tr>
 <tr>
+<td><code>label</code></td>
+<td><code>label</code></td>
+<td>Used as svg title element content.</td>
+<td><code>string</code></td>
+<td><code>'Loading'</code></td>
+</tr>
+<tr>
+<td><code>neutral</code></td>
+<td><code>neutral</code></td>
+<td>Uses neutral colors.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>paused</code></td>
+<td><code>paused</code></td>
+<td>Pauses all animations.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
 <td><code>ref</code></td>
 <td><code>ref</code></td>
 <td>reference to component</td>
@@ -2421,7 +2494,7 @@
 <hr>
 
       
-        <docs-contributors contributors='["renet","borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
       
     </docs-main>
 
