@@ -25,7 +25,6 @@
   display: inline-flex;
   list-style: none;
   margin: 0;
-  overflow: hidden;
   /* for the focus outline */
   padding: var(--ld-sp-1);
   position: relative;
@@ -48,12 +47,14 @@
     --ld-pagination-marker-col: var(--ld-col-wht-alpha-lowest);
     --ld-pagination-dot-col: var(--ld-col-wht-alpha-low);
     --ld-pagination-primary-col: var(--ld-col-wht);
-    --ld-pagination-selected-col: var(--ld-col-wht-alpha-high);
+    --ld-pagination-selected-col: var(--ld-col-wht);
+
     ld-button::part(button) {
       color: var(--ld-col-wht);
-    }
-    &:not(.ld-pagination--dots) ld-button::part(button):hover {
-      background-color: var(--ld-col-wht-alpha-low);
+
+      &:hover {
+        background-color: var(--ld-col-wht-alpha-low);
+      }
     }
   }
 }
@@ -112,6 +113,10 @@
   width: calc(
     var(--ld-pagination-slider-cols) * var(--ld-pagination-column-size)
   );
+
+  &--transitioning {
+    overflow: hidden;
+  }
 }
 
 .ld-pagination__items {
@@ -199,18 +204,25 @@
   display: flex;
   justify-content: center;
   height: var(--ld-pagination-column-size);
-  overflow: hidden;
   width: var(--ld-pagination-column-size);
 
   &::part(button) {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: var(--ld-pagination-item-size);
-    width: var(--ld-pagination-item-size);
+    border-radius: var(--ld-br-full);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    min-height: auto;
+    min-width: auto;
+    width: 100%;
 
-    &:hover {
-      background: transparent;
+    &:focus {
+      outline-offset: calc(-0.5 * var(--ld-pagination-dots-space) + 0.1875rem);
+      outline-color: var(--ld-thm-primary);
+
+      &:not(:focus-visible) {
+        outline: none;
+      }
     }
   }
 

@@ -85,6 +85,7 @@ export class LdPagination {
   @State() renderSticky = false
   @State() slidableItems: number[] = []
   @State() sliderContent: number[] = []
+  @State() transitioning = false
   @State() visibleItemsInSlider = 0
 
   /** Dispatched, if the selected index changes. */
@@ -97,8 +98,19 @@ export class LdPagination {
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     } else {
+      const isSlidable =
+        this.length > this.sticky * 2 + this.visibleItemsInSlider + 2
+
+      if (isSlidable) {
+        this.transitioning = true
+      }
+
       this.ldchange.emit(this.selectedIndex)
     }
+  }
+
+  handleTransitionEnd = () => {
+    this.transitioning = false
   }
 
   // pageNumber is 1-based
@@ -190,7 +202,7 @@ export class LdPagination {
     const styleDots =
       isDots && this.space
         ? {
-            '--ld-pagination-items-space':
+            '--ld-pagination-dots-space':
               this.space === '0' ? '0px' : this.space,
           }
         : undefined
@@ -322,7 +334,12 @@ export class LdPagination {
             </li>
           )}
           <li
-            class="ld-pagination__slide-wrapper"
+            class={getClassNames([
+              'ld-pagination__slide-wrapper',
+              this.transitioning &&
+                'ld-pagination__slide-wrapper--transitioning',
+            ])}
+            onTransitionEnd={this.handleTransitionEnd}
             part="slide-wrapper"
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
