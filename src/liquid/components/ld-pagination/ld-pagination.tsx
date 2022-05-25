@@ -26,10 +26,7 @@ const BUFFER_SIZE = 20
  * @part prev - arrow to go to the previous item (`ld-button` element)
  * @part start - arrow to jump to the first item (`ld-button` element)
  * @part sticky - all sticky items (`ld-button` elements)
- * @part mode - items display mode, 'dots' | 'numbers'(default)
- * @part onBrand - switches the colors to white
  * @part wrapper - list containing all pagination items
- * @part space - Space between column dot items, translated in rem (default 0.25rem)
  */
 @Component({
   assetsDirs: ['assets'],
@@ -38,7 +35,7 @@ const BUFFER_SIZE = 20
   shadow: true,
 })
 export class LdPagination {
-  /** Switch colors for brand background */
+  /** Switch colors for brand background. */
   @Prop() brandColor?: boolean
 
   /** Label text for the end button (replaces the icon). */
@@ -56,7 +53,7 @@ export class LdPagination {
   /** The number of items/pages available for pagination (required to let the user jump to the last item/page). */
   @Prop({ mutable: true }) length = Infinity
 
-  /** Items display mode, default as numbers */
+  /** Items display mode, default as numbers. */
   @Prop() mode?: 'numbers' | 'dots' = 'numbers'
 
   /** Label text for the forward button (replaces the icon). */
@@ -74,7 +71,7 @@ export class LdPagination {
   /** Size of the pagination. */
   @Prop() size?: 'sm' | 'lg'
 
-  /** Space between column dot items, translated in rem (default 0.25rem) */
+  /** Space between dots (dots mode only, default depending on `size` prop). */
   @Prop() space?: string
 
   /** Label text for the start button (replaces the icon). */
@@ -108,10 +105,9 @@ export class LdPagination {
   private renderItem = (
     itemNumber: number,
     showFrom: number,
-    showTo: number,
-    mode: string
+    showTo: number
   ) => {
-    const isDots = mode === 'dots'
+    const isDots = this.mode === 'dots'
     const isHidden =
       (this.renderMoreIndicators || isDots) &&
       (itemNumber < showFrom || itemNumber > showTo)
@@ -162,6 +158,7 @@ export class LdPagination {
   }
 
   @Watch('length')
+  @Watch('mode')
   @Watch('offset')
   @Watch('sticky')
   componentWillLoad() {
@@ -350,7 +347,7 @@ export class LdPagination {
                 )}`,
               }}
             >
-              {this.mode !== 'dots' && (
+              {!isDots && (
                 <li
                   class="ld-pagination__marker"
                   key="marker"
@@ -363,7 +360,7 @@ export class LdPagination {
               )}
               {this.length > 0 &&
                 this.sliderContent.map((itemNumber) =>
-                  this.renderItem(itemNumber, showFrom, showTo, this.mode)
+                  this.renderItem(itemNumber, showFrom, showTo)
                 )}
             </ul>
           </li>

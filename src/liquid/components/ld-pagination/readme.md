@@ -139,21 +139,21 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 | Property        | Attribute        | Description                                                                                               | Type                  | Default     |
 | --------------- | ---------------- | --------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `brandColor`    | `brand-color`    | Switch colors for brand background                                                                        | `boolean`             | `undefined` |
+| `brandColor`    | `brand-color`    | Switch colors for brand background.                                                                       | `boolean`             | `undefined` |
 | `endLabel`      | `end-label`      | Label text for the end button (replaces the icon).                                                        | `string`              | `undefined` |
 | `hidePrevNext`  | `hide-prev-next` | Hide the buttons to navigate forward/backward.                                                            | `boolean`             | `false`     |
 | `hideStartEnd`  | `hide-start-end` | Hide the buttons to navigate to the first/last item.                                                      | `boolean`             | `false`     |
 | `itemLabel`     | `item-label`     | Label to communicate the type of an item.                                                                 | `string`              | `'Page'`    |
 | `key`           | `key`            | for tracking the node's identity when working with lists                                                  | `string \| number`    | `undefined` |
 | `length`        | `length`         | The number of items/pages available for pagination (required to let the user jump to the last item/page). | `number`              | `Infinity`  |
-| `mode`          | `mode`           | Items display mode, default as numbers                                                                    | `"dots" \| "numbers"` | `'numbers'` |
+| `mode`          | `mode`           | Items display mode, default as numbers.                                                                   | `"dots" \| "numbers"` | `'numbers'` |
 | `nextLabel`     | `next-label`     | Label text for the forward button (replaces the icon).                                                    | `string`              | `undefined` |
 | `offset`        | `offset`         | Number of next/previous items visible.                                                                    | `number`              | `2`         |
 | `prevLabel`     | `prev-label`     | Label text for the backward button (replaces the icon).                                                   | `string`              | `undefined` |
 | `ref`           | `ref`            | reference to component                                                                                    | `any`                 | `undefined` |
 | `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected).                                 | `number`              | `0`         |
 | `size`          | `size`           | Size of the pagination.                                                                                   | `"lg" \| "sm"`        | `undefined` |
-| `space`         | `space`          | Space between column dot items, translated in rem (default 0.25rem)                                       | `string`              | `undefined` |
+| `space`         | `space`          | Space between dots (dots mode only, default depending on `size` prop).                                    | `string`              | `undefined` |
 | `startLabel`    | `start-label`    | Label text for the start button (replaces the icon).                                                      | `string`              | `undefined` |
 | `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                                                     | `number`              | `0`         |
 
@@ -167,25 +167,22 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 ## Shadow Parts
 
-| Part               | Description                                                         |
-| ------------------ | ------------------------------------------------------------------- |
-| `"arrow"`          | all arrow items (`ld-button` elements)                              |
-| `"end"`            | arrow to jump to the last item (`ld-button` element)                |
-| `"focusable"`      |                                                                     |
-| `"item"`           | all pagination items containing a number (`ld-button` elements)     |
-| `"items"`          | list containing all slidable items and the marker                   |
-| `"list-wrapper"`   | list-item containing the `ul` element with slidable items           |
-| `"marker"`         | marker highlighting the selected item                               |
-| `"mode"`           | items display mode, 'dots' \| 'numbers'(default)                    |
-| `"more-indicator"` | list-items containing more-indicator                                |
-| `"next"`           | arrow to go to the next item (`ld-button` element)                  |
-| `"onBrand"`        | switches the colors to white                                        |
-| `"prev"`           | arrow to go to the previous item (`ld-button` element)              |
-| `"slide-wrapper"`  |                                                                     |
-| `"space"`          | Space between column dot items, translated in rem (default 0.25rem) |
-| `"start"`          | arrow to jump to the first item (`ld-button` element)               |
-| `"sticky"`         | all sticky items (`ld-button` elements)                             |
-| `"wrapper"`        | list containing all pagination items                                |
+| Part               | Description                                                     |
+| ------------------ | --------------------------------------------------------------- |
+| `"arrow"`          | all arrow items (`ld-button` elements)                          |
+| `"end"`            | arrow to jump to the last item (`ld-button` element)            |
+| `"focusable"`      |                                                                 |
+| `"item"`           | all pagination items containing a number (`ld-button` elements) |
+| `"items"`          | list containing all slidable items and the marker               |
+| `"list-wrapper"`   | list-item containing the `ul` element with slidable items       |
+| `"marker"`         | marker highlighting the selected item                           |
+| `"more-indicator"` | list-items containing more-indicator                            |
+| `"next"`           | arrow to go to the next item (`ld-button` element)              |
+| `"prev"`           | arrow to go to the previous item (`ld-button` element)          |
+| `"slide-wrapper"`  |                                                                 |
+| `"start"`          | arrow to jump to the first item (`ld-button` element)           |
+| `"sticky"`         | all sticky items (`ld-button` elements)                         |
+| `"wrapper"`        | list containing all pagination items                            |
 
 
 ## Dependencies
