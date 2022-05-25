@@ -1205,7 +1205,7 @@ exports[`ld-pagination renders with dots mode 1`] = `
 exports[`ld-pagination renders with dots mode big space 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: 2;">
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: 1.5rem;">
       <li class="ld-pagination__arrow">
         <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
           <ld-icon name="arrow-double-left"></ld-icon>
@@ -1313,7 +1313,7 @@ exports[`ld-pagination renders with dots mode on brand color 1`] = `
 exports[`ld-pagination renders with dots mode small space 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
-    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: -1;">
+    <ul aria-label="Pagination" class="ld-pagination ld-pagination--dots" part="wrapper" style="--ld-pagination-items-space: 0.5rem;">
       <li class="ld-pagination__arrow">
         <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
           <ld-icon name="arrow-double-left"></ld-icon>

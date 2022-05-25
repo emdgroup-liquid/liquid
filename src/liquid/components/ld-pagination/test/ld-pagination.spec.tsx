@@ -198,7 +198,12 @@ describe('ld-pagination', () => {
       const page = await newSpecPage({
         components: [LdPagination],
         template: () => (
-          <ld-pagination mode="dots" space={-1} selectedIndex={3} length={7} />
+          <ld-pagination
+            mode="dots"
+            space="0.5rem"
+            selectedIndex={3}
+            length={7}
+          />
         ),
       })
       expect(page.root).toMatchSnapshot()
@@ -208,7 +213,12 @@ describe('ld-pagination', () => {
       const page = await newSpecPage({
         components: [LdPagination],
         template: () => (
-          <ld-pagination mode="dots" space={2} selectedIndex={3} length={7} />
+          <ld-pagination
+            mode="dots"
+            space="1.5rem"
+            selectedIndex={3}
+            length={7}
+          />
         ),
       })
       expect(page.root).toMatchSnapshot()
