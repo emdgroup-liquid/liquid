@@ -38,6 +38,12 @@ const BUFFER_SIZE = 20
   shadow: true,
 })
 export class LdPagination {
+  /** Switch colors for brand background */
+  @Prop() brandColor?: boolean
+
+  /** Label text for the end button (replaces the icon). */
+  @Prop() endLabel?: string
+
   /** Hide the buttons to navigate forward/backward. */
   @Prop() hidePrevNext = false
 
@@ -50,11 +56,8 @@ export class LdPagination {
   /** The number of items/pages available for pagination (required to let the user jump to the last item/page). */
   @Prop({ mutable: true }) length = Infinity
 
-  /** The currently selected item (an index of `-1` means nothing is selected). */
-  @Prop({ mutable: true }) selectedIndex = 0
-
-  /** Label text for the end button (replaces the icon). */
-  @Prop() endLabel?: string
+  /** Items display mode, default as numbers */
+  @Prop() mode?: 'numbers' | 'dots' = 'numbers'
 
   /** Label text for the forward button (replaces the icon). */
   @Prop() nextLabel?: string
@@ -65,23 +68,20 @@ export class LdPagination {
   /** Label text for the backward button (replaces the icon). */
   @Prop() prevLabel?: string
 
+  /** The currently selected item (an index of `-1` means nothing is selected). */
+  @Prop({ mutable: true }) selectedIndex = 0
+
   /** Size of the pagination. */
   @Prop() size?: 'sm' | 'lg'
+
+  /** Space between column dot items, translated in rem (default 0.25rem) */
+  @Prop() space?: string
 
   /** Label text for the start button (replaces the icon). */
   @Prop() startLabel?: string
 
   /** Number of items permanently visible at the start/end. */
   @Prop() sticky = 0
-
-  /** Items display mode, default as numbers */
-  @Prop() mode?: 'numbers' | 'dots' = 'numbers'
-
-  /** Switch colors for brand background */
-  @Prop() brandColor?: boolean
-
-  /** Space between column dot items, translated in rem (default 0.25rem) */
-  @Prop() space?: number
 
   @State() maxSliderColumns = 0
   @State() renderMoreIndicators = false
@@ -123,7 +123,6 @@ export class LdPagination {
           'ld-pagination__item',
           !isHidden && 'ld-pagination__item--visible',
           isSelected && 'ld-pagination__item--selected',
-          isDots && 'ld-pagination__item--dots',
         ])}
         key={itemNumber}
         style={{ '--ld-pagination-item-pos': `${itemNumber - 1}` }}
@@ -131,6 +130,7 @@ export class LdPagination {
         <ld-button
           aria-current={isSelected ? 'true' : undefined}
           aria-label={isHidden ? undefined : `${this.itemLabel} ${itemNumber}`}
+          class={isDots ? 'ld-pagination__dot' : undefined}
           ld-tabindex={isHidden ? -1 : undefined}
           mode="ghost"
           onClick={() => {
@@ -139,7 +139,7 @@ export class LdPagination {
           part="item focusable"
           size={this.size}
         >
-          {isDots ? <span class="ld-pagination__dot"></span> : itemNumber}
+          {!isDots && itemNumber}
         </ld-button>
       </li>
     )
@@ -191,8 +191,11 @@ export class LdPagination {
   render() {
     const isDots = this.mode === 'dots'
     const styleDots =
-      isDots && !isNaN(parseFloat(this.space + ''))
-        ? { '--ld-pagination-items-space': `${this.space}rem` }
+      isDots && this.space
+        ? {
+            '--ld-pagination-items-space':
+              this.space === '0' ? '0px' : this.space,
+          }
         : undefined
     // +1 because it must be the index right to the centered item
     const showStartMoreIndicator =
@@ -242,12 +245,7 @@ export class LdPagination {
           style={styleDots}
         >
           {!this.hideStartEnd && (
-            <li
-              class={getClassNames([
-                'ld-pagination__arrow',
-                isDots && `ld-pagination__arrow--left`,
-              ])}
-            >
+            <li class="ld-pagination__arrow">
               <ld-button
                 aria-label={
                   this.startLabel
@@ -271,12 +269,7 @@ export class LdPagination {
             </li>
           )}
           {!this.hidePrevNext && (
-            <li
-              class={getClassNames([
-                'ld-pagination__arrow',
-                isDots && `ld-pagination__arrow--left`,
-              ])}
-            >
+            <li class="ld-pagination__arrow">
               <ld-button
                 aria-label={
                   this.prevLabel
@@ -332,10 +325,7 @@ export class LdPagination {
             </li>
           )}
           <li
-            class={getClassNames([
-              'ld-pagination__slide-wrapper',
-              isDots && 'ld-pagination__slide-wrapper--dots',
-            ])}
+            class="ld-pagination__slide-wrapper"
             part="slide-wrapper"
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
@@ -416,12 +406,7 @@ export class LdPagination {
               })
               .reverse()}
           {!this.hidePrevNext && (
-            <li
-              class={getClassNames([
-                'ld-pagination__arrow',
-                isDots && `ld-pagination__arrow--right`,
-              ])}
-            >
+            <li class="ld-pagination__arrow">
               <ld-button
                 aria-label={
                   this.nextLabel
@@ -445,12 +430,7 @@ export class LdPagination {
             </li>
           )}
           {this.length < Infinity && !this.hideStartEnd && (
-            <li
-              class={getClassNames([
-                'ld-pagination__arrow',
-                isDots && `ld-pagination__arrow--right`,
-              ])}
-            >
+            <li class="ld-pagination__arrow">
               <ld-button
                 aria-label={
                   this.endLabel

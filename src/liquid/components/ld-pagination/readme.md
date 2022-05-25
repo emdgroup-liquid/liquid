@@ -114,23 +114,21 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 ### Dots mode
 
 {% example %}
-<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" length="7"></ld-pagination>
-<ld-pagination mode="dots" hide-start-end selected-index="3" length="7"></ld-pagination>
-<ld-pagination mode="dots" hide-start-end selected-index="3" length="7" next-label="Next" prev-label="Prev"></ld-pagination>
-<ld-pagination mode="dots" selected-index="3" length="15"></ld-pagination>
+<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="sm" length="7"></ld-pagination>
+<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" length="15"></ld-pagination>
+<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="lg" length="7"></ld-pagination>
 {% endexample %}
 
 ### Dots mode with custom space
 
 {% example %}
-<ld-pagination space="2" mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
-<ld-pagination space="-1" mode="dots" hide-start-end length="7"></ld-pagination>
+<ld-pagination space="1.5rem" mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
 {% endexample %}
 
 ### On brand color
 
 {% example '{ "background": "brand", "hasBorder": false }' %}
-<ld-pagination brand-color mode="dots" hide-start-end length="7"></ld-pagination>
+<ld-pagination brand-color mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
 <ld-pagination brand-color length="7"></ld-pagination>
 {% endexample %}
 
@@ -155,7 +153,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 | `ref`           | `ref`            | reference to component                                                                                    | `any`                 | `undefined` |
 | `selectedIndex` | `selected-index` | The currently selected item (an index of `-1` means nothing is selected).                                 | `number`              | `0`         |
 | `size`          | `size`           | Size of the pagination.                                                                                   | `"lg" \| "sm"`        | `undefined` |
-| `space`         | `space`          | Space between column dot items, translated in rem (default 0.25rem)                                       | `number`              | `undefined` |
+| `space`         | `space`          | Space between column dot items, translated in rem (default 0.25rem)                                       | `string`              | `undefined` |
 | `startLabel`    | `start-label`    | Label text for the start button (replaces the icon).                                                      | `string`              | `undefined` |
 | `sticky`        | `sticky`         | Number of items permanently visible at the start/end.                                                     | `number`              | `0`         |
 

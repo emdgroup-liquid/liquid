@@ -101,7 +101,7 @@ describe('ld-pagination', () => {
       expect(results).toMatchScreenshot()
     })
 
-    it('without dots', async () => {
+    it('without ellipsis', async () => {
       const page = await getPageWithContent(
         '<ld-pagination hide-start-end sticky="2" length="11"></ld-pagination>'
       )
@@ -143,7 +143,7 @@ describe('ld-pagination', () => {
       expect(results).toMatchScreenshot()
     })
 
-    it('without dots', async () => {
+    it('without ellipsis', async () => {
       const page = await getPageWithContent(
         '<ld-pagination offset="0" length="3"></ld-pagination>'
       )
@@ -589,7 +589,7 @@ describe('ld-pagination', () => {
     })
   })
 
-  describe('with dots mode', () => {
+  describe('dots mode', () => {
     it('start', async () => {
       const page = await getPageWithContent(
         '<ld-pagination mode="dots" length="15"></ld-pagination>'
@@ -632,7 +632,7 @@ describe('ld-pagination', () => {
 
     it('with small space', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination mode="dots" space="-1" length="7" hide-prev-next hide-start-end></ld-pagination>'
+        '<ld-pagination mode="dots" space="0.5rem" length="7" hide-prev-next hide-start-end></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -640,14 +640,14 @@ describe('ld-pagination', () => {
 
     it('with big space', async () => {
       const page = await getPageWithContent(
-        '<ld-pagination mode="dots" space="2" length="7" hide-prev-next hide-start-end></ld-pagination>'
+        '<ld-pagination mode="dots" space="1.5rem" length="7" hide-prev-next hide-start-end></ld-pagination>'
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
   })
 
-  describe('with on brand color', () => {
+  describe('on brand color', () => {
     it('with dots mode', async () => {
       const page = await getPageWithContent(
         '<ld-pagination brand-color mode="dots" length="7"></ld-pagination>',
@@ -664,6 +664,108 @@ describe('ld-pagination', () => {
       )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
+    })
+  })
+
+  describe('size', () => {
+    describe('sm', () => {
+      it('start', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('middle', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" selected-index="7" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('end', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" selected-index="14" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('single', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="1" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('without ellipsis', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="7" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('dots mode', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="7" mode="dots" size="sm"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+    })
+
+    describe('lg', () => {
+      it('start', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('middle', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" selected-index="7" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('end', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="15" selected-index="14" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('single', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="1" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('without ellipsis', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="7" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('dots mode', async () => {
+        const page = await getPageWithContent(
+          '<ld-pagination length="7" mode="dots" size="lg"></ld-pagination>'
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
     })
   })
 })
