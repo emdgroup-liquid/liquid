@@ -35,6 +35,14 @@ const BUFFER_SIZE = 20
   shadow: true,
 })
 export class LdPagination {
+  private wrapperRef?: HTMLLIElement
+
+  /** Switch colors for brand background. */
+  @Prop() brandColor?: boolean
+
+  /** Label text for the end button (replaces the icon). */
+  @Prop() endLabel?: string
+
   /** Hide the buttons to navigate forward/backward. */
   @Prop() hidePrevNext = false
 
@@ -47,11 +55,8 @@ export class LdPagination {
   /** The number of items/pages available for pagination (required to let the user jump to the last item/page). */
   @Prop({ mutable: true }) length = Infinity
 
-  /** The currently selected item (an index of `-1` means nothing is selected). */
-  @Prop({ mutable: true }) selectedIndex = 0
-
-  /** Label text for the end button (replaces the icon). */
-  @Prop() endLabel?: string
+  /** Items display mode, default as numbers. */
+  @Prop() mode?: 'numbers' | 'dots' = 'numbers'
 
   /** Label text for the forward button (replaces the icon). */
   @Prop() nextLabel?: string
@@ -62,8 +67,14 @@ export class LdPagination {
   /** Label text for the backward button (replaces the icon). */
   @Prop() prevLabel?: string
 
+  /** The currently selected item (an index of `-1` means nothing is selected). */
+  @Prop({ mutable: true }) selectedIndex = 0
+
   /** Size of the pagination. */
   @Prop() size?: 'sm' | 'lg'
+
+  /** Space between dots (dots mode only, default depending on `size` prop). */
+  @Prop() space?: string
 
   /** Label text for the start button (replaces the icon). */
   @Prop() startLabel?: string
@@ -76,6 +87,7 @@ export class LdPagination {
   @State() renderSticky = false
   @State() slidableItems: number[] = []
   @State() sliderContent: number[] = []
+  @State() transitioning = false
   @State() visibleItemsInSlider = 0
 
   /** Dispatched, if the selected index changes. */
@@ -83,13 +95,21 @@ export class LdPagination {
 
   @Watch('selectedIndex')
   handleSelectedIndex() {
-    if (this.selectedIndex < 0) {
-      this.selectedIndex = 0
+    if (this.selectedIndex < -1) {
+      this.selectedIndex = -1
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     } else {
       this.ldchange.emit(this.selectedIndex)
     }
+  }
+
+  handleTransitionEnd = () => {
+    this.transitioning = false
+  }
+
+  handleTransitionStart = () => {
+    this.transitioning = true
   }
 
   // pageNumber is 1-based
@@ -98,8 +118,9 @@ export class LdPagination {
     showFrom: number,
     showTo: number
   ) => {
+    const isDots = this.mode === 'dots'
     const isHidden =
-      this.renderMoreIndicators &&
+      (this.renderMoreIndicators || isDots) &&
       (itemNumber < showFrom || itemNumber > showTo)
     const isSelected = itemNumber === this.selectedIndex + 1
     return (
@@ -116,6 +137,7 @@ export class LdPagination {
         <ld-button
           aria-current={isSelected ? 'true' : undefined}
           aria-label={isHidden ? undefined : `${this.itemLabel} ${itemNumber}`}
+          class={isDots ? 'ld-pagination__dot' : undefined}
           ld-tabindex={isHidden ? -1 : undefined}
           mode="ghost"
           onClick={() => {
@@ -124,7 +146,7 @@ export class LdPagination {
           part="item focusable"
           size={this.size}
         >
-          {itemNumber}
+          {!isDots && itemNumber}
         </ld-button>
       </li>
     )
@@ -147,14 +169,16 @@ export class LdPagination {
   }
 
   @Watch('length')
+  @Watch('mode')
   @Watch('offset')
   @Watch('sticky')
   componentWillLoad() {
     this.visibleItemsInSlider = this.offset * 2 + 1
     const maxVisibleItems = this.sticky * 2 + this.visibleItemsInSlider
     this.maxSliderColumns = this.visibleItemsInSlider + 2
-    this.renderSticky = this.sticky > 0
-    this.renderMoreIndicators = this.length > maxVisibleItems + 2
+    this.renderSticky = this.sticky > 0 && this.mode !== 'dots'
+    this.renderMoreIndicators =
+      this.mode !== 'dots' && this.length > maxVisibleItems + 2
     this.slidableItems = Array.from({
       length: this.length === Infinity ? 9999 : this.length - this.sticky * 2,
     }).map((_, index) => index + this.sticky + 1)
@@ -163,8 +187,8 @@ export class LdPagination {
       this.length = 1
     }
 
-    if (this.selectedIndex < 0) {
-      this.selectedIndex = 0
+    if (this.selectedIndex < -1) {
+      this.selectedIndex = -1
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     }
@@ -172,7 +196,41 @@ export class LdPagination {
     this.calculateSliderContent()
   }
 
+  componentDidLoad() {
+    if (this.wrapperRef) {
+      this.wrapperRef.addEventListener(
+        'transitionstart',
+        this.handleTransitionStart
+      )
+      this.wrapperRef.addEventListener(
+        'transitionend',
+        this.handleTransitionEnd
+      )
+    }
+  }
+
+  disconnectedCallback() {
+    if (this.wrapperRef) {
+      this.wrapperRef.removeEventListener(
+        'transitionstart',
+        this.handleTransitionStart
+      )
+      this.wrapperRef.removeEventListener(
+        'transitionend',
+        this.handleTransitionEnd
+      )
+    }
+  }
+
   render() {
+    const isDots = this.mode === 'dots'
+    const styleDots =
+      isDots && this.space
+        ? {
+            '--ld-pagination-dots-space':
+              this.space === '0' ? '0px' : this.space,
+          }
+        : undefined
     // +1 because it must be the index right to the centered item
     const showStartMoreIndicator =
       this.renderMoreIndicators &&
@@ -189,7 +247,11 @@ export class LdPagination {
             this.offset -
             // start hiding numbers
             (showStartMoreIndicator ? 0 : 1),
-          this.length - this.visibleItemsInSlider - this.sticky - 1
+          this.length -
+            this.visibleItemsInSlider -
+            this.sticky -
+            1 +
+            (isDots ? -1 : 0)
         ),
         this.sticky
       ) + 1
@@ -198,7 +260,7 @@ export class LdPagination {
       Math.min(
         Math.max(
           this.selectedIndex + (showEndMoreIndicator ? 0 : 1),
-          this.offset + this.sticky + 1
+          this.offset + this.sticky + 1 + (isDots ? 1 : 0)
         ) + this.offset,
         this.length - this.sticky
       ) + 1
@@ -210,8 +272,11 @@ export class LdPagination {
           class={getClassNames([
             'ld-pagination',
             this.size && `ld-pagination--${this.size}`,
+            isDots && `ld-pagination--dots`,
+            this.brandColor && 'ld-pagination--brand-color',
           ])}
           part="wrapper"
+          style={styleDots}
         >
           {!this.hideStartEnd && (
             <li class="ld-pagination__arrow">
@@ -294,8 +359,13 @@ export class LdPagination {
             </li>
           )}
           <li
-            class="ld-pagination__slide-wrapper"
+            class={getClassNames([
+              'ld-pagination__slide-wrapper',
+              this.transitioning &&
+                'ld-pagination__slide-wrapper--transitioning',
+            ])}
             part="slide-wrapper"
+            ref={(ref) => (this.wrapperRef = ref)}
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
                 this.slidableItems.length,
@@ -319,15 +389,23 @@ export class LdPagination {
                 )}`,
               }}
             >
-              <li
-                class="ld-pagination__marker"
-                key="marker"
-                onTransitionEnd={this.calculateSliderContent}
-                part="marker"
-                style={{
-                  '--ld-pagination-selected-index': `${this.selectedIndex}`,
-                }}
-              />
+              {!isDots && (
+                <li
+                  class={getClassNames([
+                    'ld-pagination__marker',
+                    this.selectedIndex < 0 && 'ld-pagination__marker--hidden',
+                  ])}
+                  key="marker"
+                  onTransitionEnd={this.calculateSliderContent}
+                  part="marker"
+                  style={{
+                    '--ld-pagination-selected-index': `${Math.max(
+                      this.selectedIndex,
+                      0
+                    )}`,
+                  }}
+                />
+              )}
               {this.length > 0 &&
                 this.sliderContent.map((itemNumber) =>
                   this.renderItem(itemNumber, showFrom, showTo)
