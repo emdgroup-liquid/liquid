@@ -1,4 +1,6 @@
 .ld-pagination {
+  /* Not using 0s here because we rely on the transition end event. */
+  --ld-pagination-animation-duration: 1ms;
   --ld-pagination-sm-item-size: 2rem;
   --ld-pagination-md-item-size: 2.5rem;
   --ld-pagination-lg-item-size: 3.125rem;
@@ -172,7 +174,12 @@
   transform: translateX(
     calc(var(--ld-pagination-column-size) * var(--ld-pagination-selected-index))
   );
-  transition: transform 100ms ease, opacity 100ms ease;
+  transition: transform var(--ld-pagination-animation-duration) ease,
+    opacity var(--ld-pagination-animation-duration) ease;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-pagination-animation-duration: 0.1s;
+  }
 
   &--hidden {
     opacity: 0;
