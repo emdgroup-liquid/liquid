@@ -2,22 +2,29 @@
   --ld-pagination-sm-item-size: 2rem;
   --ld-pagination-md-item-size: 2.5rem;
   --ld-pagination-lg-item-size: 3.125rem;
-  --ld-pagination-column-size: calc(
+  --ld-pagination-column-size: var(--ld-pagination-default-column-size);
+  --ld-pagination-default-column-size: calc(
     var(--ld-pagination-item-size) + var(--ld-pagination-items-space)
   );
   --ld-pagination-dot-col: var(--ld-thm-primary-alpha-low);
-  --ld-pagination-dots-size: var(--ld-pagination-dots-size-md);
-  --ld-pagination-dots-size-sm: 0.25rem;
-  --ld-pagination-dots-size-md: 0.375rem;
-  --ld-pagination-dots-size-lg: 0.5rem;
-  --ld-pagination-more-indicator-font: var(--ld-typo-body-m);
+  --ld-pagination-dots-indicator-size: calc(
+    var(--ld-pagination-dots-size) + var(--ld-sp-8)
+  );
+  --ld-pagination-dots-indicator-size-active: calc(
+    var(--ld-pagination-dots-size) + var(--ld-sp-12)
+  );
+  --ld-pagination-dots-sm-size: 0.25rem;
+  --ld-pagination-dots-md-size: 0.375rem;
+  --ld-pagination-dots-lg-size: 0.5rem;
+  --ld-pagination-dots-size: var(--ld-pagination-dots-md-size);
+  --ld-pagination-dots-sm-space: var(--ld-sp-8);
+  --ld-pagination-dots-md-space: var(--ld-sp-12);
+  --ld-pagination-dots-lg-space: var(--ld-sp-16);
+  --ld-pagination-dots-space: var(--ld-pagination-dots-md-space);
   --ld-pagination-item-size: var(--ld-pagination-md-item-size);
   --ld-pagination-items-space: var(--ld-sp-4);
-  --ld-pagination-dots-space: var(--ld-pagination-dots-space-md);
-  --ld-pagination-dots-space-sm: var(--ld-sp-8);
-  --ld-pagination-dots-space-md: var(--ld-sp-12);
-  --ld-pagination-dots-space-lg: var(--ld-sp-16);
   --ld-pagination-marker-col: var(--ld-thm-primary-alpha-lowest);
+  --ld-pagination-more-indicator-font: var(--ld-typo-body-m);
   --ld-pagination-primary-col: var(--ld-thm-primary);
   --ld-pagination-selected-col: var(--thm-primary-active);
 
@@ -32,15 +39,15 @@
   &--sm {
     --ld-pagination-more-indicator-font: var(--ld-typo-body-s);
     --ld-pagination-item-size: var(--ld-pagination-sm-item-size);
-    --ld-pagination-dots-size: var(--ld-pagination-dots-size-sm);
-    --ld-pagination-dots-space: var(--ld-pagination-dots-space-sm);
+    --ld-pagination-dots-size: var(--ld-pagination-dots-sm-size);
+    --ld-pagination-dots-space: var(--ld-pagination-dots-sm-space);
   }
 
   &--lg {
     --ld-pagination-more-indicator-font: var(--ld-typo-body-l);
     --ld-pagination-item-size: var(--ld-pagination-lg-item-size);
-    --ld-pagination-dots-size: var(--ld-pagination-dots-size-lg);
-    --ld-pagination-dots-space: var(--ld-pagination-dots-space-lg);
+    --ld-pagination-dots-size: var(--ld-pagination-dots-lg-size);
+    --ld-pagination-dots-space: var(--ld-pagination-dots-lg-space);
   }
 
   &--brand-color {
@@ -171,6 +178,10 @@
 .ld-pagination--dots {
   --ld-pagination-item-size: var(--ld-pagination-dots-size);
   --ld-pagination-items-space: var(--ld-pagination-dots-space);
+  --ld-pagination-column-size: max(
+    var(--ld-pagination-default-column-size),
+    var(--ld-pagination-dots-indicator-size)
+  );
 
   .ld-pagination__arrow:not(:last-child),
   .ld-pagination__sticky {
@@ -210,14 +221,20 @@
     align-items: center;
     border-radius: var(--ld-br-full);
     display: flex;
-    height: 100%;
+    height: var(--ld-pagination-dots-indicator-size);
     justify-content: center;
     min-height: auto;
     min-width: auto;
-    width: 100%;
+    position: absolute;
+    width: var(--ld-pagination-dots-indicator-size);
+
+    &:active {
+      height: var(--ld-pagination-dots-indicator-size-active);
+      width: var(--ld-pagination-dots-indicator-size-active);
+    }
 
     &:focus {
-      outline-offset: calc(-0.5 * var(--ld-pagination-dots-space) + 0.1875rem);
+      outline-offset: calc(var(--ld-sp-1) * -1);
       outline-color: var(--ld-thm-primary);
 
       &:not(:focus-visible) {

@@ -275,9 +275,10 @@ describe('ld-pagination', () => {
             } hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>`,
             pageConfig
           )
+          const itemIndex = label.includes('dots') ? 5 : 6
 
           const item = await page.find(
-            'ld-pagination >>> li.ld-pagination__item:nth-child(6) > ld-button'
+            `ld-pagination >>> li.ld-pagination__item:nth-child(${itemIndex}) > ld-button`
           )
           await item.hover()
 
@@ -429,9 +430,10 @@ describe('ld-pagination', () => {
             } hide-start-end sticky="2" length="15" selected-index="7"></ld-pagination>`,
             pageConfig
           )
+          const itemIndex = label.includes('dots') ? 5 : 6
 
           const item = await page.find(
-            'ld-pagination >>> li.ld-pagination__item:nth-child(6) > ld-button'
+            `ld-pagination >>> li.ld-pagination__item:nth-child(${itemIndex}) > ld-button`
           )
           await item.hover()
           await page.mouse.down()
@@ -583,7 +585,10 @@ describe('ld-pagination', () => {
           await page.keyboard.press('Tab')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Tab')
-          await page.keyboard.press('Tab')
+
+          if (!label.includes('dots')) {
+            await page.keyboard.press('Tab')
+          }
 
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
@@ -602,7 +607,10 @@ describe('ld-pagination', () => {
           await page.keyboard.press('Tab')
           await page.keyboard.press('Tab')
           await page.keyboard.press('Tab')
-          await page.keyboard.press('Tab')
+
+          if (!label.includes('dots')) {
+            await page.keyboard.press('Tab')
+          }
 
           const results = await page.compareScreenshot()
           expect(results).toMatchScreenshot()
