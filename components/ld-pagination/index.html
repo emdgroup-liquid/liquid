@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Pagination</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1653467852473/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1653467852473/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1653467852473/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1653467852473/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1653467852473/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1653925592771/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1653925592771/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1653925592771/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1653925592771/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1653925592771/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
 
@@ -1145,7 +1145,7 @@
               title: 'Pagination',
               tags: '',
               url: '/liquid/components/ld-pagination/',
-              headings: 'Examples  Default  With sticky items  Offset  Indefinite length  Item label  Hide arrow buttons  Text instead of arrow buttons  Size  Preselected index  Programmatic manipulation  Event handling  Properties  Events  Shadow Parts  Dependencies  Depends on  Graph ',
+              headings: 'Examples  Default  With sticky items  Offset  Indefinite length  Item label  Hide arrow buttons  Text instead of arrow buttons  Size  Preselected index  Programmatic manipulation  Event handling  Dots mode  Dots mode with custom space  On brand color  Properties  Events  Shadow Parts  Dependencies  Depends on  Graph ',
               breadcrumbs: [
                 
                 
@@ -1673,11 +1673,11 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1653467852473/docs.css">
-  <link rel="stylesheet" href="/liquid/1653467852473/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1653467852473/css_components/ld-button.css">
-  <script type="module" src="/liquid/1653467852473/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1653467852473/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1653925592771/docs.css">
+  <link rel="stylesheet" href="/liquid/1653925592771/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1653925592771/css_components/ld-button.css">
+  <script type="module" src="/liquid/1653925592771/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1653925592771/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2370,7 +2370,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#with-sticky-items">With sticky items</a></li><li><a href="#offset">Offset</a></li><li><a href="#indefinite-length">Indefinite length</a></li><li><a href="#item-label">Item label</a></li><li><a href="#hide-arrow-buttons">Hide arrow buttons</a></li><li><a href="#text-instead-of-arrow-buttons">Text instead of arrow buttons</a></li><li><a href="#size">Size</a></li><li><a href="#preselected-index">Preselected index</a></li><li><a href="#programmatic-manipulation">Programmatic manipulation</a></li><li><a href="#event-handling">Event handling</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#default">Default</a></li><li><a href="#with-sticky-items">With sticky items</a></li><li><a href="#offset">Offset</a></li><li><a href="#indefinite-length">Indefinite length</a></li><li><a href="#item-label">Item label</a></li><li><a href="#hide-arrow-buttons">Hide arrow buttons</a></li><li><a href="#text-instead-of-arrow-buttons">Text instead of arrow buttons</a></li><li><a href="#size">Size</a></li><li><a href="#preselected-index">Preselected index</a></li><li><a href="#programmatic-manipulation">Programmatic manipulation</a></li><li><a href="#event-handling">Event handling</a></li><li><a href="#dots-mode">Dots mode</a></li><li><a href="#dots-mode-with-custom-space">Dots mode with custom space</a></li><li><a href="#on-brand-color">On brand color</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#events">Events</a></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
       </nav>
       </docs-toc>
     
@@ -2475,6 +2475,24 @@
     console.log("Selected index is:", event.detail)
   })
 </script></div></docs-example>
+<h3 id="dots-mode" tabindex="-1">Dots mode <a class="header-anchor" href="components/ld-pagination/#dots-mode"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-pagination%20mode%3D%22dots%22%20hide-prev-next%20hide-start-end%20selected-index%3D%223%22%20size%3D%22sm%22%20length%3D%227%22%3E%3C%2Fld-pagination%3E%0A%3Cld-pagination%20mode%3D%22dots%22%20hide-prev-next%20hide-start-end%20selected-index%3D%223%22%20length%3D%2215%22%3E%3C%2Fld-pagination%3E%0A%3Cld-pagination%20mode%3D%22dots%22%20hide-prev-next%20hide-start-end%20selected-index%3D%223%22%20size%3D%22lg%22%20length%3D%227%22%3E%3C%2Fld-pagination%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dots<span class="token punctuation">"</span></span> <span class="token attr-name">hide-prev-next</span> <span class="token attr-name">hide-start-end</span> <span class="token attr-name">selected-index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sm<span class="token punctuation">"</span></span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dots<span class="token punctuation">"</span></span> <span class="token attr-name">hide-prev-next</span> <span class="token attr-name">hide-start-end</span> <span class="token attr-name">selected-index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>15<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dots<span class="token punctuation">"</span></span> <span class="token attr-name">hide-prev-next</span> <span class="token attr-name">hide-start-end</span> <span class="token attr-name">selected-index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lg<span class="token punctuation">"</span></span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="sm" length="7"></ld-pagination>
+<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" length="15"></ld-pagination>
+<ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="lg" length="7"></ld-pagination></div></docs-example>
+<h3 id="dots-mode-with-custom-space" tabindex="-1">Dots mode with custom space <a class="header-anchor" href="components/ld-pagination/#dots-mode-with-custom-space"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-pagination%20space%3D%221.5rem%22%20mode%3D%22dots%22%20hide-prev-next%20hide-start-end%20length%3D%227%22%3E%3C%2Fld-pagination%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">space</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.5rem<span class="token punctuation">"</span></span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dots<span class="token punctuation">"</span></span> <span class="token attr-name">hide-prev-next</span> <span class="token attr-name">hide-start-end</span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-pagination space="1.5rem" mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination></div></docs-example>
+<h3 id="on-brand-color" tabindex="-1">On brand color <a class="header-anchor" href="components/ld-pagination/#on-brand-color"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<docs-example code="%3Cld-pagination%20brand-color%20mode%3D%22dots%22%20hide-prev-next%20hide-start-end%20length%3D%227%22%3E%3C%2Fld-pagination%3E%0A%3Cld-pagination%20brand-color%20length%3D%227%22%3E%3C%2Fld-pagination%3E"  background="brand" themable has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">brand-color</span> <span class="token attr-name">mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dots<span class="token punctuation">"</span></span> <span class="token attr-name">hide-prev-next</span> <span class="token attr-name">hide-start-end</span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-pagination</span> <span class="token attr-name">brand-color</span> <span class="token attr-name">length</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-pagination</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-pagination brand-color mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
+<ld-pagination brand-color length="7"></ld-pagination></div></docs-example>
 <!-- Auto Generated Below -->
 <h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-pagination/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
@@ -2488,6 +2506,13 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>brandColor</code></td>
+<td><code>brand-color</code></td>
+<td>Switch colors for brand background.</td>
+<td><code>boolean</code></td>
+<td><code>undefined</code></td>
+</tr>
 <tr>
 <td><code>endLabel</code></td>
 <td><code>end-label</code></td>
@@ -2531,6 +2556,13 @@
 <td><code>Infinity</code></td>
 </tr>
 <tr>
+<td><code>mode</code></td>
+<td><code>mode</code></td>
+<td>Items display mode, default as numbers.</td>
+<td><code>&quot;dots&quot; | &quot;numbers&quot;</code></td>
+<td><code>'numbers'</code></td>
+</tr>
+<tr>
 <td><code>nextLabel</code></td>
 <td><code>next-label</code></td>
 <td>Label text for the forward button (replaces the icon).</td>
@@ -2570,6 +2602,13 @@
 <td><code>size</code></td>
 <td>Size of the pagination.</td>
 <td><code>&quot;lg&quot; | &quot;sm&quot;</code></td>
+<td><code>undefined</code></td>
+</tr>
+<tr>
+<td><code>space</code></td>
+<td><code>space</code></td>
+<td>Space between dots (dots mode only, default depending on <code>size</code> prop).</td>
+<td><code>string</code></td>
 <td><code>undefined</code></td>
 </tr>
 <tr>
@@ -2683,7 +2722,7 @@
 <hr>
 
       
-        <docs-contributors contributors='["borisdiakur","renet"]'></docs-contributors>
+        <docs-contributors contributors='["Tabanion","borisdiakur","renet"]'></docs-contributors>
       
     </docs-main>
 
