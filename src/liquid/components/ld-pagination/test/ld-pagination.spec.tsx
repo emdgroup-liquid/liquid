@@ -158,6 +158,37 @@ describe('ld-pagination', () => {
       expect(page.root).toMatchSnapshot()
     })
 
+    it('with transition class while transitioning', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} selectedIndex={98} />,
+      })
+
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionstart'))
+      await page.waitForChanges()
+
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without transition class after transitioning', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} selectedIndex={98} />,
+      })
+
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionstart'))
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionend'))
+      await page.waitForChanges()
+
+      expect(page.root).toMatchSnapshot()
+    })
+
     it('with dots mode', async () => {
       const page = await newSpecPage({
         components: [LdPagination],

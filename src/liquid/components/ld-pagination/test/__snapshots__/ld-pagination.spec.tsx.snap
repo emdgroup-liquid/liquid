@@ -3034,6 +3034,185 @@ exports[`ld-pagination renders with text navigation 1`] = `
 </ld-pagination>
 `;
 
+exports[`ld-pagination renders with transition class while transitioning 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Previous page" mode="ghost" part="arrow prev focusable">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__more-indicator ld-pagination__more-indicator--visible" part="more-indicator">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper ld-pagination__slide-wrapper--transitioning" part="slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" part="items" style="--ld-pagination-slide-index: 92;">
+          <li class="ld-pagination__marker" part="marker" style="--ld-pagination-selected-index: 98;"></li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 0;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              1
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 1;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              2
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 2;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              3
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 3;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              4
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 4;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              5
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 5;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 78;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              79
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 79;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              80
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 80;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              81
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 81;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              82
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 82;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              83
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 83;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              84
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 84;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              85
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 85;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              86
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 86;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              87
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 87;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              88
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 88;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              89
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 89;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              90
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 90;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              91
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 91;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              92
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 92;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              93
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 93;">
+            <ld-button aria-label="Page 94" mode="ghost" part="item focusable">
+              94
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 94;">
+            <ld-button aria-label="Page 95" mode="ghost" part="item focusable">
+              95
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 95;">
+            <ld-button aria-label="Page 96" mode="ghost" part="item focusable">
+              96
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 96;">
+            <ld-button aria-label="Page 97" mode="ghost" part="item focusable">
+              97
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 97;">
+            <ld-button aria-label="Page 98" mode="ghost" part="item focusable">
+              98
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 98;">
+            <ld-button aria-current="true" aria-label="Page 99" mode="ghost" part="item focusable">
+              99
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__more-indicator ld-pagination__more-indicator--end" part="more-indicator">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Next page" disabled="" mode="ghost" part="arrow next focusable">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Last page" disabled="" mode="ghost" part="arrow end focusable">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
 exports[`ld-pagination renders without arrows 1`] = `
 <ld-pagination role="navigation">
   <mock:shadow-root>
@@ -3317,6 +3496,185 @@ exports[`ld-pagination renders without slidable elements 1`] = `
       </li>
       <li class="ld-pagination__arrow">
         <ld-button aria-label="Last page" mode="ghost" part="arrow end focusable">
+          <ld-icon name="arrow-double-right"></ld-icon>
+        </ld-button>
+      </li>
+    </ul>
+  </mock:shadow-root>
+</ld-pagination>
+`;
+
+exports[`ld-pagination renders without transition class after transitioning 1`] = `
+<ld-pagination role="navigation">
+  <mock:shadow-root>
+    <ul aria-label="Pagination" class="ld-pagination" part="wrapper">
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="First page" mode="ghost" part="arrow start focusable">
+          <ld-icon name="arrow-double-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Previous page" mode="ghost" part="arrow prev focusable">
+          <ld-icon name="arrow-left"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__more-indicator ld-pagination__more-indicator--visible" part="more-indicator">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__slide-wrapper" part="slide-wrapper" style="--ld-pagination-slider-cols: 7;">
+        <ul class="ld-pagination__items" part="items" style="--ld-pagination-slide-index: 92;">
+          <li class="ld-pagination__marker" part="marker" style="--ld-pagination-selected-index: 98;"></li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 0;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              1
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 1;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              2
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 2;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              3
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 3;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              4
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 4;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              5
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 5;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              6
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 78;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              79
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 79;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              80
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 80;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              81
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 81;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              82
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 82;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              83
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 83;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              84
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 84;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              85
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 85;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              86
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 86;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              87
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 87;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              88
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 88;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              89
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 89;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              90
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 90;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              91
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 91;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              92
+            </ld-button>
+          </li>
+          <li aria-hidden="true" class="ld-pagination__item" style="--ld-pagination-item-pos: 92;">
+            <ld-button ld-tabindex="-1" mode="ghost" part="item focusable">
+              93
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 93;">
+            <ld-button aria-label="Page 94" mode="ghost" part="item focusable">
+              94
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 94;">
+            <ld-button aria-label="Page 95" mode="ghost" part="item focusable">
+              95
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 95;">
+            <ld-button aria-label="Page 96" mode="ghost" part="item focusable">
+              96
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 96;">
+            <ld-button aria-label="Page 97" mode="ghost" part="item focusable">
+              97
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--visible" style="--ld-pagination-item-pos: 97;">
+            <ld-button aria-label="Page 98" mode="ghost" part="item focusable">
+              98
+            </ld-button>
+          </li>
+          <li class="ld-pagination__item ld-pagination__item--selected ld-pagination__item--visible" style="--ld-pagination-item-pos: 98;">
+            <ld-button aria-current="true" aria-label="Page 99" mode="ghost" part="item focusable">
+              99
+            </ld-button>
+          </li>
+        </ul>
+      </li>
+      <li class="ld-pagination__more-indicator ld-pagination__more-indicator--end" part="more-indicator">
+        <span>
+          . . .
+        </span>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Next page" disabled="" mode="ghost" part="arrow next focusable">
+          <ld-icon name="arrow-right"></ld-icon>
+        </ld-button>
+      </li>
+      <li class="ld-pagination__arrow">
+        <ld-button aria-label="Last page" disabled="" mode="ghost" part="arrow end focusable">
           <ld-icon name="arrow-double-right"></ld-icon>
         </ld-button>
       </li>

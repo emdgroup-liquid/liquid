@@ -35,6 +35,8 @@ const BUFFER_SIZE = 20
   shadow: true,
 })
 export class LdPagination {
+  private wrapperRef?: HTMLLIElement
+
   /** Switch colors for brand background. */
   @Prop() brandColor?: boolean
 
@@ -98,19 +100,16 @@ export class LdPagination {
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     } else {
-      const isSlidable =
-        this.length > this.sticky * 2 + this.visibleItemsInSlider + 2
-
-      if (isSlidable) {
-        this.transitioning = true
-      }
-
       this.ldchange.emit(this.selectedIndex)
     }
   }
 
   handleTransitionEnd = () => {
     this.transitioning = false
+  }
+
+  handleTransitionStart = () => {
+    this.transitioning = true
   }
 
   // pageNumber is 1-based
@@ -195,6 +194,32 @@ export class LdPagination {
     }
 
     this.calculateSliderContent()
+  }
+
+  componentDidLoad() {
+    if (this.wrapperRef) {
+      this.wrapperRef.addEventListener(
+        'transitionstart',
+        this.handleTransitionStart
+      )
+      this.wrapperRef.addEventListener(
+        'transitionend',
+        this.handleTransitionEnd
+      )
+    }
+  }
+
+  disconnectedCallback() {
+    if (this.wrapperRef) {
+      this.wrapperRef.removeEventListener(
+        'transitionstart',
+        this.handleTransitionStart
+      )
+      this.wrapperRef.removeEventListener(
+        'transitionend',
+        this.handleTransitionEnd
+      )
+    }
   }
 
   render() {
@@ -339,8 +364,8 @@ export class LdPagination {
               this.transitioning &&
                 'ld-pagination__slide-wrapper--transitioning',
             ])}
-            onTransitionEnd={this.handleTransitionEnd}
             part="slide-wrapper"
+            ref={(ref) => (this.wrapperRef = ref)}
             style={{
               '--ld-pagination-slider-cols': `${Math.min(
                 this.slidableItems.length,
