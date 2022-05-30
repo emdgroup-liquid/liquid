@@ -365,13 +365,13 @@ describe('ld-pagination', () => {
     expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('corrects initially selected index < 0', async () => {
+  it('corrects initially selected index < -1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination length={7} selectedIndex={-1} />,
+      template: () => <ld-pagination length={7} selectedIndex={-2} />,
     })
     const ldPagination = page.root as HTMLLdPaginationElement
-    expect(ldPagination.selectedIndex).toBe(0)
+    expect(ldPagination.selectedIndex).toBe(-1)
   })
 
   it('corrects changed length < 1', async () => {
@@ -396,15 +396,15 @@ describe('ld-pagination', () => {
     expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('corrects changed selected index < 0', async () => {
+  it('corrects changed selected index < -1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
       template: () => <ld-pagination length={7} />,
     })
     const ldPagination = page.root as HTMLLdPaginationElement
 
-    ldPagination.selectedIndex = -1
-    expect(ldPagination.selectedIndex).toBe(0)
+    ldPagination.selectedIndex = -2
+    expect(ldPagination.selectedIndex).toBe(-1)
   })
 
   it('emits custom event', async () => {
@@ -435,11 +435,11 @@ describe('ld-pagination', () => {
     const ldPagination = page.root as HTMLLdPaginationElement
 
     ldPagination.addEventListener('ldchange', changeHandler)
-    ldPagination.selectedIndex = -1
+    ldPagination.selectedIndex = -2
 
     expect(changeHandler).toHaveBeenCalledTimes(1)
     expect(changeHandler).toHaveBeenCalledWith(
-      expect.objectContaining({ detail: 0 })
+      expect.objectContaining({ detail: -1 })
     )
   })
 })

@@ -172,7 +172,11 @@
   transform: translateX(
     calc(var(--ld-pagination-column-size) * var(--ld-pagination-selected-index))
   );
-  transition: transform 100ms ease;
+  transition: transform 100ms ease, opacity 100ms ease;
+
+  &--hidden {
+    opacity: 0;
+  }
 }
 
 .ld-pagination--dots {

@@ -95,8 +95,8 @@ export class LdPagination {
 
   @Watch('selectedIndex')
   handleSelectedIndex() {
-    if (this.selectedIndex < 0) {
-      this.selectedIndex = 0
+    if (this.selectedIndex < -1) {
+      this.selectedIndex = -1
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     } else {
@@ -187,8 +187,8 @@ export class LdPagination {
       this.length = 1
     }
 
-    if (this.selectedIndex < 0) {
-      this.selectedIndex = 0
+    if (this.selectedIndex < -1) {
+      this.selectedIndex = -1
     } else if (this.selectedIndex >= this.length) {
       this.selectedIndex = this.length - 1
     }
@@ -391,12 +391,18 @@ export class LdPagination {
             >
               {!isDots && (
                 <li
-                  class="ld-pagination__marker"
+                  class={getClassNames([
+                    'ld-pagination__marker',
+                    this.selectedIndex < 0 && 'ld-pagination__marker--hidden',
+                  ])}
                   key="marker"
                   onTransitionEnd={this.calculateSliderContent}
                   part="marker"
                   style={{
-                    '--ld-pagination-selected-index': `${this.selectedIndex}`,
+                    '--ld-pagination-selected-index': `${Math.max(
+                      this.selectedIndex,
+                      0
+                    )}`,
                   }}
                 />
               )}

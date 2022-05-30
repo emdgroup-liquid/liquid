@@ -51,6 +51,17 @@ describe('ld-pagination', () => {
           expect(results).toMatchScreenshot()
         })
 
+        it('none', async () => {
+          const page = await getPageWithContent(
+            `<ld-pagination${
+              props ?? ''
+            } length="15" selected-index="-1"></ld-pagination>`,
+            pageConfig
+          )
+          const results = await page.compareScreenshot()
+          expect(results).toMatchScreenshot()
+        })
+
         it('single', async () => {
           const page = await getPageWithContent(
             `<ld-pagination${props ?? ''} length="1"></ld-pagination>`,
