@@ -157,6 +157,103 @@ describe('ld-pagination', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('with transition class while transitioning', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} selectedIndex={98} />,
+      })
+
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionstart'))
+      await page.waitForChanges()
+
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without transition class after transitioning', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => <ld-pagination length={99} selectedIndex={98} />,
+      })
+
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionstart'))
+      page.root.shadowRoot
+        .querySelector<HTMLLIElement>('.ld-pagination__slide-wrapper')
+        .dispatchEvent(new Event('transitionend'))
+      await page.waitForChanges()
+
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination
+            mode="dots"
+            hidePrevNext
+            hideStartEnd
+            selectedIndex={3}
+            length={7}
+          />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode on brand color', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination mode="dots" brandColor selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with default mode on brand color', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination brandColor selectedIndex={3} length={7} />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode small space', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination
+            mode="dots"
+            space="0.5rem"
+            selectedIndex={3}
+            length={7}
+          />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with dots mode big space', async () => {
+      const page = await newSpecPage({
+        components: [LdPagination],
+        template: () => (
+          <ld-pagination
+            mode="dots"
+            space="1.5rem"
+            selectedIndex={3}
+            length={7}
+          />
+        ),
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   describe('renders with more-indicators', () => {
@@ -268,13 +365,13 @@ describe('ld-pagination', () => {
     expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('corrects initially selected index < 0', async () => {
+  it('corrects initially selected index < -1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
-      template: () => <ld-pagination length={7} selectedIndex={-1} />,
+      template: () => <ld-pagination length={7} selectedIndex={-2} />,
     })
     const ldPagination = page.root as HTMLLdPaginationElement
-    expect(ldPagination.selectedIndex).toBe(0)
+    expect(ldPagination.selectedIndex).toBe(-1)
   })
 
   it('corrects changed length < 1', async () => {
@@ -299,15 +396,15 @@ describe('ld-pagination', () => {
     expect(ldPagination.selectedIndex).toBe(6)
   })
 
-  it('corrects changed selected index < 0', async () => {
+  it('corrects changed selected index < -1', async () => {
     const page = await newSpecPage({
       components: [LdPagination],
       template: () => <ld-pagination length={7} />,
     })
     const ldPagination = page.root as HTMLLdPaginationElement
 
-    ldPagination.selectedIndex = -1
-    expect(ldPagination.selectedIndex).toBe(0)
+    ldPagination.selectedIndex = -2
+    expect(ldPagination.selectedIndex).toBe(-1)
   })
 
   it('emits custom event', async () => {
@@ -338,11 +435,11 @@ describe('ld-pagination', () => {
     const ldPagination = page.root as HTMLLdPaginationElement
 
     ldPagination.addEventListener('ldchange', changeHandler)
-    ldPagination.selectedIndex = -1
+    ldPagination.selectedIndex = -2
 
     expect(changeHandler).toHaveBeenCalledTimes(1)
     expect(changeHandler).toHaveBeenCalledWith(
-      expect.objectContaining({ detail: 0 })
+      expect.objectContaining({ detail: -1 })
     )
   })
 })

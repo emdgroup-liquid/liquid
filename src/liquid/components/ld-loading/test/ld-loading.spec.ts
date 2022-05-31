@@ -9,4 +9,20 @@ describe('ld-loading', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('is neutral', async () => {
+    const page = await newSpecPage({
+      components: [LdLoading],
+      html: `<ld-loading neutral />`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('uses custom label', async () => {
+    const page = await newSpecPage({
+      components: [LdLoading],
+      html: `<ld-loading neutral label="Doing stuff..." />`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })

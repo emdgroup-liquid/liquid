@@ -20,7 +20,7 @@
   .docs-nav__summary--introduction,
   .docs-nav__summary--introduction + ul .docs-nav__summary {
     .docs-nav__arrow {
-      background-image: url('dist/build/assets/chevron-dark.svg');
+      background-image: url('dist/build/assets/chevron-introduction-dark.svg');
     }
     .docs-nav__summary-toggle {
       background-color: var(--ld-col-rb);
@@ -88,7 +88,7 @@
   .docs-nav__summary--introduction,
   .docs-nav__summary--introduction + ul .docs-nav__summary {
     .docs-nav__arrow {
-      background-image: url('dist/build/assets/chevron-light.svg');
+      background-image: url('dist/build/assets/chevron-introduction-light.svg');
     }
     .docs-nav__summary-toggle {
       background-color: var(--ld-col-rb);
