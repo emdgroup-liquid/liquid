@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/emdgroup-liquid/liquid/compare/v1.11.0...v1.12.0) (2022-05-31)
+
+
+### Features
+
+* **ld-badge:** add badge component ([67e6026](https://github.com/emdgroup-liquid/liquid/commit/67e60266b70db3aedd0e3f3121b184c191c008ee))
+* **ld-loading:** make loading indicator more liquidesque ([c588b6a](https://github.com/emdgroup-liquid/liquid/commit/c588b6a8c5b0111ee02e452a790274fdea8db5fb))
+* **ld-pagination:** add dots and on brand color modes ([9e60ed7](https://github.com/emdgroup-liquid/liquid/commit/9e60ed720631c3a9d34d7da407387e113bfd1092))
+
 # [1.11.0](https://github.com/emdgroup-liquid/liquid/compare/v1.10.0...v1.11.0) (2022-05-18)
 
 
