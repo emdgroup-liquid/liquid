@@ -330,7 +330,6 @@ HTML content describing the labeled element should be wrapped in a single HTML e
       height="14"
       fill="none"
       viewBox="0 0 14 14"
-     
     >
       <path
         d="M12 4L5.40795 10L2 6.63964"
@@ -354,7 +353,6 @@ HTML content describing the labeled element should be wrapped in a single HTML e
       height="14"
       fill="none"
       viewBox="0 0 14 14"
-     
     >
       <path
         d="M12 4L5.40795 10L2 6.63964"
