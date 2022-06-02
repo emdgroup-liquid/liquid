@@ -399,7 +399,7 @@
             }
 
             &:not(:last-child) {
-              font-weight: 600;
+              font-weight: 700;
 
               &::after {
                 content: '*';
@@ -457,7 +457,7 @@
             }
 
             &:not(:last-child) {
-              font-weight: 600;
+              font-weight: 700;
 
               &::after {
                 content: '*';
