@@ -76,7 +76,7 @@
   &__identifier {
     flex: 1;
     font: var(--ld-typo-code-s);
-    font-weight: bold;
+    font-weight: 700;
     opacity: 0;
     padding-top: var(--ld-sp-16);
     text-align: center;
