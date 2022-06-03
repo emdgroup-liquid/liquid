@@ -1,0 +1,23 @@
+body {
+  /*
+  We set text-rendering to geometricPrecision by default,
+  because it makes text look as intended by the design system.
+  */
+  text-rendering: var(--ld-text-rendering, geometricPrecision);
+
+  /*
+  The text-rendering prop is not suported on FF. In order to get close
+  to a similar rendering result with FF (on OSX at least) we also enable
+  font-smoothing, which is not standards conform and not on the standards
+  track anymore.
+  */
+  -moz-osx-font-smoothing: var(--ld-text-rendering, grayscale);
+
+  /*
+  Using text-rendering may come at a performance cost,
+  so we need to make sure it is possible to disable the setting.
+  The user can disable the default text-rendering setting
+  as well as the font-smoothing fallback by setting
+  --ld-text-rendering to auto.
+  */
+}

@@ -8,7 +8,7 @@
   --ld-pagination-default-column-size: calc(
     var(--ld-pagination-item-size) + var(--ld-pagination-items-space)
   );
-  --ld-pagination-dot-col: var(--ld-thm-primary-alpha-low);
+  --ld-pagination-dot-col: var(--ld-thm-primary);
   --ld-pagination-dots-indicator-size: calc(
     var(--ld-pagination-dots-size) + var(--ld-sp-8)
   );
@@ -54,7 +54,7 @@
 
   &--brand-color {
     --ld-pagination-marker-col: var(--ld-col-wht-alpha-lowest);
-    --ld-pagination-dot-col: var(--ld-col-wht-alpha-low);
+    --ld-pagination-dot-col: var(--ld-col-wht);
     --ld-pagination-primary-col: var(--ld-col-wht);
     --ld-pagination-selected-col: var(--ld-col-wht);
 
@@ -216,7 +216,7 @@
 
     &:not(.ld-pagination__item--selected) .ld-pagination__dot::after {
       background-color: var(--ld-pagination-primary-col);
-      opacity: 0.7;
+      opacity: 0.3;
     }
   }
 }

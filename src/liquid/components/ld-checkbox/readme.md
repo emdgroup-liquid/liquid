@@ -37,7 +37,6 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -68,7 +67,6 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -89,7 +87,6 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -123,7 +120,6 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -148,7 +144,6 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -199,7 +194,6 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -220,7 +214,6 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -261,7 +254,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -282,7 +274,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -313,7 +304,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -334,7 +324,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -365,7 +354,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -386,7 +374,6 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -419,7 +406,6 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"
@@ -440,7 +426,6 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
     height="14"
     fill="none"
     viewBox="0 0 14 14"
-   
   >
     <path
       d="M12 4L5.40795 10L2 6.63964"

@@ -9,7 +9,11 @@ permalink: global/typography/
 
 # Typography
 
-The typography globals consist of CSS custom properties, which you can use to either apply a `font-family` or a `font` value (combining `font-size`, `line-height` and `font-familily`).
+The typography globals consist of CSS custom properties, which you can use to either apply a `font-family` or a `font` value (combining `font-size`, `line-height` and `font-familily`) and a text-rendering setting.
+
+<ld-notice headline="Note" mode="warning">
+  <ld-link href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering" target="_blank">text-rendering</ld-link> is set to <code>geometricPrecision</code> by default. If you run into performance issues on text-heavy pages, set the CSS custom property <code>--ld-text-rendering</code> to <code>auto</code> on the <code>body</code> tag.
+</ld-notice>
 
 In most cases you will probably want to simply use components though, which themselves make use of global typography CSS custom properties, such as the [`ld-typo`](components/ld-typo/) component.
 

@@ -68,7 +68,6 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -320,7 +319,6 @@ If you have limited vertical space (this may especially be the case on mobile de
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -433,7 +431,6 @@ If you have limited vertical space (this may especially be the case on mobile de
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -514,7 +511,6 @@ If you have limited vertical space (this may especially be the case on mobile de
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -771,7 +767,6 @@ In ghost mode the component works the same way as it does in inline mode while a
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -806,7 +801,6 @@ In ghost mode the component works the same way as it does in inline mode while a
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -841,7 +835,6 @@ In ghost mode the component works the same way as it does in inline mode while a
   <svg
     role="presentation"
     class="ld-select__icon"
-   
     viewBox="0 0 16 16"
   >
     <path
@@ -1045,7 +1038,6 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <svg
       role="presentation"
       class="ld-select__icon"
-     
       viewBox="0 0 16 16"
     >
       <path
@@ -1111,7 +1103,6 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <svg
       role="presentation"
       class="ld-select__icon"
-     
       viewBox="0 0 16 16"
     >
       <path

@@ -1,5 +1,6 @@
 :host {
   display: block;
+  line-height: 0;
 
   &([variant^='xb']),
   &([variant='b1']),

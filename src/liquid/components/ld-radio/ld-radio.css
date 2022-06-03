@@ -15,6 +15,8 @@
   --ld-radio-dark-bg-col-active: var(--ld-col-neutral-300);
   --ld-radio-checked-col: var(--ld-col-wht);
   --ld-radio-checked-col-active: var(--ld-col-wht);
+  --ld-radio-invalid-checked-col: var(--ld-col-wht);
+  --ld-radio-invalid-checked-col-active: var(--ld-col-wht);
 
   /* themable colors */
   --ld-radio-col: var(--ld-thm-primary);
@@ -228,4 +230,6 @@
   --ld-radio-col-hover: var(--ld-radio-invalid-col-hover);
   --ld-radio-col-active: var(--ld-radio-invalid-col-focus);
   --ld-radio-col-focus: var(--ld-radio-invalid-col-active);
+  --ld-radio-checked-col: var(--ld-radio-invalid-checked-col);
+  --ld-radio-checked-col-active: var(--ld-radio-invalid-checked-col-active);
 }

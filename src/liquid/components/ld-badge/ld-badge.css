@@ -19,7 +19,7 @@
   color: var(--ld-col-wht);
   display: inline-flex;
   font: var(--ld-typo-body-xs);
-  font-weight: bold;
+  font-weight: 700;
   gap: var(--ld-badge-gap-md);
   justify-content: center;
   line-height: 1.1;
@@ -52,7 +52,7 @@
 .ld-badge--lg,
 :host(.ld-badge--lg) {
   font: var(--ld-typo-body-s);
-  font-weight: bold;
+  font-weight: 700;
   gap: var(--ld-badge-gap-lg);
   /*height: var(--ld-badge-size-lg);*/
   line-height: 1.1;
