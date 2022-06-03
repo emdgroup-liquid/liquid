@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/emdgroup-liquid/liquid/compare/v1.12.0...v1.12.1) (2022-06-03)
+
+
+### Bug Fixes
+
+* **ld-pagination:** invert colors for selected pagination item in dots mode ([5948d2b](https://github.com/emdgroup-liquid/liquid/commit/5948d2b8ad045f4d572b7b54b33f2c6797ff8977))
+* **ld-radio:** CSS component fix for invalid checked checkbox ([2c65bc2](https://github.com/emdgroup-liquid/liquid/commit/2c65bc2c2e32e1504048d0bf9af4cd23e1131947))
+* **ld-typo:** remove line height from host element ([0d7cb50](https://github.com/emdgroup-liquid/liquid/commit/0d7cb509df26a0ac8630f4ec0d3b42c26c6dd9f2))
+* update shadow styles according to new design tokens ([aeaf736](https://github.com/emdgroup-liquid/liquid/commit/aeaf73606abf0fca67144c47bedae19e9620c2f5))
+* use geometric precision text rendering by default ([6fbfb91](https://github.com/emdgroup-liquid/liquid/commit/6fbfb91233e468e8b38e8d44b31372435842506e))
+
 # [1.12.0](https://github.com/emdgroup-liquid/liquid/compare/v1.11.0...v1.12.0) (2022-05-31)
 
 
