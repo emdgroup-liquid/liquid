@@ -8287,7 +8287,7 @@
     },
     {
       "id": "62d7a4fb",
-      "image": "2d2288097c8eac5d3a0aadebf5c565dd.png",
+      "image": "450050dbbf932cdd904e0c1bdda8851f.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8300,7 +8300,7 @@
     },
     {
       "id": "3d109701",
-      "image": "4d703626ccf1f8ca165d299202e18cbf.png",
+      "image": "ebcaef35ca16d979f878d6e156d73611.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8313,7 +8313,7 @@
     },
     {
       "id": "a15cca6b",
-      "image": "9594b68ba633317869a14975c9e5ef65.png",
+      "image": "3b2ae3a5e185ecb49cea509c750e4711.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8326,7 +8326,7 @@
     },
     {
       "id": "2304087b",
-      "image": "0eacf9b0d204eee5e852e3b2990e559e.png",
+      "image": "7b135ddb4705facd6b47e45fa97b8a99.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8339,7 +8339,7 @@
     },
     {
       "id": "e6b5dec7",
-      "image": "17a8bac1ac544812eda5b5bf977917f4.png",
+      "image": "fc4b1c0d13ec1ac11325fd2fe45e1314.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8352,7 +8352,7 @@
     },
     {
       "id": "0be43bfd",
-      "image": "d42dc414a22d2d8a1b605ab7e065a418.png",
+      "image": "2397faa15d7a1ee4af682fa3743d38f1.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode active start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8365,7 +8365,7 @@
     },
     {
       "id": "9d07414b",
-      "image": "a61c9395db183274fe624ab077fa2d51.png",
+      "image": "be0a3cfd82d6cd08dfaa1af6e33ca05f.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8378,7 +8378,7 @@
     },
     {
       "id": "6663b241",
-      "image": "10b2d91acebbee1dae24e3212d849c6e.png",
+      "image": "c3905cfba6461e08d4358bbd2c5d3e94.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8391,7 +8391,7 @@
     },
     {
       "id": "eb632838",
-      "image": "2c129d5be1fa82044988611f3700a3f4.png",
+      "image": "da9f2e3498ba58e274d71f874ec6933c.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default none",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8404,7 +8404,7 @@
     },
     {
       "id": "40466d03",
-      "image": "4f4f02aa531eaa59b697d3eb6b6a6dec.png",
+      "image": "2b0e1da29f879b0d334af206c26f3bf7.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8417,7 +8417,7 @@
     },
     {
       "id": "1e369488",
-      "image": "150b93f9be081d42409bffa8172f52ea.png",
+      "image": "8ab4e3292da3635aa4952f3e118f7fa6.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8430,7 +8430,7 @@
     },
     {
       "id": "1bc2f9e7",
-      "image": "150b93f9be081d42409bffa8172f52ea.png",
+      "image": "8ab4e3292da3635aa4952f3e118f7fa6.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode default without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8443,7 +8443,7 @@
     },
     {
       "id": "5736fa78",
-      "image": "18344d2a55032c1771b38f707b6aa74a.png",
+      "image": "38d6797878162ebc114200c1327e71f9.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8456,7 +8456,7 @@
     },
     {
       "id": "37ec9ba7",
-      "image": "503352e7000a8eab2042a9e86af3581c.png",
+      "image": "d3a684f180a52b58ceb6b6330e69df21.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8469,7 +8469,7 @@
     },
     {
       "id": "07bcac55",
-      "image": "0269776aeced120ff72818c4eeb1d20d.png",
+      "image": "7fcaccfd65e38ad250f9c9b5677e98a5.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8482,7 +8482,7 @@
     },
     {
       "id": "22679314",
-      "image": "fdb651ae14b1d581968215ab954474af.png",
+      "image": "1556d839b70265a08ada4a3528226a8c.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8495,7 +8495,7 @@
     },
     {
       "id": "8301320f",
-      "image": "9ea61318a6c8b4dd02eb45a6313e9e04.png",
+      "image": "a78657db3d252e725ecf5d8dd3e27115.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8508,7 +8508,7 @@
     },
     {
       "id": "79a63b77",
-      "image": "02e20d78920bc1f36714ae0cf755b4b3.png",
+      "image": "5176eb319e33811380f1dbaf45000ba7.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode focus start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8521,7 +8521,7 @@
     },
     {
       "id": "ab260f42",
-      "image": "eaf77bba5255210b771837bed89c2291.png",
+      "image": "856b83c18c3db5b74fe576d3c1caa9a1.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8534,7 +8534,7 @@
     },
     {
       "id": "c6abb3ed",
-      "image": "1e79017037b14b5a634999e2601daa6c.png",
+      "image": "a09990895a6a54fd28fd2ca62610f573.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8547,7 +8547,7 @@
     },
     {
       "id": "9d573f8a",
-      "image": "0e9d2db7eda01b0846ad038d293cfccd.png",
+      "image": "78979524c38a9f3f205b8efcb69ae3cb.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8560,7 +8560,7 @@
     },
     {
       "id": "59dbaba6",
-      "image": "eda71eca69b9a7694627af52ed0373cf.png",
+      "image": "c9da27547f5cbd071f25de51a539a642.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8573,7 +8573,7 @@
     },
     {
       "id": "38ea406e",
-      "image": "c1405670b58c9889bc37ad8c3a9b0756.png",
+      "image": "63dc10b0a862d872511d1ccbae141def.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8586,7 +8586,7 @@
     },
     {
       "id": "4706050d",
-      "image": "deab045df8f338775fdb5703493ee934.png",
+      "image": "0d351a0848f3244839dec5eba3e4ed56.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode hover start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8599,7 +8599,7 @@
     },
     {
       "id": "4c56046b",
-      "image": "c76fe031e326638fcb04a49afa887405.png",
+      "image": "faaad3a55455471cee7d1be219aba65a.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode indefinite middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8612,7 +8612,7 @@
     },
     {
       "id": "2e578855",
-      "image": "2e2c3c91b6841bb58a160cd2515384c5.png",
+      "image": "0a2d074891a603e7a3156b48c7bc0deb.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode indefinite start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8625,7 +8625,7 @@
     },
     {
       "id": "2958eb3f",
-      "image": "13189d63100eb3ad35d23e3196363352.png",
+      "image": "dce6d017d1b72c67d3fae4baa09dbd13.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size lg end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8638,7 +8638,7 @@
     },
     {
       "id": "2a02ea0b",
-      "image": "80a6d1da2dd7e9ad336700bbf9e00eb9.png",
+      "image": "989fc05b92c0ffb1f7f6de6abe819aa1.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size lg middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8651,7 +8651,7 @@
     },
     {
       "id": "e10cf9e7",
-      "image": "42f1766bf5e2530afdd8d2e4146a48e5.png",
+      "image": "2242d92700b89a1ef2f60ffb303e56c7.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size lg single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8664,7 +8664,7 @@
     },
     {
       "id": "7bf11065",
-      "image": "54de44ae5f2c575761e584ee7c41c64b.png",
+      "image": "1e2f1dfdcee01e62001be1f6e95d3edd.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size lg start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8677,7 +8677,7 @@
     },
     {
       "id": "a9ef44f9",
-      "image": "54de44ae5f2c575761e584ee7c41c64b.png",
+      "image": "1e2f1dfdcee01e62001be1f6e95d3edd.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size lg without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8690,7 +8690,7 @@
     },
     {
       "id": "0e472261",
-      "image": "69c2d2eb1f14d82e687e1bae47dc660b.png",
+      "image": "93b256193f9aa1522125c3f6f2f8f5f9.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size sm end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8703,7 +8703,7 @@
     },
     {
       "id": "f668a5d1",
-      "image": "6201da169e999bf6174bd6dca7ecf04a.png",
+      "image": "d88045be7d3fdcfdd3e236b5230d838c.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size sm middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8716,7 +8716,7 @@
     },
     {
       "id": "6e38b6fb",
-      "image": "d10b2292da3c290f9a1e59f787cd63df.png",
+      "image": "3c22e1a0827814828515973b593d0e27.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size sm single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8729,7 +8729,7 @@
     },
     {
       "id": "610c5175",
-      "image": "b79f8053b16a988d08172f549da1313c.png",
+      "image": "61bd1f62a6e71da91753a1065304e4aa.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size sm start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8742,7 +8742,7 @@
     },
     {
       "id": "4129da76",
-      "image": "b79f8053b16a988d08172f549da1313c.png",
+      "image": "61bd1f62a6e71da91753a1065304e4aa.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode size sm without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8755,7 +8755,7 @@
     },
     {
       "id": "ae60913d",
-      "image": "487ef372c6406dcb7cae6782ba9810b8.png",
+      "image": "a3fcaf6a2a5d80b605a9edd8d2864c1f.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode with text navigation end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8768,7 +8768,7 @@
     },
     {
       "id": "dd9d0c5b",
-      "image": "cd0de4735e74509bf77a73280aa778a9.png",
+      "image": "2ab0262a648a238aba76e069751970f1.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode with text navigation middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8781,7 +8781,7 @@
     },
     {
       "id": "a8b23c6a",
-      "image": "66395c79597714a7364d70123bd4946e.png",
+      "image": "3c281b05c30237264318a88acdbd3057.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode with text navigation start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8794,7 +8794,7 @@
     },
     {
       "id": "f3f63dd7",
-      "image": "12507c94bccc1da567017287a10757b6.png",
+      "image": "e485d87c6862a536451d47a8d90ad8bf.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without arrows end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8807,7 +8807,7 @@
     },
     {
       "id": "6468b837",
-      "image": "a91d6dadfefdd7cc999d7a2cd4cdf1aa.png",
+      "image": "b5e98feb34a2f9cb276cca93beb52aac.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without arrows middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8820,7 +8820,7 @@
     },
     {
       "id": "b1d7ff51",
-      "image": "a3d17523819d06d0169ddbefe9e5f717.png",
+      "image": "e4d99af8785c6f4a4c3a00c35648eec8.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without arrows start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8833,7 +8833,7 @@
     },
     {
       "id": "65970473",
-      "image": "1bfa8e03176db267e6d58c801dc90afd.png",
+      "image": "6703be8ab49924c32e829852c9207ee8.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without offset end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8846,7 +8846,7 @@
     },
     {
       "id": "2fe26b72",
-      "image": "ca2df228861bb1523aae19ecfc136d91.png",
+      "image": "cf085511dc564fdaee1f3e5109620454.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without offset middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8859,7 +8859,7 @@
     },
     {
       "id": "46cbf435",
-      "image": "4f4f02aa531eaa59b697d3eb6b6a6dec.png",
+      "image": "2b0e1da29f879b0d334af206c26f3bf7.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without offset single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8872,7 +8872,7 @@
     },
     {
       "id": "e84c59d0",
-      "image": "22e3d340a4c6af8226ffcb7cbf69aa26.png",
+      "image": "d295454d1de5fb5e07253b87a2dc5575.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without offset start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8885,7 +8885,7 @@
     },
     {
       "id": "6f33ee64",
-      "image": "22e3d340a4c6af8226ffcb7cbf69aa26.png",
+      "image": "d295454d1de5fb5e07253b87a2dc5575.png",
       "userAgent": "default",
       "desc": "ld-pagination dots mode without offset without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8898,7 +8898,7 @@
     },
     {
       "id": "562c6532",
-      "image": "7d87aef311f5e87b67c07bbed8d7ef65.png",
+      "image": "5e8f370dcf80879a101adebb5c5649b6.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8911,7 +8911,7 @@
     },
     {
       "id": "d7854a78",
-      "image": "3b2e376313a9f65b19b33441a0d0e637.png",
+      "image": "ebcff95d96c22da437c751ccf0ccf5ba.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8924,7 +8924,7 @@
     },
     {
       "id": "381c13d2",
-      "image": "db8826ab1cdae5cc7db7fe8c876ee8aa.png",
+      "image": "3dfcb9e743a871e522120ce0735606b0.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8937,7 +8937,7 @@
     },
     {
       "id": "c4ec36ae",
-      "image": "dab1a62159eeabf5136b42e7ee97ecdf.png",
+      "image": "0f29f492be8026f1cddd889e7715a376.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8950,7 +8950,7 @@
     },
     {
       "id": "e57a4188",
-      "image": "a0204e694a874e3c96b134f8f721b356.png",
+      "image": "85eb5949b08aa4513912d186033b7b72.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8963,7 +8963,7 @@
     },
     {
       "id": "2593e6a6",
-      "image": "71ec93a55d11b496b60b50594454626a.png",
+      "image": "823d437efd36ea222f70d490f4b4b5d2.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode active start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8976,7 +8976,7 @@
     },
     {
       "id": "82cc1fef",
-      "image": "329a609040db70cda930fe3bed7f661b.png",
+      "image": "98f6fb95c71f46c8ae0433002f6ef401.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -8989,7 +8989,7 @@
     },
     {
       "id": "6903f108",
-      "image": "6e6ade75b021059c8a99491cc871eba5.png",
+      "image": "11afd465817779a5970bc8cf393efed8.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9002,7 +9002,7 @@
     },
     {
       "id": "d5fc36ef",
-      "image": "72fbb4f5a717bf7270e21ae323c87fda.png",
+      "image": "2a1ef553dc4a7ace35bb2dc54677152b.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default none",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9015,7 +9015,7 @@
     },
     {
       "id": "6808c9a0",
-      "image": "78c19b54bb2583c89b4f6ede69e1dff3.png",
+      "image": "d5d2e2eb31017af9dcabfbbad91d3554.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9028,7 +9028,7 @@
     },
     {
       "id": "14fd6016",
-      "image": "0c6fd6fb51e686fad7c83cd7c6875218.png",
+      "image": "ac1c21c0ee5e4f1c2a0f843f8cdea69c.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9041,7 +9041,7 @@
     },
     {
       "id": "b1d3cab8",
-      "image": "0c6fd6fb51e686fad7c83cd7c6875218.png",
+      "image": "ac1c21c0ee5e4f1c2a0f843f8cdea69c.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode default without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9054,7 +9054,7 @@
     },
     {
       "id": "8b75759f",
-      "image": "5f69243e91ca67a4199de52abe04ce63.png",
+      "image": "e33edf3608eef310997d36280322c9d5.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9067,7 +9067,7 @@
     },
     {
       "id": "d00252c1",
-      "image": "93cadd42f84262274b25c421077a0d4a.png",
+      "image": "95428f893331d899a488160759946529.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9080,7 +9080,7 @@
     },
     {
       "id": "cd8539a0",
-      "image": "c144676fcd02fb2fe7e449583e968f93.png",
+      "image": "d2688945521135846f450f90eb0965e7.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9093,7 +9093,7 @@
     },
     {
       "id": "b107a9a6",
-      "image": "0d498d12e5bc8d94a8a539f93aa429ce.png",
+      "image": "1b900754d3c6faf93bbc7717c47a0140.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9106,7 +9106,7 @@
     },
     {
       "id": "a7a93c3e",
-      "image": "fab4b8a10413e44c05974b71e597838c.png",
+      "image": "b40c583177f8c4338cfac4b9993eb445.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9119,7 +9119,7 @@
     },
     {
       "id": "4602cefc",
-      "image": "fb3fd76274813e0e49349d43f4953777.png",
+      "image": "acb7ec7de4f6def19940ebb90a522b0d.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode focus start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9132,7 +9132,7 @@
     },
     {
       "id": "fde39fe5",
-      "image": "7d87aef311f5e87b67c07bbed8d7ef65.png",
+      "image": "5e8f370dcf80879a101adebb5c5649b6.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover end arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9145,7 +9145,7 @@
     },
     {
       "id": "08e4c18d",
-      "image": "3b2e376313a9f65b19b33441a0d0e637.png",
+      "image": "ebcff95d96c22da437c751ccf0ccf5ba.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover next arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9158,7 +9158,7 @@
     },
     {
       "id": "60a519b2",
-      "image": "db8826ab1cdae5cc7db7fe8c876ee8aa.png",
+      "image": "3dfcb9e743a871e522120ce0735606b0.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover prev arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9171,7 +9171,7 @@
     },
     {
       "id": "a962f115",
-      "image": "ede214dc2535fc0917f9a4444d407119.png",
+      "image": "1d846762159ddfc658b5f70d53343db8.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover selected item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9184,7 +9184,7 @@
     },
     {
       "id": "cf95b0b6",
-      "image": "2063a5702844428d77e81c3d95475536.png",
+      "image": "5c60d760ca7ebb18fa7fe871681cd9d3.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover slidable item",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9197,7 +9197,7 @@
     },
     {
       "id": "7d1d0ac2",
-      "image": "71ec93a55d11b496b60b50594454626a.png",
+      "image": "823d437efd36ea222f70d490f4b4b5d2.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode hover start arrow",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9210,7 +9210,7 @@
     },
     {
       "id": "92620833",
-      "image": "74e02e292c0b651b06881aa5100f3df2.png",
+      "image": "f2ee758e541b41b14d11986cb211d66b.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode indefinite middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9223,7 +9223,7 @@
     },
     {
       "id": "203ed102",
-      "image": "f569643eae3feacd1be91e5dd8c1df59.png",
+      "image": "a815511cbfe3c500a82403ab533ee03d.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode indefinite start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9236,7 +9236,7 @@
     },
     {
       "id": "a4c7d4c8",
-      "image": "5151fdbc8e32f98911d043fc611eac27.png",
+      "image": "0443d29eb0012bbbad8500602dab3c6d.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size lg end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9249,7 +9249,7 @@
     },
     {
       "id": "0b1e290c",
-      "image": "d4bbbc6bc177c5e8485733e40e15415f.png",
+      "image": "013f7e59295d0dff64c4ad3f2a227401.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size lg middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9262,7 +9262,7 @@
     },
     {
       "id": "15a235db",
-      "image": "50d172761ca2dc98cee4525e3a401364.png",
+      "image": "bc7f2a7a84aaa413184ca8882b5412fd.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size lg single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9275,7 +9275,7 @@
     },
     {
       "id": "7e94e7e2",
-      "image": "ef2369f53931c39c4891e27def54454f.png",
+      "image": "07248400d4e2ac143403c9890e56589a.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size lg start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9288,7 +9288,7 @@
     },
     {
       "id": "1543e2c2",
-      "image": "ef2369f53931c39c4891e27def54454f.png",
+      "image": "07248400d4e2ac143403c9890e56589a.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size lg without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9301,7 +9301,7 @@
     },
     {
       "id": "c960aab8",
-      "image": "17c0f39f33da84b92989239d56fc417c.png",
+      "image": "7fa187d1198b97921f1f4965fa2ae5f0.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size sm end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9314,7 +9314,7 @@
     },
     {
       "id": "2fd5b5fb",
-      "image": "0eba25b74556d5f54ed7806a8abfb892.png",
+      "image": "781462cb00840b3609ab1cc88028025a.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size sm middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9327,7 +9327,7 @@
     },
     {
       "id": "4dc1aaf6",
-      "image": "9020f86d1cf889d71b7e81ea8646acd8.png",
+      "image": "3170ce9dcfd30417e45d1604715dfab4.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size sm single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9340,7 +9340,7 @@
     },
     {
       "id": "77ec905e",
-      "image": "17d416e00a296da1efbf29457000b139.png",
+      "image": "665fb52b674dff6dc77beee9dc4be993.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size sm start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9353,7 +9353,7 @@
     },
     {
       "id": "9f6e37dc",
-      "image": "17d416e00a296da1efbf29457000b139.png",
+      "image": "665fb52b674dff6dc77beee9dc4be993.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode size sm without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9366,7 +9366,7 @@
     },
     {
       "id": "3aeec148",
-      "image": "f956c028004720c92d585db128ceecd8.png",
+      "image": "1c1880a5956a11ab4e153aecfdd44c1b.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode with text navigation end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9379,7 +9379,7 @@
     },
     {
       "id": "5f87db10",
-      "image": "706c6f0fd04c11531c94db53bc10f740.png",
+      "image": "63c09aa10ed3da5b8de3277f56c3475f.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode with text navigation middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9392,7 +9392,7 @@
     },
     {
       "id": "b174cac3",
-      "image": "036751be4078c00179f7e61da048a337.png",
+      "image": "2bfb3ba3287800fe14e0bb3810d7d10a.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode with text navigation start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9405,7 +9405,7 @@
     },
     {
       "id": "07601360",
-      "image": "be472d538df62983bd31d83f12f6a74b.png",
+      "image": "bf005e7f1485aefd48f7b243c9e23b88.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without arrows end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9418,7 +9418,7 @@
     },
     {
       "id": "7540f493",
-      "image": "bc2afff57326a0ee505046ef6862d577.png",
+      "image": "a05adb3d8b9e859cd48cc5e1fe04778b.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without arrows middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9431,7 +9431,7 @@
     },
     {
       "id": "b74a2e62",
-      "image": "3fe5f463a84a199f86dd5d10089d5be9.png",
+      "image": "7ab6f2243c546219eb88263e1a1f79de.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without arrows start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9444,7 +9444,7 @@
     },
     {
       "id": "69c53a6b",
-      "image": "a6a45e8de3dabc8ab2baf4db3c764b2f.png",
+      "image": "ec254f6451ef50d49923195616a66c17.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without offset end",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9457,7 +9457,7 @@
     },
     {
       "id": "709c5069",
-      "image": "154b45abcef40225cfff1726be0420aa.png",
+      "image": "a7aa1d3442e33ef2d657d09c12e367dd.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without offset middle",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9470,7 +9470,7 @@
     },
     {
       "id": "db26555b",
-      "image": "78c19b54bb2583c89b4f6ede69e1dff3.png",
+      "image": "d5d2e2eb31017af9dcabfbbad91d3554.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without offset single",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9483,7 +9483,7 @@
     },
     {
       "id": "5c615452",
-      "image": "ca9e0c4eccb28b1394a6118e1768866d.png",
+      "image": "064ed2fa82f2cb7db94ebe054ee761d2.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without offset start",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
@@ -9496,7 +9496,7 @@
     },
     {
       "id": "f8a5a842",
-      "image": "ca9e0c4eccb28b1394a6118e1768866d.png",
+      "image": "064ed2fa82f2cb7db94ebe054ee761d2.png",
       "userAgent": "default",
       "desc": "ld-pagination dots on brand color mode without offset without ellipsis",
       "testPath": "./src/liquid/components/ld-pagination/test/ld-pagination.e2e.ts",
