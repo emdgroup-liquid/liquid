@@ -26,28 +26,28 @@ The list below shows you all available typography related CSS custom properties 
 </ld-notice>
 
 <ld-notice headline="Note" mode="warning">
-  Using one of the properties listed below alone does not guarantee typography as intended by the Liquid Design System. For instance, you need to combine all <code>--ld-typo-b*</code> and <code>--ld-typo-xb*</code> fonts with <code>text-transform: uppercase;</code>, use a color other than black and apply an <code>aria-label</code> in order to conform with the Liquid Design System and its accessibility requirements.
+  Using one of the properties listed below alone does not guarantee typography as intended by the Liquid Design System. For instance, you need to combine all <code>--ld-typo-b*</code> and <code>--ld-typo-xb*</code> fonts with <code>text-transform: uppercase;</code>, use a color other than black and apply an <code>aria-label</code> in order to conform with the Liquid Design System and its accessibility requirements. The examples below have been altered accordingly.
 </ld-notice>
 
 ## Available CSS custom properties
 
 <docs-typography var="--ld-font-body" prop="font-family" val="Lato, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-font-display" prop="font-family" val="MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b1" val="3rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b2" val="2.5rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b3" val="2.25rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b4" val="2rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b5" val="1.625rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-b6" val="1.375rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-font-display" prop="font-family" val="MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b1" val="3rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b2" val="2.5rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b3" val="2.25rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b4" val="2rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b5" val="1.625rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-b6" val="1.375rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h1" val="700 2rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h2" val="700 1.625rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h3" val="700 1.375rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h4" val="700 1.125rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h5" val="700 1rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-h6" val="700 0.875rem/140% Lato, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-xb1" val="5.75rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-xb2" val="4.5rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
-<docs-typography var="--ld-typo-xb3" val="4rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-xb1" val="5.75rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-xb2" val="4.5rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
+<docs-typography brand var="--ld-typo-xb3" val="4rem/120% MWeb, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-xh1" val="700 5.75rem/120% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-xh2" val="700 4.5rem/120% Lato, Helvetica, Arial, sans-serif"></docs-typography>
 <docs-typography var="--ld-typo-xh3" val="700 4rem/120% Lato, Helvetica, Arial, sans-serif"></docs-typography>
