@@ -8,14 +8,17 @@ import { Component, h, Host, Prop } from '@stencil/core'
   shadow: false,
 })
 export class DocsTypography {
-  /** CSS variable name */
-  @Prop() var: string
+  /** Sets primary color on the M-Font and transforms it to uppercase. */
+  @Prop() brand?: boolean
+
+  /** CSS prop name */
+  @Prop() prop = 'font'
 
   /** CSS variable value */
   @Prop() val: string
 
-  /** CSS prop name */
-  @Prop() prop = 'font'
+  /** CSS variable name */
+  @Prop() var: string
 
   render() {
     return (
@@ -27,7 +30,15 @@ export class DocsTypography {
         <span class="docs-typography__val">{this.val}</span>
         <span
           class="docs-typography__vis"
-          style={{ [this.prop]: `var(${this.var})` }}
+          style={{
+            [this.prop]: `var(${this.var})`,
+            ...(this.brand
+              ? {
+                  textTransform: 'uppercase',
+                  color: 'var(--ld-thm-primary)',
+                }
+              : {}),
+          }}
         >
           Almost before we knew it, we had left the ground.
         </span>
