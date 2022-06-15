@@ -13,6 +13,7 @@
 .docs-topbar__logo {
   display: block;
   margin-left: calc(-1 * var(--ld-sp-16));
+  margin-right: var(--ld-sp-12);
 
   @media (min-width: 48rem) {
     margin-left: calc(-1 * var(--ld-sp-8));
