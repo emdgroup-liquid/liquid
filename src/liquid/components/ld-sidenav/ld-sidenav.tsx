@@ -415,6 +415,11 @@ export class LdSidenav {
     this.collapsed = !this.collapsed
   }
 
+  private isToggleOutside = (
+    element?: Element
+  ): element is HTMLLdSidenavToggleOutsideElement =>
+    element?.tagName === 'LD-SIDENAV-TOGGLE-OUTSIDE'
+
   private onTransitionEnd = (ev: TransitionEvent) => {
     if (ev.target === this.el) {
       this.transitions = true
@@ -429,10 +434,8 @@ export class LdSidenav {
         firstFocusableInSidenav.focus()
       } else {
         const previousElementSibling = this.el.previousElementSibling
-        if (previousElementSibling?.tagName === 'LD-SIDENAV-TOGGLE-OUTSIDE') {
-          ;(
-            previousElementSibling as HTMLLdSidenavToggleOutsideElement
-          ).focusInner()
+        if (this.isToggleOutside(previousElementSibling)) {
+          previousElementSibling.focusInner()
         }
       }
     }
