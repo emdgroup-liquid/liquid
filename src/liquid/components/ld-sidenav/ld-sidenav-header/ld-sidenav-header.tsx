@@ -76,7 +76,7 @@ export class LdSidenavHeader {
   }
 
   componentWillLoad() {
-    this.sidenav = this.el.closest<HTMLLdSidenavElement>('ld-sidenav')
+    this.sidenav = this.el.closest('ld-sidenav')
     if (this.sidenav) this.sidenavAlignement = this.sidenav.align
   }
 

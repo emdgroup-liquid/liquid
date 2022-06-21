@@ -15,7 +15,6 @@
 
   align-items: center;
   align-self: flex-start;
-  aspect-ratio: 1;
   display: flex;
   height: var(--ld-sidenav-toggle-outside-height);
   justify-content: center;

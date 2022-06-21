@@ -128,10 +128,6 @@
       opacity: 0;
       visibility: hidden;
     }
-
-    slot {
-      pointer-events: none;
-    }
   }
 
   &(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible.ld-sidenav--transitions:not(.ld-sidenav--closable)) {

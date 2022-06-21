@@ -101,11 +101,6 @@
 .ld-sidenav-header__initial-m {
   color: var(--ld-thm-primary);
   width: var(--ld-sidenav-navitem-icon-size);
-
-  &::part(icon) {
-    width: auto;
-    height: auto;
-  }
 }
 
 .ld-sidenav-header__toggle {

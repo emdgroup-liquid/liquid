@@ -14,7 +14,7 @@ export class DocsSwitchDarkLight {
     const iframe = document.querySelector('docs-iframe')
 
     if (iframe) {
-      iframe['setDarkMode'](darkMode)
+      iframe.setDarkMode(darkMode)
     }
   }
 

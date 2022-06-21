@@ -37,7 +37,7 @@ export const getFirstFocusable = (el: HTMLElement): HTMLElement | undefined => {
   }
 
   // Web Component.
-  if (el.matches('.hydrated')) {
+  if (el.shadowRoot) {
     const shadowRootChildren = Array.from(el.shadowRoot.children)
     for (const child of shadowRootChildren) {
       const focusable = getFirstFocusable(child as HTMLElement)

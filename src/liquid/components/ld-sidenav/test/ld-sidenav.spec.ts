@@ -28,11 +28,15 @@ import '../../../utils/mutationObserver'
 let matchMedia
 const mockedGetFirstFocusable = getFirstFocusable as jest.Mock
 
-async function transitionEnd(page) {
-  const transitionEndHandler = page.root
-    .querySelector('ld-sidenav-slider')
-    ['__listeners'].find((l) => l.type === 'transitionEnd').handler
-  transitionEndHandler({ target: page.root.querySelector('ld-sidenav-slider') })
+async function transitionEnd(page, transitionTarget = undefined) {
+  const ldSidenav = page.body.querySelector('ld-sidenav')
+  if (!transitionTarget) {
+    transitionTarget = ldSidenav
+  }
+  const transitionEndHandler = transitionTarget['__listeners'].find(
+    (l) => l.type === 'transitionEnd'
+  ).handler
+  transitionEndHandler({ target: transitionTarget })
   await page.waitForChanges()
 }
 
@@ -779,7 +783,7 @@ describe('ld-sidenav', () => {
       .click()
     await page.waitForChanges()
 
-    await transitionEnd(page)
+    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
     expect(
       ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
     ).toBe(false)
@@ -811,7 +815,7 @@ describe('ld-sidenav', () => {
     ldSidenavNavitemSoftComp.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
 
-    await transitionEnd(page)
+    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
     expect(
       subnavArtInt.shadowRoot.querySelector('ld-sidenav-scroller-internal')
         .style.visibility
@@ -851,7 +855,7 @@ describe('ld-sidenav', () => {
     ldSidenavNavitemMath.shadowRoot.querySelector('button').click()
     await page.waitForChanges()
 
-    await transitionEnd(page)
+    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
     expect(
       subnavAlgDS.shadowRoot.querySelector('ld-sidenav-scroller-internal').style
         .visibility
@@ -880,7 +884,7 @@ describe('ld-sidenav', () => {
       .dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
     await page.waitForChanges()
 
-    await transitionEnd(page)
+    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
     expect(
       ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
     ).toBe(false)
@@ -1086,7 +1090,7 @@ describe('ld-sidenav', () => {
       doc.activeElement = document.body
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
       await page.waitForChanges()
-      await transitionEnd(page)
+      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
 
       expect(ldSidenav).toHaveClass('ld-sidenav--has-active-subnav')
       expect(ldSidenav).toHaveClass('ld-sidenav--open')
@@ -1094,7 +1098,7 @@ describe('ld-sidenav', () => {
       doc.activeElement = ldSidenav
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
       await page.waitForChanges()
-      await transitionEnd(page)
+      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
 
       expect(ldSidenav).not.toHaveClass('ld-sidenav--has-active-subnav')
       expect(ldSidenav).toHaveClass('ld-sidenav--open')
@@ -1159,7 +1163,7 @@ describe('ld-sidenav', () => {
       doc.activeElement = document.body
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
       await page.waitForChanges()
-      await transitionEnd(page)
+      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
 
       expect(ldSidenav).not.toHaveClass('ld-sidenav--open')
     })
@@ -1569,6 +1573,11 @@ describe('ld-sidenav', () => {
           <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
           <ld-sidenav open collapsible>
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
+            <ld-sidenav-slider label="Outline of Computer Science">
+              <ld-sidenav-navitem>
+                Artificial intelligence
+              </ld-sidenav-navitem>
+            </ld-sidenav-slider>
           </ld-sidenav>`,
       })
       const ldSidenav = page.body.querySelector('ld-sidenav')
@@ -1589,8 +1598,8 @@ describe('ld-sidenav', () => {
         )
 
       btnHeaderToggle.click()
-      jest.advanceTimersByTime(200)
       await page.waitForChanges()
+      await transitionEnd(page)
 
       expect(btnToggleOutside.focus).toHaveBeenCalled()
     })
@@ -1601,13 +1610,12 @@ describe('ld-sidenav', () => {
       const page = await newSpecPage({
         components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
         html: `<ld-sidenav open>
-            <ld-sidenav-slider label="Outline of Computer Science">
-              <ld-sidenav-navitem>
-                Artificial intelligence
-              </ld-sidenav-navitem>
-            </ld-sidenav-slider>
-          </ld-sidenav>
-        `,
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem>
+              Artificial intelligence
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
       })
       await page.waitForChanges()
 
@@ -1623,13 +1631,12 @@ describe('ld-sidenav', () => {
       const page = await newSpecPage({
         components: [LdSidenav, LdSidenavSlider, LdSidenavNavitem, LdTooltip],
         html: `<ld-sidenav open>
-            <ld-sidenav-slider label="Outline of Computer Science">
-              <ld-sidenav-navitem>
-                Algorithms & data structures
-              </ld-sidenav-navitem>
-            </ld-sidenav-slider>
-          </ld-sidenav>
-        `,
+          <ld-sidenav-slider label="Outline of Computer Science">
+            <ld-sidenav-navitem>
+              Algorithms & data structures
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
       })
       await page.waitForChanges()
 
@@ -1730,7 +1737,7 @@ describe('ld-sidenav', () => {
 
       await page.waitForChanges()
 
-      await transitionEnd(page)
+      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
       expect(ldSidenavAccordionSoftComputingSection).toHaveClass(
         'ld-accordion-section--expanded'
       )
@@ -1788,7 +1795,7 @@ describe('ld-sidenav', () => {
 
       await page.waitForChanges()
 
-      await transitionEnd(page)
+      await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
       expect(ldSidenavAccordionSoftComputingSection).not.toHaveClass(
         'ld-accordion-section--expanded'
       )

@@ -147,32 +147,6 @@ export class LdSidenav {
       fully: this.fullyCollapsible,
     })
 
-    // If the sidenav was fully collapsed and is being expanded, set the focus
-    // on the first focusable element. If it is being collapsed, set the focus
-    // on the toggle outside if it is there.
-    if (this.fullyCollapsible) {
-      if (!collapsed) {
-        const firstFocusableInSidenav = getFirstFocusable(this.el)
-
-        // Timeout is required, because we need to wait for the element being
-        // focusable after expansion of the sidenav.
-        setTimeout(() => {
-          firstFocusableInSidenav.focus()
-        }, 200)
-      } else {
-        const previousElementSibling = this.el.previousElementSibling
-        if (previousElementSibling?.tagName === 'LD-SIDENAV-TOGGLE-OUTSIDE') {
-          // Timeout is required, because we need to wait for the element being
-          // focusable after expansion of the sidenav.
-          setTimeout(() => {
-            ;(
-              previousElementSibling as HTMLLdSidenavToggleOutsideElement
-            ).focusInner()
-          }, 200)
-        }
-      }
-    }
-
     if (collapsed) {
       this.open = false
     }
@@ -441,16 +415,36 @@ export class LdSidenav {
     this.collapsed = !this.collapsed
   }
 
+  private onTransitionEnd = (ev: TransitionEvent) => {
+    if (ev.target === this.el) {
+      this.transitions = true
+    }
+
+    // If the sidenav was fully collapsed and is being expanded, set the focus
+    // on the first focusable element. If it is being collapsed, set the focus
+    // on the toggle outside if it is there.
+    if (this.fullyCollapsible) {
+      if (!this.collapsed) {
+        const firstFocusableInSidenav = getFirstFocusable(this.el)
+        firstFocusableInSidenav.focus()
+      } else {
+        const previousElementSibling = this.el.previousElementSibling
+        if (previousElementSibling?.tagName === 'LD-SIDENAV-TOGGLE-OUTSIDE') {
+          ;(
+            previousElementSibling as HTMLLdSidenavToggleOutsideElement
+          ).focusInner()
+        }
+      }
+    }
+  }
+
   private onMatchMediaChange = (ev: MediaQueryListEvent) => {
     this.closable = ev.matches
 
     // Remove transitions class on breakpoint change in order to prevent
     // weird looking transitions on screen resize or orientation change events.
-    // Add it back instantly after style changes have been applied.
+    // Add it back on transition end / after style changes have been applied.
     this.transitions = false
-    setTimeout(() => {
-      this.transitions = true
-    }, 100)
 
     // When there is less space available than before the breakpoint change,
     // collapse the side nav if it is collapsible.
@@ -502,7 +496,12 @@ export class LdSidenav {
     ]
 
     return (
-      <Host class={getClassNames(cl)} role="navigation" aria-label={this.label}>
+      <Host
+        onTransitionEnd={this.onTransitionEnd}
+        class={getClassNames(cl)}
+        role="navigation"
+        aria-label={this.label}
+      >
         <slot name="header"></slot>
         <div class="ld-sidenav__content">
           <div class="ld-sidenav__slot-container-top" part="slot-container-top">
