@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-slider renders 1`] = `
+<ld-slider aria-labelledby="multi-lbl" class="ld-slider" role="group" style="--v0: 35; --v1: 70; --ld-slider-width: 20rem; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
+        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
+        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <div class="sr-only" id="multi-lbl">
+      Multi thumb slider:
+    </div>
+    <label class="sr-only" htmlfor="v0">
+      Value A
+    </label>
+    <input id="v0" max="100" min="0" type="range" value="35"><output htmlfor="v0" style="--c: var(--v0);"></output>
+    <label class="sr-only" htmlfor="v1">
+      Value B
+    </label>
+    <input id="v1" max="100" min="0" type="range" value="70"><output htmlfor="v1" style="--c: var(--v1);"></output>
+  </mock:shadow-root>
+</ld-slider>
+`;
