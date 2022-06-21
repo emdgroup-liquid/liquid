@@ -31,6 +31,7 @@ export class LdSidenavAccordion {
 
   @State() expandOnSidenavExpansion: boolean
   @State() inAccordion: boolean
+  @State() noIcon: boolean
   @State() rounded: boolean
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
@@ -127,12 +128,16 @@ export class LdSidenavAccordion {
     this.rounded = !!this.el.querySelector(
       'ld-sidenav-navitem[slot="toggle"][rounded]'
     )
+    this.noIcon = !!this.el.querySelector(
+      'ld-sidenav-navitem[slot="toggle"][mode="secondary"],ld-sidenav-navitem[slot="toggle"][mode="tertiary"]'
+    )
     this.sidenav = closest('ld-sidenav', this.el)
   }
 
   render() {
     const cl = getClassNames([
       'ld-sidenav-accordion',
+      this.noIcon && 'ld-sidenav-accordion--no-icon',
       this.rounded && 'ld-sidenav-accordion--rounded',
       this.inAccordion && 'ld-sidenav-accordion--in-accordion',
       this.transitionsEnabled && 'ld-sidenav-accordion--transitions-enabled',

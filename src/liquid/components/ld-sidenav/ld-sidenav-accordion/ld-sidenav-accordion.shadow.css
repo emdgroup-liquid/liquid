@@ -161,6 +161,15 @@
     }
   }
 
+  :host(.ld-sidenav-accordion--no-icon) & {
+    &::part(trigger) {
+      &::before,
+      &::after {
+        transform: scale(0.8);
+      }
+    }
+  }
+
   &::part(trigger-content) {
     transform: none;
     z-index: 2;
