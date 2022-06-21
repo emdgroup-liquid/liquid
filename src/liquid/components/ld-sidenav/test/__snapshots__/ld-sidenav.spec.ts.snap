@@ -538,9 +538,9 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Communication and security
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem active="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem selected="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--active ld-sidenav-navitem--collapsed" part="navitem focusable">
+          <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--selected" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
               <div class="ld-sidenav-navitem__bg-left"></div>
               <div class="ld-sidenav-navitem__bg-center"></div>

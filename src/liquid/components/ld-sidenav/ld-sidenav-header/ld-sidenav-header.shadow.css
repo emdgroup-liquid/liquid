@@ -10,6 +10,10 @@
   --ld-sidenav-header-anchor-col-hover: var(--ld-thm-primary-hover);
   --ld-sidenav-header-anchor-col-focus: var(--ld-thm-primary);
 
+  --ld-sidenav-header-indicator-col: transparent;
+  --ld-sidenav-header-indicator-col-focus: var(--ld-thm-primary-focus);
+  --ld-sidenav-header-indicator-col-active: var(--ld-thm-primary);
+
   align-items: center;
   background-color: var(--ld-sidenav-header-bg-col);
   color: var(--ld-sidenav-header-col);
@@ -36,6 +40,7 @@
   gap: var(--ld-sp-12);
   grid-auto-flow: column;
   grid-template-columns: min-content;
+  line-height: var(--ld-sidenav-line-height);
   margin-right: auto;
   min-height: calc(var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-12));
   outline-offset: var(--ld-sidenav-navitem-bg-inset);
@@ -49,11 +54,25 @@
     color: var(--ld-sidenav-header-anchor-col);
 
     &:focus:focus-visible {
+      --ld-sidenav-header-indicator-col: var(
+        --ld-sidenav-header-indicator-col-focus
+      );
       color: var(--ld-sidenav-header-anchor-col-focus);
       outline: none;
 
-      &::before {
+      &::before,
+      &::after {
         content: '';
+      }
+
+      &:active {
+        --ld-sidenav-header-indicator-col: var(
+          --ld-sidenav-header-indicator-col-active
+        );
+
+        &::before {
+          opacity: 0.3;
+        }
       }
     }
     @media (hover: hover) {
@@ -67,15 +86,22 @@
     }
   }
 
-  &::before {
-    background-color: var(--ld-thm-primary-alpha-low);
-    border-radius: calc(
-      var(--ld-sidenav-navitem-active-indicator-border-width) +
-        var(--ld-sidenav-navitem-border-radius)
-    );
+  &::before,
+  &::after {
+    border-radius: var(--ld-sidenav-navitem-border-radius);
     display: block;
     inset: calc(-1 * var(--ld-sp-6));
     position: absolute;
+  }
+
+  &::before {
+    background-color: var(--ld-sidenav-header-indicator-col);
+    z-index: 1;
+    opacity: 0.2;
+  }
+  &::after {
+    background-color: var(--ld-col-wht);
+    z-index: 0;
   }
 
   :host(.ld-sidenav-header--closed) &,
@@ -101,6 +127,7 @@
 .ld-sidenav-header__initial-m {
   color: var(--ld-thm-primary);
   width: var(--ld-sidenav-navitem-icon-size);
+  z-index: 2;
 }
 
 .ld-sidenav-header__toggle {
@@ -124,30 +151,46 @@
   will-change: transform; /* fixes rendering issue */
   -webkit-touch-callout: none;
 
-  /* background */
-  &::before {
-    opacity: 0;
-    content: '';
-    position: absolute;
-    inset: 0;
-    display: block;
+  &::before,
+  &::after {
     border-radius: inherit;
-    box-shadow: var(--ld-shadow-stacked);
+    display: block;
+    inset: 0;
+    position: absolute;
   }
 
-  /* increase click area */
+  &::before {
+    z-index: 1;
+    background-color: var(--ld-sidenav-header-indicator-col);
+    opacity: 0.2;
+  }
+
   &::after {
-    content: '';
-    position: absolute;
-    inset: calc(-1 * var(--ld-sp-6));
-    display: block;
-    border-radius: inherit;
+    background-color: var(--ld-col-wht);
+    z-index: 0;
   }
 
   &:where(:focus:focus-visible) {
+    --ld-sidenav-header-indicator-col: var(
+      --ld-sidenav-header-indicator-col-focus
+    );
     color: var(--ld-sidenav-header-anchor-col-focus);
-    background-color: var(--ld-thm-primary-alpha-low);
     outline: none;
+
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    &:active {
+      --ld-sidenav-header-indicator-col: var(
+        --ld-sidenav-header-indicator-col-active
+      );
+
+      &::before {
+        opacity: 0.3;
+      }
+    }
   }
   @media (hover: hover) {
     &:where(:hover) {
@@ -187,6 +230,8 @@
 }
 
 .ld-sidenav-header__toggle-icon {
+  z-index: 2;
+
   :host(:not(.ld-sidenav-header--collapsed)) & {
     transform: scaleX(-100%);
   }
@@ -198,4 +243,15 @@
   :host(.ld-sidenav-header--right-aligned.ld-sidenav-header--collapsed) & {
     transform: scaleX(-100%);
   }
+}
+
+.ld-sidenav-header__slot-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  max-height: var(--ld-sidenav-header-height); /* required in Safari */
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  z-index: 2;
 }

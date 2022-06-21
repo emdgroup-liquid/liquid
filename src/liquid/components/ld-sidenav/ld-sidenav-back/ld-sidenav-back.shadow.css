@@ -11,6 +11,7 @@
   --ld-sidenav-back-col-focus: var(--ld-thm-primary);
   --ld-sidenav-back-indicator-col: transparent;
   --ld-sidenav-back-indicator-col-focus: var(--ld-thm-primary-focus);
+  --ld-sidenav-back-indicator-col-active: var(--ld-thm-primary);
 
   outline: none;
   display: block;
@@ -22,13 +23,20 @@
     }
   }
 
-  &:focus {
+  &:focus:focus-visible {
     --ld-sidenav-back-col: var(--ld-sidenav-back-col-focus);
     --ld-sidenav-back-indicator-col: var(--ld-sidenav-back-indicator-col-focus);
   }
 
   &:active {
     --ld-sidenav-back-col: var(--ld-sidenav-back-col-active);
+    --ld-sidenav-back-indicator-col: var(
+      --ld-sidenav-back-indicator-col-active
+    );
+
+    .ld-sidenav-back__bg {
+      opacity: 0.3;
+    }
   }
 
   &--rounded {
@@ -77,9 +85,8 @@
   inset: calc(-1 * var(--ld-sidenav-back-bg-inset));
   display: block;
   opacity: 0.2;
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-      var(--ld-sidenav-transition-delay-collapse-expand) linear,
-    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   pointer-events: none;
 }
 

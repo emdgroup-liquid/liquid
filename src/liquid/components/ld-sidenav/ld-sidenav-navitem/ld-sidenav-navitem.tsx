@@ -32,8 +32,8 @@ export class LdSidenavNavitem implements InnerFocusable {
   private tooltipRef: HTMLLdTooltipElement
   private slotContainerRef: HTMLElement
 
-  /** Sets visual indicator to denote that the nav item is currently active. */
-  @Prop() active = false
+  /** Sets visual indicator to denote that the nav item is currently selected. */
+  @Prop() selected = false
 
   /**
    * Transforms the nav item to an anchor element.
@@ -50,7 +50,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop() mode?: 'secondary' | 'tertiary'
 
   /** Applies full border-radius. */
-  @Prop() rounded = false
+  @Prop({ reflect: true }) rounded = false
 
   /** Tab index of the button. */
   @Prop() ldTabindex: number | undefined
@@ -231,7 +231,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   render() {
     const cl = getClassNames([
       'ld-sidenav-navitem',
-      this.active && 'ld-sidenav-navitem--active',
+      this.selected && 'ld-sidenav-navitem--selected',
       this.inAccordion && 'ld-sidenav-navitem--in-accordion',
       this.rounded && 'ld-sidenav-navitem--rounded',
       this.mode && `ld-sidenav-navitem--${this.mode}`,

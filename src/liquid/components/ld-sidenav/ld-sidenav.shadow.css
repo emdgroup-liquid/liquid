@@ -1,5 +1,6 @@
 :host {
   /* layout */
+  --ld-sidenav-line-height: 1.15;
   --ld-sidenav-padding-x: 1rem;
   --ld-sidenav-padding-y: 1rem;
   --ld-sidenav-padding: var(--ld-sidenav-padding-y) var(--ld-sidenav-padding-x);

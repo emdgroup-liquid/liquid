@@ -1,6 +1,8 @@
 :host {
-  display: block;
   border-radius: var(--ld-accordion-border-radius);
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .ld-accordion-toggle__button,

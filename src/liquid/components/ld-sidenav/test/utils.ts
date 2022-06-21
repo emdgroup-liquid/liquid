@@ -65,7 +65,7 @@ export function getSidenavWithSubnavigation(options?: {
         <ld-sidenav-navitem to="communication-and-security">
           Communication and security
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem to="artificial-intelligence" active>
+        <ld-sidenav-navitem to="artificial-intelligence" selected>
           <svg slot="icon" viewBox="0 0 40 40">
             <circle cx="20" cy="20" r="10" fill="var(--ld-col-vm)"/>
           </svg>

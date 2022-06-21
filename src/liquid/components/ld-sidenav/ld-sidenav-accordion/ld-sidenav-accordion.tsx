@@ -29,10 +29,11 @@ export class LdSidenavAccordion {
   private sectionRef: HTMLLdAccordionSectionElement
   private panelRef: HTMLLdAccordionPanelElement
 
+  @State() expandOnSidenavExpansion: boolean
   @State() inAccordion: boolean
+  @State() rounded: boolean
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
-  @State() expandOnSidenavExpansion: boolean
   @State() transitionsEnabled = true
 
   /** Indicates that the accordion section is expanded. */
@@ -123,12 +124,16 @@ export class LdSidenavAccordion {
 
   componentWillLoad() {
     this.inAccordion = this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION'
+    this.rounded = !!this.el.querySelector(
+      'ld-sidenav-navitem[slot="toggle"][rounded]'
+    )
     this.sidenav = closest('ld-sidenav', this.el)
   }
 
   render() {
     const cl = getClassNames([
       'ld-sidenav-accordion',
+      this.rounded && 'ld-sidenav-accordion--rounded',
       this.inAccordion && 'ld-sidenav-accordion--in-accordion',
       this.transitionsEnabled && 'ld-sidenav-accordion--transitions-enabled',
       this.sidenavCollapsed &&
