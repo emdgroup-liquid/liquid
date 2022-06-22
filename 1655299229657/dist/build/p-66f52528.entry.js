@@ -1,1 +1,0 @@
-import{r as a,h as d,H as s}from"./p-24a1cdec.js";const r=class{constructor(d){a(this,d)}render(){return d(s,{class:"ld-sidenav-heading"},d("ld-typo",{variant:"cap-m",part:"typo"},d("slot",null)))}};r.style=":host{color:var(--ld-col-neutral-600);display:block;padding:0 var(--ld-sidenav-padding-x)}";export{r as ld_sidenav_heading}
