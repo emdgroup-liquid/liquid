@@ -5106,7 +5106,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer vision
         </ld-sidenav-navitem>
-        <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
               <mock:shadow-root>
@@ -5196,7 +5196,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </mock:shadow-root>
             Soft computing
           </ld-sidenav-navitem>
-          <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--in-accordion ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -0px;">
+          <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--in-accordion ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -0px;">
             <mock:shadow-root>
               <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
                 <mock:shadow-root>

@@ -161,6 +161,13 @@ export class LdSidenav {
     }
   }
 
+  @Watch('collapsible')
+  @Watch('narrow')
+  updateFullyCollapsible() {
+    this.fullyCollapsible =
+      this.collapsible && (!this.narrow || !this.activeSubnavContainsIcons())
+  }
+
   @Listen('click', {
     target: 'window',
   })
@@ -241,17 +248,9 @@ export class LdSidenav {
     clearTimeout(this.focusTimeout)
     this.el.querySelector('ld-sidenav-back')?.updateLabel(ev.detail?.label)
 
-    // Check if current subnav is fully collapsable.
     this.hasActiveSubnav = !!ev.detail
-    const activeSubnav = ev.detail
-      ? document.getElementById(ev.detail.id)
-      : this.el.querySelector('ld-sidenav-slider')
-    const activeSubnavContainsIcons = !!Array.from(
-      activeSubnav.querySelectorAll('ld-sidenav-navitem')
-    ).find(({ mode }) => !mode)
-    this.fullyCollapsible =
-      this.collapsible && (!this.narrow || !activeSubnavContainsIcons)
 
+    this.updateFullyCollapsible()
     this.updateFocus()
   }
 
@@ -415,6 +414,28 @@ export class LdSidenav {
     this.collapsed = !this.collapsed
   }
 
+  private activeSubnavContainsIcons = () => {
+    const slider = this.el.querySelector('ld-sidenav-slider')
+    const activeSubnav = slider.currentSubnav
+      ? this.el.querySelector(`#${slider.currentSubnav}`)
+      : slider
+    const navitemsModePrimaryChildren = Array.from(
+      activeSubnav.children
+    ).filter(
+      (child) =>
+        child.tagName === 'LD-SIDENAV-NAVITEM' &&
+        !(child as HTMLLdSidenavNavitemElement).mode
+    )
+    const navitemsModePrimaryInAccordion = Array.from(
+      activeSubnav.querySelectorAll(
+        'ld-sidenav-accordion > ld-sidenav-navitem[slot="toggle"]'
+      )
+    ).filter((child: HTMLLdSidenavNavitemElement) => !child.mode)
+    const totalNavitemsModePrimary =
+      navitemsModePrimaryChildren.length + navitemsModePrimaryInAccordion.length
+    return !!totalNavitemsModePrimary
+  }
+
   private isToggleOutside = (
     element?: Element
   ): element is HTMLLdSidenavToggleOutsideElement =>
@@ -423,19 +444,19 @@ export class LdSidenav {
   private onTransitionEnd = (ev: TransitionEvent) => {
     if (ev.target === this.el) {
       this.transitions = true
-    }
 
-    // If the sidenav was fully collapsed and is being expanded, set the focus
-    // on the first focusable element. If it is being collapsed, set the focus
-    // on the toggle outside if it is there.
-    if (this.fullyCollapsible) {
-      if (!this.collapsed) {
-        const firstFocusableInSidenav = getFirstFocusable(this.el)
-        firstFocusableInSidenav.focus()
-      } else {
-        const previousElementSibling = this.el.previousElementSibling
-        if (this.isToggleOutside(previousElementSibling)) {
-          previousElementSibling.focusInner()
+      // If the sidenav was fully collapsed and is being expanded, set the focus
+      // on the first focusable element. If it is being collapsed, set the focus
+      // on the toggle outside if it is there.
+      if (this.fullyCollapsible) {
+        if (!this.collapsed) {
+          const firstFocusableInSidenav = getFirstFocusable(this.el)
+          firstFocusableInSidenav.focus()
+        } else {
+          const previousElementSibling = this.el.previousElementSibling
+          if (this.isToggleOutside(previousElementSibling)) {
+            previousElementSibling.focusInner()
+          }
         }
       }
     }
@@ -460,9 +481,7 @@ export class LdSidenav {
     this.mediaQuery = window.matchMedia(`(max-width: ${this.breakpoint})`)
     this.mediaQuery.addEventListener('change', this.onMatchMediaChange)
     this.closable = this.mediaQuery.matches
-    this.fullyCollapsible =
-      this.collapsible &&
-      (!this.narrow || !this.el.querySelector('ld-sidenav-slider'))
+    this.updateFullyCollapsible()
   }
 
   componentDidLoad() {

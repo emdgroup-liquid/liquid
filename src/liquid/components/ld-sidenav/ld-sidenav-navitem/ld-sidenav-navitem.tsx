@@ -173,6 +173,9 @@ export class LdSidenavNavitem implements InnerFocusable {
   // since we do not use click events (see comment above).
   private onKeyDown = (ev) => {
     if ([' ', 'Enter'].includes(ev.key)) {
+      if (this.to) {
+        ev.preventDefault()
+      }
       this.onClick()
     }
   }
