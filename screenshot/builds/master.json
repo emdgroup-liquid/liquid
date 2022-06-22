@@ -12576,6 +12576,19 @@
       "isMobile": false
     },
     {
+      "id": "f24496e3",
+      "image": "e9cbd35eb0d429c17fd76e29f88cc9c9.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item has a secondary icon when hovering",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "eb3477e0",
       "image": "e703c15788449e352723bed104aa62a8.png",
       "userAgent": "default",
