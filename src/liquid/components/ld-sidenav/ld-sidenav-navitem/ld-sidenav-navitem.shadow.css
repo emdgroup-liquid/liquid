@@ -415,6 +415,7 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__slot-icon-secondary-container {
+  position: relative;
   display: flex;
   flex-shrink: 0;
   margin-right: var(--ld-sp-12);
