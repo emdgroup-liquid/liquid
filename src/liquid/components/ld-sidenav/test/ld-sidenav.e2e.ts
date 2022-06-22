@@ -739,6 +739,28 @@ describe('ld-sidenav', () => {
       const result = await page.compareScreenshot()
       expect(result).toMatchScreenshot()
     })
+
+    it('has a secondary icon when hovering', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>
+              Liquid Oxygen
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      await page.hover('ld-sidenav-navitem')
+      await page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
   })
 
   describe('with accordion', () => {
