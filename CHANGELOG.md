@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/emdgroup-liquid/liquid/compare/v1.12.1...v2.0.0) (2022-06-22)
+
+
+### Features
+
+* **ld-sidenav:** add header and toggle outside to sidenav ([8efa4f0](https://github.com/emdgroup-liquid/liquid/commit/8efa4f04b66fa2bdf107a75c80e8af46ec33a5f3))
+
+
+### BREAKING CHANGES
+
+* **ld-sidenav:** - The toggle that was previously integrated in the ld-sidenav component has been removed and instead placed in two new components: the ld-sidenav-header and the ld-sidenav-toggle-outside components.
+- The ld-sidenav-navitem prop active has been renamed to selected.
+
 ## [1.12.1](https://github.com/emdgroup-liquid/liquid/compare/v1.12.0...v1.12.1) (2022-06-03)
 
 
