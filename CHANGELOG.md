@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/emdgroup-liquid/liquid/compare/v2.0.0...v2.0.1) (2022-06-22)
+
+
+### Bug Fixes
+
+* **ld-sidenav-navitem:** keep secondary icon visible on hover ([a66cfe2](https://github.com/emdgroup-liquid/liquid/commit/a66cfe2f695aa14a860ded8e8cf5fdce9271a285))
+
 # [2.0.0](https://github.com/emdgroup-liquid/liquid/compare/v1.12.1...v2.0.0) (2022-06-22)
 
 
