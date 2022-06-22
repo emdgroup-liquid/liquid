@@ -4,7 +4,7 @@ exports[`ld-notice renders default 1`] = `
 <ld-notice class="ld-notice ld-notice--info">
   <mock:shadow-root>
     <slot name="custom-icon">
-      <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+      <ld-icon class="ld-notice__icon" name="ld-input-message-info" part="icon" size="lg"></ld-icon>
     </slot>
     <slot></slot>
   </mock:shadow-root>
@@ -16,7 +16,7 @@ exports[`ld-notice renders with custom icon 1`] = `
 <ld-notice class="ld-notice ld-notice--success">
   <mock:shadow-root>
     <slot name="custom-icon">
-      <ld-icon class="ld-notice__icon" name="checkmark-filled" part="icon" size="lg"></ld-icon>
+      <ld-icon class="ld-notice__icon" name="ld-input-message-success" part="icon" size="lg"></ld-icon>
     </slot>
     <slot></slot>
   </mock:shadow-root>
@@ -29,7 +29,7 @@ exports[`ld-notice renders with headline 1`] = `
 <ld-notice class="ld-notice ld-notice--info">
   <mock:shadow-root>
     <slot name="custom-icon">
-      <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+      <ld-icon class="ld-notice__icon" name="ld-input-message-info" part="icon" size="lg"></ld-icon>
     </slot>
     <ld-typo class="ld-notice__headline" part="headline" tag="p" variant="h4">
       Headline
@@ -44,7 +44,7 @@ exports[`ld-notice renders with mode 1`] = `
 <ld-notice class="ld-notice ld-notice--error">
   <mock:shadow-root>
     <slot name="custom-icon">
-      <ld-icon class="ld-notice__icon" name="info" part="icon" size="lg"></ld-icon>
+      <ld-icon class="ld-notice__icon" name="ld-input-message-info" part="icon" size="lg"></ld-icon>
     </slot>
     <slot></slot>
   </mock:shadow-root>

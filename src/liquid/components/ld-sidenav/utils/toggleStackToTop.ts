@@ -4,18 +4,18 @@ export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
   const outerSlider = el.closest('ld-sidenav-slider')
   if (!outerSlider) return
 
+  // If not stacked, put everything back in place.
+  if (!stacked) {
+    el.style.removeProperty('--ld-slider-navitem-move-up')
+    return
+  }
+
   const sidenavPaddingY =
     parseInt(
       window
         .getComputedStyle(outerSlider)
         .getPropertyValue('--ld-sidenav-padding-y')
     ) * 16
-
-  // If not stacked, put everything back in place.
-  if (!stacked) {
-    el.style.removeProperty('--ld-slider-navitem-move-up')
-    return
-  }
 
   // Else, calculate how much vertical space is taken by stacked items above
   // and move the nav item up accordingly.

@@ -1,4 +1,3 @@
-import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
 
 type Notification = {

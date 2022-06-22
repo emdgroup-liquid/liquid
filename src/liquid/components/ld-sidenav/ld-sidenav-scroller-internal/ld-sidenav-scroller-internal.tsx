@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -30,9 +29,14 @@ export class LdSidenavScrollerInternal {
   @State() sidenavCollapsed: boolean
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail
+    this.sidenavCollapsed = ev.detail.collapsed
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })

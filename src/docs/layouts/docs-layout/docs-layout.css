@@ -14,7 +14,7 @@ body {
 .docs-main {
   width: calc(100% - var(--docs-nav-width) - var(--docs-toc-width));
 
-  @media (max-width: 80rem) {
+  @media (max-width: 75rem) {
     width: calc(100% - var(--docs-nav-width));
   }
 
@@ -28,7 +28,7 @@ body {
   position: sticky;
   top: 7.75rem;
 
-  @media (max-width: 80rem) {
+  @media (max-width: 75rem) {
     display: none;
   }
 }

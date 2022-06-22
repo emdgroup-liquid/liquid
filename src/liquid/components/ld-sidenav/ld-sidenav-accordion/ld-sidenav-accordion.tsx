@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -30,10 +29,12 @@ export class LdSidenavAccordion {
   private sectionRef: HTMLLdAccordionSectionElement
   private panelRef: HTMLLdAccordionPanelElement
 
+  @State() expandOnSidenavExpansion: boolean
   @State() inAccordion: boolean
+  @State() noIcon: boolean
+  @State() rounded: boolean
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
-  @State() expandOnSidenavExpansion: boolean
   @State() transitionsEnabled = true
 
   /** Indicates that the accordion section is expanded. */
@@ -59,6 +60,11 @@ export class LdSidenavAccordion {
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
+    if (this.sidenavClosable) {
+      toggleStackToTop(this.el, false)
+    } else {
+      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
+    }
   }
 
   @Listen('ldSidenavSliderChange', { target: 'window', passive: true })
@@ -81,13 +87,16 @@ export class LdSidenavAccordion {
   }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     // Collapse or expand accordion on sidenav collapse or expansion.
     if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail
-    if (this.sidenav.narrow) {
-      toggleStackToTop(this.el, this.sidenavCollapsed)
-    }
+    this.sidenavCollapsed = ev.detail.collapsed
+    toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
     if (this.sidenavCollapsed) {
       if (this.preserveState) {
         this.expandOnSidenavExpansion = this.sectionRef.expanded
@@ -116,12 +125,20 @@ export class LdSidenavAccordion {
 
   componentWillLoad() {
     this.inAccordion = this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION'
+    this.rounded = !!this.el.querySelector(
+      'ld-sidenav-navitem[slot="toggle"][rounded]'
+    )
+    this.noIcon = !!this.el.querySelector(
+      'ld-sidenav-navitem[slot="toggle"][mode="secondary"],ld-sidenav-navitem[slot="toggle"][mode="tertiary"]'
+    )
     this.sidenav = closest('ld-sidenav', this.el)
   }
 
   render() {
     const cl = getClassNames([
       'ld-sidenav-accordion',
+      this.noIcon && 'ld-sidenav-accordion--no-icon',
+      this.rounded && 'ld-sidenav-accordion--rounded',
       this.inAccordion && 'ld-sidenav-accordion--in-accordion',
       this.transitionsEnabled && 'ld-sidenav-accordion--transitions-enabled',
       this.sidenavCollapsed &&

@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import {
   Component,
   Element,
@@ -33,8 +32,8 @@ export class LdSidenavNavitem implements InnerFocusable {
   private tooltipRef: HTMLLdTooltipElement
   private slotContainerRef: HTMLElement
 
-  /** Sets visual indicator to denote that the nav item is currently active. */
-  @Prop() active = false
+  /** Sets visual indicator to denote that the nav item is currently selected. */
+  @Prop() selected = false
 
   /**
    * Transforms the nav item to an anchor element.
@@ -51,7 +50,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop() mode?: 'secondary' | 'tertiary'
 
   /** Applies full border-radius. */
-  @Prop() rounded = false
+  @Prop({ reflect: true }) rounded = false
 
   /** Tab index of the button. */
   @Prop() ldTabindex: number | undefined
@@ -101,13 +100,16 @@ export class LdSidenavNavitem implements InnerFocusable {
   }
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail
-    if (this.sidenav.narrow) {
-      toggleStackToTop(this.el, this.sidenavCollapsed)
-    }
-    ;(this.tooltipRef as unknown as LdTooltip)?.hideTooltip()
+    this.sidenavCollapsed = ev.detail.collapsed
+    toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
+    this.tooltipRef.hideTooltip()
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
@@ -117,7 +119,7 @@ export class LdSidenavNavitem implements InnerFocusable {
     if (this.sidenavClosable) {
       toggleStackToTop(this.el, false)
     } else {
-      toggleStackToTop(this.el, this.sidenavCollapsed)
+      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
     }
   }
 
@@ -131,17 +133,11 @@ export class LdSidenavNavitem implements InnerFocusable {
               return (char && char[0]) || ''
             })
           : words[0].match(/[a-zA-Z]/g)
-      return (
-        chars
-          .filter((c) => c)
-          // The M character is twice as wide as other characters in the M-Font.
-          .slice(
-            0,
-            chars.slice(0, 2).some((char) => char.toLowerCase() === 'm') ? 1 : 2
-          )
-          .join('')
-          .toUpperCase()
-      )
+      return chars
+        .filter((c) => c)
+        .slice(0, 2)
+        .join('')
+        .toUpperCase()
     } catch (err) {
       return ''
     }
@@ -177,6 +173,9 @@ export class LdSidenavNavitem implements InnerFocusable {
   // since we do not use click events (see comment above).
   private onKeyDown = (ev) => {
     if ([' ', 'Enter'].includes(ev.key)) {
+      if (this.to) {
+        ev.preventDefault()
+      }
       this.onClick()
     }
   }
@@ -235,10 +234,11 @@ export class LdSidenavNavitem implements InnerFocusable {
   render() {
     const cl = getClassNames([
       'ld-sidenav-navitem',
-      this.active && 'ld-sidenav-navitem--active',
+      this.selected && 'ld-sidenav-navitem--selected',
       this.inAccordion && 'ld-sidenav-navitem--in-accordion',
       this.rounded && 'ld-sidenav-navitem--rounded',
       this.mode && `ld-sidenav-navitem--${this.mode}`,
+      this.sidenavAlignement === 'right' && 'ld-sidenav-navitem--right-aligned',
       this.sidenavCollapsed &&
         !this.sidenavClosable &&
         'ld-sidenav-navitem--collapsed',

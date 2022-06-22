@@ -1,4 +1,3 @@
-import '../../components' // type definitions for type checks and intelliSense
 import { Component, h, Prop, Host, Element } from '@stencil/core'
 import { HTMLStencilElement } from '@stencil/core/internal'
 
@@ -29,7 +28,11 @@ export class LdNotice {
         <slot name="custom-icon">
           <ld-icon
             class="ld-notice__icon"
-            name={this.mode === 'success' ? 'checkmark-filled' : 'info'}
+            name={
+              this.mode === 'success'
+                ? 'ld-input-message-success'
+                : 'ld-input-message-info'
+            }
             part="icon"
             size="lg"
           />

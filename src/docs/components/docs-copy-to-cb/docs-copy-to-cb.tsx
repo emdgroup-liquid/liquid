@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for intelliSense
 import { Component, Element, h, Listen, Prop, State } from '@stencil/core'
 import { copyToClipboard } from '../../utils/copyToClipboard'
 

@@ -10,10 +10,9 @@
 
 .ld-sidenav-navitem {
   /* layout */
-  --ld-sidenav-navitem-active-indicator-border-width: 0.1875rem;
-  --ld-sidenav-navitem-border-radius: var(--ld-br-l);
   --ld-sidenav-navitem-height: var(--ld-sp-32);
-  --ld-sidenav-navitem-icon-font-size: 1rem;
+  --ld-sidenav-navitem-icon-font-size: 90%;
+  --ld-sidenav-navitem-indicator-additional-border-radius: var(--ld-sp-4);
 
   /* colors */
   --ld-sidenav-navitem-col: var(--ld-col-neutral-800);
@@ -21,7 +20,15 @@
   --ld-sidenav-navitem-col-hover: var(--ld-thm-primary);
   --ld-sidenav-navitem-col-focus: var(--ld-thm-primary);
   --ld-sidenav-navitem-indicator-col: transparent;
+  --ld-sidenav-navitem-indicator-col-active: var(--ld-thm-primary);
+  --ld-sidenav-navitem-indicator-col-hover: var(--ld-col-neutral-050);
   --ld-sidenav-navitem-indicator-col-focus: var(--ld-thm-primary-focus);
+  --ld-sidenav-navitem-indicator-col-selected: var(--ld-col-neutral-050);
+  --ld-sidenav-navitem-indicator-col-selected-active: var(--ld-thm-primary);
+  --ld-sidenav-navitem-indicator-col-selected-hover: var(--ld-col-neutral-100);
+  --ld-sidenav-navitem-indicator-col-selected-focus: var(
+    --ld-thm-primary-focus
+  );
   --ld-sidenav-navitem-secondary-icon-color: var(--ld-thm-primary);
 
   background-color: transparent;
@@ -29,6 +36,7 @@
   position: relative;
   flex-grow: 1;
   font: var(--ld-typo-body-s);
+  font-weight: 700;
   border: 0;
   cursor: pointer;
   user-select: none;
@@ -44,9 +52,13 @@
   -webkit-touch-callout: none;
 
   &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary):not(.ld-sidenav-navitem--in-accordion) {
-    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-      var(--ld-sidenav-transition-delay-collapse-expand) ease;
-    transform: translateY(var(--ld-slider-navitem-move-up, 0px));
+    transition: var(--ld-sidenav-stack-to-top-transition);
+    transform: translateY(
+      var(
+        --ld-slider-navitem-move-up-closable,
+        var(--ld-slider-navitem-move-up, 0px)
+      )
+    );
   }
 
   &.ld-sidenav-navitem--collapsed {
@@ -62,10 +74,12 @@
         var(--ld-sidenav-transition-duration-collapse-expand) ease;
     }
 
-    .ld-sidenav-navitem__bg {
-      transform: translateX(
-        calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
-      );
+    &:not(.ld-sidenav-navitem--right-aligned) {
+      .ld-sidenav-navitem__bg {
+        transform: translateX(
+          calc(var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed))
+        );
+      }
     }
   }
 
@@ -73,43 +87,78 @@
     margin: 0;
   }
 
-  &--active {
-    --ld-sidenav-navitem-col: var(--ld-thm-primary);
-    font-weight: 700;
+  &:active {
+    --ld-sidenav-navitem-col: var(--ld-thm-primary-active);
+    --ld-sidenav-navitem-indicator-col: var(
+      --ld-sidenav-navitem-indicator-col-active
+    );
 
-    .ld-sidenav-navitem__slot-container-icon {
-      &::before {
-        content: '';
-        position: absolute;
-        inset: calc(
-          -1 * var(--ld-sidenav-navitem-active-indicator-border-width)
-        );
-        border: solid var(--ld-sidenav-navitem-active-indicator-border-width)
-          var(--ld-col-wht);
-        border-radius: calc(
-          var(--ld-sidenav-navitem-active-indicator-border-width) +
-            var(--ld-sidenav-navitem-border-radius)
-        );
-      }
+    .ld-sidenav-navitem__bg {
+      opacity: 0.3;
+    }
+  }
 
-      &::after {
-        inset: calc(
-          -1 * var(--ld-sidenav-navitem-active-indicator-border-width)
-        );
-        border-radius: calc(
-          var(--ld-sidenav-navitem-active-indicator-border-width) +
-            var(--ld-sidenav-navitem-border-radius)
-        );
-        box-shadow: var(--ld-shadow-sticky);
+  @media (hover: hover) {
+    &:where(:hover) {
+      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-hover);
+      --ld-sidenav-navitem-indicator-col: var(
+        --ld-sidenav-navitem-indicator-col-hover
+      );
+    }
+  }
+
+  &:focus:focus-visible {
+    --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-focus);
+    --ld-sidenav-navitem-indicator-col: var(
+      --ld-sidenav-navitem-indicator-col-focus
+    );
+
+    .ld-sidenav-navitem__bg {
+      opacity: 0.2;
+    }
+
+    &:active {
+      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-active);
+      --ld-sidenav-navitem-indicator-col: var(
+        --ld-sidenav-navitem-indicator-col-active
+      );
+
+      .ld-sidenav-navitem__bg {
+        opacity: 0.3;
       }
     }
   }
 
-  &:active {
-    --ld-sidenav-navitem-col: var(--ld-thm-primary-active);
+  &--selected {
+    --ld-sidenav-navitem-col: var(--ld-thm-primary);
+    --ld-sidenav-navitem-indicator-col: var(
+      --ld-sidenav-navitem-indicator-col-selected
+    );
 
-    .ld-sidenav-navitem__slot-container-icon::after {
-      box-shadow: var(--ld-shadow-active);
+    &:active {
+      --ld-sidenav-navitem-indicator-col: var(
+        --ld-sidenav-navitem-indicator-col-selected-active
+      );
+    }
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        --ld-sidenav-navitem-indicator-col: var(
+          --ld-sidenav-navitem-indicator-col-selected-hover
+        );
+      }
+    }
+
+    &:focus:focus-visible {
+      --ld-sidenav-navitem-indicator-col: var(
+        --ld-sidenav-navitem-indicator-col-selected-focus
+      );
+
+      &:active {
+        --ld-sidenav-navitem-indicator-col: var(
+          --ld-sidenav-navitem-indicator-col-selected-active
+        );
+      }
     }
   }
 
@@ -117,36 +166,6 @@
     --ld-sidenav-navitem-border-radius: calc(
       0.5 * var(--ld-sidenav-navitem-icon-size)
     );
-  }
-
-  @media (hover: hover) {
-    &:where(:hover) {
-      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-hover);
-      --ld-sidenav-navitem-indicator-col: var(--ld-col-neutral-300);
-
-      .ld-sidenav-navitem__slot-container-icon::after {
-        box-shadow: var(--ld-shadow-sticky);
-      }
-    }
-  }
-
-  &:focus {
-    --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-focus);
-    --ld-sidenav-navitem-indicator-col: var(
-      --ld-sidenav-navitem-indicator-col-focus
-    );
-
-    .ld-sidenav-navitem__slot-container-icon::after {
-      box-shadow: var(--ld-shadow-sticky);
-    }
-
-    &:active {
-      --ld-sidenav-navitem-col: var(--ld-sidenav-navitem-col-active);
-
-      .ld-sidenav-navitem__slot-container-icon::after {
-        box-shadow: var(--ld-shadow-active);
-      }
-    }
   }
 
   &--tertiary {
@@ -160,10 +179,8 @@
   position: absolute;
   inset: calc(-1 * var(--ld-sidenav-navitem-bg-inset));
   display: block;
-  opacity: 0.2;
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-      var(--ld-sidenav-transition-delay-collapse-expand) linear,
-    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+    ease;
   pointer-events: none;
 }
 
@@ -181,30 +198,39 @@
 
 .ld-sidenav-navitem__bg-left,
 .ld-sidenav-navitem__bg-right {
-  width: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
+  width: calc(
+    0.5 * var(--ld-sidenav-navitem-icon-size) + 2 *
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
+  );
 }
 
 .ld-sidenav-navitem__bg-left {
   left: 0;
   border-bottom-left-radius: calc(
-    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-6)
+    var(--ld-sidenav-navitem-border-radius) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
   );
   border-top-left-radius: calc(
-    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-6)
+    var(--ld-sidenav-navitem-border-radius) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
   );
 }
 
 .ld-sidenav-navitem__bg-right {
   right: 0;
   border-bottom-right-radius: calc(
-    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-6)
+    var(--ld-sidenav-navitem-border-radius) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
   );
   border-top-right-radius: calc(
-    var(--ld-sidenav-navitem-border-radius) + var(--ld-sp-6)
+    var(--ld-sidenav-navitem-border-radius) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
   );
 
   .ld-sidenav-navitem--collapsed & {
-    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
+    transform: translateX(
+      calc(-1 * (var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)))
+    );
   }
   .ld-sidenav-navitem--collapsed.ld-sidenav-navitem--in-accordion & {
     transform: translateX(
@@ -220,8 +246,14 @@
 }
 
 .ld-sidenav-navitem__bg-center {
-  left: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
-  right: calc(0.5 * var(--ld-sidenav-navitem-icon-size) + var(--ld-sp-6));
+  left: calc(
+    0.5 * var(--ld-sidenav-navitem-icon-size) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
+  );
+  right: calc(
+    0.5 * var(--ld-sidenav-navitem-icon-size) +
+      var(--ld-sidenav-navitem-indicator-additional-border-radius)
+  );
   transform-origin: left;
 
   .ld-sidenav-navitem--collapsed & {
@@ -288,7 +320,7 @@ That's why we set z-index 0 on the following elements.
     width: var(--ld-sidenav-navitem-icon-size);
   }
   .ld-sidenav-navitem--tertiary & {
-    width: calc(var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-6));
+    width: calc(var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-8));
 
     &::before {
       background-color: transparent;
@@ -304,7 +336,7 @@ That's why we set z-index 0 on the following elements.
     --ld-sidenav-navitem-icon-bg-col,
     var(--ld-thm-primary)
   );
-  color: var(--ld-col-wht);
+  color: var(--ld-sidenav-navitem-icon-col, var(--ld-thm-secondary-focus));
   border-radius: var(--ld-sidenav-navitem-border-radius);
   display: flex;
   justify-content: center;
@@ -323,13 +355,6 @@ That's why we set z-index 0 on the following elements.
 
   .ld-sidenav-navitem--collapsed & {
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: calc(var(--ld-sidenav-navitem-border-radius));
   }
 
   > ::slotted(*) {
@@ -353,10 +378,7 @@ That's why we set z-index 0 on the following elements.
     var(--ld-sidenav-navitem-icon-size) + 2 * var(--ld-sidenav-navitem-bg-inset)
   );
   aspect-ratio: 1;
-  border-radius: calc(
-    var(--ld-sidenav-navitem-active-indicator-border-width) +
-      var(--ld-sidenav-navitem-border-radius)
-  );
+  border-radius: var(--ld-sidenav-navitem-border-radius);
 
   .ld-sidenav-navitem--rounded & {
     border-radius: var(--ld-br-full);
@@ -371,7 +393,7 @@ That's why we set z-index 0 on the following elements.
   margin-right: auto;
   max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
   text-overflow: ellipsis;
-  line-height: 1.15;
+  line-height: var(--ld-sidenav-line-height);
   transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
@@ -395,7 +417,7 @@ That's why we set z-index 0 on the following elements.
 .ld-sidenav-navitem__slot-icon-secondary-container {
   display: flex;
   flex-shrink: 0;
-  margin-right: var(--ld-sp-4);
+  margin-right: var(--ld-sp-12);
   color: var(--ld-sidenav-navitem-secondary-icon-color);
   transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
@@ -411,9 +433,9 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__abbr {
-  font: var(--ld-typo-b6);
+  font: var(--ld-typo-cap-m);
   font-size: var(--ld-sidenav-navitem-icon-font-size);
-  transform: translateX(3%) translateY(-14%);
+  text-transform: uppercase;
 }
 
 .ld-sidenav-navitem__icon-to {

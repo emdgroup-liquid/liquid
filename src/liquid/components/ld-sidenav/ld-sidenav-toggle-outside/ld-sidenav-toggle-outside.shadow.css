@@ -1,0 +1,117 @@
+:host {
+  /* layout */
+  --ld-sidenav-toggle-outside-height: 3.125rem;
+
+  /* colors */
+  --ld-sidenav-toggle-outside-col: var(--ld-col-wht);
+  --ld-sidenav-toggle-outside-bg-col: var(--ld-thm-primary);
+  --ld-sidenav-toggle-outside-bg-col-hover: var(--ld-thm-primary-hover);
+  --ld-sidenav-toggle-outside-bg-col-focus: var(--ld-thm-primary-focus);
+  --ld-sidenav-toggle-outside-bg-col-active: var(--ld-thm-primary-active);
+
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-sidenav-transition-duration-collapse-expand: 0.2s;
+  }
+
+  align-items: center;
+  align-self: flex-start;
+  display: flex;
+  height: var(--ld-sidenav-toggle-outside-height);
+  justify-content: center;
+  position: var(--ld-sidenav-toggle-outside-position, fixed);
+
+  &(.ld-sidenav-toggle-outside--left) {
+    left: 0;
+  }
+  &(.ld-sidenav-toggle-outside--right) {
+    right: 0;
+  }
+}
+
+.ld-sidenav-toggle-outside__toggle {
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--ld-br-l);
+  color: var(--ld-sidenav-toggle-outside-col);
+  cursor: pointer;
+  display: grid;
+  margin: var(--ld-sp-2) var(--ld-sp-16) auto;
+  outline: none;
+  padding-bottom: 0;
+  padding-top: 0;
+  place-content: center;
+  touch-action: manipulation;
+  transition: visibility 0s
+      calc(2 * var(--ld-sidenav-transition-duration-collapse-expand)) linear,
+    transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  visibility: hidden;
+  will-change: transform; /* fixes rendering issue */
+  -webkit-touch-callout: none;
+
+  /* background */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: block;
+    border-radius: inherit;
+    box-shadow: var(--ld-shadow-stacked);
+    background-color: var(--ld-sidenav-toggle-outside-bg-col);
+  }
+
+  /* increase click area */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(-1 * var(--ld-sp-6));
+    display: block;
+    border-radius: inherit;
+  }
+
+  &:where(:focus:focus-visible) {
+    --ld-sidenav-toggle-outside-bg-col: var(
+      --ld-sidenav-toggle-outside-bg-col-focus
+    );
+  }
+  @media (hover: hover) {
+    &:where(:hover) {
+      --ld-sidenav-toggle-outside-bg-col: var(
+        --ld-sidenav-toggle-outside-bg-col-hover
+      );
+    }
+  }
+  &:where(:active),
+  &:where(:active:focus-visible) {
+    --ld-sidenav-toggle-outside-bg-col: var(
+      --ld-sidenav-toggle-outside-bg-col-active
+    );
+  }
+
+  :host(.ld-sidenav-toggle-outside--closable) &,
+  :host(.ld-sidenav-toggle-outside--collapsed-fully) & {
+    transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
+      ease;
+    visibility: inherit;
+  }
+
+  :host(.ld-sidenav-toggle-outside--collapsed) & {
+    transform: none;
+  }
+
+  :host(.ld-sidenav-toggle-outside--collapsed.ld-sidenav-toggle-outside--right)
+    & {
+    transform: translateX(
+      calc(-1 * (var(--ld-sidenav-width) - var(--ld-sidenav-width-collapsed)))
+    );
+  }
+}
+
+.ld-sidenav-toggle-outside__icon {
+  position: relative;
+
+  :host(.ld-sidenav-toggle-outside--right:not(.ld-sidenav-toggle-outside--collapsed))
+    & {
+    transform: scaleX(-100%);
+  }
+}
