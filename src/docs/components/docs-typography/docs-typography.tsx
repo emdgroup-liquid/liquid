@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import { Component, h, Host, Prop } from '@stencil/core'
 
 /** @internal **/

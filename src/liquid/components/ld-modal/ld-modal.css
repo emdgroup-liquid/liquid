@@ -51,6 +51,7 @@ dialog.ld-modal,
 
   /* overwrites */
   border: 0;
+  color: var(--ld-col-neutral-900);
   display: flex; /* allows for transitions */
   flex-direction: column;
   inset: 0; /* keeps the dialog positioned correctly during closing transition */

@@ -19,9 +19,7 @@
 
   ::slotted(:where(:not(ld-sidenav-separator):not(ld-sidenav-navitem):not(ld-sidenav-subnav))) {
     margin-bottom: var(--ld-sidenav-padding-y);
-    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-        var(--ld-sidenav-transition-delay-collapse-expand) linear,
-      transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+    transition: var(--ld-sidenav-collapse-content-transition);
     will-change: opacity, transform; /* fixes flickering on slide */
   }
 

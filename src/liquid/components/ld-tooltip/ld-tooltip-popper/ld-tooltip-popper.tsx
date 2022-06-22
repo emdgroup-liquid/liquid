@@ -1,6 +1,5 @@
 import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
-import '../../../components' // type definitions for type checks and intelliSense
 
 /** @internal **/
 @Component({

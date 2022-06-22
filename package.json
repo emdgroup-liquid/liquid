@@ -49,11 +49,12 @@
     "build:copy_design_tokens": "shx cp src/liquid/global/styles/design-tokens.json dist/css/design-tokens.json",
     "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.js",
     "generate": "stencil generate",
+    "icons:optimise": "ts-node scripts/iconsOptimise.ts",
+    "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
     "lint:ts": "tsc --noemit -p tsconfig.docs.json",
-    "optimise_svg_icons": "ts-node scripts/optimiseSVGIcons.ts",
     "prepare": "husky install",
     "start": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
     "start:info": "echo 'serving on http://localhost:8080'",
@@ -66,7 +67,6 @@
     "test:unit": "stencil test --spec --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test:compare_screenshots": "live-server --port=4000 --open=compare.html screenshot --quiet --mount=/node_modules:./node_modules --mount=/.stencil:./.stencil",
-    "update_icons": "dotenv -e .env -- ts-node scripts/updateIcons.ts",
     "watch:eleventy": "dotenv -e .env -- yarn eleventy --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
     "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
@@ -74,12 +74,12 @@
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -c 'yarn build:styles:docs:components'"
   },
   "dependencies": {
-    "@stencil/core": "^2.15.0",
+    "@stencil/core": "^2.16.1",
     "tether": "^2.0.0"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@babel/core": "^7.17.9",

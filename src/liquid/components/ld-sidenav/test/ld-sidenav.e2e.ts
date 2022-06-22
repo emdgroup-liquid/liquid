@@ -60,9 +60,18 @@ describe('ld-sidenav', () => {
     })
 
     describe('is collapsible', () => {
-      it('should have a toggle button', async () => {
+      it('header should not have a toggle button if not collapsible', async () => {
+        const page = await getPageWithContent(getSidenavWithSubnavigation())
+        await page.waitForChanges()
+        await new Promise((resolve) => setTimeout(resolve, 100))
+
+        const result = await page.compareScreenshot()
+        expect(result).toMatchScreenshot()
+      })
+
+      it('header should have a toggle button if collapsible', async () => {
         const page = await getPageWithContent(
-          getSidenavWithoutSubnavigation({ collapsible: true })
+          getSidenavWithSubnavigation({ collapsible: true })
         )
         await page.waitForChanges()
         await new Promise((resolve) => setTimeout(resolve, 100))
@@ -136,74 +145,20 @@ describe('ld-sidenav', () => {
       })
     })
 
-    describe('shows shadows', () => {
-      it('shows shadow at the bottom and separator line at the top', async () => {
-        const page = await getPageWithContent(getSidenavWithSubnavigation())
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        page.waitForChanges()
-        await new Promise((resolve) => setTimeout(resolve, 100))
-
-        const result = await page.compareScreenshot()
-        expect(result).toMatchScreenshot()
-      })
-
-      it('shows shadow at the top and bottom when scrolling down', async () => {
-        const page = await getPageWithContent(getSidenavWithSubnavigation())
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-
-        await page.evaluate(() => {
-          const ldSidenavScrollerInternal = document
-            .querySelector('ld-sidenav-slider')
-            .shadowRoot.querySelector('ld-sidenav-scroller-internal')
-          ldSidenavScrollerInternal.scrollTop = 20
+    it('shows back button', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithSubnavigation({
+          currentSubnav: 'artificial-intelligence',
         })
-        await page.waitForChanges()
-        await new Promise((resolve) => setTimeout(resolve, 100))
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
 
-        const result = await page.compareScreenshot()
-        expect(result).toMatchScreenshot()
-      })
-
-      it('shows shadow at the top and separator line at the bottom when scrolled to the bottom', async () => {
-        const page = await getPageWithContent(getSidenavWithSubnavigation())
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-
-        await page.evaluate(() => {
-          const ldSidenavScrollerInternal = document
-            .querySelector('ld-sidenav-slider')
-            .shadowRoot.querySelector('ld-sidenav-scroller-internal')
-          ldSidenavScrollerInternal.scrollTop = 2000
-        })
-        await page.waitForChanges()
-        await new Promise((resolve) => setTimeout(resolve, 100))
-
-        const result = await page.compareScreenshot()
-        expect(result).toMatchScreenshot()
-      })
-    })
-
-    describe('in subnavigation with back button', () => {
-      it('shows shadow separator line at the top and bottom', async () => {
-        const page = await getPageWithContent(
-          getSidenavWithSubnavigation({
-            currentSubnav: 'artificial-intelligence',
-          })
-        )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        page.waitForChanges()
-        await new Promise((resolve) => setTimeout(resolve, 100))
-
-        const result = await page.compareScreenshot()
-        expect(result).toMatchScreenshot()
-      })
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
     })
 
     describe('narrow mode', () => {
@@ -273,7 +228,7 @@ describe('ld-sidenav', () => {
       })
     })
 
-    it('shows tooltip with icon', async () => {
+    xit('shows tooltip with icon', async () => {
       const page = await getPageWithContent(
         `
           <ld-sidenav open collapsed collapsible narrow>
@@ -299,26 +254,7 @@ describe('ld-sidenav', () => {
       expect(result).toMatchScreenshot()
     })
 
-    describe('neutral mode', () => {
-      it('uses neutral background color', async () => {
-        const page = await getPageWithContent(
-          getSidenavWithSubnavigation({
-            currentSubnav: 'artificial-intelligence',
-            neutral: true,
-          })
-        )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        page.waitForChanges()
-        await new Promise((resolve) => setTimeout(resolve, 100))
-
-        const result = await page.compareScreenshot()
-        expect(result).toMatchScreenshot()
-      })
-    })
-
-    fit('allows setting multiple navitems in top and bottom slots', async () => {
+    it('allows setting multiple navitems in top and bottom slots', async () => {
       const page = await getPageWithContent(`
         <ld-sidenav open>
           <ld-sidenav-back slot="top">
@@ -833,7 +769,6 @@ describe('ld-sidenav', () => {
       const result1 = await page.compareScreenshot('expanded accordion')
       expect(result1).toMatchScreenshot()
 
-      await page.keyboard.press('Tab')
       await page.keyboard.press('Tab')
       await page.keyboard.press('Space')
       await page.waitForChanges()

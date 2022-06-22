@@ -1,13 +1,19 @@
 :host {
   --ld-scroll-shadow-height: 1.5rem;
   --ld-scroll-shadow-intensity: 0.1;
-  overflow: hidden auto;
-  overscroll-behavior: contain;
-  height: 100%;
-  width: 100%;
-  padding-right: var(--ld-sp-32);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+  overscroll-behavior: none;
+  padding-right: var(--ld-sp-32);
+  scrollbar-width: none;
+  width: 100%;
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
 
   ::slotted(ld-sidenav-navitem:first-child),
   ::slotted(ld-sidenav-heading:first-child) {

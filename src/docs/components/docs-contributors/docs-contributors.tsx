@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for intelliSense
 import { Component, Prop, h } from '@stencil/core'
 
 /** @internal **/

@@ -7,18 +7,22 @@
   --ld-accordion-padding-x: var(--ld-sidenav-padding-x);
   --ld-accordion-padding-y: 0;
   --ld-accordion-toggle-indicator-bg-col: transparent;
+  --ld-accordion-toggle-indicator-bg-col-active: var(--ld-thm-primary);
+  --ld-accordion-toggle-indicator-bg-col-hover: var(--ld-col-neutral-100);
+  --ld-accordion-toggle-indicator-bg-col-focus: var(--ld-thm-primary-focus);
   --ld-accordion-toggle-size: var(--ld-sidenav-navitem-icon-size);
 
   --ld-sidenav-navitem-tertiary-indent: calc(
-    1 * var(--ld-sidenav-padding-x) + 0.3125rem
-  );
-  --ld-sidenav-navitem-tertiary-width: calc(
-    100% - (2 * var(--ld-sidenav-padding-x)) - 0.3125rem
+    2 * var(--ld-sidenav-padding-x) + 0.3125rem
   );
 
-  transform: translateY(var(--ld-slider-navitem-move-up, 0px));
-  transition: transform var(--ld-sidenav-transition-duration-collapse-expand)
-    var(--ld-sidenav-transition-delay-collapse-expand) ease;
+  transform: translateY(
+    var(
+      --ld-slider-navitem-move-up-closable,
+      var(--ld-slider-navitem-move-up, 0px)
+    )
+  );
+  transition: var(--ld-sidenav-stack-to-top-transition);
 
   :host(.ld-sidenav-accordion--collapsed) & {
     pointer-events: none;
@@ -30,6 +34,10 @@
     --ld-accordion-padding-x: 0;
     margin: var(--ld-sp-6) calc(-1 * var(--ld-sidenav-padding-x)) var(--ld-sp-6)
       0;
+
+    .ld-sidenav-accordion__accordion-panel {
+      padding: 0 var(--ld-sidenav-padding-x) 0 0;
+    }
   }
 
   :host(:not(.ld-sidenav-accordion--transitions-enabled)) & {
@@ -48,9 +56,9 @@
 }
 
 .ld-sidenav-accordion__accordion-toggle {
-  &::part(toggle) {
-    pointer-events: none;
+  pointer-events: none;
 
+  &::part(toggle) {
     &::before {
       display: none;
     }
@@ -65,26 +73,106 @@
     }
   }
 
+  @media (hover: hover) {
+    &:where(:hover) {
+      --ld-accordion-toggle-indicator-bg-col: var(--ld-col-neutral-100);
+    }
+  }
+
   &::part(trigger) {
     --ld-accordion-bg-col-hover: var(
       --ld-sidenav-accordion-bg-col-hover,
       var(--ld-col-neutral-050)
     );
-    right: var(--ld-sp-8);
+    right: var(--ld-sp-16);
     pointer-events: none;
-    border-radius: 100%;
+    border-radius: var(--ld-sidenav-navitem-border-radius);
+    outline: none;
     transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
         linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
     &::before {
-      border-radius: 100%;
-      left: var(--ld-sp-4);
+      inset: 0;
+      border-radius: inherit;
+      background-color: var(--ld-accordion-toggle-indicator-bg-col);
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+      inset: 0;
+      background-color: var(--ld-col-wht);
+      visibility: hidden;
+    }
+
+    &:active {
+      --ld-accordion-toggle-indicator-bg-col: var(
+        --ld-accordion-toggle-indicator-bg-col-active
+      );
+
+      &::before {
+        opacity: 0.3;
+      }
+    }
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        --ld-accordion-toggle-indicator-bg-col: var(
+          --ld-accordion-toggle-indicator-bg-col-hover
+        );
+
+        &::after {
+          visibility: inherit;
+        }
+      }
+    }
+
+    &:focus:focus-visible {
+      --ld-accordion-toggle-indicator-bg-col: var(
+        --ld-accordion-toggle-indicator-bg-col-focus
+      );
+
+      &::before {
+        opacity: 0.3;
+      }
+
+      &::after {
+        visibility: inherit;
+      }
+
+      &:active {
+        --ld-accordion-toggle-indicator-bg-col: var(
+          --ld-accordion-toggle-indicator-bg-col-active
+        );
+
+        &::before {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  :host(.ld-sidenav-accordion--rounded) & {
+    &::part(trigger) {
+      border-radius: var(--ld-br-full);
+    }
+  }
+
+  :host(.ld-sidenav-accordion--no-icon) & {
+    &::part(trigger) {
+      &::before,
+      &::after {
+        transform: scale(0.8);
+      }
     }
   }
 
   &::part(trigger-content) {
     transform: none;
+    z-index: 2;
   }
 
   :host(.ld-sidenav-accordion--collapsed) & {
@@ -110,16 +198,14 @@
 }
 
 ::slotted(ld-sidenav-navitem) {
+  --ld-sidenav-navitem-bg-right-x-delta: var(--ld-accordion-toggle-size);
+  --ld-sidenav-navitem-bg-width: calc(
+    100% + var(--ld-accordion-toggle-size) + var(--ld-sidenav-navitem-bg-inset) *
+      2
+  );
+
   position: relative;
   z-index: 1;
-
-  :host(:not(.ld-sidenav-accordion--split)) & {
-    --ld-sidenav-navitem-bg-right-x-delta: var(--ld-accordion-toggle-size);
-    --ld-sidenav-navitem-bg-width: calc(
-      100% + var(--ld-accordion-toggle-size) +
-        var(--ld-sidenav-navitem-bg-inset) * 2
-    );
-  }
 }
 ::slotted(ld-sidenav-navitem:not(:first-of-type)) {
   margin: var(--ld-sp-16) 0;

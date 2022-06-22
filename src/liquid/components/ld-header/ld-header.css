@@ -1,12 +1,20 @@
 .ld-header {
   &,
   :host(&) {
+    /* layout */
     --ld-header-height: 3.125rem;
     --ld-header-max-width: 90rem;
 
-    background-color: var(--ld-thm-primary);
-    box-shadow: var(--ld-shadow-stacked);
-    color: var(--ld-col-wht);
+    /* colors */
+    --ld-header-col: var(--ld-col-wht);
+    --ld-header-bg-col: var(--ld-thm-primary);
+
+    /* misc */
+    --ld-header-box-shadow: var(--ld-shadow-stacked);
+
+    background-color: var(--ld-header-bg-col);
+    box-shadow: var(--ld-header-box-shadow);
+    color: var(--ld-header-col);
     display: flex;
     justify-content: center;
     width: 100%;
@@ -47,7 +55,7 @@
 .ld-button--ghost {
   ::slotted(&),
   .ld-header__container > & {
-    margin: 0 var(--ld-sp-8) 0 calc(var(--ld-sp-8) * -1);
+    margin: 0 var(--ld-sp-12) 0 calc(var(--ld-sp-4) * -1);
   }
 }
 

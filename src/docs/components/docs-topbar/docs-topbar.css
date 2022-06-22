@@ -29,7 +29,7 @@
     margin-right: calc(-1 * var(--ld-sp-12));
   }
 
-  @media (max-width: 80rem) {
+  @media (max-width: 75rem) {
     width: auto;
     padding-left: var(--ld-sp-24);
   }

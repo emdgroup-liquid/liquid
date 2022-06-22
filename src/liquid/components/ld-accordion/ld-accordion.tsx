@@ -1,4 +1,3 @@
-import '../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Host, Listen, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { getScrollParent } from '../../utils/scroll'

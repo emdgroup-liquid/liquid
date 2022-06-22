@@ -1,4 +1,3 @@
-import '../../../components' // type definitions for type checks and intelliSense
 import { Component, Element, h, Host, Listen, State } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
@@ -22,9 +21,14 @@ export class LdSidenavSeparator {
   @State() scaleXCollapsed = 1
 
   @Listen('ldSidenavCollapsedChange', { target: 'window', passive: true })
-  handleSidenavCollapsedChange(ev: CustomEvent<boolean>) {
+  handleSidenavCollapsedChange(
+    ev: CustomEvent<{
+      collapsed: boolean
+      fully: boolean
+    }>
+  ) {
     if (ev.target !== this.sidenav) return
-    this.sidenavCollapsed = ev.detail
+    this.sidenavCollapsed = ev.detail.collapsed
     if (
       this.el.parentElement &&
       !['LD-SIDENAV-SLIDER', 'LD-SIDENAV-SUBNAV'].includes(
@@ -42,6 +46,11 @@ export class LdSidenavSeparator {
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
+    if (this.sidenavClosable) {
+      toggleStackToTop(this.el, false)
+    } else {
+      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
+    }
   }
 
   private computeScaleXCollapsed = () => {
@@ -86,7 +95,7 @@ export class LdSidenavSeparator {
         }}
         class={cl}
       >
-        <hr class="ld-sidenav-separator-line" part="hr" />
+        <hr part="hr" />
       </Host>
     )
   }
