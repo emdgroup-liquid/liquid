@@ -1,24 +1,35 @@
-:host,
-.ld-slider {
+:host {
   --ld-slider-animation-duration: 0.15s;
+  --ld-slider-disabled-thumb-box-shadow: 0 0 0 transparent;
+  --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-default);
+  --ld-slider-thumb-box-shadow-default: var(--ld-shadow-stacked);
+  --ld-slider-thumb-box-shadow-active: var(--ld-slider-thumb-box-shadow-default),
+    0 0 0 var(--ld-sp-6) var(--ld-thm-primary-alpha-lowest);
+  --ld-slider-thumb-box-shadow-hover: var(--ld-slider-thumb-box-shadow-default),
+    0 0 0 var(--ld-sp-4) var(--ld-thm-primary-alpha-lowest);
+  --ld-slider-thumb-col: var(--ld-col-wht);
+  --ld-slider-thumb-color-disabled: var(--ld-col-neutral-200);
   --ld-slider-thumb-size: var(--ld-sp-24);
+  --ld-slider-thumb-size-disabled: var(--ld-sp-16);
   --ld-slider-radius: calc(0.5 * var(--ld-slider-thumb-size));
   --ld-slider-useful-width: calc(
     var(--ld-slider-width) - var(--ld-slider-thumb-size)
   );
   --ld-slider-diff: calc(var(--max) - var(--min));
   --ld-slider-padding: var(--ld-sp-32);
+  --ld-slider-selected-col: var(--ld-thm-primary);
+  --ld-slider-selected-col-disabled: var(--ld-col-neutral-200);
 
   display: grid;
   font: 700 1.125em ubuntu mono, consolas, monaco, monospace;
-  grid-row-gap: 0.625em;
   grid-template-rows: max-content var(--ld-slider-thumb-size) max-content;
-  margin: var(--ld-sp-16) calc(var(--ld-sp-8) - var(--ld-slider-padding));
+  margin: 0 calc(var(--ld-sp-8) - var(--ld-slider-padding));
   overflow: hidden;
   padding: 0 var(--ld-slider-padding);
   position: relative;
   min-width: var(--ld-slider-width);
   width: var(--ld-slider-width);
+  z-index: 0;
 
   &::after,
   &::before {
@@ -32,9 +43,28 @@
   }
 
   &::after {
-    background: var(--ld-thm-primary);
+    background: var(--ld-slider-selected-col);
     mask: var(--fill);
     mask-composite: exclude;
+  }
+
+  &([disabled]),
+  &([aria-disabled=true]) {
+    --ld-slider-selected-col: var(--ld-slider-selected-col-disabled);
+    --ld-slider-thumb-box-shadow-default: var(
+      --ld-slider-disabled-thumb-box-shadow
+    );
+    --ld-slider-thumb-col: var(--ld-slider-thumb-color-disabled);
+    --ld-slider-thumb-size: var(--ld-slider-thumb-size-disabled);
+
+    .ld-slider__input:disabled {
+      &::-webkit-slider-thumb {
+        pointer-events: none;
+      }
+      &::-moz-range-thumb {
+        pointer-events: none;
+      }
+    }
   }
 
   & * {
@@ -49,7 +79,7 @@
     clip-path: inset(50%);
   }
 
-  input[type='range'] {
+  .ld-slider__input {
     &::-webkit-slider-runnable-track,
     &::-webkit-slider-thumb,
     & {
@@ -63,6 +93,7 @@
     left: 0;
     background: none;
     transition: filter var(--ld-slider-animation-duration) ease-out;
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
     cursor: grab;
     pointer-events: none;
 
@@ -79,14 +110,13 @@
 
     &::-webkit-slider-thumb {
       border: none; /* get rid of Firefox thumb border */
-      border-color: var(--ld-thm-primary-alpha-low);
       /* box-sizing needed now that we have a non-zero border */
       box-sizing: border-box; /* different between Chrome & Firefox */
       width: var(--ld-slider-thumb-size);
       height: var(--ld-slider-thumb-size);
       border-radius: 50%; /* make circular */
-      background: var(--ld-col-wht);
-      box-shadow: var(--ld-shadow-stacked);
+      background: var(--ld-slider-thumb-col);
+      box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;
     }
     &::-moz-range-thumb {
@@ -96,8 +126,8 @@
       width: var(--ld-slider-thumb-size);
       height: var(--ld-slider-thumb-size);
       border-radius: 50%; /* make circular */
-      background: var(--ld-col-wht);
-      box-shadow: var(--ld-shadow-stacked);
+      background: var(--ld-slider-thumb-col);
+      box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;
     }
 
@@ -112,63 +142,99 @@
 
     &:focus,
     &:hover {
-      &::-webkit-slider-thumb {
-        box-shadow: var(--ld-shadow-stacked),
-          0 0 0 var(--ld-sp-4) var(--ld-thm-primary-alpha-lowest);
-      }
-      &::-moz-range-thumb {
-        box-shadow: var(--ld-shadow-stacked),
-          0 0 0 var(--ld-sp-4) var(--ld-thm-primary-alpha-lowest);
-      }
+      --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-hover);
     }
 
     &:active {
+      --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-active);
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
       cursor: grabbing;
       outline: none;
       z-index: 2;
-
-      &::-webkit-slider-thumb {
-        box-shadow: var(--ld-shadow-stacked),
-          0 0 0 var(--ld-sp-6) var(--ld-thm-primary-alpha-lowest);
-      }
-      &::-moz-range-thumb {
-        box-shadow: var(--ld-shadow-stacked),
-          0 0 0 var(--ld-sp-6) var(--ld-thm-primary-alpha-lowest);
-      }
     }
 
     &:not(:active):not(:focus-visible):not(:hover) {
-      &::-webkit-slider-thumb {
-        box-shadow: var(--ld-shadow-stacked);
-      }
-      &::-moz-range-thumb {
-        box-shadow: var(--ld-shadow-stacked);
-      }
+      --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-default);
     }
   }
 
-  output {
+  .ld-slider__edge {
+    font: var(--ld-typo-body-xs);
+    grid-column: 1;
+    grid-row: 3;
+    left: calc(
+      (var(--c) - var(--min)) / var(--ld-slider-diff) *
+        var(--ld-slider-useful-width) + var(--ld-slider-radius)
+    );
+    max-width: max-content;
+    position: relative;
+    transform: translate(-50%);
+
+    &--first {
+      left: 0;
+      transform: none;
+    }
+
+    &--last {
+      left: auto;
+      position: absolute;
+      right: var(--ld-slider-padding);
+      transform: none;
+    }
+  }
+
+  .ld-slider__output {
+    font: var(--ld-typo-body-xs);
+    font-weight: 700;
     grid-column: 1;
     grid-row: 1;
-    margin-left: var(--ld-slider-radius);
-    max-width: max-content;
-    transform: translate(
-      calc(
-        (var(--c) - var(--min)) / var(--ld-slider-diff) *
-          var(--ld-slider-useful-width)
-      )
+    left: calc(
+      (var(--c) - var(--min)) / var(--ld-slider-diff) *
+        var(--ld-slider-useful-width) + var(--ld-slider-radius)
     );
+    max-width: max-content;
+    opacity: var(--ld-slider-highlighted);
+    position: relative;
+    transform: translate(-50%) scale(max(0.8, var(--ld-slider-highlighted)));
+    transition: opacity var(--ld-slider-animation-duration) ease-out,
+      transform var(--ld-slider-animation-duration) ease-out;
+    color: var(--ld-col-wht);
+    content: counter(c);
+    counter-reset: c var(--c);
+    margin-bottom: var(--ld-sp-16);
+
+    &::before {
+      background: var(--ld-slider-selected-col);
+      border-radius: 5px;
+      content: '';
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
 
     &::after {
-      display: block;
-      border-radius: 5px;
-      padding: 0 0.375em;
-      transform: translate(-50%) scale(var(--ld-slider-highlighted));
-      background: var(--ld-thm-primary);
-      color: #ffffff;
-      transition: transform var(--ld-slider-animation-duration) ease-out;
-      counter-reset: c var(--c);
       content: counter(c);
+      counter-reset: c var(--c);
+      display: block;
+      padding: 0 var(--ld-sp-6);
+    }
+
+    &--permanent {
+      opacity: 1;
+      transform: translate(-50%);
+      color: var(--ld-slider-selected-col);
+
+      &::before {
+        opacity: var(--ld-slider-highlighted);
+        transition: opacity var(--ld-slider-animation-duration) ease-out;
+      }
+
+      &::after {
+        filter: invert(var(--ld-slider-highlighted))
+          grayscale(var(--ld-slider-highlighted))
+          contrast(max(1, calc(4 * var(--ld-slider-highlighted))));
+        transition: filter var(--ld-slider-animation-duration) ease-out;
+      }
     }
   }
 }

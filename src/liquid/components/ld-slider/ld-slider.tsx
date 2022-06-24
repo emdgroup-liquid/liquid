@@ -1,4 +1,16 @@
-import { Component, Element, Host, h, Prop } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Host,
+  h,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
+import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 @Component({
   tag: 'ld-slider',
@@ -8,103 +20,221 @@ import { Component, Element, Host, h, Prop } from '@stencil/core'
 export class LdSlider {
   @Element() el: HTMLLdSliderElement
 
+  /** Makes the current values always visible above the thumbs */
+  @Prop() alwaysShowValues = false
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
+  /** Disabled state of the slider */
+  @Prop() disabled? = false
+  /** "From" value label (when exactly 2 values are given) */
+  @Prop() labelFrom? = 'From'
+  /** "Value" label (when exactly 2 values are given) */
+  @Prop() labelValue? = 'Value'
+  /** "To" value label (when exactly 2 values are given) */
+  @Prop() labelTo? = 'To'
+  /** Specifies the maximum value allowed */
   @Prop() max? = 100
+  /** Specifies the minimum value allowed */
   @Prop() min? = 0
+  /** Swap which areas are being marked as selected and deselected */
+  @Prop() negative? = false
+  /** Radix to parse the value(s) with */
+  @Prop() radix = 10
+  /** Specifies the legal number intervals */
   @Prop() step?: number
+  /** Adds custom stop points to the slider (instead of steps) */
+  @Prop() stops?: string
+  /** Prevents swapping of thumbs */
   @Prop() strict? = false
-  @Prop() width? = '20rem'
+  /** Specifies the default value */
+  @Prop({ mutable: true, reflect: true }) value?: string = '0'
+  /** Width of the slider */
+  @Prop() width? = '100%'
 
-  componentDidLoad() {
-    this.el.shadowRoot.querySelectorAll('input').forEach((input, index) => {
-      input.addEventListener(
-        'input',
-        (ev) => {
-          const target = ev.target as HTMLInputElement
-          const currValue = Number.parseInt(target.value)
-          const prevValue = Number.parseInt(
-            this.el.style.getPropertyValue(`--v${index - 1}`)
-          )
-          const nextValue = Number.parseInt(
-            this.el.style.getPropertyValue(`--v${index + 1}`)
-          )
+  @State() edges: number[] = []
+  @State() values: number[] = []
 
-          if (this.strict && prevValue > currValue) {
-            target.value = String(prevValue)
-            return
-          }
+  @Event() ldchange: EventEmitter<typeof this.values>
+  handleInput = (ev: Event, index: number) => {
+    const target = ev.target as HTMLInputElement
 
-          if (this.strict && nextValue < currValue) {
-            target.value = String(nextValue)
-            return
-          }
+    if (this.ariaDisabled === 'true') {
+      target.value = String(this.values[index])
+      return
+    }
 
-          this.el.style.setProperty(`--v${index}`, target.value)
-        },
-        false
-      )
-    })
+    const currValue = Number.parseInt(target.value, this.radix)
+    const prevValue = this.values[index - 1]
+    const nextValue = this.values[index + 1]
+    const values = [...this.values]
+
+    if (this.strict && prevValue > currValue) {
+      target.value = String(prevValue)
+      values[index] = prevValue
+    } else if (this.strict && nextValue < currValue) {
+      target.value = String(nextValue)
+      values[index] = nextValue
+    } else {
+      values[index] = currValue
+    }
+
+    this.value = values.join(',')
+  }
+
+  validateValue = (currValue: number, index: number, values: number[]) => {
+    const prevValue = values[index - 1]
+    const nextValue = values[index + 1]
+
+    if (this.strict && prevValue > currValue) {
+      return false
+    }
+
+    if (this.strict && nextValue < currValue) {
+      return false
+    }
+
+    return true
+  }
+
+  @Watch('value')
+  handleValueChange() {
+    const success = this.updateValues()
+
+    if (success) {
+      this.ldchange.emit(this.values)
+    }
+  }
+
+  updateValues = () => {
+    const values = this.value
+      .split(',')
+      .map((value) => Number.parseInt(value, this.radix))
+
+    if (!values.every(this.validateValue)) {
+      return false
+    }
+
+    this.values = values
+    return true
+  }
+
+  componentWillLoad() {
+    this.edges = this.stops
+      ? [
+          this.min,
+          ...this.stops.split(',').map((edge) => Number.parseInt(edge)),
+          this.max,
+        ]
+      : [this.min, this.max]
+    const success = this.updateValues()
+
+    if (!success) {
+      throw new Error('Invalid combination of values supplied.')
+    }
   }
 
   render() {
+    const cssValues = this.values.reduce<Record<string, number>>(
+      (prev, curr, index) => {
+        prev[`--v${index}`] = curr
+        return prev
+      },
+      {}
+    )
+
     return (
       <Host
-        class="ld-slider"
+        class={getClassNames([
+          'ld-slider',
+          (this.disabled || this.ariaDisabled === 'true') &&
+            'ld-slider--disabled',
+        ])}
         role="group"
-        aria-labelledby="multi-lbl"
         style={{
-          '--v0': '35',
-          '--v1': '70',
+          ...cssValues,
           '--ld-slider-width': this.width,
           '--min': String(this.min),
           '--max': String(this.max),
-          '--fill': `
+          '--fill':
+            (this.negative
+              ? `
+linear-gradient(
+  90deg,
+  red 100%,
+  transparent 0
+),`
+              : '') +
+            this.values
+              .map(
+                (_, index) => `
 linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
+      var(--ld-slider-radius) + (var(--v${index}) - var(--min)) /
         var(--ld-slider-diff) * var(--ld-slider-useful-width)
     ),
   transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-)`,
+)`
+              )
+              .join(','),
         }}
       >
-        <div class="sr-only" id="multi-lbl">
-          Multi thumb slider:
-        </div>
-        <label class="sr-only" htmlFor="v0">
-          Value A
-        </label>
-        <input
-          type="range"
-          id="v0"
-          min={this.min}
-          value="35"
-          max={this.max}
-          step={this.step}
-        />
-        <output htmlFor="v0" style={{ '--c': 'var(--v0)' }} />
-        <label class="sr-only" htmlFor="v1">
-          Value B
-        </label>
-        <input
-          type="range"
-          id="v1"
-          min={this.min}
-          value="70"
-          max={this.max}
-          step={this.step}
-        />
-        <output htmlFor="v1" style={{ '--c': 'var(--v1)' }} />
+        {this.values.map((value, index) => (
+          <>
+            <label class="sr-only" htmlFor={`v${index}`}>
+              {this.values.length === 2
+                ? index === 0
+                  ? 'From'
+                  : 'To'
+                : `Value ${index + 1}`}
+            </label>
+            <input
+              aria-disabled={
+                this.disabled || this.ariaDisabled === 'true'
+                  ? 'true'
+                  : undefined
+              }
+              class="ld-slider__input"
+              disabled={this.disabled}
+              id={`v${index}`}
+              max={this.max}
+              min={this.min}
+              onInput={(ev) => this.handleInput(ev, index)}
+              step={this.step}
+              style={
+                // prevents that thumb is not movable in strict mode
+                index === this.values.length - 2 && value === this.max
+                  ? {
+                      zIndex: '2',
+                    }
+                  : undefined
+              }
+              type="range"
+              value={value}
+            />
+            <output
+              class={getClassNames([
+                'ld-slider__output',
+                this.alwaysShowValues && 'ld-slider__output--permanent',
+              ])}
+              htmlFor={`v${index}`}
+              style={{ '--c': `var(--v${index})` }}
+            />
+          </>
+        ))}
+        {this.edges.map((edge, index) => (
+          <div
+            class={getClassNames([
+              'ld-slider__edge',
+              index === 0 && 'ld-slider__edge--first',
+              index === this.edges.length - 1 && 'ld-slider__edge--last',
+            ])}
+            style={{ '--c': String(edge) }}
+          >
+            {edge}
+          </div>
+        ))}
       </Host>
     )
   }
