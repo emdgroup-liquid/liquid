@@ -1,0 +1,208 @@
+:host,
+.ld-progress {
+  --ld-progress-height: var(--ld-sp-8);
+  --ld-progress-steps-dot-width: var(--ld-progress-height);
+  --ld-progress-valuemin: 0;
+  --ld-progress-valuemax: 100;
+  --ld-progress-valuenow: 0;
+  --ld-progress-transition-duration: 0.2s;
+  --ld-progress-width: 17.5rem;
+
+  /* colors */
+  --ld-progress-bar-col: var(--ld-thm-primary);
+  --ld-progress-bar-col-overflow: var(--ld-thm-error);
+  --ld-progress-bg-col: var(--ld-col-neutral-100);
+  --ld-progress-bg-col-overflow: var(--ld-thm-error);
+  --ld-progress-pending-gap-col: var(--ld-progress-bg-col);
+  --ld-progress-pending-gap-col-overflow: var(--ld-thm-error-focus);
+  --ld-progress-steps-col: var(--ld-col-neutral-200);
+
+  --ld-progress-calc-valuenow: calc(
+    var(--ld-progress-valuenow) - var(--ld-progress-valuemin)
+  );
+  --ld-progress-calc-valuemax: calc(
+    var(--ld-progress-valuemax) - var(--ld-progress-valuemin)
+  );
+  --ld-progress-calc-relative-progress: calc(
+    var(--ld-progress-calc-valuenow) / var(--ld-progress-calc-valuemax)
+  );
+  --ld-progress-has-overflow: clamp(
+    0,
+    calc((var(--ld-progress-calc-relative-progress) - 1) * 99999999999),
+    1
+  );
+
+  border-radius: var(--ld-br-full);
+  box-shadow: inset 0px 0px 0px
+      calc((1 - var(--ld-progress-has-overflow)) * 99rem)
+      var(--ld-progress-bg-col),
+    inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
+      var(--ld-col-wht-alpha-high),
+    inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
+      var(--ld-progress-bg-col-overflow);
+  height: var(--ld-progress-height);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  width: var(--ld-progress-width);
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &::before {
+    background-color: var(--ld-progress-bar-col);
+    opacity: calc(1 - var(--ld-progress-has-overflow));
+    right: 100%;
+    transform: translateX(
+      min(100%, calc(var(--ld-progress-calc-relative-progress) * 100%))
+    );
+    transition: transform var(--ld-progress-transition-duration) ease,
+      opacity var(--ld-progress-transition-duration) linear;
+  }
+
+  &::after {
+    background-color: var(--ld-progress-bar-col-overflow);
+    opacity: calc(var(--ld-progress-has-overflow));
+    transform: translateX(
+      max(-100%, calc((var(--ld-progress-calc-relative-progress) - 1) * -100%))
+    ); /* - 1 substracts the "valid" progress value */
+    transition: transform var(--ld-progress-transition-duration) ease;
+    left: 100%;
+  }
+}
+
+:host(.ld-progress--brand-color),
+.ld-progress--brand-color {
+  --ld-progress-bar-col: var(--ld-col-wht);
+  --ld-progress-bar-col-overflow: var(--ld-thm-error);
+  --ld-progress-bg-col: var(--ld-col-wht-alpha-medium);
+  --ld-progress-bg-col-overflow: var(--ld-thm-error);
+  --ld-progress-pending-gap-col: var(--ld-thm-primary-hover);
+  --ld-progress-pending-gap-col-overflow: var(--ld-col-wht);
+  --ld-progress-steps-col: var(--ld-col-wht-alpha-medium);
+
+  box-shadow: inset 0px 0px 0px
+      calc((1 - var(--ld-progress-has-overflow)) * 99rem)
+      var(--ld-progress-bg-col),
+    inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
+      var(--ld-col-wht-alpha-medium),
+    inset 0rem calc(var(--ld-progress-has-overflow) * 505rem) 500rem -500rem var(--ld-progress-bg-col-overflow);
+}
+
+:host(.ld-progress--steps),
+.ld-progress--steps {
+  --ld-progress-step-gradient: var(--ld-progress-steps-col) 0%,
+    var(--ld-progress-steps-col) calc(var(--ld-progress-steps-dot-width) / 2),
+    transparent calc(var(--ld-progress-steps-dot-width) / 2);
+  background-image: radial-gradient(
+      circle at left,
+      var(--ld-progress-step-gradient)
+    ),
+    radial-gradient(circle at right, var(--ld-progress-step-gradient));
+  background-blend-mode: multiply; /* removes gap in steps dot */
+  background-size: calc(
+      (100% - var(--ld-progress-steps-dot-width) - 1px) /
+        var(--ld-progress-calc-valuemax)
+    )
+    100%; /* the 1px is a Safari HACK */
+  background-repeat: repeat-x;
+  background-position: calc(var(--ld-progress-steps-dot-width) / 2) center;
+  box-shadow: inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
+      var(--ld-col-wht-alpha-lowest),
+    inset 0rem 498rem calc(var(--ld-progress-has-overflow) * 500rem) -500rem var(--ld-progress-bg-col-overflow);
+
+  &::before,
+  &::after {
+    border-radius: var(--ld-br-full);
+  }
+
+  &::before {
+    transform: translateX(
+      min(
+        100%,
+        calc(
+          var(--ld-progress-calc-relative-progress) *
+            (100% - var(--ld-progress-steps-dot-width)) +
+            var(--ld-progress-steps-dot-width)
+        )
+      )
+    );
+  }
+
+  &::after {
+    transform: translateX(
+      max(
+        -100%,
+        calc(
+            (var(--ld-progress-calc-relative-progress) - 1) *
+              (100% - var(--ld-progress-steps-dot-width)) +
+              var(--ld-progress-steps-dot-width) + 1px
+          ) * -1 /* the 1px is a Safari HACK */
+      )
+    );
+  }
+}
+
+:host(.ld-progress--steps.ld-progress--brand-color),
+.ld-progress--steps.ld-progress--brand-color {
+  box-shadow: inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
+      var(--ld-col-wht-alpha-low),
+    inset 0rem 500rem calc(var(--ld-progress-has-overflow) * 500rem) -500rem var(--ld-progress-bg-col-overflow);
+}
+
+:host(.ld-progress.ld-progress--indeterminate),
+.ld-progress.ld-progress--indeterminate {
+  &::before {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ld-progress-animation-pending {
+  from {
+    background-position-x: calc(-1.5rem + 1px);
+  }
+  to {
+    background-position-x: 0rem;
+  }
+}
+:host(.ld-progress.ld-progress--pending),
+.ld-progress.ld-progress--pending {
+  &::before,
+  &::after {
+    background-size: 200% 100%;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: ld-progress-animation-pending;
+    }
+  }
+
+  &::before {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--ld-progress-pending-gap-col),
+      var(--ld-progress-pending-gap-col) 0.5rem,
+      var(--ld-progress-bar-col) 0.5rem,
+      var(--ld-progress-bar-col) 1rem
+    );
+  }
+
+  &::after {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--ld-progress-pending-gap-col-overflow),
+      var(--ld-progress-pending-gap-col-overflow) 0.5rem,
+      var(--ld-progress-bar-col-overflow) 0.5rem,
+      var(--ld-progress-bar-col-overflow) 1rem
+    );
+    animation-direction: reverse;
+  }
+}
