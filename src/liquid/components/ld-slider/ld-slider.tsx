@@ -47,7 +47,7 @@ export class LdSlider {
   /** Prevents swapping of thumbs */
   @Prop() strict? = false
   /** Specifies the default value */
-  @Prop({ mutable: true, reflect: true }) value?: string = '0'
+  @Prop({ mutable: true, reflect: true }) value?: string = String(this.min)
   /** Width of the slider */
   @Prop() width? = '100%'
 
@@ -64,32 +64,50 @@ export class LdSlider {
     }
 
     const currValue = Number.parseInt(target.value, this.radix)
-    const prevValue = this.values[index - 1]
-    const nextValue = this.values[index + 1]
     const values = [...this.values]
+    const correctedValue = this.correctValue(currValue, index, values)
 
-    if (this.strict && prevValue > currValue) {
-      target.value = String(prevValue)
-      values[index] = prevValue
-    } else if (this.strict && nextValue < currValue) {
-      target.value = String(nextValue)
-      values[index] = nextValue
-    } else {
-      values[index] = currValue
+    values[index] = correctedValue
+
+    if (correctedValue !== currValue) {
+      target.value = String(correctedValue)
     }
 
     this.value = values.join(',')
+  }
+
+  correctValue = (currValue: number, index: number, values: number[]) => {
+    const prevValue = values[index - 1]
+    const nextValue = values[index + 1]
+
+    if (currValue < this.min) {
+      return this.min
+    }
+
+    if (currValue > this.max) {
+      return this.max
+    }
+
+    if (this.strict && prevValue > currValue) {
+      return prevValue
+    }
+
+    if (this.strict && nextValue < currValue) {
+      return nextValue
+    }
+
+    return currValue
   }
 
   validateValue = (currValue: number, index: number, values: number[]) => {
     const prevValue = values[index - 1]
     const nextValue = values[index + 1]
 
-    if (this.strict && prevValue > currValue) {
+    if (currValue < this.min || currValue > this.max) {
       return false
     }
 
-    if (this.strict && nextValue < currValue) {
+    if (this.strict && (prevValue > currValue || nextValue < currValue)) {
       return false
     }
 
@@ -105,12 +123,25 @@ export class LdSlider {
     }
   }
 
-  updateValues = () => {
+  correctValues = (values: number[]) => {
+    const correctedValues = values.map(this.correctValue)
+
+    if (!correctedValues.every(this.validateValue)) {
+      return this.correctValues(correctedValues)
+    }
+
+    return correctedValues
+  }
+
+  updateValues = (autoCorrectValues = false) => {
     const values = this.value
       .split(',')
       .map((value) => Number.parseInt(value, this.radix))
 
     if (!values.every(this.validateValue)) {
+      if (autoCorrectValues) {
+        this.value = this.correctValues(values).join(',')
+      }
       return false
     }
 
@@ -122,15 +153,13 @@ export class LdSlider {
     this.edges = this.stops
       ? [
           this.min,
-          ...this.stops.split(',').map((edge) => Number.parseInt(edge)),
+          ...this.stops
+            .split(',')
+            .map((edge) => Number.parseInt(edge, this.radix)),
           this.max,
         ]
       : [this.min, this.max]
-    const success = this.updateValues()
-
-    if (!success) {
-      throw new Error('Invalid combination of values supplied.')
-    }
+    this.updateValues(true)
   }
 
   render() {
@@ -185,9 +214,9 @@ linear-gradient(
             <label class="sr-only" htmlFor={`v${index}`}>
               {this.values.length === 2
                 ? index === 0
-                  ? 'From'
-                  : 'To'
-                : `Value ${index + 1}`}
+                  ? this.labelFrom
+                  : this.labelTo
+                : `${this.labelValue} ${index + 1}`}
             </label>
             <input
               aria-disabled={
