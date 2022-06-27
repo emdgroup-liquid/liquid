@@ -16,6 +16,7 @@
     var(--ld-slider-width) - var(--ld-slider-thumb-size)
   );
   --ld-slider-diff: calc(var(--max) - var(--min));
+  --ld-slider-indicator-size: var(--ld-sp-6);
   --ld-slider-padding: var(--ld-sp-32);
   --ld-slider-selected-col: var(--ld-thm-primary);
   --ld-slider-selected-col-disabled: var(--ld-col-neutral-200);
@@ -40,6 +41,7 @@
     content: '';
     align-self: center;
     height: var(--ld-sp-8);
+    margin: 0 var(--ld-sp-8);
   }
 
   &::after {
@@ -88,7 +90,7 @@
 
     grid-column: 1;
     grid-row: 2;
-    z-index: calc(1 + var(--ld-slider-highlighted));
+    z-index: calc(2 + var(--ld-slider-highlighted));
     top: 0;
     left: 0;
     background: none;
@@ -106,6 +108,7 @@
       width: 100%;
       height: 100%;
       background: none; /* get rid of Firefox track background */
+      z-index: 2;
     }
 
     &::-webkit-slider-thumb {
@@ -158,27 +161,44 @@
     }
   }
 
-  .ld-slider__edge {
-    font: var(--ld-typo-body-xs);
+  .ld-slider__indicator,
+  .ld-slider__edge,
+  .ld-slider__output {
     grid-column: 1;
-    grid-row: 3;
     left: calc(
       (var(--c) - var(--min)) / var(--ld-slider-diff) *
         var(--ld-slider-useful-width) + var(--ld-slider-radius)
     );
     max-width: max-content;
     position: relative;
+  }
+
+  .ld-slider__indicator {
+    aspect-ratio: 1;
+    border-radius: var(--ld-br-full);
+    grid-row: 2;
+    transform: translate(-50%);
+    width: var(--ld-slider-indicator-size);
+    top: 0.5725rem;
+    z-index: 1;
+    backdrop-filter: brightness(0.6) invert(1) hue-rotate(180deg);
+    opacity: 0.5;
+  }
+
+  .ld-slider__edge {
+    font: var(--ld-typo-body-xs);
+    grid-row: 3;
     transform: translate(-50%);
 
     &--first {
-      left: 0;
+      left: var(--ld-sp-8);
       transform: none;
     }
 
     &--last {
       left: auto;
       position: absolute;
-      right: var(--ld-slider-padding);
+      right: calc(var(--ld-slider-padding) + var(--ld-sp-8));
       transform: none;
     }
   }
@@ -186,15 +206,8 @@
   .ld-slider__output {
     font: var(--ld-typo-body-xs);
     font-weight: 700;
-    grid-column: 1;
     grid-row: 1;
-    left: calc(
-      (var(--c) - var(--min)) / var(--ld-slider-diff) *
-        var(--ld-slider-useful-width) + var(--ld-slider-radius)
-    );
-    max-width: max-content;
     opacity: var(--ld-slider-highlighted);
-    position: relative;
     transform: translate(-50%) scale(max(0.8, var(--ld-slider-highlighted)));
     transition: opacity var(--ld-slider-animation-duration) ease-out,
       transform var(--ld-slider-animation-duration) ease-out;

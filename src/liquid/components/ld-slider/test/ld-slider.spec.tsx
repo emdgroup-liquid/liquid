@@ -78,18 +78,34 @@ describe('ld-slider', () => {
       expect(page.root).toMatchSnapshot()
     })
 
-    it('with custom radix', async () => {
-      const page = await newSpecPage({
-        components: [LdSlider],
-        template: () => <ld-slider radix={16} />,
-      })
-      expect(page.root).toMatchSnapshot()
-    })
-
     it('with custom width', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
         template: () => <ld-slider width="500px" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('step indicators', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider indicators step={20} />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('stop indicators', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider indicators stops="20,45,85" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without indicators, if step/stops parameter not given', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider indicators />,
       })
       expect(page.root).toMatchSnapshot()
     })
@@ -98,22 +114,22 @@ describe('ld-slider', () => {
   it('re-renders on prop changes', async () => {
     const page = await newSpecPage({
       components: [LdSlider],
-      template: () => <ld-slider radix={16} />,
+      template: () => <ld-slider />,
     })
 
     const slider = page.root as HTMLLdSliderElement
     slider.alwaysShowValues = true
     slider.ariaDisabled = 'true'
     slider.disabled = true
+    slider.indicators = true
     slider.labelFrom = 'Von'
     slider.labelTo = 'Bis'
     slider.labelValue = 'Thumb'
     slider.max = 99
     slider.min = 1
     slider.negative = true
-    slider.radix = 10
     slider.stops = '30,50,70'
-    slider.value = '15,85'
+    slider.value = '30,70'
     slider.width = '500px'
     await page.waitForChanges()
 
@@ -157,7 +173,7 @@ describe('ld-slider', () => {
       template: () => <ld-slider value="-1,101" />,
     })
 
-    expect(page.root).toMatchSnapshot()
+    expect(page.root.value).toBe('0,100')
   })
 
   describe('strict mode', () => {
@@ -172,7 +188,8 @@ describe('ld-slider', () => {
       firstInput.dispatchEvent(new Event('input'))
       await page.waitForChanges()
 
-      expect(page.root).toMatchSnapshot()
+      expect(firstInput.value).toBe('60')
+      expect(page.root.value).toBe('60,60')
     })
 
     it('corrects invalid initial values', async () => {
@@ -181,7 +198,7 @@ describe('ld-slider', () => {
         template: () => <ld-slider strict value="100,50,90,40" />,
       })
 
-      expect(page.root).toMatchSnapshot()
+      expect(page.root.value).toBe('40,50,90,100')
     })
 
     it('prevents invalid value changes without re-rendering', async () => {
@@ -194,7 +211,7 @@ describe('ld-slider', () => {
       slider.value = '51,50'
       await page.waitForChanges()
 
-      expect(page.root).toMatchSnapshot()
+      expect(slider).toMatchSnapshot()
     })
 
     it('emits ldchange event after correcting invalid value changes', async () => {
@@ -227,6 +244,184 @@ describe('ld-slider', () => {
       slider.value = '51,50'
 
       expect(changeHandler).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('steps', () => {
+    it('enforces the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '11'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('20')
+    })
+
+    it('corrects invalid initial values to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="100,17,51,84" />,
+      })
+
+      expect(page.root.value).toBe('100,20,60,80')
+    })
+
+    it('does not correct invalid value changes', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="20" />,
+      })
+
+      const slider = page.root as HTMLLdSliderElement
+      slider.value = '21'
+
+      expect(slider.value).toBe('21')
+    })
+  })
+
+  describe('stops', () => {
+    it('enforces the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '11'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('20')
+    })
+
+    it('corrects invalid initial values to the closest stops', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20,60,90" value="100,17,50,94" />,
+      })
+
+      expect(page.root.value).toBe('100,20,60,90')
+    })
+
+    it('does not correct invalid value changes', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="20" />,
+      })
+
+      const slider = page.root as HTMLLdSliderElement
+      slider.value = '21'
+
+      expect(slider.value).toBe('21')
+    })
+  })
+
+  describe('snapping', () => {
+    it('snaps to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} snapOffset={2} />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '38'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('40')
+    })
+
+    it('does not snap to the closest step value, if outside snap-offset', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} snapOffset={2} />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '37'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('37')
+    })
+
+    it('snaps to the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" snapOffset={2} />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '18'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('20')
+    })
+
+    it('does not snap to the closest stop, if outside snap-offset', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" snapOffset={2} />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+      const changeHandler = jest.fn()
+
+      page.root.addEventListener('ldchange', changeHandler)
+      firstInput.value = '17'
+      firstInput.dispatchEvent(new Event('input'))
+
+      expect(page.root.value).toBe('17')
+    })
+
+    it('does not change initial values to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="21" snapOffset={2} />,
+      })
+
+      expect(page.root.value).toBe('21')
+    })
+
+    it('does not change initial values to the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="21" snapOffset={2} />,
+      })
+
+      expect(page.root.value).toBe('21')
+    })
+
+    it('does not alter value changes to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="20" snapOffset={2} />,
+      })
+      const slider = page.root as HTMLLdSliderElement
+      slider.value = '21'
+
+      expect(page.root.value).toBe('21')
+    })
+
+    it('does not alter value changes to the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="20" snapOffset={2} />,
+      })
+      const slider = page.root as HTMLLdSliderElement
+      slider.value = '21'
+
+      expect(page.root.value).toBe('21')
     })
   })
 })

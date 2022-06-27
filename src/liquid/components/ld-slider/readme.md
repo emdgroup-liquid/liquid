@@ -27,6 +27,32 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 <ld-slider step="5"></ld-slider>
 {% endexample %}
 
+## Custom stops
+
+Custom stops behave just like steps, but without the need for an even distance between them.
+
+{% example %}
+<ld-slider stops="20,35,45,60,85"></ld-slider>
+{% endexample %}
+
+<ld-notice mode="warning">
+  Use the prop `snap-offset="0"` to just add the labels for the custom stops without forcing them to behave like steps.
+</ld-notice>
+
+## With step/stop indicators
+
+{% example %}
+<ld-slider indicators step="10"></ld-slider>
+<ld-slider indicators stops="20,35,45,60,85"></ld-slider>
+{% endexample %}
+
+## With step/stop snapping
+
+{% example %}
+<ld-slider indicators snap-offset="2" step="10"></ld-slider>
+<ld-slider snap-offset="2" stops="20,35,45,60,85"></ld-slider>
+{% endexample %}
+
 ## Predefined value
 
 {% example %}
@@ -131,13 +157,14 @@ The negative mode highlights deselected ranges as selected and vice versa.
 | `alwaysShowValues` | `always-show-values` | Makes the current values always visible above the thumbs     | `boolean` | `false`            |
 | `ariaDisabled`     | `aria-disabled`      | Alternative disabled state that keeps element focusable      | `string`  | `undefined`        |
 | `disabled`         | `disabled`           | Disabled state of the slider                                 | `boolean` | `false`            |
+| `indicators`       | `indicators`         | Specifies the legal number intervals                         | `boolean` | `false`            |
 | `labelFrom`        | `label-from`         | "From" value label (when exactly 2 values are given)         | `string`  | `'From'`           |
 | `labelTo`          | `label-to`           | "To" value label (when exactly 2 values are given)           | `string`  | `'To'`             |
 | `labelValue`       | `label-value`        | "Value" label (when exactly 2 values are given)              | `string`  | `'Value'`          |
 | `max`              | `max`                | Specifies the maximum value allowed                          | `number`  | `100`              |
 | `min`              | `min`                | Specifies the minimum value allowed                          | `number`  | `0`                |
 | `negative`         | `negative`           | Swap which areas are being marked as selected and deselected | `boolean` | `false`            |
-| `radix`            | `radix`              | Radix to parse the value(s) with                             | `number`  | `10`               |
+| `snapOffset`       | `snap-offset`        | Offset inside which a thumb snaps to a stop point            | `number`  | `undefined`        |
 | `step`             | `step`               | Specifies the legal number intervals                         | `number`  | `undefined`        |
 | `stops`            | `stops`              | Adds custom stop points to the slider (instead of steps)     | `string`  | `undefined`        |
 | `strict`           | `strict`             | Prevents swapping of thumbs                                  | `boolean` | `false`            |

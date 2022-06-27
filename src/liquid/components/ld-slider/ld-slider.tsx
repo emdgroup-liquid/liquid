@@ -25,33 +25,36 @@ export class LdSlider {
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
   /** Disabled state of the slider */
-  @Prop() disabled? = false
+  @Prop() disabled = false
+  /** Specifies the legal number intervals */
+  @Prop() indicators = false
   /** "From" value label (when exactly 2 values are given) */
-  @Prop() labelFrom? = 'From'
-  /** "Value" label (when exactly 2 values are given) */
-  @Prop() labelValue? = 'Value'
+  @Prop() labelFrom = 'From'
   /** "To" value label (when exactly 2 values are given) */
-  @Prop() labelTo? = 'To'
+  @Prop() labelTo = 'To'
+  /** "Value" label (when exactly 2 values are given) */
+  @Prop() labelValue = 'Value'
   /** Specifies the maximum value allowed */
-  @Prop() max? = 100
+  @Prop() max = 100
   /** Specifies the minimum value allowed */
-  @Prop() min? = 0
+  @Prop() min = 0
   /** Swap which areas are being marked as selected and deselected */
   @Prop() negative? = false
-  /** Radix to parse the value(s) with */
-  @Prop() radix = 10
+  /** Offset inside which a thumb snaps to a stop point */
+  @Prop() snapOffset?: number
   /** Specifies the legal number intervals */
   @Prop() step?: number
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() stops?: string
   /** Prevents swapping of thumbs */
-  @Prop() strict? = false
+  @Prop() strict = false
   /** Specifies the default value */
   @Prop({ mutable: true, reflect: true }) value?: string = String(this.min)
   /** Width of the slider */
   @Prop() width? = '100%'
 
   @State() edges: number[] = []
+  @State() steps: number[] = []
   @State() values: number[] = []
 
   @Event() ldchange: EventEmitter<typeof this.values>
@@ -63,9 +66,14 @@ export class LdSlider {
       return
     }
 
-    const currValue = Number.parseInt(target.value, this.radix)
+    const currValue = Number.parseInt(target.value, 10)
     const values = [...this.values]
-    const correctedValue = this.correctValue(currValue, index, values)
+    const correctedValue = this.getCorrectedValue(
+      currValue,
+      index,
+      values,
+      true
+    )
 
     values[index] = correctedValue
 
@@ -73,10 +81,19 @@ export class LdSlider {
       target.value = String(correctedValue)
     }
 
-    this.value = values.join(',')
+    const newValue = values.join(',')
+
+    if (this.value !== newValue) {
+      this.value = values.join(',')
+    }
   }
 
-  correctValue = (currValue: number, index: number, values: number[]) => {
+  getCorrectedValue = (
+    currValue: number,
+    index: number,
+    values: number[],
+    snap = false
+  ) => {
     const prevValue = values[index - 1]
     const nextValue = values[index + 1]
 
@@ -96,22 +113,48 @@ export class LdSlider {
       return nextValue
     }
 
+    if (snap && this.snapOffset !== undefined) {
+      const stepToSnapTo = this.steps.find(
+        (step) =>
+          currValue <= step + this.snapOffset &&
+          currValue >= step - this.snapOffset
+      )
+
+      return stepToSnapTo ?? currValue
+    }
+
+    if (this.steps.length && this.snapOffset === undefined) {
+      return this.steps.reduce((prevStep, step) =>
+        Math.abs(step - currValue) < Math.abs(prevStep - currValue)
+          ? step
+          : prevStep
+      )
+    }
+
     return currValue
   }
 
-  validateValue = (currValue: number, index: number, values: number[]) => {
-    const prevValue = values[index - 1]
-    const nextValue = values[index + 1]
+  validateValue = (currValue: number, index: number, values: number[]) =>
+    currValue === this.getCorrectedValue(currValue, index, values)
 
-    if (currValue < this.min || currValue > this.max) {
-      return false
-    }
+  @Watch('max')
+  @Watch('min')
+  @Watch('step')
+  @Watch('stops')
+  updateState() {
+    this.steps = this.stops
+      ? [
+          this.min,
+          ...this.stops.split(',').map((edge) => Number.parseInt(edge, 10)),
+          this.max,
+        ]
+      : this.step
+      ? Array(Math.floor((this.max - this.min) / this.step) + 1)
+          .fill(this.min)
+          .map((min, index) => min + index * this.step)
+      : []
 
-    if (this.strict && (prevValue > currValue || nextValue < currValue)) {
-      return false
-    }
-
-    return true
+    this.edges = this.stops ? [...this.steps] : [this.min, this.max]
   }
 
   @Watch('value')
@@ -124,7 +167,7 @@ export class LdSlider {
   }
 
   correctValues = (values: number[]) => {
-    const correctedValues = values.map(this.correctValue)
+    const correctedValues = values.map(this.getCorrectedValue)
 
     if (!correctedValues.every(this.validateValue)) {
       return this.correctValues(correctedValues)
@@ -136,7 +179,7 @@ export class LdSlider {
   updateValues = (autoCorrectValues = false) => {
     const values = this.value
       .split(',')
-      .map((value) => Number.parseInt(value, this.radix))
+      .map((value) => Number.parseInt(value, 10))
 
     if (!values.every(this.validateValue)) {
       if (autoCorrectValues) {
@@ -150,15 +193,7 @@ export class LdSlider {
   }
 
   componentWillLoad() {
-    this.edges = this.stops
-      ? [
-          this.min,
-          ...this.stops
-            .split(',')
-            .map((edge) => Number.parseInt(edge, this.radix)),
-          this.max,
-        ]
-      : [this.min, this.max]
+    this.updateState()
     this.updateValues(true)
   }
 
@@ -230,7 +265,7 @@ linear-gradient(
               max={this.max}
               min={this.min}
               onInput={(ev) => this.handleInput(ev, index)}
-              step={this.step}
+              step={this.snapOffset !== undefined ? undefined : this.step}
               style={
                 // prevents that thumb is not movable in strict mode
                 index === this.values.length - 2 && value === this.max
@@ -252,6 +287,14 @@ linear-gradient(
             />
           </>
         ))}
+        {this.indicators &&
+          this.steps.map((stop) => (
+            <div
+              class="ld-slider__indicator"
+              key={stop}
+              style={{ '--c': String(stop) }}
+            />
+          ))}
         {this.edges.map((edge, index) => (
           <div
             class={getClassNames([
@@ -259,6 +302,7 @@ linear-gradient(
               index === 0 && 'ld-slider__edge--first',
               index === this.edges.length - 1 && 'ld-slider__edge--last',
             ])}
+            key={edge}
             style={{ '--c': String(edge) }}
           >
             {edge}

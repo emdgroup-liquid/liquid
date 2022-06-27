@@ -1,46 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-slider prevents invalid values 1`] = `
-<ld-slider class="ld-slider" role="group" value="0,100" style="--v0: 0; --v1: 100; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-);">
-  <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
-      From
-    </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
-    <label class="sr-only" htmlfor="v1">
-      To
-    </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="100"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1);"></output>
-    <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
-      0
-    </div>
-    <div class="ld-slider__edge ld-slider__edge--last" style="--c: 100;">
-      100
-    </div>
-  </mock:shadow-root>
-</ld-slider>
-`;
-
 exports[`ld-slider re-renders on prop changes 1`] = `
-<ld-slider class="ld-slider ld-slider--disabled" role="group" value="15,85" style="--v0: 15; --ld-slider-width: 500px; --min: 1; --max: 99; --fill: 
+<ld-slider class="ld-slider ld-slider--disabled" role="group" value="30,70" style="--v0: 30; --ld-slider-width: 500px; --min: 1; --max: 99; --fill: 
 linear-gradient(
   90deg,
   red 100%,
@@ -63,21 +24,35 @@ linear-gradient(
         var(--ld-slider-diff) * var(--ld-slider-useful-width)
     ),
   transparent 0
-); --v1: 85;">
+); --v1: 70;">
   <mock:shadow-root>
     <label class="sr-only" htmlfor="v0">
       Von
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" type="range" value="15"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" type="range" value="30"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
     <label class="sr-only" htmlfor="v1">
       Bis
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" type="range" value="85"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
-    <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
-      0
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" type="range" value="70"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
+    <div class="ld-slider__indicator" style="--c: 1;"></div>
+    <div class="ld-slider__indicator" style="--c: 30;"></div>
+    <div class="ld-slider__indicator" style="--c: 50;"></div>
+    <div class="ld-slider__indicator" style="--c: 70;"></div>
+    <div class="ld-slider__indicator" style="--c: 99;"></div>
+    <div class="ld-slider__edge ld-slider__edge--first" style="--c: 1;">
+      1
     </div>
-    <div class="ld-slider__edge ld-slider__edge--last" style="--c: 100;">
-      100
+    <div class="ld-slider__edge" style="--c: 30;">
+      30
+    </div>
+    <div class="ld-slider__edge" style="--c: 50;">
+      50
+    </div>
+    <div class="ld-slider__edge" style="--c: 70;">
+      70
+    </div>
+    <div class="ld-slider__edge ld-slider__edge--last" style="--c: 99;">
+      99
     </div>
   </mock:shadow-root>
 </ld-slider>
@@ -326,7 +301,39 @@ linear-gradient(
 </ld-slider>
 `;
 
-exports[`ld-slider renders with custom radix 1`] = `
+exports[`ld-slider renders step indicators 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--v0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
+        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <label class="sr-only" htmlfor="v0">
+      Value 1
+    </label>
+    <input class="ld-slider__input" id="v0" max="100" min="0" step="20" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
+    <div class="ld-slider__indicator" style="--c: 0;"></div>
+    <div class="ld-slider__indicator" style="--c: 20;"></div>
+    <div class="ld-slider__indicator" style="--c: 40;"></div>
+    <div class="ld-slider__indicator" style="--c: 60;"></div>
+    <div class="ld-slider__indicator" style="--c: 80;"></div>
+    <div class="ld-slider__indicator" style="--c: 100;"></div>
+    <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
+      0
+    </div>
+    <div class="ld-slider__edge ld-slider__edge--last" style="--c: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders stop indicators 1`] = `
 <ld-slider class="ld-slider" role="group" value="0" style="--v0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
 linear-gradient(
   90deg,
@@ -342,8 +349,22 @@ linear-gradient(
       Value 1
     </label>
     <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
+    <div class="ld-slider__indicator" style="--c: 0;"></div>
+    <div class="ld-slider__indicator" style="--c: 20;"></div>
+    <div class="ld-slider__indicator" style="--c: 45;"></div>
+    <div class="ld-slider__indicator" style="--c: 85;"></div>
+    <div class="ld-slider__indicator" style="--c: 100;"></div>
     <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
       0
+    </div>
+    <div class="ld-slider__edge" style="--c: 20;">
+      20
+    </div>
+    <div class="ld-slider__edge" style="--c: 45;">
+      45
+    </div>
+    <div class="ld-slider__edge" style="--c: 85;">
+      85
     </div>
     <div class="ld-slider__edge ld-slider__edge--last" style="--c: 100;">
       100
@@ -435,8 +456,8 @@ linear-gradient(
 </ld-slider>
 `;
 
-exports[`ld-slider strict mode corrects invalid initial values 1`] = `
-<ld-slider class="ld-slider" role="group" value="40,50,90,100" style="--v0: 40; --v1: 50; --v2: 90; --v3: 100; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+exports[`ld-slider renders without indicators, if step/stops parameter not given 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--v0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
 linear-gradient(
   90deg,
   red
@@ -445,51 +466,12 @@ linear-gradient(
         var(--ld-slider-diff) * var(--ld-slider-useful-width)
     ),
   transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v2) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v3) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
 );">
   <mock:shadow-root>
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="40"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
-    <label class="sr-only" htmlfor="v1">
-      Value 2
-    </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1);"></output>
-    <label class="sr-only" htmlfor="v2">
-      Value 3
-    </label>
-    <input class="ld-slider__input" id="v2" max="100" min="0" type="range" value="90"><output class="ld-slider__output" htmlfor="v2" style="--c: var(--v2);"></output>
-    <label class="sr-only" htmlfor="v3">
-      Value 4
-    </label>
-    <input class="ld-slider__input" id="v3" max="100" min="0" type="range" value="100"><output class="ld-slider__output" htmlfor="v3" style="--c: var(--v3);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
     <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
       0
     </div>
@@ -529,45 +511,6 @@ linear-gradient(
       To
     </label>
     <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="100"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1);"></output>
-    <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
-      0
-    </div>
-    <div class="ld-slider__edge ld-slider__edge--last" style="--c: 100;">
-      100
-    </div>
-  </mock:shadow-root>
-</ld-slider>
-`;
-
-exports[`ld-slider strict mode prevents thumbs from being swapped 1`] = `
-<ld-slider class="ld-slider" role="group" value="60,60" style="--v0: 60; --v1: 60; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-),
-linear-gradient(
-  90deg,
-  red
-    calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
-    ),
-  transparent 0
-);">
-  <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
-      From
-    </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="60"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
-    <label class="sr-only" htmlfor="v1">
-      To
-    </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="60"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1);"></output>
     <div class="ld-slider__edge ld-slider__edge--first" style="--c: 0;">
       0
     </div>
