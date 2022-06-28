@@ -107,34 +107,32 @@
     &::-webkit-slider-runnable-track {
       width: 100%;
       height: 100%;
-      background: none; /* get rid of Firefox track background */
+      background: none;
     }
     &::-moz-range-track {
       width: 100%;
       height: 100%;
-      background: none; /* get rid of Firefox track background */
+      background: none;
       z-index: 2;
     }
 
     &::-webkit-slider-thumb {
-      border: none; /* get rid of Firefox thumb border */
-      /* box-sizing needed now that we have a non-zero border */
-      box-sizing: border-box; /* different between Chrome & Firefox */
+      border: none;
+      box-sizing: border-box;
       width: var(--ld-slider-thumb-size);
       height: var(--ld-slider-thumb-size);
-      border-radius: 50%; /* make circular */
+      border-radius: var(--ld-br-full);
       background: var(--ld-slider-thumb-col);
       box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;
       will-change: transform;
     }
     &::-moz-range-thumb {
-      border: none; /* get rid of Firefox thumb border */
-      /* box-sizing needed now that we have a non-zero border */
-      box-sizing: border-box; /* different between Chrome & Firefox */
+      border: none;
+      box-sizing: border-box;
       width: var(--ld-slider-thumb-size);
       height: var(--ld-slider-thumb-size);
-      border-radius: 50%; /* make circular */
+      border-radius: var(--ld-br-full);
       background: var(--ld-slider-thumb-col);
       box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;

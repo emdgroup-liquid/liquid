@@ -1,4 +1,7 @@
-import { getPageWithContent } from '../../../utils/e2e-tests'
+import {
+  analyzeAccessibility,
+  getPageWithContent,
+} from '../../../utils/e2e-tests'
 
 const attributeMap = {
   default: '',
@@ -83,7 +86,10 @@ describe('ld-slider', () => {
         await page.keyboard.press('Tab')
 
         const results = await page.compareScreenshot()
+        const accessibilityReport = await analyzeAccessibility(page)
+
         expect(results).toMatchScreenshot()
+        expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
 
       it('active', async () => {
@@ -97,7 +103,10 @@ describe('ld-slider', () => {
         await page.mouse.down()
 
         const results = await page.compareScreenshot()
+        const accessibilityReport = await analyzeAccessibility(page)
+
         expect(results).toMatchScreenshot()
+        expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
 
       it('values always visible', async () => {
@@ -106,7 +115,10 @@ describe('ld-slider', () => {
         )
 
         const results = await page.compareScreenshot()
+        const accessibilityReport = await analyzeAccessibility(page)
+
         expect(results).toMatchScreenshot()
+        expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
     })
   })
