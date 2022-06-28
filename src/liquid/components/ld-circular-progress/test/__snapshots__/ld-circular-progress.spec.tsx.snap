@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-circular-progress applies css custom props according to props applies valuemax prop 1`] = `
+<ld-circular-progress aria-valuemax="200" aria-valuemin="0" class="ld-circular-progress" role="progressbar" style="--ld-circular-progress-valuemax: 200; --ld-circular-progress-valuemin: 0;">
+  <mock:shadow-root>
+    <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="5"></circle>
+      <circle cx="5" cy="5" r="5"></circle>
+    </svg>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-circular-progress>
+`;
+
+exports[`ld-circular-progress applies css custom props according to props applies valuemin prop 1`] = `
+<ld-circular-progress aria-valuemax="100" aria-valuemin="10" class="ld-circular-progress" role="progressbar" style="--ld-circular-progress-valuemax: 100; --ld-circular-progress-valuemin: 10;">
+  <mock:shadow-root>
+    <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="5"></circle>
+      <circle cx="5" cy="5" r="5"></circle>
+    </svg>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-circular-progress>
+`;
+
+exports[`ld-circular-progress applies css custom props according to props applies valuenow prop 1`] = `
+<ld-circular-progress aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" class="ld-circular-progress" role="progressbar" style="--ld-circular-progress-valuemax: 100; --ld-circular-progress-valuemin: 0; --ld-circular-progress-valuenow: 25;">
+  <mock:shadow-root>
+    <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="5"></circle>
+      <circle cx="5" cy="5" r="5"></circle>
+    </svg>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-circular-progress>
+`;
+
+exports[`ld-circular-progress renders 1`] = `
+<ld-circular-progress aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" class="ld-circular-progress" role="progressbar" style="--ld-circular-progress-valuemax: 100; --ld-circular-progress-valuemin: 0; --ld-circular-progress-valuenow: 25;">
+  <mock:shadow-root>
+    <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="5"></circle>
+      <circle cx="5" cy="5" r="5"></circle>
+    </svg>
+    <slot></slot>
+  </mock:shadow-root>
+</ld-circular-progress>
+`;
