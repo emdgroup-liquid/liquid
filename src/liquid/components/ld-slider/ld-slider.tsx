@@ -12,6 +12,27 @@ import {
 } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
+const findClosest = (items: number[], currValue: number) =>
+  items.length
+    ? items.reduce((prevItem, item) =>
+        Math.abs(item - currValue) < Math.abs(prevItem - currValue)
+          ? item
+          : prevItem
+      )
+    : currValue
+
+const findNext = (items: number[], currValue: number) =>
+  findClosest(
+    items.filter((item) => item > currValue),
+    currValue
+  )
+
+const findPrev = (items: number[], currValue: number) =>
+  findClosest(
+    items.filter((item) => item < currValue),
+    currValue
+  )
+
 @Component({
   tag: 'ld-slider',
   styleUrl: 'ld-slider.css',
@@ -58,6 +79,7 @@ export class LdSlider {
   @State() values: number[] = []
 
   @Event() ldchange: EventEmitter<typeof this.values>
+
   handleInput = (ev: Event, index: number) => {
     const target = ev.target as HTMLInputElement
 
@@ -80,6 +102,61 @@ export class LdSlider {
     if (correctedValue !== currValue) {
       target.value = String(correctedValue)
     }
+
+    const newValue = values.join(',')
+
+    if (this.value !== newValue) {
+      this.value = values.join(',')
+    }
+  }
+
+  handleKeyDown = (ev: KeyboardEvent, index: number) => {
+    const target = ev.target as HTMLInputElement
+
+    if (this.ariaDisabled === 'true') {
+      target.value = String(this.values[index])
+      return
+    }
+
+    const prevValue = Number.parseInt(target.value, 10)
+    const values = [...this.values]
+    let currValue: number
+
+    if (this.stops && !this.snapOffset) {
+      switch (ev.key) {
+        case 'ArrowDown':
+        case 'ArrowLeft':
+          currValue = findPrev(this.steps, prevValue)
+          break
+        case 'ArrowRight':
+        case 'ArrowUp':
+          currValue = findNext(this.steps, prevValue)
+      }
+    } else if (this.snapOffset) {
+      switch (ev.key) {
+        case 'ArrowDown':
+        case 'ArrowLeft':
+          currValue = prevValue - 1
+          break
+        case 'ArrowRight':
+        case 'ArrowUp':
+          currValue = prevValue + 1
+      }
+    }
+
+    if (currValue === undefined) {
+      return
+    }
+
+    ev.preventDefault()
+    const correctedValue = this.getCorrectedValue(currValue, index, values)
+
+    if (correctedValue === prevValue) {
+      return
+    }
+
+    values[index] = correctedValue
+    target.value = String(correctedValue)
 
     const newValue = values.join(',')
 
@@ -124,11 +201,7 @@ export class LdSlider {
     }
 
     if (this.steps.length && this.snapOffset === undefined) {
-      return this.steps.reduce((prevStep, step) =>
-        Math.abs(step - currValue) < Math.abs(prevStep - currValue)
-          ? step
-          : prevStep
-      )
+      return findClosest(this.steps, currValue)
     }
 
     return currValue
@@ -235,8 +308,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v${index}) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v${index}) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 )`
@@ -265,6 +339,7 @@ linear-gradient(
               max={this.max}
               min={this.min}
               onInput={(ev) => this.handleInput(ev, index)}
+              onKeyDown={(ev) => this.handleKeyDown(ev, index)}
               step={this.snapOffset !== undefined ? undefined : this.step}
               style={
                 // prevents that thumb is not movable in strict mode

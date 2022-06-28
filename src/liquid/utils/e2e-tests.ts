@@ -32,6 +32,7 @@ export const getPageWithContent = async (
     components?: unknown
     disableAllTransitions?: boolean
     notWrapped?: boolean
+    reducedMotion?: boolean
   }
 ) => {
   const page = (await newE2EPage({
@@ -89,6 +90,12 @@ export const getPageWithContent = async (
         await page.addStyleTag({ path: `./dist/css/${cssFileName}` })
       })
     )
+  }
+
+  if (config?.reducedMotion) {
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
   }
 
   return page

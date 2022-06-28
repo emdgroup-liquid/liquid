@@ -133,7 +133,7 @@ describe('ld-slider', () => {
     slider.width = '500px'
     await page.waitForChanges()
 
-    expect(page.root).toMatchSnapshot()
+    expect(slider).toMatchSnapshot()
   })
 
   it('updates css props on value changes', async () => {
@@ -240,7 +240,7 @@ describe('ld-slider', () => {
       const slider = page.root as HTMLLdSliderElement
       const changeHandler = jest.fn()
 
-      page.root.addEventListener('ldchange', changeHandler)
+      slider.addEventListener('ldchange', changeHandler)
       slider.value = '51,50'
 
       expect(changeHandler).not.toHaveBeenCalled()
@@ -410,7 +410,7 @@ describe('ld-slider', () => {
       const slider = page.root as HTMLLdSliderElement
       slider.value = '21'
 
-      expect(page.root.value).toBe('21')
+      expect(slider.value).toBe('21')
     })
 
     it('does not alter value changes to the closest stop', async () => {
@@ -421,7 +421,113 @@ describe('ld-slider', () => {
       const slider = page.root as HTMLLdSliderElement
       slider.value = '21'
 
+      expect(slider.value).toBe('21')
+    })
+  })
+
+  describe('keyboard usage', () => {
+    it('jumps to the next stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20,40" value="0" />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+
+      expect(page.root.value).toBe('40')
+    })
+
+    it('jumps to the previous stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20,40" value="100" />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }))
+
+      expect(page.root.value).toBe('20')
+    })
+
+    it('does not snap to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="17" snapOffset={2} />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+
+      expect(page.root.value).toBe('19')
+    })
+
+    it('does not snap to the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="23" snapOffset={2} />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }))
+
       expect(page.root.value).toBe('21')
+    })
+
+    it('does not go below min value, when snap-offset is set', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider value="0" snapOffset={2} />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }))
+
+      expect(page.root.value).toBe('0')
+    })
+
+    it('does not go above max value, when snap-offset is set', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider value="100" snapOffset={2} />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+
+      expect(page.root.value).toBe('100')
+    })
+
+    it('does not go below min value, when stops are set', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="0" />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }))
+
+      expect(page.root.value).toBe('0')
+    })
+
+    it('does not go above max value, when stops are set', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20" value="100" />,
+      })
+      const input = page.root.shadowRoot.querySelector('input')
+
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
+
+      expect(page.root.value).toBe('100')
     })
   })
 })

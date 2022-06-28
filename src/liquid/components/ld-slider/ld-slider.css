@@ -1,5 +1,5 @@
 :host {
-  --ld-slider-animation-duration: 0.15s;
+  --ld-slider-animation-duration: 0s;
   --ld-slider-disabled-thumb-box-shadow: 0 0 0 transparent;
   --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-default);
   --ld-slider-thumb-box-shadow-default: var(--ld-shadow-stacked);
@@ -8,18 +8,22 @@
   --ld-slider-thumb-box-shadow-hover: var(--ld-slider-thumb-box-shadow-default),
     0 0 0 var(--ld-sp-4) var(--ld-thm-primary-alpha-lowest);
   --ld-slider-thumb-col: var(--ld-col-wht);
-  --ld-slider-thumb-color-disabled: var(--ld-col-neutral-200);
+  --ld-slider-disabled-thumb-col: var(--ld-col-neutral-200);
   --ld-slider-thumb-size: var(--ld-sp-24);
-  --ld-slider-thumb-size-disabled: var(--ld-sp-16);
   --ld-slider-radius: calc(0.5 * var(--ld-slider-thumb-size));
   --ld-slider-useful-width: calc(
     var(--ld-slider-width) - var(--ld-slider-thumb-size)
   );
   --ld-slider-diff: calc(var(--max) - var(--min));
   --ld-slider-indicator-size: var(--ld-sp-6);
+  --ld-slider-margin: var(--ld-sp-8);
   --ld-slider-padding: var(--ld-sp-32);
   --ld-slider-selected-col: var(--ld-thm-primary);
-  --ld-slider-selected-col-disabled: var(--ld-col-neutral-200);
+  --ld-slider-disabled-selected-col: var(--ld-col-neutral-200);
+
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-slider-animation-duration: 0.15s;
+  }
 
   display: grid;
   font: 700 1.125em ubuntu mono, consolas, monaco, monospace;
@@ -41,7 +45,7 @@
     content: '';
     align-self: center;
     height: var(--ld-sp-8);
-    margin: 0 var(--ld-sp-8);
+    margin: 0 var(--ld-slider-margin);
   }
 
   &::after {
@@ -52,19 +56,20 @@
 
   &([disabled]),
   &([aria-disabled=true]) {
-    --ld-slider-selected-col: var(--ld-slider-selected-col-disabled);
+    --ld-slider-selected-col: var(--ld-slider-disabled-selected-col);
     --ld-slider-thumb-box-shadow-default: var(
       --ld-slider-disabled-thumb-box-shadow
     );
-    --ld-slider-thumb-col: var(--ld-slider-thumb-color-disabled);
-    --ld-slider-thumb-size: var(--ld-slider-thumb-size-disabled);
+    --ld-slider-thumb-col: var(--ld-slider-disabled-thumb-col);
 
-    .ld-slider__input:disabled {
+    .ld-slider__input {
       &::-webkit-slider-thumb {
         pointer-events: none;
+        transform: scale(calc(2 / 3));
       }
       &::-moz-range-thumb {
         pointer-events: none;
+        transform: scale(calc(2 / 3));
       }
     }
   }
@@ -121,6 +126,7 @@
       background: var(--ld-slider-thumb-col);
       box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;
+      will-change: transform;
     }
     &::-moz-range-thumb {
       border: none; /* get rid of Firefox thumb border */
@@ -132,6 +138,7 @@
       background: var(--ld-slider-thumb-col);
       box-shadow: var(--ld-slider-thumb-box-shadow);
       pointer-events: auto;
+      will-change: transform;
     }
 
     &:active,
@@ -175,14 +182,14 @@
 
   .ld-slider__indicator {
     aspect-ratio: 1;
+    backdrop-filter: brightness(0.6) invert(1) hue-rotate(180deg);
     border-radius: var(--ld-br-full);
     grid-row: 2;
-    transform: translate(-50%);
-    width: var(--ld-slider-indicator-size);
-    top: 0.5725rem;
-    z-index: 1;
-    backdrop-filter: brightness(0.6) invert(1) hue-rotate(180deg);
+    height: var(--ld-slider-indicator-size);
     opacity: 0.5;
+    top: var(--ld-sp-12);
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   .ld-slider__edge {
