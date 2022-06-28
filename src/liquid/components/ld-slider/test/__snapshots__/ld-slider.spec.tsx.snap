@@ -11,8 +11,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
     ),
   transparent 0
 ),
@@ -20,8 +21,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
     ),
   transparent 0
 ); --v1: 70;">
@@ -64,8 +66,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 ),
@@ -73,8 +76,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -103,8 +107,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 ),
@@ -112,8 +117,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -142,8 +148,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -168,8 +175,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -203,8 +211,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -229,8 +238,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -255,8 +265,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 ),
@@ -264,8 +275,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 ),
@@ -273,8 +285,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v2) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v2) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -307,8 +320,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -339,8 +353,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -379,8 +394,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
     ),
   transparent 0
 );">
@@ -410,8 +426,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -436,8 +453,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -462,8 +480,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -488,8 +507,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 ),
@@ -497,8 +517,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v1) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
@@ -527,8 +548,9 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) + (var(--v0) - var(--min)) /
-        var(--ld-slider-diff) * var(--ld-slider-useful-width)
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
     ),
   transparent 0
 );">
