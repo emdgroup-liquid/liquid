@@ -116,7 +116,7 @@ The negative mode highlights deselected ranges as selected and vice versa.
   }
 
   #from, #to {
-    margin-bottom: var(--ld-sp-4);
+    margin-bottom: 0.875rem;
     width: 3rem;
   }
 

@@ -310,7 +310,9 @@ linear-gradient(
     calc(
       var(--ld-slider-radius) - var(--ld-slider-margin) +
         (var(--v${index}) - var(--min)) / var(--ld-slider-diff) *
-        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
+        (var(--ld-slider-useful-width)${
+          this.width === '100%' ? ' + 2 * var(--ld-slider-margin)' : ''
+        })
     ),
   transparent 0
 )`
