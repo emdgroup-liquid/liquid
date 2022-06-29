@@ -12993,7 +12993,7 @@
     },
 
       "id": "3a46d295",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13006,7 +13006,7 @@
     },
     {
       "id": "aa4d70b7",
-      "image": "4defe7171ce2617a40d1bf781586e143.png",
+      "image": "f795be7f8bb8988cbc07a17a4ecf3ccb.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13019,7 +13019,7 @@
     },
     {
       "id": "91077f23",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13032,7 +13032,7 @@
     },
     {
       "id": "66d8c9cc",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13045,7 +13045,7 @@
     },
     {
       "id": "72cb1355",
-      "image": "be43fb6358f9d96d350b84ab32e29c09.png",
+      "image": "73972e835c65539a91ec390305f1db1c.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13058,7 +13058,7 @@
     },
     {
       "id": "188e69ed",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13071,7 +13071,7 @@
     },
     {
       "id": "e11c27fa",
-      "image": "1aeefc4772574a151f9c897dbd78de18.png",
+      "image": "554db5752489879ddaad7115ed7c10e0.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13084,7 +13084,7 @@
     },
     {
       "id": "915bd5f7",
-      "image": "e61a09d06a809e04d3704e8275a36957.png",
+      "image": "6c24682a774b1ca8aa6e60a11f766b06.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13097,7 +13097,7 @@
     },
     {
       "id": "c90d7032",
-      "image": "863c86bf0d89d8261556c6035197a8b4.png",
+      "image": "ee2548168d8e1aa105306a6c42673793.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13110,7 +13110,7 @@
     },
     {
       "id": "6c8ecce1",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators step single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13122,21 +13122,8 @@
       "isMobile": false
     },
     {
-      "id": "24d7a1d3",
-      "image": "7671545e4a1200ccadc582228c8afd9b.png",
-      "userAgent": "default",
-      "desc": "ld-slider aria-disabled indicators step values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "83b491d2",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13149,7 +13136,7 @@
     },
     {
       "id": "d2f99b9c",
-      "image": "1ba89f83f943a3ec18a897437732e2d8.png",
+      "image": "f3104767d10ec100080da0f3c6d73562.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13162,7 +13149,7 @@
     },
     {
       "id": "97cca4d7",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13175,7 +13162,7 @@
     },
     {
       "id": "c5a8ea94",
-      "image": "a6b1fbff2b19b401e53f634b7268889e.png",
+      "image": "6ff43042de9b4ac88b286fe4317cbf13.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13188,7 +13175,7 @@
     },
     {
       "id": "25b4f4ad",
-      "image": "632f5605405181f831d8c074b9571d95.png",
+      "image": "5147ac1a6c7f5823bc77e2ed93e14998.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13201,7 +13188,7 @@
     },
     {
       "id": "af382d39",
-      "image": "01f3db8cf68c3034be0383348d8cd920.png",
+      "image": "a776f3aa6c332383e11e2e3768dd2858.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13214,7 +13201,7 @@
     },
     {
       "id": "c6aecc43",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled indicators stops single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13226,21 +13213,8 @@
       "isMobile": false
     },
     {
-      "id": "fe6e18e9",
-      "image": "6f9ea68cd8c206e62801689b60e1981e.png",
-      "userAgent": "default",
-      "desc": "ld-slider aria-disabled indicators stops values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "983c3708",
-      "image": "e13300e2515d2d551ea0c752c1e57ca5.png",
+      "image": "4046c36dd993dd8d623ab0f8a872f068.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13253,7 +13227,7 @@
     },
     {
       "id": "a3c6a7aa",
-      "image": "1cbf1e30604f1758e79c612dcb47f1c2.png",
+      "image": "0406df584d329530745708bd9339198f.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13266,7 +13240,7 @@
     },
     {
       "id": "dbf5fe7a",
-      "image": "58e69fa87f44987549ba9c3334c62283.png",
+      "image": "cf6804d3062608ec97a9b72358c6dcb4.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13279,7 +13253,7 @@
     },
     {
       "id": "b4d15384",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13292,7 +13266,7 @@
     },
     {
       "id": "bdab78d4",
-      "image": "d13e9caa2318f77047fff9d48543640a.png",
+      "image": "f731bbf04461383f75464b82792d7d37.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13305,7 +13279,7 @@
     },
     {
       "id": "1b61845b",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13318,7 +13292,7 @@
     },
     {
       "id": "c9489594",
-      "image": "b9265ffb49f6b30472aa0d90e3bdad96.png",
+      "image": "7e53547d3c61038944711063a3a50caa.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13331,7 +13305,7 @@
     },
     {
       "id": "abc7c027",
-      "image": "71ef05ee9c9084a56b8307b73fcb337c.png",
+      "image": "a5db92ab0587694413cd7b7f05f774c8.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13344,7 +13318,7 @@
     },
     {
       "id": "b824903a",
-      "image": "06bf4ffdb3a922793a5ab6753b8203c9.png",
+      "image": "fb6f4ddd11857038c54e3f0378b7eab9.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13357,7 +13331,7 @@
     },
     {
       "id": "69c5f22e",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled negative single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13369,21 +13343,8 @@
       "isMobile": false
     },
     {
-      "id": "b8427cfb",
-      "image": "64a90c32207f2c73e20cfcad64275766.png",
-      "userAgent": "default",
-      "desc": "ld-slider aria-disabled negative values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "4813cd3a",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider aria-disabled single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13395,21 +13356,8 @@
       "isMobile": false
     },
     {
-      "id": "40511d00",
-      "image": "06be6ab8c3442cc2f760a77eee4333d8.png",
-      "userAgent": "default",
-      "desc": "ld-slider aria-disabled values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "12bcc79f",
-      "image": "021557e0b767b2ba6a25a9c4e392f602.png",
+      "image": "1e28064ab0af9ff4b8d323485e8e03ed.png",
       "userAgent": "default",
       "desc": "ld-slider custom width active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13422,7 +13370,7 @@
     },
     {
       "id": "3969ad33",
-      "image": "7eca297bac37dd0790ba1509b7c6026d.png",
+      "image": "7a5cc390af45f4a958b8beb6ccadfc69.png",
       "userAgent": "default",
       "desc": "ld-slider custom width focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13435,7 +13383,7 @@
     },
     {
       "id": "1001826b",
-      "image": "2fcf7df760890ba11ee5b398b58a74be.png",
+      "image": "1ad93022e74d4154943035343657d690.png",
       "userAgent": "default",
       "desc": "ld-slider custom width hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13448,7 +13396,7 @@
     },
     {
       "id": "25f534d4",
-      "image": "021557e0b767b2ba6a25a9c4e392f602.png",
+      "image": "1e28064ab0af9ff4b8d323485e8e03ed.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13461,7 +13409,7 @@
     },
     {
       "id": "a744c853",
-      "image": "7eca297bac37dd0790ba1509b7c6026d.png",
+      "image": "7a5cc390af45f4a958b8beb6ccadfc69.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13474,7 +13422,7 @@
     },
     {
       "id": "db477820",
-      "image": "2fcf7df760890ba11ee5b398b58a74be.png",
+      "image": "1ad93022e74d4154943035343657d690.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13487,7 +13435,7 @@
     },
     {
       "id": "2ab0555a",
-      "image": "ef4c4b47e0ecc2b51c1bb82625085a06.png",
+      "image": "d3fa90cdc5084d40a3c672c62c9461c5.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13500,7 +13448,7 @@
     },
     {
       "id": "5ebd628a",
-      "image": "56c9d0cc026f6382fe0af3a349249846.png",
+      "image": "338c39b4d9ddb0560de1f937d1b3d4ef.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13513,7 +13461,7 @@
     },
     {
       "id": "9fd0241b",
-      "image": "efbc76f2747399be45013ce7ec7e27fa.png",
+      "image": "37c580bd4192a3f8a54accd96c35c546.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13526,7 +13474,7 @@
     },
     {
       "id": "8f336438",
-      "image": "6cd398cad6a1fb261fb762aa80da9d8b.png",
+      "image": "4ebdd07d4b1998d0e4a27929c40abbd8.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators step single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13538,21 +13486,8 @@
       "isMobile": false
     },
     {
-      "id": "036fcc1f",
-      "image": "3c4d8e3eb642271d23eea73067d6e770.png",
-      "userAgent": "default",
-      "desc": "ld-slider custom width indicators step values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "ce7ec081",
-      "image": "5ec4de50c85591985869b02ceab288a7.png",
+      "image": "e69ba9c3d976f7c81bbc7f94400e4abd.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13565,7 +13500,7 @@
     },
     {
       "id": "ef296941",
-      "image": "7b02bea7670501d2f328faf2ac76bb09.png",
+      "image": "4e830ef8f0b14bd6d868bb2f0b4be5bb.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13578,7 +13513,7 @@
     },
     {
       "id": "fe219d95",
-      "image": "b7808830bdb62f26c4288b4c335301ef.png",
+      "image": "9e903141c2b8333c0f06d8f8977665da.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13591,7 +13526,7 @@
     },
     {
       "id": "50be313c",
-      "image": "0a28277059c139fad4877ec4f676902f.png",
+      "image": "889ea5299893e5dd7925e53e5b8b1b72.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13604,7 +13539,7 @@
     },
     {
       "id": "1b31498b",
-      "image": "26f7fa5dbf258b513248f67d53fb64b6.png",
+      "image": "e5fc1cf7923c6f3d1d88328f5888ba09.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13617,7 +13552,7 @@
     },
     {
       "id": "67682d1b",
-      "image": "7250581907c24a4fe302bf31510821cd.png",
+      "image": "8d41fd47bd3233c56b95659b66ca27d9.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13630,7 +13565,7 @@
     },
     {
       "id": "3fd389ae",
-      "image": "a985455653d422a5cfcedec4b809dabf.png",
+      "image": "09375f52b1e8a0da822baed038eb2b14.png",
       "userAgent": "default",
       "desc": "ld-slider custom width indicators stops single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13642,21 +13577,8 @@
       "isMobile": false
     },
     {
-      "id": "84e6b4ec",
-      "image": "f5db8fca323663b44f6507f4020f8a9b.png",
-      "userAgent": "default",
-      "desc": "ld-slider custom width indicators stops values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "284422d1",
-      "image": "ef4c4b47e0ecc2b51c1bb82625085a06.png",
+      "image": "d3fa90cdc5084d40a3c672c62c9461c5.png",
       "userAgent": "default",
       "desc": "ld-slider custom width max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13669,7 +13591,7 @@
     },
     {
       "id": "b889f23f",
-      "image": "56c9d0cc026f6382fe0af3a349249846.png",
+      "image": "338c39b4d9ddb0560de1f937d1b3d4ef.png",
       "userAgent": "default",
       "desc": "ld-slider custom width min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13682,7 +13604,7 @@
     },
     {
       "id": "b44852b7",
-      "image": "efbc76f2747399be45013ce7ec7e27fa.png",
+      "image": "37c580bd4192a3f8a54accd96c35c546.png",
       "userAgent": "default",
       "desc": "ld-slider custom width multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13695,7 +13617,7 @@
     },
     {
       "id": "03e2f7a6",
-      "image": "6cd398cad6a1fb261fb762aa80da9d8b.png",
+      "image": "4ebdd07d4b1998d0e4a27929c40abbd8.png",
       "userAgent": "default",
       "desc": "ld-slider custom width single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13707,21 +13629,8 @@
       "isMobile": false
     },
     {
-      "id": "5ef4035f",
-      "image": "3c4d8e3eb642271d23eea73067d6e770.png",
-      "userAgent": "default",
-      "desc": "ld-slider custom width values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "92f183b3",
-      "image": "e7f9c598ccafa5b55083e1b045478626.png",
+      "image": "9d5bba223ead2b6dd7f1674692b0876f.png",
       "userAgent": "default",
       "desc": "ld-slider default active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13734,7 +13643,7 @@
     },
     {
       "id": "1f57e05c",
-      "image": "25a5ab45c5ad16502f42a0df991de8a9.png",
+      "image": "9bc35ee4ff10a46d7ae118a9d547bc5c.png",
       "userAgent": "default",
       "desc": "ld-slider default focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13747,7 +13656,7 @@
     },
     {
       "id": "418b27df",
-      "image": "c645477bd4eec70136d8f05770d0d29c.png",
+      "image": "e7ca5a48b156aea43e8c745dd32ad8ff.png",
       "userAgent": "default",
       "desc": "ld-slider default hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13760,7 +13669,7 @@
     },
     {
       "id": "0ec5918b",
-      "image": "3f5e5ed16c3e6be230aca158ad4405fb.png",
+      "image": "71fdb8ff9edf3c3282f0a73faebeef81.png",
       "userAgent": "default",
       "desc": "ld-slider default max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13773,7 +13682,7 @@
     },
     {
       "id": "6bac0f17",
-      "image": "9265940d51bf311aeab37255868f881c.png",
+      "image": "aebce57f49279b29482a8a6c2663cb6a.png",
       "userAgent": "default",
       "desc": "ld-slider default min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13786,7 +13695,7 @@
     },
     {
       "id": "27a3f56a",
-      "image": "890956d21b274e7fc2633ad7997a3dbc.png",
+      "image": "9feb82fda646247b71850bb6ac7567f9.png",
       "userAgent": "default",
       "desc": "ld-slider default multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13799,7 +13708,7 @@
     },
     {
       "id": "9a0efbd6",
-      "image": "7c835f8bc77998528a883662c08d4e47.png",
+      "image": "a9470b83a582d73b1f13e57afc246f3e.png",
       "userAgent": "default",
       "desc": "ld-slider default single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13811,21 +13720,8 @@
       "isMobile": false
     },
     {
-      "id": "9a93baa4",
-      "image": "439c9b2301cdc8fa03bedf40c06279bb.png",
-      "userAgent": "default",
-      "desc": "ld-slider default values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "33d2c497",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider disabled active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13838,7 +13734,7 @@
     },
     {
       "id": "bbbdfdd9",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider disabled focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13851,7 +13747,7 @@
     },
     {
       "id": "03a476fd",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider disabled hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13864,7 +13760,7 @@
     },
     {
       "id": "5a3aee75",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13877,7 +13773,7 @@
     },
     {
       "id": "aa894462",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13890,7 +13786,7 @@
     },
     {
       "id": "f2f94ebd",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13903,7 +13799,7 @@
     },
     {
       "id": "97157588",
-      "image": "1aeefc4772574a151f9c897dbd78de18.png",
+      "image": "554db5752489879ddaad7115ed7c10e0.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13916,7 +13812,7 @@
     },
     {
       "id": "91625672",
-      "image": "e61a09d06a809e04d3704e8275a36957.png",
+      "image": "6c24682a774b1ca8aa6e60a11f766b06.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13929,7 +13825,7 @@
     },
     {
       "id": "289e0009",
-      "image": "863c86bf0d89d8261556c6035197a8b4.png",
+      "image": "ee2548168d8e1aa105306a6c42673793.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13942,7 +13838,7 @@
     },
     {
       "id": "5fe649f1",
-      "image": "47b0a78315d3fd5ac8ad422f7a893516.png",
+      "image": "4665ef838c8aedaf7fe7442ce7241abc.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators step single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13954,21 +13850,8 @@
       "isMobile": false
     },
     {
-      "id": "9feab799",
-      "image": "7671545e4a1200ccadc582228c8afd9b.png",
-      "userAgent": "default",
-      "desc": "ld-slider disabled indicators step values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "0f99474d",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13981,7 +13864,7 @@
     },
     {
       "id": "b4aa3ad8",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -13994,7 +13877,7 @@
     },
     {
       "id": "5e1a4f38",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14007,7 +13890,7 @@
     },
     {
       "id": "e74766ea",
-      "image": "a6b1fbff2b19b401e53f634b7268889e.png",
+      "image": "6ff43042de9b4ac88b286fe4317cbf13.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14020,7 +13903,7 @@
     },
     {
       "id": "afbef6ac",
-      "image": "632f5605405181f831d8c074b9571d95.png",
+      "image": "5147ac1a6c7f5823bc77e2ed93e14998.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14033,7 +13916,7 @@
     },
     {
       "id": "cd6e2d55",
-      "image": "01f3db8cf68c3034be0383348d8cd920.png",
+      "image": "a776f3aa6c332383e11e2e3768dd2858.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14046,7 +13929,7 @@
     },
     {
       "id": "b8d718cd",
-      "image": "e641fd1e34c92a391e497db59685b5d5.png",
+      "image": "66879cbb9ef93d1c7995c38cacd8bc27.png",
       "userAgent": "default",
       "desc": "ld-slider disabled indicators stops single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14058,21 +13941,8 @@
       "isMobile": false
     },
     {
-      "id": "25a969dd",
-      "image": "6f9ea68cd8c206e62801689b60e1981e.png",
-      "userAgent": "default",
-      "desc": "ld-slider disabled indicators stops values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "d0b01aac",
-      "image": "e13300e2515d2d551ea0c752c1e57ca5.png",
+      "image": "4046c36dd993dd8d623ab0f8a872f068.png",
       "userAgent": "default",
       "desc": "ld-slider disabled max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14085,7 +13955,7 @@
     },
     {
       "id": "28cef349",
-      "image": "1cbf1e30604f1758e79c612dcb47f1c2.png",
+      "image": "0406df584d329530745708bd9339198f.png",
       "userAgent": "default",
       "desc": "ld-slider disabled min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14098,7 +13968,7 @@
     },
     {
       "id": "9d993d7c",
-      "image": "58e69fa87f44987549ba9c3334c62283.png",
+      "image": "cf6804d3062608ec97a9b72358c6dcb4.png",
       "userAgent": "default",
       "desc": "ld-slider disabled multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14111,7 +13981,7 @@
     },
     {
       "id": "b8a51aef",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14124,7 +13994,7 @@
     },
     {
       "id": "52498a1d",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14137,7 +14007,7 @@
     },
     {
       "id": "3e63abfc",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14150,7 +14020,7 @@
     },
     {
       "id": "9a7c8911",
-      "image": "b9265ffb49f6b30472aa0d90e3bdad96.png",
+      "image": "7e53547d3c61038944711063a3a50caa.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14163,7 +14033,7 @@
     },
     {
       "id": "441851c4",
-      "image": "71ef05ee9c9084a56b8307b73fcb337c.png",
+      "image": "a5db92ab0587694413cd7b7f05f774c8.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14176,7 +14046,7 @@
     },
     {
       "id": "0a01642e",
-      "image": "06bf4ffdb3a922793a5ab6753b8203c9.png",
+      "image": "fb6f4ddd11857038c54e3f0378b7eab9.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14189,7 +14059,7 @@
     },
     {
       "id": "ed51c739",
-      "image": "23216d3af5dcdfaa5e53e65f6402d21f.png",
+      "image": "fb2e2fc12733decdceb9e6cf2711459c.png",
       "userAgent": "default",
       "desc": "ld-slider disabled negative single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14201,21 +14071,8 @@
       "isMobile": false
     },
     {
-      "id": "6e6dd444",
-      "image": "64a90c32207f2c73e20cfcad64275766.png",
-      "userAgent": "default",
-      "desc": "ld-slider disabled negative values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "25ccc5aa",
-      "image": "d05258e4dee1f044e9d0b62b3fda1e47.png",
+      "image": "5cd70aad57667ed642719d2bf7ae2171.png",
       "userAgent": "default",
       "desc": "ld-slider disabled single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14227,10 +14084,270 @@
       "isMobile": false
     },
     {
-      "id": "3f12b62a",
-      "image": "06be6ab8c3442cc2f760a77eee4333d8.png",
+      "id": "89f0bbc8",
+      "image": "aacc02320c1036ee88e2e9b606b834c3.png",
       "userAgent": "default",
-      "desc": "ld-slider disabled values always visible",
+      "desc": "ld-slider hide stop labels active",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "c7b140c9",
+      "image": "0f8e7cde32aba7ce8b1f8ee42c6c62b1.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels focus",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "982dac9f",
+      "image": "7ab120ce593c3247f16efd80d625cf4b.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels hover",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "4bd7f732",
+      "image": "443eafc94141bde6776e7822f950ad11.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels max value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "19bc240b",
+      "image": "a715ffd95c11305a1d69ade2abbc6014.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels min value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2cc7a562",
+      "image": "fb1ffdfe82ecbdf36068a460e83d7f6e.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels multiple values",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "18cad2f3",
+      "image": "a5295e6956973ba77ef87f6563bb8bc1.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide stop labels single value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "c6a914c0",
+      "image": "699d2e8cfcb37118671690476a0153f2.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels active",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "ea504525",
+      "image": "bf2d093639aa01f1d41b32e5961662cb.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels focus",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2953038c",
+      "image": "909c9607a1491531de48697614d2ebf4.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels hover",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "825bebff",
+      "image": "1ea520fe06564ac44a2842bf55a08682.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels max value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "50372399",
+      "image": "093b085962ced31ae349ece4457466c6.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels min value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "592d970c",
+      "image": "f7d40add385c0bb4b320a3bd1ec10044.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels multiple values",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "bd2db6c4",
+      "image": "5b168d5dafc8eb5b55588175a728e37d.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide value labels single value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "665ea2da",
+      "image": "e7f9c598ccafa5b55083e1b045478626.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values active",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "ff01b856",
+      "image": "25a5ab45c5ad16502f42a0df991de8a9.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values focus",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "65380d3c",
+      "image": "c645477bd4eec70136d8f05770d0d29c.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values hover",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "3a5a856e",
+      "image": "3f5e5ed16c3e6be230aca158ad4405fb.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values max value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "13ea6cb7",
+      "image": "9265940d51bf311aeab37255868f881c.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values min value",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "00315864",
+      "image": "890956d21b274e7fc2633ad7997a3dbc.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values multiple values",
+      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "c6a2df7b",
+      "image": "7c835f8bc77998528a883662c08d4e47.png",
+      "userAgent": "default",
+      "desc": "ld-slider hide values single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
       "width": 600,
       "height": 600,
@@ -14241,7 +14358,7 @@
     },
     {
       "id": "1613e025",
-      "image": "fa5dbae1d1bb42b35846efbbdb8daa99.png",
+      "image": "36640f2023bc99742d033dfc87c346fe.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14254,7 +14371,7 @@
     },
     {
       "id": "4dc00901",
-      "image": "7e7300320ea54b94dcd03ea1e1a07127.png",
+      "image": "8551c560361c8445aa98c5677f9b636f.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14267,7 +14384,7 @@
     },
     {
       "id": "18179251",
-      "image": "6a2f0a3362bf40e1cd4e10c5cb07361a.png",
+      "image": "995a0eb48293e064d4174d2e9b418c39.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14280,7 +14397,7 @@
     },
     {
       "id": "83af6009",
-      "image": "22be2151d55d5c76101d1ad4e7eb771d.png",
+      "image": "4ec65751a5b859e2612d0acd63ef7862.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14293,7 +14410,7 @@
     },
     {
       "id": "790dbffe",
-      "image": "9468f21abcd9a8219464afbf846e51d0.png",
+      "image": "e0d539d3e34382569f3360672ca6f83d.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14306,7 +14423,7 @@
     },
     {
       "id": "fa4fa40c",
-      "image": "abe4532684d3ce2374ce3d1e1ccb04e4.png",
+      "image": "6d2d43c87becffd2e4deafdabd0decaf.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14319,7 +14436,7 @@
     },
     {
       "id": "60d79d0b",
-      "image": "0c30e3a42181f5e74b107e9ec3f31570.png",
+      "image": "32a0fd7c0a791060a3bb97c7ecc1a17d.png",
       "userAgent": "default",
       "desc": "ld-slider indicators step single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14331,21 +14448,8 @@
       "isMobile": false
     },
     {
-      "id": "b8e89aaf",
-      "image": "b275b5c902265faa9f16b3b6eebd3855.png",
-      "userAgent": "default",
-      "desc": "ld-slider indicators step values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "4932629b",
-      "image": "c817ebaaec9710e83c01073a460ee528.png",
+      "image": "e9e9736a43658e4c2a65ab74221899c6.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14358,7 +14462,7 @@
     },
     {
       "id": "849205df",
-      "image": "a8ba185e8555846e0ac721fcf1556301.png",
+      "image": "89e2de05dabc84c48bd0c806f5534ecc.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14371,7 +14475,7 @@
     },
     {
       "id": "471be620",
-      "image": "513f8580bd3abce642ae473e83cf5ba7.png",
+      "image": "19ab4327511b259ea3c2371b6f6a9d6a.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14384,7 +14488,7 @@
     },
     {
       "id": "b037016b",
-      "image": "4aab8fe84f41dd3be8e8d9151949c2d2.png",
+      "image": "a7fcfbbf4b32573993f07d1f4ca730d5.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14397,7 +14501,7 @@
     },
     {
       "id": "16c58cd6",
-      "image": "903aed4385254ec3a5bd1cf07c44577c.png",
+      "image": "b3ec4471b3fc83b642c088c087cda600.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14410,7 +14514,7 @@
     },
     {
       "id": "d30ecf31",
-      "image": "d15422b2d488ce89596d79835e064708.png",
+      "image": "b2ac69538a5ea8e38e3c5b8e1b30013c.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14423,7 +14527,7 @@
     },
     {
       "id": "fbe9a95b",
-      "image": "362b27feb60a5448323516a80f34dfb2.png",
+      "image": "7257f9f58a751103634c85803d8c1df0.png",
       "userAgent": "default",
       "desc": "ld-slider indicators stops single value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14435,21 +14539,8 @@
       "isMobile": false
     },
     {
-      "id": "e76fa09e",
-      "image": "07f0c5ad5598ab39d4b685c4f1916690.png",
-      "userAgent": "default",
-      "desc": "ld-slider indicators stops values always visible",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
       "id": "a4959f52",
-      "image": "8b59be920de8b19739ef54b05c0bfc3a.png",
+      "image": "070f8b3e0879be993b5bbda9fd73ea2e.png",
       "userAgent": "default",
       "desc": "ld-slider negative active",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14462,7 +14553,7 @@
     },
     {
       "id": "fb46370e",
-      "image": "dd82cba50fa94ca1b4eb416780665835.png",
+      "image": "c39e8bc1519055fe3f52617343ed509b.png",
       "userAgent": "default",
       "desc": "ld-slider negative focus",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14475,7 +14566,7 @@
     },
     {
       "id": "89cea52a",
-      "image": "1fcb262d023c18c803a493a0699db10d.png",
+      "image": "e0391df7e0039efef49fb82c33042c48.png",
       "userAgent": "default",
       "desc": "ld-slider negative hover",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14488,7 +14579,7 @@
     },
     {
       "id": "6dadceca",
-      "image": "c18a80b7fd039a26b0e895a6f2758fd6.png",
+      "image": "7dbeef58384703c404dfa3bfda07dff3.png",
       "userAgent": "default",
       "desc": "ld-slider negative max value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14501,7 +14592,7 @@
     },
     {
       "id": "c520c038",
-      "image": "6527143e74cf608971af5a61409222ae.png",
+      "image": "71cd05369041ff29f24700ba73b148b6.png",
       "userAgent": "default",
       "desc": "ld-slider negative min value",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14514,7 +14605,7 @@
     },
     {
       "id": "ea8bc7df",
-      "image": "f6d91b740e61e380df1970295b97bfe4.png",
+      "image": "5405123cd94a5fdb652755ccf41378ae.png",
       "userAgent": "default",
       "desc": "ld-slider negative multiple values",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
@@ -14527,22 +14618,9 @@
     },
     {
       "id": "3b6972b7",
-      "image": "cb69f5ce64897f7a6c7d9ddb55e93f22.png",
+      "image": "e217bab972a981c045e6a2fa1c5963e7.png",
       "userAgent": "default",
       "desc": "ld-slider negative single value",
-      "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
-      "width": 600,
-      "height": 600,
-      "deviceScaleFactor": 1,
-      "hasTouch": false,
-      "isLandscape": false,
-      "isMobile": false
-    },
-    {
-      "id": "1dd3f7ca",
-      "image": "7e7830021d78c590186b1f0f2980f0cb.png",
-      "userAgent": "default",
-      "desc": "ld-slider negative values always visible",
       "testPath": "./src/liquid/components/ld-slider/test/ld-slider.e2e.ts",
       "width": 600,
       "height": 600,

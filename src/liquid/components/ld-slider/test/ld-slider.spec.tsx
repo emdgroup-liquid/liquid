@@ -46,14 +46,6 @@ describe('ld-slider', () => {
       expect(page.root).toMatchSnapshot()
     })
 
-    it('with values always visible', async () => {
-      const page = await newSpecPage({
-        components: [LdSlider],
-        template: () => <ld-slider alwaysShowValues />,
-      })
-      expect(page.root).toMatchSnapshot()
-    })
-
     it('disabled', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
@@ -109,6 +101,30 @@ describe('ld-slider', () => {
       })
       expect(page.root).toMatchSnapshot()
     })
+
+    it('without values', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider hide-values />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without value labels', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider hide-value-labels />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('without stop labels', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider hide-stop-labels stops="20,45,85" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   it('re-renders on prop changes', async () => {
@@ -118,9 +134,11 @@ describe('ld-slider', () => {
     })
 
     const slider = page.root as HTMLLdSliderElement
-    slider.alwaysShowValues = true
     slider.ariaDisabled = 'true'
     slider.disabled = true
+    slider.hideStopLabels = true
+    slider.hideValueLabels = true
+    slider.hideValues = true
     slider.indicators = true
     slider.labelFrom = 'Von'
     slider.labelTo = 'Bis'

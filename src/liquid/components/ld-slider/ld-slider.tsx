@@ -41,12 +41,16 @@ const findPrev = (items: number[], currValue: number) =>
 export class LdSlider {
   @Element() el: HTMLLdSliderElement
 
-  /** Makes the current values always visible above the thumbs */
-  @Prop() alwaysShowValues = false
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
   /** Disabled state of the slider */
   @Prop() disabled = false
+  /** Prevents rendering of the stop labels below the slider */
+  @Prop() hideStopLabels = false
+  /** Prevents rendering of the value labels below the slider */
+  @Prop() hideValueLabels = false
+  /** Makes the current values only visible on interaction */
+  @Prop() hideValues = false
   /** Specifies the legal number intervals */
   @Prop() indicators = false
   /** "From" value label (when exactly 2 values are given) */
@@ -74,7 +78,7 @@ export class LdSlider {
   /** Width of the slider */
   @Prop() width? = '100%'
 
-  @State() edges: number[] = []
+  @State() valueLabels: number[] = []
   @State() steps: number[] = []
   @State() values: number[] = []
 
@@ -218,7 +222,9 @@ export class LdSlider {
     this.steps = this.stops
       ? [
           this.min,
-          ...this.stops.split(',').map((edge) => Number.parseInt(edge, 10)),
+          ...this.stops
+            .split(',')
+            .map((valueLabel) => Number.parseInt(valueLabel, 10)),
           this.max,
         ]
       : this.step
@@ -227,7 +233,7 @@ export class LdSlider {
           .map((min, index) => min + index * this.step)
       : []
 
-    this.edges = this.stops ? [...this.steps] : [this.min, this.max]
+    this.valueLabels = this.stops ? [...this.steps] : [this.min, this.max]
   }
 
   @Watch('value')
@@ -283,8 +289,7 @@ export class LdSlider {
       <Host
         class={getClassNames([
           'ld-slider',
-          (this.disabled || this.ariaDisabled === 'true') &&
-            'ld-slider--disabled',
+          this.hideValueLabels && 'ld-slider--padded',
         ])}
         role="group"
         style={{
@@ -357,7 +362,7 @@ linear-gradient(
             <output
               class={getClassNames([
                 'ld-slider__output',
-                this.alwaysShowValues && 'ld-slider__output--permanent',
+                !this.hideValues && 'ld-slider__output--permanent',
               ])}
               htmlFor={`v${index}`}
               style={{ '--c': `var(--v${index})` }}
@@ -372,19 +377,26 @@ linear-gradient(
               style={{ '--c': String(stop) }}
             />
           ))}
-        {this.edges.map((edge, index) => (
-          <div
-            class={getClassNames([
-              'ld-slider__edge',
-              index === 0 && 'ld-slider__edge--first',
-              index === this.edges.length - 1 && 'ld-slider__edge--last',
-            ])}
-            key={edge}
-            style={{ '--c': String(edge) }}
-          >
-            {edge}
-          </div>
-        ))}
+        {!this.hideValueLabels &&
+          this.valueLabels.map(
+            (valueLabel, index) =>
+              (index === 0 ||
+                index === this.valueLabels.length - 1 ||
+                !this.hideStopLabels) && (
+                <div
+                  class={getClassNames([
+                    'ld-slider__value-label',
+                    index === 0 && 'ld-slider__value-label--first',
+                    index === this.valueLabels.length - 1 &&
+                      'ld-slider__value-label--last',
+                  ])}
+                  key={valueLabel}
+                  style={{ '--c': String(valueLabel) }}
+                >
+                  {valueLabel}
+                </div>
+              )
+          )}
       </Host>
     )
   }
