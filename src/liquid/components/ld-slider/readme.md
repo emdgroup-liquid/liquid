@@ -124,19 +124,25 @@ The negative mode highlights deselected ranges as selected and vice versa.
 {% example %}
 <div class="flex">
   <ld-input id="from" type="number" value="40"></ld-input>
-  <ld-slider id="slider" value="40,90" width="20rem"></ld-slider>
+  <ld-slider id="slider1" value="40,90" width="20rem"></ld-slider>
   <ld-input id="to" type="number" value="90"></ld-input>
+</div>
+
+<div class="flex">
+  <ld-button id="minus">-</ld-button>
+  <ld-slider id="slider2" value="40" width="20rem"></ld-slider>
+  <ld-button id="plus">+</ld-button>
 </div>
 
 <style>
   .flex {
     align-items: end;
     display: flex;
-    gap: var(--ld-sp-16);
+    gap: var(--ld-sp-8);
   }
 
-  #from, #to {
-    margin-bottom: 0.875rem;
+  #from, #to, #minus, #plus {
+    margin-bottom: 1.125rem;
     width: 3rem;
   }
 
@@ -146,17 +152,20 @@ The negative mode highlights deselected ranges as selected and vice versa.
 </style>
 
 <script>
-  const slider = document.getElementById('slider')
+  const slider1 = document.getElementById('slider1')
+  const slider2 = document.getElementById('slider2')
   const from = document.getElementById('from')
   const to = document.getElementById('to')
+  const minus = document.getElementById('minus')
+  const plus = document.getElementById('plus')
   const handleInput = (event) => {
     if (!from.value || !to.value) {
       return
     }
-    slider.value = [from.value, to.value].join(',')
+    slider1.value = [from.value, to.value].join(',')
   }
 
-  slider.addEventListener('ldchange', (event) => {
+  slider1.addEventListener('ldchange', (event) => {
     const [newFrom, newTo] = event.detail
 
     from.value = newFrom
@@ -164,6 +173,32 @@ The negative mode highlights deselected ranges as selected and vice versa.
   })
   from.addEventListener('input', handleInput)
   to.addEventListener('input', handleInput)
+
+  slider2.addEventListener('ldchange', (event) => {
+    const [newValue] = event.detail
+
+    if (newValue === 0) {
+      minus.disabled = true
+    } else {
+      minus.disabled = false
+    }
+
+    if (newValue === 100) {
+      plus.disabled = true
+    } else {
+      plus.disabled = false
+    }
+  })
+  minus.addEventListener('click', () => {
+    const currValue = Number.parseInt(slider2.value)
+    if (currValue <= 0) return
+    slider2.value = String(currValue - 1)
+  })
+  plus.addEventListener('click', () => {
+    const currValue = Number.parseInt(slider2.value)
+    if (currValue >= 100) return
+    slider2.value = String(currValue + 1)
+  })
 </script>
 {% endexample %}
 
