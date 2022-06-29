@@ -9,6 +9,7 @@ import {
   Prop,
   State,
   Watch,
+  Method,
 } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
@@ -33,13 +34,23 @@ const findPrev = (items: number[], currValue: number) =>
     currValue
   )
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part indicator - Stop/step indicator div elements
+ * @part input - `input` elements
+ * @part label - `label` element labelling an input (screen-reader only)
+ * @part output - `output` elements
+ * @part value-label - `div` element containing the max/min/stops values + unit
+ */
 @Component({
   tag: 'ld-slider',
   styleUrl: 'ld-slider.css',
   shadow: true,
 })
-export class LdSlider {
+export class LdSlider implements InnerFocusable {
   @Element() el: HTMLLdSliderElement
+  firstSliderRef?: HTMLInputElement
 
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
@@ -75,6 +86,8 @@ export class LdSlider {
   @Prop() stops?: string
   /** Prevents swapping of thumbs */
   @Prop() strict = false
+  /** Tab index of the input(s). */
+  @Prop() ldTabindex: number | undefined
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() unit?: string
   /** Specifies the default value */
@@ -87,6 +100,12 @@ export class LdSlider {
   @State() values: number[] = []
 
   @Event() ldchange: EventEmitter<typeof this.values>
+
+  /** Focuses the toggle */
+  @Method()
+  async focusInner() {
+    this.firstSliderRef?.focus({ preventScroll: true })
+  }
 
   handleInput = (ev: Event, index: number) => {
     const target = ev.target as HTMLInputElement
@@ -332,7 +351,7 @@ linear-gradient(
       >
         {this.values.map((value, index) => (
           <>
-            <label class="sr-only" htmlFor={`v${index}`}>
+            <label class="sr-only" htmlFor={`v${index}`} part="label">
               {this.values.length === 2
                 ? index === 0
                   ? this.labelFrom
@@ -352,6 +371,14 @@ linear-gradient(
               min={this.min}
               onInput={(ev) => this.handleInput(ev, index)}
               onKeyDown={(ev) => this.handleKeyDown(ev, index)}
+              part="input focusable"
+              ref={
+                index === 0
+                  ? (ref) => {
+                      this.firstSliderRef = ref
+                    }
+                  : undefined
+              }
               step={this.snapOffset !== undefined ? undefined : this.step}
               style={
                 // prevents that thumb is not movable in strict mode
@@ -361,6 +388,7 @@ linear-gradient(
                     }
                   : undefined
               }
+              tabindex={this.ldTabindex}
               type="range"
               value={value}
             />
@@ -370,6 +398,7 @@ linear-gradient(
                 !this.hideValues && 'ld-slider__output--permanent',
               ])}
               htmlFor={`v${index}`}
+              part="output"
               style={{
                 '--c': `var(--v${index})`,
                 '--u': `"${this.unit ?? ''}"`,
@@ -382,6 +411,7 @@ linear-gradient(
             <div
               class="ld-slider__indicator"
               key={stop}
+              part="indicator"
               style={{ '--c': String(stop) }}
             />
           ))}
@@ -399,6 +429,7 @@ linear-gradient(
                       'ld-slider__value-label--last',
                   ])}
                   key={valueLabel}
+                  part="value-label"
                   style={{ '--c': String(valueLabel) }}
                 >
                   {valueLabel}

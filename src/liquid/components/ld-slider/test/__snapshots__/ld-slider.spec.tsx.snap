@@ -28,19 +28,19 @@ linear-gradient(
   transparent 0
 ); --v1: 70;">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Von
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" type="range" value="30"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <label class="sr-only" htmlfor="v1">
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" part="input focusable" type="range" value="30"><output class="ld-slider__output" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <label class="sr-only" htmlfor="v1" part="label">
       Bis
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" type="range" value="70"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
-    <div class="ld-slider__indicator" style="--c: 1;"></div>
-    <div class="ld-slider__indicator" style="--c: 30;"></div>
-    <div class="ld-slider__indicator" style="--c: 50;"></div>
-    <div class="ld-slider__indicator" style="--c: 70;"></div>
-    <div class="ld-slider__indicator" style="--c: 99;"></div>
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" part="input focusable" type="range" value="70"><output class="ld-slider__output" htmlfor="v1" part="output" style="--c: var(--v1); --u: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 1;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 30;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 50;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 70;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 99;"></div>
   </mock:shadow-root>
 </ld-slider>
 `;
@@ -68,18 +68,18 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       From
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <label class="sr-only" htmlfor="v1">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <label class="sr-only" htmlfor="v1" part="label">
       To
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" part="output" style="--c: var(--v1); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -109,18 +109,18 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Von
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <label class="sr-only" htmlfor="v1">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <label class="sr-only" htmlfor="v1" part="label">
       Bis
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" part="output" style="--c: var(--v1); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -140,14 +140,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input aria-disabled="true" class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input aria-disabled="true" class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -167,23 +167,23 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="50" min="-50" type="range" value="-50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: -50;">
+    <input class="ld-slider__input" id="v0" max="50" min="-50" part="input focusable" type="range" value="-50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: -50;">
       -50
     </div>
-    <div class="ld-slider__value-label" style="--c: -25;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: -25;">
       -25
     </div>
-    <div class="ld-slider__value-label" style="--c: 0;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label" style="--c: 25;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 25;">
       25
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 50;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 50;">
       50
     </div>
   </mock:shadow-root>
@@ -203,14 +203,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -230,14 +230,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -257,14 +257,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -304,22 +304,22 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Thumb 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <label class="sr-only" htmlfor="v1">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <label class="sr-only" htmlfor="v1" part="label">
       Thumb 2
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
-    <label class="sr-only" htmlfor="v2">
+    <input class="ld-slider__input" id="v1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" part="output" style="--c: var(--v1); --u: "";"></output>
+    <label class="sr-only" htmlfor="v2" part="label">
       Thumb 3
     </label>
-    <input class="ld-slider__input" id="v2" max="100" min="0" type="range" value="80"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v2" style="--c: var(--v2); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v2" max="100" min="0" part="input focusable" type="range" value="80"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v2" part="output" style="--c: var(--v2); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -339,20 +339,20 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" step="20" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__indicator" style="--c: 0;"></div>
-    <div class="ld-slider__indicator" style="--c: 20;"></div>
-    <div class="ld-slider__indicator" style="--c: 40;"></div>
-    <div class="ld-slider__indicator" style="--c: 60;"></div>
-    <div class="ld-slider__indicator" style="--c: 80;"></div>
-    <div class="ld-slider__indicator" style="--c: 100;"></div>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" step="20" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 0;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 20;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 40;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 60;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 80;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 100;"></div>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -372,28 +372,28 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__indicator" style="--c: 0;"></div>
-    <div class="ld-slider__indicator" style="--c: 20;"></div>
-    <div class="ld-slider__indicator" style="--c: 45;"></div>
-    <div class="ld-slider__indicator" style="--c: 85;"></div>
-    <div class="ld-slider__indicator" style="--c: 100;"></div>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 0;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 20;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 45;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 85;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--c: 100;"></div>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label" style="--c: 20;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 20;">
       20
     </div>
-    <div class="ld-slider__value-label" style="--c: 45;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 45;">
       45
     </div>
-    <div class="ld-slider__value-label" style="--c: 85;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 85;">
       85
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -413,14 +413,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -445,14 +445,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -472,23 +472,23 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "%";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "%";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0%
     </div>
-    <div class="ld-slider__value-label" style="--c: 20;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 20;">
       20%
     </div>
-    <div class="ld-slider__value-label" style="--c: 45;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 45;">
       45%
     </div>
-    <div class="ld-slider__value-label" style="--c: 85;">
+    <div class="ld-slider__value-label" part="value-label" style="--c: 85;">
       85%
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100%
     </div>
   </mock:shadow-root>
@@ -508,14 +508,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -535,14 +535,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -562,10 +562,10 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
   </mock:shadow-root>
 </ld-slider>
 `;
@@ -583,14 +583,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -620,18 +620,18 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       From
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <label class="sr-only" htmlfor="v1">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <label class="sr-only" htmlfor="v1" part="label">
       To
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="100"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v1" max="100" min="0" part="input focusable" type="range" value="100"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" part="output" style="--c: var(--v1); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>
@@ -651,14 +651,14 @@ linear-gradient(
   transparent 0
 );">
   <mock:shadow-root>
-    <label class="sr-only" htmlfor="v0">
+    <label class="sr-only" htmlfor="v0" part="label">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
-    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+    <input class="ld-slider__input" id="v0" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" part="output" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--c: 0;">
       0
     </div>
-    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--c: 100;">
       100
     </div>
   </mock:shadow-root>

@@ -564,4 +564,18 @@ describe('ld-slider', () => {
       expect(page.root.value).toBe('100')
     })
   })
+
+  it('allows to set inner focus', async () => {
+    const page = await newSpecPage({
+      components: [LdSlider],
+      template: () => <ld-slider />,
+    })
+    const slider = page.root as HTMLLdSliderElement
+    const input = slider.shadowRoot.querySelector('input')
+
+    input.focus = jest.fn()
+    await slider.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
+  })
 })
