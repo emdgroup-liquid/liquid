@@ -94,6 +94,22 @@ describe('ld-slider', () => {
       expect(page.root).toMatchSnapshot()
     })
 
+    it('different size', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider size="sm" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('with unit', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider unit="%" stops="20,45,85" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
     it('without indicators, if step/stops parameter not given', async () => {
       const page = await newSpecPage({
         components: [LdSlider],

@@ -7,6 +7,7 @@ const attributeMap = {
   default: '',
   disabled: ' disabled',
   negative: ' negative',
+  unit: ' unit="%" stops="20,50,75"',
   'aria-disabled indicators step': ' aria-disabled="true" indicators step="10"',
   'aria-disabled indicators stops':
     ' aria-disabled="true" indicators stops="20,50,75"',
@@ -114,6 +115,24 @@ describe('ld-slider', () => {
 
         expect(results).toMatchScreenshot()
         expect(accessibilityReport).toHaveNoAccessibilityIssues()
+      })
+
+      it('size sm', async () => {
+        const page = await getPageWithContent(
+          `<ld-slider${attributes} size="sm" value="50"></ld-slider>`
+        )
+
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('size lg', async () => {
+        const page = await getPageWithContent(
+          `<ld-slider${attributes} size="lg" value="50"></ld-slider>`
+        )
+
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
       })
     })
   })

@@ -31,11 +31,11 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Von
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" type="range" value="30"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="99" min="1" type="range" value="30"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <label class="sr-only" htmlfor="v1">
       Bis
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" type="range" value="70"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1);"></output>
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v1" max="99" min="1" type="range" value="70"><output class="ld-slider__output" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
     <div class="ld-slider__indicator" style="--c: 1;"></div>
     <div class="ld-slider__indicator" style="--c: 30;"></div>
     <div class="ld-slider__indicator" style="--c: 50;"></div>
@@ -71,11 +71,11 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       From
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <label class="sr-only" htmlfor="v1">
       To
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
+    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -112,11 +112,11 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Von
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <label class="sr-only" htmlfor="v1">
       Bis
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
+    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -143,7 +143,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input aria-disabled="true" class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input aria-disabled="true" class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -170,7 +170,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="50" min="-50" type="range" value="-50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="50" min="-50" type="range" value="-50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: -50;">
       -50
     </div>
@@ -206,7 +206,34 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders different size 1`] = `
+<ld-slider class="ld-slider ld-slider--sm" role="group" value="0" style="--v0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <label class="sr-only" htmlfor="v0">
+      Value 1
+    </label>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -233,7 +260,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input aria-disabled="true" class="ld-slider__input" disabled="" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -280,15 +307,15 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Thumb 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <label class="sr-only" htmlfor="v1">
       Thumb 2
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
+    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
     <label class="sr-only" htmlfor="v2">
       Thumb 3
     </label>
-    <input class="ld-slider__input" id="v2" max="100" min="0" type="range" value="80"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v2" style="--c: var(--v2);"></output>
+    <input class="ld-slider__input" id="v2" max="100" min="0" type="range" value="80"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v2" style="--c: var(--v2); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -315,7 +342,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" step="20" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" step="20" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__indicator" style="--c: 0;"></div>
     <div class="ld-slider__indicator" style="--c: 20;"></div>
     <div class="ld-slider__indicator" style="--c: 40;"></div>
@@ -348,7 +375,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__indicator" style="--c: 0;"></div>
     <div class="ld-slider__indicator" style="--c: 20;"></div>
     <div class="ld-slider__indicator" style="--c: 45;"></div>
@@ -389,7 +416,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -421,12 +448,48 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
     <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
       100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders with unit 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--v0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-margin) +
+        (var(--v0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <label class="sr-only" htmlfor="v0">
+      Value 1
+    </label>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "%";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
+      0%
+    </div>
+    <div class="ld-slider__value-label" style="--c: 20;">
+      20%
+    </div>
+    <div class="ld-slider__value-label" style="--c: 45;">
+      45%
+    </div>
+    <div class="ld-slider__value-label" style="--c: 85;">
+      85%
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" style="--c: 100;">
+      100%
     </div>
   </mock:shadow-root>
 </ld-slider>
@@ -448,7 +511,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -475,7 +538,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -502,7 +565,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
   </mock:shadow-root>
 </ld-slider>
 `;
@@ -523,7 +586,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -560,11 +623,11 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       From
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <label class="sr-only" htmlfor="v1">
       To
     </label>
-    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="100"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1);"></output>
+    <input class="ld-slider__input" id="v1" max="100" min="0" type="range" value="100"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v1" style="--c: var(--v1); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>
@@ -591,7 +654,7 @@ linear-gradient(
     <label class="sr-only" htmlfor="v0">
       Value 1
     </label>
-    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0);"></output>
+    <input class="ld-slider__input" id="v0" max="100" min="0" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="v0" style="--c: var(--v0); --u: "";"></output>
     <div class="ld-slider__value-label ld-slider__value-label--first" style="--c: 0;">
       0
     </div>

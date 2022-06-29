@@ -9,14 +9,20 @@
     0 0 0 var(--ld-sp-4) var(--ld-thm-primary-alpha-lowest);
   --ld-slider-thumb-col: var(--ld-col-wht);
   --ld-slider-disabled-thumb-col: var(--ld-col-neutral-200);
-  --ld-slider-thumb-size: var(--ld-sp-24);
-  --ld-slider-radius: calc(0.5 * var(--ld-slider-thumb-size));
+  --ld-slider-thumb-size: var(--ld-slider-thumb-size-md);
+  --ld-slider-thumb-size-sm: var(--ld-sp-24);
+  --ld-slider-thumb-size-md: var(--ld-sp-32);
+  --ld-slider-thumb-size-lg: var(--ld-sp-40);
+  --ld-slider-radius: calc(var(--ld-slider-thumb-size) / 2);
   --ld-slider-useful-width: calc(
     var(--ld-slider-width) - var(--ld-slider-thumb-size)
   );
   --ld-slider-diff: calc(var(--max) - var(--min));
   --ld-slider-indicator-size: var(--ld-sp-6);
-  --ld-slider-margin: var(--ld-sp-8);
+  --ld-slider-margin: calc(
+    (var(--ld-slider-thumb-size) - var(--ld-slider-indicator-size)) / 2 -
+      0.0625rem
+  );
   --ld-slider-padding: var(--ld-sp-32);
   --ld-slider-selected-col: var(--ld-slider-selected-col-default);
   --ld-slider-selected-col-default: var(--ld-thm-primary);
@@ -85,6 +91,14 @@
 
   &(.ld-slider--padded) {
     padding-bottom: var(--ld-sp-6);
+  }
+
+  &(.ld-slider--sm) {
+    --ld-slider-thumb-size: var(--ld-slider-thumb-size-sm);
+  }
+
+  &(.ld-slider--lg) {
+    --ld-slider-thumb-size: var(--ld-slider-thumb-size-lg);
   }
 
   & * {
@@ -198,7 +212,7 @@
     grid-row: 2;
     height: var(--ld-slider-indicator-size);
     opacity: 0.5;
-    top: var(--ld-sp-12);
+    top: var(--ld-slider-radius);
     transform: translate(-50%, -50%);
     z-index: 1;
   }
@@ -209,14 +223,14 @@
     transform: translate(-50%);
 
     &--first {
-      left: var(--ld-sp-8);
+      left: var(--ld-slider-margin);
       transform: none;
     }
 
     &--last {
       left: auto;
       position: absolute;
-      right: calc(var(--ld-slider-padding) + var(--ld-sp-8));
+      right: calc(var(--ld-slider-padding) + var(--ld-slider-margin));
       transform: none;
     }
   }
@@ -230,7 +244,7 @@
     transition: opacity var(--ld-slider-animation-duration) ease-out,
       transform var(--ld-slider-animation-duration) ease-out;
     color: var(--ld-col-wht);
-    content: counter(c);
+    content: counter(c) var(--u);
     counter-reset: c var(--c);
     margin-bottom: var(--ld-sp-16);
 
@@ -244,7 +258,7 @@
     }
 
     &::after {
-      content: counter(c);
+      content: counter(c) var(--u);
       counter-reset: c var(--c);
       display: block;
       padding: 0 var(--ld-sp-6);
@@ -255,7 +269,7 @@
       opacity: 1;
       transform: translate(
         -50%,
-        calc((var(--ld-slider-highlighted) - 1) * var(--ld-sp-8) * -1)
+        calc((var(--ld-slider-highlighted) - 1) * var(--ld-sp-12) * -1)
       );
       transition: transform var(--ld-slider-animation-duration) ease-out;
 

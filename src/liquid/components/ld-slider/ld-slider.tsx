@@ -65,6 +65,8 @@ export class LdSlider {
   @Prop() min = 0
   /** Swap which areas are being marked as selected and deselected */
   @Prop() negative? = false
+  /** Size of the thumb(s). */
+  @Prop() size?: 'sm' | 'lg'
   /** Offset inside which a thumb snaps to a stop point */
   @Prop() snapOffset?: number
   /** Specifies the legal number intervals */
@@ -73,6 +75,8 @@ export class LdSlider {
   @Prop() stops?: string
   /** Prevents swapping of thumbs */
   @Prop() strict = false
+  /** Adds custom stop points to the slider (instead of steps) */
+  @Prop() unit?: string
   /** Specifies the default value */
   @Prop({ mutable: true, reflect: true }) value?: string = String(this.min)
   /** Width of the slider */
@@ -290,6 +294,7 @@ export class LdSlider {
         class={getClassNames([
           'ld-slider',
           this.hideValueLabels && 'ld-slider--padded',
+          this.size && `ld-slider--${this.size}`,
         ])}
         role="group"
         style={{
@@ -365,7 +370,10 @@ linear-gradient(
                 !this.hideValues && 'ld-slider__output--permanent',
               ])}
               htmlFor={`v${index}`}
-              style={{ '--c': `var(--v${index})` }}
+              style={{
+                '--c': `var(--v${index})`,
+                '--u': `"${this.unit ?? ''}"`,
+              }}
             />
           </>
         ))}
@@ -394,6 +402,7 @@ linear-gradient(
                   style={{ '--c': String(valueLabel) }}
                 >
                   {valueLabel}
+                  {this.unit}
                 </div>
               )
           )}
