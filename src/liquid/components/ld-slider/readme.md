@@ -27,6 +27,12 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 <ld-slider value="40"></ld-slider>
 {% endexample %}
 
+## Custom min/max values
+
+{% example %}
+<ld-slider min="-50" max="50"></ld-slider>
+{% endexample %}
+
 ## Size
 
 {% example %}
