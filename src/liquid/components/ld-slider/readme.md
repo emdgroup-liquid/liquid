@@ -110,6 +110,13 @@ The strict mode prevents swapping the thumbs.
 <ld-slider hide-stop-labels indicators stops="20,40,60,90" value="40,90"></ld-slider>
 {% endexample %}
 
+## Units
+
+{% example %}
+<ld-slider unit="%"></ld-slider>
+<ld-slider unit=" px" stops="24,64,96" max="128"></ld-slider>
+{% endexample %}
+
 ## Negative
 
 The negative mode highlights deselected ranges as selected and vice versa.
