@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/emdgroup-liquid/liquid/compare/v2.0.1...v2.0.2) (2022-06-29)
+
+
+### Bug Fixes
+
+* **ld-input:** set input color explicitly ([9d2ce7f](https://github.com/emdgroup-liquid/liquid/commit/9d2ce7fc7eeadf5f23557c762b5a5f0664cb09d2))
+
 ## [2.0.1](https://github.com/emdgroup-liquid/liquid/compare/v2.0.0...v2.0.1) (2022-06-22)
 
 
