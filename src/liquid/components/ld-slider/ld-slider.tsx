@@ -47,7 +47,7 @@ let sliderCount = 0
  */
 @Component({
   tag: 'ld-slider',
-  styleUrl: 'ld-slider.css',
+  styleUrl: 'ld-slider.shadow.css',
   shadow: true,
 })
 export class LdSlider implements InnerFocusable {
