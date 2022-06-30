@@ -597,7 +597,7 @@ linear-gradient(
 </ld-slider>
 `;
 
-exports[`ld-slider strict mode prevents invalid value changes without re-rendering 1`] = `
+exports[`ld-slider swappable disabled prevents invalid value changes without re-rendering 1`] = `
 <ld-slider class="ld-slider" role="group" value="51,50" style="--v0: 0; --v1: 100; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
 linear-gradient(
   90deg,

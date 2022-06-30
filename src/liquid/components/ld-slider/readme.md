@@ -63,7 +63,7 @@ Custom stops behave just like steps, but without the need for an even distance b
 {% endexample %}
 
 <ld-notice mode="warning">
-  Use the prop `snap-offset="0"` to just add the labels for the custom stops without forcing them to behave like steps.
+  Use the prop <code>snap-offset="0"</code> to just add the labels for the custom stops without forcing them to behave like steps.
 </ld-notice>
 
 ## With step/stop indicators
@@ -80,6 +80,10 @@ Custom stops behave just like steps, but without the need for an even distance b
 <ld-slider snap-offset="2" stops="20,35,45,60,85"></ld-slider>
 {% endexample %}
 
+<ld-notice mode="warning">
+  Use the keyboard arrows <code>←</code> <code>→</code> <code>↑</code> <code>↓</code> or click on the track to select values near the snap-points.
+</ld-notice>
+
 ## Multiple values
 
 You can add 2 or more comma-separated values to the slider. This results in additional thumbs being added.
@@ -90,12 +94,12 @@ You can add 2 or more comma-separated values to the slider. This results in addi
 <ld-slider value="20,50,70,90"></ld-slider>
 {% endexample %}
 
-## Strict mode
+## Swappable mode
 
-The strict mode prevents swapping the thumbs.
+The swappable mode allows swapping the thumbs.
 
 {% example %}
-<ld-slider strict value="40,90"></ld-slider>
+<ld-slider swappable value="40,90"></ld-slider>
 {% endexample %}
 
 ## Hide values
@@ -132,6 +136,20 @@ The negative mode highlights deselected ranges as selected and vice versa.
 <ld-slider negative value="40,90"></ld-slider>
 {% endexample %}
 
+## Custom width
+
+By default, the `ld-slider` applies a width of `100%`. You can set it to any fixed width using the `width` prop.
+
+{% example %}
+<ld-slider width="20rem"></ld-slider>
+{% endexample %}
+
+<ld-notice mode="warning">
+  A relative width below <code>100%</code> is not supported, but you can work around this by wrapping the component in a container and give that container any width you like.
+  <br /><br />
+  Be aware that you also need to do this, if you want to use the <code>ld-slider</code> inside a flexbox container.
+</ld-notice>
+
 ## Integration
 
 {% example %}
@@ -151,10 +169,13 @@ The negative mode highlights deselected ranges as selected and vice versa.
   .flex {
     align-items: end;
     display: flex;
+    flex-wrap: wrap;
     gap: var(--ld-sp-8);
+    justify-content: center;
   }
 
   #from, #to, #minus, #plus {
+    flex: 0 0 auto;
     margin-bottom: 1.125rem;
     width: 3rem;
   }
@@ -241,7 +262,7 @@ The negative mode highlights deselected ranges as selected and vice versa.
 | `snapOffset`      | `snap-offset`       | Offset inside which a thumb snaps to a stop point            | `number`           | `undefined`        |
 | `step`            | `step`              | Specifies the legal number intervals                         | `number`           | `undefined`        |
 | `stops`           | `stops`             | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`        |
-| `strict`          | `strict`            | Prevents swapping of thumbs                                  | `boolean`          | `false`            |
+| `swappable`       | `swappable`         | Allows swapping of thumbs                                    | `boolean`          | `false`            |
 | `unit`            | `unit`              | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`        |
 | `value`           | `value`             | Specifies the default value                                  | `string`           | `String(this.min)` |
 | `width`           | `width`             | Width of the slider                                          | `string`           | `'100%'`           |

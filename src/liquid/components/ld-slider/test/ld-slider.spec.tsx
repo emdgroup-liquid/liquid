@@ -184,6 +184,20 @@ describe('ld-slider', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('allows to set inner focus', async () => {
+    const page = await newSpecPage({
+      components: [LdSlider],
+      template: () => <ld-slider />,
+    })
+    const slider = page.root as HTMLLdSliderElement
+    const input = slider.shadowRoot.querySelector('input')
+
+    input.focus = jest.fn()
+    await slider.focusInner()
+
+    expect(input.focus).toHaveBeenCalled()
+  })
+
   it('emits ldchange event on value changes', async () => {
     const page = await newSpecPage({
       components: [LdSlider],
@@ -210,11 +224,11 @@ describe('ld-slider', () => {
     expect(page.root.value).toBe('0,100')
   })
 
-  describe('strict mode', () => {
+  describe('swappable disabled', () => {
     it('prevents thumbs from being swapped', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
-        template: () => <ld-slider strict value="40,60" />,
+        template: () => <ld-slider value="40,60" />,
       })
       const firstInput = page.root.shadowRoot.querySelector('input')
 
@@ -229,7 +243,7 @@ describe('ld-slider', () => {
     it('corrects invalid initial values', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
-        template: () => <ld-slider strict value="100,50,90,40" />,
+        template: () => <ld-slider value="100,50,90,40" />,
       })
 
       expect(page.root.value).toBe('40,50,90,100')
@@ -238,7 +252,7 @@ describe('ld-slider', () => {
     it('prevents invalid value changes without re-rendering', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
-        template: () => <ld-slider strict value="0,100" />,
+        template: () => <ld-slider value="0,100" />,
       })
       const slider = page.root as HTMLLdSliderElement
 
@@ -251,7 +265,7 @@ describe('ld-slider', () => {
     it('emits ldchange event after correcting invalid value changes', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
-        template: () => <ld-slider strict value="40,60" />,
+        template: () => <ld-slider value="40,60" />,
       })
       const firstInput = page.root.shadowRoot.querySelector('input')
       const changeHandler = jest.fn()
@@ -269,7 +283,7 @@ describe('ld-slider', () => {
     it('does not emit ldchange event on invalid value changes', async () => {
       const page = await newSpecPage({
         components: [LdSlider],
-        template: () => <ld-slider strict value="0,100" />,
+        template: () => <ld-slider value="0,100" />,
       })
       const slider = page.root as HTMLLdSliderElement
       const changeHandler = jest.fn()
@@ -278,6 +292,43 @@ describe('ld-slider', () => {
       slider.value = '51,50'
 
       expect(changeHandler).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('swappable enabled', () => {
+    it('allows thumbs to be swapped', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider swappable value="40,60" />,
+      })
+      const firstInput = page.root.shadowRoot.querySelector('input')
+
+      firstInput.value = '70'
+      firstInput.dispatchEvent(new Event('input'))
+      await page.waitForChanges()
+
+      expect(firstInput.value).toBe('70')
+      expect(page.root.value).toBe('70,60')
+    })
+
+    it('corrects invalid initial values to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} swappable value="100,17,51,84" />,
+      })
+
+      expect(page.root.value).toBe('100,20,60,80')
+    })
+
+    it('corrects invalid initial values to the closest stops', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => (
+          <ld-slider stops="20,60,90" swappable value="100,17,50,94" />
+        ),
+      })
+
+      expect(page.root.value).toBe('100,20,60,90')
     })
   })
 
@@ -303,7 +354,7 @@ describe('ld-slider', () => {
         template: () => <ld-slider step={20} value="100,17,51,84" />,
       })
 
-      expect(page.root.value).toBe('100,20,60,80')
+      expect(page.root.value).toBe('20,60,80,100')
     })
 
     it('does not correct invalid value changes', async () => {
@@ -341,7 +392,7 @@ describe('ld-slider', () => {
         template: () => <ld-slider stops="20,60,90" value="100,17,50,94" />,
       })
 
-      expect(page.root.value).toBe('100,20,60,90')
+      expect(page.root.value).toBe('20,60,90,100')
     })
 
     it('does not correct invalid value changes', async () => {
@@ -565,17 +616,86 @@ describe('ld-slider', () => {
     })
   })
 
-  it('allows to set inner focus', async () => {
-    const page = await newSpecPage({
-      components: [LdSlider],
-      template: () => <ld-slider />,
+  describe('when clicking on the track', () => {
+    const originalGetComputedStyle = global.getComputedStyle
+
+    beforeAll(() => {
+      global.getComputedStyle = jest.fn().mockReturnValue({
+        paddingLeft: '32px',
+        marginLeft: '12px',
+        width: '100px',
+      })
     })
-    const slider = page.root as HTMLLdSliderElement
-    const input = slider.shadowRoot.querySelector('input')
 
-    input.focus = jest.fn()
-    await slider.focusInner()
+    afterAll(() => {
+      global.getComputedStyle = originalGetComputedStyle
+    })
 
-    expect(input.focus).toHaveBeenCalled()
+    it('moves the closest thumb to the new value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider value="20,100" />,
+      })
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      page.root.dispatchEvent(new Event('click', { offsetX: 94 }))
+
+      expect(page.root.value).toBe('50,100')
+    })
+
+    it('moves the closest thumb to the closest step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider step={20} value="20,100" />,
+      })
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      page.root.dispatchEvent(new Event('click', { offsetX: 95 }))
+
+      expect(page.root.value).toBe('60,100')
+    })
+
+    it('moves the closest thumb to the closest stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider stops="20,40,65,90" value="20,100" />,
+      })
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      page.root.dispatchEvent(new Event('click', { offsetX: 95 }))
+
+      expect(page.root.value).toBe('40,100')
+    })
+
+    it('ignores snap-offset when moving the closest thumb near step value', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => <ld-slider snapOffset={2} step={20} value="20,100" />,
+      })
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      page.root.dispatchEvent(new Event('click', { offsetX: 142 }))
+
+      expect(page.root.value).toBe('20,98')
+    })
+
+    it('ignores snap-offset when moving the closest thumb near stop', async () => {
+      const page = await newSpecPage({
+        components: [LdSlider],
+        template: () => (
+          <ld-slider snapOffset={2} stops="20,40,65,90" value="20,100" />
+        ),
+      })
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      page.root.dispatchEvent(new Event('click', { offsetX: 132 }))
+
+      expect(page.root.value).toBe('20,88')
+    })
   })
 })

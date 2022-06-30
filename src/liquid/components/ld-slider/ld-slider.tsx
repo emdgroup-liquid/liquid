@@ -84,8 +84,8 @@ export class LdSlider implements InnerFocusable {
   @Prop() step?: number
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() stops?: string
-  /** Prevents swapping of thumbs */
-  @Prop() strict = false
+  /** Allows swapping of thumbs */
+  @Prop() swappable = false
   /** Tab index of the input(s). */
   @Prop() ldTabindex: number | undefined
   /** Adds custom stop points to the slider (instead of steps) */
@@ -105,6 +105,30 @@ export class LdSlider implements InnerFocusable {
   @Method()
   async focusInner() {
     this.firstSliderRef?.focus({ preventScroll: true })
+  }
+
+  handleTrackClick = (ev: PointerEvent) => {
+    if (ev.composedPath()[0] !== this.el) {
+      return
+    }
+
+    const afterStyles = getComputedStyle(this.el, 'after')
+    const paddingLeft =
+      Number.parseInt(getComputedStyle(this.el).paddingLeft) || 0
+    const marginLeft = Number.parseInt(afterStyles.marginLeft) || 0
+    const trackWidth = Number.parseInt(afterStyles.width)
+    const clickPosition = ev.offsetX - paddingLeft - marginLeft
+    const newValue =
+      Math.round((clickPosition / trackWidth) * (this.max - this.min)) +
+      this.min
+    const values = [...this.values]
+    const index = values.indexOf(findClosest(values, newValue))
+    const correctedValue = this.getCorrectedValue(newValue, index, values)
+
+    console.log({ trackWidth, offsetX: ev.offsetX })
+
+    values.splice(index, 1, correctedValue)
+    this.value = values.join(',')
   }
 
   handleInput = (ev: Event, index: number) => {
@@ -209,11 +233,11 @@ export class LdSlider implements InnerFocusable {
       return this.max
     }
 
-    if (this.strict && prevValue > currValue) {
+    if (!this.swappable && prevValue > currValue) {
       return prevValue
     }
 
-    if (this.strict && nextValue < currValue) {
+    if (!this.swappable && nextValue < currValue) {
       return nextValue
     }
 
@@ -315,6 +339,7 @@ export class LdSlider implements InnerFocusable {
           this.hideValueLabels && 'ld-slider--padded',
           this.size && `ld-slider--${this.size}`,
         ])}
+        onClick={this.handleTrackClick}
         role="group"
         style={{
           ...cssValues,
@@ -381,7 +406,7 @@ linear-gradient(
               }
               step={this.snapOffset !== undefined ? undefined : this.step}
               style={
-                // prevents that thumb is not movable in strict mode
+                // prevents that thumb is not movable, when swappable prop is not set
                 index === this.values.length - 2 && value === this.max
                   ? {
                       zIndex: '2',
