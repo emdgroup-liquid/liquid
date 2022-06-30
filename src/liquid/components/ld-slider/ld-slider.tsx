@@ -34,12 +34,14 @@ const findPrev = (items: number[], currValue: number) =>
     currValue
   )
 
+let sliderCount = 0
+
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part indicator - Stop/step indicator div elements
  * @part input - `input` elements
- * @part label - `label` element labelling an input (screen-reader only)
+ * @part label - `ld-sr-only` elements labelling an input
  * @part output - `output` elements
  * @part value-label - `div` element containing the max/min/stops values + unit
  */
@@ -50,7 +52,8 @@ const findPrev = (items: number[], currValue: number) =>
 })
 export class LdSlider implements InnerFocusable {
   @Element() el: HTMLLdSliderElement
-  firstSliderRef?: HTMLInputElement
+  private firstSliderRef?: HTMLInputElement
+  private idPrefix = `ld-slider-${++sliderCount}`
 
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
@@ -326,7 +329,7 @@ export class LdSlider implements InnerFocusable {
   render() {
     const cssValues = this.values.reduce<Record<string, number>>(
       (prev, curr, index) => {
-        prev[`--v${index}`] = curr
+        prev[`--value${index}`] = curr
         return prev
       },
       {}
@@ -362,10 +365,10 @@ linear-gradient(
   90deg,
   red
     calc(
-      var(--ld-slider-radius) - var(--ld-slider-margin) +
-        (var(--v${index}) - var(--min)) / var(--ld-slider-diff) *
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value${index}) - var(--min)) / var(--ld-slider-diff) *
         (var(--ld-slider-useful-width)${
-          this.width === '100%' ? ' + 2 * var(--ld-slider-margin)' : ''
+          this.width === '100%' ? ' + 2 * var(--ld-slider-track-margin)' : ''
         })
     ),
   transparent 0
@@ -376,22 +379,29 @@ linear-gradient(
       >
         {this.values.map((value, index) => (
           <>
-            <label class="sr-only" htmlFor={`v${index}`} part="label">
+            <ld-sr-only
+              id={`${this.idPrefix}-label-${index}`}
+              key={`label-${index}`}
+              part="label"
+            >
               {this.values.length === 2
                 ? index === 0
                   ? this.labelFrom
                   : this.labelTo
                 : `${this.labelValue} ${index + 1}`}
-            </label>
+            </ld-sr-only>
             <input
               aria-disabled={
                 this.disabled || this.ariaDisabled === 'true'
                   ? 'true'
                   : undefined
               }
+              aria-labelledby={`${this.idPrefix}-label-${index}`}
+              aria-valuetext={this.unit ? value + this.unit : undefined}
               class="ld-slider__input"
               disabled={this.disabled}
-              id={`v${index}`}
+              id={`${this.idPrefix}-value-${index}`}
+              key={`input-${index}`}
               max={this.max}
               min={this.min}
               onInput={(ev) => this.handleInput(ev, index)}
@@ -407,7 +417,7 @@ linear-gradient(
               step={this.snapOffset !== undefined ? undefined : this.step}
               style={
                 // prevents that thumb is not movable, when swappable prop is not set
-                index === this.values.length - 2 && value === this.max
+                value === this.max && this.values[index - 1] === this.max
                   ? {
                       zIndex: '2',
                     }
@@ -422,22 +432,23 @@ linear-gradient(
                 'ld-slider__output',
                 !this.hideValues && 'ld-slider__output--permanent',
               ])}
-              htmlFor={`v${index}`}
+              htmlFor={`${this.idPrefix}-value-${index}`}
+              key={`output-${index}`}
               part="output"
               style={{
-                '--c': `var(--v${index})`,
-                '--u': `"${this.unit ?? ''}"`,
+                '--now': `var(--value${index})`,
+                '--unit': `"${this.unit ?? ''}"`,
               }}
             />
           </>
         ))}
         {this.indicators &&
-          this.steps.map((stop) => (
+          this.steps.map((step) => (
             <div
               class="ld-slider__indicator"
-              key={stop}
+              key={`indicator-${step}`}
               part="indicator"
-              style={{ '--c': String(stop) }}
+              style={{ '--now': String(step) }}
             />
           ))}
         {!this.hideValueLabels &&
@@ -453,9 +464,9 @@ linear-gradient(
                     index === this.valueLabels.length - 1 &&
                       'ld-slider__value-label--last',
                   ])}
-                  key={valueLabel}
+                  key={`value-label-${valueLabel}`}
                   part="value-label"
-                  style={{ '--c': String(valueLabel) }}
+                  style={{ '--now': String(valueLabel) }}
                 >
                   {valueLabel}
                   {this.unit}

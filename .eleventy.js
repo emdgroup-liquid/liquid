@@ -201,10 +201,9 @@ module.exports = function (eleventyConfig) {
       output += '\n</div>'
     }
 
-    output += `<div slot="show">${codeWebComponent.replaceAll(
-      /\n\n/g,
-      '\n'
-    )}</div>`
+    output += `<div slot="show"${
+      finalConfig.gap ? ` style="gap: ${finalConfig.gap}"` : ''
+    }>${codeWebComponent.replaceAll(/\n\n/g, '\n')}</div>`
 
     if (codeCssComponent) {
       output += `<div slot="showCssComponent">${codeCssComponent.replaceAll(

@@ -17,25 +17,25 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 
 ## Default
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider></ld-slider>
 {% endexample %}
 
 ## Predefined value
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider value="40"></ld-slider>
 {% endexample %}
 
 ## Custom min/max values
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider min="-50" max="50"></ld-slider>
 {% endexample %}
 
 ## Size
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider size="sm"></ld-slider>
 <ld-slider></ld-slider>
 <ld-slider size="lg"></ld-slider>
@@ -43,14 +43,14 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 
 ## Disabled
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider disabled value="40"></ld-slider>
-<ld-slider aria-disabled="true" value="40" hide-values></ld-slider>
+<ld-slider aria-disabled="true" value="40"></ld-slider>
 {% endexample %}
 
 ## Custom steps
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider step="5"></ld-slider>
 {% endexample %}
 
@@ -58,7 +58,7 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 
 Custom stops behave just like steps, but without the need for an even distance between them.
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider stops="20,35,45,60,85"></ld-slider>
 {% endexample %}
 
@@ -68,14 +68,14 @@ Custom stops behave just like steps, but without the need for an even distance b
 
 ## With step/stop indicators
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider indicators step="10"></ld-slider>
 <ld-slider indicators stops="20,35,45,60,85"></ld-slider>
 {% endexample %}
 
 ## With step/stop snapping
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider indicators snap-offset="2" step="10"></ld-slider>
 <ld-slider snap-offset="2" stops="20,35,45,60,85"></ld-slider>
 {% endexample %}
@@ -88,7 +88,7 @@ Custom stops behave just like steps, but without the need for an even distance b
 
 You can add 2 or more comma-separated values to the slider. This results in additional thumbs being added.
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider value="40,90"></ld-slider>
 <ld-slider value="30,60,90"></ld-slider>
 <ld-slider value="20,50,70,90"></ld-slider>
@@ -98,31 +98,31 @@ You can add 2 or more comma-separated values to the slider. This results in addi
 
 The swappable mode allows swapping the thumbs.
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider swappable value="40,90"></ld-slider>
 {% endexample %}
 
 ## Hide values
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-values value="40,90"></ld-slider>
 {% endexample %}
 
 ## Hide value labels
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-value-labels value="40,90"></ld-slider>
 {% endexample %}
 
 ## Hide stop labels
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-stop-labels indicators stops="20,40,60,90" value="40,90"></ld-slider>
 {% endexample %}
 
 ## Units
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider unit="%"></ld-slider>
 <ld-slider unit=" px" stops="24,64,96" max="128"></ld-slider>
 {% endexample %}
@@ -131,7 +131,7 @@ The swappable mode allows swapping the thumbs.
 
 The negative mode highlights deselected ranges as selected and vice versa.
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider negative value="50"></ld-slider>
 <ld-slider negative value="40,90"></ld-slider>
 {% endexample %}
@@ -140,7 +140,7 @@ The negative mode highlights deselected ranges as selected and vice versa.
 
 By default, the `ld-slider` applies a width of `100%`. You can set it to any fixed width using the `width` prop.
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider width="20rem"></ld-slider>
 {% endexample %}
 
@@ -152,7 +152,7 @@ By default, the `ld-slider` applies a width of `100%`. You can set it to any fix
 
 ## Integration
 
-{% example %}
+{% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <div class="flex">
   <ld-input id="from" type="number" value="40"></ld-input>
   <ld-slider id="slider1" value="40,90" width="20rem"></ld-slider>
@@ -295,10 +295,23 @@ Type: `Promise<void>`
 | `"focusable"`   |                                                          |
 | `"indicator"`   | Stop/step indicator div elements                         |
 | `"input"`       | `input` elements                                         |
-| `"label"`       | `label` element labelling an input (screen-reader only)  |
+| `"label"`       | `ld-sr-only` elements labelling an input                 |
 | `"output"`      | `output` elements                                        |
 | `"value-label"` | `div` element containing the max/min/stops values + unit |
 
+
+## Dependencies
+
+### Depends on
+
+- [ld-sr-only](../ld-sr-only)
+
+### Graph
+```mermaid
+graph TD;
+  ld-slider --> ld-sr-only
+  style ld-slider fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
