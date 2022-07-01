@@ -1,0 +1,97 @@
+:host,
+.ld-switch-item {
+  display: inline-flex;
+  position: relative;
+  line-height: 1.2;
+
+  label {
+    display: flex;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    background-clip: padding-box;
+  }
+
+  .ld-switch-item__faux {
+    height: var(--ld-switch-item-height, 2.5rem);
+    font-family: var(--ld-switch-item-font, var(--ld-font-body));
+    font-size: var(--ld-switch-item-font-size, 1rem);
+    padding-left: var(--ld-switch-item-padding-y, 0.75rem);
+    padding-right: var(--ld-switch-item-padding-y, 0.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(
+      --ld-switch-item-bg-col,
+      var(--ld-thm-primary-alpha-low)
+    );
+    color: var(--ld-switch-item-text-col, var(--ld-thm-primary));
+  }
+
+  input {
+    width: 1px;
+    height: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    appearance: none;
+
+    &:checked {
+      ~ .ld-switch-item__faux {
+        background-color: var(
+          --ld-switch-item-bg-col-selected,
+          var(--ld-thm-primary)
+        );
+        color: var(--ld-switch-item-text-col-selected, var(--ld-col-wht));
+      }
+    }
+
+    &:where(:disabled),
+    &:where([aria-disabled='true']) {
+      ~ .ld-switch-item__faux {
+        opacity: 0.2;
+      }
+    }
+
+    &:where(:not(:disabled):not([aria-disabled='true']):not([readonly])) {
+      ~ .ld-switch-item__faux {
+        cursor: pointer;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: var(
+              --ld-switch-item-bg-col-hover,
+              var(--ld-thm-primary-hover)
+            );
+            color: var(--ld-switch-item-text-col-active, var(--ld-col-wht));
+          }
+        }
+      }
+
+      &:focus:focus-visible {
+        ~ .ld-switch-item__faux {
+          background-color: var(
+            --ld-switch-item-bg-col-focus,
+            var(--ld-thm-primary-focus)
+          );
+          color: var(--ld-switch-item-text-col-active, var(--ld-col-wht));
+        }
+      }
+
+      &:active,
+      &:active:focus-visible {
+        ~ .ld-switch-item__faux {
+          background-color: var(
+            --ld-switch-item-bg-col-active,
+            var(--ld-thm-primary-active)
+          );
+          color: var(--ld-switch-item-text-col-active, var(--ld-col-wht));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-switch renders 1`] = `
+<ld-switch class="ld-switch" label="Food Type" name="foodType">
+  <mock:shadow-root>
+    <fieldset part="fieldset">
+      <legend>
+        Food Type
+      </legend>
+      <div class="ld-switch_item-container" part="switch_item-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+  <ld-switch-item class="ld-switch-item" label="Fruits" name="foodType" part="root" value="fruits">
+    <mock:shadow-root>
+      <label>
+        <input checked="" name="foodType" part="input focusable" type="radio" value="fruits">
+        <span class="ld-switch-item__faux">
+          Fruits
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item" label="Vegetables" name="foodType" part="root" value="vegetables">
+    <mock:shadow-root>
+      <label>
+        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="vegetables">
+        <span class="ld-switch-item__faux">
+          Vegetables
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item" disabled="" label="Nuts" name="foodType" part="root" value="nuts">
+    <mock:shadow-root>
+      <label>
+        <input disabled="" name="foodType" part="input focusable" tabindex="-1" type="radio" value="nuts">
+        <span class="ld-switch-item__faux">
+          Nuts
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+</ld-switch>
+`;
+
+exports[`ld-switch shows switch with preseleted switchItem 1`] = `
+<ld-switch class="ld-switch" label="Food Type" name="foodType">
+  <mock:shadow-root>
+    <fieldset part="fieldset">
+      <legend>
+        Food Type
+      </legend>
+      <div class="ld-switch_item-container" part="switch_item-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+  <ld-switch-item class="ld-switch-item" label="Fruits" name="foodType" part="root" value="fruits">
+    <mock:shadow-root>
+      <label>
+        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="fruits">
+        <span class="ld-switch-item__faux">
+          Fruits
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+  <ld-switch-item checked="" class="ld-switch-item" label="Vegetables" name="foodType" part="root" value="vegetables">
+    <mock:shadow-root>
+      <label>
+        <input checked="" name="foodType" part="input focusable" type="radio" value="vegetables">
+        <span class="ld-switch-item__faux">
+          Vegetables
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item" label="Nuts" name="foodType" part="root" value="nuts">
+    <mock:shadow-root>
+      <label>
+        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="nuts">
+        <span class="ld-switch-item__faux">
+          Nuts
+        </span>
+      </label>
+    </mock:shadow-root>
+  </ld-switch-item>
+</ld-switch>
+`;

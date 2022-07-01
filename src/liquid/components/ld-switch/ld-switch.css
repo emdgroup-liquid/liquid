@@ -1,0 +1,75 @@
+:host,
+.ld-switch {
+  /* layout */
+  --ld-switch-max-height: 2.5rem;
+
+  /* colors */
+  --ld-switch-text-col: var(--ld-thm-primary);
+  --ld-switch-bg-col: var(--ld-thm-primary-alpha-low);
+
+  --ld-switch-bg-col-hover: var(--ld-thm-primary-hover);
+  --ld-switch-bg-col-active: var(--ld-thm-primary-active);
+  --ld-switch-bg-col-focus: var(--ld-thm-primary-focus);
+
+  --ld-switch-selected-text-col: var(--ld-col-wht);
+  --ld-switch-selected-bg-col: var(--ld-thm-primary);
+
+  /* ld-switch-item vars */
+  --ld-switch-item-padding-y: 0.75rem;
+  --ld-switch-item-font-size: 1rem;
+
+  position: relative;
+  display: block;
+
+  fieldset {
+    position: relative;
+    min-width: 0;
+    border: 0;
+  }
+
+  legend {
+    position: absolute;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .ld-switch_item-container {
+    position: relative;
+    display: inline-flex;
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+}
+
+:host(.ld-switch--sm),
+.ld-switch--sm {
+  --ld-switch-item-padding-y: 0.625rem;
+  --ld-switch-item-font-size: 0.875rem;
+}
+
+:host(.ld-switch--lg),
+.ld-switch--lg {
+  --ld-switch-item-padding-y: 1rem;
+  --ld-switch-item-font-size: 1.125rem;
+}
+
+:host(.ld-switch--brand-color),
+.ld-switch--brand-color {
+  --ld-switch-item-text-col: var(--ld-thm-primary-highlight);
+  --ld-switch-item-bg-col: rgba(255, 255, 255, 0.2);
+
+  --ld-switch-item-bg-col-hover: var(--ld-col-wht-alpha-high);
+  --ld-switch-item-bg-col-active: var(--ld-col-wht-alpha-medium);
+  --ld-switch-item-bg-col-focus: var(--ld-col-wht-alpha-high);
+  --ld-switch-item-bg-col-selected: var(--ld-col-wht);
+
+  --ld-switch-item-text-col-selected: var(--ld-thm-primary);
+  --ld-switch-item-text-col-active: var(--ld-switch-item-text-col-selected);
+}
