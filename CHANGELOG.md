@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/emdgroup-liquid/liquid/compare/v2.0.2...v2.1.0) (2022-07-04)
+
+
+### Features
+
+* **ld-circular-progress:** add circular progress component ([b347879](https://github.com/emdgroup-liquid/liquid/commit/b34787969a0c506308e9c1d77b268013d9bb9543))
+* **ld-progress:** add progress bar component ([7347af5](https://github.com/emdgroup-liquid/liquid/commit/7347af5536bf8f86a7349784215c63c24b4e2e62))
+* **ld-slider:** add slider component ([4200ec6](https://github.com/emdgroup-liquid/liquid/commit/4200ec670befb804cb8d12c3e556810a08861e57))
+
 ## [2.0.2](https://github.com/emdgroup-liquid/liquid/compare/v2.0.1...v2.0.2) (2022-06-29)
 
 
