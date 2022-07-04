@@ -1,0 +1,666 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-slider re-renders on prop changes 1`] = `
+<ld-slider class="ld-slider ld-slider--padded" role="group" value="30,70" style="--value0: 30; --ld-slider-width: 500px; --min: 1; --max: 99; --fill: 
+linear-gradient(
+  90deg,
+  red 100%,
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
+    ),
+  transparent 0
+); --value1: 70;">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-18-label-0" part="label">
+      Von
+    </ld-sr-only>
+    <input aria-disabled="true" aria-labelledby="ld-slider-18-label-0" class="ld-slider__input" disabled="" id="ld-slider-18-value-0" max="99" min="1" part="input focusable" type="range" value="30"><output class="ld-slider__output" htmlfor="ld-slider-18-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-18-label-1" part="label">
+      Bis
+    </ld-sr-only>
+    <input aria-disabled="true" aria-labelledby="ld-slider-18-label-1" class="ld-slider__input" disabled="" id="ld-slider-18-value-1" max="99" min="1" part="input focusable" type="range" value="70"><output class="ld-slider__output" htmlfor="ld-slider-18-value-1" part="output" style="--now: var(--value1); --unit: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 1;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 30;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 50;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 70;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 99;"></div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders 2 thumbs 1`] = `
+<ld-slider class="ld-slider" role="group" value="10,50" style="--value0: 10; --value1: 50; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-3-label-0" part="label">
+      From
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-3-label-0" class="ld-slider__input" id="ld-slider-3-value-0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-3-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-3-label-1" part="label">
+      To
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-3-label-1" class="ld-slider__input" id="ld-slider-3-value-1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-3-value-1" part="output" style="--now: var(--value1); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders 2 thumbs with custom thumb labels 1`] = `
+<ld-slider class="ld-slider" role="group" value="10,50" style="--value0: 10; --value1: 50; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-4-label-0" part="label">
+      Von
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-4-label-0" class="ld-slider__input" id="ld-slider-4-value-0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-4-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-4-label-1" part="label">
+      Bis
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-4-label-1" class="ld-slider__input" id="ld-slider-4-value-1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-4-value-1" part="output" style="--now: var(--value1); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders aria-disabled 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-7-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-disabled="true" aria-labelledby="ld-slider-7-label-0" class="ld-slider__input" id="ld-slider-7-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-7-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders custom edges 1`] = `
+<ld-slider class="ld-slider" role="group" value="-50" style="--value0: -50; --ld-slider-width: 100%; --min: -50; --max: 50; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-2-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-2-label-0" class="ld-slider__input" id="ld-slider-2-value-0" max="50" min="-50" part="input focusable" type="range" value="-50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-2-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: -50;">
+      -50
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: -25;">
+      -25
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 25;">
+      25
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 50;">
+      50
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders default 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-1-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-1-label-0" class="ld-slider__input" id="ld-slider-1-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-1-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders different size 1`] = `
+<ld-slider class="ld-slider ld-slider--sm" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-12-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-12-label-0" class="ld-slider__input" id="ld-slider-12-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-12-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders disabled 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-6-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-disabled="true" aria-labelledby="ld-slider-6-label-0" class="ld-slider__input" disabled="" id="ld-slider-6-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-6-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders more than 2 thumbs with custom thumb labels 1`] = `
+<ld-slider class="ld-slider" role="group" value="10,50,80" style="--value0: 10; --value1: 50; --value2: 80; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value2) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-5-label-0" part="label">
+      Thumb 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-5-label-0" class="ld-slider__input" id="ld-slider-5-value-0" max="100" min="0" part="input focusable" type="range" value="10"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-5-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-5-label-1" part="label">
+      Thumb 2
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-5-label-1" class="ld-slider__input" id="ld-slider-5-value-1" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-5-value-1" part="output" style="--now: var(--value1); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-5-label-2" part="label">
+      Thumb 3
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-5-label-2" class="ld-slider__input" id="ld-slider-5-value-2" max="100" min="0" part="input focusable" type="range" value="80"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-5-value-2" part="output" style="--now: var(--value2); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders step indicators 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-10-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-10-label-0" class="ld-slider__input" id="ld-slider-10-value-0" max="100" min="0" part="input focusable" step="20" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-10-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 0;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 20;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 40;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 60;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 80;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 100;"></div>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders stop indicators 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-11-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-11-label-0" class="ld-slider__input" id="ld-slider-11-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-11-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 0;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 20;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 45;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 85;"></div>
+    <div class="ld-slider__indicator" part="indicator" style="--now: 100;"></div>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 20;">
+      20
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 45;">
+      45
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 85;">
+      85
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders with custom width 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 500px; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-9-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-9-label-0" class="ld-slider__input" id="ld-slider-9-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-9-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders with inverted color indicators 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red 100%,
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-8-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-8-label-0" class="ld-slider__input" id="ld-slider-8-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-8-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders with unit 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-13-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-13-label-0" aria-valuetext="0%" class="ld-slider__input" id="ld-slider-13-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-13-value-0" part="output" style="--now: var(--value0); --unit: "%";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0%
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 20;">
+      20%
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 45;">
+      45%
+    </div>
+    <div class="ld-slider__value-label" part="value-label" style="--now: 85;">
+      85%
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100%
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders without indicators, if step/stops parameter not given 1`] = `
+<ld-slider class="ld-slider" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-14-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-14-label-0" class="ld-slider__input" id="ld-slider-14-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-14-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders without stop labels 1`] = `
+<ld-slider class="ld-slider" hide-stop-labels="" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-17-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-17-label-0" class="ld-slider__input" id="ld-slider-17-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-17-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders without value labels 1`] = `
+<ld-slider class="ld-slider ld-slider--padded" hide-value-labels="" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-16-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-16-label-0" class="ld-slider__input" id="ld-slider-16-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-16-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider renders without values 1`] = `
+<ld-slider class="ld-slider" hide-values="" role="group" value="0" style="--value0: 0; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-15-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-15-label-0" class="ld-slider__input" id="ld-slider-15-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output" htmlfor="ld-slider-15-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider swappable disabled prevents invalid value changes without re-rendering 1`] = `
+<ld-slider class="ld-slider" role="group" value="51,50" style="--value0: 0; --value1: 100; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+),
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value1) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-25-label-0" part="label">
+      From
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-25-label-0" class="ld-slider__input" id="ld-slider-25-value-0" max="100" min="0" part="input focusable" type="range" value="0"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-25-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <ld-sr-only id="ld-slider-25-label-1" part="label">
+      To
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-25-label-1" class="ld-slider__input" id="ld-slider-25-value-1" max="100" min="0" part="input focusable" type="range" value="100"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-25-value-1" part="output" style="--now: var(--value1); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
+
+exports[`ld-slider updates css props on value changes 1`] = `
+<ld-slider class="ld-slider" role="group" value="50" style="--value0: 50; --ld-slider-width: 100%; --min: 0; --max: 100; --fill: 
+linear-gradient(
+  90deg,
+  red
+    calc(
+      var(--ld-slider-radius) - var(--ld-slider-track-margin) +
+        (var(--value0) - var(--min)) / var(--ld-slider-diff) *
+        (var(--ld-slider-useful-width) + 2 * var(--ld-slider-track-margin))
+    ),
+  transparent 0
+);">
+  <mock:shadow-root>
+    <ld-sr-only id="ld-slider-19-label-0" part="label">
+      Value 1
+    </ld-sr-only>
+    <input aria-labelledby="ld-slider-19-label-0" class="ld-slider__input" id="ld-slider-19-value-0" max="100" min="0" part="input focusable" type="range" value="50"><output class="ld-slider__output ld-slider__output--permanent" htmlfor="ld-slider-19-value-0" part="output" style="--now: var(--value0); --unit: "";"></output>
+    <div class="ld-slider__value-label ld-slider__value-label--first" part="value-label" style="--now: 0;">
+      0
+    </div>
+    <div class="ld-slider__value-label ld-slider__value-label--last" part="value-label" style="--now: 100;">
+      100
+    </div>
+  </mock:shadow-root>
+</ld-slider>
+`;
