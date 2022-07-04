@@ -105,7 +105,7 @@
   border-top-left-radius: var(--ld-br-l);
   border-top-right-radius: var(--ld-br-l);
   overflow: hidden;
-  transform: translateZ(1px); /* Fixes overflow in Safari */
+  will-change: transform; /* Fixes overflow in Safari */
 
   .docs-example--has-border & {
     border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
