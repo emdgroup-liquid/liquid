@@ -12785,7 +12785,7 @@
     },
     {
       "id": "d69ca70f",
-      "image": "19e3e39e07f0e93a09684364edf80f39.png",
+      "image": "f753dc5923b5de50b44b775a616d3068.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right collapses fully in narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -12798,7 +12798,7 @@
     },
     {
       "id": "3efde85c",
-      "image": "38dfb861de02e0f22d97e5b34549da41.png",
+      "image": "123d961a64153670b305b1eb4710158e.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation aligned to the right collapses to the right",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
@@ -12837,7 +12837,7 @@
     },
     {
       "id": "13515603",
-      "image": "80a92ade762b103366f82bcff1d662d0.png",
+      "image": "d0a3d7f2b85a2bae2999a58a29ba3234.png",
       "userAgent": "default",
       "desc": "ld-sidenav with subnavigation narrow mode collapses to narrow mode",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
