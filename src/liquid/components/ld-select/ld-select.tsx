@@ -94,8 +94,8 @@ export class LdSelect implements InnerFocusable {
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'
 
-  /** Stringified tether options object to be merged with the default options. */
-  @Prop({ mutable: true }) tetherOptions = '{}'
+  /** Tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   @State() ariaDisabled = false
   @State() expanded = false
@@ -297,7 +297,7 @@ export class LdSelect implements InnerFocusable {
         .toString()
         .split(' ')
         .find((cl) => cl.startsWith('ld-theme-'))
-        ?.substr(9)
+        ?.substring(9)
     })
   }
 
@@ -309,10 +309,11 @@ export class LdSelect implements InnerFocusable {
   }
 
   private initPopper() {
-    let customTetherOptions = {}
-    customTetherOptions = JSON.parse(this.tetherOptions)
-
-    this.popper = new Tether({
+    const customTetherOptions: Partial<Tether.ITetherOptions> =
+      typeof this.tetherOptions === 'string'
+        ? JSON.parse(this.tetherOptions)
+        : this.tetherOptions
+    const tetherOptions: Tether.ITetherOptions = {
       classPrefix: 'ld-tether',
       element: this.listboxRef,
       target: this.selectRef,
@@ -326,7 +327,9 @@ export class LdSelect implements InnerFocusable {
         },
       ],
       ...customTetherOptions,
-    })
+    }
+
+    this.popper = new Tether(tetherOptions)
 
     this.listboxRef.classList.add('ld-select__popper--initialized')
   }

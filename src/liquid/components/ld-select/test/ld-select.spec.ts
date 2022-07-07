@@ -1933,6 +1933,29 @@ describe('ld-select', () => {
     }
   })
 
+  it('places the popper inside a given element', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <form>
+          <ld-select placeholder="Pick a fruit" name="fruit" multiple>
+            <ld-option value="apple">Apple</ld-option>
+            <ld-option value="pear">Pear</ld-option>
+            <ld-option value="banana">Banana</ld-option>
+          </ld-select>
+        </form>`,
+    })
+
+    const form = page.body.querySelector('form')
+    const ldSelect = page.root as HTMLLdSelectElement
+
+    ldSelect.tetherOptions = { bodyElement: form }
+    await triggerPopperWithClick(page)
+    await page.waitForChanges()
+
+    expect(page.body).toMatchSnapshot()
+  })
+
   it('updates internal options in popper and hidden input fields', async () => {
     const page = await newSpecPage({
       components,
