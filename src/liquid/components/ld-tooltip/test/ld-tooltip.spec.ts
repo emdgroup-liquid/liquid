@@ -82,6 +82,30 @@ describe('ld-tooltip', () => {
     })
   })
 
+  it(`places the popper inside a given element`, async () => {
+    const page = await newSpecPage({
+      components: [LdIcon, LdTooltip, LdTooltipPopper],
+      html: `<form></form>
+      <ld-tooltip>
+        <h4>Headline</h4>
+        <p>Text content</p>
+      </ld-tooltip>`,
+    })
+
+    const form = page.body.querySelector('form')
+    const component = page.root as HTMLLdTooltipElement
+    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+
+    // @ts-ignore
+    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    component.tetherOptions = { bodyElement: form }
+    trigger.dispatchEvent(new Event('mouseenter'))
+    jest.advanceTimersByTime(0)
+
+    expect(page.body).toMatchSnapshot()
+  })
+
   it(`initializes on mouseenter, if trigger-type is "hover"`, async () => {
     const page = await newSpecPage({
       components: [LdIcon, LdTooltip, LdTooltipPopper],

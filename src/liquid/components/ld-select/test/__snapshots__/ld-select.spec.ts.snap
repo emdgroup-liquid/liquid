@@ -368,6 +368,113 @@ exports[`ld-select observes slot content changes and updates internal options in
 </body>
 `;
 
+exports[`ld-select places the popper inside a given element 1`] = `
+<body>
+  <form>
+    <ld-select multiple="" name="fruit" placeholder="Pick a fruit">
+      <mock:shadow-root>
+        <div class="ld-select ld-select--expanded" part="root" style="z-index: 2147483647;">
+          <slot name="hidden"></slot>
+          <div class="ld-select__slot-container" part="slot-container">
+            <slot></slot>
+          </div>
+          <div class="ld-select__select ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left" part="select">
+            <div aria-disabled="false" aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+              <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
+                <span class="ld-select__btn-trigger-text" part="trigger-text">
+                  Pick a fruit
+                </span>
+              </span>
+              <slot name="icon"></slot>
+              <svg class="ld-select__icon ld-select__icon--rotated" part="trigger-icon" role="presentation" viewBox="0 0 16 16">
+                <path d="M3 6l5 4 5-4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+              </svg>
+            </div>
+            <div class="ld-tether-target-marker">
+              <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+            </div>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <ld-option class="ld-option" value="apple">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        Apple
+      </ld-option>
+      <ld-option class="ld-option" value="pear">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        Pear
+      </ld-option>
+      <ld-option class="ld-option" value="banana">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        Banana
+      </ld-option>
+      <input name="fruit" slot="hidden" type="hidden">
+    </ld-select>
+    <div data-tether-id="36" style="top: 0; left: 0; position: absolute;"></div>
+    <ld-select-popper class="ld-select__popper--initialized ld-tether-element ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target-attached-bottom ld-tether-target-attached-left" role="listbox" style="z-index: 2147483646; display: block; top: 0; left: 0; position: absolute; transform: translateX(NaNpx) translateY(NaNpx) translateZ(0); width: 0px;">
+      <mock:shadow-root>
+        <div class="ld-select-popper ld-select-popper--expanded" part="popper">
+          <div class="ld-select-popper__scroll-container" part="popper-scroll-container">
+            <slot></slot>
+            <div class="ld-select-popper__shadow" part="shadow" style="height: calc(100% + 0px);"></div>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <div part="options-container">
+        <ld-option-internal mode="checkbox" value="apple">
+          <mock:shadow-root>
+            <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
+                <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
+              </div>
+              <span class="ld-option-internal__label" part="label">
+                <slot></slot>
+              </span>
+            </div>
+          </mock:shadow-root>
+          Apple
+        </ld-option-internal>
+        <ld-option-internal mode="checkbox" value="pear">
+          <mock:shadow-root>
+            <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
+                <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
+              </div>
+              <span class="ld-option-internal__label" part="label">
+                <slot></slot>
+              </span>
+            </div>
+          </mock:shadow-root>
+          Pear
+        </ld-option-internal>
+        <ld-option-internal mode="checkbox" value="banana">
+          <mock:shadow-root>
+            <div class="ld-option-internal" part="option focusable" role="option" tabindex="-1">
+              <div class="ld-option-internal__checkbox-wrapper" part="checkbox-wrapper" role="presentation">
+                <ld-checkbox class="ld-option-internal__checkbox" part="checkbox"></ld-checkbox>
+              </div>
+              <span class="ld-option-internal__label" part="label">
+                <slot></slot>
+              </span>
+            </div>
+          </mock:shadow-root>
+          Banana
+        </ld-option-internal>
+      </div>
+      <div class="ld-tether-element-marker">
+        <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
+      </div>
+    </ld-select-popper>
+  </form>
+</body>
+`;
+
 exports[`ld-select removes hidden input field, after removing form attribute 1`] = `
 <ld-select multiple="" name="fruit" placeholder="Pick a fruit">
   <mock:shadow-root>
@@ -858,7 +965,7 @@ exports[`ld-select updates internal options in popper and hidden input fields 1`
       <input name="fruit" slot="hidden" type="hidden" value="banana">
     </ld-select>
   </form>
-  <div data-tether-id="36" style="top: 0; left: 0; position: absolute;"></div>
+  <div data-tether-id="37" style="top: 0; left: 0; position: absolute;"></div>
   <ld-select-popper class="ld-select__popper--initialized ld-tether-element ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target-attached-bottom ld-tether-target-attached-left" role="listbox" style="z-index: 2147483646; display: block; top: 0; left: 0; position: absolute; transform: translateX(NaNpx) translateY(NaNpx) translateZ(0); width: 0px;">
     <mock:shadow-root>
       <div class="ld-select-popper ld-select-popper--expanded" part="popper">
