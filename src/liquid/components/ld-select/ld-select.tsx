@@ -47,9 +47,6 @@ export class LdSelect implements InnerFocusable {
    */
   @Prop() autofocus = false
 
-  /** Element to attach the popper element to. */
-  @Prop() bodyElement?: HTMLElement | null
-
   /** Disabled state of the component. */
   @Prop() disabled: boolean
 
@@ -97,8 +94,8 @@ export class LdSelect implements InnerFocusable {
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'
 
-  /** Stringified tether options object to be merged with the default options. */
-  @Prop({ mutable: true }) tetherOptions = '{}'
+  /** Tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   @State() ariaDisabled = false
   @State() expanded = false
@@ -312,9 +309,10 @@ export class LdSelect implements InnerFocusable {
   }
 
   private initPopper() {
-    const customTetherOptions: Partial<Tether.ITetherOptions> = JSON.parse(
-      this.tetherOptions
-    )
+    const customTetherOptions: Partial<Tether.ITetherOptions> =
+      typeof this.tetherOptions === 'string'
+        ? JSON.parse(this.tetherOptions)
+        : this.tetherOptions
     const tetherOptions: Tether.ITetherOptions = {
       classPrefix: 'ld-tether',
       element: this.listboxRef,
@@ -329,10 +327,6 @@ export class LdSelect implements InnerFocusable {
         },
       ],
       ...customTetherOptions,
-    }
-
-    if (this.bodyElement) {
-      tetherOptions.bodyElement = this.bodyElement
     }
 
     this.popper = new Tether(tetherOptions)

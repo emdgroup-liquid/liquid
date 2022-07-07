@@ -1949,7 +1949,7 @@ describe('ld-select', () => {
     const form = page.body.querySelector('form')
     const ldSelect = page.root as HTMLLdSelectElement
 
-    ldSelect.bodyElement = form
+    ldSelect.tetherOptions = { bodyElement: form }
     await triggerPopperWithClick(page)
     await page.waitForChanges()
 

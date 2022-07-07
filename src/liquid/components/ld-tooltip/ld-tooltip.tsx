@@ -52,9 +52,6 @@ export class LdTooltip {
   /** Show arrow */
   @Prop() arrow: boolean
 
-  /** Element to attach the popper element to. */
-  @Prop() bodyElement?: HTMLElement | null
-
   /** Disable tooltip trigger */
   @Prop() disabled: boolean
 
@@ -73,8 +70,8 @@ export class LdTooltip {
   /** The rendered HTML tag for the tooltip trigger. */
   @Prop() tag = 'button'
 
-  /** Stringified tether options object to be merged with the default options. */
-  @Prop() tetherOptions = '{}'
+  /** Tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   /** Event type that triggers the tooltip */
   @Prop() triggerType: 'click' | 'hover' = 'hover'
@@ -128,9 +125,10 @@ export class LdTooltip {
       this.tooltipRef.appendChild(node)
     })
 
-    const customTetherOptions: Partial<Tether.ITetherOptions> = JSON.parse(
-      this.tetherOptions
-    )
+    const customTetherOptions: Partial<Tether.ITetherOptions> =
+      typeof this.tetherOptions === 'string'
+        ? JSON.parse(this.tetherOptions)
+        : this.tetherOptions
     const tetherOptions: Tether.ITetherOptions = {
       attachment,
       classPrefix: 'ld-tether',
@@ -144,10 +142,6 @@ export class LdTooltip {
       target: this.triggerRef,
       targetAttachment,
       ...customTetherOptions,
-    }
-
-    if (this.bodyElement) {
-      tetherOptions.bodyElement = this.bodyElement
     }
 
     this.popper = new Tether(tetherOptions)

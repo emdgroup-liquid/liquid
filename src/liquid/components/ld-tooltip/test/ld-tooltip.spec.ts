@@ -99,7 +99,7 @@ describe('ld-tooltip', () => {
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    component.bodyElement = form
+    component.tetherOptions = { bodyElement: form }
     trigger.dispatchEvent(new Event('mouseenter'))
     jest.advanceTimersByTime(0)
 
