@@ -1,75 +1,101 @@
 :host,
 .ld-switch {
   /* layout */
-  --ld-switch-max-height: 2.5rem;
+  --ld-switch-item-icon-size: 1.25rem;
+  --ld-switch-item-icon-size-sm: 1rem;
+  --ld-switch-item-icon-size-lg: 1.5rem;
+  --ld-switch-item-icon-margin-x: -0.25rem;
+  --ld-switch-item-icon-margin-x-sm: -0.125rem;
+  --ld-switch-item-icon-margin-x-lg: -0.5rem;
+  --ld-switch-item-justify-content: center;
+  --ld-switch-item-padding-x: 0.875rem;
+  --ld-switch-item-padding-y: 0.625rem;
+  --ld-switch-item-padding-x-sm: 0.625rem;
+  --ld-switch-item-padding-y-sm: 0.4375rem;
+  --ld-switch-item-padding-x-lg: 1.3125rem;
+  --ld-switch-item-padding-y-lg: 0.85rem;
+  --ld-switch-item-gap: 0.875rem;
+  --ld-switch-item-gap-sm: 0.625rem;
+  --ld-switch-item-gap-lg: 1.1875rem;
+  --ld-switch-font: var(--ld-typo-body-m);
+  --ld-switch-font-sm: var(--ld-typo-body-s);
+  --ld-switch-font-lg: var(--ld-typo-body-l);
 
   /* colors */
-  --ld-switch-text-col: var(--ld-thm-primary);
   --ld-switch-bg-col: var(--ld-thm-primary-alpha-low);
-
   --ld-switch-bg-col-hover: var(--ld-thm-primary-hover);
   --ld-switch-bg-col-active: var(--ld-thm-primary-active);
   --ld-switch-bg-col-focus: var(--ld-thm-primary-focus);
-
-  --ld-switch-selected-text-col: var(--ld-col-wht);
+  --ld-switch-item-col: var(--ld-thm-primary-hover);
+  --ld-switch-item-label-bg-col: var(--ld-col-wht);
+  --ld-switch-selected-col: var(--ld-col-wht);
   --ld-switch-selected-bg-col: var(--ld-thm-primary);
-
-  /* ld-switch-item vars */
-  --ld-switch-item-padding-y: 0.75rem;
-  --ld-switch-item-font-size: 1rem;
-
-  position: relative;
-  display: block;
-
-  fieldset {
-    position: relative;
-    min-width: 0;
-    border: 0;
-  }
 
   legend {
     position: absolute;
-    margin: -1px;
-    border: 0;
+    width: var(--ld-sp-1);
+    height: var(--ld-sp-1);
     padding: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    text-transform: none;
-    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
   }
+}
 
-  .ld-switch_item-container {
-    position: relative;
-    display: inline-flex;
-    border-radius: 0.25rem;
-    overflow: hidden;
-  }
+.ld-switch,
+:host fieldset {
+  border: 0;
+  border-radius: var(--ld-br-m);
+  display: inline-grid;
+  grid-auto-columns: minmax(min-content, 1fr);
+  grid-auto-flow: column;
+  margin: 0;
+  min-width: auto;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.ld-switch--fit-content,
+:host(.ld-switch--fit-content) fieldset {
+  --ld-switch-item-justify-content: flex-start;
+  grid-auto-columns: minmax(0px, auto);
+}
+
+:host fieldset {
+  width: 100%;
 }
 
 :host(.ld-switch--sm),
 .ld-switch--sm {
-  --ld-switch-item-padding-y: 0.625rem;
-  --ld-switch-item-font-size: 0.875rem;
+  --ld-switch-font: var(--ld-switch-font-sm);
+  --ld-switch-item-gap: var(--ld-switch-item-gap-sm);
+  --ld-switch-item-icon-margin-x: var(--ld-switch-item-icon-margin-x-sm);
+  --ld-switch-item-icon-size: var(--ld-switch-item-icon-size-sm);
+  --ld-switch-item-padding-x: var(--ld-switch-item-padding-x-sm);
+  --ld-switch-item-padding-y: var(--ld-switch-item-padding-y-sm);
 }
 
 :host(.ld-switch--lg),
 .ld-switch--lg {
-  --ld-switch-item-padding-y: 1rem;
-  --ld-switch-item-font-size: 1.125rem;
+  --ld-switch-font: var(--ld-switch-font-lg);
+  --ld-switch-item-gap: var(--ld-switch-item-gap-lg);
+  --ld-switch-item-icon-margin-x: var(--ld-switch-item-icon-margin-x-lg);
+  --ld-switch-item-icon-size: var(--ld-switch-item-icon-size-lg);
+  --ld-switch-item-padding-x: var(--ld-switch-item-padding-x-lg);
+  --ld-switch-item-padding-y: var(--ld-switch-item-padding-y-lg);
 }
 
 :host(.ld-switch--brand-color),
 .ld-switch--brand-color {
-  --ld-switch-item-text-col: var(--ld-thm-primary-highlight);
-  --ld-switch-item-bg-col: rgba(255, 255, 255, 0.2);
+  --ld-switch-item-col: var(--ld-col-wht);
+  --ld-switch-item-bg-col: var(--ld-col-wht-alpha-low);
+  --ld-switch-item-label-bg-col: var(--ld-thm-primary);
 
   --ld-switch-item-bg-col-hover: var(--ld-col-wht-alpha-high);
   --ld-switch-item-bg-col-active: var(--ld-col-wht-alpha-medium);
   --ld-switch-item-bg-col-focus: var(--ld-col-wht-alpha-high);
   --ld-switch-item-bg-col-selected: var(--ld-col-wht);
 
-  --ld-switch-item-text-col-selected: var(--ld-thm-primary);
-  --ld-switch-item-text-col-active: var(--ld-switch-item-text-col-selected);
+  --ld-switch-item-col-selected: var(--ld-thm-primary);
+  --ld-switch-item-col-active: var(--ld-switch-item-col-selected);
 }

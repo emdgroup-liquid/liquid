@@ -3,76 +3,103 @@ import {
   Element,
   Event,
   EventEmitter,
-  Host,
   Method,
   h,
+  Host,
   Prop,
   State,
   Watch,
 } from '@stencil/core'
 import { cloneAttributes } from '../../../utils/cloneAttributes'
+import { getClassNames } from '../../../utils/getClassNames'
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part label-element - wrapping label element
+ * @part input - the form input element
+ * @part content - content container element
+ * @part label - text label container containing the main slot
+ */
 @Component({
   tag: 'ld-switch-item',
   styleUrl: 'ld-switch-item.css',
   shadow: true,
 })
 export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
-  @Element() el: HTMLInputElement
+  @Element() el: HTMLLdSwitchItemElement
 
   private attributesObserver: MutationObserver
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
-  /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  /** Alternative disabled state that keeps element focusable */
+  @Prop({ reflect: true }) ariaDisabled: string
 
-  /** Indicates whether the radio button is selected. */
+  /** Indicates whether the switch item is selected. */
   @Prop({ mutable: true }) checked = false
 
-  /** Disabled state of the radio. */
-  @Prop() disabled: boolean
+  /** Disabled state of the switch item. */
+  @Prop() disabled?: boolean
 
-  /** Associates the control with a form element. */
+  /**
+   * @internal
+   * Associates the control with a form element.
+   */
   @Prop() form?: string
 
-  /** Tab index of the input. */
+  /**
+   * @internal
+   * Tab index of the input.
+   */
   @Prop() ldTabindex: number | undefined
 
-  /** Used to specify the name of the control. */
-  @Prop() name: string
+  /**
+   * @internal
+   * A string specifying a name for the input control. This name is submitted
+   * along with the control's value when the form data is submitted.
+   */
+  @Prop() name?: string
 
-  /** The value is not editable. */
-  @Prop() readonly?: boolean
+  /**
+   * @internal
+   * The value is not editable.
+   */
+  @Prop({ reflect: true }) readonly?: boolean
 
-  /** Set this property to `true` in order to mark the checkbox as required. */
-  @Prop() required: boolean
+  /**
+   * @internal
+   * Set by the outer switch component marking input element as required.
+   */
+  @Prop() required?: boolean
 
   /** The input value. */
-  @Prop() value!: string
-
-  /** The label of the switch item */
-  @Prop() label!: string
+  @Prop() value?: string
 
   @State() clonedAttributes
+  @State() hasLabel: boolean
 
-  /** Emitted when the input value changed and the element loses focus. */
+  /**
+   * @internal
+   * Emitted when the input value changed and the element loses focus.
+   */
   @Event() ldswitchitemchange: EventEmitter<string>
 
-  /** Emitted when the input value changed. */
-  @Event() ldswitchiteminput: EventEmitter<boolean>
+  /**
+   * @internal
+   * Emitted when the input receives focus.
+   */
+  @Event() ldswitchitemfocus: EventEmitter<string>
 
-  /** Sets focus on the radio button. */
+  /** Sets focus on the switch item. */
   @Method()
   async focusInner() {
-    if (this.input !== undefined) {
-      this.input.focus()
-    }
+    this.input.focus()
   }
 
-  @Watch('disabled')
   @Watch('checked')
+  @Watch('form')
   @Watch('name')
   @Watch('value')
   updateHiddenInput() {
@@ -122,132 +149,96 @@ export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
   private handleKeyDown = (ev: KeyboardEvent) => {
     switch (ev.key) {
       case 'ArrowUp':
-      case 'ArrowLeft': {
+      case 'ArrowLeft':
         ev.preventDefault()
         this.focusAndSelect('prev')
         return
-      }
       case 'ArrowDown':
-      case 'ArrowRight': {
+      case 'ArrowRight':
         ev.preventDefault()
         this.focusAndSelect('next')
-        return
-      }
     }
   }
 
-  private handleChange = (event: InputEvent) => {
-    this.el.dispatchEvent(new InputEvent('change', event))
-    this.ldswitchitemchange.emit(this.el.value)
-  }
-
-  private handleClick = (ev?: MouseEvent) => {
-    if (
-      this.disabled ||
-      this.el.getAttribute('aria-disabled') === 'true' ||
-      this.readonly
-    ) {
-      ev?.preventDefault()
+  private handleClick = (ev: MouseEvent) => {
+    if (this.checked || this.disabled || this.ariaDisabled || this.readonly) {
+      ev.preventDefault()
       return
     }
 
-    if (this.checked) return
-
-    // Uncheck radios with same name.
-    if (this.name) {
-      // Attribute selector fails in test env, hance filtering with js below.
-      Array.from(document.querySelectorAll('ld-switch-item'))
-        .filter(
-          (ldSwitchItem) => ldSwitchItem.getAttribute('name') === this.name
-        )
-        .forEach((ldSwitchItem) => {
-          ldSwitchItem.checked = false
-        })
-    }
+    // Uncheck siblings.
+    Array.from(
+      this.el.parentElement.querySelectorAll('ld-switch-item')
+    ).forEach((ldSwitchItem) => {
+      ldSwitchItem.checked = false
+    })
 
     this.checked = true
 
-    if (!ev.isTrusted) {
-      // This happens, when a click event is dispatched on the host element
-      // from the outside i.e. on click on a parent ld-label element.
-      this.el.dispatchEvent(
-        new InputEvent('input', { bubbles: true, composed: true })
-      )
-      this.handleInput()
-      this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
-      this.ldswitchitemchange.emit(this.el.value)
-    }
+    this.el.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    this.ldswitchitemchange.emit(this.el.value)
   }
 
-  private handleInput = () => {
-    this.ldswitchiteminput.emit(this.checked)
+  private handleFocus = () => {
+    this.ldswitchitemfocus.emit()
   }
 
   private focusAndSelect(dir: 'next' | 'prev') {
-    const ldSwitchItems = Array.from(
-      document.querySelectorAll('ld-switch-item')
-    ).filter((ldSwitchItem) => ldSwitchItem.getAttribute('name') === this.name)
-
-    ldSwitchItems.forEach((ldSwitchItem, index) => {
-      if (ldSwitchItem === (this.el as unknown as HTMLLdSwitchItemElement)) {
-        const targetLdSwitchItem =
-          ldSwitchItems[index + (dir === 'next' ? 1 : -1)]
-        if (targetLdSwitchItem) {
-          targetLdSwitchItem.focusInner()
-          targetLdSwitchItem.click()
-        }
-      }
-    })
+    const sibling = (
+      dir === 'next'
+        ? this.el.nextElementSibling
+        : this.el.previousElementSibling
+    ) as HTMLLdSwitchItemElement
+    if (sibling) {
+      sibling.focusInner()
+      sibling.click()
+    }
   }
 
-  @Watch('label')
   componentWillLoad() {
-    this.attributesObserver = cloneAttributes.call(this, ['label'])
+    this.hasLabel = Array.from(this.el.childNodes).some(
+      (el: HTMLElement) =>
+        el.tagName !== 'LD-ICON' &&
+        !el.classList?.contains('ld-icon') &&
+        el.textContent.trim()
+    )
 
-    const outerForm = this.el.closest('form')
-
-    if (this.name && (outerForm || this.form)) {
-      this.createHiddenInput()
-      this.hiddenInput.checked = this.checked
-      this.hiddenInput.name = this.name
-
-      if (this.form) {
-        this.hiddenInput.setAttribute('form', this.form)
-      }
-
-      if (this.value) {
-        this.hiddenInput.value = this.value
-      }
-    }
+    this.attributesObserver = cloneAttributes.call(this)
   }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
-    }
-  }
-
+  // istanbul ignore next
   disconnectedCallback() {
     this.attributesObserver?.disconnect()
   }
 
   render() {
+    const cl = getClassNames([
+      'ld-switch-item',
+      this.hasLabel && 'ld-switch-item--has-label',
+    ])
+
     return (
-      <Host part="root" class="ld-switch-item" onClick={this.handleClick}>
-        <label>
+      <Host onClick={this.handleClick} class={cl}>
+        <label part="label-element">
           <input
             type="radio"
             {...this.clonedAttributes}
             part="input focusable"
-            onChange={this.handleChange}
-            onInput={this.handleInput}
             onKeyDown={this.handleKeyDown}
+            onFocus={this.handleFocus}
             ref={(ref) => (this.input = ref)}
+            required={this.required}
             disabled={this.disabled}
             checked={this.checked}
             tabIndex={this.checked ? this.ldTabindex : -1}
           />
-          <span class="ld-switch-item__faux">{this.label}</span>
+          <span part="content" class="ld-switch-item__content">
+            <slot name="icon-start" />
+            <span part="label" class="ld-switch-item__label">
+              <slot />
+            </span>
+            <slot name="icon-end" />
+          </span>
         </label>
       </Host>
     )

@@ -55,14 +55,14 @@ export class MyComponent {
           class="docs-color__var"
           style={{ background: `var(${this.var})` }}
         >
-          <docs-copy-to-cb textToCopy={this.var} />
+          <docs-copy-to-cb textToCopy={this.var} mode="ghost" />
           {this.var}
         </span>
         <span
           class="docs-color__val"
           style={{ background: `var(${this.var})` }}
         >
-          <docs-copy-to-cb textToCopy={this.val} />
+          <docs-copy-to-cb textToCopy={this.val} mode="ghost" />
           {this.val}
         </span>
       </Host>

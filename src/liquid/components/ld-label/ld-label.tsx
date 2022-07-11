@@ -36,7 +36,11 @@ export class LdLabel implements ClonesAttributes {
       event.target === inputElement ||
       inputElement.contains(event.target as Node)
 
-    if (inputElement && !clickedInsideInputElement) {
+    if (
+      inputElement &&
+      !clickedInsideInputElement &&
+      !inputElement['disabled']
+    ) {
       if ('focusInner' in inputElement) {
         await (inputElement as unknown as InnerFocusable).focusInner()
       } else {

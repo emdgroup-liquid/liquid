@@ -19,33 +19,21 @@ Please refer to the [`ld-switch` documentation](components/ld-switch) for usage 
 
 ## Properties
 
-| Property             | Attribute     | Description                                                            | Type      | Default     |
-| -------------------- | ------------- | ---------------------------------------------------------------------- | --------- | ----------- |
-| `autofocus`          | `autofocus`   | Automatically focus the form control when the page is loaded.          | `boolean` | `false`     |
-| `checked`            | `checked`     | Indicates whether the radio button is selected.                        | `boolean` | `false`     |
-| `disabled`           | `disabled`    | Disabled state of the radio.                                           | `boolean` | `undefined` |
-| `form`               | `form`        | Associates the control with a form element.                            | `string`  | `undefined` |
-| `label` _(required)_ | `label`       | The label of the switch item                                           | `string`  | `undefined` |
-| `ldTabindex`         | `ld-tabindex` | Tab index of the input.                                                | `number`  | `undefined` |
-| `name`               | `name`        | Used to specify the name of the control.                               | `string`  | `undefined` |
-| `readonly`           | `readonly`    | The value is not editable.                                             | `boolean` | `undefined` |
-| `required`           | `required`    | Set this property to `true` in order to mark the checkbox as required. | `boolean` | `undefined` |
-| `value` _(required)_ | `value`       | The input value.                                                       | `string`  | `undefined` |
-
-
-## Events
-
-| Event                | Description                                                       | Type                   |
-| -------------------- | ----------------------------------------------------------------- | ---------------------- |
-| `ldswitchitemchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>`  |
-| `ldswitchiteminput`  | Emitted when the input value changed.                             | `CustomEvent<boolean>` |
+| Property       | Attribute       | Description                                              | Type               | Default     |
+| -------------- | --------------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable  | `string`           | `undefined` |
+| `checked`      | `checked`       | Indicates whether the switch item is selected.           | `boolean`          | `false`     |
+| `disabled`     | `disabled`      | Disabled state of the switch item.                       | `boolean`          | `undefined` |
+| `key`          | `key`           | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`          | `ref`           | reference to component                                   | `any`              | `undefined` |
+| `value`        | `value`         | The input value.                                         | `string`           | `undefined` |
 
 
 ## Methods
 
 ### `focusInner() => Promise<void>`
 
-Sets focus on the radio button.
+Sets focus on the switch item.
 
 #### Returns
 
@@ -56,9 +44,12 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part     | Description |
-| -------- | ----------- |
-| `"root"` |             |
+| Part              | Description                                   |
+| ----------------- | --------------------------------------------- |
+| `"content"`       | content container element                     |
+| `"input"`         | the form input element                        |
+| `"label"`         | text label container containing the main slot |
+| `"label-element"` | wrapping label element                        |
 
 
 ----------------------------------------------

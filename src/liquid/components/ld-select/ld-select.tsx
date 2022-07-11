@@ -13,6 +13,7 @@ import {
 } from '@stencil/core'
 import Tether from 'tether'
 import { getClassNames } from '../../utils/getClassNames'
+import { registerAutofocus } from '../../utils/focus'
 
 type SelectOption = { value: string; text: string }
 
@@ -45,7 +46,7 @@ export class LdSelect implements InnerFocusable {
    * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
    * Only one form element in a document can have the autofocus attribute.
    */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   /** Disabled state of the component. */
   @Prop() disabled: boolean
@@ -861,6 +862,8 @@ export class LdSelect implements InnerFocusable {
     if (this.renderHiddenInput) {
       this.updateSelectedHiddenInputs(this.selected)
     }
+
+    registerAutofocus(this.autofocus)
   }
 
   componentDidLoad() {
@@ -868,9 +871,6 @@ export class LdSelect implements InnerFocusable {
       this.initObserver()
       this.initialized = true
     })
-    if (this.autofocus) {
-      this.focusInner()
-    }
   }
 
   componentDidUpdate() {

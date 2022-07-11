@@ -1,91 +1,241 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-switch renders 1`] = `
-<ld-switch class="ld-switch" label="Food Type" name="foodType">
+exports[`ld-switch creates hidden input field, if inside a form 1`] = `
+<ld-switch class="ld-switch" name="dress" tabindex="0">
   <mock:shadow-root>
     <fieldset part="fieldset">
-      <legend>
-        Food Type
-      </legend>
-      <div class="ld-switch_item-container" part="switch_item-container">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </fieldset>
   </mock:shadow-root>
-  <ld-switch-item class="ld-switch-item" label="Fruits" name="foodType" part="root" value="fruits">
+  <ld-switch-item checked="" class="ld-switch-item ld-switch-item--has-label" value="werewolf">
     <mock:shadow-root>
-      <label>
-        <input checked="" name="foodType" part="input focusable" type="radio" value="fruits">
-        <span class="ld-switch-item__faux">
-          Fruits
+      <label part="label-element">
+        <input checked="" part="input focusable" type="radio" value="werewolf">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Werewolf
+    <input checked="" name="dress" type="radio" value="werewolf" style="visibility: hidden; position: absolute; pointer-events: none;">
   </ld-switch-item>
-  <ld-switch-item class="ld-switch-item" label="Vegetables" name="foodType" part="root" value="vegetables">
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="zombie">
     <mock:shadow-root>
-      <label>
-        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="vegetables">
-        <span class="ld-switch-item__faux">
-          Vegetables
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="zombie">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Zombie
+    <input name="dress" type="radio" value="zombie" style="visibility: hidden; position: absolute; pointer-events: none;">
   </ld-switch-item>
-  <ld-switch-item class="ld-switch-item" disabled="" label="Nuts" name="foodType" part="root" value="nuts">
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="mummy">
     <mock:shadow-root>
-      <label>
-        <input disabled="" name="foodType" part="input focusable" tabindex="-1" type="radio" value="nuts">
-        <span class="ld-switch-item__faux">
-          Nuts
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="mummy">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Mummy
+    <input name="dress" type="radio" value="mummy" style="visibility: hidden; position: absolute; pointer-events: none;">
   </ld-switch-item>
 </ld-switch>
 `;
 
-exports[`ld-switch shows switch with preseleted switchItem 1`] = `
-<ld-switch class="ld-switch" label="Food Type" name="foodType">
+exports[`ld-switch renders 1`] = `
+<ld-switch class="ld-switch" legend="Dress" name="dress" tabindex="0">
   <mock:shadow-root>
     <fieldset part="fieldset">
-      <legend>
-        Food Type
+      <legend part="legend">
+        Dress
       </legend>
-      <div class="ld-switch_item-container" part="switch_item-container">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </fieldset>
   </mock:shadow-root>
-  <ld-switch-item class="ld-switch-item" label="Fruits" name="foodType" part="root" value="fruits">
+  <ld-switch-item checked="" class="ld-switch-item ld-switch-item--has-label" value="werewolf">
     <mock:shadow-root>
-      <label>
-        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="fruits">
-        <span class="ld-switch-item__faux">
-          Fruits
+      <label part="label-element">
+        <input checked="" part="input focusable" type="radio" value="werewolf">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Werewolf
   </ld-switch-item>
-  <ld-switch-item checked="" class="ld-switch-item" label="Vegetables" name="foodType" part="root" value="vegetables">
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="zombie">
     <mock:shadow-root>
-      <label>
-        <input checked="" name="foodType" part="input focusable" type="radio" value="vegetables">
-        <span class="ld-switch-item__faux">
-          Vegetables
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="zombie">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Zombie
   </ld-switch-item>
-  <ld-switch-item class="ld-switch-item" label="Nuts" name="foodType" part="root" value="nuts">
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" disabled="" value="mummy">
     <mock:shadow-root>
-      <label>
-        <input name="foodType" part="input focusable" tabindex="-1" type="radio" value="nuts">
-        <span class="ld-switch-item__faux">
-          Nuts
+      <label part="label-element">
+        <input disabled="" part="input focusable" tabindex="-1" type="radio" value="mummy">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
         </span>
       </label>
     </mock:shadow-root>
+    Mummy
+  </ld-switch-item>
+  <ld-switch-item aria-disabled="true" class="ld-switch-item ld-switch-item--has-label" value="vampire">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input aria-disabled="true" part="input focusable" tabindex="-1" type="radio" value="vampire">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    Vampire
+  </ld-switch-item>
+</ld-switch>
+`;
+
+exports[`ld-switch uses hidden input field with referenced form 1`] = `
+<ld-switch class="ld-switch" form="yolo" name="dress" tabindex="0">
+  <mock:shadow-root>
+    <fieldset part="fieldset">
+      <slot></slot>
+    </fieldset>
+  </mock:shadow-root>
+  <ld-switch-item checked="" class="ld-switch-item ld-switch-item--has-label" value="werewolf">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input checked="" part="input focusable" type="radio" value="werewolf">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    Werewolf
+    <input checked="" form="yolo" name="dress" type="radio" value="werewolf" style="visibility: hidden; position: absolute; pointer-events: none;">
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="zombie">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="zombie">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    Zombie
+    <input form="yolo" name="dress" type="radio" value="zombie" style="visibility: hidden; position: absolute; pointer-events: none;">
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="mummy">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="mummy">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    Mummy
+    <input form="yolo" name="dress" type="radio" value="mummy" style="visibility: hidden; position: absolute; pointer-events: none;">
+  </ld-switch-item>
+</ld-switch>
+`;
+
+exports[`ld-switch with icons only 1`] = `
+<ld-switch class="ld-switch" legend="Dress" name="dress" tabindex="0">
+  <mock:shadow-root>
+    <fieldset part="fieldset">
+      <legend part="legend">
+        Dress
+      </legend>
+      <slot></slot>
+    </fieldset>
+  </mock:shadow-root>
+  <ld-switch-item checked="" class="ld-switch-item" value="werewolf">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input checked="" part="input focusable" type="radio" value="werewolf">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    <ld-icon aria-label="Werewolf" class="ld-icon" name="placeholder" role="presentation" slot="icon-start">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+    </ld-icon>
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item" value="zombie">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="zombie">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    <ld-icon aria-label="Zombie" class="ld-icon" name="placeholder" role="presentation" slot="icon-start">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+    </ld-icon>
   </ld-switch-item>
 </ld-switch>
 `;

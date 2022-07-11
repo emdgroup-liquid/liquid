@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
+import { registerAutofocus } from '../../utils/focus'
 
 /**
  * The `ld-input` component. You can use it in conjunction with the `ld-label`
@@ -53,7 +54,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true, reflect: true }) autocomplete?: string
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   /** Media capture input method in file upload controls. */
   @Prop() capture?: string
@@ -273,12 +274,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     }
 
     this.updateIconAndButtonSize()
-  }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
-    }
+    registerAutofocus(this.autofocus)
   }
 
   private handleChange = (ev: InputEvent) => {
