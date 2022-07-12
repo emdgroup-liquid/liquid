@@ -593,4 +593,23 @@ describe('ld-select', () => {
       expect(results).toMatchScreenshot()
     })
   })
+  describe('z-order', () => {
+    fit('current selection is still visible when opened in a container with a set z-order', async () => {
+      const page = await getPageWithContent(`
+      <div style="will-change: transform">
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      </div>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
 })

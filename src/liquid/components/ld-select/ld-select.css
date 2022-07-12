@@ -205,6 +205,13 @@
 
 .ld-select__btn-trigger {
   overflow: hidden;
+
+  &:not(.ld-select__btn-trigger--detached) {
+    .ld-tether-enabled.ld-tether-target-attached-bottom & {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
 }
 
 :where(.ld-select),
