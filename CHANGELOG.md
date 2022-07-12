@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/emdgroup-liquid/liquid/compare/v2.1.0...v2.2.0) (2022-07-07)
+
+
+### Features
+
+* **ld-select, ld-tooltip:** tetherOptions prop as object ([2969354](https://github.com/emdgroup-liquid/liquid/commit/2969354a6860b2ebc5bb748b62e9d83ba8bc5d3d))
+
 # [2.1.0](https://github.com/emdgroup-liquid/liquid/compare/v2.0.2...v2.1.0) (2022-07-04)
 
 
