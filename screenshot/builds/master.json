@@ -13460,6 +13460,19 @@
       "isMobile": false
     },
     {
+      "id": "104bf6c5",
+      "image": "68d6168f6fd5e2b54fdbf709d35d9774.png",
+      "userAgent": "default",
+      "desc": "ld-select z-order current selection is still visible when opened in a container with a set z-order",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "0dcb75e6",
       "image": "f6c0f245f5898586a8b8f4c3d9edf269.png",
       "userAgent": "default",

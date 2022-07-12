@@ -129,6 +129,15 @@
   }
 }
 
+.ld-select--expanded {
+  .ld-tether-target-attached-bottom {
+    .ld-select__btn-trigger:not(.ld-select__btn-trigger--detached) {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+}
+
 :where(.ld-select:not(.ld-select--inline):not(.ld-select--ghost)) {
   min-width: var(--ld-select-min-width);
 }
