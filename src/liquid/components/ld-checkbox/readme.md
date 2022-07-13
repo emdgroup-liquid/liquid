@@ -459,7 +459,6 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
       height="14"
       fill="none"
       viewBox="0 0 14 14"
-     
     >
       <path
         d="M12 4L5.40795 10L2 6.63964"
@@ -506,7 +505,6 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
         height="14"
         fill="none"
         viewBox="0 0 14 14"
-       
       >
         <path
           d="M12 4L5.40795 10L2 6.63964"
@@ -538,7 +536,6 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
         height="14"
         fill="none"
         viewBox="0 0 14 14"
-       
       >
         <path
           d="M12 4L5.40795 10L2 6.63964"
