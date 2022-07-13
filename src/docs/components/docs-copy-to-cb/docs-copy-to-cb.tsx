@@ -13,6 +13,9 @@ export class DocsCopyToCb {
   /** Text to be copied to clipboard */
   @Prop() textToCopy!: string
 
+  /** Display mode. */
+  @Prop() mode?: HTMLLdButtonElement['mode']
+
   @State() copyTimeout: number | undefined
 
   private clearCopyTimeout() {
@@ -30,7 +33,7 @@ export class DocsCopyToCb {
 
   render() {
     return (
-      <ld-button class="docs-copy-to-cb" mode="ghost" size="sm">
+      <ld-button class="docs-copy-to-cb" mode={this.mode} size="sm">
         <ld-sr-only>
           {this.copyTimeout ? 'Copied to clipboard' : 'Copy to clipboard'}
         </ld-sr-only>

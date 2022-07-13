@@ -1354,9 +1354,9 @@ describe('ld-sidenav', () => {
 
     it('traps the focus in the shadow dom of a web component within the sidenav', async () => {
       const page = await newSpecPage({
-        components: [LdButton, LdSidenav],
+        components: [LdSidenav],
         html: `<ld-sidenav open trap-focus="">
-          <ld-button>I'm focusable</ld-button>
+          <a href="#">I'm focusable</a>
         </ld-sidenav>`,
       })
       const ldSidenav = page.body.querySelector('ld-sidenav')
@@ -1369,13 +1369,12 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--closable')
       expect(ldSidenav).toHaveClass('ld-sidenav--open')
 
-      const ldButton = ldSidenav.querySelector('ld-button')
+      const anchor = ldSidenav.querySelector('a')
       jest.advanceTimersToNextTimer()
       await page.waitForChanges()
 
-      const button = ldButton.shadowRoot.querySelector('button')
-      button.focus = jest.fn()
-      mockedGetFirstFocusable.mockImplementationOnce(() => ldButton)
+      anchor.focus = jest.fn()
+      mockedGetFirstFocusable.mockImplementationOnce(() => anchor)
 
       const ev = {
         type: 'focusout',
@@ -1383,11 +1382,11 @@ describe('ld-sidenav', () => {
         bubbles: true,
         composed: true,
       } as unknown as FocusEvent
-      ldButton.dispatchEvent(ev)
+      anchor.dispatchEvent(ev)
 
       await page.waitForChanges()
 
-      expect(button.focus).toHaveBeenCalled()
+      expect(anchor.focus).toHaveBeenCalledTimes(1)
     })
 
     it('loops the focus back to the first focusable element in the sidenav, when it moves out from an element which matches the trap focus selector', async () => {

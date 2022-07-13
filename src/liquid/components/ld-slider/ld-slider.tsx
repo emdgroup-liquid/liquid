@@ -128,8 +128,6 @@ export class LdSlider implements InnerFocusable {
     const index = values.indexOf(findClosest(values, newValue))
     const correctedValue = this.getCorrectedValue(newValue, index, values)
 
-    console.log({ trackWidth, offsetX: ev.offsetX })
-
     values.splice(index, 1, correctedValue)
     this.value = values.join(',')
   }

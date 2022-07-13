@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { registerAutofocus } from '../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component
@@ -40,7 +41,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Prop() ariaDisabled: string
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the toggle is "on". */
   @Prop({ mutable: true }) checked = false
@@ -186,12 +187,8 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
         this.hiddenInput.value = this.value
       }
     }
-  }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
-    }
+    registerAutofocus(this.autofocus)
   }
 
   disconnectedCallback() {
