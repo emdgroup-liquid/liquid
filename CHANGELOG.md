@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/emdgroup-liquid/liquid/compare/v2.2.0...v2.3.0) (2022-07-13)
+
+
+### Bug Fixes
+
+* **ld-select:** current value not visible due to incorrect z-order ([68d1391](https://github.com/emdgroup-liquid/liquid/commit/68d13912ba109d2eec0a26fd3bc42f6529041cda)), closes [#373](https://github.com/emdgroup-liquid/liquid/issues/373)
+* **typography:** use font-smoothing on safari ([8af6e8f](https://github.com/emdgroup-liquid/liquid/commit/8af6e8f297176149f0042a62447f1d68ddf84f17))
+
+
+### Features
+
+* **ld-select, ld-tooltip:** tetherOptions prop as object ([c2dd94c](https://github.com/emdgroup-liquid/liquid/commit/c2dd94cad4d8d96a4e6934c30ac93b547a0e3d13))
+* **ld-switch:** add ld-switch component ([f6d4f1f](https://github.com/emdgroup-liquid/liquid/commit/f6d4f1f2a67ce54053a17f969b974d46b45176d4))
+
 # [2.2.0](https://github.com/emdgroup-liquid/liquid/compare/v2.1.0...v2.2.0) (2022-07-07)
 
 
