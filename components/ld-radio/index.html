@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Radio Button</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1657662425479/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1657662425479/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1657662425479/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1657662425479/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1657662425479/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1657714363280/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1657714363280/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1657714363280/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1657714363280/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1657714363280/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
 
@@ -1599,6 +1599,54 @@
         
           
             {
+              title: 'Switch Item',
+              tags: '',
+              url: '/liquid/components/ld-switch/ld-switch-item/',
+              headings: 'Properties  Methods    Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Switch',
+                
+                  'Switch Item'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
+              title: 'Switch',
+              tags: 'toggle,radio group',
+              url: '/liquid/components/ld-switch/',
+              headings: 'Default  Fit content  Size  With icon  Brand color  Disabled  All elements  Single element  Properties  Events  Methods    Shadow Parts ',
+              breadcrumbs: [
+                
+                
+                
+                  
+                  'Components',
+                
+                  'Switch'
+                
+              ]
+            },
+          
+        
+      
+    
+      
+        
+          
+            {
               title: 'Tab',
               tags: '',
               url: '/liquid/components/ld-tabs/ld-tab/',
@@ -1723,7 +1771,7 @@
           
             {
               title: 'Toggle',
-              tags: '',
+              tags: 'switch,radio group',
               url: '/liquid/components/ld-toggle/',
               headings: 'Examples  Primary  Large  Invalid  Disabled  With icons  With icons (disabled)  With icons (invalid)  With label  With label and input message  Input validation  Properties  Events  Methods    Shadow Parts ',
               breadcrumbs: [
@@ -1792,11 +1840,11 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1657662425479/docs.css">
-  <link rel="stylesheet" href="/liquid/1657662425479/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1657662425479/css_components/ld-button.css">
-  <script type="module" src="/liquid/1657662425479/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1657662425479/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1657714363280/docs.css">
+  <link rel="stylesheet" href="/liquid/1657714363280/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1657714363280/css_components/ld-button.css">
+  <script type="module" src="/liquid/1657714363280/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1657714363280/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2416,6 +2464,32 @@
           <li class="docs-nav__li">
             
               <details>
+                <summary class="docs-nav__summary docs-nav__summary--switch">
+                  <a href="/liquid/components/ld-switch/"><span aria-label="Switch">Switch</span><div class="docs-nav__arrow"></div></a>
+                  <div class="docs-nav__summary-toggle"></div>
+                </summary>
+                <ul>
+                  
+                    
+        
+          <li class="docs-nav__li">
+            
+              <a href="/liquid/components/ld-switch/ld-switch-item/">Switch Item</a>
+            
+          </li>
+        
+      
+                  
+                </ul>
+              </details>
+            
+          </li>
+        
+      
+        
+          <li class="docs-nav__li">
+            
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--tabs">
                   <a href="/liquid/components/ld-tabs/"><span aria-label="Tabs">Tabs</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2591,12 +2665,12 @@
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div></div></docs-example>
-<p><strong>If you want the checkbox to stay focusable</strong> even if it is disabled, use <code>aria-disabled</code> in place of <code>disabled</code>:</p>
-<docs-example code="%3Cld-radio%20name%3D%22example-3%22%20aria-disabled%3D%22true%22%3E%3C%2Fld-radio%3E%0A%3Cld-radio%20name%3D%22example-3%22%20aria-disabled%3D%22true%22%20checked%3E%3C%2Fld-radio%3E" code-css-component="%3Cdiv%20class%3D%22ld-radio%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22radio%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20name%3D%22example-3-css%22%0A%20%20%20%20id%3D%22focusable-disabled-radio-1%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22ld-radio%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22radio%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20name%3D%22example-3-css%22%0A%20%20%20%20checked%0A%20%20%20%20id%3D%22focusable-disabled-radio-2%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3C!--%20Example%20code%20for%20input%20prevention%20on%20aria-disabled%20checkbox%20elements%20--%3E%0A%3Cscript%3E%0A%20%20const%20inputs%20%3D%20document.querySelectorAll('%23focusable-disabled-radio-1%2C%20%23focusable-disabled-radio-2')%0A%20%20Array.from(inputs).forEach(input%20%3D%3E%20%7B%0A%20%20%20%20input.addEventListener('click'%2C%20(ev)%20%3D%3E%20%7B%0A%20%20%20%20%20%20ev.preventDefault()%0A%20%20%20%20%7D)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable has-border has-padding>
+<p><strong>If you want the radio button to stay focusable</strong> even if it is disabled, use <code>aria-disabled</code> in place of <code>disabled</code>:</p>
+<docs-example code="%3Cld-radio%20name%3D%22example-3%22%20aria-disabled%3D%22true%22%3E%3C%2Fld-radio%3E%0A%3Cld-radio%20name%3D%22example-3%22%20aria-disabled%3D%22true%22%20checked%3E%3C%2Fld-radio%3E" code-css-component="%3Cdiv%20class%3D%22ld-radio%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22radio%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20name%3D%22example-3-css%22%0A%20%20%20%20id%3D%22focusable-disabled-radio-1%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22ld-radio%22%3E%0A%20%20%3Cinput%0A%20%20%20%20type%3D%22radio%22%0A%20%20%20%20aria-disabled%3D%22true%22%0A%20%20%20%20name%3D%22example-3-css%22%0A%20%20%20%20checked%0A%20%20%20%20id%3D%22focusable-disabled-radio-2%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%0A%3C!--%20Example%20code%20for%20input%20prevention%20on%20aria-disabled%20radio%20buttons%20--%3E%0A%3Cscript%3E%0A%20%20const%20inputs%20%3D%20document.querySelectorAll('%23focusable-disabled-radio-1%2C%20%23focusable-disabled-radio-2')%0A%20%20Array.from(inputs).forEach(input%20%3D%3E%20%7B%0A%20%20%20%20input.addEventListener('click'%2C%20(ev)%20%3D%3E%20%7B%0A%20%20%20%20%20%20ev.preventDefault()%0A%20%20%20%20%7D)%0A%20%20%7D)%0A%3C%2Fscript%3E"  themable has-border has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-radio</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3<span class="token punctuation">"</span></span> <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-radio</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-radio</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3<span class="token punctuation">"</span></span> <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-radio</span><span class="token punctuation">></span></span></code></pre>
 </div><div slot="codeCssComponent">
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3-css<span class="token punctuation">"</span></span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-radio-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__dot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3-css<span class="token punctuation">"</span></span><br>    <span class="token attr-name">checked</span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-radio-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__dot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Example code for input prevention on aria-disabled checkbox elements --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">const</span> inputs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'#focusable-disabled-radio-1, #focusable-disabled-radio-2'</span><span class="token punctuation">)</span><br>  Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">input</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    input<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">ev</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      ev<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3-css<span class="token punctuation">"</span></span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-radio-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__dot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br>    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span><br>    <span class="token attr-name">aria-disabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><br>    <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example-3-css<span class="token punctuation">"</span></span><br>    <span class="token attr-name">checked</span><br>    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusable-disabled-radio-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__dot<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ld-radio__box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Example code for input prevention on aria-disabled radio buttons --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">const</span> inputs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'#focusable-disabled-radio-1, #focusable-disabled-radio-2'</span><span class="token punctuation">)</span><br>  Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">input</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    input<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">ev</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>      ev<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 </div><div slot="show"><ld-radio name="example-3" aria-disabled="true"></ld-radio>
 <ld-radio name="example-3" aria-disabled="true" checked></ld-radio></div><div slot="showCssComponent"><div class="ld-radio">
   <input
@@ -2617,7 +2691,7 @@
   <div class="ld-radio__dot"></div>
   <div class="ld-radio__box"></div>
 </div>
-<!-- Example code for input prevention on aria-disabled checkbox elements -->
+<!-- Example code for input prevention on aria-disabled radio buttons -->
 <script>
   const inputs = document.querySelectorAll('#focusable-disabled-radio-1, #focusable-disabled-radio-2')
   Array.from(inputs).forEach(input => {
@@ -2631,7 +2705,7 @@
 </ld-notice>
 <h3 id="dark" tabindex="-1">Dark <a class="header-anchor" href="components/ld-radio/#dark"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <ld-notice headline="Note" mode="warning">
-  Dark tone checkboxes should only be used on white backgrounds.
+  Dark tone radio buttons should only be used on white backgrounds.
 </ld-notice>
 <docs-example code="%3Cld-radio%20name%3D%22example-4%22%20tone%3D%22dark%22%3E%3C%2Fld-radio%3E%0A%3Cld-radio%20name%3D%22example-4%22%20tone%3D%22dark%22%20checked%3E%3C%2Fld-radio%3E" code-css-component="%3Cdiv%20class%3D%22ld-radio%20ld-radio--dark%22%3E%0A%20%20%3Cinput%20type%3D%22radio%22%20name%3D%22example-4-css%22%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22ld-radio%20ld-radio--dark%22%3E%0A%20%20%3Cinput%20type%3D%22radio%22%20name%3D%22example-4-css%22%20checked%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__dot%22%3E%3C%2Fdiv%3E%0A%20%20%3Cdiv%20class%3D%22ld-radio__box%22%3E%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  background="light" themable has-border has-padding>
 <div slot="code">
@@ -2802,7 +2876,7 @@
 <td><code>autofocus</code></td>
 <td>Automatically focus the form control when the page is loaded.</td>
 <td><code>boolean</code></td>
-<td><code>false</code></td>
+<td><code>undefined</code></td>
 </tr>
 <tr>
 <td><code>checked</code></td>
@@ -2854,7 +2928,7 @@
 <td><code>undefined</code></td>
 </tr>
 <tr>
-<td><code>name</code></td>
+<td><code>name</code> <em>(required)</em></td>
 <td><code>name</code></td>
 <td>Used to specify the name of the control.</td>
 <td><code>string</code></td>
@@ -2877,7 +2951,7 @@
 <tr>
 <td><code>required</code></td>
 <td><code>required</code></td>
-<td>Set this property to <code>true</code> in order to mark the checkbox as required.</td>
+<td>Set this property to <code>true</code> in order to mark the radio button as required.</td>
 <td><code>boolean</code></td>
 <td><code>undefined</code></td>
 </tr>
