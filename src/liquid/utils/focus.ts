@@ -54,3 +54,20 @@ export const getFirstFocusable = (el: HTMLElement): HTMLElement | undefined => {
 
   return null
 }
+
+export const isInnerFocusable = <T>(
+  element?: T
+): element is T & InnerFocusable => element && 'focusInner' in element
+
+let autofocusHandlerTimeout
+export const registerAutofocus = (autofocus: boolean) => {
+  if (!autofocus || autofocusHandlerTimeout) return
+  autofocusHandlerTimeout = setTimeout(() => {
+    const firstWithAutofocus = Array.from(
+      document.querySelectorAll<HTMLInputElement>('[autofocus]')
+    ).find((el) => !el.disabled)
+    if (isInnerFocusable(firstWithAutofocus)) {
+      firstWithAutofocus.focusInner()
+    }
+  }, 200)
+}

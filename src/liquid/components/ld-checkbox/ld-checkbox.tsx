@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
+import { registerAutofocus } from '../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component
@@ -32,7 +33,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   private hiddenInput: HTMLInputElement
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the checkbox is checked. */
   @Prop({ mutable: true }) checked = false
@@ -95,6 +96,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   }
 
   @Watch('checked')
+  @Watch('form')
   @Watch('name')
   @Watch('value')
   updateHiddenInput() {
@@ -188,12 +190,8 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
         this.hiddenInput.value = this.value
       }
     }
-  }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
-    }
+    registerAutofocus(this.autofocus)
   }
 
   disconnectedCallback() {
@@ -211,6 +209,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
     return (
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
+          type="checkbox"
           {...this.clonedAttributes}
           checked={this.checked}
           disabled={this.disabled}
@@ -219,7 +218,6 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
           part="input focusable"
           ref={(ref) => (this.input = ref)}
           tabIndex={this.ldTabindex}
-          type="checkbox"
           value={this.value}
         />
         {/* custom icon check */}

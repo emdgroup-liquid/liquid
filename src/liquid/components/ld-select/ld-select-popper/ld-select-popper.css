@@ -5,7 +5,6 @@
 
   /* colors */
   --ld-select-popper-border-col: var(--ld-col-neutral-100);
-  --ld-select-popper-bg-col: var(--ld-col-wht);
   min-width: var(--ld-select-popper-min-width);
 }
 
@@ -49,7 +48,6 @@
   box-shadow: var(--ld-shadow-sticky);
   border-radius: var(--ld-br-m);
   pointer-events: none;
-  background-color: var(--ld-select-popper-bg-col);
   z-index: -1;
   bottom: 0;
 

@@ -6,11 +6,12 @@ body {
   text-rendering: var(--ld-text-rendering, geometricPrecision);
 
   /*
-  The text-rendering prop is not suported on FF. In order to get close
-  to a similar rendering result with FF (on OSX at least) we also enable
-  font-smoothing, which is not standards conform and not on the standards
-  track anymore.
+  The text-rendering prop is not suported on FF nor on Safari.
+  In order to get close to a similar rendering results we also
+  enable font-smoothing, which is not standards conform and not
+  on the standards track anymore.
   */
+  -webkit-font-smoothing: var(--ld-text-rendering, antialiased);
   -moz-osx-font-smoothing: var(--ld-text-rendering, grayscale);
 
   /*

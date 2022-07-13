@@ -1,6 +1,7 @@
 import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { registerAutofocus } from '../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component
@@ -23,7 +24,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) alignText?: 'left' | 'right'
 
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   // `onBrandColor` is not possible, as Stencil expects `on*` props to be events.
   /** Style the button so that it looks good on the current theme's primary color. */
@@ -110,12 +111,6 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     })
   }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
-    }
-  }
-
   disconnectedCallback() {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
@@ -183,6 +178,8 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     if (!textInButton) {
       this.iconOnly = true
     }
+
+    registerAutofocus(this.autofocus)
   }
 
   render() {

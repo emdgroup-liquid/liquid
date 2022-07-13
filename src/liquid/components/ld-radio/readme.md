@@ -62,7 +62,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 </div>
 {% endexample %}
 
-**If you want the checkbox to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
+**If you want the radio button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
 <ld-radio name="example-3" aria-disabled="true"></ld-radio>
@@ -90,7 +90,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <div class="ld-radio__box"></div>
 </div>
 
-<!-- Example code for input prevention on aria-disabled checkbox elements -->
+<!-- Example code for input prevention on aria-disabled radio buttons -->
 <script>
   const inputs = document.querySelectorAll('#focusable-disabled-radio-1, #focusable-disabled-radio-2')
   Array.from(inputs).forEach(input => {
@@ -108,7 +108,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 ### Dark
 
 <ld-notice headline="Note" mode="warning">
-  Dark tone checkboxes should only be used on white backgrounds.
+  Dark tone radio buttons should only be used on white backgrounds.
 </ld-notice>
 
 {% example '{ "background": "light" }' %}
@@ -294,22 +294,22 @@ The `ld-radio` Web Component provides a low level API for integrating the compon
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                 | Type                      | Default     |
-| ------------ | ------------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `autofocus`  | `autofocus`   | Automatically focus the form control when the page is loaded.               | `boolean`                 | `false`     |
-| `checked`    | `checked`     | Indicates whether the radio button is selected.                             | `boolean`                 | `false`     |
-| `disabled`   | `disabled`    | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
-| `form`       | `form`        | Associates the control with a form element.                                 | `string`                  | `undefined` |
-| `invalid`    | `invalid`     | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
-| `key`        | `key`         | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
-| `ldTabindex` | `ld-tabindex` | Tab index of the input.                                                     | `number`                  | `undefined` |
-| `mode`       | `mode`        | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
-| `name`       | `name`        | Used to specify the name of the control.                                    | `string`                  | `undefined` |
-| `readonly`   | `readonly`    | The value is not editable.                                                  | `boolean`                 | `undefined` |
-| `ref`        | `ref`         | reference to component                                                      | `any`                     | `undefined` |
-| `required`   | `required`    | Set this property to `true` in order to mark the checkbox as required.      | `boolean`                 | `undefined` |
-| `tone`       | `tone`        | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
-| `value`      | `value`       | The input value.                                                            | `string`                  | `undefined` |
+| Property            | Attribute     | Description                                                                 | Type                      | Default     |
+| ------------------- | ------------- | --------------------------------------------------------------------------- | ------------------------- | ----------- |
+| `autofocus`         | `autofocus`   | Automatically focus the form control when the page is loaded.               | `boolean`                 | `undefined` |
+| `checked`           | `checked`     | Indicates whether the radio button is selected.                             | `boolean`                 | `false`     |
+| `disabled`          | `disabled`    | Disabled state of the radio.                                                | `boolean`                 | `undefined` |
+| `form`              | `form`        | Associates the control with a form element.                                 | `string`                  | `undefined` |
+| `invalid`           | `invalid`     | Set this property to `true` in order to mark the radio visually as invalid. | `boolean`                 | `undefined` |
+| `key`               | `key`         | for tracking the node's identity when working with lists                    | `string \| number`        | `undefined` |
+| `ldTabindex`        | `ld-tabindex` | Tab index of the input.                                                     | `number`                  | `undefined` |
+| `mode`              | `mode`        | Display mode.                                                               | `"danger" \| "highlight"` | `undefined` |
+| `name` _(required)_ | `name`        | Used to specify the name of the control.                                    | `string`                  | `undefined` |
+| `readonly`          | `readonly`    | The value is not editable.                                                  | `boolean`                 | `undefined` |
+| `ref`               | `ref`         | reference to component                                                      | `any`                     | `undefined` |
+| `required`          | `required`    | Set this property to `true` in order to mark the radio button as required.  | `boolean`                 | `undefined` |
+| `tone`              | `tone`        | radio tone. Use `'dark'` on white backgrounds. Default is a light tone.     | `"dark"`                  | `undefined` |
+| `value`             | `value`       | The input value.                                                            | `string`                  | `undefined` |
 
 
 ## Events

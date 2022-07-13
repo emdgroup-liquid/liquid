@@ -61,6 +61,42 @@ describe('ld-radio', () => {
     expect(input.checked).toBe(true)
   })
 
+  it('prevents changes if disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio disabled></ld-radio>`,
+    })
+    const ldRadio = page.root
+    expect(ldRadio.checked).toBe(false)
+
+    const input = ldRadio.shadowRoot.querySelector('input')
+    expect(input.checked).toBe(false)
+
+    ldRadio.click()
+    await page.waitForChanges()
+
+    expect(ldRadio.checked).toBe(false)
+    expect(input.checked).toBe(false)
+  })
+
+  it('prevents changes if aria-disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio aria-disabled="true"></ld-radio>`,
+    })
+    const ldRadio = page.root
+    expect(ldRadio.checked).toBe(false)
+
+    const input = ldRadio.shadowRoot.querySelector('input')
+    expect(input.checked).toBe(false)
+
+    ldRadio.click()
+    await page.waitForChanges()
+
+    expect(ldRadio.checked).toBe(false)
+    expect(input.checked).toBe(false)
+  })
+
   // TODO: Uncomment, as soon as Stencil's JSDom implementation
   // supports bubbling of composed events into the light DOM.
   xit('emits focus and blur events', async () => {
@@ -400,11 +436,37 @@ describe('ld-radio', () => {
 
     expect(ldRadio.querySelector('input')).toHaveProperty('value', 'test')
 
+    ldRadio.setAttribute('form', 'my-form')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('form', 'my-form')
+
+    ldRadio.removeAttribute('form')
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input').getAttribute('form')).toEqual(null)
+
     ldRadio.removeAttribute('value')
     ldRadio.value = undefined
     await waitForChanges()
 
     expect(ldRadio.querySelector('input').getAttribute('value')).toEqual(null)
+  })
+
+  it('removes hidden input field with removal of form prop when there is no outer form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdRadio],
+      html: `<ld-radio name="example" form="my-form" />`,
+    })
+    const ldRadio = root
+    await waitForChanges()
+
+    expect(ldRadio.querySelector('input')).toHaveProperty('form', 'my-form')
+
+    ldRadio.removeAttribute('form')
+    await waitForChanges()
+
+    expect(ldRadio.querySelectorAll('input').length).toEqual(0)
   })
 
   it('uses hidden input field with referenced form', async () => {

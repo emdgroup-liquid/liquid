@@ -61,6 +61,42 @@ describe('ld-checkbox', () => {
     expect(input.checked).toBe(true)
   })
 
+  it('prevents changes if disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox disabled></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+    expect(ldCheckbox.checked).toBe(false)
+
+    const input = ldCheckbox.shadowRoot.querySelector('input')
+    expect(input.checked).toBe(false)
+
+    ldCheckbox.click()
+    await page.waitForChanges()
+
+    expect(ldCheckbox.checked).toBe(false)
+    expect(input.checked).toBe(false)
+  })
+
+  it('prevents changes if aria-disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox aria-disabled="true"></ld-checkbox>`,
+    })
+    const ldCheckbox = page.root
+    expect(ldCheckbox.checked).toBe(false)
+
+    const input = ldCheckbox.shadowRoot.querySelector('input')
+    expect(input.checked).toBe(false)
+
+    ldCheckbox.click()
+    await page.waitForChanges()
+
+    expect(ldCheckbox.checked).toBe(false)
+    expect(input.checked).toBe(false)
+  })
+
   // TODO: Uncomment, as soon as Stencil's JSDom implementation
   // supports bubbling of composed events into the light DOM.
   xit('emits focus and blur events', async () => {
@@ -186,10 +222,11 @@ describe('ld-checkbox', () => {
   it('sets initial state on hidden input', async () => {
     const page = await newSpecPage({
       components: [LdCheckbox],
-      html: '<form><ld-checkbox name="example" checked /></form>',
+      html: '<form><ld-checkbox name="example" checked value="yolo" /></form>',
     })
     const ldCheckbox = page.root
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'yolo')
   })
 
   it('updates hidden input field', async () => {
@@ -228,6 +265,16 @@ describe('ld-checkbox', () => {
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('value', 'test')
 
+    ldCheckbox.setAttribute('form', 'my-form')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('form', 'my-form')
+
+    ldCheckbox.removeAttribute('form')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input').getAttribute('form')).toEqual(null)
+
     ldCheckbox.removeAttribute('value')
     ldCheckbox.value = undefined
     await waitForChanges()
@@ -235,6 +282,22 @@ describe('ld-checkbox', () => {
     expect(ldCheckbox.querySelector('input').getAttribute('value')).toEqual(
       null
     )
+  })
+
+  it('removes hidden input field with removal of form prop when there is no outer form', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdCheckbox],
+      html: `<ld-checkbox name="example" form="my-form" />`,
+    })
+    const ldCheckbox = root
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelector('input')).toHaveProperty('form', 'my-form')
+
+    ldCheckbox.removeAttribute('form')
+    await waitForChanges()
+
+    expect(ldCheckbox.querySelectorAll('input').length).toEqual(0)
   })
 
   it('uses hidden input field with referenced form', async () => {
@@ -246,5 +309,53 @@ describe('ld-checkbox', () => {
     await waitForChanges()
 
     expect(ldCheckbox.querySelector('input')).toHaveProperty('name', 'example')
+  })
+
+  describe('autofocus', () => {
+    afterEach(() => {
+      jest.restoreAllMocks()
+    })
+
+    it('sets focus if element is first with autofocus in DOM', async () => {
+      const page = await newSpecPage({
+        components: [LdCheckbox],
+        html: `<ld-checkbox autofocus />`,
+      })
+      const ldCheckbox = page.root as HTMLLdCheckboxElement
+      const input = ldCheckbox.shadowRoot.querySelector('input')
+      jest
+        .spyOn(document, 'querySelectorAll')
+        .mockImplementation(() => page.body.querySelectorAll('*'))
+
+      input.focus = jest.fn()
+
+      jest.advanceTimersByTime(200)
+      await page.waitForChanges()
+
+      expect(input.focus).toHaveBeenCalled()
+    })
+
+    it('does not set focus if element is not first with autofocus in DOM', async () => {
+      const page = await newSpecPage({
+        components: [LdCheckbox],
+        html: `
+          <form>
+            <input type="text" name="yolo" autofocus />
+            <ld-checkbox autofocus />
+          </form>`,
+      })
+      const ldCheckbox = page.root as HTMLLdCheckboxElement
+      const input = ldCheckbox.shadowRoot.querySelector('input')
+      jest
+        .spyOn(document, 'querySelectorAll')
+        .mockImplementation(() => page.body.querySelectorAll('form *'))
+
+      input.focus = jest.fn()
+
+      jest.advanceTimersByTime(200)
+      await page.waitForChanges()
+
+      expect(input.focus).not.toHaveBeenCalled()
+    })
   })
 })

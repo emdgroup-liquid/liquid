@@ -5,6 +5,9 @@ eleventyNavigation:
 layout: layout.njk
 title: Toggle
 permalink: components/ld-toggle/
+tags:
+  - switch
+  - radio group
 ---
 
 <link rel="stylesheet" href="css_components/ld-toggle.css">
@@ -448,7 +451,7 @@ The `ld-toggle` Web Component provides a low level API for integrating the compo
 | Property       | Attribute       | Description                                                                    | Type               | Default     |
 | -------------- | --------------- | ------------------------------------------------------------------------------ | ------------------ | ----------- |
 | `ariaDisabled` | `aria-disabled` | Alternative disabled state that keeps element focusable                        | `string`           | `undefined` |
-| `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `false`     |
+| `autofocus`    | `autofocus`     | Automatically focus the form control when the page is loaded.                  | `boolean`          | `undefined` |
 | `checked`      | `checked`       | Indicates whether the toggle is "on".                                          | `boolean`          | `false`     |
 | `disabled`     | `disabled`      | Disabled state of the checkbox.                                                | `boolean`          | `undefined` |
 | `form`         | `form`          | Associates the control with a form element.                                    | `string`           | `undefined` |

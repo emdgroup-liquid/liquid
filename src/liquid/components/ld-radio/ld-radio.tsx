@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
+import { registerAutofocus } from '../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component
@@ -31,8 +32,14 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
+  /**
+   * @internal
+   * States that this radio button or another radio button with the same name is checked.
+   */
+  @Prop() groupChecked = false
+
   /** Automatically focus the form control when the page is loaded. */
-  @Prop() autofocus = false
+  @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the radio button is selected. */
   @Prop({ mutable: true }) checked = false
@@ -53,12 +60,12 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() mode?: 'highlight' | 'danger'
 
   /** Used to specify the name of the control. */
-  @Prop() name: string
+  @Prop() name!: string
 
   /** The value is not editable. */
   @Prop() readonly?: boolean
 
-  /** Set this property to `true` in order to mark the checkbox as required. */
+  /** Set this property to `true` in order to mark the radio button as required. */
   @Prop() required: boolean
 
   /** radio tone. Use `'dark'` on white backgrounds. Default is a light tone. */
@@ -84,6 +91,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   }
 
   @Watch('checked')
+  @Watch('form')
   @Watch('name')
   @Watch('value')
   updateHiddenInput() {
@@ -167,6 +175,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
         .filter((ldRadio) => ldRadio.getAttribute('name') === this.name)
         .forEach((ldRadio) => {
           ldRadio.checked = false
+          ldRadio.groupChecked = true
         })
     }
 
@@ -221,12 +230,16 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
         this.hiddenInput.value = this.value
       }
     }
-  }
 
-  componentDidLoad() {
-    if (this.autofocus) {
-      this.focusInner()
+    if (this.checked) {
+      Array.from(document.querySelectorAll('ld-radio'))
+        .filter((ldRadio) => ldRadio.getAttribute('name') === this.name)
+        .forEach((ldRadio) => {
+          ldRadio.groupChecked = true
+        })
     }
+
+    registerAutofocus(this.autofocus)
   }
 
   disconnectedCallback() {
@@ -244,16 +257,20 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
     return (
       <Host part="root" class={getClassNames(cl)} onClick={this.handleClick}>
         <input
+          type="radio"
           {...this.clonedAttributes}
           part="input focusable"
           onChange={this.handleChange}
           onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           ref={(ref) => (this.input = ref)}
-          type="radio"
           disabled={this.disabled}
           checked={this.checked}
-          tabIndex={this.checked ? this.ldTabindex : -1}
+          tabIndex={
+            this.disabled || this.checked || !this.groupChecked
+              ? this.ldTabindex
+              : -1
+          }
           value={this.value}
         />
         <div part="dot" class="ld-radio__dot"></div>
