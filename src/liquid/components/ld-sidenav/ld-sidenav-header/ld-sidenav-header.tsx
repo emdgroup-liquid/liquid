@@ -12,6 +12,8 @@ import {
 import { getClassNames } from '../../../utils/getClassNames'
 
 /**
+ * @slot - Slot for the header title.
+ * @slot logo - Replace the initial M with your custom logo.
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
