@@ -3,6 +3,7 @@ import {
   Host,
   h,
   Prop,
+  Element,
   Event,
   EventEmitter,
   Method,
@@ -24,8 +25,11 @@ export type SelectedDetail = { index: number; label: string }
   shadow: true,
 })
 export class LdStep implements InnerFocusable {
+  @Element() el: HTMLLdStepElement
   private button: HTMLButtonElement
 
+  /** Switch colors for brand background. */
+  @Prop() brandColor = false
   /** Step is the current step */
   @Prop() current = false
   /** Description text to display below the step name (vertical mode only) */
@@ -50,7 +54,18 @@ export class LdStep implements InnerFocusable {
   }
 
   handleClick = () => {
-    console.log('bla')
+    this.ldstepselected.emit({
+      index: Array.from(this.el.parentElement.children).findIndex(
+        (child) => child === this.el
+      ),
+      label: this.el.textContent,
+    })
+  }
+
+  componentDidLoad() {
+    if (this.current) {
+      this.handleClick()
+    }
   }
 
   render() {
@@ -59,6 +74,7 @@ export class LdStep implements InnerFocusable {
         <li
           class={getClassNames([
             'ld-step',
+            this.brandColor && 'ld-step--brand-color',
             this.current && 'ld-step--current',
             this.done && 'ld-step--done',
             this.optional && 'ld-step--optional',

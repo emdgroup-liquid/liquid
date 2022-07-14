@@ -20,17 +20,22 @@
   --ld-step-description-col: var(--ld-step-description-col-default);
   --ld-step-description-col-default: var(--ld-step-col);
   --ld-step-description-col-done: var(--ld-col-neutral-900);
-  --ld-step-icon-col: var(--ld-step-icon-col-default);
-  --ld-step-icon-col-default: var(--ld-col-wht);
+  --ld-step-icon-col: var(--ld-col-wht);
   --ld-step-line-start-col: var(--ld-step-line-col-default);
   --ld-step-line-end-col: var(--ld-step-line-col-default);
   --ld-step-line-col-default: var(--ld-col-neutral-200);
   --ld-step-line-col-done: var(--ld-thm-primary);
 
   /* on-brand colors */
-  --ld-step-brand-col: var(--ld-thm-primary-active);
+  --ld-step-brand-col: var(--ld-col-wht-alpha-high);
   --ld-step-brand-col-done: var(--ld-col-wht);
+  --ld-step-description-brand-col: var(--ld-col-wht-alpha-high);
+  --ld-step-description-brand-col-done: var(--ld-col-wht);
+  --ld-step-dot-brand-col: var(--ld-col-wht-alpha-medium);
+  --ld-step-dot-brand-col-done: var(--ld-col-wht);
   --ld-step-brand-icon-col: var(--ld-thm-primary);
+  --ld-step-line-brand-col: var(--ld-col-wht-alpha-medium);
+  --ld-step-line-brand-col-done: var(--ld-col-wht);
 
   display: flex;
   flex-direction: column;
@@ -59,14 +64,44 @@
       position: absolute;
       top: var(--ld-step-dot-offset);
       width: var(--ld-step-dot-size);
+      z-index: 1;
     }
   }
 
   .ld-icon {
+    --ld-icon-size-md: var(--ld-step-icon-size);
     color: var(--ld-step-icon-col);
     position: absolute;
     top: var(--ld-step-icon-offset);
-    --ld-icon-size-md: var(--ld-step-icon-size);
+    z-index: 1;
+  }
+
+  &--brand-color {
+    --ld-step-col-default: var(--ld-step-brand-col);
+    --ld-step-col-done: var(--ld-step-brand-col-done);
+    --ld-step-description-col-default: var(--ld-step-description-brand-col);
+    --ld-step-description-col-done: var(--ld-step-description-brand-col-done);
+    --ld-step-dot-col-default: var(--ld-step-dot-brand-col);
+    --ld-step-dot-col-done: var(--ld-step-dot-brand-col-done);
+    --ld-step-icon-col: var(--ld-step-brand-icon-col);
+    --ld-step-line-col-default: var(--ld-step-line-brand-col);
+    --ld-step-line-col-done: var(--ld-step-line-brand-col-done);
+
+    a,
+    button {
+      &::after {
+        background: var(--ld-thm-primary);
+        border-radius: var(--ld-br-full);
+        box-sizing: border-box;
+        content: '';
+        display: block;
+        height: var(--ld-step-dot-size);
+        position: absolute;
+        top: var(--ld-step-dot-offset);
+        width: var(--ld-step-dot-size);
+        z-index: 0;
+      }
+    }
   }
 
   &--current {
@@ -95,8 +130,6 @@
 
     a,
     button {
-      cursor: pointer;
-
       &::before {
         background: transparent;
         border: solid var(--ld-sp-2) var(--ld-step-dot-col);
@@ -110,6 +143,11 @@
     --ld-step-dot-col: var(--ld-step-dot-col-done);
     --ld-step-line-start-col: var(--ld-step-line-col-done);
     --ld-step-line-end-col: var(--ld-step-line-col-done);
+
+    a,
+    button {
+      cursor: pointer;
+    }
   }
 
   &--vertical {
@@ -121,6 +159,7 @@
 
     a,
     button {
+      &::after,
       &::before {
         flex-shrink: 0;
         left: calc(var(--ld-step-dot-size-with-icon) / 2);

@@ -23,6 +23,7 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 
 | Property      | Attribute     | Description                                                          | Type               | Default     |
 | ------------- | ------------- | -------------------------------------------------------------------- | ------------------ | ----------- |
+| `brandColor`  | `brand-color` | Switch colors for brand background.                                  | `boolean`          | `false`     |
 | `current`     | `current`     | Step is the current step                                             | `boolean`          | `false`     |
 | `description` | `description` | Description text to display below the step name (vertical mode only) | `string`           | `undefined` |
 | `done`        | `done`        | Step is done                                                         | `boolean`          | `false`     |

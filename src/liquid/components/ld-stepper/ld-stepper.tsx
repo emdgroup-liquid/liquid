@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, Prop, State } from '@stencil/core'
+import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { SelectedDetail } from './ld-step/ld-step'
 
@@ -16,9 +16,10 @@ import { SelectedDetail } from './ld-step/ld-step'
 export class LdStepper {
   @Element() el: HTMLLdStepperElement
 
+  /** Switch colors for brand background. */
+  @Prop() brandColor = false
   /** Template for the screen-reader label, containing the label and index of the current step and the overall number of steps */
   @Prop() labelTemplate = '$label, step $1 of $2'
-
   /** Vertical layout */
   @Prop() vertical = false
 
@@ -29,7 +30,7 @@ export class LdStepper {
   private getLabel() {
     return this.labelTemplate
       .replace('$label', this.currentLabel)
-      .replace('$1', String(this.currentIndex))
+      .replace('$1', String(this.currentIndex + 1))
       .replace('$2', String(this.steps.length))
   }
 
@@ -38,9 +39,12 @@ export class LdStepper {
     this.currentLabel = event.detail.label
   }
 
+  @Watch('brandColor')
+  @Watch('vertical')
   private propagateProps() {
     this.el.querySelectorAll('ld-step').forEach((ldStep) => {
       ldStep.vertical = this.vertical
+      ldStep.brandColor = this.brandColor
     })
   }
 
