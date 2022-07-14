@@ -18,6 +18,8 @@ export class LdStepper {
 
   /** Switch colors for brand background. */
   @Prop() brandColor = false
+  /** Indicates whether the steps should be evenly distributed or fit to their content */
+  @Prop() fitContent = false
   /** Template for the screen-reader label, containing the label and index of the current step and the overall number of steps */
   @Prop() labelTemplate = '$label, step $1 of $2'
   /** Vertical layout */
@@ -59,6 +61,7 @@ export class LdStepper {
       <Host
         class={getClassNames([
           'ld-stepper',
+          this.fitContent && 'ld-stepper--fit-content',
           this.vertical && 'ld-stepper--vertical',
         ])}
         role="navigation"
