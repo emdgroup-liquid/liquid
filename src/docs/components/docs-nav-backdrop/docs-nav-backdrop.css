@@ -7,7 +7,7 @@
   opacity: 0;
   z-index: 1;
 
-  @media (max-width: 48rem) {
+  @media (max-width: 52rem) {
     transition: opacity 0.2s linear, visibility 0s 0.2s linear;
     position: fixed;
     width: 100%;

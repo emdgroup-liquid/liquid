@@ -581,8 +581,7 @@
     font: var(--ld-typo-code-s);
   }
 
-  @media (max-width: 48rem) {
-    grid-area: stack;
+  @media (max-width: 52rem) {
     padding: var(--ld-sp-24) var(--ld-sp-24);
 
     main {
@@ -624,7 +623,7 @@
   position: absolute;
   text-align: right;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 52rem) {
     left: unset;
     position: relative;
     width: auto;
@@ -658,7 +657,7 @@
     visibility: inherit;
   }
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 52rem) {
     visibility: inherit;
     padding-right: 0;
     opacity: 0.25;

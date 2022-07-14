@@ -183,7 +183,6 @@
 .docs-nav__content {
   pointer-events: all;
   bottom: 0;
-  height: calc(100% - var(--docs-topbar-height));
   overflow: hidden scroll;
   overscroll-behavior: contain;
   padding: var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-24) var(--ld-sp-32);
@@ -191,7 +190,7 @@
   top: 3.125rem;
   width: var(--docs-nav-width);
 
-  @media (max-width: 48rem) {
+  @media (max-width: 52rem) {
     position: fixed;
     top: 0;
   }

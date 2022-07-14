@@ -23,7 +23,7 @@ export class DocsNav {
 
   @Listen('resize', { target: 'window' })
   handleResize() {
-    const isNarrow = window.matchMedia('(max-width: 48rem)').matches
+    const isNarrow = window.matchMedia('(max-width: 52rem)').matches
     if (!isNarrow) {
       document.getElementById('main').removeAttribute('inert')
     } else if (this.isNavOpen) {
