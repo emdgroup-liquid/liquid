@@ -1,0 +1,25 @@
+:host,
+.ld-stepper {
+  --ld-stepper-gap: var(--ld-sp-16);
+
+  display: block;
+  width: 100%;
+
+  ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-gap: var(--ld-stepper-gap);
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.ld-stepper--vertical {
+  :host(&),
+  & {
+    ol {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

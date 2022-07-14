@@ -343,6 +343,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
+ - [ld-step](../ld-stepper/ld-step)
 
 ### Graph
 ```mermaid
@@ -356,6 +357,7 @@ graph TD;
   ld-sidenav-header --> ld-icon
   ld-sidenav-navitem --> ld-icon
   ld-sidenav-toggle-outside --> ld-icon
+  ld-step --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
