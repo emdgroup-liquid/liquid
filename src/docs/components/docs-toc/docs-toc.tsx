@@ -32,6 +32,13 @@ export class DocsToc {
   }
 
   private updateLinks(visibleId, links) {
+    if (
+      ['shadow-parts', 'graph'].includes(visibleId) ||
+      !links.find((link) => link.href.split('#')[1] === visibleId)
+    ) {
+      return
+    }
+
     const heading = document.getElementById(visibleId)
     if (heading && (heading as HTMLElement).tagName === 'H1') {
       links.map((link) => {

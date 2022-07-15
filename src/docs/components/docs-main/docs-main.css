@@ -182,8 +182,13 @@
     'Ubuntu Mono', monospace;
   --ld-typo-code-m: 1rem / 160% 'Source Code Pro', Consolas, Monaco,
     'Ubuntu Mono', monospace;
-  padding: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-40);
+  --docs-main-padding-x: var(--ld-sp-40);
+  padding: var(--ld-sp-24) var(--docs-main-padding-x) var(--ld-sp-40);
   min-width: 20rem;
+
+  @media (max-width: 75rem) {
+    --docs-main-padding-x: var(--ld-sp-24);
+  }
 
   main {
     > header,

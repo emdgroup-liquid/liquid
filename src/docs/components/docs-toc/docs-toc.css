@@ -1,10 +1,10 @@
 @define-mixin docs-toc-ui-light {
-  .docs-toc__nav::before {
+  .docs-toc__content::before {
     background-color: var(--ld-col-neutral-050);
   }
 }
 @define-mixin docs-toc-ui-dark {
-  .docs-toc__nav::before {
+  .docs-toc__content::before {
     background-color: var(--ld-col-neutral-400);
   }
 }
@@ -21,23 +21,35 @@
   @mixin docs-toc-ui-light;
 }
 
-.docs-toc__content {
-  padding: var(--ld-sp-8) var(--ld-sp-32) var(--ld-sp-24) 0;
+.docs-toc {
+  --docs-toc-heading-height: 2rem;
 }
 
-.docs-toc__nav {
-  position: relative;
+.docs-toc__content {
+  overflow: hidden;
+  padding: var(--ld-sp-8) var(--ld-sp-24) var(--ld-sp-24) 0;
 
   &::before {
     content: '';
     position: absolute;
     left: 0;
-    height: calc(100% + 0.8rem);
+    top: calc(1.25rem + var(--docs-toc-heading-height));
+    bottom: 1.25rem;
     width: 0.1875rem;
     display: block;
     transform: translateY(-0.4rem);
     border-radius: var(--ld-br-full);
   }
+}
+
+.docs-toc__nav {
+  max-height: calc(
+    100vh - var(--docs-toc-heading-height) + var(--docs-toc-top)
+  );
+  overflow: visible scroll;
+  position: relative;
+  padding-right: 3rem;
+  margin-right: -3rem;
 
   ol {
     list-style: none;
@@ -77,8 +89,8 @@
   }
 }
 
-[href='#shadow-parts'],
-[href='#dependencies'] {
+[href='#graph'],
+[href='#shadow-parts'] {
   display: none;
 
   & + ol {
@@ -90,6 +102,6 @@
   display: block;
   font: var(--ld-typo-cap-m);
   font-weight: 400;
+  height: var(--docs-toc-heading-height);
   text-transform: uppercase;
-  margin: var(--ld-sp-2) 0 var(--ld-sp-24);
 }
