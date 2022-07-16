@@ -29,6 +29,9 @@ export class LdOption {
    */
   @Prop() disabled: boolean
 
+  /** Set to true on filtering via select input. */
+  @Prop({ reflect: true }) hidden = false
+
   componentWillLoad() {
     // Setting selected via prop directly triggers the mutation observer to fire twice on attribute chage.
     // This is indeed only true for the selected attribute. The disabled attribute works fine when assigned directly.

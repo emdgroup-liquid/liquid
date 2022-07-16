@@ -54,6 +54,9 @@ export class LdOptionInternal {
   /** Size of the select trigger button for applying according paddings. */
   @Prop() size?: 'sm' | 'lg'
 
+  /** Set to true on filtering via select input. */
+  @Prop({ reflect: true }) hidden = false
+
   /**
    * Sets focus internally.
    */

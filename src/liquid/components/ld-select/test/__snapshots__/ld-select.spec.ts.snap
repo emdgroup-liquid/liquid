@@ -675,40 +675,42 @@ exports[`ld-select renders initially selected options as internal options and hi
       </div>
       <div class="ld-select__select" part="select">
         <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
-          <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
-            <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
-              <label class="ld-select__selection-label">
-                <span class="ld-select__selection-label-text" part="selection-label-text" title="Apple">
-                  Apple
-                </span>
-                <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
-                  <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
-                    <title>
-                      Clear
-                    </title>
-                    <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                  </svg>
-                </button>
-                <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
-              </label>
-            </li>
-            <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 2;">
-              <label class="ld-select__selection-label">
-                <span class="ld-select__selection-label-text" part="selection-label-text" title="Banana">
-                  Banana
-                </span>
-                <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
-                  <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
-                    <title>
-                      Clear
-                    </title>
-                    <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                  </svg>
-                </button>
-                <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
-              </label>
-            </li>
-          </ul>
+          <div class="ld-select__selection-list-container" part="selection-list-container">
+            <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
+              <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
+                <label class="ld-select__selection-label">
+                  <span class="ld-select__selection-label-text" part="selection-label-text" title="Apple">
+                    Apple
+                  </span>
+                  <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
+                    <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
+                      <title>
+                        Clear
+                      </title>
+                      <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </button>
+                  <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
+                </label>
+              </li>
+              <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 2;">
+                <label class="ld-select__selection-label">
+                  <span class="ld-select__selection-label-text" part="selection-label-text" title="Banana">
+                    Banana
+                  </span>
+                  <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
+                    <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
+                      <title>
+                        Clear
+                      </title>
+                      <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                  </button>
+                  <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
           <button class="ld-select__btn-clear" part="btn-clear focusable">
             <svg class="ld-select__btn-clear-icon" fill="none" part="icon-clear" viewBox="0 0 21 20">
               <title>
@@ -889,40 +891,42 @@ exports[`ld-select updates internal options in popper and hidden input fields 1`
           </div>
           <div class="ld-select__select ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left" part="select">
             <div aria-disabled="false" aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
-              <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
-                <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
-                  <label class="ld-select__selection-label">
-                    <span class="ld-select__selection-label-text" part="selection-label-text" title="Pear">
-                      Pear
-                    </span>
-                    <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
-                      <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
-                        <title>
-                          Clear
-                        </title>
-                        <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                      </svg>
-                    </button>
-                    <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
-                  </label>
-                </li>
-                <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 2;">
-                  <label class="ld-select__selection-label">
-                    <span class="ld-select__selection-label-text" part="selection-label-text" title="Banana">
-                      Banana
-                    </span>
-                    <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
-                      <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
-                        <title>
-                          Clear
-                        </title>
-                        <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                      </svg>
-                    </button>
-                    <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
-                  </label>
-                </li>
-              </ul>
+              <div class="ld-select__selection-list-container" part="selection-list-container">
+                <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
+                  <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
+                    <label class="ld-select__selection-label">
+                      <span class="ld-select__selection-label-text" part="selection-label-text" title="Pear">
+                        Pear
+                      </span>
+                      <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
+                        <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
+                          <title>
+                            Clear
+                          </title>
+                          <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                      </button>
+                      <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
+                    </label>
+                  </li>
+                  <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 2;">
+                    <label class="ld-select__selection-label">
+                      <span class="ld-select__selection-label-text" part="selection-label-text" title="Banana">
+                        Banana
+                      </span>
+                      <button class="ld-select__btn-clear-single" part="btn-clear-single focusable">
+                        <svg class="ld-select__btn-clear-single-icon" fill="none" part="icon-clear-single" viewBox="0 0 12 12">
+                          <title>
+                            Clear
+                          </title>
+                          <path d="M2 2l8 8M2 10l8-8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                      </button>
+                      <span class="ld-select__selection-label-bg" part="selection-label-bg"></span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
               <button class="ld-select__btn-clear" part="btn-clear focusable">
                 <svg class="ld-select__btn-clear-icon" fill="none" part="icon-clear" viewBox="0 0 21 20">
                   <title>

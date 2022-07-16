@@ -988,6 +988,46 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 </div>
 {% endexample %}
 
+### With filter
+
+{% example %}
+<ld-select filter placeholder="Pick a fruit" name="fruit">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry">Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon">Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+
+<ld-select filter placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 14rem">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+  <ld-option value="watermelon" disabled>Watermelon</ld-option>
+  <ld-option value="honeymelon">Honeymelon</ld-option>
+  <ld-option value="rasberry">Rasberry</ld-option>
+  <ld-option value="cherry" selected>Cherry</ld-option>
+  <ld-option value="blueberry">Blueberry</ld-option>
+  <ld-option value="peach">Peach</ld-option>
+  <ld-option value="grape">Grape</ld-option>
+  <ld-option value="fuyu persimmon" selected>Fuyu Persimmon</ld-option>
+  <ld-option value="monstera deliciosa">Monstera Deliciosa</ld-option>
+  <ld-option value="pear">Pear</ld-option>
+  <ld-option value="pineapple">Pineapple</ld-option>
+  <ld-option value="plum">Plum</ld-option>
+</ld-select>
+{% endexample %}
+
 ### With label
 
 {% example %}
@@ -1142,6 +1182,7 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 | -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
 | `autofocus`          | `autofocus`           | This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute. | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined` |
 | `disabled`           | `disabled`            | Disabled state of the component.                                                                                                                                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined` |
+| `filter`             | `filter`              | Set this property to `true` in order to enable an input field for filtering options.                                                                                           | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined` |
 | `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined` |
 | `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                   | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined` |
 | `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                       | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined` |
@@ -1191,25 +1232,27 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part                     | Description |
-| ------------------------ | ----------- |
-| `"btn-clear"`            |             |
-| `"btn-clear-single"`     |             |
-| `"btn-trigger"`          |             |
-| `"focusable"`            |             |
-| `"icon-clear"`           |             |
-| `"icon-clear-single"`    |             |
-| `"options-container"`    |             |
-| `"root"`                 |             |
-| `"select"`               |             |
-| `"selection-label-bg"`   |             |
-| `"selection-label-text"` |             |
-| `"selection-list"`       |             |
-| `"selection-list-item"`  |             |
-| `"slot-container"`       |             |
-| `"trigger-icon"`         |             |
-| `"trigger-text"`         |             |
-| `"trigger-text-wrapper"` |             |
+| Part                         | Description |
+| ---------------------------- | ----------- |
+| `"btn-clear"`                |             |
+| `"btn-clear-single"`         |             |
+| `"btn-trigger"`              |             |
+| `"focusable"`                |             |
+| `"icon-clear"`               |             |
+| `"icon-clear-single"`        |             |
+| `"options-container"`        |             |
+| `"root"`                     |             |
+| `"select"`                   |             |
+| `"selection-label-bg"`       |             |
+| `"selection-label-text"`     |             |
+| `"selection-list"`           |             |
+| `"selection-list-container"` |             |
+| `"selection-list-item"`      |             |
+| `"slot-container"`           |             |
+| `"trigger-icon"`             |             |
+| `"trigger-input"`            |             |
+| `"trigger-text"`             |             |
+| `"trigger-text-wrapper"`     |             |
 
 
 ## Dependencies
