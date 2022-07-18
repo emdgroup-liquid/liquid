@@ -565,7 +565,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ld-step done icon="documents">Billing</ld-step>
   <ld-step done icon="truck">Shipping</ld-step>
   <ld-step current icon="money">Payment</ld-step>
-  <ld-step icon="visibity">Summary</ld-step>
+  <ld-step icon="visibility">Summary</ld-step>
   <ld-step icon="favorite">Confirmation</ld-step>
 </ld-stepper>
 

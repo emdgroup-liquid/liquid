@@ -274,7 +274,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
   <docs-icon identifier="external-export" name="External/ Export"></docs-icon>
   <docs-icon identifier="upload" name="Upload"></docs-icon>
   <docs-icon identifier="repost" name="Repost"></docs-icon>
-  <docs-icon identifier="visibity" name="Visibity"></docs-icon>
+  <docs-icon identifier="visibility" name="Visibility"></docs-icon>
   <docs-icon identifier="checkmark" name="Checkmark"></docs-icon>
   <docs-icon identifier="filter" name="Filter"></docs-icon>
   <docs-icon identifier="play" name="Play"></docs-icon>
