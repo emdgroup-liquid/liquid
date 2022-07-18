@@ -54,7 +54,7 @@ export class LdStepper {
   @Watch('size')
   @Watch('vertical')
   private propagateProps() {
-    this.el.querySelectorAll('ld-step').forEach((ldStep) => {
+    this.steps.forEach((ldStep) => {
       ldStep.brandColor = this.brandColor
       ldStep.size = this.size
       ldStep.vertical = this.vertical

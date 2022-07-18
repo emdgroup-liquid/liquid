@@ -16,7 +16,7 @@
   --ld-step-dot-size-with-icon-md: var(--ld-sp-24);
   --ld-step-dot-size-with-icon-lg: var(--ld-sp-32);
   --ld-step-icon-size: calc(var(--ld-step-dot-size-with-icon) * 0.5);
-  --ld-step-icon-size-custom: calc(var(--ld-step-dot-size-with-icon) * 0.7);
+  --ld-step-icon-size-custom: calc(var(--ld-step-dot-size-with-icon) * 0.6);
   --ld-step-icon-offset: calc(
     (var(--ld-step-dot-size-with-icon) - var(--ld-step-icon-size)) / 2
   );

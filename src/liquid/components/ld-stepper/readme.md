@@ -604,7 +604,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 {% endexample %}
 
 
-### With optional steps
+## With optional steps
 
 {% example %}
 <ld-stepper>

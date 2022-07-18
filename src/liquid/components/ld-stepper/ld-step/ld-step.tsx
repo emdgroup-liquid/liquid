@@ -129,7 +129,7 @@ export class LdStep implements InnerFocusable {
             <slot></slot>
           </button>
           {(this.done || this.icon) && (
-            <ld-icon name={this.icon ?? 'checkmark'} />
+            <ld-icon name={this.icon || 'checkmark'} />
           )}
           {this.description && this.vertical && (
             <span class="ld-step__description" part="description">
