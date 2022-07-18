@@ -23,12 +23,13 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 
 | Property      | Attribute     | Description                                                          | Type               | Default     |
 | ------------- | ------------- | -------------------------------------------------------------------- | ------------------ | ----------- |
-| `brandColor`  | `brand-color` | Switch colors for brand background.                                  | `boolean`          | `false`     |
+| `brandColor`  | `brand-color` | Switch colors for brand background                                   | `boolean`          | `false`     |
 | `current`     | `current`     | Step is the current step                                             | `boolean`          | `false`     |
 | `description` | `description` | Description text to display below the step name (vertical mode only) | `string`           | `undefined` |
 | `done`        | `done`        | Step is done                                                         | `boolean`          | `false`     |
+| `icon`        | `icon`        | Permanently show a custom icon inside the dot                        | `string`           | `undefined` |
 | `key`         | `key`         | for tracking the node's identity when working with lists             | `string \| number` | `undefined` |
-| `ldTabindex`  | `ld-tabindex` | Tab index of the step.                                               | `number`           | `undefined` |
+| `ldTabindex`  | `ld-tabindex` | Tab index of the step                                                | `number`           | `undefined` |
 | `optional`    | `optional`    | Step may be skipped                                                  | `boolean`          | `false`     |
 | `ref`         | `ref`         | reference to component                                               | `any`              | `undefined` |
 | `skipped`     | `skipped`     | Step was skipped                                                     | `boolean`          | `false`     |

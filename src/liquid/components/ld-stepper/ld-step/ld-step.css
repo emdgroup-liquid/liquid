@@ -1,7 +1,9 @@
 .ld-step {
-  --ld-step-icon-size: var(--ld-sp-12);
+  --ld-step-icon-size: var(--ld-step-icon-size-default);
+  --ld-step-icon-size-default: 0.625rem;
+  --ld-step-icon-size-custom: var(--ld-sp-12);
   --ld-step-icon-offset: calc(
-    (var(--ld-step-dot-size-with-icon) - var(--ld-sp-12)) / 2
+    (var(--ld-step-dot-size-with-icon) - var(--ld-step-icon-size)) / 2
   );
   --ld-step-dot-offset: calc(
     (var(--ld-step-dot-size-with-icon) - var(--ld-step-dot-size)) / 2
@@ -9,13 +11,19 @@
   --ld-step-dot-size: var(--ld-step-dot-size-default);
   --ld-step-dot-size-default: 0.75rem;
   --ld-step-dot-size-with-icon: 1.25rem;
+  --ld-step-text-distance: var(--ld-sp-16);
+  --ld-step-text-margin: calc(
+    var(--ld-step-dot-size-with-icon) + var(--ld-step-text-distance)
+  );
 
   /* colors */
+  --ld-step-bg-col: var(--ld-thm-primary);
   --ld-step-col: var(--ld-step-col-default);
   --ld-step-col-default: var(--ld-col-neutral-400);
   --ld-step-col-done: var(--ld-thm-primary);
   --ld-step-dot-col: var(--ld-step-dot-col-default);
   --ld-step-dot-col-default: var(--ld-col-neutral-200);
+  --ld-step-dot-col-current: var(--ld-thm-secondary);
   --ld-step-dot-col-done: var(--ld-thm-primary);
   --ld-step-description-col: var(--ld-step-description-col-default);
   --ld-step-description-col-default: var(--ld-step-col);
@@ -27,9 +35,9 @@
   --ld-step-line-col-done: var(--ld-thm-primary);
 
   /* on-brand colors */
-  --ld-step-brand-col: var(--ld-col-wht-alpha-high);
+  --ld-step-brand-col: var(--ld-col-wht-alpha-highest);
   --ld-step-brand-col-done: var(--ld-col-wht);
-  --ld-step-description-brand-col: var(--ld-col-wht-alpha-high);
+  --ld-step-description-brand-col: var(--ld-col-wht-alpha-highest);
   --ld-step-description-brand-col-done: var(--ld-col-wht);
   --ld-step-dot-brand-col: var(--ld-col-wht-alpha-medium);
   --ld-step-dot-brand-col-done: var(--ld-col-wht);
@@ -37,10 +45,10 @@
   --ld-step-line-brand-col: var(--ld-col-wht-alpha-medium);
   --ld-step-line-brand-col-done: var(--ld-col-wht);
 
+  align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-top: calc(var(--ld-step-dot-size-with-icon) + var(--ld-sp-16));
   position: relative;
 
   a,
@@ -52,6 +60,7 @@
     display: flex;
     flex-direction: column;
     font: var(--ld-typo-h6);
+    margin: var(--ld-step-text-margin) 0 0; /* Safari reset */
     padding: 0;
     text-align: center;
 
@@ -69,9 +78,24 @@
     }
   }
 
+  :host(:empty) & a,
+  :host(:empty) & button,
+  a:empty,
+  button:empty {
+    margin: var(--ld-step-dot-offset) 0 0;
+
+    &,
+    &::before,
+    &::after {
+      position: relative;
+      top: 0;
+    }
+  }
+
   .ld-icon {
     --ld-icon-size-md: var(--ld-step-icon-size);
     color: var(--ld-step-icon-col);
+    pointer-events: none;
     position: absolute;
     top: var(--ld-step-icon-offset);
     z-index: 1;
@@ -91,7 +115,7 @@
     a,
     button {
       &::after {
-        background: var(--ld-thm-primary);
+        background: var(--ld-step-bg-col);
         border-radius: var(--ld-br-full);
         box-sizing: border-box;
         content: '';
@@ -105,10 +129,18 @@
     }
   }
 
+  &--custom-icon {
+    --ld-step-icon-size: var(--ld-step-icon-size-custom);
+  }
+
+  &--with-icon {
+    --ld-step-dot-size: var(--ld-step-dot-size-with-icon);
+  }
+
   &--current {
     --ld-step-col: var(--ld-step-col-done);
     --ld-step-description-col: var(--ld-step-description-col-done);
-    --ld-step-dot-col: var(--ld-step-dot-col-done);
+    --ld-step-dot-col: var(--ld-step-dot-col-current);
     --ld-step-line-start-col: var(--ld-step-line-col-done);
   }
 
@@ -116,7 +148,6 @@
     --ld-step-col: var(--ld-step-col-done);
     --ld-step-description-col: var(--ld-step-description-col-done);
     --ld-step-dot-col: var(--ld-step-dot-col-done);
-    --ld-step-dot-size: var(--ld-step-dot-size-with-icon);
     --ld-step-line-start-col: var(--ld-step-line-col-done);
     --ld-step-line-end-col: var(--ld-step-line-col-done);
 
@@ -155,11 +186,12 @@
     align-items: start;
     gap: var(--ld-sp-4);
     padding: 0;
-    padding-left: calc(var(--ld-step-dot-size-with-icon) + var(--ld-sp-16));
     text-align: left;
 
     a,
     button {
+      margin: 0 0 0 var(--ld-step-text-margin);
+
       &::after,
       &::before {
         flex-shrink: 0;
@@ -228,4 +260,5 @@
 .ld-step__description {
   color: var(--ld-step-description-col);
   font: 0.625rem/120% Lato, Helvetica, Arial, sans-serif;
+  margin-left: var(--ld-step-text-margin);
 }

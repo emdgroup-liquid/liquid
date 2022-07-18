@@ -28,7 +28,7 @@ export class LdStep implements InnerFocusable {
   @Element() el: HTMLLdStepElement
   private button: HTMLButtonElement
 
-  /** Switch colors for brand background. */
+  /** Switch colors for brand background */
   @Prop() brandColor = false
   /** Step is the current step */
   @Prop() current = false
@@ -36,7 +36,9 @@ export class LdStep implements InnerFocusable {
   @Prop() description: string
   /** Step is done */
   @Prop() done = false
-  /** Tab index of the step. */
+  /** Permanently show a custom icon inside the dot */
+  @Prop() icon?: HTMLLdIconElement['name']
+  /** Tab index of the step */
   @Prop() ldTabindex: number | undefined
   /** Step may be skipped */
   @Prop() optional = false
@@ -77,6 +79,8 @@ export class LdStep implements InnerFocusable {
             this.brandColor && 'ld-step--brand-color',
             this.current && 'ld-step--current',
             this.done && 'ld-step--done',
+            this.icon && 'ld-step--custom-icon',
+            (this.done || this.icon) && 'ld-step--with-icon',
             this.optional && 'ld-step--optional',
             this.skipped && 'ld-step--skipped',
             this.vertical && 'ld-step--vertical',
@@ -85,6 +89,7 @@ export class LdStep implements InnerFocusable {
           role="listitem"
         >
           <button
+            aria-current={this.current ? 'step' : undefined}
             disabled={!this.done && !this.skipped}
             onClick={this.handleClick}
             part="button focusable"
@@ -92,9 +97,11 @@ export class LdStep implements InnerFocusable {
             tabIndex={this.ldTabindex}
             type="button"
           >
-            {this.done && <ld-icon name="checkmark" />}
             <slot></slot>
           </button>
+          {(this.done || this.icon) && (
+            <ld-icon name={this.icon ?? 'checkmark'} />
+          )}
           {this.description && this.vertical && (
             <span class="ld-step__description" part="description">
               {this.description}

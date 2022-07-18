@@ -9,6 +9,7 @@
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
     gap: var(--ld-stepper-gap);
+    height: 100%;
     padding: 0;
   }
 }
