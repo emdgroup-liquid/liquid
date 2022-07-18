@@ -79,9 +79,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
-      <a href="components/ld-stepper/#billing">
-        Billing
-      </a>
+      <a href="components/ld-stepper/#billing">Billing</a>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--done ld-step--with-icon">
@@ -270,9 +268,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <a aria-current="step">Payment</a>
     </li>
-    <li class="ld-step ld-step--brand-color">
-      <a>Summary</a>
-    </li>
+    <li class="ld-step ld-step--brand-color"><a>Summary</a></li>
     <li class="ld-step ld-step--brand-color"><a>Confirmation</a></li>
   </ol>
 </nav>
@@ -449,6 +445,47 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <a>Confirmation</a>
       <svg class="ld-icon" role="presentation" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 9.882V8.2404a10.6878 10.6878 0 0 0-.238-1.1267c-.724-2.239-2.2119-3.6303-4.4818-4.0202-1.9228-.3318-3.6209.3176-4.9747 1.6997-.1695.1731-.4482.1816-.6136.0045-.1415-.1514-.2795-.297-.4374-.436C8.1226 1.585 3.0949 3.278 2.1869 7.4215a7.139 7.139 0 0 0-.0945 2.7677 7.0721 7.0721 0 0 0 .9645 2.5865 17.8018 17.8018 0 0 0 3.2058 3.852c1.2789 1.1771 2.7123 2.3355 4.1789 3.3535.9368.6502 2.1741.6426 3.1134-.004 1.9495-1.342 3.8433-2.8849 5.4451-4.5952.9932-1.0189 1.8125-2.2017 2.4239-3.499a6.2782 6.2782 0 0 0 .54-1.888.6093.6093 0 0 1 .036-.113Z" fill="currentcolor"/></svg>
     </li>
+  </ol>
+</nav>
+{% endexample %}
+
+
+### With optional steps
+
+{% example %}
+<ld-stepper>
+  <ld-step done>Part 1</ld-step>
+  <ld-step optional skipped>Part 2 (can be skipped)</ld-step>
+  <ld-step done optional>Part 3 (can be skipped)</ld-step>
+  <ld-step current optional>Part 4 (can be skipped)</ld-step>
+  <ld-step optional>Part 5 (can be skipped)</ld-step>
+</ld-stepper>
+
+<!-- CSS component -->
+
+<span class="ld-sr-only">Part 4 (can be skipped), step 3 of 5</span>
+<nav class="ld-stepper">
+  <ol>
+    <li class="ld-step ld-step--done ld-step--with-icon">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#billing">Part 1 (can be skipped)</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </li>
+    <li class="ld-step ld-step--skipped ld-step--optional">
+      <span class="ld-sr-only">Skipped: </span>
+      <a href="components/ld-stepper/#shipping">Part 2 (can be skipped)</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </li>
+    <li class="ld-step ld-step--done ld-step--optional ld-step--with-icon">
+      <span class="ld-sr-only">Completed (was optional): </span>
+      <a aria-current="step">Part 3 (can be skipped)</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </li>
+    <li class="ld-step ld-step--current ld-step--optional">
+      <span class="ld-sr-only">Current: </span>
+      <a>Part 4 (can be skipped)</a>
+    </li>
+    <li class="ld-step ld-step--optional"><a>Part 5 (can be skipped)</a></li>
   </ol>
 </nav>
 {% endexample %}

@@ -38,6 +38,16 @@ export class LdStep implements InnerFocusable {
   @Prop() done = false
   /** Permanently show a custom icon inside the dot */
   @Prop() icon?: HTMLLdIconElement['name']
+  /** Label for current step (scree-reader only) */
+  @Prop() labelCurrent = 'Current'
+  /** Label for step that is done (scree-reader only) */
+  @Prop() labelDone = 'Done'
+  /** Label for step that is optional (scree-reader only) */
+  @Prop() labelOptional = 'Optional'
+  /** Label for step that was skipped (scree-reader only) */
+  @Prop() labelSkipped = 'Skipped'
+  /** Additional hint in label for step that is done and was optional (scree-reader only) */
+  @Prop() labelWasOptional = 'was optional'
   /** Tab index of the step */
   @Prop() ldTabindex: number | undefined
   /** Step may be skipped */
@@ -88,6 +98,22 @@ export class LdStep implements InnerFocusable {
           part="li"
           role="listitem"
         >
+          {this.done && (
+            <ld-sr-only>
+              {this.labelDone}
+              {this.optional ? ` (${this.labelWasOptional})` : ''}:{' '}
+            </ld-sr-only>
+          )}
+          {this.optional && !this.done && !this.skipped && !this.current && (
+            <ld-sr-only>{this.labelOptional}: </ld-sr-only>
+          )}
+          {this.skipped && <ld-sr-only>{this.labelSkipped}: </ld-sr-only>}
+          {this.current && (
+            <ld-sr-only>
+              {this.labelCurrent}
+              {this.optional ? ` (${this.labelOptional})` : ''}: :{' '}
+            </ld-sr-only>
+          )}
           <button
             aria-current={this.current ? 'step' : undefined}
             disabled={!this.done && !this.skipped}
