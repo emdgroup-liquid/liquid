@@ -1,6 +1,9 @@
 :host,
 .ld-stepper {
-  --ld-stepper-gap: var(--ld-sp-16);
+  --ld-stepper-gap: var(--ld-stepper-gap-md);
+  --ld-stepper-gap-sm: var(--ld-sp-16);
+  --ld-stepper-gap-md: 1.25rem;
+  --ld-stepper-gap-lg: var(--ld-sp-24);
 
   display: block;
 
@@ -31,5 +34,19 @@
     ol {
       display: flex;
     }
+  }
+}
+
+.ld-stepper--sm {
+  :host(&),
+  & {
+    --ld-stepper-gap: var(--ld-stepper-gap-sm);
+  }
+}
+
+.ld-stepper--lg {
+  :host(&),
+  & {
+    --ld-stepper-gap: var(--ld-stepper-gap-lg);
   }
 }

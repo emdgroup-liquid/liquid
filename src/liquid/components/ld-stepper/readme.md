@@ -177,7 +177,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 ### With description
 
 {% example %}
-<ld-stepper vertical style="width: 15rem">
+<ld-stepper vertical style="width: 17rem">
   <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
   <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
   <ld-step current description="Payment method selection">Payment</ld-step>
@@ -188,7 +188,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 <!-- CSS component -->
 
 <span class="ld-sr-only">Payment, step 3 of 5</span>
-<nav class="ld-stepper ld-stepper--vertical" style="width: 15rem">
+<nav class="ld-stepper ld-stepper--vertical" style="width: 17rem">
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
       <span class="ld-sr-only">Completed: </span>
@@ -230,6 +230,160 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 {% endexample %}
 
 
+## Size
+
+{% example %}
+<ld-stepper size="sm" vertical style="width: 15rem">
+  <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
+  <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
+  <ld-step current description="Payment method selection">Payment</ld-step>
+  <ld-step description="Summary of your articles and all the previously given information">Summary</ld-step>
+  <ld-step description="Order confirmation with follow-up information">Confirmation</ld-step>
+</ld-stepper>
+
+<ld-stepper vertical style="width: 17rem">
+  <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
+  <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
+  <ld-step current description="Payment method selection">Payment</ld-step>
+  <ld-step description="Summary of your articles and all the previously given information">Summary</ld-step>
+  <ld-step description="Order confirmation with follow-up information">Confirmation</ld-step>
+</ld-stepper>
+
+<ld-stepper size="lg" vertical style="width: 19rem">
+  <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
+  <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
+  <ld-step current description="Payment method selection">Payment</ld-step>
+  <ld-step description="Summary of your articles and all the previously given information">Summary</ld-step>
+  <ld-step description="Order confirmation with follow-up information">Confirmation</ld-step>
+</ld-stepper>
+
+<!-- CSS component -->
+
+<span class="ld-sr-only">Payment, step 3 of 5</span>
+<nav class="ld-stepper ld-stepper--sm ld-stepper--vertical" style="width: 15rem">
+  <ol>
+    <li class="ld-step ld-step--done ld-step--sm ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#billing">Billing</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Personal data including the billing address and optional additional information
+      </span>
+    </li>
+    <li class="ld-step ld-step--done ld-step--sm ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#shipping">Shipping</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Shipping address, if it differs from the billing addres
+      </span>
+    </li>
+    <li class="ld-step ld-step--current ld-step--sm ld-step--vertical">
+      <span class="ld-sr-only">Current: </span>
+      <a aria-current="step">Payment</a>
+      <span class="ld-step__description">
+        Payment method selection
+      </span>
+    </li>
+    <li class="ld-step ld-step--sm ld-step--vertical">
+      <a>Summary</a>
+      <span class="ld-step__description">
+        Summary of your articles and all the previously given information
+      </span>
+    </li>
+    <li class="ld-step ld-step--sm ld-step--vertical">
+      <a>Confirmation</a>
+      <span class="ld-step__description">
+        Order confirmation with follow-up information
+      </span>
+    </li>
+  </ol>
+</nav>
+
+<span class="ld-sr-only">Payment, step 3 of 5</span>
+<nav class="ld-stepper ld-stepper--vertical" style="width: 17rem">
+  <ol>
+    <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#billing">Billing</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Personal data including the billing address and optional additional information
+      </span>
+    </li>
+    <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#shipping">Shipping</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Shipping address, if it differs from the billing addres
+      </span>
+    </li>
+    <li class="ld-step ld-step--current ld-step--vertical">
+      <span class="ld-sr-only">Current: </span>
+      <a aria-current="step">Payment</a>
+      <span class="ld-step__description">
+        Payment method selection
+      </span>
+    </li>
+    <li class="ld-step ld-step--vertical">
+      <a>Summary</a>
+      <span class="ld-step__description">
+        Summary of your articles and all the previously given information
+      </span>
+    </li>
+    <li class="ld-step ld-step--vertical">
+      <a>Confirmation</a>
+      <span class="ld-step__description">
+        Order confirmation with follow-up information
+      </span>
+    </li>
+  </ol>
+</nav>
+
+<span class="ld-sr-only">Payment, step 3 of 5</span>
+<nav class="ld-stepper ld-stepper--lg ld-stepper--vertical" style="width: 19rem">
+  <ol>
+    <li class="ld-step ld-step--done ld-step--lg ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#billing">Billing</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Personal data including the billing address and optional additional information
+      </span>
+    </li>
+    <li class="ld-step ld-step--done ld-step--lg ld-step--with-icon ld-step--vertical">
+      <span class="ld-sr-only">Completed: </span>
+      <a href="components/ld-stepper/#shipping">Shipping</a>
+      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="ld-step__description">
+        Shipping address, if it differs from the billing addres
+      </span>
+    </li>
+    <li class="ld-step ld-step--current ld-step--lg ld-step--vertical">
+      <span class="ld-sr-only">Current: </span>
+      <a aria-current="step">Payment</a>
+      <span class="ld-step__description">
+        Payment method selection
+      </span>
+    </li>
+    <li class="ld-step ld-step--lg ld-step--vertical">
+      <a>Summary</a>
+      <span class="ld-step__description">
+        Summary of your articles and all the previously given information
+      </span>
+    </li>
+    <li class="ld-step ld-step--lg ld-step--vertical">
+      <a>Confirmation</a>
+      <span class="ld-step__description">
+        Order confirmation with follow-up information
+      </span>
+    </li>
+  </ol>
+</nav>
+{% endexample %}
+
+
 ## On brand color
 
 {% example '{ "background": "brand" }' %}
@@ -241,7 +395,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ld-step>Confirmation</ld-step>
 </ld-stepper>
 
-<ld-stepper brand-color vertical style="width: 15rem">
+<ld-stepper brand-color vertical style="width: 17rem">
   <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
   <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
   <ld-step current description="Payment method selection">Payment</ld-step>
@@ -274,7 +428,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 </nav>
 
 <span class="ld-sr-only">Payment, step 3 of 5</span>
-<nav class="ld-stepper ld-stepper--vertical" style="width: 15rem">
+<nav class="ld-stepper ld-stepper--vertical" style="width: 17rem">
   <ol>
     <li class="ld-step ld-step--brand-color ld-step--done ld-step--with-icon ld-step--vertical">
       <span class="ld-sr-only">Completed: </span>
@@ -327,7 +481,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ld-step>Confirmation</ld-step>
 </ld-stepper>
 
-<ld-stepper fit-content vertical style="width: 15rem">
+<ld-stepper fit-content vertical style="width: 17rem">
   <ld-step done description="Personal data including the billing address and optional additional information">Billing</ld-step>
   <ld-step done description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
   <ld-step current description="Payment method selection">Payment</ld-step>
@@ -362,7 +516,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 </nav>
 
 <span class="ld-sr-only">Payment, step 3 of 5</span>
-<nav class="ld-stepper ld-stepper--fit-content ld-stepper--vertical" style="width: 15rem">
+<nav class="ld-stepper ld-stepper--fit-content ld-stepper--vertical" style="width: 17rem">
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
       <span class="ld-sr-only">Completed: </span>
@@ -495,14 +649,16 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                              | Type               | Default                   |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------ | ------------------------- |
-| `brandColor`    | `brand-color`    | Switch colors for brand background.                                                                                      | `boolean`          | `false`                   |
-| `fitContent`    | `fit-content`    | Indicates whether the steps should be evenly distributed or fit to their content                                         | `boolean`          | `false`                   |
-| `key`           | `key`            | for tracking the node's identity when working with lists                                                                 | `string \| number` | `undefined`               |
-| `labelTemplate` | `label-template` | Template for the screen-reader label, containing the label and index of the current step and the overall number of steps | `string`           | `'$label, step $1 of $2'` |
-| `ref`           | `ref`            | reference to component                                                                                                   | `any`              | `undefined`               |
-| `vertical`      | `vertical`       | Vertical layout                                                                                                          | `boolean`          | `false`                   |
+| Property               | Attribute                | Description                                                                                                                 | Type               | Default           |
+| ---------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- |
+| `brandColor`           | `brand-color`            | Switch colors for brand background.                                                                                         | `boolean`          | `false`           |
+| `fitContent`           | `fit-content`            | Indicates whether the steps should be evenly distributed or fit to their content                                            | `boolean`          | `false`           |
+| `key`                  | `key`                    | for tracking the node's identity when working with lists                                                                    | `string \| number` | `undefined`       |
+| `labelSummaryTemplate` | `label-summary-template` | Step summary template for the screen-reader label, containing the index of the current step and the overall number of steps | `string`           | `'step $1 of $2'` |
+| `labelTemplate`        | `label-template`         | Template for the screen-reader label, containing the label of the current step and the steps summary                        | `string`           | `'$1, $2'`        |
+| `ref`                  | `ref`                    | reference to component                                                                                                      | `any`              | `undefined`       |
+| `size`                 | `size`                   | Step size                                                                                                                   | `"lg" \| "sm"`     | `undefined`       |
+| `vertical`             | `vertical`               | Vertical layout                                                                                                             | `boolean`          | `false`           |
 
 
 ## Shadow Parts

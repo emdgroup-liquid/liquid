@@ -20,8 +20,12 @@ export class LdStepper {
   @Prop() brandColor = false
   /** Indicates whether the steps should be evenly distributed or fit to their content */
   @Prop() fitContent = false
-  /** Template for the screen-reader label, containing the label and index of the current step and the overall number of steps */
-  @Prop() labelTemplate = '$label, step $1 of $2'
+  /** Template for the screen-reader label, containing the label of the current step and the steps summary */
+  @Prop() labelTemplate = '$1, $2'
+  /** Step summary template for the screen-reader label, containing the index of the current step and the overall number of steps */
+  @Prop() labelSummaryTemplate = 'step $1 of $2'
+  /** Step size */
+  @Prop() size?: HTMLLdStepElement['size']
   /** Vertical layout */
   @Prop() vertical = false
 
@@ -30,10 +34,15 @@ export class LdStepper {
   @State() steps: NodeListOf<HTMLLdStepElement>
 
   private getLabel() {
-    return this.labelTemplate
-      .replace('$label', this.currentLabel)
+    const summary = this.labelSummaryTemplate
       .replace('$1', String(this.currentIndex + 1))
       .replace('$2', String(this.steps.length))
+
+    return this.currentLabel
+      ? this.labelTemplate
+          .replace('$1', this.currentLabel)
+          .replace('$2', summary)
+      : summary
   }
 
   updateCurrent = (event: CustomEvent<SelectedDetail>) => {
@@ -42,11 +51,13 @@ export class LdStepper {
   }
 
   @Watch('brandColor')
+  @Watch('size')
   @Watch('vertical')
   private propagateProps() {
     this.el.querySelectorAll('ld-step').forEach((ldStep) => {
-      ldStep.vertical = this.vertical
       ldStep.brandColor = this.brandColor
+      ldStep.size = this.size
+      ldStep.vertical = this.vertical
     })
   }
 
@@ -62,6 +73,7 @@ export class LdStepper {
         class={getClassNames([
           'ld-stepper',
           this.fitContent && 'ld-stepper--fit-content',
+          this.size && `ld-stepper--${this.size}`,
           this.vertical && 'ld-stepper--vertical',
         ])}
         role="navigation"

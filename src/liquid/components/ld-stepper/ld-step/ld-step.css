@@ -1,20 +1,46 @@
 .ld-step {
-  --ld-step-icon-size: var(--ld-step-icon-size-default);
-  --ld-step-icon-size-default: 0.625rem;
-  --ld-step-icon-size-custom: var(--ld-sp-12);
-  --ld-step-icon-offset: calc(
-    (var(--ld-step-dot-size-with-icon) - var(--ld-step-icon-size)) / 2
-  );
+  --ld-step-description-font-size: var(--ld-step-description-font-size-md);
+  --ld-step-description-font-size-sm: 0.625rem;
+  --ld-step-description-font-size-md: 0.75rem;
+  --ld-step-description-font-size-lg: 0.875rem;
   --ld-step-dot-offset: calc(
     (var(--ld-step-dot-size-with-icon) - var(--ld-step-dot-size)) / 2
   );
   --ld-step-dot-size: var(--ld-step-dot-size-default);
-  --ld-step-dot-size-default: 0.75rem;
-  --ld-step-dot-size-with-icon: 1.25rem;
+  --ld-step-dot-size-default: var(--ld-step-dot-size-md);
+  --ld-step-dot-size-sm: var(--ld-sp-12);
+  --ld-step-dot-size-md: var(--ld-sp-16);
+  --ld-step-dot-size-lg: 1.25rem;
+  --ld-step-dot-size-with-icon: var(--ld-step-dot-size-with-icon-md);
+  --ld-step-dot-size-with-icon-sm: 1.25rem;
+  --ld-step-dot-size-with-icon-md: var(--ld-sp-24);
+  --ld-step-dot-size-with-icon-lg: var(--ld-sp-32);
+  --ld-step-icon-size: calc(var(--ld-step-dot-size-with-icon) * 0.5);
+  --ld-step-icon-size-custom: calc(var(--ld-step-dot-size-with-icon) * 0.7);
+  --ld-step-icon-offset: calc(
+    (var(--ld-step-dot-size-with-icon) - var(--ld-step-icon-size)) / 2
+  );
+  --ld-step-label-font-size: var(--ld-step-label-font-size-md);
+  --ld-step-label-font-size-sm: 0.75rem;
+  --ld-step-label-font-size-md: 0.875rem;
+  --ld-step-label-font-size-lg: 1.125rem;
+  --ld-step-line-thickness: var(--ld-step-line-thickness-md);
+  --ld-step-line-thickness-sm: var(--ld-sp-2);
+  --ld-step-line-thickness-md: 0.1875rem;
+  --ld-step-line-thickness-lg: var(--ld-sp-4);
   --ld-step-text-distance: var(--ld-sp-16);
   --ld-step-text-margin: calc(
     var(--ld-step-dot-size-with-icon) + var(--ld-step-text-distance)
   );
+  --ld-step-vertical-label-margin-top: calc(
+    /* remove actual line-height of the label from dot size to get the difference */
+      (var(--ld-step-dot-size-with-icon) - var(--ld-step-label-font-size) * 1.4) /
+      2
+  );
+  --ld-step-vertical-text-gap: var(--ld-step-vertical-text-gap-md);
+  --ld-step-vertical-text-gap-sm: var(--ld-sp-4);
+  --ld-step-vertical-text-gap-md: var(--ld-sp-6);
+  --ld-step-vertical-text-gap-lg: var(--ld-sp-8);
 
   /* colors */
   --ld-step-bg-col: var(--ld-thm-primary);
@@ -59,7 +85,10 @@
     color: var(--ld-step-col);
     display: flex;
     flex-direction: column;
-    font: var(--ld-typo-h6);
+    font-family: var(--ld-font-body);
+    font-size: var(--ld-step-label-font-size);
+    font-weight: 700;
+    line-height: 140%;
     margin: var(--ld-step-text-margin) 0 0; /* Safari reset */
     padding: 0;
     text-align: center;
@@ -93,7 +122,9 @@
   }
 
   .ld-icon {
+    --ld-icon-size-sm: var(--ld-step-icon-size);
     --ld-icon-size-md: var(--ld-step-icon-size);
+    --ld-icon-size-lg: var(--ld-step-icon-size);
     color: var(--ld-step-icon-col);
     pointer-events: none;
     position: absolute;
@@ -164,7 +195,7 @@
     button {
       &::before {
         background: transparent;
-        border: solid var(--ld-sp-2) var(--ld-step-dot-col);
+        border: solid var(--ld-step-line-thickness) var(--ld-step-dot-col);
       }
     }
   }
@@ -184,13 +215,14 @@
 
   &--vertical {
     align-items: start;
-    gap: var(--ld-sp-4);
+    gap: var(--ld-step-vertical-text-gap);
     padding: 0;
     text-align: left;
 
     a,
     button {
-      margin: 0 0 0 var(--ld-step-text-margin);
+      margin: var(--ld-step-vertical-label-margin-top) 0 0
+        var(--ld-step-text-margin);
 
       &::after,
       &::before {
@@ -204,6 +236,24 @@
       left: var(--ld-step-icon-offset);
     }
   }
+
+  &--sm {
+    --ld-step-description-font-size: var(--ld-step-description-font-size-sm);
+    --ld-step-dot-size-default: var(--ld-step-dot-size-sm);
+    --ld-step-dot-size-with-icon: var(--ld-step-dot-size-with-icon-sm);
+    --ld-step-label-font-size: var(--ld-step-label-font-size-sm);
+    --ld-step-line-thickness: var(--ld-step-line-thickness-sm);
+    --ld-step-vertical-text-gap: var(--ld-step-vertical-text-gap-sm);
+  }
+
+  &--lg {
+    --ld-step-description-font-size: var(--ld-step-description-font-size-lg);
+    --ld-step-dot-size-default: var(--ld-step-dot-size-lg);
+    --ld-step-dot-size-with-icon: var(--ld-step-dot-size-with-icon-lg);
+    --ld-step-label-font-size: var(--ld-step-label-font-size-lg);
+    --ld-step-line-thickness: var(--ld-step-line-thickness-lg);
+    --ld-step-vertical-text-gap: var(--ld-step-vertical-text-gap-lg);
+  }
 }
 
 :host(:not(:first-of-type)) .ld-step,
@@ -211,7 +261,7 @@
   &::before {
     content: '';
     background: var(--ld-step-line-start-col);
-    height: var(--ld-sp-2);
+    height: var(--ld-step-line-thickness);
     left: calc(var(--ld-stepper-gap) / -2);
     position: absolute;
     right: calc(50% + var(--ld-step-dot-size) / 2 - var(--ld-sp-1));
@@ -226,7 +276,7 @@
     right: auto;
     top: calc(var(--ld-stepper-gap) / -2);
     transform: translatex(-50%);
-    width: var(--ld-sp-2);
+    width: var(--ld-step-line-thickness);
   }
 }
 
@@ -235,7 +285,7 @@
   &::after {
     content: '';
     background: var(--ld-step-line-end-col);
-    height: var(--ld-sp-2);
+    height: var(--ld-step-line-thickness);
     left: calc(50% + var(--ld-step-dot-size) / 2 - var(--ld-sp-1));
     position: absolute;
     right: calc(var(--ld-stepper-gap) / -2);
@@ -253,12 +303,14 @@
       var(--ld-step-dot-size) + var(--ld-step-dot-offset) - var(--ld-sp-1)
     );
     transform: translatex(-50%);
-    width: var(--ld-sp-2);
+    width: var(--ld-step-line-thickness);
   }
 }
 
 .ld-step__description {
   color: var(--ld-step-description-col);
-  font: 0.625rem/120% Lato, Helvetica, Arial, sans-serif;
+  font-family: var(--ld-font-body);
+  font-size: var(--ld-step-description-font-size);
+  line-height: 140%;
   margin-left: var(--ld-step-text-margin);
 }

@@ -37,6 +37,7 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 | `ldTabindex`       | `ld-tabindex`        | Tab index of the step                                                               | `number`           | `undefined`      |
 | `optional`         | `optional`           | Step may be skipped                                                                 | `boolean`          | `false`          |
 | `ref`              | `ref`                | reference to component                                                              | `any`              | `undefined`      |
+| `size`             | `size`               | Step size                                                                           | `"lg" \| "sm"`     | `undefined`      |
 | `skipped`          | `skipped`            | Step was skipped                                                                    | `boolean`          | `false`          |
 | `vertical`         | `vertical`           | Vertical layout                                                                     | `boolean`          | `false`          |
 

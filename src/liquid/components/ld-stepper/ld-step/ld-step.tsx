@@ -52,6 +52,8 @@ export class LdStep implements InnerFocusable {
   @Prop() ldTabindex: number | undefined
   /** Step may be skipped */
   @Prop() optional = false
+  /** Step size */
+  @Prop() size?: 'sm' | 'lg'
   /** Step was skipped */
   @Prop() skipped = false
   /** Vertical layout */
@@ -92,6 +94,7 @@ export class LdStep implements InnerFocusable {
             this.icon && 'ld-step--custom-icon',
             (this.done || this.icon) && 'ld-step--with-icon',
             this.optional && 'ld-step--optional',
+            this.size && `ld-step--${this.size}`,
             this.skipped && 'ld-step--skipped',
             this.vertical && 'ld-step--vertical',
           ])}
@@ -111,7 +114,7 @@ export class LdStep implements InnerFocusable {
           {this.current && (
             <ld-sr-only>
               {this.labelCurrent}
-              {this.optional ? ` (${this.labelOptional})` : ''}: :{' '}
+              {this.optional ? ` (${this.labelOptional})` : ''}:{' '}
             </ld-sr-only>
           )}
           <button
