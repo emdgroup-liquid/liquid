@@ -182,8 +182,13 @@
     'Ubuntu Mono', monospace;
   --ld-typo-code-m: 1rem / 160% 'Source Code Pro', Consolas, Monaco,
     'Ubuntu Mono', monospace;
-  padding: var(--ld-sp-24) var(--ld-sp-40) var(--ld-sp-40);
+  --docs-main-padding-x: var(--ld-sp-40);
+  padding: var(--ld-sp-24) var(--docs-main-padding-x) var(--ld-sp-40);
   min-width: 20rem;
+
+  @media (max-width: 75rem) {
+    --docs-main-padding-x: var(--ld-sp-24);
+  }
 
   main {
     > header,
@@ -581,8 +586,7 @@
     font: var(--ld-typo-code-s);
   }
 
-  @media (max-width: 48rem) {
-    grid-area: stack;
+  @media (max-width: 52rem) {
     padding: var(--ld-sp-24) var(--ld-sp-24);
 
     main {
@@ -624,7 +628,7 @@
   position: absolute;
   text-align: right;
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 52rem) {
     left: unset;
     position: relative;
     width: auto;
@@ -658,7 +662,7 @@
     visibility: inherit;
   }
 
-  @media screen and (max-width: 48rem) {
+  @media screen and (max-width: 52rem) {
     visibility: inherit;
     padding-right: 0;
     opacity: 0.25;

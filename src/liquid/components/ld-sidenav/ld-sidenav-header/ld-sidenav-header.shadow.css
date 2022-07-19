@@ -124,10 +124,16 @@
   }
 }
 
+:host ::slotted([slot='logo']),
 .ld-sidenav-header__initial-m {
   color: var(--ld-thm-primary);
-  width: var(--ld-sidenav-navitem-icon-size);
+  min-width: var(--ld-sidenav-navitem-icon-size);
   z-index: 2;
+  height: 100%;
+}
+
+.ld-sidenav-header__initial-m {
+  width: var(--ld-sidenav-navitem-icon-size);
 }
 
 .ld-sidenav-header__toggle {

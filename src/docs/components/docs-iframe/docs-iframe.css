@@ -7,7 +7,7 @@
   );
   position: fixed;
 
-  @media (max-width: 48rem) {
+  @media (max-width: 52rem) {
     left: 0;
   }
 
