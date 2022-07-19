@@ -1009,7 +1009,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
-<ld-select filter placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 14rem">
+<ld-select filter placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 17rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry">Strawberry</ld-option>
