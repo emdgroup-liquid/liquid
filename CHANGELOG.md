@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/emdgroup-liquid/liquid/compare/v2.3.0...v2.3.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* **ld-modal:** hide displaced focus outlines ([3ea2f75](https://github.com/emdgroup-liquid/liquid/commit/3ea2f757330978a215308d41266368a9cce0d220))
+* **ld-sidenav:** allow custom logo in sidenav header ([5eca62e](https://github.com/emdgroup-liquid/liquid/commit/5eca62e74fdab4bc3368f4264dd8be489fb4000d))
+
 # [2.3.0](https://github.com/emdgroup-liquid/liquid/compare/v2.2.0...v2.3.0) (2022-07-13)
 
 
