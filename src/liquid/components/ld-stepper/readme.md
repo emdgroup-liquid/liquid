@@ -64,7 +64,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 ### With text
 
 {% example %}
-<ld-stepper>
+<ld-stepper style="min-width: 25rem">
   <ld-step done>Billing</ld-step>
   <ld-step done>Shipping</ld-step>
   <ld-step current>Payment</ld-step>
@@ -75,7 +75,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 <!-- CSS component -->
 
 <span class="ld-sr-only">Payment, step 3 of 5</span>
-<nav class="ld-stepper">
+<nav class="ld-stepper" style="min-width: 25rem">
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
@@ -561,7 +561,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 ## With custom icons
 
 {% example %}
-<ld-stepper>
+<ld-stepper style="min-width: 25rem">
   <ld-step done icon="documents">Billing</ld-step>
   <ld-step done icon="truck">Shipping</ld-step>
   <ld-step current icon="money">Payment</ld-step>
@@ -572,7 +572,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 <!-- CSS component -->
 
 <span class="ld-sr-only">Payment, step 3 of 5</span>
-<nav class="ld-stepper">
+<nav class="ld-stepper" style="min-width: 25rem">
   <ol>
     <li class="ld-step ld-step--custom-icon ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
@@ -607,39 +607,38 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 ## With optional steps
 
 {% example %}
-<ld-stepper>
+<ld-stepper style="min-width: 25rem">
   <ld-step done>Part 1</ld-step>
-  <ld-step optional skipped>Part 2 (can be skipped)</ld-step>
-  <ld-step done optional>Part 3 (can be skipped)</ld-step>
-  <ld-step current optional>Part 4 (can be skipped)</ld-step>
-  <ld-step optional>Part 5 (can be skipped)</ld-step>
+  <ld-step optional skipped>Part 2<br />(can be skipped)</ld-step>
+  <ld-step done optional>Part 3<br />(can be skipped)</ld-step>
+  <ld-step current optional>Part 4<br />(can be skipped)</ld-step>
+  <ld-step optional>Part 5<br />(can be skipped)</ld-step>
 </ld-stepper>
 
 <!-- CSS component -->
 
-<span class="ld-sr-only">Part 4 (can be skipped), step 3 of 5</span>
-<nav class="ld-stepper">
+<span class="ld-sr-only">Part 4<br />(can be skipped), step 4 of 5</span>
+<nav class="ld-stepper" style="min-width: 25rem">
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
-      <a href="components/ld-stepper/#billing">Part 1 (can be skipped)</a>
+      <a href="components/ld-stepper/#part-1">Part 1</a>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--skipped ld-step--optional">
       <span class="ld-sr-only">Skipped: </span>
-      <a href="components/ld-stepper/#shipping">Part 2 (can be skipped)</a>
-      <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="components/ld-stepper/#part-2">Part 2<br />(can be skipped)</a>
     </li>
     <li class="ld-step ld-step--done ld-step--optional ld-step--with-icon">
       <span class="ld-sr-only">Completed (was optional): </span>
-      <a aria-current="step">Part 3 (can be skipped)</a>
+      <a href="components/ld-stepper/#part-3">Part 3<br />(can be skipped)</a>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--current ld-step--optional">
       <span class="ld-sr-only">Current: </span>
-      <a>Part 4 (can be skipped)</a>
+      <a aria-current="step">Part 4<br />(can be skipped)</a>
     </li>
-    <li class="ld-step ld-step--optional"><a>Part 5 (can be skipped)</a></li>
+    <li class="ld-step ld-step--optional"><a>Part 5<br />(can be skipped)</a></li>
   </ol>
 </nav>
 {% endexample %}
