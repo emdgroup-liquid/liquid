@@ -19063,10 +19063,10 @@
       "isMobile": false
     },
     {
-      "id": "4c50fa49",
+      "id": "3a74996a",
       "image": "ce8ce80b78ad613d284d006daecd7308.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default empty",
+      "desc": "ld-stepper CSS component default empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19076,10 +19076,10 @@
       "isMobile": false
     },
     {
-      "id": "e3f8f845",
+      "id": "8113d700",
       "image": "f6521e10d8413cc4881cbb60ab4d954a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default optional empty",
+      "desc": "ld-stepper CSS component default optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19089,10 +19089,10 @@
       "isMobile": false
     },
     {
-      "id": "e70ba532",
+      "id": "029e7919",
       "image": "a4c1afaf4492703e39df344dc3b42493.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default optional with description",
+      "desc": "ld-stepper CSS component default optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19102,10 +19102,10 @@
       "isMobile": false
     },
     {
-      "id": "99aa0bae",
+      "id": "f82dc130",
       "image": "a4c1afaf4492703e39df344dc3b42493.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default optional with label text",
+      "desc": "ld-stepper CSS component default optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19115,10 +19115,10 @@
       "isMobile": false
     },
     {
-      "id": "4a28aa03",
+      "id": "3dc1d641",
       "image": "6894a03ae7aadacde520289739c8a84e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons empty",
+      "desc": "ld-stepper CSS component default with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19128,10 +19128,10 @@
       "isMobile": false
     },
     {
-      "id": "d50a5356",
+      "id": "b9aea577",
       "image": "e7ebd62cabb1373425a1df2e7746c0f8.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons optional empty",
+      "desc": "ld-stepper CSS component default with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19141,10 +19141,10 @@
       "isMobile": false
     },
     {
-      "id": "f249b716",
+      "id": "a8e630ef",
       "image": "ac7b44adab1c0828ab77e1f3d7cc3a87.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons optional with description",
+      "desc": "ld-stepper CSS component default with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19154,10 +19154,10 @@
       "isMobile": false
     },
     {
-      "id": "2710019e",
+      "id": "80e5fa30",
       "image": "ac7b44adab1c0828ab77e1f3d7cc3a87.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons optional with label text",
+      "desc": "ld-stepper CSS component default with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19167,10 +19167,10 @@
       "isMobile": false
     },
     {
-      "id": "9ea5049d",
+      "id": "43a7257c",
       "image": "83a988da1dcf79bff54d80d65708f135.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons with description",
+      "desc": "ld-stepper CSS component default with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19180,10 +19180,10 @@
       "isMobile": false
     },
     {
-      "id": "2a87ed16",
+      "id": "5bbbec6a",
       "image": "dd04e57921eeff3d7db031dc5fb2c0bd.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component default with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19193,10 +19193,10 @@
       "isMobile": false
     },
     {
-      "id": "c32bfad5",
+      "id": "8ffb56ef",
       "image": "83a988da1dcf79bff54d80d65708f135.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons with label text",
+      "desc": "ld-stepper CSS component default with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19206,10 +19206,10 @@
       "isMobile": false
     },
     {
-      "id": "74c9bd33",
+      "id": "577b1915",
       "image": "dd04e57921eeff3d7db031dc5fb2c0bd.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component default with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19219,10 +19219,10 @@
       "isMobile": false
     },
     {
-      "id": "084212b4",
+      "id": "5fd11ef0",
       "image": "7b33b73eef05cbe22d8e0f2e65441dd9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with description",
+      "desc": "ld-stepper CSS component default with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19232,10 +19232,10 @@
       "isMobile": false
     },
     {
-      "id": "45deceb0",
+      "id": "e538ba85",
       "image": "5b629b62e8c4fb24bc442c24433f9805.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with description (fit-content)",
+      "desc": "ld-stepper CSS component default with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19245,10 +19245,10 @@
       "isMobile": false
     },
     {
-      "id": "19311455",
+      "id": "4d8e66e8",
       "image": "7b33b73eef05cbe22d8e0f2e65441dd9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with label text",
+      "desc": "ld-stepper CSS component default with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19258,10 +19258,10 @@
       "isMobile": false
     },
     {
-      "id": "10a9e13c",
+      "id": "d402ff7e",
       "image": "5b629b62e8c4fb24bc442c24433f9805.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component default with label text (fit-content)",
+      "desc": "ld-stepper CSS component default with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19271,10 +19271,10 @@
       "isMobile": false
     },
     {
-      "id": "f73e8b33",
+      "id": "9b698ef3",
       "image": "a88943b16048bc3ac51d17b8fe5376bc.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg empty",
+      "desc": "ld-stepper CSS component lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19284,10 +19284,10 @@
       "isMobile": false
     },
     {
-      "id": "2aac96b0",
+      "id": "bc28ca4e",
       "image": "f2334a69c1885d38096643f764118c02.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg optional empty",
+      "desc": "ld-stepper CSS component lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19297,10 +19297,10 @@
       "isMobile": false
     },
     {
-      "id": "190189b8",
+      "id": "3d2bb739",
       "image": "84ccb62afe4e5faa6b1249b7e7fe4797.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg optional with description",
+      "desc": "ld-stepper CSS component lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19310,10 +19310,10 @@
       "isMobile": false
     },
     {
-      "id": "be7f138c",
+      "id": "adf78f8d",
       "image": "84ccb62afe4e5faa6b1249b7e7fe4797.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg optional with label text",
+      "desc": "ld-stepper CSS component lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19323,10 +19323,10 @@
       "isMobile": false
     },
     {
-      "id": "ac873e0b",
+      "id": "282408c1",
       "image": "117003c06d66c40ac27e8f09a126dbfb.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons empty",
+      "desc": "ld-stepper CSS component lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19336,10 +19336,10 @@
       "isMobile": false
     },
     {
-      "id": "c01bcb95",
+      "id": "c21faad4",
       "image": "b9c620853cf9809f6a0064bd916d40b0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons optional empty",
+      "desc": "ld-stepper CSS component lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19349,10 +19349,10 @@
       "isMobile": false
     },
     {
-      "id": "2e023e6c",
+      "id": "24132782",
       "image": "5bea56dfdcb5c1701a38a598d8817172.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons optional with description",
+      "desc": "ld-stepper CSS component lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19362,10 +19362,10 @@
       "isMobile": false
     },
     {
-      "id": "aee85b98",
+      "id": "f6cd1fa3",
       "image": "5bea56dfdcb5c1701a38a598d8817172.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons optional with label text",
+      "desc": "ld-stepper CSS component lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19375,10 +19375,10 @@
       "isMobile": false
     },
     {
-      "id": "7735e2c7",
+      "id": "259e733e",
       "image": "035a90cdb69f800f34d0ba60c3200f78.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons with description",
+      "desc": "ld-stepper CSS component lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19388,10 +19388,10 @@
       "isMobile": false
     },
     {
-      "id": "546c680c",
+      "id": "111e2525",
       "image": "e8b63e5d27909533343c4a9c1f71bc2a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19401,10 +19401,10 @@
       "isMobile": false
     },
     {
-      "id": "741e508f",
+      "id": "76534017",
       "image": "035a90cdb69f800f34d0ba60c3200f78.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons with label text",
+      "desc": "ld-stepper CSS component lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19414,10 +19414,10 @@
       "isMobile": false
     },
     {
-      "id": "08041b5f",
+      "id": "0a96a67d",
       "image": "e8b63e5d27909533343c4a9c1f71bc2a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19427,10 +19427,10 @@
       "isMobile": false
     },
     {
-      "id": "b094cf3d",
+      "id": "512da89b",
       "image": "4acdab4f8ba60480e74355cc5bdb40c5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with description",
+      "desc": "ld-stepper CSS component lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19440,10 +19440,10 @@
       "isMobile": false
     },
     {
-      "id": "932e26e9",
+      "id": "c3f87503",
       "image": "9e28fdc4989e44d4b7991ee7816d6eec.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with description (fit-content)",
+      "desc": "ld-stepper CSS component lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19453,10 +19453,10 @@
       "isMobile": false
     },
     {
-      "id": "426afe20",
+      "id": "e1f84aad",
       "image": "4acdab4f8ba60480e74355cc5bdb40c5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with label text",
+      "desc": "ld-stepper CSS component lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19466,10 +19466,10 @@
       "isMobile": false
     },
     {
-      "id": "4a40b40e",
+      "id": "d88c0157",
       "image": "9e28fdc4989e44d4b7991ee7816d6eec.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component lg with label text (fit-content)",
+      "desc": "ld-stepper CSS component lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19479,10 +19479,10 @@
       "isMobile": false
     },
     {
-      "id": "cab58a42",
+      "id": "36cd768f",
       "image": "f33854d29b42d080e8cfc3667b08a049.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color empty",
+      "desc": "ld-stepper CSS component on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19492,10 +19492,10 @@
       "isMobile": false
     },
     {
-      "id": "7b2938db",
+      "id": "6fb80ee2",
       "image": "f04345c237be9d9408c3c94f5d16703f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg empty",
+      "desc": "ld-stepper CSS component on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19505,10 +19505,10 @@
       "isMobile": false
     },
     {
-      "id": "650fd43e",
+      "id": "3d948d61",
       "image": "02cbfa68cf93158088eb62513d6c1bb4.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg optional empty",
+      "desc": "ld-stepper CSS component on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19518,10 +19518,10 @@
       "isMobile": false
     },
     {
-      "id": "73a9f398",
+      "id": "ba59782a",
       "image": "d9ef85e4ea8111a6f3d07376bf697aa9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg optional with description",
+      "desc": "ld-stepper CSS component on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19531,10 +19531,10 @@
       "isMobile": false
     },
     {
-      "id": "a42a34c8",
+      "id": "79ec3bac",
       "image": "d9ef85e4ea8111a6f3d07376bf697aa9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg optional with label text",
+      "desc": "ld-stepper CSS component on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19544,10 +19544,10 @@
       "isMobile": false
     },
     {
-      "id": "17d1dca1",
+      "id": "c7cb54a2",
       "image": "21dba96c674ab059a517c5ac0b9afd8e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons empty",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19557,10 +19557,10 @@
       "isMobile": false
     },
     {
-      "id": "bd331549",
+      "id": "5c845691",
       "image": "1c6b1621bce93c411869af59d4684e6f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons optional empty",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19570,10 +19570,10 @@
       "isMobile": false
     },
     {
-      "id": "a6d5e05b",
+      "id": "a17a1308",
       "image": "d6037609d9bc19c868e2650211e5d7c5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons optional with description",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19583,10 +19583,10 @@
       "isMobile": false
     },
     {
-      "id": "aa9d6e9b",
+      "id": "626af1d0",
       "image": "d6037609d9bc19c868e2650211e5d7c5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons optional with label text",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19596,10 +19596,10 @@
       "isMobile": false
     },
     {
-      "id": "e5546a97",
+      "id": "4e5e6017",
       "image": "69648f80123687ce0306f298527dcff8.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons with description",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19609,10 +19609,10 @@
       "isMobile": false
     },
     {
-      "id": "ca764cdc",
+      "id": "d151a827",
       "image": "cdbed3ef9dd28abd0d811d8dc32b7b09.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19622,10 +19622,10 @@
       "isMobile": false
     },
     {
-      "id": "7831a8e7",
+      "id": "2e644260",
       "image": "69648f80123687ce0306f298527dcff8.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons with label text",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19635,10 +19635,10 @@
       "isMobile": false
     },
     {
-      "id": "269824b2",
+      "id": "5c8723b1",
       "image": "cdbed3ef9dd28abd0d811d8dc32b7b09.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19648,10 +19648,10 @@
       "isMobile": false
     },
     {
-      "id": "ac516a9b",
+      "id": "28228b67",
       "image": "bfb42014a4e9089fc10ca60231f83540.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with description",
+      "desc": "ld-stepper CSS component on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19661,10 +19661,10 @@
       "isMobile": false
     },
     {
-      "id": "4ba6a1a5",
+      "id": "d57992a2",
       "image": "d8a1cb47f9ede12704508ae255cc175a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19674,10 +19674,10 @@
       "isMobile": false
     },
     {
-      "id": "28e431d2",
+      "id": "1a35050b",
       "image": "bfb42014a4e9089fc10ca60231f83540.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with label text",
+      "desc": "ld-stepper CSS component on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19687,10 +19687,10 @@
       "isMobile": false
     },
     {
-      "id": "0ac3587c",
+      "id": "2b08c152",
       "image": "d8a1cb47f9ede12704508ae255cc175a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color lg with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19700,10 +19700,10 @@
       "isMobile": false
     },
     {
-      "id": "00c7ab75",
+      "id": "ea1a2083",
       "image": "710ed9a3c53634c106359e26c2b3bc22.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color optional empty",
+      "desc": "ld-stepper CSS component on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19713,10 +19713,10 @@
       "isMobile": false
     },
     {
-      "id": "3b896d37",
+      "id": "01fcdf1c",
       "image": "70119fbf2bda2d8feefae19f017506e6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color optional with description",
+      "desc": "ld-stepper CSS component on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19726,10 +19726,10 @@
       "isMobile": false
     },
     {
-      "id": "dbce9c87",
+      "id": "f85084d8",
       "image": "70119fbf2bda2d8feefae19f017506e6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color optional with label text",
+      "desc": "ld-stepper CSS component on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19739,10 +19739,10 @@
       "isMobile": false
     },
     {
-      "id": "28572614",
+      "id": "b6f871b6",
       "image": "e1b399d85c2ad767bbd7ae41814fe05f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm empty",
+      "desc": "ld-stepper CSS component on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19752,10 +19752,10 @@
       "isMobile": false
     },
     {
-      "id": "efb9abf8",
+      "id": "70cda045",
       "image": "b91c0084913dc3ff8825e309c3e23a02.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm optional empty",
+      "desc": "ld-stepper CSS component on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19765,10 +19765,10 @@
       "isMobile": false
     },
     {
-      "id": "4fba7242",
+      "id": "9ce385a7",
       "image": "738ca13200b27d7075c71da8f9eb70c0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm optional with description",
+      "desc": "ld-stepper CSS component on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19778,10 +19778,10 @@
       "isMobile": false
     },
     {
-      "id": "f7594a69",
+      "id": "673fc0ea",
       "image": "738ca13200b27d7075c71da8f9eb70c0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm optional with label text",
+      "desc": "ld-stepper CSS component on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19791,10 +19791,10 @@
       "isMobile": false
     },
     {
-      "id": "d57f6a0c",
+      "id": "3b33acd7",
       "image": "487a0a3117f9e26d114ef6af78c32a1d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons empty",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19804,10 +19804,10 @@
       "isMobile": false
     },
     {
-      "id": "6e755e25",
+      "id": "5cfe67b1",
       "image": "76d494e9aedc25c6e38e02daa8808ced.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons optional empty",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19817,10 +19817,10 @@
       "isMobile": false
     },
     {
-      "id": "41eae6c7",
+      "id": "ea3f3de3",
       "image": "92e83e384aba8dbb55abfa22d61c4227.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons optional with description",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19830,10 +19830,10 @@
       "isMobile": false
     },
     {
-      "id": "af18fa86",
+      "id": "45f51642",
       "image": "92e83e384aba8dbb55abfa22d61c4227.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons optional with label text",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19843,10 +19843,10 @@
       "isMobile": false
     },
     {
-      "id": "146e9148",
+      "id": "27226d96",
       "image": "264f166950bccdebb887b4763f4e0273.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons with description",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19856,10 +19856,10 @@
       "isMobile": false
     },
     {
-      "id": "96400ced",
+      "id": "aee3d217",
       "image": "3e2be13ec805af4e2fcbae172d5c41b6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19869,10 +19869,10 @@
       "isMobile": false
     },
     {
-      "id": "f0f675ff",
+      "id": "028b900f",
       "image": "264f166950bccdebb887b4763f4e0273.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons with label text",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19882,10 +19882,10 @@
       "isMobile": false
     },
     {
-      "id": "2d7daf32",
+      "id": "cb7d22ae",
       "image": "3e2be13ec805af4e2fcbae172d5c41b6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19895,10 +19895,10 @@
       "isMobile": false
     },
     {
-      "id": "1960cbe7",
+      "id": "996131db",
       "image": "685a2020a6b53c2e6f7aed828fc40cce.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with description",
+      "desc": "ld-stepper CSS component on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19908,10 +19908,10 @@
       "isMobile": false
     },
     {
-      "id": "76cbb0e5",
+      "id": "cea4d485",
       "image": "96989ab0d7ae8265bb5cb51cea968a23.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19921,10 +19921,10 @@
       "isMobile": false
     },
     {
-      "id": "5fca54a5",
+      "id": "c62cf906",
       "image": "685a2020a6b53c2e6f7aed828fc40cce.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with label text",
+      "desc": "ld-stepper CSS component on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19934,10 +19934,10 @@
       "isMobile": false
     },
     {
-      "id": "39ab3bf9",
+      "id": "a0c4084f",
       "image": "96989ab0d7ae8265bb5cb51cea968a23.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color sm with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19947,10 +19947,10 @@
       "isMobile": false
     },
     {
-      "id": "df24dc76",
+      "id": "e461db17",
       "image": "b883d5e46fb4f02c803713ac02f48fa7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons empty",
+      "desc": "ld-stepper CSS component on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19960,10 +19960,10 @@
       "isMobile": false
     },
     {
-      "id": "4890cd1b",
+      "id": "edde423b",
       "image": "13915f4fe84d813b3fd5c0aa24016b53.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons optional empty",
+      "desc": "ld-stepper CSS component on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19973,10 +19973,10 @@
       "isMobile": false
     },
     {
-      "id": "c8880351",
+      "id": "396fd7a0",
       "image": "c6522cf5aae01a46f48507456fe87402.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons optional with description",
+      "desc": "ld-stepper CSS component on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19986,10 +19986,10 @@
       "isMobile": false
     },
     {
-      "id": "75ac4de6",
+      "id": "9849538d",
       "image": "c6522cf5aae01a46f48507456fe87402.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons optional with label text",
+      "desc": "ld-stepper CSS component on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -19999,10 +19999,10 @@
       "isMobile": false
     },
     {
-      "id": "d037dc1e",
+      "id": "cca2f6d8",
       "image": "bee63e74455d014b23b35f514668b23c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons with description",
+      "desc": "ld-stepper CSS component on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20012,10 +20012,10 @@
       "isMobile": false
     },
     {
-      "id": "a9443eb2",
+      "id": "a91b59c9",
       "image": "d50297fe13659ea36e91140a3ed8c935.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20025,10 +20025,10 @@
       "isMobile": false
     },
     {
-      "id": "a65aa950",
+      "id": "4f3373e2",
       "image": "bee63e74455d014b23b35f514668b23c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons with label text",
+      "desc": "ld-stepper CSS component on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20038,10 +20038,10 @@
       "isMobile": false
     },
     {
-      "id": "68655824",
+      "id": "03cd2e7a",
       "image": "d50297fe13659ea36e91140a3ed8c935.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20051,10 +20051,10 @@
       "isMobile": false
     },
     {
-      "id": "06fd1a9b",
+      "id": "1c076c33",
       "image": "95be20095c18f4dbcad619c54805aa47.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with description",
+      "desc": "ld-stepper CSS component on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20064,10 +20064,10 @@
       "isMobile": false
     },
     {
-      "id": "c1a342fa",
+      "id": "f32feffd",
       "image": "18dc24023f11f0b72acca6ddf9fad3b2.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with description (fit-content)",
+      "desc": "ld-stepper CSS component on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20077,10 +20077,10 @@
       "isMobile": false
     },
     {
-      "id": "fa48478d",
+      "id": "eac5b556",
       "image": "95be20095c18f4dbcad619c54805aa47.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with label text",
+      "desc": "ld-stepper CSS component on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20090,10 +20090,10 @@
       "isMobile": false
     },
     {
-      "id": "99b54759",
+      "id": "4beb520a",
       "image": "18dc24023f11f0b72acca6ddf9fad3b2.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component on brand color with label text (fit-content)",
+      "desc": "ld-stepper CSS component on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20103,10 +20103,10 @@
       "isMobile": false
     },
     {
-      "id": "ef1baf00",
+      "id": "9d6d5190",
       "image": "3d7e519231fd69a35b7a43d1227a50ad.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm empty",
+      "desc": "ld-stepper CSS component sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20116,10 +20116,10 @@
       "isMobile": false
     },
     {
-      "id": "b700c6f9",
+      "id": "a2fa152a",
       "image": "befde2c7e7e57a7b956dff049fbbb39f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm optional empty",
+      "desc": "ld-stepper CSS component sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20129,10 +20129,10 @@
       "isMobile": false
     },
     {
-      "id": "a5e41618",
+      "id": "a137a17d",
       "image": "5a04c1848f39c92179fafaaa97e2bb84.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm optional with description",
+      "desc": "ld-stepper CSS component sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20142,10 +20142,10 @@
       "isMobile": false
     },
     {
-      "id": "277f4791",
+      "id": "6608c1d9",
       "image": "5a04c1848f39c92179fafaaa97e2bb84.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm optional with label text",
+      "desc": "ld-stepper CSS component sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20155,10 +20155,10 @@
       "isMobile": false
     },
     {
-      "id": "fed95161",
+      "id": "ffc0d309",
       "image": "c1ba579e4151050bb229df903816dc7d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons empty",
+      "desc": "ld-stepper CSS component sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20168,10 +20168,10 @@
       "isMobile": false
     },
     {
-      "id": "5b1b8f8c",
+      "id": "34219bc6",
       "image": "932a5a630ddcd83ee421cc6d9274b28f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons optional empty",
+      "desc": "ld-stepper CSS component sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20181,10 +20181,10 @@
       "isMobile": false
     },
     {
-      "id": "8c384cb1",
+      "id": "c99dd2d3",
       "image": "52d887790f78613c163305b72dd69445.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons optional with description",
+      "desc": "ld-stepper CSS component sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20194,10 +20194,10 @@
       "isMobile": false
     },
     {
-      "id": "c476620f",
+      "id": "1e66f3e6",
       "image": "52d887790f78613c163305b72dd69445.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons optional with label text",
+      "desc": "ld-stepper CSS component sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20207,10 +20207,10 @@
       "isMobile": false
     },
     {
-      "id": "e2e2cbe7",
+      "id": "2987d4d3",
       "image": "e3ae65351af73c6f4c95ff3c5b0758f4.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons with description",
+      "desc": "ld-stepper CSS component sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20220,10 +20220,10 @@
       "isMobile": false
     },
     {
-      "id": "8d105106",
+      "id": "bb4ad184",
       "image": "d099591148883f7cedca16337eeae1c1.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20233,10 +20233,10 @@
       "isMobile": false
     },
     {
-      "id": "07990273",
+      "id": "613ea063",
       "image": "e3ae65351af73c6f4c95ff3c5b0758f4.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons with label text",
+      "desc": "ld-stepper CSS component sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20246,10 +20246,10 @@
       "isMobile": false
     },
     {
-      "id": "3cba5a15",
+      "id": "ceabd7c2",
       "image": "d099591148883f7cedca16337eeae1c1.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20259,10 +20259,10 @@
       "isMobile": false
     },
     {
-      "id": "1de4656d",
+      "id": "79a00780",
       "image": "8fbb4119caefa4395324d241818f8ece.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with description",
+      "desc": "ld-stepper CSS component sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20272,10 +20272,10 @@
       "isMobile": false
     },
     {
-      "id": "5fc90e86",
+      "id": "c04c1331",
       "image": "de55c85fa2b3947004d9fb3202941d81.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with description (fit-content)",
+      "desc": "ld-stepper CSS component sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20285,10 +20285,10 @@
       "isMobile": false
     },
     {
-      "id": "0361414d",
+      "id": "929e4fac",
       "image": "8fbb4119caefa4395324d241818f8ece.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with label text",
+      "desc": "ld-stepper CSS component sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20298,10 +20298,10 @@
       "isMobile": false
     },
     {
-      "id": "2c165b80",
+      "id": "9dc3cb9d",
       "image": "de55c85fa2b3947004d9fb3202941d81.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component sm with label text (fit-content)",
+      "desc": "ld-stepper CSS component sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20311,10 +20311,10 @@
       "isMobile": false
     },
     {
-      "id": "3eb3cafd",
+      "id": "f7e044f8",
       "image": "6deaf392e442f3c7fa94062ad49f8bae.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical empty",
+      "desc": "ld-stepper CSS component vertical empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20324,10 +20324,10 @@
       "isMobile": false
     },
     {
-      "id": "60edf63e",
+      "id": "e72f8057",
       "image": "935d594f1765bb576fc6557407f3ebcf.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg empty",
+      "desc": "ld-stepper CSS component vertical lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20337,10 +20337,10 @@
       "isMobile": false
     },
     {
-      "id": "f6162fcd",
+      "id": "3450afbc",
       "image": "ff03fe964acdef974a41baa599c224dd.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg optional empty",
+      "desc": "ld-stepper CSS component vertical lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20350,10 +20350,10 @@
       "isMobile": false
     },
     {
-      "id": "7316b242",
+      "id": "23fe2187",
       "image": "737f7fa1b496c13bf900430fccbf8c1d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg optional with description",
+      "desc": "ld-stepper CSS component vertical lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20363,10 +20363,10 @@
       "isMobile": false
     },
     {
-      "id": "4eca5ee4",
+      "id": "36ee2cce",
       "image": "3b18c462931d69205ab27715f3123d3b.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg optional with label text",
+      "desc": "ld-stepper CSS component vertical lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20376,10 +20376,10 @@
       "isMobile": false
     },
     {
-      "id": "4c2ff2c6",
+      "id": "3c648aa6",
       "image": "e08436295ffd6fa11a8212019c46de92.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons empty",
+      "desc": "ld-stepper CSS component vertical lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20389,10 +20389,10 @@
       "isMobile": false
     },
     {
-      "id": "148e4d5c",
+      "id": "fafdec35",
       "image": "1b3c7ad68fb39c99ed85b688c8f8483d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20402,10 +20402,10 @@
       "isMobile": false
     },
     {
-      "id": "2a8135ce",
+      "id": "9deb1f66",
       "image": "4f0f5b3eb5535d134f8b901b40484b14.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20415,10 +20415,10 @@
       "isMobile": false
     },
     {
-      "id": "34dc4950",
+      "id": "1072e9b5",
       "image": "d3b503d20b5c56882cbbd0050939545a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20428,10 +20428,10 @@
       "isMobile": false
     },
     {
-      "id": "965c12c8",
+      "id": "d03407a6",
       "image": "49146f55f4fee76b3a57e733301552db.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons with description",
+      "desc": "ld-stepper CSS component vertical lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20441,10 +20441,10 @@
       "isMobile": false
     },
     {
-      "id": "72088635",
+      "id": "2f423e6b",
       "image": "b66b4a388c0ad95530a53ed90763734c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20454,10 +20454,10 @@
       "isMobile": false
     },
     {
-      "id": "b0af98bc",
+      "id": "a083c727",
       "image": "095bedba7faa0f31a3bf17b35ec95874.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20467,10 +20467,10 @@
       "isMobile": false
     },
     {
-      "id": "b2e80f2d",
+      "id": "ef2c8e28",
       "image": "3ed60ca08a5a09918870a58687949e3c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20480,10 +20480,10 @@
       "isMobile": false
     },
     {
-      "id": "f7f86694",
+      "id": "d9d5e0c4",
       "image": "0f93e2e7228059f46d159ea97a0ffa54.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with description",
+      "desc": "ld-stepper CSS component vertical lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20493,10 +20493,10 @@
       "isMobile": false
     },
     {
-      "id": "a273f57f",
+      "id": "d543307f",
       "image": "2605d3c4e97efcf6b5f341bb4003b022.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20506,10 +20506,10 @@
       "isMobile": false
     },
     {
-      "id": "98c8a7d3",
+      "id": "a078eac2",
       "image": "f00e84bf685e004ab69527c0774d6c43.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with label text",
+      "desc": "ld-stepper CSS component vertical lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20519,10 +20519,10 @@
       "isMobile": false
     },
     {
-      "id": "e3aefeb2",
+      "id": "a3444428",
       "image": "b85a351b9a8b44dd56e76194306095c7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical lg with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20532,10 +20532,10 @@
       "isMobile": false
     },
     {
-      "id": "94c563e3",
+      "id": "78f59b48",
       "image": "d819f7d5f41b609bec86896b8bc4e289.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color empty",
+      "desc": "ld-stepper CSS component vertical on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20545,10 +20545,10 @@
       "isMobile": false
     },
     {
-      "id": "c20df857",
+      "id": "1d3af68c",
       "image": "9e39f361274ed34b3a6e95025732f620.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg empty",
+      "desc": "ld-stepper CSS component vertical on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20558,10 +20558,10 @@
       "isMobile": false
     },
     {
-      "id": "9b3a369f",
+      "id": "6c9b3884",
       "image": "1ab5f08625a4a67f43f87b22a89ab522.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20571,10 +20571,10 @@
       "isMobile": false
     },
     {
-      "id": "d3158763",
+      "id": "22558559",
       "image": "5dc43d479a2978cdd9cd0826c09fec3a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20584,10 +20584,10 @@
       "isMobile": false
     },
     {
-      "id": "8c681a73",
+      "id": "e6c55ed6",
       "image": "15a5a8916d38b4b5c482eecc16a4728e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20597,10 +20597,10 @@
       "isMobile": false
     },
     {
-      "id": "b704d418",
+      "id": "2bbe0582",
       "image": "23e5fb33bd7df49f87732eeee50166e7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons empty",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20610,10 +20610,10 @@
       "isMobile": false
     },
     {
-      "id": "78ae9e0a",
+      "id": "db93904a",
       "image": "76cbe8b3238f6a882e97255d82811f65.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20623,10 +20623,10 @@
       "isMobile": false
     },
     {
-      "id": "3972ae27",
+      "id": "10037b87",
       "image": "c29b8f8e9728a7a210cbebd56c95ad4e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20636,10 +20636,10 @@
       "isMobile": false
     },
     {
-      "id": "f7417a72",
+      "id": "6052c04d",
       "image": "5858f4bb40246025153eb3b2e6855571.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20649,10 +20649,10 @@
       "isMobile": false
     },
     {
-      "id": "5407c7d5",
+      "id": "1ded9026",
       "image": "84e4610aa17af4b7cc6a15bdb8dd084a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons with description",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20662,10 +20662,10 @@
       "isMobile": false
     },
     {
-      "id": "691aaa45",
+      "id": "7d6eed38",
       "image": "daaf986fb1eb2268b9c9d71d17b9b0c7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20675,10 +20675,10 @@
       "isMobile": false
     },
     {
-      "id": "f09b4326",
+      "id": "31015163",
       "image": "7bc8d5d2aff139df5c3d5359ba08553c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20688,10 +20688,10 @@
       "isMobile": false
     },
     {
-      "id": "f0302e0d",
+      "id": "cc5fe4e6",
       "image": "73b9c68661cbaa79e0f0b667c21f2a59.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20701,10 +20701,10 @@
       "isMobile": false
     },
     {
-      "id": "bd348e37",
+      "id": "87e28646",
       "image": "7ab44dca296aa6b834bfd0e8b3a39961.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with description",
+      "desc": "ld-stepper CSS component vertical on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20714,10 +20714,10 @@
       "isMobile": false
     },
     {
-      "id": "66edb1c5",
+      "id": "0ab00f36",
       "image": "9276601d9df2bc53ec9e0dc34726aa6d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20727,10 +20727,10 @@
       "isMobile": false
     },
     {
-      "id": "87709c3e",
+      "id": "eadd74f2",
       "image": "cda8e9eecb9c57271c9023d5ea6f0e15.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with label text",
+      "desc": "ld-stepper CSS component vertical on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20740,10 +20740,10 @@
       "isMobile": false
     },
     {
-      "id": "3cac8f3a",
+      "id": "6d87d1af",
       "image": "cbbf0aaff116851c55e44b2c6413e8a0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color lg with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20753,10 +20753,10 @@
       "isMobile": false
     },
     {
-      "id": "bc66bb71",
+      "id": "dbac7480",
       "image": "589249c1797d66236f4ac842bb1b69d7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20766,10 +20766,10 @@
       "isMobile": false
     },
     {
-      "id": "772079f2",
+      "id": "f6194d89",
       "image": "eb37b8b290c8ab0341ac6f874f3626ab.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20779,10 +20779,10 @@
       "isMobile": false
     },
     {
-      "id": "a8b3b471",
+      "id": "5cb96215",
       "image": "070f5f43af1f533ad88b6542ccb25e1e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20792,10 +20792,10 @@
       "isMobile": false
     },
     {
-      "id": "bfe61648",
+      "id": "ecb5ae31",
       "image": "2704c37592091c999715ed3931f39a99.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm empty",
+      "desc": "ld-stepper CSS component vertical on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20805,10 +20805,10 @@
       "isMobile": false
     },
     {
-      "id": "3b59538f",
+      "id": "c6c041bf",
       "image": "b36afd8782a4c8817cc41324d58c42e0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20818,10 +20818,10 @@
       "isMobile": false
     },
     {
-      "id": "d9e5aee1",
+      "id": "0793046d",
       "image": "ba9af0bba400d68c211e9cb6529ec2b7.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20831,10 +20831,10 @@
       "isMobile": false
     },
     {
-      "id": "ce1290a9",
+      "id": "86a3b11f",
       "image": "1cc8074a698a85f219a963d53e7c9e6f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20844,10 +20844,10 @@
       "isMobile": false
     },
     {
-      "id": "00d2c184",
+      "id": "c5cdc22d",
       "image": "bd099f947bd427ffcb21ac9f64e48cf5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons empty",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20857,10 +20857,10 @@
       "isMobile": false
     },
     {
-      "id": "f14493af",
+      "id": "ee049bdb",
       "image": "5a2fbfe2fab71ed2b41db0fbbfae1469.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20870,10 +20870,10 @@
       "isMobile": false
     },
     {
-      "id": "56c5b8ec",
+      "id": "f9633c06",
       "image": "908316876c1bff9f90946ac3f27901fa.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20883,10 +20883,10 @@
       "isMobile": false
     },
     {
-      "id": "e9a63200",
+      "id": "4ab5f7e1",
       "image": "2121795a377259a30865e299e1b6b9ca.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20896,10 +20896,10 @@
       "isMobile": false
     },
     {
-      "id": "d899ec99",
+      "id": "bea1f283",
       "image": "4571bc9e70db2d5596fe5fc51da73405.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons with description",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20909,10 +20909,10 @@
       "isMobile": false
     },
     {
-      "id": "afbb2da7",
+      "id": "3bc1c908",
       "image": "5a243b8c1cba3727913ea96ce5292940.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20922,10 +20922,10 @@
       "isMobile": false
     },
     {
-      "id": "851cd7e5",
+      "id": "d91adc9d",
       "image": "d7e58c225a95241ba0cae0cff289cd24.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20935,10 +20935,10 @@
       "isMobile": false
     },
     {
-      "id": "6afea605",
+      "id": "c0d4fde8",
       "image": "cb3583fce468cb4b39d4ed53725f0ea9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20948,10 +20948,10 @@
       "isMobile": false
     },
     {
-      "id": "1d5bb644",
+      "id": "195b1f1e",
       "image": "928af121233a4db904308f9e630de9f6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with description",
+      "desc": "ld-stepper CSS component vertical on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20961,10 +20961,10 @@
       "isMobile": false
     },
     {
-      "id": "8c83c75c",
+      "id": "8e420fce",
       "image": "6c987da45b1af588e9354d82397957c6.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20974,10 +20974,10 @@
       "isMobile": false
     },
     {
-      "id": "7451b611",
+      "id": "41c6b450",
       "image": "29856a9734920a9d120064a3d1d1ccd2.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with label text",
+      "desc": "ld-stepper CSS component vertical on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -20987,10 +20987,10 @@
       "isMobile": false
     },
     {
-      "id": "997690c1",
+      "id": "2d7ef0e9",
       "image": "93e04913cb375bbe504fbdafecd248c4.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color sm with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21000,10 +21000,10 @@
       "isMobile": false
     },
     {
-      "id": "a3d6195f",
+      "id": "a184238d",
       "image": "373264fd6be15f76861cda7e5be9c0b0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons empty",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21013,10 +21013,10 @@
       "isMobile": false
     },
     {
-      "id": "b3b51790",
+      "id": "21eb95b0",
       "image": "e6d660d7c3a809821dca514835ba5d72.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21026,10 +21026,10 @@
       "isMobile": false
     },
     {
-      "id": "bf4cb61f",
+      "id": "b1aba9df",
       "image": "95d7094f3b25e642c5c72da5fe2c1a17.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21039,10 +21039,10 @@
       "isMobile": false
     },
     {
-      "id": "d1f40d7c",
+      "id": "e0722c45",
       "image": "c817d9b0722216b97dfc01ec18285c02.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21052,10 +21052,10 @@
       "isMobile": false
     },
     {
-      "id": "d8ce098d",
+      "id": "0d538188",
       "image": "34315d9417270eaeaf9e038c7e0023bc.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons with description",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21065,10 +21065,10 @@
       "isMobile": false
     },
     {
-      "id": "fea31b7a",
+      "id": "8c9f1d85",
       "image": "b14909b149122d4b5715b45c9a2ad8cb.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21078,10 +21078,10 @@
       "isMobile": false
     },
     {
-      "id": "d55ec421",
+      "id": "813ab2f3",
       "image": "e7620830d2e9ce900370190751dad75d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21091,10 +21091,10 @@
       "isMobile": false
     },
     {
-      "id": "ed69a572",
+      "id": "898681b8",
       "image": "760c05d0a9e56df1b329378eed8ae9d3.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21104,10 +21104,10 @@
       "isMobile": false
     },
     {
-      "id": "1057d580",
+      "id": "803c65d8",
       "image": "6ef6eef97734db9593b5ba426330d434.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with description",
+      "desc": "ld-stepper CSS component vertical on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21117,10 +21117,10 @@
       "isMobile": false
     },
     {
-      "id": "07e3628d",
+      "id": "c8d23c0d",
       "image": "639c53c6be6aa5364e0599e7aa511c2a.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21130,10 +21130,10 @@
       "isMobile": false
     },
     {
-      "id": "364a7d3d",
+      "id": "4418e36a",
       "image": "e822df56a130920a1177f0b695b4419f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with label text",
+      "desc": "ld-stepper CSS component vertical on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21143,10 +21143,10 @@
       "isMobile": false
     },
     {
-      "id": "47a9d727",
+      "id": "53e6426e",
       "image": "63a686f82a8387ddf45e0ca03ef1f56c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical on brand color with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21156,10 +21156,10 @@
       "isMobile": false
     },
     {
-      "id": "5b4c7b8e",
+      "id": "ae7b9499",
       "image": "5b4076107fd049a81f975e5b99088be2.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical optional empty",
+      "desc": "ld-stepper CSS component vertical optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21169,10 +21169,10 @@
       "isMobile": false
     },
     {
-      "id": "30dee1cc",
+      "id": "16668b27",
       "image": "06517519154ca9bc978d04217900dec4.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical optional with description",
+      "desc": "ld-stepper CSS component vertical optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21182,10 +21182,10 @@
       "isMobile": false
     },
     {
-      "id": "054e2b16",
+      "id": "7a82bed5",
       "image": "c6f2f1835bbc6a7f0040a62565af585f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical optional with label text",
+      "desc": "ld-stepper CSS component vertical optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21195,10 +21195,10 @@
       "isMobile": false
     },
     {
-      "id": "3936c9be",
+      "id": "cbdbe6cd",
       "image": "6b3922aa1699b335ff5431f07795d2f5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm empty",
+      "desc": "ld-stepper CSS component vertical sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21208,10 +21208,10 @@
       "isMobile": false
     },
     {
-      "id": "4b71f51a",
+      "id": "9486c81a",
       "image": "215708b1d74cc0f1115d63686bdf1d7e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm optional empty",
+      "desc": "ld-stepper CSS component vertical sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21221,10 +21221,10 @@
       "isMobile": false
     },
     {
-      "id": "6ef3931c",
+      "id": "3c2741e9",
       "image": "0f3494574fb8d0d9075235b8f0aa1c9d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm optional with description",
+      "desc": "ld-stepper CSS component vertical sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21234,10 +21234,10 @@
       "isMobile": false
     },
     {
-      "id": "65fef0a9",
+      "id": "43c257f9",
       "image": "18e1e464f87ba99c824bdd375c3e7dfd.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm optional with label text",
+      "desc": "ld-stepper CSS component vertical sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21247,10 +21247,10 @@
       "isMobile": false
     },
     {
-      "id": "7d5da015",
+      "id": "ecd2bd50",
       "image": "22d13b5c532103c73de9f6336047da57.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons empty",
+      "desc": "ld-stepper CSS component vertical sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21260,10 +21260,10 @@
       "isMobile": false
     },
     {
-      "id": "94a6cccf",
+      "id": "bf251494",
       "image": "542b75bb89472a2ef79022adc6d7124f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21273,10 +21273,10 @@
       "isMobile": false
     },
     {
-      "id": "7f4b419f",
+      "id": "c9d17cb1",
       "image": "e65f48cbf4d17e9e1c2c2278f7a9ebac.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21286,10 +21286,10 @@
       "isMobile": false
     },
     {
-      "id": "2ed637fa",
+      "id": "9c5edae1",
       "image": "fb6d4f56956eb93ec6f5718d01398c41.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21299,10 +21299,10 @@
       "isMobile": false
     },
     {
-      "id": "207ca8b9",
+      "id": "e18bc9cc",
       "image": "cee674cc54cf33e85e71439ca7d3b3f9.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons with description",
+      "desc": "ld-stepper CSS component vertical sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21312,10 +21312,10 @@
       "isMobile": false
     },
     {
-      "id": "5dc38d26",
+      "id": "8ca02f59",
       "image": "9f6950f9ab5aaaf42b7edf3a3a75e5bd.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21325,10 +21325,10 @@
       "isMobile": false
     },
     {
-      "id": "e6c656b2",
+      "id": "2478e67a",
       "image": "b9c1a242fc11a2be360bbe5b4be7d97b.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21338,10 +21338,10 @@
       "isMobile": false
     },
     {
-      "id": "9b8c9d0e",
+      "id": "0afc3fff",
       "image": "60b4719076e5d76ef4d45fa68d041c1e.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21351,10 +21351,10 @@
       "isMobile": false
     },
     {
-      "id": "19253d3f",
+      "id": "d7461f55",
       "image": "affa972f662d97d1d87c7775efeb430f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with description",
+      "desc": "ld-stepper CSS component vertical sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21364,10 +21364,10 @@
       "isMobile": false
     },
     {
-      "id": "8322a5fa",
+      "id": "932b61b2",
       "image": "7a8564bf7bf261a1d2bdef879eb63e2c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21377,10 +21377,10 @@
       "isMobile": false
     },
     {
-      "id": "6d0b513d",
+      "id": "e0f7e93d",
       "image": "caf502d244ef3388657fa8f190fa1d0f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with label text",
+      "desc": "ld-stepper CSS component vertical sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21390,10 +21390,10 @@
       "isMobile": false
     },
     {
-      "id": "350105b8",
+      "id": "cdfeb68a",
       "image": "d3f679d67273b16aa0c0f077f57a5f78.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical sm with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21403,10 +21403,10 @@
       "isMobile": false
     },
     {
-      "id": "80acf32e",
+      "id": "169fba51",
       "image": "0ed12b7c142c347560a7e025339691e5.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons empty",
+      "desc": "ld-stepper CSS component vertical with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21416,10 +21416,10 @@
       "isMobile": false
     },
     {
-      "id": "a8b1fdf2",
+      "id": "9e9d86bb",
       "image": "98fd074b53deea7ec55b4956e8d8bf20.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons optional empty",
+      "desc": "ld-stepper CSS component vertical with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21429,10 +21429,10 @@
       "isMobile": false
     },
     {
-      "id": "8123e35b",
+      "id": "aa7bcc0c",
       "image": "a2359660569808729ca5d83b2bcf1c0d.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons optional with description",
+      "desc": "ld-stepper CSS component vertical with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21442,10 +21442,10 @@
       "isMobile": false
     },
     {
-      "id": "47aeaac5",
+      "id": "41e5c22c",
       "image": "af2e5a1a0579896ebfb6e36f80191895.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons optional with label text",
+      "desc": "ld-stepper CSS component vertical with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21455,10 +21455,10 @@
       "isMobile": false
     },
     {
-      "id": "bf6d2a95",
+      "id": "3196fe91",
       "image": "16a2634a58c84efc196f019aab3271b0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons with description",
+      "desc": "ld-stepper CSS component vertical with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21468,10 +21468,10 @@
       "isMobile": false
     },
     {
-      "id": "dee3a4d9",
+      "id": "c75cfb9f",
       "image": "0c725428633fac13d74d913469514d3f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21481,10 +21481,10 @@
       "isMobile": false
     },
     {
-      "id": "03c608f9",
+      "id": "af0cb4be",
       "image": "07b7b3d1e0a12ab727d878dbc34495f0.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons with label text",
+      "desc": "ld-stepper CSS component vertical with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21494,10 +21494,10 @@
       "isMobile": false
     },
     {
-      "id": "e92ccf5c",
+      "id": "57742502",
       "image": "92c89bd44b70930339920753dbd5d206.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with custom icons with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21507,10 +21507,10 @@
       "isMobile": false
     },
     {
-      "id": "891dadb0",
+      "id": "ce9f5389",
       "image": "f9b3f137a05d7da42dfe4a9747b23ee3.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with description",
+      "desc": "ld-stepper CSS component vertical with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21520,10 +21520,10 @@
       "isMobile": false
     },
     {
-      "id": "13c925a1",
+      "id": "7e6190e8",
       "image": "20dffd2a86f16a72d65c3d16d9cbed2f.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with description (fit-content)",
+      "desc": "ld-stepper CSS component vertical with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21533,10 +21533,10 @@
       "isMobile": false
     },
     {
-      "id": "b07ff4d3",
+      "id": "ef8832ca",
       "image": "0aae3719d87f8db0551ad3644d63182c.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with label text",
+      "desc": "ld-stepper CSS component vertical with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,
@@ -21546,10 +21546,10 @@
       "isMobile": false
     },
     {
-      "id": "f5b44603",
+      "id": "9fa274c6",
       "image": "35c2e73a1153f435e565626f7971d460.png",
       "userAgent": "default",
-      "desc": "ld-stepper web component CSS component vertical with label text (fit-content)",
+      "desc": "ld-stepper CSS component vertical with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
       "width": 600,
       "height": 600,

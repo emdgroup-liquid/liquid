@@ -1,4 +1,7 @@
-import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
+import {
+  analyzeAccessibility,
+  getPageWithContent,
+} from 'src/liquid/utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdSrOnly } from '../../ld-sr-only/ld-sr-only'
 import { LdStep } from '../ld-step/ld-step'
@@ -337,7 +340,10 @@ describe('ld-stepper', () => {
                 : undefined
             )
             const results = await page.compareScreenshot()
+            const accessibilityReport = await analyzeAccessibility(page)
+
             expect(results).toMatchScreenshot()
+            expect(accessibilityReport).toHaveNoAccessibilityIssues()
           })
 
           describe('optional', () => {
@@ -385,22 +391,110 @@ describe('ld-stepper', () => {
                     }
                   : undefined
               )
+
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page)
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
           })
         })
       })
     })
+  })
 
-    describe('CSS component', () => {
-      Object.entries(cssStepperModifiers).forEach(([name, modifiers]) => {
-        customIcons.forEach((showIcons) => {
-          describe(name + (showIcons ? ' with custom icons' : ''), () => {
+  describe('CSS component', () => {
+    Object.entries(cssStepperModifiers).forEach(([name, modifiers]) => {
+      customIcons.forEach((showIcons) => {
+        describe(name + (showIcons ? ' with custom icons' : ''), () => {
+          it('empty', async () => {
+            const page = await getPageWithContent(
+              getCssStepper(getCssStepsEmpty(showIcons, modifiers), modifiers),
+              {
+                bgColor: modifiers.includes('brand-color')
+                  ? 'var(--ld-thm-primary)'
+                  : undefined,
+                components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+
+          it('with label text', async () => {
+            const page = await getPageWithContent(
+              getCssStepper(getCssStepsLabel(showIcons, modifiers), modifiers),
+              {
+                bgColor: modifiers.includes('brand-color')
+                  ? 'var(--ld-thm-primary)'
+                  : undefined,
+                components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+
+          it('with label text (fit-content)', async () => {
+            const page = await getPageWithContent(
+              getCssStepper(getCssStepsLabel(showIcons, modifiers), [
+                'fit-content',
+                ...modifiers,
+              ]),
+              {
+                bgColor: modifiers.includes('brand-color')
+                  ? 'var(--ld-thm-primary)'
+                  : undefined,
+                components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+
+          it('with description', async () => {
+            const page = await getPageWithContent(
+              getCssStepper(
+                getCssStepsDescription(showIcons, modifiers),
+                modifiers
+              ),
+              {
+                bgColor: modifiers.includes('brand-color')
+                  ? 'var(--ld-thm-primary)'
+                  : undefined,
+                components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+              }
+            )
+            const results = await page.compareScreenshot()
+            const accessibilityReport = await analyzeAccessibility(page)
+
+            expect(results).toMatchScreenshot()
+            expect(accessibilityReport).toHaveNoAccessibilityIssues()
+          })
+
+          it('with description (fit-content)', async () => {
+            const page = await getPageWithContent(
+              getCssStepper(getCssStepsDescription(showIcons, modifiers), [
+                'fit-content',
+                ...modifiers,
+              ]),
+              {
+                bgColor: modifiers.includes('brand-color')
+                  ? 'var(--ld-thm-primary)'
+                  : undefined,
+                components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+              }
+            )
+            const results = await page.compareScreenshot()
+            expect(results).toMatchScreenshot()
+          })
+
+          describe('optional', () => {
             it('empty', async () => {
               const page = await getPageWithContent(
                 getCssStepper(
-                  getCssStepsEmpty(showIcons, modifiers),
+                  getCssStepsEmpty(showIcons, modifiers, true),
                   modifiers
                 ),
                 {
@@ -417,26 +511,9 @@ describe('ld-stepper', () => {
             it('with label text', async () => {
               const page = await getPageWithContent(
                 getCssStepper(
-                  getCssStepsLabel(showIcons, modifiers),
+                  getCssStepsLabel(showIcons, modifiers, true),
                   modifiers
                 ),
-                {
-                  bgColor: modifiers.includes('brand-color')
-                    ? 'var(--ld-thm-primary)'
-                    : undefined,
-                  components: [LdIcon, LdSrOnly, LdStep, LdStepper],
-                }
-              )
-              const results = await page.compareScreenshot()
-              expect(results).toMatchScreenshot()
-            })
-
-            it('with label text (fit-content)', async () => {
-              const page = await getPageWithContent(
-                getCssStepper(getCssStepsLabel(showIcons, modifiers), [
-                  'fit-content',
-                  ...modifiers,
-                ]),
                 {
                   bgColor: modifiers.includes('brand-color')
                     ? 'var(--ld-thm-primary)'
@@ -451,7 +528,7 @@ describe('ld-stepper', () => {
             it('with description', async () => {
               const page = await getPageWithContent(
                 getCssStepper(
-                  getCssStepsDescription(showIcons, modifiers),
+                  getCssStepsDescription(showIcons, modifiers, true),
                   modifiers
                 ),
                 {
@@ -462,77 +539,10 @@ describe('ld-stepper', () => {
                 }
               )
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page)
+
               expect(results).toMatchScreenshot()
-            })
-
-            it('with description (fit-content)', async () => {
-              const page = await getPageWithContent(
-                getCssStepper(getCssStepsDescription(showIcons, modifiers), [
-                  'fit-content',
-                  ...modifiers,
-                ]),
-                {
-                  bgColor: modifiers.includes('brand-color')
-                    ? 'var(--ld-thm-primary)'
-                    : undefined,
-                  components: [LdIcon, LdSrOnly, LdStep, LdStepper],
-                }
-              )
-              const results = await page.compareScreenshot()
-              expect(results).toMatchScreenshot()
-            })
-
-            describe('optional', () => {
-              it('empty', async () => {
-                const page = await getPageWithContent(
-                  getCssStepper(
-                    getCssStepsEmpty(showIcons, modifiers, true),
-                    modifiers
-                  ),
-                  {
-                    bgColor: modifiers.includes('brand-color')
-                      ? 'var(--ld-thm-primary)'
-                      : undefined,
-                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
-                  }
-                )
-                const results = await page.compareScreenshot()
-                expect(results).toMatchScreenshot()
-              })
-
-              it('with label text', async () => {
-                const page = await getPageWithContent(
-                  getCssStepper(
-                    getCssStepsLabel(showIcons, modifiers, true),
-                    modifiers
-                  ),
-                  {
-                    bgColor: modifiers.includes('brand-color')
-                      ? 'var(--ld-thm-primary)'
-                      : undefined,
-                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
-                  }
-                )
-                const results = await page.compareScreenshot()
-                expect(results).toMatchScreenshot()
-              })
-
-              it('with description', async () => {
-                const page = await getPageWithContent(
-                  getCssStepper(
-                    getCssStepsDescription(showIcons, modifiers, true),
-                    modifiers
-                  ),
-                  {
-                    bgColor: modifiers.includes('brand-color')
-                      ? 'var(--ld-thm-primary)'
-                      : undefined,
-                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
-                  }
-                )
-                const results = await page.compareScreenshot()
-                expect(results).toMatchScreenshot()
-              })
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
           })
         })
