@@ -27,7 +27,7 @@ The [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialo
 
 Here is a minimalistic example of a modal dialog:
 
-{% example %}
+{% example '{ "styles": { "overflow": "visible", "will-change": "initial" } }' %}
 <ld-modal>
   <ld-typo style="text-align: center">
     I'm a modal dialog.
@@ -60,7 +60,7 @@ Here is a minimalistic example of a modal dialog:
 
 You have two additional slots to your disposal for altering the modal header and footer which are both positioned fixed at top and bottom of the dialog element.
 
-{% example %}
+{% example '{ "styles": { "overflow": "visible", "will-change": "initial" } }' %}
 <ld-modal>
   <ld-typo slot="header">Hello</ld-typo>
   <ld-typo style="text-align: center">
@@ -99,7 +99,7 @@ You have two additional slots to your disposal for altering the modal header and
 
 ### Non-cancelable
 
-{% example %}
+{% example '{ "styles": { "overflow": "visible", "will-change": "initial" } }' %}
 <ld-modal cancelable="false">
   <ld-typo slot="header">Hello</ld-typo>
   <ld-typo style="text-align: center">
@@ -131,7 +131,7 @@ You have two additional slots to your disposal for altering the modal header and
 
 ### With blurry backdrop
 
-{% example %}
+{% example '{ "styles": { "overflow": "visible", "will-change": "initial" } }' %}
 <ld-modal blurry-backdrop>
   <ld-typo style="text-align: center">
     I'm a modal dialog.
