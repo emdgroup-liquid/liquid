@@ -65,10 +65,10 @@
   --ld-step-brand-col-done: var(--ld-col-wht);
   --ld-step-description-brand-col: var(--ld-col-wht-alpha-highest);
   --ld-step-description-brand-col-done: var(--ld-col-wht);
-  --ld-step-dot-brand-col: var(--ld-col-wht-alpha-medium);
+  --ld-step-dot-brand-col: var(--ld-thm-primary-focus);
   --ld-step-dot-brand-col-done: var(--ld-col-wht);
   --ld-step-brand-icon-col: var(--ld-thm-primary);
-  --ld-step-line-brand-col: var(--ld-col-wht-alpha-medium);
+  --ld-step-line-brand-col: var(--ld-thm-primary-focus);
   --ld-step-line-brand-col-done: var(--ld-col-wht);
 
   align-items: center;
@@ -107,20 +107,6 @@
     }
   }
 
-  :host(:empty) & a,
-  :host(:empty) & button,
-  a:empty,
-  button:empty {
-    margin: var(--ld-step-dot-offset) 0 0;
-
-    &,
-    &::before,
-    &::after {
-      position: relative;
-      top: 0;
-    }
-  }
-
   .ld-icon {
     --ld-icon-size-sm: var(--ld-step-icon-size);
     --ld-icon-size-md: var(--ld-step-icon-size);
@@ -142,22 +128,6 @@
     --ld-step-icon-col: var(--ld-step-brand-icon-col);
     --ld-step-line-col-default: var(--ld-step-line-brand-col);
     --ld-step-line-col-done: var(--ld-step-line-brand-col-done);
-
-    a,
-    button {
-      &::after {
-        background: var(--ld-step-bg-col);
-        border-radius: var(--ld-br-full);
-        box-sizing: border-box;
-        content: '';
-        display: block;
-        height: var(--ld-step-dot-size);
-        position: absolute;
-        top: var(--ld-step-dot-offset);
-        width: var(--ld-step-dot-size);
-        z-index: 0;
-      }
-    }
   }
 
   &--custom-icon {
@@ -224,7 +194,6 @@
       margin: var(--ld-step-vertical-label-margin-top) 0 0
         var(--ld-step-text-margin);
 
-      &::after,
       &::before {
         flex-shrink: 0;
         left: calc(var(--ld-step-dot-size-with-icon) / 2);
@@ -234,6 +203,19 @@
 
     .ld-icon {
       left: var(--ld-step-icon-offset);
+    }
+  }
+
+  :host(:empty) & a,
+  :host(:empty) & button,
+  a:empty,
+  button:empty {
+    margin: var(--ld-step-dot-offset) 0 0;
+
+    &,
+    &::before {
+      position: relative;
+      top: 0;
     }
   }
 
