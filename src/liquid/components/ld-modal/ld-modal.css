@@ -145,6 +145,7 @@ dialog.ld-modal--blurry-backdrop,
   margin: var(--ld-sp-8) calc(var(--ld-sp-8) * -1) var(--ld-sp-8) auto;
   position: relative;
   width: var(--ld-sp-32);
+  overflow: hidden;
 
   &::before,
   &::after {
