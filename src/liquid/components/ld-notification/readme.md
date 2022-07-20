@@ -127,7 +127,7 @@ Notifications of type `'info'` can be themed by wrapping `ld-notification` in a 
 
 The examples below illustrate how you can trigger notifications using different parameters:
 
-{% example '{ "stacked": true }' %}
+{% example '{ "stacked": true, "styles": { "overflow": "visible", "will-change": "initial" } }' %}
 <style>
 .notification-form {
   display: grid;
