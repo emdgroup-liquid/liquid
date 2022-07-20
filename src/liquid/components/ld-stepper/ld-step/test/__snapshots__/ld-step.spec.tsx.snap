@@ -7,7 +7,7 @@ exports[`ld-step renders as current 1`] = `
       <ld-sr-only>
         Current:
       </ld-sr-only>
-      <button aria-current="step" disabled="" part="button focusable" type="button">
+      <button aria-current="step" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -54,7 +54,7 @@ exports[`ld-step renders as optional 1`] = `
       <ld-sr-only>
         Optional:
       </ld-sr-only>
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -81,7 +81,7 @@ exports[`ld-step renders default 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -93,7 +93,7 @@ exports[`ld-step renders on brand color 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--brand-color" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -105,7 +105,7 @@ exports[`ld-step renders vertical 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--vertical" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -117,7 +117,7 @@ exports[`ld-step renders with custom icon 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--custom-icon ld-step--with-icon" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
       <ld-icon class="ld-icon" role="presentation">
@@ -134,7 +134,7 @@ exports[`ld-step renders with description 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -146,7 +146,7 @@ exports[`ld-step renders with size prop 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--lg" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -158,7 +158,7 @@ exports[`ld-step renders with text 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button disabled="" part="button focusable" type="button">
+      <button aria-disabled="true" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>

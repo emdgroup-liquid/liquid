@@ -59,12 +59,14 @@ describe('ld-breadcrumbs', () => {
       page.waitForChanges()
 
       const accessibilityReport = await analyzeAccessibility(page, {
-        rules: {
-          // Disabling list rules here, because manual tests with screenreader
-          // resulted in expected behavior: The screenreader reads number of list items
-          // in breadcrumb trail list.
-          list: { enabled: false },
-          listitem: { enabled: false },
+        options: {
+          rules: {
+            // Disabling list rules here, because manual tests with screenreader
+            // resulted in expected behavior: The screenreader reads number of list items
+            // in breadcrumb trail list.
+            list: { enabled: false },
+            listitem: { enabled: false },
+          },
         },
       })
       expect(accessibilityReport).toHaveNoAccessibilityIssues()

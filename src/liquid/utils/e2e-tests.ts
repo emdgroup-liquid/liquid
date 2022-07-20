@@ -1,8 +1,9 @@
 import { E2EPage, newE2EPage } from '@stencil/core/testing'
 import { resolve } from 'path'
 import { realpathSync } from 'fs'
-import * as axe from 'axe-core'
+import axe from 'axe-core'
 import { printReceived } from 'jest-matcher-utils'
+import { JSONObject } from 'puppeteer'
 
 jest.useRealTimers()
 
@@ -84,10 +85,10 @@ export const getPageWithContent = async (
 
   if (config?.components) {
     await Promise.all(
-      [config.components].flat().map(async (component: Component) => {
+      [config.components].flat().map((component: Component) => {
         const cssFileName =
           component.COMPILER_META.styles[0].externalStyles[0].relativePath
-        await page.addStyleTag({ path: `./dist/css/${cssFileName}` })
+        return page.addStyleTag({ path: `./dist/css/${cssFileName}` })
       })
     )
   }
@@ -101,10 +102,14 @@ export const getPageWithContent = async (
   return page
 }
 
-export const analyzeAccessibility = async (page, options = {}) => {
-  const defaultOptions = { rules: {} }
-  const finalOptions = Object.assign({}, defaultOptions, options)
-
+export const analyzeAccessibility = async (
+  page: PatchedE2EPage,
+  config: {
+    options?: axe.RunOptions
+    spec?: axe.Spec
+  } = {}
+) => {
+  const options: axe.RunOptions = { rules: {}, ...config.options }
   const disabledRuleIds = [
     // TODO: this should be disabled only for certain elements (ld-button), if possible
     'aria-allowed-attr',
@@ -116,21 +121,28 @@ export const analyzeAccessibility = async (page, options = {}) => {
     'page-has-heading-one',
     'region',
   ]
+
   disabledRuleIds.forEach((ruleId) => {
-    finalOptions.rules[ruleId] = { enabled: false }
+    options.rules[ruleId] = { enabled: false }
   })
 
   // Inject the axe script in our page.
   await page.addScriptTag({ path: resolvePath(PATH_TO_AXE) })
   // Make sure that axe is executed in the next tick after
   // the page emits the load event, giving priority to other scripts.
-  const accessibilityReport = await page.evaluate((axeOptions) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, 0)
-    }).then(() => axe.run(axeOptions))
-  }, finalOptions)
-
-  return accessibilityReport
+  return page.evaluate(
+    async (axeOptions: axe.RunOptions, spec: axe.Spec) => {
+      await new Promise((resolve) => {
+        setTimeout(resolve, 0)
+      })
+      if (spec) {
+        axe.configure(spec)
+      }
+      return axe.run(axeOptions)
+    },
+    options as JSONObject,
+    config.spec as JSONObject
+  )
 }
 
 function getInvalidNodeInfo(node) {
@@ -145,43 +157,54 @@ function getInvalidRuleInfo(rule) {
   } nodes\r\n${rule.nodes.map(getInvalidNodeInfo).join('\n')}`
 }
 
+export type AccessibilityMatcherOptions = {
+  violationsThreshold: number | false
+  incompleteThreshold: number | false
+}
+
 // Add a new method to expect assertions with a very detailed error report
 expect.extend({
-  toHaveNoAccessibilityIssues(accessibilityReport, options) {
+  toHaveNoAccessibilityIssues(
+    accessibilityReport: axe.AxeResults,
+    options?: AccessibilityMatcherOptions
+  ) {
     let violations = []
     let incomplete = []
 
-    const defaultOptions = {
+    const defaultOptions: AccessibilityMatcherOptions = {
       violationsThreshold: 0,
       incompleteThreshold: 0,
     }
 
-    const finalOptions = Object.assign({}, defaultOptions, options)
+    const finalOptions = Object.assign(defaultOptions, options)
 
-    if (
-      accessibilityReport.violations.length > finalOptions.violationsThreshold
-    ) {
+    const filteredViolations = accessibilityReport.violations.filter(
+      (violation) => violation.nodes.length > 0
+    )
+    const filteredIncomplete = accessibilityReport.incomplete.filter(
+      (incomplete) => incomplete.nodes.length > 0
+    )
+
+    if (filteredViolations.length > finalOptions.violationsThreshold) {
       violations = [
-        `Expected to have no more than ${finalOptions.violationsThreshold} violations. Detected ${accessibilityReport.violations.length} violations:\n`,
-      ].concat(accessibilityReport.violations.map(getInvalidRuleInfo))
+        `Expected to have no more than ${finalOptions.violationsThreshold} violations. Detected ${filteredViolations.length} violations:\n`,
+      ].concat(filteredViolations.map(getInvalidRuleInfo))
     }
 
     if (
       finalOptions.incompleteThreshold !== false &&
-      accessibilityReport.incomplete.length > finalOptions.incompleteThreshold
+      filteredIncomplete.length > finalOptions.incompleteThreshold
     ) {
       incomplete = [
-        `Expected to have no more than ${finalOptions.incompleteThreshold} incomplete. Detected ${accessibilityReport.incomplete.length} incomplete:\n`,
-      ].concat(accessibilityReport.incomplete.map(getInvalidRuleInfo))
+        `Expected to have no more than ${finalOptions.incompleteThreshold} incomplete. Detected ${filteredIncomplete.length} incomplete:\n`,
+      ].concat(filteredIncomplete.map(getInvalidRuleInfo))
     }
 
     const message = [].concat(violations, incomplete).join('\n')
     const pass =
-      accessibilityReport.violations.length <=
-        finalOptions.violationsThreshold &&
+      filteredViolations.length <= finalOptions.violationsThreshold &&
       (finalOptions.incompleteThreshold === false ||
-        accessibilityReport.incomplete.length <=
-          finalOptions.incompleteThreshold)
+        filteredIncomplete.length <= finalOptions.incompleteThreshold)
 
     return {
       pass,

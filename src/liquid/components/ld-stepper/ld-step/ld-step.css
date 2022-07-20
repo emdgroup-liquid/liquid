@@ -45,7 +45,7 @@
   /* colors */
   --ld-step-bg-col: var(--ld-thm-primary);
   --ld-step-col: var(--ld-step-col-default);
-  --ld-step-col-default: var(--ld-col-neutral-400);
+  --ld-step-col-default: var(--ld-col-neutral-600);
   --ld-step-col-done: var(--ld-thm-primary);
   --ld-step-dot-col: var(--ld-step-dot-col-default);
   --ld-step-dot-col-default: var(--ld-col-neutral-200);
@@ -61,9 +61,9 @@
   --ld-step-line-col-done: var(--ld-thm-primary);
 
   /* on-brand colors */
-  --ld-step-brand-col: var(--ld-col-wht-alpha-highest);
+  --ld-step-brand-col: var(--ld-thm-primary-highlight);
   --ld-step-brand-col-done: var(--ld-col-wht);
-  --ld-step-description-brand-col: var(--ld-col-wht-alpha-highest);
+  --ld-step-description-brand-col: var(--ld-thm-primary-highlight);
   --ld-step-description-brand-col-done: var(--ld-col-wht);
   --ld-step-dot-brand-col: var(--ld-thm-primary-focus);
   --ld-step-dot-brand-col-done: var(--ld-col-wht);

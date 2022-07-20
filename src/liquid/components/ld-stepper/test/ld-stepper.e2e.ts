@@ -340,7 +340,17 @@ describe('ld-stepper', () => {
                 : undefined
             )
             const results = await page.compareScreenshot()
-            const accessibilityReport = await analyzeAccessibility(page)
+            const accessibilityReport = await analyzeAccessibility(page, {
+              // screen reader reads as if the li elements were nested correctly
+              options: { rules: { list: { enabled: false } } },
+              spec: {
+                checks: [
+                  // Exception because of the following message:
+                  // "Element's background color could not be determined due to a pseudo element"
+                  { id: 'color-contrast', options: { ignorePseudo: true } },
+                ],
+              },
+            })
 
             expect(results).toMatchScreenshot()
             expect(accessibilityReport).toHaveNoAccessibilityIssues()
@@ -393,7 +403,17 @@ describe('ld-stepper', () => {
               )
 
               const results = await page.compareScreenshot()
-              const accessibilityReport = await analyzeAccessibility(page)
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
 
               expect(results).toMatchScreenshot()
               expect(accessibilityReport).toHaveNoAccessibilityIssues()
@@ -467,7 +487,15 @@ describe('ld-stepper', () => {
               }
             )
             const results = await page.compareScreenshot()
-            const accessibilityReport = await analyzeAccessibility(page)
+            const accessibilityReport = await analyzeAccessibility(page, {
+              spec: {
+                checks: [
+                  // Exception because of the following message:
+                  // "Element's background color could not be determined due to a pseudo element"
+                  { id: 'color-contrast', options: { ignorePseudo: true } },
+                ],
+              },
+            })
 
             expect(results).toMatchScreenshot()
             expect(accessibilityReport).toHaveNoAccessibilityIssues()
@@ -539,7 +567,15 @@ describe('ld-stepper', () => {
                 }
               )
               const results = await page.compareScreenshot()
-              const accessibilityReport = await analyzeAccessibility(page)
+              const accessibilityReport = await analyzeAccessibility(page, {
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
 
               expect(results).toMatchScreenshot()
               expect(accessibilityReport).toHaveNoAccessibilityIssues()

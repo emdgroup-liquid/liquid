@@ -83,6 +83,8 @@ export class LdStep implements InnerFocusable {
   }
 
   render() {
+    const enabled = this.done || this.skipped || this.current
+
     return (
       <Host>
         <li
@@ -119,8 +121,8 @@ export class LdStep implements InnerFocusable {
           )}
           <button
             aria-current={this.current ? 'step' : undefined}
-            disabled={!this.done && !this.skipped}
-            onClick={this.handleClick}
+            aria-disabled={enabled ? undefined : 'true'}
+            onClick={enabled && !this.current && this.handleClick}
             part="button focusable"
             ref={(ref) => (this.button = ref)}
             tabIndex={this.ldTabindex}
