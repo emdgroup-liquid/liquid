@@ -446,7 +446,7 @@ describe('ld-select', () => {
     })
   })
 
-  fdescribe('filter', () => {
+  describe('filter', () => {
     it('single', async () => {
       const page = await getPageWithContent(`
         <ld-select filter placeholder="Pick a fruit" name="fruit">
