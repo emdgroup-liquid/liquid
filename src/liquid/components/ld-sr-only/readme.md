@@ -47,6 +47,8 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
  - [ld-slider](../ld-slider)
  - [ld-sr-live](../ld-sr-live)
+ - [ld-step](../ld-stepper/ld-step)
+ - [ld-stepper](../ld-stepper)
  - [ld-tooltip](../ld-tooltip)
 
 ### Graph
@@ -56,6 +58,8 @@ graph TD;
   ld-sidenav-toggle-outside --> ld-sr-only
   ld-slider --> ld-sr-only
   ld-sr-live --> ld-sr-only
+  ld-step --> ld-sr-only
+  ld-stepper --> ld-sr-only
   ld-tooltip --> ld-sr-only
   style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
 ```

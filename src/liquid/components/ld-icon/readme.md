@@ -274,7 +274,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
   <docs-icon identifier="external-export" name="External/ Export"></docs-icon>
   <docs-icon identifier="upload" name="Upload"></docs-icon>
   <docs-icon identifier="repost" name="Repost"></docs-icon>
-  <docs-icon identifier="visibity" name="Visibity"></docs-icon>
+  <docs-icon identifier="visibility" name="Visibility"></docs-icon>
   <docs-icon identifier="checkmark" name="Checkmark"></docs-icon>
   <docs-icon identifier="filter" name="Filter"></docs-icon>
   <docs-icon identifier="play" name="Play"></docs-icon>
@@ -343,6 +343,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
+ - [ld-step](../ld-stepper/ld-step)
 
 ### Graph
 ```mermaid
@@ -356,6 +357,7 @@ graph TD;
   ld-sidenav-header --> ld-icon
   ld-sidenav-navitem --> ld-icon
   ld-sidenav-toggle-outside --> ld-icon
+  ld-step --> ld-icon
   style ld-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
