@@ -4,7 +4,7 @@ exports[`ld-step renders as anchor 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <a href="#" part="a focusable">
+      <a class="ld-step__focusable-element" href="#" part="a focusable">
         <slot></slot>
       </a>
     </li>
@@ -19,7 +19,7 @@ exports[`ld-step renders as current 1`] = `
       <ld-sr-only>
         Current:
       </ld-sr-only>
-      <button aria-current="step" part="button focusable" type="button">
+      <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -31,7 +31,7 @@ exports[`ld-step renders as disabled 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button aria-disabled="true" class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -43,7 +43,7 @@ exports[`ld-step renders as disabled anchor 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <a aria-disabled="true" part="a focusable">
+      <a aria-disabled="true" class="ld-step__focusable-element" part="a focusable">
         <slot></slot>
       </a>
     </li>
@@ -58,7 +58,7 @@ exports[`ld-step renders as done 1`] = `
       <ld-sr-only>
         Done:
       </ld-sr-only>
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
       <ld-icon name="checkmark"></ld-icon>
@@ -74,7 +74,7 @@ exports[`ld-step renders as done but optional 1`] = `
       <ld-sr-only>
         Done (was optional):
       </ld-sr-only>
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
       <ld-icon name="checkmark"></ld-icon>
@@ -87,7 +87,7 @@ exports[`ld-step renders as last active 1`] = `
 <ld-step last-active="">
   <mock:shadow-root>
     <li class="ld-step ld-step--last-active" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -99,7 +99,7 @@ exports[`ld-step renders as next 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--next" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -114,7 +114,7 @@ exports[`ld-step renders as optional 1`] = `
       <ld-sr-only>
         Optional:
       </ld-sr-only>
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -129,7 +129,7 @@ exports[`ld-step renders as skipped 1`] = `
       <ld-sr-only>
         Skipped:
       </ld-sr-only>
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -141,7 +141,7 @@ exports[`ld-step renders default 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -153,7 +153,7 @@ exports[`ld-step renders on brand color 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--brand-color" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -165,7 +165,7 @@ exports[`ld-step renders vertical 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--vertical" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -177,7 +177,7 @@ exports[`ld-step renders with custom icon 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--custom-icon ld-step--with-icon" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
       <ld-icon class="ld-icon" role="presentation">
@@ -194,7 +194,7 @@ exports[`ld-step renders with description 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -206,7 +206,7 @@ exports[`ld-step renders with size prop 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--lg" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -218,7 +218,7 @@ exports[`ld-step renders with text 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button part="button focusable" type="button">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>

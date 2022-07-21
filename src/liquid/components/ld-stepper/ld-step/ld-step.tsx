@@ -69,6 +69,7 @@ export class LdStep implements InnerFocusable {
   /** Vertical layout */
   @Prop() vertical = false
 
+  /** Emitted when the focusable element is clicked and step is neither current nor disabled */
   @Event() ldstepselected: EventEmitter<SelectedDetail>
 
   /** Sets focus on the step */
@@ -93,7 +94,7 @@ export class LdStep implements InnerFocusable {
   }
 
   render() {
-    const Component = this.href ? 'a' : 'button'
+    const FocusableElement = this.href ? 'a' : 'button'
 
     return (
       <Host>
@@ -133,22 +134,23 @@ export class LdStep implements InnerFocusable {
               {this.optional ? ` (${this.labelOptional})` : ''}:{' '}
             </ld-sr-only>
           )}
-          <Component
+          <FocusableElement
             aria-current={this.current ? 'step' : undefined}
             aria-disabled={this.disabled ? 'true' : undefined}
+            class="ld-step__focusable-element"
             href={!this.disabled && !this.current ? this.href : undefined}
             onClick={
               !this.disabled && !this.current ? this.handleClick : undefined
             }
-            part={`${Component} focusable`}
+            part={`${FocusableElement} focusable`}
             ref={(ref: HTMLButtonElement | HTMLAnchorElement) =>
               (this.focusableElement = ref)
             }
             tabIndex={this.ldTabindex}
-            type={Component === 'button' ? 'button' : undefined}
+            type={FocusableElement === 'button' ? 'button' : undefined}
           >
             <slot></slot>
-          </Component>
+          </FocusableElement>
           {(this.done || this.icon) && (
             <ld-icon name={this.icon || 'checkmark'} />
           )}

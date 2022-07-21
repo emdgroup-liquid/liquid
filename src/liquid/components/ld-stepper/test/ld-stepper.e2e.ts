@@ -112,7 +112,7 @@ const getCssStep = ({
     : ''
 }">
   ${srLabel ? `<span class="ld-sr-only">${srLabel}: </span>` : ''}
-  <${anchor ? 'a' : 'button'}${
+  <${anchor ? 'a' : 'button'} class="ld-step__focusable-element"${
   !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
     ? ' href="#"'
     : ''

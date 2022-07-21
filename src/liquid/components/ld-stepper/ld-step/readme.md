@@ -48,9 +48,9 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 
 ## Events
 
-| Event            | Description | Type                                             |
-| ---------------- | ----------- | ------------------------------------------------ |
-| `ldstepselected` |             | `CustomEvent<{ index: number; label: string; }>` |
+| Event            | Description                                                                            | Type                                             |
+| ---------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `ldstepselected` | Emitted when the focusable element is clicked and step is neither current nor disabled | `CustomEvent<{ index: number; label: string; }>` |
 
 
 ## Methods

@@ -16,7 +16,7 @@ exports[`ld-stepper propagates prop changes 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -41,7 +41,7 @@ exports[`ld-stepper renders default 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -66,7 +66,7 @@ exports[`ld-stepper renders on brand color 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -91,7 +91,7 @@ exports[`ld-stepper renders vertical 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -116,7 +116,7 @@ exports[`ld-stepper renders with current step label 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -142,7 +142,7 @@ exports[`ld-stepper renders with custom label 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -168,7 +168,7 @@ exports[`ld-stepper renders with fit-content 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>
@@ -193,7 +193,7 @@ exports[`ld-stepper renders with size prop 1`] = `
         <ld-sr-only>
           Current:
         </ld-sr-only>
-        <button aria-current="step" part="button focusable" type="button">
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
           <slot></slot>
         </button>
       </li>

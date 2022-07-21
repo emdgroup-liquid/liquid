@@ -77,8 +77,7 @@
   height: 100%;
   position: relative;
 
-  a,
-  button {
+  .ld-step__focusable-element {
     align-items: center;
     background: transparent;
     border: 0;
@@ -143,8 +142,7 @@
   &--skipped {
     --ld-step-dot-col: var(--ld-step-dot-col-done);
 
-    a,
-    button {
+    .ld-step__focusable-element {
       cursor: pointer;
     }
   }
@@ -174,8 +172,7 @@
   &--optional {
     --ld-step-icon-col: var(--ld-step-dot-col);
 
-    a,
-    button {
+    .ld-step__focusable-element {
       &::before {
         background: transparent;
         border: solid var(--ld-step-line-thickness) var(--ld-step-dot-col);
@@ -187,8 +184,7 @@
     align-items: start;
     gap: var(--ld-step-vertical-text-gap);
 
-    a,
-    button {
+    .ld-step__focusable-element {
       margin: var(--ld-step-vertical-label-margin-top) 0 0
         var(--ld-step-text-margin);
       text-align: left;
@@ -205,10 +201,8 @@
     }
   }
 
-  :host(:empty) & a,
-  :host(:empty) & button,
-  a:empty,
-  button:empty {
+  :host(:empty) & .ld-step__focusable-element,
+  .ld-step__focusable-element:empty {
     margin: var(--ld-step-dot-offset) 0 0;
 
     &,
