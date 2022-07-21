@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-step renders as anchor 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <a class="ld-step__focusable-element" href="#" part="a focusable">
+        <slot></slot>
+      </a>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as current 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--current" part="li" role="listitem">
+      <ld-sr-only>
+        Current:
+      </ld-sr-only>
+      <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as disabled 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <button aria-disabled="true" class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as disabled anchor 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <a aria-disabled="true" class="ld-step__focusable-element" part="a focusable">
+        <slot></slot>
+      </a>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as done 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--done ld-step--with-icon" part="li" role="listitem">
+      <ld-sr-only>
+        Done:
+      </ld-sr-only>
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+      <ld-icon name="checkmark"></ld-icon>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as done but optional 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--done ld-step--optional ld-step--with-icon" part="li" role="listitem">
+      <ld-sr-only>
+        Done (was optional):
+      </ld-sr-only>
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+      <ld-icon name="checkmark"></ld-icon>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as last active 1`] = `
+<ld-step last-active="">
+  <mock:shadow-root>
+    <li class="ld-step ld-step--last-active" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as next 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--next" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as optional 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--optional" part="li" role="listitem">
+      <ld-sr-only>
+        Optional:
+      </ld-sr-only>
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as skipped 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--optional ld-step--skipped" part="li" role="listitem">
+      <ld-sr-only>
+        Skipped:
+      </ld-sr-only>
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders default 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders on brand color 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--brand-color" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders vertical 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--vertical" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders with custom icon 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--custom-icon ld-step--with-icon" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+      <ld-icon class="ld-icon" role="presentation">
+        <mock:shadow-root>
+          Not Found
+        </mock:shadow-root>
+      </ld-icon>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders with description 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders with size prop 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--lg" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders with text 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+  Step 1
+</ld-step>
+`;

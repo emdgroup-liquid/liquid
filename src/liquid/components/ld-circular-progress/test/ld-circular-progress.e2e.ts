@@ -59,10 +59,12 @@ describe('ld-circular-progress', () => {
       page.waitForChanges()
 
       const accessibilityReport = await analyzeAccessibility(page, {
-        rules: {
-          // Disabling color-contrast rule here due to:
-          // "Element's background color could not be determined due to a pseudo-element"
-          'color-contrast': { enabled: false },
+        options: {
+          rules: {
+            // Disabling color-contrast rule here due to:
+            // "Element's background color could not be determined due to a pseudo-element"
+            'color-contrast': { enabled: false },
+          },
         },
       })
       expect(accessibilityReport).toHaveNoAccessibilityIssues()
@@ -89,10 +91,12 @@ describe('ld-circular-progress', () => {
       page.waitForChanges()
 
       const accessibilityReport = await analyzeAccessibility(page, {
-        rules: {
-          // Disabling color-contrast rule here due to:
-          // "Element's background color could not be determined due to a pseudo-element"
-          'color-contrast': { enabled: false },
+        options: {
+          rules: {
+            // Disabling color-contrast rule here due to:
+            // "Element's background color could not be determined due to a pseudo-element"
+            'color-contrast': { enabled: false },
+          },
         },
       })
       expect(accessibilityReport).toHaveNoAccessibilityIssues()

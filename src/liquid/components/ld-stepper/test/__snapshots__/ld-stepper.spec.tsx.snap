@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-stepper propagates prop changes 1`] = `
+<ld-stepper class="ld-stepper ld-stepper--lg ld-stepper--vertical" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--brand-color ld-step--current ld-step--lg ld-step--vertical" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders default 1`] = `
+<ld-stepper class="ld-stepper" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders on brand color 1`] = `
+<ld-stepper class="ld-stepper" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--brand-color ld-step--current" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders vertical 1`] = `
+<ld-stepper class="ld-stepper ld-stepper--vertical" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current ld-step--vertical" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders with current step label 1`] = `
+<ld-stepper class="ld-stepper" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      Step 1, step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+    Step 1
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders with custom label 1`] = `
+<ld-stepper class="ld-stepper" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      Schritt 1 von 1: Step 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+    Step 1
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders with fit-content 1`] = `
+<ld-stepper class="ld-stepper ld-stepper--fit-content" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
+
+exports[`ld-stepper renders with size prop 1`] = `
+<ld-stepper class="ld-stepper ld-stepper--sm" role="navigation">
+  <mock:shadow-root>
+    <ld-sr-only>
+      step 1 of 1
+    </ld-sr-only>
+    <ol part="list">
+      <slot></slot>
+    </ol>
+  </mock:shadow-root>
+  <ld-step>
+    <mock:shadow-root>
+      <li class="ld-step ld-step--current ld-step--sm" part="li" role="listitem">
+        <ld-sr-only>
+          Current:
+        </ld-sr-only>
+        <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+          <slot></slot>
+        </button>
+      </li>
+    </mock:shadow-root>
+  </ld-step>
+</ld-stepper>
+`;
