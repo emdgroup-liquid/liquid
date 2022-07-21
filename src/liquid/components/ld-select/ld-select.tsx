@@ -282,6 +282,11 @@ export class LdSelect implements InnerFocusable {
     })
   }
 
+  private isLdOption = (
+    el: HTMLElement | Node | EventTarget
+  ): el is HTMLLdOptionElement | HTMLLdOptionInternalElement =>
+    ['LD-OPTION', 'LD-OPTION-INTERNAL'].includes((el as HTMLElement)?.tagName)
+
   private updatePopperWidth = () => {
     this.listboxRef.style.setProperty(
       'width',
@@ -464,11 +469,7 @@ export class LdSelect implements InnerFocusable {
   }
 
   private handleSlotChange = (mutationsList: MutationRecord[]) => {
-    if (
-      !mutationsList.some(
-        (record) => (record.target as HTMLElement).tagName === 'LD-OPTION'
-      )
-    ) {
+    if (!mutationsList.some((record) => this.isLdOption(record.target))) {
       return
     }
 
@@ -594,7 +595,7 @@ export class LdSelect implements InnerFocusable {
 
     if (this.multiple && ev.shiftKey) {
       if (
-        document.activeElement?.tagName === 'LD-OPTION-INTERNAL' &&
+        this.isLdOption(document.activeElement) &&
         !document.activeElement.hasAttribute('selected')
       ) {
         document.activeElement.dispatchEvent(
@@ -614,6 +615,7 @@ export class LdSelect implements InnerFocusable {
     // Type a character: focus moves to the next item with a name that starts with the typed character.
     // Type multiple characters in rapid succession: focus moves to the next item with a name that starts
     // with the string of characters typed.
+    if (['Shift', 'Meta'].includes(key)) return
     clearTimeout(this.typeAheadTimeout)
     this.typeAheadQuery = (this.typeAheadQuery || '') + key
     this.typeAheadTimeout = setTimeout(() => {
@@ -687,7 +689,7 @@ export class LdSelect implements InnerFocusable {
         } else {
           let current = document.activeElement
           while (nextLdOption === undefined) {
-            if (current.nextElementSibling?.tagName === 'LD-OPTION-INTERNAL') {
+            if (this.isLdOption(current.nextElementSibling)) {
               if ((current.nextElementSibling as HTMLElement).hidden) {
                 current = current.nextElementSibling
               } else {
@@ -720,13 +722,11 @@ export class LdSelect implements InnerFocusable {
         }
 
         // Focus previous visible option, if any.
-        if (document.activeElement?.tagName === 'LD-OPTION-INTERNAL') {
+        if (this.isLdOption(document.activeElement)) {
           let prevLdOption
           let current = document.activeElement
           while (prevLdOption === undefined) {
-            if (
-              current.previousElementSibling?.tagName === 'LD-OPTION-INTERNAL'
-            ) {
+            if (this.isLdOption(current.previousElementSibling)) {
               if ((current.previousElementSibling as HTMLElement).hidden) {
                 current = current.previousElementSibling
               } else {
@@ -760,7 +760,7 @@ export class LdSelect implements InnerFocusable {
         const filterInputCanReceiveSpace = Boolean(
           this.filter &&
             this.el.shadowRoot.activeElement === this.getFilterInput() &&
-            this.getFilterInput().value.trim().length
+            this.getFilterInput().value.trim()
         )
         if (!filterInputCanReceiveSpace) {
           ev.preventDefault()
@@ -852,7 +852,7 @@ export class LdSelect implements InnerFocusable {
     // Emit event only, if focus is not within the select component.
     if (
       ev.relatedTarget === null ||
-      (ev.relatedTarget as HTMLElement)?.tagName === 'LD-OPTION-INTERNAL' ||
+      this.isLdOption(ev.relatedTarget) ||
       closest('ld-select', ev.relatedTarget as HTMLElement) === this.el
     ) {
       ev.stopImmediatePropagation()
@@ -1129,7 +1129,7 @@ export class LdSelect implements InnerFocusable {
                             <span
                               class="ld-select__selection-label-bg"
                               part="selection-label-bg"
-                            ></span>
+                            />
                           </label>
                         </li>
                       )
