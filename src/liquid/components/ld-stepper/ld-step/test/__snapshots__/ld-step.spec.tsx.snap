@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-step renders as anchor 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <a href="#" part="a focusable">
+        <slot></slot>
+      </a>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
 exports[`ld-step renders as current 1`] = `
 <ld-step>
   <mock:shadow-root>
@@ -10,6 +22,30 @@ exports[`ld-step renders as current 1`] = `
       <button aria-current="step" part="button focusable" type="button">
         <slot></slot>
       </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as disabled 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <button aria-disabled="true" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as disabled anchor 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step" part="li" role="listitem">
+      <a aria-disabled="true" part="a focusable">
+        <slot></slot>
+      </a>
     </li>
   </mock:shadow-root>
 </ld-step>
@@ -47,6 +83,30 @@ exports[`ld-step renders as done but optional 1`] = `
 </ld-step>
 `;
 
+exports[`ld-step renders as last active 1`] = `
+<ld-step last-active="">
+  <mock:shadow-root>
+    <li class="ld-step ld-step--last-active" part="li" role="listitem">
+      <button part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders as next 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--next" part="li" role="listitem">
+      <button part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
 exports[`ld-step renders as optional 1`] = `
 <ld-step>
   <mock:shadow-root>
@@ -54,7 +114,7 @@ exports[`ld-step renders as optional 1`] = `
       <ld-sr-only>
         Optional:
       </ld-sr-only>
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -81,7 +141,7 @@ exports[`ld-step renders default 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -93,7 +153,7 @@ exports[`ld-step renders on brand color 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--brand-color" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -105,7 +165,7 @@ exports[`ld-step renders vertical 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--vertical" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -117,7 +177,7 @@ exports[`ld-step renders with custom icon 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--custom-icon ld-step--with-icon" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
       <ld-icon class="ld-icon" role="presentation">
@@ -134,7 +194,7 @@ exports[`ld-step renders with description 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -146,7 +206,7 @@ exports[`ld-step renders with size prop 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step ld-step--lg" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>
@@ -158,7 +218,7 @@ exports[`ld-step renders with text 1`] = `
 <ld-step>
   <mock:shadow-root>
     <li class="ld-step" part="li" role="listitem">
-      <button aria-disabled="true" part="button focusable" type="button">
+      <button part="button focusable" type="button">
         <slot></slot>
       </button>
     </li>

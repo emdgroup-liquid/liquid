@@ -45,6 +45,30 @@ describe('ld-step', () => {
       expect(page.root).toMatchSnapshot()
     })
 
+    it('as disabled', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step disabled />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('as last active', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step last-active />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('as next', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step next />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
     it('as done', async () => {
       const page = await newSpecPage({
         components: [LdStep],
@@ -89,6 +113,22 @@ describe('ld-step', () => {
       const page = await newSpecPage({
         components: [LdStep],
         template: () => <ld-step vertical />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('as anchor', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step href="#" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
+    it('as disabled anchor', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step disabled href="#" />,
       })
       expect(page.root).toMatchSnapshot()
     })
@@ -192,7 +232,7 @@ describe('ld-step', () => {
     )
   })
 
-  it('emits ldstepselected event when clicked', async () => {
+  it('emits ldstepselected event on click', async () => {
     const page = await newSpecPage({
       components: [LdStep],
       template: () => <ld-step done>Step 1</ld-step>,
@@ -211,6 +251,34 @@ describe('ld-step', () => {
         },
       })
     )
+  })
+
+  it('does not emit ldstepselected event on click when current', async () => {
+    const page = await newSpecPage({
+      components: [LdStep],
+      template: () => <ld-step current>Step 1</ld-step>,
+    })
+    const eventHandler = jest.fn()
+    const button = page.root.shadowRoot.querySelector('button')
+
+    page.root.addEventListener('ldstepselected', eventHandler)
+    button.click()
+
+    expect(eventHandler).not.toHaveBeenCalledWith()
+  })
+
+  it('does not emit ldstepselected event on click when disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdStep],
+      template: () => <ld-step disabled>Step 1</ld-step>,
+    })
+    const eventHandler = jest.fn()
+    const button = page.root.shadowRoot.querySelector('button')
+
+    page.root.addEventListener('ldstepselected', eventHandler)
+    button.click()
+
+    expect(eventHandler).not.toHaveBeenCalledWith()
   })
 
   it('allows to set inner focus', async () => {

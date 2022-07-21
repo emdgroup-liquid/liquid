@@ -92,6 +92,7 @@
     margin: var(--ld-step-text-margin) 0 0; /* Safari reset */
     padding: 0;
     text-align: center;
+    text-decoration: none;
 
     &::before {
       background: var(--ld-step-dot-col);
@@ -138,24 +139,36 @@
     --ld-step-dot-size: var(--ld-step-dot-size-with-icon);
   }
 
-  &--current {
-    --ld-step-col: var(--ld-step-col-done);
-    --ld-step-description-col: var(--ld-step-description-col-done);
-    --ld-step-dot-col: var(--ld-step-dot-col-current);
-    --ld-step-line-start-col: var(--ld-step-line-col-done);
-  }
-
-  &--done {
-    --ld-step-col: var(--ld-step-col-done);
-    --ld-step-description-col: var(--ld-step-description-col-done);
+  &--done,
+  &--skipped {
     --ld-step-dot-col: var(--ld-step-dot-col-done);
-    --ld-step-line-start-col: var(--ld-step-line-col-done);
-    --ld-step-line-end-col: var(--ld-step-line-col-done);
 
     a,
     button {
       cursor: pointer;
     }
+  }
+
+  &--current,
+  &--done,
+  &--next,
+  &--skipped {
+    --ld-step-col: var(--ld-step-col-done);
+    --ld-step-description-col: var(--ld-step-description-col-done);
+    --ld-step-line-start-col: var(--ld-step-line-col-done);
+    --ld-step-line-end-col: var(--ld-step-line-col-done);
+  }
+
+  &--next {
+    --ld-step-dot-col: var(--ld-step-dot-col-done);
+  }
+
+  &--current {
+    --ld-step-dot-col: var(--ld-step-dot-col-current);
+  }
+
+  &--last-active {
+    --ld-step-line-end-col: var(--ld-step-line-col-default);
   }
 
   &--optional {
@@ -170,29 +183,15 @@
     }
   }
 
-  &--skipped {
-    --ld-step-col: var(--ld-step-col-done);
-    --ld-step-description-col: var(--ld-step-description-col-done);
-    --ld-step-dot-col: var(--ld-step-dot-col-done);
-    --ld-step-line-start-col: var(--ld-step-line-col-done);
-    --ld-step-line-end-col: var(--ld-step-line-col-done);
-
-    a,
-    button {
-      cursor: pointer;
-    }
-  }
-
   &--vertical {
     align-items: start;
     gap: var(--ld-step-vertical-text-gap);
-    padding: 0;
-    text-align: left;
 
     a,
     button {
       margin: var(--ld-step-vertical-label-margin-top) 0 0
         var(--ld-step-text-margin);
+      text-align: left;
 
       &::before {
         flex-shrink: 0;

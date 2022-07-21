@@ -7,46 +7,72 @@ import { LdSrOnly } from '../../ld-sr-only/ld-sr-only'
 import { LdStep } from '../ld-step/ld-step'
 import { LdStepper } from '../ld-stepper'
 
-const getWcStepsEmpty = (withCustomIcons = false, optional = false) => `
-<ld-step done${optional ? ' optional' : ''}></ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''} ${
-  optional ? 'optional skipped' : 'done'
-}></ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
-  optional ? ' optional' : ''
-} current></ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
+const getWcStepsEmpty = (
+  withCustomIcons = false,
+  optional = false,
+  anchor = false
+) => `
+<ld-step done${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
 }></ld-step>
-<ld-step></ld-step>`
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+} ${optional ? 'optional skipped' : 'done'}></ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${optional ? ' optional' : ''} current></ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${optional ? ' optional' : ''} last-active next></ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${optional ? ' optional' : ''}></ld-step>`
 
-const getWcStepsLabel = (withCustomIcons = false, optional = false) => `
-<ld-step done${optional ? ' optional' : ''}>Billing</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''} ${
-  optional ? 'optional skipped' : 'done'
-}>Shipping</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
+const getWcStepsLabel = (
+  withCustomIcons = false,
+  optional = false,
+  anchor = false
+) => `
+<ld-step done${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-} current>Payment<br />method</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
+}>Billing</ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+} ${optional ? 'optional skipped' : 'done'}>Shipping</ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${optional ? ' optional' : ''} current>Payment<br />method</ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${optional ? ' optional' : ''} last-active next>Summary</ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-}>Summary</ld-step>
-<ld-step>Confirmation</ld-step>`
+}>Confirmation</ld-step>`
 
-const getWcStepsDescription = (withCustomIcons = false, optional = false) => `
-<ld-step done${
+const getWcStepsDescription = (
+  withCustomIcons = false,
+  optional = false,
+  anchor = false
+) => `
+<ld-step done${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
 } description="Personal data including the billing address and optional additional information">Billing</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''} ${
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+} ${
   optional ? 'optional skipped' : 'done'
 } description="Shipping address, if it differs from the billing addres">Shipping</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${
   optional ? ' optional' : ''
 } current description="Payment method selection">Payment<br />method</ld-step>
-<ld-step${withCustomIcons ? ' icon="placeholder"' : ''}${
+<ld-step${anchor ? ' href="#"' : ''}${
+  withCustomIcons ? ' icon="placeholder"' : ''
+}${
   optional ? ' optional' : ''
-} description="Summary of your articles and all the previously given information">Summary</ld-step>
-<ld-step description="Order confirmation with follow-up information">Confirmation</ld-step>`
+} last-active next description="Summary of your articles and all the previously given information">Summary</ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  optional ? ' optional' : ''
+} description="Order confirmation with follow-up information">Confirmation</ld-step>`
 
 const wcStepperProps = {
   default: '',
@@ -64,27 +90,33 @@ const wcStepperProps = {
 }
 
 const getCssStep = ({
+  anchor = false,
   description,
   label,
   modifiers = [],
   srLabel,
 }: {
+  anchor?: boolean
   description?: string
   label?: string
   modifiers?: string[]
   srLabel?: string
 }) => `
 <li class="ld-step${
-  modifiers.length
-    ? ' ' + modifiers.map((modifier) => `ld-step--${modifier}`).join(' ')
+  modifiers.filter(Boolean).length
+    ? ' ' +
+      modifiers
+        .filter(Boolean)
+        .map((modifier) => `ld-step--${modifier}`)
+        .join(' ')
     : ''
 }">
   ${srLabel ? `<span class="ld-sr-only">${srLabel}: </span>` : ''}
-  <a${
-    modifiers.includes('done') || modifiers.includes('skipped')
-      ? ' href="#"'
-      : ''
-  }>${label ?? ''}</a>
+  <${anchor ? 'a' : 'button'}${
+  !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
+    ? ' href="#"'
+    : ''
+}>${label ?? ''}</${anchor ? 'a' : 'button'}>
   ${
     modifiers.includes('done') && !modifiers.includes('custom-icon')
       ? '<svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -104,14 +136,17 @@ const getCssStep = ({
 
 const getCssStepsEmpty = (
   withCustomIcons = false,
-  modifiers?: string[],
-  optional = false
+  modifiers: string[] = [],
+  optional = false,
+  anchor?: boolean
 ) =>
   getCssStep({
+    anchor,
     modifiers: ['done', 'with-icon', optional && 'optional', ...modifiers],
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     modifiers: [
       optional ? 'optional' : 'done',
       optional && 'skipped',
@@ -122,6 +157,7 @@ const getCssStepsEmpty = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     modifiers: [
       'current',
       withCustomIcons && 'custom-icon',
@@ -132,26 +168,32 @@ const getCssStepsEmpty = (
     srLabel: 'Current',
   }) +
   getCssStep({
+    anchor,
     modifiers: [
+      'last-active',
+      'next',
       withCustomIcons && 'custom-icon',
       withCustomIcons && 'with-icon',
       optional && 'optional',
       ...modifiers,
     ],
   }) +
-  getCssStep({ modifiers })
+  getCssStep({ anchor, modifiers: [optional && 'optional', ...modifiers] })
 
 const getCssStepsLabel = (
   withCustomIcons = false,
-  modifiers?: string[],
-  optional = false
+  modifiers: string[] = [],
+  optional = false,
+  anchor?: boolean
 ) =>
   getCssStep({
+    anchor,
     label: 'Billing',
     modifiers: ['done', 'with-icon', optional && 'optional', ...modifiers],
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     label: 'Shipping',
     modifiers: [
       optional ? 'optional' : 'done',
@@ -163,6 +205,7 @@ const getCssStepsLabel = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     label: 'Payment<br />method',
     modifiers: [
       'current',
@@ -174,8 +217,11 @@ const getCssStepsLabel = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     label: 'Summary',
     modifiers: [
+      'last-active',
+      'next',
       withCustomIcons && 'custom-icon',
       withCustomIcons && 'with-icon',
       optional && 'optional',
@@ -183,16 +229,19 @@ const getCssStepsLabel = (
     ],
   }) +
   getCssStep({
+    anchor,
     label: 'Confirmation',
-    modifiers,
+    modifiers: [optional && 'optional', ...modifiers],
   })
 
 const getCssStepsDescription = (
   withCustomIcons = false,
-  modifiers?: string[],
-  optional = false
+  modifiers: string[] = [],
+  optional = false,
+  anchor?: boolean
 ) =>
   getCssStep({
+    anchor,
     description:
       'Personal data including the billing address and optional additional information',
     label: 'Billing',
@@ -200,6 +249,7 @@ const getCssStepsDescription = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     description: 'Shipping address, if it differs from the billing addres',
     label: 'Shipping',
     modifiers: [
@@ -212,6 +262,7 @@ const getCssStepsDescription = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     description: 'Payment method selection',
     label: 'Payment<br />method',
     modifiers: [
@@ -224,10 +275,13 @@ const getCssStepsDescription = (
     srLabel: 'Completed',
   }) +
   getCssStep({
+    anchor,
     description:
       'Summary of your articles and all the previously given information',
     label: 'Summary',
     modifiers: [
+      'last-active',
+      'next',
       withCustomIcons && 'custom-icon',
       withCustomIcons && 'with-icon',
       optional && 'optional',
@@ -235,9 +289,10 @@ const getCssStepsDescription = (
     ],
   }) +
   getCssStep({
+    anchor,
     description: 'Order confirmation with follow-up information',
     label: 'Confirmation',
-    modifiers,
+    modifiers: [optional && 'optional', ...modifiers],
   })
 
 const getCssStepper = (steps: string, modifiers: string[] = []) => `
@@ -422,6 +477,50 @@ describe('ld-stepper', () => {
         })
       })
     })
+
+    describe('anchor', () => {
+      it('empty', async () => {
+        const page = await getPageWithContent(
+          `<ld-stepper>${getWcStepsEmpty(false, false, true)}</ld-stepper>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('with label text', async () => {
+        const page = await getPageWithContent(
+          `<ld-stepper>${getWcStepsLabel(false, false, true)}</ld-stepper>`
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('with description', async () => {
+        const page = await getPageWithContent(
+          `<ld-stepper vertical>${getWcStepsDescription(
+            false,
+            false,
+            true
+          )}</ld-stepper>`
+        )
+
+        const results = await page.compareScreenshot()
+        const accessibilityReport = await analyzeAccessibility(page, {
+          // screen reader reads as if the li elements were nested correctly
+          options: { rules: { list: { enabled: false } } },
+          spec: {
+            checks: [
+              // Exception because of the following message:
+              // "Element's background color could not be determined due to a pseudo element"
+              { id: 'color-contrast', options: { ignorePseudo: true } },
+            ],
+          },
+        })
+
+        expect(results).toMatchScreenshot()
+        expect(accessibilityReport).toHaveNoAccessibilityIssues()
+      })
+    })
   })
 
   describe('CSS component', () => {
@@ -582,6 +681,54 @@ describe('ld-stepper', () => {
             })
           })
         })
+      })
+    })
+    describe('anchor', () => {
+      it('empty', async () => {
+        const page = await getPageWithContent(
+          getCssStepper(getCssStepsEmpty(false, undefined, false, true)),
+          {
+            components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+          }
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('with label text', async () => {
+        const page = await getPageWithContent(
+          getCssStepper(getCssStepsLabel(false, undefined, false, true)),
+          {
+            components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+          }
+        )
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('with description', async () => {
+        const page = await getPageWithContent(
+          getCssStepper(
+            getCssStepsDescription(false, ['vertical'], false, true),
+            ['vertical']
+          ),
+          {
+            components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+          }
+        )
+        const results = await page.compareScreenshot()
+        const accessibilityReport = await analyzeAccessibility(page, {
+          spec: {
+            checks: [
+              // Exception because of the following message:
+              // "Element's background color could not be determined due to a pseudo element"
+              { id: 'color-contrast', options: { ignorePseudo: true } },
+            ],
+          },
+        })
+
+        expect(results).toMatchScreenshot()
+        expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
     })
   })

@@ -19063,8 +19063,47 @@
       "isMobile": false
     },
     {
+      "id": "8404eaed",
+      "image": "cc74a8668538b7ca4326895bce694533.png",
+      "userAgent": "default",
+      "desc": "ld-stepper CSS component anchor empty",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "9222f201",
+      "image": "2b55d3149ba6db2d382b9167d95b34cf.png",
+      "userAgent": "default",
+      "desc": "ld-stepper CSS component anchor with description",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "fe23c41b",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
+      "userAgent": "default",
+      "desc": "ld-stepper CSS component anchor with label text",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "3a74996a",
-      "image": "ce8ce80b78ad613d284d006daecd7308.png",
+      "image": "cc74a8668538b7ca4326895bce694533.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19077,7 +19116,7 @@
     },
     {
       "id": "8113d700",
-      "image": "f6521e10d8413cc4881cbb60ab4d954a.png",
+      "image": "bbc32df43033dad775da5082f659fdfd.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19090,7 +19129,7 @@
     },
     {
       "id": "029e7919",
-      "image": "84b9426656b6000c8bd6dac973447324.png",
+      "image": "090c1bcfa816179adf880cf108dd83f6.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19103,7 +19142,7 @@
     },
     {
       "id": "f82dc130",
-      "image": "84b9426656b6000c8bd6dac973447324.png",
+      "image": "090c1bcfa816179adf880cf108dd83f6.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19116,7 +19155,7 @@
     },
     {
       "id": "3dc1d641",
-      "image": "6894a03ae7aadacde520289739c8a84e.png",
+      "image": "7b79bc6130fdad6e59e59c29b3a6f91f.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19129,7 +19168,7 @@
     },
     {
       "id": "b9aea577",
-      "image": "e7ebd62cabb1373425a1df2e7746c0f8.png",
+      "image": "4d762c207ba1aef4d4f277cdb5b697ec.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19142,7 +19181,7 @@
     },
     {
       "id": "a8e630ef",
-      "image": "01d254ecca4081137b144527d4e814cc.png",
+      "image": "54c6baa8aa372d749fe49989eefe03ce.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19155,7 +19194,7 @@
     },
     {
       "id": "80e5fa30",
-      "image": "01d254ecca4081137b144527d4e814cc.png",
+      "image": "54c6baa8aa372d749fe49989eefe03ce.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19168,7 +19207,7 @@
     },
     {
       "id": "43a7257c",
-      "image": "e363fe1a24449323520cbc59f9e6d2fe.png",
+      "image": "069bb6a3a30675cf007fad02bcd9785e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19181,7 +19220,7 @@
     },
     {
       "id": "5bbbec6a",
-      "image": "7aa6766f724c16f4ca74b65bbba3eef7.png",
+      "image": "12db1f0eedd759a512c02e54244e5986.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19194,7 +19233,7 @@
     },
     {
       "id": "8ffb56ef",
-      "image": "e363fe1a24449323520cbc59f9e6d2fe.png",
+      "image": "069bb6a3a30675cf007fad02bcd9785e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19207,7 +19246,7 @@
     },
     {
       "id": "577b1915",
-      "image": "7aa6766f724c16f4ca74b65bbba3eef7.png",
+      "image": "12db1f0eedd759a512c02e54244e5986.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19220,7 +19259,7 @@
     },
     {
       "id": "5fd11ef0",
-      "image": "93bbfa2c548d5f845d896605864307d4.png",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19233,7 +19272,7 @@
     },
     {
       "id": "e538ba85",
-      "image": "29cb2cdd6e833e7c5068c3e4fde83b82.png",
+      "image": "bb74fdcbbc676b93616fe1ca961fb0cc.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19246,7 +19285,7 @@
     },
     {
       "id": "4d8e66e8",
-      "image": "93bbfa2c548d5f845d896605864307d4.png",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19259,7 +19298,7 @@
     },
     {
       "id": "d402ff7e",
-      "image": "29cb2cdd6e833e7c5068c3e4fde83b82.png",
+      "image": "bb74fdcbbc676b93616fe1ca961fb0cc.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component default with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19272,7 +19311,7 @@
     },
     {
       "id": "9b698ef3",
-      "image": "a88943b16048bc3ac51d17b8fe5376bc.png",
+      "image": "5587935324246461edf5382e4a9dd609.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19285,7 +19324,7 @@
     },
     {
       "id": "bc28ca4e",
-      "image": "f2334a69c1885d38096643f764118c02.png",
+      "image": "d066b33799db4b7f395499a0fa3ec724.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19298,7 +19337,7 @@
     },
     {
       "id": "3d2bb739",
-      "image": "70ee7f97d4320fd4c351cf7665395376.png",
+      "image": "a87797ee2fcf1e2dbfcfd66e1383358f.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19311,7 +19350,7 @@
     },
     {
       "id": "adf78f8d",
-      "image": "70ee7f97d4320fd4c351cf7665395376.png",
+      "image": "a87797ee2fcf1e2dbfcfd66e1383358f.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19324,7 +19363,7 @@
     },
     {
       "id": "282408c1",
-      "image": "117003c06d66c40ac27e8f09a126dbfb.png",
+      "image": "332377c1b897d9467e67dd5fdf1a4540.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19337,7 +19376,7 @@
     },
     {
       "id": "c21faad4",
-      "image": "b9c620853cf9809f6a0064bd916d40b0.png",
+      "image": "027d0c2eb42c61b6d4429aadf025eefb.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19350,7 +19389,7 @@
     },
     {
       "id": "24132782",
-      "image": "7dea4f802e84999183cf3d79a1bd02fc.png",
+      "image": "fb25bbf7a34f72d196afe940a817299a.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19363,7 +19402,7 @@
     },
     {
       "id": "f6cd1fa3",
-      "image": "7dea4f802e84999183cf3d79a1bd02fc.png",
+      "image": "fb25bbf7a34f72d196afe940a817299a.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19376,7 +19415,7 @@
     },
     {
       "id": "259e733e",
-      "image": "94cf35c4006192b45e0d80ff74b80ffe.png",
+      "image": "f59bf0e4f4818cadc8f0b414e78e553b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19389,7 +19428,7 @@
     },
     {
       "id": "111e2525",
-      "image": "09fb45fdfabdef46cf9a8d56402defc1.png",
+      "image": "4acfb08f4d9685423ae8dfabe5f31043.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19402,7 +19441,7 @@
     },
     {
       "id": "76534017",
-      "image": "94cf35c4006192b45e0d80ff74b80ffe.png",
+      "image": "f59bf0e4f4818cadc8f0b414e78e553b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19415,7 +19454,7 @@
     },
     {
       "id": "0a96a67d",
-      "image": "09fb45fdfabdef46cf9a8d56402defc1.png",
+      "image": "4acfb08f4d9685423ae8dfabe5f31043.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19428,7 +19467,7 @@
     },
     {
       "id": "512da89b",
-      "image": "c4e7038e43af4949ede42421a34b0207.png",
+      "image": "a831722c54d6e69febae2644175cb4c7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19441,7 +19480,7 @@
     },
     {
       "id": "c3f87503",
-      "image": "dfba94a1d6437430f61291cfba7dbd2f.png",
+      "image": "63946b46bf5342b5170eb2ee7c47379d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19454,7 +19493,7 @@
     },
     {
       "id": "e1f84aad",
-      "image": "c4e7038e43af4949ede42421a34b0207.png",
+      "image": "a831722c54d6e69febae2644175cb4c7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19467,7 +19506,7 @@
     },
     {
       "id": "d88c0157",
-      "image": "dfba94a1d6437430f61291cfba7dbd2f.png",
+      "image": "63946b46bf5342b5170eb2ee7c47379d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19480,7 +19519,7 @@
     },
     {
       "id": "36cd768f",
-      "image": "f33854d29b42d080e8cfc3667b08a049.png",
+      "image": "662fddf468ea21fb9b8ced2b79d20525.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19493,7 +19532,7 @@
     },
     {
       "id": "6fb80ee2",
-      "image": "f04345c237be9d9408c3c94f5d16703f.png",
+      "image": "dcf26e84d840b0df429b48dd3cb389ae.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19506,7 +19545,7 @@
     },
     {
       "id": "3d948d61",
-      "image": "02cbfa68cf93158088eb62513d6c1bb4.png",
+      "image": "c1304f9e127ddc85e646e132131114ca.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19519,7 +19558,7 @@
     },
     {
       "id": "ba59782a",
-      "image": "3370febfdd076f4d0e3ad0ff8af6be99.png",
+      "image": "b132abcd2139b6eea484f9ae6f81ab5d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19532,7 +19571,7 @@
     },
     {
       "id": "79ec3bac",
-      "image": "3370febfdd076f4d0e3ad0ff8af6be99.png",
+      "image": "b132abcd2139b6eea484f9ae6f81ab5d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19545,7 +19584,7 @@
     },
     {
       "id": "c7cb54a2",
-      "image": "21dba96c674ab059a517c5ac0b9afd8e.png",
+      "image": "314595576fb728737d5d3a03d0caf260.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19558,7 +19597,7 @@
     },
     {
       "id": "5c845691",
-      "image": "1c6b1621bce93c411869af59d4684e6f.png",
+      "image": "0dc00fd1c5dccfdc1ee0c7fb2400ae81.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19571,7 +19610,7 @@
     },
     {
       "id": "a17a1308",
-      "image": "fb83a9ca4d81fe981562e040b9a26f25.png",
+      "image": "1f416580b1b16f6189f3e7d2665c1b53.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19584,7 +19623,7 @@
     },
     {
       "id": "626af1d0",
-      "image": "fb83a9ca4d81fe981562e040b9a26f25.png",
+      "image": "1f416580b1b16f6189f3e7d2665c1b53.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19597,7 +19636,7 @@
     },
     {
       "id": "4e5e6017",
-      "image": "04c717bbbb8d9f3c613e5d3bf5ce3804.png",
+      "image": "27ad1db75dab71ef7d7fee0ddc769371.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19610,7 +19649,7 @@
     },
     {
       "id": "d151a827",
-      "image": "2a35b1719eb70529d8dbd8886aaa12b5.png",
+      "image": "7f63f00258f2ed559bf6dbc45fa29425.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19623,7 +19662,7 @@
     },
     {
       "id": "2e644260",
-      "image": "04c717bbbb8d9f3c613e5d3bf5ce3804.png",
+      "image": "27ad1db75dab71ef7d7fee0ddc769371.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19636,7 +19675,7 @@
     },
     {
       "id": "5c8723b1",
-      "image": "2a35b1719eb70529d8dbd8886aaa12b5.png",
+      "image": "7f63f00258f2ed559bf6dbc45fa29425.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19649,7 +19688,7 @@
     },
     {
       "id": "28228b67",
-      "image": "8004b2ba20b6441214df830d5a48525c.png",
+      "image": "67b2a697d8eb88669d9d20572751db71.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19662,7 +19701,7 @@
     },
     {
       "id": "d57992a2",
-      "image": "0fbc95743e4c39eaeb444656b5b874a6.png",
+      "image": "65a33e5174b75180302e6fa23dd040f9.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19675,7 +19714,7 @@
     },
     {
       "id": "1a35050b",
-      "image": "8004b2ba20b6441214df830d5a48525c.png",
+      "image": "67b2a697d8eb88669d9d20572751db71.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19688,7 +19727,7 @@
     },
     {
       "id": "2b08c152",
-      "image": "0fbc95743e4c39eaeb444656b5b874a6.png",
+      "image": "65a33e5174b75180302e6fa23dd040f9.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19701,7 +19740,7 @@
     },
     {
       "id": "ea1a2083",
-      "image": "710ed9a3c53634c106359e26c2b3bc22.png",
+      "image": "b692ccdb521e29d25e46a47a6afa1fe7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19714,7 +19753,7 @@
     },
     {
       "id": "01fcdf1c",
-      "image": "1f28286fc60af2777ece1572653eba68.png",
+      "image": "9a3d2744e78437cdd51f116402271a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19727,7 +19766,7 @@
     },
     {
       "id": "f85084d8",
-      "image": "1f28286fc60af2777ece1572653eba68.png",
+      "image": "9a3d2744e78437cdd51f116402271a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19740,7 +19779,7 @@
     },
     {
       "id": "b6f871b6",
-      "image": "e1b399d85c2ad767bbd7ae41814fe05f.png",
+      "image": "b64da953219c7bec86d838ba560bf75e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19753,7 +19792,7 @@
     },
     {
       "id": "70cda045",
-      "image": "b91c0084913dc3ff8825e309c3e23a02.png",
+      "image": "17fc6b9d2b818b706766687cc438d44f.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19766,7 +19805,7 @@
     },
     {
       "id": "9ce385a7",
-      "image": "449a382fea38fbfd0ce6a30a03eabf49.png",
+      "image": "403bca2e7c5ce55653dad94db7aac6b4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19779,7 +19818,7 @@
     },
     {
       "id": "673fc0ea",
-      "image": "449a382fea38fbfd0ce6a30a03eabf49.png",
+      "image": "403bca2e7c5ce55653dad94db7aac6b4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19792,7 +19831,7 @@
     },
     {
       "id": "3b33acd7",
-      "image": "487a0a3117f9e26d114ef6af78c32a1d.png",
+      "image": "cb56e957545d79aa0778f9db2ce3722e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19805,7 +19844,7 @@
     },
     {
       "id": "5cfe67b1",
-      "image": "76d494e9aedc25c6e38e02daa8808ced.png",
+      "image": "19eb0dd28deff7690a039ce7cd867078.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19818,7 +19857,7 @@
     },
     {
       "id": "ea3f3de3",
-      "image": "6abf97e77301026aa26cff9db74191b0.png",
+      "image": "fffb17055b3ed5e3f65057357c6d85c4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19831,7 +19870,7 @@
     },
     {
       "id": "45f51642",
-      "image": "6abf97e77301026aa26cff9db74191b0.png",
+      "image": "fffb17055b3ed5e3f65057357c6d85c4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19844,7 +19883,7 @@
     },
     {
       "id": "27226d96",
-      "image": "cd833c0d8f8aaab5865fff6afb8f42d9.png",
+      "image": "bc30d494bad7a325d54c721f288838d9.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19857,7 +19896,7 @@
     },
     {
       "id": "aee3d217",
-      "image": "137da89e869c57f5dafabc37dec84125.png",
+      "image": "fec4521b1bc3dd5a51e7c656120264c5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19870,7 +19909,7 @@
     },
     {
       "id": "028b900f",
-      "image": "cd833c0d8f8aaab5865fff6afb8f42d9.png",
+      "image": "bc30d494bad7a325d54c721f288838d9.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19883,7 +19922,7 @@
     },
     {
       "id": "cb7d22ae",
-      "image": "137da89e869c57f5dafabc37dec84125.png",
+      "image": "fec4521b1bc3dd5a51e7c656120264c5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19896,7 +19935,7 @@
     },
     {
       "id": "996131db",
-      "image": "988dcf9378c155d01f190a32e20098cb.png",
+      "image": "39daeb73993749d8a80181fa984f7e2c.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19909,7 +19948,7 @@
     },
     {
       "id": "cea4d485",
-      "image": "bb155be37fab0eba6aac0d1f993de158.png",
+      "image": "a7ac2f201b79010c1ab9cc74af7f6e85.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19922,7 +19961,7 @@
     },
     {
       "id": "c62cf906",
-      "image": "988dcf9378c155d01f190a32e20098cb.png",
+      "image": "39daeb73993749d8a80181fa984f7e2c.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19935,7 +19974,7 @@
     },
     {
       "id": "a0c4084f",
-      "image": "bb155be37fab0eba6aac0d1f993de158.png",
+      "image": "a7ac2f201b79010c1ab9cc74af7f6e85.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19948,7 +19987,7 @@
     },
     {
       "id": "e461db17",
-      "image": "b883d5e46fb4f02c803713ac02f48fa7.png",
+      "image": "7e58324729bbf4ea6b8d12bb23f78b30.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19961,7 +20000,7 @@
     },
     {
       "id": "edde423b",
-      "image": "13915f4fe84d813b3fd5c0aa24016b53.png",
+      "image": "6afe3d806a1f0da66ec718c3f6075829.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19974,7 +20013,7 @@
     },
     {
       "id": "396fd7a0",
-      "image": "47b4e393a6b46b2289693054f66908ee.png",
+      "image": "85e2bf71e6ef3cbf1cacae7a36589e46.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -19987,7 +20026,7 @@
     },
     {
       "id": "9849538d",
-      "image": "47b4e393a6b46b2289693054f66908ee.png",
+      "image": "85e2bf71e6ef3cbf1cacae7a36589e46.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20000,7 +20039,7 @@
     },
     {
       "id": "cca2f6d8",
-      "image": "3f99ef364e40031463d83c04de986735.png",
+      "image": "19ad49ab051b6ea9735fe6752d3695c7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20013,7 +20052,7 @@
     },
     {
       "id": "a91b59c9",
-      "image": "6b2353e213ffb3797f58ca0976947147.png",
+      "image": "206964dda4fda4d6863bed26e4449585.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20026,7 +20065,7 @@
     },
     {
       "id": "4f3373e2",
-      "image": "3f99ef364e40031463d83c04de986735.png",
+      "image": "19ad49ab051b6ea9735fe6752d3695c7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20039,7 +20078,7 @@
     },
     {
       "id": "03cd2e7a",
-      "image": "6b2353e213ffb3797f58ca0976947147.png",
+      "image": "206964dda4fda4d6863bed26e4449585.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20052,7 +20091,7 @@
     },
     {
       "id": "1c076c33",
-      "image": "4db477c9c6368d599f5122861b671c54.png",
+      "image": "38b10666b6342c584b55f8a9bccedbf5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20065,7 +20104,7 @@
     },
     {
       "id": "f32feffd",
-      "image": "89890643598eaedc4b51373361caacb6.png",
+      "image": "7e4fa09a62005e3769b1eaa54b1143f7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20078,7 +20117,7 @@
     },
     {
       "id": "eac5b556",
-      "image": "4db477c9c6368d599f5122861b671c54.png",
+      "image": "38b10666b6342c584b55f8a9bccedbf5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20091,7 +20130,7 @@
     },
     {
       "id": "4beb520a",
-      "image": "89890643598eaedc4b51373361caacb6.png",
+      "image": "7e4fa09a62005e3769b1eaa54b1143f7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20104,7 +20143,7 @@
     },
     {
       "id": "9d6d5190",
-      "image": "3d7e519231fd69a35b7a43d1227a50ad.png",
+      "image": "3b39bb948b4bca7866551aa3559df3fc.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20117,7 +20156,7 @@
     },
     {
       "id": "a2fa152a",
-      "image": "befde2c7e7e57a7b956dff049fbbb39f.png",
+      "image": "5a83a0be6d5ea69620c9b3fb725f34f3.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20130,7 +20169,7 @@
     },
     {
       "id": "a137a17d",
-      "image": "03f9bd6cfb0bea60d1f8062539cdd0b7.png",
+      "image": "ececdce1d821495f33931affc4c14a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20143,7 +20182,7 @@
     },
     {
       "id": "6608c1d9",
-      "image": "03f9bd6cfb0bea60d1f8062539cdd0b7.png",
+      "image": "ececdce1d821495f33931affc4c14a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20156,7 +20195,7 @@
     },
     {
       "id": "ffc0d309",
-      "image": "c1ba579e4151050bb229df903816dc7d.png",
+      "image": "e1da8afa743db02e498cf566a9b7b04e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20169,7 +20208,7 @@
     },
     {
       "id": "34219bc6",
-      "image": "932a5a630ddcd83ee421cc6d9274b28f.png",
+      "image": "58f3617e2700a77e7512a5707eb63143.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20182,7 +20221,7 @@
     },
     {
       "id": "c99dd2d3",
-      "image": "eefec01fb864ddeac18867b897766eca.png",
+      "image": "fed8dca944406077a71da7ed49ea91f5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20195,7 +20234,7 @@
     },
     {
       "id": "1e66f3e6",
-      "image": "eefec01fb864ddeac18867b897766eca.png",
+      "image": "fed8dca944406077a71da7ed49ea91f5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20208,7 +20247,7 @@
     },
     {
       "id": "2987d4d3",
-      "image": "26e0a46727cf96674cc1beb3f9259068.png",
+      "image": "ad9d00728d06711f87e7202a72d70c30.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20221,7 +20260,7 @@
     },
     {
       "id": "bb4ad184",
-      "image": "b49aea75d8b8c58d9f9de5b99388a39c.png",
+      "image": "9e4f6dc7b317cd7e5ad547ce7fbf2b42.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20234,7 +20273,7 @@
     },
     {
       "id": "613ea063",
-      "image": "26e0a46727cf96674cc1beb3f9259068.png",
+      "image": "ad9d00728d06711f87e7202a72d70c30.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20247,7 +20286,7 @@
     },
     {
       "id": "ceabd7c2",
-      "image": "b49aea75d8b8c58d9f9de5b99388a39c.png",
+      "image": "9e4f6dc7b317cd7e5ad547ce7fbf2b42.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20260,7 +20299,7 @@
     },
     {
       "id": "79a00780",
-      "image": "a645fe3dd1d9eeaccfceb948025a7bc5.png",
+      "image": "8cef080e9c214e63f01346a9aaabf7b4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20273,7 +20312,7 @@
     },
     {
       "id": "c04c1331",
-      "image": "a64fa55a83f0361bba339047f1447a53.png",
+      "image": "b20d6bc9799f8ad025513cb52aa47dac.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20286,7 +20325,7 @@
     },
     {
       "id": "929e4fac",
-      "image": "a645fe3dd1d9eeaccfceb948025a7bc5.png",
+      "image": "8cef080e9c214e63f01346a9aaabf7b4.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20299,7 +20338,7 @@
     },
     {
       "id": "9dc3cb9d",
-      "image": "a64fa55a83f0361bba339047f1447a53.png",
+      "image": "b20d6bc9799f8ad025513cb52aa47dac.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20312,7 +20351,7 @@
     },
     {
       "id": "f7e044f8",
-      "image": "6deaf392e442f3c7fa94062ad49f8bae.png",
+      "image": "7d0d644c3901b9e88d535edf4d6db7e7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20325,7 +20364,7 @@
     },
     {
       "id": "e72f8057",
-      "image": "935d594f1765bb576fc6557407f3ebcf.png",
+      "image": "270ba6993bfee1b98c92489edf30da45.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20338,7 +20377,7 @@
     },
     {
       "id": "3450afbc",
-      "image": "ff03fe964acdef974a41baa599c224dd.png",
+      "image": "11deb951259bc78e3fb804dace594e87.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20351,7 +20390,7 @@
     },
     {
       "id": "23fe2187",
-      "image": "5017ad6b02f5432077bc1df3eb5c61ba.png",
+      "image": "df946b8fe524bae2fca48bd31f492693.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20364,7 +20403,7 @@
     },
     {
       "id": "36ee2cce",
-      "image": "f88b8d48829bada1c2419153fc79c9c0.png",
+      "image": "67ee6bd2095088ce759e3f7f60d24db2.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20377,7 +20416,7 @@
     },
     {
       "id": "3c648aa6",
-      "image": "e08436295ffd6fa11a8212019c46de92.png",
+      "image": "2f8680329e2421f56c94f3a025d6a18e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20390,7 +20429,7 @@
     },
     {
       "id": "fafdec35",
-      "image": "1b3c7ad68fb39c99ed85b688c8f8483d.png",
+      "image": "90f7c71b66d866b17aa23ac90cb91c76.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20403,7 +20442,7 @@
     },
     {
       "id": "9deb1f66",
-      "image": "03ced91519ff235c7a28910582fcf536.png",
+      "image": "e2aaa7c24747a656d1a6f8db860389da.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20416,7 +20455,7 @@
     },
     {
       "id": "1072e9b5",
-      "image": "42514b394be70d7058a60d0c236e17f2.png",
+      "image": "ccd2e019e95e44b6efcbba98e8597f72.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20429,7 +20468,7 @@
     },
     {
       "id": "d03407a6",
-      "image": "ccfdb6176bdfe626ee582dc21417e4cf.png",
+      "image": "f5fc45ea119348f0cc13b118bf1cc3ba.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20442,7 +20481,7 @@
     },
     {
       "id": "2f423e6b",
-      "image": "146431b81f1f70efb2dfd0a582625c79.png",
+      "image": "37ee05a87c1e2ec2cad2dfc55788c953.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20455,7 +20494,7 @@
     },
     {
       "id": "a083c727",
-      "image": "3c6ea91e969b63057cc3747692bc3635.png",
+      "image": "aad655477d4142194af558388e70b8ce.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20468,7 +20507,7 @@
     },
     {
       "id": "ef2c8e28",
-      "image": "880f939cf514a0816f81dcda2a448aae.png",
+      "image": "96ac16ae798edcc0ddc4f88d2ce571f3.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20481,7 +20520,7 @@
     },
     {
       "id": "d9d5e0c4",
-      "image": "2011fdcf4dc31e55837c6364a564cfb6.png",
+      "image": "05218c0a29e50075e441360abab718b2.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20494,7 +20533,7 @@
     },
     {
       "id": "d543307f",
-      "image": "8c12478cff8d2990c0affcc3b575378d.png",
+      "image": "82d3fccd43ff8010508f7531dfdb1a25.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20507,7 +20546,7 @@
     },
     {
       "id": "a078eac2",
-      "image": "47a11563994beea9e2ca5d2376adfed5.png",
+      "image": "4998049387ef539769fd1828310600bd.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20520,7 +20559,7 @@
     },
     {
       "id": "a3444428",
-      "image": "ad368a4e8d6b5d90662d1099870a6eef.png",
+      "image": "b29fbe110c767afe11c3d574421169c7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20533,7 +20572,7 @@
     },
     {
       "id": "78f59b48",
-      "image": "d819f7d5f41b609bec86896b8bc4e289.png",
+      "image": "9781c861633b61c643cd8937524e9996.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20546,7 +20585,7 @@
     },
     {
       "id": "1d3af68c",
-      "image": "9e39f361274ed34b3a6e95025732f620.png",
+      "image": "b9f82799660d767469d526445a816b5b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20559,7 +20598,7 @@
     },
     {
       "id": "6c9b3884",
-      "image": "1ab5f08625a4a67f43f87b22a89ab522.png",
+      "image": "49df20d28a6844dc3be64e13d484a308.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20572,7 +20611,7 @@
     },
     {
       "id": "22558559",
-      "image": "5e141f707d12604d7001d05f4cd7bff9.png",
+      "image": "657bf7dc4234274257595a81eaf3329e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20585,7 +20624,7 @@
     },
     {
       "id": "e6c55ed6",
-      "image": "9c4726962150f6755e73c0e594f0c37b.png",
+      "image": "a500ec6e0641db2e1231ccd43def9166.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20598,7 +20637,7 @@
     },
     {
       "id": "2bbe0582",
-      "image": "23e5fb33bd7df49f87732eeee50166e7.png",
+      "image": "8905ac128fbe7ad253a2515437ecc6e2.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20611,7 +20650,7 @@
     },
     {
       "id": "db93904a",
-      "image": "76cbe8b3238f6a882e97255d82811f65.png",
+      "image": "8cef7218f4c37c4658bc71a64536d084.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20624,7 +20663,7 @@
     },
     {
       "id": "10037b87",
-      "image": "2aedd81171b23b4000b2bda1cabdcc0a.png",
+      "image": "6a5f26ea85159dfd05b47743ff9ace76.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20637,7 +20676,7 @@
     },
     {
       "id": "6052c04d",
-      "image": "ea2e06dc45dc1b97917b271a1d8c5aa7.png",
+      "image": "b36ab511761fec91ae65169cac4dc3da.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20650,7 +20689,7 @@
     },
     {
       "id": "1ded9026",
-      "image": "6c7d1bb0b4bef15e2956034766f4820c.png",
+      "image": "96b0fd32bc4bf2d92450ffb165389ead.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20663,7 +20702,7 @@
     },
     {
       "id": "7d6eed38",
-      "image": "565e66abc19ec0c2681dc44bd35926d8.png",
+      "image": "d802473eb22e3fa9d595192fb3be50c5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20676,7 +20715,7 @@
     },
     {
       "id": "31015163",
-      "image": "63f7821e616bea97ad480866c611e248.png",
+      "image": "49ff99d1c05edb8fc91d92e8caeefd14.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20689,7 +20728,7 @@
     },
     {
       "id": "cc5fe4e6",
-      "image": "4e6104bdbefaf6163b4da35aee08a8c8.png",
+      "image": "101327a2ec2284dc118781c5ad996038.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20702,7 +20741,7 @@
     },
     {
       "id": "87e28646",
-      "image": "e0eca35bfa71d9447f118975517abc92.png",
+      "image": "6111a9279befc36de84a012b17acf176.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20715,7 +20754,7 @@
     },
     {
       "id": "0ab00f36",
-      "image": "3baf2f8fa54514822bb7cd334a830fe2.png",
+      "image": "f8e3f07b05e8a3bc07cd565d1eb5433e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20728,7 +20767,7 @@
     },
     {
       "id": "eadd74f2",
-      "image": "a590a4ed860292ec05f22026ce0fb736.png",
+      "image": "5be770711f93461f289f7dff5e81b774.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20741,7 +20780,7 @@
     },
     {
       "id": "6d87d1af",
-      "image": "4fee9ae18e1c7de0765fd1a182edacfc.png",
+      "image": "27d19fe5451189ca40d033717ac8c05e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20754,7 +20793,7 @@
     },
     {
       "id": "dbac7480",
-      "image": "589249c1797d66236f4ac842bb1b69d7.png",
+      "image": "f58beadb70924649960ca34ec373c1f8.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20767,7 +20806,7 @@
     },
     {
       "id": "f6194d89",
-      "image": "ae78df64089caccfc3457cb74807175b.png",
+      "image": "c3403c38e9c0444fd9931cfdb952fb24.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20780,7 +20819,7 @@
     },
     {
       "id": "5cb96215",
-      "image": "0e320c71b36eda2e1159f711a13ddc8c.png",
+      "image": "896c2d7a4c6ad274c987e9f964bec609.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20793,7 +20832,7 @@
     },
     {
       "id": "ecb5ae31",
-      "image": "2704c37592091c999715ed3931f39a99.png",
+      "image": "982e7e424a570b193fdc20669d52ec81.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20806,7 +20845,7 @@
     },
     {
       "id": "c6c041bf",
-      "image": "b36afd8782a4c8817cc41324d58c42e0.png",
+      "image": "9e491dd13579ccf0db2cc0403a583b8f.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20819,7 +20858,7 @@
     },
     {
       "id": "0793046d",
-      "image": "0a81ea09a70ab80425e717493588ba0b.png",
+      "image": "bf7ea661ee8710c81c635b39954caee2.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20832,7 +20871,7 @@
     },
     {
       "id": "86a3b11f",
-      "image": "41b6151a7c0049a1e01b69ced43adbda.png",
+      "image": "2b4b9f501367bbb706b6ff55084b1afe.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20845,7 +20884,7 @@
     },
     {
       "id": "c5cdc22d",
-      "image": "bd099f947bd427ffcb21ac9f64e48cf5.png",
+      "image": "d0b0e98d413c1e2305e806d96c725c48.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20858,7 +20897,7 @@
     },
     {
       "id": "ee049bdb",
-      "image": "5a2fbfe2fab71ed2b41db0fbbfae1469.png",
+      "image": "63d3189727e8327e7b2b1e20917cbd21.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20871,7 +20910,7 @@
     },
     {
       "id": "f9633c06",
-      "image": "4ddf1e3f40444e7f14bba77abc8c2ab9.png",
+      "image": "38d0814d60d8e472d482e228e1563e9d.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20884,7 +20923,7 @@
     },
     {
       "id": "4ab5f7e1",
-      "image": "9cd8bcdfdaec98ec0fa394f7dc65b80e.png",
+      "image": "933df730603181bf63c4dae6203439e9.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20897,7 +20936,7 @@
     },
     {
       "id": "bea1f283",
-      "image": "68f3a611bed5afb4afbcb5994f4e7f21.png",
+      "image": "4c285e7841d917b6ee56b0a01e429edb.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20910,7 +20949,7 @@
     },
     {
       "id": "3bc1c908",
-      "image": "52e0498b5b35ccb3514bb40815beb556.png",
+      "image": "c8014b0cd83907ffadbf4f18966e32e6.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20923,7 +20962,7 @@
     },
     {
       "id": "d91adc9d",
-      "image": "dd23f07a884acb8c3495745fd7901e0a.png",
+      "image": "9c26e67d9ba23b5a9feb6ec934c3f1f5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20936,7 +20975,7 @@
     },
     {
       "id": "c0d4fde8",
-      "image": "8ee1ba37d226f7c990afad9a32871851.png",
+      "image": "3606c1007d320fd755232f754fbc30ac.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20949,7 +20988,7 @@
     },
     {
       "id": "195b1f1e",
-      "image": "a114b898cb6cd321865d9d36217a9557.png",
+      "image": "1598eae8146879a53ee68f5ca2372861.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20962,7 +21001,7 @@
     },
     {
       "id": "8e420fce",
-      "image": "96e423442fa034647c943de945a5e34d.png",
+      "image": "33c17ab0bac01ea6e66aba4f187c037e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20975,7 +21014,7 @@
     },
     {
       "id": "41c6b450",
-      "image": "38ac45967cd7bcb21e9e871cde678167.png",
+      "image": "0b182f9ef576c75a88bbc586538dfb64.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -20988,7 +21027,7 @@
     },
     {
       "id": "2d7ef0e9",
-      "image": "44525953179d0ab01584ab015fb3b24b.png",
+      "image": "1c26a8ea12c200f885c743ca7f8b5a09.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21001,7 +21040,7 @@
     },
     {
       "id": "a184238d",
-      "image": "373264fd6be15f76861cda7e5be9c0b0.png",
+      "image": "f707ee4421ff3087465294416a90564e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21014,7 +21053,7 @@
     },
     {
       "id": "21eb95b0",
-      "image": "e6d660d7c3a809821dca514835ba5d72.png",
+      "image": "b4845ca8270e43805bea3b68faec0848.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21027,7 +21066,7 @@
     },
     {
       "id": "b1aba9df",
-      "image": "5bdefd22894287d1c60892b6de38193c.png",
+      "image": "1297fe760dea508aa9911cfcfec5e999.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21040,7 +21079,7 @@
     },
     {
       "id": "e0722c45",
-      "image": "b0930c58b425063ee3ed8a8087f92c0a.png",
+      "image": "bd0d25a0c8d5087707c9580713db1360.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21053,7 +21092,7 @@
     },
     {
       "id": "0d538188",
-      "image": "f1484a9adb2226b4d4dfea94f83b1fee.png",
+      "image": "6638fae524fe08194416ce49c87d4e5b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21066,7 +21105,7 @@
     },
     {
       "id": "8c9f1d85",
-      "image": "8e4d23da51fb7618c6b11fadff6f9bf5.png",
+      "image": "6aa098e16070d6cb57848e56608243c1.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21079,7 +21118,7 @@
     },
     {
       "id": "813ab2f3",
-      "image": "749e7ede43fa052f1f17b3b5ab31b533.png",
+      "image": "8c1dc72a040c955c4f4a99b78be95107.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21092,7 +21131,7 @@
     },
     {
       "id": "898681b8",
-      "image": "f4ee5c4f5d13da224b862044476565f6.png",
+      "image": "daa1ab1b346b2a35e23c26f1758d847a.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21105,7 +21144,7 @@
     },
     {
       "id": "803c65d8",
-      "image": "6c085e962321294c67f9ce99c56b8961.png",
+      "image": "386e8225dc272d3b63d436504f9a6ed6.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21118,7 +21157,7 @@
     },
     {
       "id": "c8d23c0d",
-      "image": "060c2a9d6239fb156aba036532225c7b.png",
+      "image": "6c7c2d4e83fc49597de51f6699e8b11b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21131,7 +21170,7 @@
     },
     {
       "id": "4418e36a",
-      "image": "16c356c7ea8ef6d99ff3754a441d03b2.png",
+      "image": "a1f7accbc767aaf12cae2e5070109a61.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21144,7 +21183,7 @@
     },
     {
       "id": "53e6426e",
-      "image": "c00e2ccfe8f7190a78ca45153ba4fa8e.png",
+      "image": "9b08b0a097bffe966f50ef722c21841a.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21157,7 +21196,7 @@
     },
     {
       "id": "ae7b9499",
-      "image": "5b4076107fd049a81f975e5b99088be2.png",
+      "image": "d195a11e41e02519c7e5b6d52bfcc116.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21170,7 +21209,7 @@
     },
     {
       "id": "16668b27",
-      "image": "27ab3b6b8646adbeb4b80053e573988e.png",
+      "image": "c41bb16dd5abea2d8465dd6e4bfcd52a.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21183,7 +21222,7 @@
     },
     {
       "id": "7a82bed5",
-      "image": "e85365d224c6e429c9abb24cc06c6b44.png",
+      "image": "8ca2d7c470e0808e542288fec2a966ef.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21196,7 +21235,7 @@
     },
     {
       "id": "cbdbe6cd",
-      "image": "6b3922aa1699b335ff5431f07795d2f5.png",
+      "image": "19100e1106442bf44650f6cda27e19c6.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21209,7 +21248,7 @@
     },
     {
       "id": "9486c81a",
-      "image": "215708b1d74cc0f1115d63686bdf1d7e.png",
+      "image": "0075ad2af53ab6add87bc52621709e04.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21222,7 +21261,7 @@
     },
     {
       "id": "3c2741e9",
-      "image": "a039fb1926125cdf1996038996d68930.png",
+      "image": "c806d60fca271ebedff7dc208c1cf822.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21235,7 +21274,7 @@
     },
     {
       "id": "43c257f9",
-      "image": "5d040abef6067dbd635f89ef82b95a79.png",
+      "image": "eb5a8ff6d2101013102e0b94a6d290de.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21248,7 +21287,7 @@
     },
     {
       "id": "ecd2bd50",
-      "image": "22d13b5c532103c73de9f6336047da57.png",
+      "image": "9cba86a382dba9fa5ccad626bbf436db.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21261,7 +21300,7 @@
     },
     {
       "id": "bf251494",
-      "image": "542b75bb89472a2ef79022adc6d7124f.png",
+      "image": "347286c4deb1328e0b20d9a56dd08ca7.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21274,7 +21313,7 @@
     },
     {
       "id": "c9d17cb1",
-      "image": "a4ab261930bd7f95215237b3dbe41289.png",
+      "image": "7d37722836e85405a7f44fa162e7a902.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21287,7 +21326,7 @@
     },
     {
       "id": "9c5edae1",
-      "image": "058d0cd6cf06e291123bc7c8979d84ab.png",
+      "image": "0050209e94d4e841faf3d799c0b7e787.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21300,7 +21339,7 @@
     },
     {
       "id": "e18bc9cc",
-      "image": "3d97084032b2ee7814bfcd32bf307e98.png",
+      "image": "88366a6561a1bcdfb0a340dbb05f12ef.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21313,7 +21352,7 @@
     },
     {
       "id": "8ca02f59",
-      "image": "eb05ea0c1e1e33c27780bc34e69a3dd5.png",
+      "image": "0ce1aab379d2c4133700fac8fef31bea.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21326,7 +21365,7 @@
     },
     {
       "id": "2478e67a",
-      "image": "fc13d998aa08d12219dc51ae17c4e468.png",
+      "image": "d9f8c210e3cf741a4872fba1ae8d9ff5.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21339,7 +21378,7 @@
     },
     {
       "id": "0afc3fff",
-      "image": "fe7e7621a6236f30231ac5e1c6e021ee.png",
+      "image": "2cd52d2b1930dedc4303857028c9a3a3.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21352,7 +21391,7 @@
     },
     {
       "id": "d7461f55",
-      "image": "52d2e1ef326a833b07fd34e164427f1b.png",
+      "image": "7f3816a94baba909ecb873cc15085856.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21365,7 +21404,7 @@
     },
     {
       "id": "932b61b2",
-      "image": "923f6756970862e4d0850a0814ee3653.png",
+      "image": "9df9bb395053bf32902d89def084d591.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21378,7 +21417,7 @@
     },
     {
       "id": "e0f7e93d",
-      "image": "8f2f46b7d8faa505bab44a47831ab03d.png",
+      "image": "1dadde3f8d822ad4e15dfe42cd30ce0e.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21391,7 +21430,7 @@
     },
     {
       "id": "cdfeb68a",
-      "image": "e0ab0c76edf279bdd8ffd7699fa288d6.png",
+      "image": "f9cea448fe2bfa928f7e8b6a06dfa766.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21404,7 +21443,7 @@
     },
     {
       "id": "169fba51",
-      "image": "0ed12b7c142c347560a7e025339691e5.png",
+      "image": "e2831516565e9f790749058f7b2d9a36.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21417,7 +21456,7 @@
     },
     {
       "id": "9e9d86bb",
-      "image": "98fd074b53deea7ec55b4956e8d8bf20.png",
+      "image": "84a622266ed115b7b26c6c9abcff5091.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21430,7 +21469,7 @@
     },
     {
       "id": "aa7bcc0c",
-      "image": "b7538880e54a3f3116f61ad31726132e.png",
+      "image": "6c92b098875a5c26d6b2ae11cf2a31d8.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21443,7 +21482,7 @@
     },
     {
       "id": "41e5c22c",
-      "image": "3f14f8bc95c1b2f616084f3a8c099d05.png",
+      "image": "4c5baab5df442439d9ff74f3fc1209fc.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21456,7 +21495,7 @@
     },
     {
       "id": "3196fe91",
-      "image": "d8fff6c15ad8582b93dab4a956f4a987.png",
+      "image": "bba230c94fd0e1f423e54c015abfedcc.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21469,7 +21508,7 @@
     },
     {
       "id": "c75cfb9f",
-      "image": "e4c9b6fce422cae0313fd591ac91cf91.png",
+      "image": "a70e4a740dfa7edb7c885578832d9345.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21482,7 +21521,7 @@
     },
     {
       "id": "af0cb4be",
-      "image": "b444434220c93f9acf90686431d9849f.png",
+      "image": "9803d6c80b5fdcbff16bcf631fffcd5b.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21495,7 +21534,7 @@
     },
     {
       "id": "57742502",
-      "image": "a4d80e63c034b67100e57af7888a6f77.png",
+      "image": "2c707e9208d2f9fbb74d67700e930869.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21508,7 +21547,7 @@
     },
     {
       "id": "ce9f5389",
-      "image": "d7e427b25dca9862bc3244df77cd4e0e.png",
+      "image": "2b55d3149ba6db2d382b9167d95b34cf.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21521,7 +21560,7 @@
     },
     {
       "id": "7e6190e8",
-      "image": "edb5c8e313e3cb1639b863ba6e05fcbc.png",
+      "image": "059e4769fcfca903e38b808d865b96e2.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21534,7 +21573,7 @@
     },
     {
       "id": "ef8832ca",
-      "image": "c3bad8c849855e2238796a506f5623a4.png",
+      "image": "50447eb295f22918ec5d1910290aebdf.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21547,7 +21586,7 @@
     },
     {
       "id": "9fa274c6",
-      "image": "4ddcb8ba5b6920ff0d7e178f7e4bacbe.png",
+      "image": "b5f57681606a07ef5a3f3fcd76cbca85.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component vertical with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21559,8 +21598,47 @@
       "isMobile": false
     },
     {
+      "id": "2129e753",
+      "image": "cc74a8668538b7ca4326895bce694533.png",
+      "userAgent": "default",
+      "desc": "ld-stepper web component anchor empty",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "005c1581",
+      "image": "2b55d3149ba6db2d382b9167d95b34cf.png",
+      "userAgent": "default",
+      "desc": "ld-stepper web component anchor with description",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "37105b20",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
+      "userAgent": "default",
+      "desc": "ld-stepper web component anchor with label text",
+      "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "f9f180ef",
-      "image": "ce8ce80b78ad613d284d006daecd7308.png",
+      "image": "cc74a8668538b7ca4326895bce694533.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21573,7 +21651,7 @@
     },
     {
       "id": "75160c9d",
-      "image": "f6521e10d8413cc4881cbb60ab4d954a.png",
+      "image": "bbc32df43033dad775da5082f659fdfd.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21586,7 +21664,7 @@
     },
     {
       "id": "b8745822",
-      "image": "897ca1fb790976067ce68eca025d07cb.png",
+      "image": "090c1bcfa816179adf880cf108dd83f6.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21599,7 +21677,7 @@
     },
     {
       "id": "d34aff01",
-      "image": "897ca1fb790976067ce68eca025d07cb.png",
+      "image": "090c1bcfa816179adf880cf108dd83f6.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21612,7 +21690,7 @@
     },
     {
       "id": "d98c70d8",
-      "image": "6894a03ae7aadacde520289739c8a84e.png",
+      "image": "7b79bc6130fdad6e59e59c29b3a6f91f.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21625,7 +21703,7 @@
     },
     {
       "id": "8f275d9a",
-      "image": "e7ebd62cabb1373425a1df2e7746c0f8.png",
+      "image": "4d762c207ba1aef4d4f277cdb5b697ec.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21638,7 +21716,7 @@
     },
     {
       "id": "6161c34e",
-      "image": "314ac113c0a4757ab3ae09e6d5fefb1c.png",
+      "image": "54c6baa8aa372d749fe49989eefe03ce.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21651,7 +21729,7 @@
     },
     {
       "id": "17074467",
-      "image": "314ac113c0a4757ab3ae09e6d5fefb1c.png",
+      "image": "54c6baa8aa372d749fe49989eefe03ce.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21664,7 +21742,7 @@
     },
     {
       "id": "cd2bc77d",
-      "image": "2a08a88bcc9a1bc82568941ae76fe2b8.png",
+      "image": "069bb6a3a30675cf007fad02bcd9785e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21677,7 +21755,7 @@
     },
     {
       "id": "5c72b9e2",
-      "image": "da1a5659e268fdb96745dbe099d432aa.png",
+      "image": "12db1f0eedd759a512c02e54244e5986.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21690,7 +21768,7 @@
     },
     {
       "id": "162d91c9",
-      "image": "2a08a88bcc9a1bc82568941ae76fe2b8.png",
+      "image": "069bb6a3a30675cf007fad02bcd9785e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21703,7 +21781,7 @@
     },
     {
       "id": "5360c7f8",
-      "image": "da1a5659e268fdb96745dbe099d432aa.png",
+      "image": "12db1f0eedd759a512c02e54244e5986.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21716,7 +21794,7 @@
     },
     {
       "id": "1e77e535",
-      "image": "49f3d1e72a8108a1b6f695c2f117bbf3.png",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21729,7 +21807,7 @@
     },
     {
       "id": "bdd83b7d",
-      "image": "1b9ae4f7bce2fcc18bf687e200ee2911.png",
+      "image": "bb74fdcbbc676b93616fe1ca961fb0cc.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21742,7 +21820,7 @@
     },
     {
       "id": "34bc78fe",
-      "image": "49f3d1e72a8108a1b6f695c2f117bbf3.png",
+      "image": "2f8960fe40df957a5d7a2634abe95a70.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21755,7 +21833,7 @@
     },
     {
       "id": "13868d6d",
-      "image": "1b9ae4f7bce2fcc18bf687e200ee2911.png",
+      "image": "bb74fdcbbc676b93616fe1ca961fb0cc.png",
       "userAgent": "default",
       "desc": "ld-stepper web component default with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21768,7 +21846,7 @@
     },
     {
       "id": "e661c4f0",
-      "image": "a88943b16048bc3ac51d17b8fe5376bc.png",
+      "image": "5587935324246461edf5382e4a9dd609.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21781,7 +21859,7 @@
     },
     {
       "id": "521de7c1",
-      "image": "f2334a69c1885d38096643f764118c02.png",
+      "image": "d066b33799db4b7f395499a0fa3ec724.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21794,7 +21872,7 @@
     },
     {
       "id": "7bcd8f19",
-      "image": "635b53dd6d140b81d823085aa3ee55f8.png",
+      "image": "a87797ee2fcf1e2dbfcfd66e1383358f.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21807,7 +21885,7 @@
     },
     {
       "id": "483269c9",
-      "image": "635b53dd6d140b81d823085aa3ee55f8.png",
+      "image": "a87797ee2fcf1e2dbfcfd66e1383358f.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21820,7 +21898,7 @@
     },
     {
       "id": "de8bc5e0",
-      "image": "117003c06d66c40ac27e8f09a126dbfb.png",
+      "image": "332377c1b897d9467e67dd5fdf1a4540.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21833,7 +21911,7 @@
     },
     {
       "id": "b09ed1ef",
-      "image": "b9c620853cf9809f6a0064bd916d40b0.png",
+      "image": "027d0c2eb42c61b6d4429aadf025eefb.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21846,7 +21924,7 @@
     },
     {
       "id": "57269e5a",
-      "image": "cac4003a2bef700d0ab8c987cd19b4f8.png",
+      "image": "fb25bbf7a34f72d196afe940a817299a.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21859,7 +21937,7 @@
     },
     {
       "id": "d30792b3",
-      "image": "cac4003a2bef700d0ab8c987cd19b4f8.png",
+      "image": "fb25bbf7a34f72d196afe940a817299a.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21872,7 +21950,7 @@
     },
     {
       "id": "d050b9e3",
-      "image": "8247d11878cc2d9f079a622124c38dbd.png",
+      "image": "f59bf0e4f4818cadc8f0b414e78e553b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21885,7 +21963,7 @@
     },
     {
       "id": "0e274b45",
-      "image": "3638d1e3a4618c33d6f1dfdf698eef89.png",
+      "image": "4acfb08f4d9685423ae8dfabe5f31043.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21898,7 +21976,7 @@
     },
     {
       "id": "a5b7b5f3",
-      "image": "8247d11878cc2d9f079a622124c38dbd.png",
+      "image": "f59bf0e4f4818cadc8f0b414e78e553b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21911,7 +21989,7 @@
     },
     {
       "id": "e3daae55",
-      "image": "3638d1e3a4618c33d6f1dfdf698eef89.png",
+      "image": "4acfb08f4d9685423ae8dfabe5f31043.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21924,7 +22002,7 @@
     },
     {
       "id": "b448081b",
-      "image": "8e6784ecefb56011aa7ba042da87ed36.png",
+      "image": "a831722c54d6e69febae2644175cb4c7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21937,7 +22015,7 @@
     },
     {
       "id": "822cc4e1",
-      "image": "28bbe3e4417af3d2601f7585297a0c26.png",
+      "image": "63946b46bf5342b5170eb2ee7c47379d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21950,7 +22028,7 @@
     },
     {
       "id": "18352f9c",
-      "image": "8e6784ecefb56011aa7ba042da87ed36.png",
+      "image": "a831722c54d6e69febae2644175cb4c7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21963,7 +22041,7 @@
     },
     {
       "id": "7080cd5a",
-      "image": "28bbe3e4417af3d2601f7585297a0c26.png",
+      "image": "63946b46bf5342b5170eb2ee7c47379d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21976,7 +22054,7 @@
     },
     {
       "id": "f3d60cf9",
-      "image": "f33854d29b42d080e8cfc3667b08a049.png",
+      "image": "662fddf468ea21fb9b8ced2b79d20525.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -21989,7 +22067,7 @@
     },
     {
       "id": "583d2e0f",
-      "image": "f04345c237be9d9408c3c94f5d16703f.png",
+      "image": "dcf26e84d840b0df429b48dd3cb389ae.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22002,7 +22080,7 @@
     },
     {
       "id": "99aa6fb8",
-      "image": "02cbfa68cf93158088eb62513d6c1bb4.png",
+      "image": "c1304f9e127ddc85e646e132131114ca.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22015,7 +22093,7 @@
     },
     {
       "id": "1f5c9bc3",
-      "image": "7506db759cc1cf1a86eec0032ea8d104.png",
+      "image": "b132abcd2139b6eea484f9ae6f81ab5d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22028,7 +22106,7 @@
     },
     {
       "id": "2d4f9d67",
-      "image": "7506db759cc1cf1a86eec0032ea8d104.png",
+      "image": "b132abcd2139b6eea484f9ae6f81ab5d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22041,7 +22119,7 @@
     },
     {
       "id": "fe11918d",
-      "image": "21dba96c674ab059a517c5ac0b9afd8e.png",
+      "image": "314595576fb728737d5d3a03d0caf260.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22054,7 +22132,7 @@
     },
     {
       "id": "c58b0258",
-      "image": "1c6b1621bce93c411869af59d4684e6f.png",
+      "image": "0dc00fd1c5dccfdc1ee0c7fb2400ae81.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22067,7 +22145,7 @@
     },
     {
       "id": "66cafa5e",
-      "image": "1664e82b9ee4b8a39c17745723fe2c9a.png",
+      "image": "1f416580b1b16f6189f3e7d2665c1b53.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22080,7 +22158,7 @@
     },
     {
       "id": "e819c48a",
-      "image": "1664e82b9ee4b8a39c17745723fe2c9a.png",
+      "image": "1f416580b1b16f6189f3e7d2665c1b53.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22093,7 +22171,7 @@
     },
     {
       "id": "cde80633",
-      "image": "d50b55ad1e487b58c6a9dcda68f1bbc6.png",
+      "image": "27ad1db75dab71ef7d7fee0ddc769371.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22106,7 +22184,7 @@
     },
     {
       "id": "2d5bac6d",
-      "image": "6f5b43a8e30b173e8d5fae9950cbf949.png",
+      "image": "7f63f00258f2ed559bf6dbc45fa29425.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22119,7 +22197,7 @@
     },
     {
       "id": "156ce405",
-      "image": "d50b55ad1e487b58c6a9dcda68f1bbc6.png",
+      "image": "27ad1db75dab71ef7d7fee0ddc769371.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22132,7 +22210,7 @@
     },
     {
       "id": "dc6f6a83",
-      "image": "6f5b43a8e30b173e8d5fae9950cbf949.png",
+      "image": "7f63f00258f2ed559bf6dbc45fa29425.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22145,7 +22223,7 @@
     },
     {
       "id": "56a60137",
-      "image": "e6c90d30830c678674003bf87b14e6b6.png",
+      "image": "67b2a697d8eb88669d9d20572751db71.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22158,7 +22236,7 @@
     },
     {
       "id": "f3749a63",
-      "image": "a701bded4c62cf1888c6da4435bb2ab9.png",
+      "image": "65a33e5174b75180302e6fa23dd040f9.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22171,7 +22249,7 @@
     },
     {
       "id": "de91a715",
-      "image": "e6c90d30830c678674003bf87b14e6b6.png",
+      "image": "67b2a697d8eb88669d9d20572751db71.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22184,7 +22262,7 @@
     },
     {
       "id": "b58fd04d",
-      "image": "a701bded4c62cf1888c6da4435bb2ab9.png",
+      "image": "65a33e5174b75180302e6fa23dd040f9.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22197,7 +22275,7 @@
     },
     {
       "id": "f0927972",
-      "image": "710ed9a3c53634c106359e26c2b3bc22.png",
+      "image": "b692ccdb521e29d25e46a47a6afa1fe7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22210,7 +22288,7 @@
     },
     {
       "id": "a2f56466",
-      "image": "2d949219190925d857af579d53536cc4.png",
+      "image": "9a3d2744e78437cdd51f116402271a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22223,7 +22301,7 @@
     },
     {
       "id": "7f1e7cde",
-      "image": "2d949219190925d857af579d53536cc4.png",
+      "image": "9a3d2744e78437cdd51f116402271a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22236,7 +22314,7 @@
     },
     {
       "id": "1f08e549",
-      "image": "e1b399d85c2ad767bbd7ae41814fe05f.png",
+      "image": "b64da953219c7bec86d838ba560bf75e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22249,7 +22327,7 @@
     },
     {
       "id": "17eb9c7a",
-      "image": "b91c0084913dc3ff8825e309c3e23a02.png",
+      "image": "17fc6b9d2b818b706766687cc438d44f.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22262,7 +22340,7 @@
     },
     {
       "id": "ce24eafe",
-      "image": "32e651de477555466b5810d4001766ea.png",
+      "image": "403bca2e7c5ce55653dad94db7aac6b4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22275,7 +22353,7 @@
     },
     {
       "id": "a1ed20c4",
-      "image": "32e651de477555466b5810d4001766ea.png",
+      "image": "403bca2e7c5ce55653dad94db7aac6b4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22288,7 +22366,7 @@
     },
     {
       "id": "a674de36",
-      "image": "487a0a3117f9e26d114ef6af78c32a1d.png",
+      "image": "cb56e957545d79aa0778f9db2ce3722e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22301,7 +22379,7 @@
     },
     {
       "id": "cc6d03bc",
-      "image": "76d494e9aedc25c6e38e02daa8808ced.png",
+      "image": "19eb0dd28deff7690a039ce7cd867078.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22314,7 +22392,7 @@
     },
     {
       "id": "a0d72761",
-      "image": "dd1f4d19c7381407207511fe2693221a.png",
+      "image": "fffb17055b3ed5e3f65057357c6d85c4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22327,7 +22405,7 @@
     },
     {
       "id": "8c555881",
-      "image": "dd1f4d19c7381407207511fe2693221a.png",
+      "image": "fffb17055b3ed5e3f65057357c6d85c4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22340,7 +22418,7 @@
     },
     {
       "id": "1cf20c65",
-      "image": "a36e62f4dfaaf368d3840a2850c8e3bd.png",
+      "image": "bc30d494bad7a325d54c721f288838d9.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22353,7 +22431,7 @@
     },
     {
       "id": "dd324caf",
-      "image": "bde9a69a7479a145e52144a8bd6074f2.png",
+      "image": "fec4521b1bc3dd5a51e7c656120264c5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22366,7 +22444,7 @@
     },
     {
       "id": "2b36904e",
-      "image": "a36e62f4dfaaf368d3840a2850c8e3bd.png",
+      "image": "bc30d494bad7a325d54c721f288838d9.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22379,7 +22457,7 @@
     },
     {
       "id": "26a64454",
-      "image": "bde9a69a7479a145e52144a8bd6074f2.png",
+      "image": "fec4521b1bc3dd5a51e7c656120264c5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22392,7 +22470,7 @@
     },
     {
       "id": "abbe622f",
-      "image": "0968bd04b851ff3baa5233ba5c0385a6.png",
+      "image": "39daeb73993749d8a80181fa984f7e2c.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22405,7 +22483,7 @@
     },
     {
       "id": "82421df7",
-      "image": "fe001a4a6f09e6328dc5506b3be3bcaf.png",
+      "image": "a7ac2f201b79010c1ab9cc74af7f6e85.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22418,7 +22496,7 @@
     },
     {
       "id": "1668938b",
-      "image": "0968bd04b851ff3baa5233ba5c0385a6.png",
+      "image": "39daeb73993749d8a80181fa984f7e2c.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22431,7 +22509,7 @@
     },
     {
       "id": "de1bef73",
-      "image": "fe001a4a6f09e6328dc5506b3be3bcaf.png",
+      "image": "a7ac2f201b79010c1ab9cc74af7f6e85.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22444,7 +22522,7 @@
     },
     {
       "id": "0dc2288f",
-      "image": "b883d5e46fb4f02c803713ac02f48fa7.png",
+      "image": "7e58324729bbf4ea6b8d12bb23f78b30.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22457,7 +22535,7 @@
     },
     {
       "id": "602a3086",
-      "image": "13915f4fe84d813b3fd5c0aa24016b53.png",
+      "image": "6afe3d806a1f0da66ec718c3f6075829.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22470,7 +22548,7 @@
     },
     {
       "id": "d96ce15a",
-      "image": "b4638a924d291a0883ef7a0074c11606.png",
+      "image": "85e2bf71e6ef3cbf1cacae7a36589e46.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22483,7 +22561,7 @@
     },
     {
       "id": "2e4e28db",
-      "image": "b4638a924d291a0883ef7a0074c11606.png",
+      "image": "85e2bf71e6ef3cbf1cacae7a36589e46.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22496,7 +22574,7 @@
     },
     {
       "id": "a12ec58c",
-      "image": "9fe06ca7807f955a16fb0eb9c4316bcd.png",
+      "image": "19ad49ab051b6ea9735fe6752d3695c7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22509,7 +22587,7 @@
     },
     {
       "id": "e6b07196",
-      "image": "667d499de5f650d36756c82d7ca75f4b.png",
+      "image": "206964dda4fda4d6863bed26e4449585.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22522,7 +22600,7 @@
     },
     {
       "id": "fe9c60d3",
-      "image": "9fe06ca7807f955a16fb0eb9c4316bcd.png",
+      "image": "19ad49ab051b6ea9735fe6752d3695c7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22535,7 +22613,7 @@
     },
     {
       "id": "7a2c7cab",
-      "image": "667d499de5f650d36756c82d7ca75f4b.png",
+      "image": "206964dda4fda4d6863bed26e4449585.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22548,7 +22626,7 @@
     },
     {
       "id": "699e28b4",
-      "image": "c2961605cede93f443d326bf15ba0e5b.png",
+      "image": "38b10666b6342c584b55f8a9bccedbf5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22561,7 +22639,7 @@
     },
     {
       "id": "9f152ca3",
-      "image": "d3834233b6ec6101a1d323ef8ef0f909.png",
+      "image": "7e4fa09a62005e3769b1eaa54b1143f7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22574,7 +22652,7 @@
     },
     {
       "id": "1871015b",
-      "image": "c2961605cede93f443d326bf15ba0e5b.png",
+      "image": "38b10666b6342c584b55f8a9bccedbf5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22587,7 +22665,7 @@
     },
     {
       "id": "f7a1a7c3",
-      "image": "d3834233b6ec6101a1d323ef8ef0f909.png",
+      "image": "7e4fa09a62005e3769b1eaa54b1143f7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22600,7 +22678,7 @@
     },
     {
       "id": "fbba5885",
-      "image": "3d7e519231fd69a35b7a43d1227a50ad.png",
+      "image": "3b39bb948b4bca7866551aa3559df3fc.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22613,7 +22691,7 @@
     },
     {
       "id": "44f95aa1",
-      "image": "befde2c7e7e57a7b956dff049fbbb39f.png",
+      "image": "5a83a0be6d5ea69620c9b3fb725f34f3.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22626,7 +22704,7 @@
     },
     {
       "id": "1c227d44",
-      "image": "6045e0bbc250d9064d5556ceacb8be9c.png",
+      "image": "ececdce1d821495f33931affc4c14a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22639,7 +22717,7 @@
     },
     {
       "id": "37ea90c3",
-      "image": "6045e0bbc250d9064d5556ceacb8be9c.png",
+      "image": "ececdce1d821495f33931affc4c14a4d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22652,7 +22730,7 @@
     },
     {
       "id": "3f9885b4",
-      "image": "c1ba579e4151050bb229df903816dc7d.png",
+      "image": "e1da8afa743db02e498cf566a9b7b04e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22665,7 +22743,7 @@
     },
     {
       "id": "70729c31",
-      "image": "932a5a630ddcd83ee421cc6d9274b28f.png",
+      "image": "58f3617e2700a77e7512a5707eb63143.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22678,7 +22756,7 @@
     },
     {
       "id": "fbddd3ea",
-      "image": "6e21bf1fde0338b2c337b46b470d21b9.png",
+      "image": "fed8dca944406077a71da7ed49ea91f5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22691,7 +22769,7 @@
     },
     {
       "id": "eee65b76",
-      "image": "6e21bf1fde0338b2c337b46b470d21b9.png",
+      "image": "fed8dca944406077a71da7ed49ea91f5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22704,7 +22782,7 @@
     },
     {
       "id": "9fb1cca1",
-      "image": "7af9d15cd0de2d210857e39b64bfcbee.png",
+      "image": "ad9d00728d06711f87e7202a72d70c30.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22717,7 +22795,7 @@
     },
     {
       "id": "7d376e9a",
-      "image": "a089f9b61b07f89f2e2b6afb0b1ab1e2.png",
+      "image": "9e4f6dc7b317cd7e5ad547ce7fbf2b42.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22730,7 +22808,7 @@
     },
     {
       "id": "12f2b9d7",
-      "image": "7af9d15cd0de2d210857e39b64bfcbee.png",
+      "image": "ad9d00728d06711f87e7202a72d70c30.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22743,7 +22821,7 @@
     },
     {
       "id": "07a5ec1b",
-      "image": "a089f9b61b07f89f2e2b6afb0b1ab1e2.png",
+      "image": "9e4f6dc7b317cd7e5ad547ce7fbf2b42.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22756,7 +22834,7 @@
     },
     {
       "id": "1307eb84",
-      "image": "a545cb89f2069372fff51a66390646de.png",
+      "image": "8cef080e9c214e63f01346a9aaabf7b4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22769,7 +22847,7 @@
     },
     {
       "id": "fcdbf061",
-      "image": "601d7adf912e48e56864609266587860.png",
+      "image": "b20d6bc9799f8ad025513cb52aa47dac.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22782,7 +22860,7 @@
     },
     {
       "id": "7a4019ee",
-      "image": "a545cb89f2069372fff51a66390646de.png",
+      "image": "8cef080e9c214e63f01346a9aaabf7b4.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22795,7 +22873,7 @@
     },
     {
       "id": "c73aeebe",
-      "image": "601d7adf912e48e56864609266587860.png",
+      "image": "b20d6bc9799f8ad025513cb52aa47dac.png",
       "userAgent": "default",
       "desc": "ld-stepper web component sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22808,7 +22886,7 @@
     },
     {
       "id": "4c7a3cfa",
-      "image": "6deaf392e442f3c7fa94062ad49f8bae.png",
+      "image": "7d0d644c3901b9e88d535edf4d6db7e7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22821,7 +22899,7 @@
     },
     {
       "id": "129f054d",
-      "image": "935d594f1765bb576fc6557407f3ebcf.png",
+      "image": "270ba6993bfee1b98c92489edf30da45.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22834,7 +22912,7 @@
     },
     {
       "id": "42eb9b27",
-      "image": "ff03fe964acdef974a41baa599c224dd.png",
+      "image": "11deb951259bc78e3fb804dace594e87.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22847,7 +22925,7 @@
     },
     {
       "id": "b685a4a6",
-      "image": "8c9493407d87a6fd3a838d0686c3c399.png",
+      "image": "df946b8fe524bae2fca48bd31f492693.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22860,7 +22938,7 @@
     },
     {
       "id": "e8693f6f",
-      "image": "a25411dda6c378c92606673845c26a95.png",
+      "image": "67ee6bd2095088ce759e3f7f60d24db2.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22873,7 +22951,7 @@
     },
     {
       "id": "368cfa6a",
-      "image": "e08436295ffd6fa11a8212019c46de92.png",
+      "image": "2f8680329e2421f56c94f3a025d6a18e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22886,7 +22964,7 @@
     },
     {
       "id": "b30236f4",
-      "image": "1b3c7ad68fb39c99ed85b688c8f8483d.png",
+      "image": "90f7c71b66d866b17aa23ac90cb91c76.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22899,7 +22977,7 @@
     },
     {
       "id": "19ce74c4",
-      "image": "778618f01663ecf7cef09766db7e5396.png",
+      "image": "e2aaa7c24747a656d1a6f8db860389da.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22912,7 +22990,7 @@
     },
     {
       "id": "98b6292f",
-      "image": "a765fe7e50d85e98d2cb3032b546df47.png",
+      "image": "ccd2e019e95e44b6efcbba98e8597f72.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22925,7 +23003,7 @@
     },
     {
       "id": "3d53b64c",
-      "image": "140365dceaefdbb822e4bc4f0f36846e.png",
+      "image": "f5fc45ea119348f0cc13b118bf1cc3ba.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22938,7 +23016,7 @@
     },
     {
       "id": "e80b55e9",
-      "image": "c11491e47f971706ce148cc4617b15e8.png",
+      "image": "37ee05a87c1e2ec2cad2dfc55788c953.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22951,7 +23029,7 @@
     },
     {
       "id": "603daded",
-      "image": "5cc823919018c9d9d2bffbcad1d5e970.png",
+      "image": "aad655477d4142194af558388e70b8ce.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22964,7 +23042,7 @@
     },
     {
       "id": "08d4481e",
-      "image": "507dbf0fa6d13743ec00f2d5e4423533.png",
+      "image": "96ac16ae798edcc0ddc4f88d2ce571f3.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22977,7 +23055,7 @@
     },
     {
       "id": "feb8e810",
-      "image": "af6a7e5b9491032d4a2e127ac19ead45.png",
+      "image": "05218c0a29e50075e441360abab718b2.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -22990,7 +23068,7 @@
     },
     {
       "id": "65b7bf61",
-      "image": "4734217c56b7fc4fe427815033b07a15.png",
+      "image": "82d3fccd43ff8010508f7531dfdb1a25.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23003,7 +23081,7 @@
     },
     {
       "id": "b0fb9426",
-      "image": "0f9f8f4799daf39be76244ef33a4b6f4.png",
+      "image": "4998049387ef539769fd1828310600bd.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23016,7 +23094,7 @@
     },
     {
       "id": "1e134206",
-      "image": "f61838d3389d7303b1a6bc3c5df05d25.png",
+      "image": "b29fbe110c767afe11c3d574421169c7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23029,7 +23107,7 @@
     },
     {
       "id": "b6cab1a4",
-      "image": "d819f7d5f41b609bec86896b8bc4e289.png",
+      "image": "9781c861633b61c643cd8937524e9996.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23042,7 +23120,7 @@
     },
     {
       "id": "94648ad2",
-      "image": "9e39f361274ed34b3a6e95025732f620.png",
+      "image": "b9f82799660d767469d526445a816b5b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23055,7 +23133,7 @@
     },
     {
       "id": "ae20f5a0",
-      "image": "1ab5f08625a4a67f43f87b22a89ab522.png",
+      "image": "49df20d28a6844dc3be64e13d484a308.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23068,7 +23146,7 @@
     },
     {
       "id": "8140a59e",
-      "image": "d7261bde3985309a1a5d4214196e8f5c.png",
+      "image": "657bf7dc4234274257595a81eaf3329e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23081,7 +23159,7 @@
     },
     {
       "id": "7006b989",
-      "image": "d6f1031b2097e3a3987e0824a9a65f44.png",
+      "image": "a500ec6e0641db2e1231ccd43def9166.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23094,7 +23172,7 @@
     },
     {
       "id": "15b2b5f6",
-      "image": "23e5fb33bd7df49f87732eeee50166e7.png",
+      "image": "8905ac128fbe7ad253a2515437ecc6e2.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23107,7 +23185,7 @@
     },
     {
       "id": "83315bbf",
-      "image": "76cbe8b3238f6a882e97255d82811f65.png",
+      "image": "8cef7218f4c37c4658bc71a64536d084.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23120,7 +23198,7 @@
     },
     {
       "id": "efb09c03",
-      "image": "f39a22cddbb10aaea3dae876510babbf.png",
+      "image": "6a5f26ea85159dfd05b47743ff9ace76.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23133,7 +23211,7 @@
     },
     {
       "id": "f3843ab1",
-      "image": "72920665c4dc00184f74505f2fd2dcc1.png",
+      "image": "b36ab511761fec91ae65169cac4dc3da.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23146,7 +23224,7 @@
     },
     {
       "id": "688f4d2c",
-      "image": "c62de5d08cfb32aa204e0a251c6aae8b.png",
+      "image": "96b0fd32bc4bf2d92450ffb165389ead.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23159,7 +23237,7 @@
     },
     {
       "id": "0b2f8c72",
-      "image": "5f70f067b05693fda27adfb65e8b2379.png",
+      "image": "d802473eb22e3fa9d595192fb3be50c5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23172,7 +23250,7 @@
     },
     {
       "id": "4f44a2ce",
-      "image": "c830da2ca9df6c939214d6a71dcad4e9.png",
+      "image": "49ff99d1c05edb8fc91d92e8caeefd14.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23185,7 +23263,7 @@
     },
     {
       "id": "363c8b17",
-      "image": "00e260b2add86ce0de44f30d81db4e44.png",
+      "image": "101327a2ec2284dc118781c5ad996038.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23198,7 +23276,7 @@
     },
     {
       "id": "1341ab1d",
-      "image": "e7dcb38e410b192c2837b5bc92eace83.png",
+      "image": "6111a9279befc36de84a012b17acf176.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23211,7 +23289,7 @@
     },
     {
       "id": "a21eabdf",
-      "image": "5fe0cafa3590dabb79ace5ebd094ce73.png",
+      "image": "f8e3f07b05e8a3bc07cd565d1eb5433e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23224,7 +23302,7 @@
     },
     {
       "id": "293aa1cc",
-      "image": "59cbbd2504e4a1aeb5d825fb4b605ff2.png",
+      "image": "5be770711f93461f289f7dff5e81b774.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23237,7 +23315,7 @@
     },
     {
       "id": "85a61956",
-      "image": "a7966ac6821b2132a629004358095fbf.png",
+      "image": "27d19fe5451189ca40d033717ac8c05e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color lg with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23250,7 +23328,7 @@
     },
     {
       "id": "eeecd136",
-      "image": "589249c1797d66236f4ac842bb1b69d7.png",
+      "image": "f58beadb70924649960ca34ec373c1f8.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23263,7 +23341,7 @@
     },
     {
       "id": "b9caac20",
-      "image": "63a76ab875a6d971ee83e72aac8d035f.png",
+      "image": "c3403c38e9c0444fd9931cfdb952fb24.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23276,7 +23354,7 @@
     },
     {
       "id": "bfe75873",
-      "image": "50b47c3e9b991a0b7d562a24faab620a.png",
+      "image": "896c2d7a4c6ad274c987e9f964bec609.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23289,7 +23367,7 @@
     },
     {
       "id": "eac725c7",
-      "image": "2704c37592091c999715ed3931f39a99.png",
+      "image": "982e7e424a570b193fdc20669d52ec81.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23302,7 +23380,7 @@
     },
     {
       "id": "b4d90227",
-      "image": "b36afd8782a4c8817cc41324d58c42e0.png",
+      "image": "9e491dd13579ccf0db2cc0403a583b8f.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23315,7 +23393,7 @@
     },
     {
       "id": "96f35d8d",
-      "image": "367586f296f8e5ec053d1b855473d1c0.png",
+      "image": "bf7ea661ee8710c81c635b39954caee2.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23328,7 +23406,7 @@
     },
     {
       "id": "e6d18512",
-      "image": "93b8aafee7c06038d47c4fbbf11f507a.png",
+      "image": "2b4b9f501367bbb706b6ff55084b1afe.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23341,7 +23419,7 @@
     },
     {
       "id": "4262ce55",
-      "image": "bd099f947bd427ffcb21ac9f64e48cf5.png",
+      "image": "d0b0e98d413c1e2305e806d96c725c48.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23354,7 +23432,7 @@
     },
     {
       "id": "d22d08ee",
-      "image": "5a2fbfe2fab71ed2b41db0fbbfae1469.png",
+      "image": "63d3189727e8327e7b2b1e20917cbd21.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23367,7 +23445,7 @@
     },
     {
       "id": "21e6c561",
-      "image": "8b8dabae85c3bf38edced12262230f66.png",
+      "image": "38d0814d60d8e472d482e228e1563e9d.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23380,7 +23458,7 @@
     },
     {
       "id": "8630254d",
-      "image": "fae8d4c0952b207ac64a7ba08f44b6c3.png",
+      "image": "933df730603181bf63c4dae6203439e9.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23393,7 +23471,7 @@
     },
     {
       "id": "d25be59a",
-      "image": "0cfe2484643f2daded9ed80457002b54.png",
+      "image": "4c285e7841d917b6ee56b0a01e429edb.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23406,7 +23484,7 @@
     },
     {
       "id": "8ff7e929",
-      "image": "8f0daf0d332e8f0c928d0d145fd43cbd.png",
+      "image": "c8014b0cd83907ffadbf4f18966e32e6.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23419,7 +23497,7 @@
     },
     {
       "id": "34e0a1b5",
-      "image": "84e6402216565794eb9db0955b753195.png",
+      "image": "9c26e67d9ba23b5a9feb6ec934c3f1f5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23432,7 +23510,7 @@
     },
     {
       "id": "19f96d9d",
-      "image": "1c0e017f46e3cd2aafa96de3fc01649b.png",
+      "image": "3606c1007d320fd755232f754fbc30ac.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23445,7 +23523,7 @@
     },
     {
       "id": "5a2ba426",
-      "image": "a41d7a51be152e1a3ace333dc6bff6a6.png",
+      "image": "1598eae8146879a53ee68f5ca2372861.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23458,7 +23536,7 @@
     },
     {
       "id": "62e5892f",
-      "image": "d63521f8b166058eb03f4b19b9465955.png",
+      "image": "33c17ab0bac01ea6e66aba4f187c037e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23471,7 +23549,7 @@
     },
     {
       "id": "85009a1a",
-      "image": "fc8e8dccaf48a71a0ca33ab3e3bde013.png",
+      "image": "0b182f9ef576c75a88bbc586538dfb64.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23484,7 +23562,7 @@
     },
     {
       "id": "7da5594e",
-      "image": "8a83d126e374d7f07cc0a1d0a43ae703.png",
+      "image": "1c26a8ea12c200f885c743ca7f8b5a09.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23497,7 +23575,7 @@
     },
     {
       "id": "bbb8bf60",
-      "image": "373264fd6be15f76861cda7e5be9c0b0.png",
+      "image": "f707ee4421ff3087465294416a90564e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23510,7 +23588,7 @@
     },
     {
       "id": "f41a1461",
-      "image": "e6d660d7c3a809821dca514835ba5d72.png",
+      "image": "b4845ca8270e43805bea3b68faec0848.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23523,7 +23601,7 @@
     },
     {
       "id": "342c4702",
-      "image": "930015c536e3ddc3187ec46f1bd12044.png",
+      "image": "1297fe760dea508aa9911cfcfec5e999.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23536,7 +23614,7 @@
     },
     {
       "id": "1aa5317e",
-      "image": "32ae60d91b8ed704e6e6d4db2e03726a.png",
+      "image": "bd0d25a0c8d5087707c9580713db1360.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23549,7 +23627,7 @@
     },
     {
       "id": "61d2406e",
-      "image": "134b4ef032be718c8525d292b6032528.png",
+      "image": "6638fae524fe08194416ce49c87d4e5b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23562,7 +23640,7 @@
     },
     {
       "id": "e482cedf",
-      "image": "73d7d52576db3813d6d430ac01654656.png",
+      "image": "6aa098e16070d6cb57848e56608243c1.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23575,7 +23653,7 @@
     },
     {
       "id": "4b6dfd89",
-      "image": "7dedce6cc90cdd62c20c75ace0e0c05c.png",
+      "image": "8c1dc72a040c955c4f4a99b78be95107.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23588,7 +23666,7 @@
     },
     {
       "id": "cf8f572f",
-      "image": "77a03fbf7bca14c74f21f9cb0bd3c703.png",
+      "image": "daa1ab1b346b2a35e23c26f1758d847a.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23601,7 +23679,7 @@
     },
     {
       "id": "5bb3ddea",
-      "image": "f829a25370fd9ba5d5cb0ca281642865.png",
+      "image": "386e8225dc272d3b63d436504f9a6ed6.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23614,7 +23692,7 @@
     },
     {
       "id": "7d30ab58",
-      "image": "6417ddb47710a19dbe2cba8d155f78fb.png",
+      "image": "6c7c2d4e83fc49597de51f6699e8b11b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23627,7 +23705,7 @@
     },
     {
       "id": "ae405051",
-      "image": "63f6d5291ed63d7db67ff98b00b34f51.png",
+      "image": "a1f7accbc767aaf12cae2e5070109a61.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23640,7 +23718,7 @@
     },
     {
       "id": "1d67894d",
-      "image": "2d46ee05683db8249fc7a3a4a0c8b151.png",
+      "image": "9b08b0a097bffe966f50ef722c21841a.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical on brand color with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23653,7 +23731,7 @@
     },
     {
       "id": "8ff90a3a",
-      "image": "5b4076107fd049a81f975e5b99088be2.png",
+      "image": "d195a11e41e02519c7e5b6d52bfcc116.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23666,7 +23744,7 @@
     },
     {
       "id": "6bc52e57",
-      "image": "5eaf216b0a98fe0b85c3c9b054693d3d.png",
+      "image": "c41bb16dd5abea2d8465dd6e4bfcd52a.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23679,7 +23757,7 @@
     },
     {
       "id": "d6bc24b1",
-      "image": "35e7a85cfb4649db9599eaa58bbe801c.png",
+      "image": "8ca2d7c470e0808e542288fec2a966ef.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23692,7 +23770,7 @@
     },
     {
       "id": "ad4be436",
-      "image": "6b3922aa1699b335ff5431f07795d2f5.png",
+      "image": "19100e1106442bf44650f6cda27e19c6.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23705,7 +23783,7 @@
     },
     {
       "id": "74343636",
-      "image": "215708b1d74cc0f1115d63686bdf1d7e.png",
+      "image": "0075ad2af53ab6add87bc52621709e04.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23718,7 +23796,7 @@
     },
     {
       "id": "e9ee5224",
-      "image": "b7c063874b69a4bc0d7a599d4c4a2932.png",
+      "image": "c806d60fca271ebedff7dc208c1cf822.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23731,7 +23809,7 @@
     },
     {
       "id": "90851ebc",
-      "image": "15fa6388d0a7b50e383d04e072540984.png",
+      "image": "eb5a8ff6d2101013102e0b94a6d290de.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23744,7 +23822,7 @@
     },
     {
       "id": "9cf07d73",
-      "image": "22d13b5c532103c73de9f6336047da57.png",
+      "image": "9cba86a382dba9fa5ccad626bbf436db.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23757,7 +23835,7 @@
     },
     {
       "id": "161a3d45",
-      "image": "542b75bb89472a2ef79022adc6d7124f.png",
+      "image": "347286c4deb1328e0b20d9a56dd08ca7.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23770,7 +23848,7 @@
     },
     {
       "id": "b69d193b",
-      "image": "d92361a0bbf404c5f46c09564dfb238d.png",
+      "image": "7d37722836e85405a7f44fa162e7a902.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23783,7 +23861,7 @@
     },
     {
       "id": "635eef66",
-      "image": "0bcd9897a4d6d0c36b0ffa82978898cc.png",
+      "image": "0050209e94d4e841faf3d799c0b7e787.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23796,7 +23874,7 @@
     },
     {
       "id": "f32f4fac",
-      "image": "582c02dfb2bf961e09389520136b2ca5.png",
+      "image": "88366a6561a1bcdfb0a340dbb05f12ef.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23809,7 +23887,7 @@
     },
     {
       "id": "661638f5",
-      "image": "b1d0acbcb105bc3aa1973e09a7377fb0.png",
+      "image": "0ce1aab379d2c4133700fac8fef31bea.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23822,7 +23900,7 @@
     },
     {
       "id": "7c973429",
-      "image": "ab87ae841ed55b78b22b729261903400.png",
+      "image": "d9f8c210e3cf741a4872fba1ae8d9ff5.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23835,7 +23913,7 @@
     },
     {
       "id": "27d341c8",
-      "image": "2b3100c167de9e81e06ef751104b624d.png",
+      "image": "2cd52d2b1930dedc4303857028c9a3a3.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23848,7 +23926,7 @@
     },
     {
       "id": "c966def0",
-      "image": "5d99016541a7dac452fc78ea6af4601a.png",
+      "image": "7f3816a94baba909ecb873cc15085856.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23861,7 +23939,7 @@
     },
     {
       "id": "8e2a3d14",
-      "image": "b03a59e6632432e1adfb9d1fa6ebdc65.png",
+      "image": "9df9bb395053bf32902d89def084d591.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23874,7 +23952,7 @@
     },
     {
       "id": "1981494a",
-      "image": "18fe2f12c49d90c510327e9319f328d0.png",
+      "image": "1dadde3f8d822ad4e15dfe42cd30ce0e.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23887,7 +23965,7 @@
     },
     {
       "id": "6919f169",
-      "image": "fcb75988350902d0664876743b3f647c.png",
+      "image": "f9cea448fe2bfa928f7e8b6a06dfa766.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical sm with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23900,7 +23978,7 @@
     },
     {
       "id": "00b6fcaf",
-      "image": "0ed12b7c142c347560a7e025339691e5.png",
+      "image": "e2831516565e9f790749058f7b2d9a36.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23913,7 +23991,7 @@
     },
     {
       "id": "27f27f7a",
-      "image": "98fd074b53deea7ec55b4956e8d8bf20.png",
+      "image": "84a622266ed115b7b26c6c9abcff5091.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons optional empty",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23926,7 +24004,7 @@
     },
     {
       "id": "f0bca5bb",
-      "image": "4ed7cda7c1f2e91c7bb466e8d51ee738.png",
+      "image": "6c92b098875a5c26d6b2ae11cf2a31d8.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23939,7 +24017,7 @@
     },
     {
       "id": "fc4ca1e6",
-      "image": "0971808f513f1e04fcd1157792df42d5.png",
+      "image": "4c5baab5df442439d9ff74f3fc1209fc.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons optional with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23952,7 +24030,7 @@
     },
     {
       "id": "9eac6301",
-      "image": "b7fee09cc661564554d58cf1ca8f2519.png",
+      "image": "bba230c94fd0e1f423e54c015abfedcc.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23965,7 +24043,7 @@
     },
     {
       "id": "9b094f21",
-      "image": "05a8e2bd0f2bbf797b8860d468fa0acd.png",
+      "image": "a70e4a740dfa7edb7c885578832d9345.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23978,7 +24056,7 @@
     },
     {
       "id": "e63125da",
-      "image": "b4e44d012305614eb2b2a8d824f7d8bc.png",
+      "image": "9803d6c80b5fdcbff16bcf631fffcd5b.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -23991,7 +24069,7 @@
     },
     {
       "id": "05280938",
-      "image": "9b44b1b5c722135227675812f96683e2.png",
+      "image": "2c707e9208d2f9fbb74d67700e930869.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with custom icons with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -24004,7 +24082,7 @@
     },
     {
       "id": "77c3b8be",
-      "image": "a64d218202dc3a6cc573a935e5d64110.png",
+      "image": "2b55d3149ba6db2d382b9167d95b34cf.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -24017,7 +24095,7 @@
     },
     {
       "id": "0b81fd71",
-      "image": "a2b491abc59135795eed26933af102fa.png",
+      "image": "059e4769fcfca903e38b808d865b96e2.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with description (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -24030,7 +24108,7 @@
     },
     {
       "id": "e7b5dfec",
-      "image": "c3863a81c3c23393978701554a3c12eb.png",
+      "image": "50447eb295f22918ec5d1910290aebdf.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with label text",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",
@@ -24043,7 +24121,7 @@
     },
     {
       "id": "7014ed0a",
-      "image": "f8569508fea923a86332a12e322b626d.png",
+      "image": "b5f57681606a07ef5a3f3fcd76cbca85.png",
       "userAgent": "default",
       "desc": "ld-stepper web component vertical with label text (fit-content)",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",

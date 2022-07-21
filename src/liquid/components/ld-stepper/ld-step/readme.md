@@ -26,7 +26,9 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 | `brandColor`       | `brand-color`        | Switch colors for brand background                                                  | `boolean`          | `false`          |
 | `current`          | `current`            | Step is the current step                                                            | `boolean`          | `false`          |
 | `description`      | `description`        | Description text to display below the step name (vertical mode only)                | `string`           | `undefined`      |
+| `disabled`         | `disabled`           | Step is not clickable                                                               | `boolean`          | `false`          |
 | `done`             | `done`               | Step is done                                                                        | `boolean`          | `false`          |
+| `href`             | `href`               | Link to the step (makes the step an anchor instead of a button)                     | `string`           | `undefined`      |
 | `icon`             | `icon`               | Permanently show a custom icon inside the dot                                       | `string`           | `undefined`      |
 | `key`              | `key`                | for tracking the node's identity when working with lists                            | `string \| number` | `undefined`      |
 | `labelCurrent`     | `label-current`      | Label for current step (scree-reader only)                                          | `string`           | `'Current'`      |
@@ -34,7 +36,9 @@ Please refer to the [`ld-stepper` documentation](components/ld-stepper) for usag
 | `labelOptional`    | `label-optional`     | Label for step that is optional (scree-reader only)                                 | `string`           | `'Optional'`     |
 | `labelSkipped`     | `label-skipped`      | Label for step that was skipped (scree-reader only)                                 | `string`           | `'Skipped'`      |
 | `labelWasOptional` | `label-was-optional` | Additional hint in label for step that is done and was optional (scree-reader only) | `string`           | `'was optional'` |
+| `lastActive`       | `last-active`        | Indicates that the next step is not active                                          | `boolean`          | `false`          |
 | `ldTabindex`       | `ld-tabindex`        | Tab index of the step                                                               | `number`           | `undefined`      |
+| `next`             | `next`               | Step can be processed next                                                          | `boolean`          | `false`          |
 | `optional`         | `optional`           | Step may be skipped                                                                 | `boolean`          | `false`          |
 | `ref`              | `ref`                | reference to component                                                              | `any`              | `undefined`      |
 | `size`             | `size`               | Step size                                                                           | `"lg" \| "sm"`     | `undefined`      |
@@ -64,12 +68,13 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part            | Description                                  |
-| --------------- | -------------------------------------------- |
-| `"button"`      | actual `button` element                      |
-| `"description"` | `span` element wrapping the description text |
-| `"focusable"`   |                                              |
-| `"li"`          | actual `li` element                          |
+| Part            | Description                                                 |
+| --------------- | ----------------------------------------------------------- |
+| `"a"`           | actual `a` element                                          |
+| `"button"`      | actual `button` element                                     |
+| `"description"` | `span` element wrapping the description text                |
+| `"focusable"`   | focusable `a` or `button` element, depending on `href` prop |
+| `"li"`          | actual `li` element                                         |
 
 
 ## Dependencies

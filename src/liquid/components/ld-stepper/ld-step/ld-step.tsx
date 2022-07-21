@@ -15,8 +15,10 @@ export type SelectedDetail = { index: number; label: string }
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part description - `span` element wrapping the description text
+ * @part a - actual `a` element
  * @part button - actual `button` element
+ * @part description - `span` element wrapping the description text
+ * @part focusable - focusable `a` or `button` element, depending on `href` prop
  * @part li - actual `li` element
  */
 @Component({
@@ -26,7 +28,7 @@ export type SelectedDetail = { index: number; label: string }
 })
 export class LdStep implements InnerFocusable {
   @Element() el: HTMLLdStepElement
-  private button: HTMLButtonElement
+  private focusableElement: HTMLButtonElement | HTMLAnchorElement
 
   /** Switch colors for brand background */
   @Prop() brandColor = false
@@ -34,8 +36,12 @@ export class LdStep implements InnerFocusable {
   @Prop() current = false
   /** Description text to display below the step name (vertical mode only) */
   @Prop() description: string
+  /** Step is not clickable */
+  @Prop() disabled = false
   /** Step is done */
   @Prop() done = false
+  /** Link to the step (makes the step an anchor instead of a button) */
+  @Prop() href?: string
   /** Permanently show a custom icon inside the dot */
   @Prop() icon?: HTMLLdIconElement['name']
   /** Label for current step (scree-reader only) */
@@ -48,8 +54,12 @@ export class LdStep implements InnerFocusable {
   @Prop() labelSkipped = 'Skipped'
   /** Additional hint in label for step that is done and was optional (scree-reader only) */
   @Prop() labelWasOptional = 'was optional'
+  /** Indicates that the next step is not active */
+  @Prop() lastActive = false
   /** Tab index of the step */
   @Prop() ldTabindex: number | undefined
+  /** Step can be processed next */
+  @Prop() next = false
   /** Step may be skipped */
   @Prop() optional = false
   /** Step size */
@@ -64,7 +74,7 @@ export class LdStep implements InnerFocusable {
   /** Sets focus on the step */
   @Method()
   async focusInner() {
-    this.button?.focus()
+    this.focusableElement?.focus()
   }
 
   handleClick = () => {
@@ -83,7 +93,7 @@ export class LdStep implements InnerFocusable {
   }
 
   render() {
-    const enabled = this.done || this.skipped || this.current
+    const Component = this.href ? 'a' : 'button'
 
     return (
       <Host>
@@ -95,6 +105,8 @@ export class LdStep implements InnerFocusable {
             this.done && 'ld-step--done',
             this.icon && 'ld-step--custom-icon',
             (this.done || this.icon) && 'ld-step--with-icon',
+            this.lastActive && 'ld-step--last-active',
+            this.next && 'ld-step--next',
             this.optional && 'ld-step--optional',
             this.size && `ld-step--${this.size}`,
             this.skipped && 'ld-step--skipped',
@@ -103,33 +115,40 @@ export class LdStep implements InnerFocusable {
           part="li"
           role="listitem"
         >
-          {this.done && (
+          {!this.current && this.done && (
             <ld-sr-only>
               {this.labelDone}
               {this.optional ? ` (${this.labelWasOptional})` : ''}:{' '}
             </ld-sr-only>
           )}
-          {this.optional && !this.done && !this.skipped && !this.current && (
+          {!this.current && this.optional && !this.done && !this.skipped && (
             <ld-sr-only>{this.labelOptional}: </ld-sr-only>
           )}
-          {this.skipped && <ld-sr-only>{this.labelSkipped}: </ld-sr-only>}
+          {!this.current && this.skipped && (
+            <ld-sr-only>{this.labelSkipped}: </ld-sr-only>
+          )}
           {this.current && (
             <ld-sr-only>
               {this.labelCurrent}
               {this.optional ? ` (${this.labelOptional})` : ''}:{' '}
             </ld-sr-only>
           )}
-          <button
+          <Component
             aria-current={this.current ? 'step' : undefined}
-            aria-disabled={enabled ? undefined : 'true'}
-            onClick={enabled && !this.current && this.handleClick}
-            part="button focusable"
-            ref={(ref) => (this.button = ref)}
+            aria-disabled={this.disabled ? 'true' : undefined}
+            href={!this.disabled && !this.current ? this.href : undefined}
+            onClick={
+              !this.disabled && !this.current ? this.handleClick : undefined
+            }
+            part={`${Component} focusable`}
+            ref={(ref: HTMLButtonElement | HTMLAnchorElement) =>
+              (this.focusableElement = ref)
+            }
             tabIndex={this.ldTabindex}
-            type="button"
+            type={Component === 'button' ? 'button' : undefined}
           >
             <slot></slot>
-          </button>
+          </Component>
           {(this.done || this.icon) && (
             <ld-icon name={this.icon || 'checkmark'} />
           )}

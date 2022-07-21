@@ -1,7 +1,7 @@
 import { E2EPage, newE2EPage } from '@stencil/core/testing'
 import { resolve } from 'path'
 import { realpathSync } from 'fs'
-import axe from 'axe-core'
+import * as axe from 'axe-core'
 import { printReceived } from 'jest-matcher-utils'
 import { JSONObject } from 'puppeteer'
 
