@@ -821,7 +821,7 @@ describe('ld-select', () => {
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     })
 
-    it('does not close expanded popper on key down Tab', async () => {
+    it('does not close expanded popper on key down Tab if an option has focus', async () => {
       const page = await newSpecPage({
         components,
         html: `
