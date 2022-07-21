@@ -191,6 +191,7 @@ export class LdSelect implements InnerFocusable {
   // This method must be a function declaration for testing purposes;
   // otherwise Jest's mockImplementation won't work here.
   private isOverflowing() {
+    /* istanbul ignore next */
     return (
       this.selectionListRef.scrollHeight >
       this.selectionListRef.clientHeight + 2
@@ -254,6 +255,7 @@ export class LdSelect implements InnerFocusable {
           )
           moreItem.innerText = `+${overflowingTotal}`
           if (moreItem.offsetTop < maxOffset) {
+            /* istanbul ignore next */
             return
           }
 
@@ -457,16 +459,14 @@ export class LdSelect implements InnerFocusable {
       hiddenInput.name = this.name
       if (this.form) {
         hiddenInput.setAttribute('form', this.form)
-      } else if (hiddenInput.getAttribute('form')) {
-        hiddenInput.removeAttribute('form')
       }
     })
   }
 
   private handleSlotChange = (mutationsList: MutationRecord[]) => {
     if (
-      mutationsList.some(
-        (record) => (record.target as HTMLElement).tagName !== 'LD-OPTION'
+      !mutationsList.some(
+        (record) => (record.target as HTMLElement).tagName === 'LD-OPTION'
       )
     ) {
       return
@@ -636,7 +636,7 @@ export class LdSelect implements InnerFocusable {
 
     // Re-position popper after new height has been applied.
     requestAnimationFrame(() => {
-      this.popper?.position()
+      this.updatePopper()
     })
   }
 
@@ -655,18 +655,6 @@ export class LdSelect implements InnerFocusable {
     // If the clear button is focused, ignore Enter and Space key events.
     if (
       this.el.shadowRoot.activeElement === this.btnClearRef &&
-      (ev.key === ' ' || ev.key === 'Enter')
-    ) {
-      return
-    }
-
-    // If an option is focused, ignore Enter and Space key events
-    // (the internal option component will dispatch its own event on selection).
-    if (
-      document.activeElement.closest('[role="listbox"]') !== this.listboxRef &&
-      this.el.shadowRoot.activeElement.classList.contains(
-        'ld-select__btn-clear-single'
-      ) &&
       (ev.key === ' ' || ev.key === 'Enter')
     ) {
       return
@@ -766,25 +754,24 @@ export class LdSelect implements InnerFocusable {
           this.handleEnd(ev)
         }
         break
-      case ' ':
-        // If not expanded: Toggle popper.
-        if (
-          !this.expanded ||
-          (this.filter && !this.getFilterInput().value.trim())
-        ) {
-          ev.preventDefault()
-        }
+      case ' ': {
+        // If trigger has focus: Toggle popper.
         ev.stopImmediatePropagation()
-        if (
-          this.expanded &&
-          this.el.shadowRoot.activeElement === this.triggerRef
-        ) {
+        const filterInputCanReceiveSpace = Boolean(
+          this.filter &&
+            this.el.shadowRoot.activeElement === this.getFilterInput() &&
+            this.getFilterInput().value.trim().length
+        )
+        if (!filterInputCanReceiveSpace) {
           ev.preventDefault()
-          this.togglePopper()
-        } else {
-          this.expandAndFocus()
+          if (this.expanded) {
+            this.togglePopper()
+          } else {
+            this.expandAndFocus()
+          }
         }
         break
+      }
       case 'Enter':
         // If expanded and trigger button is focused: Toggle popper.
         ev.preventDefault()
@@ -812,9 +799,6 @@ export class LdSelect implements InnerFocusable {
           ev.preventDefault()
           ev.stopImmediatePropagation()
         }
-        break
-      case 'Shift':
-      case 'Meta':
         break
       default:
         if (this.expanded) {
@@ -867,21 +851,16 @@ export class LdSelect implements InnerFocusable {
   private handleFocusEvent = (ev: FocusEvent) => {
     // Emit event only, if focus is not within the select component.
     if (
+      ev.relatedTarget === null ||
       (ev.relatedTarget as HTMLElement)?.tagName === 'LD-OPTION-INTERNAL' ||
       closest('ld-select', ev.relatedTarget as HTMLElement) === this.el
     ) {
       ev.stopImmediatePropagation()
-      return
+    } else {
+      // Focus left the select component - make sure it is not expanded.
+      this.expanded = false
+      this.resetFilter()
     }
-
-    if (ev.relatedTarget === null) {
-      return
-    }
-
-    // Focus left the select component - make sure it is not expanded.
-    this.expanded = false
-
-    this.resetFilter()
   }
 
   private expand = () => {
@@ -895,6 +874,7 @@ export class LdSelect implements InnerFocusable {
 
     if (this.disabled || this.ariaDisabled) return
 
+    // Allow selection of text / setting the cursor in filter input field.
     if (ev.target === this.getFilterInput() && this.expanded) return
 
     this.expand()
@@ -970,9 +950,12 @@ export class LdSelect implements InnerFocusable {
   }
 
   disconnectedCallback() {
+    /* istanbul ignore next */
     clearTimeout(this.typeAheadTimeout)
-    if (this.popper) this.popper.destroy()
-    if (this.observer) this.observer.disconnect()
+    /* istanbul ignore next */
+    this.popper?.destroy()
+    /* istanbul ignore next */
+    this.observer?.disconnect()
   }
 
   render() {
