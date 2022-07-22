@@ -90,6 +90,14 @@ describe('ld-button', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('danger-secondary', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button mode="danger-secondary">Text</ld-button>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   it('icon only', async () => {
     const page = await newSpecPage({
       components: [LdButton],

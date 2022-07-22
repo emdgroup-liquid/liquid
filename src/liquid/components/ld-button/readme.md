@@ -165,6 +165,20 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--danger" disabled>Text</button>
 {% endexample %}
 
+### Danger secondary
+
+{% example %}
+<ld-button mode="danger-secondary">Text</ld-button>
+
+<ld-button mode="danger-secondary" disabled>Text</ld-button>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--danger-secondary">Text</button>
+
+<button class="ld-button ld-button--danger-secondary" disabled>Text</button>
+{% endexample %}
+
 ### Size
 
 {% example %}
@@ -449,6 +463,8 @@ You can align the text inside the button using the `align-text` propperty.
 
 <ld-button progress="pending" mode="danger">Text</ld-button>
 
+<ld-button progress="pending" mode="danger-secondary">Text</ld-button>
+
 <ld-button progress="pending" mode="secondary">Text</ld-button>
 
 <ld-button progress="pending" mode="ghost">Text</ld-button>
@@ -471,6 +487,11 @@ You can align the text inside the button using the `align-text` propperty.
 </button>
 
 <button class="ld-button ld-button--danger" aria-busy="true" aria-live="polite">
+  Text
+  <span class="ld-button__progress ld-button__progress--pending"></span>
+</button>
+
+<button class="ld-button ld-button--secondary" aria-busy="true" aria-live="polite">
   Text
   <span class="ld-button__progress ld-button__progress--pending"></span>
 </button>
@@ -507,7 +528,7 @@ You can align the text inside the button using the `align-text` propperty.
 | `justifyContent` | `justify-content` | Justify content.                                                                                                                                                                                                      | `"between" \| "end" \| "start"`                                                | `undefined` |
 | `key`            | `key`             | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                                                             | `undefined` |
 | `ldTabindex`     | `ld-tabindex`     | Tab index of the button.                                                                                                                                                                                              | `number`                                                                       | `undefined` |
-| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "ghost" \| "highlight" \| "secondary"`                            | `undefined` |
+| `mode`           | `mode`            | Display mode.                                                                                                                                                                                                         | `"danger" \| "danger-secondary" \| "ghost" \| "highlight" \| "secondary"`      | `undefined` |
 | `name`           | `name`            | Used to specify the name of the control.                                                                                                                                                                              | `string`                                                                       | `undefined` |
 | `progress`       | `progress`        | Displays a progress bar at the bottom of the button.                                                                                                                                                                  | `"pending" \| number`                                                          | `undefined` |
 | `ref`            | `ref`             | reference to component                                                                                                                                                                                                | `any`                                                                          | `undefined` |
