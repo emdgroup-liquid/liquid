@@ -5,7 +5,14 @@ import {
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdButton } from '../ld-button'
 
-const modes = ['', 'highlight', 'secondary', 'ghost', 'danger']
+const modes = [
+  '',
+  'highlight',
+  'secondary',
+  'ghost',
+  'danger',
+  'danger-secondary',
+]
 const attributes = ['', 'brand-color']
 
 const cssIconComponent = `

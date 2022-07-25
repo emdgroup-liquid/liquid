@@ -68,7 +68,12 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() ldTabindex: number | undefined
 
   /** Display mode. */
-  @Prop() mode?: 'highlight' | 'secondary' | 'ghost' | 'danger'
+  @Prop() mode?:
+    | 'highlight'
+    | 'secondary'
+    | 'ghost'
+    | 'danger'
+    | 'danger-secondary'
 
   /** Used to specify the name of the control. */
   @Prop() name?: string

@@ -89,12 +89,6 @@
     }
   }
 
-  /* TODO: check if this is necessary or can be removed / moved to ld-icon.css */
-  ::slotted(ld-icon),
-  :where(ld-icon) {
-    line-height: 0;
-  }
-
   ::slotted(ld-icon),
   ::slotted(.ld-icon),
   > ld-icon,
@@ -452,6 +446,7 @@
         --ld-button-danger-bg-color-focus,
         var(--ld-thm-error-focus)
       );
+      color: var(--ld-button-danger-color-focus, var(--ld-thm-error-active));
 
       .ld-button__progress::after {
         background-color: var(
@@ -488,6 +483,82 @@
         background-color: var(
           --ld-button-danger-progress-color,
           var(--ld-thm-error)
+        );
+      }
+    }
+  }
+}
+
+.ld-button--danger-secondary {
+  background-color: var(
+    --ld-button-danger-secondary-bg-color,
+    var(--ld-col-wht)
+  );
+  color: var(--ld-button-danger-secondary-text-color, var(--ld-thm-error));
+
+  &:not(.ld-button--brand-color) {
+    box-shadow: inset 0px 0px 0px 2px;
+  }
+
+  .ld-button__progress::after {
+    background-color: var(
+      --ld-button-danger-secondary-progress-color,
+      var(--ld-thm-error)
+    );
+  }
+
+  &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:focus:focus-visible) {
+      background-color: var(
+        --ld-button-danger-secondary-bg-color-focus,
+        var(--ld-col-wht)
+      );
+      color: var(
+        --ld-button-danger-secondary-color-focus,
+        var(--ld-thm-error-focus)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-secondary-progress-color,
+          var(--ld-thm-error-focus)
+        );
+      }
+    }
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(
+          --ld-button-danger-secondary-bg-color-hover,
+          var(--ld-col-wht)
+        );
+        color: var(
+          --ld-button-danger-secondary-text-color-hover,
+          var(--ld-thm-error-hover)
+        );
+
+        .ld-button__progress::after {
+          background-color: var(
+            --ld-button-danger-secondary-progress-color,
+            var(--ld-thm-error-hover)
+          );
+        }
+      }
+    }
+    &:where(:active),
+    &:where(:active:focus-visible) {
+      background-color: var(
+        --ld-button-danger-secondary-bg-color-active,
+        var(--ld-col-wht)
+      );
+      color: var(
+        --ld-button-danger-secondary-text-color-active,
+        var(--ld-thm-error-active)
+      );
+
+      .ld-button__progress::after {
+        background-color: var(
+          --ld-button-danger-secondary-progress-color,
+          var(--ld-thm-error-active)
         );
       }
     }
