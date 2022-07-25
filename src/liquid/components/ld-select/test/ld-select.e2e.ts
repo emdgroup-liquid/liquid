@@ -446,6 +446,121 @@ describe('ld-select', () => {
     })
   })
 
+  describe('filter', () => {
+    it('single', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('e')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('single selected', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('a')
+      await page.waitForChanges()
+      await page.keyboard.press('p')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('Enter')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('multiple', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter placeholder="Pick a fruit" name="fruit" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('e')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('multiple selected', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter placeholder="Pick a fruit" name="fruit" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana" selected>Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('p')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('Enter')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('Enter')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('multiple selected after clearing filter', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter placeholder="Pick a fruit" name="fruit" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana" selected>Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('p')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('Enter')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.press('Enter')
+      await page.waitForChanges()
+      await page.keyboard.press('Home')
+      await page.waitForChanges()
+      await page.keyboard.press('Backspace')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
+
   describe('css component', () => {
     it('default', async () => {
       const page = await getPageWithContent(
