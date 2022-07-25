@@ -24,7 +24,7 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 | Property  | Attribute | Description                                              | Type                                     | Default     |
 | --------- | --------- | -------------------------------------------------------- | ---------------------------------------- | ----------- |
 | `key`     | `key`     | for tracking the node's identity when working with lists | `string \| number`                       | `undefined` |
-| `mode`    | `mode`    | Display mode.                                            | `"brand-color" \| "ghost"`               | `undefined` |
+| `mode`    | `mode`    | Display mode.                                            | `"brand-color" \| "floating" \| "ghost"` | `undefined` |
 | `ref`     | `ref`     | reference to component                                   | `any`                                    | `undefined` |
 | `rounded` | `rounded` | Sets border radii.                                       | `"all" \| "all-lg" \| "top" \| "top-lg"` | `undefined` |
 | `size`    | `size`    | Size of the tabs.                                        | `"lg" \| "sm"`                           | `undefined` |

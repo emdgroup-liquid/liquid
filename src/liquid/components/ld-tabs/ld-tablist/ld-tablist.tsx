@@ -35,7 +35,7 @@ export class LdTablist {
   @Prop() size?: 'sm' | 'lg'
 
   /** Display mode. */
-  @Prop() mode?: 'ghost' | 'brand-color'
+  @Prop() mode?: 'ghost' | 'brand-color' | 'floating'
 
   /** Sets border radii. */
   @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'

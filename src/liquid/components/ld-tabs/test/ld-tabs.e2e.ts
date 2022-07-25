@@ -139,179 +139,93 @@ describe('ld-tabs', () => {
   })
 
   describe('mode', () => {
-    it(`ghost`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+    for (const mode of ['ghost', 'brand-color', 'floating']) {
+      it(`${mode}`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost hover`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(2)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.hover('ld-tab:nth-of-type(2)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost hover selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(1)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.hover('ld-tab:nth-of-type(1)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost hover disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(3)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.hover('ld-tab:nth-of-type(3)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost many`, async () => {
-      const page = await getPageWithContent(getManyTabsHTML('mode="ghost"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color hover`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(2)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color hover selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(1)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color hover disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(3)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color many`, async () => {
-      const page = await getPageWithContent(
-        getManyTabsHTML('mode="brand-color"')
-      )
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} many`, async () => {
+        const page = await getPageWithContent(getManyTabsHTML(`mode="${mode}"`))
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+    }
   })
 
   describe('rounded corners', () => {
