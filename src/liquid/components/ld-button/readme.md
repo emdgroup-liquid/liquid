@@ -463,9 +463,9 @@ You can align the text inside the button using the `align-text` propperty.
 
 <ld-button progress="pending" mode="danger">Text</ld-button>
 
-<ld-button progress="pending" mode="danger-secondary">Text</ld-button>
-
 <ld-button progress="pending" mode="secondary">Text</ld-button>
+
+<ld-button progress="pending" mode="danger-secondary">Text</ld-button>
 
 <ld-button progress="pending" mode="ghost">Text</ld-button>
 
@@ -496,7 +496,7 @@ You can align the text inside the button using the `align-text` propperty.
   <span class="ld-button__progress ld-button__progress--pending"></span>
 </button>
 
-<button class="ld-button ld-button--secondary" aria-busy="true" aria-live="polite">
+<button class="ld-button ld-button--danger-secondary" aria-busy="true" aria-live="polite">
   Text
   <span class="ld-button__progress ld-button__progress--pending"></span>
 </button>
