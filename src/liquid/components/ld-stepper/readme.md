@@ -31,8 +31,8 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ld-step done></ld-step>
   <ld-step done></ld-step>
   <ld-step current next last-active></ld-step>
-  <ld-step></ld-step>
-  <ld-step></ld-step>
+  <ld-step disabled></ld-step>
+  <ld-step disabled></ld-step>
 </ld-stepper>
 
 <!-- CSS component -->
@@ -107,8 +107,8 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ld-step done></ld-step>
   <ld-step done></ld-step>
   <ld-step current next last-active></ld-step>
-  <ld-step></ld-step>
-  <ld-step></ld-step>
+  <ld-step disabled></ld-step>
+  <ld-step disabled></ld-step>
 </ld-stepper>
 
 <!-- CSS component -->

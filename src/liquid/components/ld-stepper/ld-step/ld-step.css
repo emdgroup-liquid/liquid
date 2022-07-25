@@ -1,4 +1,24 @@
+@define-mixin ld-step-dot {
+  border-radius: var(--ld-br-full);
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: var(--ld-step-dot-size);
+  position: absolute;
+  top: var(--ld-step-dot-offset);
+  width: var(--ld-step-dot-size);
+}
+
 .ld-step {
+  --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-default);
+  --ld-step-brand-dot-opacity-default: 0.3;
+  --ld-step-brand-dot-opacity-active: 0.7;
+  --ld-step-brand-dot-opacity-done: 1;
+  --ld-step-brand-dot-opacity-focus: 0.2;
+  --ld-step-brand-dot-opacity-hover: 0.5;
+  --ld-step-brand-line-opacity: var(--ld-step-brand-line-opacity-default);
+  --ld-step-brand-line-opacity-default: 0.3;
+  --ld-step-brand-line-opacity-done: 1;
   --ld-step-description-font-size: var(--ld-step-description-font-size-md);
   --ld-step-description-font-size-sm: 0.625rem;
   --ld-step-description-font-size-md: 0.75rem;
@@ -49,63 +69,43 @@
   --ld-step-col-done: var(--ld-thm-primary);
   --ld-step-dot-col: var(--ld-step-dot-col-default);
   --ld-step-dot-col-default: var(--ld-col-neutral-200);
+  --ld-step-dot-col-active: var(--ld-col-neutral-500);
   --ld-step-dot-col-current: var(--ld-thm-secondary);
   --ld-step-dot-col-done: var(--ld-thm-primary);
+  --ld-step-dot-col-done-active: var(--ld-thm-primary-active);
+  --ld-step-dot-col-done-focus: var(--ld-thm-primary-focus);
+  --ld-step-dot-col-done-hover: var(--ld-thm-primary-hover);
+  --ld-step-dot-col-focus: var(--ld-col-neutral-100);
+  --ld-step-dot-col-hover: var(--ld-col-neutral-400);
   --ld-step-description-col: var(--ld-step-description-col-default);
   --ld-step-description-col-default: var(--ld-step-col);
   --ld-step-description-col-done: var(--ld-col-neutral-900);
-  --ld-step-icon-col: var(--ld-col-wht);
+  --ld-step-icon-col: var(--ld-step-icon-col-default);
+  --ld-step-icon-col-default: var(--ld-col-wht);
   --ld-step-line-start-col: var(--ld-step-line-col-default);
   --ld-step-line-end-col: var(--ld-step-line-col-default);
   --ld-step-line-col-default: var(--ld-col-neutral-200);
   --ld-step-line-col-done: var(--ld-thm-primary);
 
   /* on-brand colors */
+  --ld-step-brand-bg-col: var(--ld-thm-primary);
   --ld-step-brand-col: var(--ld-thm-primary-highlight);
   --ld-step-brand-col-done: var(--ld-col-wht);
   --ld-step-description-brand-col: var(--ld-thm-primary-highlight);
   --ld-step-description-brand-col-done: var(--ld-col-wht);
-  --ld-step-dot-brand-col: var(--ld-thm-primary-focus);
-  --ld-step-dot-brand-col-done: var(--ld-col-wht);
-  --ld-step-brand-icon-col: var(--ld-thm-primary);
-  --ld-step-line-brand-col: var(--ld-thm-primary-focus);
-  --ld-step-line-brand-col-done: var(--ld-col-wht);
+  --ld-step-dot-brand-col: var(--ld-col-wht);
+  --ld-step-dot-brand-col-done-active: var(--ld-col-wht-alpha-medium);
+  --ld-step-dot-brand-col-done-focus: var(--ld-col-wht);
+  --ld-step-dot-brand-col-done-hover: var(--ld-col-wht-alpha-high);
+  --ld-step-brand-icon-col: var(--ld-step-brand-bg-col);
+  --ld-step-brand-icon-col-done-focus: var(--ld-thm-primary-focus);
+  --ld-step-line-brand-col: var(--ld-col-wht);
 
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
-
-  .ld-step__focusable-element {
-    align-items: center;
-    background: transparent;
-    border: 0;
-    color: var(--ld-step-col);
-    display: flex;
-    flex-direction: column;
-    font-family: var(--ld-font-body);
-    font-size: var(--ld-step-label-font-size);
-    font-weight: 700;
-    line-height: 140%;
-    margin: var(--ld-step-text-margin) 0 0; /* Safari reset */
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-
-    &::before {
-      background: var(--ld-step-dot-col);
-      border-radius: var(--ld-br-full);
-      box-sizing: border-box;
-      content: '';
-      display: block;
-      height: var(--ld-step-dot-size);
-      position: absolute;
-      top: var(--ld-step-dot-offset);
-      width: var(--ld-step-dot-size);
-      z-index: 1;
-    }
-  }
 
   .ld-icon {
     --ld-icon-size-sm: var(--ld-step-icon-size);
@@ -124,10 +124,65 @@
     --ld-step-description-col-default: var(--ld-step-description-brand-col);
     --ld-step-description-col-done: var(--ld-step-description-brand-col-done);
     --ld-step-dot-col-default: var(--ld-step-dot-brand-col);
-    --ld-step-dot-col-done: var(--ld-step-dot-brand-col-done);
-    --ld-step-icon-col: var(--ld-step-brand-icon-col);
+    --ld-step-dot-col-active: var(--ld-step-dot-brand-col);
+    --ld-step-dot-col-done: var(--ld-step-dot-brand-col);
+    --ld-step-dot-col-done-active: var(--ld-step-dot-brand-col-done-active);
+    --ld-step-dot-col-done-focus: var(--ld-step-dot-brand-col-done-focus);
+    --ld-step-dot-col-done-hover: var(--ld-step-dot-brand-col-done-hover);
+    --ld-step-dot-col-focus: var(--ld-step-dot-brand-col);
+    --ld-step-dot-col-hover: var(--ld-step-dot-brand-col);
+    --ld-step-icon-col-default: var(--ld-step-brand-icon-col);
+    --ld-step-icon-col-done-focus: var(--ld-step-brand-icon-col-done-focus);
     --ld-step-line-col-default: var(--ld-step-line-brand-col);
-    --ld-step-line-col-done: var(--ld-step-line-brand-col-done);
+    --ld-step-line-col-done: var(--ld-step-line-brand-col);
+
+    &::after,
+    &::before {
+      opacity: var(--ld-step-brand-line-opacity);
+    }
+
+    &.ld-step {
+      &--current,
+      &--done,
+      &--next,
+      &--skipped {
+        --ld-step-brand-line-opacity: var(--ld-step-brand-line-opacity-done);
+      }
+
+      &--done:not(.ld-step--optional) .ld-step__focusable-element {
+        &:focus:where(:not(:active)):not(:hover) {
+          + .ld-icon {
+            --ld-step-icon-col: var(--ld-step-icon-col-done-focus);
+          }
+
+          /* stylelint-disable-next-line csstools/use-nesting */
+          &:where(:not(:focus-visible)) + .ld-icon {
+            --ld-step-icon-col: var(--ld-step-icon-col-default);
+          }
+        }
+      }
+
+      &--last-active {
+        &::after {
+          --ld-step-brand-line-opacity: var(
+            --ld-step-brand-line-opacity-default
+          );
+        }
+      }
+    }
+
+    .ld-step__focusable-element {
+      &::after {
+        @mixin ld-step-dot;
+        background: var(--ld-step-brand-bg-col);
+        z-index: 0;
+      }
+
+      &::before,
+      + .ld-icon {
+        opacity: var(--ld-step-brand-dot-opacity);
+      }
+    }
   }
 
   &--custom-icon {
@@ -139,26 +194,28 @@
   }
 
   &--done,
+  &--next,
   &--skipped {
     --ld-step-dot-col: var(--ld-step-dot-col-done);
-
-    .ld-step__focusable-element {
-      cursor: pointer;
-    }
+    --ld-step-dot-col-default: var(--ld-step-dot-col-done);
+    --ld-step-dot-col-active: var(--ld-step-dot-col-done-active);
+    --ld-step-dot-col-focus: var(--ld-step-dot-col-done-focus);
+    --ld-step-dot-col-hover: var(--ld-step-dot-col-done-hover);
   }
 
   &--current,
   &--done,
   &--next,
   &--skipped {
+    --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-done);
+    --ld-step-brand-dot-opacity-default: var(--ld-step-brand-dot-opacity-done);
+    --ld-step-brand-dot-opacity-active: var(--ld-step-brand-dot-opacity-done);
+    --ld-step-brand-dot-opacity-focus: var(--ld-step-brand-dot-opacity-done);
+    --ld-step-brand-dot-opacity-hover: var(--ld-step-brand-dot-opacity-done);
     --ld-step-col: var(--ld-step-col-done);
     --ld-step-description-col: var(--ld-step-description-col-done);
     --ld-step-line-start-col: var(--ld-step-line-col-done);
     --ld-step-line-end-col: var(--ld-step-line-col-done);
-  }
-
-  &--next {
-    --ld-step-dot-col: var(--ld-step-dot-col-done);
   }
 
   &--current {
@@ -189,6 +246,7 @@
         var(--ld-step-text-margin);
       text-align: left;
 
+      &::after,
       &::before {
         flex-shrink: 0;
         left: calc(var(--ld-step-dot-size-with-icon) / 2);
@@ -210,6 +268,10 @@
       position: relative;
       top: 0;
     }
+
+    &::after {
+      top: 0;
+    }
   }
 
   &--sm {
@@ -228,6 +290,83 @@
     --ld-step-label-font-size: var(--ld-step-label-font-size-lg);
     --ld-step-line-thickness: var(--ld-step-line-thickness-lg);
     --ld-step-vertical-text-gap: var(--ld-step-vertical-text-gap-lg);
+  }
+}
+
+.ld-step__focusable-element {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--ld-step-col);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ld-font-body);
+  font-size: var(--ld-step-label-font-size);
+  font-weight: 700;
+  line-height: 140%;
+  margin: var(--ld-step-text-margin) 0 0; /* Safari reset */
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+
+  .ld-step:not(.ld-step--current) &:not([aria-disabled='true']) {
+    cursor: pointer;
+
+    &:focus {
+      --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);
+      --ld-step-dot-col: var(--ld-step-dot-col-focus);
+
+      &:where(:not(:focus-visible)) {
+        --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-default);
+        --ld-step-dot-col: var(--ld-step-dot-col-default);
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-hover);
+        --ld-step-dot-col: var(--ld-step-dot-col-hover);
+      }
+    }
+
+    &:active {
+      --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-active);
+      --ld-step-dot-col: var(--ld-step-dot-col-active);
+    }
+  }
+
+  /* Usually the .ld-icon class should already inherit its color from `--ld-step-dot-col`.
+     But due to a bug (assumably) it inherits the same color than the element it inherits
+     the variable assignment from, instead of the color for `--ld-step-dot-col` set a few
+     lines above this comment. Thus the color needs to be overwritten explicitly. */
+  .ld-step--optional:not(.ld-step--current) &:not([aria-disabled='true']) {
+    &:focus + .ld-icon {
+      --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);
+      color: var(--ld-step-dot-col-focus);
+
+      &:where(:not(:focus-visible)) + .ld-icon {
+        --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-default);
+        color: var(--ld-step-dot-col-default);
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover + .ld-icon {
+        --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-hover);
+        color: var(--ld-step-dot-col-hover);
+      }
+    }
+
+    &:active + .ld-icon {
+      --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-active);
+      color: var(--ld-step-dot-col-active);
+    }
+  }
+
+  &::before {
+    @mixin ld-step-dot;
+    background: var(--ld-step-dot-col);
+    z-index: 1;
   }
 }
 

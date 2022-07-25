@@ -24,7 +24,9 @@ const getWcStepsEmpty = (
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
 }${optional ? ' optional' : ''} last-active next></ld-step>
-<ld-step${anchor ? ' href="#"' : ''}${optional ? ' optional' : ''}></ld-step>`
+<ld-step${anchor ? ' href="#"' : ''}${
+  optional ? ' optional' : ''
+} disabled></ld-step>`
 
 const getWcStepsLabel = (
   withCustomIcons = false,
@@ -45,7 +47,7 @@ const getWcStepsLabel = (
 }${optional ? ' optional' : ''} last-active next>Summary</ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-}>Confirmation</ld-step>`
+} disabled>Confirmation</ld-step>`
 
 const getWcStepsDescription = (
   withCustomIcons = false,
@@ -72,7 +74,7 @@ const getWcStepsDescription = (
 } last-active next description="Summary of your articles and all the previously given information">Summary</ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-} description="Order confirmation with follow-up information">Confirmation</ld-step>`
+} disabled description="Order confirmation with follow-up information">Confirmation</ld-step>`
 
 const wcStepperProps = {
   default: '',
@@ -89,15 +91,22 @@ const wcStepperProps = {
   'vertical on brand color lg': ' brand-color size="lg" vertical',
 }
 
+const wcStepperInteractionProps = {
+  default: '',
+  'on brand color': ' brand-color',
+}
+
 const getCssStep = ({
   anchor = false,
   description,
+  disabled = false,
   label,
   modifiers = [],
   srLabel,
 }: {
   anchor?: boolean
   description?: string
+  disabled?: boolean
   label?: string
   modifiers?: string[]
   srLabel?: string
@@ -116,7 +125,9 @@ const getCssStep = ({
   !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
     ? ' href="#"'
     : ''
-}>${label ?? ''}</${anchor ? 'a' : 'button'}>
+}${disabled ? ' aria-disabled="true"' : ''}>${label ?? ''}</${
+  anchor ? 'a' : 'button'
+}>
   ${
     modifiers.includes('done') && !modifiers.includes('custom-icon')
       ? '<svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -178,7 +189,11 @@ const getCssStepsEmpty = (
       ...modifiers,
     ],
   }) +
-  getCssStep({ anchor, modifiers: [optional && 'optional', ...modifiers] })
+  getCssStep({
+    anchor,
+    disabled: true,
+    modifiers: [optional && 'optional', ...modifiers],
+  })
 
 const getCssStepsLabel = (
   withCustomIcons = false,
@@ -230,6 +245,7 @@ const getCssStepsLabel = (
   }) +
   getCssStep({
     anchor,
+    disabled: true,
     label: 'Confirmation',
     modifiers: [optional && 'optional', ...modifiers],
   })
@@ -291,6 +307,7 @@ const getCssStepsDescription = (
   getCssStep({
     anchor,
     description: 'Order confirmation with follow-up information',
+    disabled: true,
     label: 'Confirmation',
     modifiers: [optional && 'optional', ...modifiers],
   })
@@ -318,6 +335,11 @@ const cssStepperModifiers = {
   'vertical on brand color': ['brand-color', 'vertical'],
   'vertical on brand color sm': ['brand-color', 'sm', 'vertical'],
   'vertical on brand color lg': ['brand-color', 'lg', 'vertical'],
+}
+
+const cssStepperInteractionModifiers = {
+  default: [],
+  'on brand color': ['brand-color'],
 }
 
 const customIcons = [false, true]
@@ -521,6 +543,577 @@ describe('ld-stepper', () => {
         expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
     })
+
+    describe('interaction', () => {
+      Object.entries(wcStepperInteractionProps).forEach(([name, props]) => {
+        describe(name, () => {
+          describe('active', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('focus', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('hover', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(1)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(3)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(4)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(5)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('optional', () => {
+            describe('active', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('focus', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('hover', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(1)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(2)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(3)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(4)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(5)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+          })
+        })
+      })
+    })
   })
 
   describe('CSS component', () => {
@@ -683,6 +1276,7 @@ describe('ld-stepper', () => {
         })
       })
     })
+
     describe('anchor', () => {
       it('empty', async () => {
         const page = await getPageWithContent(
@@ -730,6 +1324,606 @@ describe('ld-stepper', () => {
         expect(results).toMatchScreenshot()
         expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
+    })
+
+    describe('interaction', () => {
+      Object.entries(cssStepperInteractionModifiers).forEach(
+        ([name, modifiers]) => {
+          describe(name, () => {
+            describe('active', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('focus', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('hover', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(1)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(3)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(4)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(5)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('optional', () => {
+              describe('active', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+
+              describe('focus', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+
+              describe('hover', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(1)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(2)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(3)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(4)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(5)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+            })
+          })
+        }
+      )
     })
   })
 })
