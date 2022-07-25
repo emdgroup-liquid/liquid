@@ -717,16 +717,16 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 ## Properties
 
-| Property               | Attribute                | Description                                                                                                                 | Type                | Default           |
-| ---------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------- |
-| `brandColor`           | `brand-color`            | Switch colors for brand background.                                                                                         | `boolean`           | `false`           |
-| `fitContent`           | `fit-content`            | Indicates whether the steps should be evenly distributed or fit to their content                                            | `boolean`           | `false`           |
-| `key`                  | `key`                    | for tracking the node's identity when working with lists                                                                    | `string \| number`  | `undefined`       |
-| `labelSummaryTemplate` | `label-summary-template` | Step summary template for the screen-reader label, containing the index of the current step and the overall number of steps | `string`            | `'step $1 of $2'` |
-| `labelTemplate`        | `label-template`         | Template for the screen-reader label, containing the label of the current step and the steps summary                        | `string`            | `'$1, $2'`        |
-| `ref`                  | `ref`                    | reference to component                                                                                                      | `any`               | `undefined`       |
-| `size`                 | `size`                   | Step size                                                                                                                   | `HTMLLdStepElement` | `undefined`       |
-| `vertical`             | `vertical`               | Vertical layout                                                                                                             | `boolean`           | `false`           |
+| Property               | Attribute                | Description                                                                                                                 | Type               | Default           |
+| ---------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- |
+| `brandColor`           | `brand-color`            | Switch colors for brand background.                                                                                         | `boolean`          | `false`           |
+| `fitContent`           | `fit-content`            | Indicates whether the steps should be evenly distributed or fit to their content                                            | `boolean`          | `false`           |
+| `key`                  | `key`                    | for tracking the node's identity when working with lists                                                                    | `string \| number` | `undefined`       |
+| `labelSummaryTemplate` | `label-summary-template` | Step summary template for the screen-reader label, containing the index of the current step and the overall number of steps | `string`           | `'step $1 of $2'` |
+| `labelTemplate`        | `label-template`         | Template for the screen-reader label, containing the label of the current step and the steps summary                        | `string`           | `'$1, $2'`        |
+| `ref`                  | `ref`                    | reference to component                                                                                                      | `any`              | `undefined`       |
+| `size`                 | `size`                   | Step size                                                                                                                   | `"lg" \| "sm"`     | `undefined`       |
+| `vertical`             | `vertical`               | Vertical layout                                                                                                             | `boolean`          | `false`           |
 
 
 ## Shadow Parts
