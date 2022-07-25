@@ -353,12 +353,30 @@
   overflow: hidden;
 }
 
+.ld-select__btn-trigger-input {
+  font: var(--ld-typo-label-m);
+  line-height: var(--ld-select-trigger-line-height);
+  background-color: transparent;
+  width: 100%;
+  border: 0;
+  outline: none;
+  appearance: none;
+  color: var(--ld-select-col);
+  padding: var(--ld-sp-2) 0;
+
+  &::placeholder {
+    color: inherit;
+  }
+}
+
 .ld-select--sm > select,
+.ld-select--sm .ld-select__btn-trigger-input,
 .ld-select--sm .ld-select__btn-trigger-text-wrapper {
   font: var(--ld-typo-body-s);
   line-height: var(--ld-select-trigger-line-height);
 }
 .ld-select--lg > select,
+.ld-select--lg .ld-select__btn-trigger-input,
 .ld-select--lg .ld-select__btn-trigger-text-wrapper {
   font: var(--ld-typo-body-l);
   line-height: var(--ld-select-trigger-line-height);
@@ -370,6 +388,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.ld-select__selection-list-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--ld-sp-6);
+  margin-right: auto;
 }
 
 .ld-select__selection-list {
@@ -393,7 +418,6 @@
 
 .ld-select__selection-list-more {
   order: 2147483647; /* Highest possible */
-  height: 100%;
   display: inline-flex;
   align-items: center;
   font: var(--ld-typo-label-s);
