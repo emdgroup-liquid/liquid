@@ -690,7 +690,7 @@ export class LdSelect implements InnerFocusable {
           let current = document.activeElement
           while (nextLdOption === undefined) {
             if (this.isLdOption(current.nextElementSibling)) {
-              if ((current.nextElementSibling as HTMLElement).hidden) {
+              if (current.nextElementSibling.hidden) {
                 current = current.nextElementSibling
               } else {
                 nextLdOption = current.nextElementSibling
@@ -727,7 +727,7 @@ export class LdSelect implements InnerFocusable {
           let current = document.activeElement
           while (prevLdOption === undefined) {
             if (this.isLdOption(current.previousElementSibling)) {
-              if ((current.previousElementSibling as HTMLElement).hidden) {
+              if (current.previousElementSibling.hidden) {
                 current = current.previousElementSibling
               } else {
                 prevLdOption = current.previousElementSibling
