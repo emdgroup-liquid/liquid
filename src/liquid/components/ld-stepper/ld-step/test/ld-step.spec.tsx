@@ -2,6 +2,7 @@ import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from 'src/liquid/components/ld-icon/ld-icon'
 import { LdStep } from '../ld-step'
+import '../../../../utils/mutationObserver'
 
 describe('ld-step', () => {
   describe('renders', () => {
@@ -205,9 +206,21 @@ describe('ld-step', () => {
     it('with ldTabindex', async () => {
       const page = await newSpecPage({
         components: [LdStep],
-        template: () => <ld-step ldTabindex={-1} />,
+        template: () => <ld-step ldTabindex={5} />,
       })
-      expect(page.root.shadowRoot.querySelector('button').tabIndex).toBe(-1)
+      expect(page.root.shadowRoot.querySelector('button').tabIndex).toBe(5)
+    })
+
+    it('with cloned attribute', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step aria-hidden="true" />,
+      })
+      await page.waitForChanges()
+      // Test environment does not seem to support the `ariaHidden` prop, here
+      expect(
+        page.root.shadowRoot.querySelector('button').getAttribute('aria-hidden')
+      ).toBe('true')
     })
   })
 

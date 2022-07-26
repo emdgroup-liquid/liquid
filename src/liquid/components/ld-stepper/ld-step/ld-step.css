@@ -149,8 +149,8 @@
         --ld-step-brand-line-opacity: var(--ld-step-brand-line-opacity-done);
       }
 
-      &--done:not(.ld-step--optional) .ld-step__focusable-element {
-        &:focus:where(:not(:active)):not(:hover) {
+      &--done:where(:not(.ld-step--optional)) .ld-step__focusable-element {
+        &:focus:where(:not(:active):not(:hover)) {
           + .ld-icon {
             --ld-step-icon-col: var(--ld-step-icon-col-done-focus);
           }
@@ -340,10 +340,13 @@
      the variable assignment from, instead of the color for `--ld-step-dot-col` set a few
      lines above this comment. Thus the color needs to be overwritten explicitly. */
   .ld-step--optional:not(.ld-step--current) &:not([aria-disabled='true']) {
-    &:focus + .ld-icon {
-      --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);
-      color: var(--ld-step-dot-col-focus);
+    &:focus {
+      + .ld-icon {
+        --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-focus);
+        color: var(--ld-step-dot-col-focus);
+      }
 
+      /* stylelint-disable-next-line csstools/use-nesting */
       &:where(:not(:focus-visible)) + .ld-icon {
         --ld-step-brand-dot-opacity: var(--ld-step-brand-dot-opacity-default);
         color: var(--ld-step-dot-col-default);

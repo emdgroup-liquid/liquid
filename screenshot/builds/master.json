@@ -21638,7 +21638,7 @@
     },
     {
       "id": "396fd7a0",
-      "image": "1687c204d68c692ee2e6395be70d2356.png",
+      "image": "70ac1693dc0b26c973e4a97fbad7e4ed.png",
       "userAgent": "default",
       "desc": "ld-stepper CSS component on brand color with custom icons optional with description",
       "testPath": "./src/liquid/components/ld-stepper/test/ld-stepper.e2e.ts",

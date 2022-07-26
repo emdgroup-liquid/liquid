@@ -14,19 +14,19 @@ const getWcStepsEmpty = (
 ) => `
 <ld-step done${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-}></ld-step>
+} aria-label="Billing"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-} ${optional ? 'optional skipped' : 'done'}></ld-step>
+} ${optional ? 'optional skipped' : 'done'} aria-label="Shipping"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-}${optional ? ' optional' : ''} current></ld-step>
+}${optional ? ' optional' : ''} current aria-label="Payment"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-}${optional ? ' optional' : ''} last-active next></ld-step>
+}${optional ? ' optional' : ''} last-active next aria-label="Summary"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-} disabled></ld-step>`
+} disabled aria-label="Confirmation"></ld-step>`
 
 const getWcStepsLabel = (
   withCustomIcons = false,
@@ -98,6 +98,7 @@ const wcStepperInteractionProps = {
 
 const getCssStep = ({
   anchor = false,
+  ariaLabel,
   description,
   disabled = false,
   label,
@@ -105,6 +106,7 @@ const getCssStep = ({
   srLabel,
 }: {
   anchor?: boolean
+  ariaLabel?: string
   description?: string
   disabled?: boolean
   label?: string
@@ -125,9 +127,9 @@ const getCssStep = ({
   !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
     ? ' href="#"'
     : ''
-}${disabled ? ' aria-disabled="true"' : ''}>${label ?? ''}</${
-  anchor ? 'a' : 'button'
-}>
+}${disabled ? ' aria-disabled="true"' : ''}${
+  ariaLabel ? ` aria-label="${ariaLabel}"` : ''
+}>${label ?? ''}</${anchor ? 'a' : 'button'}>
   ${
     modifiers.includes('done') && !modifiers.includes('custom-icon')
       ? '<svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -153,11 +155,13 @@ const getCssStepsEmpty = (
 ) =>
   getCssStep({
     anchor,
+    ariaLabel: 'Billing',
     modifiers: ['done', 'with-icon', optional && 'optional', ...modifiers],
     srLabel: 'Completed',
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Shipping',
     modifiers: [
       optional ? 'optional' : 'done',
       optional && 'skipped',
@@ -169,6 +173,7 @@ const getCssStepsEmpty = (
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Payment',
     modifiers: [
       'current',
       withCustomIcons && 'custom-icon',
@@ -180,6 +185,7 @@ const getCssStepsEmpty = (
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Summary',
     modifiers: [
       'last-active',
       'next',
@@ -191,6 +197,7 @@ const getCssStepsEmpty = (
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Confirmation',
     disabled: true,
     modifiers: [optional && 'optional', ...modifiers],
   })
@@ -563,7 +570,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('current', async () => {
@@ -604,7 +624,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('disabled', async () => {
@@ -645,7 +678,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('current', async () => {
@@ -684,7 +730,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('disabled', async () => {
@@ -724,7 +783,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('current', async () => {
@@ -758,7 +830,20 @@ describe('ld-stepper', () => {
               await page.waitForChanges()
 
               const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
               expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
             })
 
             it('disabled', async () => {
@@ -799,7 +884,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('skipped', async () => {
@@ -868,7 +966,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -915,7 +1026,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('skipped', async () => {
@@ -981,7 +1105,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -1027,7 +1164,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('skipped', async () => {
@@ -1087,7 +1237,20 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -1347,7 +1510,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('current', async () => {
@@ -1390,7 +1564,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -1433,7 +1618,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('current', async () => {
@@ -1474,7 +1670,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -1516,7 +1723,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('current', async () => {
@@ -1552,7 +1770,18 @@ describe('ld-stepper', () => {
                 await page.waitForChanges()
 
                 const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
                 expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
               })
 
               it('disabled', async () => {
@@ -1595,7 +1824,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('skipped', async () => {
@@ -1667,7 +1910,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('disabled', async () => {
@@ -1716,7 +1973,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('skipped', async () => {
@@ -1785,7 +2056,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('disabled', async () => {
@@ -1833,7 +2118,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('skipped', async () => {
@@ -1896,7 +2195,21 @@ describe('ld-stepper', () => {
                   await page.waitForChanges()
 
                   const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
                   expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
                 })
 
                 it('disabled', async () => {

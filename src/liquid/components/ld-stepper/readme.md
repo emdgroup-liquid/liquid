@@ -685,11 +685,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 {% example %}
 <ld-stepper id="stepper" style="min-width: 25rem">
-  <ld-step href="components/ld-stepper/#billing" done>Billing</ld-step>
-  <ld-step href="components/ld-stepper/#shipping" done>Shipping</ld-step>
-  <ld-step href="components/ld-stepper/#payment" current next last-active>Payment</ld-step>
-  <ld-step href="components/ld-stepper/#summary" disabled>Summary</ld-step>
-  <ld-step href="components/ld-stepper/#confirmation" disabled>Confirmation</ld-step>
+  <ld-step done>Billing</ld-step>
+  <ld-step done>Shipping</ld-step>
+  <ld-step current next last-active>Payment</ld-step>
+  <ld-step disabled>Summary</ld-step>
+  <ld-step disabled>Confirmation</ld-step>
 </ld-stepper>
 
 <div id="step-content"></div>
