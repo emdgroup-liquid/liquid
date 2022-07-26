@@ -8,6 +8,10 @@ import { LdIcon } from '../../../ld-icon/ld-icon'
 const components = [LdTablist, LdTab, LdIcon]
 
 describe('ld-tablist', () => {
+  beforeEach(() => {
+    jest.clearAllTimers()
+  })
+
   describe('modifiers', () => {
     it('size', async () => {
       const page = await newSpecPage({
@@ -140,5 +144,22 @@ describe('ld-tablist', () => {
       page.waitForChanges()
       expect((indicator as HTMLElement).style.opacity).toEqual('0')
     })
+  })
+
+  it('sets initialized class for enabling transitions after initialization', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-tablist mode="floating">
+          <ld-tab selected>Fruits</ld-tab>
+          <ld-tab>Vegetables</ld-tab>
+        </ld-tablist>
+      `,
+    })
+    const tabList = page.root.shadowRoot.querySelector('.ld-tablist')
+    expect(tabList).not.toHaveClass('ld-tablist--initialized')
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+    expect(tabList).toHaveClass('ld-tablist--initialized')
   })
 })

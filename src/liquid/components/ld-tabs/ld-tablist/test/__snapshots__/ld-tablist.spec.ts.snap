@@ -55,7 +55,7 @@ exports[`ld-tablist modifiers mode 1`] = `
 exports[`ld-tablist modifiers rounded 1`] = `
 <ld-tablist role="tablist" rounded="all-lg">
   <mock:shadow-root>
-    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--initialized ld-tablist--rounded-all-lg ld-tablist--selected-focused" part="wrapper">
+    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--rounded-all-lg ld-tablist--selected-focused" part="wrapper">
       <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
         <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
           <title>
@@ -107,7 +107,7 @@ exports[`ld-tablist modifiers rounded 1`] = `
 exports[`ld-tablist modifiers size 1`] = `
 <ld-tablist role="tablist" size="sm">
   <mock:shadow-root>
-    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--initialized ld-tablist--selected-focused ld-tablist--sm" part="wrapper">
+    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--selected-focused ld-tablist--sm" part="wrapper">
       <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
         <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
           <title>
