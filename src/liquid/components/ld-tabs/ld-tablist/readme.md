@@ -32,16 +32,17 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ## Shadow Parts
 
-| Part                 | Description                                            |
-| -------------------- | ------------------------------------------------------ |
-| `"arrow"`            | Both arrow button elements                             |
-| `"arrow-icon"`       | Both arrow icon SVGs                                   |
-| `"arrow-icon-left"`  | Left arrow icon SVG                                    |
-| `"arrow-icon-right"` | Right arrow icon SVG                                   |
-| `"arrow-left"`       | Left arrow button element                              |
-| `"arrow-right"`      | Right arrow button element                             |
-| `"scroll-container"` | Container wrapping the slot                            |
-| `"wrapper"`          | Container wrapping the arrows and the scroll-container |
+| Part                     | Description                                            |
+| ------------------------ | ------------------------------------------------------ |
+| `"active-tab-indicator"` | Active tab indicator in floating mode                  |
+| `"arrow"`                | Both arrow button elements                             |
+| `"arrow-icon"`           | Both arrow icon SVGs                                   |
+| `"arrow-icon-left"`      | Left arrow icon SVG                                    |
+| `"arrow-icon-right"`     | Right arrow icon SVG                                   |
+| `"arrow-left"`           | Left arrow button element                              |
+| `"arrow-right"`          | Right arrow button element                             |
+| `"scroll-container"`     | Container wrapping the slot                            |
+| `"wrapper"`              | Container wrapping the arrows and the scroll-container |
 
 
 ----------------------------------------------

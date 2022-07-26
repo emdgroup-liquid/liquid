@@ -3,7 +3,7 @@
 exports[`ld-tablist modifiers mode 1`] = `
 <ld-tablist mode="ghost" role="tablist">
   <mock:shadow-root>
-    <div class="ld-tablist ld-tablist--ghost" part="wrapper">
+    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--ghost ld-tablist--selected-focused" part="wrapper">
       <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
         <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
           <title>
@@ -55,7 +55,7 @@ exports[`ld-tablist modifiers mode 1`] = `
 exports[`ld-tablist modifiers rounded 1`] = `
 <ld-tablist role="tablist" rounded="all-lg">
   <mock:shadow-root>
-    <div class="ld-tablist ld-tablist--rounded-all-lg" part="wrapper">
+    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--initialized ld-tablist--rounded-all-lg ld-tablist--selected-focused" part="wrapper">
       <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
         <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
           <title>
@@ -107,7 +107,7 @@ exports[`ld-tablist modifiers rounded 1`] = `
 exports[`ld-tablist modifiers size 1`] = `
 <ld-tablist role="tablist" size="sm">
   <mock:shadow-root>
-    <div class="ld-tablist ld-tablist--sm" part="wrapper">
+    <div class="ld-tablist ld-tablist--focus-visible ld-tablist--initialized ld-tablist--selected-focused ld-tablist--sm" part="wrapper">
       <button aria-disabled="true" class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left" hidden="" part="arrow arrow-left" tabindex="-1">
         <svg fill="none" height="16" part="arrow-icon arrow-icon-left" viewBox="0 0 16 16" width="16">
           <title>
@@ -151,7 +151,12 @@ exports[`ld-tablist modifiers size 1`] = `
         <span class="ld-tab__spacer" part="spacer spacer-right"></span>
       </button>
     </mock:shadow-root>
-    Vegetables
+    <ld-icon class="ld-icon ld-icon--sm" name="placeholder" role="presentation">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+      Vegetables
+    </ld-icon>
   </ld-tab>
 </ld-tablist>
 `;

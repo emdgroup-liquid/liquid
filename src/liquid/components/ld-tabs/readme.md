@@ -123,6 +123,7 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
   <ld-tablist mode="floating">
     <ld-tab selected>Fruits</ld-tab>
     <ld-tab>Vegetables</ld-tab>
+    <ld-tab disabled>Scrap Metal</ld-tab>
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>

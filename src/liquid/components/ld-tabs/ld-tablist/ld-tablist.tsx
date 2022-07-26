@@ -8,12 +8,12 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import { LdTab } from '../ld-tab/ld-tab'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part active-tab-indicator - Active tab indicator in floating mode
  * @part arrow - Both arrow button elements
  * @part arrow-icon - Both arrow icon SVGs
  * @part arrow-icon-left - Left arrow icon SVG
@@ -41,19 +41,21 @@ export class LdTablist {
   @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
 
   private slotContainerRef!: HTMLElement
+  private selectedTabIndicatorRef!: HTMLElement
   private btnScrollLeftRef!: HTMLButtonElement
+  private resizeObserver: ResizeObserver
+  private mutationObserver: MutationObserver
 
+  @State() initialized = false
+  @State() selectedTab?: HTMLLdTabElement
   @State() scrollable: boolean
   @State() scrollLeftEnabled: boolean
   @State() scrollRightEnabled: boolean
-
-  @Listen('resize', { target: 'window', passive: true })
-  handleWindowResize() {
-    this.updateScrollable()
-    this.updateScrollButtons()
-  }
+  @State() focusVisible = true
+  @State() selectedIsFocused = true
 
   private updateScrollable() {
+    if (this.mode === 'floating') return
     const scrollButtonsWidth =
       2 * this.btnScrollLeftRef.getBoundingClientRect().width
     const scrollContainerWidth =
@@ -67,6 +69,7 @@ export class LdTablist {
   }
 
   private updateScrollButtons() {
+    if (this.mode === 'floating') return
     if (!this.scrollable) return
     this.scrollLeftEnabled = this.slotContainerRef.scrollLeft > 0
     this.scrollRightEnabled =
@@ -88,17 +91,17 @@ export class LdTablist {
   }
 
   private focusTab(prevLdTab: HTMLElement, dir: 'left' | 'right') {
-    const currentTab =
-      dir === 'left'
-        ? prevLdTab.previousElementSibling
-        : prevLdTab.nextElementSibling
+    const currentTab = (dir === 'left'
+      ? prevLdTab.previousElementSibling
+      : prevLdTab.nextElementSibling) as unknown as HTMLLdTabElement
     if (currentTab) {
-      ;(currentTab as unknown as LdTab).focusInner()
+      currentTab.focusInner()
       currentTab.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'center',
       })
+      this.selectedIsFocused = currentTab === this.selectedTab
     }
   }
 
@@ -112,32 +115,90 @@ export class LdTablist {
       ?.focus()
   }
 
-  private onKeydown(ev) {
+  private onClick = (ev) => {
+    if (ev.pointerType === 'mouse') {
+      this.focusVisible = false
+    }
+  }
+
+  private onFocusout = (ev) => {
+    if (
+      !ev.relatedTarget ||
+      ev.relatedTarget.closest('ld-tablist') !== this.el
+    ) {
+      this.focusVisible = true
+      this.selectedIsFocused = true
+    }
+  }
+
+  private onKeydown = (ev) => {
     switch (ev.key) {
       case 'ArrowLeft':
         ev.preventDefault()
+        this.focusVisible = true
         this.focusTab(ev.target, 'left')
         return
       case 'ArrowRight': {
         ev.preventDefault()
+        this.focusVisible = true
         this.focusTab(ev.target, 'right')
         return
       }
       case 'ArrowDown': {
         ev.preventDefault()
+        this.focusVisible = true
         this.setFocusOnSelectedTabpanel()
         return
       }
     }
   }
 
+  private handleResize = () => {
+    if (this.mode === 'floating') {
+      this.updateSelectedTabIndicator()
+    } else {
+      this.updateScrollable()
+      this.updateScrollButtons()
+    }
+  }
+
+  private updateSelectedTab = () => {
+    this.selectedTab = Array.from(this.el.querySelectorAll('ld-tab')).find(
+      (tab) => tab.selected
+    )
+  }
+
+  @Listen('ldtabselect')
+  handleTabSelect(ev) {
+    this.selectedIsFocused = true
+    this.selectedTab = ev.target
+  }
+
+  @Watch('selectedTab')
+  private updateSelectedTabIndicator() {
+    if (!this.selectedTabIndicatorRef) return
+
+    const indicatorStyle = this.selectedTabIndicatorRef.style
+    if (!this.selectedTab) {
+      // hide indicator
+      indicatorStyle.opacity = '0'
+      return
+    }
+
+    const bcr = this.selectedTab.getBoundingClientRect()
+    const offsetLeft = this.selectedTab.offsetLeft
+    indicatorStyle.transform = `translateX(${offsetLeft - 8}px)`
+    indicatorStyle.width = `${bcr.width}px`
+    indicatorStyle.opacity = '1'
+  }
+
   @Watch('size')
-  componentWillLoad() {
+  updateIconSize() {
     this.el.querySelectorAll('ld-icon').forEach((icon) => {
       if (this.size !== undefined) {
-        icon.setAttribute('size', this.size)
+        icon.size = this.size
       } else {
-        icon.removeAttribute('size')
+        icon.size = undefined
       }
     })
     this.el.querySelectorAll('.ld-icon').forEach((icon) => {
@@ -153,52 +214,87 @@ export class LdTablist {
     })
   }
 
+  componentWillLoad() {
+    // Attribute selector fails in test env, hance filtering with js below.
+    this.selectedTab = Array.from(this.el.querySelectorAll('ld-tab')).find(
+      (tab) => tab.selected
+    )
+    this.updateIconSize()
+
+    this.mutationObserver = new MutationObserver(this.updateSelectedTab)
+    this.mutationObserver.observe(this.el, {
+      subtree: true,
+      childList: true,
+      attributes: false,
+    })
+  }
+
   componentDidLoad() {
     setTimeout(() => {
       this.updateScrollable()
       this.updateScrollButtons()
+      this.initialized = true
     })
+    this.resizeObserver = new ResizeObserver(this.handleResize.bind(this))
+    this.resizeObserver.observe(this.slotContainerRef)
+  }
+
+  disconnectedCallback() {
+    /* istanbul ignore next */
+    this.resizeObserver?.unobserve(this.slotContainerRef)
+    /* istanbul ignore next */
+    this.mutationObserver?.disconnect()
   }
 
   render() {
     return (
-      <Host onKeydown={this.onKeydown.bind(this)} role="tablist">
+      <Host
+        onClick={this.onClick}
+        onKeydown={this.onKeydown}
+        onFocusout={this.onFocusout}
+        role="tablist"
+      >
         <div
           class={getClassNames([
             'ld-tablist',
+            this.initialized && 'ld-tablist--initialized',
+            this.focusVisible && 'ld-tablist--focus-visible',
+            this.selectedIsFocused && 'ld-tablist--selected-focused',
             this.size && `ld-tablist--${this.size}`,
             this.mode && `ld-tablist--${this.mode}`,
             this.rounded && `ld-tablist--rounded-${this.rounded}`,
           ])}
           part="wrapper"
         >
-          <button
-            aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
-            class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
-            hidden={!this.scrollable}
-            onClick={this.scroll.bind(this, 'left')}
-            part="arrow arrow-left"
-            ref={(el) => (this.btnScrollLeftRef = el)}
-            tabindex="-1"
-          >
-            {/* custom icon arrow-left */}
-            <svg
-              fill="none"
-              height="16"
-              part="arrow-icon arrow-icon-left"
-              viewBox="0 0 16 16"
-              width="16"
+          {this.mode !== 'floating' && (
+            <button
+              aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
+              class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
+              hidden={!this.scrollable}
+              onClick={this.scroll.bind(this, 'left')}
+              part="arrow arrow-left"
+              ref={(el) => (this.btnScrollLeftRef = el)}
+              tabindex="-1"
             >
-              <title>Scroll left</title>
-              <path
-                d="M10 13L6 8L10 3"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
+              {/* custom icon arrow-left */}
+              <svg
+                fill="none"
+                height="16"
+                part="arrow-icon arrow-icon-left"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <title>Scroll left</title>
+                <path
+                  d="M10 13L6 8L10 3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          )}
           <div
             class="ld-tablist__scroll-container"
             onScroll={this.updateScrollButtons.bind(this)}
@@ -206,33 +302,42 @@ export class LdTablist {
             ref={(el) => (this.slotContainerRef = el)}
           >
             <slot></slot>
-          </div>
-          <button
-            aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
-            class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
-            hidden={!this.scrollable}
-            onClick={this.scroll.bind(this, 'right')}
-            part="arrow arrow-right"
-            tabindex="-1"
-          >
-            {/* custom icon arrow-right */}
-            <svg
-              fill="none"
-              height="16"
-              part="arrow-icon arrow-icon-right"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <title>Scroll right</title>
-              <path
-                d="M6 13L10 8L6 3"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+            {this.mode === 'floating' && (
+              <div
+                part="active-tab-indicator"
+                class="ld-tablist__active-tab-indicator"
+                ref={(el) => (this.selectedTabIndicatorRef = el)}
               />
-            </svg>
-          </button>
+            )}
+          </div>
+          {this.mode !== 'floating' && (
+            <button
+              aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
+              class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
+              hidden={!this.scrollable}
+              onClick={this.scroll.bind(this, 'right')}
+              part="arrow arrow-right"
+              tabindex="-1"
+            >
+              {/* custom icon arrow-right */}
+              <svg
+                fill="none"
+                height="16"
+                part="arrow-icon arrow-icon-right"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <title>Scroll right</title>
+                <path
+                  d="M6 13L10 8L6 3"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </Host>
     )

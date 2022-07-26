@@ -25,9 +25,17 @@
   --ld-tab-bg-brand-col: var(--ld-thm-primary);
   --ld-tab-text-brand-col-focus: var(--ld-thm-primary-active);
   --ld-tab-disabled-bg-brand-col-focus: var(--ld-thm-primary-active);
-  --ld-tab-disabled-text-brand-col-focus: var(--ld-thm-primary);
+  --ld-tab-disabled-text-brand-col-focus: var(--ld-thm-primary-focus);
   --ld-tab-disabled-text-brand-col: var(--ld-thm-primary-focus);
   --ld-tab-selected-border-brand-col: var(--ld-thm-secondary);
+
+  /* transitions */
+  --ld-tablist-transition-duration: 0s;
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-tablist-transition-duration: 0.2s;
+  }
+
+  position: relative; /* Host element needs to be offset parent. */
 }
 
 .ld-tablist {
@@ -122,6 +130,7 @@
       --ld-tab-selected-text-col-focus: var(--ld-col-wht);
       --ld-tab-selected-text-col: var(--ld-col-wht);
       --ld-tab-text-col: var(--ld-col-wht);
+      --ld-tab-text-col-hover: var(--ld-col-wht);
 
       /* theme colors */
       --ld-tab-bg-col: var(--ld-tab-bg-brand-col);
@@ -143,7 +152,6 @@
     --ld-tablist-padding: var(--ld-sp-8) 0;
     --ld-tab-border-radius: var(--ld-br-m);
     --ld-tab-selected-border-display: none;
-    --ld-tab-selected-box-shadow: var(--ld-shadow-hover);
     --ld-tab-text-col-focus: var(--ld-tab-text-brand-col-focus);
     border-radius: var(--ld-br-l);
 
@@ -155,25 +163,24 @@
       gap: var(--ld-sp-8);
       padding-left: var(--ld-sp-8);
       padding-right: var(--ld-sp-8);
+      position: relative;
       scroll-snap-type: none;
-    }
-
-    .ld-tablist__btn-scroll {
-      display: none;
     }
 
     ::slotted(ld-tab) {
       /* colors */
       --ld-tab-selected-text-col-focus: var(--ld-col-wht);
       --ld-tab-selected-text-col: var(--ld-col-wht);
-
-      /* theme colors */
-      --ld-tab-selected-bg-col: var(--ld-tab-bg-brand-col);
       --ld-tab-bg-col: transparent;
-      --ld-tab-bg-col-focus: var(--ld-tab-bg-brand-col-focus);
-      --ld-tab-selected-bg-col-hover: var(--ld-tab-bg-brand-col-hover);
-      --ld-tab-selected-bg-col-active: var(--ld-tab-bg-brand-col-active);
-      --ld-tab-text-col-focus: var(--ld-tab-text-brand-col-focus);
+      --ld-tab-bg-col-active: transparent;
+      --ld-tab-bg-col-hover: transparent;
+      --ld-tab-bg-col-focus: transparent;
+      --ld-tab-disabled-bg-col-focus: transparent;
+      --ld-tab-disabled-text-col-focus: var(--ld-col-neutral-700);
+      --ld-tab-selected-bg-col-hover: transparent;
+      --ld-tab-selected-bg-col-active: transparent;
+      --ld-tab-text-col-hover: var(--ld-thm-primary-hover);
+      --ld-tab-text-col-focus: var(--ld-thm-primary-focus);
     }
   }
 }
@@ -231,5 +238,30 @@
   }
   &--right {
     right: 0;
+  }
+}
+
+.ld-tablist__active-tab-indicator {
+  background-color: var(--ld-thm-primary);
+  border: solid $colorSynBrightBlue 2px;
+  border-radius: var(--ld-br-m);
+  box-shadow: var(--ld-shadow-hover);
+  height: var(--ld-tablist-max-height);
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  will-change: transform, width;
+  z-index: -1;
+
+  .ld-tablist--initialized & {
+    /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+    transition: width var(--ld-tablist-transition-duration) ease,
+      transform var(--ld-tablist-transition-duration) ease,
+      opacity var(--ld-tablist-transition-duration)
+        var(--ld-tablist-transition-duration) linear;
+  }
+
+  .ld-tablist--focus-visible.ld-tablist--selected-focused:focus-within & {
+    background-color: var(--ld-thm-primary-focus);
   }
 }

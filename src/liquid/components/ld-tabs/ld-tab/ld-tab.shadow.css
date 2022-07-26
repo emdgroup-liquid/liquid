@@ -73,9 +73,8 @@
   }
 
   &[aria-selected='true'] {
-    box-shadow: var(--ld-tab-selected-box-shadow, none);
     color: var(--ld-tab-selected-text-col);
-    background-color: var(--ld-tab-selected-bg-col, var(--ld-tab-bg-col));
+    background-color: var(--ld-tab-bg-col);
 
     &::after {
       background-color: var(--ld-tab-selected-border-col);
@@ -94,7 +93,9 @@
     &[aria-disabled='true'] {
       background-color: var(--ld-tab-disabled-bg-col-focus);
       color: var(--ld-tab-disabled-text-col-focus);
+    }
 
+    &[aria-selected='true'] {
       &:not(:active) {
         color: var(--ld-tab-selected-text-col-focus);
       }
@@ -123,8 +124,12 @@
           );
         }
 
-        &:not([aria-selected='true'])::after {
-          background-color: inherit;
+        &:not([aria-selected='true']) {
+          color: var(--ld-tab-text-col-hover);
+
+          &::after {
+            background-color: inherit;
+          }
         }
       }
     }
