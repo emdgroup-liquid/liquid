@@ -245,7 +245,6 @@
   background-color: var(--ld-thm-primary);
   border: solid $colorSynBrightBlue 2px;
   border-radius: var(--ld-br-m);
-  box-shadow: var(--ld-shadow-hover);
   height: var(--ld-tablist-max-height);
   opacity: 0;
   position: absolute;

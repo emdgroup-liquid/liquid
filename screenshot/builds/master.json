@@ -26279,7 +26279,7 @@
     },
     {
       "id": "36dd9b49",
-      "image": "9d713f78a3a081d93825eee13221bb88.png",
+      "image": "e2c55d9dc224449c4510ddb3fbdc3bcf.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26292,7 +26292,7 @@
     },
     {
       "id": "b68b1eb7",
-      "image": "9d713f78a3a081d93825eee13221bb88.png",
+      "image": "e2c55d9dc224449c4510ddb3fbdc3bcf.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating active",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26305,7 +26305,7 @@
     },
     {
       "id": "caf7d0c6",
-      "image": "0bcc92c1e4a849fea683b52937ab8956.png",
+      "image": "0fd99cc083943469924edbcab8d0966d.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating active disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26318,7 +26318,7 @@
     },
     {
       "id": "842dee44",
-      "image": "4c428121e749bd59328c7e704ad14913.png",
+      "image": "68c4b37f4cd15d38fa4c7b935757f1c8.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating active selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26331,7 +26331,7 @@
     },
     {
       "id": "5b25205b",
-      "image": "cd0eb1e3a7870d60e7bf4f786f9b1d1a.png",
+      "image": "3b1b8abe886cfad968ab6f06a8496bd8.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating after selected change",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26344,7 +26344,7 @@
     },
     {
       "id": "6061dbfa",
-      "image": "741cd3d52de6480bb7d65dc71486c89d.png",
+      "image": "5449f607321e3d6961135425c9a66890.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating focus",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26357,7 +26357,7 @@
     },
     {
       "id": "5d13091c",
-      "image": "0bcc92c1e4a849fea683b52937ab8956.png",
+      "image": "0fd99cc083943469924edbcab8d0966d.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating focus disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26370,7 +26370,7 @@
     },
     {
       "id": "d0b21d95",
-      "image": "4c428121e749bd59328c7e704ad14913.png",
+      "image": "68c4b37f4cd15d38fa4c7b935757f1c8.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating focus selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26383,7 +26383,7 @@
     },
     {
       "id": "0c4df040",
-      "image": "4cc1c5b4c8a3f88789192658efb867e4.png",
+      "image": "bb3dc3c23397a82739d42c51c5b1631b.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating hover",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26396,7 +26396,7 @@
     },
     {
       "id": "bbbe8b81",
-      "image": "92a57fdfa3cd81518bf49c83f0ad08be.png",
+      "image": "ce318372334c618693895d3cebda6d9e.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating hover disabled",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26409,7 +26409,7 @@
     },
     {
       "id": "a17f24b4",
-      "image": "9d713f78a3a081d93825eee13221bb88.png",
+      "image": "e2c55d9dc224449c4510ddb3fbdc3bcf.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating hover selected",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26422,7 +26422,7 @@
     },
     {
       "id": "0e21e8e9",
-      "image": "8dee9626e0aa8e11ab73fa59f1d5a3dc.png",
+      "image": "59b47cae1e1ddf82cf574d3a4b7b44b5.png",
       "userAgent": "default",
       "desc": "ld-tabs mode floating many",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
@@ -26617,7 +26617,7 @@
     },
     {
       "id": "5d530a01",
-      "image": "d8bb7b60e7e5dce4c41ab8a9b9409f4d.png",
+      "image": "e94ab0b8f6cecde891e2661e89d0cb8a.png",
       "userAgent": "default",
       "desc": "ld-tabs rounded corners rounded top-lg",
       "testPath": "./src/liquid/components/ld-tabs/test/ld-tabs.e2e.ts",
