@@ -116,6 +116,32 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 </ld-tabs>
 {% endexample %}
 
+### Floating
+
+{% example '{ "background": "light" }' %}
+<ld-tabs>
+  <ld-tablist mode="floating">
+    <ld-tab selected>Fruits</ld-tab>
+    <ld-tab>Vegetables</ld-tab>
+    <ld-tab disabled>Scrap Metal</ld-tab>
+    <ld-tab>Nuts</ld-tab>
+  </ld-tablist>
+</ld-tabs>
+{% endexample %}
+
+### Floating on brand color
+
+{% example '{ "background": "brand", "hasBorder": false }' %}
+<ld-tabs>
+  <ld-tablist mode="floating-on-brand-color">
+    <ld-tab selected>Fruits</ld-tab>
+    <ld-tab>Vegetables</ld-tab>
+    <ld-tab disabled>Scrap Metal</ld-tab>
+    <ld-tab>Nuts</ld-tab>
+  </ld-tablist>
+</ld-tabs>
+{% endexample %}
+
 ### Size
 
 {% example '{ "background": "light" }' %}

@@ -21,7 +21,7 @@ const getTabsHTML = (props = '', withText = true, withIcon = false) => {
 }
 
 const getManyTabsHTML = (props = '') => `
-  <ld-tabs style="max-width: calc(100% - var(--ld-sp-24)*2)">
+  <ld-tabs style="max-width: 500px">
     <ld-tablist ${props}>
       <ld-tab selected>Classical</ld-tab>
       <ld-tab>Rock</ld-tab>
@@ -50,12 +50,20 @@ const getManyTabsHTML = (props = '') => `
 describe('ld-tabs', () => {
   it(`default`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
   })
 
   it(`hover`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(2)')
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -63,6 +71,10 @@ describe('ld-tabs', () => {
 
   it(`hover selected`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(1)')
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -70,6 +82,10 @@ describe('ld-tabs', () => {
 
   it(`hover disabled`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(3)')
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -77,6 +93,10 @@ describe('ld-tabs', () => {
 
   it(`focus`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
     const results = await page.compareScreenshot()
@@ -85,6 +105,10 @@ describe('ld-tabs', () => {
 
   it(`focus selected`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -92,6 +116,10 @@ describe('ld-tabs', () => {
 
   it(`focus disabled`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
     await page.keyboard.press('ArrowRight')
@@ -102,6 +130,10 @@ describe('ld-tabs', () => {
 
   it(`active`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
     await page.keyboard.down('Space')
@@ -111,6 +143,10 @@ describe('ld-tabs', () => {
 
   it(`active selected`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.down('Space')
     const results = await page.compareScreenshot()
@@ -119,6 +155,10 @@ describe('ld-tabs', () => {
 
   it(`active disabled`, async () => {
     const page = await getPageWithContent(getTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
     await page.keyboard.press('ArrowRight')
@@ -130,6 +170,10 @@ describe('ld-tabs', () => {
 
   it(`many`, async () => {
     const page = await getPageWithContent(getManyTabsHTML())
+    await page.emulateMediaFeatures([
+      { name: 'prefers-reduced-motion', value: 'reduce' },
+    ])
+    await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
     await page.keyboard.press('ArrowRight')
@@ -139,176 +183,181 @@ describe('ld-tabs', () => {
   })
 
   describe('mode', () => {
-    it(`ghost`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+    for (const mode of [
+      // 'ghost',
+      // 'brand-color',
+      // 'floating',
+      'floating-on-brand-color',
+    ]) {
+      const bgColor =
+        mode === 'floating-on-brand-color' ? 'var(--ld-thm-primary)' : undefined
 
-    it(`ghost hover`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(2)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode}`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost hover selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(1)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.hover('ld-tab:nth-of-type(2)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost hover disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.hover('ld-tab:nth-of-type(3)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.hover('ld-tab:nth-of-type(1)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} hover disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.hover('ld-tab:nth-of-type(3)')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost focus disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} focus disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost active disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="ghost"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active selected`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`ghost many`, async () => {
-      const page = await getPageWithContent(getManyTabsHTML('mode="ghost"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} active disabled`, async () => {
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        await page.keyboard.press('Tab')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.press('ArrowRight')
+        await page.keyboard.down('Space')
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
 
-    it(`brand-color`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      it(`${mode} many`, async () => {
+        const page = await getPageWithContent(
+          getManyTabsHTML(`mode="${mode}"`),
+          {
+            bgColor,
+          }
+        )
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+    }
 
-    it(`brand-color hover`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(2)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+    it('floating after selected change', async () => {
+      const page = await getPageWithContent(getTabsHTML('mode="floating"'))
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
 
-    it(`brand-color hover selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(1)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
+      const btn = await page.find('ld-tab:nth-of-type(2)')
+      btn.click()
+      await page.waitForChanges()
 
-    it(`brand-color hover disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.hover('ld-tab:nth-of-type(3)')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color focus disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active selected`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color active disabled`, async () => {
-      const page = await getPageWithContent(getTabsHTML('mode="brand-color"'))
-      await page.keyboard.press('Tab')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.press('ArrowRight')
-      await page.keyboard.down('Space')
-      const results = await page.compareScreenshot()
-      expect(results).toMatchScreenshot()
-    })
-
-    it(`brand-color many`, async () => {
-      const page = await getPageWithContent(
-        getManyTabsHTML('mode="brand-color"')
-      )
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
@@ -320,6 +369,10 @@ describe('ld-tabs', () => {
         const page = await getPageWithContent(
           getTabsHTML(`mode="brand-color" rounded="${r}"`)
         )
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
       })
@@ -330,6 +383,10 @@ describe('ld-tabs', () => {
     for (const size of sizes) {
       it(`size ${size}`, async () => {
         const page = await getPageWithContent(getTabsHTML(`size="${size}"`))
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
         await page.keyboard.press('Tab')
         await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()
@@ -344,6 +401,10 @@ describe('ld-tabs', () => {
         const page = await getPageWithContent(
           getTabsHTML(`size="${size}"`, true, true)
         )
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
         await page.keyboard.press('Tab')
         await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()
@@ -354,6 +415,10 @@ describe('ld-tabs', () => {
         const page = await getPageWithContent(
           getTabsHTML(`size="${size}"`, false, true)
         )
+        await page.emulateMediaFeatures([
+          { name: 'prefers-reduced-motion', value: 'reduce' },
+        ])
+        await page.waitForChanges()
         await page.keyboard.press('Tab')
         await page.keyboard.press('ArrowRight')
         const results = await page.compareScreenshot()

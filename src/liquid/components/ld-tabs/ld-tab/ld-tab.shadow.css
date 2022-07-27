@@ -30,6 +30,7 @@
   font: var(--ld-tab-font);
   font-weight: 700;
   border: 0;
+  border-radius: var(--ld-tab-border-radius, 0px);
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
@@ -64,6 +65,7 @@
   /* Selection indicator */
   &::after {
     content: '';
+    display: var(--ld-tab-selected-border-display, block);
     position: absolute;
     inset: auto 0 0 0;
     height: var(--ld-tab-indicator-height);
@@ -72,6 +74,7 @@
 
   &[aria-selected='true'] {
     color: var(--ld-tab-selected-text-col);
+    background-color: var(--ld-tab-bg-col);
 
     &::after {
       background-color: var(--ld-tab-selected-border-col);
@@ -79,6 +82,7 @@
   }
 
   &:focus:focus-visible {
+    --ld-tab-disabled-content-opacity: 0.5;
     outline: none;
     background-color: var(--ld-tab-bg-col-focus);
 
@@ -113,8 +117,19 @@
       &:hover {
         background-color: var(--ld-tab-bg-col-hover);
 
-        &:not([aria-selected='true'])::after {
-          background-color: inherit;
+        &[aria-selected='true'] {
+          background-color: var(
+            --ld-tab-selected-bg-col-hover,
+            var(--ld-tab-bg-col-hover)
+          );
+        }
+
+        &:not([aria-selected='true']) {
+          color: var(--ld-tab-text-col-hover);
+
+          &::after {
+            background-color: inherit;
+          }
         }
       }
     }
@@ -122,10 +137,22 @@
     &:active:focus:focus-visible {
       background-color: var(--ld-tab-bg-col-active);
 
+      &[aria-selected='true'] {
+        background-color: var(
+          --ld-tab-selected-bg-col-active,
+          var(--ld-tab-bg-col-active)
+        );
+      }
+
       &:not([aria-selected='true'])::after {
         background-color: inherit;
       }
     }
+  }
+
+  ::slotted(ld-icon),
+  ::slotted(.ld-icon) {
+    height: 0;
   }
 }
 

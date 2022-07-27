@@ -4,6 +4,8 @@ import { LdTablist } from '../ld-tablist/ld-tablist'
 import { LdTab } from '../ld-tab/ld-tab'
 import { LdTabpanellist } from '../ld-tabpanellist/ld-tabpanellist'
 import { LdTabpanel } from '../ld-tabpanel/ld-tabpanel'
+import '../../../utils/resizeObserver'
+import '../../../utils/mutationObserver'
 
 class FocusManager {
   focus(el) {
@@ -526,6 +528,144 @@ describe('ld-tabs', () => {
       tabBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
       expect(handleLdtabchange).toHaveBeenCalled()
+    })
+  })
+
+  describe('methods', () => {
+    it('changes tab via method with preselected tab using index', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-tabs>
+          <ld-tablist>
+            <ld-tab selected>Fruits</ld-tab>
+            <ld-tab>Vegetables</ld-tab>
+            <ld-tab>Nuts</ld-tab>
+            <ld-tab disabled>Grain</ld-tab>
+          </ld-tablist>
+        </ld-tabs>
+      `,
+      })
+      const ldTabs = page.root
+      const ldTablist = ldTabs.querySelector('ld-tablist')
+
+      const ldTabItems = ldTablist.querySelectorAll('ld-tab')
+      expect(ldTabItems.length).toEqual(4)
+
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
+
+      expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
+      expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
+
+      expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
+      expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
+
+      ldTabItems[2].scrollIntoView = jest.fn()
+      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+
+      await ldTabs.switchTab(2)
+      await page.waitForChanges()
+
+      expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
+      expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
+
+      expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
+      expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
+
+      expect(spyScrollIntoView).toHaveBeenCalled()
+    })
+
+    it('changes tab via method with preselected tab using id', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-tabs>
+          <ld-tablist>
+            <ld-tab selected>Fruits</ld-tab>
+            <ld-tab>Vegetables</ld-tab>
+            <ld-tab id="nuts">Nuts</ld-tab>
+            <ld-tab disabled>Grain</ld-tab>
+          </ld-tablist>
+        </ld-tabs>
+      `,
+      })
+      const ldTabs = page.root
+      const ldTablist = ldTabs.querySelector('ld-tablist')
+
+      const ldTabItems = ldTablist.querySelectorAll('ld-tab')
+      expect(ldTabItems.length).toEqual(4)
+
+      const tabBtn0 = ldTabItems[0].shadowRoot.querySelector('button')
+      const tabBtn2 = ldTabItems[2].shadowRoot.querySelector('button')
+
+      expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
+      expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
+
+      expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
+      expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
+
+      ldTabItems[2].scrollIntoView = jest.fn()
+      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+
+      await ldTabs.switchTab('ld-tabs-10-tab-2')
+      await page.waitForChanges()
+
+      expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
+      expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
+
+      expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
+      expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
+
+      expect(spyScrollIntoView).toHaveBeenCalled()
+    })
+
+    it('throws if no tab is found when switching using index', async () => {
+      expect.assertions(1)
+      const page = await newSpecPage({
+        components,
+        html: `
+            <ld-tabs>
+              <ld-tablist>
+                <ld-tab selected>Fruits</ld-tab>
+                <ld-tab>Vegetables</ld-tab>
+              </ld-tablist>
+            </ld-tabs>
+          `,
+      })
+      const ldTabs = page.root
+      await page.waitForChanges()
+
+      try {
+        await ldTabs.switchTab(99)
+      } catch (err) {
+        expect(err).toStrictEqual(Error('Could not find ld-tab with index 99.'))
+      }
+    })
+
+    it('throws if no tab is found when switching using id', async () => {
+      expect.assertions(1)
+      const page = await newSpecPage({
+        components,
+        html: `
+            <ld-tabs>
+              <ld-tablist>
+                <ld-tab selected>Fruits</ld-tab>
+                <ld-tab>Vegetables</ld-tab>
+              </ld-tablist>
+            </ld-tabs>
+          `,
+      })
+      const ldTabs = page.root
+      await page.waitForChanges()
+
+      try {
+        await ldTabs.switchTab('yolo')
+      } catch (err) {
+        expect(err).toStrictEqual(
+          Error('Could not find ld-tab with id "yolo".')
+        )
+      }
     })
   })
 })
