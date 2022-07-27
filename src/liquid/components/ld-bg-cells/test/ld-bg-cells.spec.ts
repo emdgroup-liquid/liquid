@@ -18,6 +18,14 @@ describe('ld-bg-cells', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('renders with alias type', async () => {
+    const page = await newSpecPage({
+      components: [LdBgCells],
+      html: `<ld-bg-cells type="qa-x2f-qc"></ld-bg-cells>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   it('renders with repeat', async () => {
     const page = await newSpecPage({
       components: [LdBgCells],

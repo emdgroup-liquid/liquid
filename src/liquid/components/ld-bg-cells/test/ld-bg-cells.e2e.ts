@@ -7,9 +7,9 @@ const cellTypes = [
   'f',
   'hexagon',
   'millipore',
-  'qa-x2f-qc',
   'safc',
   'sigma-aldrich',
+  'supelco',
   't',
   'tile',
 ]
@@ -46,8 +46,6 @@ describe('ld-bg-cells', () => {
         `<ld-bg-cells class="custom" />
         <style>
           .custom {
-            --ld-bg-cells-bg-col: var(--ld-col-vm-300);
-            --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }
@@ -72,12 +70,11 @@ describe('ld-bg-cells', () => {
     })
   })
 
-  // TODO: create separate css file per cell type to fix css component
-  xdescribe('css component', () => {
+  describe('css component', () => {
     it(`default`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-bg-cells ld-bg-cells--safc">
-          <div class="ld-bg-cells__pattern"></div>
+        `<div class="ld-bg-cells">
+          <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
         </div>`,
         { components: LdBgCells }
       )
@@ -90,7 +87,7 @@ describe('ld-bg-cells', () => {
       it(`type ${cellType}`, async () => {
         const page = await getPageWithContent(
           `<div class="ld-bg-cells ld-bg-cells--${cellType} ">
-            <div class="ld-bg-cells__pattern"></div>
+            <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/liquid/assets/${cellType}-cell.svg')"></div>
           </div>`,
           { components: LdBgCells }
         )
@@ -102,8 +99,8 @@ describe('ld-bg-cells', () => {
 
     it(`with repeating cell pattern`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-bg-cells ld-bg-cells--safc">
-          <div class="ld-bg-cells__pattern ld-bg-cells__pattern--repeat"></div>
+        `<div class="ld-bg-cells">
+          <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
         </div>`,
         { components: LdBgCells }
       )
@@ -114,13 +111,11 @@ describe('ld-bg-cells', () => {
 
     it(`with custom css vars`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-bg-cells ld-bg-cells--safc custom">
-          <div class="ld-bg-cells__pattern"></div>
+        `<div class="ld-bg-cells custom">
+          <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
         </div>
         <style>
           .custom {
-            --ld-bg-cells-bg-col: var(--ld-col-vm-300);
-            --ld-bg-cells-pattern-col: var(--ld-col-vm-600);
             --ld-bg-cells-position: bottom left;
             --ld-bg-cells-size: 150%;
           }
@@ -134,8 +129,8 @@ describe('ld-bg-cells', () => {
 
     it(`with scrollable content`, async () => {
       const page = await getPageWithContent(
-        `<div class="ld-bg-cells ld-bg-cells--safc" style="height: 9rem; width: 15rem">
-          <div class="ld-bg-cells__pattern"></div>
+        `<div class="ld-bg-cells" style="height: 9rem; width: 15rem">
+          <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
           <div class="ld-bg-cells__content">
             <p class="ld-typo" style="color: var(--ld-col-wht); margin: var(--ld-sp-16)">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
