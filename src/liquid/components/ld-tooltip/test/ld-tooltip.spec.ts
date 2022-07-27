@@ -411,4 +411,29 @@ describe('ld-tooltip', () => {
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
   })
+
+  it('removes popper element on disconnect', async () => {
+    const page = await newSpecPage({
+      components: [LdIcon, LdTooltip, LdTooltipPopper],
+      html: `<ld-tooltip>
+        <h4>Headline</h4>
+        <p>Text content</p>
+      </ld-tooltip>`,
+    })
+
+    const component = page.root
+    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+
+    // @ts-ignore
+    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    trigger.dispatchEvent(new Event('mouseenter'))
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+    expect(page.body.querySelector('ld-tooltip-popper')).toBeTruthy()
+
+    component.remove()
+    await page.waitForChanges()
+    expect(page.body.querySelector('ld-tooltip-popper')).toBeFalsy()
+  })
 })
