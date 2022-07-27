@@ -9,6 +9,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { isInnerFocusable } from '../../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component
@@ -41,7 +42,7 @@ export class LdTablist {
   @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
 
   private slotContainerRef!: HTMLElement
-  private selectedTabIndicatorRef!: HTMLElement
+  private selectedTabIndicatorRef: HTMLElement
   private btnScrollLeftRef!: HTMLButtonElement
   private resizeObserver: ResizeObserver
   private mutationObserver: MutationObserver
@@ -91,10 +92,11 @@ export class LdTablist {
   }
 
   private focusTab(prevLdTab: HTMLElement, dir: 'left' | 'right') {
-    const currentTab = (dir === 'left'
-      ? prevLdTab.previousElementSibling
-      : prevLdTab.nextElementSibling) as unknown as HTMLLdTabElement
-    if (currentTab) {
+    const currentTab =
+      dir === 'left'
+        ? prevLdTab.previousElementSibling
+        : prevLdTab.nextElementSibling
+    if (isInnerFocusable(currentTab)) {
       currentTab.focusInner()
       currentTab.scrollIntoView({
         behavior: 'smooth',
@@ -235,7 +237,7 @@ export class LdTablist {
       this.updateScrollButtons()
       this.initialized = true
     })
-    this.resizeObserver = new ResizeObserver(this.handleResize.bind(this))
+    this.resizeObserver = new ResizeObserver(this.handleResize)
     this.resizeObserver.observe(this.slotContainerRef)
   }
 
