@@ -14396,6 +14396,19 @@
       "isMobile": false
     },
     {
+      "id": "3f69e371",
+      "image": "ad170cefee526e5c0973717efe443c8a.png",
+      "userAgent": "default",
+      "desc": "ld-select closes popper on disconnect",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "1e681179",
       "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
       "userAgent": "default",
