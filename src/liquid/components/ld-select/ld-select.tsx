@@ -956,6 +956,8 @@ export class LdSelect implements InnerFocusable {
     this.popper?.destroy()
     /* istanbul ignore next */
     this.observer?.disconnect()
+    /* istanbul ignore next */
+    this.listboxRef?.remove()
   }
 
   render() {

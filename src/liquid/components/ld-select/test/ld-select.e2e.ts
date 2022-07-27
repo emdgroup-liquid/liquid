@@ -727,4 +727,22 @@ describe('ld-select', () => {
       expect(results).toMatchScreenshot()
     })
   })
+
+  it('closes popper on disconnect', async () => {
+    const page = await getPageWithContent(`
+      <ld-select placeholder="Pick a fruit" name="fruit">
+        <ld-option value="apple" selected>Apple</ld-option>
+        <ld-option value="banana">Banana</ld-option>
+      </ld-select>`)
+    await page.keyboard.press('Tab')
+    await page.waitForChanges()
+    await page.keyboard.press('ArrowDown')
+    await page.waitForChanges()
+    await page.evaluate(() => {
+      document.querySelector('ld-select').remove()
+    })
+    await page.waitForChanges()
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
 })
