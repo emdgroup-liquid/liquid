@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/emdgroup-liquid/liquid/compare/v2.3.1...v2.4.0) (2022-07-27)
+
+
+### Bug Fixes
+
+* **ld-select:** remove popper in disconnected callback ([20e92f8](https://github.com/emdgroup-liquid/liquid/commit/20e92f8da796619f197965953d26f3b3ac32c152)), closes [#389](https://github.com/emdgroup-liquid/liquid/issues/389)
+* **ld-tooltip:** remove popper in disconnected callback ([b59c123](https://github.com/emdgroup-liquid/liquid/commit/b59c123646339b12d49ad5aa686341ded5c26761))
+
+
+### Features
+
+* **ld-button:** add danger-secondary mode ([edc52ae](https://github.com/emdgroup-liquid/liquid/commit/edc52aeb58019d6abb543e5bb408022cc1039c31))
+* **ld-select:** add filter feature ([b6a84ee](https://github.com/emdgroup-liquid/liquid/commit/b6a84ee5a87d2a526100889e50804e963678f323)), closes [#238](https://github.com/emdgroup-liquid/liquid/issues/238)
+* **ld-stepper:** add interaction styles ([f1a6a66](https://github.com/emdgroup-liquid/liquid/commit/f1a6a66b85f875c1b5132065d54e3daf2ce7bd82))
+* **ld-stepper:** add progress indicator component ([8cdd327](https://github.com/emdgroup-liquid/liquid/commit/8cdd327f345c706fb5c3b6ea90d4f59da4b598d9))
+* **ld-tabs:** floating mode ([0d8f4f4](https://github.com/emdgroup-liquid/liquid/commit/0d8f4f4508086b70a51cf6b0a5fa04f28feae0b5))
+
 ## [2.3.1](https://github.com/emdgroup-liquid/liquid/compare/v2.3.0...v2.3.1) (2022-07-19)
 
 
