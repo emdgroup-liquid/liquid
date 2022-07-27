@@ -182,7 +182,7 @@ describe('ld-tabs', () => {
     expect(results).toMatchScreenshot()
   })
 
-  fdescribe('mode', () => {
+  describe('mode', () => {
     for (const mode of [
       // 'ghost',
       // 'brand-color',
