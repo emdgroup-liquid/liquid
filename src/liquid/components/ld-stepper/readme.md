@@ -402,7 +402,7 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 ## On brand color
 
-{% example '{ "background": "brand" }' %}
+{% example '{ "background": "brand", "hasBorder": false }' %}
 <ld-stepper brand-color>
   <ld-step done>Billing</ld-step>
   <ld-step done>Shipping</ld-step>
