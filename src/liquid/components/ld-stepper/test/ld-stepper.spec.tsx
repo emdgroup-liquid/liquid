@@ -2,6 +2,7 @@ import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdStep } from '../ld-step/ld-step'
 import { LdStepper } from '../ld-stepper'
+import '../../../utils/mutationObserver'
 
 describe('ld-stepper', () => {
   describe('renders', () => {

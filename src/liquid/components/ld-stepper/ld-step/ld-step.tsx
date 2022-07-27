@@ -7,8 +7,10 @@ import {
   Event,
   EventEmitter,
   Method,
+  State,
 } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { cloneAttributes } from '../../../utils/cloneAttributes'
+import { getClassNames } from '../../../utils/getClassNames'
 
 export type SelectedDetail = { index: number; label: string }
 
@@ -28,6 +30,7 @@ export type SelectedDetail = { index: number; label: string }
 })
 export class LdStep implements InnerFocusable {
   @Element() el: HTMLLdStepElement
+  private attributesObserver?: MutationObserver
   private focusableElement: HTMLButtonElement | HTMLAnchorElement
 
   /** Switch colors for brand background */
@@ -72,6 +75,8 @@ export class LdStep implements InnerFocusable {
   /** Emitted when the focusable element is clicked and step is neither current nor disabled */
   @Event() ldstepselected: EventEmitter<SelectedDetail>
 
+  @State() clonedAttributes
+
   /** Sets focus on the step */
   @Method()
   async focusInner() {
@@ -87,10 +92,42 @@ export class LdStep implements InnerFocusable {
     })
   }
 
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'aria-current',
+      'aria-disabled',
+      'brand-color',
+      'current',
+      'description',
+      'disabled',
+      'done',
+      'href',
+      'icon',
+      'label-current',
+      'label-done',
+      'label-optional',
+      'label-skipped',
+      'label-was-optional',
+      'last-active',
+      'ld-tabindex',
+      'next',
+      'optional',
+      'size',
+      'skipped',
+      'tabindex',
+      'type',
+      'vertical',
+    ])
+  }
+
   componentDidLoad() {
     if (this.current) {
       this.handleClick()
     }
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver?.disconnect()
   }
 
   render() {
@@ -135,6 +172,7 @@ export class LdStep implements InnerFocusable {
             </ld-sr-only>
           )}
           <FocusableElement
+            {...this.clonedAttributes}
             aria-current={this.current ? 'step' : undefined}
             aria-disabled={this.disabled ? 'true' : undefined}
             class="ld-step__focusable-element"
