@@ -148,7 +148,8 @@
     }
   }
 
-  &--floating {
+  &--floating,
+  &--floating-on-brand-color {
     --ld-tablist-padding: var(--ld-sp-8) 0;
     --ld-tab-border-radius: var(--ld-br-m);
     --ld-tab-selected-border-display: none;
@@ -182,6 +183,10 @@
       --ld-tab-text-col-hover: var(--ld-thm-primary-hover);
       --ld-tab-text-col-focus: var(--ld-thm-primary-focus);
     }
+  }
+
+  &--floating-on-brand-color {
+    --ld-tablist-btn-scroll-bg-col: var(--ld-col-wht);
   }
 }
 

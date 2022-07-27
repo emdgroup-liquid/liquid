@@ -182,10 +182,20 @@ describe('ld-tabs', () => {
     expect(results).toMatchScreenshot()
   })
 
-  describe('mode', () => {
-    for (const mode of ['ghost', 'brand-color', 'floating']) {
+  fdescribe('mode', () => {
+    for (const mode of [
+      // 'ghost',
+      // 'brand-color',
+      // 'floating',
+      'floating-on-brand-color',
+    ]) {
+      const bgColor =
+        mode === 'floating-on-brand-color' ? 'var(--ld-thm-primary)' : undefined
+
       it(`${mode}`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -195,7 +205,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} hover`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -206,7 +218,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} hover selected`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -217,7 +231,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} hover disabled`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -228,7 +244,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} focus`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -240,7 +258,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} focus selected`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -251,7 +271,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} focus disabled`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -265,7 +287,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} active`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -278,7 +302,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} active selected`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -290,7 +316,9 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} active disabled`, async () => {
-        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(getTabsHTML(`mode="${mode}"`), {
+          bgColor,
+        })
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])
@@ -305,7 +333,12 @@ describe('ld-tabs', () => {
       })
 
       it(`${mode} many`, async () => {
-        const page = await getPageWithContent(getManyTabsHTML(`mode="${mode}"`))
+        const page = await getPageWithContent(
+          getManyTabsHTML(`mode="${mode}"`),
+          {
+            bgColor,
+          }
+        )
         await page.emulateMediaFeatures([
           { name: 'prefers-reduced-motion', value: 'reduce' },
         ])

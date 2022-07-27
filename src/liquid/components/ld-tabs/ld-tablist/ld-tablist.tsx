@@ -36,7 +36,11 @@ export class LdTablist {
   @Prop() size?: 'sm' | 'lg'
 
   /** Display mode. */
-  @Prop() mode?: 'ghost' | 'brand-color' | 'floating'
+  @Prop() mode?:
+    | 'ghost'
+    | 'brand-color'
+    | 'floating'
+    | 'floating-on-brand-color'
 
   /** Sets border radii. */
   @Prop() rounded?: 'all' | 'all-lg' | 'top' | 'top-lg'
@@ -55,8 +59,11 @@ export class LdTablist {
   @State() focusVisible = true
   @State() selectedIsFocused = true
 
+  private isFloating = () =>
+    ['floating', 'floating-on-brand-color'].includes(this.mode)
+
   private updateScrollable() {
-    if (this.mode === 'floating') return
+    if (this.isFloating()) return
     const scrollButtonsWidth =
       2 * this.btnScrollLeftRef.getBoundingClientRect().width
     const scrollContainerWidth =
@@ -70,7 +77,7 @@ export class LdTablist {
   }
 
   private updateScrollButtons() {
-    if (this.mode === 'floating') return
+    if (this.isFloating()) return
     if (!this.scrollable) return
     this.scrollLeftEnabled = this.slotContainerRef.scrollLeft > 0
     this.scrollRightEnabled =
@@ -156,7 +163,7 @@ export class LdTablist {
   }
 
   private handleResize = () => {
-    if (this.mode === 'floating') {
+    if (this.isFloating()) {
       this.updateSelectedTabIndicator()
     } else {
       this.updateScrollable()
@@ -268,7 +275,7 @@ export class LdTablist {
           ])}
           part="wrapper"
         >
-          {this.mode !== 'floating' && (
+          {!this.isFloating() && (
             <button
               aria-disabled={this.scrollLeftEnabled ? undefined : 'true'}
               class="ld-tablist__btn-scroll ld-tablist__btn-scroll--left"
@@ -304,7 +311,7 @@ export class LdTablist {
             ref={(el) => (this.slotContainerRef = el)}
           >
             <slot></slot>
-            {this.mode === 'floating' && (
+            {this.isFloating() && (
               <div
                 part="active-tab-indicator"
                 class="ld-tablist__active-tab-indicator"
@@ -312,7 +319,7 @@ export class LdTablist {
               />
             )}
           </div>
-          {this.mode !== 'floating' && (
+          {!this.isFloating() && (
             <button
               aria-disabled={this.scrollRightEnabled ? undefined : 'true'}
               class="ld-tablist__btn-scroll ld-tablist__btn-scroll--right"
