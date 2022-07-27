@@ -10,6 +10,7 @@ export type CellType =
   | 'qa-x2f-qc'
   | 'safc'
   | 'sigma-aldrich'
+  | 'supelco'
   | 't'
   | 'tile'
 
@@ -22,18 +23,22 @@ export type CellType =
 @Component({
   assetsDirs: ['assets'],
   tag: 'ld-bg-cells',
-  styleUrl: 'ld-bg-cells.shadow.css',
+  styleUrl: 'ld-bg-cells.css',
   shadow: true,
 })
 export class LdBgCells {
   /** Cells pattern */
-  @Prop() type: CellType = 'safc'
+  @Prop() type: CellType = 'hexagon'
 
   render() {
-    const assetPath = getLdAssetPath(`./assets/${this.type}-cell.svg`)
+    // Handle aliases (for backward compatibility).
+    let cellType = this.type
+    if (cellType === 'qa-x2f-qc') cellType = 'supelco'
+
+    const assetPath = getLdAssetPath(`./assets/${cellType}-cell.svg`)
 
     return (
-      <Host class={getClassNames(['ld-bg-cells', `ld-bg-cells--${this.type}`])}>
+      <Host class={getClassNames(['ld-bg-cells', `ld-bg-cells--${cellType}`])}>
         <div
           class="ld-bg-cells__pattern"
           part="pattern"
