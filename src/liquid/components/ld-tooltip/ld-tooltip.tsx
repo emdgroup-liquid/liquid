@@ -256,6 +256,11 @@ export class LdTooltip {
     this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
   }
 
+  disconnectedCallback() {
+    this.popper?.destroy()
+    this.tooltipRef?.remove()
+  }
+
   render() {
     const TriggerTag = this.tag
 
