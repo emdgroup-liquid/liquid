@@ -14,17 +14,19 @@ const getWcStepsEmpty = (
 ) => `
 <ld-step done${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-}></ld-step>
+} aria-label="Billing"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-} ${optional ? 'optional skipped' : 'done'}></ld-step>
+} ${optional ? 'optional skipped' : 'done'} aria-label="Shipping"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-}${optional ? ' optional' : ''} current></ld-step>
+}${optional ? ' optional' : ''} current aria-label="Payment"></ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   withCustomIcons ? ' icon="placeholder"' : ''
-}${optional ? ' optional' : ''} last-active next></ld-step>
-<ld-step${anchor ? ' href="#"' : ''}${optional ? ' optional' : ''}></ld-step>`
+}${optional ? ' optional' : ''} last-active next aria-label="Summary"></ld-step>
+<ld-step${anchor ? ' href="#"' : ''}${
+  optional ? ' optional' : ''
+} disabled aria-label="Confirmation"></ld-step>`
 
 const getWcStepsLabel = (
   withCustomIcons = false,
@@ -45,7 +47,7 @@ const getWcStepsLabel = (
 }${optional ? ' optional' : ''} last-active next>Summary</ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-}>Confirmation</ld-step>`
+} disabled>Confirmation</ld-step>`
 
 const getWcStepsDescription = (
   withCustomIcons = false,
@@ -72,7 +74,7 @@ const getWcStepsDescription = (
 } last-active next description="Summary of your articles and all the previously given information">Summary</ld-step>
 <ld-step${anchor ? ' href="#"' : ''}${
   optional ? ' optional' : ''
-} description="Order confirmation with follow-up information">Confirmation</ld-step>`
+} disabled description="Order confirmation with follow-up information">Confirmation</ld-step>`
 
 const wcStepperProps = {
   default: '',
@@ -89,15 +91,24 @@ const wcStepperProps = {
   'vertical on brand color lg': ' brand-color size="lg" vertical',
 }
 
+const wcStepperInteractionProps = {
+  default: '',
+  'on brand color': ' brand-color',
+}
+
 const getCssStep = ({
   anchor = false,
+  ariaLabel,
   description,
+  disabled = false,
   label,
   modifiers = [],
   srLabel,
 }: {
   anchor?: boolean
+  ariaLabel?: string
   description?: string
+  disabled?: boolean
   label?: string
   modifiers?: string[]
   srLabel?: string
@@ -116,6 +127,8 @@ const getCssStep = ({
   !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
     ? ' href="#"'
     : ''
+}${disabled ? ' aria-disabled="true"' : ''}${
+  ariaLabel ? ` aria-label="${ariaLabel}"` : ''
 }>${label ?? ''}</${anchor ? 'a' : 'button'}>
   ${
     modifiers.includes('done') && !modifiers.includes('custom-icon')
@@ -142,11 +155,13 @@ const getCssStepsEmpty = (
 ) =>
   getCssStep({
     anchor,
+    ariaLabel: 'Billing',
     modifiers: ['done', 'with-icon', optional && 'optional', ...modifiers],
     srLabel: 'Completed',
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Shipping',
     modifiers: [
       optional ? 'optional' : 'done',
       optional && 'skipped',
@@ -158,6 +173,7 @@ const getCssStepsEmpty = (
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Payment',
     modifiers: [
       'current',
       withCustomIcons && 'custom-icon',
@@ -169,6 +185,7 @@ const getCssStepsEmpty = (
   }) +
   getCssStep({
     anchor,
+    ariaLabel: 'Summary',
     modifiers: [
       'last-active',
       'next',
@@ -178,7 +195,12 @@ const getCssStepsEmpty = (
       ...modifiers,
     ],
   }) +
-  getCssStep({ anchor, modifiers: [optional && 'optional', ...modifiers] })
+  getCssStep({
+    anchor,
+    ariaLabel: 'Confirmation',
+    disabled: true,
+    modifiers: [optional && 'optional', ...modifiers],
+  })
 
 const getCssStepsLabel = (
   withCustomIcons = false,
@@ -230,6 +252,7 @@ const getCssStepsLabel = (
   }) +
   getCssStep({
     anchor,
+    disabled: true,
     label: 'Confirmation',
     modifiers: [optional && 'optional', ...modifiers],
   })
@@ -291,6 +314,7 @@ const getCssStepsDescription = (
   getCssStep({
     anchor,
     description: 'Order confirmation with follow-up information',
+    disabled: true,
     label: 'Confirmation',
     modifiers: [optional && 'optional', ...modifiers],
   })
@@ -318,6 +342,11 @@ const cssStepperModifiers = {
   'vertical on brand color': ['brand-color', 'vertical'],
   'vertical on brand color sm': ['brand-color', 'sm', 'vertical'],
   'vertical on brand color lg': ['brand-color', 'lg', 'vertical'],
+}
+
+const cssStepperInteractionModifiers = {
+  default: [],
+  'on brand color': ['brand-color'],
 }
 
 const customIcons = [false, true]
@@ -521,6 +550,733 @@ describe('ld-stepper', () => {
         expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
     })
+
+    describe('interaction', () => {
+      Object.entries(wcStepperInteractionProps).forEach(([name, props]) => {
+        describe(name, () => {
+          describe('active', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.down('Space')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('focus', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.keyboard.press('Tab')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('hover', () => {
+            it('done', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(1)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('current', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(3)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+
+            it('next', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(4)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              const accessibilityReport = await analyzeAccessibility(page, {
+                // screen reader reads as if the li elements were nested correctly
+                options: { rules: { list: { enabled: false } } },
+                spec: {
+                  checks: [
+                    // Exception because of the following message:
+                    // "Element's background color could not be determined due to a pseudo element"
+                    { id: 'color-contrast', options: { ignorePseudo: true } },
+                  ],
+                },
+              })
+
+              expect(results).toMatchScreenshot()
+              expect(accessibilityReport).toHaveNoAccessibilityIssues()
+            })
+
+            it('disabled', async () => {
+              const page = await getPageWithContent(
+                `<ld-stepper${props}>${getWcStepsEmpty()}</ld-stepper>`,
+                props.includes('brand-color')
+                  ? {
+                      bgColor: 'var(--ld-thm-primary)',
+                    }
+                  : undefined
+              )
+
+              await page.hover('ld-step:nth-of-type(5)')
+              await page.waitForChanges()
+
+              const results = await page.compareScreenshot()
+              expect(results).toMatchScreenshot()
+            })
+          })
+
+          describe('optional', () => {
+            describe('active', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('focus', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('hover', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(1)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('skipped', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(2)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(3)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(4)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  // screen reader reads as if the li elements were nested correctly
+                  options: { rules: { list: { enabled: false } } },
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  `<ld-stepper${props}>${getWcStepsEmpty(
+                    true,
+                    true
+                  )}</ld-stepper>`,
+                  props.includes('brand-color')
+                    ? {
+                        bgColor: 'var(--ld-thm-primary)',
+                      }
+                    : undefined
+                )
+
+                await page.hover('ld-step:nth-of-type(5)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+          })
+        })
+      })
+    })
   })
 
   describe('CSS component', () => {
@@ -683,6 +1439,7 @@ describe('ld-stepper', () => {
         })
       })
     })
+
     describe('anchor', () => {
       it('empty', async () => {
         const page = await getPageWithContent(
@@ -730,6 +1487,756 @@ describe('ld-stepper', () => {
         expect(results).toMatchScreenshot()
         expect(accessibilityReport).toHaveNoAccessibilityIssues()
       })
+    })
+
+    describe('interaction', () => {
+      Object.entries(cssStepperInteractionModifiers).forEach(
+        ([name, modifiers]) => {
+          describe(name, () => {
+            describe('active', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.down('Space')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('focus', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.keyboard.press('Tab')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('hover', () => {
+              it('done', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(1)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('current', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(3)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+
+              it('next', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(4)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                const accessibilityReport = await analyzeAccessibility(page, {
+                  spec: {
+                    checks: [
+                      // Exception because of the following message:
+                      // "Element's background color could not be determined due to a pseudo element"
+                      { id: 'color-contrast', options: { ignorePseudo: true } },
+                    ],
+                  },
+                })
+
+                expect(results).toMatchScreenshot()
+                expect(accessibilityReport).toHaveNoAccessibilityIssues()
+              })
+
+              it('disabled', async () => {
+                const page = await getPageWithContent(
+                  getCssStepper(getCssStepsEmpty(false, modifiers), modifiers),
+                  {
+                    bgColor: modifiers.includes('brand-color')
+                      ? 'var(--ld-thm-primary)'
+                      : undefined,
+                    components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                  }
+                )
+
+                await page.hover('li:nth-of-type(5)')
+                await page.waitForChanges()
+
+                const results = await page.compareScreenshot()
+                expect(results).toMatchScreenshot()
+              })
+            })
+
+            describe('optional', () => {
+              describe('active', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.down('Space')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+
+              describe('focus', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.keyboard.press('Tab')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+
+              describe('hover', () => {
+                it('done', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(1)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('skipped', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(2)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('current', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(3)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+
+                it('next', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(4)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  const accessibilityReport = await analyzeAccessibility(page, {
+                    spec: {
+                      checks: [
+                        // Exception because of the following message:
+                        // "Element's background color could not be determined due to a pseudo element"
+                        {
+                          id: 'color-contrast',
+                          options: { ignorePseudo: true },
+                        },
+                      ],
+                    },
+                  })
+
+                  expect(results).toMatchScreenshot()
+                  expect(accessibilityReport).toHaveNoAccessibilityIssues()
+                })
+
+                it('disabled', async () => {
+                  const page = await getPageWithContent(
+                    getCssStepper(
+                      getCssStepsEmpty(true, modifiers, true),
+                      modifiers
+                    ),
+                    {
+                      bgColor: modifiers.includes('brand-color')
+                        ? 'var(--ld-thm-primary)'
+                        : undefined,
+                      components: [LdIcon, LdSrOnly, LdStep, LdStepper],
+                    }
+                  )
+
+                  await page.hover('li:nth-of-type(5)')
+                  await page.waitForChanges()
+
+                  const results = await page.compareScreenshot()
+                  expect(results).toMatchScreenshot()
+                })
+              })
+            })
+          })
+        }
+      )
     })
   })
 })

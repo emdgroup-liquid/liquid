@@ -28,11 +28,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 {% example %}
 <ld-stepper>
-  <ld-step done></ld-step>
-  <ld-step done></ld-step>
-  <ld-step current next last-active></ld-step>
-  <ld-step></ld-step>
-  <ld-step></ld-step>
+  <ld-step aria-label="Billing" done></ld-step>
+  <ld-step aria-label="Shipping" done></ld-step>
+  <ld-step aria-label="Payment" current next last-active></ld-step>
+  <ld-step aria-label="Summary" disabled></ld-step>
+  <ld-step aria-label="Confirmation" disabled></ld-step>
 </ld-stepper>
 
 <!-- CSS component -->
@@ -42,20 +42,24 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
-      <button class="ld-step__focusable-element" type="button"></button>
+      <button aria-label="Billing" class="ld-step__focusable-element" type="button"></button>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--done ld-step--with-icon">
       <span class="ld-sr-only">Completed: </span>
-      <button class="ld-step__focusable-element" type="button"></button>
+      <button aria-label="Shipping" class="ld-step__focusable-element" type="button"></button>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--current ld-step--next ld-step--last-active">
       <span class="ld-sr-only">Current: </span>
-      <button class="ld-step__focusable-element" type="button" aria-current="step"></button>
+      <button aria-label="Payment" class="ld-step__focusable-element" type="button" aria-current="step"></button>
     </li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true"></button></li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true"></button></li>
+    <li class="ld-step">
+      <button aria-label="Summary" class="ld-step__focusable-element" type="button" aria-disabled="true"></button>
+    </li>
+    <li class="ld-step">
+      <button aria-label="Confirmation" class="ld-step__focusable-element" type="button" aria-disabled="true"></button>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -91,8 +95,12 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <button class="ld-step__focusable-element" type="button" aria-current="step">Payment</button>
     </li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button></li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button></li>
+    <li class="ld-step">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button>
+    </li>
+    <li class="ld-step">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -104,11 +112,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 {% example %}
 <ld-stepper vertical>
-  <ld-step done></ld-step>
-  <ld-step done></ld-step>
-  <ld-step current next last-active></ld-step>
-  <ld-step></ld-step>
-  <ld-step></ld-step>
+  <ld-step aria-label="Billing" done></ld-step>
+  <ld-step aria-label="Shipping" done></ld-step>
+  <ld-step aria-label="Payment" current next last-active></ld-step>
+  <ld-step aria-label="Summary" disabled></ld-step>
+  <ld-step aria-label="Confirmation" disabled></ld-step>
 </ld-stepper>
 
 <!-- CSS component -->
@@ -118,20 +126,24 @@ The `ld-stepper` component visualizes a process by showing all the process steps
   <ol>
     <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
       <span class="ld-sr-only">Completed: </span>
-      <button class="ld-step__focusable-element" type="button"></button>
+      <button aria-label="Billing" class="ld-step__focusable-element" type="button"></button>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--done ld-step--with-icon ld-step--vertical">
       <span class="ld-sr-only">Completed: </span>
-      <button class="ld-step__focusable-element" type="button"></button>
+      <button aria-label="Shipping" class="ld-step__focusable-element" type="button"></button>
       <svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </li>
     <li class="ld-step ld-step--current ld-step--next ld-step--last-active ld-step--vertical">
       <span class="ld-sr-only">Current: </span>
-      <button class="ld-step__focusable-element" type="button" aria-current="step"></button>
+      <button aria-label="Payment" class="ld-step__focusable-element" type="button" aria-current="step"></button>
     </li>
-    <li class="ld-step ld-step--vertical"><button class="ld-step__focusable-element" type="button" aria-disabled="true"></button></li>
-    <li class="ld-step ld-step--vertical"><button class="ld-step__focusable-element" type="button" aria-disabled="true"></button></li>
+    <li class="ld-step ld-step--vertical">
+      <button aria-label="Summary" class="ld-step__focusable-element" type="button" aria-disabled="true"></button>
+    </li>
+    <li class="ld-step ld-step--vertical">
+      <button aria-label="Confirmation" class="ld-step__focusable-element" type="button" aria-disabled="true"></button>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -167,8 +179,12 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <button class="ld-step__focusable-element" type="button" aria-current="step">Payment</button>
     </li>
-    <li class="ld-step ld-step--vertical"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button></li>
-    <li class="ld-step ld-step--vertical"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button></li>
+    <li class="ld-step ld-step--vertical">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button>
+    </li>
+    <li class="ld-step ld-step--vertical">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -422,8 +438,12 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <button class="ld-step__focusable-element" type="button" aria-current="step">Payment</button>
     </li>
-    <li class="ld-step ld-step--brand-color"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button></li>
-    <li class="ld-step ld-step--brand-color"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button></li>
+    <li class="ld-step ld-step--brand-color">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button>
+    </li>
+    <li class="ld-step ld-step--brand-color">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button>
+    </li>
   </ol>
 </nav>
 
@@ -510,8 +530,12 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <button class="ld-step__focusable-element" type="button" aria-current="step">Payment</button>
     </li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button></li>
-    <li class="ld-step"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button></li>
+    <li class="ld-step">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Summary</button>
+    </li>
+    <li class="ld-step">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Confirmation</button>
+    </li>
   </ol>
 </nav>
 
@@ -638,7 +662,9 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <button class="ld-step__focusable-element" type="button" aria-current="step">Part 4<br />(can be skipped)</button>
     </li>
-    <li class="ld-step ld-step--optional"><button class="ld-step__focusable-element" type="button" aria-disabled="true">Part 5<br />(can be skipped)</button></li>
+    <li class="ld-step ld-step--optional">
+      <button class="ld-step__focusable-element" type="button" aria-disabled="true">Part 5<br />(can be skipped)</button>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -674,8 +700,12 @@ The `ld-stepper` component visualizes a process by showing all the process steps
       <span class="ld-sr-only">Current: </span>
       <a class="ld-step__focusable-element" aria-current="step">Payment</a>
     </li>
-    <li class="ld-step"><a class="ld-step__focusable-element" aria-disabled="true">Summary</a></li>
-    <li class="ld-step"><a class="ld-step__focusable-element" aria-disabled="true">Confirmation</a></li>
+    <li class="ld-step">
+      <a class="ld-step__focusable-element" aria-disabled="true">Summary</a>
+    </li>
+    <li class="ld-step">
+      <a class="ld-step__focusable-element" aria-disabled="true">Confirmation</a>
+    </li>
   </ol>
 </nav>
 {% endexample %}
@@ -685,11 +715,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 
 {% example %}
 <ld-stepper id="stepper" style="min-width: 25rem">
-  <ld-step href="components/ld-stepper/#billing" done>Billing</ld-step>
-  <ld-step href="components/ld-stepper/#shipping" done>Shipping</ld-step>
-  <ld-step href="components/ld-stepper/#payment" current next last-active>Payment</ld-step>
-  <ld-step href="components/ld-stepper/#summary" disabled>Summary</ld-step>
-  <ld-step href="components/ld-stepper/#confirmation" disabled>Confirmation</ld-step>
+  <ld-step done>Billing</ld-step>
+  <ld-step done>Shipping</ld-step>
+  <ld-step current next last-active>Payment</ld-step>
+  <ld-step disabled>Summary</ld-step>
+  <ld-step disabled>Confirmation</ld-step>
 </ld-stepper>
 
 <div id="step-content"></div>
