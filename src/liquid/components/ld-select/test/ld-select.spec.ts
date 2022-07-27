@@ -2747,7 +2747,7 @@ describe('ld-select', () => {
     const page = await newSpecPage({
       components,
       html: `
-        <ld-select placeholder="Pick a fruit" name="fruit" popper-class="ld-select__popper--fruits">
+        <ld-select placeholder="Pick a fruit" name="fruit">
           <ld-option value="apple">Apple</ld-option>
           <ld-option value="banana">Banana</ld-option>
         </ld-select>
@@ -2762,5 +2762,32 @@ describe('ld-select', () => {
 
     await page.root.focusInner()
     expect(btnTrigger.focus).toHaveBeenCalledTimes(1)
+  })
+
+  it('removes popper element on disconnect', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-select placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+        </ld-select>
+      `,
+    })
+
+    const ldSelect = page.root
+    const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+      '.ld-select__btn-trigger'
+    )
+    btnTrigger.focus = jest.fn()
+
+    await triggerPopperWithClick(page)
+
+    expect(page.body.querySelector('ld-select-popper')).toBeTruthy()
+
+    ldSelect.remove()
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('ld-select-popper')).toBeFalsy()
   })
 })
