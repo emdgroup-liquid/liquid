@@ -29,7 +29,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
   
 <style>
@@ -49,7 +49,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--bioreliance">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/bioreliance-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/bioreliance-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -61,7 +61,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--millipore">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/millipore-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/millipore-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -73,7 +73,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--supelco">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/supelco-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/supelco-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -85,7 +85,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--safc">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/safc-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/safc-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -97,7 +97,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--sigma-aldrich">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/sigma-aldrich-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/sigma-aldrich-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -111,7 +111,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--f">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/f-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/f-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -123,7 +123,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--hexagon">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -135,7 +135,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--t">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/t-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/t-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -147,7 +147,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--tile">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/tile-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/tile-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -167,7 +167,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells custom">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('../../dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
 
 <style>
