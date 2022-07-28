@@ -633,7 +633,7 @@ export class LdSelect implements InnerFocusable {
     const query = this.getFilterInput().value.trim().toLowerCase()
     options.forEach((ldOption) => {
       ldOption.hidden =
-        Boolean(query) && !ldOption.value.toLowerCase().includes(query)
+        Boolean(query) && !ldOption.textContent.toLowerCase().includes(query)
     })
 
     // Re-position popper after new height has been applied.

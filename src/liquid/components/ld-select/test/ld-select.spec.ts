@@ -2658,6 +2658,53 @@ describe('ld-select', () => {
       expect(spyFocusBana).toHaveBeenCalledTimes(0)
       expect(spyFocusPlum).toHaveBeenCalledTimes(1)
     })
+
+    it('filters using option text content (not option value)', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select filter placeholder="Pick a fruit" name="fruit">
+          <ld-option value="0">Apple</ld-option>
+          <ld-option value="1">Banana</ld-option>
+          <ld-option value="2" disabled>Orange</ld-option>
+          <ld-option value="3">Cherry</ld-option>
+        </ld-select>
+      `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger['focus'] = jest.fn()
+
+      const filterInput = ldSelect.shadowRoot.querySelector<HTMLInputElement>(
+        '.ld-select__btn-trigger-input'
+      )
+      filterInput.focus = jest.fn()
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      const { ldInternalOptions, internalOptions } = await getInternalOptions(
+        page
+      )
+      expect(ldInternalOptions.length).toEqual(4)
+
+      internalOptions.forEach((internalOption) => {
+        internalOption.focus = jest.fn()
+      })
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0]).not.toHaveAttribute('hidden')
+      expect(ldInternalOptions[1]).toHaveAttribute('hidden')
+      expect(ldInternalOptions[2]).not.toHaveAttribute('hidden')
+      expect(ldInternalOptions[3]).not.toHaveAttribute('hidden')
+    })
   })
 
   it('displays more indicator with maxRows prop set in multiple mode', async () => {
