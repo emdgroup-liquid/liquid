@@ -162,7 +162,12 @@ module.exports = function (eleventyConfig) {
       themable: true,
     }
     const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
+    const base = process.env.MODE === 'gh_pages' ? '/liquid' : ''
     const [codeWebComponent, codeCssComponent] = code
+      .replaceAll(
+        /url\('\/dist\/build\/assets\//g,
+        `url('${base}/dist/build/assets/`
+      )
       .split('<!-- CSS component -->')
       .map((c) => c.trim())
     let output = '<docs-example '
