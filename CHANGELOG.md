@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/emdgroup-liquid/liquid/compare/v2.4.0...v2.4.1) (2022-07-28)
+
+
+### Bug Fixes
+
+* **ld-bg-cells:** ensure correct usage of brand colors ([a3fd094](https://github.com/emdgroup-liquid/liquid/commit/a3fd0947a0fce36fab8521068ff1c629611b9d6e))
+* **ld-select:** filter by option text content instead of option value ([83e6d1b](https://github.com/emdgroup-liquid/liquid/commit/83e6d1b4e10d0a362096b79660cceff8212dd5fa)), closes [#393](https://github.com/emdgroup-liquid/liquid/issues/393)
+
 # [2.4.0](https://github.com/emdgroup-liquid/liquid/compare/v2.3.1...v2.4.0) (2022-07-27)
 
 
