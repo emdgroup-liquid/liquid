@@ -26,29 +26,6 @@ The `ld-circular-progress` component can be used to display measurements or cert
 ## Default
 
 {% example %}
-<ld-circular-progress aria-valuenow="25">
-  <ld-typo variant="b6">25%</ld-typo>
-  <ld-typo variant="label-s">complete</ld-typo>
-</ld-circular-progress>
-
-<!-- CSS component -->
-
-<div class="ld-circular-progress"
-     aria-valuenow="25"
-     role="progressbar"
-     style="--ld-circular-progress-valuenow: 25">
-  <span class="ld-typo ld-typo--b6">25%</span>
-  <span class="ld-typo ld-typo--label-s">complete</span>
-  <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
-    <circle cx="5" cy="5" r="5" />
-    <circle cx="5" cy="5" r="5" />
-  </svg>
-</div>
-{% endexample %}
-
-You can make the circular progress component more accessible by applying the [`aria-labeledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) attribute.
-
-{% example %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
 <ld-circular-progress aria-labeledby="progress-label" aria-valuenow="25">
   <ld-typo variant="b6">25%</ld-typo>
@@ -70,6 +47,65 @@ You can make the circular progress component more accessible by applying the [`a
     <circle cx="5" cy="5" r="5" />
   </svg>
 </div>
+{% endexample %}
+
+Interactive example:
+
+{% example '{ "stacked": true, "centered": true }' %}
+<ld-sr-only id="progress-label">Progress</ld-sr-only>
+<ld-circular-progress aria-labeledby="progress-label" aria-valuenow="25">
+  <ld-typo variant="b6">25%</ld-typo>
+  <ld-typo variant="label-s">complete</ld-typo>
+</ld-circular-progress>
+
+<ld-slider value="25" max="200" width="14rem"></ld-slider>
+
+<script>
+  void function() {
+    const slider = document.currentScript.previousElementSibling
+    const progress = slider.previousElementSibling
+    const progressLabel = progress.children[0]
+    slider.addEventListener('ldchange', ev => {
+      const val = ev.detail[0]
+      progress.ariaValuenow = val
+      progressLabel.innerText = `${val}%`
+      progressLabel.style.color = `var(--ld-thm-${val > 100 ? 'error' : 'primary'})`
+    })
+  }()
+</script>
+
+<!-- CSS component -->
+
+<span class="ld-sr-only" id="progress-label-css">Progress</span>
+<div class="ld-circular-progress"
+     aria-labeledby="progress-label-css"
+     aria-valuenow="25"
+     role="progressbar"
+     style="--ld-circular-progress-valuenow: 25">
+  <span class="ld-typo ld-typo--b6">25%</span>
+  <span class="ld-typo ld-typo--label-s">complete</span>
+  <svg class="ld-circular-progress__stroke" viewBox="0 0 10 10">
+    <circle cx="5" cy="5" r="5" />
+    <circle cx="5" cy="5" r="5" />
+  </svg>
+</div>
+
+<ld-slider value="25" max="200" width="14rem"></ld-slider>
+
+<script>
+  void function() {
+    const slider = document.currentScript.previousElementSibling
+    const progress = slider.previousElementSibling
+    const progressLabel = progress.children[0]
+    slider.addEventListener('ldchange', ev => {
+      const val = ev.detail[0]
+      progress.ariaValuenow = val
+      progress.style.setProperty('--ld-circular-progress-valuenow', val)
+      progressLabel.innerText = `${val}%`
+      progressLabel.style.color = `var(--ld-thm-${val > 100 ? 'error' : 'primary'})`
+    })
+  }()
+</script>
 {% endexample %}
 
 ## With custom min and max values
