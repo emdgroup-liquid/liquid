@@ -2,6 +2,8 @@
 .ld-bg-cells {
   --ld-bg-cells-bg-col: var(--ld-thm-primary);
   --ld-bg-cells-pattern-col: var(--ld-thm-secondary);
+  --ld-bg-cells-position: top 56% right -30%;
+  --ld-bg-cells-size: 200%;
 
   background: var(--ld-bg-cells-bg-col);
   height: 100%;
@@ -11,55 +13,59 @@
 
 .ld-bg-cells {
   :host(&--bioreliance),
-  :where(&--bioreliance) {
+  &--bioreliance {
+    --ld-bg-cells-bg-col: var(--ld-col-rp);
+    --ld-bg-cells-pattern-col: var(--ld-col-vg);
     --ld-bg-cells-position: top 5% right -20%;
     --ld-bg-cells-size: 230%;
   }
 
   :host(&--f),
-  :where(&--f) {
+  &--f {
     --ld-bg-cells-position: top 20% right -50%;
     --ld-bg-cells-size: 180%;
   }
 
-  :host(&--hexagon),
-  :where(&--hexagon) {
-    --ld-bg-cells-position: top 56% right -30%;
-    --ld-bg-cells-size: 200%;
-  }
-
   :host(&--millipore),
-  :where(&--millipore) {
+  &--millipore {
+    --ld-bg-cells-bg-col: var(--ld-col-vy);
+    --ld-bg-cells-pattern-col: var(--ld-col-rb);
     --ld-bg-cells-position: top -10% right -30%;
     --ld-bg-cells-size: 200%;
   }
 
-  :host(&--qa-x2f-qc),
-  :where(&--qa-x2f-qc) {
+  :host(&--supelco),
+  &--supelco {
+    --ld-bg-cells-bg-col: var(--ld-col-vy);
+    --ld-bg-cells-pattern-col: var(--ld-col-rg);
     --ld-bg-cells-position: top -30% right -34%;
     --ld-bg-cells-size: 170%;
   }
 
   :host(&--safc),
-  :where(&--safc) {
+  &--safc {
+    --ld-bg-cells-bg-col: var(--ld-col-vy);
+    --ld-bg-cells-pattern-col: var(--ld-col-vm);
     --ld-bg-cells-position: top 47% right -15%;
     --ld-bg-cells-size: 290%;
   }
 
   :host(&--sigma-aldrich),
-  :where(&--sigma-aldrich) {
+  &--sigma-aldrich {
+    --ld-bg-cells-bg-col: var(--ld-col-vy);
+    --ld-bg-cells-pattern-col: var(--ld-col-rr);
     --ld-bg-cells-position: top 51% right -19%;
     --ld-bg-cells-size: 280%;
   }
 
   :host(&--t),
-  :where(&--t) {
+  &--t {
     --ld-bg-cells-position: top -10% right -20%;
     --ld-bg-cells-size: 250%;
   }
 
   :host(&--tile),
-  :where(&--tile) {
+  &--tile {
     --ld-bg-cells-position: top 50% right -12%;
     --ld-bg-cells-size: 250%;
   }

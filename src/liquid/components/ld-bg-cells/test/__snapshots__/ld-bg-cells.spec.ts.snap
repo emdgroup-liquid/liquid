@@ -1,9 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-bg-cells renders default 1`] = `
-<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc">
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--hexagon">
   <mock:shadow-root>
-    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);"></div>
+    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/hexagon-cell.svg);"></div>
+    <div class="ld-bg-cells__content" part="content">
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-bg-cells>
+`;
+
+exports[`ld-bg-cells renders with alias type 1`] = `
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--supelco" type="qa-x2f-qc">
+  <mock:shadow-root>
+    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/supelco-cell.svg);"></div>
     <div class="ld-bg-cells__content" part="content">
       <slot></slot>
     </div>
@@ -12,9 +23,9 @@ exports[`ld-bg-cells renders default 1`] = `
 `;
 
 exports[`ld-bg-cells renders with content 1`] = `
-<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc">
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--hexagon">
   <mock:shadow-root>
-    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);"></div>
+    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/hexagon-cell.svg);"></div>
     <div class="ld-bg-cells__content" part="content">
       <slot></slot>
     </div>
@@ -37,9 +48,9 @@ exports[`ld-bg-cells renders with explicit type 1`] = `
 `;
 
 exports[`ld-bg-cells renders with repeat 1`] = `
-<ld-bg-cells class="ld-bg-cells ld-bg-cells--safc" repeat="">
+<ld-bg-cells class="ld-bg-cells ld-bg-cells--hexagon" repeat="">
   <mock:shadow-root>
-    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/safc-cell.svg);"></div>
+    <div class="ld-bg-cells__pattern" part="pattern" style="--ld-bg-cells-image: url(/assets/hexagon-cell.svg);"></div>
     <div class="ld-bg-cells__content" part="content">
       <slot></slot>
     </div>

@@ -1167,7 +1167,7 @@ exports[`ld-select places the popper inside a given element 1`] = `
       </ld-option>
       <input name="fruit" slot="hidden" type="hidden">
     </ld-select>
-    <div data-tether-id="48" style="top: 0; left: 0; position: absolute;"></div>
+    <div data-tether-id="49" style="top: 0; left: 0; position: absolute;"></div>
     <ld-select-popper class="ld-select__popper--initialized ld-tether-element ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target-attached-bottom ld-tether-target-attached-left" role="listbox" style="z-index: 2147483646; display: block; top: 0; left: 0; position: absolute; transform: translateX(NaNpx) translateY(NaNpx) translateZ(0); width: 0px;">
       <mock:shadow-root>
         <div class="ld-select-popper ld-select-popper--expanded" part="popper">
