@@ -19,19 +19,6 @@ The `ld-progress` component can be used to displays the progress status for task
 ## Default
 
 {% example %}
-<ld-progress aria-valuenow="25"></ld-progress>
-
-<!-- CSS component -->
-
-<div class="ld-progress"
-     aria-valuenow="25"
-     role="progressbar"
-     style="--ld-progress-valuenow: 25"></div>
-{% endexample %}
-
-You can make the progress component more accessible by applying the [`aria-labeledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) attribute.
-
-{% example %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
 <ld-progress aria-labeledby="progress-label" aria-valuenow="25"></ld-progress>
 
@@ -43,6 +30,48 @@ You can make the progress component more accessible by applying the [`aria-label
      aria-valuenow="25"
      role="progressbar"
      style="--ld-progress-valuenow: 25"></div>
+{% endexample %}
+
+Interactive example:
+
+{% example '{ "stacked": true, "centered": true }' %}
+<ld-sr-only id="progress-label">Progress</ld-sr-only>
+<ld-progress aria-labeledby="progress-label" aria-valuenow="25"></ld-progress>
+
+<ld-slider value="25" max="200" width="14rem"></ld-slider>
+
+<script>
+  void function() {
+    const slider = document.currentScript.previousElementSibling
+    const progress = slider.previousElementSibling
+    slider.addEventListener('ldchange', ev => {
+      progress.ariaValuenow = ev.detail[0]
+    })
+  }()
+</script>
+
+<!-- CSS component -->
+
+<span class="ld-sr-only" id="progress-label-css">Progress</span>
+<div class="ld-progress"
+     aria-labeledby="progress-label-css"
+     aria-valuenow="25"
+     role="progressbar"
+     style="--ld-progress-valuenow: 25"></div>
+
+<ld-slider value="25" max="200" width="14rem"></ld-slider>
+
+<script>
+  void function() {
+    const slider = document.currentScript.previousElementSibling
+    const progress = slider.previousElementSibling
+    slider.addEventListener('ldchange', ev => {
+      const val = ev.detail[0]
+      progress.ariaValuenow = val
+      progress.style.setProperty('--ld-progress-valuenow', val)
+    })
+  }()
+</script>
 {% endexample %}
 
 ## With custom min and max values
