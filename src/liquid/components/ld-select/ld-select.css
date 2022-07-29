@@ -353,22 +353,6 @@
   overflow: hidden;
 }
 
-.ld-select__btn-trigger-input {
-  font: var(--ld-typo-label-m);
-  line-height: var(--ld-select-trigger-line-height);
-  background-color: transparent;
-  width: 100%;
-  border: 0;
-  outline: none;
-  appearance: none;
-  color: var(--ld-select-col);
-  padding: var(--ld-sp-2) 0;
-
-  &::placeholder {
-    color: inherit;
-  }
-}
-
 .ld-select--sm > select,
 .ld-select--sm .ld-select__btn-trigger-input,
 .ld-select--sm .ld-select__btn-trigger-text-wrapper {

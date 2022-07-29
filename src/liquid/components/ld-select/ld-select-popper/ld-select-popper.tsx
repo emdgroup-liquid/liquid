@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -13,34 +15,45 @@ import { getClassNames } from '../../../utils/getClassNames'
 /** @internal **/
 @Component({
   tag: 'ld-select-popper',
-  styleUrl: 'ld-select-popper.css',
+  styleUrl: 'ld-select-popper.shadow.css',
   shadow: true,
 })
 export class LdSelectPopper {
   @Element() el: HTMLElement
 
-  /**
-   * Indicates if select element is expanded.
-   */
-  @Prop() expanded = false
-
-  /** Size of the select trigger button (required for applying the correct shadow height). */
-  @Prop() size?: 'sm' | 'lg'
+  /** A watcher is applied to the CSS class in order to be able to react to tether changes. */
+  @Prop({ reflect: true }) class: string
 
   /** Popper is visually detached from the select trigger element (there's a gap between the two). */
   @Prop() detached: boolean
 
-  /** Since the select popper is located outside the select element, the theme needs to be applied as a prop. */
-  @Prop() theme: string
+  /** Indicates if select element is expanded. */
+  @Prop() expanded = false
+
+  /** Set this property to `true` in order to enable an input field for filtering options. */
+  @Prop() filter: boolean
+
+  /** The filter input placeholder. */
+  @Prop() filterPlaceholder: string
 
   /** Attaches CSS class to the select popper element. */
   @Prop() popperClass?: string
 
-  /** A watcher is applied to the CSS class in order to be able to react to tether changes. */
-  @Prop({ mutable: true, reflect: true }) class: string
+  /** Size of the select trigger button (required for applying the correct shadow height). */
+  @Prop() size?: 'sm' | 'lg'
+
+  /** Since the select popper is located outside the select element, the theme needs to be applied as a prop. */
+  @Prop() theme: string
 
   @State() isPinned = false
   @State() shadowHeight = '100%'
+
+  /** Emitted on filter change with the filter input value. */
+  @Event() ldselectfilterchange: EventEmitter<string>
+
+  private handleFilterInput = (ev) => {
+    this.ldselectfilterchange.emit(ev.target.value)
+  }
 
   @Watch('class')
   updatePinnedState() {
@@ -76,13 +89,25 @@ export class LdSelectPopper {
         <div
           class={getClassNames([
             'ld-select-popper',
-            this.expanded && 'ld-select-popper--expanded',
             this.detached && 'ld-select-popper--detached',
-            this.size && `ld-select-popper--${this.size}`,
+            this.expanded && 'ld-select-popper--expanded',
+            this.filter && 'ld-select-popper--filter',
             this.isPinned && 'ld-select-popper--pinned',
+            this.size && `ld-select-popper--${this.size}`,
           ])}
           part="popper"
         >
+          {this.filter && (
+            <input
+              aria-haspopup="listbox"
+              type="text"
+              placeholder={this.filterPlaceholder}
+              class="ld-select-popper__filter-input"
+              part="filter-input focusable"
+              onInput={this.handleFilterInput}
+              // ref={(el) => (this.filterInputRef = el)}
+            />
+          )}
           <div
             class="ld-select-popper__scroll-container"
             part="popper-scroll-container"

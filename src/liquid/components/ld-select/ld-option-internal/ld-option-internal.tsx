@@ -15,7 +15,7 @@ import { getClassNames } from '../../../utils/getClassNames'
 /** @internal **/
 @Component({
   tag: 'ld-option-internal',
-  styleUrl: 'ld-option-internal.css',
+  styleUrl: 'ld-option-internal.shadow.css',
   shadow: true,
 })
 export class LdOptionInternal {
