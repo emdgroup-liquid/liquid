@@ -458,6 +458,8 @@ describe('ld-select', () => {
         </ld-select>`)
       await page.keyboard.press('Tab')
       await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
       await page.keyboard.press('e')
       await page.waitForChanges()
       const results = await page.compareScreenshot()
@@ -475,9 +477,13 @@ describe('ld-select', () => {
         </ld-select>`)
       await page.keyboard.press('Tab')
       await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
       await page.keyboard.press('a')
       await page.waitForChanges()
       await page.keyboard.press('p')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
       await page.waitForChanges()
       await page.keyboard.press('ArrowDown')
       await page.waitForChanges()
@@ -500,6 +506,8 @@ describe('ld-select', () => {
         </ld-select>`)
       await page.keyboard.press('Tab')
       await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
       await page.keyboard.press('e')
       await page.waitForChanges()
       const results = await page.compareScreenshot()
@@ -516,6 +524,8 @@ describe('ld-select', () => {
           <ld-option value="plum">Plum</ld-option>
         </ld-select>`)
       await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
       await page.waitForChanges()
       await page.keyboard.press('p')
       await page.waitForChanges()
@@ -542,6 +552,8 @@ describe('ld-select', () => {
         </ld-select>`)
       await page.keyboard.press('Tab')
       await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
       await page.keyboard.press('p')
       await page.waitForChanges()
       await page.keyboard.press('ArrowDown')
@@ -553,6 +565,8 @@ describe('ld-select', () => {
       await page.keyboard.press('Enter')
       await page.waitForChanges()
       await page.keyboard.press('Home')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
       await page.waitForChanges()
       await page.keyboard.press('Backspace')
       await page.waitForChanges()
@@ -709,7 +723,7 @@ describe('ld-select', () => {
     })
   })
   describe('z-order', () => {
-    fit('current selection is still visible when opened in a container with a set z-order', async () => {
+    it('current selection is still visible when opened in a container with a set z-order', async () => {
       const page = await getPageWithContent(`
       <div style="will-change: transform">
         <ld-select placeholder="Pick a fruit" name="fruit">

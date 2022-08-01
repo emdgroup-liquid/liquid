@@ -6,7 +6,7 @@ import { Component, h, Host, Prop, Element } from '@stencil/core'
  */
 @Component({
   tag: 'ld-option',
-  styleUrl: 'ld-option.css',
+  styleUrl: 'ld-option.shadow.css',
   shadow: true,
 })
 export class LdOption {
