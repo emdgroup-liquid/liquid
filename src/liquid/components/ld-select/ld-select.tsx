@@ -37,8 +37,6 @@ export class LdSelect implements InnerFocusable {
   private internalOptionsContainerRef!: HTMLDivElement
   private listboxRef!: HTMLLdSelectPopperElement
   private btnClearRef: HTMLButtonElement
-  private inputRef: HTMLInputElement
-  private multiInputRef: HTMLInputElement
   private popper: Tether
   private observer: MutationObserver
 
@@ -56,6 +54,9 @@ export class LdSelect implements InnerFocusable {
 
   /** Set this property to `true` in order to enable an input field for filtering options. */
   @Prop() filter: boolean
+
+  /** The filter input placeholder. */
+  @Prop() filterPlaceholder = 'Filter options'
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid: boolean
@@ -126,11 +127,7 @@ export class LdSelect implements InnerFocusable {
   @Method()
   async focusInner() {
     if (!this.disabled) {
-      if (this.filter) {
-        this.getFilterInput().focus()
-      } else {
-        this.triggerRef.focus()
-      }
+      this.triggerRef.focus()
     }
   }
 
@@ -492,9 +489,10 @@ export class LdSelect implements InnerFocusable {
     })
   }
 
-  private getFilterInput = () => {
-    return this.inputRef || this.multiInputRef
-  }
+  private getFilterInput = () =>
+    this.listboxRef.shadowRoot.querySelector<HTMLInputElement>(
+      '.ld-select-popper__filter-input'
+    )
 
   private togglePopper = () => {
     this.expanded = !this.expanded
@@ -551,23 +549,28 @@ export class LdSelect implements InnerFocusable {
   }
 
   private expandAndFocus = () => {
-    this.expand()
+    if (!this.popper) this.initPopper()
+    this.togglePopper()
     setTimeout(() => {
       // If selected in single select mode, focus selected.
-      let optionToFocus
+      let toFocus
       if (!this.multiple) {
         // Using find instead of ld-option-internal[selected] selector below
         // in order to prevent "TypeError: e.getAttributeNode is not a function" in JSDom.
-        optionToFocus = Array.from(
+        toFocus = Array.from(
           this.listboxRef.querySelectorAll('ld-option-internal')
         )
           .find((ldOption) => ldOption.hasAttribute('selected'))
           ?.shadowRoot.querySelector('[role="option"]')
       }
-      if (!optionToFocus) {
-        optionToFocus = this.triggerRef
+      if (!toFocus) {
+        if (this.filter) {
+          toFocus = this.getFilterInput()
+        } else {
+          toFocus = this.triggerRef
+        }
       }
-      optionToFocus.focus()
+      toFocus.focus()
     })
   }
 
@@ -623,14 +626,12 @@ export class LdSelect implements InnerFocusable {
     }, 500)
   }
 
-  private handleFilterInput = () => {
-    this.expanded = true
-
+  private handleFilterChange = (ev: CustomEvent<string>) => {
     // Hide options which do not match the filter query.
     const options = this.initialized
       ? this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
       : this.el.querySelectorAll('ld-option')
-    const query = this.getFilterInput().value.trim().toLowerCase()
+    const query = ev.detail.trim().toLowerCase()
     options.forEach((ldOption) => {
       ldOption.hidden =
         Boolean(query) && !ldOption.textContent.toLowerCase().includes(query)
@@ -650,6 +651,19 @@ export class LdSelect implements InnerFocusable {
     if (
       document.activeElement.closest('[role="listbox"]') !== this.listboxRef &&
       document.activeElement.closest('ld-select') !== this.el
+    ) {
+      return
+    }
+
+    const filterHasFocus =
+      this.filter &&
+      this.listboxRef?.shadowRoot.activeElement === this.getFilterInput()
+
+    // Ignore events if filter input has focus,
+    // except for navigation-specific keys.
+    if (
+      filterHasFocus &&
+      !['ArrowDown', 'ArrowUp', 'End', 'Escape', 'Home', 'Tab'].includes(ev.key)
     ) {
       return
     }
@@ -680,14 +694,20 @@ export class LdSelect implements InnerFocusable {
           return
         }
 
-        // Focus next visible option, if any.
-        let nextLdOption
-        if (document.activeElement === this.el) {
-          nextLdOption = Array.from(
-            this.listboxRef.querySelectorAll('ld-option-internal')
-          ).find((ldOption) => !ldOption.hidden)
+        // Focus next visible option, if any,
+        // or the filter input, if applicable.
+        if (document.activeElement === this.el || filterHasFocus) {
+          if (this.filter && !filterHasFocus) {
+            this.getFilterInput().focus()
+          } else {
+            const nextLdOption = Array.from(
+              this.listboxRef.querySelectorAll('ld-option-internal')
+            ).find((ldOption) => !ldOption.hidden)
+            this.selectAndFocus(ev, nextLdOption)
+          }
         } else {
           let current = document.activeElement
+          let nextLdOption
           while (nextLdOption === undefined) {
             if (this.isLdOption(current.nextElementSibling)) {
               if (current.nextElementSibling.hidden) {
@@ -699,9 +719,8 @@ export class LdSelect implements InnerFocusable {
               nextLdOption = null
             }
           }
+          this.selectAndFocus(ev, nextLdOption)
         }
-
-        this.selectAndFocus(ev, nextLdOption)
         break
       }
       case 'ArrowUp': {
@@ -716,7 +735,7 @@ export class LdSelect implements InnerFocusable {
           return
         }
 
-        if (ev.metaKey) {
+        if (ev.metaKey || filterHasFocus) {
           this.handleHome(ev)
           return
         }
@@ -739,7 +758,11 @@ export class LdSelect implements InnerFocusable {
           if (prevLdOption) {
             this.selectAndFocus(ev, prevLdOption)
           } else {
-            this.handleHome(ev)
+            if (this.filter) {
+              this.getFilterInput().focus()
+            } else {
+              this.handleHome(ev)
+            }
           }
         }
         break
@@ -757,18 +780,11 @@ export class LdSelect implements InnerFocusable {
       case ' ': {
         // If trigger has focus: Toggle popper.
         ev.stopImmediatePropagation()
-        const filterInputCanReceiveSpace = Boolean(
-          this.filter &&
-            this.el.shadowRoot.activeElement === this.getFilterInput() &&
-            this.getFilterInput().value.trim()
-        )
-        if (!filterInputCanReceiveSpace) {
-          ev.preventDefault()
-          if (this.expanded) {
-            this.togglePopper()
-          } else {
-            this.expandAndFocus()
-          }
+        ev.preventDefault()
+        if (this.expanded) {
+          this.togglePopper()
+        } else {
+          this.expandAndFocus()
         }
         break
       }
@@ -803,13 +819,8 @@ export class LdSelect implements InnerFocusable {
       default:
         if (this.expanded) {
           ev.stopImmediatePropagation()
-          if (
-            !this.filter ||
-            this.el.shadowRoot.activeElement !== this.getFilterInput()
-          ) {
-            ev.preventDefault()
-            this.typeAhead(ev.key)
-          }
+          ev.preventDefault()
+          this.typeAhead(ev.key)
         }
     }
   }
@@ -838,20 +849,23 @@ export class LdSelect implements InnerFocusable {
   }
 
   private resetFilter = () => {
-    if (this.filter) {
-      this.getFilterInput().value = ''
-      const options =
-        this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
-      options.forEach((ldOption) => {
-        ldOption.hidden = false
-      })
-    }
+    if (!this.filter) return
+    const filterInput = this.getFilterInput()
+    if (!filterInput) return
+
+    filterInput.value = ''
+    const options =
+      this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
+    options.forEach((ldOption) => {
+      ldOption.hidden = false
+    })
   }
 
   private handleFocusEvent = (ev: FocusEvent) => {
     // Emit event only, if focus is not within the select component.
     if (
       ev.relatedTarget === null ||
+      ev.relatedTarget === this.listboxRef ||
       this.isLdOption(ev.relatedTarget) ||
       closest('ld-select', ev.relatedTarget as HTMLElement) === this.el
     ) {
@@ -863,25 +877,18 @@ export class LdSelect implements InnerFocusable {
     }
   }
 
-  private expand = () => {
-    if (!this.popper) this.initPopper()
-
-    this.togglePopper()
-  }
-
   private handleTriggerClick = (ev: Event) => {
     ev.preventDefault()
 
     if (this.disabled || this.ariaDisabled) return
 
-    // Allow selection of text / setting the cursor in filter input field.
-    if (ev.target === this.getFilterInput() && this.expanded) return
+    if (!this.popper) this.initPopper()
 
-    this.expand()
+    this.togglePopper()
 
-    if (this.filter) {
-      this.getFilterInput().focus()
-    }
+    setTimeout(() => {
+      this.getFilterInput()?.focus()
+    })
   }
 
   private handleClearClick = (ev: MouseEvent) => {
@@ -990,10 +997,9 @@ export class LdSelect implements InnerFocusable {
       this.expanded && 'ld-select__icon--rotated',
     ]
 
-    const triggerText =
-      this.multiple || (this.filter && this.expanded)
-        ? this.placeholder
-        : this.selected[0]?.text || this.placeholder
+    const triggerText = this.multiple
+      ? this.placeholder
+      : this.selected[0]?.text || this.placeholder
 
     return (
       <Host>
@@ -1025,7 +1031,7 @@ export class LdSelect implements InnerFocusable {
               role="button"
               part="btn-trigger focusable"
               tabindex={
-                this.filter || (this.disabled && !this.ariaDisabled)
+                this.disabled && !this.ariaDisabled
                   ? undefined
                   : this.ldTabindex
               }
@@ -1043,24 +1049,6 @@ export class LdSelect implements InnerFocusable {
                   class="ld-select__selection-list-container"
                   part="selection-list-container"
                 >
-                  {this.filter && (
-                    <input
-                      aria-haspopup="listbox"
-                      type="text"
-                      placeholder={triggerText}
-                      class="ld-select__btn-trigger-input"
-                      part="trigger-input focusable"
-                      onInput={this.handleFilterInput}
-                      ref={(el) => (this.multiInputRef = el)}
-                      disabled={this.disabled}
-                      aria-disabled={this.ariaDisabled}
-                      tabIndex={
-                        this.disabled && !this.ariaDisabled
-                          ? undefined
-                          : this.ldTabindex
-                      }
-                    />
-                  )}
                   <ul
                     class="ld-select__selection-list"
                     part="selection-list"
@@ -1140,31 +1128,9 @@ export class LdSelect implements InnerFocusable {
                   title={triggerText}
                   part="trigger-text-wrapper"
                 >
-                  {this.filter ? (
-                    <input
-                      aria-haspopup="listbox"
-                      type="text"
-                      placeholder={triggerText}
-                      class="ld-select__btn-trigger-input"
-                      part="trigger-input focusable"
-                      onInput={this.handleFilterInput}
-                      ref={(el) => (this.inputRef = el)}
-                      disabled={this.disabled}
-                      aria-disabled={this.ariaDisabled}
-                      tabIndex={
-                        this.disabled && !this.ariaDisabled
-                          ? undefined
-                          : this.ldTabindex
-                      }
-                    />
-                  ) : (
-                    <span
-                      class="ld-select__btn-trigger-text"
-                      part="trigger-text"
-                    >
-                      {triggerText}
-                    </span>
-                  )}
+                  <span class="ld-select__btn-trigger-text" part="trigger-text">
+                    {triggerText}
+                  </span>
                 </span>
               )}
 
@@ -1226,14 +1192,17 @@ export class LdSelect implements InnerFocusable {
             </div>
           </div>
           <ld-select-popper
+            detached={detached}
+            expanded={this.expanded}
+            filter={this.filter}
+            filterPlaceholder={this.filterPlaceholder}
             onBlur={this.handleFocusEvent}
             onFocusout={this.handleFocusEvent}
+            onLdselectfilterchange={this.handleFilterChange}
             popperClass={this.popperClass}
             ref={(el) => (this.listboxRef = el)}
             role="listbox"
-            expanded={this.expanded}
             size={this.size}
-            detached={detached}
             theme={this.theme}
           >
             <div
