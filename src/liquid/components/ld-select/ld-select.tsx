@@ -997,10 +997,9 @@ export class LdSelect implements InnerFocusable {
       this.expanded && 'ld-select__icon--rotated',
     ]
 
-    const triggerText =
-      this.multiple || (this.filter && this.expanded)
-        ? this.placeholder
-        : this.selected[0]?.text || this.placeholder
+    const triggerText = this.multiple
+      ? this.placeholder
+      : this.selected[0]?.text || this.placeholder
 
     return (
       <Host>

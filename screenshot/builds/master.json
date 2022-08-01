@@ -14579,7 +14579,7 @@
     },
     {
       "id": "1e681179",
-      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
+      "image": "988c02596c735e9444a923034ebdd1de.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14592,7 +14592,7 @@
     },
     {
       "id": "c81472bd",
-      "image": "8a219a49aed7d4fe7b021bcb0f31d8dc.png",
+      "image": "5a942220ea2ec39c815cf683ccd3b5ef.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14605,7 +14605,7 @@
     },
     {
       "id": "39b220d2",
-      "image": "49d76451ed32bc0d5382a5d37d0daf8d.png",
+      "image": "988c02596c735e9444a923034ebdd1de.png",
       "userAgent": "default",
       "desc": "ld-select css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14618,7 +14618,7 @@
     },
     {
       "id": "14b1db42",
-      "image": "3e7f6b1253fef8d2a6376e33be0828ee.png",
+      "image": "2ab89cca3b6fbaccd1b682eb26e103ac.png",
       "userAgent": "default",
       "desc": "ld-select css component default",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14631,7 +14631,7 @@
     },
     {
       "id": "d70f534e",
-      "image": "042931a4afa98c43347e4aa2bddcb776.png",
+      "image": "0fc4955b548f952ca530ad3676fe6364.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14644,7 +14644,7 @@
     },
     {
       "id": "45047c2f",
-      "image": "042931a4afa98c43347e4aa2bddcb776.png",
+      "image": "0fc4955b548f952ca530ad3676fe6364.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14657,7 +14657,7 @@
     },
     {
       "id": "78e632e6",
-      "image": "042931a4afa98c43347e4aa2bddcb776.png",
+      "image": "0fc4955b548f952ca530ad3676fe6364.png",
       "userAgent": "default",
       "desc": "ld-select css component disabled hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14670,7 +14670,7 @@
     },
     {
       "id": "65b326f8",
-      "image": "01f4bf087e30eeeeab50e0875f2172ca.png",
+      "image": "d7a4cd4484f7a61838a8a409d54355be.png",
       "userAgent": "default",
       "desc": "ld-select css component focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14683,7 +14683,7 @@
     },
     {
       "id": "85c791c5",
-      "image": "78dabb2e2b7a85aed38c0b127b87ce2a.png",
+      "image": "3585586cce8586da095acc5569415409.png",
       "userAgent": "default",
       "desc": "ld-select css component hover",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14748,7 +14748,7 @@
     },
     {
       "id": "22b56492",
-      "image": "0843b67f090a63e25a9f96d53b8afe7c.png",
+      "image": "1146469c572ff901ed50621b62e6f66d.png",
       "userAgent": "default",
       "desc": "ld-select filter single selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14813,7 +14813,7 @@
     },
     {
       "id": "3aeb98c0",
-      "image": "aa4ad85bd81272192e905c98bc61060e.png",
+      "image": "ad54d94e60150d4dc6caf7cf204c9ed1.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14826,7 +14826,7 @@
     },
     {
       "id": "2b4df52f",
-      "image": "b4168136a80f49f84642afa539a01c7f.png",
+      "image": "062a0f2da582a8ae99126b0f346a1ea7.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14839,7 +14839,7 @@
     },
     {
       "id": "375c49e2",
-      "image": "6b05d1f492d0cdfa4d823399ff64b309.png",
+      "image": "f82e6a9f63fecec37b4b277d04eb53de.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14852,7 +14852,7 @@
     },
     {
       "id": "f34a20e3",
-      "image": "a7f1024c1ab3a6533e45d2295c49279c.png",
+      "image": "1873c78c58b2c4585bce701e572a62d1.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -14865,7 +14865,7 @@
     },
     {
       "id": "ff3d71ae",
-      "image": "c3ed2d0629f6706197fae4d16e7ead45.png",
+      "image": "d2cb321b9d02aa172c1e54f4073eef26.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15086,7 +15086,7 @@
     },
     {
       "id": "2b11e429",
-      "image": "a6ba498b1db27e54854c3ca9131c2838.png",
+      "image": "9253aa5f113eec510097a3e92e7b7f2d.png",
       "userAgent": "default",
       "desc": "ld-select single internal option disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15099,7 +15099,7 @@
     },
     {
       "id": "b76c94f7",
-      "image": "837273f5f81f07244943541ef26f2fe3.png",
+      "image": "0b77009ffc9626d72b2331dd50720218.png",
       "userAgent": "default",
       "desc": "ld-select single internal option disabled focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15112,7 +15112,7 @@
     },
     {
       "id": "23ba4777",
-      "image": "3c1349516fd20f6711e6635607545cfb.png",
+      "image": "0237efff9e07de7b1f61c923d71674ac.png",
       "userAgent": "default",
       "desc": "ld-select single internal option focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15125,7 +15125,7 @@
     },
     {
       "id": "75214b07",
-      "image": "a6961ec3c8fcc43d023b4740df8d63dc.png",
+      "image": "bc5bbd09e4301dd71a0ed36f1d9df0b8.png",
       "userAgent": "default",
       "desc": "ld-select single internal option selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15138,7 +15138,7 @@
     },
     {
       "id": "7751a87e",
-      "image": "c5c8e518ee187169d05896978e168496.png",
+      "image": "b2c451998734a1234de5729446b3af23.png",
       "userAgent": "default",
       "desc": "ld-select single internal option selected focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",

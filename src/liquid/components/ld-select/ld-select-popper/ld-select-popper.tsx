@@ -105,7 +105,6 @@ export class LdSelectPopper {
               class="ld-select-popper__filter-input"
               part="filter-input focusable"
               onInput={this.handleFilterInput}
-              // ref={(el) => (this.filterInputRef = el)}
             />
           )}
           <div
