@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/emdgroup-liquid/liquid/compare/v2.4.2...v2.4.3) (2022-08-11)
+
+
+### Bug Fixes
+
+* **ld-modal:** make custom css props overwritable ([da67049](https://github.com/emdgroup-liquid/liquid/commit/da670497f011a9c13bd81be9cb020d31d937e39c))
+
 ## [2.4.2](https://github.com/emdgroup-liquid/liquid/compare/v2.4.1...v2.4.2) (2022-08-01)
 
 
