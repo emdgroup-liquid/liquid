@@ -33,7 +33,7 @@
 }
 
 dialog.ld-modal,
-:host dialog {
+:host {
   --ld-modal-bg-col: var(--ld-col-wht);
   --ld-modal-fixed-padding-x: var(--ld-sp-16);
   --ld-modal-fixed-padding-y: var(--ld-sp-16);
@@ -48,7 +48,10 @@ dialog.ld-modal,
   @media (prefers-reduced-motion: no-preference) {
     --ld-modal-transition-duration: 0.2s;
   }
+}
 
+dialog.ld-modal,
+:host dialog {
   /* overwrites */
   border: 0;
   color: var(--ld-col-neutral-900);

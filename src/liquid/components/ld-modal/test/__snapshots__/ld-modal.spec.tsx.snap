@@ -3,7 +3,7 @@
 exports[`ld-modal does not display close button in header if not cancelable 1`] = `
 <ld-modal class="ld-modal" open="">
   <mock:shadow-root>
-    <dialog open="">
+    <dialog open="" part="dialog">
       <header class="ld-modal__header" part="header">
         <slot name="header"></slot>
       </header>
@@ -25,7 +25,7 @@ exports[`ld-modal does not display close button in header if not cancelable 1`] 
 exports[`ld-modal is open 1`] = `
 <ld-modal class="ld-modal" open="">
   <mock:shadow-root>
-    <dialog open="">
+    <dialog open="" part="dialog">
       <header class="ld-modal__header" part="header">
         <slot name="header"></slot>
         <button aria-label="Dismiss" class="ld-modal__x"></button>
@@ -45,7 +45,7 @@ exports[`ld-modal is open 1`] = `
 exports[`ld-modal renders 1`] = `
 <ld-modal class="ld-modal">
   <mock:shadow-root>
-    <dialog>
+    <dialog part="dialog">
       <header class="ld-modal__header" part="header">
         <slot name="header"></slot>
         <button aria-label="Dismiss" class="ld-modal__x"></button>
@@ -65,7 +65,7 @@ exports[`ld-modal renders 1`] = `
 exports[`ld-modal uses a blurry backdrop 1`] = `
 <ld-modal blurry-backdrop="" class="ld-modal ld-modal--blurry-backdrop" open="">
   <mock:shadow-root>
-    <dialog open="">
+    <dialog open="" part="dialog">
       <header class="ld-modal__header" part="header">
         <slot name="header"></slot>
         <button aria-label="Dismiss" class="ld-modal__x"></button>

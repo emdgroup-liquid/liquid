@@ -9093,7 +9093,7 @@
     },
     {
       "id": "9ef4f5a5",
-      "image": "12ab1710422c84db1938f110990abebf.png",
+      "image": "377a28bea7c6539dea6a0c969cb264f9.png",
       "userAgent": "default",
       "desc": "ld-modal renders as CSS Component",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
@@ -9106,7 +9106,7 @@
     },
     {
       "id": "36fe5b6b",
-      "image": "e53db7071d2c8e9769e65629e1e9c6e2.png",
+      "image": "2d89d047eedbacb720ef0da14dba589b.png",
       "userAgent": "default",
       "desc": "ld-modal renders as CSS Component with lots of content in scrollable container",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
@@ -9119,7 +9119,7 @@
     },
     {
       "id": "f2519ea2",
-      "image": "53a391ec6b58d47409f097ed894b1c81.png",
+      "image": "3e9dd5524479ee5fe119e72411ebb84a.png",
       "userAgent": "default",
       "desc": "ld-modal renders as CSS Component without header and footer",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
@@ -9132,7 +9132,7 @@
     },
     {
       "id": "da147284",
-      "image": "12ab1710422c84db1938f110990abebf.png",
+      "image": "377a28bea7c6539dea6a0c969cb264f9.png",
       "userAgent": "default",
       "desc": "ld-modal renders as Web Component",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
@@ -9145,7 +9145,7 @@
     },
     {
       "id": "a8abc56d",
-      "image": "e53db7071d2c8e9769e65629e1e9c6e2.png",
+      "image": "2d89d047eedbacb720ef0da14dba589b.png",
       "userAgent": "default",
       "desc": "ld-modal renders as Web Component with lots of content in scrollable container",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
@@ -9158,7 +9158,7 @@
     },
     {
       "id": "511a4558",
-      "image": "53a391ec6b58d47409f097ed894b1c81.png",
+      "image": "3e9dd5524479ee5fe119e72411ebb84a.png",
       "userAgent": "default",
       "desc": "ld-modal renders as Web Component without header and footer",
       "testPath": "./src/liquid/components/ld-modal/test/ld-modal.e2e.ts",
