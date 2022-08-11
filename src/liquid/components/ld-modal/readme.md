@@ -209,11 +209,12 @@ Type: `Promise<void>`
 
 ## Shadow Parts
 
-| Part        | Description |
-| ----------- | ----------- |
-| `"content"` |             |
-| `"footer"`  |             |
-| `"header"`  |             |
+| Part        | Description                             |
+| ----------- | --------------------------------------- |
+| `"content"` | `div` element wrapping the default slot |
+| `"dialog"`  | Actual `dialog` element                 |
+| `"footer"`  | `footer` element                        |
+| `"header"`  | `header` element                        |
 
 
 ----------------------------------------------

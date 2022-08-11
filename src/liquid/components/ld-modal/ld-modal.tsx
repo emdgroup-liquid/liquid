@@ -15,6 +15,10 @@ import { getClassNames } from '../../utils/getClassNames'
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part dialog - Actual `dialog` element
+ * @part content - `div` element wrapping the default slot
+ * @part footer - `footer` element
+ * @part header - `header` element
  */
 @Component({
   tag: 'ld-modal',
@@ -131,6 +135,7 @@ export class LdModal {
           onClose={this.handleClose}
           onTransitionEnd={this.handleTransitionEnd}
           open={this.open}
+          part="dialog"
           ref={(el) => (this.dialogRef = el as HTMLDialogElement)}
         >
           <header class="ld-modal__header" part="header">
