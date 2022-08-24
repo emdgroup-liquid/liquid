@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: CSS vs. Web Components
-  parent: Introduction
-  order: 3
+  parent: Guides
+  order: 1
 layout: layout.njk
 title: CSS vs. Web Components
-permalink: introduction/css-vs-web-components/
+permalink: guides/css-vs-web-components/
 ---
 
 # CSS vs. Web Components
@@ -25,7 +25,7 @@ Both look the same, so which one should you use?
 
 There are a few points to concider, when deciding on one of the two options or a mix of both:
 
-- **Convenience**: Most Liquid Web Components are much more "compact" when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from [type checking and intellisense](introduction/type-checking-and-intellisense/).
+- **Convenience**: Most Liquid Web Components are much more "compact" when it comes to the amount of code that you have to write than with their CSS counterparts. Your code becomes more readable. Additionally, you may benefit from [type checking and intellisense](guides/type-checking-and-intellisense/).
 
 - **Accessibility**: Some Web Components handle accessibility issues under the hood. For instance, the [`ld-typo`](components/ld-typo/) Web Component applies an `aria-label` automatically when used with uppercase heading variants. With CSS Components you have to deal with such things yourself.
 
@@ -37,4 +37,4 @@ There are a few points to concider, when deciding on one of the two options or a
 
 With all that in mind, you'll need to make a choice case by case.
 
-<docs-page-nav prev-href="introduction/getting-started/" next-title="Component assets" next-href="introduction/component-assets/"></docs-page-nav>
+<docs-page-nav prev-href="guides/" next-title="Component assets" next-href="guides/component-assets/"></docs-page-nav>

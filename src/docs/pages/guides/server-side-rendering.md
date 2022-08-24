@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Server-side rendering
-  parent: Introduction
-  order: 6
+  parent: Guides
+  order: 4
 layout: layout.njk
 title: Server-side rendering
-permalink: introduction/server-side-rendering/
+permalink: guides/server-side-rendering/
 ---
 
 
@@ -47,6 +47,6 @@ useEffect(()=>{
 }, [])
 ```
 
-For working examples check out our [sandbox apps](introduction/sandbox-applications/).
+For working examples check out our [sandbox apps](guides/sandbox-applications/).
 
-<docs-page-nav prev-href="introduction/type-checking-and-intellisense/" next-title="Event handling" next-href="introduction/event-handling/"></docs-page-nav>
+<docs-page-nav prev-href="guides/type-checking-and-intellisense/" next-title="Event handling" next-href="guides/event-handling/"></docs-page-nav>

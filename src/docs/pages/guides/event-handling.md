@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Event handling
-  parent: Introduction
-  order: 7
+  parent: Guides
+  order: 5
 layout: layout.njk
 title: Event handling
-permalink: introduction/event-handling/
+permalink: guides/event-handling/
 ---
 
 
@@ -43,7 +43,7 @@ const MyApp = () => {
     console.log('changed!')
   }, [])
 
-  return <ld-input onLdchange={handleLdchange} />
+  return <LdInput onLdchange={handleLdchange} />
 }
 ```
 
@@ -51,4 +51,4 @@ const MyApp = () => {
   React usually triggers event handlers set with the <code>onChange</code> prop differently than browsers actually handle <code>change</code> events. Event handlers set with the <code>onChange</code> prop usually are invoked everytime the element's value changes in React, while by definition the <code>change</code> event is only dispatched after the element loses focus.<br/><br/>Liquid Oxygen components stick to that browser default behavior and only dispatch the <code>ldchange</code>/<code>change</code> events after an element loses focus. Thus, you cannot expect an event handler set neither via <code>onLdchange</code> nor <code>onChange</code> to be invoked everytime the value changes. If you want that, the <code>input</code> event is exactly what you're looking for, so please use the <code>onInput</code> prop in these cases, instead. (There is no custom <code>ldinput</code> event, as the <code>input</code> event is a composed native event that bubbles into the light DOM.)
 </ld-notice>
 
-<docs-page-nav prev-href="introduction/server-side-rendering/" next-title="Form validation" next-href="introduction/form-validation/"></docs-page-nav>
+<docs-page-nav prev-href="guides/server-side-rendering/" next-title="Form validation" next-href="guides/form-validation/"></docs-page-nav>

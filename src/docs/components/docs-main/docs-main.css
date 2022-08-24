@@ -243,7 +243,7 @@
       border: 0;
       height: var(--ld-sp-1);
 
-      &:last-of-type {
+      &:last-of-type:not(:first-of-type) {
         display: none;
 
         & + p {

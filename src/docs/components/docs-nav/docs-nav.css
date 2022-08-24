@@ -26,6 +26,15 @@
       background-color: var(--ld-col-rb);
     }
   }
+  .docs-nav__summary--guides,
+  .docs-nav__summary--guides + ul .docs-nav__summary {
+    .docs-nav__arrow {
+      background-image: url('dist/build/assets/chevron-guides-dark.svg');
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-vc);
+    }
+  }
   .docs-nav__summary--globals,
   .docs-nav__summary--globals + ul .docs-nav__summary {
     .docs-nav__arrow {
@@ -55,6 +64,9 @@
   }
   .docs-nav__li--active .docs-nav__summary--introduction {
     color: var(--ld-col-rb);
+  }
+  .docs-nav__li--active .docs-nav__summary--guides {
+    color: var(--ld-col-vc);
   }
   .docs-nav__li--active .docs-nav__summary--globals {
     color: var(--ld-col-rp);
@@ -94,6 +106,15 @@
       background-color: var(--ld-col-rb);
     }
   }
+  .docs-nav__summary--guides,
+  .docs-nav__summary--guides + ul .docs-nav__summary {
+    .docs-nav__arrow {
+      background-image: url('dist/build/assets/chevron-guides-light.svg');
+    }
+    .docs-nav__summary-toggle {
+      background-color: var(--ld-col-vc);
+    }
+  }
   .docs-nav__summary--globals,
   .docs-nav__summary--globals + ul .docs-nav__summary {
     .docs-nav__arrow {
@@ -123,6 +144,9 @@
   }
   .docs-nav__li--active .docs-nav__summary--introduction {
     color: var(--ld-col-rb-400);
+  }
+  .docs-nav__li--active .docs-nav__summary--guides {
+    color: var(--ld-col-vc-400);
   }
   .docs-nav__li--active .docs-nav__summary--globals {
     color: var(--ld-col-rp-400);
@@ -306,6 +330,11 @@ body:not(.safari) {
 
 .docs-nav__summary--introduction a::before {
   background-image: url('dist/build/assets/introduction.svg');
+  content: '';
+}
+
+.docs-nav__summary--guides a::before {
+  background-image: url('dist/build/assets/guides.svg');
   content: '';
 }
 

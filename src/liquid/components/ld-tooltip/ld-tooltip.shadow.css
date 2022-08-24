@@ -10,6 +10,7 @@
   font-family: inherit;
   font-size: inherit;
   padding: 0;
+  color: inherit;
 
   &--clickable {
     cursor: pointer;

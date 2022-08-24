@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Design tokens
-  parent: Introduction
-  order: 11
+  parent: Guides
+  order: 9
 layout: layout.njk
 title: Design tokens
-permalink: introduction/design-tokens/
+permalink: guides/design-tokens/
 ---
 
 
@@ -43,6 +43,6 @@ As you can see, the command is invoked with `npx`. It uses an environment variab
   Asset loading (including fonts) is not taken care of automatically when you use custom design tokens, so you will have to take care of that yourself. 
 </ld-notice>
 
-<docs-page-nav prev-href="introduction/tailwindcss-integration/" next-title="Sandbox applications" next-href="introduction/sandbox-applications/"></docs-page-nav>
+<docs-page-nav prev-href="guides/tailwindcss-integration/" next-title="Sandbox applications" next-href="guides/sandbox-applications/"></docs-page-nav>
 
 [liquid tokens on figma]: https://www.figma.com/file/JcDMeUwec9e185HfBgT9XE/Liquid-Oxygen?node-id=2615%3A28396
