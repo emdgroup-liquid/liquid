@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Tailwind CSS integration
-  parent: Introduction
-  order: 10
+  parent: Guides
+  order: 8
 layout: layout.njk
 title: Tailwind CSS integration
-permalink: introduction/tailwindcss-integration/
+permalink: guides/tailwindcss-integration/
 ---
 
 
@@ -44,4 +44,4 @@ module.exports = {
   Not extending Tailwind's default configuration is the same as completely removing Tailwinds default CSS utility classes.
 </ld-notice>
 
-<docs-page-nav prev-href="introduction/react-bindings/" next-title="Design tokens" next-href="introduction/design-tokens/"></docs-page-nav>
+<docs-page-nav prev-href="guides/react-bindings/" next-title="Design tokens" next-href="guides/design-tokens/"></docs-page-nav>

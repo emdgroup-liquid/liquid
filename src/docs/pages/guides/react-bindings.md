@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: React bindings
-  parent: Introduction
-  order: 9
+  parent: Guides
+  order: 7
 layout: layout.njk
 title: React bindings
-permalink: introduction/react-bindings/
+permalink: guides/react-bindings/
 ---
 
 
@@ -43,4 +43,4 @@ When using React bindings, you do not need to use the `setAssetPath` function to
   }
 ```
 
-<docs-page-nav prev-href="introduction/form-validation/" next-title="Tailwind CSS integration" next-href="introduction/tailwindcss-integration/"></docs-page-nav>
+<docs-page-nav prev-href="guides/form-validation/" next-title="Tailwind CSS integration" next-href="guides/tailwindcss-integration/"></docs-page-nav>

@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Components
-  order: 3
+  order: 4
 layout: layout.njk
 title: Components
 permalink: components/

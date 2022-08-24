@@ -56,4 +56,4 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 ```
 
-<docs-page-nav prev-href="introduction/why-liquid/" next-title="CSS vs. Web Components" next-href="introduction/css-vs-web-components/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/why-liquid/" next-title="Guides" next-href="guides/"></docs-page-nav>

@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Component assets
-  parent: Introduction
-  order: 4
+  parent: Guides
+  order: 2
 layout: layout.njk
 title: Component assets
-permalink: introduction/component-assets/
+permalink: guides/component-assets/
 ---
 
 # Component assets
@@ -48,9 +48,9 @@ setAssetPath(window.location.origin)
 ```
 
 <ld-notice headline="Note" mode="warning">
-  <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="introduction/react-bindings/#setting-the-asset-path">React bindings docs</a> for an alternative approach.
+  <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="guides/react-bindings/#setting-the-asset-path">React bindings docs</a> for an alternative approach.
 </ld-notice>
 
-For more examples check out our [sandbox apps](introduction/sandbox-applications/).
+For more examples check out our [sandbox apps](guides/sandbox-applications/).
 
-<docs-page-nav prev-href="introduction/css-vs-web-components/" next-title="Type checking and intellisense" next-href="introduction/type-checking-and-intellisense/"></docs-page-nav>
+<docs-page-nav prev-href="guides/css-vs-web-components/" next-title="Type checking and intellisense" next-href="guides/type-checking-and-intellisense/"></docs-page-nav>
