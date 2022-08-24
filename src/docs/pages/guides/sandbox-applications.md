@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Sandbox applications
-  parent: Introduction
-  order: 12
+  parent: Guides
+  order: 10
 layout: layout.njk
 title: Sandbox applications
-permalink: introduction/sandbox-applications/
+permalink: guides/sandbox-applications/
 ---
 
 
@@ -19,4 +19,4 @@ In order to help you get started with Liquid we have begun implementing small sa
 - Liquid + **Next + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-next-tailwind-q070f))
 - Liquid + **Astro + Svelte + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind), [stackblitz](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind))
 
-<docs-page-nav prev-href="introduction/design-tokens/" next-title="FAQ" next-href="introduction/faq/"></docs-page-nav>
+<docs-page-nav prev-href="guides/design-tokens/" next-title="Troubleshooting" next-href="guides/troubleshooting/"></docs-page-nav>

@@ -21,6 +21,10 @@ The `ld-select` component represents a control that provides a menu of options. 
 
 The feature set of the `ld-select` Web Component differs from its CSS Component counterpart. While the first offers more display and input modes, the latter is a lightweight alternative, which only styles the native HTML select element.
 
+<ld-notice headline="Note" mode="warning">
+  If your application is mounted to a different element than the <code>body</code> element, you may need to configure this component to pop out <strong>within your application root element</strong>. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-outside-application-root">related troubleshooting section</a>.
+</ld-notice>
+
 ## Examples
 
 ### Single select mode
@@ -1170,7 +1174,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 The `ld-select` Web Component provides a low level API for integrating it with the form validation solution of your choice. It allows you to listen for `focus`, `input` and `blur` events, as well as custom events (see [Events](components/ld-input/#events) for details).
 
 <ld-notice headline="Note" mode="warning">
-  You can find examples for different kinds of input validation in the <a href="introduction/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="introduction/event-handling/">Event handling</a> documentation.
+  You can find examples for different kinds of input validation in the <a href="guides/form-validation/">Form validation</a> documentation. Please also be aware of differences in event handling compared to native elements that come with Web Components. Details can be found in our <a href="guides/event-handling/">Event handling</a> documentation.
 </ld-notice>
 
 <!-- Auto Generated Below -->

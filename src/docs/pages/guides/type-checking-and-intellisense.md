@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Type checking and intellisense
-  parent: Introduction
-  order: 5
+  parent: Guides
+  order: 3
 layout: layout.njk
 title: Type checking and intellisense
-permalink: introduction/type-checking-and-intellisense/
+permalink: guides/type-checking-and-intellisense/
 ---
 
 # Type checking and intellisense
@@ -61,4 +61,4 @@ The format of the referenced JSON file, which includes type information about ea
 
 [Some efforts](https://youtrack.jetbrains.com/issue/WEB-39620) are also being made to enable intellisense for Web Components in Intellij editors, but we are not there yet.
 
-<docs-page-nav prev-href="introduction/component-assets/" next-title="Server-side rendering" next-href="introduction/server-side-rendering/"></docs-page-nav>
+<docs-page-nav prev-href="guides/component-assets/" next-title="Server-side rendering" next-href="guides/server-side-rendering/"></docs-page-nav>

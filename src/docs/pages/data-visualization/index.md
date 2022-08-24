@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Data Visualization
-  order: 4
+  order: 5
 layout: redirect.njk
 title: Data Visualization
 permalink: data-visualization/

@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
   key: Globals
-  order: 2
+  order: 3
 layout: layout.njk
 title: Globals
 permalink: global/

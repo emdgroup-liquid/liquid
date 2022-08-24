@@ -28,7 +28,7 @@ body {
 
 .docs-layout {
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: auto auto 1fr auto;
   font-family: var(--ld-font-body);
   margin: 0 auto;
   max-width: var(--docs-max-width);

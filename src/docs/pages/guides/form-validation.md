@@ -1,11 +1,11 @@
 ---
 eleventyNavigation:
   key: Form validation
-  parent: Introduction
-  order: 8
+  parent: Guides
+  order: 6
 layout: layout.njk
 title: Form validation
-permalink: introduction/form-validation/
+permalink: guides/form-validation/
 ---
 
 
@@ -225,4 +225,4 @@ firstName: ${currentValue}`)
 </script>
 {% endexample %}
 
-<docs-page-nav prev-href="introduction/event-handling/" next-title="React bindings" next-href="introduction/react-bindings/"></docs-page-nav>
+<docs-page-nav prev-href="guides/event-handling/" next-title="React bindings" next-href="guides/react-bindings/"></docs-page-nav>
