@@ -14,7 +14,7 @@ permalink: components/ld-tooltip/
 Tooltips provide additional information, mostly short paragraphs, and can be placed beside all sorts of interface elements.
 
 <ld-notice headline="Note" mode="warning">
-  If your application is mounted to a different element than the <code>body</code> element, you may need to configure this component to pop out <strong>within your application root element</strong>. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-outside-application-root">related troubleshooting section</a>.
+  If your application is mounted to a different element than the <code>body</code> element, or you have <em>z-order</em> related issues, you may need to configure the <code>bodyElement</code> option using the <code>tetherOptions</code> property. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-in-wrong-container">related troubleshooting section</a>.
 </ld-notice>
 
 ## Default

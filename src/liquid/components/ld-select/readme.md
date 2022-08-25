@@ -22,7 +22,7 @@ The `ld-select` component represents a control that provides a menu of options. 
 The feature set of the `ld-select` Web Component differs from its CSS Component counterpart. While the first offers more display and input modes, the latter is a lightweight alternative, which only styles the native HTML select element.
 
 <ld-notice headline="Note" mode="warning">
-  If your application is mounted to a different element than the <code>body</code> element, you may need to configure this component to pop out <strong>within your application root element</strong>. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-outside-application-root">related troubleshooting section</a>.
+  If your application is mounted to a different element than the <code>body</code> element, or you have <em>z-order</em> related issues, you may need to configure the <code>bodyElement</code> option using the <code>tetherOptions</code> property. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-in-wrong-container">related troubleshooting section</a>.
 </ld-notice>
 
 ## Examples
