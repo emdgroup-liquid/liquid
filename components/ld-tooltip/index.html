@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Tooltip</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1661422765065/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1661422765065/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1661422765065/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1661422765065/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1661422765065/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1661437361603/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1661437361603/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1661437361603/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1661437361603/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1661437361603/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
 
@@ -543,7 +543,7 @@
               title: 'Troubleshooting',
               tags: '',
               url: '/liquid/guides/troubleshooting/',
-              headings: 'Popped-out element is rendered outside application root ',
+              headings: 'Popped-out element is rendered in wrong container ',
               breadcrumbs: [
                 
                 
@@ -1929,11 +1929,11 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1661422765065/docs.css">
-  <link rel="stylesheet" href="/liquid/1661422765065/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1661422765065/css_components/ld-button.css">
-  <script type="module" src="/liquid/1661422765065/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1661422765065/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1661437361603/docs.css">
+  <link rel="stylesheet" href="/liquid/1661437361603/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1661437361603/css_components/ld-button.css">
+  <script type="module" src="/liquid/1661437361603/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1661437361603/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2767,7 +2767,7 @@
 <h1 id="ld-tooltip" tabindex="-1">ld-tooltip <a class="header-anchor" href="components/ld-tooltip/#ld-tooltip"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Tooltips provide additional information, mostly short paragraphs, and can be placed beside all sorts of interface elements.</p>
 <ld-notice headline="Note" mode="warning">
-  If your application is mounted to a different element than the <code>body</code> element, you may need to configure this component to pop out <strong>within your application root element</strong>. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-outside-application-root">related troubleshooting section</a>.
+  If your application is mounted to a different element than the <code>body</code> element, or you have <em>z-order</em> related issues, you may need to configure the <code>bodyElement</code> option using the <code>tetherOptions</code> property. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-in-wrong-container">related troubleshooting section</a>.
 </ld-notice>
 <h2 id="default" tabindex="-1">Default <a class="header-anchor" href="components/ld-tooltip/#default"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <docs-example code="%3Cld-tooltip%3E%0A%20%20%3Cld-typo%20variant%3D%22h4%22%20style%3D%22margin-bottom%3A%200.625rem%22%3EHeadline%3C%2Fld-typo%3E%0A%20%20%3Cld-typo%3E%0A%20%20%20%20Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit%2C%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%0A%20%20%3C%2Fld-typo%3E%0A%3C%2Fld-tooltip%3E"  themable has-border has-padding>
