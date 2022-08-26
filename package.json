@@ -160,7 +160,7 @@
     }
   },
   "validate-branch-name": {
-    "pattern": "^((feat|fix|hotfix|build|chore|ci|docs|style|refactor|perf|test)\\/([a-z0-9._-]+)|develop|main|rc)$",
+    "pattern": "^((feat|fix|hotfix|build|chore|ci|docs|style|refactor|perf|test)\\/([a-z0-9._-]+)|main|rc)$",
     "errorMsg": "There's something wrong with your branch name. Please check CONTRIBUTING.md for valid branch names, rename your branch and try again."
   },
   "lint-staged": {

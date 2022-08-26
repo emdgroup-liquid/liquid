@@ -149,7 +149,7 @@ works as it is supposed to. Please [squash commits](https://git-scm.com/book/en/
 Branch names are linted using the following regular expression before push:
 
 ```
-^((feat|fix|hotfix|build|chore|ci|docs|style|refactor|perf|test)\/([a-z0-9._-]+)|develop|main|rc)$
+^((feat|fix|hotfix|build|chore|ci|docs|style|refactor|perf|test)\/([a-z0-9._-]+)|main|rc)$
 ```
 
 ### How to run tests

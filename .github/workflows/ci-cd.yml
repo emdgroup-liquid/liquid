@@ -60,7 +60,7 @@ jobs:
           retention-days: 1
 
       - name: Archive dist_docs artifacts
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v2
         with:
           name: dist_docs
@@ -68,14 +68,14 @@ jobs:
           retention-days: 1
 
       - name: Coveralls
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/main'
         uses: coverallsapp/github-action@master
         continue-on-error: true
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   document:
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/main'
     name: Deploy dist_docs to GitHub pages
     needs: test
     runs-on: ubuntu-latest
@@ -95,6 +95,19 @@ jobs:
         with:
           branch: gh-pages
           folder: dist_docs
+
+      #- name: Configure AWS
+      #  uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #    aws-region: us-east-1
+
+      #- name: Invalidate CloudFront cache
+      #  run: |
+      #    aws cloudfront create-invalidation \
+      #    --distribution-id ${{ secrets.AWS_CF_DISTRIBUTION_ID }} \
+      #    --paths "/*" --region eu-central-1
 
   release:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
