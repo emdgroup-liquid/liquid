@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.4](https://github.com/emdgroup-liquid/liquid/compare/v2.4.3...v2.4.4) (2022-08-26)
+
+
+### Bug Fixes
+
+* **ld-input:** make sure minus character is not ignored ([722c9f9](https://github.com/emdgroup-liquid/liquid/commit/722c9f9a7b0d96573fa1c713f073c316c0b470da)), closes [#401](https://github.com/emdgroup-liquid/liquid/issues/401)
+
 ## [2.4.3](https://github.com/emdgroup-liquid/liquid/compare/v2.4.2...v2.4.3) (2022-08-11)
 
 
