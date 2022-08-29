@@ -329,7 +329,7 @@
 
     > table {
       --table-cell-width-sm: 15rem;
-      --table-cell-width: 20rem;
+      --table-cell-width: 22rem;
       --table-cell-width-lg: 30rem;
       overflow-x: scroll;
       overflow-y: hidden;
@@ -444,8 +444,6 @@
 
       td,
       th {
-        width: var(--table-cell-width);
-
         /* props and attributes */
         &:first-of-type,
         &:nth-of-type(3) {
@@ -472,6 +470,11 @@
           }
         }
 
+        /* name */
+        &:first-of-type {
+          width: var(--table-cell-width-lg);
+        }
+
         /* description */
         &:nth-of-type(2) {
           width: var(--table-cell-width-lg);
@@ -489,10 +492,9 @@
 
       td,
       th {
-        /* props and attributes */
-        &:first-of-type,
-        &:nth-of-type(3) {
-          width: var(--table-cell-width-sm);
+        /* name */
+        &:first-of-type {
+          width: var(--table-cell-width);
         }
 
         /* description */
@@ -528,7 +530,7 @@
       th {
         /* props and attributes */
         &:first-of-type {
-          width: var(--table-cell-width-sm);
+          width: var(--table-cell-width);
           word-break: break-all;
           flex-shrink: 0;
         }
@@ -544,7 +546,6 @@
       thead,
       tbody {
         min-width: var(--table-min-width);
-        display: block !important;
       }
 
       code {

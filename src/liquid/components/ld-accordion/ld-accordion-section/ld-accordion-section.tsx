@@ -35,7 +35,9 @@ export class LdAccordionSection {
   updateExpandedState(newExpanded: boolean) {
     Array.from(this.el.children).forEach(
       (child: HTMLLdAccordionPanelElement | HTMLLdAccordionToggleElement) => {
-        child.setExpanded(newExpanded)
+        if (typeof child.setExpanded === 'function') {
+          child.setExpanded(newExpanded)
+        }
       }
     )
 

@@ -86,6 +86,10 @@
         z-index: 1;
       }
     }
+
+    &[href='#methods'] + ol a {
+      word-break: break-all;
+    }
   }
 }
 

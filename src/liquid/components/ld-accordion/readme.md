@@ -356,11 +356,13 @@ You can nest an accordion inside another.
 
 ### Used by
 
+ - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-sidenav-accordion](../ld-sidenav/ld-sidenav-accordion)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-cookie-consent --> ld-accordion
   ld-sidenav-accordion --> ld-accordion
   style ld-accordion fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -55,6 +55,7 @@ dialog.ld-modal,
   /* overwrites */
   border: 0;
   color: var(--ld-col-neutral-900);
+  color-scheme: var(--ld-modal-color-scheme, none);
   display: flex; /* allows for transitions */
   flex-direction: column;
   inset: 0; /* keeps the dialog positioned correctly during closing transition */
@@ -138,17 +139,17 @@ dialog.ld-modal--blurry-backdrop,
 .ld-modal__x {
   align-self: flex-start;
   appearance: none;
-  aspect-ratio: 1;
   background-color: transparent;
   border: solid transparent var(--ld-sp-8);
   box-sizing: border-box;
   cursor: pointer;
   display: inline-flex;
+  height: 3rem;
   justify-self: flex-end;
-  margin: var(--ld-sp-8) calc(var(--ld-sp-8) * -1) var(--ld-sp-8) auto;
-  position: relative;
-  width: var(--ld-sp-32);
+  margin: auto calc(var(--ld-sp-16) * -1) auto auto;
   overflow: hidden;
+  position: relative;
+  width: 3rem;
 
   &::before,
   &::after {
@@ -156,7 +157,7 @@ dialog.ld-modal--blurry-backdrop,
     background-color: var(--ld-col-neutral-900);
     content: '';
     display: block;
-    height: 125%;
+    height: 1.25rem;
     left: 50%;
     position: absolute;
     top: 50%;
