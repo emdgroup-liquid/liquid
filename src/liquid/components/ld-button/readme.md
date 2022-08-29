@@ -563,11 +563,13 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-pagination](../ld-pagination)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-cookie-consent --> ld-button
   ld-pagination --> ld-button
   style ld-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

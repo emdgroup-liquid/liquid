@@ -35,6 +35,7 @@
   --ld-accordion-panel-border-top-col: var(--ld-col-neutral-010);
 
   &(:where(.ld-accordion)) {
+    color-scheme: var(--ld-accordion-color-scheme, none);
     display: block;
     flex-grow: 1;
   }

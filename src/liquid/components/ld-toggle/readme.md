@@ -498,6 +498,19 @@ Type: `Promise<void>`
 | `"knob"`               | Toggle knob               |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-cookie-consent](../ld-cookie-consent)
+
+### Graph
+```mermaid
+graph TD;
+  ld-cookie-consent --> ld-toggle
+  style ld-toggle fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

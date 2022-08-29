@@ -44,11 +44,13 @@ Please refer to the [`ld-accordion` documentation](components/ld-accordion) for 
 
 ### Used by
 
+ - [ld-cookie-consent](../../ld-cookie-consent)
  - [ld-sidenav-accordion](../../ld-sidenav/ld-sidenav-accordion)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-cookie-consent --> ld-accordion-panel
   ld-sidenav-accordion --> ld-accordion-panel
   style ld-accordion-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```

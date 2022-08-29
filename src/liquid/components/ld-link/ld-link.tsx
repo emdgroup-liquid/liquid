@@ -89,6 +89,7 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
           this.disabled || this.el.ariaDisabled ? 'true' : undefined
         }
         ref={(ref) => (this.anchor = ref)}
+        target={this.target}
         rel={this.target === '_blank' ? 'noreferrer noopener' : undefined}
         disabled={this.disabled}
         part="anchor focusable"

@@ -147,11 +147,13 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-crumb](../ld-breadcrumbs/ld-crumb)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-cookie-consent --> ld-link
   ld-crumb --> ld-link
   style ld-link fill:#f9f,stroke:#333,stroke-width:4px
 ```

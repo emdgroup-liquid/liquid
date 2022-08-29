@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-cookie-consent cookie details shows a table 1`] = `
+<table class="ld-cookie-consent__preferences-category-table" part="preferences-category-table">
+  <tr class="ld-cookie-consent__preferences-category-table-tr" part="preferences-category-table-tr">
+    <th class="ld-cookie-consent__preferences-category-table-th" part="preferences-category-table-th">
+      Name
+    </th>
+    <th class="ld-cookie-consent__preferences-category-table-th" part="preferences-category-table-th">
+      Provider
+    </th>
+    <th class="ld-cookie-consent__preferences-category-table-th" part="preferences-category-table-th">
+      Description
+    </th>
+    <th class="ld-cookie-consent__preferences-category-table-th" part="preferences-category-table-th">
+      Lifespan
+    </th>
+  </tr>
+  <tr class="ld-cookie-consent__preferences-category-table-tr" part="preferences-category-table-tr">
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      foo
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      The Foo
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      Used to distinguish unique users...
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      2 years
+    </td>
+  </tr>
+  <tr class="ld-cookie-consent__preferences-category-table-tr" part="preferences-category-table-tr">
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      bar
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      The Bar
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      Used to throttle the request rate...
+    </td>
+    <td class="ld-cookie-consent__preferences-category-table-td" part="preferences-category-table-td">
+      1 minute
+    </td>
+  </tr>
+</table>
+`;

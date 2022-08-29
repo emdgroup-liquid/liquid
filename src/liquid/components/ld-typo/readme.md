@@ -420,6 +420,7 @@ Here are some examples on how you can apply different colors on headings:
 
 ### Used by
 
+ - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-header](../ld-header)
  - [ld-notice](../ld-notice)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
@@ -430,6 +431,7 @@ Here are some examples on how you can apply different colors on headings:
 ### Graph
 ```mermaid
 graph TD;
+  ld-cookie-consent --> ld-typo
   ld-header --> ld-typo
   ld-notice --> ld-typo
   ld-sidenav-header --> ld-typo

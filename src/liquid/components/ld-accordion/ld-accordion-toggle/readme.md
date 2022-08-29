@@ -70,6 +70,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-cookie-consent](../../ld-cookie-consent)
  - [ld-sidenav-accordion](../../ld-sidenav/ld-sidenav-accordion)
 
 ### Depends on
@@ -80,6 +81,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ld-accordion-toggle --> ld-icon
+  ld-cookie-consent --> ld-accordion-toggle
   ld-sidenav-accordion --> ld-accordion-toggle
   style ld-accordion-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,0 +1,369 @@
+:host {
+  /* Assign liquid global props to component props. */
+  --ld-cookie-consent-br-s: var(--ld-br-s);
+  --ld-cookie-consent-br-m: var(--ld-br-m);
+  --ld-cookie-consent-br-l: var(--ld-br-l);
+  --ld-cookie-consent-col-neutral-010: var(--ld-col-neutral-010);
+  --ld-cookie-consent-col-neutral-050: var(--ld-col-neutral-050);
+  --ld-cookie-consent-col-neutral-100: var(--ld-col-neutral-100);
+  --ld-cookie-consent-col-neutral-600: var(--ld-col-neutral-600);
+  --ld-cookie-consent-col-neutral-900: var(--ld-col-neutral-900);
+  --ld-cookie-consent-col-wht: var(--ld-col-wht);
+  --ld-cookie-consent-font-body: var(--ld-font-body);
+  --ld-cookie-consent-thm-primary: var(--ld-thm-primary);
+  --ld-cookie-consent-thm-primary-active: var(--ld-thm-primary-active);
+  --ld-cookie-consent-thm-primary-alpha-low: var(--ld-thm-primary-alpha-low);
+  --ld-cookie-consent-thm-primary-alpha-lowest: var(
+    --ld-thm-primary-alpha-lowest
+  );
+  --ld-cookie-consent-thm-primary-focus: var(--ld-thm-primary-focus);
+  --ld-cookie-consent-thm-primary-highlight: var(--ld-thm-primary-highlight);
+  --ld-cookie-consent-thm-primary-hover: var(--ld-thm-primary-hover);
+  --ld-cookie-consent-thm-secondary: var(--ld-thm-secondary);
+  --ld-cookie-consent-thm-secondary-active: var(--ld-thm-secondary-active);
+  --ld-cookie-consent-thm-secondary-focus: var(--ld-thm-secondary-focus);
+  --ld-cookie-consent-thm-secondary-highlight: var(
+    --ld-thm-secondary-highlight
+  );
+  --ld-cookie-consent-thm-secondary-hover: var(--ld-thm-secondary-hover);
+
+  /* Component specific props. */
+  --ld-cookie-consent-logo-size: var(--ld-sp-32);
+  --ld-cookie-consent-initial-m-size: 2.5rem;
+  --ld-cookie-consent-max-inline-size: 38rem;
+  --ld-cookie-consent-max-block-size: 70rem;
+  --ld-cookie-consent-min-inline-size: 18rem;
+
+  /* Custom props below aren't meant for customization. */
+
+  /* Not using 0s here because we rely on the transition end event. */
+  --ld-cookie-consent-transition-duration: 0.001s;
+  --ld-cookie-consent-disclaimer-transition-delay: 0s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    --ld-cookie-consent-transition-duration: 0.2s;
+    --ld-cookie-consent-disclaimer-transition-delay: 0.1s;
+  }
+
+  position: var(--ld-cookie-consent-position, fixed);
+  z-index: var(--ld-cookie-consent-z-index, 2147483647 /* Highest possible */);
+}
+
+.ld-cookie-consent__disclaimer,
+.ld-cookie-consent__preferences {
+  /*
+  Re-assign component props to liquid globals so that
+  they take effect within nested components as well. */
+  --ld-br-s: var(--ld-cookie-consent-br-s);
+  --ld-br-m: var(--ld-cookie-consent-br-m);
+  --ld-br-l: var(--ld-cookie-consent-br-l);
+  --ld-col-neutral-010: var(--ld-cookie-consent-col-neutral-010);
+  --ld-col-neutral-050: var(--ld-cookie-consent-col-neutral-050);
+  --ld-col-neutral-100: var(--ld-cookie-consent-col-neutral-100);
+  --ld-col-neutral-600: var(--ld-cookie-consent-col-neutral-600);
+  --ld-col-neutral-900: var(--ld-cookie-consent-col-neutral-900);
+  --ld-col-wht: var(--ld-cookie-consent-col-wht);
+  --ld-font-body: var(--ld-cookie-consent-font-body);
+  --ld-thm-primary-active: var(--ld-cookie-consent-thm-primary-active);
+  --ld-thm-primary-alpha-low: var(--ld-cookie-consent-thm-primary-alpha-low);
+  --ld-thm-primary-alpha-lowest: var(
+    --ld-cookie-consent-thm-primary-alpha-lowest
+  );
+  --ld-thm-primary-focus: var(--ld-cookie-consent-thm-primary-focus);
+  --ld-thm-primary-highlight: var(--ld-cookie-consent-thm-primary-highlight);
+  --ld-thm-primary-hover: var(--ld-cookie-consent-thm-primary-hover);
+  --ld-thm-primary: var(--ld-cookie-consent-thm-primary);
+  --ld-thm-secondary-active: var(--ld-cookie-consent-thm-secondary-active);
+  --ld-thm-secondary-focus: var(--ld-cookie-consent-thm-secondary-focus);
+  --ld-thm-secondary-highlight: var(
+    --ld-cookie-consent-thm-secondary-highlight
+  );
+  --ld-thm-secondary-hover: var(--ld-cookie-consent-thm-secondary-hover);
+  --ld-thm-secondary: var(--ld-cookie-consent-thm-secondary);
+
+  font-family: var(--ld-font-body);
+
+  ld-accordion-toggle::part(toggle),
+  ld-btn::part(button),
+  ld-typo::part(tag) {
+    font-family: inherit;
+  }
+}
+
+@keyframes ld-cookie-consent-in {
+  from {
+    transform: translateY(calc(-100% - var(--ld-sp-24)));
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--ld-sp-40)));
+  }
+}
+
+@keyframes ld-cookie-consent-out {
+  from {
+    transform: translateY(calc(-100% - var(--ld-sp-40))) scale(1);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--ld-sp-40))) scale(0.9);
+  }
+}
+
+@keyframes ld-cookie-consent-out-mobile {
+  from {
+    transform: translateY(calc(-100% - var(--ld-sp-40)));
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--ld-sp-24)));
+  }
+}
+
+.ld-cookie-consent__disclaimer {
+  animation: ld-cookie-consent-in var(--ld-cookie-consent-transition-duration)
+    ease-out forwards;
+  background-color: var(--ld-col-wht);
+  border-radius: var(--ld-br-l);
+  box-shadow: var(--ld-shadow-active);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  max-block-size: min(
+    calc(100% - var(--ld-sp-24) - var(--ld-sp-40)),
+    var(--ld-cookie-consent-max-block-size)
+  );
+  max-inline-size: min(
+    calc(100% - var(--ld-sp-32)),
+    var(--ld-cookie-consent-max-inline-size)
+  );
+  min-inline-size: var(--ld-cookie-consent-min-inline-size);
+  outline: none;
+  position: fixed;
+  right: 0;
+  top: 100%;
+  transition: transform var(--ld-cookie-consent-transition-duration) ease-out,
+    opacity var(--ld-cookie-consent-transition-duration) ease-out;
+  width: 100%;
+
+  &:not(.ld-cookie-consent__disclaimer--visible) {
+    animation: ld-cookie-consent-out
+      var(--ld-cookie-consent-transition-duration) ease-in forwards;
+    animation-delay: var(--ld-cookie-consent-disclaimer-transition-delay);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(-100% - var(--ld-sp-40)));
+    transition: transform var(--ld-cookie-consent-transition-duration)
+        var(--ld-cookie-consent-disclaimer-transition-delay) ease-in,
+      opacity var(--ld-cookie-consent-transition-duration)
+        var(--ld-cookie-consent-disclaimer-transition-delay) ease-in,
+      visibility 0s
+        calc(
+          var(--ld-cookie-consent-transition-duration) +
+            var(--ld-cookie-consent-disclaimer-transition-delay)
+        )
+        linear;
+    visibility: hidden;
+
+    @media (max-width: 32rem) {
+      /*
+      The disclaimer mimics the animation behavior of the ld-modal component. */
+      animation-name: ld-cookie-consent-out-mobile;
+    }
+  }
+
+  &--left {
+    margin-left: var(--ld-sp-16);
+  }
+
+  &--right {
+    margin-right: var(--ld-sp-16);
+  }
+}
+
+.ld-cookie-consent__disclaimer-btn-accept-all {
+  .ld-cookie-consent__disclaimer--rejectable & {
+    grid-column: span 2;
+  }
+}
+
+.ld-cookie-consent__disclaimer-btn-acknowledge {
+  justify-self: flex-end;
+  min-width: min(10rem, 50%);
+}
+
+.ld-cookie-consent__disclaimer-buttons {
+  background-color: var(--ld-col-neutral-010);
+  border-bottom-left-radius: var(--ld-br-l);
+  border-bottom-right-radius: var(--ld-br-l);
+  display: grid;
+  gap: var(--ld-sp-12);
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  padding: var(--ld-sp-16);
+}
+
+.ld-cookie-consent__disclaimer-description-container {
+  padding: var(--ld-sp-8) var(--ld-sp-12);
+}
+
+.ld-cookie-consent__disclaimer-header {
+  background-color: var(--ld-col-neutral-010);
+  border-radius: var(--ld-br-l) var(--ld-br-l) 0 0;
+  min-height: 3rem;
+  padding: var(--ld-sp-4) var(--ld-sp-16);
+}
+
+.ld-cookie-consent__disclaimer-scroll-container {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--ld-sp-16);
+}
+
+/* custom icon cross */
+.ld-cookie-consent__disclaimer-x {
+  appearance: none;
+  background-color: transparent;
+  border: solid transparent var(--ld-sp-8);
+  cursor: pointer;
+  display: inline-flex;
+  height: 3rem;
+  margin: auto calc(var(--ld-sp-16) * -1) auto auto;
+  overflow: hidden; /* hides focus outlines of pseudo elements */
+  position: relative;
+  width: 3rem;
+
+  &::before,
+  &::after {
+    border-radius: 1rem;
+    background-color: var(--ld-col-neutral-900);
+    content: '';
+    display: block;
+    height: 1.25rem;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 0.15rem;
+  }
+
+  &::before {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+}
+
+.ld-cookie-consent__initial-m {
+  color: var(--ld-col-vy);
+  width: var(--ld-cookie-consent-initial-m-size);
+  margin: auto -0.1875rem;
+
+  &::part(icon) {
+    height: auto;
+    width: inherit;
+  }
+}
+
+.ld-cookie-consent__preferences {
+  --ld-modal-max-inline-size: var(--ld-cookie-consent-max-inline-size);
+
+  &::part(footer) {
+    display: block;
+  }
+}
+
+.ld-cookie-consent__preferences-accordion-section {
+  --ld-accordion-padding-x: var(--ld-sp-12);
+  position: relative;
+}
+
+.ld-cookie-consent__preferences-accordion-toggle {
+  &::part(toggle) {
+    display: flex;
+  }
+}
+
+.ld-cookie-consent__preferences-btn-accept-all {
+  grid-column: span 2;
+}
+
+.ld-cookie-consent__preferences-category-description {
+  padding: var(--ld-sp-12) var(--ld-accordion-padding-x);
+}
+
+.ld-cookie-consent__preferences-category-table {
+  border-collapse: collapse;
+  font: var(--ld-typo-body-s);
+  font-family: inherit;
+  margin-bottom: var(--ld-sp-12);
+  min-width: 100%;
+}
+
+.ld-cookie-consent__preferences-category-table-container {
+  margin: 0 var(--ld-accordion-padding-x);
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.ld-cookie-consent__preferences-category-table-th,
+.ld-cookie-consent__preferences-category-table-td {
+  padding: var(--ld-sp-12) var(--ld-sp-12);
+  text-align: left;
+  vertical-align: top;
+}
+
+.ld-cookie-consent__preferences-category-table-tr {
+  border-bottom: solid var(--ld-col-neutral-100) var(--ld-sp-1);
+
+  &:nth-child(2n) {
+    background-color: var(--ld-thm-primary-alpha-lowest);
+  }
+}
+
+.ld-cookie-consent__preferences-category-title {
+  font: var(--ld-typo-h5);
+  font-family: inherit;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: calc(100% - 3rem);
+}
+
+.ld-cookie-consent__preferences-category-toggle {
+  position: absolute;
+  right: var(--ld-sp-32);
+  top: var(--ld-sp-4);
+  transform: scale(0.75);
+  z-index: 1;
+}
+
+.ld-cookie-consent__preferences-buttons {
+  display: grid;
+  gap: var(--ld-sp-12);
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+}
+
+.ld-cookie-consent__disclaimer-logo-container,
+.ld-cookie-consent__preferences-logo-container {
+  height: var(--ld-cookie-consent-logo-size);
+  display: flex;
+  align-items: center;
+
+  & > ::slotted(*) {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.ld-cookie-consent__disclaimer-header,
+.ld-cookie-consent__preferences-header {
+  display: grid;
+  grid-template-columns: auto 1fr minmax(min-content, max-content);
+  gap: var(--ld-sp-12);
+  align-items: center;
+}

@@ -217,6 +217,19 @@ Type: `Promise<void>`
 | `"header"`  | `header` element                        |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-cookie-consent](../ld-cookie-consent)
+
+### Graph
+```mermaid
+graph TD;
+  ld-cookie-consent --> ld-modal
+  style ld-modal fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
