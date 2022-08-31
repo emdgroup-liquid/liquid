@@ -106,4 +106,4 @@ This component is meant to be used in conjunction with the [`ld-crumb`](./ld-cru
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -209,4 +209,4 @@ A background pattern with the Merck cells as additional visual element.
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*
