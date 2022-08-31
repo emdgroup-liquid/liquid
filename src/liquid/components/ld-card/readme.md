@@ -136,4 +136,4 @@ Use the `shadow-interactive` prop for a transition to a different shadow on hove
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -57,4 +57,4 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

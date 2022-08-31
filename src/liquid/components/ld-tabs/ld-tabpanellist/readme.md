@@ -29,4 +29,4 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

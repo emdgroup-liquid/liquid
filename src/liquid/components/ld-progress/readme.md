@@ -178,4 +178,4 @@ Use this mode on backgrounds with brand color.
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

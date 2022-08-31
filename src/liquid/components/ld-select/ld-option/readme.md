@@ -33,4 +33,4 @@ Please refer to the [`ld-select` documentation](components/ld-select) for usage 
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -92,4 +92,4 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 
 ----------------------------------------------
 
- 
+*Built with [StencilJS](https://stenciljs.com/)*
