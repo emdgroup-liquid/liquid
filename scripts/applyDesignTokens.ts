@@ -482,6 +482,11 @@ async function applyDesignTokens(
   figmaFileURL = process.env.FIGMA_FILE_URL ||
     'https://www.figma.com/file/JcDMeUwec9e185HfBgT9XE/Liquid-Oxygen?node-id=2615%3A28396'
 ) {
+  if (!process.env.FIGMA_API_KEY) {
+    console.warn('No Figma API key provided - skipping design token update.')
+    return
+  }
+
   try {
     const tokenCollection = await getTokensFromFigma(figmaFileURL)
     await generateJSONTokenFile(tokenCollection)
