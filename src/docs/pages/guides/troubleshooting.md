@@ -27,7 +27,7 @@ However, in some cases this default behavior can be problematic. For instance:
 
 **Solution**
 
-All components, which have a popper element, can be configured to pop out within a specific element using the `tetherOptions` property, which expects an object of options, including the `bodyElement` option. Use this option to specify the container, which shall become the parent element for the popped-out element. 
+All components, which have a popper element, can be configured to pop out within a specific element using the `tetherOptions` property, which expects an object of options, including the `bodyElement` option. Use this option to specify the container, which shall become the parent element for the popped-out element. Please refer to the [Tether documentation](https://tetherjs.dev/) for more information on available options.
 
 Here is an example on how you can specify the application root element as the `bodyElement` in a React application:
 
@@ -54,7 +54,8 @@ This example demonstrates how you can specify the `bodyElement` when using the [
 export default function App() {
   const modalRef = useRef(null);
   const tetherOptions = {
-    bodyElement: modalRef.current
+    bodyElement: modalRef.current,
+    constraints: [{ to: "scrollParent" }]
   };
   const [open, setOpen] = useState(false);
   return (
