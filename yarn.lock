@@ -1132,7 +1132,7 @@ __metadata:
     jest-cli: ^27.5.1
     jest-matchmedia-mock: ^1.1.0
     lint-staged: ^12.3.7
-    live-server: ^1.2.1
+    live-server: 1.2.1
     lodash.memoize: ^4.1.2
     markdown-it-anchor: ^8.6.2
     markdown-it-replace-link: ^1.1.0
@@ -9326,7 +9326,7 @@ colors@latest:
   languageName: node
   linkType: hard
 
-"live-server@npm:^1.2.1":
+"live-server@npm:1.2.1":
   version: 1.2.1
   resolution: "live-server@npm:1.2.1"
   dependencies:
