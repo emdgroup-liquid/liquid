@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/emdgroup-liquid/liquid/compare/v2.4.4...v3.0.0) (2022-09-05)
+
+
+### Features
+
+* **ld-bg-cells:** add third layer option to background cells ([7495753](https://github.com/emdgroup-liquid/liquid/commit/74957535e6e21af58ad521c8c14af5f0ed9621cc))
+
+
+### BREAKING CHANGES
+
+* **ld-bg-cells:** - Removes <slot /> from ld-bg-cells
+- CSS properties '--ld-bg-cells-pattern-col', '--ld-bg-cells-position' and '--ld-bg-cells-size' have been replaced / renamed
+- Generally renames css class names of ld-bg-cells from pattern to layer
+
 ## [2.4.4](https://github.com/emdgroup-liquid/liquid/compare/v2.4.3...v2.4.4) (2022-08-26)
 
 
