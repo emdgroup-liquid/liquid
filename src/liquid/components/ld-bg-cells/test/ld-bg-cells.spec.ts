@@ -26,20 +26,10 @@ describe('ld-bg-cells', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('renders with repeat', async () => {
+  it('renders with three layers', async () => {
     const page = await newSpecPage({
       components: [LdBgCells],
-      html: `<ld-bg-cells repeat></ld-bg-cells>`,
-    })
-    expect(page.root).toMatchSnapshot()
-  })
-
-  it('renders with content', async () => {
-    const page = await newSpecPage({
-      components: [LdBgCells],
-      html: `<ld-bg-cells>
-        <p>I am content</p>
-      </ld-bg-cells>`,
+      html: `<ld-bg-cells three-layers></ld-bg-cells>`,
     })
     expect(page.root).toMatchSnapshot()
   })

@@ -29,7 +29,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
   
 <style>
@@ -49,8 +49,9 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--bioreliance">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/bioreliance-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/bioreliance-cell.svg')"></div>
 </div>
+
 {% endexample %}
 
 ### Millipore
@@ -61,7 +62,19 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--millipore">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/millipore-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/millipore-cell.svg')"></div>
+</div>
+{% endexample %}
+
+### Milli-Q
+
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
+<ld-bg-cells type="milliq"></ld-bg-cells>
+
+<!-- CSS component -->
+
+<div class="ld-bg-cells ld-bg-cells--milliq">
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/milliq-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -73,7 +86,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--supelco">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/supelco-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/supelco-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -85,7 +98,7 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--safc">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/safc-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/safc-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -97,13 +110,13 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--sigma-aldrich">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/sigma-aldrich-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/sigma-aldrich-cell.svg')"></div>
 </div>
 {% endexample %}
 
 ## Themable cell types
 
-### F
+### Functional
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="f"></ld-bg-cells>
@@ -111,11 +124,11 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--f">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/f-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/f-cell.svg')"></div>
 </div>
 {% endexample %}
 
-### Hexagon
+### Synthetic / Hexagon
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="hexagon"></ld-bg-cells>
@@ -123,23 +136,23 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--hexagon">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
 {% endexample %}
 
-### T
+### Organic
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
-<ld-bg-cells type="t"></ld-bg-cells>
+<ld-bg-cells type="o"></ld-bg-cells>
 
 <!-- CSS component -->
 
-<div class="ld-bg-cells ld-bg-cells--t">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/t-cell.svg')"></div>
+<div class="ld-bg-cells ld-bg-cells--o">
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/o-cell.svg')"></div>
 </div>
 {% endexample %}
 
-### Tile
+### Plastic / Tile
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="tile"></ld-bg-cells>
@@ -147,7 +160,19 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--tile">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/tile-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/tile-cell.svg')"></div>
+</div>
+{% endexample %}
+
+### Technical
+
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
+<ld-bg-cells type="t"></ld-bg-cells>
+
+<!-- CSS component -->
+
+<div class="ld-bg-cells ld-bg-cells--t">
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/t-cell.svg')"></div>
 </div>
 {% endexample %}
 
@@ -158,8 +183,9 @@ A background pattern with the Merck cells as additional visual element.
 
 <style>
   .custom {
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
+    --ld-bg-cells-layer-translation-x: 26%;
+    --ld-bg-cells-layer-translation-y: -5%;
+    --ld-bg-cells-layer-size: 150%;
     aspect-ratio: 1;
   }
 </style>
@@ -167,24 +193,75 @@ A background pattern with the Merck cells as additional visual element.
 <!-- CSS component -->
 
 <div class="ld-bg-cells custom">
-  <div class="ld-bg-cells__pattern" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
 </div>
 
 <style>
   .custom {
-    --ld-bg-cells-position: bottom left;
-    --ld-bg-cells-size: 150%;
+    --ld-bg-cells-layer-translation-x: 26%;
+    --ld-bg-cells-layer-translation-y: -5%;
+    --ld-bg-cells-layer-size: 110%;
     aspect-ratio: 1;
   }
 </style>
 {% endexample %}
 
+## Custom Colors
+
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
+
+<ld-bg-cells class="custom-colors"></ld-bg-cells>
+
+<style>
+  .custom-colors {
+    --ld-bg-cells-layer-col: var(--ld-col-rr);
+    --ld-bg-cells-bg-col: var(--ld-col-vy);
+  }
+</style>
+
+<!-- CSS component -->
+
+<div class="ld-bg-cells custom-colors">
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+</div>
+
+{% endexample %}
+
+## Three Layers
+
+<ld-notice mode="warning">
+  Please be aware that the <code>three-layers</code> property only works with themable background cells.
+</ld-notice>
+
+{% example '{ "hasPadding": false, "hasBorder": false }' %}
+
+<ld-bg-cells three-layers></ld-bg-cells>
+
+<!-- CSS component -->
+
+<div class="ld-bg-cells ld-bg-cells--three-layers">
+  <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+  <div class="ld-bg-cells__secondary-layer" style="--ld-bg-cells-image:url('/dist/build/assets/hexagon-cell.svg')"></div>
+</div>
+
+{% endexample %}
+
+
 ## CSS Variables
 
-| Variable                         | Description                                                   | Default                              |
-| -------------------------------- | ------------------------------------------------------------- | ------------------------------------ |
-| `--ld-bg-cells-position`         | Position of the cells                                         | Individual per cell type             |
-| `--ld-bg-cells-size`             | Size of the cells                                             | Individual per cell type             |
+| Variable                                         | Description                                                   | Default                              |
+| ------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------ |
+| `--ld-bg-cells-bg-col`                           | Color of background / lowest layer                            | Theme Secondary Color                |
+| `--ld-bg-cells-layer-col`                        | Color of pattern layer                                        | Theme Primary Color                  |
+| `--ld-bg-cells-layer-size`                       | Size / Scale of pattern layer (in %)                          | Individual per cell type             |
+| `--ld-bg-cells-layer-translation-x`              | Translation on x-axis of pattern layer (in %)                 | Individual per cell type             |
+| `--ld-bg-cells-layer-translation-y`              | Translation on y-axis of pattern layer (in %)                 | Individual per cell type             |
+| `--ld-bg-cells-layer-rotation`                   | Rotation of pattern layer (in deg)                            | `0deg`                               |
+| `--ld-bg-cells-secondary-layer-col`              | Color of secondary pattern layer                              | `transparent`                        |
+| `--ld-bg-cells-secondary-layer-size`             | Size / Scale of secondary pattern layer (in %)                | `150%`                               |
+| `--ld-bg-cells-secondary-layer-translation-x`    | Translation on x-axis of secondary pattern layer (in %)       | `0`                                  |
+| `--ld-bg-cells-secondary-layer-translation-y`    | Translation on y-axis of secondary pattern layer (in %)       | `0`                                  |
+| `--ld-bg-cells-secondary-layer-rotation`         | Rotation of secondary pattern layer (in deg)                  | `0deg`                               |
 
 
 <!-- Auto Generated Below -->
@@ -192,19 +269,20 @@ A background pattern with the Merck cells as additional visual element.
 
 ## Properties
 
-| Property | Attribute | Description                                              | Type                                                                                                                         | Default     |
-| -------- | --------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number`                                                                                                           | `undefined` |
-| `ref`    | `ref`     | reference to component                                   | `any`                                                                                                                        | `undefined` |
-| `type`   | `type`    | Cells pattern                                            | `"bioreliance" \| "f" \| "hexagon" \| "millipore" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "supelco" \| "t" \| "tile"` | `'hexagon'` |
+| Property      | Attribute      | Description                                              | Type                                                                                                                                                                                                                    | Default     |
+| ------------- | -------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `key`         | `key`          | for tracking the node's identity when working with lists | `string \| number`                                                                                                                                                                                                      | `undefined` |
+| `ref`         | `ref`          | reference to component                                   | `any`                                                                                                                                                                                                                   | `undefined` |
+| `threeLayers` | `three-layers` | Use 3 color layers                                       | `boolean`                                                                                                                                                                                                               | `false`     |
+| `type`        | `type`         | Cells pattern                                            | `"bioreliance" \| "f" \| "functional" \| "hexagon" \| "millipore" \| "milliq" \| "o" \| "organic" \| "plastic" \| "qa-x2f-qc" \| "safc" \| "sigma-aldrich" \| "supelco" \| "synthetic" \| "t" \| "technical" \| "tile"` | `'hexagon'` |
 
 
 ## Shadow Parts
 
-| Part        | Description                          |
-| ----------- | ------------------------------------ |
-| `"content"` | Element wrapping the slot            |
-| `"pattern"` | Element containing the cells pattern |
+| Part                | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `"layer"`           | Element containing the cells pattern        |
+| `"secondary-layer"` | Element containing the second cells pattern |
 
 
 ----------------------------------------------
