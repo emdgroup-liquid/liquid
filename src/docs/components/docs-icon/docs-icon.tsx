@@ -47,7 +47,9 @@ export class DocsIcon {
 
   async componentWillLoad(): Promise<void> {
     if (!this.downloadUrl && this.isAnimation) {
-      this.downloadUrl = `../../assets/animations/${this.identifier}.json`
+      const { buildstamp } =
+        document.querySelector<HTMLMetaElement>('[data-buildstamp]').dataset
+      this.downloadUrl = `../../${buildstamp}assets/animations/${this.identifier}.json`
     } else if (!this.downloadUrl) {
       this.downloadUrl = getAssetPath(`./assets/${this.identifier}.svg`)
     }
