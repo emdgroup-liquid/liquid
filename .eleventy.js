@@ -93,6 +93,8 @@ module.exports = function (eleventyConfig) {
     buildstamp
       ? {
           'src/docs/assets': `${buildstamp}assets`,
+          'src/docs/assets/animations': `${buildstamp}assets/animations`,
+          'src/docs/assets/scripts': `${buildstamp}assets/scripts`,
           'dist_docs/css_components': `${buildstamp}css_components`,
           'dist_docs/dist': `${buildstamp}dist`,
           'dist_docs/docs.css': `${buildstamp}docs.css`,
