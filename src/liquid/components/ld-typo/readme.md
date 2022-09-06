@@ -333,7 +333,7 @@ Headings are used as an introduction into a topic or a content section and for v
 
 ### Custom tag
 
-`xb*` headings should be only a couple of words long.
+You can use any text variant for visual purposes without sacrificing semantics by using the `tag` prop.
 
 {% example '{ "stacked": true }' %}
 <ld-typo variant="body-m" tag="h1">
