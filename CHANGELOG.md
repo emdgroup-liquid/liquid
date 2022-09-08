@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/emdgroup-liquid/liquid/compare/v3.0.1...v3.0.2) (2022-09-08)
+
+
+### Bug Fixes
+
+* **ld-bg-cells:** switch layers for bg-cells to avoid unnecessary color reassignment ([be7f17d](https://github.com/emdgroup-liquid/liquid/commit/be7f17df5178d1ca56360e9e74825ce064597730))
+
 ## [3.0.1](https://github.com/emdgroup-liquid/liquid/compare/v3.0.0...v3.0.1) (2022-09-08)
 
 
