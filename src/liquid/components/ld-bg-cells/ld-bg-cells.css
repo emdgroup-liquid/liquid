@@ -33,14 +33,14 @@
 .ld-bg-cells {
   :host(&--three-layers),
   &--three-layers {
-    --ld-bg-cells-layer-col: var(--ld-col-vy);
-    --ld-bg-cells-secondary-layer-col: var(--ld-thm-primary);
-    --ld-bg-cells-layer-size: 580%;
-    --ld-bg-cells-layer-translation-x: -20%;
-    --ld-bg-cells-layer-translation-y: -100%;
-    --ld-bg-cells-secondary-layer-size: 390%;
-    --ld-bg-cells-secondary-layer-translation-x: -50%;
-    --ld-bg-cells-secondary-layer-rotation: -30deg;
+    --ld-bg-cells-layer-col: var(--ld-thm-primary);
+    --ld-bg-cells-secondary-layer-col: var(--ld-col-vy);
+    --ld-bg-cells-layer-size: 390%;
+    --ld-bg-cells-layer-translation-x: -50%;
+    --ld-bg-cells-layer-rotation: -30deg;
+    --ld-bg-cells-secondary-layer-size: 580%;
+    --ld-bg-cells-secondary-layer-translation-x: -20%;
+    --ld-bg-cells-secondary-layer-translation-y: -100%;
   }
 
   :host(&--bioreliance),

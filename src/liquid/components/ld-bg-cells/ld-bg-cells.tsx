@@ -62,15 +62,15 @@ export class LdBgCells {
         ])}
       >
         <div
-          class="ld-bg-cells__layer"
-          part="layer"
+          class="ld-bg-cells__secondary-layer"
+          part="secondary-layer"
           style={{
             '--ld-bg-cells-image': `url(${assetPath})`,
           }}
         ></div>
         <div
-          class="ld-bg-cells__secondary-layer"
-          part="secondary-layer"
+          class="ld-bg-cells__layer"
+          part="layer"
           style={{
             '--ld-bg-cells-image': `url(${assetPath})`,
           }}
