@@ -12,7 +12,7 @@
   --ld-bg-cells-secondary-layer-size: 150%;
   --ld-bg-cells-secondary-layer-rotation: 0deg;
 
-  --ld-bg-cells-base-size-factor: 7;
+  --ld-bg-cells-base-size-factor: 0.7;
 
   --ld-bg-cells-layer-size-normalized: calc(
     clamp(100%, var(--ld-bg-cells-layer-size), 800%) *
@@ -45,7 +45,7 @@
 
   :host(&--bioreliance),
   &--bioreliance {
-    --ld-bg-cells-base-size-factor: 8.4;
+    --ld-bg-cells-base-size-factor: 0.84;
     --ld-bg-cells-bg-col: var(--ld-col-vg);
     --ld-bg-cells-layer-col: var(--ld-col-rp);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -56,7 +56,7 @@
 
   :host(&--f),
   &--f {
-    --ld-bg-cells-base-size-factor: 8.7;
+    --ld-bg-cells-base-size-factor: 0.87;
     --ld-bg-cells-layer-translation-x: -79%;
     --ld-bg-cells-layer-translation-y: 43%;
     --ld-bg-cells-layer-size: 240%;
@@ -64,7 +64,7 @@
 
   :host(&--millipore),
   &--millipore {
-    --ld-bg-cells-base-size-factor: 7.8;
+    --ld-bg-cells-base-size-factor: 0.78;
     --ld-bg-cells-bg-col: var(--ld-col-rb);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -75,7 +75,7 @@
 
   :host(&--milliq),
   &--milliq {
-    --ld-bg-cells-base-size-factor: 4.2;
+    --ld-bg-cells-base-size-factor: 0.42;
     --ld-bg-cells-bg-col: var(--ld-col-vc);
     --ld-bg-cells-layer-col: var(--ld-col-rp);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -86,7 +86,7 @@
 
   :host(&--o),
   &--o {
-    --ld-bg-cells-base-size-factor: 6;
+    --ld-bg-cells-base-size-factor: 0.6;
     --ld-bg-cells-layer-translation-x: -75%;
     --ld-bg-cells-layer-translation-y: -38%;
     --ld-bg-cells-layer-size: 190%;
@@ -94,7 +94,7 @@
 
   :host(&--supelco),
   &--supelco {
-    --ld-bg-cells-base-size-factor: 12;
+    --ld-bg-cells-base-size-factor: 1.2;
     --ld-bg-cells-bg-col: var(--ld-col-rg);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -105,7 +105,7 @@
 
   :host(&--safc),
   &--safc {
-    --ld-bg-cells-base-size-factor: 6;
+    --ld-bg-cells-base-size-factor: 0.6;
     --ld-bg-cells-bg-col: var(--ld-col-vm);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -116,7 +116,7 @@
 
   :host(&--sigma-aldrich),
   &--sigma-aldrich {
-    --ld-bg-cells-base-size-factor: 9.4;
+    --ld-bg-cells-base-size-factor: 0.94;
     --ld-bg-cells-bg-col: var(--ld-col-rr);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
@@ -127,7 +127,7 @@
 
   :host(&--t),
   &--t {
-    --ld-bg-cells-base-size-factor: 8.4;
+    --ld-bg-cells-base-size-factor: 0.84;
     --ld-bg-cells-layer-translation-x: -108%;
     --ld-bg-cells-layer-translation-y: 129%;
     --ld-bg-cells-layer-size: 312%;
@@ -135,7 +135,7 @@
 
   :host(&--tile),
   &--tile {
-    --ld-bg-cells-base-size-factor: 5.6;
+    --ld-bg-cells-base-size-factor: 0.56;
     --ld-bg-cells-layer-translation-x: -93%;
     --ld-bg-cells-layer-translation-y: -2%;
     --ld-bg-cells-layer-size: 340%;
@@ -149,8 +149,8 @@
   mask-position: center;
   mask-repeat: no-repeat;
   transform: translate(
-      var(--ld-bg-cells-layer-translation-x),
-      var(--ld-bg-cells-layer-translation-y)
+      calc((var(--ld-bg-cells-layer-translation-x) / 10) - 50%),
+      calc((var(--ld-bg-cells-layer-translation-y) / 10) - 50%)
     )
     scale(var(--ld-bg-cells-layer-size-normalized))
     rotate(var(--ld-bg-cells-layer-rotation));
@@ -166,17 +166,22 @@
   mask-image: var(--ld-bg-cells-image);
   mask-position: center;
   mask-repeat: no-repeat;
-  mask-composite: exclude;
   transform: translate(
-      var(--ld-bg-cells-secondary-layer-translation-x),
-      var(--ld-bg-cells-secondary-layer-translation-y)
+      calc((var(--ld-bg-cells-secondary-layer-translation-x) / 10) - 50%),
+      calc((var(--ld-bg-cells-secondary-layer-translation-y) / 10) - 50%)
     )
     scale(var(--ld-bg-cells-secondary-layer-size-normalized))
     rotate(var(--ld-bg-cells-secondary-layer-rotation));
 }
 
+/* We are scaling the layer up to 1000% to smooth calculations for the transformation.
+Original size lead to rounding errors and therefore jumping of the pattern. */
 .ld-bg-cells__layer,
 .ld-bg-cells__secondary-layer {
   inset: 0;
   position: absolute;
+  min-width: 1000%;
+  min-height: 1000%;
+  top: 50%;
+  left: 50%;
 }
