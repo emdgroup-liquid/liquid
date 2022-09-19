@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/emdgroup-liquid/liquid/compare/v3.0.2...v3.0.3) (2022-09-19)
+
+
+### Bug Fixes
+
+* **ld-tabs:** safari layout bug due to different offset calculation ([467ab8b](https://github.com/emdgroup-liquid/liquid/commit/467ab8b092a657d57dac9aeabdaf8c8acf675db9)), closes [#424](https://github.com/emdgroup-liquid/liquid/issues/424)
+
 ## [3.0.2](https://github.com/emdgroup-liquid/liquid/compare/v3.0.1...v3.0.2) (2022-09-08)
 
 
