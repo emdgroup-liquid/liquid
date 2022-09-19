@@ -194,10 +194,11 @@ export class LdTablist {
       return
     }
 
-    const bcr = this.selectedTab.getBoundingClientRect()
-    const offsetLeft = this.selectedTab.offsetLeft
+    const selectedTabBcr = this.selectedTab.getBoundingClientRect()
+    const parentBcr = this.selectedTab.parentElement.getBoundingClientRect()
+    const offsetLeft = selectedTabBcr.left - parentBcr.left
     indicatorStyle.transform = `translateX(${offsetLeft - 8}px)`
-    indicatorStyle.width = `${bcr.width}px`
+    indicatorStyle.width = `${selectedTabBcr.width}px`
     indicatorStyle.opacity = '1'
   }
 
