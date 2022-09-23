@@ -113,7 +113,7 @@ All icons listed below are bundled with Liquid. As a developer, you don't need t
 
 Left-click an icon below to download its SVG file. To download all icons at once, use this button:
 
-<ld-button class="ld-theme-bubblegum" href="https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2Femdgroup-liquid%2Fliquid%2Ftree%2Fdevelop%2Fsrc%2Fliquid%2Fcomponents%2Fld-icon%2Fassets">Download all icons</ld-button>
+<ld-button class="ld-theme-bubblegum" href="https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2Femdgroup-liquid%2Fliquid%2Ftree%2Fmain%2Fsrc%2Fliquid%2Fcomponents%2Fld-icon%2Fassets">Download all icons</ld-button>
 
 <docs-icon-group name="System Technical">
   <docs-icon identifier="phone" name="Phone"></docs-icon>
