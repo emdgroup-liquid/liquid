@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/emdgroup-liquid/liquid/compare/v3.0.3...v3.1.0) (2022-09-27)
+
+
+### Features
+
+* **ld-cookie-consent:** component which helps to comply with privacy regulations ([537684b](https://github.com/emdgroup-liquid/liquid/commit/537684bbd8a5920c2defc9e2b8fad759eb53554d))
+
 ## [3.0.3](https://github.com/emdgroup-liquid/liquid/compare/v3.0.2...v3.0.3) (2022-09-19)
 
 
