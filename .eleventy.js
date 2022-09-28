@@ -141,7 +141,16 @@ module.exports = function (eleventyConfig) {
 
       return JSON.stringify([
         ...new Set(
-          commits.map((entry) => entry.author.html_url.split('/').pop())
+          commits
+            .filter((entry) => entry.author)
+            .map((entry) => {
+              try {
+                return entry.author.html_url.split('/').pop()
+              } catch (err) {
+                console.warn('Failed parsing contributor', entry, err)
+                return
+              }
+            })
         ),
       ])
     }
