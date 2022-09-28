@@ -1,5 +1,6 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { HTMLStencilElement } from '@stencil/core/internal'
 
 /**
  * @virtualProp ref - reference to component
@@ -11,6 +12,8 @@ import { getClassNames } from '../../utils/getClassNames'
   shadow: true,
 })
 export class LdCard {
+  @Element() el: HTMLStencilElement
+
   /** Simulates card elevation by setting the size of the card box shadow. */
   @Prop() shadow: 'active' | 'hover' | 'stacked' | 'sticky' = 'stacked'
 
@@ -22,6 +25,12 @@ export class LdCard {
 
   /** The size prop effects the card padding only. */
   @Prop() size?: 'sm'
+
+  componentWillLoad() {
+    if (this.el.parentElement.tagName === 'LD-CARD-STACK') {
+      this.el.setAttribute('role', 'listitem')
+    }
+  }
 
   render() {
     const cl = getClassNames([

@@ -14,6 +14,8 @@ permalink: components/ld-card/
 
 The `ld-card` component can be used to list content in visually clearly separated and highlighted areas.
 
+Additionally, there is the [`ld-card-stack`](components/ld-card/ld-card-stack/) component, which allows you to display multiple `ld-card`s in a stack.
+
 ---
 
 ## Default
