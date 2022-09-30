@@ -1,7 +1,7 @@
 :host,
 .ld-card-stack {
-  --ld-card-stack-translate-amount-x: var(--ld-sp-4);
-  --ld-card-stack-translate-amount-y: var(--ld-sp-4);
+  --ld-card-stack-translate-amount-x: var(--ld-sp-6);
+  --ld-card-stack-translate-amount-y: var(--ld-sp-6);
   --ld-card-stack-translate-direction-x: -1;
 
   display: grid;
@@ -20,7 +20,7 @@
 
     &::before,
     &::after {
-      opacity: 0.25;
+      opacity: 0.3;
     }
   }
   ::slotted(.ld-card:first-of-type:not(:last-of-type)),
@@ -63,7 +63,7 @@
     inset: calc(var(--ld-card-stack-translate-amount-y) * 2)
       var(--ld-card-stack-translate-amount-x);
     z-index: -2;
-    opacity: 0.75;
+    opacity: 0.8;
   }
 }
 

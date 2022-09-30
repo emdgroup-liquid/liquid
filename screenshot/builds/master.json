@@ -6337,7 +6337,7 @@
     },
     {
       "id": "ac3712f8",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction ltr as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6350,7 +6350,7 @@
     },
     {
       "id": "bc21b27c",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction ltr as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6363,7 +6363,7 @@
     },
     {
       "id": "b51da397",
-      "image": "943aa95fe9e32f244d4f9759b0d0b58d.png",
+      "image": "17230878d95139af163a3c7fe97782d4.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction rtl as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6376,7 +6376,7 @@
     },
     {
       "id": "49fe63e2",
-      "image": "943aa95fe9e32f244d4f9759b0d0b58d.png",
+      "image": "17230878d95139af163a3c7fe97782d4.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction rtl as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6389,7 +6389,7 @@
     },
     {
       "id": "c7f612f7",
-      "image": "0c369f4dd398a607236fd3b4a3e3850f.png",
+      "image": "13757c6731d59c000778e70b69027a5d.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction vertical as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6402,7 +6402,7 @@
     },
     {
       "id": "09596b18",
-      "image": "0c369f4dd398a607236fd3b4a3e3850f.png",
+      "image": "13757c6731d59c000778e70b69027a5d.png",
       "userAgent": "default",
       "desc": "ld-card-stack direction vertical as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6415,7 +6415,7 @@
     },
     {
       "id": "d545caf5",
-      "image": "de073bb8050ecafb1f79933ea3222a73.png",
+      "image": "6f47e85864f0a45fbf8d09316085b674.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four one as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6428,7 +6428,7 @@
     },
     {
       "id": "b588e7c9",
-      "image": "de073bb8050ecafb1f79933ea3222a73.png",
+      "image": "6f47e85864f0a45fbf8d09316085b674.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four one as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6441,7 +6441,7 @@
     },
     {
       "id": "cbbe4830",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four three as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6454,7 +6454,7 @@
     },
     {
       "id": "5b1cd181",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four three as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6467,7 +6467,7 @@
     },
     {
       "id": "e1fe007d",
-      "image": "b95eab20bda74c935e1a445bd031d488.png",
+      "image": "787bf1d60aa9da2460701d13cf146723.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four two as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6480,7 +6480,7 @@
     },
     {
       "id": "e12c867e",
-      "image": "b95eab20bda74c935e1a445bd031d488.png",
+      "image": "787bf1d60aa9da2460701d13cf146723.png",
       "userAgent": "default",
       "desc": "ld-card-stack less than four two as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6493,7 +6493,7 @@
     },
     {
       "id": "8de60ff2",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack renders as CSS Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
@@ -6506,7 +6506,7 @@
     },
     {
       "id": "8765f8a7",
-      "image": "ee83faf2181444e258c74a2b5389c28d.png",
+      "image": "d766315322e9ac3b50068d055762dbfd.png",
       "userAgent": "default",
       "desc": "ld-card-stack renders as Web Component",
       "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
