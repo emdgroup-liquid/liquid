@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-card-stack renders 1`] = `
+<ld-card-stack class="ld-card-stack ld-card-stack--undefined" role="list">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  <ld-card>
+    Card A
+  </ld-card>
+  <ld-card>
+    Card B
+  </ld-card>
+</ld-card-stack>
+`;

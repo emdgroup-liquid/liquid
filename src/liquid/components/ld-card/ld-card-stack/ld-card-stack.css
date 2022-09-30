@@ -1,0 +1,78 @@
+:host,
+.ld-card-stack {
+  --ld-card-stack-translate-amount-x: var(--ld-sp-6);
+  --ld-card-stack-translate-amount-y: var(--ld-sp-6);
+  --ld-card-stack-translate-direction-x: -1;
+
+  display: grid;
+  grid-template-areas: 'card';
+  grid-template-columns: 1fr;
+  padding: 0;
+  position: relative;
+
+  ::slotted(.ld-card),
+  .ld-card {
+    grid-area: card;
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s linear,
+      visibility 0.2s 0s linear;
+    visibility: hidden;
+
+    &::before,
+    &::after {
+      opacity: 0.3;
+    }
+  }
+  ::slotted(.ld-card:first-of-type:not(:last-of-type)),
+  .ld-card:first-of-type:not(:last-of-type) {
+    transform: translate(
+      calc(
+        var(--ld-card-stack-translate-direction-x) *
+          var(--ld-card-stack-translate-amount-x)
+      ),
+      calc(-1 * var(--ld-card-stack-translate-amount-y))
+    );
+    z-index: 1;
+  }
+  ::slotted(.ld-card:nth-of-type(-n + 3)),
+  .ld-card:nth-of-type(-n + 3) {
+    opacity: 1;
+    transition: transform 0.2s ease, opacity 0.2s linear;
+    visibility: inherit;
+  }
+  ::slotted(.ld-card:nth-of-type(3)),
+  .ld-card:nth-of-type(3) {
+    transform: translate(
+      calc(
+        -1 * var(--ld-card-stack-translate-direction-x) * var(--ld-card-stack-translate-amount-x)
+      ),
+      var(--ld-card-stack-translate-amount-y)
+    );
+    z-index: -1;
+  }
+  ::slotted(.ld-card:focus-within),
+  .ld-card:focus-within {
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    box-shadow: var(--ld-shadow-hover);
+    border-radius: var(--ld-br-l);
+    position: absolute;
+    inset: calc(var(--ld-card-stack-translate-amount-y) * 2)
+      var(--ld-card-stack-translate-amount-x);
+    z-index: -2;
+    opacity: 0.8;
+  }
+}
+
+:host(.ld-card-stack--rtl),
+.ld-card-stack--rtl {
+  --ld-card-stack-translate-direction-x: 1;
+}
+
+:host(.ld-card-stack--vertical),
+.ld-card-stack--vertical {
+  --ld-card-stack-translate-direction-x: 0;
+}
