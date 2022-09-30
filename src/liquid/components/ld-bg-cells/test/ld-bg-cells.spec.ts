@@ -33,4 +33,12 @@ describe('ld-bg-cells', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('renders with animation', async () => {
+    const page = await newSpecPage({
+      components: [LdBgCells],
+      html: `<ld-bg-cells animated></ld-bg-cells>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
 })
