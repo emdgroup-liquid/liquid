@@ -1,10 +1,12 @@
 import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
 import { LdBgCells } from '../ld-bg-cells'
+import { readFileSync } from 'node:fs'
 
 const cellTypes = [
   'bioreliance',
   'f',
   'hexagon',
+  'mdo',
   'millipore',
   'milliq',
   'o',
@@ -14,6 +16,26 @@ const cellTypes = [
   't',
   'tile',
 ]
+
+function fetchLayers(cellType: string): {
+  primaryLayer: string
+  secondaryLayer: string
+} {
+  const patternString = readFileSync(
+    `./dist/liquid/assets/${cellType}-cell.svg`
+  ).toString()
+
+  const primaryLayer = patternString.replace(
+    '<svg',
+    '<svg class="ld-bg-cells__layer"'
+  )
+  const secondaryLayer = patternString.replace(
+    '<svg',
+    '<svg class="ld-bg-cells__secondary-layer"'
+  )
+
+  return { primaryLayer, secondaryLayer }
+}
 
 describe('ld-bg-cells', () => {
   describe('web component', () => {
@@ -53,9 +75,11 @@ describe('ld-bg-cells', () => {
 
   describe('css component', () => {
     it(`default`, async () => {
+      const { primaryLayer, secondaryLayer } = await fetchLayers('hexagon')
       const page = await getPageWithContent(
         `<div class="ld-bg-cells">
-          <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
+          ${secondaryLayer}
+          ${primaryLayer}
         </div>`,
         { components: LdBgCells }
       )
@@ -66,9 +90,12 @@ describe('ld-bg-cells', () => {
 
     cellTypes.forEach((cellType) => {
       it(`type ${cellType}`, async () => {
+        const { primaryLayer, secondaryLayer } = await fetchLayers(cellType)
+
         const page = await getPageWithContent(
-          `<div class="ld-bg-cells ld-bg-cells--${cellType} ">
-            <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/liquid/assets/${cellType}-cell.svg')"></div>
+          `<div class="ld-bg-cells ld-bg-cells--${cellType}">
+            ${secondaryLayer}
+            ${primaryLayer}
           </div>`,
           { components: LdBgCells }
         )
@@ -79,9 +106,11 @@ describe('ld-bg-cells', () => {
     })
 
     it(`with custom css vars`, async () => {
+      const { primaryLayer, secondaryLayer } = await fetchLayers('hexagon')
       const page = await getPageWithContent(
         `<div class="ld-bg-cells custom">
-          <div class="ld-bg-cells__layer" style="--ld-bg-cells-image:url('/dist/liquid/assets/hexagon-cell.svg')"></div>
+          ${secondaryLayer}
+          ${primaryLayer}
         </div>
         <style>
           .custom {

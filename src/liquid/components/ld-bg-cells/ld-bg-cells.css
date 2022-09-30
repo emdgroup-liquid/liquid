@@ -3,7 +3,7 @@
   --ld-bg-cells-bg-col: var(--ld-thm-secondary);
   --ld-bg-cells-layer-col: var(--ld-thm-primary);
   --ld-bg-cells-layer-translation-x: -80%;
-  --ld-bg-cells-layer-translation-y: -10%;
+  --ld-bg-cells-layer-translation-y: -6%;
   --ld-bg-cells-layer-size: 260%;
   --ld-bg-cells-layer-rotation: 0deg;
   --ld-bg-cells-secondary-layer-col: transparent;
@@ -12,15 +12,27 @@
   --ld-bg-cells-secondary-layer-size: 150%;
   --ld-bg-cells-secondary-layer-rotation: 0deg;
 
-  --ld-bg-cells-base-size-factor: 0.7;
+  --ld-bg-cells-base-size-factor: 0.39;
 
   --ld-bg-cells-layer-size-normalized: calc(
-    clamp(100%, var(--ld-bg-cells-layer-size), 800%) *
+    clamp(50%, var(--ld-bg-cells-layer-size), 800%) *
       var(--ld-bg-cells-base-size-factor)
   );
   --ld-bg-cells-secondary-layer-size-normalized: calc(
-    clamp(100%, var(--ld-bg-cells-secondary-layer-size), 800%) *
+    clamp(50%, var(--ld-bg-cells-secondary-layer-size), 800%) *
       var(--ld-bg-cells-base-size-factor)
+  );
+
+  --ld-bg-cells-layer-animation-translate: 0.3%;
+  --ld-bg-cells-layer-animation-scale: 4%;
+  --ld-bg-cells-layer-animation-rotate: 6deg;
+  --ld-bg-cells-layer-animation-speed: 1;
+
+  --ld-bg-cells-layer-animation-dur: calc(
+    126s / var(--ld-bg-cells-layer-animation-speed)
+  );
+  --ld-bg-cells-secondary-layer-animation-dur: calc(
+    84s / var(--ld-bg-cells-layer-animation-speed)
   );
 
   background: var(--ld-bg-cells-bg-col);
@@ -28,6 +40,57 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+}
+
+/* We are scaling the layer up to 1000% to smoothen calculations for the transformation.
+  Original size leads to rounding errors and therefore jumping of the pattern. */
+.ld-bg-cells__layer,
+.ld-bg-cells__secondary-layer {
+  inset: 0;
+  position: absolute;
+  min-width: 1000%;
+  min-height: 1000%;
+  top: 50%;
+  left: 50%;
+}
+
+.ld-bg-cells__layer {
+  color: var(--ld-bg-cells-layer-col);
+  transform: translate(
+      calc((var(--ld-bg-cells-layer-translation-x) / 10) - 50%),
+      calc((var(--ld-bg-cells-layer-translation-y) / 10) - 50%)
+    )
+    scale(var(--ld-bg-cells-layer-size-normalized))
+    rotate(var(--ld-bg-cells-layer-rotation));
+
+  &--animated {
+    animation: layer-animate var(--ld-bg-cells-layer-animation-dur) ease-in-out
+      infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}
+
+.ld-bg-cells__secondary-layer {
+  color: var(--ld-bg-cells-secondary-layer-col);
+  transform: translate(
+      calc((var(--ld-bg-cells-secondary-layer-translation-x) / 10) - 50%),
+      calc((var(--ld-bg-cells-secondary-layer-translation-y) / 10) - 50%)
+    )
+    scale(var(--ld-bg-cells-secondary-layer-size-normalized))
+    rotate(var(--ld-bg-cells-secondary-layer-rotation));
+
+  &--animated {
+    animation: secondary-layer-animate
+      var(--ld-bg-cells-secondary-layer-animation-dur) ease-in-out infinite
+      reverse;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
 }
 
 .ld-bg-cells {
@@ -45,143 +108,299 @@
 
   :host(&--bioreliance),
   &--bioreliance {
-    --ld-bg-cells-base-size-factor: 0.84;
+    --ld-bg-cells-base-size-factor: 0.46;
     --ld-bg-cells-bg-col: var(--ld-col-vg);
     --ld-bg-cells-layer-col: var(--ld-col-rp);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -89%;
-    --ld-bg-cells-layer-translation-y: 85%;
+    --ld-bg-cells-layer-translation-y: 48%;
     --ld-bg-cells-layer-size: 297%;
   }
 
   :host(&--f),
   &--f {
-    --ld-bg-cells-base-size-factor: 0.87;
+    --ld-bg-cells-base-size-factor: 0.49;
     --ld-bg-cells-layer-translation-x: -79%;
-    --ld-bg-cells-layer-translation-y: 43%;
+    --ld-bg-cells-layer-translation-y: 24%;
     --ld-bg-cells-layer-size: 240%;
+  }
+
+  :host(&--mdo),
+  &--mdo {
+    --ld-bg-cells-base-size-factor: 0.2;
+    --ld-bg-cells-bg-col: var(--ld-col-rb);
+    --ld-bg-cells-layer-col: var(--ld-col-sy);
+    --ld-bg-cells-secondary-layer-col: var(--ld-col-sb);
+    --ld-bg-cells-layer-translation-x: -107%;
+    --ld-bg-cells-layer-translation-y: -32%;
+    --ld-bg-cells-layer-size: 147%;
+    --ld-bg-cells-layer-rotation: 145deg;
+    --ld-bg-cells-secondary-layer-translation-x: 133%;
+    --ld-bg-cells-secondary-layer-translation-y: 46%;
+    --ld-bg-cells-secondary-layer-size: 150%;
+    --ld-bg-cells-secondary-layer-rotation: 145deg;
   }
 
   :host(&--millipore),
   &--millipore {
-    --ld-bg-cells-base-size-factor: 0.78;
+    --ld-bg-cells-base-size-factor: 0.43;
     --ld-bg-cells-bg-col: var(--ld-col-rb);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -80%;
-    --ld-bg-cells-layer-translation-y: 78%;
+    --ld-bg-cells-layer-translation-y: 43%;
     --ld-bg-cells-layer-size: 230%;
   }
 
   :host(&--milliq),
   &--milliq {
-    --ld-bg-cells-base-size-factor: 0.42;
+    --ld-bg-cells-base-size-factor: 0.23;
     --ld-bg-cells-bg-col: var(--ld-col-vc);
     --ld-bg-cells-layer-col: var(--ld-col-rp);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -70%;
-    --ld-bg-cells-layer-translation-y: 180%;
+    --ld-bg-cells-layer-translation-y: 100%;
     --ld-bg-cells-layer-size: 420%;
   }
 
   :host(&--o),
   &--o {
-    --ld-bg-cells-base-size-factor: 0.6;
+    --ld-bg-cells-base-size-factor: 0.33;
     --ld-bg-cells-layer-translation-x: -75%;
-    --ld-bg-cells-layer-translation-y: -38%;
+    --ld-bg-cells-layer-translation-y: -21%;
     --ld-bg-cells-layer-size: 190%;
   }
 
   :host(&--supelco),
   &--supelco {
-    --ld-bg-cells-base-size-factor: 1.2;
+    --ld-bg-cells-base-size-factor: 0.66;
     --ld-bg-cells-bg-col: var(--ld-col-rg);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -59%;
-    --ld-bg-cells-layer-translation-y: 76%;
+    --ld-bg-cells-layer-translation-y: 43%;
     --ld-bg-cells-layer-size: 190%;
   }
 
   :host(&--safc),
   &--safc {
-    --ld-bg-cells-base-size-factor: 0.6;
+    --ld-bg-cells-base-size-factor: 0.34;
     --ld-bg-cells-bg-col: var(--ld-col-vm);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -122%;
-    --ld-bg-cells-layer-translation-y: 8%;
+    --ld-bg-cells-layer-translation-y: 5%;
     --ld-bg-cells-layer-size: 362%;
   }
 
   :host(&--sigma-aldrich),
   &--sigma-aldrich {
-    --ld-bg-cells-base-size-factor: 0.94;
+    --ld-bg-cells-base-size-factor: 0.53;
     --ld-bg-cells-bg-col: var(--ld-col-rr);
     --ld-bg-cells-layer-col: var(--ld-col-vy);
     --ld-bg-cells-secondary-layer-col: transparent;
     --ld-bg-cells-layer-translation-x: -124%;
-    --ld-bg-cells-layer-translation-y: -4%;
+    --ld-bg-cells-layer-translation-y: -2%;
     --ld-bg-cells-layer-size: 460%;
   }
 
   :host(&--t),
   &--t {
-    --ld-bg-cells-base-size-factor: 0.84;
+    --ld-bg-cells-base-size-factor: 0.47;
     --ld-bg-cells-layer-translation-x: -108%;
-    --ld-bg-cells-layer-translation-y: 129%;
+    --ld-bg-cells-layer-translation-y: 72%;
     --ld-bg-cells-layer-size: 312%;
   }
 
   :host(&--tile),
   &--tile {
-    --ld-bg-cells-base-size-factor: 0.56;
+    --ld-bg-cells-base-size-factor: 0.31;
     --ld-bg-cells-layer-translation-x: -93%;
-    --ld-bg-cells-layer-translation-y: -2%;
+    --ld-bg-cells-layer-translation-y: -1%;
     --ld-bg-cells-layer-size: 340%;
   }
 }
 
-.ld-bg-cells__layer {
-  background: var(--ld-bg-cells-layer-col);
-  /* clip-path: var(--ld-bg-cells-image); */
-  mask-image: var(--ld-bg-cells-image);
-  mask-position: center;
-  mask-repeat: no-repeat;
-  transform: translate(
-      calc((var(--ld-bg-cells-layer-translation-x) / 10) - 50%),
-      calc((var(--ld-bg-cells-layer-translation-y) / 10) - 50%)
-    )
-    scale(var(--ld-bg-cells-layer-size-normalized))
-    rotate(var(--ld-bg-cells-layer-rotation));
-
-  /* Results in pixelated layer */
-  /* &--repeat {
-    mask-repeat: repeat;
-  } */
+@keyframes layer-animate {
+  0%,
+  100% {
+    transform: translate(
+        calc(
+          (var(--ld-bg-cells-layer-translation-x) / 10) -
+            (50% - var(--ld-bg-cells-layer-animation-translate))
+        ),
+        calc(
+          (var(--ld-bg-cells-layer-translation-y) / 10) -
+            (50% - var(--ld-bg-cells-layer-animation-translate) / 2)
+        )
+      )
+      scale(calc(var(--ld-bg-cells-layer-size-normalized)))
+      rotate(calc(var(--ld-bg-cells-layer-rotation)));
+  }
+  25% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-x) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate))
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-y) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        )
+      )
+      scale(
+        calc(
+          var(--ld-bg-cells-layer-size-normalized) +
+            var(--ld-bg-cells-layer-animation-scale)
+        )
+      )
+      rotate(
+        calc(
+          var(--ld-bg-cells-layer-rotation) -
+            var(--ld-bg-cells-layer-animation-rotate)
+        )
+      );
+  }
+  50% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-x) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-y) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate))
+          )
+        )
+      )
+      scale(calc(var(--ld-bg-cells-layer-size-normalized)))
+      rotate(calc(var(--ld-bg-cells-layer-rotation)));
+  }
+  75% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-x) / 10) -
+              (50% - var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-layer-translation-y) / 10) -
+              (50% - var(--ld-bg-cells-layer-animation-translate))
+          )
+        )
+      )
+      scale(
+        calc(
+          var(--ld-bg-cells-layer-size-normalized) -
+            var(--ld-bg-cells-layer-animation-scale)
+        )
+      )
+      rotate(
+        calc(
+          var(--ld-bg-cells-layer-rotation) +
+            var(--ld-bg-cells-layer-animation-rotate)
+        )
+      );
+  }
 }
 
-.ld-bg-cells__secondary-layer {
-  background: var(--ld-bg-cells-secondary-layer-col);
-  mask-image: var(--ld-bg-cells-image);
-  mask-position: center;
-  mask-repeat: no-repeat;
-  transform: translate(
-      calc((var(--ld-bg-cells-secondary-layer-translation-x) / 10) - 50%),
-      calc((var(--ld-bg-cells-secondary-layer-translation-y) / 10) - 50%)
-    )
-    scale(var(--ld-bg-cells-secondary-layer-size-normalized))
-    rotate(var(--ld-bg-cells-secondary-layer-rotation));
-}
-
-/* We are scaling the layer up to 1000% to smooth calculations for the transformation.
-Original size lead to rounding errors and therefore jumping of the pattern. */
-.ld-bg-cells__layer,
-.ld-bg-cells__secondary-layer {
-  inset: 0;
-  position: absolute;
-  min-width: 1000%;
-  min-height: 1000%;
-  top: 50%;
-  left: 50%;
+@keyframes secondary-layer-animate {
+  0%,
+  100% {
+    transform: translate(
+        calc(
+          (var(--ld-bg-cells-secondary-layer-translation-x) / 10) -
+            (50% - var(--ld-bg-cells-layer-animation-translate))
+        ),
+        calc(
+          (var(--ld-bg-cells-secondary-layer-translation-y) / 10) -
+            (50% - var(--ld-bg-cells-layer-animation-translate) / 2)
+        )
+      )
+      scale(calc(var(--ld-bg-cells-secondary-layer-size-normalized)))
+      rotate(calc(var(--ld-bg-cells-secondary-layer-rotation)));
+  }
+  25% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-x) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate))
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-y) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        )
+      )
+      scale(
+        calc(
+          var(--ld-bg-cells-secondary-layer-size-normalized) +
+            var(--ld-bg-cells-layer-animation-scale)
+        )
+      )
+      rotate(
+        calc(
+          var(--ld-bg-cells-secondary-layer-rotation) -
+            var(--ld-bg-cells-layer-animation-rotate)
+        )
+      );
+  }
+  50% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-x) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-y) / 10) -
+              (50% + var(--ld-bg-cells-layer-animation-translate))
+          )
+        )
+      )
+      scale(calc(var(--ld-bg-cells-secondary-layer-size-normalized)))
+      rotate(calc(var(--ld-bg-cells-secondary-layer-rotation)));
+  }
+  75% {
+    transform: translate(
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-x) / 10) -
+              (50% - var(--ld-bg-cells-layer-animation-translate) / 2)
+          )
+        ),
+        calc(
+          (
+            (var(--ld-bg-cells-secondary-layer-translation-y) / 10) -
+              (50% - var(--ld-bg-cells-layer-animation-translate))
+          )
+        )
+      )
+      scale(
+        calc(
+          var(--ld-bg-cells-secondary-layer-size-normalized) -
+            var(--ld-bg-cells-layer-animation-scale)
+        )
+      )
+      rotate(
+        calc(
+          var(--ld-bg-cells-secondary-layer-rotation) +
+            var(--ld-bg-cells-layer-animation-rotate)
+        )
+      );
+  }
 }

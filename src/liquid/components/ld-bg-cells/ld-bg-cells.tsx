@@ -1,12 +1,13 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Build, Component, Element, h, Host, Prop, Watch } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import { getLdAssetPath } from '../../utils/getLdAssetPath'
+import { fetchPattern } from '../../utils/fetchAsset'
 
 export type CellType =
   | 'bioreliance'
   | 'f' // Functional
   | 'functional'
   | 'hexagon' // Synthetic
+  | 'mdo'
   | 'millipore'
   | 'milliq'
   | 'o' // Organic
@@ -24,8 +25,8 @@ export type CellType =
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
- * @part layer - Element containing the cells pattern
- * @part secondary-layer - Element containing the second cells pattern
+ * @part layer - the primary cell layer
+ * @part secondary-layer - the secondary cell layer
  */
 @Component({
   assetsDirs: ['assets'],
@@ -34,11 +35,32 @@ export type CellType =
   shadow: true,
 })
 export class LdBgCells {
+  @Element() el: HTMLElement
+
   /** Cells pattern */
   @Prop() type: CellType = 'hexagon'
 
   /** Use 3 color layers */
   @Prop() threeLayers = false
+
+  /** Animate the pattern */
+  @Prop() animated = false
+
+  @Watch('type')
+  private async loadPatternPathData(): Promise<void> {
+    if ((!Build.isBrowser && !Build.isTesting) || !this.type) {
+      return
+    }
+
+    const patternString = await fetchPattern(this.type)
+    this.el.shadowRoot.querySelectorAll('svg').forEach((layer) => {
+      layer.innerHTML = patternString
+    })
+  }
+
+  componentWillLoad() {
+    this.loadPatternPathData()
+  }
 
   render() {
     // Handle aliases (for backward compatibility).
@@ -51,8 +73,6 @@ export class LdBgCells {
     if (cellType === 'synthetic') cellType = 'hexagon'
     if (cellType === 'organic') cellType = 'o'
 
-    const assetPath = getLdAssetPath(`./assets/${cellType}-cell.svg`)
-
     return (
       <Host
         class={getClassNames([
@@ -61,20 +81,26 @@ export class LdBgCells {
           this.threeLayers && 'ld-bg-cells--three-layers',
         ])}
       >
-        <div
-          class="ld-bg-cells__secondary-layer"
+        <svg
+          class={getClassNames([
+            'ld-bg-cells__secondary-layer',
+            this.animated && 'ld-bg-cells__secondary-layer--animated',
+          ])}
+          viewBox="0 0 8000 8000"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
           part="secondary-layer"
-          style={{
-            '--ld-bg-cells-image': `url(${assetPath})`,
-          }}
-        ></div>
-        <div
-          class="ld-bg-cells__layer"
+        ></svg>
+        <svg
+          class={getClassNames([
+            'ld-bg-cells__layer',
+            this.animated && 'ld-bg-cells__layer--animated',
+          ])}
+          viewBox="0 0 8000 8000"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
           part="layer"
-          style={{
-            '--ld-bg-cells-image': `url(${assetPath})`,
-          }}
-        ></div>
+        ></svg>
       </Host>
     )
   }

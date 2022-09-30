@@ -1,6 +1,6 @@
 import { Build, Component, Host, h, Prop, Watch, Element } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import { fetchIcon } from './fetchIcon'
+import { fetchIcon } from '../../utils/fetchAsset'
 
 /**
  * @slot - (optional) Custom SVG icon (only valid without name prop).
@@ -15,7 +15,7 @@ import { fetchIcon } from './fetchIcon'
   shadow: true,
 })
 export class LdIcon {
-  @Element() element: HTMLElement
+  @Element() el: HTMLElement
 
   /** The icon name. */
   @Prop() name: string = null
@@ -36,15 +36,15 @@ export class LdIcon {
       '<svg',
       '<svg class="ld-icon__svg" part="icon"'
     )
-    Array.from(this.element.shadowRoot.children).forEach((child) => {
+    Array.from(this.el.shadowRoot.children).forEach((child) => {
       if (child.tagName !== 'STYLE') {
-        this.element.shadowRoot.removeChild(child)
+        this.el.shadowRoot.removeChild(child)
       }
     })
-    this.element.shadowRoot.appendChild(div.firstChild)
+    this.el.shadowRoot.appendChild(div.firstChild)
   }
 
-  async componentWillLoad(): Promise<void> {
+  componentWillLoad() {
     this.loadIconPathData()
   }
 
