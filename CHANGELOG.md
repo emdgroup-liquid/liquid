@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/emdgroup-liquid/liquid/compare/v3.1.0...v3.2.0) (2022-09-30)
+
+
+### Features
+
+* **ld-bg-cells:** add animation and mdo pattern ([24a5b78](https://github.com/emdgroup-liquid/liquid/commit/24a5b78b667b653e9404612face22e4ae2887837))
+
 # [3.1.0](https://github.com/emdgroup-liquid/liquid/compare/v3.0.3...v3.1.0) (2022-09-27)
 
 
