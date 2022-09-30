@@ -1,6 +1,5 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import { HTMLStencilElement } from '@stencil/core/internal'
 
 /**
  * @virtualProp ref - reference to component
@@ -12,7 +11,7 @@ import { HTMLStencilElement } from '@stencil/core/internal'
   shadow: true,
 })
 export class LdCard {
-  @Element() el: HTMLStencilElement
+  @Element() el: HTMLLdCardElement
 
   /** Simulates card elevation by setting the size of the card box shadow. */
   @Prop() shadow: 'active' | 'hover' | 'stacked' | 'sticky' = 'stacked'
