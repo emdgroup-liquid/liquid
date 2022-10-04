@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/emdgroup-liquid/liquid/compare/v3.3.0...v3.3.1) (2022-10-04)
+
+
+### Bug Fixes
+
+* event target closest is this element check ([825b050](https://github.com/emdgroup-liquid/liquid/commit/825b05014e924b5a644cb2931f14ec9285ff83e7))
+
 # [3.3.0](https://github.com/emdgroup-liquid/liquid/compare/v3.2.0...v3.3.0) (2022-09-30)
 
 
