@@ -10,6 +10,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
+import { closest } from '../../../utils/closest'
 
 /**
  * @virtualProp ref - reference to component
@@ -47,7 +48,10 @@ export class LdAccordionSection {
   }
 
   private handleToggleClick(ev) {
-    if (ev.target.closest('ld-accordion-section') !== this.el) {
+    // closest utility function must be used here for the component
+    // to work in Solid.js app, where ev.target can be an element
+    // within the shadow DOM of the component.
+    if (closest('ld-accordion-section', ev.target) !== this.el) {
       return
     }
     this.expanded = !this.expanded

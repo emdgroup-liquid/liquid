@@ -829,9 +829,12 @@ export class LdSelect implements InnerFocusable {
     target: 'window',
   })
   handleClickOutside(ev) {
+    // closest utility function must be used here for the component
+    // to work in Solid.js app, where ev.target can be an element
+    // within the shadow DOM of the component.
     if (
-      ev.target.closest('ld-select') !== this.el &&
-      ev.target.closest('[role="listbox"]') !== this.listboxRef
+      closest('ld-select', ev.target) !== this.el &&
+      closest('[role="listbox"]', ev.target) !== this.listboxRef
     ) {
       this.expanded = false
       this.resetFilter()
