@@ -24,9 +24,11 @@ document.addEventListener('ldCookieConsentDisclaimerShow', function(ev) {
 
 # ld-cookie-consent
 
-If your web application is using [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), you are obligated by law to comply with certain privacy and data protection regulations specific to your locality.
+If your web application is using [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), you are obligated by law to comply with certain privacy and data protection regulations specific to your locality. The `ld-cookie-consent` component can help you comply with these regulations.
 
-The `ld-cookie-consent` component can help you comply with these regulations.
+<ld-notice headline="Retrieving geolocation information">
+  The <code>ld-cookie-consent</code> component does not retrieve any geolocation information automatically. If you want to configure the component based on the locality of the user, you will need to obtain this information yourself. We recommend using the <ld-link href="https://docs.emddigital.com/ipinfo/" target="_blank">IP Info Service</ld-link>.
+</ld-notice>
 
 ---
 
