@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/emdgroup-liquid/liquid/compare/v3.3.1...v3.3.2) (2022-10-05)
+
+
+### Bug Fixes
+
+* **ld-input:** placeholder must be set explicitly to work in solid ([427961f](https://github.com/emdgroup-liquid/liquid/commit/427961f287531ea5bec4502c9b73c99cb0d88cf1))
+
 ## [3.3.1](https://github.com/emdgroup-liquid/liquid/compare/v3.3.0...v3.3.1) (2022-10-04)
 
 
