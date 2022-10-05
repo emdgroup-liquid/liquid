@@ -380,6 +380,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           placeholder={this.placeholder}
           ref={(el) => (this.input = el)}
           tabIndex={this.ldTabindex}
+          type={this.type}
           value={this.value || undefined} // the undefined fixes negative number input in input of type number
         />
         {this.type === 'file' && (
