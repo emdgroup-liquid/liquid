@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Cookie Consent</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1664978000717/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1664978000717/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1664978000717/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1664978000717/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1664978000717/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1665002971619/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1665002971619/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1665002971619/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1665002971619/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1665002971619/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1664978000717/" />
+  <meta data-buildstamp="1665002971619/" />
 
   <script>
     __docsSearchIndex__ = [
@@ -1978,11 +1978,11 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1664978000717/docs.css">
-  <link rel="stylesheet" href="/liquid/1664978000717/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1664978000717/css_components/ld-button.css">
-  <script type="module" src="/liquid/1664978000717/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1664978000717/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1665002971619/docs.css">
+  <link rel="stylesheet" href="/liquid/1665002971619/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1665002971619/css_components/ld-button.css">
+  <script type="module" src="/liquid/1665002971619/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1665002971619/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2852,8 +2852,10 @@ document.addEventListener('ldCookieConsentDisclaimerShow', function(ev) {
 })
 </script>
 <h1 id="ld-cookie-consent" tabindex="-1">ld-cookie-consent <a class="header-anchor" href="components/ld-cookie-consent/#ld-cookie-consent"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>If your web application is using <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP cookies</a>, you are obligated by law to comply with certain privacy and data protection regulations specific to your locality.</p>
-<p>The <code>ld-cookie-consent</code> component can help you comply with these regulations.</p>
+<p>If your web application is using <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">HTTP cookies</a>, you are obligated by law to comply with certain privacy and data protection regulations specific to your locality. The <code>ld-cookie-consent</code> component can help you comply with these regulations.</p>
+<ld-notice headline="Retrieving geolocation information">
+  The <code>ld-cookie-consent</code> component does not retrieve any geolocation information automatically. If you want to configure the component based on the locality of the user, you will need to obtain this information yourself. We recommend using the <ld-link href="https://docs.emddigital.com/ipinfo/" target="_blank">IP Info Service</ld-link>.
+</ld-notice>
 <hr>
 <h2 id="general-usage-info" tabindex="-1">General usage info <a class="header-anchor" href="components/ld-cookie-consent/#general-usage-info"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>The <code>ld-cookie-consent</code> Web Component is configurable using the <code>settings</code> prop. By default, the cookie consent disclaimer is shown on page load (after a short delay). However, you can disable this behavior by setting the <code>showOnLoad</code> setting to <code>false</code> and calling the <code>showDisclaimer</code> method of the component, like demonstrated in all the following examples:</p>
