@@ -377,6 +377,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
           onInput={this.handleInput}
           onKeyDown={this.handleKeyDown}
           part="input focusable"
+          placeholder={this.placeholder}
           ref={(el) => (this.input = el)}
           tabIndex={this.ldTabindex}
           value={this.value || undefined} // the undefined fixes negative number input in input of type number
