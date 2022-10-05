@@ -13,6 +13,8 @@ export const getLdAssetPath = (path: string) => {
 
     if (path.startsWith('./')) {
       finalPath = path.substring(2)
+    } else if (path.startsWith('/')) {
+      finalPath = path.substring(1)
     }
 
     if (!window.__LD_ASSET_PATH__.endsWith('/')) {

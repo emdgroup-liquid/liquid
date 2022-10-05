@@ -3,5 +3,5 @@
  *
  * TODO: memoized functions possible?
  */
-export const getClassNames = (classNames: (string | false)[]) =>
+export const getClassNames = (classNames: (string | false | 0)[]) =>
   classNames.filter((className) => className).join(' ')
