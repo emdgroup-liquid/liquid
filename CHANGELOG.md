@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.4](https://github.com/emdgroup-liquid/liquid/compare/v3.3.3...v3.3.4) (2022-10-09)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** dispatch collapsed change event on collapsible change ([b04ae18](https://github.com/emdgroup-liquid/liquid/commit/b04ae1804366509347d000da08e5a7151103ef4b))
+
 ## [3.3.3](https://github.com/emdgroup-liquid/liquid/compare/v3.3.2...v3.3.3) (2022-10-05)
 
 
