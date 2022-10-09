@@ -1908,4 +1908,24 @@ describe('ld-sidenav', () => {
       )
     }
   })
+
+  it('dispatches collapsed change event on collapsible change', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: '<ld-sidenav collapsible collapsed />',
+    })
+    const handler = jest.fn()
+    window.addEventListener('ldSidenavCollapsedChange', handler)
+
+    const ldSidenav = page.body.querySelector('ld-sidenav')
+
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
+    expect(handler).not.toHaveBeenCalled()
+
+    ldSidenav.removeAttribute('collapsible')
+    await page.waitForChanges()
+
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsible')
+    expect(handler).toHaveBeenCalled()
+  })
 })

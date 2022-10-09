@@ -166,6 +166,7 @@ export class LdSidenav {
   updateFullyCollapsible() {
     this.fullyCollapsible =
       this.collapsible && (!this.narrow || !this.activeSubnavContainsIcons())
+    if (!this.collapsible) this.collapsed = false
   }
 
   @Listen('click', {
