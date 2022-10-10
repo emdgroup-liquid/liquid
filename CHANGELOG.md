@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.5](https://github.com/emdgroup-liquid/liquid/compare/v3.3.4...v3.3.5) (2022-10-10)
+
+
+### Bug Fixes
+
+* properly export react bindings ([a1353fa](https://github.com/emdgroup-liquid/liquid/commit/a1353fae425f9531b93e96312e00d53f7dead0bf))
+
 ## [3.3.4](https://github.com/emdgroup-liquid/liquid/compare/v3.3.3...v3.3.4) (2022-10-09)
 
 
