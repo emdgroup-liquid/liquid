@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "jsxFactory": "React.createElement",
+    "module": "commonjs",
     "outDir": "dist"
   },
   "include": ["./src/react.ts"],
