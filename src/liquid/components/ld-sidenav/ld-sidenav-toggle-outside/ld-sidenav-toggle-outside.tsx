@@ -34,7 +34,6 @@ export class LdSidenavToggleOutside implements InnerFocusable {
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavCollapsedFully: boolean
-  @State() sidenavCollapsible: boolean
   @State() sidenavAlignement: 'left' | 'right' = 'left'
 
   /** Sets focus on the radio button. */

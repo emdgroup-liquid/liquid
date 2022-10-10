@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
 } from '@stencil/core'
@@ -42,6 +43,7 @@ export class LdSidenavHeader {
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavCollapsedFully: boolean
+  @State() sidenavCollapsible: boolean
   @State() sidenavOpen: boolean
 
   /** Emitted on toggle click. */
@@ -77,9 +79,21 @@ export class LdSidenavHeader {
     this.ldSidenavHeaderToggleClick.emit()
   }
 
+  /**
+   * @internal
+   * Updates collapsible state.
+   */
+  @Method()
+  async updateCollapsible() {
+    this.sidenavCollapsible = this.sidenav.collapsible
+  }
+
   componentWillLoad() {
     this.sidenav = this.el.closest('ld-sidenav')
-    if (this.sidenav) this.sidenavAlignement = this.sidenav.align
+    if (this.sidenav) {
+      this.sidenavAlignement = this.sidenav.align
+      this.sidenavCollapsible = this.sidenav.collapsible
+    }
   }
 
   render() {
@@ -98,7 +112,7 @@ export class LdSidenavHeader {
     return (
       <Host class={cl}>
         {/*Inner toggle*/}
-        {this.sidenav.collapsible && (
+        {this.sidenavCollapsible && (
           <ld-tooltip
             arrow
             size="sm"

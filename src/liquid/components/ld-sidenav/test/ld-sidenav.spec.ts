@@ -265,7 +265,7 @@ describe('ld-sidenav', () => {
 
     it('expands on mouse enter when narrow with explicit expand-trigger', async () => {
       const page = await newSpecPage({
-        components: [LdSidenav],
+        components: sidenavComponents,
         html: `
           <ld-sidenav collapsible collapsed narrow expand-trigger="mouseenter">
             <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
@@ -1927,5 +1927,27 @@ describe('ld-sidenav', () => {
 
     expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsible')
     expect(handler).toHaveBeenCalled()
+  })
+
+  it('updates collapsible state on sidenav header', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: `<ld-sidenav>
+        <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
+      </ld-sidenav>`,
+    })
+    const ldSidenav = page.body.querySelector('ld-sidenav')
+    const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+
+    expect(
+      ldSidenavHeader.shadowRoot.querySelector('.ld-sidenav-header__toggle')
+    ).toBeNull()
+
+    ldSidenav.setAttribute('collapsible', 'true')
+    await page.waitForChanges()
+
+    expect(
+      ldSidenavHeader.shadowRoot.querySelector('.ld-sidenav-header__toggle')
+    ).not.toBeNull()
   })
 })
