@@ -167,6 +167,7 @@ export class LdSidenav {
     this.fullyCollapsible =
       this.collapsible && (!this.narrow || !this.activeSubnavContainsIcons())
     if (!this.collapsible) this.collapsed = false
+    this.el.querySelector('ld-sidenav-header')?.updateCollapsible()
   }
 
   @Listen('click', {
