@@ -108,14 +108,18 @@ export class LdSidenavNavitem implements InnerFocusable {
   ) {
     if (ev.target !== this.sidenav) return
     this.sidenavCollapsed = ev.detail.collapsed
-    toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
-    this.tooltipRef.hideTooltip()
+    this.updateStackToTop()
+    this.tooltipRef?.hideTooltip()
   }
 
   @Listen('ldSidenavBreakpointChange', { target: 'window', passive: true })
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
+    this.updateStackToTop()
+  }
+
+  private updateStackToTop = () => {
     if (this.sidenavClosable) {
       toggleStackToTop(this.el, false)
     } else {
@@ -204,6 +208,7 @@ export class LdSidenavNavitem implements InnerFocusable {
       this.sidenavAlignement = this.sidenav.align
       this.sidenavExpandsOnMouseEnter =
         this.sidenav.expandTrigger === 'mouseenter'
+      this.sidenavCollapsed = this.sidenav.collapsed
     }
     if (!['secondary', 'tertiary'].includes(this.mode)) {
       this.tooltipContent = this.el.textContent.trim()
@@ -229,6 +234,12 @@ export class LdSidenavNavitem implements InnerFocusable {
     setTimeout(() => {
       this.slotContainerRef.style.alignItems = 'center'
     }, 200)
+
+    // The ldSidenavCollapsedChange event can be fired before this component is loaded.
+    // So we need to update the stacking here.
+    setTimeout(() => {
+      this.updateStackToTop()
+    })
   }
 
   render() {

@@ -1,12 +1,14 @@
 import { LdSidenavNavitem } from '../ld-sidenav-navitem/ld-sidenav-navitem'
+import { closest } from '../../../utils/closest'
 
 export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
-  const outerSlider = el.closest('ld-sidenav-slider')
+  // const outerSlider = el.closest('ld-sidenav-slider')
+  const outerSlider = closest('ld-sidenav-slider', el)
   if (!outerSlider) return
 
   // If not stacked, put everything back in place.
   if (!stacked) {
-    el.style.removeProperty('--ld-slider-navitem-move-up')
+    el.style.removeProperty('--ld-sidenav-navitem-move-up')
     return
   }
 
@@ -21,7 +23,7 @@ export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
   // and move the nav item up accordingly.
   let totalSpaceAbove = 0
   let totalSpaceOccupiedAbove = 0
-  for (const elem of Array.from(el.parentElement.children)) {
+  for (const elem of Array.from(el.parentElement?.children || [])) {
     if (el === elem) break
 
     if (
@@ -41,5 +43,5 @@ export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
   }
 
   const spaceToMoveUp = totalSpaceAbove - totalSpaceOccupiedAbove
-  el.style.setProperty('--ld-slider-navitem-move-up', `-${spaceToMoveUp}px`)
+  el.style.setProperty('--ld-sidenav-navitem-move-up', `-${spaceToMoveUp}px`)
 }

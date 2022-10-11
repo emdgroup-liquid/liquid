@@ -18,8 +18,8 @@
 
   transform: translateY(
     var(
-      --ld-slider-navitem-move-up-closable,
-      var(--ld-slider-navitem-move-up, 0px)
+      --ld-sidenav-navitem-move-up-closable,
+      var(--ld-sidenav-navitem-move-up, 0px)
     )
   );
   transition: var(--ld-sidenav-stack-to-top-transition);

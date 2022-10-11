@@ -46,11 +46,7 @@ export class LdSidenavSeparator {
   handleSidenavBreakpointChange(ev: CustomEvent<boolean>) {
     if (ev.target !== this.sidenav) return
     this.sidenavClosable = ev.detail
-    if (this.sidenavClosable) {
-      toggleStackToTop(this.el, false)
-    } else {
-      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
-    }
+    this.updateStackToTop()
   }
 
   private computeScaleXCollapsed = () => {
@@ -72,11 +68,28 @@ export class LdSidenavSeparator {
     return sidenavNavitemIconSize / (sidenavWidth - 2 * sidenavPaddingX)
   }
 
+  private updateStackToTop = () => {
+    if (this.sidenavClosable) {
+      toggleStackToTop(this.el, false)
+    } else {
+      toggleStackToTop(this.el, this.sidenav.narrow && this.sidenavCollapsed)
+    }
+  }
+
   componentWillLoad() {
     this.sidenav = closest('ld-sidenav', this.el)
     if (this.sidenav) {
       this.scaleXCollapsed = this.computeScaleXCollapsed() || 1
+      this.sidenavCollapsed = this.sidenav.collapsed
     }
+  }
+
+  componentDidLoad() {
+    // The ldSidenavCollapsedChange event can be fired before this component is loaded.
+    // So we need to update the stacking here.
+    setTimeout(() => {
+      this.updateStackToTop()
+    })
   }
 
   render() {

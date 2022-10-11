@@ -338,7 +338,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Subfields
       </ld-sidenav-heading>
-      <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="mathematical-foundations" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -388,7 +388,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Mathematical foundations
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="algorithms-and-data-structures" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="algorithms-and-data-structures" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -438,7 +438,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Algorithms and data structures
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="artificial-intelligence" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -488,7 +488,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Artificial intelligence
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="communication-and-security" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -538,7 +538,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Communication and security
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem selected="" to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem selected="" to="artificial-intelligence" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--selected" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -588,7 +588,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </svg>
         Artificial intelligence
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="communication-and-security" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="communication-and-security" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -638,7 +638,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Communication and security
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="computer-architecture" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="computer-architecture" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -688,7 +688,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Computer architecture
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="computer-graphics" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="computer-graphics" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -738,7 +738,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Computer graphics
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="concurrent-parallel-and-distributed-systems" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="concurrent-parallel-and-distributed-systems" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -788,7 +788,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Concurrent, parallel, and distributed systems
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="databases" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="databases" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -838,12 +838,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Databases
       </ld-sidenav-navitem>
-      <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <hr part="hr">
         </mock:shadow-root>
       </ld-sidenav-separator>
-      <ld-sidenav-navitem to="programming-languages-and-compilers" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="programming-languages-and-compilers" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -893,7 +893,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Programming languages and compilers
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="scientific-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="scientific-computing" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -943,7 +943,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Scientific computing
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="software-engineering" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="software-engineering" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -993,7 +993,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
         </mock:shadow-root>
         Software engineering
       </ld-sidenav-navitem>
-      <ld-sidenav-navitem to="theory-of-computation" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="theory-of-computation" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1073,7 +1073,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Mathematical foundations
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1117,7 +1117,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Coding theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1161,7 +1161,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Game theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1205,7 +1205,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Discrete Mathematics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1249,7 +1249,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Graph theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1293,7 +1293,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Mathematical logic
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1368,7 +1368,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Algorithms and data structures
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1412,7 +1412,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Algorithms
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1456,7 +1456,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Data structures
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem to="mathematical-foundations" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem to="mathematical-foundations" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1537,7 +1537,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Artificial intelligence
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1581,7 +1581,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Artificial intelligence
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1625,12 +1625,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Automated reasoning
         </ld-sidenav-navitem>
-        <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <hr part="hr">
           </mock:shadow-root>
         </ld-sidenav-separator>
-        <ld-sidenav-navitem href="https://en.wikipedia.org/wiki/Computer_vision" mode="secondary" target="_blank" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem href="https://en.wikipedia.org/wiki/Computer_vision" mode="secondary" target="_blank" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <a class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" href="https://en.wikipedia.org/wiki/Computer_vision" part="navitem focusable" rel="noreferrer noopener">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1674,7 +1674,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer vision
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem to="soft-computing" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem to="soft-computing" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1724,12 +1724,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Soft computing
         </ld-sidenav-navitem>
-        <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-separator class="ld-sidenav-separator ld-sidenav-separator--collapsed" style="--ld-sidenav-separator-scale-x-collapsed: 1; --ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <hr part="hr">
           </mock:shadow-root>
         </ld-sidenav-separator>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1773,7 +1773,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Natural language processing
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1847,7 +1847,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </mock:shadow-root>
             Soft computing
           </ld-sidenav-heading>
-          <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+          <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
             <mock:shadow-root>
               <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
                 <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1891,7 +1891,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </mock:shadow-root>
             Machine learning
           </ld-sidenav-navitem>
-          <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+          <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
             <mock:shadow-root>
               <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
                 <div class="ld-sidenav-navitem__bg" part="bg">
@@ -1967,7 +1967,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Communication and security
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2011,7 +2011,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Networking
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2055,7 +2055,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer security
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2130,7 +2130,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer architecture
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2174,7 +2174,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer architecture{' '}
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2249,7 +2249,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer graphics
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2293,7 +2293,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer graphics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2337,7 +2337,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Image processing
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2412,7 +2412,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Concurrent parallel and distributed systems
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2456,7 +2456,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Parallel computing
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2500,7 +2500,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Concurrency (computer science)
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2575,7 +2575,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Databases
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2619,7 +2619,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Relational databases
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2663,7 +2663,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Structured Storage
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2738,7 +2738,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Programming languages and compilers
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2782,7 +2782,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Compiler theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2826,7 +2826,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Programming language pragmatics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2870,7 +2870,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Programming language theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2914,7 +2914,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Formal semantics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -2989,7 +2989,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Scientific computing
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3033,7 +3033,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computational science
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3077,7 +3077,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Numerical analysis
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3121,7 +3121,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Symbolic computation
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3165,7 +3165,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computational physics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3209,7 +3209,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computational chemistry
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3253,7 +3253,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Bioinformatics and Computational biology
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3328,7 +3328,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Software engineering
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3372,7 +3372,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computational science
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3416,7 +3416,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Formal methods
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3460,7 +3460,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Software engineering
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3504,7 +3504,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Algorithm design
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3548,7 +3548,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer programming
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3592,7 +3592,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Human–computer interaction
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3667,7 +3667,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Theory of computation
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3711,7 +3711,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Automata theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3755,7 +3755,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computability theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -3799,7 +3799,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
           </mock:shadow-root>
           Computational complexity theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4180,7 +4180,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
         </mock:shadow-root>
         Subfields
       </ld-sidenav-heading>
-      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
             <mock:shadow-root>
@@ -4221,7 +4221,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </ld-accordion-section>
           </ld-accordion>
         </mock:shadow-root>
-        <ld-sidenav-navitem slot="toggle" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem slot="toggle" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4270,7 +4270,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Mathematical foundations
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4314,7 +4314,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Coding theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4358,7 +4358,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Game theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4402,7 +4402,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Discrete Mathematics
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4446,7 +4446,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Graph theory
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4490,7 +4490,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Mathematical logic
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4535,7 +4535,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           Number theory
         </ld-sidenav-navitem>
       </ld-sidenav-accordion>
-      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--split ld-sidenav-accordion--transitions-enabled" split="" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--split ld-sidenav-accordion--transitions-enabled" split="" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
             <mock:shadow-root>
@@ -4576,7 +4576,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </ld-accordion-section>
           </ld-accordion>
         </mock:shadow-root>
-        <ld-sidenav-navitem slot="toggle" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem slot="toggle" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4625,7 +4625,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Algorithms and data structures
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4669,7 +4669,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Algorithms
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4714,7 +4714,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           Data structures
         </ld-sidenav-navitem>
       </ld-sidenav-accordion>
-      <ld-sidenav-navitem to="artificial-intelligence" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-navitem to="artificial-intelligence" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4765,7 +4765,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
         Artificial intelligence
         <ld-icon name="arrow-right" size="sm" slot="icon-secondary"></ld-icon>
       </ld-sidenav-navitem>
-      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -NaNpx;">
+      <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
           <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
             <mock:shadow-root>
@@ -4806,7 +4806,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </ld-accordion-section>
           </ld-accordion>
         </mock:shadow-root>
-        <ld-sidenav-navitem slot="toggle" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem slot="toggle" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4855,7 +4855,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Communication and security
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -0px;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -0px;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4899,7 +4899,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Networking
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -4943,7 +4943,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer security
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5018,7 +5018,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Artificial intelligence
         </ld-sidenav-heading>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5062,7 +5062,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Automated reasoning
         </ld-sidenav-navitem>
-        <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5106,7 +5106,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </mock:shadow-root>
           Computer vision
         </ld-sidenav-navitem>
-        <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -NaNpx;">
+        <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
             <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
               <mock:shadow-root>
@@ -5147,7 +5147,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </ld-accordion-section>
             </ld-accordion>
           </mock:shadow-root>
-          <ld-sidenav-navitem slot="toggle" style="--ld-slider-navitem-move-up: -0px;">
+          <ld-sidenav-navitem slot="toggle" style="--ld-sidenav-navitem-move-up: -0px;">
             <mock:shadow-root>
               <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion" part="navitem focusable">
                 <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5196,7 +5196,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </mock:shadow-root>
             Soft computing
           </ld-sidenav-navitem>
-          <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--in-accordion ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-slider-navitem-move-up: -0px;">
+          <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--in-accordion ld-sidenav-accordion--no-icon ld-sidenav-accordion--transitions-enabled" style="--ld-sidenav-navitem-move-up: -0px;">
             <mock:shadow-root>
               <ld-accordion class="ld-accordion ld-sidenav-accordion__accordion">
                 <mock:shadow-root>
@@ -5237,7 +5237,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-accordion-section>
               </ld-accordion>
             </mock:shadow-root>
-            <ld-sidenav-navitem mode="secondary" slot="toggle" style="--ld-slider-navitem-move-up: -0px;">
+            <ld-sidenav-navitem mode="secondary" slot="toggle" style="--ld-sidenav-navitem-move-up: -0px;">
               <mock:shadow-root>
                 <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
                   <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5281,7 +5281,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </mock:shadow-root>
               Machine learning
             </ld-sidenav-navitem>
-            <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
+            <ld-sidenav-navitem mode="tertiary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
               <mock:shadow-root>
                 <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
                   <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5325,7 +5325,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </mock:shadow-root>
               Supervised learning
             </ld-sidenav-navitem>
-            <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
+            <ld-sidenav-navitem mode="tertiary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
               <mock:shadow-root>
                 <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
                   <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5369,7 +5369,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </mock:shadow-root>
               Unsupervised learning
             </ld-sidenav-navitem>
-            <ld-sidenav-navitem mode="tertiary" style="--ld-slider-navitem-move-up: -NaNpx;">
+            <ld-sidenav-navitem mode="tertiary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
               <mock:shadow-root>
                 <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--tertiary" part="navitem focusable">
                   <div class="ld-sidenav-navitem__bg" part="bg">
@@ -5414,7 +5414,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               Reinforcement learning
             </ld-sidenav-navitem>
           </ld-sidenav-accordion>
-          <ld-sidenav-navitem mode="secondary" style="--ld-slider-navitem-move-up: -0px;">
+          <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -0px;">
             <mock:shadow-root>
               <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
                 <div class="ld-sidenav-navitem__bg" part="bg">
