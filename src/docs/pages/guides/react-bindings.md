@@ -16,12 +16,10 @@ Setting event listeners via `on<EventName>`-prop on Liquid Oxygen Web Components
 All you need to do is to import and use the React binding of a Liquid Oxygen component instead of using the web component directly.
 
 ```js
-import { LdButton } from '@emdgroup-liquid/liquid/dist/react'
+import { LdButton } from '@emdgroup-liquid/liquid/dist/react.mjs'
 
-export default ({ buttonProps }) => (
-  {/* ... */}
-  <LdButton {...buttonProps} />
-  {/* ... */}
+export default () => (
+  <LdButton>Click me</LdButton>
 )
 ```
 
