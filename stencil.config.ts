@@ -46,6 +46,7 @@ export const config: Config = {
   extras: {
     cssVarsShim: false,
     dynamicImportShim: false,
+    experimentalImportInjection: true,
     shadowDomShim: false,
     safari10: false,
     scriptDataOpts: false,
