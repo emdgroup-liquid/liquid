@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.7](https://github.com/emdgroup-liquid/liquid/compare/v3.3.6...v3.3.7) (2022-10-11)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** update stacking to top on component did load ([2ca795f](https://github.com/emdgroup-liquid/liquid/commit/2ca795f178ba4ea8f5e28c0eb7c1e2b518b9cc47))
+
 ## [3.3.6](https://github.com/emdgroup-liquid/liquid/compare/v3.3.5...v3.3.6) (2022-10-10)
 
 
