@@ -10,7 +10,7 @@ export const config: Config = {
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: '..',
-      proxiesFile: './src/react.ts',
+      proxiesFile: './src/react.mts',
       includeDefineCustomElements: true,
     }),
     {
