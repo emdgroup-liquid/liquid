@@ -85,7 +85,9 @@ export class LdSidenavHeader {
    */
   @Method()
   async updateCollapsible() {
-    this.sidenavCollapsible = this.sidenav.collapsible
+    if (this.sidenav) {
+      this.sidenavCollapsible = this.sidenav.collapsible
+    }
   }
 
   componentWillLoad() {
@@ -93,6 +95,7 @@ export class LdSidenavHeader {
     if (this.sidenav) {
       this.sidenavAlignement = this.sidenav.align
       this.sidenavCollapsible = this.sidenav.collapsible
+      this.sidenavCollapsed = this.sidenav.collapsed
     }
   }
 

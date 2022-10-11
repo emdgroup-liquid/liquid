@@ -156,7 +156,7 @@
   &(.ld-sidenav--closable) {
     --ld-sidenav-collapse-content-transition: none;
     --ld-sidenav-stack-to-top-transition: none;
-    --ld-slider-navitem-move-up-closable: 0;
+    --ld-sidenav-navitem-move-up-closable: 0;
     --ld-sidenav-translate-x-delta: 0;
     width: 100%;
     transform: translateX(

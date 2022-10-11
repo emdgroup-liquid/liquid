@@ -34,7 +34,7 @@ export class LdSidenavToggleOutside implements InnerFocusable {
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavCollapsedFully: boolean
-  @State() sidenavAlignement: 'left' | 'right' = 'left'
+  @State() sidenavAlignement: 'left' | 'right'
 
   /** Sets focus on the radio button. */
   @Method()
@@ -73,7 +73,7 @@ export class LdSidenavToggleOutside implements InnerFocusable {
         `The ld-sidenav-toggle-outside component is expecting to have an ld-sidenav component as its next element sibling, but instead there was: ${this.sidenav}`
       )
     }
-    this.sidenavAlignement = this.sidenav.align
+    this.sidenavAlignement = this.sidenav.align || 'left'
   }
 
   render() {
