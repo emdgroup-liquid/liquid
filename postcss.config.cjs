@@ -1,4 +1,4 @@
-const postcssConfigDocs = require('./postcss.config.docs')
+const postcssConfigDocs = require('./postcss.config.docs.cjs')
 const postcssNano = require('cssnano')
 
 module.exports = {

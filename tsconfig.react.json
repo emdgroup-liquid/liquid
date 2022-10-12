@@ -3,9 +3,8 @@
   "compilerOptions": {
     "declaration": true,
     "jsxFactory": "React.createElement",
-    "module": "commonjs",
     "outDir": "dist"
   },
   "include": ["./src/react.ts"],
-  "exclude": ["node_modules", "./src/liquid/**/*.a11y.ts"]
+  "exclude": ["node_modules"]
 }

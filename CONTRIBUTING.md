@@ -77,8 +77,8 @@ This project consists of different parts and pieces, each with its own purpose. 
 │                             # as well as the necessary liquid distribution.
 ├── package.json              # Please have a look at the scripts section inside the package.json file.
 │                             # You can also run `npm run` to get a list of all available commands.
-├── postcss.config.docs.js    # PostCSS config file for the docs site CSS processing.
-├── postcss.config.js         # PostCSS config file for Liquid CSS processing.
+├── postcss.config.docs.cjs   # PostCSS config file for the docs site CSS processing.
+├── postcss.config.cjs        # PostCSS config file for Liquid CSS processing.
 ├── screenshot                # This directory contains files related to visual regression testing
 │                             # with Stencil. See https://stenciljs.com/docs/screenshot-visual-diff
 ├── scripts                   # Contains bash or node script files executed via npm script commands.

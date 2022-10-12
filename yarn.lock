@@ -1103,7 +1103,7 @@ __metadata:
     "@lottiefiles/lottie-player": ^1.5.6
     "@semantic-release/changelog": ^6.0.1
     "@semantic-release/git": ^10.0.1
-    "@stencil/core": ^2.16.1
+    "@stencil/core": ^2.18.1
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
     "@stencil/react-output-target": ^0.3.1
@@ -2116,12 +2116,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.16.1":
-  version: 2.16.1
-  resolution: "@stencil/core@npm:2.16.1"
+"@stencil/core@npm:^2.18.1":
+  version: 2.18.1
+  resolution: "@stencil/core@npm:2.18.1"
   bin:
     stencil: bin/stencil
-  checksum: 78618d427bc1b3e9f1a459e1f9880f72a17e4dd48a28f3690a8aba0ec6e82fcaa2785c0c47cc9f53612bb9a7b4c49b00968fdb16d4b59c5c5f7528be4486c21d
+  checksum: 5be827077bcff3cda8b4f1e8d362c0c5e1d33e1f2103e6f2ff507d69a1a4731ff5e674dcfc7df495ba54d57a5e4e493fff43922f7ff2a6595a1974867e9c8214
   languageName: node
   linkType: hard
 

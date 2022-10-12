@@ -13,6 +13,7 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { getFirstFocusable } from '../../utils/focus'
+import { closest } from '../../utils/closest'
 
 /**
  * @slot - default slot, vertically scrollable.
@@ -176,7 +177,7 @@ export class LdSidenav {
   handleClickOutside(ev: MouseEvent) {
     if (
       ['clickoutside', 'mouseout'].includes(this.collapseTrigger) &&
-      (ev.target as HTMLElement).closest('ld-sidenav') !== this.el
+      closest('ld-sidenav', ev.target as HTMLElement) !== this.el
     ) {
       this.collapsed = this.collapsible
     }
@@ -313,7 +314,7 @@ export class LdSidenav {
   @Listen('focusout', { passive: true, target: 'window' })
   async handleFocusout(ev: FocusEvent) {
     const relatedTarget = ev.relatedTarget as HTMLElement | undefined
-    const isFocusInSidenav = relatedTarget?.closest('ld-sidenav') === this.el
+    const isFocusInSidenav = closest('ld-sidenav', relatedTarget) === this.el
 
     // If focus is outside the sidenav and the collapse trigger is set
     // to 'mouseout', collapse the sidenav.
