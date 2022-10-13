@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "apply_design_tokens": "dotenv -e .env -- ts-node scripts/applyDesignTokens.ts",
-    "build": "run-s build:stencil:components build:stencil:react build:styles build:copy_design_tokens build:tailwind_preset build:bin",
+    "build": "run-s build:stencil:components build:stencil:react build:patch_loader build:styles build:copy_design_tokens build:tailwind_preset build:bin",
     "build:bin": "run-p build:bin:cli build:bin:apply_design_tokens",
     "build:bin:cli": "tsc scripts/cli.ts --moduleResolution node --target esnext --outfile bin/cli.js",
     "build:bin:apply_design_tokens": "tsc scripts/applyDesignTokens.ts --moduleResolution node --target esnext --outfile bin/applyDesignTokens.js",
@@ -36,6 +36,7 @@
     "build:docs": "run-s build:docs:clean build:stencil:docs 'build:styles:docs:*' build:eleventy",
     "build:docs:clean": "shx rm -rf dist_docs",
     "build:eleventy": "dotenv -e .env -- node ./scripts/eleventy.cjs",
+    "build:patch_loader": "ts-node scripts/patchLoader.ts",
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
     "build:stencil:react": "tsc -p tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",

@@ -13,9 +13,9 @@ export const config: Config = {
       proxiesFile: './src/react.ts',
       includeDefineCustomElements: false,
     }),
-    // {
-    //   type: 'dist',
-    // },
+    {
+      type: 'dist',
+    },
     {
       type: 'dist-custom-elements',
       autoDefineCustomElements: true,

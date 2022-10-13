@@ -19,11 +19,6 @@
     "target": "es2017",
     "typeRoots": ["./src/types", "./node_modules/@types"]
   },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "include": ["./src/liquid", "./src/types", "./globals.d.ts"],
   "exclude": ["node_modules", "bin", "./src/liquid/**/__mocks__"]
 }
