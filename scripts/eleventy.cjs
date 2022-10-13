@@ -1,7 +1,7 @@
 const Eleventy = require('@11ty/eleventy')
 
 ;(async function () {
-  let elev = new Eleventy('src', 'dist_docs', {
+  const elev = new Eleventy('src', 'dist_docs', {
     quietMode: true,
     configPath: '.eleventy.cjs',
 
@@ -10,5 +10,10 @@ const Eleventy = require('@11ty/eleventy')
       // Works great with eleventyConfig.addGlobalData
     },
   })
-  await elev.write()
+
+  if (process.argv.includes('--watch')) {
+    await elev.watch()
+  } else {
+    await elev.write()
+  }
 })()
