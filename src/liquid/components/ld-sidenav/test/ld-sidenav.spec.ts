@@ -441,10 +441,7 @@ describe('ld-sidenav', () => {
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
     })
 
-    // TODO: fix this test
-    // This test doesn't work since the upgrade to stencil v2.17.2
-    // Seems like the issue here is related to new blur and focus event handling when running tests
-    xit('collapses on focus out', async () => {
+    it('collapses on focus out', async () => {
       const page = await newSpecPage({
         components: sidenavComponents,
         html: `
@@ -458,7 +455,7 @@ describe('ld-sidenav', () => {
       const ev = new FocusEvent('focusout', {
         relatedTarget: page.body,
       })
-      ldSidenav.dispatchEvent(ev)
+      window.dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')

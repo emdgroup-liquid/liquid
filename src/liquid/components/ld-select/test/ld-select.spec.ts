@@ -1763,7 +1763,7 @@ describe('ld-select', () => {
     // TODO: fix this test
     // This test doesn't work since the upgrade to stencil v2.17.2
     // Seems like the issue here is related to new blur and focus event handling when running tests
-    xit('closes popper on focusout event', async () => {
+    it('closes popper on focusout event', async () => {
       const page = await newSpecPage({
         components,
         html: `
@@ -1782,9 +1782,10 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      ldSelect.shadowRoot
-        .querySelector('.ld-select')
-        .dispatchEvent(new FocusEvent('focusout'))
+      const ev = new FocusEvent('focusout', {
+        relatedTarget: page.body,
+      })
+      ldSelect.shadowRoot.children[0].dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -2251,10 +2252,7 @@ describe('ld-select', () => {
       expect(filterInput.focus).toHaveBeenCalledTimes(1)
     })
 
-    // TODO: fix this test
-    // This test doesn't work since the upgrade to stencil v2.17.2
-    // Seems like the issue here is related to new blur and focus event handling when running tests
-    xit('resets filter on focusout event', async () => {
+    it('resets filter on focusout event', async () => {
       const page = await newSpecPage({
         components,
         html: `
@@ -2288,7 +2286,10 @@ describe('ld-select', () => {
         ldInternalOptions.filter((option) => option.hidden).length
       ).toEqual(1)
 
-      btnTrigger.dispatchEvent(new FocusEvent('focusout'))
+      const ev = new FocusEvent('focusout', {
+        relatedTarget: page.body,
+      })
+      ldSelect.shadowRoot.children[0].dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
