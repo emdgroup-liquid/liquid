@@ -51,26 +51,26 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md           # You are looking at it.
 ├── LICENSE.md
-├── .eleventy.js              # Liquid's docs site is powered by 11ty. See https://www.11ty.dev/
+├── .eleventy.cjs             # Liquid's docs site is powered by 11ty. See https://www.11ty.dev/
 ├── .eleventyignore           # We only want docs to be generate for the src folder, so we ignore
 │                             # everything else using this file.
 ├── .env                      # The .env file is not under version control. It contains sensitive
 │                             # data, such as credentials used to authenticate oneself against
 │                             # an API. We currenly do this for fetching design tokens from Figma.
-├── .eslintrc.js              # eslint is used for linting ts and tsx files. Please make sure to
+├── .eslintrc.cjs             # eslint is used for linting ts and tsx files. Please make sure to
 │                             # enable eslint in your code editor of choice.
 ├── .github
 │   └── workflows/ci-cd.yml   # CI/CD pipeline config file.
 ├── .npmignore                # The .npmignore file is used to keep package size to a minimum.
 ├── .prettierrc.json          # prettier ensures a consistent code style. Please make sure to
 │                             # enable prettier in your code editor of choice.
-├── .releaserc.js             # Config file for semantic-release.
+├── .releaserc.cjs            # Config file for semantic-release.
 │                             # See https://semantic-release.gitbook.io/semantic-release/
 ├── bin                       # Contains scripts to be included in the bundle for execution with npx.
 ├── Dockerfile                # You can startup your dev environment in a Docker container.
 │                             # This may come in handy for Windows users who encounter problems.
 │                             # More about this below.
-├── commitlint.config.js      # We use conventional commits and semantic release.
+├── commitlint.config.cjs     # We use conventional commits and semantic release.
 │                             # More about this below.
 ├── dist                      # Here is the main juice which gets published to npm.
 ├── dist_docs                 # This folder is served during development. It contains the docs site
@@ -84,7 +84,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── scripts                   # Contains bash or node script files executed via npm script commands.
 ├── src                       # Well, that's the source folder. You probably guessed it.
 │   ├── _data                 # This folder contains data files. See https://www.11ty.dev/docs/data-global/
-│   │   └── env.js            # Environment variables injected during generation of the docs site.
+│   │   └── env.cjs           # Environment variables injected during generation of the docs site.
 │   ├── docs                  # Everything inside this folder is for developing the docs site.
 │   │   ├── assets            # Static assets for the docs page reside here.
 │   │   ├── components        # Docs components live here.
@@ -105,7 +105,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 │       └── utils             # Contains utilities shared between components.
 ├── stencil.config.docs.ts    # Stencil config file for the docs site.
 ├── stencil.config.ts         # Stencil config file for Liquid components.
-├── stylelint.config.js       # Stylelint config file. See section about linting further below.
+├── stylelint.config.cjs      # Stylelint config file. See section about linting further below.
 ├── tsconfig.docs.json        # Typescript config file for components used for the docs site.
 ├── tsconfig.json             # Typescript config file for Liquid components.
 └── yarn.lock                 # Oh, yes, we use yarn.
