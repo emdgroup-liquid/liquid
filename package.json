@@ -46,7 +46,7 @@
     "build:styles:docs:components": "postcss 'src/liquid/components/**/*.css' --config=postcss.config.docs.js -m -d dist_docs/css_components/",
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/liquid.global.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
-    "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.js",
+    "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.cjs",
     "generate": "stencil generate",
     "icons:optimise": "ts-node scripts/iconsOptimise.ts",
     "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
