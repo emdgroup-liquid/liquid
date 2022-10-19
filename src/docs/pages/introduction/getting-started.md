@@ -35,7 +35,7 @@ There are multiple options to choose from when importing and registering Liquid 
 The [self-lazy-loading bundle](https://stenciljs.com/docs/distribution) is a tree shakable bundle, which includes all Liquid components as well as polyfills. You just import it once, then it automatically loads components lazily whenever they are used in your app.
 
 ```js
-import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader/'
+import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader'
 
 defineCustomElements()
 ```

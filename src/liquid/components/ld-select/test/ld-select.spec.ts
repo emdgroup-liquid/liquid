@@ -1760,9 +1760,6 @@ describe('ld-select', () => {
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
     })
 
-    // TODO: fix this test
-    // This test doesn't work since the upgrade to stencil v2.17.2
-    // Seems like the issue here is related to new blur and focus event handling when running tests
     it('closes popper on focusout event', async () => {
       const page = await newSpecPage({
         components,

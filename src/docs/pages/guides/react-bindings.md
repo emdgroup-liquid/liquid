@@ -11,7 +11,7 @@ permalink: guides/react-bindings/
 
 # React bindings
 
-Setting event listeners via `on<EventName>`-prop on Liquid Oxygen Web Components does not work properly in React. For this reason, we provide special React bindings for Liquid Oxygen. They allow you to set event listeners via props just like you are used to do in React without having to use `reference`.
+Setting event handlers via `on<EventName>`-prop on Liquid Oxygen Web Components does not work properly in React. For this reason, we provide special React bindings for Liquid Oxygen. They allow you to set event handlers via props just like you are used to do in React without having to use `reference`.
 
 Instead of using the Web Component directly, simply import the React binding and use it as you would use any other React component.
 

@@ -17,6 +17,7 @@
   "author": "User Experience Strategy & Design unit, part of the Chief Digital Organization at EMD Group <liquid@emdgroup.com> (https://github.com/emdgroup-liquid)",
   "bin": "./bin/cli.js",
   "module": "dist/components/index.js",
+  "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "web-types": "dist/web-types.json",
   "collection": "dist/collection/collection-manifest.json",
