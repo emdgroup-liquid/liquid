@@ -1,0 +1,1 @@
+import{r as a,h as s,H as d}from"./p-765a6fc5.js";const r=class{constructor(s){a(this,s)}render(){return s(d,{class:"ld-sidenav-heading"},s("ld-typo",{variant:"cap-m",part:"typo"},s("slot",null)))}};r.style=":host{color:var(--ld-col-neutral-600);display:block;padding:0 var(--ld-sidenav-padding-x)}";export{r as ld_sidenav_heading}
