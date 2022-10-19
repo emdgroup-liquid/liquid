@@ -1779,9 +1779,10 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      ldSelect.shadowRoot
-        .querySelector('.ld-select')
-        .dispatchEvent(new FocusEvent('focusout'))
+      const ev = new FocusEvent('focusout', {
+        relatedTarget: page.body,
+      })
+      ldSelect.shadowRoot.children[0].dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -2282,7 +2283,10 @@ describe('ld-select', () => {
         ldInternalOptions.filter((option) => option.hidden).length
       ).toEqual(1)
 
-      btnTrigger.dispatchEvent(new FocusEvent('focusout'))
+      const ev = new FocusEvent('focusout', {
+        relatedTarget: page.body,
+      })
+      ldSelect.shadowRoot.children[0].dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')

@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
 import { reactOutputTarget } from '@stencil/react-output-target'
-import postcssConfig from './postcss.config'
+import postcssConfig from './postcss.config.cjs'
 
 export const config: Config = {
   namespace: 'liquid',
@@ -11,7 +11,7 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '..',
       proxiesFile: './src/react.ts',
-      includeDefineCustomElements: true,
+      includeDefineCustomElements: false,
     }),
     {
       type: 'dist',
@@ -19,6 +19,7 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
       autoDefineCustomElements: true,
+      generateTypeDeclarations: true,
     },
     {
       type: 'docs-readme',
@@ -46,6 +47,7 @@ export const config: Config = {
   extras: {
     cssVarsShim: false,
     dynamicImportShim: false,
+    experimentalImportInjection: true,
     shadowDomShim: false,
     safari10: false,
     scriptDataOpts: false,

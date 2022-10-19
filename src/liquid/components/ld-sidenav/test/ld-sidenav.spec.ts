@@ -455,7 +455,7 @@ describe('ld-sidenav', () => {
       const ev = new FocusEvent('focusout', {
         relatedTarget: page.body,
       })
-      ldSidenav.dispatchEvent(ev)
+      window.dispatchEvent(ev)
 
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')

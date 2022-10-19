@@ -10,7 +10,7 @@ permalink: components/ld-badge/
 <link rel="stylesheet" href="css_components/ld-badge.css">
 <link rel="stylesheet" href="css_components/ld-icon.css">
 
-# ld-card
+# ld-badge
 
 ---
 
