@@ -37,3 +37,4 @@ src/react.d.ts
 src/react-component-lib
 
 .husky
+.tool-versions
