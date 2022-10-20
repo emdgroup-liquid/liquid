@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/emdgroup-liquid/liquid/compare/v3.3.7...v4.0.0) (2022-10-20)
+
+
+### chore
+
+* **release:** 3.4.0 [skip ci] ([0271627](https://github.com/emdgroup-liquid/liquid/commit/02716273be2a70eca1279d7d6c0a4054ed23aad1))
+
+
+### Features
+
+* BREAKING CHANGE - switch to ESM modules in order to make components testable inside Jest unit tests ([c81a5ae](https://github.com/emdgroup-liquid/liquid/commit/c81a5aee4343ff6073b2a783e584112e2537b297))
+* use ESM modules ([caa0285](https://github.com/emdgroup-liquid/liquid/commit/caa0285da5166ff0c6410d408a3479750466b31a))
+
+
+### BREAKING CHANGES
+
+* switch to ESM modules in order to make components testable inside Jest unit tests
+* **release:** - switch to ESM modules in order to make components testable inside Jest unit tests ([c81a5ae](https://github.com/emdgroup-liquid/liquid/commit/c81a5aee4343ff6073b2a783e584112e2537b297))
+
 # [3.4.0](https://github.com/emdgroup-liquid/liquid/compare/v3.3.7...v3.4.0) (2022-10-20)
 
 
