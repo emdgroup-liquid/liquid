@@ -8,7 +8,7 @@ permalink: legal/license/
 
 # License
 
-©2021 Merck KGaA, Darmstadt, Germany
+©2022 Merck KGaA, Darmstadt, Germany
 
 Unless otherwise indicated, all rights to the Liquid Design System including the visual and/or functional assets, the software and the M-Font (summarized as “Content”) or arising from the same shall remain with Merck KGaA, Darmstadt, Germany. Without the prior written consent of Merck KGaA, Darmstadt, Germany, no permission is given to use, import or deploy published and copyrighted Content from the Liquid Design System to other programs, websites and apps or to use such content in any other way.
 
