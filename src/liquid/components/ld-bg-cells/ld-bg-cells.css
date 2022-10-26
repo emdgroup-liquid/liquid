@@ -14,12 +14,21 @@
 
   --ld-bg-cells-base-size-factor: 0.39;
 
+  --ld-bg-cells-layer-size-clamped: clamp(
+    50%,
+    var(--ld-bg-cells-layer-size),
+    800%
+  );
   --ld-bg-cells-layer-size-normalized: calc(
-    clamp(50%, var(--ld-bg-cells-layer-size), 800%) *
-      var(--ld-bg-cells-base-size-factor)
+    var(--ld-bg-cells-layer-size-clamped) * var(--ld-bg-cells-base-size-factor)
+  );
+  --ld-bg-cells-secondary-layer-size-clamped: clamp(
+    50%,
+    var(--ld-bg-cells-secondary-layer-size),
+    800%
   );
   --ld-bg-cells-secondary-layer-size-normalized: calc(
-    clamp(50%, var(--ld-bg-cells-secondary-layer-size), 800%) *
+    var(--ld-bg-cells-secondary-layer-size-clamped) *
       var(--ld-bg-cells-base-size-factor)
   );
 

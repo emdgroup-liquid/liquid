@@ -3,12 +3,8 @@
 exports[`ld-bg-cells renders default 1`] = `
 <ld-bg-cells class="ld-bg-cells ld-bg-cells--hexagon">
   <mock:shadow-root>
-    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
-    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
+    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
   </mock:shadow-root>
 </ld-bg-cells>
 `;
@@ -16,12 +12,8 @@ exports[`ld-bg-cells renders default 1`] = `
 exports[`ld-bg-cells renders with alias type 1`] = `
 <ld-bg-cells class="ld-bg-cells ld-bg-cells--supelco" type="qa-x2f-qc">
   <mock:shadow-root>
-    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
-    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
+    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
   </mock:shadow-root>
 </ld-bg-cells>
 `;
@@ -29,12 +21,8 @@ exports[`ld-bg-cells renders with alias type 1`] = `
 exports[`ld-bg-cells renders with animation 1`] = `
 <ld-bg-cells animated="" class="ld-bg-cells ld-bg-cells--hexagon">
   <mock:shadow-root>
-    <svg class="ld-bg-cells__secondary-layer ld-bg-cells__secondary-layer--animated" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
-    <svg class="ld-bg-cells__layer ld-bg-cells__layer--animated" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
+    <svg class="ld-bg-cells__secondary-layer ld-bg-cells__secondary-layer--animated" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="ld-bg-cells__layer ld-bg-cells__layer--animated" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
   </mock:shadow-root>
 </ld-bg-cells>
 `;
@@ -42,12 +30,8 @@ exports[`ld-bg-cells renders with animation 1`] = `
 exports[`ld-bg-cells renders with explicit type 1`] = `
 <ld-bg-cells class="ld-bg-cells ld-bg-cells--millipore" type="millipore">
   <mock:shadow-root>
-    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
-    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
+    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
   </mock:shadow-root>
 </ld-bg-cells>
 `;
@@ -55,12 +39,8 @@ exports[`ld-bg-cells renders with explicit type 1`] = `
 exports[`ld-bg-cells renders with three layers 1`] = `
 <ld-bg-cells class="ld-bg-cells ld-bg-cells--hexagon ld-bg-cells--three-layers" three-layers="">
   <mock:shadow-root>
-    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
-    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg">
-      Not Found
-    </svg>
+    <svg class="ld-bg-cells__secondary-layer" fill="none" part="secondary-layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg class="ld-bg-cells__layer" fill="none" part="layer" viewBox="0 0 8000 8000" xmlns="http://www.w3.org/2000/svg"></svg>
   </mock:shadow-root>
 </ld-bg-cells>
 `;

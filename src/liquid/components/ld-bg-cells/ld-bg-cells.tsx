@@ -54,7 +54,13 @@ export class LdBgCells {
 
     const patternString = await fetchPattern(this.type)
     this.el.shadowRoot.querySelectorAll('svg').forEach((layer) => {
-      layer.innerHTML = patternString
+      const div = document.createElement('div')
+      div.innerHTML = patternString
+      Array.from(div.children[0]?.children || []).forEach((child) => {
+        if (child.tagName !== 'script') {
+          layer.appendChild(child)
+        }
+      })
     })
   }
 
