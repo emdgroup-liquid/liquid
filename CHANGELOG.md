@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/emdgroup-liquid/liquid/compare/v4.0.0...v4.0.1) (2022-10-26)
+
+
+### Bug Fixes
+
+* **ld-bg-cells:** prevent svg in svg ([850156e](https://github.com/emdgroup-liquid/liquid/commit/850156ed25c7f72bc1e2b7ab42b97f440b5ac145))
+
 # [4.0.0](https://github.com/emdgroup-liquid/liquid/compare/v3.3.7...v4.0.0) (2022-10-20)
 
 
