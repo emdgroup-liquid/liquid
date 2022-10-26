@@ -16,7 +16,7 @@ In order to help you get started with Liquid we have begun implementing small sa
 - Liquid + **Vue 3 + Typescript + Tailwind CSS + Vite** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-vue-tailwind), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vue-tailwind))
 - Liquid + **SvelteKit + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-sveltekit-tailwind), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-sveltekit-tailwind))
 - Liquid + **React + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-react-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-react-tailwind-5mmvd))
-- Liquid + **Next + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind), [code sandbox](https://codesandbox.io/s/liquid-sandbox-next-tailwind-q070f))
+- Liquid + **Next + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind))
 - Liquid + **Astro + Svelte + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind), [stackblitz](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind))
 
 <docs-page-nav prev-href="guides/design-tokens/" next-title="Troubleshooting" next-href="guides/troubleshooting/"></docs-page-nav>
