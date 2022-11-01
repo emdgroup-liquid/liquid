@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/emdgroup-liquid/liquid/compare/v4.0.1...v4.0.2) (2022-11-01)
+
+
+### Bug Fixes
+
+* **ld-accordion-panel:** resize observer may not be initialized yet on disconnect ([cb03639](https://github.com/emdgroup-liquid/liquid/commit/cb03639ec7521164682e7f2f3f55e2d837be92d0))
+
 ## [4.0.1](https://github.com/emdgroup-liquid/liquid/compare/v4.0.0...v4.0.1) (2022-10-26)
 
 
