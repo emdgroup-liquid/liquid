@@ -15060,7 +15060,7 @@
     },
     {
       "id": "79a4fc6f",
-      "image": "04ada71a2b346757e122a908b6c889ab.png",
+      "image": "c7f7fde50ecf9ba5543586204e822377.png",
       "userAgent": "default",
       "desc": "ld-select filter multiple selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15073,7 +15073,7 @@
     },
     {
       "id": "e559358f",
-      "image": "55dfd06c1d70573650d321949d9b9b8a.png",
+      "image": "9a969492c0e40214f2dd14462dabc296.png",
       "userAgent": "default",
       "desc": "ld-select filter multiple selected after clearing filter",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15125,7 +15125,7 @@
     },
     {
       "id": "d3f60bfd",
-      "image": "21096d8639e7075ed57288af72df49e3.png",
+      "image": "614af9a1657511a33a0cad3960e1cd71.png",
       "userAgent": "default",
       "desc": "ld-select multiple focus clear all button",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15138,7 +15138,7 @@
     },
     {
       "id": "caff0703",
-      "image": "6494b2ec8d18f0b93d80491239a9d946.png",
+      "image": "3d4752fd021e39d0b1e925ff59b90956.png",
       "userAgent": "default",
       "desc": "ld-select multiple focus selection",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15151,7 +15151,7 @@
     },
     {
       "id": "19e0c69d",
-      "image": "d4870035f2e84a8141d7f6dde8976a59.png",
+      "image": "99d011c67b55efbabe35e5275168fba6.png",
       "userAgent": "default",
       "desc": "ld-select multiple hover clear all button",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15203,7 +15203,7 @@
     },
     {
       "id": "f34a20e3",
-      "image": "1873c78c58b2c4585bce701e572a62d1.png",
+      "image": "5cdfae5b18e2470af81985483a7a6aa4.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15216,7 +15216,7 @@
     },
     {
       "id": "ff3d71ae",
-      "image": "d2cb321b9d02aa172c1e54f4073eef26.png",
+      "image": "239a35a631d26b381050fe3f20ce45d3.png",
       "userAgent": "default",
       "desc": "ld-select multiple internal option selected focus",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15229,7 +15229,7 @@
     },
     {
       "id": "e1e5bcbd",
-      "image": "08d479fc21982a2226334a2bf7cc5454.png",
+      "image": "7a082f08bb4a0707cfe8ca9f6608f406.png",
       "userAgent": "default",
       "desc": "ld-select multiple invalid selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15242,7 +15242,7 @@
     },
     {
       "id": "b18f6122",
-      "image": "f7e1914680bf7b7da15e284b996a5d26.png",
+      "image": "aba5a142e6706a5252de380c294920de.png",
       "userAgent": "default",
       "desc": "ld-select multiple max-rows",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15255,7 +15255,7 @@
     },
     {
       "id": "e0c87412",
-      "image": "c4390ee4e8277ed5dcd43a3906aff91b.png",
+      "image": "d6b9b880e9fd716599e54363f8574a9e.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15268,7 +15268,7 @@
     },
     {
       "id": "fbe7018f",
-      "image": "31a8da7855d812ce185f845e51dc9888.png",
+      "image": "4597ba34d09133e88cc96a1e78c7fc34.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected aria-disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15281,7 +15281,7 @@
     },
     {
       "id": "ad433d72",
-      "image": "31a8da7855d812ce185f845e51dc9888.png",
+      "image": "4597ba34d09133e88cc96a1e78c7fc34.png",
       "userAgent": "default",
       "desc": "ld-select multiple selected disabled",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15294,7 +15294,7 @@
     },
     {
       "id": "b8ee6307",
-      "image": "fb6fd9b88cfb71c453777f3ce4369586.png",
+      "image": "50c812b7cd28082990db1f0206ca06bf.png",
       "userAgent": "default",
       "desc": "ld-select multiple size lg selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
@@ -15307,7 +15307,7 @@
     },
     {
       "id": "5691a7c9",
-      "image": "c52ae59da6c7d3add8cff6350031ebf6.png",
+      "image": "4535fc3056bfda171b6139b9875d020b.png",
       "userAgent": "default",
       "desc": "ld-select multiple size sm selected",
       "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",

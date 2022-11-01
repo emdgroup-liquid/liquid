@@ -384,7 +384,7 @@
 .ld-select__selection-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 var(--ld-sp-4) calc(-1 * var(--ld-sp-4)) 0;
+  margin: calc(-1 * var(--ld-sp-1)) var(--ld-sp-4) calc(-1 * var(--ld-sp-4)) 0;
   overflow: hidden;
   padding: 0;
 }
