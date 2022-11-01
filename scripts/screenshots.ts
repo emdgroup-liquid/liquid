@@ -1,6 +1,7 @@
-import { promises as fs } from 'fs'
-import glob from 'glob'
-import yargs, { Arguments } from 'yargs'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs').promises
+const glob = require('glob')
+const yargs = require('yargs')
 
 async function deleteScreenshots(components?: string[]) {
   const master = JSON.parse(
@@ -68,11 +69,7 @@ yargs(process.argv.slice(2))
         .help('h')
         .alias('h', 'help')
     },
-    async (
-      argv: Arguments<{
-        components?: string[]
-      }>
-    ) => {
+    async (argv: { components?: string[] }) => {
       await deleteScreenshots(argv.components)
     }
   )
