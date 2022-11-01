@@ -94,7 +94,7 @@ export class LdAccordionPanel {
   }
 
   disconnectedCallback() {
-    this.resizeObserver.unobserve(this.contentRef)
+    this.resizeObserver?.unobserve(this.contentRef)
   }
 
   render() {
