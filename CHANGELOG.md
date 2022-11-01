@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/emdgroup-liquid/liquid/compare/v4.0.2...v4.0.3) (2022-11-01)
+
+
+### Bug Fixes
+
+* **ld-select:** prevent unnecessary layout shifts in multiple mode ([8cee46b](https://github.com/emdgroup-liquid/liquid/commit/8cee46b4e28c12b480a613f017793cef127f02ce))
+
 ## [4.0.2](https://github.com/emdgroup-liquid/liquid/compare/v4.0.1...v4.0.2) (2022-11-01)
 
 
