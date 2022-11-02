@@ -289,6 +289,65 @@ describe('ld-input', () => {
     })
   })
 
+  describe('type', () => {
+    it('web component date', async () => {
+      const page = await getPageWithContent(
+        `<ld-input placeholder="Birthday" type="date" value="2017-06-01" />`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('web component time', async () => {
+      const page = await getPageWithContent(
+        `<ld-input placeholder="Time of reservation" type="time" value="13:30" />`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('web component datetime-local', async () => {
+      const page = await getPageWithContent(
+        `<ld-input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30" />`
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component date', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input">
+          <input placeholder="Birthday" type="date" value="2017-06-01">
+        </div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component time', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input">
+          <input placeholder="Time of reservation" type="time" value="13:30">
+        </div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('css component datetime-local', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-input">
+          <input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30">
+        </div>`,
+        { components: LdInput }
+      )
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
+
   describe('aria-disabled', () => {
     it('prevents input value changes with an aria-disabled attribute', async () => {
       const page = await getPageWithContent(

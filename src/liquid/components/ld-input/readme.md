@@ -147,6 +147,18 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 </div>
 {% endexample %}
 
+### Type datetime-local
+
+{% example %}
+<ld-input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30"></ld-input>
+
+<!-- CSS component -->
+
+<div class="ld-input">
+  <input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30">
+</div>
+{% endexample %}
+
 ### Type email
 
 Triggerts associated keyboard in supporting browsers and devices with dynamic keyboards.
