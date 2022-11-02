@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/emdgroup-liquid/liquid/compare/v4.0.3...v4.1.0) (2022-11-02)
+
+
+### Features
+
+* **ld-input:** support for input type datetime-local ([ce4f6ca](https://github.com/emdgroup-liquid/liquid/commit/ce4f6cae520c47c36050dfa97dd828d652091aff))
+
 ## [4.0.3](https://github.com/emdgroup-liquid/liquid/compare/v4.0.2...v4.0.3) (2022-11-01)
 
 
