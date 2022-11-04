@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/emdgroup-liquid/liquid/compare/v4.1.0...v4.1.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* **ld-tooltip:** hide tooltip only on trusted event click outside ([40a11e1](https://github.com/emdgroup-liquid/liquid/commit/40a11e1913e296b2dead6ae72dfe8424efbaf809))
+
 # [4.1.0](https://github.com/emdgroup-liquid/liquid/compare/v4.0.3...v4.1.0) (2022-11-02)
 
 
