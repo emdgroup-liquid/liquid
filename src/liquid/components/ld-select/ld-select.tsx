@@ -833,6 +833,7 @@ export class LdSelect implements InnerFocusable {
     // to work in Solid.js app, where ev.target can be an element
     // within the shadow DOM of the component.
     if (
+      ev.isTrusted &&
       closest('ld-select', ev.target) !== this.el &&
       closest('[role="listbox"]', ev.target) !== this.listboxRef
     ) {

@@ -1725,7 +1725,11 @@ describe('ld-select', () => {
       )
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      page.body.dispatchEvent(new Event('touchend', { bubbles: true }))
+      const event = {
+        type: 'touchend',
+        isTrusted: true,
+      }
+      page.body.dispatchEvent(event as Event)
       await page.waitForChanges()
 
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
@@ -1754,7 +1758,11 @@ describe('ld-select', () => {
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
       btnTrigger.focus = jest.fn()
 
-      ldLabel.dispatchEvent(new Event('touchend', { bubbles: true }))
+      const event = {
+        type: 'touchend',
+        isTrusted: true,
+      }
+      ldLabel.dispatchEvent(event as Event)
       await page.waitForChanges()
 
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')

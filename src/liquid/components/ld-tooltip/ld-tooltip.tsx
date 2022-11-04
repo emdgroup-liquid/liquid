@@ -11,6 +11,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { closest } from '../../utils/closest'
 
 export type Position =
   | 'bottom center'
@@ -41,7 +42,7 @@ let tooltipCount = 0
   shadow: true,
 })
 export class LdTooltip {
-  @Element() element: HTMLElement
+  @Element() el: HTMLElement
 
   private delayTimeout?: NodeJS.Timeout
   private idDescriber = `ld-tooltip-${++tooltipCount}`
@@ -230,12 +231,12 @@ export class LdTooltip {
   @Listen('click', {
     target: 'window',
   })
-  handleClickOutside(event) {
+  handleClickOutside(ev) {
     if (
+      ev.isTrusted &&
       this.popper &&
       this.triggerType === 'click' &&
-      event.target.closest('ld-tooltip') !== this.element &&
-      event.target.closest('.ld-tooltip') !== this.tooltipRef
+      closest('ld-tooltip', ev.target) !== this.el
     ) {
       this.hideTooltip()
     }
@@ -248,12 +249,12 @@ export class LdTooltip {
     target: 'window',
     passive: true,
   })
-  handleTouchOutside(event) {
-    this.handleClickOutside(event)
+  handleTouchOutside(ev) {
+    this.handleClickOutside(ev)
   }
 
   componentWillLoad() {
-    this.hasDefaultTrigger = !this.element.querySelector('[slot="trigger"]')
+    this.hasDefaultTrigger = !this.el.querySelector('[slot="trigger"]')
   }
 
   disconnectedCallback() {

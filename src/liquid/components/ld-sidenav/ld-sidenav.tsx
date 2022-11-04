@@ -176,6 +176,7 @@ export class LdSidenav {
   })
   handleClickOutside(ev: MouseEvent) {
     if (
+      ev.isTrusted &&
       ['clickoutside', 'mouseout'].includes(this.collapseTrigger) &&
       closest('ld-sidenav', ev.target as HTMLElement) !== this.el
     ) {

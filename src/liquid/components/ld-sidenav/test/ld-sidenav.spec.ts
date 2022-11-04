@@ -380,7 +380,11 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
-      page.body.click()
+      const event = {
+        type: 'click',
+        isTrusted: true,
+      }
+      page.body.dispatchEvent(event as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
@@ -428,7 +432,11 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
-      page.body.click()
+      const event = {
+        type: 'click',
+        isTrusted: true,
+      }
+      page.body.dispatchEvent(event as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
@@ -470,7 +478,11 @@ describe('ld-sidenav', () => {
       await page.waitForChanges()
       expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
 
-      page.body.click()
+      const event = {
+        type: 'click',
+        isTrusted: true,
+      }
+      page.body.dispatchEvent(event as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
