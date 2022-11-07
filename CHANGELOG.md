@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/emdgroup-liquid/liquid/compare/v4.1.1...v4.1.2) (2022-11-07)
+
+
+### Bug Fixes
+
+* **ld-cookie-consent:** focus disclaimer on showDisclaimer even if already shown ([97fec8a](https://github.com/emdgroup-liquid/liquid/commit/97fec8ad7cd8a3870a9ca132bb1d305e4ed111f1))
+
 ## [4.1.1](https://github.com/emdgroup-liquid/liquid/compare/v4.1.0...v4.1.1) (2022-11-04)
 
 
