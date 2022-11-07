@@ -5,6 +5,8 @@ eleventyNavigation:
 layout: layout.njk
 title: Notice
 permalink: components/ld-notice/
+tags:
+  - banner
 ---
 
 # ld-notice

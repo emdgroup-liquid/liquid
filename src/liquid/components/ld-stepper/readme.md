@@ -5,6 +5,8 @@ eleventyNavigation:
 layout: layout.njk
 title: Stepper
 permalink: components/ld-stepper/
+tags:
+  - step-progress
 ---
 
 <link rel="stylesheet" href="css_components/ld-stepper.css">
