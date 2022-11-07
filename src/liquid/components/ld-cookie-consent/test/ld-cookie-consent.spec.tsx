@@ -271,6 +271,33 @@ describe('ld-cookie-consent', () => {
       expect(disclaimerShowHandler).toHaveBeenCalledTimes(1)
     })
 
+    it('sets focus on disclaimer when calling method showDisclaimer even if already shown', async () => {
+      const page = await newSpecPage({
+        components: [LdCookieConsent],
+        template: () => (
+          <ld-cookie-consent
+            settings={{
+              mode: 'notice-only',
+              privacyStatementURL: '#',
+              showOnLoadDelay: 0,
+            }}
+          />
+        ),
+      })
+      const ldCookieConsent = getLdCookieConsent(page)
+      const disclaimer = getDisclaimer(page)
+      disclaimer.focus = jest.fn()
+      await transitionEnd(page)
+      await page.waitForChanges()
+
+      expect(disclaimer).toHaveClass('ld-cookie-consent__disclaimer--visible')
+      expect(disclaimer.focus).toHaveBeenCalledTimes(1)
+
+      ldCookieConsent.showDisclaimer()
+      await page.waitForChanges()
+      expect(disclaimer.focus).toHaveBeenCalledTimes(2)
+    })
+
     it('shows up on load without delay', async () => {
       const page = await newSpecPage({
         components: [LdCookieConsent],

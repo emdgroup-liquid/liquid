@@ -112,6 +112,7 @@ export class LdCookieConsent {
   } | null
   @State() private selectedCategories: Set<string> = new Set()
 
+  private disclaimerRef: HTMLDivElement
   private modalRef: HTMLLdModalElement
   private config: LdCookieConsentConfig = {
     backdropBlur: true,
@@ -184,6 +185,7 @@ export class LdCookieConsent {
   async showDisclaimer(delay?: number) {
     const cb = () => {
       this.isDisclaimerVisible = true
+      this.disclaimerRef?.focus()
       this.ldCookieConsentDisclaimerShow.emit()
     }
     if (delay) {
@@ -357,6 +359,7 @@ export class LdCookieConsent {
           this.focus()
         }}
         part="disclaimer"
+        ref={(ref) => (this.disclaimerRef = ref)}
         role="dialog"
         tabIndex={this.isDisclaimerVisible ? -1 : undefined}
       >
