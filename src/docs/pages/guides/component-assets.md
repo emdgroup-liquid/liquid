@@ -14,7 +14,7 @@ Some Liquid Web Components include assets which need to be loaded during runtime
 
 ## Tweaking the bundler and adjusting the assets path
 
-Suppose you have a [Vue.js](https://vuejs.org/) application which requires you to put all statically served assets into a folder called `public` in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the rollup config as follows:
+Suppose you are using [Vite](https://vitejs.dev/) which by default requires you to put statically served assets into a folder called [`public`](https://vitejs.dev/guide/assets.html#the-public-directory) in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the Vite config as follows:
 
 ```js
 // vite.config.js
@@ -38,18 +38,20 @@ export default defineConfig({
 })
 ```
 
-Now all you need to do is "tell" the Liquid components where they have to load their assets from by using [`setAssetPath`](https://github.com/ionic-team/stencil/blob/f09abe6455887025d508e645e7c8c024a5c42fa2/src/declarations/stencil-public-runtime.ts#L290):
+Now all you need to do is "tell" the Liquid components where they have to load their assets from. You have two options here.
 
-```tsx
-// main.ts
-import { setAssetPath } from '@emdgroup-liquid/liquid/dist/components'
+1. Specify the asset path using a metadata element in the document head section:
+  ```html
+  <meta data-ld-asset-path="/">
+  ```
 
-setAssetPath(window.location.origin)
-```
-
-<ld-notice headline="Note" mode="warning">
-  <code>setAssetPath</code> does not work for React bindings. Please take a look at the <a href="guides/react-bindings/#setting-the-asset-path">React bindings docs</a> for an alternative approach.
-</ld-notice>
+2. Specify the asset path by setting the `__LD_ASSET_PATH__` variable on the `window` object:
+  ```tsx
+  // if-clause only required in server-side rendering context
+  if (typeof window !== "undefined") {
+    window.__LD_ASSET_PATH__ = window.location.origin + '/path/to/your/assets/';
+  }
+  ```
 
 For more examples check out our [sandbox apps](guides/sandbox-applications/).
 

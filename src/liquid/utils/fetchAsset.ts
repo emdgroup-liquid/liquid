@@ -1,4 +1,4 @@
-import { getLdAssetPath } from './getLdAssetPath'
+import { getAssetPath } from './assetPath'
 
 const assetCache = {}
 const requestCache = {}
@@ -17,7 +17,7 @@ export async function fetchAsset(path: string): Promise<string> {
   }
 
   if (!requestCache[path]) {
-    requestCache[path] = fetch(`${getLdAssetPath('./assets')}/${path}`)
+    requestCache[path] = fetch(`${getAssetPath('./assets')}/${path}`)
       .then((resp) => resp.text())
       .catch((err) => {
         console.error(`"${path}" could not be fetched`, err)

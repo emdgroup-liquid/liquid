@@ -25,16 +25,4 @@ export default () => (
 
 For more details on React integration read the [Stencil documentation](https://stenciljs.com/docs/react).
 
-## Setting the asset path
-
-When using React bindings, you do not need to use the `setAssetPath` function to define the asset path for components like `ld-icon`. All you need to do is define a global variable on the `window` object to "tell" the Liquid components where they have to load their assets from:
-
-```js
-  // if-clause only required when your code might also be executed
-  // on the server-side like with Next.js
-  if (typeof window !== "undefined") {
-    window.__LD_ASSET_PATH__ = window.location.origin + '/path/to/your/assets/';
-  }
-```
-
 <docs-page-nav prev-href="guides/form-validation/" next-title="Tailwind CSS integration" next-href="guides/tailwindcss-integration/"></docs-page-nav>

@@ -6,7 +6,7 @@ import { Component, h, Host } from '@stencil/core'
   styleUrl: 'docs-layout.css',
   shadow: false,
 })
-export class DocsNav {
+export class DocsLayout {
   render(): HTMLDivElement {
     return (
       <Host class="docs-layout">

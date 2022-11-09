@@ -36,7 +36,7 @@ declare global {
     interface IntrinsicElements extends LiquidElements<LocalJSX.IntrinsicElements> {}
   }
 
-  // Required only when using React bindings
+  // Required only when using __LD_ASSET_PATH__
   interface Window {
     __LD_ASSET_PATH__?: string
   }
