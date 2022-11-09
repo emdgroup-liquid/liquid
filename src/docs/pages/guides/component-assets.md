@@ -49,7 +49,7 @@ Now all you need to do is "tell" the Liquid components where they have to load t
   ```tsx
   // if-clause only required in server-side rendering context
   if (typeof window !== "undefined") {
-    window.__LD_ASSET_PATH__ = window.location.origin + '/path/to/your/assets/';
+    window.__LD_ASSET_PATH__ = window.location.origin
   }
   ```
 
