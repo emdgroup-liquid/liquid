@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – React bindings</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1667839811426/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1667839811426/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1667839811426/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1667839811426/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1667839811426/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1668012803937/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1668012803937/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1668012803937/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1668012803937/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1668012803937/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1667839811426/" />
+  <meta data-buildstamp="1668012803937/">
 
   <script>
     __docsSearchIndex__ = [
@@ -452,7 +452,7 @@
               title: 'React bindings',
               tags: '',
               url: '/liquid/guides/react-bindings/',
-              headings: 'Setting the asset path ',
+              headings: '',
               breadcrumbs: [
                 
                 
@@ -1978,11 +1978,12 @@
     ]
   </script>
 
-  <link rel="stylesheet" href="/liquid/1667839811426/docs.css">
-  <link rel="stylesheet" href="/liquid/1667839811426/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1667839811426/css_components/ld-button.css">
-  <script type="module" src="/liquid/1667839811426/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1667839811426/dist/build/liquid.js"></script>
+  <meta data-ld-asset-path="/dist/build">
+  <link rel="stylesheet" href="/liquid/1668012803937/docs.css">
+  <link rel="stylesheet" href="/liquid/1668012803937/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1668012803937/css_components/ld-button.css">
+  <script type="module" src="/liquid/1668012803937/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1668012803937/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -2817,12 +2818,6 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
-      <docs-toc style="order: 2;">
-        <nav class="docs-toc__nav" >
-        <ol><li><a href="#setting-the-asset-path">Setting the asset path</a></li></ol>
-      </nav>
-      </docs-toc>
-    
 
     <docs-main>
       <header>
@@ -2843,9 +2838,6 @@
 <p>Instead of using the Web Component directly, simply import the React binding and use it as you would use any other React component.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/react'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><br>  <span class="token operator">&lt;</span>LdButton<span class="token operator">></span>Click me<span class="token operator">&lt;</span><span class="token operator">/</span>LdButton<span class="token operator">></span><br><span class="token punctuation">)</span></code></pre>
 <p>For more details on React integration read the <a href="https://stenciljs.com/docs/react">Stencil documentation</a>.</p>
-<h2 id="setting-the-asset-path" tabindex="-1">Setting the asset path <a class="header-anchor" href="guides/react-bindings/#setting-the-asset-path"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>When using React bindings, you do not need to use the <code>setAssetPath</code> function to define the asset path for components like <code>ld-icon</code>. All you need to do is define a global variable on the <code>window</code> object to &quot;tell&quot; the Liquid components where they have to load their assets from:</p>
-<pre class="language-js"><code class="language-js">  <span class="token comment">// if-clause only required when your code might also be executed</span><br>  <span class="token comment">// on the server-side like with Next.js</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">"undefined"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin <span class="token operator">+</span> <span class="token string">'/path/to/your/assets/'</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
 <p><docs-page-nav prev-href="guides/form-validation/" next-title="Tailwind CSS integration" next-href="guides/tailwindcss-integration/"></docs-page-nav></p>
 
       
