@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.4](https://github.com/emdgroup-liquid/liquid/compare/v4.1.3...v4.1.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* fallback to default asset path instead of throwing ([72c357c](https://github.com/emdgroup-liquid/liquid/commit/72c357cb5cd5dd807760c3cbd8575b0a57b7b191))
+
 ## [4.1.3](https://github.com/emdgroup-liquid/liquid/compare/v4.1.2...v4.1.3) (2022-11-09)
 
 
