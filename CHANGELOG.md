@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/emdgroup-liquid/liquid/compare/v4.1.2...v4.1.3) (2022-11-09)
+
+
+### Bug Fixes
+
+* get components asset path config from meta tag or global variable ([8a9f1d0](https://github.com/emdgroup-liquid/liquid/commit/8a9f1d06f6fee81a337f36677c680de886bdaa03))
+
 ## [4.1.2](https://github.com/emdgroup-liquid/liquid/compare/v4.1.1...v4.1.2) (2022-11-07)
 
 
