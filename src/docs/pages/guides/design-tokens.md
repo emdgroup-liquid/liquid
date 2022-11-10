@@ -33,8 +33,12 @@ You have at least two options:
 
 Here is an example illustrating how to invoke the command mentioned above:
 
-```shell
-FIGMA_API_KEY=your-api-key npx @emdgroup-liquid/liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
+```bash
+# npm
+FIGMA_API_KEY=<your-api-key> npx @emdgroup-liquid/liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
+
+# yarn
+FIGMA_API_KEY=<your-api-key> yarn liquid apply-design-tokens --path "src/your/output/path" --figma-file "https://www.figma.com/file/<figma_id>/<file_name>?node-id=<node_id>"
 ```
 
 As you can see, the command is invoked with `npx`. It uses an environment variable `FIGMA_API_KEY`, which you will have to provide in order to be able to fetch data from the Figma API, and executes the `apply-design-tokens` task. It also uses two application parameters: `--figma-file`, which is the URL to your Figma token file, and `--path`, which is the output path that points to a directory in your project where you would like to save the generated CSS file containing the CSS custom props. The command will save the `design-tokens.json` file in the root of your project. When you `require` the [Tailwind CSS preset](https://tailwindcss.com/docs/presets) file from `@emdgroup-liquid/liquid/dist/css/tailwind-preset.js`, it will look for a token file in your project root.

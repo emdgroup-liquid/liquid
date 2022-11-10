@@ -107,10 +107,11 @@
     radial-gradient(circle at right, var(--ld-progress-step-gradient));
   background-blend-mode: multiply; /* removes gap in steps dot */
   background-size: calc(
-      (100% - var(--ld-progress-steps-dot-width) - 1px) /
+      /* the 1px is a Safari HACK */
+        (100% - var(--ld-progress-steps-dot-width) - 1px) /
         var(--ld-progress-calc-valuemax)
     )
-    100%; /* the 1px is a Safari HACK */
+    100%;
   background-repeat: repeat-x;
   background-position: calc(var(--ld-progress-steps-dot-width) / 2) center;
   box-shadow: inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
@@ -140,10 +141,13 @@
       max(
         -100%,
         calc(
-            (var(--ld-progress-calc-relative-progress) - 1) *
-              (100% - var(--ld-progress-steps-dot-width)) +
-              var(--ld-progress-steps-dot-width) + 1px
-          ) * -1 /* the 1px is a Safari HACK */
+          (
+              (var(--ld-progress-calc-relative-progress) - 1) *
+                (100% - var(--ld-progress-steps-dot-width)) +
+                /* the 1px is a Safari HACK */
+                var(--ld-progress-steps-dot-width) + 1px
+            ) * -1
+        )
       )
     );
   }

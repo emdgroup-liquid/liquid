@@ -14,15 +14,15 @@ permalink: introduction/getting-started/
 
 Install with your package manager of choice: 
 
-```shell
+```bash
 npm install @emdgroup-liquid/liquid
 ```
 
-```shell
+```bash
 yarn add @emdgroup-liquid/liquid
 ```
 
-```shell
+```bash
 pnpm add @emdgroup-liquid/liquid
 ```
 
