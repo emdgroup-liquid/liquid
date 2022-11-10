@@ -55,6 +55,11 @@ const createNestedThemeColorFromFlat = (
           return
         }
 
+        if (['#', '('].some((char) => colorTokenReference.includes(char))) {
+          currentColorObject[namePart]['DEFAULT'] = colorTokenReference
+          return
+        }
+
         const colorTokenReferenceParts = colorTokenReference.split('-')
 
         currentColorObject[namePart]['DEFAULT'] =

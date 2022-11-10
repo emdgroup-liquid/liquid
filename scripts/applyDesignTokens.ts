@@ -33,7 +33,11 @@ function getColorTokenValue(variant, styles) {
     const [baseColorName, ...rest] = name.split('/')[1].split('-')
     const referenceName =
       baseColorName.replaceAll(/[a-z]/g, '').toLowerCase() +
-      (variants.includes('Default') ? '' : '-' + rest.join('-'))
+      (variants.includes('Default')
+        ? ''
+        : rest.length
+        ? '-' + rest.join('-')
+        : '')
     return referenceName
   } else {
     return relRGBToAbsRGB(variant.fills[0])
@@ -55,21 +59,23 @@ function parseThemes(items, styles) {
   items.forEach((item) => {
     if (!item.name.startsWith('_')) {
       const theme = {}
-      const themeName = item.name.toLowerCase()
+      const themeName = item.name.toLowerCase().replace(/ /g, '-')
 
       const colorGroups = item.children
       colorGroups.forEach((colorGroup) => {
-        const groupName = colorGroup.name.toLowerCase()
+        const groupName = colorGroup.name.toLowerCase().replace(/ /g, '-')
         const variants = colorGroup.children
         if (variants) {
           variants.forEach((variant) => {
-            const variantName = variant.name.toLowerCase()
+            const variantName = variant.name.toLowerCase().replace(/ /g, '-')
             const subVariants = variant.children
 
             if (variant.children) {
               if (subVariants) {
                 subVariants.forEach((subVariant) => {
-                  const subVariantName = subVariant.name.toLowerCase()
+                  const subVariantName = subVariant.name
+                    .toLowerCase()
+                    .replace(/ /g, '-')
                   const colorName = `${groupName}-${variantName}-${subVariantName}`
                   theme[colorName] = getColorTokenValue(subVariant, styles)
                 })
@@ -128,7 +134,7 @@ function parseShadows(items) {
   return shadows
 }
 
-function parseColors(items, styles) {
+function parseColors(items, styles: { name: string; description: string }[]) {
   const colors = {}
 
   for (const item of items) {
@@ -142,13 +148,15 @@ function parseColors(items, styles) {
       const style = styles[item.styles.fill]
       const { name, description } = style
       const variants = description.split(', ')
-      const [baseColorName, ...rest] = name.split('/')[1].split('-')
+      const pathParts = name.split('/')
+      const [baseColorName, ...rest] =
+        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')
       const defaultOnly = rest.length === 0
       const colorShortName = ['Neutral', 'White'].includes(baseColorName)
         ? baseColorName === 'White'
           ? 'wht'
           : baseColorName.toLowerCase()
-        : baseColorName.replaceAll(/[a-z]/g, '').toLowerCase()
+        : baseColorName.replace(/[a-z]/g, '').toLowerCase()
       const colorName =
         colorShortName +
         (defaultOnly ? '' : '-' + rest.join('-')) +
