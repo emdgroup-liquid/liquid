@@ -4,7 +4,7 @@ const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
 const { join, dirname } = require('path')
 
-const isBin = __filename.endsWith('.js')
+const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
 
 type TypoToken = {

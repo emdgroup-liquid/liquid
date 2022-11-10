@@ -12,7 +12,7 @@ const {
   writeFileSync,
 } = require('fs')
 const { readdir, unlink } = require('fs').promises
-const applyDesignTokens = require('./applyDesignTokens')
+const applyDesignTokens = require('./applyDesignTokens.cjs')
 
 const args = process.argv.slice(2)
 
