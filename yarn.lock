@@ -1182,7 +1182,7 @@ __metadata:
     react-dom:
       optional: true
   bin:
-    liquid: ./bin/cli.js
+    liquid: ./bin/cli.cjs
   languageName: unknown
   linkType: soft
 
