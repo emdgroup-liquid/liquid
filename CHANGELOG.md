@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.6](https://github.com/emdgroup-liquid/liquid/compare/v4.1.5...v4.1.6) (2022-11-11)
+
+
+### Bug Fixes
+
+* build bin scripts as commonjs ([6cc8c42](https://github.com/emdgroup-liquid/liquid/commit/6cc8c42f041a89738ec1846f35ac9260f15861cb))
+* yarn lockfile ([76d5008](https://github.com/emdgroup-liquid/liquid/commit/76d5008b934bebb73145cdb9d17700ab2b8e6f40))
+
 ## [4.1.5](https://github.com/emdgroup-liquid/liquid/compare/v4.1.4...v4.1.5) (2022-11-10)
 
 
