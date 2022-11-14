@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.7](https://github.com/emdgroup-liquid/liquid/compare/v4.1.6...v4.1.7) (2022-11-14)
+
+
+### Bug Fixes
+
+* neutral color theme ([6e54dbc](https://github.com/emdgroup-liquid/liquid/commit/6e54dbc64b475cc66de2cd4f73591a7827deb8cd))
+
 ## [4.1.6](https://github.com/emdgroup-liquid/liquid/compare/v4.1.5...v4.1.6) (2022-11-11)
 
 
