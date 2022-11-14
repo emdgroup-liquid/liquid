@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.8](https://github.com/emdgroup-liquid/liquid/compare/v4.1.7...v4.1.8) (2022-11-14)
+
+
+### Bug Fixes
+
+* name conflict with theme neutral in tailwind preset ([65c6873](https://github.com/emdgroup-liquid/liquid/commit/65c68738ccbda3d756c6bdb2a69d383430eea674))
+
 ## [4.1.7](https://github.com/emdgroup-liquid/liquid/compare/v4.1.6...v4.1.7) (2022-11-14)
 
 
