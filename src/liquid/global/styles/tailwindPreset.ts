@@ -32,7 +32,11 @@ type TailwindColorObject = {
   [key: string]: TailwindColorObject | string
 }
 
-const colors = { transparent: 'transparent', thm: {} }
+const colors = {
+  current: 'currentColor',
+  transparent: 'transparent',
+  thm: {},
+}
 const createNestedThemeColorFromFlat = (
   key: string,
   colorObject: TailwindColorObject,
