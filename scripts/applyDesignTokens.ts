@@ -32,7 +32,10 @@ function getColorTokenValue(variant, styles) {
     const variants = description.split(', ')
     const [baseColorName, ...rest] = name.split('/')[1].split('-')
     const referenceName =
-      baseColorName.replaceAll(/[a-z]/g, '').toLowerCase() +
+      (baseColorName === 'Neutral'
+        ? baseColorName
+        : baseColorName.replaceAll(/[a-z]/g, '')
+      ).toLowerCase() +
       (variants.includes('Default')
         ? ''
         : rest.length
