@@ -124,11 +124,12 @@ Object.entries(designTokens.colors).forEach(([key, value]) => {
 Object.entries(designTokens.themes).forEach(
   ([themeName, theme], themeIndex) => {
     const isFirstTheme = themeIndex === 0
-    colors[themeName] = {}
+    const themeNameFinal = themeName === 'neutral' ? 'thm-neutral' : themeName
+    colors[themeNameFinal] = {}
 
     Object.entries(theme).forEach(([key, value]) => {
       if (typeof value !== 'boolean') {
-        createNestedThemeColorFromFlat(key, colors[themeName], value)
+        createNestedThemeColorFromFlat(key, colors[themeNameFinal], value)
 
         if (isFirstTheme) {
           // Creates dynamic colors based on custom properties
