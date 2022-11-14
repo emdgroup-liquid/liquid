@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.9](https://github.com/emdgroup-liquid/liquid/compare/v4.1.8...v4.1.9) (2022-11-14)
+
+
+### Bug Fixes
+
+* **tailwind:** add current color to tailwind preset ([6c3ce54](https://github.com/emdgroup-liquid/liquid/commit/6c3ce548cccb876a5bd9da8c0327fe8afe927639))
+* **tailwind:** add transparent color to tailwind preset ([bc02d83](https://github.com/emdgroup-liquid/liquid/commit/bc02d833df9e08ae169365261906cc2e0450eb69))
+
 ## [4.1.8](https://github.com/emdgroup-liquid/liquid/compare/v4.1.7...v4.1.8) (2022-11-14)
 
 
