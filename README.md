@@ -5,6 +5,7 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat&color=B93679)](https://github.com/semantic-release/semantic-release)
 [![browser-support](https://img.shields.io/static/v1?label=Browser-support&message=modern%20evergreen&color=01884C)](https://caniuse.com/?search=css-variables)
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=main)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=main)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-black?style=flat&color=24292F)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope)
 
 Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
