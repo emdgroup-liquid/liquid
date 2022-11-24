@@ -29,7 +29,7 @@ There are a few points to concider, when deciding on one of the two options or a
 
 - **Accessibility**: Some Web Components handle accessibility issues under the hood. For instance, the [`ld-typo`](components/ld-typo/) Web Component applies an `aria-label` automatically when used with uppercase heading variants. With CSS Components you have to deal with such things yourself.
 
-- **Encapsulation**: Shadow DOM shields Web Components from their surrounding environment. This means that when you use Liquid's Web Components, you do not need to be concerned about exidently overriding Liquid's CSS (except for CSS custom props), nor worry about our internal DOM being interfered with anything outside the component. CSS Components on the other hand give a bit more freedom when it comes to customization.
+- **Encapsulation**: Shadow DOM shields Web Components from their surrounding environment. This means that when you use Liquid's Web Components, you do not need to be concerned about accidentally overriding Liquid's CSS (except for CSS custom props), nor worry about our internal DOM being interfered with anything outside the component. CSS Components on the other hand give a bit more freedom when it comes to customization.
 
 - **Functionality / feature set**: We always try to offer both, a Web Component and an equivalent CSS Component, but it is not always possible to achieve the same feature set when not having JavaScript to our disposal. CSS can do only so much. Therefore, some more complex components offer more features as Web Components, while coming with a lighweight / less feature rich CSS Component fallback. 
 
