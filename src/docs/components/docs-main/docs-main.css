@@ -266,6 +266,8 @@
       margin-top: var(--ld-sp-40);
     }
 
+    #overview,
+    #overview + p,
     [id^='graph'],
     [id^='graph'] + pre,
     [id^='shadow-parts'],

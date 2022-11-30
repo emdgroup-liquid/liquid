@@ -33,7 +33,7 @@ export class DocsToc {
 
   private updateLinks(visibleId, links) {
     if (
-      ['shadow-parts', 'graph'].includes(visibleId) ||
+      ['overview', 'shadow-parts', 'graph'].includes(visibleId) ||
       !links.find((link) => link.href.split('#')[1] === visibleId)
     ) {
       return
