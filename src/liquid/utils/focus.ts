@@ -55,7 +55,7 @@ export const getFirstFocusable = (el: HTMLElement): HTMLElement | undefined => {
   return null
 }
 
-export const isInnerFocusable = <T>(
+export const isInnerFocusable = <T extends object>(
   element?: T
 ): element is T & InnerFocusable => element && 'focusInner' in element
 

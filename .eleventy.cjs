@@ -7,7 +7,6 @@ const markdownItReplaceLink = require('markdown-it-replace-link')
 const pluginTOC = require('eleventy-plugin-toc')
 const cheerio = require('cheerio')
 const memoize = require('lodash.memoize')
-const fetch = require('node-fetch')
 
 module.exports = function (eleventyConfig) {
   const buildstamp = process.env.MODE === 'gh_pages' ? Date.now() + '/' : ''
