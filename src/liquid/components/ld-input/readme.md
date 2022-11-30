@@ -955,6 +955,12 @@ The `ld-input` Web Component does not provide any properties or methods for vali
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The `ld-input` component. You can use it in conjunction with the `ld-label`
+and the `ld-input-message` component. See examples in the docs for a better
+understanding on how they can be used together.
+
 ## Properties
 
 | Property       | Attribute      | Description                                                                                                           | Type                                             | Default     |
