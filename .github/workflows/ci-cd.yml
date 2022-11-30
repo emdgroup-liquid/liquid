@@ -7,18 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [17]
+        node: [18]
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node v${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
@@ -51,7 +51,7 @@ jobs:
 
       - name: Archive bin_dist artifacts
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/rc'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: bin_dist
           path: |
@@ -61,7 +61,7 @@ jobs:
 
       - name: Archive dist_docs artifacts
         if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist_docs
           path: dist_docs
@@ -82,10 +82,10 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Download dist_docs artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dist_docs
           path: dist_docs
@@ -117,12 +117,12 @@ jobs:
 
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 17
+          node-version: 18
           registry-url: https://registry.npmjs.org/
 
       - name: Install
@@ -135,7 +135,7 @@ jobs:
           CI: true
 
       - name: Download bin_dist artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: bin_dist
           path: ./
