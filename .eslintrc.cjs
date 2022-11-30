@@ -6,7 +6,6 @@ const commonTSConfig = {
     'plugin:@stencil/recommended',
     'plugin:prettier/recommended',
   ],
-  parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier', 'promise'],
   rules: {
     '@stencil/decorators-style': 0,
@@ -25,12 +24,12 @@ const commonTSConfig = {
 }
 
 module.exports = {
-  env: { browser: true, amd: true, node: true, es6: true },
+  env: { browser: true, node: true, es2022: true },
   root: true,
-  extends: ['eslint:recommended'],
-  parser: '@babel/eslint-parser',
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 2022,
     sourceType: 'module',
   },
   overrides: [
@@ -57,7 +56,6 @@ module.exports = {
       },
     },
   ],
-  plugins: ['@babel'],
   settings: {
     react: {
       version: '0',
