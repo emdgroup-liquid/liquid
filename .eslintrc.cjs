@@ -13,6 +13,7 @@ const commonTSConfig = {
     '@stencil/decorators-context': 0,
     '@stencil/element-type': 0,
     '@stencil/no-unused-watch': 0,
+    '@stencil/own-methods-must-be-private': 0,
     '@stencil/strict-boolean-conditions': 0,
     '@stencil/strict-mutable': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
