@@ -25,5 +25,5 @@ We manage our [feature backlog on GitHub][feature backlog] and prioritise issues
 
 To give you an overview when to expect new features, we are using [GitHub milestones](https://github.com/emdgroup-liquid/liquid/milestones). All milestones are tied to a due date giving you an orientation on the estimated time of arrival for the new features that are assigned to these milestones. If you want to know about when to expect a certain feature that is no longer labeled as **needed: votes** and you can't find it in any of the existing milestones, please feel free to reach out to us by leaving a comment in the feature request issue or using our [Teams channel](https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
-[feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+
+[feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+-label%3Aduplicate
 [feature request template]: https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md
