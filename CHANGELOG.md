@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.10](https://github.com/emdgroup-liquid/liquid/compare/v4.1.9...v4.1.10) (2022-12-03)
+
+
+### Bug Fixes
+
+* **ld-accordion:** indicate expandable state when collapsed ([6d889af](https://github.com/emdgroup-liquid/liquid/commit/6d889af69228c0a341dcd1f37197a16acdff2611))
+
 ## [4.1.9](https://github.com/emdgroup-liquid/liquid/compare/v4.1.8...v4.1.9) (2022-11-14)
 
 
