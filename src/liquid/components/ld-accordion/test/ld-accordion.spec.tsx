@@ -139,11 +139,8 @@ describe('ld-accordion', () => {
       const triggerBtn1 =
         ldAccordionToggles[1].shadowRoot.querySelector('button')
 
-      expect(triggerBtn0).toHaveAttribute('aria-expanded')
-      expect(triggerBtn1).not.toHaveAttribute('aria-expanded')
-
-      expect(triggerBtn0).toHaveAttribute('aria-expanded')
-      expect(triggerBtn1).not.toHaveAttribute('aria-expanded')
+      expect(triggerBtn0.getAttribute('aria-expanded')).toEqual('true')
+      expect(triggerBtn1.getAttribute('aria-expanded')).toEqual('false')
 
       triggerBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -185,8 +182,8 @@ describe('ld-accordion', () => {
       const triggerBtnInner =
         ldAccordionToggleInner.shadowRoot.querySelector('button')
 
-      expect(triggerBtnOuter).toHaveAttribute('aria-expanded')
-      expect(triggerBtnInner).not.toHaveAttribute('aria-expanded')
+      expect(triggerBtnOuter.getAttribute('aria-expanded')).toEqual('true')
+      expect(triggerBtnInner.getAttribute('aria-expanded')).toEqual('false')
 
       triggerBtnInner.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -235,16 +232,13 @@ describe('ld-accordion', () => {
         ldAccordionToggles[1].shadowRoot.querySelector('button')
 
       expect(triggerBtn0.getAttribute('aria-expanded')).toEqual('true')
-      expect(triggerBtn1.getAttribute('aria-expanded')).toEqual(null)
-
-      expect(triggerBtn0).toHaveAttribute('aria-expanded')
-      expect(triggerBtn1).not.toHaveAttribute('aria-expanded')
+      expect(triggerBtn1.getAttribute('aria-expanded')).toEqual('false')
 
       triggerBtn1.dispatchEvent(new Event('click'))
       await page.waitForChanges()
 
-      expect(triggerBtn0).not.toHaveAttribute('aria-expanded')
-      expect(triggerBtn1).toHaveAttribute('aria-expanded')
+      expect(triggerBtn0.getAttribute('aria-expanded')).toEqual('false')
+      expect(triggerBtn1.getAttribute('aria-expanded')).toEqual('true')
     })
   })
 

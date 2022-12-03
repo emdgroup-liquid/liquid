@@ -4192,7 +4192,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </mock:shadow-root>
               <ld-accordion-toggle class="ld-accordion-toggle ld-sidenav-accordion__accordion-toggle" ld-tabindex="-1">
                 <mock:shadow-root>
-                  <button class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
+                  <button aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
                     <div class="ld-accordion-toggle__content" part="content">
                       <div class="ld-accordion-toggle__label" part="label">
                         <div class="ld-accordion-toggle__label-content" part="label-content">
@@ -4554,7 +4554,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                           <slot></slot>
                         </div>
                       </div>
-                      <button aria-label="Toggle" class="ld-accordion-toggle__trigger" part="trigger focusable">
+                      <button aria-expanded="false" aria-label="Toggle" class="ld-accordion-toggle__trigger" part="trigger focusable">
                         <div class="ld-accordion-toggle__trigger-content" part="trigger-content">
                           <slot name="icon"></slot>
                           <ld-icon aria-hidden="true" class="ld-accordion-toggle__trigger-icon" name="arrow-down" part="trigger-icon" size="sm"></ld-icon>
@@ -4777,7 +4777,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </mock:shadow-root>
               <ld-accordion-toggle class="ld-accordion-toggle ld-sidenav-accordion__accordion-toggle" ld-tabindex="-1">
                 <mock:shadow-root>
-                  <button class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
+                  <button aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
                     <div class="ld-accordion-toggle__content" part="content">
                       <div class="ld-accordion-toggle__label" part="label">
                         <div class="ld-accordion-toggle__label-content" part="label-content">
@@ -5118,7 +5118,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </mock:shadow-root>
                 <ld-accordion-toggle class="ld-accordion-toggle ld-sidenav-accordion__accordion-toggle" ld-tabindex="-1">
                   <mock:shadow-root>
-                    <button class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
+                    <button aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
                       <div class="ld-accordion-toggle__content" part="content">
                         <div class="ld-accordion-toggle__label" part="label">
                           <div class="ld-accordion-toggle__label-content" part="label-content">
@@ -5208,7 +5208,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   </mock:shadow-root>
                   <ld-accordion-toggle class="ld-accordion-toggle ld-sidenav-accordion__accordion-toggle" ld-tabindex="-1">
                     <mock:shadow-root>
-                      <button class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
+                      <button aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable" tabindex="-1">
                         <div class="ld-accordion-toggle__content" part="content">
                           <div class="ld-accordion-toggle__label" part="label">
                             <div class="ld-accordion-toggle__label-content" part="label-content">

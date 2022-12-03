@@ -44,7 +44,7 @@ exports[`ld-accordion renders 1`] = `
     </mock:shadow-root>
     <ld-accordion-toggle class="ld-accordion-toggle">
       <mock:shadow-root>
-        <button class="ld-accordion-toggle__button" part="toggle focusable">
+        <button aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable">
           <div class="ld-accordion-toggle__content" part="content">
             <div class="ld-accordion-toggle__label" part="label">
               <div class="ld-accordion-toggle__label-content" part="label-content">
@@ -77,7 +77,7 @@ exports[`ld-accordion renders 1`] = `
     </mock:shadow-root>
     <ld-accordion-toggle class="ld-accordion-toggle">
       <mock:shadow-root>
-        <button aria-disabled="true" class="ld-accordion-toggle__button" part="toggle focusable">
+        <button aria-disabled="true" aria-expanded="false" class="ld-accordion-toggle__button" part="toggle focusable">
           <div class="ld-accordion-toggle__content" part="content">
             <div class="ld-accordion-toggle__label" part="label">
               <div class="ld-accordion-toggle__label-content" part="label-content">
