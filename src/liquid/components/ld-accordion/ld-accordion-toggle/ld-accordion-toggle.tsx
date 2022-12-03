@@ -119,7 +119,7 @@ export class LdAccordionToggle implements InnerFocusable {
         part="trigger focusable"
         class="ld-accordion-toggle__trigger"
         aria-disabled={this.disabled ? 'true' : undefined}
-        aria-expanded={this.expanded ? 'true' : undefined}
+        aria-expanded={this.expanded ? 'true' : 'false'}
         aria-label={this.toggleLabel}
         onClick={this.handleToggleClick}
         ref={(el) => (this.btnRef = el as HTMLButtonElement)}
@@ -166,7 +166,7 @@ export class LdAccordionToggle implements InnerFocusable {
     ) : (
       <button
         aria-disabled={this.disabled ? 'true' : undefined}
-        aria-expanded={this.expanded ? 'true' : undefined}
+        aria-expanded={this.expanded ? 'true' : 'false'}
         class="ld-accordion-toggle__button"
         onClick={this.handleToggleClick}
         part="toggle focusable"
