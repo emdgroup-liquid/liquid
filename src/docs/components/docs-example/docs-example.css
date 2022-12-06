@@ -113,6 +113,7 @@
   border-top-right-radius: var(--ld-br-l);
   overflow: hidden;
   will-change: transform; /* Fixes overflow in Safari */
+  color-scheme: light;
 
   .docs-example--has-border & {
     border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
