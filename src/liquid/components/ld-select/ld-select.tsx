@@ -832,10 +832,12 @@ export class LdSelect implements InnerFocusable {
     // closest utility function must be used here for the component
     // to work in Solid.js app, where ev.target can be an element
     // within the shadow DOM of the component.
+    // Usage of ev.composedPath() is required for penetrating shadow DOM.
+    const target = 'composedPath' in ev ? ev.composedPath().at(0) : ev.target
     if (
       ev.isTrusted &&
-      closest('ld-select', ev.target) !== this.el &&
-      closest('[role="listbox"]', ev.target) !== this.listboxRef
+      closest('ld-select', target) !== this.el &&
+      closest('[role="listbox"]', target) !== this.listboxRef
     ) {
       this.expanded = false
       this.resetFilter()

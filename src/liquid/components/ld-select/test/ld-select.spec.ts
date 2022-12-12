@@ -1761,6 +1761,9 @@ describe('ld-select', () => {
       const event = {
         type: 'touchend',
         isTrusted: true,
+        // composedPath: () => {
+        //
+        // }
       }
       ldLabel.dispatchEvent(event as Event)
       await page.waitForChanges()
