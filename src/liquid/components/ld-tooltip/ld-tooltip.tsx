@@ -233,14 +233,13 @@ export class LdTooltip {
   })
   handleClickOutside(ev) {
     // Usage of ev.composedPath() is required for penetrating shadow DOM.
+    const target = 'composedPath' in ev ? ev.composedPath().at(0) : ev.target
     if (
       ev.isTrusted &&
       this.popper &&
       this.triggerType === 'click' &&
-      closest(
-        'ld-tooltip',
-        'composedPath' in ev ? ev.composedPath().at(0) : ev.target
-      ) !== this.el
+      closest('ld-tooltip', target) !== this.el &&
+      closest('[role="tooltip"]', target) !== this.tooltipRef
     ) {
       this.hideTooltip()
     }

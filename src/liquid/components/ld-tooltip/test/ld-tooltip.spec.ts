@@ -193,6 +193,72 @@ describe('ld-tooltip', () => {
     )
   })
 
+  it('closes tooltip on click outside', async () => {
+    const page = await newSpecPage({
+      components: [LdIcon, LdTooltip, LdTooltipPopper],
+      html: `<ld-tooltip trigger-type="click">
+        <h4>Headline</h4>
+        <p>Text content</p>
+      </ld-tooltip>`,
+    })
+
+    const component = page.root
+    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+
+    // @ts-ignore
+    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    trigger.dispatchEvent(new Event('click'))
+    jest.advanceTimersByTime(0)
+
+    expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
+      null
+    )
+
+    const event = {
+      type: 'touchend',
+      isTrusted: true,
+    }
+    page.body.dispatchEvent(event as Event)
+    await page.waitForChanges()
+
+    expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
+  })
+
+  it('does not close tooltip on click inside', async () => {
+    const page = await newSpecPage({
+      components: [LdIcon, LdTooltip, LdTooltipPopper],
+      html: `<ld-tooltip trigger-type="click">
+        <h4>Headline</h4>
+        <p>Text content</p>
+      </ld-tooltip>`,
+    })
+
+    const component = page.root
+    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+
+    // @ts-ignore
+    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    trigger.dispatchEvent(new Event('click'))
+    jest.advanceTimersByTime(0)
+
+    expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
+      null
+    )
+
+    const event = {
+      type: 'touchend',
+      isTrusted: true,
+    }
+    defaultSlot.dispatchEvent(event as Event)
+    await page.waitForChanges()
+
+    expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
+      null
+    )
+  })
+
   it(`does not initialize on mouseenter, if trigger-type is "click"`, async () => {
     const page = await newSpecPage({
       components: [LdIcon, LdTooltip, LdTooltipPopper],
