@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.11](https://github.com/emdgroup-liquid/liquid/compare/v4.1.10...v4.1.11) (2022-12-12)
+
+
+### Bug Fixes
+
+* **ld-select:** use event composed path in closest for click outside detection ([d287b0d](https://github.com/emdgroup-liquid/liquid/commit/d287b0d2fe17f1c7abc8444f39d3d136d131b496)), closes [#450](https://github.com/emdgroup-liquid/liquid/issues/450)
+* **ld-tooltip:** keep tooltip with trigger type click open on click inside ([5d90ebe](https://github.com/emdgroup-liquid/liquid/commit/5d90ebe25afdf670179829088c617acf7c9be857))
+
 ## [4.1.10](https://github.com/emdgroup-liquid/liquid/compare/v4.1.9...v4.1.10) (2022-12-03)
 
 
