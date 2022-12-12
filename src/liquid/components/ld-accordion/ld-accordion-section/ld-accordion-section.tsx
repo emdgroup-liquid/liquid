@@ -51,7 +51,9 @@ export class LdAccordionSection {
     // closest utility function must be used here for the component
     // to work in Solid.js app, where ev.target can be an element
     // within the shadow DOM of the component.
-    if (closest('ld-accordion-section', ev.target) !== this.el) {
+    // Usage of ev.composedPath() is required for penetrating shadow DOM.
+    const target = 'composedPath' in ev ? ev.composedPath().at(0) : ev.target
+    if (closest('ld-accordion-section', target) !== this.el) {
       return
     }
     this.expanded = !this.expanded
