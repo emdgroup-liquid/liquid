@@ -313,6 +313,7 @@ export class LdPagination {
                 disabled={this.selectedIndex < 1}
                 mode="ghost"
                 onClick={() => {
+                  if (this.selectedIndex < 1) return
                   this.selectedIndex -= 1
                 }}
                 part="arrow prev focusable"
@@ -461,6 +462,7 @@ export class LdPagination {
                 disabled={this.selectedIndex >= this.length - 1}
                 mode="ghost"
                 onClick={() => {
+                  if (this.selectedIndex >= this.length - 1) return
                   this.selectedIndex += 1
                 }}
                 part="arrow next focusable"
