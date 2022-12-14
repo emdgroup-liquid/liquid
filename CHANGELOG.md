@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.12](https://github.com/emdgroup-liquid/liquid/compare/v4.1.11...v4.1.12) (2022-12-14)
+
+
+### Bug Fixes
+
+* **ld-pagination:** prevent out of bounds clicks ([67e83d5](https://github.com/emdgroup-liquid/liquid/commit/67e83d566d842045732ad9f75e31c83099daf8df))
+
 ## [4.1.11](https://github.com/emdgroup-liquid/liquid/compare/v4.1.10...v4.1.11) (2022-12-12)
 
 
