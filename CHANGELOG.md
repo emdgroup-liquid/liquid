@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.13](https://github.com/emdgroup-liquid/liquid/compare/v4.1.12...v4.1.13) (2023-01-02)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** add tetherOptions prop to elements containing a tooltip ([02f80e0](https://github.com/emdgroup-liquid/liquid/commit/02f80e03de8d009d85e076565e54be6078620e9f))
+
 ## [4.1.12](https://github.com/emdgroup-liquid/liquid/compare/v4.1.11...v4.1.12) (2022-12-14)
 
 
