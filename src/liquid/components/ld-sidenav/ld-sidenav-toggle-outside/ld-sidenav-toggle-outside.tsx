@@ -31,6 +31,9 @@ export class LdSidenavToggleOutside implements InnerFocusable {
   /** Tab index of the toggle. */
   @Prop() ldTabindex: number | undefined
 
+  /** Tooltip tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
+
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
   @State() sidenavCollapsedFully: boolean
@@ -96,6 +99,7 @@ export class LdSidenavToggleOutside implements InnerFocusable {
             this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
           }
           tag="span"
+          tetherOptions={this.tetherOptions}
         >
           <button
             slot="trigger"

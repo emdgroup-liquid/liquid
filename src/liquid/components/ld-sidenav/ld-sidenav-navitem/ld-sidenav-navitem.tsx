@@ -13,6 +13,7 @@ import { getClassNames } from '../../../utils/getClassNames'
 import { closest } from '../../../utils/closest'
 import { toggleStackToTop } from '../utils/toggleStackToTop'
 import { LdTooltip } from '../../ld-tooltip/ld-tooltip'
+import Tether from 'tether'
 
 /**
  * @slot - default slot for the nav item label.
@@ -69,6 +70,9 @@ export class LdSidenavNavitem implements InnerFocusable {
    * for more information on the `target` attribute.
    */
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
+
+  /** Tooltip tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   /** Accepts an id of an ld-subnav component to navigate to it on click. */
   @Prop({ reflect: true }) to?: string
@@ -306,6 +310,7 @@ export class LdSidenavNavitem implements InnerFocusable {
             position={
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
+            tetherOptions={this.tetherOptions}
             tag="span"
           >
             <div class="ld-sidenav-navitem__tooltip-trigger" slot="trigger" />
