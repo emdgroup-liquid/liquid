@@ -39,6 +39,9 @@ export class LdSidenavHeader {
   /** Label to be used for the toggle button when navigation is collapsed. */
   @Prop() labelExpand = 'Expand side navigation'
 
+  /** Tooltip tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
+
   @State() sidenavAlignement: 'left' | 'right'
   @State() sidenavClosable: boolean
   @State() sidenavCollapsed: boolean
@@ -126,6 +129,7 @@ export class LdSidenavHeader {
               this.sidenavAlignement === 'left' ? 'right middle' : 'left middle'
             }
             tag="span"
+            tetherOptions={this.tetherOptions}
           >
             <button
               slot="trigger"
