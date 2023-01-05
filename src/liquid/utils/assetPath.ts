@@ -1,3 +1,5 @@
+import { Build } from '@stencil/core'
+
 /**
  * Reads components asset path config from meta tag or global variable.
  * This is a workaround until the following issues are resolved:
@@ -5,11 +7,12 @@
  * https://github.com/ionic-team/stencil-ds-output-targets/issues/186
  */
 export const getAssetPath = (path: string) => {
-  const assetBasePath =
-    document.head.querySelector<HTMLMetaElement>('meta[data-ld-asset-path]')
-      ?.dataset.ldAssetPath ||
-    window.__LD_ASSET_PATH__ ||
-    '/'
+  const assetBasePath = Build.isTesting
+    ? '/dist/liquid'
+    : document.head.querySelector<HTMLMetaElement>('meta[data-ld-asset-path]')
+        ?.dataset.ldAssetPath ||
+      window.__LD_ASSET_PATH__ ||
+      '/'
   let assetPath = path
 
   if (path.startsWith('./')) {

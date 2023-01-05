@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from '@stencil/core'
+import { Component, h, Host, Prop, State, Element } from '@stencil/core'
 import { getClassNames } from '../../../liquid/utils/getClassNames'
 
 /** @internal **/
@@ -8,6 +8,8 @@ import { getClassNames } from '../../../liquid/utils/getClassNames'
   shadow: false,
 })
 export class DocsExample {
+  @Element() el: HTMLElement
+
   /** Background color mode. */
   @Prop() background: 'brand' | 'light'
 
@@ -58,6 +60,16 @@ export class DocsExample {
   private handleSwitchComponent = () => {
     this.isWebComponent = !this.isWebComponent
     this.isCodeVisible = true
+  }
+
+  private unescapeCode(code) {
+    return code.replaceAll(/\\{\\{/g, '{{').replaceAll(/\\}\\}/g, '}}')
+  }
+
+  componentWillLoad() {
+    this.el.querySelectorAll('[slot^="code"]').forEach((slot) => {
+      slot.innerHTML = this.unescapeCode(slot.innerHTML)
+    })
   }
 
   render() {
@@ -140,8 +152,10 @@ export class DocsExample {
         <div class="docs-example__code">
           <docs-copy-to-cb
             class="docs-example__copy-to-clipboard"
-            textToCopy={decodeURIComponent(
-              this.isWebComponent ? this.code : this.codeCssComponent
+            textToCopy={this.unescapeCode(
+              decodeURIComponent(
+                this.isWebComponent ? this.code : this.codeCssComponent
+              )
             )}
           />
           <slot name="code"></slot>
