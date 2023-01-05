@@ -1,0 +1,120 @@
+:host,
+.ld-table {
+  /* colors */
+  --ld-table-bg-col: var(--ld-col-wht);
+  --ld-table-border-col: var(--ld-col-neutral-200);
+  --ld-table-toolbar-bg-col: var(--ld-col-neutral-050);
+
+  /* layout */
+  --ld-table-layout: auto;
+  --ld-table-row-outline-width: var(--ld-sp-1);
+  --ld-table-row-outline: var(--ld-table-row-outline-width)
+    var(--ld-table-border-col) solid;
+  --ld-table-row-outline-half: calc(0.5 * var(--ld-table-row-outline-width))
+    var(--ld-table-border-col) solid;
+  --ld-table-cell-padding-x: var(--ld-sp-16);
+  --ld-table-cell-padding-y: var(--ld-sp-12);
+  --ld-table-toolbar-padding-y: var(--ld-sp-16);
+  --ld-table-typo: var(--ld-typo-h6);
+  --ld-table-white-space: nowrap;
+
+  /* Fix for Safari overflow hidden with border radius quirk. */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+
+  background-color: var(--ld-table-border-col);
+  border-radius: var(--ld-br-l);
+  border: solid var(--ld-sp-1) var(--ld-table-border-col);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font: var(--ld-table-typo);
+  overflow: hidden;
+  position: relative;
+
+  table {
+    background-color: var(--ld-table-bg-col);
+    border-collapse: collapse;
+    table-layout: var(--ld-table-layout);
+    text-align: left;
+    width: 100%;
+    white-space: var(--ld-table-white-space);
+  }
+
+  tbody,
+  thead,
+  td,
+  th {
+    background-color: inherit;
+    font: inherit;
+  }
+
+  .ld-table__toolbar,
+  ::slotted(ld-table-toolbar) {
+    align-items: center;
+    background-color: var(--ld-table-toolbar-bg-col);
+    border-top-left-radius: calc(var(--ld-br-l) - 1.25 * var(--ld-sp-1));
+    border-top-right-radius: calc(var(--ld-br-l) - 1.25 * var(--ld-sp-1));
+    box-sizing: border-box;
+    display: flex;
+    gap: var(--ld-sp-12);
+    justify-content: flex-start;
+    min-height: var(--ld-sp-40);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-inline: var(--ld-table-cell-padding-x);
+    position: relative;
+    white-space: nowrap;
+    z-index: 3;
+
+    > ld-pagination {
+      flex-shrink: 0;
+      padding-bottom: var(--ld-sp-8);
+      padding-top: var(--ld-sp-4);
+      overflow-x: hidden;
+      transform: translateY(var(--ld-sp-2));
+
+      &:first-child {
+        margin-left: calc(-1 * var(--ld-sp-8));
+      }
+      &:last-child {
+        margin-right: calc(-1 * var(--ld-sp-8));
+      }
+    }
+  }
+
+  .ld-table__toolbar,
+  ::slotted(ld-table-toolbar),
+  thead {
+    outline: var(--ld-table-row-outline);
+  }
+  tr {
+    outline: var(--ld-table-row-outline-half);
+  }
+
+  td,
+  th {
+    padding-block: var(--ld-table-cell-padding-y);
+    padding-inline: var(--ld-table-cell-padding-x);
+  }
+
+  thead {
+    /* Fix position sticky quirk with Safari by using background-image. */
+    /* Note that 0.75 is a special width that works well in all browsers. */
+    background-image: linear-gradient(
+      to top,
+      var(--ld-table-border-col),
+      var(--ld-table-border-col) calc(var(--ld-sp-1) * 0.75),
+      var(--ld-table-bg-col) calc(var(--ld-sp-1) * 0.75),
+      var(--ld-table-bg-col)
+    );
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+}
+
+.ld-table__scroll-container {
+  height: inherit;
+  max-height: inherit;
+  overflow: auto;
+}

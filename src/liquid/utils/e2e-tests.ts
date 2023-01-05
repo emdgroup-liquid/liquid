@@ -88,6 +88,7 @@ export const getPageWithContent = async (
       [config.components].flat().map((component: Component) => {
         const cssFileName =
           component.COMPILER_META.styles[0].externalStyles[0].relativePath
+        if (cssFileName.endsWith('.shadow.css')) return Promise.resolve()
         return page.addStyleTag({ path: `./dist/css/${cssFileName}` })
       })
     )

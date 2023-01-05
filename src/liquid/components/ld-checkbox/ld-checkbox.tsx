@@ -213,6 +213,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
           {...this.clonedAttributes}
           checked={this.checked}
           disabled={this.disabled}
+          indeterminate={this.indeterminate}
           onChange={this.handleChange}
           onInput={this.handleInput}
           part="input focusable"

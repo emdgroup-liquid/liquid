@@ -1,0 +1,37 @@
+:host {
+  display: contents;
+}
+
+tr {
+  background-color: inherit;
+  outline: var(--ld-table-row-outline-half);
+}
+
+.ld-table__selection-label {
+  vertical-align: middle;
+  align-items: center;
+  background-color: var(--ld-table-bg-col);
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--ld-table-cell-padding-x);
+  position: absolute;
+  top: var(--ld-sp-6);
+  bottom: var(--ld-sp-6);
+  left: 0;
+  border-right: 1px solid var(--ld-table-border-col);
+}
+
+.ld-table-row__selection-cell {
+  &::part(cell) {
+    min-width: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.ld-table-row__selection-cell--sticky {
+  &::part(cell) {
+    left: 0;
+    position: sticky;
+  }
+}

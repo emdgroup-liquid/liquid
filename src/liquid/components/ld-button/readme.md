@@ -565,12 +565,14 @@ Type: `Promise<void>`
 
  - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-pagination](../ld-pagination)
+ - [ld-table-header](../ld-table/ld-table-header)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-cookie-consent --> ld-button
   ld-pagination --> ld-button
+  ld-table-header --> ld-button
   style ld-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

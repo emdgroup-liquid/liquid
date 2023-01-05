@@ -26,6 +26,12 @@ module.exports = function (eleventyConfig) {
   // Syntax highlighting
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: false,
+    init: function ({ Prism }) {
+      Prism.languages.javascript['template-string'] = {
+        pattern: /`(?:\\.|\$\{[^{}]*\}|(?!\$\{)[^\\`])*`/,
+        inside: Prism.languages.html,
+      }
+    },
   })
   const highlighter = eleventyConfig.markdownHighlighter
   eleventyConfig.addMarkdownHighlighter((str, language) => {

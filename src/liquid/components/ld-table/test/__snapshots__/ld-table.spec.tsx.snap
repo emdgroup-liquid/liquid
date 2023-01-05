@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-table renders 1`] = `
+<ld-table class="ld-table" role="figure">
+  <mock:shadow-root>
+    <slot name="toolbar"></slot>
+    <div class="ld-table__scroll-container" part="scroll-container">
+      <table part="table">
+        <slot></slot>
+      </table>
+    </div>
+  </mock:shadow-root>
+  <ld-table-toolbar class="ld-table__toolbar" slot="toolbar">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    <ld-table-caption>
+      <mock:shadow-root>
+        <figcaption class="ld-table-caption" part="figcaption">
+          <slot></slot>
+        </figcaption>
+      </mock:shadow-root>
+      Superheros and sidekicks
+    </ld-table-caption>
+  </ld-table-toolbar>
+  <ld-table-colgroup>
+    <mock:shadow-root>
+      <colgroup class="ld-table-colgroup" part="colgroup">
+        <slot></slot>
+      </colgroup>
+    </mock:shadow-root>
+    <ld-table-col>
+      <mock:shadow-root>
+        <col class="ld-table-col" part="col">
+      </mock:shadow-root>
+    </ld-table-col>
+    <ld-table-col class="batman">
+      <mock:shadow-root>
+        <col class="ld-table-col" part="col" span="2">
+      </mock:shadow-root>
+    </ld-table-col>
+    <ld-table-col class="flash">
+      <mock:shadow-root>
+        <col class="ld-table-col" part="col" span="2">
+      </mock:shadow-root>
+    </ld-table-col>
+  </ld-table-colgroup>
+  <ld-table-body>
+    <mock:shadow-root>
+      <tbody class="ld-table-body" part="tbody">
+        <slot></slot>
+      </tbody>
+    </mock:shadow-root>
+    <ld-table-row>
+      <mock:shadow-root>
+        <tr class="ld-table-row" part="row">
+          <slot></slot>
+        </tr>
+      </mock:shadow-root>
+      <ld-table-cell>
+        <mock:shadow-root>
+          <td class="ld-table-cell" part="cell">
+            <slot></slot>
+          </td>
+        </mock:shadow-root>
+      </ld-table-cell>
+      <ld-table-header>
+        <mock:shadow-root>
+          <th class="ld-table-header" part="cell" scope="col">
+            <slot></slot>
+          </th>
+        </mock:shadow-root>
+        Batman
+      </ld-table-header>
+      <ld-table-header>
+        <mock:shadow-root>
+          <th class="ld-table-header" part="cell" scope="col">
+            <slot></slot>
+          </th>
+        </mock:shadow-root>
+        Robin
+      </ld-table-header>
+      <ld-table-header>
+        <mock:shadow-root>
+          <th class="ld-table-header" part="cell" scope="col">
+            <slot></slot>
+          </th>
+        </mock:shadow-root>
+        The Flash
+      </ld-table-header>
+      <ld-table-header>
+        <mock:shadow-root>
+          <th class="ld-table-header" part="cell" scope="col">
+            <slot></slot>
+          </th>
+        </mock:shadow-root>
+        Kid Flash
+      </ld-table-header>
+    </ld-table-row>
+    <ld-table-row>
+      <mock:shadow-root>
+        <tr class="ld-table-row" part="row">
+          <slot></slot>
+        </tr>
+      </mock:shadow-root>
+      <ld-table-header>
+        <mock:shadow-root>
+          <th class="ld-table-header" part="cell" scope="row">
+            <slot></slot>
+          </th>
+        </mock:shadow-root>
+        Skill
+      </ld-table-header>
+      <ld-table-cell>
+        <mock:shadow-root>
+          <td class="ld-table-cell" part="cell">
+            <slot></slot>
+          </td>
+        </mock:shadow-root>
+        Smarts
+      </ld-table-cell>
+      <ld-table-cell>
+        <mock:shadow-root>
+          <td class="ld-table-cell" part="cell">
+            <slot></slot>
+          </td>
+        </mock:shadow-root>
+        Dex, acrobat
+      </ld-table-cell>
+      <ld-table-cell>
+        <mock:shadow-root>
+          <td class="ld-table-cell" part="cell">
+            <slot></slot>
+          </td>
+        </mock:shadow-root>
+        Super speed
+      </ld-table-cell>
+      <ld-table-cell>
+        <mock:shadow-root>
+          <td class="ld-table-cell" part="cell">
+            <slot></slot>
+          </td>
+        </mock:shadow-root>
+        Super speed
+      </ld-table-cell>
+    </ld-table-row>
+  </ld-table-body>
+</ld-table>
+`;
