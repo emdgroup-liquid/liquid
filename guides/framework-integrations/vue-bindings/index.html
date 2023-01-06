@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Component assets</title>
+  <title>Liquid – React bindings</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1673026434669/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1673026434669/assets/favicon-32x32.png">
@@ -2120,7 +2120,7 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/guides/component-assets/">Component assets</a>
             
@@ -2160,9 +2160,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--framework-integrations">
                   <a href="/liquid/guides/framework-integrations/"><span aria-label="Framework integrations">Framework integrations</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2179,7 +2179,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/guides/framework-integrations/vue-bindings/">Vue bindings</a>
             
@@ -2894,12 +2894,6 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
-      <docs-toc style="order: 2;">
-        <nav class="docs-toc__nav" >
-        <ol><li><a href="#tweaking-the-bundler-and-adjusting-the-assets-path">Tweaking the bundler and adjusting the assets path</a></li></ol>
-      </nav>
-      </docs-toc>
-    
 
     <docs-main>
       <header>
@@ -2910,27 +2904,20 @@
             
               <ld-crumb href="/liquid/guides/">Guides</ld-crumb>
             
-            <ld-crumb href="/liquid/guides/component-assets/">Component assets</ld-crumb>
+              <ld-crumb href="/liquid/guides/framework-integrations/">Framework integrations</ld-crumb>
+            
+            <ld-crumb href="/liquid/guides/framework-integrations/vue-bindings/">React bindings</ld-crumb>
           </ld-breadcrumbs>
         
-        <docs-edit-on-github path="./src/docs/pages/guides/component-assets.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/guides/framework-integrations/vue-bindings.md"></docs-edit-on-github>
       </header>
-      <h1 id="component-assets" tabindex="-1">Component assets <a class="header-anchor" href="guides/component-assets/#component-assets"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Some Liquid Web Components include assets which need to be loaded during runtime. Depending on how you bundle your client side resources, you may need to tweak your bundler so that it puts Liquid's assets into the right place and &quot;tell&quot; Liquid where to look for the assets.</p>
-<h2 id="tweaking-the-bundler-and-adjusting-the-assets-path" tabindex="-1">Tweaking the bundler and adjusting the assets path <a class="header-anchor" href="guides/component-assets/#tweaking-the-bundler-and-adjusting-the-assets-path"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>Suppose you are using <a href="https://vitejs.dev/">Vite</a> which by default requires you to put statically served assets into a folder called <a href="https://vitejs.dev/guide/assets.html#the-public-directory"><code>public</code></a> in the root directory of your project. You can copy over all Liquid assets into that folder by tweeking the Vite config as follows:</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// vite.config.js</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite'</span><br><span class="token keyword">import</span> copy <span class="token keyword">from</span> <span class="token string">'rollup-plugin-copy'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>    <span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>      <span class="token literal-property property">targets</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">{</span><br>          <span class="token literal-property property">src</span><span class="token operator">:</span> <span class="token string">'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets/*'</span><span class="token punctuation">,</span><br>          <span class="token literal-property property">dest</span><span class="token operator">:</span> <span class="token string">'public/assets'</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>      <span class="token punctuation">]</span><span class="token punctuation">,</span><br>      <span class="token literal-property property">hook</span><span class="token operator">:</span> <span class="token string">'buildStart'</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token comment">// ...</span><br>  <span class="token punctuation">]</span><span class="token punctuation">,</span><br>  <span class="token comment">// ...</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>Now all you need to do is &quot;tell&quot; the Liquid components where they have to load their assets from. You have two options here.</p>
-<ol>
-<li>Specify the asset path using a metadata element in the document head section:</li>
-</ol>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">data-ld-asset-path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
-<ol start="2">
-<li>Specify the asset path by setting the <code>__LD_ASSET_PATH__</code> variable on the <code>window</code> object:</li>
-</ol>
-<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// if-clause only required in server-side rendering context</span><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">"undefined"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<br><span class="token punctuation">}</span></code></pre>
-<p>For more examples check out our <a href="guides/sandbox-applications/">sandbox apps</a>.</p>
-<p><docs-page-nav prev-href="guides/css-vs-web-components/" next-title="Type checking and intellisense" next-href="guides/type-checking-and-intellisense/"></docs-page-nav></p>
+      <h1 id="vue-bindings" tabindex="-1">Vue bindings <a class="header-anchor" href="guides/framework-integrations/vue-bindings/#vue-bindings"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>In order to enable type checking and intellisense for Liquid components in your Vue project, simply import the Vue binding and use it as you would use any other Vue component.</p>
+<ld-notice mode="warning">
+  While type checking and intellisense work well when using Visual Studio Code in combination with the <a href="https://github.com/johnsoncodehk/volar" rel="noreferrer noopener" target="_blank">Volar plugin</a>, we found that JetBrains' bundled <a href="https://plugins.jetbrains.com/plugin/9442-vue-js" rel="noreferrer noopener" target="_blank">Vue plugin</a> is not yet capable of providing equivalent features.
+</ld-notice>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/vue'</span><br><span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><br><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    LdButton<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>For more details on Vue integration check out our <a href="guides/sandbox-applications/">sandbox apps</a> or read the <a href="https://stenciljs.com/docs/vue">Stencil documentation</a>.</p>
 
       
         <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
