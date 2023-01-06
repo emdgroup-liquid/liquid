@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/emdgroup-liquid/liquid/compare/v4.1.13...v4.2.0) (2023-01-06)
+
+
+### Features
+
+* **vue:** add vue output target ([914194b](https://github.com/emdgroup-liquid/liquid/commit/914194b05f4b5b331b9f8cc3751cfee6d5fabe15))
+
 ## [4.1.13](https://github.com/emdgroup-liquid/liquid/compare/v4.1.12...v4.1.13) (2023-01-02)
 
 
