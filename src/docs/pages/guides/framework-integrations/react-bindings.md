@@ -1,13 +1,12 @@
 ---
 eleventyNavigation:
   key: React bindings
-  parent: Guides
-  order: 7
+  parent: Framework integrations
+  order: 1
 layout: layout.njk
 title: React bindings
-permalink: guides/react-bindings/
+permalink: guides/framework-integrations/react-bindings/
 ---
-
 
 # React bindings
 
@@ -23,6 +22,4 @@ export default () => (
 )
 ```
 
-For more details on React integration read the [Stencil documentation](https://stenciljs.com/docs/react).
-
-<docs-page-nav prev-href="guides/form-validation/" next-title="Tailwind CSS integration" next-href="guides/tailwindcss-integration/"></docs-page-nav>
+For more details on React integration check out our [sandbox apps](guides/sandbox-applications/) or read the [Stencil documentation](https://stenciljs.com/docs/react).

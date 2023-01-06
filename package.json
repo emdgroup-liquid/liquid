@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "apply_design_tokens": "dotenv -e .env -- ts-node scripts/applyDesignTokens.ts",
-    "build": "run-s build:stencil:components build:stencil:react build:patch_loader build:styles build:copy_design_tokens build:tailwind_preset build:bin",
+    "build": "run-s build:stencil:components build:stencil:react build:stencil:vue build:patch_loader build:styles build:copy_design_tokens build:tailwind_preset build:bin",
     "build:bin": "run-p build:bin:cli build:bin:apply_design_tokens",
     "build:bin:cli": "tsc scripts/cli.ts --moduleResolution node --target esnext --outfile bin/cli.cjs",
     "build:bin:apply_design_tokens": "tsc scripts/applyDesignTokens.ts --moduleResolution node --target esnext --outfile bin/applyDesignTokens.cjs",
@@ -41,6 +41,7 @@
     "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
     "build:stencil:react": "tsc -p tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",
+    "build:stencil:vue": "tsc -p tsconfig.vue.json && (shx rm src/vue.ts & shx rm -r src/vue-component-lib)",
     "build:styles": "run-s build:styles:liquid:globals build:styles:liquid:components",
     "build:styles:liquid:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' && bash scripts/concatStyles.sh",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
@@ -95,6 +96,7 @@
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.3.1",
+    "@stencil/vue-output-target": "^0.6.2",
     "@types/jest": "^27.5.2",
     "@types/js-cookie": "^3.0.2",
     "@types/react": "^18.0.3",
@@ -152,6 +154,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.9.3",
     "validate-branch-name": "^1.3.0",
+    "vue": "^3.2.45",
     "wicg-inert": "^3.1.2",
     "yargs": "^17.6.2"
   },
@@ -176,13 +179,17 @@
   ],
   "peerDependencies": {
     "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "react-dom": ">=17.0.0",
+    "vue": ">=3.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
     },
     "react-dom": {
+      "optional": true
+    },
+    "vue": {
       "optional": true
     }
   },

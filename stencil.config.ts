@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
 import { reactOutputTarget } from '@stencil/react-output-target'
+import { vueOutputTarget } from '@stencil/vue-output-target'
 import postcssConfig from './postcss.config.cjs'
 
 export const config: Config = {
@@ -11,6 +12,11 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '..',
       proxiesFile: './src/react.ts',
+      includeDefineCustomElements: false,
+    }),
+    vueOutputTarget({
+      componentCorePackage: '..',
+      proxiesFile: './src/vue.ts',
       includeDefineCustomElements: false,
     }),
     {
