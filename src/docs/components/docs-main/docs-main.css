@@ -184,6 +184,7 @@
     'Ubuntu Mono', monospace;
   --docs-main-padding-x: var(--ld-sp-40);
   padding: var(--ld-sp-24) var(--docs-main-padding-x) var(--ld-sp-40);
+  max-width: 54rem;
   min-width: 20rem;
 
   @media (max-width: 75rem) {
