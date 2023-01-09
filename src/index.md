@@ -22,7 +22,7 @@ title: Introduction
 Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
 
 <ld-notice>
-  Looking for the legacy version of the Liquid Design System? Click <a href="https://liquid-legacy-docs.merck.design/">here</a>.
+  Looking for the legacy version of the Liquid Design System? Click <a href="https://gitlab.com/liquid-design/liquid-design-react/">here</a>.
 </ld-notice>
 
 ## Links
