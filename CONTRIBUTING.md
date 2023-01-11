@@ -305,6 +305,6 @@ A lists of all labels we use in order to help us track and manage issues and pul
 [code of conduct]: https://www.merckgroup.com/company/responsibility/en/regulations-and-guidelines/code-of-conduct.pdf
 [discussions]: https://github.com/emdgroup-liquid/liquid/discussions
 [teams]: https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9
-[feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+
+[feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Aduplicate+is%3Aopen
 [bug report template]: https://github.com/emdgroup-liquid/liquid/issues/new?assignees=&labels=&template=bug_report.yml&title=bug%3A+
 [feature request template]: https://github.com/emdgroup-liquid/liquid/issues/new?assignees=&labels=&template=feature_request.yml&title=feat%3A+
