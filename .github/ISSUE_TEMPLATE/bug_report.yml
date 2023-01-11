@@ -1,6 +1,7 @@
 name: 🪳 Bug report
 description: Create a report to help us improve Liquid
-title: 'bug: '
+title: "bug: "
+labels: ["bug", "triage"]
 body:
   - type: checkboxes
     attributes:

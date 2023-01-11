@@ -1,6 +1,7 @@
 name: 💡 Feature request
 description: Suggest an idea for Liquid
-title: 'feat: '
+title: "feat: "
+labels: ["feature", "triage"]
 body:
   - type: checkboxes
     attributes:
