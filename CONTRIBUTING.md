@@ -235,21 +235,14 @@ This section guides you through submitting a feature request for Liquid, includi
 
 Before creating feature requests, please check [this list](#before-submitting-a-feature-request) as you might find out that you don't need to create one. When you are creating a feature request, please [include as many details as possible](#how-do-i-submit-a-good-feature-request). Fill in [the template][feature request template].
 
-> **Note:** This repository is using __lodash style issue management for features__. This means:
-> 
-> - Feature requests are closed issues with `feature` label and `needed: votes` label.
-> - Bugs are open issues tagged with the `bug` label.
-> 
-> View the [feature backlog]. Upvote the top comment of an issue with 👍 if you want the feature to be prioritised higher.
-
 #### Before submitting a feature request
 
-* Most importantly, check if you're using **the latest version of Liquid**.
-* **Perform a search in the [feature backlog]** to see if a similar feature has already been requested. If it has and the issue is still open or if it's closed and has the **needed: votes** label, upvote the requested feature or add a comment, if you think it contains relevant information that will help drive it forward, instead of opening a new one. If you prefer to discuss with others first, you can start a discussion on [GitHub discussions][discussions] or in our [Teams channel][teams].
+- Most importantly, check if you're using **the latest version of Liquid**.
+- **Perform a search in the [feature backlog]** to see if a similar feature has already been requested. If it has and the issue is still open or if it has the **needed: votes** label, upvote the requested feature or add a comment, if you think it contains relevant information that will help drive it forward, instead of opening a new one. If you prefer to discuss with others first, you can start a discussion on [GitHub discussions][discussions] or in our [Teams channel][teams].
 
 #### How do I vote on an existing feature request?
 
-Click on the reaction icon in the upper right corner of the feature request. Pick the 👍 or the 👎 reaction. The maintainers of the repository will use reactions as a metric for prioritising their tasks (i.g. using `is:issue label:"needed: votes" sort:reactions-+1-desc` as the issue search query).
+You can upvote a feature request, if it has the `needed: votes` label, with a 👍 reaction on the top comment of the issue. The more votes, the higher we prioritize the request (i.g. using `is:issue label:"needed: votes" sort:reactions-+1-desc` as the issue search query).
 
 #### How do I submit a (good) feature request?
 
@@ -313,5 +306,5 @@ A lists of all labels we use in order to help us track and manage issues and pul
 [discussions]: https://github.com/emdgroup-liquid/liquid/discussions
 [teams]: https://teams.microsoft.com/l/channel/19%3ab5381a933c6c413ea0ae41c3b424acd8%40thread.skype/Liquid%2520Design%2520System?groupId=babb6c18-c13f-43ef-baf2-ce1617f228cd&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9
 [feature backlog]: https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Adone+
-[bug report template]: https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/bug_report.md
-[feature request template]: https://github.com/emdgroup-liquid/liquid/blob/main/.github/ISSUE_TEMPLATE/feature_request.md
+[bug report template]: https://github.com/emdgroup-liquid/liquid/issues/new?assignees=&labels=&template=bug_report.yml&title=bug%3A+
+[feature request template]: https://github.com/emdgroup-liquid/liquid/issues/new?assignees=&labels=&template=feature_request.yml&title=feat%3A+
