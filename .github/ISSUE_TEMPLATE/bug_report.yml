@@ -1,0 +1,62 @@
+name: 🪳 Bug report
+description: Create a report to help us improve Liquid
+title: 'bug: '
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: Please ensure you have completed all of the following.
+      options:
+        - label: I know [how to contribute a proper bug report](https://github.com/emdgroup-liquid/liquid/blob/main/CONTRIBUTING.md#reporting-bugs).
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/emdgroup-liquid/liquid/blob/main/CODE_OF_CONDUCT.md).
+          required: true
+        - label: I have searched for [existing issues](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aopen+is%3Aissue+label%3Abug) that already report this problem, without success.
+          required: true
+  - type: input
+    attributes:
+      label: Liquid version
+      description: The version number of @emdgroup-liquid/liquid where the issue is occurring.
+    validations:
+      required: true
+  - type: dropdown
+    id: liquid-framework-bindings
+    attributes:
+      label: Framework bindings
+      description: Which framework specific bindings are you using?
+      options:
+        - None
+        - React
+        - Vue
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current behavior
+      description: A clear description of what the bug is and how it manifests. For example, what does the incorrect output look like?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: A clear description of what you expected to happen. For example, what does the correct output look like?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Please explain the steps required to duplicate this issue.
+      placeholder: 1.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Code reproduction URL
+      description: Please reproduce this issue in a minimalistic application and provide a link to the repo. You can clone one of our [sandbox apps](https://liquid.merck.design/liquid/guides/sandbox-applications/) as a starting point. This is the best way to ensure this issue is triaged quickly. Issues without a code reproduction may be closed if the maintenance team cannot reproduce the issue you are reporting.
+      placeholder: https://github.com/...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: List any other information that is relevant to your issue. Stack traces, related issues, suggestions on how to fix, Stack Overflow links, forum links, etc.
