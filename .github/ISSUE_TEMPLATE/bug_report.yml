@@ -25,7 +25,7 @@ body:
       label: Framework bindings
       description: Which framework specific bindings are you using?
       options:
-        - None
+        - no bindings
         - React
         - Vue
     validations:
@@ -46,7 +46,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: Please explain the steps required to duplicate this issue.
-      placeholder: 1.
+      placeholder: "1. ..."
     validations:
       required: true
   - type: input
