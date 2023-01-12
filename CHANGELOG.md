@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/emdgroup-liquid/liquid/compare/v4.2.0...v4.2.1) (2023-01-12)
+
+
+### Bug Fixes
+
+* **ld-stepper:** z-index issue when in placed container without explicit z-order ([c91f55e](https://github.com/emdgroup-liquid/liquid/commit/c91f55e504644e59b45b9bc8ded780c3d4f53458))
+
 # [4.2.0](https://github.com/emdgroup-liquid/liquid/compare/v4.1.13...v4.2.0) (2023-01-06)
 
 
