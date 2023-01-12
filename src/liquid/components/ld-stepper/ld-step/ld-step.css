@@ -408,7 +408,6 @@
     right: calc(var(--ld-stepper-gap) / -2);
     top: calc(var(--ld-step-dot-size-with-icon) / 2);
     transform: translateY(-50%);
-    z-index: -1;
   }
 
   &.ld-step--vertical::after {
