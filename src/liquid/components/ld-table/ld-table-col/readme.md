@@ -16,9 +16,9 @@
 
 ## Shadow Parts
 
-| Part    | Description |
-| ------- | ----------- |
-| `"col"` | the col     |
+| Part    | Description            |
+| ------- | ---------------------- |
+| `"col"` | the actual col element |
 
 
 ----------------------------------------------

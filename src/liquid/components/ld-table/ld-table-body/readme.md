@@ -30,9 +30,9 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Shadow Parts
 
-| Part      | Description    |
-| --------- | -------------- |
-| `"tbody"` | the table body |
+| Part      | Description              |
+| --------- | ------------------------ |
+| `"tbody"` | the actual tbody element |
 
 
 ----------------------------------------------

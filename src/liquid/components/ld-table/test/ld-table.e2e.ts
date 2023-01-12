@@ -104,7 +104,7 @@ describe('ld-table', () => {
         <ld-table-head>
           <ld-table-row>
             <ld-table-header sortable>Administrative Division</ld-table-header>
-            <ld-table-header sortable sorted="desc">Total</ld-table-header>
+            <ld-table-header sortable sort-order="desc">Total</ld-table-header>
             <ld-table-header sortable>Urban</ld-table-header>
             <ld-table-header sortable>Rural</ld-table-header>
           </ld-table-row>

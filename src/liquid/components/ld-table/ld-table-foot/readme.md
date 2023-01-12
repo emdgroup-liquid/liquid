@@ -30,9 +30,9 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Shadow Parts
 
-| Part      | Description      |
-| --------- | ---------------- |
-| `"tfoot"` | the table footer |
+| Part      | Description              |
+| --------- | ------------------------ |
+| `"tfoot"` | the actual tfoot element |
 
 
 ----------------------------------------------

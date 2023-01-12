@@ -11,6 +11,10 @@ th {
   padding-inline: var(--ld-table-cell-padding-x);
 }
 
+.ld-table-header--sortable {
+  cursor: pointer;
+}
+
 .ld-table-header__sort-buttons {
   display: inline-grid;
   margin: -1.2rem calc(-1 * var(--ld-sp-8)) -1rem var(--ld-sp-6);

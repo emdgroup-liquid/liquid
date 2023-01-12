@@ -30,8 +30,8 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 | `selectable`        | `selectable`         | Makes the row selectable by adding a checkbox to the start of the row. | `boolean`          | `undefined`       |
 | `selected`          | `selected`           | Indicates that the row is selected.                                    | `boolean`          | `undefined`       |
 | `selectionDisabled` | `selection-disabled` | Indicates that the row selection is disabled.                          | `boolean`          | `undefined`       |
+| `selectionLabel`    | `selection-label`    | Makes the row selectable by adding a checkbox to the start of the row. | `string`           | `'Row selection'` |
 | `selectionSticky`   | `selection-sticky`   | In selectable mode the checkbox is sticky by default.                  | `boolean`          | `true`            |
-| `selecttionLabel`   | `selecttion-label`   | Makes the row selectable by adding a checkbox to the start of the row. | `string`           | `'Row selection'` |
 
 
 ## Events
@@ -44,13 +44,13 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Shadow Parts
 
-| Part         | Description            |
-| ------------ | ---------------------- |
-| `"cell"`     |                        |
-| `"checkbox"` | the selection checkbox |
-| `"label"`    | the selection label    |
-| `"row"`      | the table row          |
-| `"select"`   | the selection cell     |
+| Part                  | Description                   |
+| --------------------- | ----------------------------- |
+| `"cell"`              |                               |
+| `"checkbox"`          | the selection checkbox        |
+| `"row"`               | the actual tr element         |
+| `"select"`            | the selection cell            |
+| `"selection-wrapper"` | the selection wrapper element |
 
 
 ## Dependencies
@@ -58,16 +58,12 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 ### Depends on
 
 - [ld-table-cell](../ld-table-cell)
-- [ld-label](../../ld-label)
-- [ld-sr-only](../../ld-sr-only)
 - [ld-checkbox](../../ld-checkbox)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-table-row --> ld-table-cell
-  ld-table-row --> ld-label
-  ld-table-row --> ld-sr-only
   ld-table-row --> ld-checkbox
   style ld-table-row fill:#f9f,stroke:#333,stroke-width:4px
 ```

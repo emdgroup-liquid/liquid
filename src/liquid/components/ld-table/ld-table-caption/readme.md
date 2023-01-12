@@ -31,9 +31,9 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Shadow Parts
 
-| Part           | Description    |
-| -------------- | -------------- |
-| `"figcaption"` | the figcaption |
+| Part           | Description                   |
+| -------------- | ----------------------------- |
+| `"figcaption"` | the actual figcaption element |
 
 
 ----------------------------------------------

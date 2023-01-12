@@ -18,6 +18,16 @@
   --ld-table-typo: var(--ld-typo-h6);
   --ld-table-white-space: nowrap;
 
+  /* The table head gradient fixes the position sticky quirk with Safari by using background-image. */
+  /* Note that 0.75 is a special width that works well in all browsers. */
+  --ld-table-head-gradient: linear-gradient(
+    to top,
+    var(--ld-table-border-col),
+    var(--ld-table-border-col) calc(var(--ld-sp-1) * 0.75),
+    var(--ld-table-bg-col) calc(var(--ld-sp-1) * 0.75),
+    var(--ld-table-bg-col)
+  );
+
   /* Fix for Safari overflow hidden with border radius quirk. */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 
@@ -87,6 +97,7 @@
   thead {
     outline: var(--ld-table-row-outline);
   }
+
   tr {
     outline: var(--ld-table-row-outline-half);
   }
@@ -98,15 +109,7 @@
   }
 
   thead {
-    /* Fix position sticky quirk with Safari by using background-image. */
-    /* Note that 0.75 is a special width that works well in all browsers. */
-    background-image: linear-gradient(
-      to top,
-      var(--ld-table-border-col),
-      var(--ld-table-border-col) calc(var(--ld-sp-1) * 0.75),
-      var(--ld-table-bg-col) calc(var(--ld-sp-1) * 0.75),
-      var(--ld-table-bg-col)
-    );
+    background-image: var(--ld-table-head-gradient);
     position: sticky;
     top: 0;
     z-index: 2;

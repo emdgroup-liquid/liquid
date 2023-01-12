@@ -49,7 +49,6 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
  - [ld-sr-live](../ld-sr-live)
  - [ld-step](../ld-stepper/ld-step)
  - [ld-stepper](../ld-stepper)
- - [ld-table-row](../ld-table/ld-table-row)
  - [ld-tooltip](../ld-tooltip)
 
 ### Graph
@@ -61,7 +60,6 @@ graph TD;
   ld-sr-live --> ld-sr-only
   ld-step --> ld-sr-only
   ld-stepper --> ld-sr-only
-  ld-table-row --> ld-sr-only
   ld-tooltip --> ld-sr-only
   style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
 ```

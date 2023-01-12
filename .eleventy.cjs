@@ -27,6 +27,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: false,
     init: function ({ Prism }) {
+      // Set highlighting for template strings (i.e. for code examples using Vue template strings)
       Prism.languages.javascript['template-string'] = {
         pattern: /`(?:\\.|\$\{[^{}]*\}|(?!\$\{)[^\\`])*`/,
         inside: Prism.languages.html,
