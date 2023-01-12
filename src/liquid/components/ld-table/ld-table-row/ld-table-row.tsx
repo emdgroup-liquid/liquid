@@ -4,9 +4,9 @@ import { getClassNames } from '../../../utils/getClassNames'
 
 /**
  * @part checkbox - the selection checkbox
- * @part label - the selection label
- * @part row - the table row
+ * @part row - the actual tr element
  * @part select - the selection cell
+ * @part selection-wrapper - the selection wrapper element
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
@@ -25,7 +25,7 @@ export class LdTableRow {
   @Prop() selectionSticky = true
 
   /** Makes the row selectable by adding a checkbox to the start of the row. */
-  @Prop() selecttionLabel = 'Row selection'
+  @Prop() selectionLabel = 'Row selection'
 
   /** Indicates that the row is selected. */
   @Prop({ mutable: true }) selected?: boolean
@@ -84,16 +84,16 @@ export class LdTableRow {
             ])}
             part="cell select"
           >
-            <ld-label class="ld-table__selection-label" part="label">
-              <ld-sr-only>{this.selecttionLabel}</ld-sr-only>
+            <div class="ld-table__selection-wrapper" part="selection-wrapper">
               <ld-checkbox
                 aria-disabled={this.selectionDisabled ? 'true' : undefined}
+                aria-label={this.selectionLabel}
                 checked={this.selected}
                 indeterminate={this.indeterminate}
                 onInput={this.onSelectInput}
                 part="checkbox"
               />
-            </ld-label>
+            </div>
           </ld-table-cell>
         )}
         <slot />

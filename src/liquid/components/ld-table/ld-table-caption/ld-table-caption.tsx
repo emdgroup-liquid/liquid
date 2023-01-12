@@ -1,7 +1,7 @@
 import { Component, h } from '@stencil/core'
 
 /**
- * @part figcaption - the figcaption
+ * @part figcaption - the actual figcaption element
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */

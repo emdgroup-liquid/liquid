@@ -14,14 +14,14 @@ import { closest } from '../../utils/closest'
   shadow: true,
 })
 export class LdTable {
-  @Element() el
+  @Element() el: HTMLLdTableElement
   tableRef: HTMLTableElement
 
   @Listen('ldTableSort')
   handleTableSort(
     ev: CustomEvent<{
       columnIndex: number
-      sortOrder: 'asc' | 'desc'
+      sortOrder?: 'asc' | 'desc'
     }>
   ) {
     const ldTableHeader = closest('ld-table-header', ev.target as HTMLElement)
@@ -37,7 +37,7 @@ export class LdTable {
 
     const ldTableBody = this.el.querySelector('ld-table-body')
     Array.from(ldTableBody.querySelectorAll('ld-table-row'))
-      .sort(this.comparer(ev.detail.columnIndex, ev.detail.sortOrder))
+      .sort(this.getComparer(ev.detail.columnIndex, ev.detail.sortOrder))
       .forEach((tr) => ldTableBody.appendChild(tr))
   }
 
@@ -49,10 +49,10 @@ export class LdTable {
   ) {
     if (ev.defaultPrevented) return
 
-    // Select or diselect all.
+    // Select or deselect all.
     const ldTableBody = this.el.querySelector('ld-table-body')
     Array.from(ldTableBody.querySelectorAll('ld-table-row')).forEach(
-      (tr: HTMLLdTableRowElement) => (tr.selected = ev.detail.selected)
+      (tr) => (tr.selected = ev.detail.selected)
     )
   }
 
@@ -67,11 +67,11 @@ export class LdTable {
     // Check if all are selected and update select all checkbox.
     const ldTableBody = this.el.querySelector('ld-table-body')
     const allRowsInTableBody = ldTableBody.querySelectorAll('ld-table-row')
-    const allSelected = !Array.from(allRowsInTableBody).some(
-      (tr: HTMLLdTableRowElement) => !tr.selected
+    const allSelected = Array.from(allRowsInTableBody).every(
+      (tr) => tr.selected
     )
-    const noneSelected = !Array.from(allRowsInTableBody).some(
-      (tr: HTMLLdTableRowElement) => tr.selected
+    const noneSelected = Array.from(allRowsInTableBody).every(
+      (tr) => !tr.selected
     )
     const ldTableHead = this.el.querySelector('ld-table-head')
     const firstRowInHead = ldTableHead.querySelector('ld-table-row')
@@ -82,7 +82,7 @@ export class LdTable {
   getCellValue = (tr: HTMLLdTableRowElement, columnIndex: number) =>
     tr.children[columnIndex].textContent.trim()
 
-  comparer =
+  getComparer =
     (columnIndex: number, sortOrder: 'asc' | 'desc') =>
     (tr1: HTMLLdTableRowElement, tr2: HTMLLdTableRowElement) => {
       const str1 = this.getCellValue(
@@ -104,9 +104,11 @@ export class LdTable {
   componentDidLoad() {
     const hasSelectionDisabled = Array.from(
       this.el.querySelectorAll('ld-table-row')
-    ).some((tr) => (tr as HTMLLdTableRowElement).selectionDisabled)
+    ).some((tr) => tr.selectionDisabled)
     if (hasSelectionDisabled) {
-      const firstRowInHead = this.el.querySelector('ld-table-head ld-table-row')
+      const firstRowInHead = this.el.querySelector<HTMLLdTableRowElement>(
+        'ld-table-head ld-table-row'
+      )
       if (firstRowInHead) {
         firstRowInHead.selectionDisabled = true
       }

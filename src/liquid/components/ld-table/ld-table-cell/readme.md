@@ -34,9 +34,9 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Shadow Parts
 
-| Part     | Description    |
-| -------- | -------------- |
-| `"cell"` | the table cell |
+| Part     | Description           |
+| -------- | --------------------- |
+| `"cell"` | the actual td element |
 
 
 ## Dependencies

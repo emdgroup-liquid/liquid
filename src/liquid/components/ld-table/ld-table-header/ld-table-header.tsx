@@ -8,9 +8,10 @@ import {
   Prop,
 } from '@stencil/core'
 import { closest } from '../../../utils/closest'
+import { getClassNames } from '../../../utils/getClassNames'
 
 /**
- * @part cell - the table cell
+ * @part cell - the actual th element
  * @part sort-button-asc - ascending sort button
  * @part sort-button-desc - descending sort button
  * @part sort-buttons - container wrapping the sort buttons
@@ -31,8 +32,8 @@ export class LdTableHeader {
   /** Defines whether the column is sortable. */
   @Prop() sortable = false
 
-  /** Defines whether the column is sorted. */
-  @Prop({ mutable: true }) sorted?: 'asc' | 'desc'
+  /** Defines whether the column is sorted and in which order. */
+  @Prop({ mutable: true }) sortOrder?: 'asc' | 'desc'
 
   /** Emitted with culumn index and sort order. */
   @Event() ldTableSort: EventEmitter<{
@@ -46,11 +47,11 @@ export class LdTableHeader {
    */
   @Method()
   async resetSort() {
-    this.sorted = undefined
+    this.sortOrder = undefined
   }
 
   handleSort = (sortOrder: 'asc' | 'desc') => {
-    this.sorted = sortOrder
+    this.sortOrder = sortOrder
     const columnIndex = Array.from(this.el.parentNode.children).indexOf(this.el)
     this.ldTableSort.emit({
       columnIndex,
@@ -60,13 +61,23 @@ export class LdTableHeader {
 
   onSortClick = (ev: Event, sortOrder: 'asc' | 'desc') => {
     ev.preventDefault()
+    ev.stopPropagation()
     if (closest('ld-button', ev.target as HTMLElement).ariaDisabled) return
     this.handleSort(sortOrder)
   }
 
+  onThClick = () => {
+    if (!this.sortable) return
+    if (this.sortOrder === 'desc') {
+      this.handleSort('asc')
+    } else {
+      this.handleSort('desc')
+    }
+  }
+
   componentWillLoad() {
-    if (this.sorted) {
-      this.handleSort(this.sorted)
+    if (this.sortOrder) {
+      this.handleSort(this.sortOrder)
     }
   }
 
@@ -97,12 +108,20 @@ export class LdTableHeader {
 
   render() {
     return (
-      <th class="ld-table-header" scope={this.scope} part="cell">
+      <th
+        class={getClassNames([
+          'ld-table-header',
+          this.sortable && 'ld-table-header--sortable',
+        ])}
+        scope={this.scope}
+        part="cell"
+        onClick={this.onThClick}
+      >
         <slot />
         {this.sortable && (
           <div class="ld-table-header__sort-buttons" part="sort-buttons">
             <ld-button
-              aria-disabled={this.sorted === 'asc' ? 'true' : undefined}
+              aria-disabled={this.sortOrder === 'asc' ? 'true' : undefined}
               mode="ghost"
               onClick={(ev) => this.onSortClick(ev, 'asc')}
               part="sort-button-asc"
@@ -111,7 +130,7 @@ export class LdTableHeader {
               {this.renderChevron(true)}
             </ld-button>
             <ld-button
-              aria-disabled={this.sorted === 'desc' ? 'true' : undefined}
+              aria-disabled={this.sortOrder === 'desc' ? 'true' : undefined}
               mode="ghost"
               onClick={(ev) => this.onSortClick(ev, 'desc')}
               part="sort-button-desc"

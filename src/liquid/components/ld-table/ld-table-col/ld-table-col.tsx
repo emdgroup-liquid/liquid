@@ -1,7 +1,7 @@
 import { Component, h, Prop } from '@stencil/core'
 
 /**
- * @part col - the col
+ * @part col - the actual col element
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */

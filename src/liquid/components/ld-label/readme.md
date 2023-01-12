@@ -397,19 +397,6 @@ HTML content describing the labeled element should be wrapped in a single HTML e
 | `"tag"` | Actual label element |
 
 
-## Dependencies
-
-### Used by
-
- - [ld-table-row](../ld-table/ld-table-row)
-
-### Graph
-```mermaid
-graph TD;
-  ld-table-row --> ld-label
-  style ld-label fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

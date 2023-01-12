@@ -73,7 +73,7 @@ describe('ld-table', () => {
           <ld-table>
             <ld-table-head>
               <ld-table-row>
-                <ld-table-header sortable sorted="asc">
+                <ld-table-header sortable sort-order="asc">
                   Nums
                 </ld-table-header>
                 <ld-table-header sortable>Chars</ld-table-header>
@@ -190,6 +190,44 @@ describe('ld-table', () => {
       expect(btnNumsSortDesc).not.toHaveAttribute('aria-disabled')
       expect(btnCharsSortAsc).toHaveAttribute('aria-disabled')
       expect(btnCharsSortDesc).not.toHaveAttribute('aria-disabled')
+
+      const th = page.root
+        .querySelector('ld-table-header:first-child')
+        .shadowRoot.querySelector('th')
+
+      th.click()
+      await page.waitForChanges()
+      nums = getNums()
+      chars = getChars()
+
+      expect(nums[0]).toEqual('100,000,000.0')
+      expect(nums[1]).toEqual('200,000.0')
+      expect(nums[2]).toEqual('1.0')
+      expect(chars[0]).toEqual('C')
+      expect(chars[1]).toEqual('B')
+      expect(chars[2]).toEqual('A')
+
+      expect(btnNumsSortAsc).not.toHaveAttribute('aria-disabled')
+      expect(btnNumsSortDesc).toHaveAttribute('aria-disabled')
+      expect(btnCharsSortAsc).not.toHaveAttribute('aria-disabled')
+      expect(btnCharsSortDesc).not.toHaveAttribute('aria-disabled')
+
+      th.click()
+      await page.waitForChanges()
+      nums = getNums()
+      chars = getChars()
+
+      expect(nums[0]).toEqual('1.0')
+      expect(nums[1]).toEqual('200,000.0')
+      expect(nums[2]).toEqual('100,000,000.0')
+      expect(chars[0]).toEqual('A')
+      expect(chars[1]).toEqual('B')
+      expect(chars[2]).toEqual('C')
+
+      expect(btnNumsSortAsc).toHaveAttribute('aria-disabled')
+      expect(btnNumsSortDesc).not.toHaveAttribute('aria-disabled')
+      expect(btnCharsSortAsc).not.toHaveAttribute('aria-disabled')
+      expect(btnCharsSortDesc).not.toHaveAttribute('aria-disabled')
     })
 
     it('does not sort if prevented', async () => {
@@ -199,7 +237,7 @@ describe('ld-table', () => {
           <ld-table>
             <ld-table-head>
               <ld-table-row>
-                <ld-table-header sortable sorted="asc">
+                <ld-table-header sortable sort-order="asc">
                   Nums
                 </ld-table-header>
               </ld-table-row>
@@ -266,6 +304,59 @@ describe('ld-table', () => {
       expect(nums[0]).toEqual('3')
       expect(nums[1]).toEqual('2')
       expect(nums[2]).toEqual('1')
+    })
+
+    it('does not sort if not sortable', async () => {
+      const page = await newSpecPage({
+        components,
+        template: () => (
+          <ld-table>
+            <ld-table-head>
+              <ld-table-row>
+                <ld-table-header sort-order="asc">Nums</ld-table-header>
+              </ld-table-row>
+            </ld-table-head>
+            <ld-table-body>
+              <ld-table-row>
+                <ld-table-cell>1</ld-table-cell>
+              </ld-table-row>
+              <ld-table-row>
+                <ld-table-cell>2</ld-table-cell>
+              </ld-table-row>
+              <ld-table-row>
+                <ld-table-cell>3</ld-table-cell>
+              </ld-table-row>
+            </ld-table-body>
+            <ld-table-foot>
+              <ld-table-row>
+                <ld-table-cell>6</ld-table-cell>
+              </ld-table-row>
+            </ld-table-foot>
+          </ld-table>
+        ),
+      })
+
+      const getNums = () =>
+        Array.from(page.root.querySelectorAll('ld-table-cell:first-child')).map(
+          (cell) => cell.textContent
+        )
+      let nums = getNums()
+
+      expect(nums[0]).toEqual('1')
+      expect(nums[1]).toEqual('2')
+      expect(nums[2]).toEqual('3')
+
+      const th = page.root
+        .querySelector('ld-table-header:first-child')
+        .shadowRoot.querySelector('th')
+
+      th.click()
+      await page.waitForChanges()
+      nums = getNums()
+
+      expect(nums[0]).toEqual('1')
+      expect(nums[1]).toEqual('2')
+      expect(nums[2]).toEqual('3')
     })
   })
 

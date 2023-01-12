@@ -1,7 +1,7 @@
 import { Component, h } from '@stencil/core'
 
 /**
- * @part tbody - the table body
+ * @part tbody - the actual tbody element
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */

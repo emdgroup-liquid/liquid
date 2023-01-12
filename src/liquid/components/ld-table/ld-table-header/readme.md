@@ -22,13 +22,13 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Properties
 
-| Property   | Attribute  | Description                                              | Type               | Default     |
-| ---------- | ---------- | -------------------------------------------------------- | ------------------ | ----------- |
-| `key`      | `key`      | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
-| `ref`      | `ref`      | reference to component                                   | `any`              | `undefined` |
-| `scope`    | `scope`    | Defines the cells that the header element relates to.    | `string`           | `undefined` |
-| `sortable` | `sortable` | Defines whether the column is sortable.                  | `boolean`          | `false`     |
-| `sorted`   | `sorted`   | Defines whether the column is sorted.                    | `"asc" \| "desc"`  | `undefined` |
+| Property    | Attribute    | Description                                              | Type               | Default     |
+| ----------- | ------------ | -------------------------------------------------------- | ------------------ | ----------- |
+| `key`       | `key`        | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`       | `ref`        | reference to component                                   | `any`              | `undefined` |
+| `scope`     | `scope`      | Defines the cells that the header element relates to.    | `string`           | `undefined` |
+| `sortOrder` | `sort-order` | Defines whether the column is sorted and in which order. | `"asc" \| "desc"`  | `undefined` |
+| `sortable`  | `sortable`   | Defines whether the column is sortable.                  | `boolean`          | `false`     |
 
 
 ## Events
@@ -42,7 +42,7 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 | Part                 | Description                         |
 | -------------------- | ----------------------------------- |
-| `"cell"`             | the table cell                      |
+| `"cell"`             | the actual th element               |
 | `"sort-button-asc"`  | ascending sort button               |
 | `"sort-button-desc"` | descending sort button              |
 | `"sort-buttons"`     | container wrapping the sort buttons |

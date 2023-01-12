@@ -1,21 +1,9 @@
 :host {
   display: contents;
-
-  ::slotted(ld-table-row) {
-    transform: rotate(45deg);
-  }
 }
 
 thead {
-  /* Fix position sticky quirk with Safari by using background-image. */
-  /* Note that 0.75 is a special width that works well in all browsers. */
-  background-image: linear-gradient(
-    to top,
-    var(--ld-table-border-col),
-    var(--ld-table-border-col) calc(var(--ld-sp-1) * 0.75),
-    var(--ld-table-bg-col) calc(var(--ld-sp-1) * 0.75),
-    var(--ld-table-bg-col)
-  );
+  background-image: var(--ld-table-head-gradient);
   position: sticky;
   top: 0;
   z-index: 2;

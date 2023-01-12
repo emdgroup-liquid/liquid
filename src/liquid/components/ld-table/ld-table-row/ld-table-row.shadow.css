@@ -7,7 +7,7 @@ tr {
   outline: var(--ld-table-row-outline-half);
 }
 
-.ld-table__selection-label {
+.ld-table__selection-wrapper {
   vertical-align: middle;
   align-items: center;
   background-color: var(--ld-table-bg-col);
