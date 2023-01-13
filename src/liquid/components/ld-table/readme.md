@@ -375,7 +375,7 @@ In cases where the default sorting functionality is not suitable, you can preven
     },
     async created() {
       try {
-        const data = await fetch('/assets/examples/numerals.json').then((res) => res.json())
+        const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/numerals.json').then((res) => res.json())
         this.elements = data.elements
       } catch (err) {
         console.error(err)
@@ -467,7 +467,7 @@ As long as the table is not displaying dynamic data (i.e. you have not set up cu
     },
     async created() {
       try {
-        const data = await fetch('/assets/examples/periodicTable.json').then((res) => res.json())
+        const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/periodicTable.json').then((res) => res.json())
         this.elements = data.elements
       } catch (err) {
         console.error(err)
@@ -593,7 +593,7 @@ The following example shows how to use the [`ld-pagination`](/components/ld-pagi
     },
     async created() {
       try {
-        const data = await fetch('/assets/examples/periodicTable.json').then((res) => res.json())
+        const data = await fetch('{{ env.base }}/{{ buildstamp }}assets/examples/periodicTable.json').then((res) => res.json())
         this.elements = data.elements
       } catch (err) {
         console.error(err)
