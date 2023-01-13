@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/emdgroup-liquid/liquid/compare/v4.2.1...v4.3.0) (2023-01-13)
+
+
+### Features
+
+* **ld-table:** table component ([c0226dd](https://github.com/emdgroup-liquid/liquid/commit/c0226dd88c0b6d752d7f15eacfce496c385d894d))
+
 ## [4.2.1](https://github.com/emdgroup-liquid/liquid/compare/v4.2.0...v4.2.1) (2023-01-12)
 
 
