@@ -26,8 +26,28 @@ import { getClassNames } from '../../../utils/getClassNames'
 export class LdTableHeader {
   @Element() el: HTMLLdTableHeaderElement
 
+  /**
+   * This attribute contains a short abbreviated description
+   * of the cell's content. Some user-agents, such as speech readers,
+   * may present this description before the content itself.
+   */
+  @Prop() abbr?: HTMLTableCellElement['abbr']
+
+  /** Indicates for how many columns the cell extends. */
+  @Prop() colspan?: HTMLTableCellElement['colSpan']
+
+  /**
+   * This attribute contains a list of space-separated strings,
+   * each corresponding to the id attribute of the <th> elements
+   * that apply to this element.
+   */
+  @Prop() headers?: HTMLTableCellElement['headers']
+
+  /** Indicates for how many rows the cell extends. */
+  @Prop() rowspan?: HTMLTableCellElement['rowSpan']
+
   /** Defines the cells that the header element relates to. */
-  @Prop() scope: HTMLTableCellElement['scope']
+  @Prop() scope?: HTMLTableCellElement['scope']
 
   /** Defines whether the column is sortable. */
   @Prop() sortable = false
@@ -113,6 +133,10 @@ export class LdTableHeader {
           'ld-table-header',
           this.sortable && 'ld-table-header--sortable',
         ])}
+        abbr={this.abbr}
+        colSpan={this.colspan}
+        headers={this.abbr}
+        rowspan={this.rowspan}
         scope={this.scope}
         part="cell"
         onClick={this.onThClick}

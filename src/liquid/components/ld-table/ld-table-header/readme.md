@@ -22,13 +22,17 @@ Please refer to the [`ld-table` documentation](components/ld-table/) for usage e
 
 ## Properties
 
-| Property    | Attribute    | Description                                              | Type               | Default     |
-| ----------- | ------------ | -------------------------------------------------------- | ------------------ | ----------- |
-| `key`       | `key`        | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
-| `ref`       | `ref`        | reference to component                                   | `any`              | `undefined` |
-| `scope`     | `scope`      | Defines the cells that the header element relates to.    | `string`           | `undefined` |
-| `sortOrder` | `sort-order` | Defines whether the column is sorted and in which order. | `"asc" \| "desc"`  | `undefined` |
-| `sortable`  | `sortable`   | Defines whether the column is sortable.                  | `boolean`          | `false`     |
+| Property    | Attribute    | Description                                                                                                                                                                      | Type               | Default     |
+| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `abbr`      | `abbr`       | This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself. | `string`           | `undefined` |
+| `colspan`   | `colspan`    | Indicates for how many columns the cell extends.                                                                                                                                 | `number`           | `undefined` |
+| `headers`   | `headers`    | This attribute contains a list of space-separated strings, each corresponding to the id attribute of the <th> elements that apply to this element.                               | `string`           | `undefined` |
+| `key`       | `key`        | for tracking the node's identity when working with lists                                                                                                                         | `string \| number` | `undefined` |
+| `ref`       | `ref`        | reference to component                                                                                                                                                           | `any`              | `undefined` |
+| `rowspan`   | `rowspan`    | Indicates for how many rows the cell extends.                                                                                                                                    | `number`           | `undefined` |
+| `scope`     | `scope`      | Defines the cells that the header element relates to.                                                                                                                            | `string`           | `undefined` |
+| `sortOrder` | `sort-order` | Defines whether the column is sorted and in which order.                                                                                                                         | `"asc" \| "desc"`  | `undefined` |
+| `sortable`  | `sortable`   | Defines whether the column is sortable.                                                                                                                                          | `boolean`          | `false`     |
 
 
 ## Events
