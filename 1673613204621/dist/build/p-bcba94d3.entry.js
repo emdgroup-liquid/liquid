@@ -1,0 +1,1 @@
+import{r as t,h as a}from"./p-765a6fc5.js";const e=class{constructor(a){t(this,a)}render(){return a("thead",{class:"ld-table-head",part:"thead"},a("slot",null))}};e.style=":host{display:contents}thead{background-image:var(--ld-table-head-gradient);position:sticky;top:0;z-index:2}";export{e as ld_table_head}

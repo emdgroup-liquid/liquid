@@ -1,0 +1,1 @@
+import{r as o,h as s}from"./p-765a6fc5.js";const t=class{constructor(s){o(this,s),this.span=void 0}render(){return s("colgroup",{class:"ld-table-colgroup",span:this.span,part:"colgroup"},s("slot",null))}};t.style=":host{display:contents}";export{t as ld_table_colgroup}

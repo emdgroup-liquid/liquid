@@ -1,0 +1,1 @@
+:host ::slotted(ld-pagination){flex-shrink:0;overflow-x:hidden;padding-bottom:var(--ld-sp-8);padding-top:var(--ld-sp-4);transform:translateY(var(--ld-sp-2))}:host ::slotted(ld-pagination:first-child){margin-left:calc(var(--ld-sp-8)*-1)}:host ::slotted(ld-pagination:last-child){margin-right:calc(var(--ld-sp-8)*-1)}

@@ -1,0 +1,1 @@
+import{r as t,h as a}from"./p-765a6fc5.js";const o=class{constructor(a){t(this,a)}render(){return a("figcaption",{class:"ld-table-caption",part:"figcaption"},a("slot",null))}};o.style="";export{o as ld_table_caption}
