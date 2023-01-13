@@ -91,7 +91,7 @@ jobs:
           path: dist_docs
 
       - name: Deploy docs
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.4.1
         with:
           branch: gh-pages
           folder: dist_docs
