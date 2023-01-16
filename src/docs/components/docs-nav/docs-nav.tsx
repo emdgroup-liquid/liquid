@@ -75,7 +75,8 @@ export class DocsNav {
           <div class="docs-nav__section">
             <p>
               <span class="docs-nav__dimmed">
-                © 2021, Merck KGaA, Darmstadt,&nbsp;Germany
+                © {new Date().getFullYear()}, Merck KGaA,
+                Darmstadt,&nbsp;Germany
               </span>
             </p>
             <br />
