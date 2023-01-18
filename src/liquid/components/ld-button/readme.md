@@ -24,6 +24,10 @@ Icon-buttons without visual text should either contain a [screen-reader-only](co
 {% example %}
 <ld-button>Text</ld-button>
 
+<!-- React component -->
+
+<LdButton>Text</LdButton>
+
 <!-- CSS component -->
 
 <button class="ld-button">Text</button>
@@ -32,18 +36,32 @@ Icon-buttons without visual text should either contain a [screen-reader-only](co
 ### Disabled
 
 {% example %}
-<ld-button id="disabled-button-1" disabled>Text</ld-button>
+<ld-button disabled>Text</ld-button>
 <script>
-  document.getElementById('disabled-button-1').addEventListener('click', () => { window.alert('click') })
-  // The event handler won't be called.
+  document.currentScript.previousElementSibling
+    .addEventListener('click', (ev) => { window.alert('click') })
+    // The event handler won't be called.
 </script>
+
+<!-- React component -->
+
+<LdButton
+  disabled
+  onClick={() => {
+    window.alert('click')
+    // The event handler won't be called.
+  }}
+>
+  Text
+</LdButton>
 
 <!-- CSS component -->
 
-<button id="disabled-button-2" class="ld-button" disabled>Text</button>
+<button class="ld-button" disabled>Text</button>
 <script>
-  document.getElementById('disabled-button-2').addEventListener('click', () => { window.alert('click') })
-  // The event handler won't be called.
+  document.currentScript.previousElementSibling
+    .addEventListener('click', (ev) => { window.alert('click') })
+    // The event handler won't be called.
 </script>
 {% endexample %}
 
@@ -53,20 +71,32 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 **If you want the button to stay focusable** even if it is disabled, use `aria-disabled` in place of `disabled`:
 
 {% example %}
-<ld-button id="disabled-button-3" aria-disabled="true">Text</ld-button>
+<ld-button aria-disabled="true">Text</ld-button>
 <script>
-  document.getElementById('disabled-button-3').addEventListener('click', () => { window.alert('click') })
+  document.currentScript.previousElementSibling.addEventListener('click', () => { window.alert('click') })
   // The event handler won't be called.
 </script>
 
+<!-- React component -->
+
+<LdButton
+  aria-disabled="true"
+  onClick={() => {
+    window.alert('click')
+    // The event handler won't be called.
+  }}
+>
+  Text
+</LdButton>
+
 <!-- CSS component -->
 
-<button id="disabled-button-4" class="ld-button" aria-disabled="true">
+<button class="ld-button" aria-disabled="true">
   Text
 </button>
 <script>
   // When using the CSS component, you will need to prevent the default behaviour of the button yourself.
-  document.getElementById('disabled-button-4').addEventListener('click', (ev) => {
+  document.currentScript.previousElementSibling.addEventListener('click', (ev) => {
     console.info('preventing default behaviour')
     ev.preventDefault()
     ev.stopImmediatePropagation()
@@ -84,13 +114,13 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example %}
 <ld-button mode="secondary">Text</ld-button>
 
-<ld-button mode="secondary" disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton mode="secondary">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--secondary">Text</button>
-
-<button class="ld-button ld-button--secondary" disabled>Text</button>
 {% endexample %}
 
 ### Ghost
@@ -98,13 +128,13 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example %}
 <ld-button mode="ghost">Text</ld-button>
 
-<ld-button mode="ghost" disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton mode="ghost">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--ghost">Text</button>
-
-<button class="ld-button ld-button--ghost" disabled>Text</button>
 {% endexample %}
 
 ### On brand color
@@ -112,29 +142,25 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example '{ "background": "brand", "hasBorder": false }' %}
 <ld-button brand-color>Text</ld-button>
 
-<ld-button brand-color disabled>Text</ld-button>
-
 <ld-button mode="secondary" brand-color>Text</ld-button>
-
-<ld-button mode="secondary" brand-color disabled>Text</ld-button>
 
 <ld-button mode="ghost" brand-color>Text</ld-button>
 
-<ld-button mode="ghost" brand-color disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton brandColor>Text</LdButton>
+
+<LdButton mode="secondary" brandColor>Text</LdButton>
+
+<LdButton mode="ghost" brandColor>Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--brand-color">Text</button>
 
-<button class="ld-button ld-button--brand-color" disabled>Text</button>
-
 <button class="ld-button ld-button--secondary ld-button--brand-color">Text</button>
 
-<button class="ld-button ld-button--secondary ld-button--brand-color" disabled>Text</button>
-
 <button class="ld-button ld-button--ghost ld-button--brand-color">Text</button>
-
-<button class="ld-button ld-button--ghost ld-button--brand-color" disabled>Text</button>
 {% endexample %}
 
 ### Highlight
@@ -142,13 +168,13 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example %}
 <ld-button mode="highlight">Text</ld-button>
 
-<ld-button mode="highlight" disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton mode="highlight">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--highlight">Text</button>
-
-<button class="ld-button ld-button--highlight" disabled>Text</button>
 {% endexample %}
 
 ### Danger
@@ -156,13 +182,13 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example %}
 <ld-button mode="danger">Text</ld-button>
 
-<ld-button mode="danger" disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton mode="danger">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--danger">Text</button>
-
-<button class="ld-button ld-button--danger" disabled>Text</button>
 {% endexample %}
 
 ### Danger secondary
@@ -170,13 +196,13 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 {% example %}
 <ld-button mode="danger-secondary">Text</ld-button>
 
-<ld-button mode="danger-secondary" disabled>Text</ld-button>
+<!-- React component -->
+
+<LdButton mode="danger-secondary">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--danger-secondary">Text</button>
-
-<button class="ld-button ld-button--danger-secondary" disabled>Text</button>
 {% endexample %}
 
 ### Size
@@ -187,6 +213,14 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <ld-button>Text</ld-button>
 
 <ld-button size="lg">Text</ld-button>
+
+<!-- React component -->
+
+<LdButton size="sm">Text</LdButton>
+
+<LdButton>Text</LdButton>
+
+<LdButton size="lg">Text</LdButton>
 
 <!-- CSS component -->
 
@@ -226,6 +260,35 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
   <ld-icon name="placeholder" size="lg"></ld-icon>
   Text
 </ld-button>
+
+<!-- React component -->
+
+<LdButton size="sm">
+  <LdIcon name="placeholder" size="sm" aria-label="Text" />
+</LdButton>
+
+<LdButton>
+  <LdIcon name="placeholder" aria-label="Text" />
+</LdButton>
+
+<LdButton size="lg">
+  <LdIcon name="placeholder" size="lg" aria-label="Text" />
+</LdButton>
+
+<LdButton mode="highlight" size="sm">
+  <LdIcon name="placeholder" size="sm" />
+  Text
+</LdButton>
+
+<LdButton mode="danger">
+  Text
+  <LdIcon name="placeholder" />
+</LdButton>
+
+<LdButton mode="secondary" size="lg">
+  <LdIcon name="placeholder" size="lg" />
+  Text
+</LdButton>
 
 <!-- CSS component -->
 
@@ -301,6 +364,16 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   <ld-button>Text</ld-button>
 </div>
 
+<!-- React component -->
+
+<LdButton style={ { width: '18rem' } }>
+  Text
+</LdButton>
+
+<div style={ { display: 'inline-grid', width: '18rem' } }>
+  <LdButton>Text</LdButton>
+</div>
+
 <!-- CSS component -->
 
 <button class="ld-button" style="width: 18rem">Text</button>
@@ -313,7 +386,7 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
 ### Justify content
 
 {% example %}
-<ld-button style="width: 8rem" justify-content="center">
+<ld-button style="width: 8rem">
   Text
   <ld-icon name="placeholder"></ld-icon>
 </ld-button>
@@ -332,6 +405,39 @@ To give a button a custom width, simply assign the `width` or `min-width` CSS pr
   Text
   <ld-icon name="placeholder"></ld-icon>
 </ld-button>
+
+<!-- React component -->
+
+<LdButton
+  style={ { width: '8rem' } }
+>
+  Text
+  <LdIcon name="placeholder" />
+</LdButton>
+
+<LdButton
+  style={ { width: '8rem' } }
+  justifyContent="start"
+>
+  Text
+  <LdIcon name="placeholder" />
+</LdButton>
+
+<LdButton
+  style={ { width: '8rem' } }
+  justifyContent="end"
+>
+  Text
+  <LdIcon name="placeholder" />
+</LdButton>
+
+<LdButton
+  style={ { width: '8rem' } }
+  justifyContent="between"
+>
+  Text
+  <LdIcon name="placeholder" />
+</LdButton>
 
 <!-- CSS component -->
 
@@ -405,6 +511,28 @@ You can align the text inside the button using the `align-text` propperty.
   <ld-icon name="placeholder"></ld-icon>
 </ld-button>
 
+<!-- React component -->
+
+<LdButton>
+  Almost before we knew it, we had left the ground.
+  A shining crescent far beneath the flying vessel.
+  Then came the night of the first falling star.
+</LdButton>
+
+<LdButton alignText="left">
+  <LdIcon name="placeholder" />
+  Almost before we knew it, we had left the ground.
+  A shining crescent far beneath the flying vessel.
+  Then came the night of the first falling star.
+</LdButton>
+
+<LdButton alignText="right">
+  Almost before we knew it, we had left the ground.
+  A shining crescent far beneath the flying vessel.
+  Then came the night of the first falling star.
+  <LdIcon name="placeholder" />
+</LdButton>
+
 <!-- CSS component -->
 
 <button class="ld-button">
@@ -443,6 +571,10 @@ You can align the text inside the button using the `align-text` propperty.
 {% example '{ "opened": true }' %}
 <ld-button href="#" target="_blank">Text</ld-button>
 
+<!-- React component -->
+
+<LdButton href="#" target="_blank">Text</LdButton>
+
 <!-- CSS component -->
 
 <a class="ld-button" href="#" target="_blank" rel="noreferrer noopener">Text</a>
@@ -459,15 +591,11 @@ You can align the text inside the button using the `align-text` propperty.
 
 <ld-button progress="pending">Text</ld-button>
 
-<ld-button progress="pending" mode="highlight">Text</ld-button>
+<!-- React component -->
 
-<ld-button progress="pending" mode="danger">Text</ld-button>
+<LdButton progress={0.75}>Text</LdButton>
 
-<ld-button progress="pending" mode="secondary">Text</ld-button>
-
-<ld-button progress="pending" mode="danger-secondary">Text</ld-button>
-
-<ld-button progress="pending" mode="ghost">Text</ld-button>
+<LdButton progress="pending">Text</LdButton>
 
 <!-- CSS component -->
 
@@ -477,31 +605,6 @@ You can align the text inside the button using the `align-text` propperty.
 </button>
 
 <button class="ld-button" aria-busy="true" aria-live="polite">
-  Text
-  <span class="ld-button__progress ld-button__progress--pending"></span>
-</button>
-
-<button class="ld-button ld-button--highlight" aria-busy="true" aria-live="polite">
-  Text
-  <span class="ld-button__progress ld-button__progress--pending"></span>
-</button>
-
-<button class="ld-button ld-button--danger" aria-busy="true" aria-live="polite">
-  Text
-  <span class="ld-button__progress ld-button__progress--pending"></span>
-</button>
-
-<button class="ld-button ld-button--secondary" aria-busy="true" aria-live="polite">
-  Text
-  <span class="ld-button__progress ld-button__progress--pending"></span>
-</button>
-
-<button class="ld-button ld-button--danger-secondary" aria-busy="true" aria-live="polite">
-  Text
-  <span class="ld-button__progress ld-button__progress--pending"></span>
-</button>
-
-<button class="ld-button ld-button--ghost" aria-busy="true" aria-live="polite">
   Text
   <span class="ld-button__progress ld-button__progress--pending"></span>
 </button>

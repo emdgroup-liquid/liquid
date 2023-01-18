@@ -4,7 +4,7 @@
   }
 
   .docs-example__tools-scroll-container {
-    background-color: var(--ld-col-neutral-100);
+    background-color: var(--ld-col-neutral-050);
     border-color: var(--ld-col-neutral-100);
   }
 
@@ -24,8 +24,8 @@
   }
 
   .docs-example__tools-scroll-container {
-    background-color: var(--ld-col-neutral-600);
-    border-color: var(--ld-col-neutral-600);
+    background-color: var(--ld-col-neutral-700);
+    border-color: var(--ld-col-neutral-700);
   }
 
   .docs-example__tools {
@@ -36,6 +36,10 @@
   .docs-example__tool-switch,
   .docs-example__copy-to-clipboard {
     filter: invert(1) hue-rotate(180deg);
+  }
+
+  .docs-example--has-border .docs-example__show {
+    border-color: transparent;
   }
 }
 
@@ -90,8 +94,6 @@
 .docs-example__tool-switch {
   background-color: var(--ld-col-wht);
   border-radius: calc(var(--ld-br-m) + 1px);
-  margin-right: var(--ld-sp-24);
-  flex-shrink: 0;
 }
 
 .docs-example__tool-buttons {
@@ -117,6 +119,7 @@
 
   .docs-example--has-border & {
     border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+    border-bottom: 0px;
   }
 
   .docs-example--has-padding & {
@@ -188,23 +191,39 @@
 
 .docs-example--web-component {
   [slot='showCssComponent'],
+  [slot='codeReactComponent'],
   [slot='codeCssComponent'] {
+    display: none;
+  }
+}
+
+.docs-example--react-component {
+  [slot='showCssComponent'],
+  [slot='codeCssComponent'],
+  [slot='code'] {
     display: none;
   }
 }
 
 .docs-example--css-component {
   [slot='show'],
+  [slot='codeReactComponent'],
   [slot='code'] {
     display: none;
   }
 }
 
-.docs-example__copy-to-clipboard {
-  background-color: var(--ld-col-wht);
-  border-radius: var(--ld-br-m);
+.docs-example__code-tools {
   position: absolute;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--ld-sp-8);
   top: var(--ld-sp-8);
   right: var(--ld-sp-8);
   margin: var(--ld-sp-2) var(--ld-sp-1);
+}
+
+.docs-example__copy-to-clipboard {
+  background-color: var(--ld-col-wht);
+  border-radius: var(--ld-br-m);
 }

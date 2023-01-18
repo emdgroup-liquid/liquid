@@ -171,6 +171,7 @@ module.exports = function (eleventyConfig) {
       hasPadding: true,
       highlight: undefined,
       highlightCssComponent: undefined,
+      highlightReactComponent: undefined,
       lang: 'html',
       opened: false,
       stacked: false,
@@ -178,18 +179,32 @@ module.exports = function (eleventyConfig) {
     }
     const finalConfig = Object.assign(defaultConfig, JSON.parse(config || '{}'))
     const base = process.env.MODE === 'gh_pages' ? '/liquid' : ''
-    const [codeWebComponent, codeCssComponent] = code
+    const codeBlocks = code
       .replaceAll(
         /url\('\/dist\/build\/assets\//g,
         `url('${base}/dist/build/assets/`
       )
-      .split('<!-- CSS component -->')
+      .split(/<!-- React component -->|<!-- CSS component -->/g)
       .map((c) => c.trim())
+    const codeTypes = [
+      ...code.matchAll(/<!-- (CSS|React) component -->*/g),
+    ].map((m) => m[1])
+    const codeWebComponent = codeBlocks[0]
+    const indexCSS = codeTypes.findIndex((t) => t === 'CSS') + 1
+    const indexReact = codeTypes.findIndex((t) => t === 'React') + 1
+    const codeCssComponent = indexCSS ? codeBlocks[indexCSS] : undefined
+    const codeReactComponent = indexReact ? codeBlocks[indexReact] : undefined
+
     let output = '<docs-example '
     output += `code="${encodeURIComponent(codeWebComponent)}" `
 
     if (codeCssComponent) {
       output += `code-css-component="${encodeURIComponent(codeCssComponent)}" `
+    }
+    if (codeReactComponent) {
+      output += `code-react-component="${encodeURIComponent(
+        codeReactComponent
+      )}" `
     }
 
     output += `${finalConfig.centered ? ' centered' : ''}`
@@ -218,6 +233,16 @@ module.exports = function (eleventyConfig) {
           ? '/' + finalConfig.highlightCssComponent
           : ''
       } \n${codeCssComponent.trim()}\n\`\`\``
+      output += '\n</div>'
+    }
+
+    if (codeReactComponent) {
+      output += `<div slot="codeReactComponent">\n\n`
+      output += `\`\`\`jsx${
+        finalConfig.highlightReactComponent
+          ? '/' + finalConfig.highlightReactComponent
+          : ''
+      } \n${codeReactComponent.trim()}\n\`\`\``
       output += '\n</div>'
     }
 
