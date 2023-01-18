@@ -81,7 +81,7 @@
 @define-mixin docs-nav-ui-dark {
   .docs-nav__content {
     background-color: var(--ld-col-neutral-900);
-    box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-600);
+    box-shadow: none;
   }
   .docs-nav::before {
     background-color: var(--ld-col-neutral-900);
