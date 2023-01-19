@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/emdgroup-liquid/liquid/compare/v4.3.0...v4.3.1) (2023-01-19)
+
+
+### Bug Fixes
+
+* **ld-button:** stop propagation of click event if disabled ([4b97613](https://github.com/emdgroup-liquid/liquid/commit/4b97613be40dd8d44f6a1aff5c259ccb22f7d3d9))
+* **ld-switch:** switch has wrong height ([31945ac](https://github.com/emdgroup-liquid/liquid/commit/31945ac0240c00ffff3d53232993debcce7085d8))
+
 # [4.3.0](https://github.com/emdgroup-liquid/liquid/compare/v4.2.1...v4.3.0) (2023-01-13)
 
 
