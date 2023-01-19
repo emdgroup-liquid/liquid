@@ -207,6 +207,40 @@ describe('ld-button', () => {
     expect(clickHandler).not.toHaveBeenCalled()
   })
 
+  it('prevents default and propagation of click events, if disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button disabled>Text</ld-button>`,
+    })
+    const ldButton = page.root
+
+    const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
+
+    ldButton.dispatchEvent(ev)
+
+    await page.waitForChanges()
+
+    expect(ev.defaultPrevented).toBeTruthy()
+    expect(ev.cancelBubble).toBeTruthy()
+  })
+
+  it('prevents default and propagation of click events, if aria-disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `<ld-button aria-disabled="true">Text</ld-button>`,
+    })
+    const ldButton = page.root
+
+    const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
+
+    ldButton.dispatchEvent(ev)
+
+    await page.waitForChanges()
+
+    expect(ev.defaultPrevented).toBeTruthy()
+    expect(ev.cancelBubble).toBeTruthy()
+  })
+
   it('allows to set inner focus', async () => {
     const { root } = await newSpecPage({
       components: [LdButton],

@@ -151,6 +151,10 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
     if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
       ev.preventDefault()
+      // Stopping propagation is important for clicks on child elements,
+      // because otherwise event handlers attached to the ld-button
+      // are still called (no matter if the event was prevented or not).
+      ev.stopPropagation()
       return
     }
 
