@@ -102,8 +102,9 @@
   display: inline-grid;
   font: var(--ld-switch-font);
   font-weight: 700;
-  grid-auto-flow: column;
   gap: var(--ld-switch-item-gap);
+  grid-auto-flow: column;
+  height: 100%;
   justify-content: var(--ld-switch-item-justify-content);
   line-height: 1.25;
   overflow: hidden;
