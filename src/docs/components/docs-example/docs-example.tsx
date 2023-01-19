@@ -104,7 +104,6 @@ export class DocsExample {
   }
 
   private hasCodeType(codeType: this['codeType']) {
-    console.info('codeType', codeType)
     if (codeType === 'wc') {
       return Boolean(this.el.querySelector('[slot="code"]'))
     }
