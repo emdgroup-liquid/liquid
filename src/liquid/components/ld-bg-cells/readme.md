@@ -30,7 +30,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <LdBgCells style={ {
   aspectRaio: '16/9'
-} }></LdBgCells>
+} } />
 
 <!-- CSS component -->
 
@@ -57,7 +57,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="bioreliance"></LdBgCells>
+<LdBgCells type="bioreliance" />
 
 <!-- CSS component -->
 
@@ -78,7 +78,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="mdo"></LdBgCells>
+<LdBgCells type="mdo" />
 
 <!-- CSS component -->
 
@@ -101,7 +101,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="millipore"></LdBgCells>
+<LdBgCells type="millipore" />
 
 <!-- CSS component -->
 
@@ -120,7 +120,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="milliq"></LdBgCells>
+<LdBgCells type="milliq" />
 
 <!-- CSS component -->
 
@@ -138,7 +138,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="supelco"></LdBgCells>
+<LdBgCells type="supelco" />
 
 <!-- CSS component -->
 
@@ -157,7 +157,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="safc"></LdBgCells>
+<LdBgCells type="safc" />
 
 <!-- CSS component -->
 
@@ -176,7 +176,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="sigma-aldrich"></LdBgCells>
+<LdBgCells type="sigma-aldrich" />
 
 <!-- CSS component -->
 
@@ -197,7 +197,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="f"></LdBgCells>
+<LdBgCells type="f" />
 
 <!-- CSS component -->
 
@@ -216,7 +216,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="hexagon"></LdBgCells>
+<LdBgCells type="hexagon" />
 
 <!-- CSS component -->
 
@@ -235,7 +235,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="o"></LdBgCells>
+<LdBgCells type="o" />
 
 <!-- CSS component -->
 
@@ -254,7 +254,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="tile"></LdBgCells>
+<LdBgCells type="tile" />
 
 <!-- CSS component -->
 
@@ -273,7 +273,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells type="t"></LdBgCells>
+<LdBgCells type="t" />
 
 <!-- CSS component -->
 
@@ -308,7 +308,7 @@ A background pattern with the Merck cells as additional visual element.
     '--ld-bg-cells-layer-size': '195%',
     aspectRatio: 1,
   } }
-></LdBgCells>
+ />
 
 <!-- CSS component -->
 
@@ -341,7 +341,7 @@ A background pattern with the Merck cells as additional visual element.
     '--ld-bg-cells-layer-col': 'var(--ld-col-rr)',
     '--ld-bg-cells-bg-col': 'var(--ld-col-vy)',
   } }
-></LdBgCells>
+/>
 
 <!-- CSS component -->
 
@@ -366,7 +366,7 @@ A background pattern with the Merck cells as additional visual element.
 
 <!-- React component -->
 
-<LdBgCells threeLayers></LdBgCells>
+<LdBgCells threeLayers />
 
 <!-- CSS component -->
 
@@ -398,7 +398,7 @@ It is also recommended to only use the property for three layer background cells
 
 <!-- React component -->
 
-<LdBgCells three-layers animated></LdBgCells>
+<LdBgCells three-layers animated />
 
 <!-- CSS component -->
 
