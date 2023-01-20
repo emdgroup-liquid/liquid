@@ -132,7 +132,7 @@ permalink: components/ld-badge/
 
 <LdBadge brandColor icon="checkmark" />
 
-<LdBadge brand-color>Badge</LdBadge>
+<LdBadge brandColor>Badge</LdBadge>
 
 <!-- CSS component -->
 
