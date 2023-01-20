@@ -3,6 +3,7 @@ import { getClassNames } from '../../utils/getClassNames'
 import { getScrollParent } from '../../utils/scroll'
 
 /**
+ * @virtualProp {(event: LdAccordionSectionCustomEvent<boolean>) => void} onLdaccordionchange - handles event emmitted by accordion section
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */

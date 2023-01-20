@@ -394,22 +394,21 @@ You can listen for several events on the `ld-accordion` component and its subcom
   </ld-accordion-section>
 </ld-accordion>
 <script>
-  document.currentScript.previousElementSibling.addEventListener('ldaccordionchange', ev => {
-    window.alert(`${ev.detail ? 'Expanding' : 'Collapsing'} "${ev.target.querySelector('ld-accordion-toggle').textContent}".`)
-  })
+  document.currentScript.previousElementSibling
+    .addEventListener('ldaccordionchange', ev => {
+      window.alert((ev.detail ? 'Expanding ' : 'Collapsing ')
+        + ev.target.querySelector('ld-accordion-toggle').textContent
+        + '.')
+    })
 </script>
 
 <!-- React component -->
 
 <LdAccordion
-  {...{
-    onLdaccordionchange: (ev) => {
-      window.alert(
-        `${ev.detail ? 'Expanding' : 'Collapsing'} "${
-          ev.target.querySelector('ld-accordion-toggle').textContent
-        }".`
-      )
-    },
+  onLdaccordionchange={(ev) => {
+    window.alert((ev.detail ? 'Expanding ' : 'Collapsing ')
+      + ev.target.querySelector('ld-accordion-toggle').textContent
+      + '.')
   }}
 >
   <LdAccordionSection>
@@ -817,15 +816,16 @@ You can nest an accordion inside another.
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                                     | Type               | Default     |
-| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `brandColor` | `brand-color` | Style the accordion so that it looks good on the primary color of the current theme.                            | `boolean`          | `undefined` |
-| `detached`   | `detached`    | Sets a small gap between each accordion section.                                                                | `boolean`          | `false`     |
-| `key`        | `key`         | for tracking the node's identity when working with lists                                                        | `string \| number` | `undefined` |
-| `ref`        | `ref`         | reference to component                                                                                          | `any`              | `undefined` |
-| `rounded`    | `rounded`     | Applies rounded corners.                                                                                        | `boolean`          | `false`     |
-| `single`     | `single`      | When set to true, an open accordion element closes, if anthorer one opens.                                      | `boolean`          | `false`     |
-| `tone`       | `tone`        | Use `'dark'` on white backgrounds. Default is a light tone. Takes only effect in conjunction with neutral mode. | `"dark"`           | `undefined` |
+| Property              | Attribute             | Description                                                                                                     | Type                                                      | Default     |
+| --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `brandColor`          | `brand-color`         | Style the accordion so that it looks good on the primary color of the current theme.                            | `boolean`                                                 | `undefined` |
+| `detached`            | `detached`            | Sets a small gap between each accordion section.                                                                | `boolean`                                                 | `false`     |
+| `key`                 | `key`                 | for tracking the node's identity when working with lists                                                        | `string \| number`                                        | `undefined` |
+| `onLdaccordionchange` | `onLdaccordionchange` | handles event emmitted by accordion section                                                                     | `(event: LdAccordionSectionCustomEvent<boolean>) => void` | `undefined` |
+| `ref`                 | `ref`                 | reference to component                                                                                          | `any`                                                     | `undefined` |
+| `rounded`             | `rounded`             | Applies rounded corners.                                                                                        | `boolean`                                                 | `false`     |
+| `single`              | `single`              | When set to true, an open accordion element closes, if anthorer one opens.                                      | `boolean`                                                 | `false`     |
+| `tone`                | `tone`                | Use `'dark'` on white backgrounds. Default is a light tone. Takes only effect in conjunction with neutral mode. | `"dark"`                                                  | `undefined` |
 
 
 ## Dependencies
