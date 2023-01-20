@@ -26,6 +26,12 @@ A background pattern with the Merck cells as additional visual element.
   }
 </style>
 
+<!-- React component -->
+
+<LdBgCells style={ {
+  aspectRaio: '16/9'
+} } />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells">
@@ -49,6 +55,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="bioreliance"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="bioreliance" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--bioreliance">
@@ -65,6 +75,10 @@ A background pattern with the Merck cells as additional visual element.
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="mdo"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="mdo" />
 
 <!-- CSS component -->
 
@@ -85,6 +99,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="millipore"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="millipore" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--millipore">
@@ -100,6 +118,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="milliq"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="milliq" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--milliq">
@@ -113,6 +135,10 @@ A background pattern with the Merck cells as additional visual element.
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="supelco"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="supelco" />
 
 <!-- CSS component -->
 
@@ -129,6 +155,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="safc"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="safc" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--safc">
@@ -143,6 +173,10 @@ A background pattern with the Merck cells as additional visual element.
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="sigma-aldrich"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="sigma-aldrich" />
 
 <!-- CSS component -->
 
@@ -161,6 +195,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="f"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="f" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--f">
@@ -175,6 +213,10 @@ A background pattern with the Merck cells as additional visual element.
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="hexagon"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="hexagon" />
 
 <!-- CSS component -->
 
@@ -191,6 +233,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="o"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="o" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--o">
@@ -206,6 +252,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="tile"></ld-bg-cells>
 
+<!-- React component -->
+
+<LdBgCells type="tile" />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells ld-bg-cells--tile">
@@ -220,6 +270,10 @@ A background pattern with the Merck cells as additional visual element.
 
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 <ld-bg-cells type="t"></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells type="t" />
 
 <!-- CSS component -->
 
@@ -245,6 +299,17 @@ A background pattern with the Merck cells as additional visual element.
   }
 </style>
 
+<!-- React component -->
+
+<LdBgCells
+  style={ {
+    '--ld-bg-cells-layer-translation-x': '26%',
+    '--ld-bg-cells-layer-translation-y': '-5%',
+    '--ld-bg-cells-layer-size': '195%',
+    aspectRatio: 1,
+  } }
+ />
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells custom">
@@ -269,6 +334,15 @@ A background pattern with the Merck cells as additional visual element.
   }
 </style>
 
+<!-- React component -->
+
+<LdBgCells
+  style={ {
+    '--ld-bg-cells-layer-col': 'var(--ld-col-rr)',
+    '--ld-bg-cells-bg-col': 'var(--ld-col-vy)',
+  } }
+/>
+
 <!-- CSS component -->
 
 <div class="ld-bg-cells custom-colors">
@@ -289,6 +363,10 @@ A background pattern with the Merck cells as additional visual element.
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 
 <ld-bg-cells three-layers></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells threeLayers />
 
 <!-- CSS component -->
 
@@ -317,6 +395,10 @@ It is also recommended to only use the property for three layer background cells
 {% example '{ "hasPadding": false, "hasBorder": false }' %}
 
 <ld-bg-cells three-layers animated></ld-bg-cells>
+
+<!-- React component -->
+
+<LdBgCells three-layers animated />
 
 <!-- CSS component -->
 
