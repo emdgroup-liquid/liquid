@@ -19,6 +19,10 @@ permalink: components/ld-badge/
 {% example %}
 <ld-badge icon="checkmark"></ld-badge>
 
+<!-- React component -->
+
+<LdBadge icon="checkmark" />
+
 <!-- CSS component -->
 
 <span class="ld-badge">
@@ -36,6 +40,15 @@ permalink: components/ld-badge/
   </svg>
 </ld-badge>
 
+<!-- React component -->
+
+<LdBadge>
+  <svg {...{ slot: 'icon' }} viewBox="0 0 24 24" fill="none">
+    <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
+    <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
+  </svg>
+</LdBadge>
+
 <!-- CSS component -->
 
 <span class="ld-badge">
@@ -52,6 +65,12 @@ permalink: components/ld-badge/
 <ld-badge icon="checkmark"></ld-badge>
 
 <ld-badge icon="checkmark" size="lg"></ld-badge>
+
+<!-- React component -->
+
+<LdBadge icon="checkmark" />
+
+<LdBadge icon="checkmark" size="lg" />
 
 <!-- CSS component -->
 
@@ -74,6 +93,16 @@ permalink: components/ld-badge/
 <ld-badge icon="checkmark">Badge</ld-badge>
 
 <ld-badge icon="checkmark" size="lg">Badge</ld-badge>
+
+<!-- React component -->
+
+<LdBadge>Badge</LdBadge>
+
+<LdBadge size="lg">Badge</LdBadge>
+
+<LdBadge icon="checkmark">Badge</LdBadge>
+
+<LdBadge icon="checkmark" size="lg">Badge</LdBadge>
 
 <!-- CSS component -->
 
@@ -99,6 +128,12 @@ permalink: components/ld-badge/
 
 <ld-badge brand-color>Badge</ld-badge>
 
+<!-- React component -->
+
+<LdBadge brandColor icon="checkmark" />
+
+<LdBadge brand-color>Badge</LdBadge>
+
 <!-- CSS component -->
 
 <span class="ld-badge ld-badge--brand-color">
@@ -120,6 +155,18 @@ permalink: components/ld-badge/
 <ld-badge class="ld-badge--success" icon="checkmark"></ld-badge>
 
 <ld-badge class="ld-badge--success">Badge</ld-badge>
+
+<!-- React component -->
+
+<style>{`
+  .ld-badge--success {
+    --ld-badge-bg-col: var(--ld-thm-success);
+  }
+`}</style>
+
+<LdBadge className="ld-badge--success" icon="checkmark" />
+
+<LdBadge className="ld-badge--success">Badge</LdBadge>
 
 <!-- CSS component -->
 
