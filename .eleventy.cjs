@@ -29,6 +29,13 @@ module.exports = function (eleventyConfig) {
     init: function ({ Prism }) {
       // Set highlighting for template strings (i.e. for code examples using Vue template strings)
       Prism.languages.javascript['template-string'] = {
+        // The following RegEx matches strings enclosed in backticks,
+        // excluding any references to variables (denoted by ${...}).
+        // It will also ignore any escaped backticks (denoted by a backslash) in the string.
+        // It essentially looks for a string that starts with a backtick,
+        // followed by any number of characters that are not a backtick,
+        // a variable reference, or an escaped backtick.
+        // The string then ends with a backtick.
         pattern: /`(?:\\.|\$\{[^{}]*\}|(?!\$\{)[^\\`])*`/,
         inside: Prism.languages.html,
       }

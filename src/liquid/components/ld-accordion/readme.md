@@ -394,9 +394,12 @@ You can listen for several events on the `ld-accordion` component and its subcom
   </ld-accordion-section>
 </ld-accordion>
 <script>
-  document.currentScript.previousElementSibling.addEventListener('ldaccordionchange', ev => {
-    window.alert(`${ev.detail ? 'Expanding' : 'Collapsing'} "${ev.target.querySelector('ld-accordion-toggle').textContent}".`)
-  })
+  document.currentScript.previousElementSibling
+    .addEventListener('ldaccordionchange', ev => {
+      window.alert((ev.detail ? 'Expanding ' : 'Collapsing ')
+        + ev.target.querySelector('ld-accordion-toggle').textContent
+        + '.')
+    })
 </script>
 
 <!-- React component -->
@@ -405,9 +408,9 @@ You can listen for several events on the `ld-accordion` component and its subcom
   {...{
     onLdaccordionchange: (ev) => {
       window.alert(
-        `${ev.detail ? 'Expanding' : 'Collapsing'} "${
-          ev.target.querySelector('ld-accordion-toggle').textContent
-        }".`
+        (ev.detail ? 'Expanding ' : 'Collapsing ')
+        + ev.target.querySelector('ld-accordion-toggle').textContent
+        + '.'
       )
     },
   }}
