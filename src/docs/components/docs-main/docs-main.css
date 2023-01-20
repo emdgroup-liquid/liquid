@@ -73,6 +73,15 @@
       > pre {
         border-color: var(--ld-col-neutral-100);
       }
+
+      > table {
+        thead tr {
+          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-300);
+        }
+        tbody tr {
+          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-100);
+        }
+      }
     }
   }
 }
@@ -160,6 +169,15 @@
 
       > pre {
         border-color: var(--ld-col-neutral-900);
+      }
+
+      > table {
+        thead tr {
+          border-bottom: solid var(--ld-sp-1) var(--ld-col-wht);
+        }
+        tbody tr {
+          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-700);
+        }
       }
     }
   }
@@ -331,9 +349,6 @@
     }
 
     > table {
-      --table-cell-width-sm: 15rem;
-      --table-cell-width: 22rem;
-      --table-cell-width-lg: 30rem;
       overflow-x: scroll;
       overflow-y: hidden;
       min-width: 100%;
@@ -343,7 +358,6 @@
       padding-bottom: var(--ld-sp-24);
 
       tr {
-        display: flex;
         margin-top: var(--ld-sp-16);
       }
       tbody tr:nth-child(odd) {
@@ -351,8 +365,6 @@
       }
 
       thead {
-        border-bottom: solid 0.0625rem var(--ld-col-neutral-300);
-
         tr {
           margin-top: 0;
         }
@@ -367,7 +379,7 @@
 
       td,
       th {
-        padding: var(--ld-sp-8) var(--ld-sp-16);
+        padding: var(--ld-sp-12) var(--ld-sp-16);
         vertical-align: top;
 
         &:first-of-type {
@@ -385,66 +397,35 @@
     }
 
     > [id^='properties'] + table {
-      --table-min-width: 72rem;
-
       td,
       th {
-        width: var(--table-cell-width-sm);
+        code {
+          display: inline-grid;
+          grid-auto-flow: column;
+          gap: var(--ld-sp-4);
 
-        /* props and attributes */
-        &:first-of-type,
-        &:nth-of-type(4) {
-          word-break: break-all;
-          flex-shrink: 0;
+          + em {
+            display: none;
+          }
 
-          code {
-            display: inline-grid;
-            grid-auto-flow: column;
-            gap: var(--ld-sp-4);
+          &:not(:last-child) {
+            font-weight: 700;
 
-            + em {
-              display: none;
-            }
-
-            &:not(:last-child) {
-              font-weight: 700;
-
-              &::after {
-                content: '*';
-                transform: translateY(-0.125rem);
-              }
+            &::after {
+              content: '*';
+              transform: translateY(-0.125rem);
             }
           }
         }
 
         /* attributes */
         &:nth-of-type(2) {
-          visibility: hidden;
-          width: 0;
-          padding: 0;
-          height: 0;
-        }
-
-        /* description */
-        &:nth-of-type(3) {
-          width: var(--table-cell-width-lg);
-        }
-
-        /* type */
-        &:nth-of-type(4) {
-          width: var(--table-cell-width-lg);
-        }
-
-        /* default value */
-        &:nth-of-type(5) {
-          width: var(--table-cell-width-sm);
+          display: none;
         }
       }
     }
 
     > [id^='css-variables'] + table {
-      --table-min-width: 62rem;
-
       td,
       th {
         /* props and attributes */
@@ -471,44 +452,6 @@
               }
             }
           }
-        }
-
-        /* name */
-        &:first-of-type {
-          width: var(--table-cell-width-lg);
-        }
-
-        /* description */
-        &:nth-of-type(2) {
-          width: var(--table-cell-width-lg);
-        }
-
-        /* default value */
-        &:nth-of-type(3) {
-          width: var(--table-cell-width-sm);
-        }
-      }
-    }
-
-    > [id^='events'] + table {
-      --table-min-width: 64rem;
-
-      td,
-      th {
-        /* name */
-        &:first-of-type {
-          width: var(--table-cell-width);
-        }
-
-        /* description */
-        &:nth-of-type(2) {
-          width: var(--table-cell-width-lg);
-          transform: translateY(-0.1875rem);
-        }
-
-        /* type */
-        &:nth-of-type(3) {
-          width: var(--table-cell-width);
         }
       }
     }
@@ -527,15 +470,11 @@
     }
 
     > [id^='slots'] + table {
-      --table-min-width: 50rem;
-
       td,
       th {
         /* props and attributes */
         &:first-of-type {
-          width: var(--table-cell-width);
           word-break: break-all;
-          flex-shrink: 0;
         }
       }
     }
@@ -546,23 +485,10 @@
     > [id^='slots'] + table {
       font: var(--ld-typo-body-m);
 
-      thead,
-      tbody {
-        min-width: var(--table-min-width);
-      }
-
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-6);
         border-radius: var(--ld-br-s);
-      }
-    }
-
-    > [id^='components'] ~ [id^='status'] ~ table {
-      td,
-      th {
-        width: var(--table-cell-width-sm);
-        flex-shrink: 0;
       }
     }
 
