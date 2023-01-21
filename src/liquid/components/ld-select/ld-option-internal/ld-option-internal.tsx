@@ -66,6 +66,7 @@ export class LdOptionInternal {
   }
 
   /**
+   * @internal
    * Emitted on either selection or de-selection of the option.
    */
   @Event() ldoptionselect: EventEmitter<boolean>

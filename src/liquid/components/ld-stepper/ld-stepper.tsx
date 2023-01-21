@@ -1,4 +1,14 @@
-import { Component, Element, Host, h, Prop, State, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Host,
+  h,
+  Prop,
+  State,
+  Watch,
+  Event,
+  EventEmitter,
+} from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { SelectedDetail } from './ld-step/ld-step'
 
@@ -28,6 +38,16 @@ export class LdStepper {
   @Prop() size?: HTMLLdStepElement['size']
   /** Vertical layout */
   @Prop() vertical = false
+
+  // The following event is not used within the ld-stepper component itself.
+  // Its only purpose is to create a type definition on the ld-stepper component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-step components.
+  /**
+   * Emitted when the focusable element of a step is
+   * clicked and step is neither current nor disabled.
+   */
+  @Event() ldstepselected: EventEmitter<SelectedDetail>
 
   @State() currentLabel: string
   @State() currentIndex: number

@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Listen, Prop } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { getScrollParent } from '../../utils/scroll'
 
@@ -34,6 +43,13 @@ export class LdAccordion {
    * Takes only effect in conjunction with neutral mode.
    */
   @Prop() tone?: 'dark'
+
+  // The following event is not used within the ld-accordion component itself.
+  // Its only purpose is to create a type definition on the ld-accordion component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-accordion-section components.
+  /** Emitted on expansion and collapse of an accordion section element. */
+  @Event() ldaccordionchange: EventEmitter<boolean>
 
   @Listen('ldaccordionchange', { passive: true })
   handleAccordionExpandChange(ev) {

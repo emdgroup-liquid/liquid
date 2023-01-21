@@ -405,14 +405,12 @@ You can listen for several events on the `ld-accordion` component and its subcom
 <!-- React component -->
 
 <LdAccordion
-  {...{
-    onLdaccordionchange: (ev) => {
-      window.alert(
-        (ev.detail ? 'Expanding ' : 'Collapsing ')
-        + ev.target.querySelector('ld-accordion-toggle').textContent
-        + '.'
-      )
-    },
+  onLdaccordionchange={(ev) => {
+    window.alert(
+      (ev.detail ? 'Expanding ' : 'Collapsing ')
+      + ev.target.querySelector('ld-accordion-toggle').textContent
+      + '.'
+    )
   }}
 >
   <LdAccordionSection>
@@ -829,6 +827,13 @@ You can nest an accordion inside another.
 | `rounded`    | `rounded`     | Applies rounded corners.                                                                                        | `boolean`          | `false`     |
 | `single`     | `single`      | When set to true, an open accordion element closes, if anthorer one opens.                                      | `boolean`          | `false`     |
 | `tone`       | `tone`        | Use `'dark'` on white backgrounds. Default is a light tone. Takes only effect in conjunction with neutral mode. | `"dark"`           | `undefined` |
+
+
+## Events
+
+| Event               | Description                                                        | Type                   |
+| ------------------- | ------------------------------------------------------------------ | ---------------------- |
+| `ldaccordionchange` | Emitted on expansion and collapse of an accordion section element. | `CustomEvent<boolean>` |
 
 
 ## Dependencies

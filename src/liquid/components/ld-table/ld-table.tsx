@@ -1,4 +1,12 @@
-import { Component, Element, h, Host, Listen } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+} from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { closest } from '../../utils/closest'
 
@@ -16,6 +24,28 @@ import { closest } from '../../utils/closest'
 export class LdTable {
   @Element() el: HTMLLdTableElement
   tableRef: HTMLTableElement
+
+  // The following events is not used within the ld-table component itself.
+  // Their only purpose is to create type definitions on the ld-table component,
+  // in order to be able to add inline listeners in TSX, for listening
+  // on the events bubling up from ld-table-* sub-components.
+
+  /** Emitted from ld-table-header with culumn index and sort order. */
+  @Event() ldTableSort: EventEmitter<{
+    columnIndex: number
+    sortOrder: 'asc' | 'desc'
+  }>
+
+  /** Emitted from ld-table-row with row index and selected state. */
+  @Event() ldTableSelect: EventEmitter<{
+    rowIndex: number
+    selected: boolean
+  }>
+
+  /** Emitted from ld-table-row with selected state. */
+  @Event() ldTableSelectAll: EventEmitter<{
+    selected: boolean
+  }>
 
   @Listen('ldTableSort')
   handleTableSort(

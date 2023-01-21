@@ -761,6 +761,13 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 | `vertical`             | `vertical`               | Vertical layout                                                                                                             | `boolean`          | `false`           |
 
 
+## Events
+
+| Event            | Description                                                                                       | Type                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `ldstepselected` | Emitted when the focusable element of a step is clicked and step is neither current nor disabled. | `CustomEvent<{ index: number; label: string; }>` |
+
+
 ## Shadow Parts
 
 | Part      | Description                               |

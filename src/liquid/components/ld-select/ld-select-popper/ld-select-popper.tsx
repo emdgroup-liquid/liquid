@@ -48,7 +48,10 @@ export class LdSelectPopper {
   @State() isPinned = false
   @State() shadowHeight = '100%'
 
-  /** Emitted on filter change with the filter input value. */
+  /**
+   * @internal
+   * Emitted on filter change with the filter input value.
+   */
   @Event() ldselectfilterchange: EventEmitter<string>
 
   private handleFilterInput = (ev) => {
