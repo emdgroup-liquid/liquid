@@ -697,6 +697,15 @@ The following example shows how to use the [`ld-pagination`](/components/ld-pagi
 | `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
 
 
+## Events
+
+| Event              | Description                                                    | Type                                                                |
+| ------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `ldTableSelect`    | Emitted from ld-table-row with row index and selected state.   | `CustomEvent<{ rowIndex: number; selected: boolean; }>`             |
+| `ldTableSelectAll` | Emitted from ld-table-row with selected state.                 | `CustomEvent<{ selected: boolean; }>`                               |
+| `ldTableSort`      | Emitted from ld-table-header with culumn index and sort order. | `CustomEvent<{ columnIndex: number; sortOrder: "desc" \| "asc"; }>` |
+
+
 ## Shadow Parts
 
 | Part                 | Description                                     |

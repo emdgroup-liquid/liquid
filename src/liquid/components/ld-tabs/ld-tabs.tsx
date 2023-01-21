@@ -23,9 +23,7 @@ let tabsCount = 0
 export class LdTabs {
   @Element() el: HTMLElement
 
-  /**
-   * Emitted with the id of the selected tab.
-   */
+  /** Emitted with the id of the selected tab. */
   @Event() ldtabchange: EventEmitter<string>
 
   private idDescriber = `ld-tabs-${tabsCount++}`

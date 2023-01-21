@@ -28,28 +28,23 @@ export class LdTab implements InnerFocusable {
 
   private btnRef: HTMLButtonElement
 
-  /**
-   * Disables the tab.
-   */
+  /** Disables the tab. */
   @Prop() disabled?: boolean
 
   /** Tab index of the tab. */
   @Prop() ldTabindex: number | undefined
 
-  /**
-   * If present, this boolean attribute indicates that the tab is selected.
-   */
+  /** If present, this boolean attribute indicates that the tab is selected. */
   @Prop({ mutable: true, reflect: true }) selected?: boolean
 
-  /**
-   * Focuses the tab
-   */
+  /** Focuses the tab */
   @Method()
   async focusInner() {
     this.btnRef.focus({ preventScroll: true })
   }
 
   /**
+   * @internal
    * Emitted with the id of the selected tab.
    */
   @Event() ldtabselect: EventEmitter<undefined>

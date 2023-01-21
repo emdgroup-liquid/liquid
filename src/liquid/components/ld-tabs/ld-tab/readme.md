@@ -30,13 +30,6 @@ Please refer to the [`ld-tabs` documentation](components/ld-tabs) for usage exam
 | `selected`   | `selected`    | If present, this boolean attribute indicates that the tab is selected. | `boolean`          | `undefined` |
 
 
-## Events
-
-| Event         | Description                              | Type                     |
-| ------------- | ---------------------------------------- | ------------------------ |
-| `ldtabselect` | Emitted with the id of the selected tab. | `CustomEvent<undefined>` |
-
-
 ## Methods
 
 ### `focusInner() => Promise<void>`

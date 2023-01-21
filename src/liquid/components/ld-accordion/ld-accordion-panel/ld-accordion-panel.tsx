@@ -35,7 +35,10 @@ export class LdAccordionPanel {
   @State() resizeObserver: ResizeObserver
   @State() innerPanelExpanding = false
 
-  /** Emitted on accordion panel max-height change. */
+  /**
+   * @internal
+   * Emitted on accordion panel max-height change.
+   */
   @Event() ldaccordionmaxheightchange: EventEmitter<number>
 
   /**
