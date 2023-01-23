@@ -43,6 +43,7 @@
   );
 
   align-items: center;
+  box-sizing: content-box !important;
   display: inline-flex;
   flex-direction: column;
   gap: var(--ld-sp-4);

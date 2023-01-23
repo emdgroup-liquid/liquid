@@ -443,4 +443,50 @@ describe('ld-circular-progress', () => {
       expect(results).toMatchScreenshot()
     })
   })
+
+  describe('reset', () => {
+    it('renders with box-sizing reset as Web Component', async () => {
+      const page = await getPageWithContent(
+        `
+        <style>
+          *, ::before, ::after {
+            box-sizing: border-box;
+          }
+        </style>
+        <ld-circular-progress aria-valuenow="25">
+          <ld-typo variant="b6">25%</ld-typo>
+          <ld-typo variant="label-s">complete</ld-typo>
+        </ld-circular-progress>`
+      )
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('renders with box-sizing reset as CSS component', async () => {
+      const page = await getPageWithContent(
+        `
+          <style>
+            *, ::before, ::after {
+              box-sizing: border-box;
+            }
+          </style>
+          <div class="ld-circular-progress"
+             aria-valuenow="25"
+             role="progressbar"
+             style="--ld-circular-progress-valuenow: 25">
+          <span class="ld-typo ld-typo--b6">25%</span>
+          <span class="ld-typo ld-typo--label-s">complete</span>
+          ${svg}
+        </div>`,
+        {
+          components: [LdCircularProgress, LdTypo],
+          disableAllTransitions: true,
+        }
+      )
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+  })
 })
