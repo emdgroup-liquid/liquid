@@ -27,6 +27,10 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 {% example %}
 <ld-checkbox></ld-checkbox>
 
+<!-- React component -->
+
+<LdCheckbox />
+
 <!-- CSS component -->
 
 <div class="ld-checkbox">
@@ -56,6 +60,12 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <ld-checkbox disabled></ld-checkbox>
 
 <ld-checkbox disabled checked></ld-checkbox>
+
+<!-- React component -->
+
+<LdCheckbox disabled />
+
+<LdCheckbox disabled checked />
 
 <!-- CSS component -->
 
@@ -107,13 +117,18 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <ld-checkbox aria-disabled="true" checked></ld-checkbox>
 
+<!-- React component -->
+
+<LdCheckbox aria-disabled="true" />
+
+<LdCheckbox aria-disabled="true" checked />
+
 <!-- CSS component -->
 
 <div class="ld-checkbox">
   <input
     type="checkbox"
-    aria-disabled="true"
-    id="focusable-disabled-checkbox-1">
+    aria-disabled="true">
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -136,8 +151,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
   <input
     type="checkbox"
     aria-disabled="true"
-    checked
-    id="focusable-disabled-checkbox-2">
+    checked>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -158,7 +172,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- Example code for input prevention on aria-disabled checkbox elements -->
 <script>
-  const inputs = document.querySelectorAll('#focusable-disabled-checkbox-1, #focusable-disabled-checkbox-2')
+  const inputs = document.currentScript.parentElement.querySelectorAll('input')
   Array.from(inputs).forEach(input => {
     input.addEventListener('click', (ev) => {
       ev.preventDefault()
@@ -182,32 +196,14 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
 {% example '{ "background": "light" }' %}
 <ld-checkbox indeterminate></ld-checkbox>
 
-<ld-checkbox indeterminate disabled></ld-checkbox>
+<!-- React component -->
+
+<LdCheckbox indeterminate />
 
 <!-- CSS component -->
 
-<div id="example-indeterminate-1" class="ld-checkbox">
+<div class="ld-checkbox">
   <input type="checkbox">
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div id="example-indeterminate-2" class="ld-checkbox">
-  <input type="checkbox" disabled>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -227,8 +223,8 @@ If the `indeterminate` attribute is present on the `ld-checkbox` component, the 
 </div>
 
 <script>
-document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminate-2 input')
-  .forEach(input => input.indeterminate = true)
+document.currentScript.previousElementSibling.querySelector('input')
+  .indeterminate = true
 </script>
 
 {% endexample %}
@@ -242,32 +238,14 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 {% example '{ "background": "light" }' %}
 <ld-checkbox tone="dark"></ld-checkbox>
 
-<ld-checkbox tone="dark" disabled></ld-checkbox>
+<!-- React component -->
+
+<LdCheckbox tone="dark" />
 
 <!-- CSS component -->
 
 <div class="ld-checkbox ld-checkbox--dark">
   <input type="checkbox">
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div class="ld-checkbox ld-checkbox--dark">
-  <input type="checkbox" disabled>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -292,32 +270,14 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 {% example %}
 <ld-checkbox mode="highlight"></ld-checkbox>
 
-<ld-checkbox mode="highlight" disabled></ld-checkbox>
+<!-- React component -->
+
+<LdCheckbox mode="highlight" />
 
 <!-- CSS component -->
 
 <div class="ld-checkbox ld-checkbox--highlight">
   <input type="checkbox">
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div class="ld-checkbox ld-checkbox--highlight">
-  <input type="checkbox" disabled>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -342,32 +302,14 @@ document.querySelectorAll('#example-indeterminate-1 input, #example-indeterminat
 {% example %}
 <ld-checkbox invalid></ld-checkbox>
 
-<ld-checkbox invalid disabled></ld-checkbox>
+<!-- React component -->
+
+<LdCheckbox invalid />
 
 <!-- CSS component -->
 
 <div class="ld-checkbox ld-checkbox--invalid">
   <input type="checkbox">
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div class="ld-checkbox ld-checkbox--invalid">
-  <input type="checkbox" disabled>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -394,32 +336,14 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
 {% example %}
 <ld-checkbox mode="danger"></ld-checkbox>
 
-<ld-checkbox mode="danger" disabled></ld-checkbox>
+<!-- React component -->
+
+<LdCheckbox mode="danger" />
 
 <!-- CSS component -->
 
 <div class="ld-checkbox ld-checkbox--danger">
   <input type="checkbox">
-  <svg
-    class="ld-checkbox__check"
-    width="14"
-    height="14"
-    fill="none"
-    viewBox="0 0 14 14"
-  >
-    <path
-      d="M12 4L5.40795 10L2 6.63964"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-  <div class="ld-checkbox__box"></div>
-</div>
-
-<div class="ld-checkbox ld-checkbox--danger">
-  <input type="checkbox" disabled>
   <svg
     class="ld-checkbox__check"
     width="14"
@@ -446,6 +370,13 @@ The checkbox in mode "danger" looks and behaves the same as a checkbox with the 
   I have read the terms of service.*
   <ld-checkbox></ld-checkbox>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel position="right" size="m">
+  I have read the terms of service.*
+  <LdCheckbox />
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -490,6 +421,33 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
     <ld-checkbox></ld-checkbox>
     <ld-input-message mode="info">You may unsubscribe at any given time.</ld-input-message>
   </ld-label>
+</div>
+
+<!-- React component -->
+
+<div
+  style={ {
+    display: 'grid',
+    gap: '2rem',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(12rem, 1fr))',
+    width: '100%',
+  } }
+>
+  <LdLabel position="right" size="m">
+    I have read the terms of service.*
+    <LdCheckbox invalid required />
+    <LdInputMessage>
+      To proceed, you must except the terms of service.
+    </LdInputMessage>
+  </LdLabel>
+
+  <LdLabel position="right" size="m">
+    I'd like to receive a weekly newsletter.
+    <LdCheckbox />
+    <LdInputMessage mode="info">
+      You may unsubscribe at any given time.
+    </LdInputMessage>
+  </LdLabel>
 </div>
 
 <!-- CSS component -->
