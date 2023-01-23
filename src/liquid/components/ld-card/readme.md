@@ -25,6 +25,12 @@ Additionally, there is the [`ld-card-stack`](components/ld-card/ld-card-stack/) 
   <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
 </ld-card>
 
+<!-- React component -->
+
+<LdCard>
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
 <!-- CSS component -->
 
 <div class="ld-card">
@@ -44,6 +50,16 @@ The `size` prop effects the card padding only.
 <ld-card size="sm">
   <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
 </ld-card>
+
+<!-- React component -->
+
+<LdCard>
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
+<LdCard size="sm">
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
 
 <!-- CSS component -->
 
@@ -75,6 +91,24 @@ The `size` prop effects the card padding only.
   <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
 </ld-card>
 
+<!-- React component -->
+
+<LdCard>
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
+<LdCard shadow="active">
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
+<LdCard shadow="hover">
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
+<LdCard shadow="sticky">
+  <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
+</LdCard>
+
 <!-- CSS component -->
 
 <div class="ld-card">
@@ -100,25 +134,53 @@ Use the `shadow-interactive` prop for a transition to a different shadow on hove
 
 {% example %}
 <ld-card shadow-interactive="sticky">
-  <ld-typo style="margin-bottom: 1rem">Lorem ipsum dolor sit amet.</ld-typo>
+  <ld-typo style="margin-bottom: 1rem">
+    Lorem ipsum dolor sit amet.
+  </ld-typo>
   <ld-button mode="highlight">Click me</ld-button>
 </ld-card>
 
 <ld-card shadow="sticky" shadow-interactive="stacked">
-  <ld-typo style="margin-bottom: 1rem">Lorem ipsum dolor sit amet.</ld-typo>
+  <ld-typo style="margin-bottom: 1rem">
+    Lorem ipsum dolor sit amet.
+  </ld-typo>
   <ld-button mode="highlight">Click me</ld-button>
 </ld-card>
+
+<!-- React component -->
+
+<LdCard shadowInteractive="sticky">
+  <LdTypo style={ { marginBottom: '1rem' } }>
+    Lorem ipsum dolor sit amet.
+  </LdTypo>
+  <LdButton mode="highlight">Click me</LdButton>
+</LdCard>
+
+<LdCard shadow="sticky" shadowInteractive="stacked">
+  <LdTypo style={ { marginBottom: '1rem' } }>
+    Lorem ipsum dolor sit amet.
+  </LdTypo>
+  <LdButton mode="highlight">Click me</LdButton>
+</LdCard>
 
 <!-- CSS component -->
 
 <div class="ld-card ld-card--interactive-sticky">
-  <p class="ld-typo ld-typo--body-m" style="margin-bottom: 1rem">Lorem ipsum dolor sit amet.</p>
-  <button class="ld-button ld-button--highlight">Click me</button>
+  <p class="ld-typo ld-typo--body-m" style="margin-bottom: 1rem">
+    Lorem ipsum dolor sit amet.
+  </p>
+  <button class="ld-button ld-button--highlight">
+    Click me
+  </button>
 </div>
 
 <div class="ld-card ld-card--sticky ld-card--interactive-stacked">
-  <p class="ld-typo ld-typo--body-m" style="margin-bottom: 1rem">Lorem ipsum dolor sit amet.</p>
-  <button class="ld-button ld-button--highlight">Click me</button>
+  <p class="ld-typo ld-typo--body-m" style="margin-bottom: 1rem">
+    Lorem ipsum dolor sit amet.
+  </p>
+  <button class="ld-button ld-button--highlight">
+    Click me
+  </button>
 </div>
 {% endexample %}
 
