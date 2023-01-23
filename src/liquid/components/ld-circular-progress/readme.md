@@ -32,6 +32,14 @@ The `ld-circular-progress` component can be used to display measurements or cert
   <ld-typo variant="label-s">complete</ld-typo>
 </ld-circular-progress>
 
+<!-- React component -->
+
+<LdSrOnly id="progress-label">Progress</LdSrOnly>
+<LdCircularProgress aria-labelledby="progress-label" aria-valuenow={25}>
+  <LdTypo variant="b6">25%</LdTypo>
+  <LdTypo variant="label-s">complete</LdTypo>
+</LdCircularProgress>
+
 <!-- CSS component -->
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
@@ -74,6 +82,37 @@ Interactive example:
   }()
 </script>
 
+<!-- React component -->
+
+const App = () => {
+  const [val, setVal] = useState(25)
+  return (
+    <>
+      <LdSrOnly id="progress-label">Progress</LdSrOnly>
+      <LdCircularProgress aria-labelledby="progress-label" aria-valuenow={val}>
+        <LdTypo
+          variant="b6"
+          style={ {
+            color: `var(--ld-thm-${val > 100 ? 'error' : 'primary'})`,
+          } }
+        >
+          {val}%
+        </LdTypo>
+        <LdTypo variant="label-s">complete</LdTypo>
+      </LdCircularProgress>
+
+      <LdSlider
+        onLdchange={(ev) => {
+          setVal(ev.detail[0])
+        }}
+        value={val}
+        max={200}
+        width="14rem"
+      />
+    </>
+  )
+}
+
 <!-- CSS component -->
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
@@ -111,17 +150,37 @@ Interactive example:
 ## With custom min and max values
 
 {% example %}
-<ld-circular-progress aria-valuemax="360"
-             aria-valuemin="0"
-             aria-valuenow="90">
+<ld-circular-progress
+  aria-valuemax="360"
+  aria-valuemin="0"
+  aria-valuenow="90"
+>
   <ld-typo variant="b6">90°</ld-typo>
 </ld-circular-progress>
 
-<ld-circular-progress aria-valuemax="4"
-                      aria-valuenow="1">
-  <ld-typo variant="h4" style="color: var(--ld-thm-primary)">Step</ld-typo>
+<ld-circular-progress aria-valuemax="4" aria-valuenow="1">
+  <ld-typo variant="h4" style="color: var(--ld-thm-primary)">
+    Step
+  </ld-typo>
   <ld-typo variant="label-s">1 of 4</ld-typo>
 </ld-circular-progress>
+
+<!-- React component -->
+
+<LdCircularProgress
+  aria-valuemax={360}
+  aria-valuemin={0}
+  aria-valuenow={90}
+>
+  <LdTypo variant="b6">90°</LdTypo>
+</LdCircularProgress>
+
+<LdCircularProgress aria-valuemax={4} aria-valuenow={1}>
+  <LdTypo variant="h4" style={ { color: 'var(--ld-thm-primary)' } }>
+    Step
+  </LdTypo>
+  <LdTypo variant="label-s">1 of 4</LdTypo>
+</LdCircularProgress>
 
 <!-- CSS component -->
 
@@ -170,7 +229,23 @@ The component can visualize an overflow value up to 200% of the maximum progress
   <ld-typo variant="label-s">complete</ld-typo>
 </ld-circular-progress>
 
+<!-- React component -->
+
+<LdCircularProgress aria-valuenow={125}>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-thm-error)' } }>125%</LdTypo>
+  <LdTypo variant="label-s">complete</LdTypo>
+</LdCircularProgress>
+<LdCircularProgress aria-valuenow={175}>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-thm-error)' } }>175%</LdTypo>
+  <LdTypo variant="label-s">complete</LdTypo>
+</LdCircularProgress>
+<LdCircularProgress aria-valuenow={225}>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-thm-error)' } }>225%</LdTypo>
+  <LdTypo variant="label-s">complete</LdTypo>
+</LdCircularProgress>
+
 <!-- CSS component -->
+
 <div class="ld-circular-progress ld-circular-progress--overflow"
      aria-valuenow="125"
      role="progressbar"
@@ -213,6 +288,16 @@ The component can visualize an overflow value up to 200% of the maximum progress
   <ld-typo variant="b6">25%</ld-typo>
   <ld-typo variant="label-s">complete</ld-typo>
 </ld-circular-progress>
+
+<!-- React component -->
+
+<LdCircularProgress
+  aria-valuenow={25}
+  style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-secondary)' } }
+>
+  <LdTypo variant="b6">25%</LdTypo>
+  <LdTypo variant="label-s">complete</LdTypo>
+</LdCircularProgress>
 
 <!-- CSS component -->
 
@@ -271,6 +356,91 @@ You can change the size of the circular progress bar. However, with a smaller si
     <ld-typo class="report-value" variant="b6" style="color: var(--ld-thm-success)">98</ld-typo>
   </ld-circular-progress>
   <ld-typo id="seo" variant="label-s">SEO</ld-typo>
+</div>
+
+<!-- React component -->
+
+<style>{`
+  .report {
+    display: grid;
+    place-items: center;
+    gap: var(--ld-sp-4);
+  }
+  .report ld-circular-progress {
+    --ld-circular-progress-size: 4rem;
+  }
+  .report-value {
+    transform: scale(0.8);
+  }
+`}</style>
+
+<div className="report">
+  <LdCircularProgress
+    aria-valuenow={75}
+    aria-labeledby="performance"
+    style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)' } }
+  >
+    <LdTypo className="report-value" variant="b6">
+      75
+    </LdTypo>
+  </LdCircularProgress>
+  <LdTypo id="performance" variant="label-s">
+    Performance
+  </LdTypo>
+</div>
+<div className="report">
+  <LdCircularProgress
+    aria-valuenow={75}
+    aria-labeledby="accessibility"
+    style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)' } }
+  >
+    <LdTypo className="report-value" variant="b6">
+      75
+    </LdTypo>
+  </LdCircularProgress>
+  <LdTypo id="accessibility" variant="label-s">
+    Accessibility
+  </LdTypo>
+</div>
+<div className="report">
+  <LdCircularProgress
+    aria-valuenow={100}
+    aria-labeledby="best-practices"
+    style={ {
+      '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
+    } }
+  >
+    <LdTypo
+      className="report-value"
+      variant="b6"
+      style={ { color: 'var(--ld-thm-success)' } }
+    >
+      100
+    </LdTypo>
+  </LdCircularProgress>
+  <LdTypo id="best-practices" variant="label-s">
+    Best Practices
+  </LdTypo>
+</div>
+<div className="report">
+  <LdCircularProgress
+    aria-valuenow={98}
+    aria-labeledby="seo"
+    style={ {
+      '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
+    } }
+  >
+    <LdTypo
+      className="report-value"
+      variant="b6"
+      style={ { color: 'var(--ld-thm-success)' } }
+    >
+      98
+    </LdTypo>
+  </LdCircularProgress>
+  <LdTypo id="seo" variant="label-s">
+    SEO
+  </LdTypo>
 </div>
 
 <!-- CSS component -->
@@ -352,22 +522,65 @@ You can change the size of the circular progress bar. However, with a smaller si
 Use this mode on backgrounds with brand color.
 
 {% example '{ "background": "brand", "hasBorder": false }' %}
-<ld-circular-progress brand-color
-                      aria-valuemax="360"
-                      aria-valuenow="90">
-  <ld-typo variant="b6" style="color: var(--ld-col-wht)">90°</ld-typo>
+<ld-circular-progress
+  brand-color
+  aria-valuemax="360"
+  aria-valuenow="90"
+>
+  <ld-typo variant="b6" style="color: var(--ld-col-wht)">
+    90°
+  </ld-typo>
 </ld-circular-progress>
-<ld-circular-progress brand-color
-                      aria-valuemax="360"
-                      aria-valuenow="350"
-                      style="--ld-circular-progress-bar-col: var(--ld-thm-warning)">
-  <ld-typo variant="b6" style="color: var(--ld-thm-warning)">350°</ld-typo>
+<ld-circular-progress
+  brand-color
+  aria-valuemax="360"
+  aria-valuenow="350"
+  style="--ld-circular-progress-bar-col: var(--ld-thm-warning)"
+>
+  <ld-typo variant="b6" style="color: var(--ld-thm-warning)">
+    350°
+  </ld-typo>
 </ld-circular-progress>
-<ld-circular-progress brand-color
-                      aria-valuemax="360"
-                      aria-valuenow="450">
-  <ld-typo variant="b6" style="color: var(--ld-thm-warning)">450°</ld-typo>
+<ld-circular-progress
+  brand-color
+  aria-valuemax="360"
+  aria-valuenow="450"
+>
+  <ld-typo variant="b6" style="color: var(--ld-thm-warning)">
+    450°
+  </ld-typo>
 </ld-circular-progress>
+
+<!-- React component -->
+
+<LdCircularProgress
+  brand-color
+  aria-valuemax={360}
+  aria-valuenow={90}
+>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-col-wht)' } }>
+    90°
+  </LdTypo>
+</LdCircularProgress>
+<LdCircularProgress
+  brand-color
+  aria-valuemax={360}
+  aria-valuenow={350}
+  style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)' } }
+>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-thm-warning)' } }>
+    350°
+  </LdTypo>
+</LdCircularProgress>
+<LdCircularProgress
+  brand-color
+  aria-valuemax={360}
+  aria-valuenow={450}
+>
+  <LdTypo variant="b6" style={ { color: 'var(--ld-thm-warning)' } }>
+    450°
+  </LdTypo>
+</LdCircularProgress>
 
 <!-- CSS component -->
 
