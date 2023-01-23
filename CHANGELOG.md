@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/emdgroup-liquid/liquid/compare/v4.3.1...v4.3.2) (2023-01-23)
+
+
+### Bug Fixes
+
+* **types:** copy bubbling events type definitions to parent ([d41955c](https://github.com/emdgroup-liquid/liquid/commit/d41955c2ce4e38f70b77ffde6c41a152e26ac13f))
+
 ## [4.3.1](https://github.com/emdgroup-liquid/liquid/compare/v4.3.0...v4.3.1) (2023-01-19)
 
 
