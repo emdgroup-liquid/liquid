@@ -31,6 +31,16 @@ Use the `ld-card-stack` component to display multiple [`ld-card`](components/ld-
   <ld-card>Card E</ld-card>
 </ld-card-stack>
 
+<!-- React component -->
+
+<LdCardStack>
+  <LdCard>Card A</LdCard>
+  <LdCard>Card B</LdCard>
+  <LdCard>Card C</LdCard>
+  <LdCard>Card D</LdCard>
+  <LdCard>Card E</LdCard>
+</LdCardStack>
+
 <!-- CSS component -->
 
 <ol class="ld-card-stack">
@@ -55,6 +65,16 @@ Use the `ld-card-stack` component to display multiple [`ld-card`](components/ld-
   <ld-card>Card E</ld-card>
 </ld-card-stack>
 
+<!-- React component -->
+
+<LdCardStack direction="ltr">
+  <LdCard>Card A</LdCard>
+  <LdCard>Card B</LdCard>
+  <LdCard>Card C</LdCard>
+  <LdCard>Card D</LdCard>
+  <LdCard>Card E</LdCard>
+</LdCardStack>
+
 <!-- CSS component -->
 
 <ol class="ld-card-stack ld-card-stack--ltr">
@@ -77,6 +97,16 @@ Use the `ld-card-stack` component to display multiple [`ld-card`](components/ld-
   <ld-card>Card E</ld-card>
 </ld-card-stack>
 
+<!-- React component -->
+
+<LdCardStack direction="rtl">
+  <LdCard>Card A</LdCard>
+  <LdCard>Card B</LdCard>
+  <LdCard>Card C</LdCard>
+  <LdCard>Card D</LdCard>
+  <LdCard>Card E</LdCard>
+</LdCardStack>
+
 <!-- CSS component -->
 
 <ol class="ld-card-stack ld-card-stack--rtl">
@@ -98,6 +128,16 @@ Use the `ld-card-stack` component to display multiple [`ld-card`](components/ld-
   <ld-card>Card D</ld-card>
   <ld-card>Card E</ld-card>
 </ld-card-stack>
+
+<!-- React component -->
+
+<LdCardStack direction="vertical">
+  <LdCard>Card A</LdCard>
+  <LdCard>Card B</LdCard>
+  <LdCard>Card C</LdCard>
+  <LdCard>Card D</LdCard>
+  <LdCard>Card E</LdCard>
+</LdCardStack>
 
 <!-- CSS component -->
 
