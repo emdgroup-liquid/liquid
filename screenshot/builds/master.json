@@ -7792,6 +7792,32 @@
       "isMobile": false
     },
     {
+      "id": "87a3acbb",
+      "image": "26807b10fdae0172f414f8b77f1f6779.png",
+      "userAgent": "default",
+      "desc": "ld-circular-progress reset renders with box-sizing reset as CSS component",
+      "testPath": "./src/liquid/components/ld-circular-progress/test/ld-circular-progress.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "00aa03af",
+      "image": "26807b10fdae0172f414f8b77f1f6779.png",
+      "userAgent": "default",
+      "desc": "ld-circular-progress reset renders with box-sizing reset as Web Component",
+      "testPath": "./src/liquid/components/ld-circular-progress/test/ld-circular-progress.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "3d455876",
       "image": "5b450704fa5ce1ba379630649c5afab8.png",
       "userAgent": "default",
