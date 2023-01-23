@@ -32,7 +32,7 @@
       background-image: url('dist/build/assets/chevron-guides-dark.svg');
     }
     .docs-nav__summary-toggle {
-      background-color: var(--ld-col-vc);
+      background-color: var(--ld-col-vc-200);
     }
   }
   .docs-nav__summary--globals,
