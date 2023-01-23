@@ -28,6 +28,13 @@ This component is meant to be used in conjunction with the [`ld-crumb`](./ld-cru
   <ld-crumb href="components/ld-breadcrumbs/">Breadcrumbs</ld-crumb>
 </ld-breadcrumbs>
 
+<!-- React component -->
+
+<LdBreadcrumbs>
+  <LdCrumb href="components/">Components</LdCrumb>
+  <LdCrumb href="components/ld-breadcrumbs/">Breadcrumbs</LdCrumb>
+</LdBreadcrumbs>
+
 <!-- CSS component -->
 
 <nav class="ld-breadcrumbs" aria-label="Breadcrumbs">
@@ -55,6 +62,19 @@ This component is meant to be used in conjunction with the [`ld-crumb`](./ld-cru
     Breadcrumbs
   </ld-crumb>
 </ld-breadcrumbs>
+
+<!-- React component -->
+
+<LdBreadcrumbs>
+  <LdCrumb href="components/">
+    <LdIcon name="placeholder" size="sm" />
+    Components
+  </LdCrumb>
+  <LdCrumb href="components/ld-breadcrumbs/">
+    <LdIcon name="placeholder" size="sm" />
+    Breadcrumbs
+  </LdCrumb>
+</LdBreadcrumbs>
 
 <!-- CSS component -->
 
