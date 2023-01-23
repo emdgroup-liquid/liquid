@@ -94,7 +94,9 @@ export class LdSlider implements InnerFocusable {
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() unit?: string
   /** Specifies the default value */
-  @Prop({ mutable: true, reflect: true }) value?: string = String(this.min)
+  @Prop({ mutable: true, reflect: true }) value?: string | number = String(
+    this.min
+  )
   /** Width of the slider */
   @Prop() width? = '100%'
 
@@ -304,7 +306,7 @@ export class LdSlider implements InnerFocusable {
   }
 
   updateValues = (autoCorrectValues = false) => {
-    const values = this.value
+    const values = String(this.value)
       .split(',')
       .map((value) => Number.parseInt(value, 10))
 

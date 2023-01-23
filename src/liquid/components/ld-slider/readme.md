@@ -241,31 +241,31 @@ By default, the `ld-slider` applies a width of `100%`. You can set it to any fix
 
 ## Properties
 
-| Property          | Attribute           | Description                                                  | Type               | Default            |
-| ----------------- | ------------------- | ------------------------------------------------------------ | ------------------ | ------------------ |
-| `ariaDisabled`    | `aria-disabled`     | Alternative disabled state that keeps element focusable      | `string`           | `undefined`        |
-| `disabled`        | `disabled`          | Disabled state of the slider                                 | `boolean`          | `false`            |
-| `hideStopLabels`  | `hide-stop-labels`  | Prevents rendering of the stop labels below the slider       | `boolean`          | `false`            |
-| `hideValueLabels` | `hide-value-labels` | Prevents rendering of the value labels below the slider      | `boolean`          | `false`            |
-| `hideValues`      | `hide-values`       | Makes the current values only visible on interaction         | `boolean`          | `false`            |
-| `indicators`      | `indicators`        | Specifies the legal number intervals                         | `boolean`          | `false`            |
-| `key`             | `key`               | for tracking the node's identity when working with lists     | `string \| number` | `undefined`        |
-| `labelFrom`       | `label-from`        | "From" value label (when exactly 2 values are given)         | `string`           | `'From'`           |
-| `labelTo`         | `label-to`          | "To" value label (when exactly 2 values are given)           | `string`           | `'To'`             |
-| `labelValue`      | `label-value`       | "Value" label (when exactly 2 values are given)              | `string`           | `'Value'`          |
-| `ldTabindex`      | `ld-tabindex`       | Tab index of the input(s).                                   | `number`           | `undefined`        |
-| `max`             | `max`               | Specifies the maximum value allowed                          | `number`           | `100`              |
-| `min`             | `min`               | Specifies the minimum value allowed                          | `number`           | `0`                |
-| `negative`        | `negative`          | Swap which areas are being marked as selected and deselected | `boolean`          | `false`            |
-| `ref`             | `ref`               | reference to component                                       | `any`              | `undefined`        |
-| `size`            | `size`              | Size of the thumb(s).                                        | `"lg" \| "sm"`     | `undefined`        |
-| `snapOffset`      | `snap-offset`       | Offset inside which a thumb snaps to a stop point            | `number`           | `undefined`        |
-| `step`            | `step`              | Specifies the legal number intervals                         | `number`           | `undefined`        |
-| `stops`           | `stops`             | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`        |
-| `swappable`       | `swappable`         | Allows swapping of thumbs                                    | `boolean`          | `false`            |
-| `unit`            | `unit`              | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`        |
-| `value`           | `value`             | Specifies the default value                                  | `string`           | `String(this.min)` |
-| `width`           | `width`             | Width of the slider                                          | `string`           | `'100%'`           |
+| Property          | Attribute           | Description                                                  | Type               | Default                    |
+| ----------------- | ------------------- | ------------------------------------------------------------ | ------------------ | -------------------------- |
+| `ariaDisabled`    | `aria-disabled`     | Alternative disabled state that keeps element focusable      | `string`           | `undefined`                |
+| `disabled`        | `disabled`          | Disabled state of the slider                                 | `boolean`          | `false`                    |
+| `hideStopLabels`  | `hide-stop-labels`  | Prevents rendering of the stop labels below the slider       | `boolean`          | `false`                    |
+| `hideValueLabels` | `hide-value-labels` | Prevents rendering of the value labels below the slider      | `boolean`          | `false`                    |
+| `hideValues`      | `hide-values`       | Makes the current values only visible on interaction         | `boolean`          | `false`                    |
+| `indicators`      | `indicators`        | Specifies the legal number intervals                         | `boolean`          | `false`                    |
+| `key`             | `key`               | for tracking the node's identity when working with lists     | `string \| number` | `undefined`                |
+| `labelFrom`       | `label-from`        | "From" value label (when exactly 2 values are given)         | `string`           | `'From'`                   |
+| `labelTo`         | `label-to`          | "To" value label (when exactly 2 values are given)           | `string`           | `'To'`                     |
+| `labelValue`      | `label-value`       | "Value" label (when exactly 2 values are given)              | `string`           | `'Value'`                  |
+| `ldTabindex`      | `ld-tabindex`       | Tab index of the input(s).                                   | `number`           | `undefined`                |
+| `max`             | `max`               | Specifies the maximum value allowed                          | `number`           | `100`                      |
+| `min`             | `min`               | Specifies the minimum value allowed                          | `number`           | `0`                        |
+| `negative`        | `negative`          | Swap which areas are being marked as selected and deselected | `boolean`          | `false`                    |
+| `ref`             | `ref`               | reference to component                                       | `any`              | `undefined`                |
+| `size`            | `size`              | Size of the thumb(s).                                        | `"lg" \| "sm"`     | `undefined`                |
+| `snapOffset`      | `snap-offset`       | Offset inside which a thumb snaps to a stop point            | `number`           | `undefined`                |
+| `step`            | `step`              | Specifies the legal number intervals                         | `number`           | `undefined`                |
+| `stops`           | `stops`             | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`                |
+| `swappable`       | `swappable`         | Allows swapping of thumbs                                    | `boolean`          | `false`                    |
+| `unit`            | `unit`              | Adds custom stop points to the slider (instead of steps)     | `string`           | `undefined`                |
+| `value`           | `value`             | Specifies the default value                                  | `number \| string` | `String(     this.min   )` |
+| `width`           | `width`             | Width of the slider                                          | `string`           | `'100%'`                   |
 
 
 ## Events
