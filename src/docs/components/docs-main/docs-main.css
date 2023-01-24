@@ -428,9 +428,7 @@
     > [id^='css-variables'] + table {
       td,
       th {
-        /* props and attributes */
-        &:first-of-type,
-        &:nth-of-type(3) {
+        &:first-of-type {
           word-break: break-all;
           flex-shrink: 0;
 
@@ -472,7 +470,6 @@
     > [id^='slots'] + table {
       td,
       th {
-        /* props and attributes */
         &:first-of-type {
           word-break: break-all;
         }

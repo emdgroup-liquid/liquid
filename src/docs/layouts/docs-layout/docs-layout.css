@@ -33,6 +33,7 @@ body {
   margin: 0 auto;
   max-width: var(--docs-max-width);
   min-height: calc(100vh - var(--docs-header-height));
+  overflow-x: hidden;
 
   &.hydrated {
     visibility: visible !important;
