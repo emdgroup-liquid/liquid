@@ -19,6 +19,10 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 {% example '{ "centered": true, "stacked": true }' %}
 <ld-pagination length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination length={15}></LdPagination>
 {% endexample %}
 
 ### With sticky items
@@ -26,6 +30,11 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 {% example '{ "centered": true, "stacked": true }' %}
 <ld-pagination sticky="1" length="15"></ld-pagination>
 <ld-pagination sticky="3" length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination sticky={1} length={15}></LdPagination>
+<LdPagination sticky={3} length={15}></LdPagination>
 {% endexample %}
 
 ### Offset
@@ -33,18 +42,31 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 {% example '{ "centered": true, "stacked": true }'  %}
 <ld-pagination offset="1" length="15"></ld-pagination>
 <ld-pagination offset="0" length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination offset={1} length={15}></LdPagination>
+<LdPagination offset={0} length={15}></LdPagination>
 {% endexample %}
 
 ### Indefinite length
 
 {% example %}
 <ld-pagination></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination></LdPagination>
 {% endexample %}
 
 ### Item label
 
 {% example %}
 <ld-pagination item-label="Slide" length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination itemLabel="Slide" length={15}></LdPagination>
 {% endexample %}
 
 ### Hide arrow buttons
@@ -53,6 +75,12 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 <ld-pagination hide-prev-next hide-start-end length="15"></ld-pagination>
 <ld-pagination hide-prev-next length="15"></ld-pagination>
 <ld-pagination hide-start-end length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination hidePrevNext hideStartEnd length={15}></LdPagination>
+<LdPagination hidePrevNext length={15}></LdPagination>
+<LdPagination hideStartEnd length={15}></LdPagination>
 {% endexample %}
 
 ### Text instead of arrow buttons
@@ -61,6 +89,12 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 <ld-pagination end-label="Last" length="15" next-label="Next" prev-label="Prev" start-label="First"></ld-pagination>
 <ld-pagination hide-prev-next length="15" start-label="First" end-label="Last"></ld-pagination>
 <ld-pagination hide-start-end length="15" next-label="Next" prev-label="Prev"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination endLabel="Last" length={15} nextLabel="Next" prevLabel="Prev" start-label="First"></LdPagination>
+<LdPagination hidePrevNext length={15} startLabel="First" endLabel="Last"></LdPagination>
+<LdPagination hideStartEnd length={15} nextLabel="Next" prevLabel="Prev"></LdPagination>
 {% endexample %}
 
 ### Size
@@ -69,20 +103,30 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 <ld-pagination length="15" size="sm"></ld-pagination>
 <ld-pagination length="15"></ld-pagination>
 <ld-pagination length="15" size="lg"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination length={15} size="sm"></LdPagination>
+<LdPagination length={15}></LdPagination>
+<LdPagination length={15} size="lg"></LdPagination>
 {% endexample %}
 
 ### Preselected index
 
 {% example %}
 <ld-pagination selected-index="7" length="15"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination selectedIndex={7} length={15}></LdPagination>
 {% endexample %}
 
 ### Programmatic manipulation
 
 {% example %}
-<ld-button onclick="jump(-10);"><< 10</ld-button>
+<ld-button onclick="jump(-10);">&lt;&lt; 10</ld-button>
 <ld-pagination id="pagination-1" length="15"></ld-pagination>
-<ld-button onclick="jump(10);">>> 10</ld-button>
+<ld-button onclick="jump(10);">&gt;&gt; 10</ld-button>
 <ld-button onclick="add(-10);">Remove 10</ld-button>
 <ld-button onclick="add(10);">Add 10</ld-button>
 
@@ -96,6 +140,26 @@ An pagination provides a visual hint for content or interactions. Combine it wit
     pagination1.length += amount;
   }
 </script>
+
+<!-- React component -->
+
+const paginationRef = useRef(null)
+const jump = useCallback((steps) => {
+  paginationRef.current.selectedIndex += steps
+}, [])
+const add = useCallback((amount) => {
+  paginationRef.current.length += amount
+}, [])
+
+return (
+  <>
+    <LdButton onClick={() => jump(-10)}>&lt;&lt; 10</LdButton>
+    <LdPagination length={15} ref={paginationRef}></LdPagination>
+    <LdButton onClick={() => jump(10)}>&gt;&gt; 10</LdButton>
+    <LdButton onClick={() => add(-10)}>Remove 10</LdButton>
+    <LdButton onClick={() => add(10)}>Add 10</LdButton>
+  </>
+)
 {% endexample %}
 
 ### Event handling
@@ -109,6 +173,15 @@ An pagination provides a visual hint for content or interactions. Combine it wit
     console.log("Selected index is:", event.detail)
   })
 </script>
+
+<!-- React component -->
+
+<LdPagination
+  length={15}
+  onLdchange={(event) => {
+    console.log('Selected index is:', event.detail)
+  }}
+></LdPagination>
 {% endexample %}
 
 ### Dots mode
@@ -117,12 +190,22 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 <ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="sm" length="7"></ld-pagination>
 <ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" length="15"></ld-pagination>
 <ld-pagination mode="dots" hide-prev-next hide-start-end selected-index="3" size="lg" length="7"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="sm" length={7}></LdPagination>
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} length={15}></LdPagination>
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="lg" length={7}></LdPagination>
 {% endexample %}
 
 ### Dots mode with custom space
 
 {% example %}
 <ld-pagination space="1.5rem" mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination space="1.5rem" mode="dots" hidePrevNext hideStartEnd length={7}></LdPagination>
 {% endexample %}
 
 ### On brand color
@@ -130,6 +213,11 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 {% example '{ "background": "brand", "hasBorder": false }' %}
 <ld-pagination brand-color mode="dots" hide-prev-next hide-start-end length="7"></ld-pagination>
 <ld-pagination brand-color length="7"></ld-pagination>
+
+<!-- React component -->
+
+<LdPagination brandColor mode="dots" hidePrevNext hideStartEnd length={7}></LdPagination>
+<LdPagination brandColor length={7}></LdPagination>
 {% endexample %}
 
 <!-- Auto Generated Below -->
