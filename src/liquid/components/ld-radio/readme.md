@@ -28,6 +28,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <ld-radio name="example-1"></ld-radio>
 <ld-radio name="example-1" checked></ld-radio>
 
+<!-- React component -->
+
+<LdRadio name="example-1"></LdRadio>
+<LdRadio name="example-1" checked></LdRadio>
+
 <!-- CSS component -->
 
 <div class="ld-radio">
@@ -48,6 +53,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <ld-radio name="example-2" disabled></ld-radio>
 <ld-radio name="example-2" disabled checked></ld-radio>
 
+<!-- React component -->
+
+<LdRadio name="example-2" disabled></LdRadio>
+<LdRadio name="example-2" disabled checked></LdRadio>
+
 <!-- CSS component -->
 
 <div class="ld-radio">
@@ -67,6 +77,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 {% example %}
 <ld-radio name="example-3" aria-disabled="true"></ld-radio>
 <ld-radio name="example-3" aria-disabled="true" checked></ld-radio>
+
+<!-- React component -->
+
+<LdRadio name="example-3" aria-disabled="true"></LdRadio>
+<LdRadio name="example-3" aria-disabled="true" checked></LdRadio>
 
 <!-- CSS component -->
 
@@ -115,6 +130,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <ld-radio name="example-4" tone="dark"></ld-radio>
 <ld-radio name="example-4" tone="dark" checked></ld-radio>
 
+<!-- React component -->
+
+<LdRadio name="example-4" tone="dark"></LdRadio>
+<LdRadio name="example-4" tone="dark" checked></LdRadio>
+
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--dark">
@@ -134,6 +154,11 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 {% example %}
 <ld-radio name="example-5" mode="highlight"></ld-radio>
 <ld-radio name="example-5" mode="highlight" checked></ld-radio>
+
+<!-- React component -->
+
+<LdRadio name="example-5" mode="highlight"></LdRadio>
+<LdRadio name="example-5" mode="highlight" checked></LdRadio>
 
 <!-- CSS component -->
 
@@ -157,6 +182,11 @@ An invalid state for a radio inputs inside a group makes sense, if for instance 
 <ld-radio name="example-6" invalid required></ld-radio>
 <ld-radio name="example-6" invalid required></ld-radio>
 
+<!-- React component -->
+
+<LdRadio name="example-6" invalid required></LdRadio>
+<LdRadio name="example-6" invalid required></LdRadio>
+
 <!-- CSS component -->
 
 <div class="ld-radio ld-radio--invalid">
@@ -178,6 +208,11 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
 {% example %}
 <ld-radio name="example-7" mode="danger"></ld-radio>
 <ld-radio name="example-7" mode="danger" checked></ld-radio>
+
+<!-- React component -->
+
+<LdRadio name="example-7" mode="danger"></LdRadio>
+<LdRadio name="example-7" mode="danger" checked></LdRadio>
 
 <!-- CSS component -->
 
@@ -205,6 +240,18 @@ The radio button in mode "danger" looks and behaves the same as a radio button w
   Banana
   <ld-radio name="example-8" value="banana"></ld-radio>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel position="right" size="m">
+  Orange
+  <LdRadio name="example-8" value="orange"></LdRadio>
+</LdLabel>
+
+<LdLabel position="right" size="m">
+  Banana
+  <LdRadio name="example-8" value="banana"></LdRadio>
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -243,6 +290,20 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
   <ld-radio name="example-9"></ld-radio>
   <ld-input-message mode="info">You'll join the banana team.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel position="right" size="m">
+  Orange
+  <LdRadio name="example-9"></LdRadio>
+  <LdInputMessage mode="info">You'll join the orange team.</LdInputMessage>
+</LdLabel>
+
+<LdLabel position="right" size="m">
+  Banana
+  <LdRadio name="example-9"></LdRadio>
+  <LdInputMessage mode="info">You'll join the banana team.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
