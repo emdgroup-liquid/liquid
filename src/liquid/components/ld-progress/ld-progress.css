@@ -40,6 +40,7 @@
       var(--ld-col-wht-alpha-high),
     inset 0px 0px 0px calc(var(--ld-progress-has-overflow) * 99rem)
       var(--ld-progress-bg-col-overflow);
+  display: block;
   height: var(--ld-progress-height);
   max-width: 100%;
   overflow: hidden;
