@@ -22,6 +22,10 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
 {% example '{ "opened": true }' %}
 <ld-sr-only>Hello screen reader</ld-sr-only>
 
+<!-- React component -->
+
+<LdSrOnly>Hello screen reader</LdSrOnly>
+
 <!-- CSS component -->
 
 <span class="ld-sr-only">Hello screen reader</span>
