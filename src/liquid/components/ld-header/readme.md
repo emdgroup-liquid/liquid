@@ -30,11 +30,15 @@ You can easily make the header sticky and make it hide when the user is scrollin
 {% example %}
 <ld-header site-name="Liquid Oxygen"></ld-header>
 
+<!-- React component -->
+
+<LdHeader siteName="Liquid Oxygen" />
+
 <!-- CSS component -->
 
 <header class="ld-header">
   <div class="ld-header__container">
-    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor"/></svg>
     <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
@@ -45,12 +49,16 @@ You can easily make the header sticky and make it hide when the user is scrollin
 {% example %}
 <ld-header site-name="Liquid Oxygen" logo-title="Home" logo-url="#"></ld-header>
 
+<!-- React component -->
+
+<LdHeader siteName="Liquid Oxygen" logoTitle="Home" logoUrl="#" />
+
 <!-- CSS component -->
 
 <header class="ld-header">
   <div class="ld-header__container">
     <a aria-label="Home" class="ld-header__logo-wrapper" href="#">
-      <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+      <svg class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor"/></svg>
     </a>
     <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
@@ -63,6 +71,12 @@ You can easily make the header sticky and make it hide when the user is scrollin
 <ld-header logo-title="Rocket Inc." site-name="Rocket Science">
   <ld-icon name="rocket" size="lg" slot="logo"></ld-icon>
 </ld-header>
+
+<!-- React component -->
+
+<LdHeader siteName="Liquid Oxygen" logoTitle="Home" logoUrl="#">
+  <LdIcon name="rocket" size="lg" slot="logo" />
+</LdHeader>
 
 <!-- CSS component -->
 
@@ -77,71 +91,114 @@ You can easily make the header sticky and make it hide when the user is scrollin
 ### With buttons
 
 {% example %}
-<ld-header>
+<ld-header class="header-container">
   <ld-typo tag="div" variant="h5">
     Liquid<span class="hide-on-sm"> Oxygen</span>
   </ld-typo>
-  <ld-button id="register" slot="end" type="button">
+  <ld-button slot="end" type="button">
     <ld-icon name="pen" size="sm"></ld-icon>
     Register
   </ld-button>
-  <ld-button id="login-sm" mode="ghost" slot="end" title="Login" type="button">
+  <ld-button
+    class="hide-on-lg"
+    mode="ghost"
+    slot="end"
+    title="Login"
+    type="button"
+  >
     <ld-icon aria-label="Login" name="user" size="lg"></ld-icon>
   </ld-button>
-  <ld-button id="login-lg" mode="secondary" slot="end" type="button">
+  <ld-button
+    class="hide-on-sm"
+    mode="secondary"
+    slot="end"
+    type="button"
+  >
     <ld-icon name="user" size="sm"></ld-icon>
     Login
   </ld-button>
 </ld-header>
 
 <style>
-  .hide-on-sm {
-    display: none;
+  .header-container {
+    container-type: inline-size;
+    container-name: header;
   }
-
-  #register ld-icon {
-    display: none;
-  }
-
-  #login-lg {
-    display: none;
-  }
-
-  @media (min-width: 52rem) {
-    .hide-on-sm {
-      display: inline;
-    }
-
-    #register ld-icon {
-      display: block;
-    }
-
-    #login-sm {
+  @container header (min-width: 32rem) {
+    .hide-on-lg {
       display: none;
     }
-
-    #login-lg {
-      display: block;
+  }
+  @container header (max-width: calc(32rem - 1px)) {
+    .hide-on-sm {
+      display: none;
     }
   }
 </style>
 
+<!-- React component -->
+
+<LdHeader className="header-container">
+  <LdTypo tag="div" variant="h5">
+    Liquid<span className="hide-on-sm"> Oxygen</span>
+  </LdTypo>
+  <LdButton slot="end" type="button">
+    <LdIcon name="pen" size="sm"></LdIcon>
+    Register
+  </LdButton>
+  <LdButton
+    className="hide-on-lg"
+    mode="ghost"
+    slot="end"
+    title="Login"
+    type="button"
+  >
+    <LdIcon aria-label="Login" name="user" size="lg"></LdIcon>
+  </LdButton>
+  <LdButton
+    className="hide-on-sm"
+    mode="secondary"
+    slot="end"
+    type="button"
+  >
+    <LdIcon name="user" size="sm"></LdIcon>
+    Login
+  </LdButton>
+</LdHeader>
+
+<style>{`
+  .header-container {
+    container-type: inline-size;
+    container-name: header;
+  }
+  @container header (min-width: 32rem) {
+    .hide-on-lg {
+      display: none;
+    }
+  }
+  @container header (max-width: calc(32rem - 1px)) {
+    .hide-on-sm {
+      display: none;
+    }
+  }
+`}</style>
+
 <!-- CSS component -->
 
-<header class="ld-header">
+<header class="ld-header header-container">
   <div class="ld-header__container">
-    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor"/></svg>
     <div class="ld-header_site-name ld-header__grow ld-typo--h5">
       Liquid<span class="hide-on-sm"> Oxygen</span>
     </div>
-    <button class="ld-button ld-button--brand-color ld-button--sm" id="register" type="button">
+    <button class="ld-button ld-button--brand-color ld-button--sm" type="button">
       <svg class="ld-icon ld-icon--sm" role="none" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.6192 15.1453a3.806 3.806 0 0 1 1.5674.3358c.4564.2056 1.0133.1824 1.3673-.1716L19.4353 4.4282c.4358-.4358.3698-1.1738-.227-1.3275A3.1966 3.1966 0 0 0 18.4098 3c-.5539 0-1.074.2154-1.4654.6068L5.5567 14.9944c-.0557.0557-.0163.1509.0625.1509zm.3803 1.3126H5.154a.5.5 0 0 0-.485.3787l-.639 2.5557c-.0894.3571.0277.6916.2536.9168.2252.2259.5597.3428.916.2536l2.5565-.639a.5.5 0 0 0 .3787-.4851v-.8455c0-1.1772-.958-2.1352-2.1354-2.1352zM21.5923 6.1824c0 .5542-.2154 1.0744-.6068 1.4658L9.5979 19.036c-.0557.0556-.1508.0162-.1508-.0625a3.806 3.806 0 0 0-.3358-1.5673c-.2057-.4565-.1826-1.0135.1715-1.3675L20.1635 5.1582c.4362-.4362 1.1748-.3697 1.3285.2276a3.194 3.194 0 0 1 .1003.7966z" fill="currentcolor"/></svg>
       Register
     </button>
-    <button class="ld-button ld-button--brand-color ld-button--ghost ld-button--sm ld-button--icon-only" id="login-sm" title="Login" type="button">
+    <button class="hide-on-lg ld-button ld-button--brand-color ld-button--ghost ld-button--sm ld-button--icon-only" title="Login" type="button">
       <svg aria-label="Login" class="ld-icon ld-icon--lg" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9315 2C9.4767 2 7.455 3.6606 7.455 6.8376c0 2.0938.9386 4.1877 2.2383 5.4873.4332 1.1552-.4332 1.8051-.5776 1.8773-2.5993.9386-5.6318 2.6714-5.6318 4.3321v.6498c0 2.2383 4.4043 2.7437 8.4476 2.8159 4.1156-.0722 8.5199-.5776 8.5199-2.8159v-.6498c0-1.6607-3.0325-3.3935-5.6318-4.3321-.2166-.0722-1.083-.7221-.5776-1.8773 1.2996-1.2996 2.2383-3.3935 2.2383-5.4873C16.4803 3.6606 14.3864 2 11.9315 2z" fill="currentcolor"/></svg>
     </button>
-    <button class="ld-button ld-button--brand-color ld-button--secondary ld-button--sm" id="login-lg" type="button">
+    <button class="hide-on-sm ld-button ld-button--brand-color ld-button--secondary ld-button--sm" id="login-lg" type="button">
       <svg class="ld-icon ld-icon--sm" role="none" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9315 2C9.4767 2 7.455 3.6606 7.455 6.8376c0 2.0938.9386 4.1877 2.2383 5.4873.4332 1.1552-.4332 1.8051-.5776 1.8773-2.5993.9386-5.6318 2.6714-5.6318 4.3321v.6498c0 2.2383 4.4043 2.7437 8.4476 2.8159 4.1156-.0722 8.5199-.5776 8.5199-2.8159v-.6498c0-1.6607-3.0325-3.3935-5.6318-4.3321-.2166-.0722-1.083-.7221-.5776-1.8773 1.2996-1.2996 2.2383-3.3935 2.2383-5.4873C16.4803 3.6606 14.3864 2 11.9315 2z" fill="currentcolor"/></svg>
       Login
     </button>
@@ -149,33 +206,18 @@ You can easily make the header sticky and make it hide when the user is scrollin
 </header>
 
 <style>
-  .hide-on-sm {
-    display: none;
+  .header-container {
+    container-type: inline-size;
+    container-name: header;
   }
-
-  #register .ld-icon {
-    display: none;
-  }
-
-  #login-lg {
-    display: none;
-  }
-
-  @media (min-width: 52rem) {
-    .hide-on-sm {
-      display: inline;
-    }
-
-    #register .ld-icon {
-      display: block;
-    }
-
-    #login-sm {
+  @container header (min-width: 32rem) {
+    .hide-on-lg {
       display: none;
     }
-
-    #login-lg {
-      display: grid;
+  }
+  @container header (max-width: calc(32rem - 1px)) {
+    .hide-on-sm {
+      display: none;
     }
   }
 </style>
@@ -190,6 +232,14 @@ You can easily make the header sticky and make it hide when the user is scrollin
   </ld-button>
 </ld-header>
 
+<!-- React component -->
+
+<LdHeader siteName="Liquid Oxygen">
+  <LdButton mode="ghost" slot="start" title="Open menu" type="button">
+    <LdIcon aria-label="Open menu" name="burger-menu" size="lg" />
+  </LdButton>
+</LdHeader>
+
 <!-- CSS component -->
 
 <header class="ld-header">
@@ -197,7 +247,7 @@ You can easily make the header sticky and make it hide when the user is scrollin
     <button class="ld-button ld-button--brand-color ld-button--ghost ld-button--sm ld-button--icon-only" title="Open menu" type="button">
       <svg aria-label="Open menu" class="ld-icon ld-icon--lg" viewBox="0 0 24 24" fill="none"><rect x="5" y="6" width="14" height="2" rx="1" fill="currentcolor"/><rect x="5" y="11" width="14" height="2" rx="1" fill="currentcolor"/><rect x="5" y="16" width="14" height="2" rx="1" fill="currentcolor"/></svg>
     </button>
-    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor"/></svg>
     <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
@@ -210,19 +260,23 @@ You can add the `sticky` property to the `ld-header` web component, to make the 
 {% example %}
 <ld-header site-name="Liquid Oxygen" sticky></ld-header>
 
+<!-- React component -->
+
+<LdHeader siteName="Liquid Oxygen" sticky />
+
 <!-- CSS component -->
 
 <!-- Add the class `ld-header--hidden` to hide the sticky header. -->
 <header class="ld-header ld-header--sticky">
   <div class="ld-header__container">
-    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7H19.1a.2882.2882 0 0 0-.1926.076l-2.9895 2.7586c-1.0241.9456-2.4024 1.4765-3.9177 1.4765-1.5796 0-3.0088-.5797-4.0444-1.5964 0 0-2.199-2.0294-2.2179-2.0477A2.5535 2.5535 0 0 0 4.0665 7h-1.785C2.126 7 2 7.1239 2 7.2766v7.7509c0 .765.6301 1.3843 1.4083 1.3843h.9133c.1564 0 .2831-.1249.2831-.2783l.0007-2.7582c0-.7208.5987-1.3155 1.3204-1.3155 1.3434 0 2.3067 1.1309 3.177 1.8863 1.0661.9254 1.8871 1.8169 2.8974 1.8169 1.0092 0 1.8306-.8915 2.8966-1.8169.8707-.7554 1.834-1.8863 3.1767-1.8863.718 0 1.3137.5887 1.3208 1.3039v1.6638c0 .765.6305 1.3829 1.4089 1.3829h.6079c.1588 0 .3061.0014.3061.0014.1561 0 .2828-.1249.2828-.2779V8.3842C22 7.6196 21.3692 7 20.5921 7Z" fill="currentcolor"/></svg>
+    <svg aria-label="Merck KGaA, Darmstadt, Germany" class="ld-header__logo ld-icon" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.5921 7.5H19.1a.2955.2955 0 0 0-.1926.0727l-2.9895 2.6378c-1.0241.9043-2.4024 1.412-3.9177 1.412-1.5796 0-3.0088-.5544-4.0444-1.5266 0 0-2.199-1.9406-2.2179-1.958-.422-.369-1.0028-.624-1.6714-.6379h-1.785C2.126 7.5 2 7.6184 2 7.7645v7.4118c0 .7316.6301 1.3237 1.4083 1.3237h.9133c.1564 0 .2831-.1194.2831-.2661l.0007-2.6375c0-.6893.5987-1.2579 1.3204-1.2579 1.3434 0 2.3067 1.0814 3.177 1.8037 1.0661.8849 1.8871 1.7374 2.8974 1.7374 1.0092 0 1.8306-.8525 2.8966-1.7374.8707-.7223 1.834-1.8037 3.1767-1.8037.718 0 1.3137.5629 1.3208 1.2468v1.591c0 .7316.6305 1.3224 1.4089 1.3224h.6079c.1588 0 .3061.0013.3061.0013.1561 0 .2828-.1194.2828-.2658V8.8237C22 8.0925 21.3692 7.5 20.5921 7.5Z" fill="currentcolor"/></svg>
     <div class="ld-header_site-name ld-typo--h5">Liquid Oxygen</div>
   </div>
 </header>
 {% endexample %}
 
 <ld-notice mode="warning">
-  As the CSS property <code>position: sticky;</code> is used here to achieve this behavior, the <code>ld-header</code> "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to take care of where you place the <code>ld-header</code> in the DOM.
+  As the CSS property <code>position: sticky;</code> is used here to achieve this behavior, the <code>ld-header</code> "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when <code>overflow</code> is set to <code>hidden</code>, <code>scroll</code>, <code>auto</code> or <code>overlay</code>), even if that ancestor isn't the nearest actually scrolling ancestor. So you need to be aware of where you place the <code>ld-header</code> in the DOM.
 </ld-notice>
 
 ### Hide on scroll
