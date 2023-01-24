@@ -22,6 +22,11 @@ The `ld-progress` component can be used to displays the progress status for task
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
 <ld-progress aria-labeledby="progress-label" aria-valuenow="25"></ld-progress>
 
+<!-- React component -->
+
+<LdSrOnly id="progress-label">Progress</LdSrOnly>
+<LdProgress aria-labeledby="progress-label" aria-valuenow={25}></LdProgress>
+
 <!-- CSS component -->
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
@@ -44,11 +49,36 @@ Interactive example:
   void function() {
     const slider = document.currentScript.previousElementSibling
     const progress = slider.previousElementSibling
+
     slider.addEventListener('ldchange', ev => {
       progress.ariaValuenow = ev.detail[0]
     })
   }()
 </script>
+
+<!-- React component -->
+
+const progressRef = useRef(null)
+
+return (
+  <>
+    <LdSrOnly id="progress-label">Progress</LdSrOnly>
+    <LdProgress
+      aria-labeledby="progress-label"
+      aria-valuenow={25}
+      ref={progressRef}
+    ></LdProgress>
+
+    <LdSlider
+      value="25"
+      max={200}
+      width="14rem"
+      onLdchange={(ev) => {
+        progressRef.current.ariaValuenow = ev.detail[0]
+      }}
+    ></LdSlider>
+  </>
+)
 
 <!-- CSS component -->
 
@@ -81,6 +111,12 @@ Interactive example:
              aria-valuemin="100"
              aria-valuenow="150"></ld-progress>
 
+<!-- React component -->
+
+<LdProgress aria-valuemax={300}
+            aria-valuemin={100}
+            aria-valuenow={150}></LdProgress>
+
 <!-- CSS component -->
 
 <div class="ld-progress"
@@ -99,7 +135,13 @@ The component can visualize an overflow value up to 200% of the maximum progress
 <ld-progress aria-valuenow="125"></ld-progress>
 <ld-progress aria-valuenow="225"></ld-progress>
 
+<!-- React component -->
+
+<LdProgress aria-valuenow={125}></LdProgress>
+<LdProgress aria-valuenow={225}></LdProgress>
+
 <!-- CSS component -->
+
 <div class="ld-progress"
      aria-valuenow="125"
      role="progressbar"
@@ -115,6 +157,10 @@ The component can visualize an overflow value up to 200% of the maximum progress
 {% example %}
 <ld-progress aria-valuemax="4" aria-valuenow="1" steps></ld-progress>
 
+<!-- React component -->
+
+<LdProgress aria-valuemax={4} aria-valuenow={1} steps></LdProgress>
+
 <!-- CSS component -->
 
 <div class="ld-progress ld-progress--steps"
@@ -129,6 +175,11 @@ The component can visualize an overflow value up to 200% of the maximum progress
 {% example %}
 <ld-progress pending aria-valuetext="indeterminate"></ld-progress>
 <ld-progress pending aria-valuenow="25"></ld-progress>
+
+<!-- React component -->
+
+<LdProgress pending aria-valuetext="indeterminate"></LdProgress>
+<LdProgress pending aria-valuenow={25}></LdProgress>
 
 <!-- CSS component -->
 
@@ -148,6 +199,10 @@ Use this mode on backgrounds with brand color.
 
 {% example '{ "background": "brand", "hasBorder": false }' %}
 <ld-progress brand-color aria-valuenow="25"></ld-progress>
+
+<!-- React component -->
+
+<LdProgress brandColor aria-valuenow={25}></LdProgress>
 
 <!-- CSS component -->
 
