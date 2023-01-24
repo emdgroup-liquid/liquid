@@ -48,6 +48,26 @@ The feature set of the `ld-select` Web Component differs from its CSS Component 
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
 <!-- CSS component -->
 
 <div class='ld-select'>
@@ -107,6 +127,26 @@ You can prevent a state with no options selected after initial selection in sing
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" preventDeselection>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### Multiple select mode
@@ -129,6 +169,26 @@ You can prevent a state with no options selected after initial selection in sing
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 #### Width
@@ -136,16 +196,7 @@ You can prevent a state with no options selected after initial selection in sing
 You may have noticed, that in multiple mode the component grows horizontally with the number of selected options. You can prevent this behaviour by either applying a `width` or a `max-width` style on the `ld-select` element:
 
 {% example %}
-<style>
-.my-select-width {
-  width: 14rem;
-}
-.my-select-max-width {
-  max-width: 24rem;
-}
-</style>
-
-<ld-select class="my-select-width" placeholder="Pick some fruits" name="fruits" multiple>
+<ld-select placeholder="Pick some fruits" name="fruits" multiple style="width: 14rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry" selected>Strawberry</ld-option>
@@ -163,7 +214,7 @@ You may have noticed, that in multiple mode the component grows horizontally wit
   <ld-option value="plum" selected>Plum</ld-option>
 </ld-select>
 
-<ld-select class="my-select-max-width" placeholder="Pick some fruits" name="fruits" multiple>
+<ld-select class="my-select-max-width" placeholder="Pick some fruits" name="fruits" multiple style="max-width: 24rem">
   <ld-option value="apple">Apple</ld-option>
   <ld-option value="banana" selected>Banana</ld-option>
   <ld-option value="strawberry" selected>Strawberry</ld-option>
@@ -180,6 +231,44 @@ You may have noticed, that in multiple mode the component grows horizontally wit
   <ld-option value="pineapple" selected>Pineapple</ld-option>
   <ld-option value="plum" selected>Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple style={ { width: '14rem' } }>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach" selected>Peach</LdOption>
+  <LdOption value="grape" selected>Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear" selected>Pear</LdOption>
+  <LdOption value="pineapple" selected>Pineapple</LdOption>
+  <LdOption value="plum" selected>Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple style={ { maxWidth: '24rem' } }>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach" selected>Peach</LdOption>
+  <LdOption value="grape" selected>Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear" selected>Pear</LdOption>
+  <LdOption value="pineapple" selected>Pineapple</LdOption>
+  <LdOption value="plum" selected>Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 #### Max rows
@@ -222,6 +311,44 @@ If you have limited vertical space (this may especially be the case on mobile de
   <ld-option value="pineapple" selected>Pineapple</ld-option>
   <ld-option value="plum" selected>Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple maxRows={1} style={ { width: '14rem' } }>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach" selected>Peach</LdOption>
+  <LdOption value="grape" selected>Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear" selected>Pear</LdOption>
+  <LdOption value="pineapple" selected>Pineapple</LdOption>
+  <LdOption value="plum" selected>Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple maxRows={2} style={ { maxWidth: '24rem' } }>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry" selected>Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach" selected>Peach</LdOption>
+  <LdOption value="grape" selected>Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear" selected>Pear</LdOption>
+  <LdOption value="pineapple" selected>Pineapple</LdOption>
+  <LdOption value="plum" selected>Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### Disabled
@@ -298,6 +425,80 @@ If you have limited vertical space (this may especially be the case on mobile de
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" disabled>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple disabled>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit" disabled>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple disabled>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 
 <!-- CSS component -->
 
@@ -411,6 +612,80 @@ If you have limited vertical space (this may especially be the case on mobile de
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" aria-disabled="true">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit" aria-disabled="true">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple aria-disabled="true">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
 <!-- CSS component -->
 
 <div class='ld-select'>
@@ -491,6 +766,44 @@ If you have limited vertical space (this may especially be the case on mobile de
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
 
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" invalid>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple invalid>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
 <!-- CSS component -->
 
 <div class='ld-select ld-select--invalid'>
@@ -550,6 +863,26 @@ In detached mode the component positions the popper element with a small vertica
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" mode="detached">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### Inline
@@ -610,6 +943,62 @@ In inline mode, while the popper element has a minimum width, the component's tr
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" mode="inline">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple mode="inline">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple mode="inline" style={ { width: '6.9375rem' } } maxRows={1}>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### Ghost
@@ -634,6 +1023,26 @@ In ghost mode the component works the same way as it does in inline mode while a
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" mode="ghost">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### Size
@@ -746,6 +1155,116 @@ In ghost mode the component works the same way as it does in inline mode while a
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" size="sm">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit" size="lg">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple size="sm">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect placeholder="Pick some fruits" name="fruits" multiple size="lg">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 
 <!-- CSS component -->
 
@@ -914,6 +1433,65 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <ld-icon slot="icon" name="placeholder"></ld-icon>
 </ld-select>
 
+<!-- React component -->
+
+<LdSelect placeholder="Pick a fruit" name="fruit" size="sm">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+  <LdIcon slot="icon" name="placeholder"></LdIcon>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+  <LdIcon slot="icon" name="placeholder"></LdIcon>
+</LdSelect>
+
+<LdSelect placeholder="Pick a fruit" name="fruit" size="lg">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+  <LdIcon slot="icon" name="placeholder"></LdIcon>
+</LdSelect>
+
 <!-- CSS component -->
 
 <div class='ld-select ld-select--sm'>
@@ -1030,6 +1608,44 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <ld-option value="pineapple">Pineapple</ld-option>
   <ld-option value="plum">Plum</ld-option>
 </ld-select>
+
+<!-- React component -->
+
+<LdSelect filter placeholder="Pick a fruit" name="fruit">
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana">Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry">Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
+
+<LdSelect filter placeholder="Pick some fruits" name="fruits" multiple maxRows={2} style={ { maxWidth: '17rem' } }>
+  <LdOption value="apple">Apple</LdOption>
+  <LdOption value="banana" selected>Banana</LdOption>
+  <LdOption value="strawberry">Strawberry</LdOption>
+  <LdOption value="watermelon" disabled>Watermelon</LdOption>
+  <LdOption value="honeymelon">Honeymelon</LdOption>
+  <LdOption value="rasberry">Rasberry</LdOption>
+  <LdOption value="cherry" selected>Cherry</LdOption>
+  <LdOption value="blueberry">Blueberry</LdOption>
+  <LdOption value="peach">Peach</LdOption>
+  <LdOption value="grape">Grape</LdOption>
+  <LdOption value="fuyu persimmon" selected>Fuyu Persimmon</LdOption>
+  <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+  <LdOption value="pear">Pear</LdOption>
+  <LdOption value="pineapple">Pineapple</LdOption>
+  <LdOption value="plum">Plum</LdOption>
+</LdSelect>
 {% endexample %}
 
 ### With label
@@ -1055,6 +1671,29 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
     <ld-option value="plum">Plum</ld-option>
   </ld-select>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel>
+  Favorite fruit
+  <LdSelect placeholder="Pick a fruit" name="fruit">
+    <LdOption value="apple">Apple</LdOption>
+    <LdOption value="banana">Banana</LdOption>
+    <LdOption value="strawberry">Strawberry</LdOption>
+    <LdOption value="watermelon" disabled>Watermelon</LdOption>
+    <LdOption value="honeymelon">Honeymelon</LdOption>
+    <LdOption value="rasberry">Rasberry</LdOption>
+    <LdOption value="cherry">Cherry</LdOption>
+    <LdOption value="blueberry">Blueberry</LdOption>
+    <LdOption value="peach">Peach</LdOption>
+    <LdOption value="grape">Grape</LdOption>
+    <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+    <LdOption value="monstera deliciosa">Monstera Deliciosa</LdOption>
+    <LdOption value="pear">Pear</LdOption>
+    <LdOption value="pineapple">Pineapple</LdOption>
+    <LdOption value="plum">Plum</LdOption>
+  </LdSelect>
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -1120,6 +1759,30 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   </ld-select>
   <ld-input-message mode="info">Not available today.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel>
+  Favorite fruit
+  <LdSelect placeholder="Pick a fruit" name="fruit">
+    <LdOption value="apple">Apple</LdOption>
+    <LdOption value="banana">Banana</LdOption>
+    <LdOption value="strawberry">Strawberry</LdOption>
+    <LdOption value="watermelon" disabled>Watermelon</LdOption>
+    <LdOption value="honeymelon">Honeymelon</LdOption>
+    <LdOption value="rasberry">Rasberry</LdOption>
+    <LdOption value="cherry">Cherry</LdOption>
+    <LdOption value="blueberry">Blueberry</LdOption>
+    <LdOption value="peach">Peach</LdOption>
+    <LdOption value="grape">Grape</LdOption>
+    <LdOption value="fuyu persimmon">Fuyu Persimmon</LdOption>
+    <LdOption value="monstera deliciosa" selected>Monstera Deliciosa</LdOption>
+    <LdOption value="pear">Pear</LdOption>
+    <LdOption value="pineapple">Pineapple</LdOption>
+    <LdOption value="plum">Plum</LdOption>
+  </LdSelect>
+  <LdInputMessage mode="info">Not available today.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
