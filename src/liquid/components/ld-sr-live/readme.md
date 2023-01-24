@@ -79,6 +79,59 @@ formAlert.addEventListener('submit', ev => {
   }))
 })
 </script>
+
+<!-- React component -->
+
+const infoInputRef = React.useRef(null)
+const alertInputRef = React.useRef(null)
+const formStyle = {
+  display: 'grid',
+  gridAutoFlow: 'column',
+  alignItems: 'flex-end',
+  gridGap: '1rem'
+}
+
+return (
+  <>
+    <LdSrLive></LdSrLive>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldSrLiveInfo', {
+            detail: infoInputRef.current.value || '',
+          })
+        )
+      }}
+      style={formStyle}
+    >
+      <LdLabel>
+        Info message
+        <LdInput ref={infoInputRef}></LdInput>
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldSrLiveAlert', {
+            detail: alertInputRef.current.value || '',
+          })
+        )
+      }}
+      style={formStyle}
+    >
+      <LdLabel>
+        Alert message
+        <LdInput ref={alertInputRef}></LdInput>
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+  </>
+)
 {% endexample %}
 
 
