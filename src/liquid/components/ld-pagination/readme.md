@@ -92,7 +92,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination endLabel="Last" length={15} nextLabel="Next" prevLabel="Prev" start-label="First" />
+<LdPagination endLabel="Last" length={15} nextLabel="Next" prevLabel="Prev" startLabel="First" />
 <LdPagination hidePrevNext length={15} startLabel="First" endLabel="Last" />
 <LdPagination hideStartEnd length={15} nextLabel="Next" prevLabel="Prev" />
 {% endexample %}
