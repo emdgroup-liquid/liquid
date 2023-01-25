@@ -84,34 +84,32 @@ Interactive example:
 
 <!-- React component -->
 
-const App = () => {
-  const [val, setVal] = useState(25)
-  return (
-    <>
-      <LdSrOnly id="progress-label">Progress</LdSrOnly>
-      <LdCircularProgress aria-labelledby="progress-label" aria-valuenow={val}>
-        <LdTypo
-          variant="b6"
-          style={ {
-            color: `var(--ld-thm-${val > 100 ? 'error' : 'primary'})`,
-          } }
-        >
-          {val}%
-        </LdTypo>
-        <LdTypo variant="label-s">complete</LdTypo>
-      </LdCircularProgress>
+const [val, setVal] = useState(25)
+return (
+  <>
+    <LdSrOnly id="progress-label">Progress</LdSrOnly>
+    <LdCircularProgress aria-labelledby="progress-label" aria-valuenow={val}>
+      <LdTypo
+        variant="b6"
+        style={ {
+          color: `var(--ld-thm-${val > 100 ? 'error' : 'primary'})`,
+        } }
+      >
+        {val}%
+      </LdTypo>
+      <LdTypo variant="label-s">complete</LdTypo>
+    </LdCircularProgress>
 
-      <LdSlider
-        onLdchange={(ev) => {
-          setVal(ev.detail[0])
-        }}
-        value={val}
-        max={200}
-        width="14rem"
-      />
-    </>
-  )
-}
+    <LdSlider
+      onLdchange={(ev) => {
+        setVal(ev.detail[0])
+      }}
+      value={val}
+      max={200}
+      width="14rem"
+    />
+  </>
+)
 
 <!-- CSS component -->
 
