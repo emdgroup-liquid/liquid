@@ -1451,7 +1451,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <LdOption value="pear">Pear</LdOption>
   <LdOption value="pineapple">Pineapple</LdOption>
   <LdOption value="plum">Plum</LdOption>
-  <LdIcon slot="icon" name="placeholder"></LdIcon>
+  <LdIcon slot="icon" name="placeholder" />
 </LdSelect>
 
 <LdSelect placeholder="Pick a fruit" name="fruit">
@@ -1470,7 +1470,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <LdOption value="pear">Pear</LdOption>
   <LdOption value="pineapple">Pineapple</LdOption>
   <LdOption value="plum">Plum</LdOption>
-  <LdIcon slot="icon" name="placeholder"></LdIcon>
+  <LdIcon slot="icon" name="placeholder" />
 </LdSelect>
 
 <LdSelect placeholder="Pick a fruit" name="fruit" size="lg">
@@ -1489,7 +1489,7 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
   <LdOption value="pear">Pear</LdOption>
   <LdOption value="pineapple">Pineapple</LdOption>
   <LdOption value="plum">Plum</LdOption>
-  <LdIcon slot="icon" name="placeholder"></LdIcon>
+  <LdIcon slot="icon" name="placeholder" />
 </LdSelect>
 
 <!-- CSS component -->

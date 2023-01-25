@@ -22,7 +22,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination length={15}></LdPagination>
+<LdPagination length={15} />
 {% endexample %}
 
 ### With sticky items
@@ -33,8 +33,8 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination sticky={1} length={15}></LdPagination>
-<LdPagination sticky={3} length={15}></LdPagination>
+<LdPagination sticky={1} length={15} />
+<LdPagination sticky={3} length={15} />
 {% endexample %}
 
 ### Offset
@@ -45,8 +45,8 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination offset={1} length={15}></LdPagination>
-<LdPagination offset={0} length={15}></LdPagination>
+<LdPagination offset={1} length={15} />
+<LdPagination offset={0} length={15} />
 {% endexample %}
 
 ### Indefinite length
@@ -56,7 +56,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination></LdPagination>
+<LdPagination />
 {% endexample %}
 
 ### Item label
@@ -66,7 +66,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination itemLabel="Slide" length={15}></LdPagination>
+<LdPagination itemLabel="Slide" length={15} />
 {% endexample %}
 
 ### Hide arrow buttons
@@ -78,9 +78,9 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination hidePrevNext hideStartEnd length={15}></LdPagination>
-<LdPagination hidePrevNext length={15}></LdPagination>
-<LdPagination hideStartEnd length={15}></LdPagination>
+<LdPagination hidePrevNext hideStartEnd length={15} />
+<LdPagination hidePrevNext length={15} />
+<LdPagination hideStartEnd length={15} />
 {% endexample %}
 
 ### Text instead of arrow buttons
@@ -92,9 +92,9 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination endLabel="Last" length={15} nextLabel="Next" prevLabel="Prev" start-label="First"></LdPagination>
-<LdPagination hidePrevNext length={15} startLabel="First" endLabel="Last"></LdPagination>
-<LdPagination hideStartEnd length={15} nextLabel="Next" prevLabel="Prev"></LdPagination>
+<LdPagination endLabel="Last" length={15} nextLabel="Next" prevLabel="Prev" start-label="First" />
+<LdPagination hidePrevNext length={15} startLabel="First" endLabel="Last" />
+<LdPagination hideStartEnd length={15} nextLabel="Next" prevLabel="Prev" />
 {% endexample %}
 
 ### Size
@@ -106,9 +106,9 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination length={15} size="sm"></LdPagination>
-<LdPagination length={15}></LdPagination>
-<LdPagination length={15} size="lg"></LdPagination>
+<LdPagination length={15} size="sm" />
+<LdPagination length={15} />
+<LdPagination length={15} size="lg" />
 {% endexample %}
 
 ### Preselected index
@@ -118,7 +118,7 @@ An pagination provides a visual hint for content or interactions. Combine it wit
 
 <!-- React component -->
 
-<LdPagination selectedIndex={7} length={15}></LdPagination>
+<LdPagination selectedIndex={7} length={15} />
 {% endexample %}
 
 ### Programmatic manipulation
@@ -154,7 +154,7 @@ const add = useCallback((amount) => {
 return (
   <>
     <LdButton onClick={() => jump(-10)}>&lt;&lt; 10</LdButton>
-    <LdPagination length={15} ref={paginationRef}></LdPagination>
+    <LdPagination length={15} ref={paginationRef} />
     <LdButton onClick={() => jump(10)}>&gt;&gt; 10</LdButton>
     <LdButton onClick={() => add(-10)}>Remove 10</LdButton>
     <LdButton onClick={() => add(10)}>Add 10</LdButton>
@@ -181,7 +181,7 @@ return (
   onLdchange={(event) => {
     console.log('Selected index is:', event.detail)
   }}
-></LdPagination>
+ />
 {% endexample %}
 
 ### Dots mode
@@ -193,9 +193,9 @@ return (
 
 <!-- React component -->
 
-<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="sm" length={7}></LdPagination>
-<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} length={15}></LdPagination>
-<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="lg" length={7}></LdPagination>
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="sm" length={7} />
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} length={15} />
+<LdPagination mode="dots" hidePrevNext hideStartEnd selectedIndex={3} size="lg" length={7} />
 {% endexample %}
 
 ### Dots mode with custom space
@@ -205,7 +205,7 @@ return (
 
 <!-- React component -->
 
-<LdPagination space="1.5rem" mode="dots" hidePrevNext hideStartEnd length={7}></LdPagination>
+<LdPagination space="1.5rem" mode="dots" hidePrevNext hideStartEnd length={7} />
 {% endexample %}
 
 ### On brand color
@@ -216,8 +216,8 @@ return (
 
 <!-- React component -->
 
-<LdPagination brandColor mode="dots" hidePrevNext hideStartEnd length={7}></LdPagination>
-<LdPagination brandColor length={7}></LdPagination>
+<LdPagination brandColor mode="dots" hidePrevNext hideStartEnd length={7} />
+<LdPagination brandColor length={7} />
 {% endexample %}
 
 <!-- Auto Generated Below -->
