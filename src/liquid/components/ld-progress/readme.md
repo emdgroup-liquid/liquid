@@ -25,7 +25,7 @@ The `ld-progress` component can be used to displays the progress status for task
 <!-- React component -->
 
 <LdSrOnly id="progress-label">Progress</LdSrOnly>
-<LdProgress aria-labeledby="progress-label" aria-valuenow={25}></LdProgress>
+<LdProgress aria-labeledby="progress-label" aria-valuenow={25} />
 
 <!-- CSS component -->
 
@@ -67,7 +67,7 @@ return (
       aria-labeledby="progress-label"
       aria-valuenow={25}
       ref={progressRef}
-    ></LdProgress>
+     />
 
     <LdSlider
       value="25"
@@ -76,7 +76,7 @@ return (
       onLdchange={(ev) => {
         progressRef.current.ariaValuenow = ev.detail[0]
       }}
-    ></LdSlider>
+    />
   </>
 )
 
@@ -115,7 +115,7 @@ return (
 
 <LdProgress aria-valuemax={300}
             aria-valuemin={100}
-            aria-valuenow={150}></LdProgress>
+            aria-valuenow={150} />
 
 <!-- CSS component -->
 
@@ -137,8 +137,8 @@ The component can visualize an overflow value up to 200% of the maximum progress
 
 <!-- React component -->
 
-<LdProgress aria-valuenow={125}></LdProgress>
-<LdProgress aria-valuenow={225}></LdProgress>
+<LdProgress aria-valuenow={125} />
+<LdProgress aria-valuenow={225} />
 
 <!-- CSS component -->
 
@@ -159,7 +159,7 @@ The component can visualize an overflow value up to 200% of the maximum progress
 
 <!-- React component -->
 
-<LdProgress aria-valuemax={4} aria-valuenow={1} steps></LdProgress>
+<LdProgress aria-valuemax={4} aria-valuenow={1} steps />
 
 <!-- CSS component -->
 
@@ -178,8 +178,8 @@ The component can visualize an overflow value up to 200% of the maximum progress
 
 <!-- React component -->
 
-<LdProgress pending aria-valuetext="indeterminate"></LdProgress>
-<LdProgress pending aria-valuenow={25}></LdProgress>
+<LdProgress pending aria-valuetext="indeterminate" />
+<LdProgress pending aria-valuenow={25} />
 
 <!-- CSS component -->
 
@@ -202,7 +202,7 @@ Use this mode on backgrounds with brand color.
 
 <!-- React component -->
 
-<LdProgress brandColor aria-valuenow={25}></LdProgress>
+<LdProgress brandColor aria-valuenow={25} />
 
 <!-- CSS component -->
 

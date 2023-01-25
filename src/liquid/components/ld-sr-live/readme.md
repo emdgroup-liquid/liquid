@@ -93,7 +93,7 @@ const formStyle = {
 
 return (
   <>
-    <LdSrLive></LdSrLive>
+    <LdSrLive />
 
     <form
       onSubmit={(ev) => {
@@ -108,7 +108,7 @@ return (
     >
       <LdLabel>
         Info message
-        <LdInput ref={infoInputRef}></LdInput>
+        <LdInput ref={infoInputRef} />
       </LdLabel>
       <LdButton type="submit">Submit</LdButton>
     </form>
@@ -126,7 +126,7 @@ return (
     >
       <LdLabel>
         Alert message
-        <LdInput ref={alertInputRef}></LdInput>
+        <LdInput ref={alertInputRef} />
       </LdLabel>
       <LdButton type="submit">Submit</LdButton>
     </form>
