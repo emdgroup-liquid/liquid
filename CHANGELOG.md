@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.4](https://github.com/emdgroup-liquid/liquid/compare/v4.3.3...v4.3.4) (2023-01-26)
+
+
+### Bug Fixes
+
+* **ld-header:** justify container to center ([90d6827](https://github.com/emdgroup-liquid/liquid/commit/90d6827b5085d994fa66fd02c5ad7e36ea9dd19b))
+
 ## [4.3.3](https://github.com/emdgroup-liquid/liquid/compare/v4.3.2...v4.3.3) (2023-01-26)
 
 
