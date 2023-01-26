@@ -43,9 +43,7 @@
 }
 
 .docs-toc__nav {
-  max-height: calc(
-    100vh - var(--docs-toc-heading-height) + var(--docs-toc-top)
-  );
+  max-height: calc(100vh - var(--docs-toc-top) - 4rem);
   overflow: visible scroll;
   position: relative;
   padding-right: 3rem;

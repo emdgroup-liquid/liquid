@@ -12,7 +12,7 @@ body {
   --docs-toc-width: 17rem;
 
   @media (max-width: 75rem) {
-    --docs-toc-width: 15rem;
+    --docs-toc-width: 13rem;
   }
 }
 
@@ -33,7 +33,6 @@ body {
   margin: 0 auto;
   max-width: var(--docs-max-width);
   min-height: calc(100vh - var(--docs-header-height));
-  overflow-x: hidden;
 
   &.hydrated {
     visibility: visible !important;
