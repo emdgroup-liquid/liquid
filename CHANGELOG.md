@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.3](https://github.com/emdgroup-liquid/liquid/compare/v4.3.2...v4.3.3) (2023-01-26)
+
+
+### Bug Fixes
+
+* **ld-header:** spacings, shrinking and overflow ([ef12ff7](https://github.com/emdgroup-liquid/liquid/commit/ef12ff7ee15ee14ed847217bedd67ea988f17128))
+* **ld-progress:** style reset ([e3bffcc](https://github.com/emdgroup-liquid/liquid/commit/e3bffcc8dc232259b962c153dbe111f4ca95d3ff))
+
 ## [4.3.2](https://github.com/emdgroup-liquid/liquid/compare/v4.3.1...v4.3.2) (2023-01-23)
 
 
