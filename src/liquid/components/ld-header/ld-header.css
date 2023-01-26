@@ -16,6 +16,7 @@
     box-shadow: var(--ld-header-box-shadow);
     color: var(--ld-header-col);
     display: flex;
+    justify-content: center;
     width: 100%;
     transition: transform 100ms ease-in-out;
     overflow-x: auto;
