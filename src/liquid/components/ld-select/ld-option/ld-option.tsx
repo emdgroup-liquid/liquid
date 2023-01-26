@@ -29,8 +29,11 @@ export class LdOption {
    */
   @Prop() disabled: boolean
 
-  /** Set to true on filtering via select input. */
-  @Prop({ reflect: true }) hidden = false
+  /**
+   * @internal
+   * Set to true on filtering via select input.
+   */
+  @Prop() filtered = false
 
   componentWillLoad() {
     // Setting selected via prop directly triggers the mutation observer to fire twice on attribute chage.

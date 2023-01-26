@@ -2291,7 +2291,7 @@ describe('ld-select', () => {
       await page.waitForChanges()
 
       expect(
-        ldInternalOptions.filter((option) => option.hidden).length
+        ldInternalOptions.filter((option) => option.filtered).length
       ).toEqual(1)
 
       const ev = new FocusEvent('focusout', {
@@ -2303,7 +2303,7 @@ describe('ld-select', () => {
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
       expect(
-        ldInternalOptions.filter((option) => option.hidden).length
+        ldInternalOptions.filter((option) => option.filtered).length
       ).toEqual(0)
     })
 
@@ -2338,7 +2338,7 @@ describe('ld-select', () => {
       await page.waitForChanges()
 
       expect(
-        ldInternalOptions.filter((option) => option.hidden).length
+        ldInternalOptions.filter((option) => option.filtered).length
       ).toEqual(1)
 
       internalOptions[1].click()
@@ -2347,7 +2347,7 @@ describe('ld-select', () => {
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('false')
 
       expect(
-        ldInternalOptions.filter((option) => option.hidden).length
+        ldInternalOptions.filter((option) => option.filtered).length
       ).toEqual(0)
     })
 
@@ -2405,10 +2405,10 @@ describe('ld-select', () => {
 
       await page.waitForChanges()
 
-      expect(ldInternalOptions[0]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[1]).toHaveAttribute('hidden')
-      expect(ldInternalOptions[2]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[3]).not.toHaveAttribute('hidden')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[3].filtered).toBeFalsy()
 
       const spyFocus0 = jest.spyOn(internalOptions[0], 'focus')
       const spyFocus1 = jest.spyOn(internalOptions[1], 'focus')
@@ -2499,10 +2499,10 @@ describe('ld-select', () => {
 
       await page.waitForChanges()
 
-      expect(ldInternalOptions[0]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[1]).toHaveAttribute('hidden')
-      expect(ldInternalOptions[2]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[3]).not.toHaveAttribute('hidden')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[3].filtered).toBeFalsy()
 
       const spyFocus0 = jest.spyOn(internalOptions[0], 'focus')
       const spyFocus1 = jest.spyOn(internalOptions[1], 'focus')
@@ -2697,10 +2697,230 @@ describe('ld-select', () => {
 
       await page.waitForChanges()
 
-      expect(ldInternalOptions[0]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[1]).toHaveAttribute('hidden')
-      expect(ldInternalOptions[2]).not.toHaveAttribute('hidden')
-      expect(ldInternalOptions[3]).not.toHaveAttribute('hidden')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[3].filtered).toBeFalsy()
+    })
+  })
+
+  describe('creatable', () => {
+    it('emits the ldoptioncreate which allows to create options', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select filter creatable placeholder="Pick a fruit" name="fruit">
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+          <ld-option value="cherry">Cherry</ld-option>
+        </ld-select>
+      `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger['focus'] = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      const ldoptioncreateHandler = jest.fn()
+      ldSelect.addEventListener('ldoptioncreate', ldoptioncreateHandler)
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      jest.advanceTimersByTime(0)
+      expect(filterInput.focus).toHaveBeenCalledTimes(1)
+
+      const { ldInternalOptions } = getInternalOptions(page)
+      expect(ldInternalOptions.length).toEqual(3)
+
+      filterInput.value = 'e'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+
+      filterInput.value = 'banana'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = page.body.querySelector('ld-select-popper')
+
+      popperShadowDoc.activeElement = filterInput
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      await page.waitForChanges()
+
+      expect(filterInput.value).toEqual('banana')
+      expect(ldInternalOptions[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+      expect(ldoptioncreateHandler).not.toHaveBeenCalled()
+
+      filterInput.value = 'Kiwi'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+
+      expect(ldoptioncreateHandler).not.toHaveBeenCalled()
+
+      popperShadowDoc.activeElement = filterInput
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      await page.waitForChanges()
+
+      expect(filterInput.value).toEqual('')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldoptioncreateHandler).toHaveBeenCalledTimes(1)
+
+      popperShadowDoc.activeElement = filterInput
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      await page.waitForChanges()
+
+      expect(ldoptioncreateHandler).toHaveBeenCalledTimes(1)
+
+      filterInput.value = 'Orange'
+      filterInput.dispatchEvent(new InputEvent('input'))
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+
+      const filterCreateButton = page.body
+        .querySelector('ld-select-popper')
+        ?.shadowRoot.querySelector<HTMLButtonElement>(
+          '.ld-select-popper__create-button'
+        )
+      filterCreateButton.click()
+
+      expect(filterInput.value).toEqual('')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldoptioncreateHandler).toHaveBeenCalledTimes(2)
+    })
+
+    it('removes created but hidden options on de-selection', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+        <ld-select filter creatable multiple placeholder="Pick some fruits" name="fruits">
+          <ld-option value="apple" selected>Apple</ld-option>
+          <ld-option value="banana">Banana</ld-option>
+          <ld-option value="cherry" selected>Cherry</ld-option>
+        </ld-select>
+      `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector(
+        '.ld-select__btn-trigger'
+      )
+      btnTrigger['focus'] = jest.fn()
+
+      const filterInput = getFilterInput(page)
+      filterInput.focus = jest.fn()
+
+      const ldoptioncreateHandler = jest.fn()
+      ldSelect.addEventListener('ldoptioncreate', ldoptioncreateHandler)
+
+      await triggerPopperWithClick(page)
+      expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
+
+      let { internalOptions, ldInternalOptions } = getInternalOptions(page)
+      expect(ldInternalOptions.length).toEqual(3)
+      expect(ldInternalOptions[0].selected).toBeTruthy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+
+      filterInput.value = 'Kiwi'
+      filterInput.dispatchEvent(new InputEvent('input'))
+
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].filtered).toBeTruthy()
+      expect(ldInternalOptions[1].filtered).toBeTruthy()
+      expect(ldInternalOptions[2].filtered).toBeTruthy()
+
+      expect(ldoptioncreateHandler).not.toHaveBeenCalled()
+
+      const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
+      doc.activeElement = ldSelect
+      shadowDoc.activeElement = page.body.querySelector('ld-select-popper')
+
+      popperShadowDoc.activeElement = filterInput
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))
+      await page.waitForChanges()
+
+      expect(filterInput.value).toEqual('')
+      expect(ldInternalOptions[0].filtered).toBeFalsy()
+      expect(ldInternalOptions[1].filtered).toBeFalsy()
+      expect(ldInternalOptions[2].filtered).toBeFalsy()
+      expect(ldInternalOptions[0].selected).toBeTruthy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+      expect(ldoptioncreateHandler).toHaveBeenCalledTimes(1)
+
+      // Deselect Apple.
+      internalOptions[0].click()
+      await page.waitForChanges()
+
+      expect(ldInternalOptions[0].selected).toBeFalsy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeTruthy()
+
+      // Prepend the Kiwi to the option list.
+      const option = document.createElement('ld-option')
+      option.value = 'kiwi'
+      option.innerText = 'Kiwi'
+      option.setAttribute('selected', 'true')
+      option.setAttribute('hidden', '')
+      ldSelect.prepend(option)
+
+      await page.waitForChanges()
+      getTriggerableMutationObserver().trigger([{ target: option }])
+      await page.waitForChanges()
+
+      ldInternalOptions = getInternalOptions(page).ldInternalOptions
+      expect(ldInternalOptions.length).toEqual(4)
+
+      expect(ldInternalOptions[0].selected).toBeTruthy()
+      expect(ldInternalOptions[1].selected).toBeFalsy()
+      expect(ldInternalOptions[2].selected).toBeFalsy()
+      expect(ldInternalOptions[3].selected).toBeTruthy()
+
+      const btnClearSingle =
+        ldSelect.shadowRoot.querySelectorAll<HTMLButtonElement>(
+          '.ld-select__btn-clear-single'
+        )
+      expect(btnClearSingle.length).toEqual(2)
+
+      btnClearSingle[0].click()
+      await page.waitForChanges()
+
+      ldInternalOptions = getInternalOptions(page).ldInternalOptions
+      internalOptions = getInternalOptions(page).internalOptions
+      expect(ldInternalOptions.length).toEqual(3)
+      expect(internalOptions.length).toEqual(3)
     })
   })
 

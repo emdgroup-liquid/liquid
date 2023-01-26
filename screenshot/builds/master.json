@@ -15189,6 +15189,19 @@
       "isMobile": false
     },
     {
+      "id": "19948d3e",
+      "image": "be321548175c35b98fd373ca4cfdc518.png",
+      "userAgent": "default",
+      "desc": "ld-select filter with create button",
+      "testPath": "./src/liquid/components/ld-select/test/ld-select.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "82fda3bf",
       "image": "71f6a317d5d38f78087a9d107a54579e.png",
       "userAgent": "default",
