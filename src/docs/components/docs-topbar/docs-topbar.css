@@ -4,7 +4,7 @@
   min-width: 20rem;
 
   &::part(container) {
-    margin: 0 var(--ld-sp-4);
+    margin: 0 auto;
     padding: 0 var(--ld-sp-32);
     max-width: calc(var(--docs-max-width) - var(--ld-sp-8));
   }
