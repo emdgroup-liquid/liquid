@@ -22,7 +22,23 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 ### As success message
 
 {% example %}
-<ld-notice headline="Success message" mode="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>
+<ld-notice headline="Success message" mode="success">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</ld-notice>
+
+<!-- React component -->
+
+<LdNotice headline="Success message" mode="success">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</LdNotice>
 
 <!-- CSS component -->
 
@@ -33,14 +49,34 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
     <path d="M16.898 9.56123L10.4404 15.4388L7.10205 12.147" stroke="var(--ld-icon-secondary-col)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   <p class="ld-notice__headline ld-typo--h4">Success message</p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </div>
 {% endexample %}
 
 ### As error message
 
 {% example %}
-<ld-notice headline="An error occurred" mode="error">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>
+<ld-notice headline="An error occurred" mode="error">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</ld-notice>
+
+<!-- React component -->
+
+<LdNotice headline="An error occurred" mode="error">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</LdNotice>
 
 <!-- CSS component -->
 
@@ -52,14 +88,34 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
     <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-icon-secondary-col)"/>
   </svg>
   <p class="ld-notice__headline ld-typo--h4">An error occurred</p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </div>
 {% endexample %}
 
 ### As info message
 
 {% example %}
-<ld-notice headline="Information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>
+<ld-notice headline="Information">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</ld-notice>
+
+<!-- React component -->
+
+<LdNotice headline="Information">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</LdNotice>
 
 <!-- CSS component -->
 
@@ -71,14 +127,34 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
     <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-icon-secondary-col)"/>
   </svg>
   <p class="ld-notice__headline ld-typo--h4">Information</p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </div>
 {% endexample %}
 
 ### As warning message
 
 {% example %}
-<ld-notice headline="Warning!" mode="warning">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.</ld-notice>
+<ld-notice headline="Warning!" mode="warning">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</ld-notice>
+
+<!-- React component -->
+
+<LdNotice headline="Warning!" mode="warning">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</LdNotice>
 
 <!-- CSS component -->
 
@@ -90,7 +166,11 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
     <ellipse cx="6.99977" cy="3.80007" rx="1.06667" ry="1.06667" fill="var(--ld-icon-secondary-col)"/>
   </svg>
   <p class="ld-notice__headline ld-typo--h4">Warning!</p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </div>
 {% endexample %}
 
@@ -99,8 +179,23 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 {% example %}
 <ld-notice headline="With custom icon" mode="success">
   <ld-icon slot="custom-icon" name="placeholder" size="lg"></ld-icon>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </ld-notice>
+
+<!-- React component -->
+
+<LdNotice headline="With custom icon" mode="success">
+  <LdIcon slot="custom-icon" name="placeholder" size="lg" />
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
+</LdNotice>
 
 <!-- CSS component -->
 
@@ -108,7 +203,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque faci
   <!-- Note that you can use an img element with the class ld-notice__icon here, as well. -->
   <svg class="ld-notice__icon ld-icon ld-icon--lg" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentcolor" stroke-width="2"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="2"/></svg>
   <p class="ld-notice__headline ld-typo--h4">With custom icon</p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio quam ut elementum. Faucibus cursus in placerat enim non senectus. In molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada vulputate et congue blandit in erat ornare. Rhoncus interdum.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus
+  pellentesque facilisi nunc iaculis. Laoreet eget eu lacus cursus odio
+  quam ut elementum. Faucibus cursus in placerat enim non senectus. In
+  molestie volutpat at sem bibendum ac id. Suspendisse erat malesuada
+  vulputate et congue blandit in erat ornare. Rhoncus interdum.
 </div>
 {% endexample %}
 
