@@ -22,6 +22,10 @@ This component is meant to be used in conjunction with the [`ld-icon`](component
 {% example %}
 <ld-link>Link</ld-link>
 
+<!-- React component -->
+
+<LdLink>Link</LdLink>
+
 <!-- CSS component -->
 
 <a class="ld-link">Link</a>
@@ -43,6 +47,20 @@ The `ld-link` component inherits its font-size and line-height.
 <ld-typo variant="body-m">
   <b>M</b>: Lorem ipsum <ld-link>dolor sit amet</ld-link>, consectetur adipiscing elit.
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="body-xs">
+  <b>XS</b>: Lorem ipsum <LdLink>dolor sit amet</LdLink>, consectetur adipiscing elit.
+</LdTypo>
+
+<LdTypo variant="body-s">
+  <b>S</b>: Lorem ipsum <LdLink>dolor sit amet</LdLink>, consectetur adipiscing elit.
+</LdTypo>
+
+<LdTypo variant="body-m">
+  <b>M</b>: Lorem ipsum <LdLink>dolor sit amet</LdLink>, consectetur adipiscing elit.
+</LdTypo>
 
 <!-- CSS component -->
 
@@ -66,6 +84,10 @@ There are several ways to disable a link. The simplest one is by not using a `hr
 {% example %}
 <ld-link href="#" disabled>Link</ld-link>
 
+<!-- React component -->
+
+<LdLink href="#" disabled>Link</LdLink>
+
 <!-- CSS component -->
 
 <a id="disabled-link" class="ld-link" href="#" aria-disabled="true">Link</a>
@@ -88,6 +110,12 @@ There are several ways to disable a link. The simplest one is by not using a `hr
   Link which opens in a new tab
 </ld-link>
 
+<!-- React component -->
+
+<LdLink href="#" target="_blank">
+  Link which opens in a new tab
+</LdLink>
+
 <!-- CSS component -->
 
 <a class="ld-link" href="#" target="_blank" rel="noreferrer noopener">
@@ -100,6 +128,11 @@ There are several ways to disable a link. The simplest one is by not using a `hr
 {% example %}
 <ld-link chevron="start">Link</ld-link>
 <ld-link chevron="end">Link</ld-link>
+
+<!-- React component -->
+
+<LdLink chevron="start">Link</LdLink>
+<LdLink chevron="end">Link</LdLink>
 
 <!-- CSS component -->
 
