@@ -149,7 +149,14 @@ export class LdTable {
     const cl = getClassNames(['ld-table'])
 
     return (
-      <Host class={cl} role="figure">
+      <Host
+        class={cl}
+        role="figure"
+        style={{
+          // Increase specificity to overwrite Tailwind's preflight reset.
+          border: 'solid var(--ld-sp-1) var(--ld-table-border-col)',
+        }}
+      >
         <slot name="toolbar" />
         <div part="scroll-container" class="ld-table__scroll-container">
           <table part="table" ref={(el) => (this.tableRef = el)}>

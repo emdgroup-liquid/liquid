@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ld-table renders 1`] = `
-<ld-table class="ld-table" role="figure">
+<ld-table class="ld-table" role="figure" style="border: solid var(--ld-sp-1) var(--ld-table-border-col);">
   <mock:shadow-root>
     <slot name="toolbar"></slot>
     <div class="ld-table__scroll-container" part="scroll-container">

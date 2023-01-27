@@ -28007,6 +28007,32 @@
       "isMobile": false
     },
     {
+      "id": "b4d9e45b",
+      "image": "aa58fdb7980253dda4dbba2c32153641.png",
+      "userAgent": "default",
+      "desc": "ld-table handles CSS reset as a CSS Component",
+      "testPath": "./src/liquid/components/ld-table/test/ld-table.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "03144801",
+      "image": "57f094ec225c0ef333f9816638e27dbb.png",
+      "userAgent": "default",
+      "desc": "ld-table handles CSS reset as a Web Component",
+      "testPath": "./src/liquid/components/ld-table/test/ld-table.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "42cb6148",
       "image": "aa58fdb7980253dda4dbba2c32153641.png",
       "userAgent": "default",

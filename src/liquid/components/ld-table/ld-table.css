@@ -33,7 +33,6 @@
 
   background-color: var(--ld-table-border-col);
   border-radius: var(--ld-br-l);
-  border: solid var(--ld-sp-1) var(--ld-table-border-col);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -114,6 +113,11 @@
     top: 0;
     z-index: 2;
   }
+}
+
+/* Increase specificity to overwrite Tailwind's preflight reset. */
+.ld-table.ld-table {
+  border: solid var(--ld-sp-1) var(--ld-table-border-col);
 }
 
 .ld-table__scroll-container {
