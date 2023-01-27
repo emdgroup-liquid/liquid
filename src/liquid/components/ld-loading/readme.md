@@ -18,6 +18,10 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 {% example %}
 <ld-loading></ld-loading>
 
+<!-- React component -->
+
+<LdLoading />
+
 <!-- CSS component -->
 
 <svg class="ld-loading" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
@@ -44,6 +48,10 @@ Use the `ld-loading` component to indicate that the user should wait for a proce
 
 {% example %}
 <ld-loading neutral></ld-loading>
+
+<!-- React component -->
+
+<LdLoading neutral />
 
 <!-- CSS component -->
 
