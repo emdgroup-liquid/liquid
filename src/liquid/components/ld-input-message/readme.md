@@ -29,6 +29,10 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 {% example '{ "background": "light" }' %}
 <ld-input-message>This field is required.</ld-input-message>
 
+<!-- React component -->
+
+<LdInputMessage>This field is required.</LdInputMessage>
+
 <!-- CSS component -->
 
 <span class="ld-input-message ld-input-message--error">
@@ -47,6 +51,10 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 {% example '{ "background": "light" }' %}
 <ld-input-message mode="info">This field will destroy itself on form submission.</ld-input-message>
 
+<!-- React component -->
+
+<LdInputMessage mode="info">This field will destroy itself on form submission.</LdInputMessage>
+
 <!-- CSS component -->
 
 <span class="ld-input-message ld-input-message--info">
@@ -64,6 +72,10 @@ This component is meant to be used in conjunction with the [`ld-input`](componen
 
 {% example '{ "background": "light" }' %}
 <ld-input-message mode="valid">That's correct!</ld-input-message>
+
+<!-- React component -->
+
+<LdInputMessage mode="valid">That's correct!</LdInputMessage>
 
 <!-- CSS component -->
 
