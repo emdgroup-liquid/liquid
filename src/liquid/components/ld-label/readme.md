@@ -23,6 +23,10 @@ This component is meant to be used in conjunction with form input components, su
 {% example %}
 <ld-label>Email Address</ld-label>
 
+<!-- React component -->
+
+<LdLabel>Email Address</LdLabel>
+
 <!-- CSS component -->
 
 <label class="ld-label">Email Address</label>
@@ -36,6 +40,12 @@ The default size is small. You can use a slightly bigger label (size medium) by 
 <ld-label size="m">
   Email Address
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel size="m">
+  Email Address
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -67,6 +77,25 @@ How the label positions its child elements depends both on its `position` prop a
   <ld-toggle></ld-toggle>
   <ld-input-message mode="info">Recommended.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel>
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+</LdLabel>
+
+<LdLabel>
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>This field is required.</LdInputMessage>
+</LdLabel>
+
+<LdLabel>
+  Auto-update
+  <LdToggle />
+  <LdInputMessage mode="info">Recommended.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -129,6 +158,25 @@ How the label positions its child elements depends both on its `position` prop a
   <ld-input-message mode="info">Recommended.</ld-input-message>
 </ld-label>
 
+<!-- React component -->
+
+<LdLabel position="left" size="m">
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+</LdLabel>
+
+<LdLabel position="left" size="m" alignMessage>
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>This field is required.</LdInputMessage>
+</LdLabel>
+
+<LdLabel position="left" size="m">
+  Auto-update
+  <LdToggle />
+  <LdInputMessage mode="info">Recommended.</LdInputMessage>
+</LdLabel>
+
 <!-- CSS component -->
 
 <label class="ld-label ld-label--left ld-label--m">
@@ -189,6 +237,25 @@ How the label positions its child elements depends both on its `position` prop a
   <ld-toggle></ld-toggle>
   <ld-input-message mode="info">Recommended.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel position="right" size="m">
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+</LdLabel>
+
+<LdLabel position="right" size="m" alignMessage>
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>This field is required.</LdInputMessage>
+</LdLabel>
+
+<LdLabel position="right" size="m">
+  Auto-update
+  <LdToggle />
+  <LdInputMessage mode="info">Recommended.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -254,6 +321,28 @@ When positioning the label left or right, you may want to position the `ld-input
   <ld-input-message>I never grow underneath the label, even though I am very long.</ld-input-message>
 </ld-label>
 
+<!-- React component -->
+
+<LdLabel position="left" size="m">
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>I do not align with the input.</LdInputMessage>
+</LdLabel>
+
+<LdLabel position="left" size="m" alignMessage>
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>I align with the input.</LdInputMessage>
+</LdLabel>
+
+<LdLabel position="right" size="m" alignMessage>
+  Email Address
+  <LdInput invalid placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage>
+    I never grow underneath the label, even though I am very long.
+  </LdInputMessage>
+</LdLabel>
+
 <!-- CSS component -->
 
 <label class="ld-label ld-label--left ld-label--m">
@@ -317,6 +406,19 @@ HTML content describing the labeled element should be wrapped in a single HTML e
   <ld-checkbox invalid></ld-checkbox>
   <ld-input-message>Please confirm that you love to code.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel position="right">
+  <span>I love to <code style={ { lineHeight: 0 } }>code</code>.</span>
+  <LdCheckbox />
+</LdLabel>
+
+<LdLabel position="right">
+  <span>I love to <code style={ { lineHeight: 0 } }>code</code>.</span>
+  <LdCheckbox invalid />
+  <LdInputMessage>Please confirm that you love to code.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
