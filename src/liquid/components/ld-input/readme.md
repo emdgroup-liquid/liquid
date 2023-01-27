@@ -32,6 +32,12 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <ld-input value="Value"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" />
+
+<LdInput value="Value" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -50,6 +56,12 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <ld-input disabled value="Value"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" disabled />
+
+<LdInput disabled value="Value" />
+
 <!-- CSS component -->
 
 <div class="ld-input ld-input--disabled">
@@ -67,6 +79,12 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 <ld-input placeholder="Placeholder" aria-disabled="true"></ld-input>
 
 <ld-input aria-disabled="true" value="Value"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" aria-disabled="true" />
+
+<LdInput aria-disabled="true" value="Value" />
 
 <!-- CSS component -->
 
@@ -112,6 +130,12 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 <ld-input tone="dark" placeholder="Placeholder" disabled></ld-input>
 
+<!-- React component -->
+
+<LdInput tone="dark" placeholder="Placeholder" />
+
+<LdInput tone="dark" placeholder="Placeholder" disabled />
+
 <!-- CSS component -->
 
 <div class="ld-input ld-input--dark">
@@ -128,6 +152,10 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example %}
 <ld-input invalid placeholder="Placeholder"></ld-input>
 
+<!-- React component -->
+
+<LdInput invalid placeholder="Placeholder" />
+
 <!-- CSS component -->
 
 <div class="ld-input ld-input--invalid">
@@ -140,6 +168,10 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example %}
 <ld-input placeholder="Birthday" type="date" value="2017-06-01"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Birthday" type="date" value="2017-06-01" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -151,6 +183,10 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 {% example %}
 <ld-input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30" />
 
 <!-- CSS component -->
 
@@ -165,6 +201,10 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 
 {% example %}
 <ld-input placeholder="Your email address" type="email"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Your email address" type="email" />
 
 <!-- CSS component -->
 
@@ -184,6 +224,10 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 {% example %}
 <ld-input placeholder="Your age in years" type="number" min="0"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Your age in years" type="number" min="0" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -196,6 +240,10 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 {% example %}
 <ld-input placeholder="Password" type="password" min="0"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Password" type="password" min="0" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -207,6 +255,10 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 
 {% example %}
 <ld-input placeholder="Search" type="search"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Search" type="search" />
 
 <!-- CSS component -->
 
@@ -222,6 +274,10 @@ Triggers a telephone keypad in some devices with dynamic keypads.
 {% example %}
 <ld-input placeholder="Your phone number" type="tel"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Your phone number" type="tel" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -233,6 +289,10 @@ Triggers a telephone keypad in some devices with dynamic keypads.
 
 {% example %}
 <ld-input placeholder="Time of reservation" type="time" value="13:30"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Time of reservation" type="time" value="13:30" />
 
 <!-- CSS component -->
 
@@ -248,6 +308,10 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 {% example %}
 <ld-input placeholder="Your website URL" type="url"></ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Your website URL" type="url" />
+
 <!-- CSS component -->
 
 <div class="ld-input">
@@ -261,6 +325,10 @@ The `multiline` attribute transforms the component to a textarea element instead
 
 {% example %}
 <ld-input placeholder="Tell us your story..." multiline rows="5" cols="33"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Tell us your story..." multiline rows={5} cols={33} />
 
 <!-- CSS component -->
 
@@ -277,6 +345,12 @@ You can change the way how the multiline input element can be resized by the use
 <ld-input resize="horizontal" placeholder="Tell us your story..." multiline rows="5" cols="33"></ld-input>
 
 <ld-input resize="vertical" placeholder="Tell us your story..." multiline rows="5" cols="33"></ld-input>
+
+<!-- React component -->
+
+<LdInput resize="horizontal" placeholder="Tell us your story..." multiline rows={5} cols={33} />
+
+<LdInput resize="vertical" placeholder="Tell us your story..." multiline rows={5} cols={33} />
 
 <!-- CSS component -->
 
@@ -297,6 +371,14 @@ You can change the way how the multiline input element can be resized by the use
 <ld-input placeholder="Placeholder"></ld-input>
 
 <ld-input placeholder="Placeholder" size="lg"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" size="sm" />
+
+<LdInput placeholder="Placeholder" />
+
+<LdInput placeholder="Placeholder" size="lg" />
 
 <!-- CSS component -->
 
@@ -320,6 +402,13 @@ You can change the way how the multiline input element can be resized by the use
   Email Address
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel>
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -348,6 +437,27 @@ Please reffer to the [ld-label](components/ld-label/) docs for more information 
     <ld-input type="password" value="asdf1234"></ld-input>
     <ld-input-message mode="info">Use at least one special character (~!@#$%^&*_-+=|\(){}[]:;<>,.?/)</ld-input-message>
   </ld-label>
+</div>
+
+<!-- React component -->
+
+<div style={ {
+  display: 'grid',
+  gap: '1rem',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(12rem, 1fr))',
+  width: '100%',
+} }>
+  <LdLabel>
+    Email Address
+    <LdInput invalid placeholder="jane.doe@example.com" value="yolo" type="email" />
+    <LdInputMessage>The email address is invalid.</LdInputMessage>
+  </LdLabel>
+
+  <LdLabel>
+    Password
+    <LdInput type="password" value="asdf1234" />
+    <LdInputMessage mode="info">Use at least one special character (~!@#$%^&*_-+=|()&#123;&#125;[]:;&lt;&gt;,.?/)</LdInputMessage>
+  </LdLabel>
 </div>
 
 <!-- CSS component -->
@@ -401,6 +511,20 @@ By default, the input field stretches to the maximum width of its wrapping label
   <ld-input placeholder="jane.doe@example.com" type="email"></ld-input>
   <ld-input-message mode="info">This info message is also extremely long, but since the label has a max width, all three components (the label, the input and itself) can take only the maximum width of the label.</ld-input-message>
 </ld-label>
+
+<!-- React component -->
+
+<LdLabel>
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage mode="info">This info message is extremely long and makes all three components (the label, the input and itself) grow horizontaly.</LdInputMessage>
+</LdLabel>
+
+<LdLabel style={ { maxWidth: '20rem' } }>
+  Email Address
+  <LdInput placeholder="jane.doe@example.com" type="email" />
+  <LdInputMessage mode="info">This info message is also extremely long, but since the label has a max width, all three components (the label, the input and itself) can take only the maximum width of the label.</LdInputMessage>
+</LdLabel>
 
 <!-- CSS component -->
 
@@ -482,6 +606,47 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <ld-icon name="placeholder" slot="start"></ld-icon>
   <ld-icon name="placeholder" slot="end"></ld-icon>
 </ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdIcon name="placeholder" slot="start" />
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdIcon name="placeholder" slot="start" />
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdIcon name="placeholder" slot="start" />
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdIcon name="placeholder" slot="start" />
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdIcon name="placeholder" slot="start" />
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdIcon name="placeholder" slot="start" />
+  <LdIcon name="placeholder" slot="end" />
+</LdInput>
 
 <!-- CSS component -->
 
@@ -649,6 +814,44 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </ld-button>
 </ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdButton slot="end" aria-label="Submit" >
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdButton slot="end" >
+    Submit <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdButton slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdButton slot="end">
+    Submit <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdButton slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdButton slot="end">
+    Submit <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
 <!-- CSS component -->
 
 <div class="ld-input ld-input--sm">
@@ -793,6 +996,71 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </ld-button>
 </ld-input>
 
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="sm">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
+<LdInput placeholder="Placeholder" size="lg">
+  <LdButton mode="ghost" slot="start" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+  <LdButton mode="ghost" slot="end" aria-label="Submit">
+    <LdIcon name="placeholder" />
+  </LdButton>
+</LdInput>
+
 <!-- CSS component -->
 
 <div class="ld-input ld-input--sm">
@@ -934,6 +1202,12 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 <ld-input placeholder="Placeholder">
   <span slot="end">🤓</span>
 </ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Placeholder">
+  <span slot="end">🤓</span>
+</LdInput>
 
 <!-- CSS component -->
 
