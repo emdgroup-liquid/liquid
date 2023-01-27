@@ -36,6 +36,22 @@ Here is a minimalistic example of a modal dialog:
 
 <ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button>
 
+<!-- React component -->
+
+const modalRef = useRef(null)
+
+return (
+  <>
+    <LdModal ref={modalRef}>
+      <LdTypo style={ { textAlign: 'center' } }>I'm a modal dialog.</LdTypo>
+    </LdModal>
+
+    <LdButton onClick={() => modalRef.current.showModal()}>
+      Open Modal
+    </LdButton>
+  </>
+)
+
 <!-- CSS component -->
 
 <dialog class="ld-modal">
@@ -71,6 +87,38 @@ You have two additional slots to your disposal for altering the modal header and
 </ld-modal>
 
 <ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button>
+
+<!-- React component -->
+
+const modalRef = useRef(null)
+
+return (
+  <>
+    <LdModal ref={modalRef}>
+      <LdTypo slot="header">Hello</LdTypo>
+      <LdTypo style={ { textAlign: 'center' } }>I'm a modal dialog.</LdTypo>
+      <LdButton
+        slot="footer"
+        style={ { width: '8rem' } }
+        mode="ghost"
+        onClick={() => modalRef.current.close()}
+      >
+        Cancel
+      </LdButton>
+      <LdButton
+        slot="footer"
+        style={ { width: '8rem' } }
+        onClick={() => modalRef.current.close()}
+      >
+        Submit
+      </LdButton>
+    </LdModal>
+
+    <LdButton onClick={() => modalRef.current.showModal()}>
+      Open Modal
+    </LdButton>
+  </>
+)
 
 <!-- CSS component -->
 
@@ -110,6 +158,30 @@ You have two additional slots to your disposal for altering the modal header and
 
 <ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button>
 
+<!-- React component -->
+
+const modalRef = useRef(null)
+
+return (
+  <>
+    <LdModal cancelable="false" ref={modalRef}>
+      <LdTypo slot="header">Hello</LdTypo>
+      <LdTypo style={ { textAlign: 'center' } }>I'm a modal dialog.</LdTypo>
+      <LdButton
+        slot="footer"
+        style={ { width: '8rem' } }
+        onClick={() => modalRef.current.close()}
+      >
+        Submit
+      </LdButton>
+    </LdModal>
+
+    <LdButton onClick={() => modalRef.current.showModal()}>
+      Open Modal
+    </LdButton>
+  </>
+)
+
 <!-- CSS component -->
 
 <dialog class="ld-modal" oncancel="event.preventDefault()">
@@ -139,6 +211,22 @@ You have two additional slots to your disposal for altering the modal header and
 </ld-modal>
 
 <ld-button onclick="event.target.previousElementSibling.showModal()">Open Modal</ld-button>
+
+<!-- React component -->
+
+const modalRef = useRef(null)
+
+return (
+  <>
+    <LdModal blurryBackdrop ref={modalRef}>
+      <LdTypo style={ { textAlign: 'center' } }>I'm a modal dialog.</LdTypo>
+    </LdModal>
+
+    <LdButton onClick={() => modalRef.current.showModal()}>
+      Open Modal
+    </LdButton>
+  </>
+)
 
 <!-- CSS component -->
 
