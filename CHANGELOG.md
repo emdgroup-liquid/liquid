@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.5](https://github.com/emdgroup-liquid/liquid/compare/v4.3.4...v4.3.5) (2023-01-27)
+
+
+### Bug Fixes
+
+* **ld-table:** add specificity to account for border resets ([5260c33](https://github.com/emdgroup-liquid/liquid/commit/5260c33be37906fe911039d7239da8a6ed6e6427)), closes [#491](https://github.com/emdgroup-liquid/liquid/issues/491)
+
 ## [4.3.4](https://github.com/emdgroup-liquid/liquid/compare/v4.3.3...v4.3.4) (2023-01-26)
 
 
