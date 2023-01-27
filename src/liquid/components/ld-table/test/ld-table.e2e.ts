@@ -87,6 +87,99 @@ describe('ld-table', () => {
     expect(results).toMatchScreenshot()
   })
 
+  it('handles CSS reset as a Web Component', async () => {
+    const page = await getPageWithContent(
+      `<style>
+        .*, ::before, ::after {
+          border-width: 0;
+          border-style: dashed;
+          border-color: red;
+        }
+      </style>
+      <ld-table>
+        <ld-table-toolbar slot="toolbar">
+          <ld-table-caption>
+            Superheros and sidekicks
+          </ld-table-caption>
+        </ld-table-toolbar>
+        <ld-table-colgroup>
+          <ld-table-col></ld-table-col>
+          <ld-table-col span="2" class="batman"></ld-table-col>
+          <ld-table-col span="2" class="flash"></ld-table-col>
+        </ld-table-colgroup>
+        <ld-table-body>
+          <ld-table-row>
+            <ld-table-cell></ld-table-cell>
+            <ld-table-header scope="col">Batman</ld-table-header>
+            <ld-table-header scope="col">Robin</ld-table-header>
+            <ld-table-header scope="col">The Flash</ld-table-header>
+            <ld-table-header scope="col">Kid Flash</ld-table-header>
+          </ld-table-row>
+          <ld-table-row>
+            <ld-table-header scope="row">Skill</ld-table-header>
+            <ld-table-cell>Smarts</ld-table-cell>
+            <ld-table-cell>Dex, acrobat</ld-table-cell>
+            <ld-table-cell>Super speed</ld-table-cell>
+            <ld-table-cell>Super speed</ld-table-cell>
+          </ld-table-row>
+        </ld-table-body>
+      </ld-table>`
+    )
+
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
+  it('handles CSS reset as a CSS Component', async () => {
+    const page = await getPageWithContent(
+      `<style>
+        .*, ::before, ::after {
+          border-width: 0;
+          border-style: dashed;
+          border-color: red;
+        }
+      </style>
+      <figure class="ld-table">
+        <div class="ld-table__toolbar">
+          <figcaption>
+            Superheros and sidekicks
+          </figcaption>
+        </div>
+        <div class="ld-table__scroll-container">
+          <table>
+            <colgroup>
+              <col></col>
+              <col span="2" class="batman"></col>
+              <col span="2" class="flash"></col>
+            </colgroup>
+            <tbody>
+              <tr>
+                <td></td>
+                <th scope="col">Batman</th>
+                <th scope="col">Robin</th>
+                <th scope="col">The Flash</th>
+                <th scope="col">Kid Flash</th>
+              </tr>
+              <tr>
+                <th scope="row">Skill</th>
+                <td>Smarts</td>
+                <td>Dex, acrobat</td>
+                <td>Super speed</td>
+                <td>Super speed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </figure>`,
+      {
+        components,
+      }
+    )
+
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
   it('renders as Web Component with sort buttons', async () => {
     const page = await getPageWithContent(
       `<style>
@@ -336,7 +429,7 @@ describe('ld-table', () => {
     expect(resultsScrollBottom).toMatchScreenshot()
   })
 
-  fit('renders as Web Component with selection and pagination', async () => {
+  it('renders as Web Component with selection and pagination', async () => {
     const page = await getPageWithContent(
       `<style>
         .periodic-table {
