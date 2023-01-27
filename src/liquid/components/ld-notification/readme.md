@@ -143,7 +143,7 @@ The examples below illustrate how you can trigger notifications using different 
 <form class="notification-form" id="form-info">
   <ld-label>
     Info message
-    <ld-input id="input-info" value="I have an info for you."></ld-input>
+    <ld-input name="message" value="I have an info for you."></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
@@ -151,7 +151,7 @@ The examples below illustrate how you can trigger notifications using different 
 <form class="notification-form" id="form-warn">
   <ld-label>
     Warning
-    <ld-input id="input-warn" value="I warn you!"></ld-input>
+    <ld-input name="message" value="I warn you!"></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
@@ -159,7 +159,7 @@ The examples below illustrate how you can trigger notifications using different 
 <form class="notification-form" id="form-info-custom-timeout">
   <ld-label>
     Info message which times out after 10 seconds
-    <ld-input id="input-info-custom-timeout" value="I'll take my time."></ld-input>
+    <ld-input name="message" value="I'll take my time."></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
@@ -167,7 +167,7 @@ The examples below illustrate how you can trigger notifications using different 
 <form class="notification-form" id="form-info-no-timeout">
   <ld-label>
     Info message which doesn't time out
-    <ld-input id="input-info-no-timeout" value="I'm here to stay!"></ld-input>
+    <ld-input name="message" value="I'm here to stay!"></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
@@ -175,51 +175,44 @@ The examples below illustrate how you can trigger notifications using different 
 <form class="notification-form" id="form-alert">
   <ld-label>
     alert message
-    <ld-input id="input-alert" value="Ooops."></ld-input>
+    <ld-input name="message" value="Ooops."></ld-input>
   </ld-label>
   <ld-button type="submit">Submit</ld-button>
 </form>
 
-<form id="form-dismiss">
-  <ld-button type="submit">Dismiss current notification</ld-button>
-</form>
+<ld-button id="button-dismiss" type="button">Dismiss current notification</ld-button>
 
-<form id="form-clear">
-  <ld-button type="submit">Clear all notifications</ld-button>
-</form>
+<ld-button id="button-clear" type="button">Clear all notifications</ld-button>
 
 <script>
 const formInfo = document.getElementById('form-info')
-const inputInfo = document.getElementById('input-info')
 formInfo.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
-      content: inputInfo.value || '',
+      content: ev.currentTarget.message.value || '',
       type: 'info',
     }
   }))
 })
 
 const formWarn = document.getElementById('form-warn')
-const inputWarn = document.getElementById('input-warn')
 formWarn.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
-      content: inputWarn.value || '',
+      content: ev.currentTarget.message.value || '',
       type: 'warn',
     }
   }))
 })
 
 const formInfoCustomTimeout = document.getElementById('form-info-custom-timeout')
-const inputInfoCustomTimeout = document.getElementById('input-info-custom-timeout')
 formInfoCustomTimeout.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
-      content: inputInfoCustomTimeout.value || '',
+      content: ev.currentTarget.message.value || '',
       type: 'info',
       timeout: 10000,
     }
@@ -227,12 +220,11 @@ formInfoCustomTimeout.addEventListener('submit', ev => {
 })
 
 const formInfoNoTimeout = document.getElementById('form-info-no-timeout')
-const inputInfoNoTimeout = document.getElementById('input-info-no-timeout')
 formInfoNoTimeout.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
-      content: inputInfoNoTimeout.value || '',
+      content: ev.currentTarget.message.value || '',
       type: 'info',
       timeout: 0,
     }
@@ -240,29 +232,171 @@ formInfoNoTimeout.addEventListener('submit', ev => {
 })
 
 const formAlert = document.getElementById('form-alert')
-const inputAlert = document.getElementById('input-alert')
 formAlert.addEventListener('submit', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationAdd', {
     detail: {
-      content: inputAlert.value || '',
+      content: ev.currentTarget.message.value || '',
       type: 'alert',
     }
   }))
 })
 
-const formDismiss = document.getElementById('form-dismiss')
-formDismiss.addEventListener('submit', ev => {
+const buttonDismiss = document.getElementById('button-dismiss')
+buttonDismiss.addEventListener('click', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationDismiss'))
 })
 
-const formClear = document.getElementById('form-clear')
-formClear.addEventListener('submit', ev => {
+const buttonClear = document.getElementById('button-clear')
+buttonClear.addEventListener('click', ev => {
   ev.preventDefault()
   dispatchEvent(new CustomEvent('ldNotificationClear'))
 })
 </script>
+
+<!-- React component -->
+
+const notificationFormStyles = {
+  display: 'grid',
+  gridTemplateColumns: '1fr auto',
+  alignItems: 'flex-end',
+  gridGap: '1rem',
+  width: 'calc(100% - 2 * var(--ld-sp-24))',
+}
+
+return (
+  <>
+    <LdNotification placement="bottom" />
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: ev.currentTarget.message.value || '',
+              type: 'info',
+            },
+          })
+        )
+      }}
+      style={notificationFormStyles}
+    >
+      <LdLabel>
+        Info message
+        <LdInput name="message" value="I have an info for you." />
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: ev.currentTarget.message.value || '',
+              type: 'warn',
+            },
+          })
+        )
+      }}
+      style={notificationFormStyles}
+    >
+      <LdLabel>
+        Warning
+        <LdInput name="message" value="I warn you!" />
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: ev.currentTarget.message.value || '',
+              type: 'info',
+              timeout: 10000,
+            },
+          })
+        )
+      }}
+      style={notificationFormStyles}
+    >
+      <LdLabel>
+        Info message which times out after 10 seconds
+        <LdInput name="message" value="I'll take my time." />
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: ev.currentTarget.message.value || '',
+              type: 'info',
+              timeout: 0,
+            },
+          })
+        )
+      }}
+      style={notificationFormStyles}
+    >
+      <LdLabel>
+        Info message which doesn't time out
+        <LdInput name="message" value="I'm here to stay!" />
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(
+          new CustomEvent('ldNotificationAdd', {
+            detail: {
+              content: ev.currentTarget.message.value || '',
+              type: 'alert',
+            },
+          })
+        )
+      }}
+      style={notificationFormStyles}
+    >
+      <LdLabel>
+        alert message
+        <LdInput name="message" value="Ooops." />
+      </LdLabel>
+      <LdButton type="submit">Submit</LdButton>
+    </form>
+
+    <LdButton
+      onClick={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(new CustomEvent('ldNotificationDismiss'))
+      }}
+      type="button"
+    >
+      Dismiss current notification
+    </LdButton>
+
+    <LdButton
+      onClick={(ev) => {
+        ev.preventDefault()
+        dispatchEvent(new CustomEvent('ldNotificationClear'))
+      }}
+      type="button"
+    >
+      Clear all notifications
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 <!-- Auto Generated Below -->
