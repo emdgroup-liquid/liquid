@@ -19,18 +19,30 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider></ld-slider>
+
+<!-- React component -->
+
+<LdSlider />
 {% endexample %}
 
 ## Predefined value
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider value="40"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider value="40" />
 {% endexample %}
 
 ## Custom min/max values
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider min="-50" max="50"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider min={-50} max={50} />
 {% endexample %}
 
 ## Size
@@ -39,6 +51,12 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 <ld-slider size="sm"></ld-slider>
 <ld-slider></ld-slider>
 <ld-slider size="lg"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider size="sm" />
+<LdSlider />
+<LdSlider size="lg" />
 {% endexample %}
 
 ## Disabled
@@ -46,12 +64,21 @@ The `ld-slider` component can be used to select a single numeric value or a rang
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider disabled value="40"></ld-slider>
 <ld-slider aria-disabled="true" value="40"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider disabled value={40} />
+<LdSlider aria-disabled="true" value={40} />
 {% endexample %}
 
 ## Custom steps
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider step="5"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider step={5} />
 {% endexample %}
 
 ## Custom stops
@@ -60,6 +87,10 @@ Custom stops behave just like steps, but without the need for an even distance b
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider stops="20,35,45,60,85"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider stops="20,35,45,60,85" />
 {% endexample %}
 
 <ld-notice mode="warning">
@@ -71,6 +102,11 @@ Custom stops behave just like steps, but without the need for an even distance b
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider indicators step="10"></ld-slider>
 <ld-slider indicators stops="20,35,45,60,85"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider indicators step={10} />
+<LdSlider indicators stops="20,35,45,60,85" />
 {% endexample %}
 
 ## With step/stop snapping
@@ -78,6 +114,11 @@ Custom stops behave just like steps, but without the need for an even distance b
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider indicators snap-offset="2" step="10"></ld-slider>
 <ld-slider snap-offset="2" stops="20,35,45,60,85"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider indicators snapOffset={2} step={10} />
+<LdSlider snapOffset={2} stops="20,35,45,60,85" />
 {% endexample %}
 
 <ld-notice mode="warning">
@@ -92,6 +133,12 @@ You can add 2 or more comma-separated values to the slider. This results in addi
 <ld-slider value="40,90"></ld-slider>
 <ld-slider value="30,60,90"></ld-slider>
 <ld-slider value="20,50,70,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider value="40,90" />
+<LdSlider value="30,60,90" />
+<LdSlider value="20,50,70,90" />
 {% endexample %}
 
 ## Swappable mode
@@ -100,24 +147,40 @@ The swappable mode allows swapping the thumbs.
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider swappable value="40,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider swappable value="40,90" />
 {% endexample %}
 
 ## Hide values
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-values value="40,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider hideValues value="40,90" />
 {% endexample %}
 
 ## Hide value labels
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-value-labels value="40,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider hideValueLabels value="40,90" />
 {% endexample %}
 
 ## Hide stop labels
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider hide-stop-labels indicators stops="20,40,60,90" value="40,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider hideStopLabels indicators stops="20,40,60,90" value="40,90" />
 {% endexample %}
 
 ## Units
@@ -125,6 +188,11 @@ The swappable mode allows swapping the thumbs.
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider unit="%"></ld-slider>
 <ld-slider unit=" px" stops="24,64,96" max="128"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider unit="%" />
+<LdSlider unit=" px" stops="24,64,96" max={128} />
 {% endexample %}
 
 ## Negative
@@ -134,6 +202,11 @@ The negative mode highlights deselected ranges as selected and vice versa.
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider negative value="50"></ld-slider>
 <ld-slider negative value="40,90"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider negative value={50} />
+<LdSlider negative value="40,90" />
 {% endexample %}
 
 ## Custom width
@@ -142,6 +215,10 @@ By default, the `ld-slider` applies a width of `100%`. You can set it to any fix
 
 {% example '{ "hasPadding": false, "gap": "0.5rem", "styles": { "padding": "0.5rem 1rem" } }' %}
 <ld-slider width="20rem"></ld-slider>
+
+<!-- React component -->
+
+<LdSlider width="20rem" />
 {% endexample %}
 
 <ld-notice mode="warning">
@@ -234,6 +311,83 @@ By default, the `ld-slider` applies a width of `100%`. You can set it to any fix
     slider2.value = String(currValue + 1)
   })
 </script>
+
+<!-- React component -->
+
+const [from, setFrom] = useState(40)
+const [to, setTo] = useState(90)
+const [value, setValue] = useState(40)
+
+return (
+  <>
+    <div className="flex">
+      <LdInput
+        onLdchange={({ detail }) => setFrom(Number.parseInt(detail))}
+        type="number"
+        value={`${from}`}
+      />
+      <LdSlider
+        onLdchange={(event) => {
+          const [newFrom, newTo] = event.detail
+
+          setFrom(newFrom)
+          setTo(newTo)
+        }}
+        value={`${from},${to}`}
+        width="20rem"
+      />
+      <LdInput
+        onLdchange={({ detail }) => setTo(Number.parseInt(detail))}
+        type="number"
+        value={`${to}`}
+      />
+    </div>
+
+    <div className="flex">
+      <LdButton
+        onClick={() => {
+          if (value <= 0) return
+          setValue((value) => value - 1)
+        }}
+      >
+        -
+      </LdButton>
+      <LdSlider
+        onLdchange={({ detail }) => setValue(detail[0])}
+        value={`${value}`}
+        width="20rem"
+      />
+      <LdButton
+        onClick={() => {
+          if (value >= 100) return
+          setValue((value) => value + 1)
+        }}
+      >
+        +
+      </LdButton>
+    </div>
+
+    <style>{`
+      .flex {
+        align-items: end;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--LdSp-8);
+        justify-content: center;
+      }
+
+      #from, #to, #minus, #plus {
+        flex: 0 0 auto;
+        margin-bottom: 1.125rem;
+        width: 3rem;
+      }
+
+      #from::part(input), #to::part(input) {
+        text-align: center;
+      }
+    `}</style>
+  </>
+)
 {% endexample %}
 
 <!-- Auto Generated Below -->
