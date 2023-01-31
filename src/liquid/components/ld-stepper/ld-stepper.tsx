@@ -1,13 +1,13 @@
 import {
   Component,
   Element,
-  Host,
+  Event,
+  EventEmitter,
   h,
+  Host,
   Prop,
   State,
   Watch,
-  Event,
-  EventEmitter,
 } from '@stencil/core'
 import { getClassNames } from 'src/liquid/utils/getClassNames'
 import { SelectedDetail } from './ld-step/ld-step'
