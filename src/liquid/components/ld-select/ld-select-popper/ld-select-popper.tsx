@@ -114,7 +114,7 @@ export class LdSelectPopper {
   @Watch('expanded')
   updateFilter(newExpanded: boolean) {
     if (!newExpanded) {
-      this.filterInputValue = ''
+      this.resetFilter()
     }
   }
 
@@ -174,8 +174,8 @@ export class LdSelectPopper {
                 >
                   <ld-icon
                     class="ld-select-popper__create-icon"
+                    role="presentation"
                     size="sm"
-                    aria-label="Text"
                   >
                     <svg viewBox="-1 -1 24 24" fill="none">
                       <path

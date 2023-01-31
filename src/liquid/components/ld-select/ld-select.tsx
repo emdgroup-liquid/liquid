@@ -427,10 +427,12 @@ export class LdSelect implements InnerFocusable {
       })
       this.internalOptionsHTML = internalOptionsHTML
     }
-    this.selected = selectedChildren.map((child) => ({
-      value: child.value,
-      text: child.innerText,
-    }))
+    this.selected = selectedChildren.map((child) => {
+      return {
+        value: child.value,
+        text: child.textContent,
+      }
+    })
 
     this.updateTriggerMoreIndicator(true)
   }
