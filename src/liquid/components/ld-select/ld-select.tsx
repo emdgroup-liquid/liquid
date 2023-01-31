@@ -127,7 +127,11 @@ export class LdSelect implements InnerFocusable {
   @Method()
   async focusInner() {
     if (!this.disabled) {
-      this.triggerRef.focus()
+      // Experimental feature that fixes a bug in Firefox only.
+      // See https://github.com/emdgroup-liquid/liquid/issues/486
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      this.triggerRef.focus({ focusVisible: true })
     }
   }
 
