@@ -105,91 +105,89 @@ The `ld-cookie-consent` Web Component is configurable using the `settings` prop.
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-          cookieTable: {
-            headers: ['Name', 'Provider', 'Description', 'Lifespan'],
-            rows: [
-              [
-                '_ga',
-                'Google LLC',
-                'Used to distinguish unique users...',
-                '2 years',
-              ],
-              [
-                '_gat',
-                'Google LLC',
-                'Used to throttle the request rate...',
-                '1 minute',
-              ],
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
+      },
+      toggle: {
+        value: 'functional',
+        checked: true,
+      },
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+        cookieTable: {
+          headers: ['Name', 'Provider', 'Description', 'Lifespan'],
+          rows: [
+            [
+              '_ga',
+              'Google LLC',
+              'Used to distinguish unique users...',
+              '2 years',
             ],
-          },
+            [
+              '_gat',
+              'Google LLC',
+              'Used to throttle the request rate...',
+              '1 minute',
+            ],
+          ],
         },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
-        autoclear: [
-          {
-            name: '_ga',
-            domain: 'example.com',
-            path: '/',
-          },
-          {
-            name: '_gat',
-            domain: 'example.com',
-            path: '/',
-          },
-        ],
       },
-    ],
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-  
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-      
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+      autoclear: [
+        {
+          name: '_ga',
+          domain: 'example.com',
+          path: '/',
+        },
+        {
+          name: '_gat',
+          domain: 'example.com',
+          path: '/',
+        },
+      ],
+    },
+  ],
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+    
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## Modes
@@ -219,27 +217,25 @@ This is the "bare minimum" mode. All cookies can be set on page load. In other w
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    mode: 'notice-only',
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  mode: 'notice-only',
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ### Opt-out
@@ -318,92 +314,90 @@ When using this mode you must provide information about the cookie categories us
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    mode: 'opt-out',
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  mode: 'opt-out',
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-          cookieTable: {
-            headers: ['Name', 'Provider', 'Description', 'Lifespan'],
-            rows: [
-              [
-                '_ga',
-                'Google LLC',
-                'Used to distinguish unique users...',
-                '2 years',
-              ],
-              [
-                '_gat',
-                'Google LLC',
-                'Used to throttle the request rate...',
-                '1 minute',
-              ],
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
+      },
+      toggle: {
+        value: 'functional',
+        checked: true,
+      },
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+        cookieTable: {
+          headers: ['Name', 'Provider', 'Description', 'Lifespan'],
+          rows: [
+            [
+              '_ga',
+              'Google LLC',
+              'Used to distinguish unique users...',
+              '2 years',
             ],
-          },
+            [
+              '_gat',
+              'Google LLC',
+              'Used to throttle the request rate...',
+              '1 minute',
+            ],
+          ],
         },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
-        autoclear: [
-          {
-            name: '_ga',
-            domain: 'example.com',
-            path: '/',
-          },
-          {
-            name: '_gat',
-            domain: 'example.com',
-            path: '/',
-          },
-        ],
       },
-    ],
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+      autoclear: [
+        {
+          name: '_ga',
+          domain: 'example.com',
+          path: '/',
+        },
+        {
+          name: '_gat',
+          domain: 'example.com',
+          path: '/',
+        },
+      ],
+    },
+  ],
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ### Opt-in
@@ -482,92 +476,90 @@ When using this mode you must provide information about the cookie categories us
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    mode: 'opt-in',
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  mode: 'opt-in',
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-          cookieTable: {
-            headers: ['Name', 'Provider', 'Description', 'Lifespan'],
-            rows: [
-              [
-                '_ga',
-                'Google LLC',
-                'Used to distinguish unique users...',
-                '2 years',
-              ],
-              [
-                '_gat',
-                'Google LLC',
-                'Used to throttle the request rate...',
-                '1 minute',
-              ],
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
+      },
+      toggle: {
+        value: 'functional',
+        checked: true,
+      },
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+        cookieTable: {
+          headers: ['Name', 'Provider', 'Description', 'Lifespan'],
+          rows: [
+            [
+              '_ga',
+              'Google LLC',
+              'Used to distinguish unique users...',
+              '2 years',
             ],
-          },
+            [
+              '_gat',
+              'Google LLC',
+              'Used to throttle the request rate...',
+              '1 minute',
+            ],
+          ],
         },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
-        autoclear: [
-          {
-            name: '_ga',
-            domain: 'example.com',
-            path: '/',
-          },
-          {
-            name: '_gat',
-            domain: 'example.com',
-            path: '/',
-          },
-        ],
       },
-    ],
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+      autoclear: [
+        {
+          name: '_ga',
+          domain: 'example.com',
+          path: '/',
+        },
+        {
+          name: '_gat',
+          domain: 'example.com',
+          path: '/',
+        },
+      ],
+    },
+  ],
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## Dismissable
@@ -588,28 +580,26 @@ You can allow the user to dismiss the cookie consent disclaimer in all modes. Th
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    dismissable: true,
-    mode: 'notice-only',
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  dismissable: true,
+  mode: 'notice-only',
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 If you want to delay the next appearance of the disclaimer, you will need to listen to the `ldCookieConsentDismiss` event, persist the timestamp of the dismissal and invoke the disclaimer as soon as needed using you own application logic.
@@ -689,93 +679,91 @@ You can allow rejecting all cookies from the disclaimer in opt-in and opt-out mo
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    rejectable: true,
-    mode: 'opt-in',
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  rejectable: true,
+  mode: 'opt-in',
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-          cookieTable: {
-            headers: ['Name', 'Provider', 'Description', 'Lifespan'],
-            rows: [
-              [
-                '_ga',
-                'Google LLC',
-                'Used to distinguish unique users...',
-                '2 years',
-              ],
-              [
-                '_gat',
-                'Google LLC',
-                'Used to throttle the request rate...',
-                '1 minute',
-              ],
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
+      },
+      toggle: {
+        value: 'functional',
+        checked: true,
+      },
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+        cookieTable: {
+          headers: ['Name', 'Provider', 'Description', 'Lifespan'],
+          rows: [
+            [
+              '_ga',
+              'Google LLC',
+              'Used to distinguish unique users...',
+              '2 years',
             ],
-          },
+            [
+              '_gat',
+              'Google LLC',
+              'Used to throttle the request rate...',
+              '1 minute',
+            ],
+          ],
         },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
-        autoclear: [
-          {
-            name: '_ga',
-            domain: 'example.com',
-            path: '/',
-          },
-          {
-            name: '_gat',
-            domain: 'example.com',
-            path: '/',
-          },
-        ],
       },
-    ],
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+      autoclear: [
+        {
+          name: '_ga',
+          domain: 'example.com',
+          path: '/',
+        },
+        {
+          name: '_gat',
+          domain: 'example.com',
+          path: '/',
+        },
+      ],
+    },
+  ],
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## Listing cookie categories
@@ -838,74 +826,72 @@ Some common cookie categories are _Necessary_, _Functional_ and _Targeting_. May
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    mode: 'opt-out',
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  mode: 'opt-out',
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-        },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
       },
-      {
-        title: 'Sale of Personal Data',
-        details: {
-          description:
-            'Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads. You may exercise your right to opt out of the sale of personal information by using this toggle switch. If you opt out we will not be able to offer you personalised ads and will not hand over your personal information to any third parties. Additionally, you may contact our legal department for further clarification about your rights as a California consumer by using this Exercise My Rights link.',
-        },
-        toggle: {
-          value: 'sale_of_personal_data',
-          checked: true,
-        },
+      toggle: {
+        value: 'functional',
+        checked: true,
       },
-    ],
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+      },
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+    },
+    {
+      title: 'Sale of Personal Data',
+      details: {
+        description:
+          'Under the California Consumer Privacy Act, you have the right to opt-out of the sale of your personal information to third parties. These cookies collect information for analytics and to personalize your experience with targeted ads. You may exercise your right to opt out of the sale of personal information by using this toggle switch. If you opt out we will not be able to offer you personalised ads and will not hand over your personal information to any third parties. Additionally, you may contact our legal department for further clarification about your rights as a California consumer by using this Exercise My Rights link.',
+      },
+      toggle: {
+        value: 'sale_of_personal_data',
+        checked: true,
+      },
+    },
+  ],
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## Loading scripts conditionally
@@ -1008,28 +994,26 @@ You can align the cookie consent disclaimer to the left or right of the screen. 
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    disclaimerAlignement: 'left',
-    mode: 'notice-only',
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef?.current?.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  disclaimerAlignement: 'left',
+  mode: 'notice-only',
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ### Align right
@@ -1048,28 +1032,26 @@ const App = () => {
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    disclaimerAlignement: 'right',
-    mode: 'notice-only',
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-      />
-
-      <LdButton onClick={(ev) => cookieConsentRef?.current?.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  disclaimerAlignement: 'right',
+  mode: 'notice-only',
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+    />
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## Theming
@@ -1179,126 +1161,126 @@ You can theme the component using CSS custom properties and customize its conten
 
 <!-- React component -->
 
-const App = () => {
-  const cookieConsentRef = useRef(null)
-  const cookieConsentSettings = {
-    categories: [
-      {
-        title: 'Necessary',
-        details: {
-          description:
-            'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
-        },
-        toggle: {
-          value: 'necessary',
-          checked: true,
-          disabled: true,
-        },
+const cookieConsentRef = useRef(null)
+const cookieConsentSettings = {
+  categories: [
+    {
+      title: 'Necessary',
+      details: {
+        description:
+          'These cookies are necessary for the website to operate. Our website cannot function without these cookies, and they can only be disabled by changing your browser preferences.',
       },
-      {
-        title: 'Functional',
-        details: {
-          description:
-            'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
-        },
-        toggle: {
-          value: 'functional',
-          checked: true,
-        },
+      toggle: {
+        value: 'necessary',
+        checked: true,
+        disabled: true,
       },
-      {
-        title: 'Targeting',
-        details: {
-          description:
-            'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
-          cookieTable: {
-            headers: ['Name', 'Provider', 'Description', 'Lifespan'],
-            rows: [
-              [
-                '_ga',
-                'Google LLC',
-                'Used to distinguish unique users...',
-                '2 years',
-              ],
-              [
-                '_gat',
-                'Google LLC',
-                'Used to throttle the request rate...',
-                '1 minute',
-              ],
+    },
+    {
+      title: 'Functional',
+      details: {
+        description:
+          'These cookies enable the provision of advanced functionalities and are used for personalization. The cookies are set in particular in response to your actions and depend on your specific service requests (e.g., pop-up notification choices).',
+      },
+      toggle: {
+        value: 'functional',
+        checked: true,
+      },
+    },
+    {
+      title: 'Targeting',
+      details: {
+        description:
+          'These cookies may be set to learn more about your interests and show you relevant ads on other websites. These cookies work by uniquely identifying your browser and device. By integrating these cookies, we aim to learn more about your interests and your surfing behavior and to be able to place our advertising in a targeted manner.',
+        cookieTable: {
+          headers: ['Name', 'Provider', 'Description', 'Lifespan'],
+          rows: [
+            [
+              '_ga',
+              'Google LLC',
+              'Used to distinguish unique users...',
+              '2 years',
             ],
-          },
+            [
+              '_gat',
+              'Google LLC',
+              'Used to throttle the request rate...',
+              '1 minute',
+            ],
+          ],
         },
-        toggle: {
-          value: 'targeting',
-          checked: true,
-        },
-        autoclear: [
-          {
-            name: '_ga',
-            domain: 'example.com',
-            path: '/',
-          },
-          {
-            name: '_gat',
-            domain: 'example.com',
-            path: '/',
-          },
-        ],
       },
-    ],
-    privacyStatementURL: 'legal/privacy/',
-    showOnLoad: false,
-  }
-
-  return (
-    <>
-      <LdCookieConsent
-        ref={cookieConsentRef}
-        settings={cookieConsentSettings}
-        style={ {
-          /* font */
-          '--ld-cookie-consent-font-body': "'Source Sans Pro', sans-serif'",
-          /* colors */
-          '--ld-cookie-consent-col-wht': '#fff',
-          '--ld-cookie-consent-br-s': '0px',
-          '--ld-cookie-consent-br-m': '0px',
-          '--ld-cookie-consent-br-l': '0px',
-          '--ld-cookie-consent-col-neutral-010': '#fafafd',
-          '--ld-cookie-consent-col-neutral-050': '#8b919b',
-          '--ld-cookie-consent-col-neutral-100': '#b9bdc3',
-          '--ld-cookie-consent-col-neutral-600': '#0b182d',
-          '--ld-cookie-consent-col-neutral-900': '#000',
-          '--ld-cookie-consent-thm-primary': 'hsl(260deg, 40%, 54%)',
-          '--ld-cookie-consent-thm-primary-active': 'hsl(260deg, 40%, 34%)',
-          '--ld-cookie-consent-thm-primary-alpha-low':
-            'hsl(260deg, 40%, 54%, 0.2)',
-          '--ld-cookie-consent-thm-primary-alpha-lowest':
-            'hsl(260deg, 40%, 54%, 0.1)',
-          '--ld-cookie-consent-thm-primary-focus': 'hsl(260deg, 40%, 64%)',
-          '--ld-cookie-consent-thm-primary-highlight':
-            'hsl(260deg, 40%, 54%, 0.1)',
-          '--ld-cookie-consent-thm-primary-hover': 'hsl(260deg, 40%, 44%)',
-          '--ld-cookie-consent-thm-secondary': 'hsl(348deg, 73%, 69%)',
-          '--ld-cookie-consent-thm-secondary-active': 'hsl(348deg, 73%, 49%)',
-          '--ld-cookie-consent-thm-secondary-focus': 'hsl(348deg, 73%, 79%)',
-          '--ld-cookie-consent-thm-secondary-highlight':
-            'hsl(348deg, 73%, 69%, 0.1)',
-          '--ld-cookie-consent-thm-secondary-hover': 'hsl(348deg, 73%, 59%)',
-          /* layout */
-          '--ld-cookie-consent-max-inline-size': '44rem',
-        } }
-      >
-        <svg {...{slot: 'disclaimer-logo'}} width="901" height="870" viewBox="0 0 901 870" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M461 174.8c133.6 0 244.8 97.4 263.5 224.8h176C881.9 176.1 692 0 461 0v174.8Zm221-70c-1.2 0-1.2 0 0 0Z" fill="#5F82FF"/><path d="M461 694.8c133.6 0 244.8-97.4 263.5-224.8h176C881.9 693.5 692 869.6 461 869.6V694.8Zm221 70c-1.2 0-1.2 0 0 0Z" fill="#EA788E"/><path d="M0 434.7c-.4 110 41 216 115.8 296.8A436 436 0 0 0 403 870V697.1A265 265 0 0 1 173 435a264.1 264.1 0 0 1 230-262.1V0a436 436 0 0 0-287 138.3A434.7 434.7 0 0 0 0 434.7Z" fill="#7959B8"/></svg>
-        <svg {...{slot: 'preferences-logo'}} width="901" height="870" viewBox="0 0 901 870" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M461 174.8c133.6 0 244.8 97.4 263.5 224.8h176C881.9 176.1 692 0 461 0v174.8Zm221-70c-1.2 0-1.2 0 0 0Z" fill="#5F82FF"/><path d="M461 694.8c133.6 0 244.8-97.4 263.5-224.8h176C881.9 693.5 692 869.6 461 869.6V694.8Zm221 70c-1.2 0-1.2 0 0 0Z" fill="#EA788E"/><path d="M0 434.7c-.4 110 41 216 115.8 296.8A436 436 0 0 0 403 870V697.1A265 265 0 0 1 173 435a264.1 264.1 0 0 1 230-262.1V0a436 436 0 0 0-287 138.3A434.7 434.7 0 0 0 0 434.7Z" fill="#7959B8"/></svg>
-      </LdCookieConsent>
-
-      <LdButton onClick={(ev) => cookieConsentRef?.current?.showDisclaimer()}>
-        Show cookie consent disclaimer
-      </LdButton>
-    </>
-  )
+      toggle: {
+        value: 'targeting',
+        checked: true,
+      },
+      autoclear: [
+        {
+          name: '_ga',
+          domain: 'example.com',
+          path: '/',
+        },
+        {
+          name: '_gat',
+          domain: 'example.com',
+          path: '/',
+        },
+      ],
+    },
+  ],
+  privacyStatementURL: 'legal/privacy/',
+  showOnLoad: false,
 }
+
+const customStyle = {
+  // font
+  '--ld-cookie-consent-font-body': "'Source Sans Pro', sans-serif'",
+  // colors
+  '--ld-cookie-consent-col-wht': '#fff',
+  '--ld-cookie-consent-br-s': '0px',
+  '--ld-cookie-consent-br-m': '0px',
+  '--ld-cookie-consent-br-l': '0px',
+  '--ld-cookie-consent-col-neutral-010': '#fafafd',
+  '--ld-cookie-consent-col-neutral-050': '#8b919b',
+  '--ld-cookie-consent-col-neutral-100': '#b9bdc3',
+  '--ld-cookie-consent-col-neutral-600': '#0b182d',
+  '--ld-cookie-consent-col-neutral-900': '#000',
+  '--ld-cookie-consent-thm-primary': 'hsl(260deg, 40%, 54%)',
+  '--ld-cookie-consent-thm-primary-active': 'hsl(260deg, 40%, 34%)',
+  '--ld-cookie-consent-thm-primary-alpha-low':
+    'hsl(260deg, 40%, 54%, 0.2)',
+  '--ld-cookie-consent-thm-primary-alpha-lowest':
+    'hsl(260deg, 40%, 54%, 0.1)',
+  '--ld-cookie-consent-thm-primary-focus': 'hsl(260deg, 40%, 64%)',
+  '--ld-cookie-consent-thm-primary-highlight':
+    'hsl(260deg, 40%, 54%, 0.1)',
+  '--ld-cookie-consent-thm-primary-hover': 'hsl(260deg, 40%, 44%)',
+  '--ld-cookie-consent-thm-secondary': 'hsl(348deg, 73%, 69%)',
+  '--ld-cookie-consent-thm-secondary-active': 'hsl(348deg, 73%, 49%)',
+  '--ld-cookie-consent-thm-secondary-focus': 'hsl(348deg, 73%, 79%)',
+  '--ld-cookie-consent-thm-secondary-highlight':
+    'hsl(348deg, 73%, 69%, 0.1)',
+  '--ld-cookie-consent-thm-secondary-hover': 'hsl(348deg, 73%, 59%)',
+  // layout
+  '--ld-cookie-consent-max-inline-size': '44rem',
+}
+
+return (
+  <>
+    <LdCookieConsent
+      ref={cookieConsentRef}
+      settings={cookieConsentSettings}
+      style={customStyle}
+    >
+      <svg {...{slot: 'disclaimer-logo'}} width="901" height="870" viewBox="0 0 901 870" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M461 174.8c133.6 0 244.8 97.4 263.5 224.8h176C881.9 176.1 692 0 461 0v174.8Zm221-70c-1.2 0-1.2 0 0 0Z" fill="#5F82FF"/><path d="M461 694.8c133.6 0 244.8-97.4 263.5-224.8h176C881.9 693.5 692 869.6 461 869.6V694.8Zm221 70c-1.2 0-1.2 0 0 0Z" fill="#EA788E"/><path d="M0 434.7c-.4 110 41 216 115.8 296.8A436 436 0 0 0 403 870V697.1A265 265 0 0 1 173 435a264.1 264.1 0 0 1 230-262.1V0a436 436 0 0 0-287 138.3A434.7 434.7 0 0 0 0 434.7Z" fill="#7959B8"/></svg>
+      <svg {...{slot: 'preferences-logo'}} width="901" height="870" viewBox="0 0 901 870" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M461 174.8c133.6 0 244.8 97.4 263.5 224.8h176C881.9 176.1 692 0 461 0v174.8Zm221-70c-1.2 0-1.2 0 0 0Z" fill="#5F82FF"/><path d="M461 694.8c133.6 0 244.8-97.4 263.5-224.8h176C881.9 693.5 692 869.6 461 869.6V694.8Zm221 70c-1.2 0-1.2 0 0 0Z" fill="#EA788E"/><path d="M0 434.7c-.4 110 41 216 115.8 296.8A436 436 0 0 0 403 870V697.1A265 265 0 0 1 173 435a264.1 264.1 0 0 1 230-262.1V0a436 436 0 0 0-287 138.3A434.7 434.7 0 0 0 0 434.7Z" fill="#7959B8"/></svg>
+    </LdCookieConsent>
+
+    <LdButton onClick={(ev) => cookieConsentRef.current.showDisclaimer()}>
+      Show cookie consent disclaimer
+    </LdButton>
+  </>
+)
 {% endexample %}
 
 ## CSS Variables
