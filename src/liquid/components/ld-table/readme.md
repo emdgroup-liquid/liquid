@@ -59,6 +59,35 @@ You can use the `ld-table` component component in a very similar way to how you 
   </ld-table-body>
 </ld-table>
 
+<!-- React component -->
+
+<LdTable>
+  <LdTableToolbar slot="toolbar">
+    <LdTableCaption>Superheros and sidekicks</LdTableCaption>
+  </LdTableToolbar>
+  <LdTableColgroup>
+    <LdTableCol></LdTableCol>
+    <LdTableCol span={2} class="batman"></LdTableCol>
+    <LdTableCol span={2} class="flash"></LdTableCol>
+  </LdTableColgroup>
+  <LdTableBody>
+    <LdTableRow>
+      <LdTableCell></LdTableCell>
+      <LdTableHeader scope="col">Batman</LdTableHeader>
+      <LdTableHeader scope="col">Robin</LdTableHeader>
+      <LdTableHeader scope="col">The Flash</LdTableHeader>
+      <LdTableHeader scope="col">Kid Flash</LdTableHeader>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableHeader scope="row">Skill</LdTableHeader>
+      <LdTableCell>Smarts</LdTableCell>
+      <LdTableCell>Dex, acrobat</LdTableCell>
+      <LdTableCell>Super speed</LdTableCell>
+      <LdTableCell>Super speed</LdTableCell>
+    </LdTableRow>
+  </LdTableBody>
+</LdTable>
+
 <!-- CSS component -->
 
 <figure class="ld-table">
@@ -124,7 +153,7 @@ The default sorting mechanism sorts the currently rendered table rows based on t
   <ld-table-head>
     <ld-table-row>
       <ld-table-header sortable>Administrative Division</ld-table-header>
-      <ld-table-header sortable sorted="desc">Total</ld-table-header>
+      <ld-table-header sortable sort-order="desc">Total</ld-table-header>
       <ld-table-header sortable>Urban</ld-table-header>
       <ld-table-header sortable>Rural</ld-table-header>
     </ld-table-row>
@@ -336,6 +365,241 @@ The default sorting mechanism sorts the currently rendered table rows based on t
     </ld-table-row>
   </ld-table-body>
 </ld-table>
+
+<!-- React component -->
+
+<LdTable style={ { maxHeight: '26rem' } }>
+  <LdTableToolbar slot="toolbar">
+    <LdTableCaption>
+      Chinese administrative divisions by population in 2017
+    </LdTableCaption>
+  </LdTableToolbar>
+  <LdTableHead style={ { textAlign: 'right' } }>
+    <LdTableRow>
+      <LdTableHeader sortable style={ { textAlign: 'left' } }>
+        Administrative Division
+      </LdTableHeader>
+      <LdTableHeader sortable sortOrder="desc">
+        Total
+      </LdTableHeader>
+      <LdTableHeader sortable>Urban</LdTableHeader>
+      <LdTableHeader sortable>Rural</LdTableHeader>
+    </LdTableRow>
+  </LdTableHead>
+  <LdTableBody style={ { textAlign: 'right' } }>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>
+        Mainland China
+      </LdTableCell>
+      <LdTableCell>1,485,710,000</LdTableCell>
+      <LdTableCell>831,370,000</LdTableCell>
+      <LdTableCell>564,010,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Guangdong</LdTableCell>
+      <LdTableCell>188,690,000</LdTableCell>
+      <LdTableCell>78,020,000</LdTableCell>
+      <LdTableCell>33,670,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Shandong</LdTableCell>
+      <LdTableCell>167,060,000</LdTableCell>
+      <LdTableCell>60,620,000</LdTableCell>
+      <LdTableCell>39,440,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Henan</LdTableCell>
+      <LdTableCell>163,590,000</LdTableCell>
+      <LdTableCell>47,950,000</LdTableCell>
+      <LdTableCell>47,640,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Sichuan</LdTableCell>
+      <LdTableCell>158,020,000</LdTableCell>
+      <LdTableCell>42,170,000</LdTableCell>
+      <LdTableCell>40,850,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Jiangsu</LdTableCell>
+      <LdTableCell>156,290,000</LdTableCell>
+      <LdTableCell>55,210,000</LdTableCell>
+      <LdTableCell>25,080,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Hebei</LdTableCell>
+      <LdTableCell>135,200,000</LdTableCell>
+      <LdTableCell>41,360,000</LdTableCell>
+      <LdTableCell>33,830,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Hunan</LdTableCell>
+      <LdTableCell>127,600,000</LdTableCell>
+      <LdTableCell>37,470,000</LdTableCell>
+      <LdTableCell>31,130,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Anhui</LdTableCell>
+      <LdTableCell>118,550,000</LdTableCell>
+      <LdTableCell>33,460,000</LdTableCell>
+      <LdTableCell>29,090,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Hubei</LdTableCell>
+      <LdTableCell>95,020,000</LdTableCell>
+      <LdTableCell>35,000,000</LdTableCell>
+      <LdTableCell>24,020,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Zhejiang</LdTableCell>
+      <LdTableCell>92,570,000</LdTableCell>
+      <LdTableCell>38,470,000</LdTableCell>
+      <LdTableCell>18,100,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Guangxi</LdTableCell>
+      <LdTableCell>85,850,000</LdTableCell>
+      <LdTableCell>24,040,000</LdTableCell>
+      <LdTableCell>24,810,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Yunnan</LdTableCell>
+      <LdTableCell>68,010,000</LdTableCell>
+      <LdTableCell>22,410,000</LdTableCell>
+      <LdTableCell>25,590,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Jiangxi</LdTableCell>
+      <LdTableCell>65,220,000</LdTableCell>
+      <LdTableCell>25,240,000</LdTableCell>
+      <LdTableCell>20,980,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Liaoning</LdTableCell>
+      <LdTableCell>63,690,000</LdTableCell>
+      <LdTableCell>29,490,000</LdTableCell>
+      <LdTableCell>14,200,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Fujian</LdTableCell>
+      <LdTableCell>58,110,000</LdTableCell>
+      <LdTableCell>25,340,000</LdTableCell>
+      <LdTableCell>13,770,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Shaanxi</LdTableCell>
+      <LdTableCell>54,350,000</LdTableCell>
+      <LdTableCell>21,780,000</LdTableCell>
+      <LdTableCell>16,570,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>
+        Heilongjiang
+      </LdTableCell>
+      <LdTableCell>53,890,000</LdTableCell>
+      <LdTableCell>22,500,000</LdTableCell>
+      <LdTableCell>15,380,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Shanxi</LdTableCell>
+      <LdTableCell>48,820,000</LdTableCell>
+      <LdTableCell>21,230,000</LdTableCell>
+      <LdTableCell>15,790,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Guizhou</LdTableCell>
+      <LdTableCell>45,550,000</LdTableCell>
+      <LdTableCell>16,480,000</LdTableCell>
+      <LdTableCell>19,320,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Chongqing</LdTableCell>
+      <LdTableCell>33,750,000</LdTableCell>
+      <LdTableCell>19,710,000</LdTableCell>
+      <LdTableCell>11,050,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Jilin</LdTableCell>
+      <LdTableCell>27,170,000</LdTableCell>
+      <LdTableCell>15,390,000</LdTableCell>
+      <LdTableCell>11,780,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Gansu</LdTableCell>
+      <LdTableCell>26,260,000</LdTableCell>
+      <LdTableCell>12,180,000</LdTableCell>
+      <LdTableCell>14,080,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>
+        Inner Mongolia
+      </LdTableCell>
+      <LdTableCell>25,290,000</LdTableCell>
+      <LdTableCell>15,680,000</LdTableCell>
+      <LdTableCell>9,610,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Xinjiang</LdTableCell>
+      <LdTableCell>24,450,000</LdTableCell>
+      <LdTableCell>12,070,000</LdTableCell>
+      <LdTableCell>12,380,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Shanghai</LdTableCell>
+      <LdTableCell>24,180,000</LdTableCell>
+      <LdTableCell>21,210,000</LdTableCell>
+      <LdTableCell>2,970,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Beijing</LdTableCell>
+      <LdTableCell>21,710,000</LdTableCell>
+      <LdTableCell>18,780,000</LdTableCell>
+      <LdTableCell>2,930,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Tianjin</LdTableCell>
+      <LdTableCell>15,570,000</LdTableCell>
+      <LdTableCell>12,910,000</LdTableCell>
+      <LdTableCell>2,660,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Hainan</LdTableCell>
+      <LdTableCell>9,170,000</LdTableCell>
+      <LdTableCell>5,370,000</LdTableCell>
+      <LdTableCell>3,890,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Hong Kong</LdTableCell>
+      <LdTableCell>7,335,384</LdTableCell>
+      <LdTableCell>7,335,384</LdTableCell>
+      <LdTableCell>-</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Ningxia</LdTableCell>
+      <LdTableCell>6,820,000</LdTableCell>
+      <LdTableCell>3,950,000</LdTableCell>
+      <LdTableCell>2,870,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Qinghai</LdTableCell>
+      <LdTableCell>5,980,000</LdTableCell>
+      <LdTableCell>3,170,000</LdTableCell>
+      <LdTableCell>2,810,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Tibet</LdTableCell>
+      <LdTableCell>3,370,000</LdTableCell>
+      <LdTableCell>1,040,000</LdTableCell>
+      <LdTableCell>2,330,000</LdTableCell>
+    </LdTableRow>
+    <LdTableRow>
+      <LdTableCell style={ { textAlign: 'left' } }>Macao</LdTableCell>
+      <LdTableCell>644,900</LdTableCell>
+      <LdTableCell>644,900</LdTableCell>
+      <LdTableCell>-</LdTableCell>
+    </LdTableRow>
+  </LdTableBody>
+</LdTable>
+
 {% endexample %}
 
 #### Custom sorting
@@ -437,6 +701,93 @@ In cases where the default sorting functionality is not suitable, you can preven
   app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('ld-')
   app.mount('#example-custom-sorting')
 </script>
+
+<!-- React component -->
+
+const [elements, setElements] = useState([])
+const [sortOrder, setSortOrder] = useState(null)
+
+const tableRef = useRef()
+
+useEffect(() => {
+  fetch(`${env.base}/${buildstamp}assets/examples/numerals.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      setElements(data.elements)
+    })
+}, [])
+
+useEffect(() => {
+  if (!tableRef.current) return
+
+  tableRef.current.addEventListener('ldTableSort', onSort, true)
+  return () => tableRef.current.removeEventListener('ldTableSort', onSort, true)
+}, [])
+
+function onSort(ev) {
+  setCurrentPage(0)
+  setSortOrder(ev.detail)
+}
+
+const sortedElements = useMemo(() => {
+  if (!elements || !sortOrder) return elements
+
+  return [...elements].sort((a, b) => {
+    const key = ['arabic', 'roman'][sortOrder.columnIndex]
+    const val1 = (sortOrder.sortOrder === 'asc' ? a : b)[key]
+    const val2 = (sortOrder.sortOrder === 'asc' ? b : a)[key]
+    const num1 = key === 'arabic' ? parseFloat(val1) : romanToArabic(val1)
+    const num2 = key === 'arabic' ? parseFloat(val2) : romanToArabic(val2)
+    return num1 - num2
+  })
+}, [elements, sortOrder])
+
+function romanToArabic(roman) {
+  const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 }
+  return [...roman].reduceRight(
+    ({ sum, order }, c, i, s) =>
+      Object.keys(map).indexOf(c) < order
+        ? { sum: sum - map[c], order }
+        : { sum: sum + map[c], order: Object.keys(map).indexOf(c) },
+    {
+      sum: 0,
+      order: Object.keys(map).indexOf(roman[roman.length - 1]),
+    }
+  ).sum
+}
+
+return (
+  <LdTable ref={tableRef} style={ { maxHeight: '26rem' } }>
+    <LdTableToolbar slot="toolbar">
+      <LdTableCaption>
+        Arabic and roman numerals from 1 to 1000
+      </LdTableCaption>
+    </LdTableToolbar>
+    <LdTableHead>
+      <LdTableRow>
+        <LdTableHeader sortable>Arabic</LdTableHeader>
+        <LdTableHeader sortable>Roman</LdTableHeader>
+      </LdTableRow>
+    </LdTableHead>
+    <LdTableBody>
+      {sortedElements.length > 0 ? (
+        sortedElements.map((element, index) => (
+          <LdTableRow key={element.arabic}>
+            <LdTableCell>{element.arabic}</LdTableCell>
+            <LdTableCell>{element.roman}</LdTableCell>
+          </LdTableRow>
+        ))
+      ) : (
+        <LdTableRow>
+          <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
+            <LdLoading></LdLoading>
+          </LdTableCell>
+        </LdTableRow>
+      )}
+    </LdTableBody>
+  </LdTable>
+)
+
 {% endexample %}
 
 Please note that the example above is for illustration only: The default sorting would have worked as well for the given data. However, the same setup will make much more sense as soon as we add [pagination](/components/ld-table#pagination) to the table.  
@@ -519,6 +870,63 @@ As long as the table is not displaying dynamic data (i.e. you have not set up cu
   app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('ld-')
   app.mount('#example-selection')
 </script>
+
+<!-- React component -->
+
+const [elements, setElements] = useState([])
+
+useEffect(() => {
+  fetch(`${env.base}/${buildstamp}assets/examples/periodicTable.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      setElements(data.elements)
+    })
+}, [])
+
+function toFixed(value, digits) {
+  return typeof value === 'number' ? value.toFixed(digits) : '-'
+}
+
+return (
+  <LdTable style={ { maxHeight: '26rem' } }>
+    <LdTableToolbar slot="toolbar">
+      <LdTableCaption>
+        Periodic table
+      </LdTableCaption>
+    </LdTableToolbar>
+    <LdTableHead>
+      <LdTableRow selectable>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>#</LdTableHeader>
+        <LdTableHeader sortable>Name</LdTableHeader>
+        <LdTableHeader sortable>Symbol</LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>Atomic mass</LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>Electronegativity</LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>Density</LdTableHeader>
+      </LdTableRow>
+    </LdTableHead>
+    <LdTableBody>
+      {elements.length > 0 ? (
+        elements.map((element, index) => (
+          <LdTableRow selectable key={element.number}>
+            <LdTableCell style={ { textAlign: 'right' } }>{element.number}</LdTableCell>
+            <LdTableCell>{element.name}</LdTableCell>
+            <LdTableCell>{element.symbol}</LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>{toFixed(element.atomic_mass, 10)}</LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>{toFixed(element.electronegativity_pauling, 2)}</LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>{toFixed(element.density, 2)}</LdTableCell>
+          </LdTableRow>
+        ))
+      ) : (
+        <LdTableRow>
+          <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
+            <LdLoading></LdLoading>
+          </LdTableCell>
+        </LdTableRow>
+      )}
+    </LdTableBody>
+  </LdTable>
+)
+
 {% endexample %}
 
 #### Custom selection
@@ -684,6 +1092,196 @@ The following example shows how to use the [`ld-pagination`](/components/ld-pagi
   app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('ld-')
   app.mount('#example-pagination')
 </script>
+
+<!-- React component -->
+
+const [elements, setElements] = useState([])
+const [currentPage, setCurrentPage] = useState(0)
+const [rowsPerPage] = useState(6)
+const [sortOrder, setSortOrder] = useState(null)
+
+useEffect(() => {
+  fetch(`${env.base}/${buildstamp}assets/examples/periodicTable.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      setElements(data.elements)
+    })
+}, [])
+
+const elementsSorted = useMemo(() => {
+  if (!elements || !sortOrder) return elements
+
+  return [...elements].sort((a, b) => {
+    const key = [
+      'number',
+      'name',
+      'symbol',
+      'atomic_mass',
+      'electronegativity_pauling',
+      'density',
+    ][this.sortOrder.columnIndex]
+    const val1 = (this.sortOrder.sortOrder === 'asc' ? a : b)[key]
+    const val2 = (this.sortOrder.sortOrder === 'asc' ? b : a)[key]
+    const str1 = typeof val1 === 'number' ? val1.toString() : val1 || ''
+    const str2 = typeof val2 === 'number' ? val2.toString() : val2 || ''
+    const num1 = parseFloat(str1.replaceAll(/,/g, ''))
+    const num2 = parseFloat(str2.replaceAll(/,/g, ''))
+    if (!isNaN(num1) && !isNaN(num2)) {
+      return num1 - num2
+    }
+    return str1.localeCompare(str2)
+  })
+}, [elements, sortOrder])
+
+const elementsInPage = useMemo(() => {
+  return elementsSorted.slice(
+    currentPage * rowsPerPage,
+    currentPage * rowsPerPage + rowsPerPage
+  )
+}, [elementsSorted, currentPage, rowsPerPage])
+
+const totalSelected = useMemo(() => {
+  return elements.filter((e) => e.selected).length
+}, [elements])
+
+const allSelected = useMemo(() => {
+  return totalSelected === elements.length
+}, [elements, totalSelected])
+
+const someSelected = useMemo(() => {
+  return totalSelected > 0 && totalSelected < elements.length
+}, [elements, totalSelected])
+
+const totalPages = useMemo(() => {
+  return Math.ceil(elements.length / rowsPerPage) || Infinity
+}, [elements, rowsPerPage])
+
+const tableRef = useRef()
+
+function onPageChange(ev) {
+  setCurrentPage(ev.detail)
+}
+
+function onSort(ev) {
+  setCurrentPage(0)
+  setSortOrder(ev.detail)
+}
+
+const onSelect = useCallback(
+  (ev) => {
+    const elementNumber = elementsInPage[ev.detail.rowIndex].number
+    const updatedElements = elements.map((e) => {
+      return {
+        ...e,
+        selected:
+          e.number === elementNumber ? ev.detail.selected : e.selected,
+      }
+    })
+    setElements(updatedElements)
+  },
+  [elementsInPage, elements]
+)
+
+const onSelectAll = useCallback(
+  (ev) => {
+    const updatedElements = elements.map((e) => {
+      return {
+        ...e,
+        selected: ev.detail.selected,
+      }
+    })
+    setElements(updatedElements)
+  },
+  [elements]
+)
+
+useEffect(() => {
+  if (!tableRef.current) return
+  tableRef.current.addEventListener('ldTableSort', onSort, true)
+
+  return () => {
+    tableRef.current.removeEventListener('ldTableSort', onSort, true)
+  }
+}, [onSort])
+
+function toFixed(value, digits) {
+  return typeof value === 'number' ? value.toFixed(digits) : '-'
+}
+
+return (
+  <LdTable ref={tableRef} style={ { maxHeight: '26rem' } }>
+    <LdTableToolbar slot="toolbar">
+      <LdTableCaption>Periodic table</LdTableCaption>
+      {totalPages && (
+        <LdPagination
+          offset={1}
+          size="sm"
+          style={ { marginLeft: 'auto' } }
+          length={totalPages}
+          selectedIndex={currentPage}
+          onLdchange={onPageChange}
+        ></LdPagination>
+      )}
+    </LdTableToolbar>
+    <LdTableHead>
+      <LdTableRow
+        selectable
+        selected={allSelected}
+        indeterminate={someSelected}
+        onLdTableSelectAll={onSelectAll}
+      >
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>
+          #
+        </LdTableHeader>
+        <LdTableHeader sortable>Name</LdTableHeader>
+        <LdTableHeader sortable>Symbol</LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>
+          Atomic mass
+        </LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>
+          Electronegativity
+        </LdTableHeader>
+        <LdTableHeader sortable style={ { textAlign: 'right' } }>
+          Density
+        </LdTableHeader>
+      </LdTableRow>
+    </LdTableHead>
+    <LdTableBody>
+      {elementsInPage.length > 0 ? (
+        elementsInPage.map((element, index) => (
+          <LdTableRow
+            selectable
+            selected={element.selected}
+            onLdTableSelect={onSelect}
+            key={element.number}
+          >
+            <LdTableCell style={ { textAlign: 'right' } }>
+              {element.number}
+            </LdTableCell>
+            <LdTableCell>{element.name}</LdTableCell>
+            <LdTableCell>{element.symbol}</LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>
+              {toFixed(element.atomic_mass, 10)}
+            </LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>
+              {toFixed(element.electronegativity_pauling, 2)}
+            </LdTableCell>
+            <LdTableCell style={ { textAlign: 'right' } }>
+              {toFixed(element.density, 2)}
+            </LdTableCell>
+          </LdTableRow>
+        ))
+      ) : (
+        <LdTableRow>
+          <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
+            <LdLoading></LdLoading>
+          </LdTableCell>
+        </LdTableRow>
+      )}
+    </LdTableBody>
+  </LdTable>
+)
+
 {% endexample %}
 
 <!-- Auto Generated Below -->
