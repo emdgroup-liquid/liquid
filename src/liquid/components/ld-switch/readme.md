@@ -263,11 +263,11 @@ By default all switch items take up the same amout of horizontal space. However,
   size="sm"
 >
   <LdSwitchItem value="water" checked>
-    <LdIcon slot="icon-start" name="placeholder" size="sm"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="sm" />
     Water
   </LdSwitchItem>
   <LdSwitchItem value="alcohol">
-    <LdIcon slot="icon-start" name="placeholder" size="sm"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="sm" />
     Alcohol
   </LdSwitchItem>
 </LdSwitch>
@@ -278,11 +278,11 @@ By default all switch items take up the same amout of horizontal space. However,
   size="md"
 >
   <LdSwitchItem value="water" checked>
-    <LdIcon slot="icon-start" name="placeholder" size="md"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="md" />
     Water
   </LdSwitchItem>
   <LdSwitchItem value="alcohol">
-    <LdIcon slot="icon-start" name="placeholder" size="md"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="md" />
     Alcohol
   </LdSwitchItem>
 </LdSwitch>
@@ -293,11 +293,11 @@ By default all switch items take up the same amout of horizontal space. However,
   size="lg"
 >
   <LdSwitchItem value="water" checked>
-    <LdIcon slot="icon-start" name="placeholder" size="lg"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="lg" />
     Water
   </LdSwitchItem>
   <LdSwitchItem value="alcohol">
-    <LdIcon slot="icon-start" name="placeholder" size="lg"></LdIcon>
+    <LdIcon slot="icon-start" name="placeholder" size="lg" />
     Alcohol
   </LdSwitchItem>
 </LdSwitch>
