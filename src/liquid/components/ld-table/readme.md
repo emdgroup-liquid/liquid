@@ -66,9 +66,9 @@ You can use the `ld-table` component component in a very similar way to how you 
     <LdTableCaption>Superheros and sidekicks</LdTableCaption>
   </LdTableToolbar>
   <LdTableColgroup>
-    <LdTableCol></LdTableCol>
-    <LdTableCol span={2} class="batman"></LdTableCol>
-    <LdTableCol span={2} class="flash"></LdTableCol>
+    <LdTableCol />
+    <LdTableCol span={2} class="batman" />
+    <LdTableCol span={2} class="flash" />
   </LdTableColgroup>
   <LdTableBody>
     <LdTableRow>
@@ -780,7 +780,7 @@ return (
       ) : (
         <LdTableRow>
           <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
-            <LdLoading></LdLoading>
+            <LdLoading />
           </LdTableCell>
         </LdTableRow>
       )}
@@ -919,7 +919,7 @@ return (
       ) : (
         <LdTableRow>
           <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
-            <LdLoading></LdLoading>
+            <LdLoading />
           </LdTableCell>
         </LdTableRow>
       )}
@@ -1274,7 +1274,7 @@ return (
       ) : (
         <LdTableRow>
           <LdTableCell colspan={6} style={ { textAlign: 'center' } }>
-            <LdLoading></LdLoading>
+            <LdLoading />
           </LdTableCell>
         </LdTableRow>
       )}
