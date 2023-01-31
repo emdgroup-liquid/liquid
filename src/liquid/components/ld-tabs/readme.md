@@ -332,17 +332,17 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
 
 <LdTabs>
   <LdTablist>
-    <LdTab selected><LdIcon name="placeholder" aria-label="Fruits"></LdIcon></LdTab>
-    <LdTab><LdIcon name="placeholder" aria-label="Vegetables"></LdIcon></LdTab>
-    <LdTab><LdIcon name="placeholder" aria-label="Nuts"></LdIcon></LdTab>
+    <LdTab selected><LdIcon name="placeholder" aria-label="Fruits" /></LdTab>
+    <LdTab><LdIcon name="placeholder" aria-label="Vegetables" /></LdTab>
+    <LdTab><LdIcon name="placeholder" aria-label="Nuts" /></LdTab>
   </LdTablist>
 </LdTabs>
 
 <LdTabs>
   <LdTablist mode="ghost">
-    <LdTab selected><LdIcon name="placeholder"></LdIcon>Fruits</LdTab>
-    <LdTab><LdIcon name="placeholder"></LdIcon>Vegetables</LdTab>
-    <LdTab><LdIcon name="placeholder"></LdIcon>Nuts</LdTab>
+    <LdTab selected><LdIcon name="placeholder" />Fruits</LdTab>
+    <LdTab><LdIcon name="placeholder" />Vegetables</LdTab>
+    <LdTab><LdIcon name="placeholder" />Nuts</LdTab>
   </LdTablist>
 </LdTabs>
 
