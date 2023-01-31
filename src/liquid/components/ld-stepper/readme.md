@@ -40,11 +40,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 <!-- React component -->
 
 <LdStepper>
-  <LdStep aria-label="Billing" done></LdStep>
-  <LdStep aria-label="Shipping" done></LdStep>
-  <LdStep aria-label="Payment" current next lastActive></LdStep>
-  <LdStep aria-label="Summary" disabled></LdStep>
-  <LdStep aria-label="Confirmation" disabled></LdStep>
+  <LdStep aria-label="Billing" done />
+  <LdStep aria-label="Shipping" done />
+  <LdStep aria-label="Payment" current next lastActive />
+  <LdStep aria-label="Summary" disabled />
+  <LdStep aria-label="Confirmation" disabled />
 </LdStepper>
 
 <!-- CSS component -->
@@ -144,11 +144,11 @@ The `ld-stepper` component visualizes a process by showing all the process steps
 <!-- React component -->
 
 <LdStepper vertical>
-  <LdStep aria-label="Billing" done></LdStep>
-  <LdStep aria-label="Shipping" done></LdStep>
-  <LdStep aria-label="Payment" current next lastActive></LdStep>
-  <LdStep aria-label="Summary" disabled></LdStep>
-  <LdStep aria-label="Confirmation" disabled></LdStep>
+  <LdStep aria-label="Billing" done />
+  <LdStep aria-label="Shipping" done />
+  <LdStep aria-label="Payment" current next lastActive />
+  <LdStep aria-label="Summary" disabled />
+  <LdStep aria-label="Confirmation" disabled />
 </LdStepper>
 
 <!-- CSS component -->

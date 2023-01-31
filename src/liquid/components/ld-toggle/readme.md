@@ -32,7 +32,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle></LdToggle>
+<LdToggle />
 
 <!-- CSS component -->
 
@@ -49,7 +49,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle size="lg"></LdToggle>
+<LdToggle size="lg" />
 
 <!-- CSS component -->
 
@@ -68,9 +68,9 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle required></LdToggle>
+<LdToggle required />
 
-<LdToggle checked required></LdToggle>
+<LdToggle checked required />
 
 <!-- CSS component -->
 
@@ -94,9 +94,9 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle disabled></LdToggle>
+<LdToggle disabled />
 
-<LdToggle disabled checked></LdToggle>
+<LdToggle disabled checked />
 
 <!-- CSS component -->
 
@@ -120,9 +120,9 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle ariaDisabled="true"></LdToggle>
+<LdToggle ariaDisabled="true" />
 
-<LdToggle ariaDisabled="true" checked></LdToggle>
+<LdToggle ariaDisabled="true" checked />
 
 <!-- CSS component -->
 
@@ -178,23 +178,23 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <!-- React component -->
 
 <LdToggle>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle checked>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg">
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg" checked>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <!-- CSS component -->
@@ -278,23 +278,23 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <!-- React component -->
 
 <LdToggle disabled>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle checked disabled>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg" disabled>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg" checked disabled>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <!-- CSS component -->
@@ -378,23 +378,23 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 <!-- React component -->
 
 <LdToggle required>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle checked required>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg" required>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <LdToggle size="lg" checked required>
-  <LdIcon name="placeholder" size="sm" slot="icon-start"></LdIcon>
-  <LdIcon name="placeholder" size="sm" slot="icon-end"></LdIcon>
+  <LdIcon name="placeholder" size="sm" slot="icon-start" />
+  <LdIcon name="placeholder" size="sm" slot="icon-end" />
 </LdToggle>
 
 <!-- CSS component -->
@@ -464,7 +464,7 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <LdLabel position="right" size="m">
   I'd like to receive a weekly newsletter.
-  <LdToggle></LdToggle>
+  <LdToggle />
 </LdLabel>
 
 <!-- CSS component -->
@@ -502,13 +502,13 @@ Please refer to the [ld-label](components/ld-label/) docs for more information o
 <div style={ { display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(12rem, 1fr))', width: '100%' } }>
   <LdLabel position="right" size="m">
     I have read the terms of service.*
-    <LdToggle required></LdToggle>
+    <LdToggle required />
     <LdInputMessage>To proceed, you must except the terms of service.</LdInputMessage>
   </LdLabel>
 
   <LdLabel position="right" size="m">
     I'd like to receive a weekly newsletter.
-    <LdToggle></LdToggle>
+    <LdToggle />
     <LdInputMessage mode="info">You may unsubscribe at any given time.</LdInputMessage>
   </LdLabel>
 </div>

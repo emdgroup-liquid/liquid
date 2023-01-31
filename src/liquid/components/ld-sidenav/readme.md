@@ -150,7 +150,7 @@ The first example shows how we invision the side navigation to be used in [narro
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsible narrow>
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -464,7 +464,7 @@ The second example shows how we invision the side navigation to be used in colla
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsible>
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -670,7 +670,7 @@ The `ld-sidenav` on its own is not very spectacular. Here is the simplest exampl
 
 <!-- React component -->
 
-<LdSidenav></LdSidenav>
+<LdSidenav />
 
 {% endexample %}
 
@@ -743,7 +743,7 @@ return (
       <LdIcon
         aria-label="Open menu"
         name={sidenavOpen ? 'sidenav-left' : 'sidenav-right'}
-      ></LdIcon>
+      />
     </LdButton>
   </LdHeader>
   <div style={ { position: 'relative', height: '8rem' } }>
@@ -751,7 +751,7 @@ return (
       style={ { position: 'absolute' } }
       breakpoint={breakpoint}
       open={sidenavOpen}
-    ></LdSidenav>
+    />
   </div>
 )
 
@@ -831,7 +831,7 @@ return (
       <LdIcon
         aria-label="Open menu"
         name={sidenavOpen ? 'sidenav-left' : 'sidenav-right'}
-      ></LdIcon>
+      />
     </LdButton>
   </LdHeader>
   <div style={ { position: 'relative', height: '8rem' } }>
@@ -859,7 +859,7 @@ You can align the side navigation either to the left or the right of its contain
 
 <!-- React component -->
 
-<LdSidenav open align="left"></LdSidenav>
+<LdSidenav open align="left" />
 
 {% endexample %}
 
@@ -868,7 +868,7 @@ You can align the side navigation either to the left or the right of its contain
 
 <!-- React component -->
 
-<LdSidenav open align="right"></LdSidenav>
+<LdSidenav open align="right" />
 
 {% endexample %}
 
@@ -932,7 +932,7 @@ Although the slider can contain arbitrary content, it is ment to mainly contain 
 
 Place the [`ld-sidenav-slider`](./ld-sidenav-slider) component in the main slot of `ld-sidenav`:
 
-{% example '{ "highlight": "1,2", "highlightReactComponent": "1,2", "opened": true, "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
+{% example '{ "highlight": "1,2", "opened": true, "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-slider label="Outline of CS">
   </ld-sidenav-slider>
@@ -941,8 +941,7 @@ Place the [`ld-sidenav-slider`](./ld-sidenav-slider) component in the main slot 
 <!-- React component -->
 
 <LdSidenav open>
-  <LdSidenavSlider label="Outline of CS">
-  </LdSidenavSlider>
+  <LdSidenavSlider label="Outline of CS" />
 </LdSidenav>
 
 {% endexample %}
@@ -968,8 +967,7 @@ Place the [`ld-sidenav-subnav`](./ld-sidenav-subnav) component in the [`ld-siden
 <LdSidenav open>
   <LdSidenavSlider label="Outline of CS">
     <LdSidenavSubnav id="art-int" label="Artificial intelligence">
-      <LdSidenavSubnav id="soft-comp" label="Soft computing">
-      </LdSidenavSubnav>
+      <LdSidenavSubnav id="soft-comp" label="Soft computing" />
     </LdSidenavSubnav>
   </LdSidenavSlider>
 </LdSidenav>
@@ -1481,7 +1479,7 @@ Use the `ld-sidenav-toggle-outside` component to add a toggle button for expandi
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsible>
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1529,7 +1527,7 @@ The sidenav only collapses to narrow mode, if navigation to a sub-nav is possibl
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsed collapsible narrow>
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1599,7 +1597,7 @@ The trigger modes are inclusive as follows:
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsed collapsible narrow expandTrigger="toggle">
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1624,7 +1622,7 @@ The trigger modes are inclusive as follows:
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsed collapsible narrow expandTrigger="mouseenter">
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1665,7 +1663,7 @@ The trigger modes are inclusive as follows:
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsible collapsed narrow collapseTrigger="toggle">
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1689,7 +1687,7 @@ The trigger modes are inclusive as follows:
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsible collapsed narrow collapseTrigger="clickoutside">
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1713,7 +1711,7 @@ The trigger modes are inclusive as follows:
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsible collapsed narrow collapseTrigger="mouseout">
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1740,7 +1738,7 @@ You can disable transitions on collapsing and expansion of the sidenav. This is 
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav open collapsible collapsed narrow toggleTransitionDisabled>
   <LdSidenavHeader href="#" slot="header">
     Computer Science
@@ -1796,7 +1794,7 @@ The sidenav as well as its subcomponents emit different events which you can use
 
 <!-- React component -->
 
-<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenavToggleOutside />
 <LdSidenav
   open
   onLdSidenavSliderChange={(ev) =>
