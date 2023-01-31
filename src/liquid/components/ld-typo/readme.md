@@ -30,6 +30,12 @@ To give text a certain style of typography, you can use the `ld-typo` component.
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
+<!-- React component -->
+
+<LdTypo>
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
 <!-- CSS component -->
 
 <p class="ld-typo">
@@ -59,6 +65,28 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 <ld-typo variant="body-xl">
   <b>XL</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="body-xs">
+  <b>XS</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</LdTypo>
+
+<LdTypo variant="body-s">
+  <b>S</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</LdTypo>
+
+<LdTypo variant="body-m">
+  <b>M</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</LdTypo>
+
+<LdTypo variant="body-l">
+  <b>L</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</LdTypo>
+
+<LdTypo variant="body-xl">
+  <b>XL</b>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</LdTypo>
 
 <!-- CSS component -->
 
@@ -94,6 +122,16 @@ To give text a certain style of typography, you can use the `ld-typo` component.
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
+<!-- React component -->
+
+<LdTypo variant="label-s">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="label-m">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
 <!-- CSS component -->
 
 <p class="ld-typo--label-s">
@@ -115,6 +153,16 @@ To give text a certain style of typography, you can use the `ld-typo` component.
 <ld-typo variant="cap-l">
   Almost before we knew it, we had left the ground.
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="cap-m">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="cap-l">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
 
 <!-- CSS component -->
 
@@ -161,6 +209,32 @@ Headings are used as an introduction into a topic or a content section and for v
 <ld-typo variant="h6">
   Almost before we knew it, we had left the ground.
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="h1">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="h2">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="h3">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="h4">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="h5">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="h6">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
 
 <!-- CSS component -->
 
@@ -218,6 +292,32 @@ Headings are used as an introduction into a topic or a content section and for v
   Lorem ipsum
 </ld-typo>
 
+<!-- React component -->
+
+<LdTypo variant="b1">
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="b2">
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="b3">
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="b4">
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="b5">
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="b6">
+  Lorem ipsum
+</LdTypo>
+
 <!-- CSS component -->
 
 <h1 class="ld-typo ld-typo--b1" aria-label="Lorem ipsum">
@@ -272,6 +372,32 @@ Headings are used as an introduction into a topic or a content section and for v
   Almost before we knew it, we had left the ground.
 </ld-typo>
 
+<!-- React component -->
+
+<LdTypo variant="xh1">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="xh2">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="xh3">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="xh4">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="xh5">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
+<LdTypo variant="xh6">
+  Almost before we knew it, we had left the ground.
+</LdTypo>
+
 <!-- CSS component -->
 
 <h1 class="ld-typo--xh1">
@@ -316,6 +442,20 @@ Headings are used as an introduction into a topic or a content section and for v
   Lipsum
 </ld-typo>
 
+<!-- React component -->
+
+<LdTypo variant="xb1">
+  Lipsum
+</LdTypo>
+
+<LdTypo variant="xb2">
+  Lipsum
+</LdTypo>
+
+<LdTypo variant="xb3">
+  Lipsum
+</LdTypo>
+
 <!-- CSS component -->
 
 <h1 class="ld-typo ld-typo--xb1" aria-label="Lorem ipsum">
@@ -343,6 +483,16 @@ You can use any text variant for visual purposes without sacrificing semantics b
 <ld-typo variant="b5" tag="p">
   I'm actually a paragraph
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="body-m" tag="h1">
+  I'm actually a level 1 heading
+</LdTypo>
+
+<LdTypo variant="b5" tag="p">
+  I'm actually a paragraph
+</LdTypo>
 
 <!-- CSS component -->
 
@@ -378,6 +528,20 @@ Here are some examples on how you can apply different colors on headings:
 <ld-typo variant="h1" style="color: var(--ld-col-vc-600)">
   Almost before we knew it, we had left the ground.
 </ld-typo>
+
+<!-- React component -->
+
+<LdTypo variant="b1" style={ { 
+  color: 'var(--ld-col-vm)'
+} }>
+  Lorem ipsum
+</LdTypo>
+
+<LdTypo variant="h1" style={ { 
+  color: 'var(--ld-col-vc-600)'
+} }>
+  Almost before we knew it, we had left the ground.
+</LdTypo>
 
 <!-- CSS component -->
 
