@@ -2806,6 +2806,9 @@ describe('ld-select', () => {
 
     await page.root.focusInner()
     expect(btnTrigger.focus).toHaveBeenCalledTimes(1)
+    expect(btnTrigger.focus).toHaveBeenCalledWith(
+      expect.objectContaining({ focusVisible: true })
+    )
   })
 
   it('removes popper element on disconnect', async () => {
