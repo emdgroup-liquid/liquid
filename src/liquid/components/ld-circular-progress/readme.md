@@ -358,88 +358,102 @@ You can change the size of the circular progress bar. However, with a smaller si
 
 <!-- React component -->
 
-<style>{`
-  .report {
-    display: grid;
-    place-items: center;
-    gap: var(--ld-sp-4);
-  }
-  .report ld-circular-progress {
-    --ld-circular-progress-size: 4rem;
-  }
-  .report-value {
-    transform: scale(0.8);
-  }
-`}</style>
+const reportStyle = {
+  display: 'grid',
+  placeItems: 'center',
+  gap: 'var(--ld-sp-4)',
+}
+const circularProgressStyle = {
+  '--ld-circular-progress-size': '4rem',
+}
+const reportValueStyle = {
+  'transform': 'scale(0.8)',
+}
 
-<div className="report">
-  <LdCircularProgress
-    aria-valuenow={75}
-    aria-labeledby="performance"
-    style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)' } }
-  >
-    <LdTypo className="report-value" variant="b6">
-      75
-    </LdTypo>
-  </LdCircularProgress>
-  <LdTypo id="performance" variant="label-s">
-    Performance
-  </LdTypo>
-</div>
-<div className="report">
-  <LdCircularProgress
-    aria-valuenow={75}
-    aria-labeledby="accessibility"
-    style={ { '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)' } }
-  >
-    <LdTypo className="report-value" variant="b6">
-      75
-    </LdTypo>
-  </LdCircularProgress>
-  <LdTypo id="accessibility" variant="label-s">
-    Accessibility
-  </LdTypo>
-</div>
-<div className="report">
-  <LdCircularProgress
-    aria-valuenow={100}
-    aria-labeledby="best-practices"
-    style={ {
-      '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
-    } }
-  >
-    <LdTypo
-      className="report-value"
-      variant="b6"
-      style={ { color: 'var(--ld-thm-success)' } }
-    >
-      100
-    </LdTypo>
-  </LdCircularProgress>
-  <LdTypo id="best-practices" variant="label-s">
-    Best Practices
-  </LdTypo>
-</div>
-<div className="report">
-  <LdCircularProgress
-    aria-valuenow={98}
-    aria-labeledby="seo"
-    style={ {
-      '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
-    } }
-  >
-    <LdTypo
-      className="report-value"
-      variant="b6"
-      style={ { color: 'var(--ld-thm-success)' } }
-    >
-      98
-    </LdTypo>
-  </LdCircularProgress>
-  <LdTypo id="seo" variant="label-s">
-    SEO
-  </LdTypo>
-</div>
+return (
+  <>
+    <div style={reportStyle}>
+      <LdCircularProgress
+        aria-valuenow={75}
+        aria-labeledby="performance"
+        style={ {
+          ...circularProgressStyle,
+          '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)',
+        } }
+      >
+        <LdTypo style={reportValueStyle} variant="b6">
+          75
+        </LdTypo>
+      </LdCircularProgress>
+      <LdTypo id="performance" variant="label-s">
+        Performance
+      </LdTypo>
+    </div>
+    <div style={reportStyle}>
+      <LdCircularProgress
+        aria-valuenow={75}
+        aria-labeledby="accessibility"
+        style={ {
+          ...circularProgressStyle,
+          '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)'
+        } }
+      >
+        <LdTypo style={reportValueStyle} variant="b6">
+          75
+        </LdTypo>
+      </LdCircularProgress>
+      <LdTypo id="accessibility" variant="label-s">
+        Accessibility
+      </LdTypo>
+    </div>
+    <div style={reportStyle}>
+      <LdCircularProgress
+        aria-valuenow={100}
+        aria-labeledby="best-practices"
+        style={ {
+          ...circularProgressStyle,
+          '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
+        } }
+      >
+        <LdTypo
+          variant="b6"
+          style={ {
+            ...reportValueStyle,
+            color: 'var(--ld-thm-success)', 
+          } }
+        >
+          100
+        </LdTypo>
+      </LdCircularProgress>
+      <LdTypo id="best-practices" variant="label-s">
+        Best Practices
+      </LdTypo>
+    </div>
+    <div style={reportStyle}>
+      <LdCircularProgress
+        aria-valuenow={98}
+        aria-labeledby="seo"
+        style={ {
+          ...circularProgressStyle,
+          '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
+        } }
+      >
+        <LdTypo
+          variant="b6"
+          style={ {
+            ...reportValueStyle,
+            color: 'var(--ld-thm-success)', 
+          } }
+        >
+          98
+        </LdTypo>
+      </LdCircularProgress>
+      <LdTypo id="seo" variant="label-s">
+        SEO
+      </LdTypo>
+    </div>
+  </>
+)
 
 <!-- CSS component -->
 
