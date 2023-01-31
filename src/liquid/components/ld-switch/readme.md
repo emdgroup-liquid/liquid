@@ -28,6 +28,19 @@ A switch is a collection of two or more items that behaves similar to a radio bu
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
 </ld-switch>
 
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-default"
+  required
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
+
 <!-- CSS component -->
 
 <fieldset class="ld-switch">
@@ -59,8 +72,21 @@ By default all switch items take up the same amout of horizontal space. However,
 {% example %}
 <ld-switch legend="Chemical compound" name="food-type-web-component-fit-content" fit-content>
   <ld-switch-item value="diamorphine" checked>Diamorphine</ld-switch-item>
-  <ld-switch-item value="alcohol">Lysergic acid diethylamide</ld-switch-item>
+  <ld-switch-item value="lsd">Lysergic acid diethylamide</ld-switch-item>
 </ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-fit-content"
+  fitContent
+>
+  <LdSwitchItem value="diamorphine" checked>
+    Diamorphine
+  </LdSwitchItem>
+  <LdSwitchItem value="lsd">Lysergic acid diethylamide</LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
@@ -103,6 +129,41 @@ By default all switch items take up the same amout of horizontal space. However,
   <ld-switch-item value="water" checked>Water</ld-switch-item>
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
 </ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-size-sm"
+  size="sm"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-size-md"
+  size="md"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-size-lg"
+  size="lg"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
@@ -193,6 +254,53 @@ By default all switch items take up the same amout of horizontal space. However,
     Alcohol
   </ld-switch-item>
 </ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-icon-sm"
+  size="sm"
+>
+  <LdSwitchItem value="water" checked>
+    <LdIcon slot="icon-start" name="placeholder" size="sm"></LdIcon>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">
+    <LdIcon slot="icon-start" name="placeholder" size="sm"></LdIcon>
+    Alcohol
+  </LdSwitchItem>
+</LdSwitch>
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-icon-md"
+  size="md"
+>
+  <LdSwitchItem value="water" checked>
+    <LdIcon slot="icon-start" name="placeholder" size="md"></LdIcon>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">
+    <LdIcon slot="icon-start" name="placeholder" size="md"></LdIcon>
+    Alcohol
+  </LdSwitchItem>
+</LdSwitch>
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-icon-lg"
+  size="lg"
+>
+  <LdSwitchItem value="water" checked>
+    <LdIcon slot="icon-start" name="placeholder" size="lg"></LdIcon>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">
+    <LdIcon slot="icon-start" name="placeholder" size="lg"></LdIcon>
+    Alcohol
+  </LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
@@ -306,7 +414,20 @@ By default all switch items take up the same amout of horizontal space. However,
 <ld-switch legend="Chemical compound" name="food-type-web-component-brand-color" brand-color>
   <ld-switch-item value="water" checked>Water</ld-switch-item>
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
-</ld-switch> 
+</ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-brand-color"
+  brandColor
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
@@ -342,6 +463,19 @@ By default all switch items take up the same amout of horizontal space. However,
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
 </ld-switch> 
 
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-disabled"
+  disabled
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
+
 <!-- CSS component -->
 
 <fieldset class="ld-switch">
@@ -375,6 +509,19 @@ By default all switch items take up the same amout of horizontal space. However,
   <ld-switch-item value="water" checked>Water</ld-switch-item>
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
 </ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-aria-disabled"
+  aria-disabled="true"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
@@ -421,6 +568,19 @@ Array.from(inputs).forEach(input => {
   <ld-switch-item value="vampire" disabled>Vampire</ld-switch-item>
 </ld-switch> 
 
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-single-element-disabled"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+  <LdSwitchItem value="vampire" disabled>Vampire</LdSwitchItem>
+</LdSwitch>
+
 <!-- CSS component -->
 
 <fieldset class="ld-switch">
@@ -462,6 +622,19 @@ If you want to disable a single switch item but **keep it focusable**, use `aria
   <ld-switch-item value="alcohol">Alcohol</ld-switch-item>
   <ld-switch-item value="vampire" aria-disabled="true">Vampire</ld-switch-item>
 </ld-switch>
+
+<!-- React component -->
+
+<LdSwitch
+  legend="Chemical compound"
+  name="food-type-web-component-single-element-aria-disabled"
+>
+  <LdSwitchItem value="water" checked>
+    Water
+  </LdSwitchItem>
+  <LdSwitchItem value="alcohol">Alcohol</LdSwitchItem>
+  <LdSwitchItem value="vampire" aria-disabled="true">Vampire</LdSwitchItem>
+</LdSwitch>
 
 <!-- CSS component -->
 
