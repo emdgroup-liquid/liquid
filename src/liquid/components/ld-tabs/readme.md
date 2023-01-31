@@ -42,6 +42,33 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     </ld-tabpanel>
   </ld-tabpanellist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist>
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+  <LdTabpanellist>
+    <LdTabpanel>
+      <LdTypo style={ { marginTop: '1rem' } }>
+        <a href="#apple">Apple</a>, orange, banana
+      </LdTypo>
+    </LdTabpanel>
+    <LdTabpanel>
+      <LdTypo style={ { marginTop: '1rem' } }>
+        Potato, <a href="#cucumber">cucumber</a>, tomato
+      </LdTypo>
+    </LdTabpanel>
+    <LdTabpanel>
+      <LdTypo style={ { marginTop: '1rem' } }>
+        Walnut, chestnut, <a href="#strawberry">strawberry</a>
+      </LdTypo>
+    </LdTabpanel>
+  </LdTabpanellist>
+</LdTabs>
 {% endexample %}
 
 ### Disabled
@@ -54,6 +81,16 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist>
+    <LdTab selected>Fruits</LdTab>
+    <LdTab disabled>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Ghost
@@ -66,6 +103,16 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist mode="ghost">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Brand color
@@ -78,6 +125,16 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist mode="brand-color">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Rounded corners
@@ -114,6 +171,40 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist mode="brand-color" rounded="all">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist mode="brand-color" rounded="all-lg">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist mode="brand-color" rounded="top">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist mode="brand-color" rounded="top-lg">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Floating
@@ -127,6 +218,17 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist mode="floating">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab disabled>Scrap Metal</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Floating on brand color
@@ -140,6 +242,17 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist mode="floating-on-brand-color">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab disabled>Scrap Metal</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Size
@@ -168,6 +281,32 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist size="sm">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist>
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist size="lg">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### With icons
@@ -188,6 +327,25 @@ Use `ld-tabs` as a container for a list of tabs - the `ld-tablist` which in turn
     <ld-tab><ld-icon name="placeholder"></ld-icon>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist>
+    <LdTab selected><LdIcon name="placeholder" aria-label="Fruits"></LdIcon></LdTab>
+    <LdTab><LdIcon name="placeholder" aria-label="Vegetables"></LdIcon></LdTab>
+    <LdTab><LdIcon name="placeholder" aria-label="Nuts"></LdIcon></LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs>
+  <LdTablist mode="ghost">
+    <LdTab selected><LdIcon name="placeholder"></LdIcon>Fruits</LdTab>
+    <LdTab><LdIcon name="placeholder"></LdIcon>Vegetables</LdTab>
+    <LdTab><LdIcon name="placeholder"></LdIcon>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
 {% endexample %}
 
 ### With many tabs
@@ -219,6 +377,33 @@ You should try to avoid using tab bars with more than five tab items. But if you
     <ld-tab>Flamenco</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs>
+  <LdTablist>
+    <LdTab selected>Classical</LdTab>
+    <LdTab>Rock</LdTab>
+    <LdTab>Indie</LdTab>
+    <LdTab>Jazz</LdTab>
+    <LdTab>Blues</LdTab>
+    <LdTab>Soul</LdTab>
+    <LdTab>Gospel</LdTab>
+    <LdTab>Pop</LdTab>
+    <LdTab>Hip Hop</LdTab>
+    <LdTab>Raggea</LdTab>
+    <LdTab>Raggeaton</LdTab>
+    <LdTab>R&B</LdTab>
+    <LdTab>Electric</LdTab>
+    <LdTab>Country</LdTab>
+    <LdTab>Punk</LdTab>
+    <LdTab>Latin</LdTab>
+    <LdTab>Funk</LdTab>
+    <LdTab>Ambient</LdTab>
+    <LdTab>Bossa Nova</LdTab>
+    <LdTab>Flamenco</LdTab>
+  </LdTablist>
+</LdTabs>
 {% endexample %}
 
 ### Full width
@@ -247,6 +432,33 @@ You should try to avoid using tab bars with more than five tab items. But if you
     <ld-tab>Nuts</ld-tab>
   </ld-tablist>
 </ld-tabs>
+
+<!-- React component -->
+
+<LdTabs style={ { width: '100%' } }>
+  <LdTablist mode="ghost">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab disabled>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs style={ { width: '100%' } }>
+  <LdTablist>
+    <LdTab selected>Fruits</LdTab>
+    <LdTab disabled>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
+<LdTabs style={ { width: '100%' } }>
+  <LdTablist mode="brand-color">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab disabled>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+  </LdTablist>
+</LdTabs>
+
 {% endexample %}
 
 ## Events
@@ -268,6 +480,22 @@ The `ld-tabs` component emits the `ldtabchange` event which you can use to bind 
     window.alert(`Current tab index is: ${ev.detail}`)
   })
 </script>
+
+<!-- React component -->
+
+<LdTabs
+  onLdtabchange={(ev) => {
+    window.alert(`Current tab index is: ${ev.detail}`)
+  }}
+>
+  <LdTablist mode="ghost">
+    <LdTab selected>Fruits</LdTab>
+    <LdTab>Vegetables</LdTab>
+    <LdTab>Nuts</LdTab>
+    <LdTab disabled>Grain</LdTab>
+  </LdTablist>
+</LdTabs>
+
 {% endexample %}
 
 ## Select a tab programmatically
@@ -311,9 +539,43 @@ There are two ways to programmatically select a tab:
     console.log(`Tab successfully set to tab at index 2 using ld-tabs' "switchTab"-method.`)
   })
 </script>
+
+<!-- React component -->
+
+const tabsRef = useRef(null)
+
+return (
+  <LdTabs ref={ tabsRef }>
+    <LdTablist mode="ghost">
+      <LdTab selected>Fruits</LdTab>
+      <LdTab>Vegetables</LdTab>
+      <LdTab>Nuts</LdTab>
+    </LdTablist>
+    <LdTabpanellist>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Apple, orange, banana
+        </LdTypo>
+      </LdTabpanel>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Potato, cucumber, tomato
+        </LdTypo>
+      </LdTabpanel>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Walnut, chestnut, strawberry
+        </LdTypo>
+      </LdTabpanel>
+    </LdTabpanellist>
+  </LdTabs>
+  <LdButton onClick={ () => tabsRef.current?.switchTab(2) }>
+        Select Nuts
+  </LdButton>
+)
 {% endexample %}
 
-2. By using the `select`-method exposed by the `ld-tab` element:
+1. By using the `select`-method exposed by the `ld-tab` element:
 
 {% example %}
 <ld-tabs id="tabs_programmatic_2">
@@ -350,6 +612,40 @@ There are two ways to programmatically select a tab:
     console.log(`Tab successfully set to tab at index 2 using ld-tab's "select"-method.`)
   })
 </script>
+
+<!-- React component -->
+
+const nutTabRef = useRef(null)
+
+return (
+  <LdTabs>
+    <LdTablist mode="ghost">
+      <LdTab selected>Fruits</LdTab>
+      <LdTab>Vegetables</LdTab>
+      <LdTab ref={ nutTabRef }>Nuts</LdTab>
+    </LdTablist>
+    <LdTabpanellist>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Apple, orange, banana
+        </LdTypo>
+      </LdTabpanel>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Potato, cucumber, tomato
+        </LdTypo>
+      </LdTabpanel>
+      <LdTabpanel>
+        <LdTypo style={ { marginTop: '1rem' } }>
+          Walnut, chestnut, strawberry
+        </LdTypo>
+      </LdTabpanel>
+    </LdTabpanellist>
+  </LdTabs>
+  <LdButton onClick={ () => nutTabRef.current?.select() }>
+    Select Nuts
+  </LdButton>
+)
 {% endexample %}
 
 
