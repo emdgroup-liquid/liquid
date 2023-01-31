@@ -47,6 +47,10 @@
     padding-left: var(--ld-option-padding-left-lg);
   }
 
+  &--filtered {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {

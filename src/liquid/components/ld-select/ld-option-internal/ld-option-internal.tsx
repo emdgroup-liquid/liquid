@@ -55,7 +55,7 @@ export class LdOptionInternal {
   @Prop() size?: 'sm' | 'lg'
 
   /** Set to true on filtering via select input. */
-  @Prop({ reflect: true }) hidden = false
+  @Prop() filtered = false
 
   /**
    * Sets focus internally.
@@ -130,6 +130,7 @@ export class LdOptionInternal {
           class={getClassNames([
             'ld-option-internal',
             this.size && `ld-option-internal--${this.size}`,
+            this.filtered && 'ld-option-internal--filtered',
           ])}
           role="option"
           ref={(el) => (this.optionRef = el as HTMLElement)}

@@ -40,6 +40,10 @@
     border-top: 0;
     border-radius: var(--ld-br-m);
   }
+
+  .ld-select-popper--all-filtered & {
+    border-top: 0;
+  }
 }
 
 .ld-select-popper__shadow {
@@ -57,14 +61,48 @@
   }
 }
 
+.ld-select-popper__filter-container {
+  align-items: center;
+  background-color: var(--ld-col-wht);
+  border-top: solid var(--ld-col-neutral-100) var(--ld-sp-1);
+  color: var(--ld-col-neutral-900);
+  display: grid;
+  font: var(--ld-typo-label-m);
+  grid-template-columns: 1fr auto;
+
+  .ld-select-popper--detached &,
+  .ld-select-popper--pinned & {
+    border-top: 0;
+    border-top-left-radius: var(--ld-br-m);
+    border-top-right-radius: var(--ld-br-m);
+  }
+
+  .ld-select-popper--all-filtered & {
+    border-bottom-left-radius: var(--ld-br-m);
+    border-bottom-right-radius: var(--ld-br-m);
+  }
+}
+
+.ld-select-popper__create-button {
+  font: var(--ld-typo-label-s);
+  line-height: var(--ld-select-trigger-line-height);
+  margin-right: var(--ld-sp-8);
+
+  &::part(button) {
+    --ld-button-padding-x-sm: var(--ld-sp-6);
+    --ld-button-padding-y-sm: var(--ld-sp-4);
+    min-height: 0px;
+    min-width: 0px;
+  }
+}
+
 .ld-select-popper__filter-input {
   appearance: none;
-  background-color: var(--ld-col-wht);
+  background-color: transparent;
   border: 0;
-  border-top: solid var(--ld-col-neutral-100) var(--ld-sp-1);
   box-sizing: border-box;
-  color: var(--ld-col-neutral-900);
-  font: var(--ld-typo-label-m);
+  color: inherit;
+  font: inherit;
   height: 2.5rem;
   line-height: var(--ld-select-trigger-line-height);
   outline: none;

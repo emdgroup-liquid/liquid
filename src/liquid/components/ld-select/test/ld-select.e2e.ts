@@ -573,6 +573,25 @@ describe('ld-select', () => {
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
+
+    it('with create button', async () => {
+      const page = await getPageWithContent(`
+        <ld-select filter creatable placeholder="Pick a fruit" name="fruit" multiple>
+          <ld-option value="apple">Apple</ld-option>
+          <ld-option value="pear">Pear</ld-option>
+          <ld-option value="pineapple">Pineapple</ld-option>
+          <ld-option value="banana" selected>Banana</ld-option>
+          <ld-option value="plum">Plum</ld-option>
+        </ld-select>`)
+      await page.keyboard.press('Tab')
+      await page.waitForChanges()
+      await page.keyboard.press('ArrowDown')
+      await page.waitForChanges()
+      await page.keyboard.sendCharacter('Kiwi')
+      await page.waitForChanges()
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('css component', () => {

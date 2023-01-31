@@ -1648,6 +1648,246 @@ For both, the ld-select Web Component and the CSS Component, you can use a custo
 </LdSelect>
 {% endexample %}
 
+#### Creatable
+
+Creatable mode can be enabled when the `filter` prop is set to `true`.
+This mode allows the user to create new options using the filter input field.
+
+{% example %}
+<ld-select
+  filter
+  creatable
+  placeholder="Pick a fruit"
+  name="fruit"
+>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana">Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+</ld-select>
+
+<script>
+void function() {
+  const select = document.currentScript.previousElementSibling
+  select.addEventListener('ldoptioncreate', (ev) => {
+    const option = document.createElement('ld-option')
+    option.value = ev.detail.toLowerCase()
+    option.innerText = ev.detail
+    option.setAttribute('selected', 'true')
+    select.prepend(option)
+  })
+}()
+</script>
+
+<!-- React component -->
+
+const [options, setOptions] = useState([
+  { value: 'apple', title: 'Apple', selected: false },
+  { value: 'banana', title: 'Banana', selected: false },
+  { value: 'strawberry', title: 'Strawberry', selected: false },
+])
+
+return (
+  <>
+    <LdSelect
+      filter
+      creatable
+      placeholder="Pick a fruit"
+      name="fruit"
+      onLdoptioncreate={(ev) => {
+        const value = ev.detail
+        setOptions([
+          {
+            value: value.toLowerCase(),
+            title: value,
+            selected: true,
+          },
+          ...options.map((option) => ({
+            ...option,
+            selected: false,
+          })),
+        ])
+      }}
+      onLdchange={(ev) => {
+        const values = ev.detail
+        setOptions([
+          ...options.map((option) => ({
+            ...option,
+            selected: values.includes(option.value),
+          })),
+        ])
+      }}
+    >
+      {options.map((option) => (
+        <LdOption
+          value={option.value}
+          selected={option.selected}
+          key={option.value}
+        >
+          {option.title}
+        </LdOption>
+      ))}
+    </LdSelect>
+  </>
+)
+{% endexample %}
+
+The `creatable` prop does also work with the multiple select mode.
+
+{% example %}
+<ld-select
+  filter
+  creatable
+  multiple
+  placeholder="Pick some fruits"
+  name="fruits"
+  max-rows="2"
+  style="max-width: 17rem"
+>
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+</ld-select>
+
+<script>
+void function() {
+  const select = document.currentScript.previousElementSibling
+  select.addEventListener('ldoptioncreate', (ev) => {
+    const option = document.createElement('ld-option')
+    option.value = ev.detail.toLowerCase()
+    option.innerText = ev.detail
+    option.setAttribute('selected', 'true')
+    select.prepend(option)
+  })
+}()
+</script>
+
+<!-- React component -->
+
+const [options, setOptions] = useState([
+  { value: 'apple', title: 'Apple', selected: false },
+  { value: 'banana', title: 'Banana', selected: false },
+  { value: 'strawberry', title: 'Strawberry', selected: false },
+])
+
+return (
+  <>
+    <LdSelect
+      filter
+      creatable
+      multiple
+      placeholder="Pick a fruit"
+      name="fruit"
+      onLdoptioncreate={(ev) => {
+        const value = ev.detail
+        setOptions([
+          {
+            value: value.toLowerCase(),
+            title: value,
+            selected: true,
+          },
+          ...options,
+        ])
+      }}
+      onLdchange={(ev) => {
+        const values = ev.detail
+        setOptions([
+          ...options.map((option) => ({
+            ...option,
+            selected: values.includes(option.value),
+          })),
+        ])
+      }}
+    >
+      {options.map((option) => (
+        <LdOption
+          value={option.value}
+          selected={option.selected}
+          key={option.value}
+        >
+          {option.title}
+        </LdOption>
+      ))}
+    </LdSelect>
+  </>
+)
+{% endexample %}
+
+You can hide created options in the popper element by simply adding the `hidden` attribute to the newly created option.
+
+{% example %}
+<ld-select filter creatable placeholder="Pick some fruits" name="fruits" multiple max-rows="2" style="max-width: 17rem">
+  <ld-option value="apple">Apple</ld-option>
+  <ld-option value="banana" selected>Banana</ld-option>
+  <ld-option value="strawberry">Strawberry</ld-option>
+</ld-select>
+
+<script>
+void function() {
+  const select = document.currentScript.previousElementSibling
+  select.addEventListener('ldoptioncreate', (ev) => {
+    const option = document.createElement('ld-option')
+    option.value = ev.detail.toLowerCase()
+    option.innerText = ev.detail
+    option.setAttribute('selected', 'true')
+    option.setAttribute('hidden', '')
+    select.prepend(option)
+  })
+}()
+</script>
+
+<!-- React component -->
+
+const [options, setOptions] = useState([
+  { value: 'apple', title: 'Apple', selected: false, hidden: false },
+  { value: 'banana', title: 'Banana', selected: false, hidden: false },
+  { value: 'strawberry', title: 'Strawberry', selected: false, hidden: false },
+])
+
+return (
+  <>
+    <LdSelect
+      filter
+      creatable
+      multiple
+      placeholder="Pick a fruit"
+      name="fruit"
+      onLdoptioncreate={(ev) => {
+        const value = ev.detail
+        setOptions([
+          {
+            value: value.toLowerCase(),
+            title: value,
+            selected: true,
+            hidden: true,
+          },
+          ...options,
+        ])
+      }}
+      onLdchange={(ev) => {
+        const values = ev.detail
+        setOptions([
+          ...options.map((option) => ({
+            ...option,
+            selected: values.includes(option.value),
+          })),
+        ])
+      }}
+    >
+      {options.map((option) => (
+        <LdOption
+          value={option.value}
+          selected={option.selected}
+          hidden={option.hidden}
+          key={option.value}
+        >
+          {option.title}
+        </LdOption>
+      ))}
+    </LdSelect>
+  </>
+)
+{% endexample %}
+
 ### With label
 
 {% example %}
@@ -1845,36 +2085,40 @@ The `ld-select` Web Component provides a low level API for integrating it with t
 
 ## Properties
 
-| Property             | Attribute             | Description                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                                                                             | Default            |
-| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `autofocus`          | `autofocus`           | This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute. | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `disabled`           | `disabled`            | Disabled state of the component.                                                                                                                                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `filter`             | `filter`              | Set this property to `true` in order to enable an input field for filtering options.                                                                                           | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `filterPlaceholder`  | `filter-placeholder`  | The filter input placeholder.                                                                                                                                                  | `string`                                                                                                                                                                                                                                                                                                                                         | `'Filter options'` |
-| `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`        |
-| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                   | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                       | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`        |
-| `ldTabindex`         | `ld-tabindex`         | Tab index of the trigger button.                                                                                                                                               | `number`                                                                                                                                                                                                                                                                                                                                         | `0`                |
-| `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator.                                                                     | `number`                                                                                                                                                                                                                                                                                                                                         | `undefined`        |
-| `mode`               | `mode`                | Display mode.                                                                                                                                                                  | `"detached" \| "ghost" \| "inline"`                                                                                                                                                                                                                                                                                                              | `undefined`        |
-| `multiple`           | `multiple`            | Multiselect mode.                                                                                                                                                              | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `name`               | `name`                | Used to specify the name of the control.                                                                                                                                       | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`        |
-| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected.                                                                             | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`        |
-| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                                                                                            | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`        |
-| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                                                                                       | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `ref`                | `ref`                 | reference to component                                                                                                                                                         | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`        |
-| `required`           | `required`            | A Boolean attribute indicating that an option with a non-empty string value must be selected.                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`        |
-| `selected`           | --                    | Currently selected option(s) (read only!)                                                                                                                                      | `SelectOption[]`                                                                                                                                                                                                                                                                                                                                 | `[]`               |
-| `size`               | `size`                | Size of the select trigger button.                                                                                                                                             | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`        |
-| `tetherOptions`      | `tether-options`      | Tether options object to be merged with the default options (optionally stringified).                                                                                          | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`        |
+| Property             | Attribute             | Description                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                                                                             | Default                          |
+| -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| `autofocus`          | `autofocus`           | This Boolean attribute lets you specify that a form control should have input focus when the page loads. Only one form element in a document can have the autofocus attribute. | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `creatable`          | `creatable`           | Creatable mode can be enabled when the filter prop is set to true. This mode allows the user to create new options using the filter input field.                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `createButtonLabel`  | `create-button-label` | The "create" button label (creatable mode).                                                                                                                                    | `string`                                                                                                                                                                                                                                                                                                                                         | `'Create option'`                |
+| `createInputLabel`   | `create-input-label`  | The "create" input label (creatable mode).                                                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                         | `'Press Enter to create option'` |
+| `disabled`           | `disabled`            | Disabled state of the component.                                                                                                                                               | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `filter`             | `filter`              | Set this property to `true` in order to enable an input field for filtering options.                                                                                           | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `filterPlaceholder`  | `filter-placeholder`  | The filter input placeholder.                                                                                                                                                  | `string`                                                                                                                                                                                                                                                                                                                                         | `'Filter options'`               |
+| `form`               | `form`                | The form element to associate the select with (its form owner).                                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `invalid`            | `invalid`             | Set this property to `true` in order to mark the select visually as invalid.                                                                                                   | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `key`                | `key`                 | for tracking the node's identity when working with lists                                                                                                                       | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`                      |
+| `ldTabindex`         | `ld-tabindex`         | Tab index of the trigger button.                                                                                                                                               | `number`                                                                                                                                                                                                                                                                                                                                         | `0`                              |
+| `maxRows`            | `max-rows`            | Constrains the height of the trigger button by replacing overflowing selection with a "+X more" indicator.                                                                     | `number`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `mode`               | `mode`                | Display mode.                                                                                                                                                                  | `"detached" \| "ghost" \| "inline"`                                                                                                                                                                                                                                                                                                              | `undefined`                      |
+| `multiple`           | `multiple`            | Multiselect mode.                                                                                                                                                              | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `name`               | `name`                | Used to specify the name of the control.                                                                                                                                       | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `placeholder`        | `placeholder`         | Used as trigger button label in multiselect mode and in single select mode if nothing is selected.                                                                             | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `popperClass`        | `popper-class`        | Attached as CSS class to the select popper element.                                                                                                                            | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined`                      |
+| `preventDeselection` | `prevent-deselection` | Prevents a state with no options selected after initial selection in single select mode.                                                                                       | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `ref`                | `ref`                 | reference to component                                                                                                                                                         | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`                      |
+| `required`           | `required`            | A Boolean attribute indicating that an option with a non-empty string value must be selected.                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                        | `undefined`                      |
+| `selected`           | --                    | Currently selected option(s) (read only!)                                                                                                                                      | `SelectOption[]`                                                                                                                                                                                                                                                                                                                                 | `[]`                             |
+| `size`               | `size`                | Size of the select trigger button.                                                                                                                                             | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`                      |
+| `tetherOptions`      | `tether-options`      | Tether options object to be merged with the default options (optionally stringified).                                                                                          | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`                      |
 
 
 ## Events
 
-| Event      | Description                                                                                            | Type                    |
-| ---------- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `ldchange` | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
-| `ldinput`  | Emitted with an array of selected values when an alteration to the selection is committed by the user. | `CustomEvent<string[]>` |
+| Event            | Description                                                                                | Type                    |
+| ---------------- | ------------------------------------------------------------------------------------------ | ----------------------- |
+| `ldchange`       | Emitted with an array of selected values when an alteration to the selection is committed. | `CustomEvent<string[]>` |
+| `ldinput`        | Emitted with an array of selected values when an alteration to the selection is committed. | `CustomEvent<string[]>` |
+| `ldoptioncreate` | Emitted when an option is created in create mode with the filter input value.              | `CustomEvent<string>`   |
 
 
 ## Methods
@@ -1932,6 +2176,8 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ld-select --> ld-select-popper
+  ld-select-popper --> ld-button
+  ld-select-popper --> ld-icon
   style ld-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

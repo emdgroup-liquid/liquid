@@ -668,6 +668,7 @@ Type: `Promise<void>`
 
  - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-pagination](../ld-pagination)
+ - ld-select-popper
  - [ld-table-header](../ld-table/ld-table-header)
 
 ### Graph
@@ -675,6 +676,7 @@ Type: `Promise<void>`
 graph TD;
   ld-cookie-consent --> ld-button
   ld-pagination --> ld-button
+  ld-select-popper --> ld-button
   ld-table-header --> ld-button
   style ld-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
