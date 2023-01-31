@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.6](https://github.com/emdgroup-liquid/liquid/compare/v4.3.5...v4.3.6) (2023-01-31)
+
+
+### Bug Fixes
+
+* **ld-select:** make focusInner use focusVisible ([fcd6a8b](https://github.com/emdgroup-liquid/liquid/commit/fcd6a8b4cf6de4d17f0f3f07459024b70bc10cf7))
+
 ## [4.3.5](https://github.com/emdgroup-liquid/liquid/compare/v4.3.4...v4.3.5) (2023-01-27)
 
 
