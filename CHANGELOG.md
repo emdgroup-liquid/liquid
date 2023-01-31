@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/emdgroup-liquid/liquid/compare/v4.4.0...v4.4.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* **ld-circular-progress:** handle box-sizing reset ([f29bfe8](https://github.com/emdgroup-liquid/liquid/commit/f29bfe8f418b3c87719f128e02b13120dd79cf24))
+* **ld-slider:** accept type number for value prop ([d6437c4](https://github.com/emdgroup-liquid/liquid/commit/d6437c4b437b94397a16bd49819f14d0140b78d7))
+
 # [4.4.0](https://github.com/emdgroup-liquid/liquid/compare/v4.3.6...v4.4.0) (2023-01-31)
 
 
