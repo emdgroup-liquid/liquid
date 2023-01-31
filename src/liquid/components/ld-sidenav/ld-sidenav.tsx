@@ -137,6 +137,36 @@ export class LdSidenav {
   /** Emitted when the sidenav registers a match media change event. */
   @Event() ldSidenavBreakpointChange: EventEmitter<boolean>
 
+  // The following event is not used within the ld-sidenav component itself.
+  // Its only purpose is to create a type definition on the ld-sidenav component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-sidenav-back components.
+  /** Emitted on click of the ld-sidenav-back component. */
+  @Event() ldSidenavBack: EventEmitter
+
+  // The following event is not used within the ld-sidenav component itself.
+  // Its only purpose is to create a type definition on the ld-sidenav component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-sidenav-navitem components.
+  /** Emitted on click of the ld-sidenav-navitem component if prop to is set. */
+  @Event() ldSidenavNavitemTo: EventEmitter<{ id: string; label: string }>
+
+  // The following event is not used within the ld-sidenav component itself.
+  // Its only purpose is to create a type definition on the ld-sidenav component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-sidenav-navitem components.
+  /** Emitted on click of the ld-sidenav-navitem component. */
+  @Event() ldSidenavNavitemClick: EventEmitter
+
+  // The following event is not used within the ld-sidenav component itself.
+  // Its only purpose is to create a type definition on the ld-sidenav component,
+  // in order to be able to add an inline listener in TSX, for listening
+  // on the event bubling up from ld-sidenav-slider components.
+  /** Emitted on navigation (before transition ends) of the ld-sidenav-slider component. */
+  @Event() ldSidenavSliderChange: EventEmitter<
+    { id: string; label: string } | undefined
+  >
+
   @Watch('collapsed')
   onCollapsedChange(collapsed) {
     // The ldSidenavCollapsedChange event needs to be emitted even if the
