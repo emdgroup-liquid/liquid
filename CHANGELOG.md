@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/emdgroup-liquid/liquid/compare/v4.3.6...v4.4.0) (2023-01-31)
+
+
+### Features
+
+* **ld-select:** creatable mode ([7c8d7e7](https://github.com/emdgroup-liquid/liquid/commit/7c8d7e7900b193c77b652fdd80091f57d48d3103))
+
 ## [4.3.6](https://github.com/emdgroup-liquid/liquid/compare/v4.3.5...v4.3.6) (2023-01-31)
 
 
