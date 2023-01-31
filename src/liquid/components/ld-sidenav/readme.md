@@ -147,6 +147,200 @@ The first example shows how we invision the side navigation to be used in [narro
   </ld-sidenav-slider>
   <ld-sidenav-navitem slot="bottom" rounded>Student profile</ld-sidenav-navitem>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsible narrow>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of Computer Science</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of Computer Science">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem to="cs-mathematical-foundations">
+      Mathematical foundations
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-algorithms-and-data-structures">
+      Algorithms and data structures
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-artificial-intelligence">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-communication-and-security">
+      Communication and security
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-computer-architecture">
+      Computer architecture
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-computer-graphics">
+      Computer graphics
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-concurrent-parallel-and-distributed-systems">
+      Concurrent, parallel, and distributed systems
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-databases">Databases</LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-programming-languages-and-compilers">
+      Programming languages and compilers
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-scientific-computing">
+      Scientific computing
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-software-engineering">
+      Software engineering
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-theory-of-computation">
+      Theory of computation
+    </LdSidenavNavitem>
+    <LdSidenavSubnav
+      id="cs-mathematical-foundations"
+      label="Mathematical foundations"
+    >
+      <LdSidenavHeading>Mathematical foundations</LdSidenavHeading>
+      <LdSidenavNavitem>Coding theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Game theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Discrete Mathematics</LdSidenavNavitem>
+      <LdSidenavNavitem>Graph theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Mathematical logic</LdSidenavNavitem>
+      <LdSidenavNavitem>Number theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-algorithms-and-data-structures"
+      label="Algorithms and data structures"
+    >
+      <LdSidenavHeading>
+        Algorithms and data structures
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Algorithms</LdSidenavNavitem>
+      <LdSidenavNavitem>Data structures</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-artificial-intelligence"
+      label="Artificial intelligence"
+    >
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+      <LdSidenavNavitem>Automated reasoning</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer vision</LdSidenavNavitem>
+      <LdSidenavNavitem to="cs-soft-computing">
+        Soft computing
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Natural language processing</LdSidenavNavitem>
+      <LdSidenavNavitem>Robotics</LdSidenavNavitem>
+      <LdSidenavSubnav id="cs-soft-computing" label="Soft computing">
+        <LdSidenavHeading>Soft computing</LdSidenavHeading>
+        <LdSidenavNavitem>Machine learning</LdSidenavNavitem>
+        <LdSidenavNavitem>Evolutionary computing</LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-communication-and-security"
+      label="Communication and security"
+    >
+      <LdSidenavHeading>Communication and security</LdSidenavHeading>
+      <LdSidenavNavitem>Networking</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer security</LdSidenavNavitem>
+      <LdSidenavNavitem>Cryptography</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-computer-architecture"
+      label="Computer architecture"
+    >
+      <LdSidenavHeading>Computer architecture</LdSidenavHeading>
+      <LdSidenavNavitem>Computer architecture </LdSidenavNavitem>
+      <LdSidenavNavitem>Operating systems</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-computer-graphics"
+      label="Computer graphics"
+    >
+      <LdSidenavHeading>Computer graphics</LdSidenavHeading>
+      <LdSidenavNavitem>Computer graphics</LdSidenavNavitem>
+      <LdSidenavNavitem>Image processing</LdSidenavNavitem>
+      <LdSidenavNavitem>Information visualization</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-concurrent-parallel-and-distributed-systems"
+      label="Concurrent parallel and distributed systems"
+    >
+      <LdSidenavHeading>
+        Concurrent parallel and distributed systems
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Parallel computing</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Concurrency (computer science)
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Distributed computing</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav id="cs-databases" label="Databases">
+      <LdSidenavHeading>Databases</LdSidenavHeading>
+      <LdSidenavNavitem>Relational databases</LdSidenavNavitem>
+      <LdSidenavNavitem>Structured Storage</LdSidenavNavitem>
+      <LdSidenavNavitem>Data mining</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-programming-languages-and-compilers"
+      label="Programming languages and compilers"
+    >
+      <LdSidenavHeading>
+        Programming languages and compilers
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Compiler theory</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Programming language pragmatics
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Programming language theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Formal semantics</LdSidenavNavitem>
+      <LdSidenavNavitem>Type theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-scientific-computing"
+      label="Scientific computing"
+    >
+      <LdSidenavHeading>Scientific computing</LdSidenavHeading>
+      <LdSidenavNavitem>Computational science</LdSidenavNavitem>
+      <LdSidenavNavitem>Numerical analysis</LdSidenavNavitem>
+      <LdSidenavNavitem>Symbolic computation</LdSidenavNavitem>
+      <LdSidenavNavitem>Computational physics</LdSidenavNavitem>
+      <LdSidenavNavitem>Computational chemistry</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Bioinformatics and Computational biology
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Computational neuroscience</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-software-engineering"
+      label="Software engineering"
+    >
+      <LdSidenavHeading>Software engineering</LdSidenavHeading>
+      <LdSidenavNavitem>Computational science</LdSidenavNavitem>
+      <LdSidenavNavitem>Formal methods</LdSidenavNavitem>
+      <LdSidenavNavitem>Software engineering</LdSidenavNavitem>
+      <LdSidenavNavitem>Algorithm design</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer programming</LdSidenavNavitem>
+      <LdSidenavNavitem>Human–computer interaction</LdSidenavNavitem>
+      <LdSidenavNavitem>Reverse engineering</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-theory-of-computation"
+      label="Theory of computation"
+    >
+      <LdSidenavHeading>Theory of computation</LdSidenavHeading>
+      <LdSidenavNavitem>Automata theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Computability theory</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Computational complexity theory
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Quantum computing theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+  <LdSidenavNavitem slot="bottom" rounded>
+    Student profile
+  </LdSidenavNavitem>
+</LdSidenav>
+
 {% endexample %}
 
 The second example shows how we invision the side navigation to be used in collapsible mode with the side navigation collapsing fully.
@@ -267,6 +461,200 @@ The second example shows how we invision the side navigation to be used in colla
   </ld-sidenav-slider>
   <ld-sidenav-navitem slot="bottom" rounded>Student profile</ld-sidenav-navitem>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsible>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of Computer Science</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of Computer Science">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem to="cs-mathematical-foundations">
+      Mathematical foundations
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-algorithms-and-data-structures">
+      Algorithms and data structures
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-artificial-intelligence">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-communication-and-security">
+      Communication and security
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-computer-architecture">
+      Computer architecture
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-computer-graphics">
+      Computer graphics
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-concurrent-parallel-and-distributed-systems">
+      Concurrent, parallel, and distributed systems
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-databases">Databases</LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-programming-languages-and-compilers">
+      Programming languages and compilers
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-scientific-computing">
+      Scientific computing
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-software-engineering">
+      Software engineering
+    </LdSidenavNavitem>
+    <LdSidenavNavitem to="cs-theory-of-computation">
+      Theory of computation
+    </LdSidenavNavitem>
+    <LdSidenavSubnav
+      id="cs-mathematical-foundations"
+      label="Mathematical foundations"
+    >
+      <LdSidenavHeading>Mathematical foundations</LdSidenavHeading>
+      <LdSidenavNavitem>Coding theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Game theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Discrete Mathematics</LdSidenavNavitem>
+      <LdSidenavNavitem>Graph theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Mathematical logic</LdSidenavNavitem>
+      <LdSidenavNavitem>Number theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-algorithms-and-data-structures"
+      label="Algorithms and data structures"
+    >
+      <LdSidenavHeading>
+        Algorithms and data structures
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Algorithms</LdSidenavNavitem>
+      <LdSidenavNavitem>Data structures</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-artificial-intelligence"
+      label="Artificial intelligence"
+    >
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+      <LdSidenavNavitem>Automated reasoning</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer vision</LdSidenavNavitem>
+      <LdSidenavNavitem to="cs-soft-computing">
+        Soft computing
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Natural language processing</LdSidenavNavitem>
+      <LdSidenavNavitem>Robotics</LdSidenavNavitem>
+      <LdSidenavSubnav id="cs-soft-computing" label="Soft computing">
+        <LdSidenavHeading>Soft computing</LdSidenavHeading>
+        <LdSidenavNavitem>Machine learning</LdSidenavNavitem>
+        <LdSidenavNavitem>Evolutionary computing</LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-communication-and-security"
+      label="Communication and security"
+    >
+      <LdSidenavHeading>Communication and security</LdSidenavHeading>
+      <LdSidenavNavitem>Networking</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer security</LdSidenavNavitem>
+      <LdSidenavNavitem>Cryptography</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-computer-architecture"
+      label="Computer architecture"
+    >
+      <LdSidenavHeading>Computer architecture</LdSidenavHeading>
+      <LdSidenavNavitem>Computer architecture </LdSidenavNavitem>
+      <LdSidenavNavitem>Operating systems</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-computer-graphics"
+      label="Computer graphics"
+    >
+      <LdSidenavHeading>Computer graphics</LdSidenavHeading>
+      <LdSidenavNavitem>Computer graphics</LdSidenavNavitem>
+      <LdSidenavNavitem>Image processing</LdSidenavNavitem>
+      <LdSidenavNavitem>Information visualization</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-concurrent-parallel-and-distributed-systems"
+      label="Concurrent parallel and distributed systems"
+    >
+      <LdSidenavHeading>
+        Concurrent parallel and distributed systems
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Parallel computing</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Concurrency (computer science)
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Distributed computing</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav id="cs-databases" label="Databases">
+      <LdSidenavHeading>Databases</LdSidenavHeading>
+      <LdSidenavNavitem>Relational databases</LdSidenavNavitem>
+      <LdSidenavNavitem>Structured Storage</LdSidenavNavitem>
+      <LdSidenavNavitem>Data mining</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-programming-languages-and-compilers"
+      label="Programming languages and compilers"
+    >
+      <LdSidenavHeading>
+        Programming languages and compilers
+      </LdSidenavHeading>
+      <LdSidenavNavitem>Compiler theory</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Programming language pragmatics
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Programming language theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Formal semantics</LdSidenavNavitem>
+      <LdSidenavNavitem>Type theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-scientific-computing"
+      label="Scientific computing"
+    >
+      <LdSidenavHeading>Scientific computing</LdSidenavHeading>
+      <LdSidenavNavitem>Computational science</LdSidenavNavitem>
+      <LdSidenavNavitem>Numerical analysis</LdSidenavNavitem>
+      <LdSidenavNavitem>Symbolic computation</LdSidenavNavitem>
+      <LdSidenavNavitem>Computational physics</LdSidenavNavitem>
+      <LdSidenavNavitem>Computational chemistry</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Bioinformatics and Computational biology
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Computational neuroscience</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-software-engineering"
+      label="Software engineering"
+    >
+      <LdSidenavHeading>Software engineering</LdSidenavHeading>
+      <LdSidenavNavitem>Computational science</LdSidenavNavitem>
+      <LdSidenavNavitem>Formal methods</LdSidenavNavitem>
+      <LdSidenavNavitem>Software engineering</LdSidenavNavitem>
+      <LdSidenavNavitem>Algorithm design</LdSidenavNavitem>
+      <LdSidenavNavitem>Computer programming</LdSidenavNavitem>
+      <LdSidenavNavitem>Human–computer interaction</LdSidenavNavitem>
+      <LdSidenavNavitem>Reverse engineering</LdSidenavNavitem>
+    </LdSidenavSubnav>
+    <LdSidenavSubnav
+      id="cs-theory-of-computation"
+      label="Theory of computation"
+    >
+      <LdSidenavHeading>Theory of computation</LdSidenavHeading>
+      <LdSidenavNavitem>Automata theory</LdSidenavNavitem>
+      <LdSidenavNavitem>Computability theory</LdSidenavNavitem>
+      <LdSidenavNavitem>
+        Computational complexity theory
+      </LdSidenavNavitem>
+      <LdSidenavNavitem>Quantum computing theory</LdSidenavNavitem>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+  <LdSidenavNavitem slot="bottom" rounded>
+    Student profile
+  </LdSidenavNavitem>
+</LdSidenav>
+
 {% endexample %}
 
 Like already said, the first two examples are quite comprehensive. To better understand how everything works together and what other options are available, you should take some time to read the docs below, which go into specifics for each component used, starting with the `ld-sidenav` itself.
@@ -279,6 +667,11 @@ The `ld-sidenav` on its own is not very spectacular. Here is the simplest exampl
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav></ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav></LdSidenav>
+
 {% endexample %}
 
 ## Handing mobile
@@ -318,6 +711,50 @@ On narrow view ports the sidenav works differently than on wide view ports. It t
     })
   }()
 </script>
+
+<!-- React component -->
+
+const breakpoint = '30rem'
+const [sidenavOpen, setSidenavOpen] = useState(false)
+const [queryMatches, setQueryMatches] = useState(
+  window.matchMedia(`(min-width: ${breakpoint})`).matches
+)
+
+useEffect(() => {
+  window
+    .matchMedia(`(min-width: ${breakpoint})`)
+    .addEventListener('change', (e) => setQueryMatches(e.matches))
+}, [])
+
+return (
+  <LdHeader siteName="Liquid Oxygen">
+    <LdButton
+      role="switch"
+      aria-haspopup="true"
+      aria-checked={sidenavOpen}
+      id="hamburger"
+      mode="ghost"
+      slot="start"
+      title="Toggle menu"
+      type="button"
+      onClick={() => setSidenavOpen(!sidenavOpen)}
+      style={ { display: queryMatches ? 'none' : 'unset' } }
+    >
+      <LdIcon
+        aria-label="Open menu"
+        name={sidenavOpen ? 'sidenav-left' : 'sidenav-right'}
+      ></LdIcon>
+    </LdButton>
+  </LdHeader>
+  <div style={ { position: 'relative', height: '8rem' } }>
+    <LdSidenav
+      style={ { position: 'absolute' } }
+      breakpoint={breakpoint}
+      open={sidenavOpen}
+    ></LdSidenav>
+  </div>
+)
+
 {% endexample %}
 
 ### Focus trapping
@@ -362,6 +799,55 @@ To enable focus trapping, use the `trap-focus` prop and set a CSS selector for e
     })
   }()
 </script>
+
+<!-- React component -->
+
+const breakpoint = '30rem'
+const [sidenavOpen, setSidenavOpen] = useState(false)
+const [queryMatches, setQueryMatches] = useState(
+  window.matchMedia(`(min-width: ${breakpoint})`).matches
+)
+
+useEffect(() => {
+  window
+    .matchMedia(`(min-width: ${breakpoint})`)
+    .addEventListener('change', (e) => setQueryMatches(e.matches))
+}, [])
+
+return (
+  <LdHeader siteName="Liquid Oxygen" id="my-header">
+    <LdButton
+      role="switch"
+      aria-haspopup="true"
+      aria-checked={sidenavOpen}
+      id="hamburger"
+      mode="ghost"
+      slot="start"
+      title="Toggle menu"
+      type="button"
+      onClick={() => setSidenavOpen(!sidenavOpen)}
+      style={ { display: queryMatches ? 'none' : 'unset' } }
+    >
+      <LdIcon
+        aria-label="Open menu"
+        name={sidenavOpen ? 'sidenav-left' : 'sidenav-right'}
+      ></LdIcon>
+    </LdButton>
+  </LdHeader>
+  <div style={ { position: 'relative', height: '8rem' } }>
+    <LdSidenav
+      style={ { position: 'absolute' } }
+      breakpoint={breakpoint}
+      open={sidenavOpen}
+      trapFocus="#my-header *"
+    >
+      <LdButton style={ { margin: '1rem' } } mode="highlight">
+        I'm focusable
+      </LdButton>
+    </LdSidenav>
+  </div>
+)
+
 {% endexample %}
 
 ## Alignement
@@ -370,10 +856,20 @@ You can align the side navigation either to the left or the right of its contain
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav open align="left"></ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open align="left"></LdSidenav>
+
 {% endexample %}
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav open align="right"></ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open align="right"></LdSidenav>
+
 {% endexample %}
 
 ## Slots
@@ -386,6 +882,40 @@ The `ld-sidenav` offers three slots. Two slots for fixed positioned content at t
   <ld-typo style="padding: 1rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</ld-typo>
   <ld-typo style="padding: 1rem" slot="bottom" variant="body-s">Copyright 2022</ld-typo>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdTypo style={ { padding: '1rem' } } slot="top" variant="cap-l">
+    The lorem ipsum
+  </LdTypo>
+  <LdTypo style={ { padding: '1rem' } }>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum. Sed ut
+    perspiciatis unde omnis iste natus error sit voluptatem accusantium
+    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+    inventore veritatis et quasi architecto beatae vitae dicta sunt
+    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+    odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+    voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+    quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+    eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+    voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
+    ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+    consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
+    velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
+    fugiat quo voluptas nulla pariatur?
+  </LdTypo>
+  <LdTypo style={ { padding: '1rem' } } slot="bottom" variant="body-s">
+    Copyright 2022
+  </LdTypo>
+</LdSidenav>
+
 {% endexample %}
 
 ## Sub-navigation
@@ -402,11 +932,19 @@ Although the slider can contain arbitrary content, it is ment to mainly contain 
 
 Place the [`ld-sidenav-slider`](./ld-sidenav-slider) component in the main slot of `ld-sidenav`:
 
-{% example '{ "highlight": "1,2", "opened": true, "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
+{% example '{ "highlight": "1,2", "highlightReactComponent": "1,2", "opened": true, "hasPadding": false, "styles": { "minHeight": "8rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-slider label="Outline of CS">
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavSlider label="Outline of CS">
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### `ld-sidenav-subnav`
@@ -424,6 +962,18 @@ Place the [`ld-sidenav-subnav`](./ld-sidenav-subnav) component in the [`ld-siden
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavSubnav id="art-int" label="Artificial intelligence">
+      <LdSidenavSubnav id="soft-comp" label="Soft computing">
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 As you can see, each [`ld-sidenav-subnav`](./ld-sidenav-subnav) component is annotated with a unique id prop. The id will be referenced by a [`ld-sidenav-navitem`](./ld-sidenav-navitem) component to denote that on click the respective subnav should be shown (slided into view by the [`ld-sidenav-slider`](./ld-sidenav-slider) component).
@@ -450,6 +1000,24 @@ With the [`ld-sidenav-slider`](./ld-sidenav-slider) and [`ld-sidenav-subnav`](./
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem to="art-intel">Artificial intelligence</LdSidenavNavitem>
+    <LdSidenavSubnav id="art-intel" label="Artificial intelligence">
+      <LdSidenavNavitem mode="secondary">Automated reasoning</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Computer vision</LdSidenavNavitem>
+      <LdSidenavNavitem to="soft-compu">Soft computing</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Natural language processing</LdSidenavNavitem>
+      <LdSidenavSubnav id="soft-compu" label="Soft computing">
+        <LdSidenavNavitem mode="secondary">Machine learning</LdSidenavNavitem>
+        <LdSidenavNavitem mode="secondary">Evolutionary computing</LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
 {% endexample %}
 
 ### `ld-sidenav-back`
@@ -477,6 +1045,28 @@ The [`ld-sidenav-back`](./ld-sidenav-back) component will use the label prop on 
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem to="art-intell">Artificial intelligence</LdSidenavNavitem>
+    <LdSidenavSubnav id="art-intell" label="Artificial intelligence">
+      <LdSidenavNavitem mode="secondary">Automated reasoning</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Computer vision</LdSidenavNavitem>
+      <LdSidenavNavitem to="soft-comput">Soft computing</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Natural language processing</LdSidenavNavitem>
+      <LdSidenavSubnav id="soft-comput" label="Soft computing">
+        <LdSidenavNavitem mode="secondary">Machine learning</LdSidenavNavitem>
+        <LdSidenavNavitem mode="secondary">Evolutionary computing</LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### `ld-sidenav-heading`
@@ -505,6 +1095,31 @@ Use the [`ld-sidenav-heading`](./ld-sidenav-heading) component to display headin
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem to="artif-intellig">Artificial intelligence</LdSidenavNavitem>
+    <LdSidenavSubnav id="artif-intellig" label="Artificial intelligence">
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem mode="secondary">Automated reasoning</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Computer vision</LdSidenavNavitem>
+      <LdSidenavNavitem to="soft-computi">Soft computing</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Natural language processing</LdSidenavNavitem>
+      <LdSidenavSubnav id="soft-computi" label="Soft computing">
+        <LdSidenavHeading>Soft computing</LdSidenavHeading>
+        <LdSidenavNavitem mode="secondary">Machine learning</LdSidenavNavitem>
+        <LdSidenavNavitem mode="secondary">Evolutionary computing</LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### `ld-sidenav-separator`
@@ -525,6 +1140,23 @@ The [`ld-sidenav-separator`](./ld-sidenav-separator) component allows you to vis
     <ld-sidenav-navitem>Vegetables</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem>Maths</LdSidenavNavitem>
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+    <LdSidenavSeparator></LdSidenavSeparator>
+    <LdSidenavNavitem>Fruits</LdSidenavNavitem>
+    <LdSidenavNavitem>Vegetables</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### `ld-sidenav-accordion`
@@ -586,6 +1218,87 @@ For deeper navigation hierarchies you may also want to structure certain navigat
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavAccordion>
+      <LdSidenavNavitem slot="toggle">
+        Mathematical foundations
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Coding theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Game theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Discrete Mathematics
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Graph theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Mathematical logic
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Number theory</LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavAccordion expanded="true" split>
+      <LdSidenavNavitem slot="toggle">
+        Algorithms and data structures
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Algorithms</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Data structures
+      </LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavNavitem to="artificial-inte">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavAccordion expanded>
+      <LdSidenavNavitem slot="toggle">
+        Communication and security
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Networking</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer security
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Cryptography</LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavSubnav
+      id="artificial-inte"
+      label="Artificial intelligence"
+    >
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem mode="secondary">
+        Automated reasoning
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer vision
+      </LdSidenavNavitem>
+      <LdSidenavAccordion>
+        <LdSidenavNavitem slot="toggle">Soft computing</LdSidenavNavitem>
+        <LdSidenavAccordion>
+          <LdSidenavNavitem mode="secondary" slot="toggle">
+            Machine learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Supervised learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Unsupervised learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Reinforcement learning
+          </LdSidenavNavitem>
+        </LdSidenavAccordion>
+        <LdSidenavNavitem mode="secondary">
+          Evolutionary computing
+        </LdSidenavNavitem>
+      </LdSidenavAccordion>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### `ld-sidenav-header`
@@ -640,6 +1353,87 @@ As a final step, we will add the [`ld-sidenav-header`](./ld-sidenav-header) comp
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavAccordion>
+      <LdSidenavNavitem slot="toggle">
+        Mathematical foundations
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Coding theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Game theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Discrete Mathematics
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Graph theory</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Mathematical logic
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Number theory</LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavAccordion expanded="true" split>
+      <LdSidenavNavitem slot="toggle">
+        Algorithms and data structures
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Algorithms</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Data structures
+      </LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavNavitem to="artificial-int">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavAccordion expanded>
+      <LdSidenavNavitem slot="toggle">
+        Communication and security
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Networking</LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer security
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">Cryptography</LdSidenavNavitem>
+    </LdSidenavAccordion>
+    <LdSidenavSubnav id="artificial-int" label="Artificial intelligence">
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem mode="secondary">
+        Automated reasoning
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer vision
+      </LdSidenavNavitem>
+      <LdSidenavAccordion>
+        <LdSidenavNavitem slot="toggle">Soft computing</LdSidenavNavitem>
+        <LdSidenavAccordion>
+          <LdSidenavNavitem mode="secondary" slot="toggle">
+            Machine learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Supervised learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Unsupervised learning
+          </LdSidenavNavitem>
+          <LdSidenavNavitem mode="tertiary">
+            Reinforcement learning
+          </LdSidenavNavitem>
+        </LdSidenavAccordion>
+        <LdSidenavNavitem mode="secondary">
+          Evolutionary computing
+        </LdSidenavNavitem>
+      </LdSidenavAccordion>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ## Collapsible mode
@@ -654,6 +1448,19 @@ In some cases you will want to make space for your main content. Use the `collap
     <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open collapsible>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem>Mathematical foundations</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 In the example above the side navigation is not expandable through the user interface anymore, as soon as collapsed. So an additional toggle element for expanding the side navigation would be really usefull here: the `ld-sidenav-toggle-outside` component.
@@ -671,6 +1478,20 @@ Use the `ld-sidenav-toggle-outside` component to add a toggle button for expandi
     <ld-sidenav-navitem>Mathematical foundations</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsible>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem>Mathematical foundations</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 You are not forced to use this component. You can use your own toggle element or the [`ld-header`](../ld-header) component instead. But be aware, that you will need to take care of focus handling yourself.
@@ -705,6 +1526,49 @@ The sidenav only collapses to narrow mode, if navigation to a sub-nav is possibl
     </ld-sidenav-subnav>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav style={ { '--ld-sidenav-width': '20rem' } } collapsed collapsible narrow>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem to="artif-intelligence">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavSubnav id="artif-intelligence" label="Artificial intelligence">
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem mode="secondary">
+        Automated reasoning
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer vision
+      </LdSidenavNavitem>
+      <LdSidenavNavitem to="s-computing">
+        Soft computing
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Natural language processing
+      </LdSidenavNavitem>
+      <LdSidenavSubnav id="s-computing" label="Soft computing">
+        <LdSidenavHeading>Soft computing</LdSidenavHeading>
+        <LdSidenavNavitem mode="secondary">
+          Machine learning
+        </LdSidenavNavitem>
+        <LdSidenavNavitem mode="secondary">
+          Evolutionary computing
+        </LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 <ld-notice headline="Note" mode="warning">
@@ -732,6 +1596,19 @@ The trigger modes are inclusive as follows:
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsed collapsible narrow expandTrigger="toggle">
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 #### mouseenter
@@ -744,6 +1621,19 @@ The trigger modes are inclusive as follows:
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsed collapsible narrow expandTrigger="mouseenter">
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 #### Customizing expansion on click of individual navitems
@@ -772,6 +1662,18 @@ The trigger modes are inclusive as follows:
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsible collapsed narrow collapseTrigger="toggle">
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
 {% endexample %}
 
 #### clickoutside
@@ -784,6 +1686,18 @@ The trigger modes are inclusive as follows:
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsible collapsed narrow collapseTrigger="clickoutside">
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
 {% endexample %}
 
 #### mouseout
@@ -796,6 +1710,19 @@ The trigger modes are inclusive as follows:
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsible collapsed narrow collapseTrigger="mouseout">
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ### Disable toggle transitions
@@ -810,6 +1737,18 @@ You can disable transitions on collapsing and expansion of the sidenav. This is 
     <ld-sidenav-navitem>Artificial intelligence</ld-sidenav-navitem>
   </ld-sidenav-slider>
 </ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav open collapsible collapsed narrow toggleTransitionDisabled>
+  <LdSidenavHeader href="#" slot="header">
+    Computer Science
+  </LdSidenavHeader>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>Artificial intelligence</LdSidenavNavitem>
+  </LdSidenavSlider>
+</LdSidenav>
 {% endexample %}
 
 ## Listening for events
@@ -854,6 +1793,60 @@ The sidenav as well as its subcomponents emit different events which you can use
     })
   }()
 </script>
+
+<!-- React component -->
+
+<LdSidenavToggleOutside></LdSidenavToggleOutside>
+<LdSidenav
+  open
+  onLdSidenavSliderChange={(ev) =>
+    console.info('sidenav slider change', ev.detail && ev.detail.id)
+  }
+  onLdSidenavNavitemTo={(ev) =>
+    console.info('sidenav navitem to click', ev.detail.id)
+  }
+  onLdSidenavNavitemClick={(ev) =>
+    console.info('sidenav navitem click', ev.target.getAttribute('to'))
+  }
+>
+  <LdSidenavBack slot="top">
+    <LdSidenavNavitem>Outline of CS</LdSidenavNavitem>
+  </LdSidenavBack>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavHeading>Subfields</LdSidenavHeading>
+    <LdSidenavNavitem to="nav-artificial-intelligence">
+      Artificial intelligence
+    </LdSidenavNavitem>
+    <LdSidenavSubnav
+      id="nav-artificial-intelligence"
+      label="Artificial intelligence"
+    >
+      <LdSidenavHeading>Artificial intelligence</LdSidenavHeading>
+      <LdSidenavNavitem mode="secondary">
+        Automated reasoning
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Computer vision
+      </LdSidenavNavitem>
+      <LdSidenavNavitem to="nav-soft-computing">
+        Soft computing
+      </LdSidenavNavitem>
+      <LdSidenavNavitem mode="secondary">
+        Natural language processing
+      </LdSidenavNavitem>
+      <LdSidenavSubnav id="nav-soft-computing" label="Soft computing">
+        <LdSidenavHeading>Soft computing</LdSidenavHeading>
+        <LdSidenavNavitem mode="secondary">
+          Machine learning
+        </LdSidenavNavitem>
+        <LdSidenavNavitem mode="secondary">
+          Evolutionary computing
+        </LdSidenavNavitem>
+      </LdSidenavSubnav>
+    </LdSidenavSubnav>
+  </LdSidenavSlider>
+</LdSidenav>
+
 {% endexample %}
 
 ---
@@ -894,11 +1887,15 @@ The sidenav as well as its subcomponents emit different events which you can use
 
 ## Events
 
-| Event                       | Description                                                    | Type                                                   |
-| --------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ |
-| `ldSidenavBreakpointChange` | Emitted when the sidenav registers a match media change event. | `CustomEvent<boolean>`                                 |
-| `ldSidenavCollapsedChange`  | Emitted when the sidenav collapses or expands.                 | `CustomEvent<{ collapsed: boolean; fully: boolean; }>` |
-| `ldSidenavOpenChange`       | Emitted when the sidenav opens or closes.                      | `CustomEvent<boolean>`                                 |
+| Event                       | Description                                                                        | Type                                                   |
+| --------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `ldSidenavBack`             | Emitted on click of the ld-sidenav-back component.                                 | `CustomEvent<any>`                                     |
+| `ldSidenavBreakpointChange` | Emitted when the sidenav registers a match media change event.                     | `CustomEvent<boolean>`                                 |
+| `ldSidenavCollapsedChange`  | Emitted when the sidenav collapses or expands.                                     | `CustomEvent<{ collapsed: boolean; fully: boolean; }>` |
+| `ldSidenavNavitemClick`     | Emitted on click of the ld-sidenav-navitem component.                              | `CustomEvent<any>`                                     |
+| `ldSidenavNavitemTo`        | Emitted on click of the ld-sidenav-navitem component if prop to is set.            | `CustomEvent<{ id: string; label: string; }>`          |
+| `ldSidenavOpenChange`       | Emitted when the sidenav opens or closes.                                          | `CustomEvent<boolean>`                                 |
+| `ldSidenavSliderChange`     | Emitted on navigation (before transition ends) of the ld-sidenav-slider component. | `CustomEvent<{ id: string; label: string; }>`          |
 
 
 ## Methods

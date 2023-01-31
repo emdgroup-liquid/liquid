@@ -1,9 +1,9 @@
 ---
 eleventyNavigation:
-  key: Sidenav Toggle Outsid
+  key: Sidenav Toggle Outside
   parent: Sidenav
 layout: layout.njk
-title: Sidenav Toggle Outsid
+title: Sidenav Toggle Outside
 permalink: components/ld-sidenav/ld-sidenav-toggle-outside/
 ---
 
