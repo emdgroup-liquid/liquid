@@ -429,7 +429,6 @@
       td,
       th {
         &:first-of-type {
-          word-break: break-all;
           flex-shrink: 0;
 
           code {
@@ -464,15 +463,6 @@
         padding: var(--ld-sp-4) var(--ld-sp-6);
         border-radius: var(--ld-br-s);
         display: inline-flex;
-      }
-    }
-
-    > [id^='slots'] + table {
-      td,
-      th {
-        &:first-of-type {
-          word-break: break-all;
-        }
       }
     }
 
