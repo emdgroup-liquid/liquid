@@ -24,8 +24,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      autoDefineCustomElements: true,
-      generateTypeDeclarations: true,
+      customElementsExportBehavior: 'auto-define-custom-elements',
     },
     {
       type: 'docs-readme',
@@ -51,11 +50,7 @@ export const config: Config = {
   },
   buildEs5: false,
   extras: {
-    cssVarsShim: false,
-    dynamicImportShim: false,
     experimentalImportInjection: true,
-    shadowDomShim: false,
-    safari10: false,
     scriptDataOpts: false,
     appendChildSlotFix: false,
     cloneNodeFix: false,

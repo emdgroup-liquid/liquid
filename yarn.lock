@@ -1165,7 +1165,7 @@ __metadata:
     "@semantic-release/github": ^8.0.7
     "@semantic-release/npm": ^9.0.1
     "@semantic-release/release-notes-generator": ^10.0.3
-    "@stencil/core": ^2.19.3
+    "@stencil/core": ^3.0.0
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
     "@stencil/react-output-target": ^0.3.1
@@ -2347,12 +2347,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.19.3":
-  version: 2.19.3
-  resolution: "@stencil/core@npm:2.19.3"
+"@stencil/core@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@stencil/core@npm:3.0.0"
   bin:
     stencil: bin/stencil
-  checksum: 2f5dfa809bf1f0f3e55874084f51d38e02899b91bfadb0f36243ba2a0fc5ee82a9e6ff94c1cfdd220723939c080e49fb1e44cae5ff99c46622d477563fa6b80e
+  checksum: 1396d1e68686d9cb646b07e844523602d09a29d837627fd3a46fbaf806331872181a61a47bba3efd68f9486e140c1bf72d20a73ab5922f1c4dc4a37d99c308b2
   languageName: node
   linkType: hard
 
