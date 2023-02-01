@@ -1,1 +1,0 @@
-async function n(n){if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(n);else{const o=document.activeElement,t=document.createElement("textarea");t.value=n,t.classList.add("ld-sr-only"),document.body.appendChild(t),t.focus({preventScroll:!0}),t.select(),await document.execCommand("copy"),t.remove(),o.focus({preventScroll:!0})}}export{n as c}

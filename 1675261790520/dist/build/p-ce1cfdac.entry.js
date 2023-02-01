@@ -1,0 +1,2 @@
+import{r as s,h as t}from"./p-e55ca1f2.js";const l=":host{display:contents}";const o=class{constructor(t){s(this,t);this.span=undefined}render(){return t("col",{class:"ld-table-col",span:this.span,part:"col"},t("slot",null))}};o.style=l;export{o as ld_table_col};
+//# sourceMappingURL=p-ce1cfdac.entry.js.map
