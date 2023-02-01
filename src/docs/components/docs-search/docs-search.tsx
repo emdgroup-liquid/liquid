@@ -92,7 +92,7 @@ export class DocsSearch {
           if (prevSibling?.classList.contains('docs-search__result')) {
             ;(prevSibling.querySelector('a') as HTMLAnchorElement).focus()
           } else {
-            this.searchInput.querySelector('input').focus()
+            this.searchInput.shadowRoot.querySelector('input').focus()
             this.searchResults.scrollTo(0, 0)
           }
         }
@@ -156,7 +156,7 @@ export class DocsSearch {
     this.searchInput.value = ''
     setTimeout(() => {
       this.searchInput.focusInner()
-    })
+    }, 200)
   }
 
   private onSearchClose() {
