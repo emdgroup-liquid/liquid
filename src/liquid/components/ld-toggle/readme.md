@@ -120,9 +120,9 @@ This component can be used in conjunction with the [`ld-label`](components/ld-la
 
 <!-- React component -->
 
-<LdToggle ariaDisabled="true" />
+<LdToggle aria-disabled="true" />
 
-<LdToggle ariaDisabled="true" checked />
+<LdToggle aria-disabled="true" checked />
 
 <!-- CSS component -->
 
