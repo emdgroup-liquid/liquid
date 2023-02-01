@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.2](https://github.com/emdgroup-liquid/liquid/compare/v4.4.1...v4.4.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* **ld-input:** type file not dispatching in safari ([3c0e990](https://github.com/emdgroup-liquid/liquid/commit/3c0e990de0a8c991362b617ac117c0e4371b09ca))
+
 ## [4.4.1](https://github.com/emdgroup-liquid/liquid/compare/v4.4.0...v4.4.1) (2023-01-31)
 
 
