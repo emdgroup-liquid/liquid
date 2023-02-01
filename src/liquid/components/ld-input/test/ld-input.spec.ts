@@ -220,6 +220,28 @@ describe('ld-input', () => {
     expect(dispatchSpy).toHaveBeenCalledWith(
       expect.objectContaining({ bubbles: false })
     )
+    expect(dispatchSpy).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not forward click to input if the input is the event target', async () => {
+    const { root } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const input = root.shadowRoot.querySelector('input')
+
+    input.focus = jest.fn()
+    const dispatchSpy = jest.spyOn(input, 'dispatchEvent')
+
+    const ev = {
+      type: 'click',
+      bubbles: true,
+      composed: true,
+      composedPath: () => [input],
+    } as unknown as MouseEvent
+    root.dispatchEvent(ev)
+
+    expect(dispatchSpy).not.toHaveBeenCalled()
   })
 
   it('forwards click to input (multiline)', async () => {
