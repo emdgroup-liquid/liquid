@@ -248,6 +248,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     this.attributesObserver = cloneAttributes.call(this, [
       'multiline',
       'autocomplete',
+      'value',
     ])
 
     const outerForm = this.el.closest('form')
@@ -295,7 +296,9 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    const target = ev.target as HTMLElement
+    const target = (
+      'composedPath' in ev ? ev.composedPath()[0] : ev['target']
+    ) as HTMLElement
     if (
       this.el.hasAttribute('disabled') ||
       this.el.getAttribute('aria-disabled') === 'true'

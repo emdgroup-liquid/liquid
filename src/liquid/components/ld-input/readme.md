@@ -216,7 +216,11 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 ### Type file
 
 {% example %}
-<ld-input placeholder="Your profile image" type="file"></ld-input>
+<ld-input placeholder="Your profile image" type="file" accept="image/png, image/jpeg"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Your profile image" type="file" accept="image/png, image/jpeg" />
 {% endexample %}
 
 ### Type number

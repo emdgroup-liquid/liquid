@@ -1,3 +1,7 @@
+:host > input [type='file'] {
+  pointer-events: none; /* important for Safari */
+}
+
 :host,
 .ld-input {
   --ld-input-padding-x-sm: 0.5rem;
@@ -66,18 +70,30 @@
     box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-border-col);
   }
 
+  :where(input) {
+    margin: 0; /* margin reset for Safari */
+  }
+
   ::slotted(*),
   > :where(:not(input):not(textarea)) {
     user-select: none;
   }
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='end']):first-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='end']
+        ):first-child
+    ) {
     margin-left: var(--ld-input-padding-x-md);
   }
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='start']):last-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='start']
+        ):last-child
+    ) {
     margin-right: var(--ld-input-padding-x-md);
   }
 
@@ -88,10 +104,6 @@
 
     &[type='file'] {
       opacity: 0;
-
-      &:not(:disabled):not([aria-disabled='true']) {
-        cursor: pointer;
-      }
 
       &::-webkit-file-upload-button {
         display: none;
@@ -251,12 +263,20 @@
   min-height: var(--ld-input-min-height-sm);
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='end']):first-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='end']
+        ):first-child
+    ) {
     margin-left: var(--ld-input-padding-x-sm);
   }
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='start']):last-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='start']
+        ):last-child
+    ) {
     margin-right: var(--ld-input-padding-x-sm);
   }
 
@@ -303,12 +323,20 @@
   min-height: var(--ld-input-min-height-lg);
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='end']):first-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='end']
+        ):first-child
+    ) {
     margin-left: var(--ld-input-padding-x-lg);
   }
 
   ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
-  > :where(:not(input):not(textarea):not(ld-button):not(.ld-button):not([slot='start']):last-child) {
+  > :where(
+      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
+          [slot='start']
+        ):last-child
+    ) {
     margin-right: var(--ld-input-padding-x-lg);
   }
 
@@ -357,8 +385,14 @@
 }
 
 @media (hover: hover) {
-  :host(:not(.ld-input--invalid):not([aria-disabled='true']):not(.ld-input--disabled):hover:not(:focus-within)),
-  .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not(.ld-input--disabled):hover:not(:focus-within) {
+  :host(
+      :not(.ld-input--invalid):not([aria-disabled='true']):not(
+          .ld-input--disabled
+        ):hover:not(:focus-within)
+    ),
+  .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not(
+      .ld-input--disabled
+    ):hover:not(:focus-within) {
     &::before {
       box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-border-col-hover);
     }
@@ -382,8 +416,14 @@
   background-color: var(--ld-input-bg-col-invalid-focus);
 }
 
-:host(.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):where(:not(:focus))),
-.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):where(:not(:focus)) {
+:host(
+    .ld-input--invalid:not(.ld-input--disabled):not(
+        [aria-disabled='true']
+      ):where(:not(:focus))
+  ),
+.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):where(
+    :not(:focus)
+  ) {
   background-color: var(--ld-input-bg-col-invalid);
   color: var(--ld-input-text-col-invalid);
 }
@@ -416,8 +456,14 @@
   }
 }
 
-:host(.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):focus-within),
-.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):focus-within {
+:host(
+    .ld-input--invalid:not(.ld-input--disabled):not(
+        [aria-disabled='true']
+      ):focus-within
+  ),
+.ld-input--invalid:not(.ld-input--disabled):not(
+    [aria-disabled='true']
+  ):focus-within {
   background-color: var(--ld-input-bg-col-invalid-focus);
 
   > input,
