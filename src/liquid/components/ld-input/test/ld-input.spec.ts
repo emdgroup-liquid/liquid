@@ -105,6 +105,27 @@ describe('ld-input', () => {
     expect(ldchangeHandler).toHaveBeenCalledTimes(1)
   })
 
+  it('emits ldchange event with file list', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+    input.files = ['foo', 'bar'] as unknown as FileList
+
+    const ldchangefileHandler = jest.fn()
+    ldInput.addEventListener('ldchangefile', ldchangefileHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    await page.waitForChanges()
+
+    expect(ldchangefileHandler).toHaveBeenCalledWith(
+      expect.objectContaining({ detail: ['foo', 'bar'] })
+    )
+  })
+
   // TODO: Uncomment, as soon as Stencil's JSDom implementation
   // supports bubbling of composed events into the light DOM.
   xit('emits input event', async () => {
@@ -145,6 +166,29 @@ describe('ld-input', () => {
     await page.waitForChanges()
 
     expect(ldinputHandler).toHaveBeenCalledTimes(1)
+  })
+
+  it('emits ldinput event with file list', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+    input.files = ['foo', 'bar'] as unknown as FileList
+
+    const ldinputfileHandler = jest.fn()
+    ldInput.addEventListener('ldinputfile', ldinputfileHandler)
+
+    input.value = 'test'
+    input.dispatchEvent(
+      new InputEvent('input', { bubbles: true, composed: true })
+    )
+    await page.waitForChanges()
+
+    expect(ldinputfileHandler).toHaveBeenCalledWith(
+      expect.objectContaining({ detail: ['foo', 'bar'] })
+    )
   })
 
   it('renders with slot start', async () => {
@@ -191,6 +235,25 @@ describe('ld-input', () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input><span slot="end"><span id="banana">🍌</span></span></ld-input>`,
+    })
+    const ldInput = page.root
+    const banana = ldInput.querySelector('#banana') as HTMLElement
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const doc = ldInput.shadowRoot as unknown as { activeElement: Element }
+    doc.activeElement = input
+
+    input.focus = jest.fn()
+    banana.dispatchEvent(new Event('click', { bubbles: true }))
+    ldInput.dispatchEvent(new Event('click'))
+
+    expect(input.focus).not.toHaveBeenCalled()
+  })
+
+  it('does not focus the input on click of non-interactive elment inside the component if disabled', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input disabled><span slot="end"><span id="banana">🍌</span></span></ld-input>`,
     })
     const ldInput = page.root
     const banana = ldInput.querySelector('#banana') as HTMLElement
@@ -308,7 +371,7 @@ describe('ld-input', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('sets size on ld-icon web component', async () => {
+  it('sets size sm on ld-icon web component', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input size="sm">
@@ -319,12 +382,34 @@ describe('ld-input', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('sets size on ld-icon css component', async () => {
+  it('sets size lg on ld-icon web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="lg">
+        <ld-icon name="placeholder" slot="start"></ld-icon>
+        <ld-icon name="placeholder" size="sm" slot="end"></ld-icon>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size sm on ld-icon css component', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input size="sm">
         <svg class="ld-icon" slot="start"></svg>
         <svg class="ld-icon ld-icon--lg" slot="end"></svg>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size lg ld-icon css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="lg">
+        <svg class="ld-icon" slot="start"></svg>
+        <svg class="ld-icon ld-icon--sm" slot="end"></svg>
       </ld-input>`,
     })
     expect(page.root).toMatchSnapshot()
@@ -352,7 +437,7 @@ describe('ld-input', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('sets size on ld-button web component', async () => {
+  it('sets size sm on ld-button web component', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input size="sm">
@@ -363,12 +448,34 @@ describe('ld-input', () => {
     expect(page.root).toMatchSnapshot()
   })
 
-  it('sets size on ld-button css component', async () => {
+  it('sets size lg on ld-button web component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="lg">
+        <ld-button slot="start">X</ld-button>
+        <ld-button size="sm" slot="end">Y</ld-button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size sm on ld-button css component', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input size="sm">
         <button class="ld-button" slot="start">X</button>
         <button class="ld-button ld-button--lg" slot="end">Y</button>
+      </ld-input>`,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
+  it('sets size lg on ld-button css component', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input size="lg">
+        <button class="ld-button" slot="start">X</button>
+        <button class="ld-button ld-button--sm" slot="end">Y</button>
       </ld-input>`,
     })
     expect(page.root).toMatchSnapshot()
@@ -453,6 +560,25 @@ describe('ld-input', () => {
     expect(root).toMatchSnapshot()
   })
 
+  it('replaces hidden input field with clone of input field of type file', async () => {
+    const { root, waitForChanges } = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" name="example" form="example-form" />`,
+    })
+    const hiddenInput = root.querySelector('input')
+    hiddenInput.replaceWith = jest.fn()
+
+    const inputInShadow = root.shadowRoot.querySelector('input')
+    expect(inputInShadow.type).toEqual('file')
+    inputInShadow.value = 'foo.txt'
+    inputInShadow.files = ['foo'] as unknown as FileList
+    expect(inputInShadow.files).toEqual(['foo'])
+    inputInShadow.dispatchEvent(new Event('input'))
+    await waitForChanges()
+
+    expect(hiddenInput.replaceWith).toHaveBeenCalled()
+  })
+
   it('updates hidden input field attributes', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdInput],
@@ -535,6 +661,22 @@ describe('ld-input', () => {
     )
 
     expect(form.requestSubmit).toHaveBeenCalled()
+  })
+
+  it('does not requests submit on enter with aria-disabled set to true', async () => {
+    const { body, root } = await newSpecPage({
+      components: [LdInput],
+      html: `<form><ld-input name="example" aria-disabled="true" /></form>`,
+    })
+
+    const form = body.querySelector('form')
+    form.requestSubmit = jest.fn()
+    const input = root.shadowRoot.querySelector('input')
+    input.dispatchEvent(
+      new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })
+    )
+
+    expect(form.requestSubmit).not.toHaveBeenCalled()
   })
 
   it('requests submit on enter, if form attribute is given', async () => {

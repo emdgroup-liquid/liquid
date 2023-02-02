@@ -142,8 +142,14 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   /** Emitted when the input value changed and the element loses focus. */
   @Event() ldchange: EventEmitter<string>
 
+  /** Emitted when the input files value changed and the element loses focus. */
+  @Event() ldchangefile: EventEmitter<FileList>
+
   /** Emitted when the input value changed. */
   @Event() ldinput: EventEmitter<string>
+
+  /** Emitted when the input files value changed. */
+  @Event() ldinputfile: EventEmitter<FileList>
 
   /**
    * Sets focus on the input
@@ -190,10 +196,19 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         }
       }
 
-      if (this.value) {
-        this.hiddenInput.value = this.value
-      } else if (this.hiddenInput.value) {
-        this.hiddenInput.removeAttribute('value')
+      if (this.isInputTypeFile(this.input)) {
+        // Clone input field in shadow dom to hidden input field.
+        const clonedInput = this.input.cloneNode() as HTMLInputElement
+        clonedInput.style.display = 'none'
+        this.hiddenInput.replaceWith(clonedInput)
+        this.hiddenInput = clonedInput
+      } else {
+        // Update value.
+        if (this.value) {
+          this.hiddenInput.value = this.value
+        } else if (this.hiddenInput.value) {
+          this.hiddenInput.removeAttribute('value')
+        }
       }
     }
   }
@@ -279,19 +294,29 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     registerAutofocus(this.autofocus)
   }
 
+  private isInputTypeFile = (
+    input: HTMLInputElement | HTMLTextAreaElement
+  ): input is HTMLInputElement => {
+    return (input as HTMLInputElement).type === 'file'
+  }
+
   private handleChange = (ev: InputEvent) => {
     this.el.dispatchEvent(new InputEvent('change', ev))
+
+    if (this.isInputTypeFile(this.input)) {
+      this.ldchangefile.emit(this.input.files)
+    }
+
     this.ldchange.emit(this.value)
   }
 
-  private handleInput = (ev: InputEvent) => {
-    if (this.input.getAttribute('aria-disabled') === 'true') {
-      ev.stopImmediatePropagation()
-      this.input.value = this.value ?? ''
-      return
+  private handleInput = () => {
+    this.value = this.input.value
+
+    if (this.isInputTypeFile(this.input)) {
+      this.ldinputfile.emit(this.input.files)
     }
 
-    this.value = this.input.value
     this.ldinput.emit(this.value)
   }
 
@@ -335,6 +360,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   disconnectedCallback() {
+    /* istanbul ignore next */
     this.attributesObserver?.disconnect()
   }
 

@@ -30,22 +30,30 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example %}
 <ld-input placeholder="Placeholder"></ld-input>
 
-<ld-input value="Value"></ld-input>
-
 <!-- React component -->
 
 <LdInput placeholder="Placeholder" />
-
-<LdInput value="Value" />
 
 <!-- CSS component -->
 
 <div class="ld-input">
   <input placeholder="Placeholder">
 </div>
+{% endexample %}
+
+### With value
+
+{% example %}
+<ld-input placeholder="Placeholder" value="Hello"></ld-input>
+
+<!-- React component -->
+
+<LdInput placeholder="Placeholder" value="Hello" />
+
+<!-- CSS component -->
 
 <div class="ld-input">
-  <input placeholder="Placeholder" value="Value">
+  <input placeholder="Placeholder" value="Hello">
 </div>
 {% endexample %}
 
@@ -54,22 +62,14 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example %}
 <ld-input placeholder="Placeholder" disabled></ld-input>
 
-<ld-input disabled value="Value"></ld-input>
-
 <!-- React component -->
 
 <LdInput placeholder="Placeholder" disabled />
-
-<LdInput disabled value="Value" />
 
 <!-- CSS component -->
 
 <div class="ld-input ld-input--disabled">
   <input placeholder="Placeholder" disabled>
-</div>
-
-<div class="ld-input ld-input--disabled">
-  <input placeholder="Placeholder" value="Value" disabled>
 </div>
 {% endexample %}
 
@@ -78,13 +78,9 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example %}
 <ld-input placeholder="Placeholder" aria-disabled="true"></ld-input>
 
-<ld-input aria-disabled="true" value="Value"></ld-input>
-
 <!-- React component -->
 
 <LdInput placeholder="Placeholder" aria-disabled="true" />
-
-<LdInput aria-disabled="true" value="Value" />
 
 <!-- CSS component -->
 
@@ -95,23 +91,15 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
     id="focusable-disabled-input-1">
 </div>
 
-<div class="ld-input ld-input--disabled">
-  <input
-    placeholder="Placeholder"
-    value="Value"
-    aria-disabled="true"
-    id="focusable-disabled-input-2">
-</div>
-
 <!-- Example code for input prevention on aria-disabled input elements -->
 <script>
-  const inputs = document.querySelectorAll('#focusable-disabled-input-1, #focusable-disabled-input-2')
-  Array.from(inputs).forEach(input => {
-    const initialValue = input.value
-    input.addEventListener('input', () => {
-      input.value = initialValue
-    })
+;(() => {
+  const input = document.currentScript.previousElementSibling.querySelector('input')
+  const initialValue = input.value
+  input.addEventListener('input', () => {
+    input.value = initialValue
   })
+})()
 </script>
 {% endexample %}
 
@@ -128,22 +116,14 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% example '{ "background": "light" }' %}
 <ld-input tone="dark" placeholder="Placeholder"></ld-input>
 
-<ld-input tone="dark" placeholder="Placeholder" disabled></ld-input>
-
 <!-- React component -->
 
 <LdInput tone="dark" placeholder="Placeholder" />
-
-<LdInput tone="dark" placeholder="Placeholder" disabled />
 
 <!-- CSS component -->
 
 <div class="ld-input ld-input--dark">
   <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--dark ld-input--disabled">
-  <input placeholder="Placeholder" disabled>
 </div>
 {% endexample %}
 
@@ -216,11 +196,98 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 ### Type file
 
 {% example %}
-<ld-input placeholder="Your profile image" type="file" accept="image/png, image/jpeg"></ld-input>
+<ld-input placeholder="Your profile picture" type="file" accept="image/png, image/jpeg"></ld-input>
 
 <!-- React component -->
 
-<LdInput placeholder="Your profile image" type="file" accept="image/png, image/jpeg" />
+<LdInput placeholder="Your profile picture" type="file" accept="image/png, image/jpeg" />
+{% endexample %}
+
+#### Handling files
+
+If you are using the `ld-input` component within a `form` and are posting the form, there is no need to access the selected files and the underlying data, because they are submitted as part of the form data automatically.
+
+However, if you want to compose the form data yourself or want to read the files on the client side, you can do so using the `ldinputfile` or `ldchangefile` events.
+
+{% example %}
+<ld-input
+  placeholder="Your profile picture"
+  type="file"
+  accept="image/png, image/jpeg"
+></ld-input>
+
+<script>
+  ;(() => {
+    const ldInput = document.currentScript.previousElementSibling
+    ldInput.addEventListener('ldchangefile', async (ev) => {
+      const files = ev.detail // as FileList
+      if (!files.length) return
+
+      // Read the file on the client side.
+      const fileReader = new FileReader()
+      fileReader.readAsDataURL(files[0])
+      fileReader.onerror = (progressEvent) => {
+        // Handle error...
+      }
+      fileReader.onloadend = (progressEvent) => {
+        // Use file data...
+      }
+
+      // Or post the file to the server.
+      const data = new FormData()
+      data.append('userpic', files[0])
+      const requestOptions = {
+        method: 'POST',
+        body: data,
+      }
+      try {
+        await fetch('/api/user/profile/picture', {
+          method: 'POST',
+          body: data,
+        })
+        // success!
+      } catch (err) {
+        // Handle error...
+      }
+    })
+  })()
+</script>
+
+<!-- React component -->
+
+<LdInput
+  placeholder="Your profile picture"
+  type="file"
+  accept="image/png, image/jpeg"
+  onLdchangefile={async (ev) => {
+    const files = ev.detail
+    if (!files.length) return
+
+    // Read the file on the client side.
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(files[0])
+    fileReader.onerror = (progressEvent) => {
+      // Handle error...
+    }
+    fileReader.onloadend = (progressEvent) => {
+      // Use file data...
+    }
+
+    // Or post the file to the server.
+    const data = new FormData()
+    data.append('userpic', files[0])
+    const requestOptions = {
+      method: 'POST',
+      body: data,
+    }
+    try {
+      await fetch('/api/user/profile/picture', requestOptions)
+      // success!
+    } catch (err) {
+      // Handle error...
+    }
+  }}
+/>
 {% endexample %}
 
 ### Type number
@@ -572,19 +639,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 #### With icon
 
 {% example %}
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-icon name="placeholder" slot="end"></ld-icon>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-icon name="placeholder" slot="start"></ld-icon>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-icon name="placeholder" slot="start"></ld-icon>
-  <ld-icon name="placeholder" slot="end"></ld-icon>
-</ld-input>
-
 <ld-input placeholder="Placeholder">
   <ld-icon name="placeholder" slot="end"></ld-icon>
 </ld-input>
@@ -594,38 +648,12 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </ld-input>
 
 <ld-input placeholder="Placeholder">
-  <ld-icon name="placeholder" slot="start"></ld-icon>
-  <ld-icon name="placeholder" slot="end"></ld-icon>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-icon name="placeholder" slot="end"></ld-icon>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-icon name="placeholder" slot="start"></ld-icon>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
   <ld-icon name="placeholder" slot="start"></ld-icon>
   <ld-icon name="placeholder" slot="end"></ld-icon>
 </ld-input>
 
 <!-- React component -->
 
-<LdInput placeholder="Placeholder" size="sm">
-  <LdIcon name="placeholder" slot="end" />
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="sm">
-  <LdIcon name="placeholder" slot="start" />
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="sm">
-  <LdIcon name="placeholder" slot="start" />
-  <LdIcon name="placeholder" slot="end" />
-</LdInput>
-
 <LdInput placeholder="Placeholder">
   <LdIcon name="placeholder" slot="end" />
 </LdInput>
@@ -635,65 +663,12 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </LdInput>
 
 <LdInput placeholder="Placeholder">
-  <LdIcon name="placeholder" slot="start" />
-  <LdIcon name="placeholder" slot="end" />
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
-  <LdIcon name="placeholder" slot="end" />
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
-  <LdIcon name="placeholder" slot="start" />
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
   <LdIcon name="placeholder" slot="start" />
   <LdIcon name="placeholder" slot="end" />
 </LdInput>
 
 <!-- CSS component -->
 
-<div class="ld-input ld-input--sm">
-  <input placeholder="Placeholder">
-  <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
-<div class="ld-input ld-input--sm">
-  <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-  <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--sm">
-  <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-  <input placeholder="Placeholder">
-  <span class="ld-icon ld-icon--sm">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
 <div class="ld-input">
   <input placeholder="Placeholder">
   <span class="ld-icon">
@@ -726,46 +701,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   </span>
   <input placeholder="Placeholder">
   <span class="ld-icon">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-  <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--lg">
-  <span class="ld-icon ld-icon--lg">
-    <svg viewBox="0 0 24 24" fill="none">
-      <title>Text</title>
-      <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-    </svg>
-  </span>
-  <input placeholder="Placeholder">
-  <span class="ld-icon ld-icon--lg">
     <svg viewBox="0 0 24 24" fill="none">
       <title>Text</title>
       <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
@@ -782,18 +717,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 #### With button
 
 {% example %}
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" aria-label="Submit" >
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-button slot="end" >
-    Submit <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
 <ld-input placeholder="Placeholder">
   <ld-button slot="end" aria-label="Submit">
     <ld-icon name="placeholder"></ld-icon>
@@ -801,18 +724,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </ld-input>
 
 <ld-input placeholder="Placeholder">
-  <ld-button slot="end">
-    Submit <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-button slot="end" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
   <ld-button slot="end">
     Submit <ld-icon name="placeholder"></ld-icon>
   </ld-button>
@@ -820,18 +731,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <!-- React component -->
 
-<LdInput placeholder="Placeholder" size="sm">
-  <LdButton slot="end" aria-label="Submit" >
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="sm">
-  <LdButton slot="end" >
-    Submit <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
 <LdInput placeholder="Placeholder">
   <LdButton slot="end" aria-label="Submit">
     <LdIcon name="placeholder" />
@@ -839,49 +738,12 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </LdInput>
 
 <LdInput placeholder="Placeholder">
-  <LdButton slot="end">
-    Submit <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
-  <LdButton slot="end" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
   <LdButton slot="end">
     Submit <LdIcon name="placeholder" />
   </LdButton>
 </LdInput>
 
 <!-- CSS component -->
-
-<div class="ld-input ld-input--sm">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm" aria-label="Submit">
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--sm">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm">
-    Submit
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
 
 <div class="ld-input">
   <input placeholder="Placeholder">
@@ -907,57 +769,11 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
     </span>
   </button>
 </div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--lg" aria-label="Submit">
-    <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--lg">
-    Submit
-    <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
 {% endexample %}
 
 #### With ghost button
 
 {% example %}
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="sm">
-  <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
 <ld-input placeholder="Placeholder">
   <ld-button mode="ghost" slot="end" aria-label="Submit">
     <ld-icon name="placeholder"></ld-icon>
@@ -971,27 +787,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </ld-input>
 
 <ld-input placeholder="Placeholder">
-  <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-  <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="end" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
-  <ld-button mode="ghost" slot="start" aria-label="Submit">
-    <ld-icon name="placeholder"></ld-icon>
-  </ld-button>
-</ld-input>
-
-<ld-input placeholder="Placeholder" size="lg">
   <ld-button mode="ghost" slot="start" aria-label="Submit">
     <ld-icon name="placeholder"></ld-icon>
   </ld-button>
@@ -1002,27 +797,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <!-- React component -->
 
-<LdInput placeholder="Placeholder" size="sm">
-  <LdButton mode="ghost" slot="end" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="sm">
-  <LdButton mode="ghost" slot="start" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="sm">
-  <LdButton mode="ghost" slot="start" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-  <LdButton mode="ghost" slot="end" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
 <LdInput placeholder="Placeholder">
   <LdButton mode="ghost" slot="end" aria-label="Submit">
     <LdIcon name="placeholder" />
@@ -1036,27 +810,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 </LdInput>
 
 <LdInput placeholder="Placeholder">
-  <LdButton mode="ghost" slot="start" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-  <LdButton mode="ghost" slot="end" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
-  <LdButton mode="ghost" slot="end" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
-  <LdButton mode="ghost" slot="start" aria-label="Submit">
-    <LdIcon name="placeholder" />
-  </LdButton>
-</LdInput>
-
-<LdInput placeholder="Placeholder" size="lg">
   <LdButton mode="ghost" slot="start" aria-label="Submit">
     <LdIcon name="placeholder" />
   </LdButton>
@@ -1067,50 +820,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
 
 <!-- CSS component -->
 
-<div class="ld-input ld-input--sm">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--sm">
-  <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-  <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--sm">
-  <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--sm ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--sm">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
 <div class="ld-input">
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
@@ -1147,50 +856,6 @@ You can use [slots](components/ld-input/#slots) in order to add static or intera
   <input placeholder="Placeholder">
   <button class="ld-button ld-button--ghost" aria-label="Submit">
     <span class="ld-icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-</div>
-
-<div class="ld-input ld-input--lg">
-  <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-  <input placeholder="Placeholder">
-</div>
-
-<div class="ld-input ld-input--lg">
-  <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--lg">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
-      </svg>
-    </span>
-  </button>
-  <input placeholder="Placeholder">
-  <button class="ld-button ld-button--lg ld-button--ghost" aria-label="Submit">
-    <span class="ld-icon ld-icon--lg">
       <svg viewBox="0 0 24 24" fill="none">
         <rect x="1.5" y="1.5" width="21" height="21" rx="4.5" stroke="currentColor" stroke-width="3"/>
         <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="3"/>
@@ -1278,10 +943,10 @@ understanding on how they can be used together.
 
 ## Events
 
-| Event      | Description                                                       | Type                  |
-| ---------- | ----------------------------------------------------------------- | --------------------- |
-| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>` |
-| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<string>` |
+| Event      | Description                                                       | Type                              |
+| ---------- | ----------------------------------------------------------------- | --------------------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<FileList \| string>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<FileList \| string>` |
 
 
 ## Methods
