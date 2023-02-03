@@ -2384,7 +2384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/react-output-target@npm:^0.3.1":
+"@stencil/react-output-target@npm:0.3.1":
   version: 0.3.1
   resolution: "@stencil/react-output-target@npm:0.3.1"
   peerDependencies:
@@ -2393,12 +2393,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/vue-output-target@npm:^0.6.2":
+"@stencil/react-output-target@patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
+  version: 0.3.1
+  resolution: "@stencil/react-output-target@patch:@stencil/react-output-target@npm%3A0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::version=0.3.1&hash=da4231&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
+  peerDependencies:
+    "@stencil/core": ^2.9.0
+  checksum: ce5eb767b1a1b8726bb23c86086cd5c8785ca27dfe0c000c6c771c76ccde08770a7fcb81fefb4c2772ebfe5dc2cb6971fc3f0ed17238028056f29d379399612b
+  languageName: node
+  linkType: hard
+
+"@stencil/vue-output-target@npm:0.6.2":
   version: 0.6.2
   resolution: "@stencil/vue-output-target@npm:0.6.2"
   peerDependencies:
     "@stencil/core": ^2.9.0
   checksum: bd25b6f88e93cce9450a90278d71b432f139d665446b77c841db7d09a644165075759c9e8dcd27e4b84fbbd0abaac8b39d11c28aaeb8cbe3156fef3e125080cc
+  languageName: node
+  linkType: hard
+
+"@stencil/vue-output-target@patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
+  version: 0.6.2
+  resolution: "@stencil/vue-output-target@patch:@stencil/vue-output-target@npm%3A0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::version=0.6.2&hash=acd8b2&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
+  peerDependencies:
+    "@stencil/core": ^2.9.0
+  checksum: 397aa5851723a9793fa8ad085b365692edec5307f3536ee9fa715e66e38eb8e32fa49ff7eb246837ed19d026fbed0fbe8b028fccc14af46885e109837410cd1a
   languageName: node
   linkType: hard
 
