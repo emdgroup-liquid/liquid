@@ -710,7 +710,7 @@ const [sortOrder, setSortOrder] = useState(null)
 const tableRef = useRef()
 
 useEffect(() => {
-  fetch(`${env.base}/${buildstamp}assets/examples/numerals.json`)
+  fetch('assets/examples/numerals.json')
     .then((res) => res.json())
     .then((data) => {
       setElements(data.elements)
@@ -876,7 +876,7 @@ As long as the table is not displaying dynamic data (i.e. you have not set up cu
 const [elements, setElements] = useState([])
 
 useEffect(() => {
-  fetch(`${env.base}/${buildstamp}assets/examples/periodicTable.json`)
+  fetch('assets/examples/periodicTable.json')
     .then((res) => res.json())
     .then((data) => {
       setElements(data.elements)
@@ -1101,7 +1101,7 @@ const [rowsPerPage] = useState(6)
 const [sortOrder, setSortOrder] = useState(null)
 
 useEffect(() => {
-  fetch(`${env.base}/${buildstamp}assets/examples/periodicTable.json`)
+  fetch('assets/examples/periodicTable.json')
     .then((res) => res.json())
     .then((data) => {
       setElements(data.elements)
@@ -1119,9 +1119,9 @@ const elementsSorted = useMemo(() => {
       'atomic_mass',
       'electronegativity_pauling',
       'density',
-    ][this.sortOrder.columnIndex]
-    const val1 = (this.sortOrder.sortOrder === 'asc' ? a : b)[key]
-    const val2 = (this.sortOrder.sortOrder === 'asc' ? b : a)[key]
+    ][sortOrder.columnIndex]
+    const val1 = (sortOrder.sortOrder === 'asc' ? a : b)[key]
+    const val2 = (sortOrder.sortOrder === 'asc' ? b : a)[key]
     const str1 = typeof val1 === 'number' ? val1.toString() : val1 || ''
     const str2 = typeof val2 === 'number' ? val2.toString() : val2 || ''
     const num1 = parseFloat(str1.replaceAll(/,/g, ''))
