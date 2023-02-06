@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.3](https://github.com/emdgroup-liquid/liquid/compare/v4.4.2...v4.4.3) (2023-02-06)
+
+
+### Bug Fixes
+
+* add patch to fully specify resolve path in stencil output targets ([3f25d51](https://github.com/emdgroup-liquid/liquid/commit/3f25d51eb5eb497df56e44dd7c0e1aea6fa7b74c))
+
 ## [4.4.2](https://github.com/emdgroup-liquid/liquid/compare/v4.4.1...v4.4.2) (2023-02-01)
 
 
