@@ -75,6 +75,7 @@
 
 .docs-topbar__headline--short {
   display: none;
+  margin-left: calc(-1 * var(--ld-sp-16));
 
   @media (max-width: 40rem) {
     display: block;
