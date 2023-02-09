@@ -1,5 +1,5 @@
-import fetch from 'node-fetch'
-import { promises } from 'fs'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { writeFile } = require('fs').promises
 
 type FigmaNode = {
   characters?: string
@@ -22,7 +22,6 @@ type FigmaImageResponseBody = {
 
 type Icon = { id: string; name: string }
 
-const { writeFile } = promises
 const iconFileNames: string[] = []
 
 const iconsFilter =

@@ -241,7 +241,7 @@ Left-click an icon below to download its SVG file. To download all icons at once
 
 <docs-icon-group name="Creative Break">
   <docs-icon identifier="pretzel" name="Pretzel"></docs-icon>
-  <docs-icon identifier="coffe" name="Coffe"></docs-icon>
+  <docs-icon identifier="coffee" name="Coffee"></docs-icon>
   <docs-icon identifier="pen" name="Pen"></docs-icon>
   <docs-icon identifier="chat" name="Chat"></docs-icon>
   <docs-icon identifier="conversation" name="Conversation"></docs-icon>

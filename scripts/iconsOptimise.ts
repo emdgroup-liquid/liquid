@@ -5,9 +5,16 @@ const { optimize } = require('svgo')
 const { readFile, writeFile } = require('fs').promises
 
 const svgoConfig = [
-  { name: 'removeViewBox', active: false },
-  { name: 'removeDimensions', active: true },
-  { name: 'removeXMLNS', active: false },
+  {
+    name: 'preset-default',
+    params: {
+      overrides: {
+        removeViewBox: false,
+        removeDimensions: false,
+        removeXMLNS: false,
+      },
+    },
+  },
   {
     name: 'convertPathData',
     params: {
@@ -15,7 +22,7 @@ const svgoConfig = [
     },
   },
   {
-    name: 'cleanupIDs',
+    name: 'cleanupIds',
     params: {
       prefix: {
         // https://github.com/svg/svgo/issues/674#issuecomment-328774019
