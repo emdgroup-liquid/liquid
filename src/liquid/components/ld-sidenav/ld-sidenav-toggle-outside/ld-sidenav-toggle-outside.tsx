@@ -65,7 +65,8 @@ export class LdSidenavToggleOutside implements InnerFocusable {
     this.tooltipRef.hideTooltip()
   }
 
-  private toggleSidenavCollapsedState = () => {
+  private toggleSidenavCollapsedState = (ev) => {
+    ev.stopPropagation() // prevents call of click outside handler
     this.sidenav.toggle()
   }
 
