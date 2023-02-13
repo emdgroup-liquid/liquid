@@ -965,6 +965,76 @@ describe('ld-sidenav', () => {
     expect(page.body).toMatchSnapshot()
   })
 
+  it('collapses to narrow if it has a back button', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: `
+        <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
+        <ld-sidenav collapsible narrow>
+          <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
+          <ld-sidenav-back slot="top">
+            <ld-sidenav-navitem>Outline of Computer Science</ld-sidenav-navitem>
+          </ld-sidenav-back>
+          <ld-sidenav-slider label="Outline of Computer Science" current-subnav="hacking">
+            <ld-sidenav-heading>Subfields</ld-sidenav-heading>
+            <ld-sidenav-navitem to="cs-hacking">Hacking</ld-sidenav-navitem>
+            <ld-sidenav-subnav
+              id="hacking"
+              label="Hacking"
+            >
+              <ld-sidenav-heading>Hacking</ld-sidenav-heading>
+              <p>Almost before we knew it, we had left the ground.</p>
+            </ld-sidenav-subnav>
+          </ld-sidenav-slider>
+        </ld-sidenav>
+      `,
+    })
+    const ldSidenav = page.body.querySelector('ld-sidenav')
+    mockFocus(ldSidenav)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
+      true
+    )
+    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
+      false
+    )
+  })
+
+  it('collapses to narrow if it has a nav item as a direct child', async () => {
+    const page = await newSpecPage({
+      components: sidenavComponents,
+      html: `
+        <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
+        <ld-sidenav collapsible narrow>
+          <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
+          <ld-sidenav-slider label="Outline of Computer Science" current-subnav="hacking">
+            <ld-sidenav-heading>Subfields</ld-sidenav-heading>
+            <ld-sidenav-navitem to="cs-hacking">Hacking</ld-sidenav-navitem>
+            <ld-sidenav-subnav
+              id="hacking"
+              label="Hacking"
+            >
+              <ld-sidenav-heading>Hacking</ld-sidenav-heading>
+              <p>Almost before we knew it, we had left the ground.</p>
+            </ld-sidenav-subnav>
+          </ld-sidenav-slider>
+          <ld-sidenav-navitem slot="bottom" rounded>Student profile</ld-sidenav-navitem>
+        </ld-sidenav>
+      `,
+    })
+    const ldSidenav = page.body.querySelector('ld-sidenav')
+    mockFocus(ldSidenav)
+    expect(ldSidenav).toHaveClass('ld-sidenav--collapsible')
+    expect(ldSidenav).not.toHaveClass('ld-sidenav--collapsed')
+    expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
+      true
+    )
+    expect(ldSidenav.classList.contains('ld-sidenav--fully-collapsible')).toBe(
+      false
+    )
+  })
+
   it('updates back button collapsed state', async () => {
     const page = await newSpecPage({
       components: sidenavComponents,
