@@ -256,7 +256,13 @@ describe('ld-sidenav', () => {
         )
       btnHeaderToggle.focus = jest.fn()
 
-      btnToggleOutside.click()
+      const ev = new MouseEvent('click', { bubbles: true, cancelable: true })
+      btnToggleOutside.dispatchEvent(ev)
+      await page.waitForChanges()
+
+      // event propagation must be stopped to prevent call of click outside handler
+      expect(ev.cancelBubble).toBeTruthy()
+
       jest.advanceTimersByTime(200)
       await page.waitForChanges()
 
