@@ -452,9 +452,12 @@ export class LdSidenav {
   private activeSubnavContainsIconsOrHasBack = () => {
     // Return true if we have a back button or a nav items as a direct child.
     if (
-      Array.from(this.el.children).filter((child) =>
-        ['LD-SIDENAV-BACK', 'LD-SIDENAV-NAVITEM'].includes(child.tagName)
-      )
+      Array.from(this.el.children).filter(
+        (child) =>
+          child.tagName === 'LD-SIDENAV-BACK' ||
+          (child.tagName === 'LD-SIDENAV-NAVITEM' &&
+            !(child as HTMLLdSidenavNavitemElement).mode)
+      ).length
     ) {
       return true
     }
