@@ -1684,11 +1684,55 @@ describe('ld-sidenav', () => {
           'button[role="switch"]'
         )
 
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = ldSidenav
+
       btnHeaderToggle.click()
       await page.waitForChanges()
       await transitionEnd(page)
 
       expect(btnToggleOutside.focus).toHaveBeenCalled()
+    })
+
+    it('does not set focus on toggle outside, when the sidenav collapses fully, if sidenav is not active element', async () => {
+      const page = await newSpecPage({
+        components: sidenavComponents,
+        html: `
+          <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
+          <ld-sidenav open collapsible>
+            <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
+            <ld-sidenav-slider label="Outline of Computer Science">
+              <ld-sidenav-navitem>
+                Artificial intelligence
+              </ld-sidenav-navitem>
+            </ld-sidenav-slider>
+          </ld-sidenav>`,
+      })
+      const ldSidenav = page.body.querySelector('ld-sidenav')
+
+      const ldSidenavToggleOutside = page.body.querySelector(
+        'ld-sidenav-toggle-outside'
+      )
+      const btnToggleOutside =
+        ldSidenavToggleOutside.shadowRoot.querySelector<HTMLButtonElement>(
+          'button[role="switch"]'
+        )
+      btnToggleOutside.focus = jest.fn()
+
+      const ldSidenavHeader = ldSidenav.querySelector('ld-sidenav-header')
+      const btnHeaderToggle =
+        ldSidenavHeader.shadowRoot.querySelector<HTMLButtonElement>(
+          'button[role="switch"]'
+        )
+
+      const doc = document as unknown as { activeElement: Element }
+      doc.activeElement = document.body
+
+      btnHeaderToggle.click()
+      await page.waitForChanges()
+      await transitionEnd(page)
+
+      expect(btnToggleOutside.focus).not.toHaveBeenCalled()
     })
   })
 
