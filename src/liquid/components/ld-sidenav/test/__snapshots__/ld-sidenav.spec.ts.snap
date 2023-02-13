@@ -3976,7 +3976,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
     <mock:shadow-root>
       <ld-tooltip show-delay="1000">
         <mock:shadow-root>
-          <span aria-describedby="ld-tooltip-1176" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+          <span aria-describedby="ld-tooltip-1181" class="ld-tooltip__trigger" part="trigger focusable" type="button">
             <ld-sr-only>
               Info
             </ld-sr-only>
@@ -3987,7 +3987,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </svg>
             </slot>
           </span>
-          <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1176" part="popper" size="sm" triggertype="hover">
+          <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1181" part="popper" size="sm" triggertype="hover">
             <slot></slot>
           </ld-tooltip-popper>
         </mock:shadow-root>
@@ -4040,7 +4040,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
       <mock:shadow-root>
         <ld-tooltip class="ld-sidenav-header__tooltip" show-delay="1000">
           <mock:shadow-root>
-            <span aria-describedby="ld-tooltip-1177" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+            <span aria-describedby="ld-tooltip-1182" class="ld-tooltip__trigger" part="trigger focusable" type="button">
               <ld-sr-only>
                 Info
               </ld-sr-only>
@@ -4051,7 +4051,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </svg>
               </slot>
             </span>
-            <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1177" part="popper" size="sm" triggertype="hover">
+            <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1182" part="popper" size="sm" triggertype="hover">
               <slot></slot>
             </ld-tooltip-popper>
           </mock:shadow-root>
@@ -4117,7 +4117,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1179" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1184" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4128,7 +4128,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1179" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1184" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4237,7 +4237,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </span>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1181" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1186" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4248,7 +4248,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1181" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1186" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4283,7 +4283,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1182" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1187" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4294,7 +4294,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1182" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1187" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4327,7 +4327,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1183" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1188" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4338,7 +4338,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1183" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1188" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4371,7 +4371,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1184" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1189" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4382,7 +4382,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1184" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1189" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4415,7 +4415,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1185" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1190" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4426,7 +4426,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1185" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1190" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4459,7 +4459,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1186" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1191" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4470,7 +4470,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1186" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1191" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4503,7 +4503,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1187" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1192" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4514,7 +4514,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1187" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1192" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4592,7 +4592,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </span>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1188" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1193" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4603,7 +4603,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1188" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1193" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4638,7 +4638,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1189" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1194" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4649,7 +4649,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1189" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1194" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4682,7 +4682,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1190" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1195" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4693,7 +4693,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1190" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1195" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4730,7 +4730,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </span>
               <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                 <mock:shadow-root>
-                  <span aria-describedby="ld-tooltip-1180" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                  <span aria-describedby="ld-tooltip-1185" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                     <ld-sr-only>
                       Info
                     </ld-sr-only>
@@ -4741,7 +4741,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1180" part="popper" size="sm" triggertype="hover">
+                  <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1185" part="popper" size="sm" triggertype="hover">
                     <slot></slot>
                   </ld-tooltip-popper>
                 </mock:shadow-root>
@@ -4822,7 +4822,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </span>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1191" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1196" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4833,7 +4833,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1191" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1196" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4868,7 +4868,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1192" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1197" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4879,7 +4879,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1192" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1197" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4912,7 +4912,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1193" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1198" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4923,7 +4923,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1193" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1198" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -4956,7 +4956,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1194" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1199" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -4967,7 +4967,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1194" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1199" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -5031,7 +5031,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1195" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1200" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -5042,7 +5042,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1195" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1200" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -5075,7 +5075,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 <slot name="icon"></slot>
                 <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                   <mock:shadow-root>
-                    <span aria-describedby="ld-tooltip-1196" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                    <span aria-describedby="ld-tooltip-1201" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                       <ld-sr-only>
                         Info
                       </ld-sr-only>
@@ -5086,7 +5086,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1196" part="popper" size="sm" triggertype="hover">
+                    <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1201" part="popper" size="sm" triggertype="hover">
                       <slot></slot>
                     </ld-tooltip-popper>
                   </mock:shadow-root>
@@ -5163,7 +5163,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   </span>
                   <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                     <mock:shadow-root>
-                      <span aria-describedby="ld-tooltip-1197" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                      <span aria-describedby="ld-tooltip-1202" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                         <ld-sr-only>
                           Info
                         </ld-sr-only>
@@ -5174,7 +5174,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1197" part="popper" size="sm" triggertype="hover">
+                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1202" part="popper" size="sm" triggertype="hover">
                         <slot></slot>
                       </ld-tooltip-popper>
                     </mock:shadow-root>
@@ -5250,7 +5250,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     <slot name="icon"></slot>
                     <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                       <mock:shadow-root>
-                        <span aria-describedby="ld-tooltip-1199" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <span aria-describedby="ld-tooltip-1204" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                           <ld-sr-only>
                             Info
                           </ld-sr-only>
@@ -5261,7 +5261,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1199" part="popper" size="sm" triggertype="hover">
+                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1204" part="popper" size="sm" triggertype="hover">
                           <slot></slot>
                         </ld-tooltip-popper>
                       </mock:shadow-root>
@@ -5294,7 +5294,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     <slot name="icon"></slot>
                     <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                       <mock:shadow-root>
-                        <span aria-describedby="ld-tooltip-1200" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <span aria-describedby="ld-tooltip-1205" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                           <ld-sr-only>
                             Info
                           </ld-sr-only>
@@ -5305,7 +5305,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1200" part="popper" size="sm" triggertype="hover">
+                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1205" part="popper" size="sm" triggertype="hover">
                           <slot></slot>
                         </ld-tooltip-popper>
                       </mock:shadow-root>
@@ -5338,7 +5338,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     <slot name="icon"></slot>
                     <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                       <mock:shadow-root>
-                        <span aria-describedby="ld-tooltip-1201" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <span aria-describedby="ld-tooltip-1206" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                           <ld-sr-only>
                             Info
                           </ld-sr-only>
@@ -5349,7 +5349,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1201" part="popper" size="sm" triggertype="hover">
+                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1206" part="popper" size="sm" triggertype="hover">
                           <slot></slot>
                         </ld-tooltip-popper>
                       </mock:shadow-root>
@@ -5382,7 +5382,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     <slot name="icon"></slot>
                     <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                       <mock:shadow-root>
-                        <span aria-describedby="ld-tooltip-1202" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                        <span aria-describedby="ld-tooltip-1207" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                           <ld-sr-only>
                             Info
                           </ld-sr-only>
@@ -5393,7 +5393,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1202" part="popper" size="sm" triggertype="hover">
+                        <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1207" part="popper" size="sm" triggertype="hover">
                           <slot></slot>
                         </ld-tooltip-popper>
                       </mock:shadow-root>
@@ -5427,7 +5427,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   <slot name="icon"></slot>
                   <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
                     <mock:shadow-root>
-                      <span aria-describedby="ld-tooltip-1198" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                      <span aria-describedby="ld-tooltip-1203" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                         <ld-sr-only>
                           Info
                         </ld-sr-only>
@@ -5438,7 +5438,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1198" part="popper" size="sm" triggertype="hover">
+                      <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1203" part="popper" size="sm" triggertype="hover">
                         <slot></slot>
                       </ld-tooltip-popper>
                     </mock:shadow-root>
@@ -5477,7 +5477,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </span>
             <ld-tooltip class="ld-sidenav-navitem__tooltip" show-delay="250">
               <mock:shadow-root>
-                <span aria-describedby="ld-tooltip-1178" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+                <span aria-describedby="ld-tooltip-1183" class="ld-tooltip__trigger" part="trigger focusable" type="button">
                   <ld-sr-only>
                     Info
                   </ld-sr-only>
@@ -5488,7 +5488,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1178" part="popper" size="sm" triggertype="hover">
+                <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1183" part="popper" size="sm" triggertype="hover">
                   <slot></slot>
                 </ld-tooltip-popper>
               </mock:shadow-root>
