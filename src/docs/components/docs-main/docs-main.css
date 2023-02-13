@@ -72,6 +72,10 @@
 
       > pre {
         border-color: var(--ld-col-neutral-100);
+
+        > docs-copy-to-cb {
+          filter: none;
+        }
       }
 
       > table {
@@ -169,6 +173,10 @@
 
       > pre {
         border-color: var(--ld-col-neutral-900);
+
+        > docs-copy-to-cb {
+          filter: invert(1) hue-rotate(180deg);
+        }
       }
 
       > table {
