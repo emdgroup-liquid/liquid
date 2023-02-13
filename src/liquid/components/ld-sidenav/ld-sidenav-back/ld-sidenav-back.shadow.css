@@ -138,7 +138,7 @@ That's why we set z-index 0 on the following elements.
   );
 
   .ld-sidenav-back--collapsed & {
-    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta)));
+    transform: translateX(calc(-1 * var(--ld-sidenav-translate-x-delta) - 1px));
   }
 }
 
