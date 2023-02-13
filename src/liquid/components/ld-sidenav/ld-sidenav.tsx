@@ -491,13 +491,13 @@ export class LdSidenav {
       this.transitions = true
 
       // If the sidenav was fully collapsed and is being expanded, set the focus
-      // on the first focusable element. If it is being collapsed, set the focus
-      // on the toggle outside if it is there.
+      // on the first focusable element. If it is being collapsed and has focus inside,
+      // set the focus on the toggle outside if it is there.
       if (this.fullyCollapsible) {
         if (!this.collapsed) {
           const firstFocusableInSidenav = getFirstFocusable(this.el)
           firstFocusableInSidenav.focus()
-        } else {
+        } else if (document.activeElement.closest('ld-sidenav') === this.el) {
           const previousElementSibling = this.el.previousElementSibling
           if (this.isToggleOutside(previousElementSibling)) {
             previousElementSibling.focusInner()
