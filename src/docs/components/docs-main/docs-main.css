@@ -210,6 +210,24 @@
   }
 
   main {
+    > pre {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      > docs-copy-to-cb {
+        position: sticky;
+        right: var(--ld-sp-4);
+        bottom: 100%;
+        height: 0;
+
+        ld-button {
+          transform: translateX(var(--ld-sp-12))
+            translateY(calc(-1 * var(--ld-sp-6)));
+        }
+      }
+    }
+
     > header,
     > footer {
       display: flex;
