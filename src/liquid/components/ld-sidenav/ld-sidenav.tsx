@@ -196,7 +196,8 @@ export class LdSidenav {
   @Watch('narrow')
   updateFullyCollapsible() {
     this.fullyCollapsible =
-      this.collapsible && (!this.narrow || !this.activeSubnavContainsIcons())
+      this.collapsible &&
+      (!this.narrow || !this.activeSubnavContainsIconsOrHasBack())
     if (!this.collapsible) this.collapsed = false
     this.el.querySelector('ld-sidenav-header')?.updateCollapsible()
   }
@@ -448,7 +449,17 @@ export class LdSidenav {
     this.collapsed = !this.collapsed
   }
 
-  private activeSubnavContainsIcons = () => {
+  private activeSubnavContainsIconsOrHasBack = () => {
+    // Return true if we have a back button or a nav items as a direct child.
+    if (
+      Array.from(this.el.children).filter((child) =>
+        ['LD-SIDENAV-BACK', 'LD-SIDENAV-NAVITEM'].includes(child.tagName)
+      )
+    ) {
+      return true
+    }
+
+    // Otherwise, check if the current subnav contains a nav item.
     const slider = this.el.querySelector('ld-sidenav-slider')
     const activeSubnav = slider.currentSubnav
       ? this.el.querySelector(`#${slider.currentSubnav}`)

@@ -1498,7 +1498,7 @@ You are not forced to use this component. You can use your own toggle element or
 
 Use the prop `narrow` for advanced use cases, where you'd like to have a sidenav which partially collapses in way, that slotted `ld-sidenav-navitem` components are displayed as icon buttons.
 
-The sidenav only collapses to narrow mode, if navigation to a sub-nav is possible via a nav item in the current state. Otherwise, it collapses fully. All slotted elements, which are not `ld-sidenav-navitem` (in primary mode), `ld-sidenav-back` or `ld-sidenav-separator`, are hidden in narrow mode. The latter components move up on sidenav collapse, taking up freed vertical space of the hidden elements, and move back down as soon as the sidenav expands.
+The sidenav only collapses to narrow mode, if at least one `ld-sidenav-navitem` or the `ld-sidenav-back` are visible in the current state. Otherwise, it collapses fully. All slotted elements, which are not `ld-sidenav-navitem` (in primary mode), `ld-sidenav-back` or `ld-sidenav-separator`, are hidden in narrow mode. The latter components move up on sidenav collapse, taking up freed vertical space of the hidden elements, and move back down as soon as the sidenav expands.
 
 {% example '{ "hasPadding": false, "styles": { "minHeight": "22rem", "position": "relative" } }' %}
 <ld-sidenav-toggle-outside></ld-sidenav-toggle-outside>
