@@ -48,7 +48,7 @@ export class LdSidenavNavitem implements InnerFocusable {
    * The tertiary mode is similar to secondary mode, with the navitem
    * indented and the dot being empty and having a border.
    */
-  @Prop() mode?: 'secondary' | 'tertiary'
+  @Prop() mode?: 'primary' | 'secondary' | 'tertiary'
 
   /** Applies full border-radius. */
   @Prop({ reflect: true }) rounded = false

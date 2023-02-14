@@ -451,14 +451,18 @@ export class LdSidenav {
 
   private activeSubnavContainsIconsOrHasBack = () => {
     // Return true if we have a back button or a nav items as a direct child.
-    if (
-      Array.from(this.el.children).filter(
-        (child) =>
-          child.tagName === 'LD-SIDENAV-BACK' ||
-          (child.tagName === 'LD-SIDENAV-NAVITEM' &&
-            !(child as HTMLLdSidenavNavitemElement).mode)
-      ).length
-    ) {
+    const children = Array.from(this.el.children)
+    const hasBack = children.some(
+      (child) => child.tagName === 'LD-SIDENAV-BACK'
+    )
+    const hasPrimaryChild = children.some(
+      (child) =>
+        child.tagName === 'LD-SIDENAV-NAVITEM' &&
+        !['secondary', 'tertiary'].includes(
+          (child as HTMLLdSidenavNavitemElement).mode
+        )
+    )
+    if (hasBack || hasPrimaryChild) {
       return true
     }
 
@@ -472,13 +476,20 @@ export class LdSidenav {
     ).filter(
       (child) =>
         child.tagName === 'LD-SIDENAV-NAVITEM' &&
-        !(child as HTMLLdSidenavNavitemElement).mode
+        !['secondary', 'tertiary'].includes(
+          (child as HTMLLdSidenavNavitemElement).mode
+        )
     )
     const navitemsModePrimaryInAccordion = Array.from(
       activeSubnav.querySelectorAll(
         'ld-sidenav-accordion > ld-sidenav-navitem[slot="toggle"]'
       )
-    ).filter((child: HTMLLdSidenavNavitemElement) => !child.mode)
+    ).filter(
+      (child: HTMLLdSidenavNavitemElement) =>
+        !['secondary', 'tertiary'].includes(
+          (child as HTMLLdSidenavNavitemElement).mode
+        )
+    )
     const totalNavitemsModePrimary =
       navitemsModePrimaryChildren.length + navitemsModePrimaryInAccordion.length
     return !!totalNavitemsModePrimary
