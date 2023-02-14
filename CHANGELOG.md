@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.4](https://github.com/emdgroup-liquid/liquid/compare/v4.4.3...v4.4.4) (2023-02-14)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** collapse fully if it has no primary mode nav items ([f6c5e85](https://github.com/emdgroup-liquid/liquid/commit/f6c5e853499a73ced2925b9869bc5ad12b6313aa))
+* **ld-sidenav:** cosmetics for collapsed sidenav-back active indicator ([b0479a8](https://github.com/emdgroup-liquid/liquid/commit/b0479a81b721c5c814950cb6a439c95d24a98e3a))
+* **ld-sidenav:** do not set focus on toggle outside if sidenav is not active ([fccc96e](https://github.com/emdgroup-liquid/liquid/commit/fccc96e77fb1098fffce3dc5c368572c01c2d33b))
+* **ld-sidenav:** keep sidenav narrow if back button or slotted nav item visible ([fd4622c](https://github.com/emdgroup-liquid/liquid/commit/fd4622c59c9ac723ef183dfaafb1bcb4339caed9))
+* **ld-sidenav:** make toggle-outside work with collapse-trigger mouseout ([226f337](https://github.com/emdgroup-liquid/liquid/commit/226f3375396d1f35d1c4d7f379e100c0babe88b8))
+
 ## [4.4.3](https://github.com/emdgroup-liquid/liquid/compare/v4.4.2...v4.4.3) (2023-02-06)
 
 
