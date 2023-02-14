@@ -476,9 +476,7 @@ export class LdSidenav {
     ).filter(
       (child) =>
         child.tagName === 'LD-SIDENAV-NAVITEM' &&
-        !['secondary', 'tertiary'].includes(
-          (child as HTMLLdSidenavNavitemElement).mode
-        )
+        (child as HTMLLdSidenavNavitemElement).mode === 'primary'
     )
     const navitemsModePrimaryInAccordion = Array.from(
       activeSubnav.querySelectorAll(
@@ -486,9 +484,7 @@ export class LdSidenav {
       )
     ).filter(
       (child: HTMLLdSidenavNavitemElement) =>
-        !['secondary', 'tertiary'].includes(
-          (child as HTMLLdSidenavNavitemElement).mode
-        )
+        (child as HTMLLdSidenavNavitemElement).mode === 'primary'
     )
     const totalNavitemsModePrimary =
       navitemsModePrimaryChildren.length + navitemsModePrimaryInAccordion.length
