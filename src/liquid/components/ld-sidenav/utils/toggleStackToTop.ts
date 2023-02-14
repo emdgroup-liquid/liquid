@@ -1,4 +1,3 @@
-import { LdSidenavNavitem } from '../ld-sidenav-navitem/ld-sidenav-navitem'
 import { closest } from '../../../utils/closest'
 
 export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
@@ -32,7 +31,7 @@ export const toggleStackToTop = (el: HTMLElement, stacked: boolean) => {
       elem.tagName === 'LD-SIDENAV-SUBNAV' ||
       (elem.tagName === 'LD-SIDENAV-NAVITEM' &&
         !['secondary', 'tertiary'].includes(
-          (elem as unknown as LdSidenavNavitem).mode
+          (elem as HTMLLdSidenavNavitemElement).mode
         ))
     ) {
       totalSpaceOccupiedAbove += elem.getBoundingClientRect().height
