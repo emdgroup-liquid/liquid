@@ -42,13 +42,14 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop() href?: string
 
   /**
-   * Display mode.
+   * Display mode. Primary is the default value. It shows an icon
+   * and the item uses the regular size.
    * In secondary mode the navitem is less high, displays a filled dot
    * instead of the icon and is hidden when the sidenav collapses.
    * The tertiary mode is similar to secondary mode, with the navitem
    * indented and the dot being empty and having a border.
    */
-  @Prop() mode?: 'primary' | 'secondary' | 'tertiary'
+  @Prop() mode?: 'primary' | 'secondary' | 'tertiary' = 'primary'
 
   /** Applies full border-radius. */
   @Prop({ reflect: true }) rounded = false
@@ -214,7 +215,7 @@ export class LdSidenavNavitem implements InnerFocusable {
         this.sidenav.expandTrigger === 'mouseenter'
       this.sidenavCollapsed = this.sidenav.collapsed
     }
-    if (!['secondary', 'tertiary'].includes(this.mode)) {
+    if (this.mode === 'primary') {
       this.tooltipContent = this.el.textContent.trim()
 
       if (!this.el.querySelector('[slot="icon"]')) {
@@ -252,7 +253,7 @@ export class LdSidenavNavitem implements InnerFocusable {
       this.selected && 'ld-sidenav-navitem--selected',
       this.inAccordion && 'ld-sidenav-navitem--in-accordion',
       this.rounded && 'ld-sidenav-navitem--rounded',
-      this.mode && `ld-sidenav-navitem--${this.mode}`,
+      this.mode !== 'primary' && `ld-sidenav-navitem--${this.mode}`,
       this.sidenavAlignement === 'right' && 'ld-sidenav-navitem--right-aligned',
       this.sidenavCollapsed &&
         !this.sidenavClosable &&
