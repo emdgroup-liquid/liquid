@@ -74,6 +74,10 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     | 'ghost'
     | 'danger'
     | 'danger-secondary'
+    | 'danger-ghost'
+    | 'neutral'
+    | 'neutral-secondary'
+    | 'neutral-ghost'
 
   /** Used to specify the name of the control. */
   @Prop() name?: string
@@ -97,8 +101,13 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Defines the value associated with the button’s `name` when it’s submitted with the form data. */
   @Prop() value?: string
 
+  /**
+   * Button contains only an icon and no text.
+   * @internal
+   */
+  @Prop({ mutable: true }) iconOnly?: boolean
+
   @State() clonedAttributes
-  @State() iconOnly = false
 
   /**
    * Sets focus on the button
@@ -182,13 +191,17 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.type === 'submit' ? 'type' : undefined, // submit is default
     ])
 
+    registerAutofocus(this.autofocus)
+
+    if (this.iconOnly !== undefined) {
+      return
+    }
+
     const textInButton = this.el.textContent.trim()
 
     if (!textInButton) {
       this.iconOnly = true
     }
-
-    registerAutofocus(this.autofocus)
   }
 
   render() {
