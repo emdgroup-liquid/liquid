@@ -30,13 +30,13 @@
   font: var(--ld-tab-font);
   font-weight: 700;
   border: 0;
-  border-radius: var(--ld-tab-border-radius, 0px);
+  border-radius: var(--ld-tab-border-radius, 0);
   text-decoration: none;
   user-select: none;
   touch-action: manipulation;
   display: grid;
-  grid-template-columns: minmax(0rem, var(--ld-sp-16)) max-content minmax(
-      0rem,
+  grid-template-columns: minmax(0, var(--ld-sp-16)) max-content minmax(
+      0,
       var(--ld-sp-16)
     );
   align-items: center;

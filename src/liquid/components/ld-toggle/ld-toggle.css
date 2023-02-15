@@ -51,7 +51,7 @@
     width: 100%;
     z-index: 0;
 
-    &:not(:disabled):not([aria-disabled='true']) {
+    &:not(:disabled, [aria-disabled='true']) {
       cursor: pointer;
     }
 
@@ -106,7 +106,7 @@
     z-index: 1;
   }
 
-  input:where(:not(:disabled):not([aria-disabled='true'])):invalid {
+  input:where(:not(:disabled, [aria-disabled='true'])):invalid {
     background-color: var(--ld-toggle-invalid-input-bg-col);
   }
 }

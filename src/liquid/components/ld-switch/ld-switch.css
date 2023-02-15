@@ -58,7 +58,7 @@
 .ld-switch--fit-content,
 :host(.ld-switch--fit-content) fieldset {
   --ld-switch-item-justify-content: flex-start;
-  grid-auto-columns: minmax(0px, auto);
+  grid-auto-columns: minmax(0, auto);
 }
 
 :host fieldset {

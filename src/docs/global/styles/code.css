@@ -54,7 +54,7 @@ pre[class*='language-'] {
 pre {
   counter-reset: lineNumber;
 }
-code .highlight-line:before {
+code .highlight-line::before {
   -webkit-user-select: none;
   content: counter(lineNumber);
   counter-increment: lineNumber;
@@ -116,7 +116,7 @@ code .highlight-line:before {
   .token.important {
     color: var(--ld-col-rp-600);
   }
-  code .highlight-line:before {
+  code .highlight-line::before {
     border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
     color: var(--ld-col-neutral-300);
   }
@@ -169,7 +169,7 @@ code .highlight-line:before {
   .token.important {
     color: var(--ld-col-rp-300);
   }
-  code .highlight-line:before {
+  code .highlight-line::before {
     border-right: var(--ld-sp-1) solid var(--ld-col-neutral-800);
     color: var(--ld-col-neutral-600);
   }
@@ -212,7 +212,7 @@ code .highlight-line:before {
     .token.important {
       color: var(--ld-col-rp-600);
     }
-    code .highlight-line:before {
+    code .highlight-line::before {
       border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
       color: var(--ld-col-neutral-300);
     }

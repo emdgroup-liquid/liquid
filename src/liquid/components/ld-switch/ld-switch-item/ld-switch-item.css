@@ -62,7 +62,7 @@
       }
     }
 
-    &:where(:not(:disabled):not([aria-disabled='true']):not([readonly])) {
+    &:where(:not(:disabled, [aria-disabled='true'], [readonly])) {
       ~ .ld-switch-item__content {
         cursor: pointer;
 

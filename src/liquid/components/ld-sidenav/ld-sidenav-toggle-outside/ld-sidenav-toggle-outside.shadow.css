@@ -110,7 +110,11 @@
 .ld-sidenav-toggle-outside__icon {
   position: relative;
 
-  :host(.ld-sidenav-toggle-outside--right:not(.ld-sidenav-toggle-outside--collapsed))
+  :host(
+      .ld-sidenav-toggle-outside--right:not(
+          .ld-sidenav-toggle-outside--collapsed
+        )
+    )
     & {
     transform: scaleX(-100%);
   }

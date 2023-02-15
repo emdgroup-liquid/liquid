@@ -54,7 +54,7 @@
   font: var(--ld-typo-body-s);
   font-weight: 700;
   gap: var(--ld-badge-gap-lg);
-  /*height: var(--ld-badge-size-lg);*/
+  /* height: var(--ld-badge-size-lg); */
   line-height: 1.1;
   padding-block: var(--ld-badge-padding-block-lg);
   padding-inline: var(--ld-badge-padding-inline-lg);

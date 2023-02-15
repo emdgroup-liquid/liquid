@@ -32,7 +32,6 @@
 
 :host(.ld-notice--error),
 .ld-notice--error {
-
   ::slotted(ld-icon),
   ::slotted(.ld-icon),
   .ld-notice__icon,
@@ -47,7 +46,6 @@
 
 :host(.ld-notice--info),
 .ld-notice--info {
-
   ::slotted(ld-icon),
   ::slotted(.ld-icon),
   .ld-notice__icon,

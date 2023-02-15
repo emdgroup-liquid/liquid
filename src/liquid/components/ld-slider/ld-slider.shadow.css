@@ -192,7 +192,7 @@
       z-index: 4;
     }
 
-    &:not(:active):not(:focus-visible):not(:hover) {
+    &:not(:active, :focus-visible, :hover) {
       --ld-slider-thumb-box-shadow: var(--ld-slider-thumb-box-shadow-default);
     }
   }

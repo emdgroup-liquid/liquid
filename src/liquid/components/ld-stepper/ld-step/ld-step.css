@@ -150,7 +150,7 @@
       }
 
       &--done:where(:not(.ld-step--optional)) .ld-step__focusable-element {
-        &:focus:where(:not(:active):not(:hover)) {
+        &:focus:where(:not(:active, :hover)) {
           + .ld-icon {
             --ld-step-icon-col: var(--ld-step-icon-col-done-focus);
           }
@@ -392,7 +392,7 @@
     left: calc(var(--ld-step-dot-size-with-icon) / 2);
     right: auto;
     top: calc(var(--ld-stepper-gap) / -2);
-    transform: translatex(-50%);
+    transform: translateX(-50%);
     width: var(--ld-step-line-thickness);
   }
 }
@@ -418,7 +418,7 @@
     top: calc(
       var(--ld-step-dot-size) + var(--ld-step-dot-offset) - var(--ld-sp-1)
     );
-    transform: translatex(-50%);
+    transform: translateX(-50%);
     width: var(--ld-step-line-thickness);
   }
 }

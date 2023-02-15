@@ -1,17 +1,12 @@
-const postcssMixins = require('postcss-mixins')
-const postcssNested = require('postcss-nested')
-const postcssPresetEnv = require('postcss-preset-env')
-const postcssImport = require('postcss-import')
-
 module.exports = {
   plugins: [
-    postcssMixins(),
-    postcssNested(),
-    postcssPresetEnv({
+    require('postcss-mixins')(),
+    require('postcss-nested')(),
+    require('postcss-preset-env')({
       features: {
         'focus-visible-pseudo-class': false,
       },
     }),
-    postcssImport(),
+    require('postcss-import')(),
   ],
 }

@@ -132,13 +132,13 @@
 .ld-select--expanded {
   .ld-tether-target-attached-bottom {
     .ld-select__btn-trigger:not(.ld-select__btn-trigger--detached) {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }
 
-:where(.ld-select:not(.ld-select--inline):not(.ld-select--ghost)) {
+:where(.ld-select:not(.ld-select--inline, .ld-select--ghost)) {
   min-width: var(--ld-select-min-width);
 }
 
@@ -149,7 +149,7 @@
 
 .ld-select > select,
 .ld-select__btn-trigger {
-  /*outline: none;*/
+  /* outline: none; */
   position: relative;
   display: flex;
   align-items: center;
@@ -189,7 +189,7 @@
     }
   }
 
-  &:where(select:not(:disabled):not([aria-disabled='true'])),
+  &:where(select:not(:disabled, [aria-disabled='true'])),
   &:where(.ld-select__btn-trigger:not([aria-disabled='true'])) {
     cursor: pointer;
   }
@@ -197,7 +197,7 @@
   &:where([aria-expanded='true']) {
     z-index: 2;
 
-    &:not(:focus:focus-visible):not(.ld-select__btn-trigger--detached) {
+    &:not(:focus:focus-visible, .ld-select__btn-trigger--detached) {
       box-shadow: none;
     }
   }
@@ -258,7 +258,7 @@
 
 .ld-select:where(:not(.ld-select--ghost)) {
   &:where(.ld-select--detached),
-  &:where(:not(.ld-select--detached):not(.ld-select--expanded)) {
+  &:where(:not(.ld-select--detached, .ld-select--expanded)) {
     :where(select),
     :where(.ld-select__btn-trigger) {
       box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-col-border);
@@ -268,8 +268,20 @@
   &:where(:not(.ld-select--invalid)) {
     select,
     .ld-select__btn-trigger {
-      &:where(.ld-select__btn-trigger--detached:not(:disabled):not([aria-disabled='true'])),
-      &:where(:not(:disabled):not([aria-disabled='true']):not(.ld-select__btn-trigger--detached):not([aria-expanded='true'])) {
+      &:where(
+          .ld-select__btn-trigger--detached:not(
+              :disabled,
+              [aria-disabled='true']
+            )
+        ),
+      &:where(
+          :not(
+              :disabled,
+              [aria-disabled='true'],
+              .ld-select__btn-trigger--detached,
+              [aria-expanded='true']
+            )
+        ) {
         @media (hover: hover) {
           &:hover:not(:focus:focus-visible) {
             box-shadow: inset 0 0 0 var(--ld-sp-2)
@@ -289,7 +301,7 @@
     }
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     &:where(:not(:focus:focus-visible)) {
       background-color: var(--ld-select-invalid-disabled-bg-col);
       color: var(--ld-select-invalid-col);
@@ -414,7 +426,7 @@
 
 .ld-select__btn-clear-single,
 .ld-select__btn-clear {
-  /*outline: none;*/
+  /* outline: none; */
   border: 0;
   padding: 0;
   border-radius: var(--ld-br-full);
@@ -520,7 +532,9 @@
   display: none;
 }
 
-:where(.ld-select:not(.ld-select--disabled):not([aria-disabled]):not(.ld-select--invalid)) {
+:where(
+    .ld-select:not(.ld-select--disabled, [aria-disabled], .ld-select--invalid)
+  ) {
   .ld-select__btn-trigger {
     &:where(:focus:focus-visible) {
       box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-select-thm-col);
@@ -591,7 +605,13 @@
   }
 }
 
-:where(.ld-select:not(.ld-select--disabled):not([aria-disabled]):not([aria-disabled='true'])) {
+:where(
+    .ld-select:not(
+        .ld-select--disabled,
+        [aria-disabled],
+        [aria-disabled='true']
+      )
+  ) {
   .ld-select__selection-list-more {
     color: var(--ld-select-thm-col);
   }

@@ -60,7 +60,7 @@
     opacity: 0.2;
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     cursor: pointer;
 
     &:where(:focus:focus-visible) {
@@ -210,7 +210,7 @@
     );
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       color: var(
         --ld-button-ghost-text-color-focus,
@@ -265,7 +265,7 @@
 }
 
 .ld-button--secondary {
-  box-shadow: inset 0px 0px 0px 2px;
+  box-shadow: inset 0 0 0 2px;
 }
 
 .ld-button--ghost {
@@ -292,11 +292,11 @@
 }
 
 .ld-button--brand-color {
-  &:where(:not(.ld-button--secondary):not(.ld-button--ghost)) {
+  &:where(:not(.ld-button--secondary, .ld-button--ghost)) {
     background-color: var(--ld-button-brand-bg-color, var(--ld-col-wht));
     color: var(--ld-button-brand-text-color, var(--ld-thm-primary));
 
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
+    &:where(&:not(:disabled, [aria-disabled='true'])) {
       &:where(:focus:focus-visible) {
         color: var(
           --ld-button-brand-text-color-focus,
@@ -333,7 +333,7 @@
       );
     }
 
-    &:where(&:not(:disabled):not([aria-disabled='true'])) {
+    &:where(&:not(:disabled, [aria-disabled='true'])) {
       &:where(:focus:focus-visible) {
         color: var(
           --ld-button-secondary-brand-text-color,
@@ -377,7 +377,7 @@
   }
 
   &.ld-button--secondary {
-    box-shadow: inset 0px 0px 0px 2px;
+    box-shadow: inset 0 0 0 2px;
   }
 }
 
@@ -392,7 +392,7 @@
     );
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       background-color: var(
         --ld-button-highlight-bg-color-focus,
@@ -440,7 +440,7 @@
     );
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       background-color: var(
         --ld-button-danger-bg-color-focus,
@@ -497,7 +497,7 @@
   color: var(--ld-button-danger-secondary-text-color, var(--ld-thm-error));
 
   &:not(.ld-button--brand-color) {
-    box-shadow: inset 0px 0px 0px 2px;
+    box-shadow: inset 0 0 0 2px;
   }
 
   .ld-button__progress::after {
@@ -507,7 +507,7 @@
     );
   }
 
-  &:where(:not(:disabled):not([aria-disabled='true'])) {
+  &:where(:not(:disabled, [aria-disabled='true'])) {
     &:where(:focus:focus-visible) {
       background-color: var(
         --ld-button-danger-secondary-bg-color-focus,

@@ -92,18 +92,18 @@
 
   &:where(:focus),
   &:where(:focus:focus-visible) {
-    &:before {
+    &::before {
       box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-option-thm-col);
     }
   }
 
   &:where(:focus:not(:focus-visible)) {
-    &:before {
+    &::before {
       box-shadow: none;
     }
   }
 
-  &:where(:not(.ld-option-internal--disabled):not([aria-disabled='true'])) {
+  &:where(:not(.ld-option-internal--disabled, [aria-disabled='true'])) {
     :where(.ld-option-internal__check) {
       color: var(--ld-option-thm-col);
     }

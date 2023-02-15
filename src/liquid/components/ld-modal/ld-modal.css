@@ -8,7 +8,7 @@
   }
 
   to {
-    transform: translateY(0rem);
+    transform: translateY(0);
   }
 }
 
@@ -24,7 +24,7 @@
 
 @keyframes ld-modal-out-mobile {
   from {
-    transform: translateY(0rem);
+    transform: translateY(0);
   }
 
   to {

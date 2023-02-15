@@ -77,7 +77,7 @@
       }
     }
 
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:not(:disabled, [aria-disabled='true'])) {
       cursor: pointer;
 
       ~ .ld-radio__dot {
@@ -133,7 +133,7 @@
     }
   }
 
-  :where(input:not(:disabled):not(input[aria-disabled='true'])) {
+  :where(input:not(:disabled, input[aria-disabled='true'])) {
     ~ .ld-radio__box {
       background-color: var(--ld-radio-bg-col);
     }
@@ -162,7 +162,7 @@
 .ld-radio.ld-radio--dark,
 :host(.ld-radio.ld-radio--dark) {
   :where(input) {
-    &:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+    &:not(:disabled, input[aria-disabled='true'], :checked) {
       ~ .ld-radio__box {
         background-color: var(--ld-radio-dark-bg-col);
       }

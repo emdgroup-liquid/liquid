@@ -75,24 +75,20 @@
   }
 
   ::slotted(*),
-  > :where(:not(input):not(textarea)) {
+  > :where(:not(input, textarea)) {
     user-select: none;
   }
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
+  ::slotted(:not(ld-button, .ld-button)[slot='start']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='end']
-        ):first-child
+      :not(input, textarea, ld-button, .ld-button, [slot='end']):first-child
     ) {
     margin-left: var(--ld-input-padding-x-md);
   }
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
+  ::slotted(:not(ld-button, .ld-button)[slot='end']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='start']
-        ):last-child
+      :not(input, textarea, ld-button, .ld-button, [slot='start']):last-child
     ) {
     margin-right: var(--ld-input-padding-x-md);
   }
@@ -262,20 +258,16 @@
 .ld-input--sm {
   min-height: var(--ld-input-min-height-sm);
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
+  ::slotted(:not(ld-button, .ld-button)[slot='start']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='end']
-        ):first-child
+      :not(input, textarea, ld-button, .ld-button, [slot='end']):first-child
     ) {
     margin-left: var(--ld-input-padding-x-sm);
   }
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
+  ::slotted(:not(ld-button, .ld-button)[slot='end']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='start']
-        ):last-child
+      :not(input, textarea, ld-button, .ld-button, [slot='start']):last-child
     ) {
     margin-right: var(--ld-input-padding-x-sm);
   }
@@ -322,20 +314,16 @@
 .ld-input--lg {
   min-height: var(--ld-input-min-height-lg);
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='start']),
+  ::slotted(:not(ld-button, .ld-button)[slot='start']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='end']
-        ):first-child
+      :not(input, textarea, ld-button, .ld-button, [slot='end']):first-child
     ) {
     margin-left: var(--ld-input-padding-x-lg);
   }
 
-  ::slotted(:not(ld-button):not(.ld-button)[slot='end']),
+  ::slotted(:not(ld-button, .ld-button)[slot='end']),
   > :where(
-      :not(input):not(textarea):not(ld-button):not(.ld-button):not(
-          [slot='start']
-        ):last-child
+      :not(input, textarea, ld-button, .ld-button, [slot='start']):last-child
     ) {
     margin-right: var(--ld-input-padding-x-lg);
   }
@@ -357,10 +345,8 @@
 
   > input,
   > textarea {
-    padding-top: var(--ld-input-padding-top-lg);
-    padding-right: var(--ld-input-padding-x-lg);
-    padding-bottom: var(--ld-input-padding-bottom-lg);
-    padding-left: var(--ld-input-padding-x-lg);
+    padding: var(--ld-input-padding-top-lg) var(--ld-input-padding-x-lg)
+      var(--ld-input-padding-bottom-lg) var(--ld-input-padding-x-lg);
     font: var(--ld-typo-body-l);
   }
 
@@ -386,11 +372,15 @@
 
 @media (hover: hover) {
   :host(
-      :not(.ld-input--invalid):not([aria-disabled='true']):not(
+      :not(
+          .ld-input--invalid,
+          [aria-disabled='true'],
           .ld-input--disabled
         ):hover:not(:focus-within)
     ),
-  .ld-input:not(.ld-input--invalid):not([aria-disabled='true']):not(
+  .ld-input:not(
+      .ld-input--invalid,
+      [aria-disabled='true'],
       .ld-input--disabled
     ):hover:not(:focus-within) {
     &::before {
@@ -417,19 +407,19 @@
 }
 
 :host(
-    .ld-input--invalid:not(.ld-input--disabled):not(
-        [aria-disabled='true']
-      ):where(:not(:focus))
+    .ld-input--invalid:not(.ld-input--disabled, [aria-disabled='true']):where(
+        :not(:focus)
+      )
   ),
-.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']):where(
+.ld-input--invalid:not(.ld-input--disabled, [aria-disabled='true']):where(
     :not(:focus)
   ) {
   background-color: var(--ld-input-bg-col-invalid);
   color: var(--ld-input-text-col-invalid);
 }
 
-:host(.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true'])),
-.ld-input--invalid:not(.ld-input--disabled):not([aria-disabled='true']) {
+:host(.ld-input--invalid:not(.ld-input--disabled, [aria-disabled='true'])),
+.ld-input--invalid:not(.ld-input--disabled, [aria-disabled='true']) {
   &::before {
     box-shadow: inset 0 0 0 var(--ld-sp-2) var(--ld-input-text-col-invalid);
   }
@@ -457,11 +447,13 @@
 }
 
 :host(
-    .ld-input--invalid:not(.ld-input--disabled):not(
+    .ld-input--invalid:not(
+        .ld-input--disabled,
         [aria-disabled='true']
       ):focus-within
   ),
-.ld-input--invalid:not(.ld-input--disabled):not(
+.ld-input--invalid:not(
+    .ld-input--disabled,
     [aria-disabled='true']
   ):focus-within {
   background-color: var(--ld-input-bg-col-invalid-focus);

@@ -36,6 +36,9 @@ src/**/components.d.ts
 src/react.js
 src/react.d.ts
 src/react-component-lib
+src/vue.js
+src/vue.d.ts
+src/vue-component-lib
 
 .husky
 .tool-versions

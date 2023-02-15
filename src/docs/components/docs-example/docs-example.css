@@ -120,7 +120,7 @@
 
   .docs-example--has-border & {
     border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
-    border-bottom: 0px;
+    border-bottom: 0;
   }
 
   .docs-example--has-padding & {

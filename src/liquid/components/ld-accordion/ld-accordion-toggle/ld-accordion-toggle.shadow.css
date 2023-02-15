@@ -71,7 +71,12 @@
     }
   }
 
-  :host(.ld-accordion-toggle:not(.ld-accordion-toggle--split):not(.ld-accordion-toggle--expanded))
+  :host(
+      .ld-accordion-toggle:not(
+          .ld-accordion-toggle--split,
+          .ld-accordion-toggle--expanded
+        )
+    )
     & {
     &:not([aria-disabled]) {
       &:where(:focus:focus-visible) {
