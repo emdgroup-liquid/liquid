@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.5](https://github.com/emdgroup-liquid/liquid/compare/v4.4.4...v4.4.5) (2023-02-15)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** custom horizontal padding support ([6e8d844](https://github.com/emdgroup-liquid/liquid/commit/6e8d84456522a906a6d4ae88e8b7a1970241b140))
+
 ## [4.4.4](https://github.com/emdgroup-liquid/liquid/compare/v4.4.3...v4.4.4) (2023-02-14)
 
 
