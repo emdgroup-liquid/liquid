@@ -34,44 +34,45 @@
     "build:bin:cli": "tsc scripts/cli.ts --moduleResolution node --target esnext --outfile bin/cli.cjs",
     "build:bin:apply_design_tokens": "tsc scripts/applyDesignTokens.ts --moduleResolution node --target esnext --outfile bin/applyDesignTokens.cjs",
     "build:copy_design_tokens": "shx cp src/liquid/global/styles/design-tokens.json dist/css/design-tokens.json",
-    "build:docs": "run-s build:docs:clean build:stencil:docs 'build:styles:docs:*' build:eleventy",
+    "build:dist:clean": "shx rm -rf dist",
+    "build:docs": "run-s build:dist:clean build:docs:clean build:stencil:docs 'build:styles:docs:*' build:eleventy",
     "build:docs:clean": "shx rm -rf dist_docs",
     "build:eleventy": "dotenv -e .env -- node ./scripts/eleventy.cjs",
     "build:patch_loader": "ts-node scripts/patchLoader.ts",
-    "build:stencil:components": "stencil build && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
-    "build:stencil:docs": "stencil build --config=stencil.config.docs.ts",
-    "build:stencil:react": "tsc -p tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",
-    "build:stencil:vue": "tsc -p tsconfig.vue.json && (shx rm src/vue.ts & shx rm -r src/vue-component-lib)",
+    "build:stencil:components": "stencil build --config=stencil.config.ts && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
+    "build:stencil:docs": "stencil build --config=config/stencil.config.docs.ts",
+    "build:stencil:react": "tsc -p config/tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",
+    "build:stencil:vue": "tsc -p config/tsconfig.vue.json && (shx rm src/vue.ts & shx rm -r src/vue-component-lib)",
     "build:styles": "run-s build:styles:liquid:globals build:styles:liquid:components",
-    "build:styles:liquid:components": "postcss 'src/liquid/components/**/*.css' --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' && bash scripts/concatStyles.sh",
-    "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --no-map -o dist/css/liquid.global.css",
-    "build:styles:docs:components": "postcss 'src/liquid/components/**/*.css' --config=postcss.config.docs.js -m -d dist_docs/css_components/",
-    "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/liquid.global.css",
-    "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=postcss.config.docs.js -m -o dist_docs/docs.css",
+    "build:styles:liquid:components": "postcss src/liquid/components/**/*.css --config=config/postcss.config.cjs --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' && bash scripts/concatStyles.sh",
+    "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --config=config/postcss.config.cjs --no-map -o dist/css/liquid.global.css",
+    "build:styles:docs:components": "postcss src/liquid/components/**/*.css --config=config/postcss.config.docs.cjs -m -d dist_docs/css_components/",
+    "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=config/postcss.config.docs.cjs -m -o dist_docs/liquid.global.css",
+    "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=config/postcss.config.docs.cjs -m -o dist_docs/docs.css",
     "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.cjs",
-    "generate": "stencil generate",
     "icons:optimise": "ts-node scripts/iconsOptimise.ts",
     "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
-    "lint:ts": "tsc --noemit -p tsconfig.docs.json",
+    "lint:ts": "tsc --noemit -p config/tsconfig.docs.json",
     "prepare": "husky install",
-    "start": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
+    "start": "run-s build:dist:clean start:watch",
+    "start:watch": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
     "start:info": "echo 'serving on http://localhost:8080'",
     "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser --no-css-inject --quiet",
-    "test": "stencil test --spec --e2e --screenshot --coverage",
+    "test": "stencil test --config=stencil.config.ts --spec --e2e --screenshot --coverage",
     "test:e2e": "run-s test:e2e:run test:e2e:cleanup",
-    "test:e2e:run": "stencil test --e2e --screenshot",
+    "test:e2e:run": "stencil test --config=stencil.config.ts --e2e --screenshot",
     "test:e2e:cleanup": "ts-node scripts/screenshots.ts rm",
-    "test:release": "semantic-release --dry-run",
-    "test:unit": "stencil test --spec --coverage",
-    "test:watch": "stencil test --spec --e2e --watchAll",
+    "test:release": "semantic-release --dry-run --extends ./config/.releaserc.cjs",
+    "test:unit": "stencil test --config=stencil.config.ts --spec --coverage",
+    "test:watch": "stencil test --config=stencil.config.ts --spec --e2e --watchAll",
     "test:compare_screenshots": "live-server --port=4000 --open=compare.html screenshot --quiet --mount=/node_modules:./node_modules --mount=/.stencil:./.stencil",
     "watch:eleventy": "dotenv -e .env -- node ./scripts/eleventy.cjs --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
     "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
-    "watch:stencil": "stencil build --docs --watch --dev --no-open --config=stencil.config.docs.ts",
+    "watch:stencil": "stencil build --config=config/stencil.config.docs.ts --docs --watch --dev --no-open",
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'yarn build:styles:docs:components'"
   },
   "dependencies": {
@@ -137,7 +138,7 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.3",
     "prettier": "^2.8.0",
-    "puppeteer": "^13.5.2",
+    "puppeteer": "^19.7.0",
     "semantic-release": "^19.0.5",
     "shx": "^0.3.4",
     "stylelint": "^14.15.0",
@@ -160,7 +161,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "commit-msg": "commitlint --config config/commitlint.config.cjs -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
       "pre-push": "validate-branch-name"
     }
@@ -197,5 +198,24 @@
   "resolutions": {
     "@stencil/react-output-target@^0.3.1": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
     "@stencil/vue-output-target@^0.6.2": "patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./config/.eslintrc.cjs"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "endOfLine": "lf",
+    "useTabs": false,
+    "printWidth": 80,
+    "semi": false
+  },
+  "stylelint": {
+    "extends": [
+      "./config/stylelint.config.cjs"
+    ]
   }
 }

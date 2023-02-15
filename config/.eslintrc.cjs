@@ -41,7 +41,7 @@ module.exports = {
       ...commonTSConfig,
       files: ['src/liquid/**/*.ts', 'src/liquid/**/*.tsx'],
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ['tsconfig.json'],
       },
     },
     {
@@ -52,7 +52,7 @@ module.exports = {
         'src/liquid/**/test/*.ts',
       ],
       parserOptions: {
-        project: ['./tsconfig.docs.json'],
+        project: ['config/tsconfig.docs.json'],
       },
     },
   ],
@@ -61,4 +61,12 @@ module.exports = {
       version: '0',
     },
   },
+  ignorePatterns: [
+    '**/bin/**/*',
+    '**/dist/**/*',
+    '**/dist_docs/**/*',
+    '**/coverage/**/*',
+    '**/components.d.ts',
+    '**/src/liquid/**/__mocks__/**/*',
+  ],
 }

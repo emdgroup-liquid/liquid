@@ -67,9 +67,6 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── .releaserc.cjs            # Config file for semantic-release.
 │                             # See https://semantic-release.gitbook.io/semantic-release/
 ├── bin                       # Contains scripts to be included in the bundle for execution with npx.
-├── Dockerfile                # You can startup your dev environment in a Docker container.
-│                             # This may come in handy for Windows users who encounter problems.
-│                             # More about this below.
 ├── commitlint.config.cjs     # We use conventional commits and semantic release.
 │                             # More about this below.
 ├── dist                      # Here is the main juice which gets published to npm.
@@ -226,7 +223,6 @@ Include details about your configuration and environment:
 * **Which browser are you using?**
 * **Which browser extensions are installed? Can you reproduce the issue in incognito mode?**
 * **What's the name and version of the OS you're using**?
-* **Are you running Liquid docs using the provided Dockerfile in a docker container?**
 * **Which other framework/libraries are you using that may be involved in the issue?** Please check https://stenciljs.com/docs/overview for possible known quirks.
 
 ### Requesting new features
@@ -276,7 +272,6 @@ need to be installed on your machine.
 3. Run `yarn build`. This step is necessary before first start up of the local dev server (it generates required type definitions within the src/liquid folder).
 4. Start up the local development server with `yarn start`.
 5. Now head over to [localhost:8080](http://localhost:8080) - you shoud see the Liquid docs site.  
-> **If you are on a Windows machine**, you might need to start up the dev environment in a Docker container due to an [unresolved issue in Stencil](https://github.com/ionic-team/stencil/issues/2319) seeing _"Component tag name must be unique"_ in your command line app. So install [Docker](https://www.docker.com/products/docker-desktop) and execute the following command once inside the project folder to build a container for your dev environment: `docker build -t liquid .` Now you can start up the dev environment inside the Docker container: `docker run -p 8080:8080 liquid` If you can not or do not want to use Docker, you can still work around the _"Component tag name must be unique"_ issue by deleting the dist folder. Note though, that it may eventually be recreated, for instance if you run tests. Alternatively you can use a [GitHub Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope) for development.
 
 ### Pull requests
 

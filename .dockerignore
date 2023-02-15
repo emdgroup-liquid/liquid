@@ -1,6 +1,0 @@
-node_modules
-.stencil
-dist
-dist_docs
-coverage
-components.d.ts

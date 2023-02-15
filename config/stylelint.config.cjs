@@ -17,7 +17,7 @@ module.exports = {
     'plugin/no-unsupported-browser-features': [
       true,
       {
-        browsers: require('./package.json').browserslist,
+        browsers: require('../package.json').browserslist,
         ignorePartialSupport: true,
         ignore: [
           'pointer',
@@ -65,4 +65,5 @@ module.exports = {
       },
     ],
   },
+  ignoreFiles: ['**/*.md', '**/*.tsx'],
 }
