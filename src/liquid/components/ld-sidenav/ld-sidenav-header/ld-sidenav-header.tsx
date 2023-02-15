@@ -164,8 +164,8 @@ export class LdSidenavHeader {
             <svg
               class="ld-sidenav-header__initial-m"
               fill="none"
-              preserveAspectRatio="xMidYMid slice"
-              viewBox="0 6 24 12"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="2 6 20 12"
             >
               <path
                 fill-rule="evenodd"

@@ -15943,6 +15943,32 @@
       "isMobile": false
     },
     {
+      "id": "6263d491",
+      "image": "04b114dd9c46cf72dc506acc7d897202.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion collapses to narrow mode with custom horizontal padding",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "3dc13b7e",
+      "image": "3c1b95947fabb4e5c59a30cf5f09fb5a.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav with accordion supports nested accordions with custom horizontal padding",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "e3446bae",
       "image": "23b0ee2c9e6c4b5889889e84d68f52c2.png",
       "userAgent": "default",

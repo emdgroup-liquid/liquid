@@ -1851,15 +1851,14 @@ The sidenav as well as its subcomponents emit different events which you can use
 
 ## CSS Variables
 
-| Variable                             | Description                                                         |
-|--------------------------------------|---------------------------------------------------------------------|
-| `--ld-sidenav-bg-color`              | Background color of the `ld-sidenav` component.                     |
-| `--ld-sidenav-closable-min-width`    | Minimum width of the `ld-sidenav` component when closable.          |
-| `--ld-sidenav-padding-x`             | Horizontal padding applied on the component and its subcomponents. |
-| `--ld-sidenav-padding-y`             | Vertical padding applied on the component and its subcomponents.   |
-| `--ld-sidenav-transition-duration`   | Transition duration for all sidenav specific transitions.           |
-| `--ld-sidenav-width`                 | Width of the `ld-sidenav` component.                                |
-| `--ld-sidenav-width-collapsed`       | Width of the `ld-sidenav` component when collapsed.                 |
+| Variable                                  | Description                                                         |
+|-------------------------------------------|---------------------------------------------------------------------|
+| `--ld-sidenav-bg-color`                   | Background color of the `ld-sidenav` component.                     |
+| `--ld-sidenav-padding-x`                  | Horizontal padding applied on the component and its subcomponents.  |
+| `--ld-sidenav-padding-y`                  | Vertical padding applied on the component and its subcomponents.    |
+| `--ld-sidenav-transition-duration`        | Transition duration for all sidenav specific transitions.           |
+| `--ld-sidenav-width`                      | Width of the `ld-sidenav` component.                                |
+| `--ld-sidenav-width-collapsed` _readonly_ | Width of the `ld-sidenav` component when collapsed.                 |
 
 <!-- Auto Generated Below -->
 
