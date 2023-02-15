@@ -6,7 +6,5 @@
     "outDir": "../dist"
   },
   "include": ["../src/react.ts"],
-  "exclude": [
-    "../node_modules"
-  ]
+  "exclude": ["../node_modules", "../bin", "../dist", "../src/components.d.ts", "../src/liquid/**/__mocks__"]
 }

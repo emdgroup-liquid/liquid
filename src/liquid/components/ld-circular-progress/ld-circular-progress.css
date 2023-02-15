@@ -16,6 +16,7 @@
   --ld-circular-progress-circle-bg-col-overflow: var(
     --ld-circular-progress-bg-col-overflow
   );
+  /* stylelint-disable-next-line number-max-precision */
   --ld-circular-progress-pi: 3.141592653589793;
   --ld-circular-progress-wht-overlay-col: var(--ld-col-wht-alpha-high);
 
@@ -75,10 +76,10 @@
   }
 
   &::after {
-    box-shadow: inset 0px 0px 0px
+    box-shadow: inset 0 0 0
         calc(var(--ld-circular-progress-has-overflow) * 99rem)
         var(--ld-circular-progress-wht-overlay-col),
-      inset 0px 0px 0px calc(var(--ld-circular-progress-has-overflow) * 99rem)
+      inset 0 0 0 calc(var(--ld-circular-progress-has-overflow) * 99rem)
         var(--ld-circular-progress-bg-col-overflow);
     opacity: var(--ld-circular-progress-has-overflow);
     position: absolute;

@@ -23,7 +23,7 @@
       transform: translateY(
         var(
           --ld-sidenav-navitem-move-up-closable,
-          var(--ld-sidenav-navitem-move-up, 0px)
+          var(--ld-sidenav-navitem-move-up, 0)
         )
       );
       transition: var(--ld-sidenav-stack-to-top-transition);

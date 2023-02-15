@@ -9,7 +9,9 @@
     visibility: hidden;
   }
 
-  ::slotted(:where(:not(ld-sidenav-separator):not(ld-sidenav-navitem):not(ld-sidenav-subnav))) {
+  ::slotted(
+      :where(:not(ld-sidenav-separator, ld-sidenav-navitem, ld-sidenav-subnav))
+    ) {
     margin-bottom: var(--ld-sidenav-padding-y);
     transition: var(--ld-sidenav-collapse-content-transition);
     will-change: opacity, transform; /* fixes flickering on slide */

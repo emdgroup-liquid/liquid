@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['stylelint-config-recommended', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-standard'],
   plugins: [
     'stylelint-declaration-strict-value',
     'stylelint-high-performance-animation',
@@ -7,13 +7,26 @@ module.exports = {
     'stylelint-use-nesting',
   ],
   rules: {
+    'rule-empty-line-before': null,
+    'value-keyword-case': null,
+    'font-family-name-quotes': null,
+    'import-notation': null,
+    'color-function-notation': null,
+    'alpha-value-notation': null,
+    'selector-class-pattern': null,
+    'function-url-quotes': null,
+    'declaration-empty-line-before': null,
+    'value-no-vendor-prefix': null,
+    'property-no-vendor-prefix': null,
+    'custom-property-empty-line-before': null,
+    'at-rule-empty-line-before': null,
+    'comment-empty-line-before': null,
     'block-no-empty': true,
     'color-hex-length': 'long',
     'color-no-invalid-hex': true,
     'csstools/use-nesting': true,
     'no-descending-specificity': null,
     'no-empty-source': null,
-    'declaration-block-trailing-semicolon': null,
     'plugin/no-unsupported-browser-features': [
       true,
       {

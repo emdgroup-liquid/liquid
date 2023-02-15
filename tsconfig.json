@@ -20,5 +20,5 @@
     "typeRoots": ["./src/types", "./node_modules/@types"]
   },
   "include": ["./src/liquid", "./src/types"],
-  "exclude": ["node_modules", "bin", "dist", "./src/liquid/**/__mocks__", "./src/react.ts"]
+  "exclude": ["node_modules", "bin", "dist", "./src/components.d.ts", "./src/liquid/**/__mocks__", "./src/react.ts", "./src/vue.ts"]
 }

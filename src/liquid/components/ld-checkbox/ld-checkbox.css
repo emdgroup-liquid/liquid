@@ -90,7 +90,7 @@
       }
     }
 
-    &:where(:not(:disabled):not([aria-disabled='true'])) {
+    &:where(:not(:disabled, [aria-disabled='true'])) {
       cursor: pointer;
 
       ~ .ld-checkbox__check {
@@ -146,7 +146,7 @@
     }
   }
 
-  :where(input:not(:disabled):not(input[aria-disabled='true'])) {
+  :where(input:not(:disabled, input[aria-disabled='true'])) {
     ~ .ld-checkbox__box {
       background-color: var(--ld-checkbox-bg-col);
     }
@@ -175,7 +175,7 @@
 .ld-checkbox.ld-checkbox--dark,
 :host(.ld-checkbox.ld-checkbox--dark) {
   :where(input) {
-    &:not(:disabled):not(input[aria-disabled='true']):not(:checked) {
+    &:not(:disabled, input[aria-disabled='true'], :checked) {
       ~ .ld-checkbox__box {
         background-color: var(--ld-checkbox-dark-bg-col);
       }
