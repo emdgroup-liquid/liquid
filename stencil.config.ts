@@ -41,7 +41,7 @@ export const config: Config = {
   plugins: [postcss(postcssConfig)],
   testing: {
     allowableMismatchedRatio: 0.01,
-    setupFiles: ['./jest.setup.js'],
+    setupFiles: ['./config/jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
     timers: 'legacy',
     // browserHeadless: false,
