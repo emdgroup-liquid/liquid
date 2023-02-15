@@ -99,7 +99,7 @@
   margin-top: 0;
   margin-bottom: 0;
   position: absolute;
-  width: calc(100% - 2 * var(--ld-sidenav-padding-y));
+  width: calc(100% - 2 * var(--ld-sidenav-padding-x));
 }
 
 .ld-sidenav-scroller-internal__hr-top {

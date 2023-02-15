@@ -800,6 +800,35 @@ describe('ld-sidenav', () => {
       expect(result2).toMatchScreenshot()
     })
 
+    it('supports nested accordions with custom horizontal padding', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+          style: '--ld-sidenav-padding-x: 2rem',
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Space')
+      await page.waitForChanges()
+
+      await page.keyboard.press('Tab')
+      await page.keyboard.press('Space')
+      await page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
     it('collapses to narrow mode', async () => {
       const page = await getPageWithContent(
         getSidenavWithAccordion({
@@ -807,6 +836,26 @@ describe('ld-sidenav', () => {
           collapsible: true,
           collapsed: true,
           narrow: true,
+        })
+      )
+      await page.emulateMediaFeatures([
+        { name: 'prefers-reduced-motion', value: 'reduce' },
+      ])
+      page.waitForChanges()
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('collapses to narrow mode with custom horizontal padding', async () => {
+      const page = await getPageWithContent(
+        getSidenavWithAccordion({
+          currentSubnav: 'artificial-intelligence',
+          collapsible: true,
+          collapsed: true,
+          narrow: true,
+          style: '--ld-sidenav-padding-x: 2rem',
         })
       )
       await page.emulateMediaFeatures([

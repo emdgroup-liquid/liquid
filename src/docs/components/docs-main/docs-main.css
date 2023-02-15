@@ -538,6 +538,9 @@
 [id^='properties'] + table::after {
   content: '* required';
 }
+[id^='css-variables'] + table::after {
+  content: '* readonly';
+}
 
 [id^='slots'],
 [id^='events'],

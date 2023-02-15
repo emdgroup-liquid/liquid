@@ -316,7 +316,11 @@
   position: absolute;
   z-index: 1;
 
-  :host(.ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(.ld-sidenav--closable))
+  :host(
+      .ld-sidenav--collapsed.ld-sidenav--fully-collapsible:not(
+          .ld-sidenav--closable
+        )
+    )
     & {
     display: block;
   }

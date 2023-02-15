@@ -337,6 +337,7 @@ export function getSidenavWithAccordion(options?: {
   neutral?: boolean
   preserveAccordionState?: boolean
   roundedBackButton?: boolean
+  style?: string
 }) {
   const preserveAccordionStateProp =
     options.preserveAccordionState === undefined ||
@@ -354,7 +355,7 @@ export function getSidenavWithAccordion(options?: {
     options?.collapsed ? ' collapsed' : ''
   }${options?.narrow ? ' narrow' : ''}${options?.neutral ? ' neutral' : ''}${
     options?.align ? ' align="' + options.align + '"' : ''
-  }>
+  }${options.style ? ' style="' + options.style + '"' : ''}>
       <ld-sidenav-header href="#" slot="header">Computer Science</ld-sidenav-header>
       <ld-sidenav-back slot="top">
         <ld-sidenav-navitem ${

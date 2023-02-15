@@ -42,7 +42,8 @@
   user-select: none;
   touch-action: manipulation;
   color: var(--ld-sidenav-navitem-col);
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--ld-sidenav-navitem-icon-size) 1fr auto;
   align-items: center;
   box-sizing: border-box;
   padding: 0;
@@ -51,7 +52,9 @@
   outline: none;
   -webkit-touch-callout: none;
 
-  &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary):not(.ld-sidenav-navitem--in-accordion) {
+  &:not(.ld-sidenav-navitem--secondary):not(.ld-sidenav-navitem--tertiary):not(
+      .ld-sidenav-navitem--in-accordion
+    ) {
     transition: var(--ld-sidenav-stack-to-top-transition);
     transform: translateY(
       var(
@@ -169,6 +172,9 @@
   }
 
   &--tertiary {
+    grid-template-columns: calc(
+        var(--ld-sidenav-navitem-icon-size) - var(--ld-sp-8)
+      ) 1fr auto;
     margin-left: var(--ld-sidenav-navitem-tertiary-indent);
     width: var(--ld-sidenav-navitem-tertiary-width);
     gap: 0;

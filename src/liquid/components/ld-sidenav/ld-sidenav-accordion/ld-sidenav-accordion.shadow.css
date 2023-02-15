@@ -12,9 +12,7 @@
   --ld-accordion-toggle-indicator-bg-col-focus: var(--ld-thm-primary-focus);
   --ld-accordion-toggle-size: var(--ld-sidenav-navitem-icon-size);
 
-  --ld-sidenav-navitem-tertiary-indent: calc(
-    2 * var(--ld-sidenav-padding-x) + 0.3125rem
-  );
+  --ld-sidenav-navitem-tertiary-indent: calc(2 * var(--ld-sp-16) + 0.3125rem);
 
   transform: translateY(
     var(
@@ -84,7 +82,7 @@
       --ld-sidenav-accordion-bg-col-hover,
       var(--ld-col-neutral-050)
     );
-    right: var(--ld-sp-16);
+    right: var(--ld-sidenav-padding-x);
     pointer-events: none;
     border-radius: var(--ld-sidenav-navitem-border-radius);
     outline: none;
