@@ -19,6 +19,6 @@
     "target": "es2017",
     "typeRoots": ["./src/types", "./node_modules/@types"]
   },
-  "include": ["./src/liquid", "./src/types", "./globals.d.ts"],
-  "exclude": ["node_modules", "bin", "./src/liquid/**/__mocks__", "./src/react.ts"]
+  "include": ["./src/liquid", "./src/types"],
+  "exclude": ["node_modules", "bin", "dist", "./src/liquid/**/__mocks__", "./src/react.ts"]
 }

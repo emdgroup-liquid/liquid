@@ -138,7 +138,7 @@ jobs:
 
       - name: Semantic Release
         if: success()
-        run: yarn semantic-release
+        run: yarn semantic-release --extends ./config/.releaserc.cjs
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

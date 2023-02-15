@@ -1,9 +1,0 @@
-.github
-.stencil
-bin
-coverage
-dist
-dist_docs
-node_modules
-screenshot
-scripts

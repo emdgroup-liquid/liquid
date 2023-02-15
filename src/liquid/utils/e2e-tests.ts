@@ -3,7 +3,6 @@ import { resolve } from 'path'
 import { realpathSync } from 'fs'
 import * as axe from 'axe-core'
 import { printReceived } from 'jest-matcher-utils'
-import { JSONObject } from 'puppeteer'
 
 jest.useRealTimers()
 
@@ -141,8 +140,8 @@ export const analyzeAccessibility = async (
       }
       return axe.run(axeOptions)
     },
-    options as JSONObject,
-    config.spec as JSONObject
+    options,
+    config.spec
   )
 }
 

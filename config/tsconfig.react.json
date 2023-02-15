@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "jsxFactory": "React.createElement",
+    "outDir": "../dist"
+  },
+  "include": ["../src/react.ts"],
+  "exclude": [
+    "../node_modules"
+  ]
+}

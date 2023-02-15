@@ -9,6 +9,16 @@ const cheerio = require('cheerio')
 const memoize = require('lodash.memoize')
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.ignores.add('.github')
+  eleventyConfig.ignores.add('.stencil')
+  eleventyConfig.ignores.add('bin')
+  eleventyConfig.ignores.add('coverage')
+  eleventyConfig.ignores.add('dist')
+  eleventyConfig.ignores.add('dist_docs')
+  eleventyConfig.ignores.add('node_modules')
+  eleventyConfig.ignores.add('screenshot')
+  eleventyConfig.ignores.add('scripts')
+
   const buildstamp = process.env.MODE === 'gh_pages' ? Date.now() + '/' : ''
   eleventyConfig.addGlobalData('buildstamp', buildstamp)
 

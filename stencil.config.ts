@@ -2,7 +2,7 @@ import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
 import { reactOutputTarget } from '@stencil/react-output-target'
 import { vueOutputTarget } from '@stencil/vue-output-target'
-import postcssConfig from './postcss.config.cjs'
+import postcssConfig from './config/postcss.config.cjs'
 
 export const config: Config = {
   namespace: 'liquid',
