@@ -15,7 +15,8 @@ log.txt
 
 .stencil/
 .idea/
-.vscode/
+.vscode/*
+!.vscode/launch.json
 .sass-cache/
 .versions/
 .yarn/*
