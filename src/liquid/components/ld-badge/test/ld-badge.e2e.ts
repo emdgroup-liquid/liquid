@@ -1,7 +1,7 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from 'src/liquid/utils/e2e-tests'
+} from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdBadge } from '../ld-badge'
 

@@ -11,7 +11,7 @@ import {
   Watch,
   Method,
 } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 
 const findClosest = (items: number[], currValue: number) =>
   items.length

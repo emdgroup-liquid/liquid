@@ -8,7 +8,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../../utils/getClassNames'
 import { isInnerFocusable } from '../../../utils/focus'
 
 /**

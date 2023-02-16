@@ -1,5 +1,5 @@
 import { Component, Element, h, Method, Prop, State } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { registerAutofocus } from '../../utils/focus'
 

@@ -9,7 +9,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 import { SelectedDetail } from './ld-step/ld-step'
 
 /**

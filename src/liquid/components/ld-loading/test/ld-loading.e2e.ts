@@ -1,4 +1,4 @@
-import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
+import { getPageWithContent } from '../../../utils/e2e-tests'
 import { LdLoading } from '../ld-loading'
 
 describe('ld-loading', () => {

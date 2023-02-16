@@ -1,6 +1,6 @@
 import { h } from '@stencil/core'
 import { newSpecPage } from '@stencil/core/testing'
-import { LdIcon } from 'src/liquid/components/ld-icon/ld-icon'
+import { LdIcon } from '../../../ld-icon/ld-icon'
 import { LdStep } from '../ld-step'
 import '../../../../utils/mutationObserver'
 

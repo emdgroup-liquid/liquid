@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element, Watch } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @slot end - Items on the right side of the header.

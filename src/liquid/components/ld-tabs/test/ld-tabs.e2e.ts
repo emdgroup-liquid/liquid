@@ -1,4 +1,4 @@
-import { getPageWithContent } from 'src/liquid/utils/e2e-tests'
+import { getPageWithContent } from '../../../utils/e2e-tests'
 
 const rounded = ['all', 'all-lg', 'top', 'top-lg']
 

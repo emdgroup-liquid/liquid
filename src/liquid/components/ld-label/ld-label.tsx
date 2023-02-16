@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State } from '@stencil/core'
 import { cloneAttributes } from '../../utils/cloneAttributes'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component
