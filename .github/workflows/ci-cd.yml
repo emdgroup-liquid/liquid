@@ -1,13 +1,15 @@
 name: CI/CD
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - rc
+  pull_request:
 
 jobs:
   test:
     name: Test with Node v${{ matrix.node }}
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.head_ref || github.ref_name }}
-      cancel-in-progress: true
     strategy:
       matrix:
         node: [18]
