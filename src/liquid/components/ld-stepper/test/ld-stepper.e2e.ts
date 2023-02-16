@@ -1,7 +1,7 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from 'src/liquid/utils/e2e-tests'
+} from '../../../utils/e2e-tests'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdSrOnly } from '../../ld-sr-only/ld-sr-only'
 import { LdStep } from '../ld-step/ld-step'

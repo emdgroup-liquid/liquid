@@ -55,7 +55,7 @@
     "lint:styles": "stylelint ./src/**/*css",
     "lint:ts": "tsc --noemit -p config/tsconfig.docs.json",
     "prepare": "husky install",
-    "start": "run-s build:dist:clean start:watch",
+    "start": "run-s start:watch",
     "start:watch": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
     "start:info": "echo 'serving on http://localhost:8080'",
     "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser --no-css-inject --quiet",

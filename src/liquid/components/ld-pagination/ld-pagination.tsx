@@ -8,7 +8,7 @@ import {
   Watch,
   State,
 } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 
 const BUFFER_SIZE = 20
 

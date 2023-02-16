@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop } from '@stencil/core'
-import { getClassNames } from 'src/liquid/utils/getClassNames'
+import { getClassNames } from '../../utils/getClassNames'
 
 /**
  * @virtualProp ref - reference to component

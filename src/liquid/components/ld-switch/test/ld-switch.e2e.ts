@@ -1,7 +1,7 @@
 import {
   analyzeAccessibility,
   getPageWithContent,
-} from 'src/liquid/utils/e2e-tests'
+} from '../../../utils/e2e-tests'
 import { LdSwitch } from '../ld-switch'
 import { LdSwitchItem } from '../ld-switch-item/ld-switch-item'
 import { LdIcon } from '../../ld-icon/ld-icon'
