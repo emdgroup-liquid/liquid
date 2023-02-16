@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "test e2e",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/node_modules/.bin/stencil",
+      "args": ["test", "--screenshot", "--e2e", "${relativeFile}"]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "delete screenshots",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/node_modules/.bin/ts-node",
+      "args": [
+        "scripts/screenshots.ts",
+        "rm",
+        "-c",
+        "${fileBasenameNoExtension}"
+      ]
+    }
+  ]
+}

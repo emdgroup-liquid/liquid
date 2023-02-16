@@ -49,67 +49,73 @@ This project consists of different parts and pieces, each with its own purpose. 
 .
 ├── README.md
 ├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md           # You are looking at it.
+├── CONTRIBUTING.md               # You are looking at it.
 ├── LICENSE.md
-├── .eleventy.cjs             # Liquid's docs site is powered by 11ty. See https://www.11ty.dev/
-├── .eleventyignore           # We only want docs to be generate for the src folder, so we ignore
-│                             # everything else using this file.
-├── .env                      # The .env file is not under version control. It contains sensitive
-│                             # data, such as credentials used to authenticate oneself against
-│                             # an API. We currenly do this for fetching design tokens from Figma.
-├── .eslintrc.cjs             # eslint is used for linting ts and tsx files. Please make sure to
-│                             # enable eslint in your code editor of choice.
+├── package.json                  # Please have a look at the scripts section inside the package.json file.
+│                                 # You can also run `npm run` to get a list of all available commands.
+├── .devcontainer
+│   └── devcontainer.json         # GitHub codespaces dev container configuration.
 ├── .github
-│   └── workflows/ci-cd.yml   # CI/CD pipeline config file.
-├── .npmignore                # The .npmignore file is used to keep package size to a minimum.
-├── .prettierrc.json          # prettier ensures a consistent code style. Please make sure to
-│                             # enable prettier in your code editor of choice.
-├── .releaserc.cjs            # Config file for semantic-release.
-│                             # See https://semantic-release.gitbook.io/semantic-release/
-├── bin                       # Contains scripts to be included in the bundle for execution with npx.
-├── commitlint.config.cjs     # We use conventional commits and semantic release.
-│                             # More about this below.
-├── dist                      # Here is the main juice which gets published to npm.
-├── dist_docs                 # This folder is served during development. It contains the docs site
-│                             # as well as the necessary liquid distribution.
-├── package.json              # Please have a look at the scripts section inside the package.json file.
-│                             # You can also run `npm run` to get a list of all available commands.
-├── postcss.config.docs.cjs   # PostCSS config file for the docs site CSS processing.
-├── postcss.config.cjs        # PostCSS config file for Liquid CSS processing.
-├── screenshot                # This directory contains files related to visual regression testing
-│                             # with Stencil. See https://stenciljs.com/docs/screenshot-visual-diff
-├── scripts                   # Contains bash or node script files executed via npm script commands.
-├── src                       # Well, that's the source folder. You probably guessed it.
-│   ├── _data                 # This folder contains data files. See https://www.11ty.dev/docs/data-global/
-│   │   └── env.cjs           # Environment variables injected during generation of the docs site.
-│   ├── docs                  # Everything inside this folder is for developing the docs site.
-│   │   ├── assets            # Static assets for the docs page reside here.
-│   │   ├── components        # Docs components live here.
-│   │   ├── global            # Docs global styles live here.
+│   └── workflows/ci-cd.yml       # CI/CD pipeline config file.
+├── .vscode
+│   └── launch.json               # Launch configurations for Visual Studio Code.
+├── .env                          # The .env file is not under version control. It contains sensitive
+│                                 # data, such as credentials used to authenticate oneself against
+│                                 # an API. We currenly do this for fetching design tokens from Figma.
+├── bin                           # Contains scripts to be included in the bundle for execution with npx.
+├── config                        # Folder containing all sorts of configuration files.
+│   ├── .eleventy.cjs             # Liquid's docs site is powered by 11ty. See https://www.11ty.dev/
+│   ├── .eslintrc.cjs             # eslint is used for linting ts and tsx files. Please make sure to
+│   │                             # enable eslint in your code editor of choice.
+│   ├── .prettierrc.json          # prettier ensures a consistent code style. Please make sure to
+│   │                             # enable prettier in your code editor of choice.
+│   ├── .releaserc.cjs            # Config file for semantic-release.
+│   │                             # See https://semantic-release.gitbook.io/semantic-release/
+│   ├── commitlint.config.cjs     # We use conventional commits and semantic release.
+│   ├── postcss.config.docs.cjs   # PostCSS config file for the docs site CSS processing.
+│   ├── postcss.config.cjs        # PostCSS config file for Liquid CSS processing.
+│   ├── stencil.config.docs.ts    # Stencil config file for the docs site.
+│   ├── stylelint.config.cjs      # Stylelint config file. See section about linting further below.
+│   ├── tsconfig.docs.json        # Typescript config file for components used for the docs site.
+│   ├── tsconfig.react.json       # Typescript config file for react component bindings.
+│   └── tsconfig.vue.json         # Typescript config file for vue component bindings.
+├── .npmignore                    # The .npmignore file is used to keep package size to a minimum.
+│                                 # More about this below.
+├── dist                          # Here is the main juice which gets published to npm.
+├── dist_docs                     # This folder is served during development. It contains the docs site
+│                                 # as well as the necessary liquid distribution.
+├── screenshot                    # This directory contains files related to visual regression testing
+│                                 # with Stencil. See https://stenciljs.com/docs/screenshot-visual-diff
+├── scripts                       # Contains bash or node script files executed via npm script commands.
+├── src                           # Well, that's the source folder. You probably guessed it.
+│   ├── _data                     # This folder contains data files. See https://www.11ty.dev/docs/data-global/
+│   │   └── env.cjs               # Environment variables injected during generation of the docs site.
+│   ├── docs                      # Everything inside this folder is for developing the docs site.
+│   │   ├── assets                # Static assets for the docs page reside here.
+│   │   ├── components            # Docs components live here.
+│   │   ├── global                # Docs global styles live here.
 │   │   ├── includes
-│   │   │  ├── layout.njk     # The docs site is powered by 11ty. This is the default
-│   │   │  │                  # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
-│   │   │  └── redirect.njk   # This layout file handles redirects on pages behind authentication.
-│   │   ├── layouts           # There is one layout component which lives inside this folder.
-│   │   ├── pages             # This folder contains markdown files for general documentation pages, 
-│   │   │                     # legal stuff and the 404 page.
-│   │   └── utils             # Docs util files shared by the docs components live here.
-│   └── liquid                # Everything inside this folder is for developing Liquid components.
-│       ├── components        # This folder contains all Liquid components including tests and docs.
-│       ├── global            # Here we have global styles. Mainly CSS custom properties, such as
-│       │                     # variables for colors, theming, typography, spacings, shadows etc.
-│       │                     # Note that most of these files are auto-generated using design tokens.
-│       └── utils             # Contains utilities shared between components.
-├── stencil.config.docs.ts    # Stencil config file for the docs site.
-├── stencil.config.ts         # Stencil config file for Liquid components.
-├── stylelint.config.cjs      # Stylelint config file. See section about linting further below.
-├── tsconfig.docs.json        # Typescript config file for components used for the docs site.
-├── tsconfig.json             # Typescript config file for Liquid components.
-└── yarn.lock                 # Oh, yes, we use yarn.
+│   │   │  ├── layout.njk         # The docs site is powered by 11ty. This is the default
+│   │   │  │                      # 11ty layout file for the docs site. See https://www.11ty.dev/docs/layouts/
+│   │   │  └── redirect.njk       # This layout file handles redirects on pages behind authentication.
+│   │   ├── layouts               # There is one layout component which lives inside this folder.
+│   │   ├── pages                 # This folder contains markdown files for general documentation pages,
+│   │   │                         # legal stuff and the 404 page.
+│   │   └── utils                 # Docs util files shared by the docs components live here.
+│   └── liquid                    # Everything inside this folder is for developing Liquid components.
+│       ├── components            # This folder contains all Liquid components including tests and docs.
+│       ├── global                # Here we have global styles. Mainly CSS custom properties, such as
+│       │                         # variables for colors, theming, typography, spacings, shadows etc.
+│       │                         # Note that most of these files are auto-generated using design tokens.
+│       └── utils                 # Contains utilities shared between components.
+├── stencil.config.ts             # Stencil config file for Liquid components.
+├── tsconfig.json                 # Typescript config file for Liquid components.
+├── yarn.lock                     # Oh, yes, we use yarn.
+└── .yarnrc.yml                   # The yarn configuration file (only necessary in CI environment).
 ```
 
 That's all. As you can see, Liquid currenly has a straight forward project structure:
-One repo, one package.json, no workspaces, no learna, just two folders inside ./src/, one for the docs site and another for the components.
+One repo, one package.json, no workspaces, no learna, just two main directories inside the `src/` folder, `src/docs/` for the docs site and `src/liquid/` for the component library.
 
 ### Conventions
 
