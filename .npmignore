@@ -13,8 +13,6 @@ src
 .env
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
-config/stencil.config.docs.ts
 stencil.config.ts
-config/tsconfig.docs.json
 tsconfig.json
 yarn.lock
