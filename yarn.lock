@@ -4345,10 +4345,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001450":
+"caniuse-lite@npm:^1.0.30001449":
   version: 1.0.30001452
   resolution: "caniuse-lite@npm:1.0.30001452"
   checksum: de02aad7b71112409f30de53e8080bef0fe612ed95bba8b14fb830f59683e8caabc27bdd520563686965be77f2cb56e239e44b920144630b91d7fe9911ba8ad5
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001451":
+  version: 1.0.30001456
+  resolution: "caniuse-lite@npm:1.0.30001456"
+  checksum: c2cc479962149abd09a25b64699ee7484d9c433db2bad0a489f7b51b09a463c991f6efd7b8e201bc1a1ccf3294263f88503a3adf0a57db9046939ee7e58b76a6
   languageName: node
   linkType: hard
 
@@ -5002,13 +5009,6 @@ __metadata:
   version: 0.1.1
   resolution: "copy-descriptor@npm:0.1.1"
   checksum: d4b7b57b14f1d256bb9aa0b479241048afd7f5bcf22035fc7b94e8af757adeae247ea23c1a774fe44869fd5694efba4a969b88d966766c5245fdee59837fe45b
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.27.2":
-  version: 3.28.0
-  resolution: "core-js@npm:3.28.0"
-  checksum: 3155fd0ec16d0089106b145e9595280a4ea4bde0d7ff26aa14364cd4f1c203baf6620c3025acd284f363d08b9f21104101692766ca9a36ffeee7307bdf3e1881
   languageName: node
   linkType: hard
 
@@ -6344,20 +6344,19 @@ cors@latest:
   linkType: hard
 
 "eslint-plugin-compat@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "eslint-plugin-compat@npm:4.1.1"
+  version: 4.1.2
+  resolution: "eslint-plugin-compat@npm:4.1.2"
   dependencies:
     "@mdn/browser-compat-data": ^5.2.34
     ast-metadata-inferer: ^0.7.0
     browserslist: ^4.21.5
-    caniuse-lite: ^1.0.30001450
-    core-js: ^3.27.2
+    caniuse-lite: ^1.0.30001451
     find-up: ^5.0.0
     lodash.memoize: 4.1.2
     semver: 7.3.8
   peerDependencies:
     eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 1cfbb5285d4690af255567a5009f161ed26586d46ed2faaac3fb62f4923e8cac3b5214cd89ffd63b80753fa513c2897d3cbc30c617fc46c28be39816a3afd6cc
+  checksum: 385c29d7392ce161cf24bb118fa98f45a817106fbb131919be03c4b332c0e2baa4609e57ee182cb1c26a788d6030569a08a1598561014fe0a2fa648c11502de2
   languageName: node
   linkType: hard
 
