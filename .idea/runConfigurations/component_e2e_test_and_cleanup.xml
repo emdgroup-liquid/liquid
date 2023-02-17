@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="component-e2e_test_and_cleanup" type="NodeJSConfigurationType" application-parameters="scripts/screenshots.ts rm" path-to-js-file="node_modules/.bin/ts-node" working-dir="$PROJECT_DIR$">
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="false" run_configuration_name="component-e2e_test" run_configuration_type="NodeJSConfigurationType" />
+    </method>
+  </configuration>
+</component>

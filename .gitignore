@@ -14,7 +14,12 @@ log.txt
 *.sublime-workspace
 
 .stencil/
-.idea/
+.idea/*
+!.idea/jsLinters/
+!.idea/runConfigurations/
+!.idea/prettier.xml
+!.idea/eslint.xml
+!.idea/liquid.iml
 .vscode/*
 !.vscode/launch.json
 .sass-cache/

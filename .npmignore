@@ -3,6 +3,7 @@
 .husky
 .stencil
 .vscode
+.idea
 .yarn
 config
 coverage
@@ -16,3 +17,4 @@ CONTRIBUTING.md
 stencil.config.ts
 tsconfig.json
 yarn.lock
+.yarnrc.yml
