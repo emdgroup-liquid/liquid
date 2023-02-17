@@ -22,7 +22,9 @@ async function ensureWriteFile(path, data, options) {
 }
 
 function pxToRem(px: string | number) {
-  return parseInt(px + '') / 16 + 'rem'
+  const val = parseInt(px + '') / 16
+  if (!val) return '0'
+  return val + 'rem'
 }
 
 function getColorTokenValue(variant, styles) {

@@ -148,10 +148,10 @@
     }
   },
   "shadows": {
-    "stacked": "0rem 0.0625rem 0.25rem rgba(15, 26, 46, 0.15), 0rem 0rem 0.0625rem rgba(15, 26, 46, 0.15)",
-    "sticky": "0rem 0rem 0.25rem rgba(15, 26, 46, 0.15), 0rem 0.5rem 0.75rem rgba(15, 26, 46, 0.15)",
-    "hover": "0rem 0rem 0.25rem rgba(15, 26, 46, 0.15), 0rem 1rem 2rem rgba(15, 26, 46, 0.15)",
-    "active": "0rem 0rem 0.25rem rgba(15, 26, 46, 0.15), 0rem 1.5rem 2.5rem rgba(15, 26, 46, 0.15)"
+    "stacked": "0 0.0625rem 0.25rem rgba(15, 26, 46, 0.15), 0 0 0.0625rem rgba(15, 26, 46, 0.15)",
+    "sticky": "0 0 0.25rem rgba(15, 26, 46, 0.15), 0 0.5rem 0.75rem rgba(15, 26, 46, 0.15)",
+    "hover": "0 0 0.25rem rgba(15, 26, 46, 0.15), 0 1rem 2rem rgba(15, 26, 46, 0.15)",
+    "active": "0 0 0.25rem rgba(15, 26, 46, 0.15), 0 1.5rem 2.5rem rgba(15, 26, 46, 0.15)"
   },
   "spacings": {
     "1": "0.0625rem",
