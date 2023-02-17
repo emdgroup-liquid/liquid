@@ -1,2 +1,0 @@
-import{r as t,h as o}from"./p-e55ca1f2.js";const s=":host{display:contents}";const r=class{constructor(o){t(this,o)}render(){return o("tfoot",{class:"ld-table-foot",part:"tfoot"},o("slot",null))}};r.style=s;export{r as ld_table_foot};
-//# sourceMappingURL=p-24a481ea.entry.js.map
