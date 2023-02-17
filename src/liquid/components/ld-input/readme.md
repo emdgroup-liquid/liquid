@@ -207,7 +207,7 @@ Triggerts associated keyboard in supporting browsers and devices with dynamic ke
 
 If you are using the `ld-input` component within a `form` and are posting the form, there is no need to access the selected files and the underlying data, because they are submitted as part of the form data automatically.
 
-However, if you want to compose the form data yourself or want to read the files on the client side, you can do so using the `ldinputfile` or `ldchangefile` events.
+However, if you want to compose the form data yourself or want to read the files on the client side, you can do so using the _readonly_ `files` prop.
 
 {% example %}
 <ld-input
@@ -219,9 +219,9 @@ However, if you want to compose the form data yourself or want to read the files
 <script>
   ;(() => {
     const ldInput = document.currentScript.previousElementSibling
-    ldInput.addEventListener('ldchangefile', async (ev) => {
-      const files = ev.detail // as FileList
-      if (!files.length) return
+    ldInput.addEventListener('ldchange', async (ev) => {
+      const files = ev.target.files
+      if (!files || !files.length) return
 
       // Read the file on the client side.
       const fileReader = new FileReader()
@@ -259,9 +259,9 @@ However, if you want to compose the form data yourself or want to read the files
   placeholder="Your profile picture"
   type="file"
   accept="image/png, image/jpeg"
-  onLdchangefile={async (ev) => {
-    const files = ev.detail
-    if (!files.length) return
+  onLdchange={async (ev) => {
+    const files = ev.target.files
+    if (!files || !files.length) return
 
     // Read the file on the client side.
     const fileReader = new FileReader()
@@ -915,6 +915,7 @@ understanding on how they can be used together.
 | `cols`         | `cols`         | The number of columns.                                                                                                | `number`                                         | `undefined` |
 | `dirname`      | `dirname`      | Name of form field to use for sending the element's directionality in form submission.                                | `string`                                         | `undefined` |
 | `disabled`     | `disabled`     | Whether the form control is disabled.                                                                                 | `boolean`                                        | `undefined` |
+| `files`        | `files`        | Selected files for ld-input with type file (readonly).                                                                | `FileList \| undefined`                          | `undefined` |
 | `form`         | `form`         | Associates the control with a form element.                                                                           | `string`                                         | `undefined` |
 | `invalid`      | `invalid`      | Set this property to `true` in order to mark the field visually as invalid.                                           | `boolean`                                        | `undefined` |
 | `key`          | `key`          | for tracking the node's identity when working with lists                                                              | `string \| number`                               | `undefined` |
@@ -943,10 +944,10 @@ understanding on how they can be used together.
 
 ## Events
 
-| Event      | Description                                                       | Type                              |
-| ---------- | ----------------------------------------------------------------- | --------------------------------- |
-| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<FileList \| string>` |
-| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<FileList \| string>` |
+| Event      | Description                                                       | Type                  |
+| ---------- | ----------------------------------------------------------------- | --------------------- |
+| `ldchange` | Emitted when the input value changed and the element loses focus. | `CustomEvent<string>` |
+| `ldinput`  | Emitted when the input value changed.                             | `CustomEvent<string>` |
 
 
 ## Methods

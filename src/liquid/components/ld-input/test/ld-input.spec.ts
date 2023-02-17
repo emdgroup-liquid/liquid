@@ -105,7 +105,7 @@ describe('ld-input', () => {
     expect(ldchangeHandler).toHaveBeenCalledTimes(1)
   })
 
-  it('emits ldchange event with file list', async () => {
+  it('allows accessing files via readonly files prop', async () => {
     const page = await newSpecPage({
       components: [LdInput],
       html: `<ld-input type="file" />`,
@@ -114,16 +114,36 @@ describe('ld-input', () => {
     const input = ldInput.shadowRoot.querySelector('input')
     input.files = ['foo', 'bar'] as unknown as FileList
 
-    const ldchangefileHandler = jest.fn()
-    ldInput.addEventListener('ldchangefile', ldchangefileHandler)
+    const ldchangeHandler = jest.fn()
+    ldInput.addEventListener('ldchange', ldchangeHandler)
 
-    input.value = 'test'
     input.dispatchEvent(new InputEvent('change', { bubbles: true }))
     await page.waitForChanges()
 
-    expect(ldchangefileHandler).toHaveBeenCalledWith(
-      expect.objectContaining({ detail: ['foo', 'bar'] })
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(ldInput.files).toEqual(['foo', 'bar'])
+  })
+
+  it('throws when trying to alter readonly files prop', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const fn = () => {
+      ldInput.files = []
+    }
+    expect(fn).toThrow(
+      'Cannot set property files of [object Object] which has only a getter'
     )
+  })
+
+  it('returns undefined when accassing files if input type is not file', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input type="file" />`,
+    })
+    expect(page.root.files).toEqual(undefined)
   })
 
   // TODO: Uncomment, as soon as Stencil's JSDom implementation
@@ -166,29 +186,6 @@ describe('ld-input', () => {
     await page.waitForChanges()
 
     expect(ldinputHandler).toHaveBeenCalledTimes(1)
-  })
-
-  it('emits ldinput event with file list', async () => {
-    const page = await newSpecPage({
-      components: [LdInput],
-      html: `<ld-input type="file" />`,
-    })
-    const ldInput = page.root
-    const input = ldInput.shadowRoot.querySelector('input')
-    input.files = ['foo', 'bar'] as unknown as FileList
-
-    const ldinputfileHandler = jest.fn()
-    ldInput.addEventListener('ldinputfile', ldinputfileHandler)
-
-    input.value = 'test'
-    input.dispatchEvent(
-      new InputEvent('input', { bubbles: true, composed: true })
-    )
-    await page.waitForChanges()
-
-    expect(ldinputfileHandler).toHaveBeenCalledWith(
-      expect.objectContaining({ detail: ['foo', 'bar'] })
-    )
   })
 
   it('renders with slot start', async () => {
