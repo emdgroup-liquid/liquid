@@ -15447,14 +15447,14 @@ send@latest:
   linkType: hard
 
 "stylelint-declaration-strict-value@npm:^1.9.1":
-  version: 1.9.1
-  resolution: "stylelint-declaration-strict-value@npm:1.9.1"
+  version: 1.9.2
+  resolution: "stylelint-declaration-strict-value@npm:1.9.2"
   dependencies:
     css-values: ^0.1.0
     shortcss: ^0.1.3
   peerDependencies:
-    stylelint: ">=7 <=14"
-  checksum: 195f0524d8a1795442311396b7cd674a5c34e5d8c7833e63b3ce61d90ee902d3948ad0f391264cdddc96f96cec2cb0b515273aa413fbfefe5c1c07267f3462fb
+    stylelint: ">=7 <=15"
+  checksum: 514d582599d740744e246843b392e823191b37940481edfb90a51c0ddf93aa93907d856732fc30ae74c57088da07ed4e155a8708cdc7da508cf763c3adcdd408
   languageName: node
   linkType: hard
 
