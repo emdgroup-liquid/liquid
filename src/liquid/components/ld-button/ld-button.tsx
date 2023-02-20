@@ -3,6 +3,29 @@ import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { registerAutofocus } from '../../utils/focus'
 
+type Mode =
+  | 'highlight'
+  | 'secondary'
+  | 'ghost'
+  | 'danger'
+  | 'danger-secondary'
+  | 'danger-ghost'
+  | 'neutral'
+  | 'neutral-secondary'
+  | 'neutral-ghost'
+
+const modeMap: Record<Mode, string> = {
+  danger: 'ld-button--danger',
+  ghost: 'ld-button--ghost',
+  highlight: 'ld-button--highlight',
+  neutral: 'ld-button--neutral',
+  secondary: 'ld-button--secondary',
+  'danger-ghost': 'ld-button--ghost ld-button--danger-ghost',
+  'danger-secondary': 'ld-button--secondary ld-button--danger-secondary',
+  'neutral-ghost': 'ld-button--ghost ld-button--neutral-ghost',
+  'neutral-secondary': 'ld-button--secondary ld-button--neutral-secondary',
+}
+
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
@@ -68,16 +91,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() ldTabindex?: number
 
   /** Display mode. */
-  @Prop() mode?:
-    | 'highlight'
-    | 'secondary'
-    | 'ghost'
-    | 'danger'
-    | 'danger-secondary'
-    | 'danger-ghost'
-    | 'neutral'
-    | 'neutral-secondary'
-    | 'neutral-ghost'
+  @Prop() mode?: Mode
 
   /** Used to specify the name of the control. */
   @Prop() name?: string
@@ -211,7 +225,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.brandColor && `ld-button--brand-color`,
       this.iconOnly && `ld-button--icon-only`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
-      this.mode && `ld-button--${this.mode}`,
+      this.mode && modeMap[this.mode],
       this.size && `ld-button--${this.size}`,
     ])
 

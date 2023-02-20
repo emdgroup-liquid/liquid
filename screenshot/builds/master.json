@@ -1930,7 +1930,7 @@
     },
     {
       "id": "b7be321f",
-      "image": "b6f636f21c19b46d1a0930f4064a83c5.png",
+      "image": "52f0cb3ba1b7d32772ef3c5e582cc776.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1943,7 +1943,7 @@
     },
     {
       "id": "232d3265",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1956,7 +1956,7 @@
     },
     {
       "id": "b7d6e5fd",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1969,7 +1969,7 @@
     },
     {
       "id": "559e7bba",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1982,7 +1982,7 @@
     },
     {
       "id": "936ca441",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -1995,7 +1995,7 @@
     },
     {
       "id": "b14ba38e",
-      "image": "9bc88aec2ee25fb3ded870be9ad9800b.png",
+      "image": "a440710a996d2ca3a0fb198d65f12471.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2008,7 +2008,7 @@
     },
     {
       "id": "6f9008a1",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component aria-disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2021,7 +2021,7 @@
     },
     {
       "id": "c94a1f99",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component aria-disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2034,7 +2034,7 @@
     },
     {
       "id": "e0536c3b",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component aria-disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2047,7 +2047,7 @@
     },
     {
       "id": "5975e421",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component aria-disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2060,7 +2060,7 @@
     },
     {
       "id": "171bf540",
-      "image": "2f3cd8f17bcbca8c35d671e00390bab3.png",
+      "image": "22649faac1d1adb85371ed555754d362.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2073,7 +2073,7 @@
     },
     {
       "id": "1bab6d51",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2086,7 +2086,7 @@
     },
     {
       "id": "fc90fec1",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2099,7 +2099,7 @@
     },
     {
       "id": "4ccd48cb",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2112,7 +2112,7 @@
     },
     {
       "id": "5bcd4d07",
-      "image": "4bdf6d522861ccf35e52f1119428bbd6.png",
+      "image": "ef85eea83b7fcf6ace427da8dec6bf26.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2125,7 +2125,7 @@
     },
     {
       "id": "5ceba287",
-      "image": "94e43daa20010367f6486da92e6bfe12.png",
+      "image": "473d4757c1ea67a35871ca6c685fdc7e.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2138,7 +2138,7 @@
     },
     {
       "id": "e8fdd75d",
-      "image": "9ca9b69ceb181233e97cc0c13eaa98d3.png",
+      "image": "350cade24b47845332867eda6257bf3a.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2151,7 +2151,7 @@
     },
     {
       "id": "302ba8b4",
-      "image": "fb104924be1e0c2af1b0471960d5454d.png",
+      "image": "e51fac9b10b313ce7ef3601f4d99ec3c.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2164,7 +2164,7 @@
     },
     {
       "id": "b2f83db9",
-      "image": "17556577728cca378cfea82324732174.png",
+      "image": "4fd17cb88b3b9aeb03ac3f0d55c7cd00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2177,7 +2177,7 @@
     },
     {
       "id": "a9d9976f",
-      "image": "277561ba83ff499d551a14d53e7a4a04.png",
+      "image": "2c60390a0a06007e8f15f6fa2475c6e5.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2190,7 +2190,7 @@
     },
     {
       "id": "a9df3acf",
-      "image": "96e88c2beb13055056b6d8339f2f9750.png",
+      "image": "f1bec9397601ab9aee3318733c0ca0f5.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color css component progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2203,7 +2203,7 @@
     },
     {
       "id": "c769692b",
-      "image": "5abaa7298b7c86f2e1159835fed56517.png",
+      "image": "8e78ddcec11f05d3ea5f712dd071aea8.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2216,7 +2216,7 @@
     },
     {
       "id": "25666ded",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color disabled active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2229,7 +2229,7 @@
     },
     {
       "id": "b0e9044d",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color disabled default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2242,7 +2242,7 @@
     },
     {
       "id": "f2894199",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color disabled focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2255,7 +2255,7 @@
     },
     {
       "id": "b9e4329e",
-      "image": "27b29a4dc052ce0b0f53218d93121f71.png",
+      "image": "8d97e2bf32130b2511b298ee67c22e00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color disabled hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2268,7 +2268,7 @@
     },
     {
       "id": "268b774f",
-      "image": "011ef4fff00a8db3920d011acb8d74b0.png",
+      "image": "70e5b18bb6353d889397ec61f77c7892.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2281,7 +2281,7 @@
     },
     {
       "id": "f1961213",
-      "image": "cc60cc24839218ba6852a5de6a6f974a.png",
+      "image": "3a91a91970046c16a0ead82c46f31d27.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2294,7 +2294,7 @@
     },
     {
       "id": "f5d53b64",
-      "image": "fb104924be1e0c2af1b0471960d5454d.png",
+      "image": "e51fac9b10b313ce7ef3601f4d99ec3c.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color progress button active",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2307,7 +2307,7 @@
     },
     {
       "id": "01b99f2a",
-      "image": "17556577728cca378cfea82324732174.png",
+      "image": "4fd17cb88b3b9aeb03ac3f0d55c7cd00.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color progress button default",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2320,7 +2320,7 @@
     },
     {
       "id": "3b44a689",
-      "image": "277561ba83ff499d551a14d53e7a4a04.png",
+      "image": "2c60390a0a06007e8f15f6fa2475c6e5.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color progress button focus",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
@@ -2333,7 +2333,7 @@
     },
     {
       "id": "19609d05",
-      "image": "96e88c2beb13055056b6d8339f2f9750.png",
+      "image": "f1bec9397601ab9aee3318733c0ca0f5.png",
       "userAgent": "default",
       "desc": "ld-button mode danger-secondary brand-color progress button hover",
       "testPath": "./src/liquid/components/ld-button/test/ld-button.e2e.ts",
