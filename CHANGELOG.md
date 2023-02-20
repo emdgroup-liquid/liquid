@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/emdgroup-liquid/liquid/compare/v4.4.5...v4.5.0) (2023-02-20)
+
+
+### Features
+
+* **ld-input:** add readonly files prop ([13705a4](https://github.com/emdgroup-liquid/liquid/commit/13705a40900e685907880657ab01b0697efcb270))
+
 ## [4.4.5](https://github.com/emdgroup-liquid/liquid/compare/v4.4.4...v4.4.5) (2023-02-15)
 
 
