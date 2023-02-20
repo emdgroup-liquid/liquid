@@ -18,6 +18,13 @@ Please refer to the [`ld-context-menu` documentation](components/ld-context-menu
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property    | Attribute    | Description                    | Type     | Default     |
+| ----------- | ------------ | ------------------------------ | -------- | ----------- |
+| `ariaLabel` | `aria-label` | Label for the menu item group. | `string` | `undefined` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

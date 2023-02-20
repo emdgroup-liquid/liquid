@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core'
 
 @Component({
   tag: 'ld-menuitem-group',
@@ -6,13 +6,22 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class LdMenuitemGroup {
+  /** Label for the menu item group. */
+  @Prop() ariaLabel: HTMLUListElement['ariaLabel']
 
   render() {
     return (
       <Host>
-        <slot></slot>
+        <li class="ld-menuitem-group" role="none">
+          <ul
+            class="ld-menuitem-group__list"
+            aria-label={this.ariaLabel}
+            role="group"
+          >
+            <slot></slot>
+          </ul>
+        </li>
       </Host>
-    );
+    )
   }
-
 }
