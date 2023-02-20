@@ -36,10 +36,10 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the checkbox is checked. */
-  @Prop({ mutable: true }) checked = false
+  @Prop({ mutable: true }) checked?: boolean = false
 
   /** Disabled state of the checkbox. */
-  @Prop() disabled: boolean
+  @Prop() disabled?: boolean
 
   /** Associates the control with a form element. */
   @Prop() form?: string
@@ -51,7 +51,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) indeterminate?: boolean
 
   /** Set this property to `true` in order to mark the checkbox visually as invalid. */
-  @Prop() invalid: boolean
+  @Prop() invalid?: boolean
 
   /** Tab index of the input. */
   @Prop() ldTabindex: number | undefined
@@ -66,7 +66,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop() readonly?: boolean
 
   /** Set this property to `true` in order to mark the checkbox as required. */
-  @Prop() required: boolean
+  @Prop() required?: boolean
 
   /** Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'

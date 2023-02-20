@@ -34,43 +34,43 @@ export class LdStep implements InnerFocusable {
   private focusableElement: HTMLButtonElement | HTMLAnchorElement
 
   /** Switch colors for brand background */
-  @Prop() brandColor = false
+  @Prop() brandColor?: boolean = false
   /** Step is the current step */
-  @Prop() current = false
+  @Prop() current?: boolean = false
   /** Description text to display below the step name (vertical mode only) */
   @Prop() description: string
   /** Step is not clickable */
-  @Prop() disabled = false
+  @Prop() disabled?: boolean = false
   /** Step is done */
-  @Prop() done = false
+  @Prop() done?: boolean = false
   /** Link to the step (makes the step an anchor instead of a button) */
   @Prop() href?: string
   /** Permanently show a custom icon inside the dot */
   @Prop() icon?: HTMLLdIconElement['name']
   /** Label for current step (scree-reader only) */
-  @Prop() labelCurrent = 'Current'
+  @Prop() labelCurrent?: string = 'Current'
   /** Label for step that is done (scree-reader only) */
-  @Prop() labelDone = 'Done'
+  @Prop() labelDone?: string = 'Done'
   /** Label for step that is optional (scree-reader only) */
-  @Prop() labelOptional = 'Optional'
+  @Prop() labelOptional?: string = 'Optional'
   /** Label for step that was skipped (scree-reader only) */
-  @Prop() labelSkipped = 'Skipped'
+  @Prop() labelSkipped?: string = 'Skipped'
   /** Additional hint in label for step that is done and was optional (scree-reader only) */
-  @Prop() labelWasOptional = 'was optional'
+  @Prop() labelWasOptional?: string = 'was optional'
   /** Indicates that the next step is not active */
-  @Prop() lastActive = false
+  @Prop() lastActive?: boolean = false
   /** Tab index of the step */
   @Prop() ldTabindex: number | undefined
   /** Step can be processed next */
-  @Prop() next = false
+  @Prop() next?: boolean = false
   /** Step may be skipped */
-  @Prop() optional = false
+  @Prop() optional?: boolean = false
   /** Step size */
   @Prop() size?: 'sm' | 'lg'
   /** Step was skipped */
-  @Prop() skipped = false
+  @Prop() skipped?: boolean = false
   /** Vertical layout */
-  @Prop() vertical = false
+  @Prop() vertical?: boolean = false
 
   /** Emitted when the focusable element is clicked and step is neither current nor disabled */
   @Event() ldstepselected: EventEmitter<SelectedDetail>

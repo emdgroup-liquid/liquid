@@ -32,21 +32,21 @@ export class LdSidenavSubnav {
    * Internal prop indicating that the subnav is about to become active which
    * may happen before a transition finishes after which it actually becomes active.
    */
-  @Prop() activeBeforeTransition = false
+  @Prop() activeBeforeTransition?: boolean = false
 
   /**
    * @internal
    * Internal prop indicating that the subnav is either ancestor of the
    * currently visible subnav or the currently visible subnav itself.
    */
-  @Prop() active = false
+  @Prop() active?: boolean = false
 
   /**
    * @internal
    * Internal prop indicating that the subnav is ancestor of the
    * currently visible subnav.
    */
-  @Prop() ancestor = false
+  @Prop() ancestor?: boolean = false
 
   /** Used in the ld-sidenav-back component to display parent nav label. */
   @Prop() label: string

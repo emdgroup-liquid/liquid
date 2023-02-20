@@ -41,10 +41,10 @@ export class LdBgCells {
   @Prop() type: CellType = 'hexagon'
 
   /** Use 3 color layers */
-  @Prop() threeLayers = false
+  @Prop() threeLayers?: boolean = false
 
   /** Animate the pattern */
-  @Prop() animated = false
+  @Prop() animated?: boolean = false
 
   @Watch('type')
   private async loadPatternPathData(): Promise<void> {

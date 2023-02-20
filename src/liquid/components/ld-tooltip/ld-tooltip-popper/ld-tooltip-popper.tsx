@@ -13,7 +13,7 @@ export class LdTooltipPopper {
   @State() initialized = false
 
   /** Show arrow */
-  @Prop() arrow: boolean
+  @Prop() arrow?: boolean
 
   /** The tooltip size (effects tooltip padding only) */
   @Prop() size?: 'sm'
@@ -22,7 +22,7 @@ export class LdTooltipPopper {
   @Prop() triggerType: 'click' | 'hover' = 'hover'
 
   /** Whether the tooltip has a custom trigger or not */
-  @Prop() hasDefaultTrigger: boolean
+  @Prop() hasDefaultTrigger?: boolean
 
   componentDidLoad() {
     setTimeout(() => {

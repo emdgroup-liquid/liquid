@@ -19,21 +19,17 @@ export class LdOption {
    */
   @Prop() value: string
 
-  /**
-   * If present, this boolean attribute indicates that the option is selected.
-   */
-  @Prop() selected: boolean
+  /** If present, this boolean attribute indicates that the option is selected. */
+  @Prop() selected?: boolean
 
-  /**
-   * Disables the option.
-   */
-  @Prop() disabled: boolean
+  /** Disables the option. */
+  @Prop() disabled?: boolean
 
   /**
    * @internal
    * Set to true on filtering via select input.
    */
-  @Prop() filtered = false
+  @Prop() filtered?: boolean = false
 
   componentWillLoad() {
     // Setting selected via prop directly triggers the mutation observer to fire twice on attribute chage.

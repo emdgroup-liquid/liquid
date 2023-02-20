@@ -36,22 +36,22 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
    * @internal
    * States that this radio button or another radio button with the same name is checked.
    */
-  @Prop() groupChecked = false
+  @Prop() groupChecked?: boolean = false
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the radio button is selected. */
-  @Prop({ mutable: true }) checked = false
+  @Prop({ mutable: true }) checked?: boolean = false
 
   /** Disabled state of the radio. */
-  @Prop() disabled: boolean
+  @Prop() disabled?: boolean
 
   /** Associates the control with a form element. */
   @Prop() form?: string
 
   /** Set this property to `true` in order to mark the radio visually as invalid. */
-  @Prop() invalid: boolean
+  @Prop() invalid?: boolean
 
   /** Tab index of the input. */
   @Prop() ldTabindex: number | undefined
@@ -66,7 +66,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() readonly?: boolean
 
   /** Set this property to `true` in order to mark the radio button as required. */
-  @Prop() required: boolean
+  @Prop() required?: boolean
 
   /** radio tone. Use `'dark'` on white backgrounds. Default is a light tone. */
   @Prop() tone: 'dark'

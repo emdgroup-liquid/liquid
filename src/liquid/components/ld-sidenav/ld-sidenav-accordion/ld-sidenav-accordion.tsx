@@ -44,7 +44,7 @@ export class LdSidenavAccordion {
    * Set to false to make the accordion collapse on sidenav collapse
    * or slide change.
    */
-  @Prop() preserveState = true
+  @Prop() preserveState?: boolean = true
 
   /**
    * Split the accordion toggle in two parts with the second part containing

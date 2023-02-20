@@ -35,9 +35,9 @@ export class LdSidenavHeader {
   @Prop() ariaLabel: string
 
   /** Label to be used for the toggle button when navigation is expanded. */
-  @Prop() labelCollapse = 'Collapse side navigation'
+  @Prop() labelCollapse?: string = 'Collapse side navigation'
   /** Label to be used for the toggle button when navigation is collapsed. */
-  @Prop() labelExpand = 'Expand side navigation'
+  @Prop() labelExpand?: string = 'Expand side navigation'
 
   /** Tooltip tether options object to be merged with the default options (optionally stringified). */
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string

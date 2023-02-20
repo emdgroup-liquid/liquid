@@ -58,25 +58,25 @@ export class LdSlider implements InnerFocusable {
   /** Alternative disabled state that keeps element focusable */
   @Prop() ariaDisabled: string
   /** Disabled state of the slider */
-  @Prop() disabled = false
+  @Prop() disabled?: boolean = false
   /** Prevents rendering of the stop labels below the slider */
-  @Prop() hideStopLabels = false
+  @Prop() hideStopLabels?: boolean = false
   /** Prevents rendering of the value labels below the slider */
-  @Prop() hideValueLabels = false
+  @Prop() hideValueLabels?: boolean = false
   /** Makes the current values only visible on interaction */
-  @Prop() hideValues = false
+  @Prop() hideValues?: boolean = false
   /** Specifies the legal number intervals */
-  @Prop() indicators = false
+  @Prop() indicators?: boolean = false
   /** "From" value label (when exactly 2 values are given) */
-  @Prop() labelFrom = 'From'
+  @Prop() labelFrom?: string = 'From'
   /** "To" value label (when exactly 2 values are given) */
-  @Prop() labelTo = 'To'
+  @Prop() labelTo?: string = 'To'
   /** "Value" label (when exactly 2 values are given) */
-  @Prop() labelValue = 'Value'
+  @Prop() labelValue?: string = 'Value'
   /** Specifies the maximum value allowed */
-  @Prop() max = 100
+  @Prop() max?: number = 100
   /** Specifies the minimum value allowed */
-  @Prop() min = 0
+  @Prop() min?: number = 0
   /** Swap which areas are being marked as selected and deselected */
   @Prop() negative? = false
   /** Size of the thumb(s). */
@@ -88,7 +88,7 @@ export class LdSlider implements InnerFocusable {
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() stops?: string
   /** Allows swapping of thumbs */
-  @Prop() swappable = false
+  @Prop() swappable?: boolean = false
   /** Tab index of the input(s). */
   @Prop() ldTabindex: number | undefined
   /** Adds custom stop points to the slider (instead of steps) */
