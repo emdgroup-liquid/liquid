@@ -21,10 +21,10 @@ export class LdLabel implements ClonesAttributes {
   @Prop() alignMessage?: boolean
 
   /** Relative position to labeled element. Default is top. */
-  @Prop() position: 'left' | 'right'
+  @Prop() position?: 'left' | 'right'
 
   /** Size of the label. Default is small. */
-  @Prop() size: 'm'
+  @Prop() size?: 'm'
 
   @State() clonedAttributes
 

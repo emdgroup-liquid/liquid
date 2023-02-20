@@ -33,7 +33,7 @@ export class LdAccordionToggle implements InnerFocusable {
    * This prop is especially usefull, if you want to place
    * your own focusable element inside the toggle label element.
    */
-  @Prop() labelTag: 'button' | 'div' = 'button'
+  @Prop() labelTag?: 'button' | 'div' = 'button'
 
   /** Tab index of the toggle. */
   @Prop() ldTabindex: number | undefined

@@ -69,7 +69,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() required?: boolean
 
   /** radio tone. Use `'dark'` on white backgrounds. Default is a light tone. */
-  @Prop() tone: 'dark'
+  @Prop() tone?: 'dark'
 
   /** The input value. */
   @Prop() value: string

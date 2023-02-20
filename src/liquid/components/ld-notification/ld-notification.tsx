@@ -18,7 +18,7 @@ export class LdNotification {
   /**
    * Notification placement within the screen.
    */
-  @Prop() placement: 'top' | 'bottom' = 'top'
+  @Prop() placement?: 'top' | 'bottom' = 'top'
 
   @State() queue: Notification[] = []
   @State() queueDismissed: Notification[] = []

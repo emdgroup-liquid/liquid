@@ -75,7 +75,7 @@ export class LdTooltip {
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   /** Event type that triggers the tooltip */
-  @Prop() triggerType: 'click' | 'hover' = 'hover'
+  @Prop() triggerType?: 'click' | 'hover' = 'hover'
 
   @State() hasDefaultTrigger = true
   @State() visible = false

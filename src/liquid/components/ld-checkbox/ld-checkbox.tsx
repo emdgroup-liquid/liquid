@@ -69,7 +69,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop() required?: boolean
 
   /** Checkbox tone. Use `'dark'` on white backgrounds. Default is a light tone. */
-  @Prop() tone: 'dark'
+  @Prop() tone?: 'dark'
 
   /** The input value. */
   @Prop() value: string

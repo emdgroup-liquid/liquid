@@ -32,7 +32,7 @@ export class LdSidenav {
   private mediaQuery: MediaQueryList
 
   /** Whether the nav should be aligned to the left or the right side of its container. */
-  @Prop() align: 'left' | 'right' = 'left'
+  @Prop() align?: 'left' | 'right' = 'left'
 
   /**
    * The breakpoint at which the sidenav takes full width and can be
@@ -53,7 +53,7 @@ export class LdSidenav {
    * - clickoutside applies if the collapse trigger is set to mouseout
    * - toggle applies if the collapse trigger is set to clickoutside
    */
-  @Prop() collapseTrigger: 'toggle' | 'clickoutside' | 'mouseout' = 'toggle'
+  @Prop() collapseTrigger?: 'toggle' | 'clickoutside' | 'mouseout' = 'toggle'
 
   /**
    * Allows the side navigation to be collapsed to the side of its container.
@@ -67,7 +67,7 @@ export class LdSidenav {
    * The modes are inclusive from right to left:
    * - toggle applies if the expand trigger is set to mouseenter
    */
-  @Prop() expandTrigger: 'toggle' | 'mouseenter' = 'toggle'
+  @Prop() expandTrigger?: 'toggle' | 'mouseenter' = 'toggle'
 
   /** Label to be used for the landmark element (the sidenav itself). */
   @Prop() label?: string = 'Side navigation'

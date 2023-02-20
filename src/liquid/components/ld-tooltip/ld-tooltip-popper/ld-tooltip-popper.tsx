@@ -19,7 +19,7 @@ export class LdTooltipPopper {
   @Prop() size?: 'sm'
 
   /** Event type that triggers the tooltip */
-  @Prop() triggerType: 'click' | 'hover' = 'hover'
+  @Prop() triggerType?: 'click' | 'hover' = 'hover'
 
   /** Whether the tooltip has a custom trigger or not */
   @Prop() hasDefaultTrigger?: boolean
