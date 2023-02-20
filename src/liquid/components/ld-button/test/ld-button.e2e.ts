@@ -12,6 +12,10 @@ const modes = [
   'ghost',
   'danger',
   'danger-secondary',
+  'danger-ghost',
+  'neutral',
+  'neutral-secondary',
+  'neutral-ghost',
 ]
 const attributes = ['', 'brand-color']
 

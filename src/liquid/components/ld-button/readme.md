@@ -163,6 +163,26 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 <button class="ld-button ld-button--ghost ld-button--brand-color">Text</button>
 {% endexample %}
 
+### Neutral
+
+{% example %}
+<ld-button mode="neutral">Text</ld-button>
+<ld-button mode="neutral-secondary">Text</ld-button>
+<ld-button mode="neutral-ghost">Text</ld-button>
+
+<!-- React component -->
+
+<LdButton mode="neutral">Text</LdButton>
+<LdButton mode="neutral-secondary">Text</LdButton>
+<LdButton mode="neutral-ghost">Text</LdButton>
+
+<!-- CSS component -->
+
+<button class="ld-button ld-button--neutral">Text</button>
+<button class="ld-button ld-button--secondary ld-button--neutral-secondary">Text</button>
+<button class="ld-button ld-button--ghost ld-button--neutral-ghost">Text</button>
+{% endexample %}
+
 ### Highlight
 
 {% example %}
@@ -181,28 +201,20 @@ Although `aria-disabled="true"` is not necessary on a `button` element (or any o
 
 {% example %}
 <ld-button mode="danger">Text</ld-button>
+<ld-button mode="danger-secondary">Text</ld-button>
+<ld-button mode="danger-ghost">Text</ld-button>
 
 <!-- React component -->
 
 <LdButton mode="danger">Text</LdButton>
+<LdButton mode="danger-secondary">Text</LdButton>
+<LdButton mode="danger-ghost">Text</LdButton>
 
 <!-- CSS component -->
 
 <button class="ld-button ld-button--danger">Text</button>
-{% endexample %}
-
-### Danger secondary
-
-{% example %}
-<ld-button mode="danger-secondary">Text</ld-button>
-
-<!-- React component -->
-
-<LdButton mode="danger-secondary">Text</LdButton>
-
-<!-- CSS component -->
-
-<button class="ld-button ld-button--danger-secondary">Text</button>
+<button class="ld-button ld-button--secondary ld-button--danger-secondary">Text</button>
+<button class="ld-button ld-button--ghost ld-button--danger-ghost">Text</button>
 {% endexample %}
 
 ### Size
