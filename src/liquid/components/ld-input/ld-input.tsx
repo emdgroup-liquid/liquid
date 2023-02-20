@@ -29,6 +29,7 @@ import { registerAutofocus } from '../../utils/focus'
  * Styling for `ld-icon` and `ld-button` is provided within the `ld-input` component.
  * If you choose to place something different into the slot, you will probably
  * need to adjust some styles on the slotted item in order to make it fit right.
+ * @virtualProp { FileList | undefined } files - Selected files for ld-input with type file (readonly).
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part input - Actual input/textarea element
@@ -190,10 +191,19 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
         }
       }
 
-      if (this.value) {
-        this.hiddenInput.value = this.value
-      } else if (this.hiddenInput.value) {
-        this.hiddenInput.removeAttribute('value')
+      if (this.isInputTypeFile(this.input)) {
+        // Clone input field in shadow dom to hidden input field.
+        const clonedInput = this.input.cloneNode() as HTMLInputElement
+        clonedInput.style.display = 'none'
+        this.hiddenInput.replaceWith(clonedInput)
+        this.hiddenInput = clonedInput
+      } else {
+        // Update value.
+        if (this.value) {
+          this.hiddenInput.value = this.value
+        } else if (this.hiddenInput.value) {
+          this.hiddenInput.removeAttribute('value')
+        }
       }
     }
   }
@@ -245,6 +255,16 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   componentWillLoad() {
+    // Add readonly prop files.
+    Object.defineProperty(this.el, 'files', {
+      get: () => {
+        if (this.isInputTypeFile(this.input)) {
+          return this.input.files
+        }
+        return undefined
+      },
+    })
+
     this.attributesObserver = cloneAttributes.call(this, [
       'multiline',
       'autocomplete',
@@ -279,19 +299,21 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     registerAutofocus(this.autofocus)
   }
 
+  private isInputTypeFile = (
+    input: HTMLInputElement | HTMLTextAreaElement
+  ): input is HTMLInputElement => {
+    return (input as HTMLInputElement).type === 'file'
+  }
+
   private handleChange = (ev: InputEvent) => {
     this.el.dispatchEvent(new InputEvent('change', ev))
+
     this.ldchange.emit(this.value)
   }
 
-  private handleInput = (ev: InputEvent) => {
-    if (this.input.getAttribute('aria-disabled') === 'true') {
-      ev.stopImmediatePropagation()
-      this.input.value = this.value ?? ''
-      return
-    }
-
+  private handleInput = () => {
     this.value = this.input.value
+
     this.ldinput.emit(this.value)
   }
 
@@ -335,6 +357,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   disconnectedCallback() {
+    /* istanbul ignore next */
     this.attributesObserver?.disconnect()
   }
 
