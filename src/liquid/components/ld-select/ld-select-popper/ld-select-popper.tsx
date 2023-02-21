@@ -22,7 +22,7 @@ export class LdSelectPopper {
   @Element() el: HTMLElement
 
   /** Indicates that all options are filtered (used in creatable mode) */
-  @Prop() allOptionsFiltered: boolean
+  @Prop() allOptionsFiltered?: boolean
 
   /** A watcher is applied to the CSS class in order to be able to react to tether changes. */
   @Prop({ reflect: true }) class: string
@@ -31,7 +31,7 @@ export class LdSelectPopper {
    * Creatable mode can be enabled when the filter prop is set to true.
    * This mode allows the user to create new options using the filter input field.
    */
-  @Prop() creatable: boolean
+  @Prop() creatable?: boolean
 
   /** The "create" input label (creatable mode). */
   @Prop() createInputLabel: string
@@ -40,16 +40,16 @@ export class LdSelectPopper {
   @Prop() createButtonLabel: string
 
   /** Popper is visually detached from the select trigger element (there's a gap between the two). */
-  @Prop() detached: boolean
+  @Prop() detached?: boolean
 
   /** Indicates if select element is expanded. */
-  @Prop() expanded = false
+  @Prop() expanded? = false
 
   /** Set this property to `true` in order to enable an input field for filtering options. */
-  @Prop() filter: boolean
+  @Prop() filter?: boolean
 
   /** The filter input value matches an option (do not allow to create the option). */
-  @Prop() filterMatchesOption: boolean
+  @Prop() filterMatchesOption?: boolean
 
   /** The filter input placeholder. */
   @Prop() filterPlaceholder: string

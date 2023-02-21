@@ -42,10 +42,10 @@ export class LdSwitch implements InnerFocusable {
   @Prop({ reflect: true }) autofocus: boolean
 
   /** Disabled state of the switch. */
-  @Prop() disabled: boolean
+  @Prop() disabled?: boolean
 
   /** Make each switch item take up as little space as its content requires. */
-  @Prop() fitContent = false
+  @Prop() fitContent? = false
 
   /** Associates the control with a form element. */
   @Prop() form?: string
@@ -60,7 +60,7 @@ export class LdSwitch implements InnerFocusable {
   @Prop() readonly?: boolean
 
   /** Set this property to `true` in order to mark the switch as required. */
-  @Prop() required: boolean
+  @Prop() required?: boolean
 
   /** Tab index of the input. */
   @Prop() ldTabindex: number | undefined

@@ -20,7 +20,7 @@ export class LdNotice {
   @Prop() headline?: string
 
   /** Mode of the notice. */
-  @Prop() mode: 'error' | 'info' | 'warning' | 'success' = 'info'
+  @Prop() mode?: 'error' | 'info' | 'warning' | 'success' = 'info'
 
   render() {
     return (

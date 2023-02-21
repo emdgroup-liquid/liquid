@@ -44,16 +44,16 @@ export class LdPagination {
   @Prop() endLabel?: string
 
   /** Hide the buttons to navigate forward/backward. */
-  @Prop() hidePrevNext = false
+  @Prop() hidePrevNext? = false
 
   /** Hide the buttons to navigate to the first/last item. */
-  @Prop() hideStartEnd = false
+  @Prop() hideStartEnd? = false
 
   /** Label to communicate the type of an item. */
-  @Prop() itemLabel = 'Page'
+  @Prop() itemLabel? = 'Page'
 
   /** The number of items/pages available for pagination (required to let the user jump to the last item/page). */
-  @Prop({ mutable: true }) length = Infinity
+  @Prop({ mutable: true }) length? = Infinity
 
   /** Items display mode, default as numbers. */
   @Prop() mode?: 'numbers' | 'dots' = 'numbers'
@@ -62,13 +62,13 @@ export class LdPagination {
   @Prop() nextLabel?: string
 
   /** Number of next/previous items visible. */
-  @Prop() offset = 2
+  @Prop() offset? = 2
 
   /** Label text for the backward button (replaces the icon). */
   @Prop() prevLabel?: string
 
   /** The currently selected item (an index of `-1` means nothing is selected). */
-  @Prop({ mutable: true }) selectedIndex = 0
+  @Prop({ mutable: true }) selectedIndex? = 0
 
   /** Size of the pagination. */
   @Prop() size?: 'sm' | 'lg'
@@ -80,7 +80,7 @@ export class LdPagination {
   @Prop() startLabel?: string
 
   /** Number of items permanently visible at the start/end. */
-  @Prop() sticky = 0
+  @Prop() sticky? = 0
 
   @State() maxSliderColumns = 0
   @State() renderMoreIndicators = false

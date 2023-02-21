@@ -12,7 +12,7 @@ import { getClassNames } from '../../utils/getClassNames'
 })
 export class LdLoading {
   /** Used as svg title element content. */
-  @Prop() label = 'Loading'
+  @Prop() label? = 'Loading'
 
   /** Uses neutral colors. */
   @Prop() neutral?: boolean

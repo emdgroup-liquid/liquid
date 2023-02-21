@@ -22,10 +22,10 @@ export class LdTableRow {
   @Prop() selectable?: boolean
 
   /** In selectable mode the checkbox is sticky by default. */
-  @Prop() selectionSticky = true
+  @Prop() selectionSticky? = true
 
   /** Makes the row selectable by adding a checkbox to the start of the row. */
-  @Prop() selectionLabel = 'Row selection'
+  @Prop() selectionLabel? = 'Row selection'
 
   /** Indicates that the row is selected. */
   @Prop({ mutable: true }) selected?: boolean

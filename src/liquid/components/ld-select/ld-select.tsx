@@ -51,28 +51,28 @@ export class LdSelect implements InnerFocusable {
    * Creatable mode can be enabled when the filter prop is set to true.
    * This mode allows the user to create new options using the filter input field.
    */
-  @Prop() creatable: boolean
+  @Prop() creatable?: boolean
 
   /** The "create" input label (creatable mode). */
-  @Prop() createInputLabel = 'Press Enter to create option'
+  @Prop() createInputLabel? = 'Press Enter to create option'
 
   /** The "create" button label (creatable mode). */
-  @Prop() createButtonLabel = 'Create option'
+  @Prop() createButtonLabel? = 'Create option'
 
   /** Disabled state of the component. */
-  @Prop() disabled: boolean
+  @Prop() disabled?: boolean
 
   /** The form element to associate the select with (its form owner). */
   @Prop() form?: string
 
   /** Set this property to `true` in order to enable an input field for filtering options. */
-  @Prop() filter: boolean
+  @Prop() filter?: boolean
 
   /** The filter input placeholder. */
-  @Prop() filterPlaceholder = 'Filter options'
+  @Prop() filterPlaceholder? = 'Filter options'
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
-  @Prop() invalid: boolean
+  @Prop() invalid?: boolean
 
   /** Tab index of the trigger button. */
   @Prop() ldTabindex = 0
@@ -89,7 +89,7 @@ export class LdSelect implements InnerFocusable {
     | 'ghost' //    = inline   + transparent background and borders
 
   /** Multiselect mode. */
-  @Prop() multiple: boolean
+  @Prop() multiple?: boolean
 
   /** Used to specify the name of the control. */
   @Prop() name: string
@@ -101,7 +101,7 @@ export class LdSelect implements InnerFocusable {
   @Prop() popperClass?: string
 
   /** Prevents a state with no options selected after initial selection in single select mode. */
-  @Prop() preventDeselection: boolean
+  @Prop() preventDeselection?: boolean
 
   /** A Boolean attribute indicating that an option with a non-empty string value must be selected. */
   @Prop() required?: boolean

@@ -30,13 +30,13 @@ export class LdModal {
   private dialogRef: HTMLDialogElement
 
   /** The modal is cancelable by default. However, you can change this using this prop. */
-  @Prop() cancelable = true
+  @Prop() cancelable? = true
 
   /** Indicates that the modal dialog is active and can be interacted with. */
   @Prop({ mutable: true, reflect: true }) open?: boolean
 
   /** Use a blurry backdrop. */
-  @Prop() blurryBackdrop = false
+  @Prop() blurryBackdrop? = false
 
   /** Emitted when modal is opening (before transition). */
   @Event() ldmodalopening: EventEmitter

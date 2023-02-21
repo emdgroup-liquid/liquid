@@ -38,7 +38,7 @@ export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
   @Prop({ reflect: true }) ariaDisabled: string
 
   /** Indicates whether the switch item is selected. */
-  @Prop({ mutable: true }) checked = false
+  @Prop({ mutable: true }) checked? = false
 
   /** Disabled state of the switch item. */
   @Prop() disabled?: boolean

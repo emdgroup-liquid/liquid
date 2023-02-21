@@ -34,7 +34,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   private slotContainerRef: HTMLElement
 
   /** Sets visual indicator to denote that the nav item is currently selected. */
-  @Prop() selected = false
+  @Prop() selected? = false
 
   /**
    * Transforms the nav item to an anchor element.
@@ -52,7 +52,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop() mode?: 'primary' | 'secondary' | 'tertiary' = 'primary'
 
   /** Applies full border-radius. */
-  @Prop({ reflect: true }) rounded = false
+  @Prop({ reflect: true }) rounded? = false
 
   /** Tab index of the button. */
   @Prop() ldTabindex: number | undefined

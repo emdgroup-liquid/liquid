@@ -18,13 +18,13 @@ export class LdLabel implements ClonesAttributes {
   private attributesObserver: MutationObserver
 
   /** Align input message with input position. */
-  @Prop() alignMessage: boolean
+  @Prop() alignMessage?: boolean
 
   /** Relative position to labeled element. Default is top. */
-  @Prop() position: 'left' | 'right'
+  @Prop() position?: 'left' | 'right'
 
   /** Size of the label. Default is small. */
-  @Prop() size: 'm'
+  @Prop() size?: 'm'
 
   @State() clonedAttributes
 

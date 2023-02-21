@@ -92,7 +92,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() target?: '_blank' | '_self' | '_parent' | '_top'
 
   /** Specifies the default behavior of the button. */
-  @Prop() type: 'button' | 'reset' | 'submit' = 'submit'
+  @Prop() type?: 'button' | 'reset' | 'submit' = 'submit'
 
   /** Defines the value associated with the button’s `name` when it’s submitted with the form data. */
   @Prop() value?: string

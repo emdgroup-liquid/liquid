@@ -14,7 +14,7 @@ export class LdCard {
   @Element() el: HTMLLdCardElement
 
   /** Simulates card elevation by setting the size of the card box shadow. */
-  @Prop() shadow: 'active' | 'hover' | 'stacked' | 'sticky' = 'stacked'
+  @Prop() shadow?: 'active' | 'hover' | 'stacked' | 'sticky' = 'stacked'
 
   /**
    * Adds hover and focus-within states using an elevation transition from

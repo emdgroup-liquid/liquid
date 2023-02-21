@@ -32,17 +32,17 @@ export class LdSidenav {
   private mediaQuery: MediaQueryList
 
   /** Whether the nav should be aligned to the left or the right side of its container. */
-  @Prop() align: 'left' | 'right' = 'left'
+  @Prop() align?: 'left' | 'right' = 'left'
 
   /**
    * The breakpoint at which the sidenav takes full width and can be
    * opened and closed as opposed to being expanded and collapsed.
    * The prop value is used in a max-width media query.
    */
-  @Prop() breakpoint = '23.4375rem'
+  @Prop() breakpoint? = '23.4375rem'
 
   /** Indicates that the navigation is collapsed to the side of its container. */
-  @Prop({ mutable: true }) collapsed = false
+  @Prop({ mutable: true }) collapsed? = false
 
   /**
    * Makes the navigation collapse either on
@@ -53,12 +53,12 @@ export class LdSidenav {
    * - clickoutside applies if the collapse trigger is set to mouseout
    * - toggle applies if the collapse trigger is set to clickoutside
    */
-  @Prop() collapseTrigger: 'toggle' | 'clickoutside' | 'mouseout' = 'toggle'
+  @Prop() collapseTrigger?: 'toggle' | 'clickoutside' | 'mouseout' = 'toggle'
 
   /**
    * Allows the side navigation to be collapsed to the side of its container.
    */
-  @Prop() collapsible = false
+  @Prop() collapsible? = false
 
   /**
    * Makes the navigation expand either on
@@ -67,23 +67,23 @@ export class LdSidenav {
    * The modes are inclusive from right to left:
    * - toggle applies if the expand trigger is set to mouseenter
    */
-  @Prop() expandTrigger: 'toggle' | 'mouseenter' = 'toggle'
+  @Prop() expandTrigger?: 'toggle' | 'mouseenter' = 'toggle'
 
   /** Label to be used for the landmark element (the sidenav itself). */
-  @Prop() label = 'Side navigation'
+  @Prop() label? = 'Side navigation'
 
   /**
    * Set to true if you'd like to have a sidenav which partially
    * collapses in way, that slotted ld-navitem components are displayed
    * as icon buttons.
    */
-  @Prop() narrow = false
+  @Prop() narrow? = false
 
   /**
    * Indicates that the navigation is visible in a viewport
    * which is smaller than the value of the `breakpoint` prop.
    */
-  @Prop({ mutable: true }) open = false
+  @Prop({ mutable: true }) open? = false
 
   /**
    * Disables transitions on collapsing and expansion of the sidenav.
@@ -91,7 +91,7 @@ export class LdSidenav {
    * the side on sidenav expansion, and you want to prevent too many
    * layout shifts during the transition.
    */
-  @Prop() toggleTransitionDisabled = false
+  @Prop() toggleTransitionDisabled? = false
 
   /**
    * Enables focus trapping. Accespts a CSS selector which indicates
