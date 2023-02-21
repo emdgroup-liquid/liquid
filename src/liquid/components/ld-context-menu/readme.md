@@ -290,10 +290,28 @@ permalink: components/ld-context-menu/
 
 ## Properties
 
-| Property | Attribute | Description               | Type           | Default     |
-| -------- | --------- | ------------------------- | -------------- | ----------- |
-| `size`   | `size`    | Size of the context menu. | `"lg" \| "sm"` | `undefined` |
+| Property   | Attribute  | Description               | Type                                                                                                                                                                                                 | Default         |
+| ---------- | ---------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `position` | `position` | Size of the context menu. | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'bottom left'` |
+| `size`     | `size`     | Size of the context menu. | `"lg" \| "sm"`                                                                                                                                                                                       | `undefined`     |
 
+
+## Dependencies
+
+### Depends on
+
+- [ld-tooltip](../ld-tooltip)
+- [ld-menu](ld-menu)
+
+### Graph
+```mermaid
+graph TD;
+  ld-context-menu --> ld-tooltip
+  ld-context-menu --> ld-menu
+  ld-tooltip --> ld-sr-only
+  ld-tooltip --> ld-tooltip-popper
+  style ld-context-menu fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

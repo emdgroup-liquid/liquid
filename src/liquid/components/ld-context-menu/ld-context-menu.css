@@ -1,11 +1,3 @@
 :host {
   display: block;
 }
-
-.ld-context-menu {
-  list-style: none;
-  border-radius: var(--ld-br-l);
-  box-shadow: var(--ld-shadow-stacked);
-  margin: 0;
-  padding: var(--ld-sp-12);
-}

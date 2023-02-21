@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop } from '@stencil/core'
+import { Component, Element, h, Prop } from '@stencil/core'
 
 @Component({
   tag: 'ld-context-menu',
@@ -7,24 +7,31 @@ import { Component, Host, h, Element, Prop } from '@stencil/core'
 })
 export class LdContextMenu {
   @Element() el: HTMLLdContextMenuElement
+  private menuRef: HTMLLdMenuElement
+
+  /** Size of the context menu. */
+  @Prop() position?: HTMLLdTooltipElement['position'] = 'bottom left'
 
   /** Size of the context menu. */
   @Prop() size?: 'sm' | 'lg'
 
-  componentWillLoad() {
-    this.el.querySelectorAll('ld-menuitem').forEach((ldMenuItem) => {
-      ldMenuItem.size = this.size
-    })
+  componentDidLoad() {
+    const style = this.el.getAttribute('style')
+
+    if (style) {
+      this.menuRef.setAttribute('style', style)
+      this.el.removeAttribute('style')
+    }
   }
 
   render() {
     return (
-      <Host>
-        <slot name="trigger" />
-        <ul class="ld-context-menu" role="menu">
+      <ld-tooltip position={this.position} triggerType="click" unstyled>
+        <slot name="trigger" slot="trigger" />
+        <ld-menu ref={(el) => (this.menuRef = el)} size={this.size}>
           <slot />
-        </ul>
-      </Host>
+        </ld-menu>
+      </ld-tooltip>
     )
   }
 }
