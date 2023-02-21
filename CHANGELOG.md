@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.1](https://github.com/emdgroup-liquid/liquid/compare/v4.5.0...v4.5.1) (2023-02-21)
+
+
+### Bug Fixes
+
+* **types:** mark props with default value as optional ([3cfc91a](https://github.com/emdgroup-liquid/liquid/commit/3cfc91aa28a678ade8ffef1f0f4dac314b8ad641))
+
 # [4.5.0](https://github.com/emdgroup-liquid/liquid/compare/v4.4.5...v4.5.0) (2023-02-20)
 
 
