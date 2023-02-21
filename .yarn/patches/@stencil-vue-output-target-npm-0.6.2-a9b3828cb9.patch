@@ -28,7 +28,7 @@ index f92d53a2caa5d462194440120a551bd3d6f24f22..370c840d054f66d1c56f3303efe10ac8
          templateString += `, [
    ${props.length > 0 ? props.join(',\n  ') : ''}
 diff --git a/dist/index.cjs.js b/dist/index.cjs.js
-index ce0fad05e3bfe0e6bec389a96060e00617daf410..7a7cfaaa65070251d9c26de47d918c7818152e21 100644
+index ce0fad05e3bfe0e6bec389a96060e00617daf410..5611538c9acb1e625e2aefdc3d80d14c963d1f62 100644
 --- a/dist/index.cjs.js
 +++ b/dist/index.cjs.js
 @@ -89,20 +89,17 @@ const SLASH_REGEX = /\\/g;
@@ -55,7 +55,7 @@ index ce0fad05e3bfe0e6bec389a96060e00617daf410..7a7cfaaa65070251d9c26de47d918c78
      if (props.length > 0) {
          templateString += `, [
    ${props.length > 0 ? props.join(',\n  ') : ''}
-@@ -161,22 +158,23 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
+@@ -161,31 +158,32 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
      const imports = `/* eslint-disable */
  /* tslint:disable */
  /* auto-generated vue proxies */
@@ -85,6 +85,17 @@ index ce0fad05e3bfe0e6bec389a96060e00617daf410..7a7cfaaa65070251d9c26de47d918c78
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -221,9 +219,7 @@ function getPathToCorePackageLoader(config, outputTarget) {
      const distAbsEsmLoaderPath = (distOutputTarget === null || distOutputTarget === void 0 ? void 0 : distOutputTarget.esmLoaderPath) && path__default['default'].isAbsolute(distOutputTarget.esmLoaderPath)
          ? distOutputTarget.esmLoaderPath
@@ -105,7 +116,7 @@ index 26cb893e90a3fc9a0a2ea3ce598196d7f99ffc59..535829157b12216bd0f2651ab209549a
 +export { vueOutputTarget } from './plugin.js';
  export type { OutputTargetVue, ComponentModelConfig } from './types';
 diff --git a/dist/index.js b/dist/index.js
-index aa686db09e35a595b65bee010034c3f4f7517001..bec938e6e85923f00c83d24d02260012cc294cd4 100644
+index aa686db09e35a595b65bee010034c3f4f7517001..e57d4f57c6dfdb0eb487ff01c380dfe098da96a1 100644
 --- a/dist/index.js
 +++ b/dist/index.js
 @@ -80,20 +80,17 @@ const SLASH_REGEX = /\\/g;
@@ -132,7 +143,7 @@ index aa686db09e35a595b65bee010034c3f4f7517001..bec938e6e85923f00c83d24d02260012
      if (props.length > 0) {
          templateString += `, [
    ${props.length > 0 ? props.join(',\n  ') : ''}
-@@ -152,22 +149,23 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
+@@ -152,31 +149,32 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
      const imports = `/* eslint-disable */
  /* tslint:disable */
  /* auto-generated vue proxies */
@@ -162,6 +173,17 @@ index aa686db09e35a595b65bee010034c3f4f7517001..bec938e6e85923f00c83d24d02260012
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -212,9 +210,7 @@ function getPathToCorePackageLoader(config, outputTarget) {
      const distAbsEsmLoaderPath = (distOutputTarget === null || distOutputTarget === void 0 ? void 0 : distOutputTarget.esmLoaderPath) && path.isAbsolute(distOutputTarget.esmLoaderPath)
          ? distOutputTarget.esmLoaderPath
@@ -174,7 +196,7 @@ index aa686db09e35a595b65bee010034c3f4f7517001..bec938e6e85923f00c83d24d02260012
      return normalizePath(path.join(basePkg, loaderDir));
  }
 diff --git a/dist/output-vue.js b/dist/output-vue.js
-index 63aff6cc9e8364ef0b64af2601590813a40583b9..50b5901fe2dd1ed29b0c8d248e97ad7050ed6fa4 100644
+index 63aff6cc9e8364ef0b64af2601590813a40583b9..5b4a763ea7c7bb84be0b6758bb0eb455653a1012 100644
 --- a/dist/output-vue.js
 +++ b/dist/output-vue.js
 @@ -1,6 +1,6 @@
@@ -186,7 +208,7 @@ index 63aff6cc9e8364ef0b64af2601590813a40583b9..50b5901fe2dd1ed29b0c8d248e97ad70
  export async function vueProxyOutput(config, compilerCtx, outputTarget, components) {
      const filteredComponents = getFilteredComponents(outputTarget.excludeComponents, components);
      const rootDir = config.rootDir;
-@@ -20,22 +20,23 @@ export function generateProxies(config, components, pkgData, outputTarget, rootD
+@@ -20,31 +20,32 @@ export function generateProxies(config, components, pkgData, outputTarget, rootD
      const imports = `/* eslint-disable */
  /* tslint:disable */
  /* auto-generated vue proxies */
@@ -216,6 +238,17 @@ index 63aff6cc9e8364ef0b64af2601590813a40583b9..50b5901fe2dd1ed29b0c8d248e97ad70
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -80,9 +81,7 @@ export function getPathToCorePackageLoader(config, outputTarget) {
      const distAbsEsmLoaderPath = (distOutputTarget === null || distOutputTarget === void 0 ? void 0 : distOutputTarget.esmLoaderPath) && path.isAbsolute(distOutputTarget.esmLoaderPath)
          ? distOutputTarget.esmLoaderPath

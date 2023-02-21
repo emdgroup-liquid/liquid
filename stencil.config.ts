@@ -12,12 +12,12 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '..',
       proxiesFile: './src/react.ts',
-      includeDefineCustomElements: false,
+      includeDefineCustomElements: true,
     }),
     vueOutputTarget({
       componentCorePackage: '..',
       proxiesFile: './src/vue.ts',
-      includeDefineCustomElements: false,
+      includeDefineCustomElements: true,
     }),
     {
       type: 'dist',

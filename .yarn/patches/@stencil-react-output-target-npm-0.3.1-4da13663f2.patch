@@ -1,5 +1,5 @@
 diff --git a/dist/index.cjs.js b/dist/index.cjs.js
-index ed803c547b18555f83d05c0f6b8880207ed34bb5..9013c7e3552e3e297eee3102dbe158a089060176 100644
+index ed803c547b18555f83d05c0f6b8880207ed34bb5..3ec06e61885a9c7e76068abd6c5c8c10d29921bf 100644
 --- a/dist/index.cjs.js
 +++ b/dist/index.cjs.js
 @@ -161,7 +161,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
@@ -22,7 +22,7 @@ index ed803c547b18555f83d05c0f6b8880207ed34bb5..9013c7e3552e3e297eee3102dbe158a0
              return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
          }
          return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-@@ -184,10 +186,9 @@ import { createReactComponent } from './react-component-lib';\n`;
+@@ -184,19 +186,18 @@ import { createReactComponent } from './react-component-lib';\n`;
       * Component that takes in the Web Component as a parameter.
       */
      if (outputTarget.includeImportCustomElements && outputTarget.componentCorePackage !== undefined) {
@@ -35,6 +35,17 @@ index ed803c547b18555f83d05c0f6b8880207ed34bb5..9013c7e3552e3e297eee3102dbe158a0
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -204,7 +205,9 @@ import { createReactComponent } from './react-component-lib';\n`;
          typeImports,
          sourceImports,
@@ -77,7 +88,7 @@ index f4fce6b403df1f833bf216c50e19fd52568e6f02..9a76ec911ab4b6400a282abb21555d12
 +export { reactOutputTarget } from './plugin.js';
  export type { OutputTargetReact } from './types';
 diff --git a/dist/index.js b/dist/index.js
-index 280cba2bee732cbc879a9001e4cb376d1d6bc2a7..c5b221e94cad5b3adddf5cc2843f87b91218f106 100644
+index 280cba2bee732cbc879a9001e4cb376d1d6bc2a7..e540feb50efe72f6d18c520447d999650910320e 100644
 --- a/dist/index.js
 +++ b/dist/index.js
 @@ -152,7 +152,7 @@ function generateProxies(config, components, pkgData, outputTarget, rootDir) {
@@ -100,7 +111,7 @@ index 280cba2bee732cbc879a9001e4cb376d1d6bc2a7..c5b221e94cad5b3adddf5cc2843f87b9
              return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
          }
          return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-@@ -175,10 +177,9 @@ import { createReactComponent } from './react-component-lib';\n`;
+@@ -175,19 +177,18 @@ import { createReactComponent } from './react-component-lib';\n`;
       * Component that takes in the Web Component as a parameter.
       */
      if (outputTarget.includeImportCustomElements && outputTarget.componentCorePackage !== undefined) {
@@ -113,6 +124,17 @@ index 280cba2bee732cbc879a9001e4cb376d1d6bc2a7..c5b221e94cad5b3adddf5cc2843f87b9
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -195,7 +196,9 @@ import { createReactComponent } from './react-component-lib';\n`;
          typeImports,
          sourceImports,
@@ -147,7 +169,7 @@ index 280cba2bee732cbc879a9001e4cb376d1d6bc2a7..c5b221e94cad5b3adddf5cc2843f87b9
      return normalizePath(path.join(basePkg, loaderDir));
  }
 diff --git a/dist/output-react.js b/dist/output-react.js
-index 43284218127e75e9dd599aabf313eed04a3bb46a..8c39e0b81deead89abee3a77e03d055022ecf39b 100644
+index 43284218127e75e9dd599aabf313eed04a3bb46a..502848a0d0f0c56a335fb31b00eb86b7f0b356d5 100644
 --- a/dist/output-react.js
 +++ b/dist/output-react.js
 @@ -1,5 +1,5 @@
@@ -177,7 +199,7 @@ index 43284218127e75e9dd599aabf313eed04a3bb46a..8c39e0b81deead89abee3a77e03d0550
              return `import type { ${IMPORT_TYPES} } from '${normalizePath(outputTarget.componentCorePackage)}${dirPath}';\n`;
          }
          return `import type { ${IMPORT_TYPES} } from '${normalizePath(componentsTypeFile)}';\n`;
-@@ -64,10 +66,9 @@ import { createReactComponent } from './react-component-lib';\n`;
+@@ -64,19 +66,18 @@ import { createReactComponent } from './react-component-lib';\n`;
       * Component that takes in the Web Component as a parameter.
       */
      if (outputTarget.includeImportCustomElements && outputTarget.componentCorePackage !== undefined) {
@@ -190,6 +212,17 @@ index 43284218127e75e9dd599aabf313eed04a3bb46a..8c39e0b81deead89abee3a77e03d0550
          });
          sourceImports = cmpImports.join('\n');
      }
+     else if (outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${APPLY_POLYFILLS}, ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${APPLY_POLYFILLS}().then(() => ${REGISTER_CUSTOM_ELEMENTS}());`;
+     }
+     else if (!outputTarget.includePolyfills && outputTarget.includeDefineCustomElements) {
+-        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}';\n`;
++        sourceImports = `import { ${REGISTER_CUSTOM_ELEMENTS} } from '${pathToCorePackageLoader}/index.js';\n`;
+         registerCustomElements = `${REGISTER_CUSTOM_ELEMENTS}();`;
+     }
+     const final = [
 @@ -84,7 +85,9 @@ import { createReactComponent } from './react-component-lib';\n`;
          typeImports,
          sourceImports,
