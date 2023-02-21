@@ -11,7 +11,6 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import { closest } from '../../utils/closest'
 
 export type Position =
   | 'bottom center'
@@ -68,6 +67,12 @@ export class LdTooltip {
   /** The tooltip size (effects tooltip padding only) */
   @Prop() size?: 'sm'
 
+  /**
+   * Render the tooltip without visual styling.
+   * @internal
+   */
+  @Prop() unstyled?: HTMLLdTooltipPopperElement['unstyled']
+
   /** The rendered HTML tag for the tooltip trigger. */
   @Prop() tag? = 'button'
 
@@ -117,12 +122,27 @@ export class LdTooltip {
     )
   }
 
+  private copySlottedNodes = (node: Element) => {
+    if (!('querySelectorAll' in node)) {
+      return
+    }
+
+    node.querySelectorAll('slot').forEach((slot) => {
+      slot.assignedNodes().forEach((childNode: Element) => {
+        this.copySlottedNodes(childNode)
+        slot.parentElement.insertBefore(childNode, slot)
+      })
+      slot.remove()
+    })
+  }
+
   private initTooltip = async () => {
     const attachment = this.mapPositionToAttachment(this.position)
     const targetAttachment = this.mapPositionToTargetAttachment(this.position)
     const tooltipContent = this.tooltipRef.querySelector('slot').assignedNodes()
 
-    tooltipContent.forEach((node) => {
+    tooltipContent.forEach((node: Element) => {
+      this.copySlottedNodes(node)
       this.tooltipRef.appendChild(node)
     })
 
@@ -231,16 +251,8 @@ export class LdTooltip {
   @Listen('click', {
     target: 'window',
   })
-  handleClickOutside(ev) {
-    // Usage of ev.composedPath() is required for penetrating shadow DOM.
-    const target = 'composedPath' in ev ? ev.composedPath().at(0) : ev.target
-    if (
-      ev.isTrusted &&
-      this.popper &&
-      this.triggerType === 'click' &&
-      closest('ld-tooltip', target) !== this.el &&
-      closest('[role="tooltip"]', target) !== this.tooltipRef
-    ) {
+  handleClickOutside(ev: MouseEvent) {
+    if (!ev.composedPath().includes(this.el)) {
       this.hideTooltip()
     }
   }
@@ -316,11 +328,12 @@ export class LdTooltip {
           arrow={this.arrow}
           hasDefaultTrigger={this.hasDefaultTrigger}
           id={this.idDescriber}
+          unstyled={this.unstyled}
           part="popper"
-          size={this.size}
           ref={(element: HTMLElement) => {
             this.tooltipRef = element
           }}
+          size={this.size}
           triggerType={this.triggerType}
         >
           <slot />

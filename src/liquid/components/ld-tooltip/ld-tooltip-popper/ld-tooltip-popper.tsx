@@ -21,6 +21,9 @@ export class LdTooltipPopper {
   /** Event type that triggers the tooltip */
   @Prop() triggerType?: 'click' | 'hover' = 'hover'
 
+  /** Render the tooltip without visual styling. */
+  @Prop() unstyled? = false
+
   /** Whether the tooltip has a custom trigger or not */
   @Prop() hasDefaultTrigger?: boolean
 
@@ -40,6 +43,7 @@ export class LdTooltipPopper {
           this.initialized && 'ld-tooltip--initialized',
           this.size && `ld-tooltip--${this.size}`,
           this.triggerType === 'click' && 'ld-tooltip--interactive',
+          this.unstyled && 'ld-tooltip--unstyled',
         ])}
         role="tooltip"
       >

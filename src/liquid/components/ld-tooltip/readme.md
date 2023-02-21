@@ -471,6 +471,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-context-menu](../ld-context-menu)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
@@ -485,6 +486,7 @@ Type: `Promise<void>`
 graph TD;
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
+  ld-context-menu --> ld-tooltip
   ld-sidenav-header --> ld-tooltip
   ld-sidenav-navitem --> ld-tooltip
   ld-sidenav-toggle-outside --> ld-tooltip
