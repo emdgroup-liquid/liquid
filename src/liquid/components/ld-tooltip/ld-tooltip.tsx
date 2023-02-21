@@ -27,6 +27,7 @@ export type Position =
   | 'top right'
 
 let tooltipCount = 0
+const isElement = (node: Node): node is Element => 'classList' in node
 
 /**
  * @virtualProp ref - reference to component
@@ -43,8 +44,10 @@ let tooltipCount = 0
 export class LdTooltip {
   @Element() el: HTMLElement
 
+  private contentRef!: HTMLSpanElement
   private delayTimeout?: NodeJS.Timeout
   private idDescriber = `ld-tooltip-${++tooltipCount}`
+  private observer: MutationObserver
   private popper?: Tether
   private tooltipRef!: HTMLElement
   private triggerRef!: HTMLSpanElement
@@ -136,15 +139,21 @@ export class LdTooltip {
     })
   }
 
-  private initTooltip = async () => {
-    const attachment = this.mapPositionToAttachment(this.position)
-    const targetAttachment = this.mapPositionToTargetAttachment(this.position)
-    const tooltipContent = this.tooltipRef.querySelector('slot').assignedNodes()
+  private syncContent = () => {
+    const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
 
     tooltipContent.forEach((node: Element) => {
       this.copySlottedNodes(node)
-      this.tooltipRef.appendChild(node)
+      const clonedNode = node.cloneNode(true)
+      this.tooltipRef.appendChild(clonedNode)
     })
+  }
+
+  private initTooltip = async () => {
+    const attachment = this.mapPositionToAttachment(this.position)
+    const targetAttachment = this.mapPositionToTargetAttachment(this.position)
+
+    this.syncContent()
 
     const customTetherOptions: Partial<Tether.ITetherOptions> =
       typeof this.tetherOptions === 'string'
@@ -268,11 +277,39 @@ export class LdTooltip {
     this.handleClickOutside(ev)
   }
 
+  private handleSlotChange = () => {
+    this.tooltipRef.childNodes.forEach((node) => {
+      if (
+        isElement(node) &&
+        node.classList.contains('ld-tether-element-marker')
+      ) {
+        return
+      }
+
+      node.remove()
+    })
+    this.syncContent()
+  }
+
+  private initObserver = () => {
+    this.observer = new MutationObserver(this.handleSlotChange)
+    this.observer.observe(this.el, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+    })
+  }
+
   componentWillLoad() {
     this.hasDefaultTrigger = !this.el.querySelector('[slot="trigger"]')
   }
 
+  componentDidLoad() {
+    setTimeout(() => this.initObserver())
+  }
+
   disconnectedCallback() {
+    this.observer?.disconnect()
     this.popper?.destroy()
     this.tooltipRef?.remove()
   }
@@ -323,6 +360,12 @@ export class LdTooltip {
             </svg>
           </slot>
         </TriggerTag>
+        <span
+          class="ld-tooltip__content"
+          ref={(element: HTMLSpanElement) => (this.contentRef = element)}
+        >
+          <slot />
+        </span>
         <ld-tooltip-popper
           aria-hidden={this.visible ? undefined : 'true'}
           arrow={this.arrow}
@@ -335,9 +378,7 @@ export class LdTooltip {
           }}
           size={this.size}
           triggerType={this.triggerType}
-        >
-          <slot />
-        </ld-tooltip-popper>
+        />
       </Host>
     )
   }

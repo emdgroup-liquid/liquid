@@ -37,3 +37,7 @@
   height: var(--ld-sp-16);
   width: var(--ld-sp-16);
 }
+
+.ld-tooltip__content {
+  display: none;
+}
