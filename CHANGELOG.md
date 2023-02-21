@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/emdgroup-liquid/liquid/compare/v4.5.1...v4.6.0) (2023-02-21)
+
+
+### Features
+
+* use includeDefineCustomElements config for vue and react and adjust patches ([e618d96](https://github.com/emdgroup-liquid/liquid/commit/e618d96bb6e74a22e21479e379cc293bedfc0f3e))
+
 ## [4.5.1](https://github.com/emdgroup-liquid/liquid/compare/v4.5.0...v4.5.1) (2023-02-21)
 
 
