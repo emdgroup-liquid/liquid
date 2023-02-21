@@ -45,7 +45,7 @@ export class LdSwitch implements InnerFocusable {
   @Prop() disabled?: boolean
 
   /** Make each switch item take up as little space as its content requires. */
-  @Prop() fitContent?: boolean = false
+  @Prop() fitContent? = false
 
   /** Associates the control with a form element. */
   @Prop() form?: string

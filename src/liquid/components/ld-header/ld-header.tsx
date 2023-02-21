@@ -28,7 +28,7 @@ export class LdHeader {
   @Prop({ mutable: true }) hidden = false
 
   /** Hide the header when the user scrolls down and show it again, when the user scrolls up. */
-  @Prop() hideOnScroll?: boolean = false
+  @Prop() hideOnScroll? = false
 
   /** Title attribute of the logo link. */
   @Prop() logoTitle?: string
@@ -37,7 +37,7 @@ export class LdHeader {
   @Prop() logoUrl?: string
 
   /** Make the header sticky. */
-  @Prop() sticky?: boolean = false
+  @Prop() sticky? = false
 
   /** Name shown on the right side of the logo. */
   @Prop() siteName?: string

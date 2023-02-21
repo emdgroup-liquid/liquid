@@ -43,7 +43,7 @@ export class LdSelectPopper {
   @Prop() detached?: boolean
 
   /** Indicates if select element is expanded. */
-  @Prop() expanded?: boolean = false
+  @Prop() expanded? = false
 
   /** Set this property to `true` in order to enable an input field for filtering options. */
   @Prop() filter?: boolean

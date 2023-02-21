@@ -29,7 +29,7 @@ export class LdSidenavBack {
   @Event() ldSidenavBack: EventEmitter
 
   /** Used as aria-label for the back button */
-  @Prop() backLabel?: string = 'Back'
+  @Prop() backLabel? = 'Back'
 
   @State() parentLabel = ''
   @State() rounded = false

@@ -30,13 +30,13 @@ export class LdAccordion {
   @Prop() brandColor?: boolean
 
   /** Sets a small gap between each accordion section. */
-  @Prop() detached?: boolean = false
+  @Prop() detached? = false
 
   /** Applies rounded corners. */
-  @Prop() rounded?: boolean = false
+  @Prop() rounded? = false
 
   /** When set to true, an open accordion element closes, if anthorer one opens. */
-  @Prop() single?: boolean = false
+  @Prop() single? = false
 
   /**
    * Use `'dark'` on white backgrounds. Default is a light tone.

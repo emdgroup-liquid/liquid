@@ -54,10 +54,10 @@ export class LdSelect implements InnerFocusable {
   @Prop() creatable?: boolean
 
   /** The "create" input label (creatable mode). */
-  @Prop() createInputLabel?: string = 'Press Enter to create option'
+  @Prop() createInputLabel? = 'Press Enter to create option'
 
   /** The "create" button label (creatable mode). */
-  @Prop() createButtonLabel?: string = 'Create option'
+  @Prop() createButtonLabel? = 'Create option'
 
   /** Disabled state of the component. */
   @Prop() disabled?: boolean
@@ -69,7 +69,7 @@ export class LdSelect implements InnerFocusable {
   @Prop() filter?: boolean
 
   /** The filter input placeholder. */
-  @Prop() filterPlaceholder?: string = 'Filter options'
+  @Prop() filterPlaceholder? = 'Filter options'
 
   /** Set this property to `true` in order to mark the select visually as invalid. */
   @Prop() invalid?: boolean

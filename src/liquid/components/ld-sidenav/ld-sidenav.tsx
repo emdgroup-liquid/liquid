@@ -39,10 +39,10 @@ export class LdSidenav {
    * opened and closed as opposed to being expanded and collapsed.
    * The prop value is used in a max-width media query.
    */
-  @Prop() breakpoint?: string = '23.4375rem'
+  @Prop() breakpoint? = '23.4375rem'
 
   /** Indicates that the navigation is collapsed to the side of its container. */
-  @Prop({ mutable: true }) collapsed?: boolean = false
+  @Prop({ mutable: true }) collapsed? = false
 
   /**
    * Makes the navigation collapse either on
@@ -58,7 +58,7 @@ export class LdSidenav {
   /**
    * Allows the side navigation to be collapsed to the side of its container.
    */
-  @Prop() collapsible?: boolean = false
+  @Prop() collapsible? = false
 
   /**
    * Makes the navigation expand either on
@@ -70,20 +70,20 @@ export class LdSidenav {
   @Prop() expandTrigger?: 'toggle' | 'mouseenter' = 'toggle'
 
   /** Label to be used for the landmark element (the sidenav itself). */
-  @Prop() label?: string = 'Side navigation'
+  @Prop() label? = 'Side navigation'
 
   /**
    * Set to true if you'd like to have a sidenav which partially
    * collapses in way, that slotted ld-navitem components are displayed
    * as icon buttons.
    */
-  @Prop() narrow?: boolean = false
+  @Prop() narrow? = false
 
   /**
    * Indicates that the navigation is visible in a viewport
    * which is smaller than the value of the `breakpoint` prop.
    */
-  @Prop({ mutable: true }) open?: boolean = false
+  @Prop({ mutable: true }) open? = false
 
   /**
    * Disables transitions on collapsing and expansion of the sidenav.
@@ -91,7 +91,7 @@ export class LdSidenav {
    * the side on sidenav expansion, and you want to prevent too many
    * layout shifts during the transition.
    */
-  @Prop() toggleTransitionDisabled?: boolean = false
+  @Prop() toggleTransitionDisabled? = false
 
   /**
    * Enables focus trapping. Accespts a CSS selector which indicates

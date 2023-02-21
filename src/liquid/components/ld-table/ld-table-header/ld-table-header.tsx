@@ -50,7 +50,7 @@ export class LdTableHeader {
   @Prop() scope?: HTMLTableCellElement['scope']
 
   /** Defines whether the column is sortable. */
-  @Prop() sortable?: boolean = false
+  @Prop() sortable? = false
 
   /** Defines whether the column is sorted and in which order. */
   @Prop({ mutable: true }) sortOrder?: 'asc' | 'desc'

@@ -46,7 +46,7 @@ export class LdAccordionToggle implements InnerFocusable {
   @Prop() split?: boolean
 
   /** Used as aria-label value on the toggle trigger element. */
-  @Prop() toggleLabel?: string = 'Toggle'
+  @Prop() toggleLabel? = 'Toggle'
 
   @State() expanded: boolean
   @State() hasCustomIcon = false

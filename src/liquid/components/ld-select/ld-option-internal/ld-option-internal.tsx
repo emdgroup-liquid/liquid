@@ -33,12 +33,12 @@ export class LdOptionInternal {
   /**
    * If present, this boolean attribute indicates that the option is selected.
    */
-  @Prop({ mutable: true, reflect: true }) selected?: boolean = false
+  @Prop({ mutable: true, reflect: true }) selected? = false
 
   /**
    * Disables the option.
    */
-  @Prop() disabled?: boolean = false
+  @Prop() disabled? = false
 
   /**
    * Prevents deselection of a selected options when the selected option
@@ -55,7 +55,7 @@ export class LdOptionInternal {
   @Prop() size?: 'sm' | 'lg'
 
   /** Set to true on filtering via select input. */
-  @Prop() filtered?: boolean = false
+  @Prop() filtered? = false
 
   /**
    * Sets focus internally.

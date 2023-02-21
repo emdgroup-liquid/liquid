@@ -57,19 +57,19 @@ export class LdTooltip {
   @Prop() disabled?: boolean
 
   /** Delay in ms until tooltip hides (only when trigger type is 'hover') */
-  @Prop() hideDelay?: number = 0
+  @Prop() hideDelay? = 0
 
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position: Position = 'top center'
 
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
-  @Prop() showDelay?: number = 0
+  @Prop() showDelay? = 0
 
   /** The tooltip size (effects tooltip padding only) */
   @Prop() size?: 'sm'
 
   /** The rendered HTML tag for the tooltip trigger. */
-  @Prop() tag?: string = 'button'
+  @Prop() tag? = 'button'
 
   /** Tether options object to be merged with the default options (optionally stringified). */
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string

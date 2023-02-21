@@ -36,7 +36,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the checkbox is checked. */
-  @Prop({ mutable: true }) checked?: boolean = false
+  @Prop({ mutable: true }) checked? = false
 
   /** Disabled state of the checkbox. */
   @Prop() disabled?: boolean

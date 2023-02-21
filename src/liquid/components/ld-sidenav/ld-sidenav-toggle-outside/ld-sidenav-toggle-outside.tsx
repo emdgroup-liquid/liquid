@@ -26,7 +26,7 @@ export class LdSidenavToggleOutside implements InnerFocusable {
   private toggle: HTMLButtonElement
 
   /** Label to be used for the toggle button when navigation is collapsed. */
-  @Prop() labelExpand?: string = 'Expand side navigation'
+  @Prop() labelExpand? = 'Expand side navigation'
 
   /** Tab index of the toggle. */
   @Prop() ldTabindex: number | undefined

@@ -27,17 +27,17 @@ export class LdStepper {
   @Element() el: HTMLLdStepperElement
 
   /** Switch colors for brand background. */
-  @Prop() brandColor?: boolean = false
+  @Prop() brandColor? = false
   /** Indicates whether the steps should be evenly distributed or fit to their content */
-  @Prop() fitContent?: boolean = false
+  @Prop() fitContent? = false
   /** Template for the screen-reader label, containing the label of the current step and the steps summary */
-  @Prop() labelTemplate?: string = '$1, $2'
+  @Prop() labelTemplate? = '$1, $2'
   /** Step summary template for the screen-reader label, containing the index of the current step and the overall number of steps */
-  @Prop() labelSummaryTemplate?: string = 'step $1 of $2'
+  @Prop() labelSummaryTemplate? = 'step $1 of $2'
   /** Step size */
   @Prop() size?: HTMLLdStepElement['size']
   /** Vertical layout */
-  @Prop() vertical?: boolean = false
+  @Prop() vertical? = false
 
   // The following event is not used within the ld-stepper component itself.
   // Its only purpose is to create a type definition on the ld-stepper component,

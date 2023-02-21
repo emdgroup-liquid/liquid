@@ -21,13 +21,13 @@ export class LdCircularProgress {
    * Set to a decimal value representing the maximum value, and greater
    * than aria-valuemin. If not present, the default value is 100.
    */
-  @Prop({ reflect: true }) ariaValuemax?: number = 100
+  @Prop({ reflect: true }) ariaValuemax? = 100
 
   /**
    * Set to a decimal value representing the minimum value, and less
    * than aria-valuemax. If not present, the default value is 0.
    */
-  @Prop({ reflect: true }) ariaValuemin?: number = 0
+  @Prop({ reflect: true }) ariaValuemin? = 0
 
   /**
    * Only present and required if the value is not indeterminate.

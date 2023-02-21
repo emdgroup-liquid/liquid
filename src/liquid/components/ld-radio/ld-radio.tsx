@@ -36,13 +36,13 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
    * @internal
    * States that this radio button or another radio button with the same name is checked.
    */
-  @Prop() groupChecked?: boolean = false
+  @Prop() groupChecked? = false
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop({ reflect: true }) autofocus: boolean
 
   /** Indicates whether the radio button is selected. */
-  @Prop({ mutable: true }) checked?: boolean = false
+  @Prop({ mutable: true }) checked? = false
 
   /** Disabled state of the radio. */
   @Prop() disabled?: boolean
