@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](https://github.com/emdgroup-liquid/liquid/compare/v4.6.0...v4.7.0) (2023-02-21)
+
+
+### Features
+
+* introduces default asset path to jsDelivr ([140b298](https://github.com/emdgroup-liquid/liquid/commit/140b29822c807767c1373d14f53db0c3e2aa8b15))
+
 # [4.6.0](https://github.com/emdgroup-liquid/liquid/compare/v4.5.1...v4.6.0) (2023-02-21)
 
 
