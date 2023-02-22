@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.1](https://github.com/emdgroup-liquid/liquid/compare/v4.7.0...v4.7.1) (2023-02-22)
+
+
+### Bug Fixes
+
+* **ld-card-stack:** issue with negative z-indexed cards ([1b9061e](https://github.com/emdgroup-liquid/liquid/commit/1b9061ec5fdbfba6c757f21438a47bfab4148e47))
+* **types:** mark props which are undefined by default as optional ([91534d5](https://github.com/emdgroup-liquid/liquid/commit/91534d5029f065ad8874919300a4716982ff6fe6))
+
 # [4.7.0](https://github.com/emdgroup-liquid/liquid/compare/v4.6.0...v4.7.0) (2023-02-21)
 
 
