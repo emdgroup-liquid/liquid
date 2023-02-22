@@ -33,6 +33,15 @@ describe('ld-tooltip', () => {
         <p>Text content</p>
       </ld-tooltip>`,
     })
+
+    const component = page.root
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
+
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     expect(page.root).toMatchSnapshot()
   })
 
@@ -45,6 +54,15 @@ describe('ld-tooltip', () => {
         <p>Text content</p>
       </ld-tooltip>`,
     })
+
+    const component = page.root
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
+
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     expect(page.root).toMatchSnapshot()
   })
 
@@ -56,6 +74,15 @@ describe('ld-tooltip', () => {
         <p>Text content</p>
       </ld-tooltip>`,
     })
+
+    const component = page.root
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
+
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     expect(page.root).toMatchSnapshot()
   })
 
@@ -71,12 +98,13 @@ describe('ld-tooltip', () => {
 
       const component = page.root
       const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-      const defaultSlot = component.shadowRoot.querySelector(
+      const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
         '.ld-tooltip__content slot'
       )
 
-      // @ts-ignore
-      defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+      // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+      defaultSlot.assignedNodes = () =>
+        component.querySelectorAll('> *') as unknown as Node[]
       trigger.dispatchEvent(new MouseEvent('mouseenter'))
       jest.advanceTimersByTime(0)
       await page.waitForChanges()
@@ -98,12 +126,13 @@ describe('ld-tooltip', () => {
     const form = page.body.querySelector('form')
     const component = page.root as HTMLLdTooltipElement
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     component.tetherOptions = { bodyElement: form }
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
@@ -122,12 +151,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
@@ -147,12 +177,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new Event('focus'))
     jest.advanceTimersByTime(0)
 
@@ -172,7 +203,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
 
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
@@ -190,12 +227,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
@@ -215,12 +253,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
@@ -250,12 +289,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
@@ -286,7 +326,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
 
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
@@ -304,7 +350,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
 
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new Event('focus'))
     jest.advanceTimersByTime(0)
 
@@ -322,7 +374,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
 
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
@@ -345,7 +403,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
+      '.ld-tooltip__content slot'
+    )
 
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
@@ -363,12 +427,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
@@ -393,12 +458,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new Event('focus'))
     jest.advanceTimersByTime(0)
 
@@ -423,12 +489,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
@@ -455,12 +522,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(499)
 
@@ -484,12 +552,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
     trigger.dispatchEvent(new MouseEvent('mouseleave'))
@@ -515,12 +584,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
     await page.waitForChanges()
@@ -543,12 +613,13 @@ describe('ld-tooltip', () => {
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
     component.querySelector('p').textContent = 'Changed content'
-    const defaultSlot = component.shadowRoot.querySelector(
+    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
 
-    // @ts-ignore
-    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
+    defaultSlot.assignedNodes = () =>
+      component.querySelectorAll('> *') as unknown as Node[]
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
     await page.waitForChanges()

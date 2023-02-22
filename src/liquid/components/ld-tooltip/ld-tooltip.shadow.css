@@ -24,7 +24,7 @@
     color: var(--ld-tooltip-trigger-icon-col-hover);
   }
 
-  + .ld-tooltip {
+  ~ .ld-tooltip {
     opacity: 0;
     position: absolute;
     display: none;

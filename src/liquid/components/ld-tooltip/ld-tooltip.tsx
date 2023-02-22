@@ -29,6 +29,51 @@ export type Position =
 let tooltipCount = 0
 const isElement = (node: Node): node is Element => 'classList' in node
 
+const mapPositionToAttachment = (position: Position) => {
+  return {
+    'bottom center': 'top center',
+    'bottom left': 'top left',
+    'bottom right': 'top right',
+    'left bottom': 'bottom right',
+    'left middle': 'middle right',
+    'left top': 'top right',
+    'right bottom': 'bottom left',
+    'right middle': 'middle left',
+    'right top': 'top left',
+    'top center': 'bottom center',
+    'top left': 'bottom left',
+    'top right': 'bottom right',
+  }[position]
+}
+
+const mapPositionToTargetAttachment = (position: Position) => {
+  return (
+    {
+      'left bottom': 'bottom left',
+      'left middle': 'middle left',
+      'left top': 'top left',
+      'right bottom': 'bottom right',
+      'right middle': 'middle right',
+      'right top': 'top right',
+    }[position] ?? position
+  )
+}
+
+const copySlottedNodes = (node: Element) => {
+  // text node
+  if (!('querySelectorAll' in node)) {
+    return
+  }
+
+  node.querySelectorAll('slot').forEach((slot) => {
+    slot.assignedNodes().forEach((childNode: Element) => {
+      copySlottedNodes(childNode)
+      slot.parentElement.insertBefore(childNode, slot)
+    })
+    slot.remove()
+  })
+}
+
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
@@ -95,65 +140,20 @@ export class LdTooltip {
     }
   }
 
-  private mapPositionToAttachment = (position: Position) => {
-    return {
-      'bottom center': 'top center',
-      'bottom left': 'top left',
-      'bottom right': 'top right',
-      'left bottom': 'bottom right',
-      'left middle': 'middle right',
-      'left top': 'top right',
-      'right bottom': 'bottom left',
-      'right middle': 'middle left',
-      'right top': 'top left',
-      'top center': 'bottom center',
-      'top left': 'bottom left',
-      'top right': 'bottom right',
-    }[position]
-  }
-
-  private mapPositionToTargetAttachment = (position: Position) => {
-    return (
-      {
-        'left bottom': 'bottom left',
-        'left middle': 'middle left',
-        'left top': 'top left',
-        'right bottom': 'bottom right',
-        'right middle': 'middle right',
-        'right top': 'top right',
-      }[position] ?? position
-    )
-  }
-
-  private copySlottedNodes = (node: Element) => {
-    if (!('querySelectorAll' in node)) {
-      return
-    }
-
-    node.querySelectorAll('slot').forEach((slot) => {
-      slot.assignedNodes().forEach((childNode: Element) => {
-        this.copySlottedNodes(childNode)
-        slot.parentElement.insertBefore(childNode, slot)
-      })
-      slot.remove()
-    })
-  }
-
   private syncContent = () => {
     const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
+    // const tooltipContent = this.el.querySelectorAll(':not([slot="trigger"])')
 
     tooltipContent.forEach((node: Element) => {
-      this.copySlottedNodes(node)
+      copySlottedNodes(node)
       const clonedNode = node.cloneNode(true)
       this.tooltipRef.appendChild(clonedNode)
     })
   }
 
   private initTooltip = async () => {
-    const attachment = this.mapPositionToAttachment(this.position)
-    const targetAttachment = this.mapPositionToTargetAttachment(this.position)
-
-    this.syncContent()
+    const attachment = mapPositionToAttachment(this.position)
+    const targetAttachment = mapPositionToTargetAttachment(this.position)
 
     const customTetherOptions: Partial<Tether.ITetherOptions> =
       typeof this.tetherOptions === 'string'
@@ -305,7 +305,10 @@ export class LdTooltip {
   }
 
   componentDidLoad() {
-    setTimeout(() => this.initObserver())
+    setTimeout(() => {
+      this.syncContent()
+      this.initObserver()
+    })
   }
 
   disconnectedCallback() {
