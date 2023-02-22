@@ -23,7 +23,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 
 {% example %}
 <ld-menu>
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
@@ -32,7 +31,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 <!-- React component -->
 
 <LdMenu>
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
@@ -63,21 +61,18 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 
 {% example %}
 <ld-menu size="sm">
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
 </ld-menu>
 
 <ld-menu>
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
 </ld-menu>
 
 <ld-menu size="lg">
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
@@ -86,21 +81,18 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 <!-- React component -->
 
 <LdMenu size="sm">
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
 </LdMenu>
 
 <LdMenu>
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
 </LdMenu>
 
 <LdMenu size="lg">
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
@@ -167,7 +159,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 
 {% example %}
 <ld-menu>
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem-group>
     <ld-menuitem>Menu item 1</ld-menuitem>
     <ld-menuitem>Menu item 2</ld-menuitem>
@@ -188,7 +179,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 <!-- React component -->
 
 <LdMenu>
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitemGroup>
     <LdMenuitem>Menu item 1</LdMenuitem>
     <LdMenuitem>Menu item 2</LdMenuitem>
@@ -251,7 +241,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 
 {% example %}
 <ld-menu style="width:18rem">
-  <ld-button slot="trigger">Open menu</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
@@ -260,7 +249,6 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 <!-- React component -->
 
 <LdMenu style={ { width: '18rem' } }>
-  <LdButton slot="trigger">Open menu</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>

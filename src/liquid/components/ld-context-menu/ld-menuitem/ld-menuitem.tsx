@@ -30,6 +30,13 @@ export class LdMenuitem {
    */
   @Prop() size?: 'sm' | 'lg'
 
+  /**
+   * The `target` attributed can be used in conjunction with the `href` attribute.
+   * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
+   * for more information on the `target` attribute.
+   */
+  @Prop() target?: HTMLLdButtonElement['target']
+
   render() {
     return (
       <Host>
@@ -41,6 +48,7 @@ export class LdMenuitem {
             justifyContent="start"
             mode={modeMap[this.mode]}
             size={this.size}
+            target={this.target}
           >
             <slot></slot>
           </ld-button>
