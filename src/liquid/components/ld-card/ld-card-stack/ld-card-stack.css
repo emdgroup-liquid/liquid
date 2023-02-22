@@ -9,6 +9,7 @@
   grid-template-columns: 1fr;
   padding: 0;
   position: relative;
+  z-index: 0;
 
   ::slotted(.ld-card),
   .ld-card {

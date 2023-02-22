@@ -60,6 +60,20 @@ describe('ld-card-stack', () => {
     expect(results).toMatchScreenshot()
   })
 
+  it('has its own stacking context', async () => {
+    const page = await getPageWithContent(
+      `<div style="background: salmon; padding: 2rem">
+        <ld-card-stack>
+          ${getCardsWC(5)}
+        </ld-card-stack>
+      </div>`,
+      { disableAllTransitions: true }
+    )
+
+    const results = await page.compareScreenshot()
+    expect(results).toMatchScreenshot()
+  })
+
   describe('accessibility', () => {
     it('is accessible as a Web Component', async () => {
       const page = await getPageWithContent(
