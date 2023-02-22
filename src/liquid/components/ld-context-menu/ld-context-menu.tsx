@@ -2,7 +2,7 @@ import { Component, Element, h, Prop } from '@stencil/core'
 
 @Component({
   tag: 'ld-context-menu',
-  styleUrl: 'ld-context-menu.css',
+  styleUrl: 'ld-context-menu.shadow.css',
   shadow: true,
 })
 export class LdContextMenu {
