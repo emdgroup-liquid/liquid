@@ -54,7 +54,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() invalid?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
@@ -72,7 +72,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   @Prop() tone?: 'dark'
 
   /** The input value. */
-  @Prop() value: string
+  @Prop() value?: string
 
   @State() clonedAttributes
 

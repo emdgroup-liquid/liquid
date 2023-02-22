@@ -90,7 +90,7 @@ export class LdSlider implements InnerFocusable {
   /** Allows swapping of thumbs */
   @Prop() swappable? = false
   /** Tab index of the input(s). */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() unit?: string
   /** Specifies the default value */

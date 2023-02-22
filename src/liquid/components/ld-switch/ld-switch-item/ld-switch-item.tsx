@@ -53,7 +53,7 @@ export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
    * @internal
    * Tab index of the input.
    */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /**
    * @internal

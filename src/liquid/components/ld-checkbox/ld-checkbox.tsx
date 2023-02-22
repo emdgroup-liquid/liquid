@@ -54,13 +54,13 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop() invalid?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Display mode. */
   @Prop() mode?: 'highlight' | 'danger'
 
   /** Used to specify the name of the control. */
-  @Prop() name: string
+  @Prop() name?: string
 
   /** The value is not editable. */
   @Prop() readonly?: boolean
@@ -72,7 +72,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   @Prop() tone?: 'dark'
 
   /** The input value. */
-  @Prop() value: string
+  @Prop() value?: string
 
   @State() clonedAttributes
 

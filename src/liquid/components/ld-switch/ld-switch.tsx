@@ -63,7 +63,7 @@ export class LdSwitch implements InnerFocusable {
   @Prop() required?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   @State() hasFocus = false
 

@@ -92,10 +92,10 @@ export class LdSelect implements InnerFocusable {
   @Prop() multiple?: boolean
 
   /** Used to specify the name of the control. */
-  @Prop() name: string
+  @Prop() name?: string
 
   /** Used as trigger button label in multiselect mode and in single select mode if nothing is selected. */
-  @Prop() placeholder: string
+  @Prop() placeholder?: string
 
   /** Attached as CSS class to the select popper element. */
   @Prop() popperClass?: string
@@ -107,7 +107,7 @@ export class LdSelect implements InnerFocusable {
   @Prop() required?: boolean
 
   /** Currently selected option(s) (read only!) */
-  @Prop({ mutable: true }) selected: SelectOption[] = []
+  @Prop({ mutable: true }) selected?: SelectOption[] = []
 
   /** Size of the select trigger button. */
   @Prop() size?: 'sm' | 'lg'

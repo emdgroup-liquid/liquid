@@ -32,7 +32,7 @@ export class LdTab implements InnerFocusable {
   @Prop() disabled?: boolean
 
   /** Tab index of the tab. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** If present, this boolean attribute indicates that the tab is selected. */
   @Prop({ mutable: true, reflect: true }) selected?: boolean

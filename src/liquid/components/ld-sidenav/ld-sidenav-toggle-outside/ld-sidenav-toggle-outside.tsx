@@ -29,7 +29,7 @@ export class LdSidenavToggleOutside implements InnerFocusable {
   @Prop() labelExpand? = 'Expand side navigation'
 
   /** Tab index of the toggle. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Tooltip tether options object to be merged with the default options (optionally stringified). */
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string

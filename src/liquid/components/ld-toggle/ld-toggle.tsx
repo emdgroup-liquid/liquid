@@ -56,10 +56,10 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Prop() invalid?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Used to specify the name of the control. */
-  @Prop() name: string
+  @Prop() name?: string
 
   /** The value is not editable. */
   @Prop() readonly?: boolean
@@ -71,7 +71,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   @Prop() size?: 'sm' | 'lg'
 
   /** The input value. */
-  @Prop() value: string
+  @Prop() value?: string
 
   @State() clonedAttributes
 

@@ -65,7 +65,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
 
   /** Tab index of the button. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Display mode. */
   @Prop() mode?:

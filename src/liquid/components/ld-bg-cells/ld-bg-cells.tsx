@@ -38,7 +38,7 @@ export class LdBgCells {
   @Element() el: HTMLElement
 
   /** Cells pattern */
-  @Prop() type: CellType = 'hexagon'
+  @Prop() type?: CellType = 'hexagon'
 
   /** Use 3 color layers */
   @Prop() threeLayers? = false

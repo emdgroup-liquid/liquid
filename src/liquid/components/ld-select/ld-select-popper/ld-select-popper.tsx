@@ -25,7 +25,7 @@ export class LdSelectPopper {
   @Prop() allOptionsFiltered?: boolean
 
   /** A watcher is applied to the CSS class in order to be able to react to tether changes. */
-  @Prop({ reflect: true }) class: string
+  @Prop({ reflect: true }) class?: string
 
   /**
    * Creatable mode can be enabled when the filter prop is set to true.
@@ -34,10 +34,10 @@ export class LdSelectPopper {
   @Prop() creatable?: boolean
 
   /** The "create" input label (creatable mode). */
-  @Prop() createInputLabel: string
+  @Prop() createInputLabel!: string
 
   /** The "create" button label (creatable mode). */
-  @Prop() createButtonLabel: string
+  @Prop() createButtonLabel!: string
 
   /** Popper is visually detached from the select trigger element (there's a gap between the two). */
   @Prop() detached?: boolean
@@ -52,7 +52,7 @@ export class LdSelectPopper {
   @Prop() filterMatchesOption?: boolean
 
   /** The filter input placeholder. */
-  @Prop() filterPlaceholder: string
+  @Prop() filterPlaceholder!: string
 
   /** Attaches CSS class to the select popper element. */
   @Prop() popperClass?: string
@@ -61,7 +61,7 @@ export class LdSelectPopper {
   @Prop() size?: 'sm' | 'lg'
 
   /** Since the select popper is located outside the select element, the theme needs to be applied as a prop. */
-  @Prop() theme: string
+  @Prop() theme?: string
 
   @State() isPinned = false
   @State() shadowHeight = '100%'
