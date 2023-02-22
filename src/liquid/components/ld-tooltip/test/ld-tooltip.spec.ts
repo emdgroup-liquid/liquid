@@ -3,6 +3,7 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdTooltip } from '../ld-tooltip'
 import { LdTooltipPopper } from '../ld-tooltip-popper/ld-tooltip-popper'
+import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
 
 const positions = [
   'bottom center',
@@ -70,11 +71,13 @@ describe('ld-tooltip', () => {
 
       const component = page.root
       const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-      const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+      const defaultSlot = component.shadowRoot.querySelector(
+        '.ld-tooltip__content slot'
+      )
 
       // @ts-ignore
       defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-      trigger.dispatchEvent(new Event('mouseenter'))
+      trigger.dispatchEvent(new MouseEvent('mouseenter'))
       jest.advanceTimersByTime(0)
       await page.waitForChanges()
 
@@ -95,12 +98,14 @@ describe('ld-tooltip', () => {
     const form = page.body.querySelector('form')
     const component = page.root as HTMLLdTooltipElement
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
     component.tetherOptions = { bodyElement: form }
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(page.body).toMatchSnapshot()
@@ -117,11 +122,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -140,7 +147,9 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
@@ -164,7 +173,7 @@ describe('ld-tooltip', () => {
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -181,11 +190,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -204,11 +215,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -218,8 +231,9 @@ describe('ld-tooltip', () => {
     const event = {
       type: 'touchend',
       isTrusted: true,
+      composedPath: () => [page.body],
     }
-    page.body.dispatchEvent(event as Event)
+    page.body.dispatchEvent(event as unknown as Event)
     await page.waitForChanges()
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -236,11 +250,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -271,7 +287,7 @@ describe('ld-tooltip', () => {
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -307,7 +323,7 @@ describe('ld-tooltip', () => {
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -330,7 +346,7 @@ describe('ld-tooltip', () => {
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -347,18 +363,20 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
       null
     )
 
-    trigger.dispatchEvent(new Event('mouseleave'))
+    trigger.dispatchEvent(new MouseEvent('mouseleave'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -375,7 +393,9 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
@@ -403,18 +423,20 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
       null
     )
 
-    trigger.dispatchEvent(new Event('click'))
+    trigger.dispatchEvent(new MouseEvent('click'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -433,11 +455,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(499)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -460,13 +484,15 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
-    trigger.dispatchEvent(new Event('mouseleave'))
+    trigger.dispatchEvent(new MouseEvent('mouseleave'))
     jest.advanceTimersByTime(499)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -489,11 +515,13 @@ describe('ld-tooltip', () => {
 
     const component = page.root
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
-    const defaultSlot = component.shadowRoot.querySelector('.ld-tooltip slot')
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
 
     // @ts-ignore
     defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
-    trigger.dispatchEvent(new Event('mouseenter'))
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
     await page.waitForChanges()
     expect(page.body.querySelector('ld-tooltip-popper')).toBeTruthy()
@@ -501,5 +529,34 @@ describe('ld-tooltip', () => {
     component.remove()
     await page.waitForChanges()
     expect(page.body.querySelector('ld-tooltip-popper')).toBeFalsy()
+  })
+
+  it('updates popper on content changes', async () => {
+    const page = await newSpecPage({
+      components: [LdIcon, LdTooltip, LdTooltipPopper],
+      html: `<ld-tooltip>
+        <h4>Headline</h4>
+        <p>Text content</p>
+      </ld-tooltip>`,
+    })
+    const component = page.root
+    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
+
+    component.querySelector('p').textContent = 'Changed content'
+    const defaultSlot = component.shadowRoot.querySelector(
+      '.ld-tooltip__content slot'
+    )
+
+    // @ts-ignore
+    defaultSlot.assignedNodes = () => component.querySelectorAll('> *')
+    trigger.dispatchEvent(new MouseEvent('mouseenter'))
+    jest.advanceTimersByTime(0)
+    await page.waitForChanges()
+    getTriggerableMutationObserver().trigger([])
+    await page.waitForChanges()
+
+    expect(page.body.querySelector('ld-tooltip-popper p').textContent).toBe(
+      'Changed content'
+    )
   })
 })

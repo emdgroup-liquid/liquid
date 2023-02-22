@@ -8,7 +8,6 @@ exports[`ld-tooltip places the popper inside a given element 1`] = `
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <slot></slot>
       <h4>
         Headline
       </h4>
@@ -36,7 +35,16 @@ exports[`ld-tooltip places the popper inside a given element 1`] = `
           <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
         </div>
       </button>
+      <span class="ld-tooltip__content">
+        <slot></slot>
+      </span>
     </mock:shadow-root>
+    <h4>
+      Headline
+    </h4>
+    <p>
+      Text content
+    </p>
   </ld-tooltip>
 </body>
 `;
@@ -55,11 +63,13 @@ exports[`ld-tooltip renders custom trigger 1`] = `
         </svg>
       </slot>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
     <ld-tooltip-popper aria-hidden="true" class="ld-tooltip" id="ld-tooltip-2" part="popper" role="tooltip">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <slot></slot>
     </ld-tooltip-popper>
   </mock:shadow-root>
   <div slot="trigger">
@@ -88,11 +98,13 @@ exports[`ld-tooltip renders default 1`] = `
         </svg>
       </slot>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
     <ld-tooltip-popper aria-hidden="true" class="ld-tooltip ld-tooltip--with-default-trigger" id="ld-tooltip-1" part="popper" role="tooltip">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <slot></slot>
     </ld-tooltip-popper>
   </mock:shadow-root>
   <h4>
@@ -118,12 +130,14 @@ exports[`ld-tooltip renders with arrow 1`] = `
         </svg>
       </slot>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
     <ld-tooltip-popper aria-hidden="true" class="ld-tooltip ld-tooltip--with-arrow ld-tooltip--with-default-trigger" id="ld-tooltip-3" part="popper" role="tooltip">
       <mock:shadow-root>
         <span class="ld-tooltip__arrow"></span>
         <slot></slot>
       </mock:shadow-root>
-      <slot></slot>
     </ld-tooltip-popper>
   </mock:shadow-root>
   <h4>
@@ -152,7 +166,16 @@ exports[`ld-tooltip renders with position bottom center 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -173,7 +196,16 @@ exports[`ld-tooltip renders with position bottom left 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -194,7 +226,16 @@ exports[`ld-tooltip renders with position bottom right 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -215,7 +256,16 @@ exports[`ld-tooltip renders with position left bottom 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -236,7 +286,16 @@ exports[`ld-tooltip renders with position left middle 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -257,7 +316,16 @@ exports[`ld-tooltip renders with position left top 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -278,7 +346,16 @@ exports[`ld-tooltip renders with position right bottom 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -299,7 +376,16 @@ exports[`ld-tooltip renders with position right middle 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -320,7 +406,16 @@ exports[`ld-tooltip renders with position right top 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -341,7 +436,16 @@ exports[`ld-tooltip renders with position top center 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -362,7 +466,16 @@ exports[`ld-tooltip renders with position top left 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
 
@@ -383,6 +496,15 @@ exports[`ld-tooltip renders with position top right 1`] = `
         <div class="ld-tether-marker-dot" style="top: 0px; left: 0px;"></div>
       </div>
     </button>
+    <span class="ld-tooltip__content">
+      <slot></slot>
+    </span>
   </mock:shadow-root>
+  <h4>
+    Headline
+  </h4>
+  <p>
+    Text content
+  </p>
 </ld-tooltip>
 `;
