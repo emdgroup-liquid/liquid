@@ -49,7 +49,7 @@ export class LdSidenavSubnav {
   @Prop() ancestor? = false
 
   /** Used in the ld-sidenav-back component to display parent nav label. */
-  @Prop() label: string
+  @Prop() label!: string
 
   @State() hasParentSubnav: boolean
 

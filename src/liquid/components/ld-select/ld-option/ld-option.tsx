@@ -17,7 +17,7 @@ export class LdOption {
    * should this option be selected. If this attribute is omitted, the value is taken
    * from the text content of the option element.
    */
-  @Prop() value: string
+  @Prop() value?: string
 
   /** If present, this boolean attribute indicates that the option is selected. */
   @Prop() selected?: boolean

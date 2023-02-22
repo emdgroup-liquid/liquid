@@ -29,10 +29,10 @@ export class LdSidenavSlider {
   private scrollerRef: HTMLLdSidenavScrollerInternalElement
 
   /** ID of the subnav that shall be shown on initial render. */
-  @Prop({ mutable: true }) currentSubnav: string
+  @Prop({ mutable: true }) currentSubnav?: string
 
   /** Used in the ld-sidenav-back component to display parent nav label. */
-  @Prop() label: string
+  @Prop() label!: string
 
   @State() currentNavLevel: number
   @State() activeSubnavs: HTMLLdSidenavSubnavElement[] = []

@@ -20,12 +20,12 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 
 ## Properties
 
-| Property        | Attribute        | Description                                                        | Type               | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------ | ------------------ | ----------- |
-| `currentSubnav` | `current-subnav` | ID of the subnav that shall be shown on initial render.            | `string`           | `undefined` |
-| `key`           | `key`            | for tracking the node's identity when working with lists           | `string \| number` | `undefined` |
-| `label`         | `label`          | Used in the ld-sidenav-back component to display parent nav label. | `string`           | `undefined` |
-| `ref`           | `ref`            | reference to component                                             | `any`              | `undefined` |
+| Property             | Attribute        | Description                                                        | Type               | Default     |
+| -------------------- | ---------------- | ------------------------------------------------------------------ | ------------------ | ----------- |
+| `currentSubnav`      | `current-subnav` | ID of the subnav that shall be shown on initial render.            | `string`           | `undefined` |
+| `key`                | `key`            | for tracking the node's identity when working with lists           | `string \| number` | `undefined` |
+| `label` _(required)_ | `label`          | Used in the ld-sidenav-back component to display parent nav label. | `string`           | `undefined` |
+| `ref`                | `ref`            | reference to component                                             | `any`              | `undefined` |
 
 
 ## Events

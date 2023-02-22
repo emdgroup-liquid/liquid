@@ -35,40 +35,58 @@ export class LdStep implements InnerFocusable {
 
   /** Switch colors for brand background */
   @Prop() brandColor? = false
+
   /** Step is the current step */
   @Prop() current? = false
+
   /** Description text to display below the step name (vertical mode only) */
-  @Prop() description: string
+  @Prop() description?: string
+
   /** Step is not clickable */
   @Prop() disabled? = false
+
   /** Step is done */
   @Prop() done? = false
+
   /** Link to the step (makes the step an anchor instead of a button) */
   @Prop() href?: string
+
   /** Permanently show a custom icon inside the dot */
   @Prop() icon?: HTMLLdIconElement['name']
+
   /** Label for current step (scree-reader only) */
   @Prop() labelCurrent? = 'Current'
+
   /** Label for step that is done (scree-reader only) */
   @Prop() labelDone? = 'Done'
+
   /** Label for step that is optional (scree-reader only) */
   @Prop() labelOptional? = 'Optional'
+
   /** Label for step that was skipped (scree-reader only) */
   @Prop() labelSkipped? = 'Skipped'
+
   /** Additional hint in label for step that is done and was optional (scree-reader only) */
   @Prop() labelWasOptional? = 'was optional'
+
   /** Indicates that the next step is not active */
   @Prop() lastActive? = false
+
   /** Tab index of the step */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
+
   /** Step can be processed next */
   @Prop() next? = false
+
   /** Step may be skipped */
   @Prop() optional? = false
+
   /** Step size */
   @Prop() size?: 'sm' | 'lg'
+
   /** Step was skipped */
   @Prop() skipped? = false
+
   /** Vertical layout */
   @Prop() vertical? = false
 

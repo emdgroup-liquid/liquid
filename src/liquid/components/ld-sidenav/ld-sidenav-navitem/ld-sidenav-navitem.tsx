@@ -55,7 +55,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   @Prop({ reflect: true }) rounded? = false
 
   /** Tab index of the button. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /**
    * By default, the sidenav automatically expands on click of a navitem,

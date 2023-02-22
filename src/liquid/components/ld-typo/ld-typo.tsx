@@ -19,10 +19,10 @@ export class LdTypo implements ClonesAttributes {
   private root: HTMLElement
 
   /** The rendered HTML tag. Overrides tag inferred from the variant. */
-  @Prop() tag: string
+  @Prop() tag?: string
 
   /** The font style. Every variant has a default tag that it renders with. */
-  @Prop({ mutable: true }) variant:
+  @Prop({ mutable: true }) variant?:
     | 'body-xs'
     | 'body-s'
     | 'body-m'

@@ -12,7 +12,7 @@ import { Component, h, Prop } from '@stencil/core'
 })
 export class LdTableColgroup {
   /** Contains a non-negative integer value indicating the number of consecutive columns the colgroup element spans. */
-  @Prop() span: HTMLTableColElement['span']
+  @Prop() span?: HTMLTableColElement['span']
 
   render() {
     return (

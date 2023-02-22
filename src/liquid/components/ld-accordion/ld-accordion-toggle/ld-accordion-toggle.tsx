@@ -36,7 +36,7 @@ export class LdAccordionToggle implements InnerFocusable {
   @Prop() labelTag?: 'button' | 'div' = 'button'
 
   /** Tab index of the toggle. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /**
    * Split the toggle in two parts with the second part containing

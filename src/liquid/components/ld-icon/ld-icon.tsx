@@ -18,7 +18,7 @@ export class LdIcon {
   @Element() el: HTMLElement
 
   /** The icon name. */
-  @Prop() name: string = null
+  @Prop() name?: string = null
 
   /** Size of the icon. */
   @Prop() size?: 'sm' | 'lg'

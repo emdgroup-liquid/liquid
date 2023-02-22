@@ -60,7 +60,7 @@ export class LdTooltip {
   @Prop() hideDelay? = 0
 
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
-  @Prop() position: Position = 'top center'
+  @Prop() position?: Position = 'top center'
 
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
   @Prop() showDelay? = 0

@@ -76,7 +76,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop() invalid?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Value of the id attribute of the `<datalist>` of autocomplete options. */
   @Prop() list?: string
@@ -133,7 +133,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop() tone?: 'dark'
 
   /** The input type. */
-  @Prop() type: string
+  @Prop() type?: string
 
   /** The input value. */
   @Prop({ mutable: true }) value?: string

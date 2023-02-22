@@ -29,7 +29,7 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
   @Prop() disabled?: boolean
 
   /** Tab index of the input. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
