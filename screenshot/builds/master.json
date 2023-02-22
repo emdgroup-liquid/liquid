@@ -6414,6 +6414,19 @@
       "isMobile": false
     },
     {
+      "id": "6d551e58",
+      "image": "ae3867f9c72d175159b2be0c1556239d.png",
+      "userAgent": "default",
+      "desc": "ld-card-stack has its own stacking context",
+      "testPath": "./src/liquid/components/ld-card/ld-card-stack/test/ld-card-stack.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "d545caf5",
       "image": "6f47e85864f0a45fbf8d09316085b674.png",
       "userAgent": "default",
