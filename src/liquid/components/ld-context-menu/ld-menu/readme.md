@@ -4,7 +4,7 @@ eleventyNavigation:
   parent: Context Menu
 layout: layout.njk
 title: Menu
-permalink: components/ld-menu/ld-menu/
+permalink: components/ld-context-menu/ld-menu/
 ---
 
 <link rel="stylesheet" href="css_components/ld-menu.css">

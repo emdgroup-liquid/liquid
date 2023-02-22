@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop } from '@stencil/core'
+import { Component, Element, Host, h, Prop, State, Method } from '@stencil/core'
+import { cloneAttributes } from '../../../utils/cloneAttributes'
 
 type Mode = 'highlight' | 'danger' | 'neutral'
 
@@ -13,13 +14,19 @@ const modeMap: Record<Mode, HTMLLdButtonElement['mode']> = {
   styleUrl: 'ld-menuitem.css',
   shadow: true,
 })
-export class LdMenuitem {
+export class LdMenuitem implements InnerFocusable {
+  @Element() el: HTMLLdMenuitemElement
+  private attributesObserver: MutationObserver
+  private buttonRef?: HTMLLdButtonElement
   /**
    * Transforms the menu item to an anchor element.
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
    * for more information on the `href` attribute.
    */
   @Prop() href?: HTMLLdButtonElement['href']
+
+  /** Tab index of the menu item. */
+  @Prop() ldTabindex: number | undefined
 
   /** Display mode. */
   @Prop() mode?: Mode = 'neutral'
@@ -37,16 +44,39 @@ export class LdMenuitem {
    */
   @Prop() target?: HTMLLdButtonElement['target']
 
+  @State() clonedAttributes: Record<string, any>
+
+  /** Sets focus on the anchor or button */
+  @Method()
+  async focusInner() {
+    this.buttonRef?.focusInner()
+  }
+
+  componentWillLoad() {
+    this.attributesObserver = cloneAttributes.call(this, [
+      'ld-tabindex',
+      'mode',
+      'size',
+    ])
+  }
+
+  disconnectedCallback() {
+    this.attributesObserver?.disconnect()
+  }
+
   render() {
     return (
       <Host>
         <li class="ld-menuitem" role="menuitemradio">
           <ld-button
+            {...this.clonedAttributes}
             class="ld-menuitem__button"
             href={this.href}
             iconOnly={false}
             justifyContent="start"
+            ldTabindex={this.ldTabindex}
             mode={modeMap[this.mode]}
+            ref={(element) => (this.buttonRef = element)}
             size={this.size}
             target={this.target}
           >
