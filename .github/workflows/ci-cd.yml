@@ -94,7 +94,7 @@ jobs:
   document:
     #if: github.ref == 'refs/heads/main'
     name: Deploy dist_docs to GitHub pages
-    #needs: test
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
