@@ -7,7 +7,7 @@ title: Screen Reader Only
 permalink: components/ld-sr-only/
 ---
 
-<link rel="stylesheet" href="css_components/ld-sr-only.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-sr-only.css">
 
 # ld-sr-only
 

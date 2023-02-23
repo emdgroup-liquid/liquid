@@ -7,7 +7,7 @@ title: Slider
 permalink: components/ld-slider/
 ---
 
-<!-- <link rel="stylesheet" href="css_components/ld-slider.css"> -->
+<!-- <link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-slider.css"> -->
 
 # ld-slider
 

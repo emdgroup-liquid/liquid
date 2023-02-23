@@ -11,9 +11,9 @@ tags:
 
 # ld-notice
 
-<link rel="stylesheet" href="css_components/ld-notice.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
-<link rel="stylesheet" href="css_components/ld-typo.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-notice.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-typo.css">
 
 This component is meant to be used in conjunction with the [`ld-input`](components/ld-input/) and the [`ld-label`](components/ld-label/) component. Please reffer to the [`ld-input`](components/ld-input/) docs for further usage examples.
 

@@ -7,10 +7,10 @@ title: Breadcrumbs
 permalink: components/ld-breadcrumbs/
 ---
 
-<link rel="stylesheet" href="css_components/ld-breadcrumbs.css">
-<link rel="stylesheet" href="css_components/ld-crumb.css">
-<link rel="stylesheet" href="css_components/ld-link.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-breadcrumbs.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-crumb.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-link.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 
 # ld-breadcrumbs
 

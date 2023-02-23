@@ -7,8 +7,8 @@ title: Card Stack
 permalink: components/ld-card/ld-card-stack/
 ---
 
-<link rel="stylesheet" href="css_components/ld-card-stack.css">
-<link rel="stylesheet" href="css_components/ld-card.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-card-stack.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-card.css">
 
 # ld-card-stack
 

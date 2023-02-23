@@ -13,9 +13,9 @@ tags:
   - probe indicator
 ---
 
-<link rel="stylesheet" href="css_components/ld-circular-progress.css">
-<link rel="stylesheet" href="css_components/ld-typo.css">
-<link rel="stylesheet" href="css_components/ld-sr-only.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-circular-progress.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-typo.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-sr-only.css">
 
 # ld-circular-progress
 

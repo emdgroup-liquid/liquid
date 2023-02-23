@@ -10,9 +10,9 @@ tags:
   - radio group
 ---
 
-<link rel="stylesheet" href="css_components/ld-switch.css">
-<link rel="stylesheet" href="css_components/ld-switch-item.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-switch.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-switch-item.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 
 # ld-switch
 

@@ -7,7 +7,7 @@ title: Background Cells
 permalink: components/ld-bg-cells/
 ---
 
-<link rel="stylesheet" href="css_components/ld-bg-cells.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-bg-cells.css">
 
 # ld-bg-cells
 

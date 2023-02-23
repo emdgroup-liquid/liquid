@@ -7,8 +7,8 @@ title: Badge
 permalink: components/ld-badge/
 ---
 
-<link rel="stylesheet" href="css_components/ld-badge.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-badge.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 
 # ld-badge
 

@@ -9,7 +9,7 @@ permalink: components/ld-table/
 
 # ld-table
 
-<link rel="stylesheet" href="css_components/ld-table.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-table.css">
 
 The `ld-table` component represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 

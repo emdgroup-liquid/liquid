@@ -9,7 +9,7 @@ permalink: components/ld-icon/
 
 # ld-icon
 
-<link rel="stylesheet" href="css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
 
 An icon provides a visual hint for content or interactions. Combine it with textual information for a better user experience. When using an icon on its own, make sure to either apply an [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) or use the [ld-sr-only](components/ld-sr-only/) component.
 

@@ -7,7 +7,7 @@ title: Loading Indicator
 permalink: components/ld-loading/
 ---
 
-<link rel="stylesheet" href="css_components/ld-loading.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-loading.css">
 
 # ld-loading
 

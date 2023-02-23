@@ -10,10 +10,10 @@ tags:
   - radio group
 ---
 
-<link rel="stylesheet" href="css_components/ld-toggle.css">
-<link rel="stylesheet" href="css_components/ld-label.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
-<link rel="stylesheet" href="css_components/ld-input-message.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-toggle.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-label.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-input-message.css">
 
 # ld-toggle
 

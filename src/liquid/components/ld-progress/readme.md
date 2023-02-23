@@ -7,8 +7,8 @@ title: Progress
 permalink: components/ld-progress/
 ---
 
-<link rel="stylesheet" href="css_components/ld-progress.css">
-<link rel="stylesheet" href="css_components/ld-sr-only.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-progress.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-sr-only.css">
 
 # ld-progress
 

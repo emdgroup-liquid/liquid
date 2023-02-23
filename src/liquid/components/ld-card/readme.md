@@ -7,8 +7,8 @@ title: Card
 permalink: components/ld-card/
 ---
 
-<link rel="stylesheet" href="css_components/ld-card.css">
-<link rel="stylesheet" href="css_components/ld-typo.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-card.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-typo.css">
 
 # ld-card
 

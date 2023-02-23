@@ -9,10 +9,10 @@ tags:
   - step-progress
 ---
 
-<link rel="stylesheet" href="css_components/ld-stepper.css">
-<link rel="stylesheet" href="css_components/ld-step.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
-<link rel="stylesheet" href="css_components/ld-sr-only.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-stepper.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-step.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-icon.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-sr-only.css">
 
 # ld-stepper
 

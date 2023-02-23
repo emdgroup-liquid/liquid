@@ -15,9 +15,9 @@ tags:
 
 # ld-modal
 
-<link rel="stylesheet" href="css_components/ld-modal.css">
-<link rel="stylesheet" href="css_components/ld-typo.css">
-<link rel="stylesheet" href="css_components/ld-button.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-modal.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-typo.css">
+<link rel="stylesheet" href="{{ env.base }}/{{ buildstamp }}css_components/ld-button.css">
 
 The `ld-modal` component represents a dismissible modal dialog box.
 
