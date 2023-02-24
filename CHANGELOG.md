@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.2](https://github.com/emdgroup-liquid/liquid/compare/v4.7.1...v4.7.2) (2023-02-24)
+
+
+### Bug Fixes
+
+* Fixes patches and improves react and vue output target. ([bdaa7df](https://github.com/emdgroup-liquid/liquid/commit/bdaa7dfcca3bd4ab74c03006372af3aa8279907c))
+* **ld-table:** make selection wrapper take full row height ([c6e231b](https://github.com/emdgroup-liquid/liquid/commit/c6e231bc4fcab3e0b4720f03caafb4e1660f178b))
+
 ## [4.7.1](https://github.com/emdgroup-liquid/liquid/compare/v4.7.0...v4.7.1) (2023-02-22)
 
 
