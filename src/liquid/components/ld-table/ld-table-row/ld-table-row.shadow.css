@@ -1,5 +1,28 @@
 :host {
   display: contents;
+
+  /* Note that the px unit is required in Safari for the calc to work */
+  &(:first-of-type) {
+    --ld-table-selection-wrapper-border-width-top: 0px;
+  }
+  &(:last-of-type) {
+    --ld-table-selection-wrapper-border-width-bottom: 0px;
+  }
+
+  --ld-table-selection-wrapper-gradient: linear-gradient(
+    to top,
+    var(--ld-table-border-col),
+    var(--ld-table-border-col)
+      var(--ld-table-selection-wrapper-border-width-bottom),
+    var(--ld-table-bg-col) var(--ld-table-selection-wrapper-border-width-bottom),
+    var(--ld-table-bg-col),
+    var(--ld-table-bg-col),
+    var(--ld-table-bg-col)
+      calc(100% - var(--ld-table-selection-wrapper-border-width-top)),
+    var(--ld-table-border-col)
+      calc(100% - var(--ld-table-selection-wrapper-border-width-top)),
+    var(--ld-table-border-col) 100%
+  );
 }
 
 tr {
@@ -10,15 +33,24 @@ tr {
 .ld-table__selection-wrapper {
   vertical-align: middle;
   align-items: center;
-  background-color: var(--ld-table-bg-col);
+  background: var(--ld-table-selection-wrapper-gradient);
   display: flex;
   justify-content: center;
   padding-inline: var(--ld-table-cell-padding-x);
   position: absolute;
-  top: var(--ld-sp-6);
-  bottom: var(--ld-sp-6);
+  top: 0;
+  bottom: 0;
   left: 0;
-  border-right: 1px solid var(--ld-table-border-col);
+
+  &::after {
+    content: '';
+    background-color: var(--ld-table-border-col);
+    position: absolute;
+    right: 0;
+    top: var(--ld-sp-6);
+    bottom: var(--ld-sp-6);
+    width: var(--ld-table-row-outline-width);
+  }
 }
 
 .ld-table-row__selection-cell {
