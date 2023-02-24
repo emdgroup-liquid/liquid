@@ -94,7 +94,8 @@ export class LdSlider implements InnerFocusable {
   /** Adds custom stop points to the slider (instead of steps) */
   @Prop() unit?: string
   /** Specifies the default value */
-  @Prop({ mutable: true, reflect: true }) value?: string | number = this.min
+  @Prop({ mutable: true, reflect: true }) value?: string | number | number[] =
+    this.min
   /** Width of the slider */
   @Prop() width? = '100%'
 

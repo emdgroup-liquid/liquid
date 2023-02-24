@@ -23,6 +23,7 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/liquid/liquid.esm.js",
+  "sideEffects": false,
   "files": [
     "bin/",
     "dist/"
@@ -39,8 +40,8 @@
     "build:patch_loader": "ts-node scripts/patchLoader.ts",
     "build:stencil:components": "stencil build --config=stencil.config.ts && shx mv tmp/web-components.html-data.json dist/web-components.html-data.json && shx rm -r tmp",
     "build:stencil:docs": "stencil build --config=config/stencil.config.docs.ts",
-    "build:stencil:react": "tsc -p config/tsconfig.react.json && (shx rm src/react.ts & shx rm -r src/react-component-lib)",
-    "build:stencil:vue": "tsc -p config/tsconfig.vue.json && (shx rm src/vue.ts & shx rm -r src/vue-component-lib)",
+    "build:stencil:react": "ts-node scripts/patchReactOutput.ts && tsc -p config/tsconfig.react.json && (shx rm out/react.ts & shx rm -r out/react-component-lib)",
+    "build:stencil:vue": "ts-node scripts/patchVueOutput.ts && tsc -p config/tsconfig.vue.json && (shx rm out/vue.ts & shx rm -r out/vue-component-lib)",
     "build:styles": "run-s build:styles:liquid:globals build:styles:liquid:components",
     "build:styles:liquid:components": "postcss src/liquid/components/*/*.css src/liquid/components/*/*/*.css --config=config/postcss.config.cjs --no-map -d dist/css/ && trash dist/css/liquid.css 'dist/css/*.shadow.css' && bash scripts/concatStyles.sh",
     "build:styles:liquid:globals": "postcss src/liquid/global/styles/global.css --config=config/postcss.config.cjs --no-map -o dist/css/liquid.global.css",
@@ -194,8 +195,8 @@
   },
   "packageManager": "yarn@3.2.0",
   "resolutions": {
-    "@stencil/react-output-target@^0.3.1": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
-    "@stencil/vue-output-target@^0.6.2": "patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch"
+    "@stencil/react-output-target@^0.4.0": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
+    "@stencil/vue-output-target@^0.7.0": "patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch"
   },
   "eslintConfig": {
     "extends": [

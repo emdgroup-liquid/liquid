@@ -38,13 +38,8 @@ UserInterfaceState.xcuserstate
 
 src/**/components.d.ts
 
-# Stencil React bindings
-src/react.js
-src/react.d.ts
-src/react-component-lib
-src/vue.js
-src/vue.d.ts
-src/vue-component-lib
+# Stencil Framework output target temporary folder
+out/
 
 .husky
 .tool-versions

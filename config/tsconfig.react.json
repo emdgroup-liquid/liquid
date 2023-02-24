@@ -5,7 +5,7 @@
     "jsxFactory": "React.createElement",
     "outDir": "../dist"
   },
-  "include": ["../src/react.ts"],
+  "include": ["../out/react.ts"],
   "exclude": [
     "../node_modules",
     "../bin",
