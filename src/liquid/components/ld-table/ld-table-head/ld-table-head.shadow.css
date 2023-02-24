@@ -1,5 +1,10 @@
 :host {
   display: contents;
+
+  ::slotted(ld-table-row) {
+    --ld-table-selection-wrapper-border-width-top: calc(var(--ld-sp-1) * 0.5);
+    --ld-table-selection-wrapper-border-width-bottom: var(--ld-sp-1);
+  }
 }
 
 thead {

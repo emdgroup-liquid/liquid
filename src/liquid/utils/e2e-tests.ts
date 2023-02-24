@@ -99,6 +99,9 @@ export const getPageWithContent = async (
     ])
   }
 
+  // TODO: Update all e2e tests screenshots with a device scale factor of 2
+  // await page.setViewport({ width: 600, height: 600, deviceScaleFactor: 2 })
+
   return page
 }
 
@@ -130,7 +133,7 @@ export const analyzeAccessibility = async (
   await page.addScriptTag({ path: resolvePath(PATH_TO_AXE) })
   // Make sure that axe is executed in the next tick after
   // the page emits the load event, giving priority to other scripts.
-  return page.evaluate(
+  return await page.evaluate(
     async (axeOptions: axe.RunOptions, spec: axe.Spec) => {
       await new Promise((resolve) => {
         setTimeout(resolve, 0)

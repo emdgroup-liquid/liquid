@@ -28138,7 +28138,7 @@
     },
     {
       "id": "5db997ab",
-      "image": "3672013460fddbff3bb616d7f4726b45.png",
+      "image": "7a8f74af5e133410fbf1c771b82048f7.png",
       "userAgent": "default",
       "desc": "ld-table renders as Web Component with selection and pagination, scroll left",
       "testPath": "./src/liquid/components/ld-table/test/ld-table.e2e.ts",
@@ -28151,7 +28151,7 @@
     },
     {
       "id": "c3b52da3",
-      "image": "9ad5cdf629db222dab8fa8207a12fee5.png",
+      "image": "5ec5ab573acb7e1795f6723a358222eb.png",
       "userAgent": "default",
       "desc": "ld-table renders as Web Component with selection and pagination, scroll right",
       "testPath": "./src/liquid/components/ld-table/test/ld-table.e2e.ts",

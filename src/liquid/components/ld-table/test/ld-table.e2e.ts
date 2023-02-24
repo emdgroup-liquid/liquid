@@ -460,7 +460,7 @@ describe('ld-table', () => {
           </ld-pagination>
         </ld-table-toolbar>
         <ld-table-head>
-          <ld-table-row>
+          <ld-table-row selectable>
             <ld-table-header sortable>#</ld-table-header>
             <ld-table-header sortable>Name</ld-table-header>
             <ld-table-header sortable>Symbol</ld-table-header>
@@ -470,7 +470,7 @@ describe('ld-table', () => {
           </ld-table-row>
         </ld-table-head>
         <ld-table-body>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">1</ld-table-cell>
             <ld-table-cell class="hydrated">Hydrogen</ld-table-cell>
             <ld-table-cell class="hydrated">H</ld-table-cell>
@@ -478,7 +478,7 @@ describe('ld-table', () => {
             <ld-table-cell class="hydrated">2.20</ld-table-cell>
             <ld-table-cell class="hydrated">0.09</ld-table-cell>
           </ld-table-row>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">2</ld-table-cell>
             <ld-table-cell class="hydrated">Helium</ld-table-cell>
             <ld-table-cell class="hydrated">He</ld-table-cell>
@@ -486,7 +486,7 @@ describe('ld-table', () => {
             <ld-table-cell class="hydrated">-</ld-table-cell>
             <ld-table-cell class="hydrated">0.18</ld-table-cell>
           </ld-table-row>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">3</ld-table-cell>
             <ld-table-cell class="hydrated">Lithium</ld-table-cell>
             <ld-table-cell class="hydrated">Li</ld-table-cell>
@@ -494,7 +494,7 @@ describe('ld-table', () => {
             <ld-table-cell class="hydrated">0.98</ld-table-cell>
             <ld-table-cell class="hydrated">0.53</ld-table-cell>
           </ld-table-row>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">4</ld-table-cell>
             <ld-table-cell class="hydrated">Beryllium</ld-table-cell>
             <ld-table-cell class="hydrated">Be</ld-table-cell>
@@ -502,7 +502,7 @@ describe('ld-table', () => {
             <ld-table-cell class="hydrated">1.57</ld-table-cell>
             <ld-table-cell class="hydrated">1.85</ld-table-cell>
           </ld-table-row>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">5</ld-table-cell>
             <ld-table-cell class="hydrated">Boron</ld-table-cell>
             <ld-table-cell class="hydrated">B</ld-table-cell>
@@ -510,7 +510,7 @@ describe('ld-table', () => {
             <ld-table-cell class="hydrated">2.04</ld-table-cell>
             <ld-table-cell class="hydrated">2.08</ld-table-cell>
           </ld-table-row>
-          <ld-table-row class="hydrated">
+          <ld-table-row class="hydrated" selectable>
             <ld-table-cell class="hydrated">6</ld-table-cell>
             <ld-table-cell class="hydrated">Carbon</ld-table-cell>
             <ld-table-cell class="hydrated">C</ld-table-cell>

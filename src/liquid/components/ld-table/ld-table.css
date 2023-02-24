@@ -28,6 +28,9 @@
     var(--ld-table-bg-col)
   );
 
+  --ld-table-selection-wrapper-border-width-top: calc(var(--ld-sp-1) * 0.5);
+  --ld-table-selection-wrapper-border-width-bottom: calc(var(--ld-sp-1) * 0.5);
+
   /* Fix for Safari overflow hidden with border radius quirk. */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 
