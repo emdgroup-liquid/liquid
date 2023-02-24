@@ -2558,21 +2558,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/react-output-target@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@stencil/react-output-target@npm:0.4.0"
+"@stencil/react-output-target@npm:0.3.1":
+  version: 0.3.1
+  resolution: "@stencil/react-output-target@npm:0.3.1"
   peerDependencies:
-    "@stencil/core": ^2.9.0 || ^3.0.0-beta.0
-  checksum: a88a53f4d8f41c0b0a665f59dddd88986be095b6ed3d9fbbab30f5376cd1247c7d04711fe6ac0530777ddb67d5b79bbc2c6660d49409449e39fb2bf186f76ccd
+    "@stencil/core": ^2.9.0
+  checksum: fe311ba81f79119598524ceedf7125ff77bba22999b7394de774231262e5b7be28d5c46f6e05df1cde8947e24b03ccac797aa725738aa7bb6912536277b61d79
   languageName: node
   linkType: hard
 
-"@stencil/vue-output-target@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@stencil/vue-output-target@npm:0.7.0"
+"@stencil/react-output-target@patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
+  version: 0.3.1
+  resolution: "@stencil/react-output-target@patch:@stencil/react-output-target@npm%3A0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::version=0.3.1&hash=cb7447&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
   peerDependencies:
-    "@stencil/core": ^2.9.0 || ^3.0.0-beta.0
-  checksum: 3f6ea5961bb47269548289ffdd77c8d3303b49c78ec97a788d734dca4ac3b12960406192e19091027dd347ec617ed0ff7157e58a53833dd7c49e91b68b71b8f8
+    "@stencil/core": ^2.9.0
+  checksum: 538fa2a50443bdf5561b05dd0c8932a5a1fd8ec58b48ed2e446fd82c81029c3f4fd2b8f4401898c473cffd90f64fba89ca5136961ad823f88864985e9a53f202
+  languageName: node
+  linkType: hard
+
+"@stencil/vue-output-target@npm:0.6.2":
+  version: 0.6.2
+  resolution: "@stencil/vue-output-target@npm:0.6.2"
+  peerDependencies:
+    "@stencil/core": ^2.9.0
+  checksum: bd25b6f88e93cce9450a90278d71b432f139d665446b77c841db7d09a644165075759c9e8dcd27e4b84fbbd0abaac8b39d11c28aaeb8cbe3156fef3e125080cc
+  languageName: node
+  linkType: hard
+
+"@stencil/vue-output-target@patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
+  version: 0.6.2
+  resolution: "@stencil/vue-output-target@patch:@stencil/vue-output-target@npm%3A0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::version=0.6.2&hash=705ecb&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
+  peerDependencies:
+    "@stencil/core": ^2.9.0
+  checksum: d22423d6bff0042a0975582f0730016e97f7a34518651562d71fa3203ccb48e1fc97a7c310319ab24eb8233d57f1f5c1a1b3ec281db3fd46a7343c2d811fe008
   languageName: node
   linkType: hard
 

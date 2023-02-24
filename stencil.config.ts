@@ -1,8 +1,26 @@
 import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
 import { reactOutputTarget } from '@stencil/react-output-target'
-import { vueOutputTarget } from '@stencil/vue-output-target'
+import {
+  ComponentModelConfig,
+  vueOutputTarget,
+} from '@stencil/vue-output-target'
 import postcssConfig from './config/postcss.config.cjs'
+
+const vueComponentModels: ComponentModelConfig[] = [
+  {
+    elements: ['ld-input', 'ld-slider'],
+    event: 'input',
+    externalEvent: 'input',
+    targetAttr: 'value',
+  },
+  {
+    elements: ['ld-checkbox', 'ld-toggle'],
+    event: 'input',
+    externalEvent: 'input',
+    targetAttr: 'checked',
+  },
+]
 
 export const config: Config = {
   namespace: 'liquid',
@@ -10,14 +28,15 @@ export const config: Config = {
   globalStyle: 'src/liquid/global/styles/global.css',
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: '..',
-      proxiesFile: './src/react.ts',
+      componentCorePackage: '../dist/components',
+      proxiesFile: './out/react.ts',
       includeDefineCustomElements: true,
     }),
     vueOutputTarget({
-      componentCorePackage: '..',
-      proxiesFile: './src/vue.ts',
+      componentCorePackage: '../dist/components',
+      proxiesFile: './out/vue.ts',
       includeDefineCustomElements: true,
+      componentModels: vueComponentModels,
     }),
     {
       type: 'dist',
