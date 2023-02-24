@@ -47,7 +47,8 @@
     position: absolute;
     /* animations triggered by user interactions on single component instances are probably not a performance issue */
     /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-    transition: background-color 200ms ease-in-out;
+    transition: background-color var(--ld-transition-duration-normal)
+      ease-in-out;
     width: 100%;
     z-index: 0;
 
@@ -101,7 +102,7 @@
     height: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
     margin: var(--ld-toggle-inner-space);
     pointer-events: none;
-    transition: transform 200ms ease-in-out;
+    transition: transform var(--ld-transition-duration-normal) ease-in-out;
     width: calc(var(--ld-toggle-height) - var(--ld-toggle-inner-space) * 2);
     z-index: 1;
   }
@@ -173,7 +174,7 @@
   position: absolute;
   /* animations triggered by user interactions on single component instances are probably not a performance issue */
   /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
-  transition: color 200ms ease-in-out;
+  transition: color var(--ld-transition-duration-normal) ease-in-out;
   z-index: 1;
 
   &:empty {

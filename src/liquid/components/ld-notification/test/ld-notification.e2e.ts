@@ -20,9 +20,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -46,9 +43,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -74,9 +68,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -100,9 +91,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -126,9 +114,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -153,9 +138,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -168,9 +150,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -183,9 +162,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -198,9 +174,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -213,9 +186,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -228,9 +198,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       page.evaluate(() => {
         window.dispatchEvent(
@@ -243,9 +210,6 @@ describe('ld-notification', () => {
         )
       })
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -272,9 +236,6 @@ describe('ld-notification', () => {
       })
 
       await page.waitForChanges()
-      await page['_client'].send('Animation.setPlaybackRate', {
-        playbackRate: 2,
-      })
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

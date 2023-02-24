@@ -21,10 +21,10 @@ describe('ld-sidenav', () => {
       })
 
       it('shows shadow at the top and bottom when scrolling down', async () => {
-        const page = await getPageWithContent(getSidenavWithoutSubnavigation())
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
+        const page = await getPageWithContent(
+          getSidenavWithoutSubnavigation(),
+          { reducedMotion: true }
+        )
 
         await page.evaluate(() => {
           const ldSidenavScrollerInternal = document
@@ -40,10 +40,10 @@ describe('ld-sidenav', () => {
       })
 
       it('shows shadow at the top and separator line at the bottom when scrolled to the bottom', async () => {
-        const page = await getPageWithContent(getSidenavWithoutSubnavigation())
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
+        const page = await getPageWithContent(
+          getSidenavWithoutSubnavigation(),
+          { reducedMotion: true }
+        )
 
         await page.evaluate(() => {
           const ldSidenavScrollerInternal = document
@@ -82,11 +82,12 @@ describe('ld-sidenav', () => {
 
       it('should be fully collapsed', async () => {
         const page = await getPageWithContent(
-          getSidenavWithoutSubnavigation({ collapsible: true, collapsed: true })
+          getSidenavWithoutSubnavigation({
+            collapsible: true,
+            collapsed: true,
+          }),
+          { reducedMotion: true }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         await page.waitForChanges()
         await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -98,11 +99,9 @@ describe('ld-sidenav', () => {
     describe('is alignable', () => {
       it('should align to the right', async () => {
         const page = await getPageWithContent(
-          getSidenavWithoutSubnavigation({ align: 'right' })
+          getSidenavWithoutSubnavigation({ align: 'right' }),
+          { reducedMotion: true }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         await page.waitForChanges()
         await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -116,11 +115,9 @@ describe('ld-sidenav', () => {
             align: 'right',
             collapsible: true,
             collapsed: true,
-          })
+          }),
+          { reducedMotion: true }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         await page.waitForChanges()
         await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -132,10 +129,9 @@ describe('ld-sidenav', () => {
 
   describe('with subnavigation', () => {
     it('is accessible', async () => {
-      const page = await getPageWithContent(getSidenavWithSubnavigation())
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
+      const page = await getPageWithContent(getSidenavWithSubnavigation(), {
+        reducedMotion: true,
+      })
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -149,11 +145,9 @@ describe('ld-sidenav', () => {
       const page = await getPageWithContent(
         getSidenavWithSubnavigation({
           currentSubnav: 'artificial-intelligence',
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -169,11 +163,9 @@ describe('ld-sidenav', () => {
             collapsible: true,
             collapsed: true,
             narrow: true,
-          })
+          }),
+          { reducedMotion: true }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         page.waitForChanges()
         await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -188,12 +180,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-slider label="Outline of CS">
               <ld-sidenav-navitem>Liquid Oxygen</ld-sidenav-navitem>
             </ld-sidenav-slider>
-          </ld-sidenav>`
+          </ld-sidenav>`,
+          { reducedMotion: true }
         )
-
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         page.waitForChanges()
 
         await page.hover('ld-sidenav-navitem')
@@ -211,12 +200,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-slider label="Outline of CS">
               <ld-sidenav-navitem>Liquid Oxygen</ld-sidenav-navitem>
             </ld-sidenav-slider>
-          </ld-sidenav>`
+          </ld-sidenav>`,
+          { reducedMotion: true }
         )
-
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
         page.waitForChanges()
 
         await page.hover('ld-sidenav-navitem')
@@ -238,12 +224,9 @@ describe('ld-sidenav', () => {
                 <ld-icon slot="icon-secondary" name="bottle" size="sm" />
               </ld-sidenav-navitem>
             </ld-sidenav-slider>
-          </ld-sidenav>`
+          </ld-sidenav>`,
+        { reducedMotion: true }
       )
-
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       await page.hover('ld-sidenav-navitem')
@@ -255,7 +238,8 @@ describe('ld-sidenav', () => {
     })
 
     it('allows setting multiple navitems in top and bottom slots', async () => {
-      const page = await getPageWithContent(`
+      const page = await getPageWithContent(
+        `
         <ld-sidenav open>
           <ld-sidenav-back slot="top">
             <ld-sidenav-navitem>Foo</ld-sidenav-navitem>
@@ -268,10 +252,9 @@ describe('ld-sidenav', () => {
           <ld-sidenav-navitem slot="bottom" rounded>Corge</ld-sidenav-navitem>
           <ld-sidenav-navitem slot="bottom" rounded>Grault</ld-sidenav-navitem>
         </ld-sidenav>
-      `)
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
+      `,
+        { reducedMotion: true }
+      )
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -287,11 +270,9 @@ describe('ld-sidenav', () => {
           align: 'right',
           collapsible: true,
           narrow: true,
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -307,11 +288,9 @@ describe('ld-sidenav', () => {
           collapsed: true,
           currentSubnav: 'artificial-intelligence',
           narrow: true,
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -327,11 +306,9 @@ describe('ld-sidenav', () => {
           collapsed: true,
           currentSubnav: 'mathematical-foundations',
           narrow: true,
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -357,11 +334,9 @@ describe('ld-sidenav', () => {
               Liquid Oxygen
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -378,11 +353,9 @@ describe('ld-sidenav', () => {
               Liquid Oxygen
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -396,11 +369,9 @@ describe('ld-sidenav', () => {
           <ld-sidenav-slider label="Outline of CS">
             <ld-sidenav-navitem>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -414,11 +385,9 @@ describe('ld-sidenav', () => {
           <ld-sidenav-slider label="Outline of CS">
             <ld-sidenav-navitem mode="secondary">Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -432,11 +401,9 @@ describe('ld-sidenav', () => {
           <ld-sidenav-slider label="Outline of CS">
             <ld-sidenav-navitem mode="tertiary">Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -452,11 +419,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" active>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" active>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -468,15 +433,13 @@ describe('ld-sidenav', () => {
         `
         <ld-sidenav open>
           <ld-sidenav-slider label="Outline of CS">
-            <ld-sidenav-navitem>This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
-            <ld-sidenav-navitem mode="secondary">This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
-            <ld-sidenav-navitem mode="tertiary">This is a extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+            <ld-sidenav-navitem>This is an extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">This is an extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">This is an extremely long title that actually needs truncation to not grow too large</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -492,11 +455,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" active>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" active>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       await page.hover('ld-sidenav-navitem')
       await page.waitForChanges()
 
@@ -513,11 +474,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" active>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" active>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       await page.keyboard.press('Tab')
       await page.waitForChanges()
 
@@ -534,11 +493,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" active>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" active>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       await page.keyboard.press('Tab')
       await page.keyboard.down('Space')
       await page.waitForChanges()
@@ -566,11 +523,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" rounded>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" rounded>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -596,11 +551,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" rounded>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" rounded>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       await page.hover('ld-sidenav-navitem')
       await page.waitForChanges()
@@ -628,11 +581,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" rounded>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" rounded>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       await page.keyboard.press('Tab')
       await page.waitForChanges()
@@ -660,11 +611,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem mode="secondary" rounded>Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem mode="tertiary" rounded>Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       await page.keyboard.press('Tab')
       await page.keyboard.down('Space')
@@ -693,11 +642,9 @@ describe('ld-sidenav', () => {
             <ld-sidenav-navitem style="--ld-sidenav-navitem-icon-bg-col: var(--ld-col-rr)" mode="secondary">Liquid Oxygen</ld-sidenav-navitem>
             <ld-sidenav-navitem style="--ld-sidenav-navitem-icon-bg-col: var(--ld-col-rg)" mode="tertiary">Liquid Oxygen</ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -729,11 +676,9 @@ describe('ld-sidenav', () => {
               <ld-icon slot="icon-secondary" name="bottle" size="sm" />
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -750,11 +695,9 @@ describe('ld-sidenav', () => {
               <ld-icon slot="icon-secondary" name="bottle" size="sm" />
             </ld-sidenav-navitem>
           </ld-sidenav-slider>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       await page.hover('ld-sidenav-navitem')
       await page.waitForChanges()
 
@@ -768,11 +711,9 @@ describe('ld-sidenav', () => {
       const page = await getPageWithContent(
         getSidenavWithAccordion({
           currentSubnav: 'artificial-intelligence',
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -805,11 +746,9 @@ describe('ld-sidenav', () => {
         getSidenavWithAccordion({
           currentSubnav: 'artificial-intelligence',
           style: '--ld-sidenav-padding-x: 2rem',
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -836,11 +775,9 @@ describe('ld-sidenav', () => {
           collapsible: true,
           collapsed: true,
           narrow: true,
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -856,11 +793,9 @@ describe('ld-sidenav', () => {
           collapsed: true,
           narrow: true,
           style: '--ld-sidenav-padding-x: 2rem',
-        })
+        }),
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
       await new Promise((resolve) => setTimeout(resolve, 100))
 
@@ -882,11 +817,9 @@ describe('ld-sidenav', () => {
             </svg>
             Liquid Oxygen
           </ld-sidenav-header>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()
@@ -904,11 +837,9 @@ describe('ld-sidenav', () => {
               <path d="M59.8 9c2.336 0 3.824-1.592 3.824-3.825C63.624 2.44 61.184 0 58.45 0h-3.617c-.139 0-.208.087-.208.242v3.583C54.624 6.542 57.082 9 59.8 9Zm-.018-2.285c-1.281 0-2.735-1.627-2.735-2.942 0-.865.571-1.488 1.42-1.488 1.315 0 2.734 1.592 2.734 2.942 0 .883-.537 1.488-1.42 1.488h.001Zm4.727 2.112h.813c.433 0 .762-.121 1.022-.38l1.54-1.576c.242-.242.52-.363.813-.363.295 0 .554.12.796.363l1.54 1.575c.26.26.59.38 1.022.38h.865c.139 0 .208-.068.208-.224v-.83c0-.434-.121-.762-.38-1.022l-2.406-2.337 2.405-2.353c.26-.26.381-.589.381-1.022V.26c0-.156-.07-.243-.208-.243h-.813c-.433 0-.762.121-1.021.381l-1.54 1.575c-.243.242-.52.364-.814.364-.294 0-.554-.122-.796-.364L66.396.398c-.26-.26-.589-.38-1.022-.38h-.865c-.139 0-.208.086-.208.242v.83c0 .433.121.762.381 1.022l2.406 2.353-2.406 2.337c-.26.26-.38.588-.38 1.021v.779c0 .156.068.225.207.225Zm14.073 0h.848c.139 0 .208-.07.208-.225V5.365l2.804-3.253c.26-.312.398-.606.398-.987V.26c0-.156-.07-.243-.208-.243h-.813a1.252 1.252 0 0 0-.987.433l-1.557 1.852c-.226.26-.554.363-.814.363-.277 0-.606-.155-.796-.363L76.055.398c-.225-.26-.554-.38-1.02-.38h-.814c-.139 0-.208.086-.208.242v.865c0 .398.19.796.38 1.021l2.822 3.289v2.042c0 .848.502 1.367 1.367 1.367v-.017Zm10.145 0h3.565c.156 0 .242-.07.242-.208V4.915c0-.432-.12-.761-.363-1.003-.242-.243-.571-.364-1.004-.364h-3.998c-.156 0-.242.07-.242.208 0 .761.484 1.419 1.211 1.696.225.086.45.138.71.138h1.35v.952h-1.454c-.364 0-.727-.086-1.056-.26a2.923 2.923 0 0 1-.883-.657 3.395 3.395 0 0 1-.623-.935 2.523 2.523 0 0 1-.225-1.055c0-.433.139-.78.416-1.004.277-.225.623-.346 1.038-.346h4.708c.156 0 .242-.07.242-.208v-.71c0-.432-.12-.761-.363-1.004C91.755.121 91.427 0 90.994 0h-3.565a4.46 4.46 0 0 0-1.558.26c-.467.19-.883.432-1.229.761a3.423 3.423 0 0 0-.813 1.16 4.01 4.01 0 0 0-.295 1.54c0 .71.139 1.367.416 1.99.277.624.657 1.16 1.142 1.627a4.924 4.924 0 0 0 1.662 1.09c.623.26 1.28.399 1.973.399Zm9.694 0h3.392c.156 0 .243-.07.243-.208v-.71c0-.847-.502-1.367-1.368-1.367h-2.25c-1.419 0-2.613-1.35-2.613-2.804 0-.9.537-1.453 1.61-1.453.813 0 1.661.45 2.198 1.35h-2.596c-.156 0-.243.069-.243.207 0 1.056.952 1.835 1.887 1.835h2.475c.83 0 1.159-.467 1.159-1.16 0-2.302-2.51-4.517-5.036-4.517h-3.67c-.138 0-.207.087-.207.242v3.496c0 2.804 2.302 5.089 5.02 5.089h-.001Zm6.043 0h.848c.138 0 .207-.07.207-.225v-4.69l4.223 4.534c.243.26.554.398.952.398h1.022c.138 0 .207-.086.207-.242V1.385c0-.433-.121-.762-.363-1.004-.243-.243-.571-.364-1.004-.364h-.848c-.139 0-.208.087-.208.243v2.717c0 .225-.052.415-.156.554-.121.156-.277.225-.502.225-.259 0-.501-.121-.726-.364l-2.77-2.977c-.242-.26-.554-.398-.952-.398h-1.09c-.138 0-.208.087-.208.243v7.217c0 .433.121.761.364 1.004.242.242.571.363 1.004.363v-.017Z" style="fill:#2dbecd;fill-rule:nonzero" transform="scale(10)"/>
             </svg>
           </ld-sidenav-header>
-        </ld-sidenav>`
+        </ld-sidenav>`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
       page.waitForChanges()
 
       const result = await page.compareScreenshot()

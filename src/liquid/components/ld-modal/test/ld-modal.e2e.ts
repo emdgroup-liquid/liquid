@@ -16,11 +16,9 @@ describe('ld-modal', () => {
         </ld-typo>
         <ld-button slot="footer" style="width: 8rem" mode="ghost">Cancel</ld-button>
         <ld-button slot="footer" style="width: 8rem">Submit</ld-button>
-      </ld-modal>`
+      </ld-modal>`,
+      { reducedMotion: true }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -49,11 +47,9 @@ describe('ld-modal', () => {
       </dialog>`,
       {
         components: [LdModal, LdTypo, LdButton],
+        reducedMotion: true,
       }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -65,11 +61,9 @@ describe('ld-modal', () => {
         <ld-typo style="text-align: center">
           I'm a modal dialog.
         </ld-typo>
-      </ld-modal>`
+      </ld-modal>`,
+      { reducedMotion: true }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -86,11 +80,9 @@ describe('ld-modal', () => {
       </dialog>`,
       {
         components: [LdModal, LdTypo],
+        reducedMotion: true,
       }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -105,11 +97,9 @@ describe('ld-modal', () => {
         </ld-typo>
         <ld-button slot="footer" style="width: 8rem" mode="ghost">Cancel</ld-button>
         <ld-button slot="footer" style="width: 8rem">Submit</ld-button>
-      </ld-modal>`
+      </ld-modal>`,
+      { reducedMotion: true }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
@@ -138,11 +128,9 @@ describe('ld-modal', () => {
       </dialog>`,
       {
         components: [LdModal, LdTypo, LdButton],
+        reducedMotion: true,
       }
     )
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
 
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()

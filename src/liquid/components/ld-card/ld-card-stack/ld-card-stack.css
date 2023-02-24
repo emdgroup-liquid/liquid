@@ -15,8 +15,9 @@
   .ld-card {
     grid-area: card;
     opacity: 0;
-    transition: transform 0.2s ease, opacity 0.2s linear,
-      visibility 0.2s 0s linear;
+    transition: transform var(--ld-transition-duration-normal) ease,
+      opacity var(--ld-transition-duration-normal) linear,
+      visibility var(--ld-transition-duration-normal) 0s linear;
     visibility: hidden;
 
     &::before,
@@ -38,7 +39,8 @@
   ::slotted(.ld-card:nth-of-type(-n + 3)),
   .ld-card:nth-of-type(-n + 3) {
     opacity: 1;
-    transition: transform 0.2s ease, opacity 0.2s linear;
+    transition: transform var(--ld-transition-duration-normal) ease,
+      opacity var(--ld-transition-duration-normal) linear;
     visibility: inherit;
   }
   ::slotted(.ld-card:nth-of-type(3)),

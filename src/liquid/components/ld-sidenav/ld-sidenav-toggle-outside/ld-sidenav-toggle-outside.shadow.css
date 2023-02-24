@@ -10,7 +10,9 @@
   --ld-sidenav-toggle-outside-bg-col-active: var(--ld-thm-primary-active);
 
   @media (prefers-reduced-motion: no-preference) {
-    --ld-sidenav-transition-duration-collapse-expand: 0.2s;
+    --ld-sidenav-transition-duration-collapse-expand: var(
+      --ld-transition-duration-normal
+    );
   }
 
   align-items: center;

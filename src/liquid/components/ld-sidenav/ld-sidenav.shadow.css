@@ -38,8 +38,10 @@
   --ld-sidenav-transition-delay: 0s;
   --ld-sidenav-transition-delay-collapse-expand: 0s;
   /* Not using 0s here because we rely on the transition end event. */
-  --ld-sidenav-transition-duration: 0.001s;
-  --ld-sidenav-transition-duration-collapse-expand: 0.001s;
+  --ld-sidenav-transition-duration: var(--ld-transition-duration-instant);
+  --ld-sidenav-transition-duration-collapse-expand: var(
+    --ld-transition-duration-instant
+  );
   --ld-sidenav-translate-x-direction: 1;
   --ld-sidenav-stack-to-top-transition: transform
     var(--ld-sidenav-transition-duration-collapse-expand)
@@ -52,16 +54,22 @@
 
   &(.ld-sidenav--transitions) {
     @media (prefers-reduced-motion: no-preference) {
-      --ld-sidenav-transition-duration: 0.2s;
-      --ld-sidenav-transition-duration-collapse-expand: 0.2s;
-      --ld-sidenav-transition-delay: 0.1s;
-      --ld-sidenav-transition-delay-collapse-expand: 0.1s;
+      --ld-sidenav-transition-duration: var(--ld-transition-duration-normal);
+      --ld-sidenav-transition-duration-collapse-expand: var(
+        --ld-transition-duration-normal
+      );
+      --ld-sidenav-transition-delay: var(--ld-transition-duration-quick);
+      --ld-sidenav-transition-delay-collapse-expand: var(
+        --ld-transition-duration-quick
+      );
     }
   }
 
   &(.ld-sidenav--toggle-transition-disabled) {
     @media (prefers-reduced-motion: no-preference) {
-      --ld-sidenav-transition-duration-collapse-expand: 0.001s;
+      --ld-sidenav-transition-duration-collapse-expand: var(
+        --ld-transition-duration-instant
+      );
       --ld-sidenav-transition-delay-collapse-expand: 0s;
     }
   }

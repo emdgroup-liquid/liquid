@@ -4,6 +4,7 @@ const glob = require('glob')
 const yargs = require('yargs')
 
 async function deleteScreenshots(components?: string[]) {
+  await fs.rm('screenshot/.gitignore', { force: true })
   const master = JSON.parse(
     await fs.readFile('screenshot/builds/master.json', {
       encoding: 'utf8',
@@ -45,7 +46,7 @@ async function deleteScreenshots(components?: string[]) {
         (referencedFileName) => referencedFileName === fileName
       )
     ) {
-      toDelete.push(fs.unlink(filePath))
+      toDelete.push(fs.rm(filePath))
       console.info('Deleting', filePath)
     }
   }

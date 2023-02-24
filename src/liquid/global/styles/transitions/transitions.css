@@ -1,0 +1,7 @@
+:root {
+  --ld-transition-duration-instant: 1ms;
+  --ld-transition-duration-quick: 0.1s;
+  --ld-transition-duration-swift: 0.15s;
+  --ld-transition-duration-normal: 0.2s;
+  --ld-transition-duration-slow: 0.5s;
+}

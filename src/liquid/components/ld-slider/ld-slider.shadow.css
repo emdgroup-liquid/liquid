@@ -54,7 +54,7 @@
   --ld-slider-animation-duration: 0s;
 
   @media (prefers-reduced-motion: no-preference) {
-    --ld-slider-animation-duration: 0.15s;
+    --ld-slider-animation-duration: var(--ld-transition-duration-swift);
   }
 
   display: grid;

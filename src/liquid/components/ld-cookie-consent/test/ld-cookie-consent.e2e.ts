@@ -106,12 +106,12 @@ describe('ld-cookie-consent', () => {
             "showOnLoadDelay": 0
           }'>
             ${withCustomStyle ? customLogo : ''}
-          </ld-cookie-consent>`
+          </ld-cookie-consent>`,
+          {
+            disableAllTransitions: true,
+            reducedMotion: true,
+          }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        await page.waitForChanges()
 
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
@@ -131,12 +131,12 @@ describe('ld-cookie-consent', () => {
           `${withCustomStyle ? customStyle : ''}<ld-cookie-consent
           settings='${JSON.stringify(settings)}'>
             ${withCustomStyle ? customLogo : ''}
-          </ld-cookie-consent>`
+          </ld-cookie-consent>`,
+          {
+            disableAllTransitions: true,
+            reducedMotion: true,
+          }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        await page.waitForChanges()
 
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
@@ -153,12 +153,12 @@ describe('ld-cookie-consent', () => {
           `${withCustomStyle ? customStyle : ''}<ld-cookie-consent
           settings='${JSON.stringify(settings)}'>
             ${withCustomStyle ? customLogo : ''}
-          </ld-cookie-consent>`
+          </ld-cookie-consent>`,
+          {
+            disableAllTransitions: true,
+            reducedMotion: true,
+          }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        await page.waitForChanges()
 
         const results = await page.compareScreenshot()
         expect(results).toMatchScreenshot()
@@ -177,12 +177,12 @@ describe('ld-cookie-consent', () => {
           `${withCustomStyle ? customStyle : ''}<ld-cookie-consent
           settings='${JSON.stringify(settings)}'>
             ${withCustomStyle ? customLogo : ''}
-          </ld-cookie-consent>`
+          </ld-cookie-consent>`,
+          {
+            disableAllTransitions: true,
+            reducedMotion: true,
+          }
         )
-        await page.emulateMediaFeatures([
-          { name: 'prefers-reduced-motion', value: 'reduce' },
-        ])
-        await page.waitForChanges()
 
         const btnPrefs = await page.find(
           'ld-cookie-consent >>> [part="disclaimer-button-preferences"]'

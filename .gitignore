@@ -38,6 +38,9 @@ UserInterfaceState.xcuserstate
 
 src/**/components.d.ts
 
+screenshot/.gitignore
+screenshot/compare.html
+
 # Stencil Framework output target temporary folder
 out/
 

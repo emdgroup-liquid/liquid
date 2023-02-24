@@ -1,6 +1,6 @@
 .ld-pagination {
   /* Not using 0s here because we rely on the transition end event. */
-  --ld-pagination-animation-duration: 1ms;
+  --ld-pagination-animation-duration: var(--ld-transition-duration-instant);
   --ld-pagination-sm-item-size: 2rem;
   --ld-pagination-md-item-size: 2.5rem;
   --ld-pagination-lg-item-size: 3.125rem;
@@ -85,7 +85,7 @@
 .ld-pagination__more-indicator,
 .ld-pagination__item {
   opacity: 0;
-  transition: opacity 100ms linear;
+  transition: opacity var(--ld-transition-duration-quick) linear;
 
   &--visible {
     opacity: 1;
@@ -139,7 +139,7 @@
       var(--ld-pagination-slide-index) * var(--ld-pagination-column-size) * -1
     )
   );
-  transition: transform 100ms ease;
+  transition: transform var(--ld-transition-duration-quick) ease;
 }
 
 .ld-pagination__item {
@@ -178,7 +178,7 @@
     opacity var(--ld-pagination-animation-duration) ease;
 
   @media (prefers-reduced-motion: no-preference) {
-    --ld-pagination-animation-duration: 0.1s;
+    --ld-pagination-animation-duration: var(--ld-transition-duration-quick);
   }
 
   &--hidden {

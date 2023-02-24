@@ -49,20 +49,20 @@ const getManyTabsHTML = (props = '') => `
 
 describe('ld-tabs', () => {
   it(`default`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     const results = await page.compareScreenshot()
     expect(results).toMatchScreenshot()
   })
 
   it(`hover`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(2)')
     const results = await page.compareScreenshot()
@@ -70,10 +70,10 @@ describe('ld-tabs', () => {
   })
 
   it(`hover selected`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(1)')
     const results = await page.compareScreenshot()
@@ -81,10 +81,10 @@ describe('ld-tabs', () => {
   })
 
   it(`hover disabled`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.hover('ld-tab:nth-of-type(3)')
     const results = await page.compareScreenshot()
@@ -92,10 +92,10 @@ describe('ld-tabs', () => {
   })
 
   it(`focus`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
@@ -104,10 +104,10 @@ describe('ld-tabs', () => {
   })
 
   it(`focus selected`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     const results = await page.compareScreenshot()
@@ -115,10 +115,10 @@ describe('ld-tabs', () => {
   })
 
   it(`focus disabled`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
@@ -129,10 +129,10 @@ describe('ld-tabs', () => {
   })
 
   it(`active`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
@@ -142,10 +142,10 @@ describe('ld-tabs', () => {
   })
 
   it(`active selected`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.down('Space')
@@ -154,10 +154,10 @@ describe('ld-tabs', () => {
   })
 
   it(`active disabled`, async () => {
-    const page = await getPageWithContent(getTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
@@ -169,10 +169,10 @@ describe('ld-tabs', () => {
   })
 
   it(`many`, async () => {
-    const page = await getPageWithContent(getManyTabsHTML())
-    await page.emulateMediaFeatures([
-      { name: 'prefers-reduced-motion', value: 'reduce' },
-    ])
+    const page = await getPageWithContent(getManyTabsHTML(), {
+      reducedMotion: true,
+      disableAllTransitions: true,
+    })
     await page.waitForChanges()
     await page.keyboard.press('Tab')
     await page.keyboard.press('ArrowRight')
