@@ -1,2 +1,0 @@
-import{r as t,h as a}from"./p-183495a2.js";const e=":host{display:contents}thead{background-image:var(--ld-table-head-gradient);position:sticky;top:0;z-index:2}";const s=class{constructor(a){t(this,a)}render(){return a("thead",{class:"ld-table-head",part:"thead"},a("slot",null))}};s.style=e;export{s as ld_table_head};
-//# sourceMappingURL=p-01616093.entry.js.map
