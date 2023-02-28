@@ -110,32 +110,28 @@
     stroke-dasharray: calc(100 / var(--ld-circular-progress-pi));
     transition: opacity var(--ld-circular-progress-transition-duration) linear,
       stroke-dashoffset var(--ld-circular-progress-transition-duration) ease;
-    transform: scaleX(-1) rotate(-90deg);
+    transform: rotate(-90deg);
 
     &:first-of-type {
       stroke: var(--ld-circular-progress-bar-col);
-      stroke-dashoffset: min(
-        0,
-        calc(
-          (-100 + var(--ld-circular-progress-calc-relative-progress) * 100 + 1) /
-            var(--ld-circular-progress-pi)
-        )
+      /* Safari does not support a negative stroke dash offset! */
+      stroke-dashoffset: calc(
+        -1 * min(0px, (
+                -100px + var(--ld-circular-progress-calc-relative-progress) * 100px -
+                  1px
+              ) / var(--ld-circular-progress-pi))
       );
       opacity: calc(1 - var(--ld-circular-progress-has-overflow));
     }
     &:last-of-type {
       stroke: var(--ld-circular-progress-bar-col-overflow);
-      stroke-dashoffset: max(
-        calc(-100 / var(--ld-circular-progress-pi)),
-        min(
-          0,
-          calc(
-            (
-                -100 + (var(--ld-circular-progress-calc-relative-progress) - 1) *
-                  100 + 1
-              ) / var(--ld-circular-progress-pi)
-          )
-        )
+      /* Safari does not support a negative stroke dash offset! */
+      stroke-dashoffset: calc(
+        -1 * max(-100px / var(--ld-circular-progress-pi), min(0px, (
+                  -100px + (
+                      var(--ld-circular-progress-calc-relative-progress) - 1
+                    ) * 100px - 1px
+                ) / var(--ld-circular-progress-pi)))
       );
       opacity: var(--ld-circular-progress-has-overflow);
     }
