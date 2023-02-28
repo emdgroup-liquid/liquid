@@ -125,6 +125,7 @@ title: Introduction
         {% endif %}
         <docs-edit-on-github path="{{ page.inputPath }}"></docs-edit-on-github>
       </header>
+      <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
       {{ content | safe }}
       {% if page.inputPath != './src/index.md' %}
         <docs-contributors contributors='{% contributors page.inputPath %}'></docs-contributors>

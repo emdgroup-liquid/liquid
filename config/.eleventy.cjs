@@ -4,6 +4,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const markdownItReplaceLink = require('markdown-it-replace-link')
+const markdownItLinkAttributes = require('markdown-it-link-attributes')
 const pluginTOC = require('eleventy-plugin-toc')
 const cheerio = require('cheerio')
 const memoize = require('lodash.memoize')
@@ -110,6 +111,17 @@ module.exports = function (eleventyConfig) {
         permalink: renderPermalink,
       })
       .use(markdownItReplaceLink)
+      .use(markdownItLinkAttributes, {
+        matcher(href) {
+          return href.match(/^https?:\/\//)
+        },
+        attrs: {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          'aria-describedby': 'external-link-description',
+          'data-link-external': '', // TODO: Add a script to automatically add an icon for external links
+        },
+      })
   )
   eleventyConfig.addPassthroughCopy(
     buildstamp

@@ -790,7 +790,7 @@ return (
 
 {% endexample %}
 
-Please note that the example above is for illustration only: The default sorting would have worked as well for the given data. However, the same setup will make much more sense as soon as we add [pagination](/components/ld-table#pagination) to the table.  
+Please note that the example above is for illustration only: The default sorting would have worked as well for the given data. However, the same setup will make much more sense as soon as we add [pagination](components/ld-table#pagination) to the table.  
 
 ### Selection
 
@@ -939,7 +939,7 @@ Please refer to the <a href="/components/ld-table/#pagination">pagination refere
 
 A table pagination is a usefull feature for large data sets, where scrolling becomes cumbersome and displaying the data on separate pages makes more sense.
 
-The following example shows how to use the [`ld-pagination`](/components/ld-pagination) component within the [`ld-table-toolbar`](/components/ld-table/ld-table-toolbar) component.
+The following example shows how to use the [`ld-pagination`](components/ld-pagination) component within the [`ld-table-toolbar`](components/ld-table/ld-table-toolbar) component.
 
 {% example '{ "stacked": true }' %}
 <style>
