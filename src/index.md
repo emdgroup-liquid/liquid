@@ -19,19 +19,67 @@ title: Introduction
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-black?style=flat&color=24292F)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope)
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=main)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=main)
 
-Liquid is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide veriaty of plattforms and projects.
+Liquid Oxygen is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide variety of platforms and projects.
 
-<ld-notice>
-  Looking for the legacy version of the Liquid Design System? Click <a href="https://gitlab.com/liquid-design/liquid-design-react/">here</a>.
-</ld-notice>
+Using Liquid Oxygen in your project is the recommended way to comply with the Liquid Design Standards and ensures a consistent look and feel across all related applications. You can read more about why you should use Liquid Oxygen on the [Why Liquid](https://liquid.emd.design/liquid/introduction/why-liquid/) page.
+
+## Why Web Components?
+
+Web Components are ideal for building reusable, framework-agnostic and future-proof UI components. They are part of the [Web standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components) and are supported by all relevant browsers. 
+
+The framework-agnostic nature of Web Components allows you to use Liquid Oxygen in any framework (e.g. React, Vue, Solid or Svelte) or even without a framework.
+
+## Gettings Started
+
+You can add Liquid Oxygen to an existing project. It integrates seamlessly with any framework or library. See our comprehensive guides and detailed explanation of how to integrate Liquid Oxygen into your project.
+
+- [React](https://liquid.emd.design/liquid/introduction/getting-started/react/)
+- [Vue](https://liquid.emd.design/liquid/introduction/getting-started/vue/)
+
+## Sandbox apps
+
+Besides the guides, we have created several sandbox apps to demonstrate the usage Liquid Oxygen in various additional frameworks and libraries. You can find them on the [Sandbox apps](https://liquid.emd.design/liquid/guides/sandbox-applications/) page.
+
+## Quick start
+
+You are curious and just want to try out Liquid Oxygen? Fastest way to get started with Liquid Oxygen is to use the jsdelivr CDN.  
+Just set the liquid asset path and import the Stylesheet and the loader module.
+
+``` html
+<meta 
+  data-ld-asset-path="https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/liquid/"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/css/liquid.css"
+/>
+<script type="module">
+  // Import the loader
+  import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/loader/index.js";
+
+  // Register the custom elements
+  defineCustomElements();
+</script>
+```
+
+Now you can use the Liquid Oxygen Web Components in your website.
+
+``` html
+<ld-button>Click me</ld-button>
+```
+
+See the full example in the [Liquid + CDN Sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn).
+
+Although this is the fastest way to add Liquid Oxygen components to a website, we recommend using Liquid Oxygen together with a frontend library (e.g. React, Vue) and a bundler (e.g. vite, webpack).
+
+## Design
+
+Find the Liquid Design System on [Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310). You can use the Figma file to get a better understanding of the design system and its usage.  
 
 ## Links
 
-- [Getting started](introduction/getting-started/)
-- [Sandbox apps](guides/sandbox-applications/)
 - [Feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Aduplicate+is%3Aopen)
 - [Changelog](https://github.com/emdgroup-liquid/liquid/releases) / [Breaking changes](https://github.com/emdgroup-liquid/liquid/releases?q=".0.0")
-- [Liquid Design System on Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310)
 
 ## Contributing
 
