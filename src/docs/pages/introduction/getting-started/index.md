@@ -103,9 +103,9 @@ Add Liquid Oxygen Web Components to your page just as any other element. You can
 ```js
 // main.ts
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
+```
 
-...
-
+```html
 <body>
   <ld-button>
     Click me!
@@ -123,13 +123,18 @@ Following code block shows the same button as in the previous example as a CSS c
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-icon.css'
+```
 
-...
-
+```html
 <body>
   <button class="ld-button">Click me</button>
   <span class="ld-icon" role="presentation">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m6.246 5.8722 7.2016-1.261c.7301-.1328 1.1947-.8297 1.0619-1.5266-.1327-.7301-.7965-1.1947-1.5266-1.062l-7.2014 1.261c-.697.0997-1.1947.7966-1.062 1.5267.1328.8628.9624 1.1615 1.5266 1.062Zm11.4162 3.551L5.8147 11.4807c-.7301.1328-1.1947.8297-1.062 1.5266.0664.3651.2987.6969.5642.8629l2.7213 2.2566c.1659 1.1616.365 2.0576.4978 2.655.531 1.9912 1.2942 3.0863 3.5841 3.0863s3.0863-1.062 3.5841-3.0863c.28-1.2133.478-2.3937.6401-3.4837.0984-.662-.4755-1.2269-1.1371-1.126l-4.5473.6937-1.5266-1.2611 9.0267-1.593c.7301-.1327 1.1947-.8296 1.062-1.5266-.1327-.73-.8297-1.1947-1.5598-1.062Zm2.2235-3.186c-.1327-.73-.7964-1.1946-1.5265-1.0619L5.0846 7.5316c-.7301.1327-1.1947.8296-1.062 1.5265.1991 1.062 1.1615 1.1284 1.5266 1.062l13.2746-2.3562c.6969-.1328 1.1947-.8297 1.0619-1.5266Z" fill="currentcolor"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="m6.246 5.8722 7.2016-1.261c.7301-.1328 1.1947-.8297 1.0619-1.5266-.1327-.7301-.7965-1.1947-1.5266-1.062l-7.2014 1.261c-.697.0997-1.1947.7966-1.062 1.5267.1328.8628.9624 1.1615 1.5266 1.062Zm11.4162 3.551L5.8147 11.4807c-.7301.1328-1.1947.8297-1.062 1.5266.0664.3651.2987.6969.5642.8629l2.7213 2.2566c.1659 1.1616.365 2.0576.4978 2.655.531 1.9912 1.2942 3.0863 3.5841 3.0863s3.0863-1.062 3.5841-3.0863c.28-1.2133.478-2.3937.6401-3.4837.0984-.662-.4755-1.2269-1.1371-1.126l-4.5473.6937-1.5266-1.2611 9.0267-1.593c.7301-.1327 1.1947-.8296 1.062-1.5266-.1327-.73-.8297-1.1947-1.5598-1.062Zm2.2235-3.186c-.1327-.73-.7964-1.1946-1.5265-1.0619L5.0846 7.5316c-.7301.1327-1.1947.8296-1.062 1.5265.1991 1.062 1.1615 1.1284 1.5266 1.062l13.2746-2.3562c.6969-.1328 1.1947-.8297 1.0619-1.5266Z"
+        fill="currentcolor"
+      />
+    </svg>
   </span>
 </body>
 ```
@@ -142,15 +147,15 @@ Let's take our button from above and add an event listener.
 
 ```js
 // main.ts
-;<body>
+document.querySelector('#button').addEventListener('click', () => {
+  console.log('Button clicked')
+})
+```
+
+```html
+<body>
   <ld-button id="button">Click me</ld-button>
 </body>
-
-document.querySelector <
-  HTMLDivElement >
-  '#button'.addEventListener('click', () => {
-    console.log('Button clicked')
-  })
 ```
 
 ## Sandboxes
@@ -159,8 +164,6 @@ This guide shows how to get started with Liquid Oxygen without using a framework
 
 - [Liquid + CDN](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn)
 - [Liquid + Vite + Javascript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla)
-
-Are you using React? Check out the [React guide](introduction/getting-started/react/).<br/>Or maybe Vue? Check out the [Vue guide](introduction/getting-started/vue/).
 
 If you run into issues integrating Liquid Oxygen, please [get in touch with us](https://github.com/emdgroup-liquid/liquid/discussions).
 
