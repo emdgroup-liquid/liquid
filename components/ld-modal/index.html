@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Modal</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677579691641/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677579691641/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677579691641/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1677579691641/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1677579691641/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677588660762/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677588660762/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677588660762/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1677588660762/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1677588660762/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1677579691641/">
+  <meta data-buildstamp="1677588660762/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2283,11 +2283,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1677579691641/docs.css">
-  <link rel="stylesheet" href="/liquid/1677579691641/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1677579691641/css_components/ld-button.css">
-  <script type="module" src="/liquid/1677579691641/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1677579691641/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1677588660762/docs.css">
+  <link rel="stylesheet" href="/liquid/1677588660762/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1677588660762/css_components/ld-button.css">
+  <script type="module" src="/liquid/1677588660762/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1677588660762/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3270,13 +3270,13 @@
         <docs-edit-on-github path="./src/liquid/components/ld-modal/readme.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <h1 id="ld-modal" tabindex="-1">ld-modal <a class="header-anchor" href="components/ld-modal/#ld-modal"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<link rel="stylesheet" href="/liquid/1677579691641/css_components/ld-modal.css">
-<link rel="stylesheet" href="/liquid/1677579691641/css_components/ld-typo.css">
-<link rel="stylesheet" href="/liquid/1677579691641/css_components/ld-button.css">
+      <h1 id="ld-modal" tabindex="-1">ld-modal <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<link rel="stylesheet" href="/liquid/1677588660762/css_components/ld-modal.css">
+<link rel="stylesheet" href="/liquid/1677588660762/css_components/ld-typo.css">
+<link rel="stylesheet" href="/liquid/1677588660762/css_components/ld-button.css">
 <p>The <code>ld-modal</code> component represents a dismissible modal dialog box.</p>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external=""><code>&lt;dialog&gt;</code></a> element acts as the foundation for both, the Web Component version and the CSS component version of the component. The <code>ld-modal</code> Web Component wraps a <code>&lt;dialog&gt;</code> element and enhances its functionality which otherwise is not natively implemented, such as by emitting additional events and handling clicks on the dialog backdrop.</p>
-<h2 id="examples" tabindex="-1">Examples <a class="header-anchor" href="components/ld-modal/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="examples" tabindex="-1">Examples <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Here is a minimalistic example of a modal dialog:</p>
 <docs-example code="%3Cld-modal%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E" code-react-component="const%20modalRef%20%3D%20useRef(null)%0A%0Areturn%20(%0A%20%20%3C%3E%0A%20%20%20%20%3CLdModal%20ref%3D%7BmodalRef%7D%3E%0A%20%20%20%20%20%20%3CLdTypo%20style%3D%7B%20%7B%20textAlign%3A%20'center'%20%7D%20%7D%3EI'm%20a%20modal%20dialog.%3C%2FLdTypo%3E%0A%20%20%20%20%3C%2FLdModal%3E%0A%0A%20%20%20%20%3CLdButton%20onClick%3D%7B()%20%3D%3E%20modalRef.current.showModal()%7D%3E%0A%20%20%20%20%20%20Open%20Modal%0A%20%20%20%20%3C%2FLdButton%3E%0A%20%20%3C%2F%3E%0A)"  themable has-border has-padding styles='{"overflow":"visible","will-change":"initial"}'>
 <div slot="code">
@@ -3305,7 +3305,7 @@
   </div>
 </dialog>
 <button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
-<h3 id="with-header-and-footer" tabindex="-1">With header and footer <a class="header-anchor" href="components/ld-modal/#with-header-and-footer"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="with-header-and-footer" tabindex="-1">With header and footer <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>You have two additional slots to your disposal for altering the modal header and footer which are both positioned fixed at top and bottom of the dialog element.</p>
 <docs-example code="%3Cld-modal%3E%0A%20%20%3Cld-typo%20slot%3D%22header%22%3EHello%3C%2Fld-typo%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20mode%3D%22ghost%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ECancel%3C%2Fld-button%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%3EHello%3C%2Fp%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%20%20%3Cfooter%20class%3D%22ld-modal__footer%22%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%20ld-button--ghost%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ECancel%3C%2Fbutton%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ESubmit%3C%2Fbutton%3E%0A%20%20%3C%2Ffooter%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E" code-react-component="const%20modalRef%20%3D%20useRef(null)%0A%0Areturn%20(%0A%20%20%3C%3E%0A%20%20%20%20%3CLdModal%20ref%3D%7BmodalRef%7D%3E%0A%20%20%20%20%20%20%3CLdTypo%20slot%3D%22header%22%3EHello%3C%2FLdTypo%3E%0A%20%20%20%20%20%20%3CLdTypo%20style%3D%7B%20%7B%20textAlign%3A%20'center'%20%7D%20%7D%3EI'm%20a%20modal%20dialog.%3C%2FLdTypo%3E%0A%20%20%20%20%20%20%3CLdButton%0A%20%20%20%20%20%20%20%20slot%3D%22footer%22%0A%20%20%20%20%20%20%20%20style%3D%7B%20%7B%20width%3A%20'8rem'%20%7D%20%7D%0A%20%20%20%20%20%20%20%20mode%3D%22ghost%22%0A%20%20%20%20%20%20%20%20onClick%3D%7B()%20%3D%3E%20modalRef.current.close()%7D%0A%20%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%20Cancel%0A%20%20%20%20%20%20%3C%2FLdButton%3E%0A%20%20%20%20%20%20%3CLdButton%0A%20%20%20%20%20%20%20%20slot%3D%22footer%22%0A%20%20%20%20%20%20%20%20style%3D%7B%20%7B%20width%3A%20'8rem'%20%7D%20%7D%0A%20%20%20%20%20%20%20%20onClick%3D%7B()%20%3D%3E%20modalRef.current.close()%7D%0A%20%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%20Submit%0A%20%20%20%20%20%20%3C%2FLdButton%3E%0A%20%20%20%20%3C%2FLdModal%3E%0A%0A%20%20%20%20%3CLdButton%20onClick%3D%7B()%20%3D%3E%20modalRef.current.showModal()%7D%3E%0A%20%20%20%20%20%20Open%20Modal%0A%20%20%20%20%3C%2FLdButton%3E%0A%20%20%3C%2F%3E%0A)"  themable has-border has-padding styles='{"overflow":"visible","will-change":"initial"}'>
 <div slot="code">
@@ -3342,7 +3342,7 @@
   </footer>
 </dialog>
 <button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
-<h3 id="non-cancelable" tabindex="-1">Non-cancelable <a class="header-anchor" href="components/ld-modal/#non-cancelable"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="non-cancelable" tabindex="-1">Non-cancelable <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-modal%20cancelable%3D%22false%22%3E%0A%20%20%3Cld-typo%20slot%3D%22header%22%3EHello%3C%2Fld-typo%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%20%20%3Cld-button%20slot%3D%22footer%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('ld-modal').close()%22%3ESubmit%3C%2Fld-button%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%22%20oncancel%3D%22event.preventDefault()%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%3EHello%3C%2Fp%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%20%20%3Cfooter%20class%3D%22ld-modal__footer%22%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%20style%3D%22width%3A%208rem%22%20onclick%3D%22this.closest('dialog').close()%22%3ESubmit%3C%2Fbutton%3E%0A%20%20%3C%2Ffooter%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E" code-react-component="const%20modalRef%20%3D%20useRef(null)%0A%0Areturn%20(%0A%20%20%3C%3E%0A%20%20%20%20%3CLdModal%20cancelable%3D%22false%22%20ref%3D%7BmodalRef%7D%3E%0A%20%20%20%20%20%20%3CLdTypo%20slot%3D%22header%22%3EHello%3C%2FLdTypo%3E%0A%20%20%20%20%20%20%3CLdTypo%20style%3D%7B%20%7B%20textAlign%3A%20'center'%20%7D%20%7D%3EI'm%20a%20modal%20dialog.%3C%2FLdTypo%3E%0A%20%20%20%20%20%20%3CLdButton%0A%20%20%20%20%20%20%20%20slot%3D%22footer%22%0A%20%20%20%20%20%20%20%20style%3D%7B%20%7B%20width%3A%20'8rem'%20%7D%20%7D%0A%20%20%20%20%20%20%20%20onClick%3D%7B()%20%3D%3E%20modalRef.current.close()%7D%0A%20%20%20%20%20%20%3E%0A%20%20%20%20%20%20%20%20Submit%0A%20%20%20%20%20%20%3C%2FLdButton%3E%0A%20%20%20%20%3C%2FLdModal%3E%0A%0A%20%20%20%20%3CLdButton%20onClick%3D%7B()%20%3D%3E%20modalRef.current.showModal()%7D%3E%0A%20%20%20%20%20%20Open%20Modal%0A%20%20%20%20%3C%2FLdButton%3E%0A%20%20%3C%2F%3E%0A)"  themable has-border has-padding styles='{"overflow":"visible","will-change":"initial"}'>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span> <span class="token attr-name">cancelable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span> 8rem</span><span class="token punctuation">"</span></span></span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">closest</span><span class="token punctuation">(</span><span class="token string">'ld-modal'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
@@ -3371,7 +3371,7 @@
   </footer>
 </dialog>
 <button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
-<h3 id="with-blurry-backdrop" tabindex="-1">With blurry backdrop <a class="header-anchor" href="components/ld-modal/#with-blurry-backdrop"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="with-blurry-backdrop" tabindex="-1">With blurry backdrop <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <docs-example code="%3Cld-modal%20blurry-backdrop%3E%0A%20%20%3Cld-typo%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%3C%2Fld-typo%3E%0A%3C%2Fld-modal%3E%0A%0A%3Cld-button%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fld-button%3E" code-css-component="%3Cdialog%20class%3D%22ld-modal%20ld-modal--blurry-backdrop%22%3E%0A%20%20%3Cheader%20class%3D%22ld-modal__header%22%3E%0A%20%20%20%20%3Cbutton%0A%20%20%20%20%20%20class%3D%22ld-modal__x%22%0A%20%20%20%20%20%20aria-label%3D%22Dismiss%22%0A%20%20%20%20%20%20onclick%3D%22this.closest('dialog').close()%22%0A%20%20%20%20%3E%3C%2Fbutton%3E%0A%20%20%3C%2Fheader%3E%0A%20%20%3Cdiv%20class%3D%22ld-modal__content%22%3E%0A%20%20%20%20%3Cp%20class%3D%22ld-typo%22%20style%3D%22text-align%3A%20center%22%3E%0A%20%20%20%20%20%20I'm%20a%20modal%20dialog.%0A%20%20%20%20%3C%2Fp%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdialog%3E%0A%0A%3Cbutton%20class%3D%22ld-button%22%20onclick%3D%22event.target.previousElementSibling.showModal()%22%3EOpen%20Modal%3C%2Fbutton%3E" code-react-component="const%20modalRef%20%3D%20useRef(null)%0A%0Areturn%20(%0A%20%20%3C%3E%0A%20%20%20%20%3CLdModal%20blurryBackdrop%20ref%3D%7BmodalRef%7D%3E%0A%20%20%20%20%20%20%3CLdTypo%20style%3D%7B%20%7B%20textAlign%3A%20'center'%20%7D%20%7D%3EI'm%20a%20modal%20dialog.%3C%2FLdTypo%3E%0A%20%20%20%20%3C%2FLdModal%3E%0A%0A%20%20%20%20%3CLdButton%20onClick%3D%7B()%20%3D%3E%20modalRef.current.showModal()%7D%3E%0A%20%20%20%20%20%20Open%20Modal%0A%20%20%20%20%3C%2FLdButton%3E%0A%20%20%3C%2F%3E%0A)"  themable has-border has-padding styles='{"overflow":"visible","will-change":"initial"}'>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-modal</span> <span class="token attr-name">blurry-backdrop</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-typo</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span><br>    I'm a modal dialog.<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-typo</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-modal</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token special-attr"><span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value javascript language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
@@ -3400,7 +3400,7 @@
 </dialog>
 <button class="ld-button" onclick="event.target.previousElementSibling.showModal()">Open Modal</button></div></docs-example>
 <!-- Auto Generated Below -->
-<h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-modal/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -3449,7 +3449,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="events" tabindex="-1">Events <a class="header-anchor" href="components/ld-modal/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="events" tabindex="-1">Events <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -3481,16 +3481,16 @@
 </tr>
 </tbody>
 </table>
-<h2 id="methods" tabindex="-1">Methods <a class="header-anchor" href="components/ld-modal/#methods"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<h3 id="close()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>close() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/#close()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h2 id="methods" tabindex="-1">Methods <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="close()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>close() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Closes the modal dialog.</p>
-<h4 id="returns" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/#returns"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="returns" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <p>Type: <code>Promise&lt;void&gt;</code></p>
-<h3 id="showmodal()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>showModal() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/#showmodal()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="showmodal()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>showModal() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Opens the modal dialog.</p>
-<h4 id="returns-1" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/#returns-1"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="returns-1" tabindex="-1">Returns <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <p>Type: <code>Promise&lt;void&gt;</code></p>
-<h2 id="shadow-parts" tabindex="-1">Shadow Parts <a class="header-anchor" href="components/ld-modal/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="shadow-parts" tabindex="-1">Shadow Parts <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -3517,12 +3517,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="dependencies" tabindex="-1">Dependencies <a class="header-anchor" href="components/ld-modal/#dependencies"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<h3 id="used-by" tabindex="-1">Used by <a class="header-anchor" href="components/ld-modal/#used-by"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h2 id="dependencies" tabindex="-1">Dependencies <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="used-by" tabindex="-1">Used by <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <ul>
 <li><a href="/liquid/components/ld-cookie-consent">ld-cookie-consent</a></li>
 </ul>
-<h3 id="graph" tabindex="-1">Graph <a class="header-anchor" href="components/ld-modal/#graph"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="graph" tabindex="-1">Graph <a class="header-anchor" href="components/ld-modal/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <pre class="language-mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TD<span class="token punctuation">;</span><br>  ld-cookie-consent <span class="token arrow operator">--></span> ld-modal<br>  <span class="token keyword">style</span> ld-modal <span class="token style"><span class="token property">fill</span><span class="token operator">:</span>#f9f<span class="token punctuation">,</span><span class="token property">stroke</span><span class="token operator">:</span>#333<span class="token punctuation">,</span><span class="token property">stroke-width</span><span class="token operator">:</span>4px</span></code></pre>
 <hr>
 <p><em>Built with <a href="https://stenciljs.com/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">StencilJS</a></em></p>

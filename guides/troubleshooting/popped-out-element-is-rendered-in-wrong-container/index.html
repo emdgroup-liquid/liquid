@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Popped-out element is rendered in wrong container</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677579691641/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677579691641/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677579691641/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1677579691641/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1677579691641/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677588660762/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677588660762/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677588660762/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1677588660762/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1677588660762/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1677579691641/">
+  <meta data-buildstamp="1677588660762/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2283,11 +2283,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1677579691641/docs.css">
-  <link rel="stylesheet" href="/liquid/1677579691641/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1677579691641/css_components/ld-button.css">
-  <script type="module" src="/liquid/1677579691641/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1677579691641/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1677588660762/docs.css">
+  <link rel="stylesheet" href="/liquid/1677588660762/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1677588660762/css_components/ld-button.css">
+  <script type="module" src="/liquid/1677588660762/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1677588660762/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3272,8 +3272,8 @@
         <docs-edit-on-github path="./src/docs/pages/guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <h1 id="popped-out-element-is-rendered-in-wrong-container" tabindex="-1">Popped-out element is rendered in wrong container <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/#popped-out-element-is-rendered-in-wrong-container"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<h2 id="problem" tabindex="-1">Problem <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/#problem"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+      <h1 id="popped-out-element-is-rendered-in-wrong-container" tabindex="-1">Popped-out element is rendered in wrong container <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="problem" tabindex="-1">Problem <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Some components have a popper element that needs to stay above every other element when popped out. The <a href="components/ld-select/">ld-select</a> component and the <a href="components/ld-tooltip/">ld-tooltip</a> component are two examples of such components. By default, this is achieved by rendering the popped-out element as a direct child of the <code>body</code> element.</p>
 <p>However, in some cases this default behavior can be problematic. For instance:</p>
 <ul>
@@ -3281,7 +3281,7 @@
 <li>When using a UI library, such as React or Vue, your application may have been mounted on an element within the <code>body</code> element. <strong>This may result in event handlers not being called</strong>, because the event listeners may be attached to the root element of the application and not the <code>body</code> element.</li>
 <li>When you want the popped-out element to be rendered within a container with specific dimensions and overflow settings.</li>
 </ul>
-<h2 id="solution" tabindex="-1">Solution <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/#solution"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="solution" tabindex="-1">Solution <a class="header-anchor" href="guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>All components, which have a popper element, can be configured to pop out within a specific element using the <code>tetherOptions</code> property, which expects an object of options, including the <code>bodyElement</code> option. Use this option to specify the container, which shall become the parent element for the popped-out element. Please refer to the <a href="https://tetherjs.dev/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Tether documentation</a> for more information on available options.</p>
 <p>Here is an example on how you can specify the application root element as the <code>bodyElement</code> in a React application:</p>
 <pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> tetherOptions <span class="token operator">=</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">bodyElement</span><span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">return</span> <span class="token punctuation">(</span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdTooltip</span></span> <span class="token attr-name">tetherOptions</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>tetherOptions<span class="token punctuation">}</span></span> <span class="token attr-name">triggerType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>click<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>trigger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">File context menu</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Copy URL</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Download</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdTooltip</span></span><span class="token punctuation">></span></span><span class="token plain-text"><br>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span><br>  <span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
