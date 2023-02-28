@@ -101,6 +101,7 @@
   inset: 0;
   fill: none;
   mask-image: var(--ld-circular-progress-stroke-mask);
+  width: 100%; /* required in Safari */
   z-index: 1;
 
   circle {
