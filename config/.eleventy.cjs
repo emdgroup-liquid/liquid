@@ -118,6 +118,8 @@ module.exports = function (eleventyConfig) {
         attrs: {
           target: '_blank',
           rel: 'noopener noreferrer',
+          'aria-describedby': 'external-link-description',
+          'data-link-external': '', // TODO: Add a script to automatically add an icon for external links
         },
       })
   )

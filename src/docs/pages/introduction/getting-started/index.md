@@ -52,14 +52,14 @@ defineCustomElements()
 
 #### Avoid lazy loading
 
-If your project requires immediate loading of components, you can use Liquid Oxygen Web Components imported from `@emdgroup-liquid/liquid/dist/components/*`. These components are loaded and automatically registered when imported. This behavior is particularly useful when you are using a bundler like [Vite](https://vitejs.dev/) or [Webpack](https://webpack.js.org/). 
+If your project requires immediate loading of components, you can use Liquid Oxygen Web Components imported from `@emdgroup-liquid/liquid/dist/components/*`. These components are loaded and automatically registered when imported. This behavior is particularly useful when you are using a bundler like [Vite](https://vitejs.dev/) or [Webpack](https://webpack.js.org/).
 
 Import the Web Component individually whenever you use it in your application.
 
 ```js
 //main.ts
-import "@emdgroup-liquid/liquid/dist/components/ld-button"
-import "@emdgroup-liquid/liquid/dist/components/ld-icon"
+import '@emdgroup-liquid/liquid/dist/components/ld-button'
+import '@emdgroup-liquid/liquid/dist/components/ld-icon'
 ```
 
 <!-- Learn more about the differences in the [Stencil docs](https://stenciljs.com/docs/output-targets). -->
@@ -89,68 +89,12 @@ import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 
 #### PurgeCSS
 
-Liquid Oxygen provides a css file containing all styles. Using this file is convenient, but will increase your bundle size significantly. You can use [PurgeCSS](https://purgecss.com/) or something similar, which removes unused CSS classes from your bundle. This is useful, no matter if you are using Web Components or CSS components.
-
-<!-- ### Component assets
-
-Some components require static assets during runtime. Although the Liquid Oxygen package includes all assets, you have to add these assets to your output bundle. We recommend to include copying these assets in your build process, which ensures that the assets are always up to date.
-
-<ld-notice>
-  You should add the copied assets (e.g. <code>public/liquid/assets/*</code>) to your <code>.gitignore</code> file.
-</ld-notice>
-
-For the following example, we assume you are using [Vite](https://vitejs.dev/). By default, Vite uses the `public` folder for static assets. To include the Liquid Oxygen assets in your output bundle, you can copy them to this folder.
-
-First, install the `rollup-plugin-copy` plugin. This plugin allows you to copy files and folders while building.
-
-```sh
-npm install rollup-plugin-copy -D
-```
-
-Now include the copy plugin in your Vite config. Add the following code to your `vite.config.ts` file. This will copy the Liquid Oxygen assets from the 'node_modules' folder to the 'public' folder, so Vite will bundle them.
-
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
-import copy from 'rollup-plugin-copy'
-
-export default defineConfig({
-  plugins: [
-    copy({
-      targets: [
-        {
-          src: 'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets/*',
-          dest: 'public/liquid/assets',
-        },
-      ],
-      hook: 'buildStart',
-    }),
-    // ...other plugins e.g. react()
-  ],
-  // ...other config options
-})
-```
-
-You need to "tell" Liquid Oxygen where to find the assets. The components will look for the `__LD_ASSET_PATH__` variable in the `window` object. The path should point to the `liquid/` folder.
-
-Add the following code to your `main.ts` file (or any similar file which is loaded for every page).
+Liquid Oxygen also provides a css file containing all styles. Using this file is convenient, but will increase your bundle size significantly. You can use [PurgeCSS](https://purgecss.com/) or something similar, which removes unused CSS classes from your bundle. This is useful, no matter if you are using Web Components or CSS components.
 
 ```js
 // main.ts
-// if-clause only required in server-side rendering context
-if (typeof window !== 'undefined') {
-  // @ts-ignore: Property '__LD_ASSET_PATH__' does not exist on type 'Window & typeof globalThis'.ts(2339)
-  window.__LD_ASSET_PATH__ = '/liquid/'
-}
+import '@emdgroup-liquid/liquid/dist/css/liquid.css'
 ```
-
-Once the asset path is set and the assets are availe on runtime, all components can automatically load their assets.
-
-If this example does not suit your environment, please refer to our sandbox apps for more details and alternative bundlers:
-
-- [Liquid + React + Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=vite.config.ts)<br />This sandbox is quite similar to the example above.
-- [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main?file=%2Fpackage.json)<br />The Sandbox uses Create React App which does not allow to adjust the Webpack config. In this case we added a postinstall script to copy the assets to the public folder.
-- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses Webpack under the hood. The sandbox shows how to add a custom Webpack config `next.config.js` to copy the assets to the public folder. -->
 
 ## Usage
 
@@ -198,7 +142,7 @@ Let's take our button from above and add an event listener.
 
 ```js
 // main.ts
-<body>
+;<body>
   <ld-button id="button">Click me</ld-button>
 </body>
 
@@ -216,6 +160,8 @@ This guide shows how to get started with Liquid Oxygen without using a framework
 - [Liquid + CDN](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn)
 - [Liquid + Vite + Javascript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla)
 
-You are using React? Check out the [React guide](introduction/getting-started/react/).
+Are you using React? Check out the [React guide](introduction/getting-started/react/).<br/>Or maybe Vue? Check out the [Vue guide](introduction/getting-started/vue/).
 
-<docs-page-nav prev-href="introduction/why-liquid-oxygen/" next-title="React" next-href="introduction/getting-started/react/"></docs-page-nav>
+If you run into issues integrating Liquid Oxygen, please [get in touch with us](https://github.com/emdgroup-liquid/liquid/discussions).
+
+<docs-page-nav prev-href="introduction/why-liquid-oxygen/" next-title="Guides" next-href="guides/"></docs-page-nav>

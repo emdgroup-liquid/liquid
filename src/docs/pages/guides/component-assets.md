@@ -57,21 +57,23 @@ You need to "tell" Liquid Oxygen where to find the assets. The components will l
 You have 2 options:
 
 1. Specify the asset path using a metadata element in the document head section:
-  ```html
-  <!-- index.html -->
-  <meta data-ld-asset-path="/">
-  ```
+
+```html
+<!-- index.html -->
+<meta data-ld-asset-path="/" />
+```
 
 2. Specify the asset path by setting the `__LD_ASSET_PATH__` variable on the `window` object:
-  ```tsx
-  // main.tsx
-  // if-clause only required in server-side rendering context
-  if (typeof window !== "undefined") {
-    window.__LD_ASSET_PATH__ = window.location.origin
-  }
-  ```
 
-Once the asset path is set and the assets are availe on runtime, all components can automatically load their assets.
+```tsx
+// main.tsx
+// if-clause only required in server-side rendering context
+if (typeof window !== 'undefined') {
+  window.__LD_ASSET_PATH__ = window.location.origin
+}
+```
+
+Once the asset path is set and the assets are available on runtime, all components can automatically load their assets.
 
 If this example does not suit your environment, please refer to our sandbox apps for more details and alternative bundlers:
 

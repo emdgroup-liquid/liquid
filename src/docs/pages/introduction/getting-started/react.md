@@ -59,67 +59,6 @@ Add the following code to your `App.tsx` file (or any similar file which is load
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 ```
 
-<!-- ### Component assets
-
-Some components require static assets during runtime. Although the Liquid Oxygen package includes all assets, you have to add these assets to your output bundle. We recommend to include copying these assets in your build process, which ensures that the assets are always up to date.
-
-<ld-notice>
-  You should add the copied assets (e.g. <code>public/liquid/assets/*</code>) to your <code>.gitignore</code> file.
-</ld-notice>
-
-For the following example, we assume you are using [Vite](https://vitejs.dev/). By default, Vite uses the `public` folder for static assets. To include the Liquid Oxygen assets in your output bundle, you can copy them to this folder.
-
-First, install the `rollup-plugin-copy` plugin. This plugin allows you to copy files and folders while building.
-
-```sh
-npm install rollup-plugin-copy -D
-```
-
-Now include the copy plugin in your Vite config. Add the following code to your `vite.config.ts` file. This will copy the Liquid Oxygen assets from the 'node_modules' folder to the 'public' folder, so Vite will bundle them.
-
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite'
-import copy from 'rollup-plugin-copy'
-
-export default defineConfig({
-  plugins: [
-    copy({
-      targets: [
-        {
-          src: 'node_modules/@emdgroup-liquid/liquid/dist/liquid/assets/*',
-          dest: 'public/liquid/assets',
-        },
-      ],
-      hook: 'buildStart',
-    }),
-    // ...other plugins e.g. react()
-  ],
-  // ...other config options
-})
-```
-
-You need to "tell" Liquid Oxygen where to find the assets. The components will look for the `__LD_ASSET_PATH__` variable in the `window` object. The path should point to the `liquid/` folder.
-
-Add the following code to your `App.tsx` file (or any similar file which is loaded for every page).
-
-```tsx
-// App.tsx
-// if-clause only required in server-side rendering context
-if (typeof window !== 'undefined') {
-  // @ts-ignore: Property '__LD_ASSET_PATH__' does not exist on type 'Window & typeof globalThis'.ts(2339)
-  window.__LD_ASSET_PATH__ = '/liquid/'
-}
-```
-
-Once the asset path is set and the assets are availe on runtime, all components can automatically load their assets.
-
-If this example does not suit your environment, please refer to our sandbox apps for more details and alternative bundlers:
-
-- [Liquid + React + Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=vite.config.ts)<br />This sandbox is quite similar to the example above.
-- [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main?file=%2Fpackage.json)<br />The Sandbox uses Create React App which does not allow to adjust the Webpack config. In this case we added a postinstall script to copy the assets to the public folder.
-- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses Webpack under the hood. The sandbox shows how to add a custom Webpack config `next.config.js` to copy the assets to the public folder. -->
-
 ## Usage
 
 When adding Liquid Oxygen components to a React project, it is crucial to use the React bindings. All components are imported from `@emdgroup-liquid/liquid/dist/react`. The bindings significantly improve JSX compatibility and your developer experience.
@@ -178,6 +117,6 @@ This guide shows you how to get started with Liquid Oxygen in your React project
 - [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main)
 - [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind)
 
-If you still struggle integrating Liquid Oxygen, feel free to [get in touch with us](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
+If you run into issues integrating Liquid Oxygen, please [get in touch with us](https://github.com/emdgroup-liquid/liquid/discussions).
 
-<docs-page-nav prev-href="introduction/getting-started/" next-title="Vue" next-href="introduction/getting-started/vue/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/getting-started/" next-title="Guides" next-href="guides/"></docs-page-nav>
