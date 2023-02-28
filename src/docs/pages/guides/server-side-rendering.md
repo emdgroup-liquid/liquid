@@ -32,7 +32,7 @@ if (typeof window !== 'undefined') {
     import('@emdgroup-liquid/liquid/dist/components/ld-button'),
     import('@emdgroup-liquid/liquid/dist/components/ld-checkbox'),
   ])
-  setAssetPath(window.location.origin)
+  window.__LD_ASSET_PATH__ = window.location.origin
   modules.forEach((module) => {
     module.defineCustomElement()
   })
@@ -43,7 +43,7 @@ If you have lifecycle hooks to your disposal for running code on the client side
 
 ```js
 useEffect(()=>{
-  setAssetPath(window.location.origin)
+  window.__LD_ASSET_PATH__ = window.location.origin
 }, [])
 ```
 
