@@ -1339,8 +1339,9 @@ __metadata:
     lint-staged: ^13.1.2
     live-server: 1.2.2
     lodash.memoize: ^4.1.2
-    markdown-it-anchor: ^8.6.6
-    markdown-it-replace-link: ^1.2.0
+    markdown-it-anchor: ^8.6.5
+    markdown-it-link-attributes: ^4.0.1
+    markdown-it-replace-link: ^1.1.0
     mutation-observer: ^1.0.3
     npm-run-all: ^4.1.5
     postcss: ^8.4.21
@@ -10445,7 +10446,7 @@ cors@latest:
   languageName: node
   linkType: hard
 
-"markdown-it-anchor@npm:^8.6.6":
+"markdown-it-anchor@npm:^8.6.5":
   version: 8.6.7
   resolution: "markdown-it-anchor@npm:8.6.7"
   peerDependencies:
@@ -10455,7 +10456,14 @@ cors@latest:
   languageName: node
   linkType: hard
 
-"markdown-it-replace-link@npm:^1.2.0":
+"markdown-it-link-attributes@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "markdown-it-link-attributes@npm:4.0.1"
+  checksum: e859b0a3653998b7acddaf5e37052a00e940150d76b0275322e133a14179979c3516692610df75553f3b2e5d4010e1e5138f10bc85efab4768b9293a5b39f0a6
+  languageName: node
+  linkType: hard
+
+"markdown-it-replace-link@npm:^1.1.0":
   version: 1.2.0
   resolution: "markdown-it-replace-link@npm:1.2.0"
   dependencies:
