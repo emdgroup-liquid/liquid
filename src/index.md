@@ -21,29 +21,34 @@ title: Introduction
 
 Liquid Oxygen is a UI component library based on the [Liquid Design System](<https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310>), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide variety of platforms and projects.
 
-Using Liquid Oxygen in your project is the recommended way to comply with the Liquid Design Standards and ensures a consistent look and feel across all related applications. You can read more about why you should use Liquid Oxygen on the [Why Liquid](https://liquid.emd.design/liquid/introduction/why-liquid/) page.
+Using Liquid Oxygen in your project is the recommended way to comply with the Liquid Design Standards and ensures a consistent look and feel across all related applications. You can read more about why you should use Liquid Oxygen on the [Why Liquid Oxygen](introduction/why-liquid-oxygen/) page.
 
 ## Why Web Components?
 
 Web Components are ideal for building reusable, framework-agnostic and future-proof UI components. They are part of the [Web standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components) and are supported by all relevant browsers.
 
-The framework-agnostic nature of Web Components allows you to use Liquid Oxygen in any framework (e.g. React, Vue, Solid or Svelte) or even without a framework.
+The framework-agnostic nature of Web Components allows you to use Liquid Oxygen in any framework (e.g. React, Vue, Solid or Svelte) or even without a framework. This way, Liquid Oxygen does not demand any specific technology, and you can use the stack which fits your project best.
 
-## Gettings Started
+Although Liquid Oxygen components are Web Components, we provide first class support for React.
 
-You can add Liquid Oxygen to an existing project. It integrates seamlessly with any framework or library. See our comprehensive guides and detailed explanation of how to integrate Liquid Oxygen into your project.
+<!-- TODO: Add vue when guide is existing -->
 
-- [React](https://liquid.emd.design/liquid/introduction/getting-started/react/)
-- [Vue](https://liquid.emd.design/liquid/introduction/getting-started/vue/)
+## Getting Started
+
+You can add Liquid Oxygen easily to your existing project. It integrates seamlessly with any framework or library. See our comprehensive guides and detailed explanation of how to integrate Liquid Oxygen into your project.
+
+- [Gettings Started](introduction/getting-started/)
+- [React](introduction/getting-started/react/)
+<!-- - [Vue](introduction/getting-started/vue/) -->
 
 ## Sandbox apps
 
-Besides the guides, we have created several sandbox apps to demonstrate the usage Liquid Oxygen in various additional frameworks and libraries. You can find them on the [Sandbox apps](https://liquid.emd.design/liquid/guides/sandbox-applications/) page.
+Besides the guides, we have created several sandbox apps to demonstrate the usage of Liquid Oxygen in various additional frameworks and libraries. You can find them on the [Sandbox apps](guides/sandbox-applications/) page.
 
 ## Quick start
 
 You are curious and just want to try out Liquid Oxygen? Fastest way to get started with Liquid Oxygen is to use the jsdelivr CDN.  
-Just set the liquid asset path and import the Stylesheet and the loader module.
+Just set the liquid asset path and import the stylesheet and the loader module.
 
 ```html
 <meta
@@ -79,7 +84,8 @@ Find the Liquid Design System on [Figma](<https://www.figma.com/file/8GYcAOePm8T
 ## Links
 
 - [Feature backlog](https://github.com/emdgroup-liquid/liquid/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+label%3Afeature+-label%3Aduplicate+is%3Aopen)
-- [Changelog](https://github.com/emdgroup-liquid/liquid/releases) / [Breaking changes](https://github.com/emdgroup-liquid/liquid/releases?q=".0.0")
+- [Changelog](https://github.com/emdgroup-liquid/liquid/releases)
+- [Breaking changes](https://github.com/emdgroup-liquid/liquid/releases?q=".0.0")
 
 ## Contributing
 
@@ -87,8 +93,8 @@ If you'd like to contribute to the project, please read our [code of conduct](CO
 
 ## License
 
-Liquid Oxygen is available under a [custom license](https://liquid.emd.design/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
+Liquid Oxygen is available under a [custom license](legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
 
-<docs-page-nav prev-title="Why Liquid Oxygen" prev-href="introduction/why-liquid-oxygen/" next-title="Get Started" next-href="introduction/getting-started/">
+<docs-page-nav prev-title="Why Liquid Oxygen" prev-href="/introduction/why-liquid-oxygen/" next-title="Get Started" next-href="/introduction/getting-started/">
   <docs-view-on-figma></docs-view-on-figma>
 </docs-page-nav>

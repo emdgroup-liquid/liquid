@@ -10,19 +10,19 @@ permalink: introduction/getting-started/react/
 
 # React
 
-Liquid Oxygen provides React Bindings for all web components. Although the rendered components are still web components, the bindings improve the developer experience by providing a more familiar API and a better integration with React.
+Liquid Oxygen comes with React bindings for all Web Components. Although the rendered components are still Web Components, the bindings improve the developer experience by providing a more familiar API and a better integration with React.
 
 On this page, you'll find detailed instructions on how to integrate Liquid Oxygen into your React project and how to use the components.
 
 ## Prerequisites
 
-Liquid Oxygen is easy to integrate into an existing React project. We assume you already have a React project set up. If not, you can create a new project with vite.
+Liquid Oxygen is easy to integrate into an existing React project. We assume you already have a React project set up. If not, you can create a new project with [Vite](https://vitejs.dev/).
 
 ```sh
 npm create vite@latest your-project-name -- --template react-ts
 ```
 
-For more information about this command and vite, please refer to the [official vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using typescript, all examples should also be applicable to javascript projects.
+For more information about this command and Vite, please refer to the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using typescript, all examples should also be applicable to javascript projects.
 
 ## Install
 
@@ -32,13 +32,15 @@ Add Liquid Oxygen to your project with the package manager of your choice.
 npm install @emdgroup-liquid/liquid
 ```
 
-> Liquid Oxygen works with any package manager (e.g. npm, yarn or pnpm). For simplicity, we continue to use npm for the following guide.
+<ld-notice>
+  Liquid Oxygen works with any package manager (e.g. <code>npm</code>, <code>yarn</code> or <code>pnpm</code>). For simplicity, we will use <code>npm</code> in this guide.
+</ld-notice>
 
-### Import and register web components
+### Import and register Web Components
 
-The web components need to be registered before they can be used. Liquid Oxygen provides the `defineCustomElements` function to register all Liquid Oxygen components. The script loads components lazily only when used in your application. This reduces your bundle size and only loads required code at runtime.
+The Web Components need to be registered before they can be used. Liquid Oxygen provides the `defineCustomElements` function to register all Liquid Oxygen components. The script loads components lazily only when used in your application. This reduces your bundle size and only loads required code at runtime.
 
-Add following code to your `App.tsx` file or any similar file which is loaded for every page.
+Add the following code to your `App.tsx` file (or any similar file which is loaded for every page).
 
 ```tsx
 // App.tsx
@@ -48,26 +50,24 @@ defineCustomElements()
 
 ### Import stylesheet
 
-All web components are loaded togehter with their styles embedded. Therefore we only need to import the global stylesheet for Liquid Oxygen.
+All Web Components are loaded togehter with their styles embedded. Therefore we only need to import the global stylesheet for Liquid Oxygen.
 
-Add following code to your `App.tsx` file or any similar file which is loaded for every page.
+Add the following code to your `App.tsx` file (or any similar file which is loaded for every page).
 
 ```tsx
 // App.tsx
 import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 ```
 
-<!-- TODO: Think about if we should mention CSS components here -->
-
-<!-- > If you plan to use Liquid Oxygen [CSS Components](https://liquid.merck.design/liquid/guides/css-vs-web-components/) you should also refer to the [general Getting Started guide](https://liquid.merck.design/liquid/getting-started/). -->
-
 ### Component assets
 
 Some components require static assets during runtime. Although the Liquid Oxygen package includes all assets, you have to add these assets to your output bundle. We recommend to include copying these assets in your build process, which ensures that the assets are always up to date.
 
-> You should add the copied assets (e.g. `public/liquid/assets/*`) to your `.gitignore` file.
+<ld-notice>
+  You should add the copied assets (e.g. <code>public/liquid/assets/*</code>) to your <code>.gitignore</code> file.
+</ld-notice>
 
-For the following example, we assume you are using [vite](https://vitejs.dev/). By default, vite uses the `public` folder for static assets. To include the Liquid Oxygen assets in your output bundle, you can copy them to this folder.
+For the following example, we assume you are using [Vite](https://vitejs.dev/). By default, Vite uses the `public` folder for static assets. To include the Liquid Oxygen assets in your output bundle, you can copy them to this folder.
 
 First, install the `rollup-plugin-copy` plugin. This plugin allows you to copy files and folders while building.
 
@@ -75,7 +75,7 @@ First, install the `rollup-plugin-copy` plugin. This plugin allows you to copy f
 npm install rollup-plugin-copy -D
 ```
 
-Now include the copy plugin in your vite config. Add the following code to your `vite.config.ts` file.
+Now include the copy plugin in your Vite config. Add the following code to your `vite.config.ts` file. This will copy the Liquid Oxygen assets from the 'node_modules' folder to the 'public' folder, so Vite will bundle them.
 
 ```ts
 // vite.config.ts
@@ -101,7 +101,7 @@ export default defineConfig({
 
 You need to "tell" Liquid Oxygen where to find the assets. The components will look for the `__LD_ASSET_PATH__` variable in the `window` object. The path should point to the `liquid/` folder.
 
-Add following code to your `App.tsx` file or any similar file which is loaded for every page.
+Add the following code to your `App.tsx` file (or any similar file which is loaded for every page).
 
 ```tsx
 // App.tsx
@@ -112,21 +112,22 @@ if (typeof window !== 'undefined') {
 }
 ```
 
-Once the asset path is set and the assets are availe on runtime, components can automatically load their assets.
+Once the asset path is set and the assets are availe on runtime, all components can automatically load their assets.
 
-If this guide does not fit to your environment, please refer to our sandbox apps for more details and other examples:
+If this example does not suit your environment, please refer to our sandbox apps for more details and alternative bundlers:
 
-- [React & Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=vite.config.ts)<br />This sandbox is quite similar to the example above.
-- [React & CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main?file=%2Fpackage.json)<br />The Sandbox uses Create React App which does not allow to adjust the webpack config. In this case we added a postinstall script to copy the assets to the public folder.
-- [React & Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses webpack under the hood. The sandbox shows how to add a custom webpack config `next.config.js` to copy the assets to the public folder.
+- [Liquid + React + Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=vite.config.ts)<br />This sandbox is quite similar to the example above.
+- [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main?file=%2Fpackage.json)<br />The Sandbox uses Create React App which does not allow to adjust the Webpack config. In this case we added a postinstall script to copy the assets to the public folder.
+- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses Webpack under the hood. The sandbox shows how to add a custom Webpack config `next.config.js` to copy the assets to the public folder.
 
 ## Usage
 
-For use in a react project, make sure to take the react bindings of Liquid Oxygen. All components are imported from `@emdgroup-liquid/liquid/dist/react`. The bindings significantly improve JSX compatibility and your developer experience.
+When adding Liquid Oxygen components to a React project, it is crucial to use the React bindings. All components are imported from `@emdgroup-liquid/liquid/dist/react`. The bindings significantly improve JSX compatibility and your developer experience.
 
-Let's have a look at how to add a [LdButton](https://liquid.merck.design/liquid/components/ld-button/) to your project. This examnple also includes a [LdIcon](https://liquid.merck.design/liquid/components/ld-icon/) as it helps you to check if Liquid Oxygen assets are loaded correctly.
+Let's have a look at how to add a [LdButton](components/ld-button/) to your project. This examnple also includes a [LdIcon](components/ld-icon/) as it helps you to check if Liquid Oxygen assets are loaded correctly.
 
 ```tsx
+// SampleComponent.tsx
 import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/react'
 
 export function SampleComponent() {
@@ -143,11 +144,12 @@ When you put this component on a page, you should see a blue button with the tex
 
 ### Events
 
-Liquid Oxygen components aim to stick to the native browser components where possible. In most cases, you can expect the same events and behavior of the Liquid Oxygen component and its native equivalent. Custom events are documented on the respective component pages.
+Liquid Oxygen components aim to work similarly to native HTML elements as much as possible. In most cases, you can expect the same events and behavior from a Liquid Oxygen component and its native equivalent. Custom events are documented on the respective component pages.
 
 Let's take our button from above and add a click handler.
 
 ```tsx
+// SampleComponent.tsx
 import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/react'
 
 export function SampleComponent() {
@@ -160,19 +162,21 @@ export function SampleComponent() {
 }
 ```
 
-Please notice the camel case notation of the `onClick` prop. This is the expected [React convention](https://reactjs.org/docs/handling-events.html) but differs from the native `onclick` attribute and [documentation](https://www.w3schools.com/tags/ref_eventattributes.asp). As we do not explicitly document these events, you need to apply this convention yourself. Typescript and IntelliSense will aid you.
+Please notice the camel case notation of the `onClick` prop. This is the expected [React convention](https://reactjs.org/docs/handling-events.html) but differs from the native `onclick` attribute and [documentation](https://www.w3schools.com/tags/ref_eventattributes.asp). As we do not explicitly document these events, you need to apply this convention yourself. Typescript and your code editor's IntelliSense will assist you with that.
 
-There are a few cases where native events of web components do not behave as expected by React. In these cases, Liquid Oxygen provides custom events prefixed with `ld` and documented on the respective component pages.
+There are a few cases where native events of Web Components do not behave as expected by React. In these cases, Liquid Oxygen provides custom events prefixed with `ld` and documented on the respective component pages.
 
-> LdInput `onChange` event invokes when the component loses focus (if the value changed), which is the standard browser behavior but differs from the native React `onChange` event. Use the `onInput` event in cases you want to handle user input immediately while typing.
+<ld-notice>
+  LdInput <code>onChange</code> event invokes when the component loses focus (and the value changed). This is the standard browser behavior but differs from the native React <code>onChange</code> event. Use the <code>onInput</code> event in cases you want to handle user input immediately while typing. Find additional information in the <a href="guides/event-handling/">Event handling guide</a>.
+</ld-notice>
 
 ## Sandboxes
 
-This guide should help you to get started with Liquid Oxygen in your React project. Additionally, we provide several sandbox applications showing how to use Liquid Oxygen in various environments.
+This guide shows you how to get started with Liquid Oxygen in your React project. Additionally, we provide several sandbox applications showing how to use Liquid Oxygen in various environments:
 
-- [React & Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind)
-- [React & CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main)
-- [React & Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind)
+- [Liquid + React + Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind)
+- [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main)
+- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind)
 
 If you still struggle integrating Liquid Oxygen, feel free to [get in touch with us](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
