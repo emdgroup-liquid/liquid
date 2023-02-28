@@ -22,7 +22,7 @@ Liquid Oxygen is easy to integrate into an existing React project. We assume you
 npm create vite@latest your-project-name -- --template react-ts
 ```
 
-For more information about this command and Vite, please refer to the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using typescript, all examples should also be applicable to javascript projects.
+For more information about this command and Vite, please refer to the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using Typescript, all examples should also be applicable to javascript projects.
 
 ## Install
 
