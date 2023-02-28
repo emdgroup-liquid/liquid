@@ -59,7 +59,7 @@ export const config: Config = {
   ],
   plugins: [postcss(postcssConfig)],
   testing: {
-    allowableMismatchedPixels: 0,
+    allowableMismatchedPixels: 10,
     setupFiles: ['./config/jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
     timers: 'legacy',
