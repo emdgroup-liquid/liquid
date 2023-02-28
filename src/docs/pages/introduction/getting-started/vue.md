@@ -58,8 +58,8 @@ Let's have a look at how to add a [LdButton](components/ld-button/) to your proj
 ```html
 <!-- SampleComponent.vue -->
 <script setup lang="ts">
-import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/vue'
-<script>
+  import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/vue'
+</script>
 
 <template>
   <ld-button>
@@ -81,16 +81,16 @@ Let's take our button from above and add a click handler.
 <!-- SampleComponent.vue -->
 <script setup lang="ts">
   import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/vue'
-<script>
+</script>
 <script lang="ts">
   export default {
     methods: {
       say(message: string) {
         alert(message)
-      }
-    }
+      },
+    },
   }
-<script>
+</script>
 
 <template>
   <ld-button @click="say('Clicked!')">
@@ -100,7 +100,7 @@ Let's take our button from above and add a click handler.
 </template>
 ```
 
-Please notice the `@` notation of the `@click` prop. This is the expected [Vue convention](https://vuejs.org/guide/essentials/event-handling.html), which differs from the native `onclick` attribute ([see the documentation](https://www.w3schools.com/tags/ref_eventattributes.asp)). As we do not explicitly document these events, you need to apply this convention yourself. Typescript and your code editor's IntelliSense will assist you with that.
+Please notice the `@` notation of the `@click` prop. This is the expected [Vue convention](https://vuejs.org/guide/essentials/event-handling.html), which differs from the native `onclick` attribute ([see related documentation](https://html.spec.whatwg.org/dev/webappapis.html#event-handlers-on-elements,-document-objects,-and-window-objects)). As we do not explicitly document these events, you need to apply this convention yourself. Typescript and your code editor's IntelliSense will assist you with that.
 
 <ld-notice mode="warning">
   While type checking and intellisense work well when using Visual Studio Code in combination with the <a href="https://github.com/johnsoncodehk/volar" rel="noreferrer noopener" target="_blank">Volar plugin</a>, we found that JetBrains' bundled <a href="https://plugins.jetbrains.com/plugin/9442-vue-js" rel="noreferrer noopener" target="_blank">Vue plugin</a> is not yet capable of providing equivalent features.
