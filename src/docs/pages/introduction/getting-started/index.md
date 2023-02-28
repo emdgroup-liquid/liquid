@@ -35,7 +35,7 @@ npm install @emdgroup-liquid/liquid
 ```
 
 <ld-notice>
-  Liquid Oxygen works with any package manager (e.g. <code>npm</code>, <code>yarn</code> or <code>pnpm</code>). For simplicity, we will use <code>npm</code> in this guide.
+  Liquid Oxygen works with any package manager (e.g. <code>npm</code>, <code>yarn</code> or <code>pnpm</code>). For simplicity, we use <code>npm</code> in this guide.
 </ld-notice>
 
 ### Import and register Web Components
@@ -91,7 +91,7 @@ import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 
 Liquid Oxygen provides a css file containing all styles. Using this file is convenient, but will increase your bundle size significantly. You can use [PurgeCSS](https://purgecss.com/) or something similar, which removes unused CSS classes from your bundle. This is useful, no matter if you are using Web Components or CSS components.
 
-### Component assets
+<!-- ### Component assets
 
 Some components require static assets during runtime. Although the Liquid Oxygen package includes all assets, you have to add these assets to your output bundle. We recommend to include copying these assets in your build process, which ensures that the assets are always up to date.
 
@@ -150,7 +150,7 @@ If this example does not suit your environment, please refer to our sandbox apps
 
 - [Liquid + React + Vite](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=vite.config.ts)<br />This sandbox is quite similar to the example above.
 - [Liquid + React + CRA](https://codesandbox.io/p/github/emdgroup-liquid/liquid-sandbox-cra-tailwind/main?file=%2Fpackage.json)<br />The Sandbox uses Create React App which does not allow to adjust the Webpack config. In this case we added a postinstall script to copy the assets to the public folder.
-- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses Webpack under the hood. The sandbox shows how to add a custom Webpack config `next.config.js` to copy the assets to the public folder.
+- [Liquid + React + Next.js](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-next-tailwind?file=next.config.js)<br />Next.js uses Webpack under the hood. The sandbox shows how to add a custom Webpack config `next.config.js` to copy the assets to the public folder. -->
 
 ## Usage
 
