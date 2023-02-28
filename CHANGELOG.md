@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.4](https://github.com/emdgroup-liquid/liquid/compare/v4.7.3...v4.7.4) (2023-02-28)
+
+
+### Bug Fixes
+
+* **ld-circular-progress:** negative stroke dash offset issue on safari ([69b6614](https://github.com/emdgroup-liquid/liquid/commit/69b66143c16511ce2c062a89262972fbfd8952cf))
+
 ## [4.7.3](https://github.com/emdgroup-liquid/liquid/compare/v4.7.2...v4.7.3) (2023-02-28)
 
 
