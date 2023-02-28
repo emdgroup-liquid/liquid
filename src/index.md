@@ -19,13 +19,13 @@ title: Introduction
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-black?style=flat&color=24292F)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope)
 [![Coverage Status](https://coveralls.io/repos/github/emdgroup-liquid/liquid/badge.svg?branch=main)](https://coveralls.io/github/emdgroup-liquid/liquid?branch=main)
 
-Liquid Oxygen is a UI component library based on the [Liquid Design System](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide variety of platforms and projects.
+Liquid Oxygen is a UI component library based on the [Liquid Design System](<https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310>), focusing on accessibility and interoperability. It is built with [Stencil.js](https://stenciljs.com) and contains, inter alia, CSS Components and Web Components, bundled in several bundle formats, which you can use in a wide variety of platforms and projects.
 
 Using Liquid Oxygen in your project is the recommended way to comply with the Liquid Design Standards and ensures a consistent look and feel across all related applications. You can read more about why you should use Liquid Oxygen on the [Why Liquid](https://liquid.emd.design/liquid/introduction/why-liquid/) page.
 
 ## Why Web Components?
 
-Web Components are ideal for building reusable, framework-agnostic and future-proof UI components. They are part of the [Web standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components) and are supported by all relevant browsers. 
+Web Components are ideal for building reusable, framework-agnostic and future-proof UI components. They are part of the [Web standard](https://developer.mozilla.org/en-US/docs/Web/Web_Components) and are supported by all relevant browsers.
 
 The framework-agnostic nature of Web Components allows you to use Liquid Oxygen in any framework (e.g. React, Vue, Solid or Svelte) or even without a framework.
 
@@ -45,8 +45,8 @@ Besides the guides, we have created several sandbox apps to demonstrate the usag
 You are curious and just want to try out Liquid Oxygen? Fastest way to get started with Liquid Oxygen is to use the jsdelivr CDN.  
 Just set the liquid asset path and import the Stylesheet and the loader module.
 
-``` html
-<meta 
+```html
+<meta
   data-ld-asset-path="https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/liquid/"
 />
 <link
@@ -55,16 +55,16 @@ Just set the liquid asset path and import the Stylesheet and the loader module.
 />
 <script type="module">
   // Import the loader
-  import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/loader/index.js";
+  import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/loader/index.js'
 
   // Register the custom elements
-  defineCustomElements();
+  defineCustomElements()
 </script>
 ```
 
 Now you can use the Liquid Oxygen Web Components in your website.
 
-``` html
+```html
 <ld-button>Click me</ld-button>
 ```
 
@@ -74,7 +74,7 @@ Although this is the fastest way to add Liquid Oxygen components to a website, w
 
 ## Design
 
-Find the Liquid Design System on [Figma](https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310). You can use the Figma file to get a better understanding of the design system and its usage.  
+Find the Liquid Design System on [Figma](<https://www.figma.com/file/8GYcAOePm8Tt9qqJ7Gnv99/Liquid-Oxygen-(Share)?node-id=3%3A14310>). You can use the Figma file to get a better understanding of the design system and its usage.
 
 ## Links
 
@@ -89,7 +89,6 @@ If you'd like to contribute to the project, please read our [code of conduct](CO
 
 Liquid Oxygen is available under a [custom license](https://liquid.emd.design/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
 
-
-<docs-page-nav prev-title="Why Liquid" prev-href="introduction/why-liquid/" next-title="Get Started" next-href="introduction/getting-started/">
+<docs-page-nav prev-title="Why Liquid Oxygen" prev-href="introduction/why-liquid-oxygen/" next-title="Get Started" next-href="introduction/getting-started/">
   <docs-view-on-figma></docs-view-on-figma>
 </docs-page-nav>

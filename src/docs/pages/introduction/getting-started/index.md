@@ -10,9 +10,13 @@ permalink: introduction/getting-started/
 
 # Getting Started
 
+This guide will help you to integrate Liquid Oxygen into your project.
+
+If you are using React, please refer to the [React guide](introduction/getting-started/react/), which helps you step by step to get started with Liquid Oxygen in your React project.
+
 ## Install
 
-Install with your package manager of choice: 
+Install with your package manager of choice:
 
 ```bash
 npm install @emdgroup-liquid/liquid
@@ -76,4 +80,4 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 import '@emdgroup-liquid/liquid/dist/css/ld-button.css'
 ```
 
-<docs-page-nav prev-href="introduction/why-liquid/" next-title="Guides" next-href="guides/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/why-liquid-oxygen/" next-title="React" next-href="introduction/getting-started/react/"></docs-page-nav>
