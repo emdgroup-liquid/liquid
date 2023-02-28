@@ -59,10 +59,23 @@ export const config: Config = {
   ],
   plugins: [postcss(postcssConfig)],
   testing: {
-    allowableMismatchedRatio: 0.01,
+    allowableMismatchedPixels: 0,
     setupFiles: ['./config/jest.setup.js'],
     moduleDirectories: ['node_modules', './'],
     timers: 'legacy',
+    emulate: [
+      {
+        viewport: {
+          width: 600,
+          height: 600,
+          // A device scale factor of 2 would reduce issues with anti-aliasing.
+          // However, testing then takes longer and screenshot matching
+          // tends to time out, especially when running all tests in one go.
+          // That is why we do without the higher device scale factor, for now.
+          // deviceScaleFactor: 2,
+        },
+      },
+    ],
     // browserHeadless: false,
     // browserDevtools: true,
     // browserSlowMo: 1000, // milliseconds

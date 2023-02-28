@@ -4,7 +4,9 @@
   --ld-circular-progress-valuemax: 100;
   --ld-circular-progress-valuenow: 0;
   --ld-circular-progress-size: 7.5rem;
-  --ld-circular-progress-transition-duration: 0.2s;
+  --ld-circular-progress-transition-duration: var(
+    --ld-transition-duration-normal
+  );
   --ld-circular-progress-stroke-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200"><circle cx="100" cy="100" r="89" stroke="red" stroke-width="20"/></svg>');
 
   /* colors */

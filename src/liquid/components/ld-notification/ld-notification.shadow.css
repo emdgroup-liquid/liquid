@@ -58,13 +58,15 @@
   overflow-y: auto;
   display: flex;
   justify-content: space-between;
-  transition: transform 0.2s ease, opacity 0.2s linear;
+  transition: transform var(--ld-transition-duration-normal) ease,
+    opacity var(--ld-transition-duration-normal) linear;
   box-shadow: var(--ld-shadow-sticky);
   min-height: var(--ld-notification-min-height);
   border-radius: var(--ld-notification-border-radius);
 
   &:where(:not(.ld-notification__item--dismissed)) {
-    animation: ld-notification-fade-in 0.2s linear;
+    animation: ld-notification-fade-in var(--ld-transition-duration-normal)
+      linear;
   }
 
   &:nth-last-of-type(n + 5) {
@@ -92,7 +94,8 @@
 
   &.ld-notification__item--dismissed {
     opacity: 0;
-    animation: ld-notification-fade-out 0.2s linear forwards;
+    animation: ld-notification-fade-out var(--ld-transition-duration-normal)
+      linear forwards;
   }
 
   :host(.ld-notification--bottom) & {
@@ -143,7 +146,7 @@
 
 .ld-notification__item-content,
 .ld-notification__btn-dismiss {
-  transition: opacity 0.2s linear;
+  transition: opacity var(--ld-transition-duration-normal) linear;
 }
 
 .ld-notification__item-content {

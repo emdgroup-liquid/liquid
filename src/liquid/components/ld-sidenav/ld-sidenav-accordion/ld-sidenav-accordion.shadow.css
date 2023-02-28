@@ -40,7 +40,9 @@
 
   :host(:not(.ld-sidenav-accordion--transitions-enabled)) & {
     .ld-sidenav-accordion__accordion-panel {
-      --ld-accordion-panel-transition-duration: 0.0001s;
+      --ld-accordion-panel-transition-duration: var(
+        --ld-transition-duration-instant
+      );
     }
   }
 }

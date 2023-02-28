@@ -32,7 +32,7 @@
   /* transitions */
   --ld-tablist-transition-duration: 0s;
   @media (prefers-reduced-motion: no-preference) {
-    --ld-tablist-transition-duration: 0.2s;
+    --ld-tablist-transition-duration: var(--ld-transition-duration-normal);
   }
 
   position: relative; /* Host element needs to be offset parent. */

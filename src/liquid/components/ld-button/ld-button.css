@@ -188,7 +188,7 @@
     height: var(--ld-sp-4);
     transform: translateX(-100%)
       translateX(calc(var(--ld-button-progress) * 100%));
-    transition: transform 0.2s ease;
+    transition: transform var(--ld-transition-duration-normal) ease;
   }
 
   &--pending {

@@ -37,12 +37,18 @@
   /* Custom props below aren't meant for customization. */
 
   /* Not using 0s here because we rely on the transition end event. */
-  --ld-cookie-consent-transition-duration: 0.001s;
+  --ld-cookie-consent-transition-duration: var(
+    --ld-transition-duration-instant
+  );
   --ld-cookie-consent-disclaimer-transition-delay: 0s;
 
   @media (prefers-reduced-motion: no-preference) {
-    --ld-cookie-consent-transition-duration: 0.2s;
-    --ld-cookie-consent-disclaimer-transition-delay: 0.1s;
+    --ld-cookie-consent-transition-duration: var(
+      --ld-transition-duration-normal
+    );
+    --ld-cookie-consent-disclaimer-transition-delay: var(
+      --ld-transition-duration-quick
+    );
   }
 
   position: var(--ld-cookie-consent-position, fixed);

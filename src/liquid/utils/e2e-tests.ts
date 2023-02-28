@@ -52,11 +52,28 @@ export const getPageWithContent = async (
     })
   }
 
-  const disableAllTransitionsStyles = `
+  const disableAllTransitionsStyles =
+    // see https://github.com/puppeteer/puppeteer/issues/511
+    `
     *,
     *::before,
     *::after {
-      transition: none !important;
+      transition-delay: 0s !important;
+      transition-duration: 0s !important;
+      animation-duration: 0s !important;
+      animation-delay: -0.0001s !important;
+      animation-duration: 0s !important;
+      animation-play-state: paused !important;
+    }` +
+    // The above doesn't work with Shadow DOM, so we also need
+    // to pass transition props via CSS custom properties.
+    `
+    body {
+      --ld-transition-duration-instant: 1ms;
+      --ld-transition-duration-quick: 1ms;
+      --ld-transition-duration-swift: 1ms;
+      --ld-transition-duration-normal: 1ms;
+      --ld-transition-duration-slow: 1ms;
     }`
 
   await page.addStyleTag({
@@ -99,9 +116,6 @@ export const getPageWithContent = async (
     ])
   }
 
-  // TODO: Update all e2e tests screenshots with a device scale factor of 2
-  // await page.setViewport({ width: 600, height: 600, deviceScaleFactor: 2 })
-
   return page
 }
 
@@ -133,10 +147,10 @@ export const analyzeAccessibility = async (
   await page.addScriptTag({ path: resolvePath(PATH_TO_AXE) })
   // Make sure that axe is executed in the next tick after
   // the page emits the load event, giving priority to other scripts.
-  return await page.evaluate(
+  return page.evaluate(
     async (axeOptions: axe.RunOptions, spec: axe.Spec) => {
       await new Promise((resolve) => {
-        setTimeout(resolve, 0)
+        setTimeout(resolve, 10)
       })
       if (spec) {
         axe.configure(spec)

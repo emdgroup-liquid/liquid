@@ -1,6 +1,8 @@
 :host {
   /* Not using 0s here because we rely on the transition end event. */
-  --ld-accordion-panel-transition-duration: 0.001s;
+  --ld-accordion-panel-transition-duration: var(
+    --ld-transition-duration-instant
+  );
 
   position: relative;
   display: block;
@@ -18,7 +20,9 @@
     transition: max-height var(--ld-accordion-panel-transition-duration) ease;
 
     @media (prefers-reduced-motion: no-preference) {
-      --ld-accordion-panel-transition-duration: 0.2s;
+      --ld-accordion-panel-transition-duration: var(
+        --ld-transition-duration-normal
+      );
     }
   }
 

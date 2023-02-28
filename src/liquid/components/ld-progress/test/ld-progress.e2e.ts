@@ -331,11 +331,9 @@ describe('ld-progress', () => {
   describe('pending', () => {
     it('indeterminate Web Component', async () => {
       const page = await getPageWithContent(
-        `<ld-progress pending aria-valuetext="indeterminate" />`
+        `<ld-progress pending aria-valuetext="indeterminate" />`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -349,11 +347,9 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 100"></div>`,
         {
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -361,11 +357,9 @@ describe('ld-progress', () => {
 
     it('valuenow Web Component', async () => {
       const page = await getPageWithContent(
-        `<ld-progress pending aria-valuenow="25" />`
+        `<ld-progress pending aria-valuenow="25" />`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -379,11 +373,9 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 25"></div>`,
         {
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -391,11 +383,9 @@ describe('ld-progress', () => {
 
     it('overflow Web Component', async () => {
       const page = await getPageWithContent(
-        `<ld-progress pending aria-valuenow="125" />`
+        `<ld-progress pending aria-valuenow="125" />`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -409,11 +399,9 @@ describe('ld-progress', () => {
           style="--ld-progress-valuenow: 125"></div>`,
         {
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -421,11 +409,9 @@ describe('ld-progress', () => {
 
     it('overflow steps Web Component', async () => {
       const page = await getPageWithContent(
-        `<ld-progress pending aria-valuemax="5" aria-valuenow="7" steps />`
+        `<ld-progress pending aria-valuemax="5" aria-valuenow="7" steps />`,
+        { reducedMotion: true }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -440,11 +426,9 @@ describe('ld-progress', () => {
           style="--ld-progress-valuemax: 5; --ld-progress-valuenow: 7"></div>`,
         {
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -509,11 +493,9 @@ describe('ld-progress', () => {
         `<ld-progress brand-color pending aria-valuemax="5" aria-valuenow="2" steps />`,
         {
           bgColor: 'var(--ld-thm-primary)',
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -529,11 +511,9 @@ describe('ld-progress', () => {
         {
           bgColor: 'var(--ld-thm-primary)',
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -544,11 +524,9 @@ describe('ld-progress', () => {
         `<ld-progress brand-color pending aria-valuemax="5" aria-valuenow="7" steps />`,
         {
           bgColor: 'var(--ld-thm-primary)',
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
@@ -564,11 +542,9 @@ describe('ld-progress', () => {
         {
           bgColor: 'var(--ld-thm-primary)',
           components: [LdProgress],
+          reducedMotion: true,
         }
       )
-      await page.emulateMediaFeatures([
-        { name: 'prefers-reduced-motion', value: 'reduce' },
-      ])
 
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()

@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    transition: transform 100ms ease-in-out;
+    transition: transform var(--ld-transition-duration-quick) ease-in-out;
     overflow-x: auto;
   }
 

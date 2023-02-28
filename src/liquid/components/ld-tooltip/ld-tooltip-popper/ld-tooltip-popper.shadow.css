@@ -51,7 +51,7 @@
   &--initialized {
     :host(&) {
       @media (prefers-reduced-motion: no-preference) {
-        --ld-tooltip-animation-duration: 0.2s;
+        --ld-tooltip-animation-duration: var(--ld-transition-duration-normal);
       }
     }
   }

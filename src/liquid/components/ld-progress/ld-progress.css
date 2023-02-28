@@ -5,7 +5,7 @@
   --ld-progress-valuemin: 0;
   --ld-progress-valuemax: 100;
   --ld-progress-valuenow: 0;
-  --ld-progress-transition-duration: 0.2s;
+  --ld-progress-transition-duration: var(--ld-transition-duration-normal);
   --ld-progress-width: 17.5rem;
 
   /* colors */
@@ -179,7 +179,7 @@
   &::before,
   &::after {
     background-size: 200% 100%;
-    animation-duration: 0.5s;
+    animation-duration: var(--ld-transition-duration-slow);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 
