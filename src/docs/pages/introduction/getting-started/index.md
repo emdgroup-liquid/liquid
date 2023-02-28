@@ -13,7 +13,7 @@ permalink: introduction/getting-started/
 This guide will help you to integrate Liquid Oxygen into your project.
 
 <ld-notice>
-  If you are using React, please refer to the <a href="introduction/getting-started/react/">React guide</a>, which helps you step by step to get started with Liquid Oxygen in your React project.
+  If you are using React, please refer to respective <a href="introduction/getting-started/react/">React guide</a>. Similarly, if you are using Vue, please refer to the <a href="introduction/getting-started/vue/">Vue guide</a>.
 </ld-notice>
 
 ## Prerequisites

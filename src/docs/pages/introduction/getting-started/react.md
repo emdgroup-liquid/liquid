@@ -10,13 +10,13 @@ permalink: introduction/getting-started/react/
 
 # React
 
-Liquid Oxygen comes with React bindings for all Web Components. Although the rendered components are still Web Components, the bindings improve the developer experience by providing a more familiar API and a better integration with React.
+Liquid Oxygen comes with [React](https://reactjs.org/) bindings for all Web Components. Although the rendered components are still Web Components, the bindings improve the developer experience by providing a more familiar API and a better integration with React.
 
 On this page, you'll find detailed instructions on how to integrate Liquid Oxygen into your React project and how to use the components.
 
 ## Prerequisites
 
-Liquid Oxygen is easy to integrate into an existing React project. We assume you already have a React project set up. If not, you can create a new project with [Vite](https://vitejs.dev/).
+Liquid Oxygen is easy to integrate into an existing React project. We assume you already have a project set up. If not, you can create a new project with [Vite](https://vitejs.dev/).
 
 ```sh
 npm create vite@latest your-project-name -- --template react-ts
@@ -180,4 +180,4 @@ This guide shows you how to get started with Liquid Oxygen in your React project
 
 If you still struggle integrating Liquid Oxygen, feel free to [get in touch with us](https://teams.microsoft.com/l/channel/19%3aeae3b35b0cbf42659e45c2b5592e0c0e%40thread.tacv2/General?groupId=88f23881-53e2-4a99-ad5c-8188c1087bbf&tenantId=db76fb59-a377-4120-bc54-59dead7d39c9).
 
-<docs-page-nav prev-href="introduction/getting-started/" next-title="Guides" next-href="guides/"></docs-page-nav>
+<docs-page-nav prev-href="introduction/getting-started/" next-title="Vue" next-href="introduction/getting-started/vue/"></docs-page-nav>

@@ -58,7 +58,7 @@ You have 2 options:
 
 1. Specify the asset path using a metadata element in the document head section:
   ```html
-  // index.html
+  <!-- index.html -->
   <meta data-ld-asset-path="/">
   ```
 

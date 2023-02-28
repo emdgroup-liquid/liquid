@@ -39,7 +39,7 @@ You can add Liquid Oxygen easily to your existing project. It integrates seamles
 
 - [Gettings Started](introduction/getting-started/)
 - [React](introduction/getting-started/react/)
-<!-- - [Vue](introduction/getting-started/vue/) -->
+- [Vue](introduction/getting-started/vue/)
 
 ## Sandbox apps
 
