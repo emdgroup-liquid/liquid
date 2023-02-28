@@ -244,7 +244,7 @@ document.querySelector <
 This guide shows how to get started with Liquid Oxygen without using a framework like React. Providing more context, we created several sandbox applications showing how Liquid Oxygen works in these environments:
 
 - [Liquid + CDN](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn)
-- [Liquid + Vite + Typescript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-ts)
+- [Liquid + Vite + Javascript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla)
 
 You are using React? Check out the [React guide](introduction/getting-started/react/).
 
