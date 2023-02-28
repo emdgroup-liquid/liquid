@@ -51,9 +51,6 @@ You are curious and just want to try out Liquid Oxygen? Fastest way to get start
 Just set the liquid asset path and import the stylesheet and the loader module.
 
 ```html
-<meta
-  data-ld-asset-path="https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/liquid/"
-/>
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/css/liquid.css"
