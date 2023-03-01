@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.6](https://github.com/emdgroup-liquid/liquid/compare/v4.7.5...v4.7.6) (2023-03-01)
+
+
+### Bug Fixes
+
+* **ld-breadcrumbs:** allow empty breadcrumbs list ([4640e35](https://github.com/emdgroup-liquid/liquid/commit/4640e354020553d49f54593ccceb8ce6b3dc0f38))
+
 ## [4.7.5](https://github.com/emdgroup-liquid/liquid/compare/v4.7.4...v4.7.5) (2023-03-01)
 
 
