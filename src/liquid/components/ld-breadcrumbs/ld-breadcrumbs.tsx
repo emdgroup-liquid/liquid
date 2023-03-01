@@ -18,6 +18,8 @@ export class LdBreadcrumbs {
 
   private updateCurrent = () => {
     const crumbs = this.el.querySelectorAll('ld-crumb')
+    if (!crumbs.length) return
+
     crumbs.forEach((crumb) => {
       crumb.current = undefined
     })

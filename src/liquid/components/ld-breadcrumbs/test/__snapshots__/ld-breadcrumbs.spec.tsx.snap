@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-breadcrumbs Does not throw with no crumbs 1`] = `
+<ld-breadcrumbs>
+  <mock:shadow-root>
+    <nav aria-label="Breadcrumbs" class="ld-breadcrumbs">
+      <ol class="ld-breadcrumbs__list" part="list">
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+</ld-breadcrumbs>
+`;
+
 exports[`ld-breadcrumbs renders 1`] = `
 <ld-breadcrumbs>
   <mock:shadow-root>
