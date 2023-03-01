@@ -96,11 +96,20 @@
   --ld-circular-progress-wht-overlay-col: var(--ld-col-wht-alpha-low);
 }
 
+/* HACK: Safari 7.1+ */
+/* stylelint-disable selector-type-no-unknown */
+_::-webkit-full-page-media,
+_:future,
+:root {
+  --ld-circular-progress-bar-correction: 3.5px;
+}
+
 .ld-circular-progress__stroke {
   position: absolute;
   inset: 0;
   fill: none;
   mask-image: var(--ld-circular-progress-stroke-mask);
+  transform: rotate(-90deg);
   width: 100%; /* required in Safari */
   z-index: 1;
 
@@ -110,15 +119,14 @@
     stroke-dasharray: calc(100 / var(--ld-circular-progress-pi));
     transition: opacity var(--ld-circular-progress-transition-duration) linear,
       stroke-dashoffset var(--ld-circular-progress-transition-duration) ease;
-    transform: rotate(-90deg);
 
     &:first-of-type {
       stroke: var(--ld-circular-progress-bar-col);
       /* Safari does not support a negative stroke dash offset! */
       stroke-dashoffset: calc(
         -1 * min(0px, (
-                -100px + var(--ld-circular-progress-calc-relative-progress) * 100px -
-                  1px
+                -100px + var(--ld-circular-progress-calc-relative-progress) * (100px -
+                      var(--ld-circular-progress-bar-correction, 1px))
               ) / var(--ld-circular-progress-pi))
       );
       opacity: calc(1 - var(--ld-circular-progress-has-overflow));
@@ -130,7 +138,7 @@
         -1 * max(-100px / var(--ld-circular-progress-pi), min(0px, (
                   -100px + (
                       var(--ld-circular-progress-calc-relative-progress) - 1
-                    ) * 100px - 1px
+                    ) * (100px - var(--ld-circular-progress-bar-correction, 1px))
                 ) / var(--ld-circular-progress-pi)))
       );
       opacity: var(--ld-circular-progress-has-overflow);
