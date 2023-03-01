@@ -30647,7 +30647,7 @@
     },
     {
       "id": "da1e0eed",
-      "image": "35ef388c17f6bf781776053f58cae2da.png",
+      "image": "826b7cfa01fd1b2a388064aaa9fb938f.png",
       "userAgent": "default",
       "desc": "ld-tooltip custom clickable trigger (focus)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30751,7 +30751,7 @@
     },
     {
       "id": "12040300",
-      "image": "f0b24ab0e63d3dec3db0468947f6dbf4.png",
+      "image": "49729e6a680885619c80a0749673cbe6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30764,7 +30764,7 @@
     },
     {
       "id": "25e24757",
-      "image": "a1e1ed99d043b30a9923f8009f1b8f6a.png",
+      "image": "30b1cac366828269134312a7d09b16b0.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom center (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30803,7 +30803,7 @@
     },
     {
       "id": "24a06edc",
-      "image": "7addcdc5a83000a1ffac876f140a4ac5.png",
+      "image": "6810fcfa520e52b77709da40adc77843.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30816,7 +30816,7 @@
     },
     {
       "id": "6b3dd4ee",
-      "image": "4e22d5865b58c7dd2be0e60a9d2d4b78.png",
+      "image": "2e392360cd6e848261fa457909971a38.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom left (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30855,7 +30855,7 @@
     },
     {
       "id": "4e5fc1e7",
-      "image": "c625f44a253246a139dc7e2e89e304e3.png",
+      "image": "f5222cea198c744b593fe351f9b430d3.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30868,7 +30868,7 @@
     },
     {
       "id": "b17ed959",
-      "image": "d98a73e1a73d82e5ae80a035e6380b81.png",
+      "image": "b203222a926424a3c9ef3cab0aa6ec84.png",
       "userAgent": "default",
       "desc": "ld-tooltip position bottom right (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30907,7 +30907,7 @@
     },
     {
       "id": "db2b822e",
-      "image": "9999186c1138d2a39ecc85cf2607e19e.png",
+      "image": "b4d82ea180333f83fd86ab318ba98b7a.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30920,7 +30920,7 @@
     },
     {
       "id": "85777673",
-      "image": "6bac7e37338029e31ebbf340755bad80.png",
+      "image": "4030e726ae449bbf66ce4170963e3f79.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left bottom (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30959,7 +30959,7 @@
     },
     {
       "id": "0faecd22",
-      "image": "519a8347e1953cd2fc2e2084e28dc9c7.png",
+      "image": "4e4552c4b284978c9b1e9db4960ee10d.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -30972,7 +30972,7 @@
     },
     {
       "id": "6d242080",
-      "image": "3c3f201ea008ebdecd5ac4c83f23fa01.png",
+      "image": "ff3db23ec0678a6ede11a3f29dc394c6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left middle (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31011,7 +31011,7 @@
     },
     {
       "id": "bab244c7",
-      "image": "091282845864e79bb89267bbd95901a0.png",
+      "image": "509575c228bff539dab91358e6fe690e.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31024,7 +31024,7 @@
     },
     {
       "id": "e6ac2c79",
-      "image": "a9d9d908d06e9337ca4d8aa7464e2873.png",
+      "image": "7c12e56d19735f5402af1caecb46cec5.png",
       "userAgent": "default",
       "desc": "ld-tooltip position left top (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31063,7 +31063,7 @@
     },
     {
       "id": "0febc432",
-      "image": "9d670687ae50fa98d4485876b035d57c.png",
+      "image": "2647a653db1377acf2e90312bf85b9f8.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31076,7 +31076,7 @@
     },
     {
       "id": "30a85944",
-      "image": "d803799d37e51b67190b73230c4c9509.png",
+      "image": "7bd30e33ef83593168b81150ed7dea0b.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right bottom (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31115,7 +31115,7 @@
     },
     {
       "id": "d3dcd0c2",
-      "image": "f2be4d9f3b5702bebd96f72c9ca95727.png",
+      "image": "9403068b910bfc9d04c86999d407f934.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31128,7 +31128,7 @@
     },
     {
       "id": "4ed0e06e",
-      "image": "9ed14f705fe1fd4184ceeaa10e5db1f0.png",
+      "image": "d669494746875f390e5f22d3ff6dc551.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right middle (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31167,7 +31167,7 @@
     },
     {
       "id": "2eb11e83",
-      "image": "d98cd17f863d016c6e7be52ed91347df.png",
+      "image": "4188791ca0ef3412ef8e1d0bd2dbfd8e.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31180,7 +31180,7 @@
     },
     {
       "id": "9aa57255",
-      "image": "e074e31058daf21ee4a13c10e228daec.png",
+      "image": "2b9f8e157be1274fd9379b2c2419a495.png",
       "userAgent": "default",
       "desc": "ld-tooltip position right top (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31219,7 +31219,7 @@
     },
     {
       "id": "e600d83d",
-      "image": "a54d361151a8d57ff1ac9d68de028245.png",
+      "image": "d17230103a79adeff386f95dce1d8cbc.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31232,7 +31232,7 @@
     },
     {
       "id": "f94a5581",
-      "image": "5b26202f72f12b11dc9e230fcf0a378b.png",
+      "image": "29dfca4d29b00eef022ebe021a66e3c6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top center (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31271,7 +31271,7 @@
     },
     {
       "id": "58c20943",
-      "image": "5c7fad2343d742b8ee7083de8030056e.png",
+      "image": "46db6b2f73f8e733fac6dc6b380b33d6.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31284,7 +31284,7 @@
     },
     {
       "id": "6e7ef4f6",
-      "image": "d4d29c91a5a57907d2ecac1b782a031d.png",
+      "image": "16ce7db5d9d8a6b2fcda2d4896760a57.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top left (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31323,7 +31323,7 @@
     },
     {
       "id": "c89fffd3",
-      "image": "64a547d24e466091e074e459160e8af5.png",
+      "image": "6b02714a50ae71b4567d97e447f7b32d.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (custom trigger with arrow)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",
@@ -31336,7 +31336,7 @@
     },
     {
       "id": "14a32e43",
-      "image": "e1e5ec0186ef754ac9001e15da7474a4.png",
+      "image": "e4a7c20967c41038323a9c382340803f.png",
       "userAgent": "default",
       "desc": "ld-tooltip position top right (custom trigger)",
       "testPath": "./src/liquid/components/ld-tooltip/test/ld-tooltip.e2e.ts",

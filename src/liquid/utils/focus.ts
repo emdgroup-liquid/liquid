@@ -1,4 +1,4 @@
-const focusableSelector = [
+export const focusableSelector = [
   'a[href]',
   'area[href]',
   'input:not([type="hidden"]):not([type="radio"]):not(:disabled)',

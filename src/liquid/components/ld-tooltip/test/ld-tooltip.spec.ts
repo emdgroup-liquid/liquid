@@ -1,3 +1,5 @@
+jest.mock('../../../../liquid/utils/focus')
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
@@ -176,7 +178,6 @@ describe('ld-tooltip', () => {
     })
 
     const component = page.root
-    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
     const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
@@ -184,7 +185,7 @@ describe('ld-tooltip', () => {
     // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
     defaultSlot.assignedNodes = () =>
       component.querySelectorAll('> *') as unknown as Node[]
-    trigger.dispatchEvent(new Event('focus'))
+    component.dispatchEvent(new FocusEvent('focus'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
@@ -349,7 +350,6 @@ describe('ld-tooltip', () => {
     })
 
     const component = page.root
-    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
     const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
@@ -357,7 +357,7 @@ describe('ld-tooltip', () => {
     // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
     defaultSlot.assignedNodes = () =>
       component.querySelectorAll('> *') as unknown as Node[]
-    trigger.dispatchEvent(new Event('focus'))
+    component.dispatchEvent(new FocusEvent('focus'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -386,7 +386,7 @@ describe('ld-tooltip', () => {
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
 
-    trigger.dispatchEvent(new Event('focus'))
+    trigger.dispatchEvent(new FocusEvent('focus'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)
@@ -457,7 +457,6 @@ describe('ld-tooltip', () => {
     })
 
     const component = page.root
-    const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
     const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
       '.ld-tooltip__content slot'
     )
@@ -465,14 +464,14 @@ describe('ld-tooltip', () => {
     // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
     defaultSlot.assignedNodes = () =>
       component.querySelectorAll('> *') as unknown as Node[]
-    trigger.dispatchEvent(new Event('focus'))
+    component.dispatchEvent(new FocusEvent('focus'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).not.toBe(
       null
     )
 
-    trigger.dispatchEvent(new Event('blur'))
+    component.dispatchEvent(new FocusEvent('blur'))
     jest.advanceTimersByTime(0)
 
     expect(component.shadowRoot.querySelector('.ld-tether-enabled')).toBe(null)

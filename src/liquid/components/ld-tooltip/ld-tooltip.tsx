@@ -2,6 +2,8 @@ import Tether from 'tether'
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -11,6 +13,10 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import {
+  focusableSelector,
+  isInnerFocusable,
+} from '../../../liquid/utils/focus'
 
 export type Position =
   | 'bottom center'
@@ -28,6 +34,8 @@ export type Position =
 
 let tooltipCount = 0
 const isElement = (node: Node): node is Element => 'classList' in node
+const isSlot = (element: Element): element is HTMLSlotElement =>
+  element && element.tagName === 'SLOT'
 
 const mapPositionToAttachment = (position: Position) => {
   return {
@@ -130,7 +138,14 @@ export class LdTooltip {
   /** Event type that triggers the tooltip */
   @Prop() triggerType?: 'click' | 'hover' = 'hover'
 
+  /** Emitted when the tooltip is opened. */
+  @Event() ldtooltipopen: EventEmitter
+
+  /** Emitted when the tooltip is opened. */
+  @Event() ldtooltipclose: EventEmitter
+
   @State() hasDefaultTrigger = true
+  @State() triggerTabIndex?: number
   @State() visible = false
 
   @Watch('disabled')
@@ -142,7 +157,6 @@ export class LdTooltip {
 
   private syncContent = () => {
     const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
-    // const tooltipContent = this.el.querySelectorAll(':not([slot="trigger"])')
 
     tooltipContent.forEach((node: Element) => {
       copySlottedNodes(node)
@@ -179,8 +193,13 @@ export class LdTooltip {
     this.popper.enable()
     this.popper.enable()
     this.popper.enable()
-    this.popper.enable()
-    this.visible = true
+    await this.showTooltip()
+  }
+
+  /** Get the `ld-tooltip-popper` element. */
+  @Method()
+  async getTooltip() {
+    return this.tooltipRef
   }
 
   /** Hide tooltip */
@@ -189,6 +208,7 @@ export class LdTooltip {
     clearTimeout(this.delayTimeout)
     this.popper?.disable()
     this.visible = false
+    this.ldtooltipclose.emit()
   }
 
   /** Show tooltip */
@@ -199,6 +219,7 @@ export class LdTooltip {
     clearTimeout(this.delayTimeout)
     this.popper.enable()
     this.visible = true
+    this.ldtooltipopen.emit()
   }
 
   private toggleTooltip = () => {
@@ -261,7 +282,12 @@ export class LdTooltip {
     target: 'window',
   })
   handleClickOutside(ev: MouseEvent) {
-    if (!ev.composedPath().includes(this.el)) {
+    if (
+      this.visible &&
+      this.triggerType === 'click' &&
+      ev.isTrusted &&
+      !ev.composedPath().includes(this.el)
+    ) {
       this.hideTooltip()
     }
   }
@@ -300,8 +326,30 @@ export class LdTooltip {
     })
   }
 
+  private findFirstSlottedTrigger = () => {
+    let triggerInSlot: Element = this.el.querySelector('[slot="trigger"]')
+
+    while (isSlot(triggerInSlot)) {
+      ;[triggerInSlot] = triggerInSlot.assignedElements()
+    }
+
+    return triggerInSlot as HTMLElement
+  }
+
   componentWillLoad() {
-    this.hasDefaultTrigger = !this.el.querySelector('[slot="trigger"]')
+    const triggerInSlot = this.findFirstSlottedTrigger()
+    this.hasDefaultTrigger = !triggerInSlot
+
+    if (
+      triggerInSlot &&
+      (triggerInSlot.matches(focusableSelector) ||
+        isInnerFocusable(triggerInSlot))
+    ) {
+      this.triggerTabIndex = -1
+    }
+
+    this.el.addEventListener('focus', this.handleShowTrigger, true)
+    this.el.addEventListener('blur', this.handleHideTrigger, true)
   }
 
   componentDidLoad() {
@@ -330,13 +378,12 @@ export class LdTooltip {
           ])}
           onClick={this.handleToggleTrigger}
           onMouseEnter={this.handleShowTrigger}
-          onFocus={this.handleShowTrigger}
           onMouseLeave={this.handleHideTrigger}
-          onBlur={this.handleHideTrigger}
           part="trigger focusable"
           ref={(element) => {
             this.triggerRef = element
           }}
+          tabIndex={this.triggerTabIndex}
           type="button"
         >
           <ld-sr-only>Info</ld-sr-only>
