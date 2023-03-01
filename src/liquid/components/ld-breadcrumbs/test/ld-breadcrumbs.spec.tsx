@@ -58,4 +58,15 @@ describe('ld-breadcrumbs', () => {
 
     expect(page.root).toMatchSnapshot()
   })
+
+  it('Does not throw with no crumbs', async () => {
+    const page = await newSpecPage({
+      components: [LdBreadcrumbs, LdCrumb],
+      html: `<ld-breadcrumbs></ld-breadcrumbs>`,
+    })
+    await page.waitForChanges()
+    jest.advanceTimersByTime(0)
+
+    expect(page.root).toMatchSnapshot()
+  })
 })
