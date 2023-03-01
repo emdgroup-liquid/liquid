@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.5](https://github.com/emdgroup-liquid/liquid/compare/v4.7.4...v4.7.5) (2023-03-01)
+
+
+### Bug Fixes
+
+* **ld-circular-progress:** precision ([1e0048b](https://github.com/emdgroup-liquid/liquid/commit/1e0048bf2a697c95d6a85e86bab5bd6cf1976621))
+
 ## [4.7.4](https://github.com/emdgroup-liquid/liquid/compare/v4.7.3...v4.7.4) (2023-02-28)
 
 
