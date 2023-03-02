@@ -84,6 +84,28 @@ describe('ld-notification', () => {
       ).toBeFalsy()
     })
 
+    it('renders a notification of type "info" if type is omitted', async () => {
+      const page = await newSpecPage({
+        components: [LdNotification],
+        html: `<ld-notification></ld-notification>`,
+      })
+      page.win.dispatchEvent(
+        new CustomEvent('ldNotificationAdd', {
+          detail: {
+            content: 'I am an info message.',
+          },
+        })
+      )
+      await page.waitForChanges()
+
+      const notification = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item'
+      )[0]
+      expect(
+        notification.classList.contains('ld-notification__item--info')
+      ).toBeTruthy()
+    })
+
     it('renders a notification of type "warn"', async () => {
       const page = await newSpecPage({
         components: [LdNotification],

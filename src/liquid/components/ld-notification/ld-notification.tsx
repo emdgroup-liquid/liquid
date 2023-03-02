@@ -114,7 +114,9 @@ export class LdNotification {
   }
 
   private renderNotification(notification: Notification, dismissed = false) {
-    let cl = `ld-notification__item ld-notification__item--${notification.type}`
+    let cl = `ld-notification__item ld-notification__item--${
+      notification.type || 'info'
+    }`
     if (dismissed) cl += ' ld-notification__item--dismissed'
 
     return (
@@ -165,6 +167,7 @@ export class LdNotification {
     )
   }
 
+  /* istanbul ignore next */
   disconnectedCallback() {
     clearTimeout(this.dismissTimeout)
     this.fadeoutTimeouts.forEach(clearTimeout)
