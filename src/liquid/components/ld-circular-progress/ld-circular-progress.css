@@ -103,6 +103,7 @@ _:future,
 :root {
   --ld-circular-progress-bar-correction: 3.5px;
 }
+/* stylelint-enable selector-type-no-unknown */
 
 .ld-circular-progress__stroke {
   position: absolute;
