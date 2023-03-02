@@ -92,6 +92,6 @@ If you'd like to contribute to the project, please read our [code of conduct](CO
 
 Liquid Oxygen is available under a [custom license](legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
 
-<docs-page-nav prev-title="Why Liquid Oxygen" prev-href="/introduction/why-liquid-oxygen/" next-title="Get Started" next-href="/introduction/getting-started/">
+<docs-page-nav prev-title="Why Liquid Oxygen" prev-href="introduction/why-liquid-oxygen/" next-title="Get Started" next-href="introduction/getting-started/">
   <docs-view-on-figma></docs-view-on-figma>
 </docs-page-nav>
