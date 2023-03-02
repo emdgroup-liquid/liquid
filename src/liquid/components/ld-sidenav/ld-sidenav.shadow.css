@@ -88,7 +88,10 @@
     ease;
   top: 0;
   width: var(--ld-sidenav-width);
-  z-index: 0; /* create own stacking context */
+
+  /* Create a stacking context with a default z-index greater zero,
+  so that elements with a stacking context of their own don't overlap. */
+  z-index: var(--ld-sidenav-z-index, 1);
 
   &::before {
     content: '';

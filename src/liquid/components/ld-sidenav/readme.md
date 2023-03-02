@@ -1859,6 +1859,7 @@ The sidenav as well as its subcomponents emit different events which you can use
 | `--ld-sidenav-transition-duration`        | Transition duration for all sidenav specific transitions.           |
 | `--ld-sidenav-width`                      | Width of the `ld-sidenav` component.                                |
 | `--ld-sidenav-width-collapsed` _readonly_ | Width of the `ld-sidenav` component when collapsed.                 |
+| `--ld-sidenav-z-index`                    | `z-index` of the `ld-sidenav` component (`1` by default)            |
 
 <!-- Auto Generated Below -->
 
