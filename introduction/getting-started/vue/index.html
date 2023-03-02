@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Vue</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677761021606/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677761021606/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677761021606/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1677761021606/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1677761021606/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677768946762/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677768946762/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677768946762/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1677768946762/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1677768946762/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1677761021606/">
+  <meta data-buildstamp="1677768946762/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2283,11 +2283,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1677761021606/docs.css">
-  <link rel="stylesheet" href="/liquid/1677761021606/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1677761021606/css_components/ld-button.css">
-  <script type="module" src="/liquid/1677761021606/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1677761021606/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1677768946762/docs.css">
+  <link rel="stylesheet" href="/liquid/1677768946762/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1677768946762/css_components/ld-button.css">
+  <script type="module" src="/liquid/1677768946762/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1677768946762/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3272,29 +3272,29 @@
         <docs-edit-on-github path="./src/docs/pages/introduction/getting-started/vue.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <h1 id="vue" tabindex="-1">Vue <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+      <h1 id="vue" tabindex="-1">Vue <a class="header-anchor" href="introduction/getting-started/vue/#vue"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Liquid Oxygen comes with <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Vue</a> bindings for all Web Components. Although the rendered components are still Web Components, the bindings improve the developer experience by providing a more familiar API and a better integration with Vue.</p>
 <p>On this page, you'll find detailed instructions on how to integrate Liquid Oxygen into your Vue project and how to use the components.</p>
-<h2 id="prerequisites" tabindex="-1">Prerequisites <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="prerequisites" tabindex="-1">Prerequisites <a class="header-anchor" href="introduction/getting-started/vue/#prerequisites"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Liquid Oxygen is easy to integrate into an existing Vue project. We assume you already have a project set up. If not, you can create a new project with <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Vite</a>.</p>
 <pre class="language-sh"><code class="language-sh"><span class="token function">npm</span> create vite@latest your-project-name -- <span class="token parameter variable">--template</span> vue-ts</code></pre>
 <p>For more information about this command and Vite, please refer to the <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Vite documentation</a>.<br />Although this guide assumes your project is using Typescript, all examples should also be applicable to javascript projects.</p>
-<h2 id="install" tabindex="-1">Install <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="install" tabindex="-1">Install <a class="header-anchor" href="introduction/getting-started/vue/#install"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Add Liquid Oxygen to your project with the package manager of your choice.</p>
 <pre class="language-sh"><code class="language-sh"><span class="token function">npm</span> <span class="token function">install</span> @emdgroup-liquid/liquid</code></pre>
 <ld-notice>
   Liquid Oxygen works with any package manager (e.g. <code>npm</code>, <code>yarn</code> or <code>pnpm</code>). For simplicity, we use <code>npm</code> in this guide.
 </ld-notice>
-<h3 id="import-stylesheet" tabindex="-1">Import stylesheet <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="import-stylesheet" tabindex="-1">Import stylesheet <a class="header-anchor" href="introduction/getting-started/vue/#import-stylesheet"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>All Web Components are loaded togehter with their styles embedded. Therefore we only need to import the global stylesheet for Liquid Oxygen.</p>
 <p>Add the following code to your <code>App.vue</code> file (or any similar file which is loaded for every page).</p>
 <pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- App.vue --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token string">'@emdgroup-liquid/liquid/dist/css/liquid.global.css'</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-<h2 id="usage" tabindex="-1">Usage <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="usage" tabindex="-1">Usage <a class="header-anchor" href="introduction/getting-started/vue/#usage"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>When adding Liquid Oxygen components to a Vue project, it is crucial to use the Vue bindings. All components are imported from <code>@emdgroup-liquid/liquid/dist/vue</code>. The bindings significantly improve Vue compatibility and your developer experience.</p>
 <p>Let's have a look at how to add a <a href="components/ld-button/">LdButton</a> to your project. This examnple also includes a <a href="components/ld-icon/">LdIcon</a> as it helps you to check if Liquid Oxygen assets are loaded correctly.</p>
 <pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- SampleComponent.vue --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton<span class="token punctuation">,</span> LdIcon <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/vue'</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span><br>    Click me!<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-icon</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>energy<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></code></pre>
 <p>When you put this component on a page, you should see a blue button with the text &quot;Click me!&quot; and a lightning bolt icon.</p>
-<h3 id="events" tabindex="-1">Events <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="events" tabindex="-1">Events <a class="header-anchor" href="introduction/getting-started/vue/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Liquid Oxygen components aim to work similarly to native HTML elements as much as possible. In most cases, you can expect the same events and behavior from a Liquid Oxygen component and its native equivalent. Custom events are documented on the respective component pages.</p>
 <p>Let's take our button from above and add a click handler.</p>
 <pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- SampleComponent.vue --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton<span class="token punctuation">,</span> LdIcon <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/vue'</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>      <span class="token function">say</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">message</span><span class="token operator">:</span> string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><br>      <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>say('Clicked!')<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    Click me!<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-icon</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>energy<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></code></pre>
@@ -3302,7 +3302,7 @@
 <ld-notice mode="warning">
   While type checking and intellisense work well when using Visual Studio Code in combination with the <a href="https://github.com/johnsoncodehk/volar" rel="noreferrer noopener" target="_blank">Volar plugin</a>, we found that JetBrains' bundled <a href="https://plugins.jetbrains.com/plugin/9442-vue-js" rel="noreferrer noopener" target="_blank">Vue plugin</a> is not yet capable of providing equivalent features.
 </ld-notice>
-<h2 id="sandboxes" tabindex="-1">Sandboxes <a class="header-anchor" href="introduction/getting-started/vue/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="sandboxes" tabindex="-1">Sandboxes <a class="header-anchor" href="introduction/getting-started/vue/#sandboxes"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>This guide shows you how to get started with Liquid Oxygen in your Vue project. Additionally, we provide several sandbox applications showing how to use Liquid Oxygen in various environments:</p>
 <ul>
 <li><a href="https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-nuxt-tailwind" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Liquid + Vue + Nuxt</a></li>

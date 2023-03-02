@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Theming</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677761021606/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677761021606/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677761021606/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1677761021606/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1677761021606/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677768946762/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677768946762/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677768946762/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1677768946762/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1677768946762/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1677761021606/">
+  <meta data-buildstamp="1677768946762/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2283,11 +2283,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1677761021606/docs.css">
-  <link rel="stylesheet" href="/liquid/1677761021606/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1677761021606/css_components/ld-button.css">
-  <script type="module" src="/liquid/1677761021606/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1677761021606/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1677768946762/docs.css">
+  <link rel="stylesheet" href="/liquid/1677768946762/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1677768946762/css_components/ld-button.css">
+  <script type="module" src="/liquid/1677768946762/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1677768946762/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3271,10 +3271,10 @@
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
       <link rel="stylesheet" href="css_components/ld-button.css">
-<h1 id="theming" tabindex="-1">Theming <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h1 id="theming" tabindex="-1">Theming <a class="header-anchor" href="global/theming/#theming"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Liquid comes with multiple themes for theming its UI components. Most of the examples in the documentation have a theme switch built in, which you can use to switch between the available themes. In the following examples this switch is turned off. Instead, the examples show how you can apply a theme yourself.</p>
 <hr>
-<h2 id="how-to-apply-a-theme" tabindex="-1">How to apply a theme <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="how-to-apply-a-theme" tabindex="-1">How to apply a theme <a class="header-anchor" href="global/theming/#how-to-apply-a-theme"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>You apply a theme by wrapping whatever needs to be themed in an element with a <code>ld-theme-&lt;themename&gt;</code> CSS class.</p>
 <docs-example code="%3Cdiv%20class%3D%22ld-theme-bubblegum%22%3E%0A%20%20%3Cld-button%3EText%3C%2Fld-button%3E%0A%3C%2Fdiv%3E" code-css-component="%3Cdiv%20class%3D%22ld-theme-bubblegum%22%3E%0A%20%20%3Cbutton%20class%3D%22ld-button%22%3EText%3C%2Fbutton%3E%0A%3C%2Fdiv%3E"  opened has-border has-padding>
 <div slot="code">
@@ -3286,7 +3286,7 @@
 </div></div><div slot="showCssComponent"><div class="ld-theme-bubblegum">
   <button class="ld-button">Text</button>
 </div></div></docs-example>
-<h2 id="theme-inception" tabindex="-1">Theme inception <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="theme-inception" tabindex="-1">Theme inception <a class="header-anchor" href="global/theming/#theme-inception"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>In rare cases you may want to have a theming element wrapped by another theming element. Liquid supports unlimited theme inception (nested themes). Here is an example of a two-level theme inception:</p>
 <docs-example code="%3Cdiv%20class%3D%22ld-theme-bubblegum%22%20style%3D%22display%3A%20flex%3B%22%3E%0A%20%20%3Cld-button%3EText%3C%2Fld-button%3E%0A%20%20%3Cdiv%20class%3D%22ld-theme-tea%22%20style%3D%22display%3A%20flex%3B%22%3E%0A%20%20%20%20%3Cld-button%20style%3D%22margin%3A%200%20var(--ld-sp-16)%3B%22%3EText%3C%2Fld-button%3E%0A%20%20%20%20%3Cdiv%20class%3D%22ld-theme-ocean%22%3E%0A%20%20%20%20%20%20%3Cld-button%3EText%3C%2Fld-button%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E" code-css-component="%3Cdiv%20class%3D%22ld-theme-bubblegum%22%20style%3D%22display%3A%20flex%3B%22%3E%0A%20%20%3Cbutton%20class%3D%22ld-button%22%3EText%3C%2Fbutton%3E%0A%20%20%3Cdiv%20class%3D%22ld-theme-tea%22%20style%3D%22display%3A%20flex%3B%22%3E%0A%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%20style%3D%22margin%3A%200%20var(--ld-sp-16)%3B%22%3EText%3C%2Fbutton%3E%0A%20%20%20%20%3Cdiv%20class%3D%22ld-theme-ocean%22%3E%0A%20%20%20%20%20%20%3Cbutton%20class%3D%22ld-button%22%3EText%3C%2Fbutton%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E"  opened has-border has-padding>
 <div slot="code">
@@ -3310,12 +3310,12 @@
     </div>
   </div>
 </div></div></docs-example>
-<h2 id="css-custom-properties" tabindex="-1">CSS Custom Properties <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h2 id="css-custom-properties" tabindex="-1">CSS Custom Properties <a class="header-anchor" href="global/theming/#css-custom-properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>You have access to CSS custom properties with a color value depending on the current theme:</p>
 <pre class="language-html"><code class="language-html">--ld-thm-primary<br>--ld-thm-primary-active<br>--ld-thm-primary-focus<br>--ld-thm-primary-highlight<br>--ld-thm-primary-hover<br>--ld-thm-primary-alpha-low<br>--ld-thm-primary-alpha-lowest<br>--ld-thm-secondary<br>--ld-thm-secondary-active<br>--ld-thm-secondary-focus<br>--ld-thm-secondary-highlight<br>--ld-thm-secondary-hover<br>--ld-thm-success<br>--ld-thm-success-active<br>--ld-thm-success-focus<br>--ld-thm-success-highlight<br>--ld-thm-success-hover<br>--ld-thm-warning<br>--ld-thm-warning-active<br>--ld-thm-warning-focus<br>--ld-thm-warning-highlight<br>--ld-thm-warning-hover<br>--ld-thm-error<br>--ld-thm-error-active<br>--ld-thm-error-focus<br>--ld-thm-error-highlight<br>--ld-thm-error-hover</code></pre>
-<h3 id="examples" tabindex="-1">Examples <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<h3 id="examples" tabindex="-1">Examples <a class="header-anchor" href="global/theming/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>The following examples illustrate the variables applied to background color within each theme:</p>
-<h4 id="bubblegum" tabindex="-1">Bubblegum <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="bubblegum" tabindex="-1">Bubblegum <a class="header-anchor" href="global/theming/#bubblegum"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <div class="ld-theme-bubblegum">
     <docs-color var="--ld-thm-primary-focus"></docs-color>
     <docs-color var="--ld-thm-primary"></docs-color>
@@ -3340,7 +3340,7 @@
     <docs-color var="--ld-thm-error-hover"></docs-color>
     <docs-color var="--ld-thm-error-active"></docs-color>
 </div>
-<h4 id="ocean" tabindex="-1">Ocean <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="ocean" tabindex="-1">Ocean <a class="header-anchor" href="global/theming/#ocean"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <div class="ld-theme-ocean">
   <docs-color var="--ld-thm-primary-focus"></docs-color>
   <docs-color var="--ld-thm-primary"></docs-color>
@@ -3365,7 +3365,7 @@
   <docs-color var="--ld-thm-error-hover"></docs-color>
   <docs-color var="--ld-thm-error-active"></docs-color>
 </div>
-<h4 id="shake" tabindex="-1">Shake <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="shake" tabindex="-1">Shake <a class="header-anchor" href="global/theming/#shake"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <div class="ld-theme-shake">
   <docs-color var="--ld-thm-primary-focus"></docs-color>
   <docs-color var="--ld-thm-primary"></docs-color>
@@ -3390,7 +3390,7 @@
   <docs-color var="--ld-thm-error-hover"></docs-color>
   <docs-color var="--ld-thm-error-active"></docs-color>
 </div>
-<h4 id="solvent" tabindex="-1">Solvent <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="solvent" tabindex="-1">Solvent <a class="header-anchor" href="global/theming/#solvent"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <div class="ld-theme-solvent">
   <docs-color var="--ld-thm-primary-focus"></docs-color>
   <docs-color var="--ld-thm-primary"></docs-color>
@@ -3415,7 +3415,7 @@
   <docs-color var="--ld-thm-error-hover"></docs-color>
   <docs-color var="--ld-thm-error-active"></docs-color>
 </div>
-<h4 id="tea" tabindex="-1">Tea <a class="header-anchor" href="global/theming/"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<h4 id="tea" tabindex="-1">Tea <a class="header-anchor" href="global/theming/#tea"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
 <div class="ld-theme-tea">
   <docs-color var="--ld-thm-primary-focus"></docs-color>
   <docs-color var="--ld-thm-primary"></docs-color>
