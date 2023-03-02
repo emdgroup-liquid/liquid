@@ -846,4 +846,20 @@ describe('ld-sidenav', () => {
       expect(result).toMatchScreenshot()
     })
   })
+
+  describe('stacking', () => {
+    it('has a default stacking context with a z-index greater zero', async () => {
+      const page = await getPageWithContent(
+        `
+          <ld-sidenav open></ld-sidenav>
+          <p style="position: relative">This text should be below the sidenav, although it has its own stacking context.</p>
+        `,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+  })
 })

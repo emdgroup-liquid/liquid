@@ -15280,6 +15280,19 @@
       "isMobile": false
     },
     {
+      "id": "01ec8edc",
+      "image": "66939f1f1d0241838b225f21e9b19810.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav stacking has a default stacking context with a z-index greater zero",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "8fb8907e",
       "image": "5fb94a3bb2478b8736e38e46538ef3cd.png",
       "userAgent": "default",
