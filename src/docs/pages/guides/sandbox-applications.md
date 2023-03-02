@@ -22,6 +22,6 @@ In order to help you get started with Liquid we have implemented small sample ap
 - Liquid + **Astro + Svelte + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-astro-svelte-tailwind))
 - Liquid + **Solid + Typescript + Tailwind CSS** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-solid-tailwind), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-solid-tailwind))
 - Liquid + **CDN** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-cdn), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn))
-- Liquid + **Vite + Javascript** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-vite-vanilla), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla))
+- Liquid + **Vite + JavaScript** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-vite-vanilla), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla))
 
 <docs-page-nav prev-href="guides/design-tokens/" next-title="Troubleshooting" next-href="guides/troubleshooting/"></docs-page-nav>

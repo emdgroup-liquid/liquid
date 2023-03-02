@@ -24,7 +24,7 @@ Liquid Oxygen is easy to integrate into an existing frontend project. We assume 
 npm create vite@latest your-project-name -- --template vanilla-ts
 ```
 
-For more information about this command and Vite, please refer to the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using Typescript, all examples should also be applicable to javascript projects.
+For more information about this command and Vite, please refer to the [Vite documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).<br />Although this guide assumes your project is using Typescript, all examples should also be applicable to JavaScript projects.
 
 ## Install
 
@@ -114,7 +114,7 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 </body>
 ```
 
-Many components are also available as CSS components. These components do not require javascript and are useful as lightweight alternatives to Web Components. The respective documentation of a component indicates if it is available as a CSS component.
+Many components are also available as CSS components. These components do not require JavaScript and are useful as lightweight alternatives to Web Components. The respective documentation of a component indicates if it is available as a CSS component.
 
 Following code block shows the same button as in the previous example as a CSS component.
 
@@ -163,7 +163,7 @@ document.querySelector('#button').addEventListener('click', () => {
 This guide shows how to get started with Liquid Oxygen without using a framework like React. Providing more context, we created several sandbox applications showing how Liquid Oxygen works in these environments:
 
 - [Liquid + CDN](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn)
-- [Liquid + Vite + Javascript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla)
+- [Liquid + Vite + JavaScript](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla)
 
 If you run into issues integrating Liquid Oxygen, please [get in touch with us](https://github.com/emdgroup-liquid/liquid/discussions).
 
