@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.7](https://github.com/emdgroup-liquid/liquid/compare/v4.7.6...v4.7.7) (2023-03-02)
+
+
+### Bug Fixes
+
+* **ld-notification:** allow omitting notification type and fall back to info ([80adc70](https://github.com/emdgroup-liquid/liquid/commit/80adc7077701aae019e50dcf39eb7c22c85418e2))
+
 ## [4.7.6](https://github.com/emdgroup-liquid/liquid/compare/v4.7.5...v4.7.6) (2023-03-01)
 
 
