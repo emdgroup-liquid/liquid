@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Input</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1677797753567/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1677797753567/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1677797753567/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1677797753567/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1677797753567/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1678106875591/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1678106875591/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1678106875591/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1678106875591/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1678106875591/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1677797753567/">
+  <meta data-buildstamp="1678106875591/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2283,11 +2283,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1677797753567/docs.css">
-  <link rel="stylesheet" href="/liquid/1677797753567/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-button.css">
-  <script type="module" src="/liquid/1677797753567/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1677797753567/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1678106875591/docs.css">
+  <link rel="stylesheet" href="/liquid/1678106875591/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-button.css">
+  <script type="module" src="/liquid/1678106875591/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1678106875591/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3270,11 +3270,11 @@
         <docs-edit-on-github path="./src/liquid/components/ld-input/readme.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-input.css">
-<link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-icon.css">
-<link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-button.css">
-<link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-label.css">
-<link rel="stylesheet" href="/liquid/1677797753567/css_components/ld-input-message.css">
+      <link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-input.css">
+<link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-icon.css">
+<link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-button.css">
+<link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-label.css">
+<link rel="stylesheet" href="/liquid/1678106875591/css_components/ld-input-message.css">
 <h1 id="ld-input" tabindex="-1">ld-input <a class="header-anchor" href="components/ld-input/#ld-input"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>The <code>ld-input</code> component can be used in forms to accept data from the user. While the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">native HTML input element</a> supports a wide variety of types of input data and offers different control widgets, depending on the user agent, this component supports only a subset of the types available in the native HTML input element. All officially supported types of <code>ld-input</code> are documented here. Other form input widgets either have been implemented as separate components or may eventually be concidered for implementation in the future.</p>
 <p>This component can be used in conjunction with the <a href="components/ld-label/"><code>ld-label</code></a> and the <a href="components/ld-input-message/"><code>ld-input-message</code></a> component.</p>
@@ -3367,6 +3367,9 @@
   <input placeholder="Placeholder">
 </div></div></docs-example>
 <h3 id="type-date" tabindex="-1">Type date <a class="header-anchor" href="components/ld-input/#type-date"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<ld-notice headline="Note" mode="info">
+  The <code>ld-input</code> component of <code>type="date"</code> acts as a wrapper around the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date"><code>input</code> element of<code>type="date"</code></a>, fully relying on its built-in features and only enhancing it visually.<br />The component is lightweight, respects the user preferences for display format configured in the user's <abbr title="operating system">OS</abbr> settings, separates presentation format from wire format and is accessible out of the box by offering a familiar <abbr title="user interface">UI</abbr>.
+</ld-notice>
 <docs-example code="%3Cld-input%20placeholder%3D%22Birthday%22%20type%3D%22date%22%20value%3D%222017-06-01%22%3E%3C%2Fld-input%3E" code-css-component="%3Cdiv%20class%3D%22ld-input%22%3E%0A%20%20%3Cinput%20placeholder%3D%22Birthday%22%20type%3D%22date%22%20value%3D%222017-06-01%22%3E%0A%3C%2Fdiv%3E" code-react-component="%3CLdInput%20placeholder%3D%22Birthday%22%20type%3D%22date%22%20value%3D%222017-06-01%22%20%2F%3E"  themable has-border has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Birthday<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2017-06-01<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input</span><span class="token punctuation">></span></span></code></pre>
@@ -3378,6 +3381,9 @@
   <input placeholder="Birthday" type="date" value="2017-06-01">
 </div></div></docs-example>
 <h3 id="type-datetime-local" tabindex="-1">Type datetime-local <a class="header-anchor" href="components/ld-input/#type-datetime-local"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<ld-notice headline="Note" mode="info">
+  The <code>ld-input</code> component of <code>type="datetime-local"</code> acts as a wrapper around the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local"><code>input</code> element of<code>type="datetime-local"</code></a>, fully relying on its built-in features and only enhancing it visually.<br />The component is lightweight, respects the user preferences for display format configured in the user's <abbr title="operating system">OS</abbr> settings, separates presentation format from wire format and is accessible out of the box by offering a familiar <abbr title="user interface">UI</abbr>.
+</ld-notice>
 <docs-example code="%3Cld-input%20placeholder%3D%22Birthday%22%20type%3D%22datetime-local%22%20value%3D%222017-06-01T19%3A30%22%3E%3C%2Fld-input%3E" code-css-component="%3Cdiv%20class%3D%22ld-input%22%3E%0A%20%20%3Cinput%20placeholder%3D%22Birthday%22%20type%3D%22datetime-local%22%20value%3D%222017-06-01T19%3A30%22%3E%0A%3C%2Fdiv%3E" code-react-component="%3CLdInput%20placeholder%3D%22Birthday%22%20type%3D%22datetime-local%22%20value%3D%222017-06-01T19%3A30%22%20%2F%3E"  themable has-border has-padding>
 <div slot="code">
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Birthday<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>datetime-local<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2017-06-01T19:30<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-input</span><span class="token punctuation">></span></span></code></pre>
