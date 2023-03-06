@@ -18,6 +18,10 @@ export class LdMenuitem implements InnerFocusable {
   @Element() el: HTMLLdMenuitemElement
   private attributesObserver: MutationObserver
   private buttonRef?: HTMLLdButtonElement
+
+  /** Disabled state of the menu item. */
+  @Prop() disabled?: boolean
+
   /**
    * Transforms the menu item to an anchor element.
    * See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href)
@@ -67,10 +71,11 @@ export class LdMenuitem implements InnerFocusable {
   render() {
     return (
       <Host>
-        <li class="ld-menuitem" role="menuitemradio">
+        <li class="ld-menuitem" role="menuitem">
           <ld-button
             {...this.clonedAttributes}
             class="ld-menuitem__button"
+            disabled={this.disabled}
             href={this.href}
             iconOnly={false}
             justifyContent="start"
@@ -79,6 +84,7 @@ export class LdMenuitem implements InnerFocusable {
             ref={(element) => (this.buttonRef = element)}
             size={this.size}
             target={this.target}
+            type="button"
           >
             <slot></slot>
           </ld-button>
