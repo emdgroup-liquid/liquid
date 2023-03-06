@@ -285,6 +285,19 @@ The `ld-menu` component is used internally for the `ld-menu`. It is the visual p
 | `size`   | `size`    | Size of the context menu. | `"lg" \| "sm"` | `undefined` |
 
 
+## Methods
+
+### `getFirstMenuItem() => Promise<HTMLLdMenuitemElement>`
+
+Get the first menu item inside this menu.
+
+#### Returns
+
+Type: `Promise<HTMLLdMenuitemElement>`
+
+
+
+
 ## Shadow Parts
 
 | Part     | Description |

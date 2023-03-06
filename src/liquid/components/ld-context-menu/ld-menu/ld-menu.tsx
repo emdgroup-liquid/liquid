@@ -1,4 +1,13 @@
-import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 
 const isElement = (node: Node): node is Element => 'querySelectorAll' in node
 
@@ -32,6 +41,9 @@ const getMenuItemOrNestedMenuItems = (node: Node) => {
 
   return items
 }
+
+const isPrintableCharacter = (key: string) =>
+  key.length === 1 && key.match(/\S/)
 
 @Component({
   tag: 'ld-menu',
@@ -75,6 +87,12 @@ export class LdMenu {
     element.childNodes.forEach((node) => this.initMenuItems(node))
   }
 
+  /** Get the first menu item inside this menu. */
+  @Method()
+  async getFirstMenuItem(): Promise<HTMLLdMenuitemElement> {
+    return this.getAllMenuItems()[0]
+  }
+
   private getAllMenuItems = () => {
     const items: HTMLLdMenuitemElement[] = []
 
@@ -83,6 +101,24 @@ export class LdMenu {
       .forEach((node) => items.push(...getMenuItemOrNestedMenuItems(node)))
 
     return items
+  }
+
+  private focusFirst = (target: HTMLLdMenuitemElement) => {
+    const allMenuItems = this.getAllMenuItems()
+    const [first] = allMenuItems
+
+    target.ldTabindex = -1
+    first.ldTabindex = 0
+    first.focusInner()
+  }
+
+  private focusLast = (target: HTMLLdMenuitemElement) => {
+    const allMenuItems = this.getAllMenuItems()
+    const last = allMenuItems[allMenuItems.length - 1]
+
+    target.ldTabindex = -1
+    last.ldTabindex = 0
+    last.focusInner()
   }
 
   private focusNext = (target: HTMLLdMenuitemElement) => {
@@ -111,6 +147,38 @@ export class LdMenu {
     prev.focusInner()
   }
 
+  private focusByFirstCharacter = (event: KeyboardEvent) => {
+    if (!isPrintableCharacter(event.key)) {
+      return
+    }
+
+    const target = event.target as HTMLLdMenuitemElement
+    const allMenuItems = this.getAllMenuItems()
+    const currentIndex = allMenuItems.indexOf(target)
+    const itemMatchesKey = (item: HTMLLdMenuitemElement) =>
+      item.textContent.trim()[0].toLocaleLowerCase() ===
+      event.key.toLocaleLowerCase()
+    let matchingItem = allMenuItems.find((item, index) => {
+      if (index <= currentIndex) {
+        return
+      }
+
+      return itemMatchesKey(item)
+    })
+
+    if (!matchingItem) {
+      matchingItem = allMenuItems.find(itemMatchesKey)
+    }
+
+    if (!matchingItem || matchingItem === target) {
+      return
+    }
+
+    target.ldTabindex = -1
+    matchingItem.ldTabindex = 0
+    matchingItem.focusInner()
+  }
+
   private handleKeyDown = (event: KeyboardEvent) => {
     const target = event.target as HTMLLdMenuitemElement
 
@@ -123,7 +191,16 @@ export class LdMenu {
         event.preventDefault()
         this.focusNext(target)
         break
-      case 'Tab':
+      case 'Home':
+        event.preventDefault()
+        this.focusFirst(target)
+        break
+      case 'End':
+        event.preventDefault()
+        this.focusLast(target)
+        break
+      default:
+        this.focusByFirstCharacter(event)
     }
   }
 
@@ -144,14 +221,11 @@ export class LdMenu {
 
   render() {
     return (
-      <ul
-        onKeyDown={this.handleKeyDown}
-        class="ld-menu"
-        part="list"
-        role="menu"
-      >
-        <slot></slot>
-      </ul>
+      <Host onKeyDown={this.handleKeyDown}>
+        <ul class="ld-menu" part="list" role="menu">
+          <slot></slot>
+        </ul>
+      </Host>
     )
   }
 }
