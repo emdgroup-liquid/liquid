@@ -145,6 +145,10 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 
 ### Type date
 
+<ld-notice headline="Note" mode="info">
+  The <code>ld-input</code> component of <code>type="date"</code> acts as a wrapper around the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date"><code>input</code> element of<code>type="date"</code></a>, fully relying on its built-in features and only enhancing it visually.<br />The component is lightweight, respects the user preferences for display format configured in the user's <abbr title="operating system">OS</abbr> settings, separates presentation format from wire format and is accessible out of the box by offering a familiar <abbr title="user interface">UI</abbr>.
+</ld-notice>
+
 {% example %}
 <ld-input placeholder="Birthday" type="date" value="2017-06-01"></ld-input>
 
@@ -160,6 +164,10 @@ By default, the `ld-input` component is of [type `text`](https://developer.mozil
 {% endexample %}
 
 ### Type datetime-local
+
+<ld-notice headline="Note" mode="info">
+  The <code>ld-input</code> component of <code>type="datetime-local"</code> acts as a wrapper around the native <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local"><code>input</code> element of<code>type="datetime-local"</code></a>, fully relying on its built-in features and only enhancing it visually.<br />The component is lightweight, respects the user preferences for display format configured in the user's <abbr title="operating system">OS</abbr> settings, separates presentation format from wire format and is accessible out of the box by offering a familiar <abbr title="user interface">UI</abbr>.
+</ld-notice>
 
 {% example %}
 <ld-input placeholder="Birthday" type="datetime-local" value="2017-06-01T19:30"></ld-input>
