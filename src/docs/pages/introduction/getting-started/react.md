@@ -143,7 +143,7 @@ const handleLink = useCallback(
 return (
   // ...
   <LdSidenavNavitem
-    href={`/mathematical-foundations/discrete-mathematics`}
+    href="/mathematical-foundations/discrete-mathematics"
     onClick={handleLink}
   >
     Discrete Mathematics
@@ -155,7 +155,7 @@ return (
 
 The `href` prop of `LdSidenavNavitem` tells the component to add `LdLink` which renders a proper anchor tag. This is important for accessibility. As this would already work to navigate but bypass the client-side navigation of React Router, we also add a click handler. The click handler uses the `navigate` function from the `useNavigate` hook to navigate to the specified href. `preventDefault()` is called to prevent the default behavior of the anchor tag.
 
-`LdSidenav` provides visual indicators for an active item. We can use the `pathname` property of the `useLocation()` hook provided by React Router to determine the active route and set `selected` accordingly.
+`LdSidenav` provides visual indicators for an active item. We can use the `pathname` property of the `useLocation` hook provided by React Router to determine the active route and set `selected` accordingly.
 
 ```tsx
 // Sidebar.tsx
@@ -176,7 +176,7 @@ return (
 // ...
 ```
 
-Using the same hooks, you can generate breadcrumbs from `pathname`. It's on you to resolve the path to human readable lables.
+Using the same hooks, you can generate breadcrumbs from `pathname`. It's on you to resolve the path to human readable labels.
 
 ```tsx
 // Breadcrumbs.tsx
