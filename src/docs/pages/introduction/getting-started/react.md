@@ -122,40 +122,34 @@ Liquid Oxygen provides some sophisticated components for navigation. This recipe
 
 As this recipe focuses on how to put together Liquid Oxygen and React Router, we'll only highlight the relevant parts of the code. We assume you already have a basic React Router setup in place. If not, please refer to the [React Router documentation](https://reactrouter.com/en/start/tutorial).
 
-Let's get started with routing. We cannot use the `<Link>` component provided by React Router within LdSidenavNavitem, therefore we use the [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate) hook to navigate to a different route.
+Let's get started with routing. We will use the [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate) hook to navigate to a different route. We cannot use the `<Link>` component provided by React Router within `LdSidenavNavitem`.
 
 ```tsx
 // Sidebar.tsx
 //...
 const navigate = useNavigate()
 
-const handleLink = useCallback(
-  (e: React.MouseEvent) => {
-    e.preventDefault()
-    const href = (e.target as HTMLLdSidenavNavitemElement).href
-    if (href) {
-      navigate(href)
-    }
-  },
-  [navigate]
-)
-
 return (
-  // ...
-  <LdSidenavNavitem
-    href="/mathematical-foundations/discrete-mathematics"
-    onClick={handleLink}
-  >
-    Discrete Mathematics
-  </LdSidenavNavitem>
-  // ...
+  <LdSidenav>
+    // ...
+    <LdSidenavNavitem
+      href={`/processes`}
+      onClick={(e) => {
+        e.preventDefault()
+        navigate(`/processes`)
+      }}
+    >
+      Processes
+    </LdSidenavNavitem>
+    // ...
+  </LdSidenav>
 )
 // ...
 ```
 
-The `href` prop of `LdSidenavNavitem` tells the component to add `LdLink` which renders a proper anchor tag. This is important for accessibility. As this would already work to navigate but bypass the client-side navigation of React Router, we also add a click handler. The click handler uses the `navigate` function from the `useNavigate` hook to navigate to the specified href. `preventDefault()` is called to prevent the default behavior of the anchor tag.
+The `href` prop of `LdSidenavNavitem` tells the component to render a proper anchor tag. This is important for accessibility. As this would already work to navigate but bypass the client-side navigation of React Router, we also add a click handler. The click handler uses the `navigate` function from the `useNavigate` hook to navigate to the specified href. `preventDefault()` is called to prevent the default behavior of the anchor tag.
 
-`LdSidenav` provides visual indicators for an active item. We can use the `pathname` property of the `useLocation` hook provided by React Router to determine the active route and set `selected` accordingly.
+`LdSidenavNavitem` provides visual indicators for an active item. We can use the `pathname` property of the `useLocation()` hook provided by React Router to determine the active route and set `selected` accordingly.
 
 ```tsx
 // Sidebar.tsx
@@ -163,43 +157,44 @@ The `href` prop of `LdSidenavNavitem` tells the component to add `LdLink` which 
 const { pathname } = useLocation()
 
 return (
-  // ...
-  <LdSidenavNavitem
-    href={`/mathematical-foundations/discrete-mathematics`}
-    onClick={handleLink}
-    selected={pathname === '/mathematical-foundations/discrete-mathematics'} // Depending on your routes, you'll need a more sophisicated evaluation here
-  >
-    Discrete Mathematics
-  </LdSidenavNavitem>
-  // ...
+  <LdSidenav>
+    // ...
+    <LdSidenavNavitem
+      href={`/processes`}
+      onClick={(e) => {
+        e.preventDefault()
+        navigate(`/processes`)
+      }}
+      selected={pathname === '/processes'} // Depending on your routes, you'll need a more sophisicated evaluation here
+    >
+      Processes
+    </LdSidenavNavitem>
+    // ...
+  </LdSidenav>
 )
 // ...
 ```
 
-Using the same hooks, you can generate breadcrumbs from `pathname`. It's on you to resolve the path to human readable labels.
+Using the same hooks, you can also generate breadcrumbs from `pathname`. It's on you to resolve the path to human readable lables.
 
 ```tsx
 // Breadcrumbs.tsx
 // ...
 const navigate = useNavigate()
 const { pathname } = useLocation()
-const crumbs = useResolvedCrumbs(pathname) // This is up to you 😉
-
-const handleLink = useCallback(
-  (e: React.MouseEvent) => {
-    e.preventDefault()
-    const href = (e.target as HTMLLdCrumbElement).href
-    if (href) {
-      navigate(href)
-    }
-  },
-  [navigate]
-)
+const crumbs = useResolvedCrumbs(pathname) // This is up to you 😉 (e.g. /processes/e06dc3f9-811d-4931-b4e1-7599d0fa03fe -> [{label: "Processes", href: "/processes"}, {label: "Extraction #23", href: "/processes/e06dc3f9-811d-4931-b4e1-7599d0fa03fe"}])
 
 return (
   <LdBreadcrumbs>
     {crumbs.map((crumb) => (
-      <LdCrumb key={crumb.label} onClick={handleLink} href={crumb.href}>
+      <LdCrumb
+        key={crumb.label}
+        onClick={(e) => {
+          e.preventDefault()
+          navigate(crumb.href)
+        }}
+        href={crumb.href}
+      >
         {crumb.label}
       </LdCrumb>
     ))}
@@ -208,7 +203,7 @@ return (
 // ...
 ```
 
-Similar to `LdSidenavNavitem`, `LdCrumb` uses `LdLink` to render an anchor tag. Therefore, we need to add a click handler again to navigate to the specified href.
+Similar to `LdSidenavNavitem`, `LdCrumb` renders an anchor tag when `href` is specified. Therefore, we need to add a click handler again to prevent the default behavior and navigate to the specified path.
 
 ## Sandboxes
 
