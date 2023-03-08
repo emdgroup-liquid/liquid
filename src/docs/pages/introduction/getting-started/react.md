@@ -109,6 +109,102 @@ There are a few cases where native events of Web Components do not behave as exp
   LdInput <code>onChange</code> event invokes when the component loses focus (and the value changed). This is the standard browser behavior but differs from the native React <code>onChange</code> event. Use the <code>onInput</code> event in cases you want to handle user input immediately while typing. Find additional information in the <a href="guides/event-handling/">Event handling guide</a>.
 </ld-notice>
 
+## Cookbook
+
+### React Router
+
+[React Router](https://reactrouter.com/) is a widely used library for routing in client-side react applications. This recipe shows you how to integrate Liquid Oxygen navigation components with React Router. Although the recipe is based on React Router, interacting with other libraries should look quite similar.
+
+Liquid Oxygen provides some sophisticated components for navigation. This recipe uses the following:
+
+- [LdSidenav](/components/ld-sidenav/) is the recommended navigation solution for most applications using Liquid Oxygen. It is flexible, responsive and provides multiple levels of navigation.
+- [LdBreadcrumbs](/components/ld-breadcrumbs/) component is a simple way to display the current location in your application.
+
+As this recipe focuses on how to put together Liquid Oxygen and React Router, we'll only highlight the relevant parts of the code. We assume you already have a basic React Router setup in place. If not, please refer to the [React Router documentation](https://reactrouter.com/en/start/tutorial).
+
+Let's get started with routing. We will use the [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate) hook to navigate to a different route. We cannot use the `<Link>` component provided by React Router within `LdSidenavNavitem`.
+
+```tsx
+// Sidebar.tsx
+//...
+const navigate = useNavigate()
+
+return (
+  <LdSidenav>
+    // ...
+    <LdSidenavNavitem
+      href="/processes"
+      onClick={(e) => {
+        e.preventDefault()
+        navigate('/processes')
+      }}
+    >
+      Processes
+    </LdSidenavNavitem>
+    // ...
+  </LdSidenav>
+)
+// ...
+```
+
+The `href` prop of `LdSidenavNavitem` tells the component to render a proper anchor tag. This is important for accessibility. As this would already work to navigate but bypass the client-side navigation of React Router, we also add a click handler. The click handler uses the `navigate` function from the `useNavigate` hook to navigate to the specified href. `preventDefault()` is called to prevent the default behavior of the anchor tag.
+
+`LdSidenavNavitem` provides visual indicators for an active item. We can use the `pathname` property of the `useLocation()` hook provided by React Router to determine the active route and set `selected` accordingly.
+
+```tsx
+// Sidebar.tsx
+//...
+const { pathname } = useLocation()
+
+return (
+  <LdSidenav>
+    // ...
+    <LdSidenavNavitem
+      href="/processes"
+      onClick={(e) => {
+        e.preventDefault()
+        navigate('/processes')
+      }}
+      selected={pathname === '/processes'} // Depending on your routes, you'll need a more sophisicated evaluation here
+    >
+      Processes
+    </LdSidenavNavitem>
+    // ...
+  </LdSidenav>
+)
+// ...
+```
+
+Using the same hooks, you can also generate breadcrumbs from `pathname`. It's on you to resolve the path to human readable lables.
+
+```tsx
+// Breadcrumbs.tsx
+// ...
+const navigate = useNavigate()
+const { pathname } = useLocation()
+const crumbs = useResolvedCrumbs(pathname) // This is up to you 😉 (e.g. /processes/e06dc3f9-811d-4931-b4e1-7599d0fa03fe -> [{label: "Processes", href: "/processes"}, {label: "Extraction #23", href: "/processes/e06dc3f9-811d-4931-b4e1-7599d0fa03fe"}])
+
+return (
+  <LdBreadcrumbs>
+    {crumbs.map((crumb) => (
+      <LdCrumb
+        key={crumb.label}
+        onClick={(e) => {
+          e.preventDefault()
+          navigate(crumb.href)
+        }}
+        href={crumb.href}
+      >
+        {crumb.label}
+      </LdCrumb>
+    ))}
+  </LdBreadcrumbs>
+)
+// ...
+```
+
+Similar to `LdSidenavNavitem`, `LdCrumb` renders an anchor tag when `href` is specified. Therefore, we need to add a click handler again to prevent the default behavior and navigate to the specified path.
+
 ## Sandboxes
 
 This guide shows you how to get started with Liquid Oxygen in your React project. Additionally, we provide several sandbox applications showing how to use Liquid Oxygen in various environments:
