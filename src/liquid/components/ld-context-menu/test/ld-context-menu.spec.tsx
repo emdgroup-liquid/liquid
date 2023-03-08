@@ -88,6 +88,19 @@ describe('ld-context-menu', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('forwards position', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem],
+      template: () => (
+        <ld-context-menu position="left middle">
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   it('clones the style attribute', async () => {
     const page = await newSpecPage({
       components: [LdContextMenu, LdMenuitem],

@@ -15,7 +15,7 @@ export class LdContextMenu {
   private tooltipRef: HTMLLdTooltipElement
   private triggerSlotRef: HTMLSlotElement
 
-  /** Size of the context menu. */
+  /** Position of the context menu relative to the trigger element. */
   @Prop() position?: HTMLLdTooltipElement['position'] = 'bottom left'
 
   /** Size of the context menu. */
@@ -77,6 +77,8 @@ export class LdContextMenu {
         onLdtooltipopen={this.handleMenuOpen}
         ref={(element: HTMLLdTooltipElement) => (this.tooltipRef = element)}
         position={this.position}
+        preventScreenreader
+        tag="span"
         triggerType="click"
         unstyled
       >

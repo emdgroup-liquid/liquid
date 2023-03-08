@@ -26,6 +26,32 @@ exports[`ld-context-menu clones the style attribute 1`] = `
 </ld-context-menu>
 `;
 
+exports[`ld-context-menu forwards position 1`] = `
+<ld-context-menu>
+  <mock:shadow-root>
+    <ld-tooltip position="left middle" triggertype="click" unstyled="">
+      <slot name="trigger" slot="trigger"></slot>
+      <ld-menu>
+        <slot></slot>
+      </ld-menu>
+    </ld-tooltip>
+  </mock:shadow-root>
+  <ld-button slot="trigger">
+    Open
+  </ld-button>
+  <ld-menuitem>
+    <mock:shadow-root>
+      <li class="ld-menuitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+          <slot></slot>
+        </ld-button>
+      </li>
+    </mock:shadow-root>
+    Menu item
+  </ld-menuitem>
+</ld-context-menu>
+`;
+
 exports[`ld-context-menu renders 1`] = `
 <ld-context-menu>
   <mock:shadow-root>

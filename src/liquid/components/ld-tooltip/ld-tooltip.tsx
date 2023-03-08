@@ -117,6 +117,12 @@ export class LdTooltip {
   /** Position of the tooltip relative to the trigger element (also affects the arrow position) */
   @Prop() position?: Position = 'top center'
 
+  /**
+   * Do not apply code that triggers screenreaders when tooltip opens.
+   * @internal
+   */
+  @Prop() preventScreenreader? = false
+
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
   @Prop() showDelay? = 0
 
@@ -371,7 +377,9 @@ export class LdTooltip {
     return (
       <Host>
         <TriggerTag
-          aria-describedby={this.idDescriber}
+          aria-describedby={
+            this.preventScreenreader ? undefined : this.idDescriber
+          }
           class={getClassNames([
             'ld-tooltip__trigger',
             this.triggerType === 'click' && 'ld-tooltip__trigger--clickable',
@@ -420,7 +428,7 @@ export class LdTooltip {
           aria-hidden={this.visible ? undefined : 'true'}
           arrow={this.arrow}
           hasDefaultTrigger={this.hasDefaultTrigger}
-          id={this.idDescriber}
+          id={this.preventScreenreader ? undefined : this.idDescriber}
           unstyled={this.unstyled}
           part="popper"
           ref={(element: HTMLElement) => {

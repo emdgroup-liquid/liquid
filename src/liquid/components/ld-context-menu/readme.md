@@ -147,15 +147,51 @@ permalink: components/ld-context-menu/
 </LdContextMenu>
 {% endexample %}
 
+### Position
+
+The `position` prop is identical to the one of the `ld-tooltip` component. Please refer to the [`ld-tooltip`-documentation](components/ld-tooltip/#positioning) for a more detailed example.
+
+{% example %}
+<ld-context-menu position="top right">
+  <ld-button slot="trigger">Top right</ld-button>
+  <ld-menuitem>Menu item 1</ld-menuitem>
+  <ld-menuitem>Menu item 2</ld-menuitem>
+  <ld-menuitem>Menu item 3</ld-menuitem>
+</ld-context-menu>
+
+<ld-context-menu position="left middle">
+  <ld-button slot="trigger">Left middle</ld-button>
+  <ld-menuitem>Menu item 1</ld-menuitem>
+  <ld-menuitem>Menu item 2</ld-menuitem>
+  <ld-menuitem>Menu item 3</ld-menuitem>
+</ld-context-menu>
+
+<!-- React component -->
+
+<LdContextMenu position="top right">
+  <LdButton slot="trigger">Top right</LdButton>
+  <LdMenuitem>Menu item 1</LdMenuitem>
+  <LdMenuitem>Menu item 2</LdMenuitem>
+  <LdMenuitem>Menu item 3</LdMenuitem>
+</LdContextMenu>
+
+<LdContextMenu position="left middle">
+  <LdButton slot="trigger">Left middle</LdButton>
+  <LdMenuitem>Menu item 1</LdMenuitem>
+  <LdMenuitem>Menu item 2</LdMenuitem>
+  <LdMenuitem>Menu item 3</LdMenuitem>
+</LdContextMenu>
+{% endexample %}
+
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description               | Type                                                                                                                                                                                                 | Default         |
-| ---------- | ---------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `position` | `position` | Size of the context menu. | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'bottom left'` |
-| `size`     | `size`     | Size of the context menu. | `"lg" \| "sm"`                                                                                                                                                                                       | `undefined`     |
+| Property   | Attribute  | Description                                                   | Type                                                                                                                                                                                                 | Default         |
+| ---------- | ---------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `position` | `position` | Position of the context menu relative to the trigger element. | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'bottom left'` |
+| `size`     | `size`     | Size of the context menu.                                     | `"lg" \| "sm"`                                                                                                                                                                                       | `undefined`     |
 
 
 ## Dependencies
