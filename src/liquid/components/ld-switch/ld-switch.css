@@ -41,6 +41,10 @@
   }
 }
 
+:host {
+  display: inline-flex;
+}
+
 .ld-switch,
 :host fieldset {
   border: 0;
