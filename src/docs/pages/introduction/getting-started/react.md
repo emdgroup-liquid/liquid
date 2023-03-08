@@ -133,10 +133,10 @@ return (
   <LdSidenav>
     // ...
     <LdSidenavNavitem
-      href={`/processes`}
+      href="/processes"
       onClick={(e) => {
         e.preventDefault()
-        navigate(`/processes`)
+        navigate('processes')
       }}
     >
       Processes
@@ -160,10 +160,10 @@ return (
   <LdSidenav>
     // ...
     <LdSidenavNavitem
-      href={`/processes`}
+      href="processes"
       onClick={(e) => {
         e.preventDefault()
-        navigate(`/processes`)
+        navigate('processes')
       }}
       selected={pathname === '/processes'} // Depending on your routes, you'll need a more sophisicated evaluation here
     >
