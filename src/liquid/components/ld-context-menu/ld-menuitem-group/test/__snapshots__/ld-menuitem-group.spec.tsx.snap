@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-menuitem-group renders 1`] = `
+<ld-menuitem-group aria-label="Test label">
+  <mock:shadow-root>
+    <li class="ld-menuitem-group" role="none">
+      <ul aria-label="Test label" class="ld-menuitem-group__list" role="group">
+        <slot></slot>
+      </ul>
+    </li>
+  </mock:shadow-root>
+  <ld-menuitem>
+    Menu item 1
+  </ld-menuitem>
+  <ld-menuitem>
+    Menu item 2
+  </ld-menuitem>
+</ld-menuitem-group>
+`;

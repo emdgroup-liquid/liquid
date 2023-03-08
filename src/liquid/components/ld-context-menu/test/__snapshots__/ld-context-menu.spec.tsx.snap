@@ -3,7 +3,7 @@
 exports[`ld-context-menu clones the style attribute 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="bottom left" triggertype="click" unstyled="">
+    <ld-tooltip position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
       <ld-menu style="width: 15rem;">
         <slot></slot>
@@ -29,7 +29,7 @@ exports[`ld-context-menu clones the style attribute 1`] = `
 exports[`ld-context-menu forwards position 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="left middle" triggertype="click" unstyled="">
+    <ld-tooltip position="left middle" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
       <ld-menu>
         <slot></slot>
@@ -55,7 +55,7 @@ exports[`ld-context-menu forwards position 1`] = `
 exports[`ld-context-menu renders 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="bottom left" triggertype="click" unstyled="">
+    <ld-tooltip position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
       <ld-menu>
         <slot></slot>

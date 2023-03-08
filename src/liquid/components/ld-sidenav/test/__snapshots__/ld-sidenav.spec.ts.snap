@@ -74,7 +74,7 @@ exports[`ld-sidenav aligns toggle outside to the right 1`] = `
     <mock:shadow-root>
       <ld-tooltip show-delay="1000">
         <mock:shadow-root>
-          <span aria-describedby="ld-tooltip-1" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+          <span aria-describedby="ld-tooltip-1" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
             <ld-sr-only>
               Info
             </ld-sr-only>
@@ -135,7 +135,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
     <mock:shadow-root>
       <ld-tooltip show-delay="1000">
         <mock:shadow-root>
-          <span aria-describedby="ld-tooltip-519" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+          <span aria-describedby="ld-tooltip-519" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
             <ld-sr-only>
               Info
             </ld-sr-only>
@@ -200,7 +200,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
       <mock:shadow-root>
         <ld-tooltip class="ld-sidenav-header__tooltip" show-delay="1000">
           <mock:shadow-root>
-            <span aria-describedby="ld-tooltip-520" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+            <span aria-describedby="ld-tooltip-520" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
               <ld-sr-only>
                 Info
               </ld-sr-only>
@@ -4049,7 +4049,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
     <mock:shadow-root>
       <ld-tooltip show-delay="1000">
         <mock:shadow-root>
-          <span aria-describedby="ld-tooltip-1181" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+          <span aria-describedby="ld-tooltip-1165" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
             <ld-sr-only>
               Info
             </ld-sr-only>
@@ -4114,7 +4114,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
       <mock:shadow-root>
         <ld-tooltip class="ld-sidenav-header__tooltip" show-delay="1000">
           <mock:shadow-root>
-            <span aria-describedby="ld-tooltip-1182" class="ld-tooltip__trigger" part="trigger focusable" type="button">
+            <span aria-describedby="ld-tooltip-1166" class="ld-tooltip__trigger" part="trigger focusable" tabindex="-1" type="button">
               <ld-sr-only>
                 Info
               </ld-sr-only>
