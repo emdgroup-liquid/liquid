@@ -10,8 +10,6 @@ const svgoConfig = [
     params: {
       overrides: {
         removeViewBox: false,
-        removeDimensions: false,
-        removeXMLNS: false,
       },
     },
   },
@@ -47,11 +45,7 @@ const optimiseFile = async (fileName) => {
   })
 }
 
-glob('src/liquid/components/ld-icon/assets/*.svg', {}, (err, files) => {
-  if (err) {
-    throw err
-  }
-  Promise.all(files.map((fileName) => optimiseFile(fileName))).catch((err) => {
-    throw err
-  })
-})
+;(async () => {
+  const files = await glob('src/liquid/components/ld-icon/assets/*.svg', {})
+  await Promise.all(files.map((fileName) => optimiseFile(fileName)))
+})()

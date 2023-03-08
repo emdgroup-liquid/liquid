@@ -36,7 +36,7 @@ async function deleteScreenshots(components?: string[]) {
   const { screenshots } = master
   const referencedFileNames = screenshots.map((screenshot) => screenshot.image)
 
-  const filePaths = glob.sync('screenshot/images/*.png')
+  const filePaths = await glob('screenshot/images/*.png')
 
   const toDelete = []
   for (const filePath of filePaths) {
