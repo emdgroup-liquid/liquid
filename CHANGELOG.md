@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.9](https://github.com/emdgroup-liquid/liquid/compare/v4.7.8...v4.7.9) (2023-03-08)
+
+
+### Bug Fixes
+
+* **ld-switch:** use display inline-flex on host element ([ae10974](https://github.com/emdgroup-liquid/liquid/commit/ae10974845a439c87e807e143ec362f63be98db6))
+
 ## [4.7.8](https://github.com/emdgroup-liquid/liquid/compare/v4.7.7...v4.7.8) (2023-03-08)
 
 
