@@ -39,21 +39,21 @@ permalink: components/ld-context-menu/
 
 {% example %}
 <ld-context-menu size="sm">
-  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-button slot="trigger">Small</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
 </ld-context-menu>
 
 <ld-context-menu>
-  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-button slot="trigger">Medium</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
 </ld-context-menu>
 
 <ld-context-menu size="lg">
-  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-button slot="trigger">Large</ld-button>
   <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
@@ -62,21 +62,21 @@ permalink: components/ld-context-menu/
 <!-- React component -->
 
 <LdContextMenu size="sm">
-  <LdButton slot="trigger">Open menu</LdButton>
+  <LdButton slot="trigger">Small</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
 </LdContextMenu>
 
 <LdContextMenu>
-  <LdButton slot="trigger">Open menu</LdButton>
+  <LdButton slot="trigger">Medium</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>
 </LdContextMenu>
 
 <LdContextMenu size="lg">
-  <LdButton slot="trigger">Open menu</LdButton>
+  <LdButton slot="trigger">Large</LdButton>
   <LdMenuitem>Menu item 1</LdMenuitem>
   <LdMenuitem>Menu item 2</LdMenuitem>
   <LdMenuitem>Menu item 3</LdMenuitem>

@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, State } from '@stencil/core'
+import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
 import { isInnerFocusable } from '../../../liquid/utils/focus'
 
 const isHtmlElement = (element?: Element): element is HTMLElement =>
@@ -61,8 +61,19 @@ export class LdContextMenu {
     await firstMenuItem.focusInner()
   }
 
+  @Watch('size')
+  private updateSize() {
+    if (this.size) {
+      this.menuRef.setAttribute('size', this.size)
+    } else {
+      this.menuRef.removeAttribute('size')
+    }
+  }
+
   componentDidLoad() {
     const style = this.el.getAttribute('style')
+
+    this.updateSize()
 
     if (style) {
       this.menuRef.setAttribute('style', style)
@@ -87,7 +98,7 @@ export class LdContextMenu {
           ref={(element: HTMLSlotElement) => (this.triggerSlotRef = element)}
           slot="trigger"
         />
-        <ld-menu ref={(el) => (this.menuRef = el)} size={this.size}>
+        <ld-menu ref={(el) => (this.menuRef = el)}>
           <slot />
         </ld-menu>
       </ld-tooltip>
