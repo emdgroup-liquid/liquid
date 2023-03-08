@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.8](https://github.com/emdgroup-liquid/liquid/compare/v4.7.7...v4.7.8) (2023-03-08)
+
+
+### Bug Fixes
+
+* **ld-sidenav:** use a default z-index of 1 ([82cb049](https://github.com/emdgroup-liquid/liquid/commit/82cb049f00634bca66a91a607556fe55b3875aa4))
+* **ld-sr-live:** remove host element from layout ([ada7963](https://github.com/emdgroup-liquid/liquid/commit/ada7963e1c865bc56daed38e89549fba79d8c0f9))
+
 ## [4.7.7](https://github.com/emdgroup-liquid/liquid/compare/v4.7.6...v4.7.7) (2023-03-02)
 
 
