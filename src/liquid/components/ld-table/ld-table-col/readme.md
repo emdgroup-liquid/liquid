@@ -1,6 +1,19 @@
+---
+eleventyNavigation:
+  key: Table Column
+  parent: Table
+layout: layout.njk
+title: Table Column
+permalink: components/ld-table/ld-table-col/
+---
+
 # ld-table-col
 
+The `ld-table-col` component is a subcomponent for `ld-table`.
 
+Please refer to the [`ld-table` documentation](components/ld-table/) for usage examples.
+
+---
 
 <!-- Auto Generated Below -->
 
