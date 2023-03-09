@@ -149,8 +149,6 @@ permalink: components/ld-context-menu/
 
 ### Position
 
-The `position` prop is identical to the one of the `ld-tooltip` component. Please refer to the [`ld-tooltip`-documentation](components/ld-tooltip/#positioning) for a more detailed example.
-
 {% example %}
 <ld-context-menu position="top right">
   <ld-button slot="trigger">Top right</ld-button>
@@ -182,6 +180,10 @@ The `position` prop is identical to the one of the `ld-tooltip` component. Pleas
   <LdMenuitem>Menu item 3</LdMenuitem>
 </LdContextMenu>
 {% endexample %}
+
+<ld-notice mode="warning">
+  The <code>position</code> prop is identical to the one of the <code>ld-tooltip</code> component. Please refer to the <a href="components/ld-tooltip/#positioning"><code>ld-tooltip</code>-documentation</a> for a full example of all available positions.
+</ld-notice>
 
 <!-- Auto Generated Below -->
 

@@ -15,7 +15,7 @@ permalink: components/ld-context-menu/ld-menu/
 
 # ld-menu
 
-The `ld-menu` component is used internally for the `ld-menu`. It is the visual part of the actual menu without the floating/tooltip functionality.
+The `ld-menu` component is used internally for the `ld-context-menu`. It is the visual part of the actual menu without the floating/tooltip functionality.
 
 ## Examples
 
