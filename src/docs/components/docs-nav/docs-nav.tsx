@@ -1,4 +1,4 @@
-import { Component, h, Host, State, Listen } from '@stencil/core'
+import { Component, h, Host, State, Listen, Element } from '@stencil/core'
 import eventBus from '../../utils/eventBus'
 import { NavEventType } from '../../utils/eventTypes'
 
@@ -10,6 +10,8 @@ import { NavEventType } from '../../utils/eventTypes'
   assetsDirs: ['assets'],
 })
 export class DocsNav {
+  @Element() el: HTMLElement
+
   @State() isNavOpen = false
 
   private onNavOpen() {
@@ -57,6 +59,10 @@ export class DocsNav {
   componentDidLoad() {
     eventBus.on(NavEventType.open, this.onNavOpen.bind(this))
     eventBus.on(NavEventType.close, this.onNavClose.bind(this))
+
+    // Scroll current nav item into view.
+    const link = this.el.querySelector(`[href='${location.pathname}']`)
+    link?.scrollIntoView({ block: 'center' })
   }
 
   render() {
