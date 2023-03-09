@@ -13825,7 +13825,7 @@
     },
     {
       "id": "4e6635b3",
-      "image": "1644730ccb5da293a054296e051f3f7c.png",
+      "image": "d00c04b416596c7c5e66ff8ac714e9c9.png",
       "userAgent": "default",
       "desc": "ld-menu css component size lg default",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
@@ -13838,7 +13838,7 @@
     },
     {
       "id": "9a7eeda8",
-      "image": "1f75dbf472ca15f91810cabeb1fc3cb2.png",
+      "image": "450e724fe2d85fdcb4c764f20d5f01c1.png",
       "userAgent": "default",
       "desc": "ld-menu css component size lg with menu groups",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
@@ -13851,7 +13851,7 @@
     },
     {
       "id": "f65aaf75",
-      "image": "f290c69c36006aee32cc4bfa96abd606.png",
+      "image": "f3da8a65e5e6efbda05861d1a6026b34.png",
       "userAgent": "default",
       "desc": "ld-menu css component size md default",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
@@ -13864,7 +13864,7 @@
     },
     {
       "id": "73a26f75",
-      "image": "6842a8a7780000143eee4d4a28453fd3.png",
+      "image": "bfa0cf3ff5e62e866f1adc207fa475d8.png",
       "userAgent": "default",
       "desc": "ld-menu css component size md with menu groups",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
@@ -13877,7 +13877,7 @@
     },
     {
       "id": "49b5cfbb",
-      "image": "238b92ae7ecd422dce3043b63d5ebc57.png",
+      "image": "233b0fa621bf9c32935291f8bb7d1c93.png",
       "userAgent": "default",
       "desc": "ld-menu css component size sm default",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
@@ -13890,7 +13890,7 @@
     },
     {
       "id": "996eed64",
-      "image": "06002af22a7be68012937b16f01438f9.png",
+      "image": "eed69eeb4f8928bb4a4b3edb73515848.png",
       "userAgent": "default",
       "desc": "ld-menu css component size sm with menu groups",
       "testPath": "./src/liquid/components/ld-context-menu/ld-menu/test/ld-menu.e2e.ts",
