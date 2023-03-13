@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.ld-menuitem .ld-menuitem__button {
+  display: grid;
+  width: 100%;
+}
