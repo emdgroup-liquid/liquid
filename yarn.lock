@@ -15589,11 +15589,11 @@ send@latest:
   linkType: hard
 
 "stylelint-use-nesting@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "stylelint-use-nesting@npm:4.0.0"
+  version: 4.1.0
+  resolution: "stylelint-use-nesting@npm:4.1.0"
   peerDependencies:
     stylelint: ">= 10"
-  checksum: e05f7661712393df9250427dbf647650d4009e2d7cbdeb6b87e0a8127867ea1428e87df357c4a7cb21c5e1980055fc0f2eb82351efacf99ecf9919bcef685a3d
+  checksum: de39abfabf3209f819f78cf6dc7c609bb33ee0d7b1acc9e4573d78923680d1c3a698ad174b19de3887e241f77c4089c968d3b0aa98260fcce84df8705f523341
   languageName: node
   linkType: hard
 
