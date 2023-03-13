@@ -103,7 +103,7 @@ exports[`ld-button danger 1`] = `
 exports[`ld-button danger-secondary 1`] = `
 <ld-button mode="danger-secondary">
   <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--danger-secondary" part="button focusable">
+    <button aria-live="polite" class="ld-button ld-button--danger-secondary ld-button--secondary" part="button focusable">
       <slot></slot>
     </button>
   </mock:shadow-root>

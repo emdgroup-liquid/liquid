@@ -3,6 +3,29 @@ import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { registerAutofocus } from '../../utils/focus'
 
+type Mode =
+  | 'highlight'
+  | 'secondary'
+  | 'ghost'
+  | 'danger'
+  | 'danger-secondary'
+  | 'danger-ghost'
+  | 'neutral'
+  | 'neutral-secondary'
+  | 'neutral-ghost'
+
+const modeMap: Record<Mode, string> = {
+  danger: 'ld-button--danger',
+  ghost: 'ld-button--ghost',
+  highlight: 'ld-button--highlight',
+  neutral: 'ld-button--neutral',
+  secondary: 'ld-button--secondary',
+  'danger-ghost': 'ld-button--ghost ld-button--danger-ghost',
+  'danger-secondary': 'ld-button--secondary ld-button--danger-secondary',
+  'neutral-ghost': 'ld-button--ghost ld-button--neutral-ghost',
+  'neutral-secondary': 'ld-button--secondary ld-button--neutral-secondary',
+}
+
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
@@ -68,12 +91,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() ldTabindex?: number
 
   /** Display mode. */
-  @Prop() mode?:
-    | 'highlight'
-    | 'secondary'
-    | 'ghost'
-    | 'danger'
-    | 'danger-secondary'
+  @Prop() mode?: Mode
 
   /** Used to specify the name of the control. */
   @Prop() name?: string
@@ -97,8 +115,13 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Defines the value associated with the button’s `name` when it’s submitted with the form data. */
   @Prop() value?: string
 
+  /**
+   * Button contains only an icon and no text.
+   * @internal
+   */
+  @Prop({ mutable: true }) iconOnly?: boolean
+
   @State() clonedAttributes
-  @State() iconOnly = false
 
   /**
    * Sets focus on the button
@@ -182,13 +205,17 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.type === 'submit' ? 'type' : undefined, // submit is default
     ])
 
+    registerAutofocus(this.autofocus)
+
+    if (this.iconOnly !== undefined) {
+      return
+    }
+
     const textInButton = this.el.textContent.trim()
 
     if (!textInButton) {
       this.iconOnly = true
     }
-
-    registerAutofocus(this.autofocus)
   }
 
   render() {
@@ -198,7 +225,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.brandColor && `ld-button--brand-color`,
       this.iconOnly && `ld-button--icon-only`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
-      this.mode && `ld-button--${this.mode}`,
+      this.mode && modeMap[this.mode],
       this.size && `ld-button--${this.size}`,
     ])
 
