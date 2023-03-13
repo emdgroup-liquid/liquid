@@ -114,7 +114,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 {% example %}
 <ld-tooltip trigger-type="click">
-  <div class="ld-button" slot="trigger">click me</div>
+  <ld-button slot="trigger">click me</ld-button>
   <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
   <ld-typo>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -124,7 +124,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 <!-- React component -->
 
 <LdTooltip triggerType="click">
-  <div className="ld-button" slot="trigger">click me</div>
+  <LdButton slot="trigger">click me</LdButton>
   <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
   <LdTypo>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -137,7 +137,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 {% example %}
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 0.625rem">
   <ld-tooltip arrow position="top left" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">top left</div>
+    <ld-button slot="trigger" style="width: 9.375rem">top left</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -145,7 +145,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="top center" style="text-align: center">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">top center</div>
+    <ld-button slot="trigger" style="width: 9.375rem">top center</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -153,7 +153,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="top right">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">top right</div>
+    <ld-button slot="trigger" style="width: 9.375rem">top right</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -161,7 +161,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="left top" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">left top</div>
+    <ld-button slot="trigger" style="width: 9.375rem">left top</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -171,7 +171,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right top">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">right top</div>
+    <ld-button slot="trigger" style="width: 9.375rem">right top</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -179,7 +179,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="left middle" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">left middle</div>
+    <ld-button slot="trigger" style="width: 9.375rem">left middle</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -189,7 +189,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right middle">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">right middle</div>
+    <ld-button slot="trigger" style="width: 9.375rem">right middle</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -197,7 +197,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="left bottom" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">left bottom</div>
+    <ld-button slot="trigger" style="width: 9.375rem">left bottom</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -207,7 +207,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <ld-tooltip arrow position="right bottom">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">right bottom</div>
+    <ld-button slot="trigger" style="width: 9.375rem">right bottom</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -215,7 +215,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom left" style="text-align: end">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom left</div>
+    <ld-button slot="trigger" style="width: 9.375rem">bottom left</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -223,7 +223,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom center" style="text-align: center">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom center</div>
+    <ld-button slot="trigger" style="width: 9.375rem">bottom center</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -231,7 +231,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </ld-tooltip>
 
   <ld-tooltip arrow position="bottom right">
-    <div class="ld-button" slot="trigger" style="width: 9.375rem">bottom right</div>
+    <ld-button slot="trigger" style="width: 9.375rem">bottom right</ld-button>
     <ld-typo variant="h4" style="margin-bottom: 0.625rem">Headline</ld-typo>
     <ld-typo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -243,7 +243,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 <div style={ { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridGap: '0.625rem' } }>
   <LdTooltip arrow position="top left" style={ { textAlign: 'end' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>top left</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>top left</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -251,7 +251,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="top center" style={ { textAlign: 'center' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>top center</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>top center</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -259,7 +259,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="top right">
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>top right</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>top right</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -267,7 +267,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="left top" style={ { textAlign: 'end' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>left top</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>left top</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -277,7 +277,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <LdTooltip arrow position="right top">
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>right top</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>right top</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -285,7 +285,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="left middle" style={ { textAlign: 'end' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>left middle</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>left middle</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -295,7 +295,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <LdTooltip arrow position="right middle">
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>right middle</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>right middle</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -303,7 +303,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="left bottom" style={ { textAlign: 'end' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>left bottom</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>left bottom</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -313,7 +313,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   <div></div>
 
   <LdTooltip arrow position="right bottom">
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>right bottom</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>right bottom</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -321,7 +321,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="bottom left" style={ { textAlign: 'end' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>bottom left</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>bottom left</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -329,7 +329,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="bottom center" style={ { textAlign: 'center' } }>
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>bottom center</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>bottom center</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -337,7 +337,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
   </LdTooltip>
 
   <LdTooltip arrow position="bottom right">
-    <div className="ld-button" slot="trigger" style={ { width: '9.375rem' } }>bottom right</div>
+    <LdButton slot="trigger" style={ { width: '9.375rem' } }>bottom right</LdButton>
     <LdTypo variant="h4" style={ { marginBottom: '0.625rem' } }>Headline</LdTypo>
     <LdTypo>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -351,28 +351,28 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 {% example %}
 <ld-tooltip hide-delay="1000" show-delay="1000">
-  <div class="ld-button" slot="trigger">show/hide 1s</div>
+  <ld-button slot="trigger">show/hide 1s</ld-button>
   <ld-typo>
     I show and hide after 1s
   </ld-typo>
 </ld-tooltip>
 
 <ld-tooltip show-delay="1000">
-  <div class="ld-button" slot="trigger">show 1s</div>
+  <ld-button slot="trigger">show 1s</ld-button>
   <ld-typo>
     I show after 1s, but hide immediately
   </ld-typo>
 </ld-tooltip>
 
 <ld-tooltip hide-delay="1000">
-  <div class="ld-button" slot="trigger">hide 1s</div>
+  <ld-button slot="trigger">hide 1s</ld-button>
   <ld-typo>
     I show immediately, but hide after 1s
   </ld-typo>
 </ld-tooltip>
 
 <ld-tooltip show-delay="500" hide-delay="1000">
-  <div class="ld-button" slot="trigger">show 500ms / hide 1s</div>
+  <ld-button slot="trigger">show 500ms / hide 1s</ld-button>
   <ld-typo>
     I show after 500ms and hide after 1s
   </ld-typo>
@@ -381,22 +381,22 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 <!-- React component -->
 
 <LdTooltip hideDelay={1000} showDelay={1000}>
-  <div className="ld-button" slot="trigger">show/hide 1s</div>
+  <LdButton slot="trigger">show/hide 1s</LdButton>
   <LdTypo>I show and hide after 1s</LdTypo>
 </LdTooltip>
 
 <LdTooltip showDelay={1000}>
-  <div className="ld-button" slot="trigger">show 1s</div>
+  <LdButton slot="trigger">show 1s</LdButton>
   <LdTypo>I show after 1s, but hide immediately</LdTypo>
 </LdTooltip>
 
 <LdTooltip hideDelay={1000}>
-  <div className="ld-button" slot="trigger">hide 1s</div>
+  <LdButton slot="trigger">hide 1s</LdButton>
   <LdTypo>I show immediately, but hide after 1s</LdTypo>
 </LdTooltip>
 
 <LdTooltip showDelay={500} hideDelay={1000}>
-  <div className="ld-button" slot="trigger">show 500ms / hide 1s</div>
+  <LdButton slot="trigger">show 500ms / hide 1s</LdButton>
   <LdTypo>I show after 500ms and hide after 1s</LdTypo>
 </LdTooltip>
 {% endexample %}
@@ -434,7 +434,25 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 | `triggerType`   | `trigger-type`   | Event type that triggers the tooltip                                                      | `"click" \| "hover"`                                                                                                                                                                                                                                                                                                                             | `'hover'`      |
 
 
+## Events
+
+| Event            | Description                         | Type               |
+| ---------------- | ----------------------------------- | ------------------ |
+| `ldtooltipclose` | Emitted when the tooltip is opened. | `CustomEvent<any>` |
+| `ldtooltipopen`  | Emitted when the tooltip is opened. | `CustomEvent<any>` |
+
+
 ## Methods
+
+### `getTooltip() => Promise<HTMLElement>`
+
+Get the `ld-tooltip-popper` element.
+
+#### Returns
+
+Type: `Promise<HTMLElement>`
+
+
 
 ### `hideTooltip() => Promise<void>`
 
@@ -471,6 +489,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ld-context-menu](../ld-context-menu)
  - [ld-sidenav-header](../ld-sidenav/ld-sidenav-header)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
@@ -485,6 +504,7 @@ Type: `Promise<void>`
 graph TD;
   ld-tooltip --> ld-sr-only
   ld-tooltip --> ld-tooltip-popper
+  ld-context-menu --> ld-tooltip
   ld-sidenav-header --> ld-tooltip
   ld-sidenav-navitem --> ld-tooltip
   ld-sidenav-toggle-outside --> ld-tooltip

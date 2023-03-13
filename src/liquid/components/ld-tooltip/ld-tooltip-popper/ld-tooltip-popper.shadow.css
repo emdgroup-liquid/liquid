@@ -33,19 +33,24 @@
 
     animation: ld-tooltip-hide 0s ease var(--ld-tooltip-animation-duration);
     animation-fill-mode: forwards;
-    background-color: var(--tooltip-bg-col);
-    border-radius: var(--ld-br-m);
-    color: var(--tooltip-col);
-    filter: var(--ld-drop-shadow-hover);
     margin-left: var(--ld-tooltip-offset-x);
     margin-top: var(--ld-tooltip-offset-y);
     max-width: var(--ld-tooltip-max-width);
     opacity: 0;
-    padding: var(--ld-tooltip-padding);
     pointer-events: none;
     position: relative;
     transition: opacity var(--ld-tooltip-animation-duration) ease-in;
     z-index: var(--ld-zi-max);
+  }
+
+  &:not(.ld-tooltip--unstyled) {
+    :host(&) {
+      background-color: var(--tooltip-bg-col);
+      border-radius: var(--ld-br-m);
+      color: var(--tooltip-col);
+      filter: var(--ld-drop-shadow-hover);
+      padding: var(--ld-tooltip-padding);
+    }
   }
 
   &--initialized {

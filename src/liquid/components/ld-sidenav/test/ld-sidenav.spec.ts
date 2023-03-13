@@ -3,6 +3,7 @@ import { LdAccordion } from '../../ld-accordion/ld-accordion'
 jest.mock('../../../utils/focus')
 
 import MatchMediaMock from 'jest-matchmedia-mock'
+import { MockHTMLElement } from '@stencil/core/mock-doc'
 import { newSpecPage } from '@stencil/core/testing'
 import { LdAccordionSection } from '../../ld-accordion/ld-accordion-section/ld-accordion-section'
 import { LdAccordionToggle } from '../../ld-accordion/ld-accordion-toggle/ld-accordion-toggle'
@@ -74,6 +75,19 @@ const sidenavComponents = [
 ]
 
 describe('ld-sidenav', () => {
+  beforeAll(() => {
+    Object.defineProperty(MockHTMLElement.prototype, 'assignedElements', {
+      value: () => [],
+      configurable: true,
+      writable: true,
+    })
+    Object.defineProperty(MockHTMLElement.prototype, 'assignedNodes', {
+      value: () => [],
+      configurable: true,
+      writable: true,
+    })
+  })
+
   beforeEach(() => {
     matchMedia = new MatchMediaMock()
   })
@@ -389,8 +403,9 @@ describe('ld-sidenav', () => {
       const event = {
         type: 'click',
         isTrusted: true,
+        composedPath: () => [page.body],
       }
-      page.body.dispatchEvent(event as Event)
+      page.body.dispatchEvent(event as unknown as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
@@ -441,8 +456,9 @@ describe('ld-sidenav', () => {
       const event = {
         type: 'click',
         isTrusted: true,
+        composedPath: () => [page.body],
       }
-      page.body.dispatchEvent(event as Event)
+      page.body.dispatchEvent(event as unknown as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
@@ -487,8 +503,9 @@ describe('ld-sidenav', () => {
       const event = {
         type: 'click',
         isTrusted: true,
+        composedPath: () => [page.body],
       }
-      page.body.dispatchEvent(event as Event)
+      page.body.dispatchEvent(event as unknown as Event)
       await page.waitForChanges()
       expect(ldSidenav).toHaveClass('ld-sidenav--collapsed')
 
