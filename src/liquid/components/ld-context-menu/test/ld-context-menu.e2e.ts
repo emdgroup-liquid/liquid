@@ -92,6 +92,7 @@ describe('ld-context-menu', () => {
         await trigger.click()
         await new Promise((resolve) => setTimeout(resolve, 200))
 
+        expect(trigger.getAttribute('aria-haspopup')).toBe('menu')
         await expect(
           analyzeAccessibility(page)
         ).resolves.toHaveNoAccessibilityIssues()

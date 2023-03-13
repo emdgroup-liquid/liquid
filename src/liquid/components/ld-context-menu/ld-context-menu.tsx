@@ -41,6 +41,9 @@ export class LdContextMenu {
       case 'Escape':
         event.preventDefault()
         await this.tooltipRef.hideTooltip()
+        break
+      case 'Tab':
+        event.preventDefault()
     }
   }
 
@@ -79,6 +82,10 @@ export class LdContextMenu {
       this.menuRef.setAttribute('style', style)
       this.el.removeAttribute('style')
     }
+
+    this.triggerSlotRef
+      .assignedElements()
+      .forEach((element) => (element.ariaHasPopup = 'menu'))
   }
 
   render() {
