@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.10](https://github.com/emdgroup-liquid/liquid/compare/v4.7.9...v4.7.10) (2023-03-16)
+
+
+### Bug Fixes
+
+* **ld-label:** throws on click when without child ([519521b](https://github.com/emdgroup-liquid/liquid/commit/519521bee8ee32d3e0ece1584ed7724478a691a0))
+
 ## [4.7.9](https://github.com/emdgroup-liquid/liquid/compare/v4.7.8...v4.7.9) (2023-03-08)
 
 
