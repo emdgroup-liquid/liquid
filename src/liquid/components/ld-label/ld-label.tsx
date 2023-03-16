@@ -32,15 +32,15 @@ export class LdLabel implements ClonesAttributes {
     const inputElement: HTMLElement = this.el.querySelector(
       'ld-input, ld-textarea, ld-toggle, ld-select, ld-button, ld-checkbox, ld-radio, input, textarea, button, select'
     )
-    const clickedInsideInputElement =
-      event.target === inputElement ||
-      inputElement.contains(event.target as Node)
-
-    if (
+    const notClickedInsideNotDisabled =
       inputElement &&
-      !clickedInsideInputElement &&
+      !(
+        event.target === inputElement ||
+        inputElement.contains(event.target as Node)
+      ) &&
       !inputElement['disabled']
-    ) {
+
+    if (notClickedInsideNotDisabled) {
       if ('focusInner' in inputElement) {
         await (inputElement as unknown as InnerFocusable).focusInner()
       } else {

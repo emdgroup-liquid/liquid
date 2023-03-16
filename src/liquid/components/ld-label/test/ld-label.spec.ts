@@ -117,4 +117,13 @@ describe('ld-label', () => {
     expect(ldInput.focus).not.toHaveBeenCalled()
     expect(ldInput.focusInner).toHaveBeenCalledTimes(1)
   })
+
+  it('does not throw, when label without child elements is clicked', async () => {
+    const page = await newSpecPage({
+      components: [LdLabel],
+      html: '<ld-label>Label text</ld-label>',
+    })
+    await page.root.shadowRoot.querySelector('slot').click()
+    // No need to assert anything here.
+  })
 })
