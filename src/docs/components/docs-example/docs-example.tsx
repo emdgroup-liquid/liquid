@@ -35,9 +35,6 @@ export class DocsExample {
   /** React component markup encoded as URI component. */
   @Prop() codeReactComponent: string
 
-  /** Adds a thin border to the container. */
-  @Prop() hasBorder = false
-
   /** Puts some space between content and container. */
   @Prop() hasPadding = false
 
@@ -131,7 +128,6 @@ export class DocsExample {
     const cl = [
       'docs-example',
       this.isCodeVisible && 'docs-example--code-visible',
-      this.hasBorder && 'docs-example--has-border',
       this.hasPadding && 'docs-example--has-padding',
       this.codeType === 'wc' && 'docs-example--web-component',
       this.codeType === 'css' && 'docs-example--css-component',
@@ -192,7 +188,7 @@ export class DocsExample {
                         viewBox="-11.5 -10.2 23 20.5"
                         style={{ transform: 'scale(1.1)' }}
                       >
-                        <circle r="2" fill="currentColor" />
+                        <circle r="2" fill="currentColor" stroke="none" />
                         <g stroke="currentColor" fill="none">
                           <ellipse rx="11" ry="4.2" />
                           <ellipse rx="11" ry="4.2" transform="rotate(60)" />

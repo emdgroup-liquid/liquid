@@ -19,6 +19,7 @@
 
 @mixin docs-icon-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-icon-ui-dark;
 }
@@ -28,6 +29,7 @@
 .docs-ui-light {
   @mixin docs-icon-ui-light;
 }
+*/
 
 .docs-icon {
   align-items: center;

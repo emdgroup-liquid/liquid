@@ -17,6 +17,17 @@ All colors listed below are available as global CSS custom properties after [imp
   For more information visit <a href="https://brand-hub.merckgroup.com/en/design-basics/colors.html" rel="noreferrer noopener" target="_blank">Brand Hub: Colors</a>.
 </ld-notice>
 
+## Layer colors
+
+### Light
+
+<docs-color var="--ld-layer-5"></docs-color>
+<docs-color var="--ld-layer-4"></docs-color>
+<docs-color var="--ld-layer-3"></docs-color>
+<docs-color var="--ld-layer-2"></docs-color>
+<docs-color var="--ld-layer-1"></docs-color>
+<docs-color var="--ld-layer-0"></docs-color>
+
 ## White
 
 <docs-color var="--ld-col-wht"></docs-color>

@@ -11,6 +11,7 @@
 
 @mixin docs-shadow-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-shadow-ui-dark;
 }
@@ -20,6 +21,7 @@
 .docs-ui-light {
   @mixin docs-shadow-ui-light;
 }
+*/
 
 .docs-shadow {
   display: flex;

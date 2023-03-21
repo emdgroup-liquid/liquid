@@ -212,6 +212,7 @@ code .highlight-line::before {
 }
 
 @mixin docs-code-ui-light;
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-code-ui-dark;
 }
@@ -221,3 +222,4 @@ code .highlight-line::before {
 .docs-ui-dark {
   @mixin docs-code-ui-dark;
 }
+*/

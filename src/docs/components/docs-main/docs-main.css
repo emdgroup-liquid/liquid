@@ -193,6 +193,7 @@
 
 @mixin docs-main-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-main-ui-dark;
 }
@@ -202,6 +203,7 @@
 .docs-ui-light {
   @mixin docs-main-ui-light;
 }
+*/
 
 .docs-main {
   --ld-typo-code-s: 0.875rem / 176% 'Source Code Pro', Consolas, Monaco,
@@ -247,7 +249,7 @@
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-4);
-        border-radius: var(--ld-br-s);
+        border-radius: var(--ld-br-m);
       }
     }
 
@@ -469,7 +471,7 @@
         font-family: 'Source Code Pro', Consolas, Monaco, 'Ubuntu Mono',
           monospace;
         padding: var(--ld-sp-4) var(--ld-sp-6);
-        border-radius: var(--ld-br-s);
+        border-radius: var(--ld-br-m);
         display: inline-flex;
       }
     }
@@ -483,7 +485,7 @@
       code {
         display: inline-flex;
         padding: 0 var(--ld-sp-6);
-        border-radius: var(--ld-br-s);
+        border-radius: var(--ld-br-m);
       }
     }
 
@@ -496,7 +498,7 @@
 
       code {
         padding: 0 var(--ld-sp-4);
-        border-radius: var(--ld-br-s);
+        border-radius: var(--ld-br-m);
       }
     }
 
