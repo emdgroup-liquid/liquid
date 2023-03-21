@@ -11,6 +11,7 @@
 
 @mixin docs-typography-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-typography-ui-dark;
 }
@@ -20,6 +21,7 @@
 .docs-ui-light {
   @mixin docs-typography-ui-light;
 }
+*/
 
 .docs-typography {
   display: block;

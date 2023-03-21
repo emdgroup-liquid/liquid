@@ -21,6 +21,7 @@
 
 @mixin docs-switch-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-switch-ui-dark;
 }
@@ -30,6 +31,7 @@
 .docs-ui-light {
   @mixin docs-switch-ui-light;
 }
+*/
 
 .docs-switch-dark-light__btn {
   display: flex;

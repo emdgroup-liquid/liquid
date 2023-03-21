@@ -4,8 +4,7 @@
   }
 
   .docs-example__tools-scroll-container {
-    background-color: var(--ld-col-neutral-050);
-    border-color: var(--ld-col-neutral-100);
+    background-color: var(--ld-layer-3);
   }
 
   .docs-example__tools {
@@ -25,7 +24,6 @@
 
   .docs-example__tools-scroll-container {
     background-color: var(--ld-col-neutral-700);
-    border-color: var(--ld-col-neutral-700);
   }
 
   .docs-example__tools {
@@ -37,14 +35,11 @@
   .docs-example__copy-to-clipboard {
     filter: invert(1) hue-rotate(180deg);
   }
-
-  .docs-example--has-border .docs-example__show {
-    border-color: transparent;
-  }
 }
 
 @mixin docs-example-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-example-ui-dark;
 }
@@ -54,6 +49,7 @@
 .docs-ui-dark {
   @mixin docs-example-ui-dark;
 }
+*/
 
 .docs-example {
   display: block;
@@ -77,8 +73,6 @@
   overflow: auto;
   display: flex;
   width: 100%;
-  border-style: solid;
-  border-width: var(--ld-sp-1);
   border-bottom-left-radius: var(--ld-br-l);
   border-bottom-right-radius: var(--ld-br-l);
 }
@@ -109,19 +103,13 @@
 }
 
 .docs-example__show {
-  background-color: var(--ld-col-neutral-010);
+  background-color: var(--ld-layer-4);
   color: var(--ld-col-neutral-900);
-  border-bottom-width: 0;
   border-top-left-radius: var(--ld-br-l);
   border-top-right-radius: var(--ld-br-l);
   overflow: hidden;
   will-change: transform; /* Fixes overflow in Safari */
   color-scheme: light; /* stylelint-disable-line scale-unlimited/declaration-strict-value */
-
-  .docs-example--has-border & {
-    border: var(--ld-sp-1) solid var(--ld-col-neutral-100);
-    border-bottom: 0;
-  }
 
   .docs-example--has-padding & {
     padding: 0 var(--ld-sp-8) var(--ld-sp-24);
@@ -161,8 +149,6 @@
 }
 
 .docs-example__show--brand {
-  border-color: transparent;
-
   &.ld-theme-ocean {
     background-color: var(--ld-thm-ocean-primary);
   }
@@ -177,7 +163,7 @@
 }
 
 .docs-example__show--light {
-  background-color: var(--ld-col-wht);
+  background-color: var(--ld-layer-5);
 }
 
 .docs-example--code-visible {

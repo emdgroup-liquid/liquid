@@ -1,8 +1,8 @@
 @define-mixin docs-edit-on-github-ui-light {
   .docs-edit-on-github .ld-button {
-    background-color: var(--ld-col-wht);
+    background-color: var(--ld-layer-2);
     color: var(--ld-col-neutral-900);
-    box-shadow: inset 0 0 0 2px var(--ld-col-neutral-100);
+    box-shadow: inset 0 0 0 2px var(--ld-layer-1);
 
     &:focus:focus-visible {
       color: var(--ld-col-neutral-900);
@@ -54,6 +54,7 @@
 
 @mixin docs-edit-on-github-ui-light;
 
+/*
 @media (prefers-color-scheme: dark) {
   @mixin docs-edit-on-github-ui-dark;
 }
@@ -63,6 +64,7 @@
 .docs-ui-light {
   @mixin docs-edit-on-github-ui-light;
 }
+*/
 
 .docs-edit-on-github {
   display: block;

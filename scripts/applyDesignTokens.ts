@@ -379,15 +379,14 @@ function getHSLPartsFromValue(hslValue) {
   }
 }
 
-function getColorVariables(colorKey, colorVal) {
-  const hslParts = getHSLPartsFromValue(colorVal)
-  return `  --ld-col-${colorKey}: hsl(${hslParts.h} ${
-    hslParts.s
-  } calc(var(--ld-col-inv) * (100% - ${
-    hslParts.l
-  }) + (1 - var(--ld-col-inv)) * ${hslParts.l})${
-    hslParts.a === '1' ? '' : ' / ' + hslParts.a
+function getColorVariable(colorBaseName, colorKey, l, a) {
+  return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${l}${
+    a === 1 ? '' : ' / ' + a
   });`
+}
+
+function getLighness(baseLighness, x) {
+  return baseLighness * x
 }
 
 function generateColors(colorTokens) {
@@ -395,22 +394,53 @@ function generateColors(colorTokens) {
 
   // Basic colors
   Object.keys(colorTokens).forEach((key) => {
-    const val = colorTokens[key]
+    const colorVal = colorTokens[key]
     if (key.includes('/default')) {
-      const colorKey = key.split('/default')[0]
+      const { h, s, l } = getHSLPartsFromValue(colorVal)
       const colorBaseName = key
         .replace(/\d/g, '')
         .replace('/default', '')
         .replace(/-$/, '')
 
-      colorVariables.push(getColorVariables(colorKey, val))
+      colorVariables.push(
+        `  --ld-col-${colorBaseName}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${l});`
+      )
+      colorVariables.push(`  --ld-col-${colorBaseName}-h: ${h};`)
+      colorVariables.push(`  --ld-col-${colorBaseName}-s: ${s};`)
 
-      // prevents duplicate custom properties in cases like "sp/default"
-      if (colorBaseName !== colorKey) {
-        colorVariables.push(getColorVariables(colorBaseName, val))
+      if (colorBaseName === 'wht') {
+        return
       }
-    } else {
-      colorVariables.push(getColorVariables(key, val))
+
+      let x
+      if (key.includes('010')) x = 1
+      else if (key.includes('050')) x = 2
+      else x = (parseInt(key.match(/\d+/g)?.at(0)) || 0) / 100
+      const lightnessRatio = (parseFloat(l) / x).toFixed(2)
+
+      colorVariables.push(`  --ld-col-${colorBaseName}-lr: ${lightnessRatio};`)
+      ;[
+        '010',
+        '050',
+        '100',
+        '200',
+        '300',
+        '400',
+        '500',
+        '600',
+        '700',
+        '800',
+        '900',
+        'alpha-low',
+        'alpha-lowest',
+      ].forEach((colorKey, i) => {
+        let a = 1
+        if (colorKey === 'alpha-low') a = 0.2
+        else if (colorKey === 'alpha-lowest') a = 0.1
+        colorVariables.push(
+          getColorVariable(colorBaseName, colorKey, a < 1 ? l : l * i + 1, a)
+        )
+      })
     }
   })
   colorVariables.push('  --ld-col-inv: 0;')
