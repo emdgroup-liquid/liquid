@@ -3,7 +3,6 @@ const https = require('https')
 const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
 const { join, dirname } = require('path')
-const chroma = require('chroma-js')
 
 const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
@@ -28,13 +27,6 @@ function pxToRem(px: string | number) {
   return val + 'rem'
 }
 
-function getHSLFromColor(color) {
-  const h = ((color.get('hsl.h') || 0) * 1).toFixed(2)
-  const s = (color.get('hsl.s') * 100).toFixed(2)
-  const l = (color.get('hsl.l') * 100).toFixed(2)
-  return { h, s, l }
-}
-
 function getColorTokenValue(variant, styles) {
   if (variant.styles?.fill) {
     const style = styles[variant.styles.fill]
@@ -53,12 +45,56 @@ function getColorTokenValue(variant, styles) {
         : '')
     return referenceName
   } else {
-    const { r, g, b, a } = variant.fills[0]
-    const color = chroma({ r, g, b, a })
-
-    const { h, s, l } = getHSLFromColor(color)
-    return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+    // return relRGBToAbsRGB(variant.fills[0])
+    return relRGBToAbsHSL(variant.fills[0])
   }
+}
+
+// function relRGBToAbsRGB(fill) {
+//   const r = Math.round(fill.color.r * 255)
+//   const g = Math.round(fill.color.g * 255)
+//   const b = Math.round(fill.color.b * 255)
+//   const a = Math.round((fill.opacity ?? 1) * 100) / 100
+//
+//   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
+// }
+
+function relRGBToAbsHSL(fill) {
+  const { r, g, b } = fill.color
+  const cmin = Math.min(r, g, b)
+  const cmax = Math.max(r, g, b)
+  const delta = cmax - cmin
+  let h = 0
+  let s = 0
+  let l = 0
+  const a = Math.round((fill.opacity ?? 1) * 100) / 100
+
+  // Calculate hue
+  // No difference
+  if (delta == 0) h = 0
+  // Red is max
+  else if (cmax == r) h = ((g - b) / delta) % 6
+  // Green is max
+  else if (cmax == g) h = (b - r) / delta + 2
+  // Blue is max
+  else h = (r - g) / delta + 4
+
+  h = Math.round(h * 60)
+
+  // Make negative hues positive behind 360°
+  if (h < 0) h += 360
+
+  // Calculate lightness
+  l = (cmax + cmin) / 2
+
+  // Calculate saturation
+  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
+
+  // Multiply l and s by 100
+  s = +(s * 100).toFixed(1)
+  l = +(l * 100).toFixed(1)
+
+  return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
 }
 
 function parseThemes(items, styles) {
@@ -142,29 +178,8 @@ function parseShadows(items) {
   return shadows
 }
 
-function getLightness(lightness: string, isDark = false) {
-  if (!isDark) return lightness
-  return (100 - parseFloat(lightness)).toFixed(2)
-}
-
-function parseColors(
-  items,
-  styles: { name: string; description: string }[],
-  isDark = false
-) {
+function parseColors(items, styles: { name: string; description: string }[]) {
   const colors = {}
-
-  function getKeyFromStep(step) {
-    if (step === 0) return '010'
-    if (step === 1) return '050'
-    return step - 1 + '00'
-  }
-
-  function getStepFromKey(colorKey) {
-    if (colorKey === '010') return 1
-    if (colorKey === '050') return 2
-    return (parseInt(colorKey) || 0) / 100 + 1
-  }
 
   for (const item of items) {
     if (item.name.startsWith('_')) {
@@ -172,164 +187,27 @@ function parseColors(
     }
 
     if (item.children) {
-      Object.assign(colors, parseColors(item.children, styles, isDark))
+      Object.assign(colors, parseColors(item.children, styles))
     } else if (item.fills?.length && item.styles?.fill) {
       const style = styles[item.styles.fill]
       const { name, description } = style
+      const variants = description.split(', ')
       const pathParts = name.split('/')
       const [baseColorName, ...rest] =
         pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')
-
-      const isDefault = description === 'Default'
-      const isNeutral = name.includes('/Neutral-900')
-      const isWhite = name.includes('/White') && !rest.length
-
-      if (!isDefault && !isNeutral && !isWhite) continue
-
-      let colorShortName: string
-      if (isNeutral) {
-        colorShortName = 'neutral'
-      } else if (isWhite) {
-        colorShortName = 'wht'
-      } else {
-        colorShortName = baseColorName.replace(/[a-z]/g, '').toLowerCase()
-      }
-
-      const defaultStep = getStepFromKey(name.match(/\d+/g)?.at(0))
-      const r = parseFloat((item.fills[0].color.r * 255).toFixed(2))
-      const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
-      const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
-
-      const color = chroma({ r, g, b })
-      const { h, s, l } = getHSLFromColor(color)
-      const totalSteps = 11
-      const totalStepsToLight = defaultStep
-      const totalStepsToDark = totalSteps - defaultStep
-
-      if (isWhite) {
-        colors[colorShortName] = `hsl(${h}deg ${s}% ${getLightness(
-          l,
-          isDark
-        )}%)`
-        const whiteGradients = [
-          {
-            modifier: 'alpha-highest',
-            alpha: 0.8,
-          },
-          {
-            modifier: 'alpha-high',
-            alpha: 0.7,
-          },
-          {
-            modifier: 'alpha-medium',
-            alpha: 0.5,
-          },
-          {
-            modifier: 'alpha-low',
-            alpha: 0.2,
-          },
-          {
-            modifier: 'alpha-lowest',
-            alpha: 0.1,
-          },
-        ]
-        for (const gradient of whiteGradients) {
-          colors[
-            `${colorShortName}-${gradient.modifier}`
-          ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}% / ${
-            gradient.alpha
-          })`
-        }
-        continue
-      }
-
-      // default
-      colors[
-        `${colorShortName}-${getKeyFromStep(defaultStep)}/default`
-      ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}%)`
-
-      // const defaultS = parseFloat(s)
-      // // scale
-      // chroma
-      //   .scale([
-      //     chroma({ r, g, b })
-      //       .set('hsl.h', color.get('hsl.h') - 10)
-      //       // .luminance(0.98),
-      //       .set('hsl.l', 0.9825),
-      //     chroma({ r, g, b })
-      //       .set('hsl.h', color.get('hsl.h') + 10)
-      //       // .luminance(0.015)
-      //       .set('hsl.l', 0.0175),
-      //   ])
-      //   .mode('lab')
-      //   .correctLightness()
-      //   .colors(totalSteps)
-      //   .forEach((color, step) => {
-      //     if (step === defaultStep) return
-      //     const s = Math.sin(step * (Math.PI / totalSteps)) * defaultS
-      //     const { h, /*s, */ l } = getHSLFromColor(chroma(color))
-      //     colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
-      //       h || 0
-      //     }deg ${s}% ${l}%)`
-      //     colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
-      //       h || 0
-      //     }deg ${s}% ${getLightness(l, isDark)}%)`
-      //   })
-
-      // to light
-      const colorLightest = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') - 15)
-        .set('hsl.l', 0.9825)
-        .set('hsl.s', isNeutral ? 0 : 1)
-      const colorLight = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') - 10)
-        .set('hsl.l', 0.9425)
-        .set('hsl.s', isNeutral ? 0 : 1)
-      const colorsToLightest = [
-        colorLightest,
-        ...chroma
-          .scale([colorLight, color])
-          .correctLightness()
-          .colors(totalStepsToLight),
-      ]
-      colorsToLightest.forEach((color, step) => {
-        if (step === defaultStep) return
-        const { h, s, l } = getHSLFromColor(chroma(color))
-        colors[
-          `${colorShortName}-${getKeyFromStep(step)}`
-        ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}%)`
-      })
-
-      // to dark
-      const colorDark = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') + 10)
-        .luminance(0.015)
-      chroma
-        .scale([color, colorDark])
-        .mode('lab')
-        .correctLightness()
-        .colors(totalStepsToDark)
-        .forEach((color, i) => {
-          if (i === 0) return
-          const step = defaultStep + i
-          const { h, s, l } = getHSLFromColor(chroma(color))
-          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
-            h || 0
-          }deg ${s}% ${l}%)`
-          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
-            h || 0
-          }deg ${s}% ${getLightness(l, isDark)}%)`
-        })
-
-      // TODO check if it is wiser to pick a color from the middle of the range
-      // alpha
-      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${getLightness(
-        l,
-        isDark
-      )}% / 0.2)`
-      colors[
-        `${colorShortName}-alpha-lowest`
-      ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}% / 0.1)`
+      const defaultOnly = rest.length === 0
+      const colorShortName = ['Neutral', 'White'].includes(baseColorName)
+        ? baseColorName === 'White'
+          ? 'wht'
+          : baseColorName.toLowerCase()
+        : baseColorName.replace(/[a-z]/g, '').toLowerCase()
+      const colorName =
+        colorShortName +
+        (defaultOnly ? '' : '-' + rest.join('-')) +
+        (variants.includes('Default') ? '/default' : '')
+      // const colorValue = relRGBToAbsRGB(item.fills[0])
+      const colorValue = relRGBToAbsHSL(item.fills[0])
+      colors[colorName] = colorValue
     }
   }
 
@@ -442,13 +320,6 @@ async function getTokensFromFigma(figmaFileURL: string) {
         styles
       ),
     },
-    colorsDark: {
-      ...parseColors(
-        figmaData.find((child) => child.name === 'Colors').children,
-        styles,
-        true
-      ),
-    },
     typography: parseTypography(
       [
         ...figmaData.find((child) => child.name === 'Headlines').children,
@@ -497,14 +368,34 @@ function generateShadows(tokens) {
   )
 }
 
-function generateColors(colors, colorsDark) {
+function getHSLPartsFromValue(hslValue) {
+  const hslParts = hslValue.match(/([\d.]+)(deg|%)|(0\.\d+)/g)
+  const [h, s, l, a] = hslParts
+  return {
+    h: h,
+    s: s,
+    l: l,
+    a: a ? a : '1',
+  }
+}
+
+function getColorVariables(colorKey, colorVal) {
+  const hslParts = getHSLPartsFromValue(colorVal)
+  return `  --ld-col-${colorKey}: hsl(${hslParts.h} ${
+    hslParts.s
+  } calc(var(--ld-col-inv) * (100% - ${
+    hslParts.l
+  }) + (1 - var(--ld-col-inv)) * ${hslParts.l})${
+    hslParts.a === '1' ? '' : ' / ' + hslParts.a
+  });`
+}
+
+function generateColors(colorTokens) {
   const colorVariables = []
-  const colorDarkVariables = []
 
   // Basic colors
-  Object.keys(colors).forEach((key) => {
-    const val = colors[key]
-    const valDark = colorsDark[key]
+  Object.keys(colorTokens).forEach((key) => {
+    const val = colorTokens[key]
     if (key.includes('/default')) {
       const colorKey = key.split('/default')[0]
       const colorBaseName = key
@@ -512,29 +403,24 @@ function generateColors(colors, colorsDark) {
         .replace('/default', '')
         .replace(/-$/, '')
 
-      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
-      colorDarkVariables.push(`  --ld-col-${colorKey}: ${valDark};`)
+      colorVariables.push(getColorVariables(colorKey, val))
 
       // prevents duplicate custom properties in cases like "sp/default"
       if (colorBaseName !== colorKey) {
-        colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
-        colorDarkVariables.push(`  --ld-col-${colorBaseName}: ${valDark};`)
+        colorVariables.push(getColorVariables(colorBaseName, val))
       }
     } else {
-      colorVariables.push(`  --ld-col-${key}: ${val};`)
-      colorDarkVariables.push(`  --ld-col-${key}: ${valDark};`)
+      colorVariables.push(getColorVariables(key, val))
     }
   })
+  colorVariables.push('  --ld-col-inv: 0;')
 
   return ensureWriteFile(
     join(stylesDir, 'colors/colors.css'),
     [
-      '/* autogenerated */',
-      'html:not(.ld-dark) {',
+      '/* autogenerated */ /* prettier-ignore */',
+      ':root {',
       ...colorVariables.sort(),
-      '}',
-      'html:is(.ld-dark) {',
-      ...colorDarkVariables.sort(),
       '}',
       '',
     ].join('\n'),
@@ -663,7 +549,7 @@ function generateBorderRadii(tokens) {
 function generateCSSTokenFiles(tokenCollection) {
   return Promise.all([
     generateShadows(tokenCollection.shadows),
-    generateColors(tokenCollection.colors, tokenCollection.colorsDark),
+    generateColors(tokenCollection.colors),
     generateSpacings(tokenCollection.spacings),
     generateTheming(tokenCollection.themes),
     generateTypography(tokenCollection.typography),
