@@ -31,12 +31,65 @@ export class MyComponent {
     return hsp <= 127.5 * (a || 1)
   }
 
+  private getRelRGBPartsFromValue(value) {
+    const regex = /rgba?\((\d+),\s?(\d+),\s?(\d+)(?:,\s?([\d.]+))?\)/
+    const result = regex.exec(value)
+    if (result) {
+      const [, r, g, b, a] = result
+      return {
+        r: parseFloat(r) / 255,
+        g: parseFloat(g) / 255,
+        b: parseFloat(b) / 255,
+        a: a ? parseFloat(a) : 1,
+      }
+    } else {
+      return null
+    }
+  }
+
+  private convertToHSL(color) {
+    const { r, g, b, a } = this.getRelRGBPartsFromValue(color)
+    const cmin = Math.min(r, g, b)
+    const cmax = Math.max(r, g, b)
+    const delta = cmax - cmin
+    let h = 0
+    let s = 0
+    let l = 0
+
+    // Calculate hue
+    // No difference
+    if (delta == 0) h = 0
+    // Red is max
+    else if (cmax == r) h = ((g - b) / delta) % 6
+    // Green is max
+    else if (cmax == g) h = (b - r) / delta + 2
+    // Blue is max
+    else h = (r - g) / delta + 4
+
+    h = Math.round(h * 60)
+
+    // Make negative hues positive behind 360°
+    if (h < 0) h += 360
+
+    // Calculate lightness
+    l = (cmax + cmin) / 2
+
+    // Calculate saturation
+    s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
+
+    // Multiply l and s by 100
+    s = +(s * 100).toFixed(1)
+    l = +(l * 100).toFixed(1)
+
+    return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+  }
+
   componentDidLoad() {
     const color = getComputedStyle(this.bgRef).getPropertyValue(
       'background-color'
     )
     setTimeout(() => {
-      this.val = color
+      this.val = this.convertToHSL(color)
       this.dark = this.isDark(color)
     })
   }
