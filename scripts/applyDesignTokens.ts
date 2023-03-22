@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+
 const https = require('https')
 const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
@@ -49,15 +50,6 @@ function getColorTokenValue(variant, styles) {
     return relRGBToAbsHSL(variant.fills[0])
   }
 }
-
-// function relRGBToAbsRGB(fill) {
-//   const r = Math.round(fill.color.r * 255)
-//   const g = Math.round(fill.color.g * 255)
-//   const b = Math.round(fill.color.b * 255)
-//   const a = Math.round((fill.opacity ?? 1) * 100) / 100
-//
-//   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
-// }
 
 function relRGBToAbsHSL(fill) {
   const { r, g, b } = fill.color
@@ -379,14 +371,73 @@ function getHSLPartsFromValue(hslValue) {
   }
 }
 
-function getColorVariable(colorBaseName, colorKey, l, a) {
-  return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${l}${
-    a === 1 ? '' : ' / ' + a
-  });`
+function getColorVariable(
+  colorBaseName: string,
+  colorKey: string,
+  lightness: number,
+  alpha: number
+) {
+  return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${(
+    lightness * 100
+  ).toFixed(2)}%${alpha === 1 ? '' : ' / ' + alpha});`
 }
 
-function getLighness(baseLighness, x) {
-  return baseLighness * x
+// Function to compute logarithmic function
+function computeLogFn(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  x3: number,
+  y3: number
+) {
+  // Calculate the coefficients of the logarithmic equation, y = a*log(x) + b
+  const a = (y1 - y3) / (Math.log(x1) - Math.log(x3))
+  const b = y2 - a * Math.log(x2)
+
+  // Return the logarithmic function
+  return (x: number) => a * Math.log(x) + b
+}
+function computeY(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  x3: number,
+  y3: number,
+  xVal: number
+): number {
+  // Get logarithmic function
+  const logFn = computeLogFn(x1, y1, x2, y2, x3, y3)
+
+  // Calculate and return y value
+  return logFn(xVal)
+}
+
+function getStepFromKey(colorKey) {
+  if (colorKey === '010') return 1
+  if (colorKey === '050') return 2
+  return (parseInt(colorKey) || 0) / 100 + 2
+}
+
+function getLighness(
+  baseLighness: string,
+  baseColorKey: string,
+  colorKey: string
+): number {
+  const totalSteps = 9
+  const baseStep = getStepFromKey(baseColorKey)
+  const step = getStepFromKey(colorKey)
+
+  const x1 = 1
+  const y1 = 0.98
+  const x2 = 1 + baseStep / totalSteps
+  const y2 = parseFloat(baseLighness) / 100
+  const x3 = 1 + 1
+  const y3 = 0.11
+
+  const lighness = computeY(x1, y1, x2, y2, x3, y3, 1 + step / totalSteps)
+  return lighness
 }
 
 function generateColors(colorTokens) {
@@ -397,28 +448,27 @@ function generateColors(colorTokens) {
     const colorVal = colorTokens[key]
     if (key.includes('/default')) {
       const { h, s, l } = getHSLPartsFromValue(colorVal)
-      const colorBaseName = key
-        .replace(/\d/g, '')
+      const baseColorName = key
+        .replace(/\d+/g, '')
         .replace('/default', '')
         .replace(/-$/, '')
 
-      colorVariables.push(
-        `  --ld-col-${colorBaseName}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${l});`
-      )
-      colorVariables.push(`  --ld-col-${colorBaseName}-h: ${h};`)
-      colorVariables.push(`  --ld-col-${colorBaseName}-s: ${s};`)
-
-      if (colorBaseName === 'wht') {
+      if (baseColorName === 'wht') {
         return
       }
 
-      let x
-      if (key.includes('010')) x = 1
-      else if (key.includes('050')) x = 2
-      else x = (parseInt(key.match(/\d+/g)?.at(0)) || 0) / 100
-      const lightnessRatio = (parseFloat(l) / x).toFixed(2)
+      const baseColorKey = key.match(/\d+/g)?.at(0)
+      if (!baseColorKey) {
+        return
+      }
 
-      colorVariables.push(`  --ld-col-${colorBaseName}-lr: ${lightnessRatio};`)
+      const baseLighness: string = l
+
+      colorVariables.push(
+        `  --ld-col-${baseColorName}: hsl(var(--ld-col-${baseColorName}-h) var(--ld-col-${baseColorName}-s) ${baseLighness});`
+      )
+      colorVariables.push(`  --ld-col-${baseColorName}-h: ${h};`)
+      colorVariables.push(`  --ld-col-${baseColorName}-s: ${s};`)
       ;[
         '010',
         '050',
@@ -433,12 +483,20 @@ function generateColors(colorTokens) {
         '900',
         'alpha-low',
         'alpha-lowest',
-      ].forEach((colorKey, i) => {
-        let a = 1
-        if (colorKey === 'alpha-low') a = 0.2
-        else if (colorKey === 'alpha-lowest') a = 0.1
+      ].forEach((colorKey) => {
+        let alpha: number, lightness: number
+        if (colorKey === 'alpha-low') {
+          alpha = 0.2
+          lightness = parseFloat(baseLighness) / 100
+        } else if (colorKey === 'alpha-lowest') {
+          alpha = 0.1
+          lightness = parseFloat(baseLighness) / 100
+        } else {
+          alpha = 1
+          lightness = getLighness(baseLighness, baseColorKey, colorKey)
+        }
         colorVariables.push(
-          getColorVariable(colorBaseName, colorKey, a < 1 ? l : l * i + 1, a)
+          getColorVariable(baseColorName, colorKey, lightness, alpha)
         )
       })
     }
