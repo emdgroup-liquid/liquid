@@ -3,6 +3,8 @@ const https = require('https')
 const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
 const { join, dirname } = require('path')
+const Color = require('colorjs.io').default
+// const { Hsluv } = require('hsluv')
 
 const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
@@ -45,20 +47,11 @@ function getColorTokenValue(variant, styles) {
         : '')
     return referenceName
   } else {
-    // return relRGBToAbsRGB(variant.fills[0])
     return relRGBToAbsHSL(variant.fills[0])
   }
 }
 
-// function relRGBToAbsRGB(fill) {
-//   const r = Math.round(fill.color.r * 255)
-//   const g = Math.round(fill.color.g * 255)
-//   const b = Math.round(fill.color.b * 255)
-//   const a = Math.round((fill.opacity ?? 1) * 100) / 100
-//
-//   return a === 1 ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${a})`
-// }
-
+// TODO replace with lib function
 function relRGBToAbsHSL(fill) {
   const { r, g, b } = fill.color
   const cmin = Math.min(r, g, b)
@@ -181,6 +174,18 @@ function parseShadows(items) {
 function parseColors(items, styles: { name: string; description: string }[]) {
   const colors = {}
 
+  function getKeyFromStep(step) {
+    if (step === 0) return '010'
+    if (step === 1) return '050'
+    return step - 1 + '00'
+  }
+
+  function getStepFromKey(colorKey) {
+    if (colorKey === '010') return 1
+    if (colorKey === '050') return 2
+    return (parseInt(colorKey) || 0) / 100 + 1
+  }
+
   for (const item of items) {
     if (item.name.startsWith('_')) {
       continue
@@ -191,23 +196,91 @@ function parseColors(items, styles: { name: string; description: string }[]) {
     } else if (item.fills?.length && item.styles?.fill) {
       const style = styles[item.styles.fill]
       const { name, description } = style
-      const variants = description.split(', ')
       const pathParts = name.split('/')
-      const [baseColorName, ...rest] =
-        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')
-      const defaultOnly = rest.length === 0
+      const baseColorName =
+        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')[0]
+      const isDefault = description === 'Default'
+      if (!isDefault) continue
       const colorShortName = ['Neutral', 'White'].includes(baseColorName)
         ? baseColorName === 'White'
           ? 'wht'
           : baseColorName.toLowerCase()
         : baseColorName.replace(/[a-z]/g, '').toLowerCase()
-      const colorName =
-        colorShortName +
-        (defaultOnly ? '' : '-' + rest.join('-')) +
-        (variants.includes('Default') ? '/default' : '')
-      // const colorValue = relRGBToAbsRGB(item.fills[0])
-      const colorValue = relRGBToAbsHSL(item.fills[0])
-      colors[colorName] = colorValue
+      const defaultStep = getStepFromKey(name.match(/\d+/g)?.at(0))
+      // const hsluv = new Hsluv()
+      // TODO: check if we need absolute values below
+      const r = (item.fills[0].color.r * 255).toFixed(2)
+      const g = (item.fills[0].color.g * 255).toFixed(2)
+      const b = (item.fills[0].color.b * 255).toFixed(2)
+      const color = new Color(`rgb(${r}, ${g}, ${b})`)
+      const hsl = color.to('hsl').coords
+      const h = hsl[0].toFixed(2)
+      const s = hsl[1].toFixed(2)
+      const l = hsl[2].toFixed(2)
+      const totalSteps = 11
+      const totalStepsToWhite = defaultStep
+      const totalStepsToBlack = totalSteps - defaultStep
+
+      const light = new Color(color)
+      light.set({
+        'hsl.h': (h) => h - 5.625,
+        'hsl.s': 20,
+        'hsl.l': 98,
+      })
+      const rangeToLight = color.steps(
+        color.mix(light, 1, { space: 'hsl', outputSpace: 'lab' }),
+        {
+          space: 'hsl',
+          outputSpace: 'lab',
+          steps: totalStepsToWhite + 1,
+        }
+      )
+      const dark = new Color(color)
+      dark.set({
+        'hsl.h': (h) => h + 5.625,
+        'hsl.s': 100,
+        'hsl.l': 12,
+      })
+      const rangeToDark = color.steps(
+        color.mix(dark, 1, { space: 'hsl', outputSpace: 'lab' }),
+        {
+          space: 'hsl',
+          outputSpace: 'lab',
+          steps: totalStepsToBlack,
+        }
+      )
+
+      // default
+      colors[
+        `${colorShortName}-${getKeyFromStep(defaultStep)}/default`
+      ] = `hsl(${h}deg ${s}% ${l}%)`
+
+      // to light
+      rangeToLight.reverse().forEach((color, step) => {
+        if (step === defaultStep) return
+        const [h, s, l] = color.to('hsl').coords
+        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
+          2
+        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
+      })
+
+      // to dark
+      rangeToDark.forEach((color, i) => {
+        if (i === 0) return
+        const step = defaultStep + i
+        if (step === defaultStep) return
+        const [h, s, l] = color.to('hsl').coords
+        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
+          2
+        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
+      })
+
+      // TODO check if it is wiser to pick a color from the middle of the range
+      // alpha
+      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${l}% / 0.2)`
+      colors[
+        `${colorShortName}-alpha-lowest`
+      ] = `hsl(${h}deg ${s}% ${l}% / 0.1)`
     }
   }
 
@@ -368,28 +441,6 @@ function generateShadows(tokens) {
   )
 }
 
-function getHSLPartsFromValue(hslValue) {
-  const hslParts = hslValue.match(/([\d.]+)(deg|%)|(0\.\d+)/g)
-  const [h, s, l, a] = hslParts
-  return {
-    h: h,
-    s: s,
-    l: l,
-    a: a ? a : '1',
-  }
-}
-
-function getColorVariables(colorKey, colorVal) {
-  const hslParts = getHSLPartsFromValue(colorVal)
-  return `  --ld-col-${colorKey}: hsl(${hslParts.h} ${
-    hslParts.s
-  } calc(var(--ld-col-inv) * (100% - ${
-    hslParts.l
-  }) + (1 - var(--ld-col-inv)) * ${hslParts.l})${
-    hslParts.a === '1' ? '' : ' / ' + hslParts.a
-  });`
-}
-
 function generateColors(colorTokens) {
   const colorVariables = []
 
@@ -403,27 +454,22 @@ function generateColors(colorTokens) {
         .replace('/default', '')
         .replace(/-$/, '')
 
-      colorVariables.push(getColorVariables(colorKey, val))
+      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
 
       // prevents duplicate custom properties in cases like "sp/default"
       if (colorBaseName !== colorKey) {
-        colorVariables.push(getColorVariables(colorBaseName, val))
+        colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
       }
     } else {
-      colorVariables.push(getColorVariables(key, val))
+      colorVariables.push(`  --ld-col-${key}: ${val};`)
     }
   })
-  colorVariables.push('  --ld-col-inv: 0;')
 
   return ensureWriteFile(
     join(stylesDir, 'colors/colors.css'),
-    [
-      '/* autogenerated */ /* prettier-ignore */',
-      ':root {',
-      ...colorVariables.sort(),
-      '}',
-      '',
-    ].join('\n'),
+    ['/* autogenerated */', ':root {', ...colorVariables.sort(), '}', ''].join(
+      '\n'
+    ),
     'utf8'
   )
 }
