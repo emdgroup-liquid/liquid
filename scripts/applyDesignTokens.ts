@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
 const https = require('https')
 const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
 const { join, dirname } = require('path')
+const Color = require('colorjs.io').default
+// const { Hsluv } = require('hsluv')
 
 const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
@@ -46,11 +47,11 @@ function getColorTokenValue(variant, styles) {
         : '')
     return referenceName
   } else {
-    // return relRGBToAbsRGB(variant.fills[0])
     return relRGBToAbsHSL(variant.fills[0])
   }
 }
 
+// TODO replace with lib function
 function relRGBToAbsHSL(fill) {
   const { r, g, b } = fill.color
   const cmin = Math.min(r, g, b)
@@ -173,6 +174,18 @@ function parseShadows(items) {
 function parseColors(items, styles: { name: string; description: string }[]) {
   const colors = {}
 
+  function getKeyFromStep(step) {
+    if (step === 0) return '010'
+    if (step === 1) return '050'
+    return step - 1 + '00'
+  }
+
+  function getStepFromKey(colorKey) {
+    if (colorKey === '010') return 1
+    if (colorKey === '050') return 2
+    return (parseInt(colorKey) || 0) / 100 + 1
+  }
+
   for (const item of items) {
     if (item.name.startsWith('_')) {
       continue
@@ -183,23 +196,91 @@ function parseColors(items, styles: { name: string; description: string }[]) {
     } else if (item.fills?.length && item.styles?.fill) {
       const style = styles[item.styles.fill]
       const { name, description } = style
-      const variants = description.split(', ')
       const pathParts = name.split('/')
-      const [baseColorName, ...rest] =
-        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')
-      const defaultOnly = rest.length === 0
+      const baseColorName =
+        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')[0]
+      const isDefault = description === 'Default'
+      if (!isDefault) continue
       const colorShortName = ['Neutral', 'White'].includes(baseColorName)
         ? baseColorName === 'White'
           ? 'wht'
           : baseColorName.toLowerCase()
         : baseColorName.replace(/[a-z]/g, '').toLowerCase()
-      const colorName =
-        colorShortName +
-        (defaultOnly ? '' : '-' + rest.join('-')) +
-        (variants.includes('Default') ? '/default' : '')
-      // const colorValue = relRGBToAbsRGB(item.fills[0])
-      const colorValue = relRGBToAbsHSL(item.fills[0])
-      colors[colorName] = colorValue
+      const defaultStep = getStepFromKey(name.match(/\d+/g)?.at(0))
+      // const hsluv = new Hsluv()
+      // TODO: check if we need absolute values below
+      const r = (item.fills[0].color.r * 255).toFixed(2)
+      const g = (item.fills[0].color.g * 255).toFixed(2)
+      const b = (item.fills[0].color.b * 255).toFixed(2)
+      const color = new Color(`rgb(${r}, ${g}, ${b})`)
+      const hsl = color.to('hsl').coords
+      const h = hsl[0].toFixed(2)
+      const s = hsl[1].toFixed(2)
+      const l = hsl[2].toFixed(2)
+      const totalSteps = 11
+      const totalStepsToWhite = defaultStep
+      const totalStepsToBlack = totalSteps - defaultStep
+
+      const light = new Color(color)
+      light.set({
+        'hsl.h': (h) => h - 5.625,
+        'hsl.s': 20,
+        'hsl.l': 98,
+      })
+      const rangeToLight = color.steps(
+        color.mix(light, 1, { space: 'hsl', outputSpace: 'lab' }),
+        {
+          space: 'hsl',
+          outputSpace: 'lab',
+          steps: totalStepsToWhite + 1,
+        }
+      )
+      const dark = new Color(color)
+      dark.set({
+        'hsl.h': (h) => h + 5.625,
+        'hsl.s': 100,
+        'hsl.l': 12,
+      })
+      const rangeToDark = color.steps(
+        color.mix(dark, 1, { space: 'hsl', outputSpace: 'lab' }),
+        {
+          space: 'hsl',
+          outputSpace: 'lab',
+          steps: totalStepsToBlack,
+        }
+      )
+
+      // default
+      colors[
+        `${colorShortName}-${getKeyFromStep(defaultStep)}/default`
+      ] = `hsl(${h}deg ${s}% ${l}%)`
+
+      // to light
+      rangeToLight.reverse().forEach((color, step) => {
+        if (step === defaultStep) return
+        const [h, s, l] = color.to('hsl').coords
+        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
+          2
+        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
+      })
+
+      // to dark
+      rangeToDark.forEach((color, i) => {
+        if (i === 0) return
+        const step = defaultStep + i
+        if (step === defaultStep) return
+        const [h, s, l] = color.to('hsl').coords
+        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
+          2
+        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
+      })
+
+      // TODO check if it is wiser to pick a color from the middle of the range
+      // alpha
+      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${l}% / 0.2)`
+      colors[
+        `${colorShortName}-alpha-lowest`
+      ] = `hsl(${h}deg ${s}% ${l}% / 0.1)`
     }
   }
 
@@ -360,234 +441,35 @@ function generateShadows(tokens) {
   )
 }
 
-function getHSLPartsFromValue(hslValue): {
-  h: string
-  s: string
-  l: string
-  a: string
-} {
-  const hslParts = hslValue.match(/([\d.]+)(deg|%)|(0\.\d+)/g)
-  const [h, s, l, a] = hslParts
-  return {
-    h,
-    s,
-    l,
-    a: a ? a : '1',
-  }
-}
-
-function getColorVariable(
-  colorBaseName: string,
-  colorKey: string,
-  saturation: number,
-  lightness: number,
-  alpha: number
-) {
-  console.info('saturation', saturation)
-  return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${(
-    lightness * 100
-  ).toFixed(2)}%${alpha === 1 ? '' : ' / ' + alpha});`
-  // return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) ${(
-  //   saturation * 100
-  // ).toFixed(2)}% ${(lightness * 100).toFixed(2)}%${
-  //   alpha === 1 ? '' : ' / ' + alpha
-  // });`
-}
-
-// Function to compute logarithmic function
-function computeLogFn(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-  x3: number,
-  y3: number,
-  power: number
-) {
-  // Calculate the coefficients of the logarithmic equation, y = a * log(x)^p + b
-  const a =
-    (y1 - y3) / (Math.pow(Math.log(x1), power) - Math.pow(Math.log(x3), power))
-  const b = y2 - a * Math.pow(Math.log(x2), power)
-
-  // Return the logarithmic function
-  return (x: number) => a * Math.pow(Math.log(x), power) + b
-}
-function computeY(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-  x3: number,
-  y3: number,
-  power: number,
-  xVal: number
-): number {
-  // Get logarithmic function
-  const logFn = computeLogFn(x1, y1, x2, y2, x3, y3, power)
-
-  // Calculate and return y value
-  return logFn(xVal)
-}
-
-function getStepFromKey(colorKey) {
-  if (colorKey === '010') return 1
-  if (colorKey === '050') return 2
-  return (parseInt(colorKey) || 0) / 100 + 2
-}
-
-function getLighness(
-  baseHue: string,
-  baseLighness: string,
-  baseColorKey: string,
-  colorKey: string
-): number {
-  console.info('baseHue', baseHue)
-  const totalSteps = 11
-  const baseStep = getStepFromKey(baseColorKey)
-  const step = getStepFromKey(colorKey)
-
-  const x1 = 1
-  const y1 = 0.98
-  const x2 = 1 + baseStep / totalSteps
-  const y2 = parseFloat(baseLighness) / 100
-  const x3 = 1 + 1
-  const y3 = 0.11
-
-  // f(x) = 1 + (sin(Pi * x - Pi / c) + 1) / 2
-  const x = parseFloat(baseHue) / 360
-  const c = 3
-  let power = Math.sin(Math.PI * x - Math.PI / c) + 1
-  power = 1.1
-
-  const lighness = computeY(
-    x1,
-    y1,
-    x2,
-    y2,
-    x3,
-    y3,
-    power,
-    1 + step / totalSteps
-  )
-  return lighness
-}
-
-function getSaturation(
-  baseSaturation: string,
-  baseColorKey: string,
-  colorKey: string
-): number {
-  const totalSteps = 11
-  const baseStep = getStepFromKey(baseColorKey)
-  const step = getStepFromKey(colorKey)
-
-  const x1 = 1
-  const y1 = 0.01
-  const x2 = 1 + baseStep / totalSteps
-  const y2 = parseFloat(baseSaturation) / 100
-  const x3 = 1 + 1
-  const y3 = 0.9
-
-  const power = 3
-
-  const saturation = computeY(
-    x1,
-    y1,
-    x2,
-    y2,
-    x3,
-    y3,
-    power,
-    1 + step / totalSteps
-  )
-  return saturation
-}
-
 function generateColors(colorTokens) {
   const colorVariables = []
 
   // Basic colors
   Object.keys(colorTokens).forEach((key) => {
-    const colorVal = colorTokens[key]
+    const val = colorTokens[key]
     if (key.includes('/default')) {
-      const { h, s, l } = getHSLPartsFromValue(colorVal)
-      const baseColorName = key
-        .replace(/\d+/g, '')
+      const colorKey = key.split('/default')[0]
+      const colorBaseName = key
+        .replace(/\d/g, '')
         .replace('/default', '')
         .replace(/-$/, '')
 
-      if (baseColorName === 'wht') {
-        return
+      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
+
+      // prevents duplicate custom properties in cases like "sp/default"
+      if (colorBaseName !== colorKey) {
+        colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
       }
-
-      const baseColorKey = key.match(/\d+/g)?.at(0)
-      if (!baseColorKey) {
-        return
-      }
-
-      const baseHue = h
-      const baseLighness = l
-      const baseSaturation = s
-
-      colorVariables.push(
-        `  --ld-col-${baseColorName}: hsl(var(--ld-col-${baseColorName}-h) var(--ld-col-${baseColorName}-s) ${baseLighness});`
-      )
-      colorVariables.push(`  --ld-col-${baseColorName}-h: ${h};`)
-      colorVariables.push(`  --ld-col-${baseColorName}-s: ${s};`)
-      ;[
-        '010',
-        '050',
-        '100',
-        '200',
-        '300',
-        '400',
-        '500',
-        '600',
-        '700',
-        '800',
-        '900',
-        'alpha-low',
-        'alpha-lowest',
-      ].forEach((colorKey) => {
-        let lightness: number
-        let saturation: number
-        let alpha: number
-        if (colorKey === 'alpha-low') {
-          alpha = 0.2
-          lightness = parseFloat(baseLighness) / 100
-          saturation = parseFloat(baseSaturation) / 100
-        } else if (colorKey === 'alpha-lowest') {
-          alpha = 0.1
-          lightness = parseFloat(baseLighness) / 100
-          saturation = parseFloat(baseSaturation) / 100
-        } else {
-          alpha = 1
-          lightness = getLighness(baseHue, baseLighness, baseColorKey, colorKey)
-          saturation = getSaturation(baseSaturation, baseColorKey, colorKey)
-        }
-        colorVariables.push(
-          getColorVariable(
-            baseColorName,
-            colorKey,
-            saturation,
-            lightness,
-            alpha
-          )
-        )
-      })
+    } else {
+      colorVariables.push(`  --ld-col-${key}: ${val};`)
     }
   })
-  colorVariables.push('  --ld-col-inv: 0;')
 
   return ensureWriteFile(
     join(stylesDir, 'colors/colors.css'),
-    [
-      '/* autogenerated */ /* prettier-ignore */',
-      ':root {',
-      ...colorVariables.sort(),
-      '}',
-      '',
-    ].join('\n'),
+    ['/* autogenerated */', ':root {', ...colorVariables.sort(), '}', ''].join(
+      '\n'
+    ),
     'utf8'
   )
 }
