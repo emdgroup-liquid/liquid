@@ -360,13 +360,18 @@ function generateShadows(tokens) {
   )
 }
 
-function getHSLPartsFromValue(hslValue) {
+function getHSLPartsFromValue(hslValue): {
+  h: string
+  s: string
+  l: string
+  a: string
+} {
   const hslParts = hslValue.match(/([\d.]+)(deg|%)|(0\.\d+)/g)
   const [h, s, l, a] = hslParts
   return {
-    h: h,
-    s: s,
-    l: l,
+    h,
+    s,
+    l,
     a: a ? a : '1',
   }
 }
@@ -374,12 +379,19 @@ function getHSLPartsFromValue(hslValue) {
 function getColorVariable(
   colorBaseName: string,
   colorKey: string,
+  saturation: number,
   lightness: number,
   alpha: number
 ) {
+  console.info('saturation', saturation)
   return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) var(--ld-col-${colorBaseName}-s) ${(
     lightness * 100
   ).toFixed(2)}%${alpha === 1 ? '' : ' / ' + alpha});`
+  // return `  --ld-col-${colorBaseName}-${colorKey}: hsl(var(--ld-col-${colorBaseName}-h) ${(
+  //   saturation * 100
+  // ).toFixed(2)}% ${(lightness * 100).toFixed(2)}%${
+  //   alpha === 1 ? '' : ' / ' + alpha
+  // });`
 }
 
 // Function to compute logarithmic function
@@ -389,14 +401,16 @@ function computeLogFn(
   x2: number,
   y2: number,
   x3: number,
-  y3: number
+  y3: number,
+  power: number
 ) {
-  // Calculate the coefficients of the logarithmic equation, y = a*log(x) + b
-  const a = (y1 - y3) / (Math.log(x1) - Math.log(x3))
-  const b = y2 - a * Math.log(x2)
+  // Calculate the coefficients of the logarithmic equation, y = a * log(x)^p + b
+  const a =
+    (y1 - y3) / (Math.pow(Math.log(x1), power) - Math.pow(Math.log(x3), power))
+  const b = y2 - a * Math.pow(Math.log(x2), power)
 
   // Return the logarithmic function
-  return (x: number) => a * Math.log(x) + b
+  return (x: number) => a * Math.pow(Math.log(x), power) + b
 }
 function computeY(
   x1: number,
@@ -405,10 +419,11 @@ function computeY(
   y2: number,
   x3: number,
   y3: number,
+  power: number,
   xVal: number
 ): number {
   // Get logarithmic function
-  const logFn = computeLogFn(x1, y1, x2, y2, x3, y3)
+  const logFn = computeLogFn(x1, y1, x2, y2, x3, y3, power)
 
   // Calculate and return y value
   return logFn(xVal)
@@ -421,11 +436,13 @@ function getStepFromKey(colorKey) {
 }
 
 function getLighness(
+  baseHue: string,
   baseLighness: string,
   baseColorKey: string,
   colorKey: string
 ): number {
-  const totalSteps = 9
+  console.info('baseHue', baseHue)
+  const totalSteps = 11
   const baseStep = getStepFromKey(baseColorKey)
   const step = getStepFromKey(colorKey)
 
@@ -436,8 +453,54 @@ function getLighness(
   const x3 = 1 + 1
   const y3 = 0.11
 
-  const lighness = computeY(x1, y1, x2, y2, x3, y3, 1 + step / totalSteps)
+  // f(x) = 1 + (sin(Pi * x - Pi / c) + 1) / 2
+  const x = parseFloat(baseHue) / 360
+  const c = 3
+  let power = Math.sin(Math.PI * x - Math.PI / c) + 1
+  power = 1.1
+
+  const lighness = computeY(
+    x1,
+    y1,
+    x2,
+    y2,
+    x3,
+    y3,
+    power,
+    1 + step / totalSteps
+  )
   return lighness
+}
+
+function getSaturation(
+  baseSaturation: string,
+  baseColorKey: string,
+  colorKey: string
+): number {
+  const totalSteps = 11
+  const baseStep = getStepFromKey(baseColorKey)
+  const step = getStepFromKey(colorKey)
+
+  const x1 = 1
+  const y1 = 0.01
+  const x2 = 1 + baseStep / totalSteps
+  const y2 = parseFloat(baseSaturation) / 100
+  const x3 = 1 + 1
+  const y3 = 0.9
+
+  const power = 3
+
+  const saturation = computeY(
+    x1,
+    y1,
+    x2,
+    y2,
+    x3,
+    y3,
+    power,
+    1 + step / totalSteps
+  )
+  return saturation
 }
 
 function generateColors(colorTokens) {
@@ -462,7 +525,9 @@ function generateColors(colorTokens) {
         return
       }
 
-      const baseLighness: string = l
+      const baseHue = h
+      const baseLighness = l
+      const baseSaturation = s
 
       colorVariables.push(
         `  --ld-col-${baseColorName}: hsl(var(--ld-col-${baseColorName}-h) var(--ld-col-${baseColorName}-s) ${baseLighness});`
@@ -484,19 +549,30 @@ function generateColors(colorTokens) {
         'alpha-low',
         'alpha-lowest',
       ].forEach((colorKey) => {
-        let alpha: number, lightness: number
+        let lightness: number
+        let saturation: number
+        let alpha: number
         if (colorKey === 'alpha-low') {
           alpha = 0.2
           lightness = parseFloat(baseLighness) / 100
+          saturation = parseFloat(baseSaturation) / 100
         } else if (colorKey === 'alpha-lowest') {
           alpha = 0.1
           lightness = parseFloat(baseLighness) / 100
+          saturation = parseFloat(baseSaturation) / 100
         } else {
           alpha = 1
-          lightness = getLighness(baseLighness, baseColorKey, colorKey)
+          lightness = getLighness(baseHue, baseLighness, baseColorKey, colorKey)
+          saturation = getSaturation(baseSaturation, baseColorKey, colorKey)
         }
         colorVariables.push(
-          getColorVariable(baseColorName, colorKey, lightness, alpha)
+          getColorVariable(
+            baseColorName,
+            colorKey,
+            saturation,
+            lightness,
+            alpha
+          )
         )
       })
     }
