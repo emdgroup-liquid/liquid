@@ -3,8 +3,7 @@ const https = require('https')
 const { existsSync } = require('fs')
 const { mkdir, writeFile } = require('fs').promises
 const { join, dirname } = require('path')
-const Color = require('colorjs.io').default
-// const { Hsluv } = require('hsluv')
+const chroma = require('chroma-js')
 
 const isBin = __filename.endsWith('.cjs')
 const stylesDir = isBin ? './liquid_tmp/styles' : './src/liquid/global/styles'
@@ -207,48 +206,16 @@ function parseColors(items, styles: { name: string; description: string }[]) {
           : baseColorName.toLowerCase()
         : baseColorName.replace(/[a-z]/g, '').toLowerCase()
       const defaultStep = getStepFromKey(name.match(/\d+/g)?.at(0))
-      // const hsluv = new Hsluv()
-      // TODO: check if we need absolute values below
-      const r = (item.fills[0].color.r * 255).toFixed(2)
-      const g = (item.fills[0].color.g * 255).toFixed(2)
-      const b = (item.fills[0].color.b * 255).toFixed(2)
-      const color = new Color(`rgb(${r}, ${g}, ${b})`)
-      const hsl = color.to('hsl').coords
-      const h = hsl[0].toFixed(2)
-      const s = hsl[1].toFixed(2)
-      const l = hsl[2].toFixed(2)
+      const r = parseFloat((item.fills[0].color.r * 255).toFixed(2))
+      const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
+      const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
+      const color = chroma({ r, g, b })
+      const h = (color.get('hsl.h') * 1).toFixed(2)
+      const s = (color.get('hsl.s') * 100).toFixed(2)
+      const l = (color.get('hsl.l') * 100).toFixed(2)
       const totalSteps = 11
       const totalStepsToWhite = defaultStep
       const totalStepsToBlack = totalSteps - defaultStep
-
-      const light = new Color(color)
-      light.set({
-        'hsl.h': (h) => h - 5.625,
-        'hsl.s': 20,
-        'hsl.l': 98,
-      })
-      const rangeToLight = color.steps(
-        color.mix(light, 1, { space: 'hsl', outputSpace: 'lab' }),
-        {
-          space: 'hsl',
-          outputSpace: 'lab',
-          steps: totalStepsToWhite + 1,
-        }
-      )
-      const dark = new Color(color)
-      dark.set({
-        'hsl.h': (h) => h + 5.625,
-        'hsl.s': 100,
-        'hsl.l': 12,
-      })
-      const rangeToDark = color.steps(
-        color.mix(dark, 1, { space: 'hsl', outputSpace: 'lab' }),
-        {
-          space: 'hsl',
-          outputSpace: 'lab',
-          steps: totalStepsToBlack,
-        }
-      )
 
       // default
       colors[
@@ -256,24 +223,32 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       ] = `hsl(${h}deg ${s}% ${l}%)`
 
       // to light
-      rangeToLight.reverse().forEach((color, step) => {
-        if (step === defaultStep) return
-        const [h, s, l] = color.to('hsl').coords
-        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
-          2
-        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
-      })
+      const colorLight = chroma({ r, g, b }).set('hsl.l', 0.98)
+      chroma
+        .scale([colorLight, color])
+        .colors(totalStepsToWhite + 1)
+        .forEach((color, step) => {
+          if (step === defaultStep) return
+          const [h, s, l] = chroma(color).hsl()
+          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
+            h || 0
+          ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
+        })
 
       // to dark
-      rangeToDark.forEach((color, i) => {
-        if (i === 0) return
-        const step = defaultStep + i
-        if (step === defaultStep) return
-        const [h, s, l] = color.to('hsl').coords
-        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${h.toFixed(
-          2
-        )}deg ${s.toFixed(2)}% ${l.toFixed(2)}%)`
-      })
+      const colorDark = chroma({ r, g, b }).set('hsl.s', 1).luminance(0.015)
+      chroma
+        .scale([color, colorDark])
+        .mode('lab')
+        .colors(totalStepsToBlack)
+        .forEach((color, i) => {
+          if (i === 0) return
+          const step = defaultStep + i
+          const [h, s, l] = chroma(color).hsl()
+          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
+            h || 0
+          ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
+        })
 
       // TODO check if it is wiser to pick a color from the middle of the range
       // alpha
