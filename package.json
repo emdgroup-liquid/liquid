@@ -54,6 +54,7 @@
     "lint": "run-s lint:ts lint:eslint lint:styles",
     "lint:eslint": "eslint .",
     "lint:styles": "stylelint ./src/**/*css",
+    "lint:styles:fix": "stylelint ./src/**/*css --fix",
     "lint:ts": "tsc --noemit -p config/tsconfig.docs.json",
     "prepare": "husky install",
     "start": "run-s start:watch",

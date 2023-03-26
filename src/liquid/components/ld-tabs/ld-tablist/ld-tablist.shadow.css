@@ -52,7 +52,7 @@
   &::after {
     content: '';
     position: absolute;
-    inset: auto 0 0 0;
+    inset: auto 0 0;
     height: var(--ld-tablist-border-height);
     background-color: var(--ld-tablist-border-col);
     z-index: 2;

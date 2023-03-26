@@ -468,10 +468,7 @@
 
 .ld-select__selection-label-bg {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   border-radius: var(--ld-br-m);
 
   :where(.ld-select__btn-trigger[aria-disabled='true']) & {

@@ -387,11 +387,13 @@
   }
 
   &.ld-step--vertical::before {
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     bottom: calc(100% - var(--ld-step-dot-offset) - var(--ld-sp-1));
-    height: auto;
     left: calc(var(--ld-step-dot-size-with-icon) / 2);
     right: auto;
     top: calc(var(--ld-stepper-gap) / -2);
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+    height: auto;
     transform: translateX(-50%);
     width: var(--ld-step-line-thickness);
   }
@@ -400,24 +402,28 @@
 :host(:not(:last-of-type)) .ld-step,
 .ld-step:not(:last-of-type) {
   &::after {
-    content: '';
-    background: var(--ld-step-line-end-col);
-    height: var(--ld-step-line-thickness);
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     left: calc(50% + var(--ld-step-dot-size) / 2 - var(--ld-sp-1));
-    position: absolute;
     right: calc(var(--ld-stepper-gap) / -2);
     top: calc(var(--ld-step-dot-size-with-icon) / 2);
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+    background: var(--ld-step-line-end-col);
+    content: '';
+    height: var(--ld-step-line-thickness);
+    position: absolute;
     transform: translateY(-50%);
   }
 
   &.ld-step--vertical::after {
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     bottom: calc(var(--ld-stepper-gap) / -2);
-    height: auto;
     left: calc(var(--ld-step-dot-size-with-icon) / 2);
     right: auto;
     top: calc(
       var(--ld-step-dot-size) + var(--ld-step-dot-offset) - var(--ld-sp-1)
     );
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+    height: auto;
     transform: translateX(-50%);
     width: var(--ld-step-line-thickness);
   }

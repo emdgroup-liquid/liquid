@@ -67,7 +67,7 @@
     content: '';
     display: var(--ld-tab-selected-border-display, block);
     position: absolute;
-    inset: auto 0 0 0;
+    inset: auto 0 0;
     height: var(--ld-tab-indicator-height);
     z-index: 3;
   }
