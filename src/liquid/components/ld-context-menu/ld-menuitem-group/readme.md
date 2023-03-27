@@ -20,9 +20,19 @@ Please refer to the [`ld-context-menu` documentation](components/ld-context-menu
 
 ## Properties
 
-| Property    | Attribute    | Description                    | Type     | Default     |
-| ----------- | ------------ | ------------------------------ | -------- | ----------- |
-| `ariaLabel` | `aria-label` | Label for the menu item group. | `string` | `undefined` |
+| Property    | Attribute    | Description                                              | Type               | Default     |
+| ----------- | ------------ | -------------------------------------------------------- | ------------------ | ----------- |
+| `ariaLabel` | `aria-label` | Label for the menu item group.                           | `string`           | `undefined` |
+| `key`       | `key`        | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`       | `ref`        | reference to component                                   | `any`              | `undefined` |
+
+
+## Shadow Parts
+
+| Part         | Description                            |
+| ------------ | -------------------------------------- |
+| `"list"`     | `ul` element wrapping the default slot |
+| `"listitem"` | `li` element wrapping the `ul` element |
 
 
 ----------------------------------------------

@@ -62,17 +62,25 @@ const prepareAndGetMenuInTooltip = async (
 }
 
 describe('ld-context-menu', () => {
+  let assignedElements: Element[]
+  let assignedNodes: Node[]
+
   beforeAll(() => {
     Object.defineProperty(MockHTMLElement.prototype, 'assignedElements', {
-      value: () => [],
+      value: () => assignedElements ?? [],
       configurable: true,
       writable: true,
     })
     Object.defineProperty(MockHTMLElement.prototype, 'assignedNodes', {
-      value: () => [],
+      value: () => assignedNodes ?? [],
       configurable: true,
       writable: true,
     })
+  })
+
+  afterEach(() => {
+    assignedElements = undefined
+    assignedNodes = undefined
   })
 
   it('renders', async () => {
@@ -86,6 +94,37 @@ describe('ld-context-menu', () => {
       ),
     })
     expect(page.root).toMatchSnapshot()
+  })
+
+  it('forwards size prop to menu items in nested slots', async () => {
+    // necessary to mock assignedNodes with a valid return value
+    // TODO: these are actually no HTMLElements, maybe there is a better way?
+    const menuItems = [
+      <ld-menuitem>Menu item 1</ld-menuitem>,
+      <ld-menuitem>Menu item 2</ld-menuitem>,
+    ]
+    const group = <ld-menuitem-group>{menuItems}</ld-menuitem-group>
+
+    assignedNodes = [group]
+    menuItems.forEach((menuItem) => {
+      menuItem.tagName = 'LD-MENUITEM'
+      menuItem.querySelectorAll = () => null
+    })
+    group.childNodes = menuItems
+    group.querySelectorAll = () => null
+
+    await newSpecPage({
+      components: [LdContextMenu, LdMenu, LdMenuitem],
+      template: () => (
+        <ld-context-menu size="sm">
+          <ld-button slot="trigger">Open</ld-button>
+          {group}
+        </ld-context-menu>
+      ),
+    })
+
+    expect(menuItems[0].size).toBe('sm')
+    expect(menuItems[1].size).toBe('sm')
   })
 
   it('forwards position', async () => {
@@ -218,5 +257,41 @@ describe('ld-context-menu', () => {
     )
 
     expect(tooltip.hideTooltip).toHaveBeenCalled()
+  })
+
+  it('prevents default on Tab key', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu>
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+    const tooltip = page.root.shadowRoot.querySelector('ld-tooltip')
+    const tooltipTriggerButton =
+      tooltip.shadowRoot.querySelector<HTMLLdButtonElement>(
+        '.ld-tooltip__trigger'
+      )
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('ld-button')
+
+    const menuInTooltip = await prepareAndGetMenuInTooltip(
+      page,
+      [triggerButton],
+      [menu]
+    )
+    const firstMenuItemInTooltip = menuInTooltip.querySelector('ld-menuitem')
+    const event = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true })
+
+    // clicking the button inside the tooltip shadow DOM because event bubbling
+    // doesn't work here, somehow.
+    tooltipTriggerButton.click()
+    await page.waitForChanges()
+
+    firstMenuItemInTooltip.dispatchEvent(event)
+
+    expect(event.defaultPrevented).toBeTruthy()
   })
 })

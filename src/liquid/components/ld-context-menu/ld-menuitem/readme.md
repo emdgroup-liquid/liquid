@@ -125,8 +125,10 @@ The `ld-menuitem` component is a subcomponent for `ld-context-menu` / `ld-menu` 
 | ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------- |
 | `disabled`   | `disabled`    | Disabled state of the menu item.                                                                                                                                                                                      | `boolean`                                    | `undefined` |
 | `href`       | `href`        | Transforms the menu item to an anchor element. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href) for more information on the `href` attribute.                                    | `string`                                     | `undefined` |
+| `key`        | `key`         | for tracking the node's identity when working with lists                                                                                                                                                              | `string \| number`                           | `undefined` |
 | `ldTabindex` | `ld-tabindex` | Tab index of the menu item.                                                                                                                                                                                           | `number`                                     | `undefined` |
 | `mode`       | `mode`        | Display mode.                                                                                                                                                                                                         | `"danger" \| "highlight" \| "neutral"`       | `'neutral'` |
+| `ref`        | `ref`         | reference to component                                                                                                                                                                                                | `any`                                        | `undefined` |
 | `target`     | `target`      | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute. | `"_blank" \| "_parent" \| "_self" \| "_top"` | `undefined` |
 
 
@@ -141,6 +143,14 @@ Sets focus on the anchor or button
 Type: `Promise<void>`
 
 
+
+
+## Shadow Parts
+
+| Part         | Description                                   |
+| ------------ | --------------------------------------------- |
+| `"button"`   | `ld-button` element wrapping the default slot |
+| `"listitem"` | `li` element wrapping the `ld-button` element |
 
 
 ## Dependencies

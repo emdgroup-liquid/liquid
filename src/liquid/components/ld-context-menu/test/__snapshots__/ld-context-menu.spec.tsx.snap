@@ -3,9 +3,9 @@
 exports[`ld-context-menu clones the style attribute 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
+    <ld-tooltip part="tooltip" position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
-      <ld-menu style="width: 15rem;">
+      <ld-menu part="menu" style="width: 15rem;">
         <slot></slot>
       </ld-menu>
     </ld-tooltip>
@@ -15,8 +15,8 @@ exports[`ld-context-menu clones the style attribute 1`] = `
   </ld-button>
   <ld-menuitem>
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -29,9 +29,9 @@ exports[`ld-context-menu clones the style attribute 1`] = `
 exports[`ld-context-menu forwards position 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="left middle" preventscreenreader="" tag="span" triggertype="click" unstyled="">
+    <ld-tooltip part="tooltip" position="left middle" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
-      <ld-menu>
+      <ld-menu part="menu">
         <slot></slot>
       </ld-menu>
     </ld-tooltip>
@@ -41,8 +41,8 @@ exports[`ld-context-menu forwards position 1`] = `
   </ld-button>
   <ld-menuitem>
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -55,9 +55,9 @@ exports[`ld-context-menu forwards position 1`] = `
 exports[`ld-context-menu renders 1`] = `
 <ld-context-menu>
   <mock:shadow-root>
-    <ld-tooltip position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
+    <ld-tooltip part="tooltip" position="bottom left" preventscreenreader="" tag="span" triggertype="click" unstyled="">
       <slot name="trigger" slot="trigger"></slot>
-      <ld-menu>
+      <ld-menu part="menu">
         <slot></slot>
       </ld-menu>
     </ld-tooltip>
@@ -67,8 +67,8 @@ exports[`ld-context-menu renders 1`] = `
   </ld-button>
   <ld-menuitem>
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>

@@ -479,6 +479,7 @@ Type: `Promise<void>`
 
 | Part          | Description                                                               |
 | ------------- | ------------------------------------------------------------------------- |
+| `"content"`   | `span` element wrapping the default slot                                  |
 | `"focusable"` |                                                                           |
 | `"icon"`      | Default icon when no trigger is supplied                                  |
 | `"popper"`    | Popper element (can only be styled as long as tooltip is not initialized) |

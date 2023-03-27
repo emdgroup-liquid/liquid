@@ -3,8 +3,8 @@
 exports[`ld-menuitem clones attributes 1`] = `
 <ld-menuitem data-attribute="example">
   <mock:shadow-root>
-    <li class="ld-menuitem" role="menuitem">
-      <ld-button class="ld-menuitem__button" data-attribute="example" justifycontent="start" mode="neutral-ghost" type="button">
+    <li class="ld-menuitem" part="listitem" role="menuitem">
+      <ld-button class="ld-menuitem__button" data-attribute="example" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
         <slot></slot>
       </ld-button>
     </li>
@@ -17,8 +17,8 @@ exports[`ld-menuitem maps mode prop 1`] = `
 <body>
   <ld-menuitem mode="neutral">
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -27,8 +27,8 @@ exports[`ld-menuitem maps mode prop 1`] = `
   </ld-menuitem>
   <ld-menuitem mode="highlight">
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -37,8 +37,8 @@ exports[`ld-menuitem maps mode prop 1`] = `
   </ld-menuitem>
   <ld-menuitem mode="danger">
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" mode="danger-ghost" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" mode="danger-ghost" part="focusable button" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -51,8 +51,8 @@ exports[`ld-menuitem maps mode prop 1`] = `
 exports[`ld-menuitem renders default 1`] = `
 <ld-menuitem>
   <mock:shadow-root>
-    <li class="ld-menuitem" role="menuitem">
-      <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" type="button">
+    <li class="ld-menuitem" part="listitem" role="menuitem">
+      <ld-button class="ld-menuitem__button" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
         <slot></slot>
       </ld-button>
     </li>
@@ -64,8 +64,8 @@ exports[`ld-menuitem renders default 1`] = `
 exports[`ld-menuitem renders other known props 1`] = `
 <ld-menuitem disabled="" href="#" ld-tabindex="1" size="sm" target="_blank">
   <mock:shadow-root>
-    <li class="ld-menuitem" role="menuitem">
-      <ld-button class="ld-menuitem__button" disabled="" href="#" justifycontent="start" ldtabindex="1" mode="neutral-ghost" size="sm" target="_blank" type="button">
+    <li class="ld-menuitem" part="listitem" role="menuitem">
+      <ld-button class="ld-menuitem__button" disabled="" href="#" justifycontent="start" ldtabindex="1" mode="neutral-ghost" part="focusable button" size="sm" target="_blank" type="button">
         <slot></slot>
       </ld-button>
     </li>
@@ -77,8 +77,8 @@ exports[`ld-menuitem renders other known props 1`] = `
 exports[`ld-menuitem updates cloned attributes 1`] = `
 <ld-menuitem data-attribute="test">
   <mock:shadow-root>
-    <li class="ld-menuitem" role="menuitem">
-      <ld-button class="ld-menuitem__button" data-attribute="test" justifycontent="start" mode="neutral-ghost" type="button">
+    <li class="ld-menuitem" part="listitem" role="menuitem">
+      <ld-button class="ld-menuitem__button" data-attribute="test" justifycontent="start" mode="neutral-ghost" part="focusable button" type="button">
         <slot></slot>
       </ld-button>
     </li>

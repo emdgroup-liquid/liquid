@@ -280,9 +280,11 @@ The `ld-menu` component is used internally for the `ld-context-menu`. It is the 
 
 ## Properties
 
-| Property | Attribute | Description               | Type           | Default     |
-| -------- | --------- | ------------------------- | -------------- | ----------- |
-| `size`   | `size`    | Size of the context menu. | `"lg" \| "sm"` | `undefined` |
+| Property | Attribute | Description                                              | Type               | Default     |
+| -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
+| `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
+| `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
+| `size`   | `size`    | Size of the context menu.                                | `"lg" \| "sm"`     | `undefined` |
 
 
 ## Methods
@@ -300,9 +302,9 @@ Type: `Promise<HTMLLdMenuitemElement>`
 
 ## Shadow Parts
 
-| Part     | Description |
-| -------- | ----------- |
-| `"list"` |             |
+| Part     | Description                            |
+| -------- | -------------------------------------- |
+| `"list"` | `ul` element wrapping the default slot |
 
 
 ## Dependencies

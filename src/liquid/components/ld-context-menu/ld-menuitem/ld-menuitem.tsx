@@ -3,12 +3,18 @@ import { cloneAttributes } from '../../../utils/cloneAttributes'
 
 type Mode = 'highlight' | 'danger' | 'neutral'
 
-const modeMap: Record<Mode, HTMLLdButtonElement['mode']> = {
-  danger: 'danger-ghost',
-  highlight: 'ghost',
-  neutral: 'neutral-ghost',
-}
+const modeMap = new Map<Mode, string>([
+  ['danger', 'danger-ghost'],
+  ['highlight', 'ghost'],
+  ['neutral', 'neutral-ghost'],
+])
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part listitem - `li` element wrapping the `ld-button` element
+ * @part button - `ld-button` element wrapping the default slot
+ */
 @Component({
   tag: 'ld-menuitem',
   styleUrl: 'ld-menuitem.css',
@@ -30,7 +36,7 @@ export class LdMenuitem implements InnerFocusable {
   @Prop() href?: HTMLLdButtonElement['href']
 
   /** Tab index of the menu item. */
-  @Prop() ldTabindex: number | undefined
+  @Prop() ldTabindex?: number
 
   /** Display mode. */
   @Prop() mode?: Mode = 'neutral'
@@ -71,7 +77,7 @@ export class LdMenuitem implements InnerFocusable {
   render() {
     return (
       <Host>
-        <li class="ld-menuitem" role="menuitem">
+        <li class="ld-menuitem" part="listitem" role="menuitem">
           <ld-button
             {...this.clonedAttributes}
             class="ld-menuitem__button"
@@ -80,7 +86,8 @@ export class LdMenuitem implements InnerFocusable {
             iconOnly={false}
             justifyContent="start"
             ldTabindex={this.ldTabindex}
-            mode={modeMap[this.mode]}
+            mode={modeMap.get(this.mode)}
+            part="focusable button"
             ref={(element) => (this.buttonRef = element)}
             size={this.size}
             target={this.target}

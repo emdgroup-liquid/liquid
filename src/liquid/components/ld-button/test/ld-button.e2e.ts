@@ -19,17 +19,17 @@ const modes = [
 ]
 const attributes = ['', 'brand-color']
 
-const modeMap = {
-  danger: 'ld-button--danger',
-  ghost: 'ld-button--ghost',
-  highlight: 'ld-button--highlight',
-  neutral: 'ld-button--neutral',
-  secondary: 'ld-button--secondary',
-  'danger-ghost': 'ld-button--ghost ld-button--danger-ghost',
-  'danger-secondary': 'ld-button--secondary ld-button--danger-secondary',
-  'neutral-ghost': 'ld-button--ghost ld-button--neutral-ghost',
-  'neutral-secondary': 'ld-button--secondary ld-button--neutral-secondary',
-}
+const modeMap = new Map([
+  ['danger', 'ld-button--danger'],
+  ['ghost', 'ld-button--ghost'],
+  ['highlight', 'ld-button--highlight'],
+  ['neutral', 'ld-button--neutral'],
+  ['secondary', 'ld-button--secondary'],
+  ['danger-ghost', 'ld-button--ghost ld-button--danger-ghost'],
+  ['danger-secondary', 'ld-button--secondary ld-button--danger-secondary'],
+  ['neutral-ghost', 'ld-button--ghost ld-button--neutral-ghost'],
+  ['neutral-secondary', 'ld-button--secondary ld-button--neutral-secondary'],
+])
 
 const cssIconComponent = `
   <span class="ld-icon" role="presentation">
@@ -291,7 +291,7 @@ describe('ld-button', () => {
         })
 
         describe('css component', () => {
-          const modeModifier = mode ? ` ${modeMap[mode]}` : ''
+          const modeModifier = mode ? ` ${modeMap.get(mode)}` : ''
           const attributeModifier = attribute ? ` ld-button--${attribute}` : ''
           const modifiers = modeModifier + attributeModifier
 

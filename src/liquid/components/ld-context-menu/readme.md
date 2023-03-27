@@ -192,8 +192,18 @@ permalink: components/ld-context-menu/
 
 | Property   | Attribute  | Description                                                   | Type                                                                                                                                                                                                 | Default         |
 | ---------- | ---------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| `key`      | `key`      | for tracking the node's identity when working with lists      | `string \| number`                                                                                                                                                                                   | `undefined`     |
 | `position` | `position` | Position of the context menu relative to the trigger element. | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'bottom left'` |
+| `ref`      | `ref`      | reference to component                                        | `any`                                                                                                                                                                                                | `undefined`     |
 | `size`     | `size`     | Size of the context menu.                                     | `"lg" \| "sm"`                                                                                                                                                                                       | `undefined`     |
+
+
+## Shadow Parts
+
+| Part        | Description                                 |
+| ----------- | ------------------------------------------- |
+| `"menu"`    | `ld-menu` element wrapping the default slot |
+| `"tooltip"` | `ld-tooltip` element                        |
 
 
 ## Dependencies

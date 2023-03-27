@@ -9,8 +9,8 @@ exports[`ld-menu forwards size prop changes to menu items 1`] = `
   </mock:shadow-root>
   <ld-menuitem>
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="0" mode="neutral-ghost" size="lg" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="0" mode="neutral-ghost" part="focusable button" size="lg" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -19,7 +19,7 @@ exports[`ld-menu forwards size prop changes to menu items 1`] = `
   </ld-menuitem>
   <ld-menuitem-group>
     <mock:shadow-root>
-      <li class="ld-menuitem-group" role="none">
+      <li class="ld-menuitem-group" part="listitem" role="none">
         <ul class="ld-menuitem-group__list" role="group">
           <slot></slot>
         </ul>
@@ -27,8 +27,8 @@ exports[`ld-menu forwards size prop changes to menu items 1`] = `
     </mock:shadow-root>
     <ld-menuitem>
       <mock:shadow-root>
-        <li class="ld-menuitem" role="menuitem">
-          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" size="lg" type="button">
+        <li class="ld-menuitem" part="listitem" role="menuitem">
+          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" part="focusable button" size="lg" type="button">
             <slot></slot>
           </ld-button>
         </li>
@@ -37,8 +37,8 @@ exports[`ld-menu forwards size prop changes to menu items 1`] = `
     </ld-menuitem>
     <ld-menuitem>
       <mock:shadow-root>
-        <li class="ld-menuitem" role="menuitem">
-          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" size="lg" type="button">
+        <li class="ld-menuitem" part="listitem" role="menuitem">
+          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" part="focusable button" size="lg" type="button">
             <slot></slot>
           </ld-button>
         </li>
@@ -58,8 +58,8 @@ exports[`ld-menu forwards size prop to menu items 1`] = `
   </mock:shadow-root>
   <ld-menuitem>
     <mock:shadow-root>
-      <li class="ld-menuitem" role="menuitem">
-        <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="0" mode="neutral-ghost" size="sm" type="button">
+      <li class="ld-menuitem" part="listitem" role="menuitem">
+        <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="0" mode="neutral-ghost" part="focusable button" size="sm" type="button">
           <slot></slot>
         </ld-button>
       </li>
@@ -68,7 +68,7 @@ exports[`ld-menu forwards size prop to menu items 1`] = `
   </ld-menuitem>
   <ld-menuitem-group>
     <mock:shadow-root>
-      <li class="ld-menuitem-group" role="none">
+      <li class="ld-menuitem-group" part="listitem" role="none">
         <ul class="ld-menuitem-group__list" role="group">
           <slot></slot>
         </ul>
@@ -76,8 +76,8 @@ exports[`ld-menu forwards size prop to menu items 1`] = `
     </mock:shadow-root>
     <ld-menuitem>
       <mock:shadow-root>
-        <li class="ld-menuitem" role="menuitem">
-          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" size="sm" type="button">
+        <li class="ld-menuitem" part="listitem" role="menuitem">
+          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" part="focusable button" size="sm" type="button">
             <slot></slot>
           </ld-button>
         </li>
@@ -86,8 +86,8 @@ exports[`ld-menu forwards size prop to menu items 1`] = `
     </ld-menuitem>
     <ld-menuitem>
       <mock:shadow-root>
-        <li class="ld-menuitem" role="menuitem">
-          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" size="sm" type="button">
+        <li class="ld-menuitem" part="listitem" role="menuitem">
+          <ld-button class="ld-menuitem__button" justifycontent="start" ldtabindex="-1" mode="neutral-ghost" part="focusable button" size="sm" type="button">
             <slot></slot>
           </ld-button>
         </li>

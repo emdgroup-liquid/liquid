@@ -13,10 +13,7 @@ import {
   Watch,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
-import {
-  focusableSelector,
-  isInnerFocusable,
-} from '../../../liquid/utils/focus'
+import { focusableSelector, isInnerFocusable } from '../../utils/focus'
 
 export type Position =
   | 'bottom center'
@@ -85,6 +82,7 @@ const copySlottedNodes = (node: Element) => {
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part content - `span` element wrapping the default slot
  * @part icon - Default icon when no trigger is supplied
  * @part trigger - Trigger button
  * @part popper - Popper element (can only be styled as long as tooltip is not initialized)
@@ -336,7 +334,7 @@ export class LdTooltip {
     let triggerInSlot: Element = this.el.querySelector('[slot="trigger"]')
 
     while (isSlot(triggerInSlot)) {
-      ;[triggerInSlot] = triggerInSlot.assignedElements()
+      triggerInSlot = triggerInSlot.assignedElements()[0]
     }
 
     return triggerInSlot as HTMLElement
@@ -420,6 +418,7 @@ export class LdTooltip {
         </TriggerTag>
         <span
           class="ld-tooltip__content"
+          part="content"
           ref={(element: HTMLSpanElement) => (this.contentRef = element)}
         >
           <slot />
