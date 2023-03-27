@@ -142,7 +142,16 @@ function parseShadows(items) {
   return shadows
 }
 
-function parseColors(items, styles: { name: string; description: string }[]) {
+function getLightness(lightness: string, isDark = false) {
+  if (!isDark) return lightness
+  return (100 - parseFloat(lightness)).toFixed(2)
+}
+
+function parseColors(
+  items,
+  styles: { name: string; description: string }[],
+  isDark = false
+) {
   const colors = {}
 
   function getKeyFromStep(step) {
@@ -163,7 +172,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
     }
 
     if (item.children) {
-      Object.assign(colors, parseColors(item.children, styles))
+      Object.assign(colors, parseColors(item.children, styles, isDark))
     } else if (item.fills?.length && item.styles?.fill) {
       const style = styles[item.styles.fill]
       const { name, description } = style
@@ -198,7 +207,10 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const totalStepsToDark = totalSteps - defaultStep
 
       if (isWhite) {
-        colors[colorShortName] = `hsl(${h}deg ${s}% ${l}%)`
+        colors[colorShortName] = `hsl(${h}deg ${s}% ${getLightness(
+          l,
+          isDark
+        )}%)`
         const whiteGradients = [
           {
             modifier: 'alpha-highest',
@@ -224,7 +236,9 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         for (const gradient of whiteGradients) {
           colors[
             `${colorShortName}-${gradient.modifier}`
-          ] = `hsl(${h}deg ${s}% ${l}% / ${gradient.alpha})`
+          ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}% / ${
+            gradient.alpha
+          })`
         }
         continue
       }
@@ -232,7 +246,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       // default
       colors[
         `${colorShortName}-${getKeyFromStep(defaultStep)}/default`
-      ] = `hsl(${h}deg ${s}% ${l}%)`
+      ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}%)`
 
       // to light
       const colorLightest = chroma({ r, g, b })
@@ -255,7 +269,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         const { h, s, l } = getHSLFromColor(chroma(color))
         colors[
           `${colorShortName}-${getKeyFromStep(step)}`
-        ] = `hsl(${h}deg ${s}% ${l}%)`
+        ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}%)`
       })
 
       // to dark
@@ -274,14 +288,20 @@ function parseColors(items, styles: { name: string; description: string }[]) {
           colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
             h || 0
           }deg ${s}% ${l}%)`
+          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
+            h || 0
+          }deg ${s}% ${getLightness(l, isDark)}%)`
         })
 
       // TODO check if it is wiser to pick a color from the middle of the range
       // alpha
-      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${l}% / 0.2)`
+      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${getLightness(
+        l,
+        isDark
+      )}% / 0.2)`
       colors[
         `${colorShortName}-alpha-lowest`
-      ] = `hsl(${h}deg ${s}% ${l}% / 0.1)`
+      ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}% / 0.1)`
     }
   }
 
@@ -394,6 +414,13 @@ async function getTokensFromFigma(figmaFileURL: string) {
         styles
       ),
     },
+    colorsDark: {
+      ...parseColors(
+        figmaData.find((child) => child.name === 'Colors').children,
+        styles,
+        true
+      ),
+    },
     typography: parseTypography(
       [
         ...figmaData.find((child) => child.name === 'Headlines').children,
@@ -442,12 +469,14 @@ function generateShadows(tokens) {
   )
 }
 
-function generateColors(colorTokens) {
+function generateColors(colors, colorsDark) {
   const colorVariables = []
+  const colorDarkVariables = []
 
   // Basic colors
-  Object.keys(colorTokens).forEach((key) => {
-    const val = colorTokens[key]
+  Object.keys(colors).forEach((key) => {
+    const val = colors[key]
+    const valDark = colorsDark[key]
     if (key.includes('/default')) {
       const colorKey = key.split('/default')[0]
       const colorBaseName = key
@@ -456,21 +485,31 @@ function generateColors(colorTokens) {
         .replace(/-$/, '')
 
       colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
+      colorDarkVariables.push(`  --ld-col-${colorKey}: ${valDark};`)
 
       // prevents duplicate custom properties in cases like "sp/default"
       if (colorBaseName !== colorKey) {
         colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
+        colorDarkVariables.push(`  --ld-col-${colorBaseName}: ${valDark};`)
       }
     } else {
       colorVariables.push(`  --ld-col-${key}: ${val};`)
+      colorDarkVariables.push(`  --ld-col-${key}: ${valDark};`)
     }
   })
 
   return ensureWriteFile(
     join(stylesDir, 'colors/colors.css'),
-    ['/* autogenerated */', ':root {', ...colorVariables.sort(), '}', ''].join(
-      '\n'
-    ),
+    [
+      '/* autogenerated */',
+      'html:not(.ld-dark) {',
+      ...colorVariables.sort(),
+      '}',
+      'html:is(.ld-dark) {',
+      ...colorDarkVariables.sort(),
+      '}',
+      '',
+    ].join('\n'),
     'utf8'
   )
 }
@@ -596,7 +635,7 @@ function generateBorderRadii(tokens) {
 function generateCSSTokenFiles(tokenCollection) {
   return Promise.all([
     generateShadows(tokenCollection.shadows),
-    generateColors(tokenCollection.colors),
+    generateColors(tokenCollection.colors, tokenCollection.colorsDark),
     generateSpacings(tokenCollection.spacings),
     generateTheming(tokenCollection.themes),
     generateTypography(tokenCollection.typography),
