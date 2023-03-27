@@ -168,24 +168,44 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const style = styles[item.styles.fill]
       const { name, description } = style
       const pathParts = name.split('/')
-      const baseColorName =
-        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')[0]
+      const [baseColorName, ...rest] =
+        pathParts[pathParts.length > 1 ? pathParts.length - 1 : 0].split('-')
+
       const isDefault = description === 'Default'
-      if (!isDefault) continue
-      const colorShortName = ['Neutral', 'White'].includes(baseColorName)
-        ? baseColorName === 'White'
-          ? 'wht'
-          : baseColorName.toLowerCase()
-        : baseColorName.replace(/[a-z]/g, '').toLowerCase()
+      const isNeutral = name.includes('/Neutral-900')
+      const isWhite = name.includes('/White')
+
+      if (!isDefault && !isNeutral && !isWhite) continue
+
+      let colorShortName: string
+      if (isNeutral) {
+        colorShortName = 'neutral'
+      } else if (isWhite) {
+        colorShortName = 'wht'
+      } else {
+        colorShortName = baseColorName.replace(/[a-z]/g, '').toLowerCase()
+      }
+
       const defaultStep = getStepFromKey(name.match(/\d+/g)?.at(0))
       const r = parseFloat((item.fills[0].color.r * 255).toFixed(2))
       const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
       const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
+      const a = parseFloat(
+        (((item.fills[0].opacity ?? 1) * 100) / 100).toFixed(2)
+      )
+
       const color = chroma({ r, g, b })
       const { h, s, l } = getHSLFromColor(color)
       const totalSteps = 11
       const totalStepsToLight = defaultStep
       const totalStepsToDark = totalSteps - defaultStep
+
+      if (isWhite) {
+        colors[
+          `${colorShortName}${rest.length ? '-' + rest.join('-') : ''}`
+        ] = `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+        continue
+      }
 
       // default
       colors[
@@ -194,9 +214,11 @@ function parseColors(items, styles: { name: string; description: string }[]) {
 
       // to light
       const colorLightest = chroma({ r, g, b })
-        .set('hsl.l', 0.985)
-        .set('hsl.s', 1)
-      const colorLight = chroma({ r, g, b }).set('hsl.l', 0.945).set('hsl.s', 1)
+        .set('hsl.l', 0.9825)
+        .set('hsl.s', isNeutral ? 0 : 1)
+      const colorLight = chroma({ r, g, b })
+        .set('hsl.l', 0.9425)
+        .set('hsl.s', isNeutral ? 0 : 1)
       const colorsToLightest = [
         colorLightest,
         ...chroma
