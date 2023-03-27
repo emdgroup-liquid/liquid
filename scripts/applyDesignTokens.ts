@@ -173,7 +173,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
 
       const isDefault = description === 'Default'
       const isNeutral = name.includes('/Neutral-900')
-      const isWhite = name.includes('/White')
+      const isWhite = name.includes('/White') && !rest.length
 
       if (!isDefault && !isNeutral && !isWhite) continue
 
@@ -190,9 +190,6 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const r = parseFloat((item.fills[0].color.r * 255).toFixed(2))
       const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
       const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
-      const a = parseFloat(
-        (((item.fills[0].opacity ?? 1) * 100) / 100).toFixed(2)
-      )
 
       const color = chroma({ r, g, b })
       const { h, s, l } = getHSLFromColor(color)
@@ -201,9 +198,34 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const totalStepsToDark = totalSteps - defaultStep
 
       if (isWhite) {
-        colors[
-          `${colorShortName}${rest.length ? '-' + rest.join('-') : ''}`
-        ] = `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+        colors[colorShortName] = `hsl(${h}deg ${s}% ${l}%)`
+        const whiteGradients = [
+          {
+            modifier: 'alpha-highest',
+            alpha: 0.8,
+          },
+          {
+            modifier: 'alpha-high',
+            alpha: 0.7,
+          },
+          {
+            modifier: 'alpha-medium',
+            alpha: 0.5,
+          },
+          {
+            modifier: 'alpha-low',
+            alpha: 0.2,
+          },
+          {
+            modifier: 'alpha-lowest',
+            alpha: 0.1,
+          },
+        ]
+        for (const gradient of whiteGradients) {
+          colors[
+            `${colorShortName}-${gradient.modifier}`
+          ] = `hsl(${h}deg ${s}% ${l}% / ${gradient.alpha})`
+        }
         continue
       }
 
