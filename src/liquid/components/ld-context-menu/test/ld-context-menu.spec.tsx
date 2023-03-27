@@ -24,15 +24,16 @@ const prepareAndGetMenuInTooltip = async (
   const triggerSlot = page.root.shadowRoot.querySelector<AnyHTMLElement>('slot')
   const defaultSlot =
     page.root.shadowRoot.querySelector<AnyHTMLElement>('ld-menu slot')
-  const menuItem = page.root.querySelector('ld-menuitem')
-  const triggerButton = page.root.querySelector('ld-button')
+  const menuItems = Array.from(page.root.querySelectorAll('ld-menuitem'))
+  const triggerLdButton = page.root.querySelector('ld-button')
+  const triggerButton = page.root.querySelector('button')
 
   triggerSlot.assignedElements = jest.fn().mockReturnValue(triggerSlotElements)
   tooltipTriggerSlot.assignedElements = jest.fn().mockReturnValue([triggerSlot])
   tooltipDefaultSlot.assignedNodes = jest
     .fn()
     .mockReturnValue(tooltipContentNodes)
-  defaultSlot.assignedNodes = jest.fn().mockReturnValue([menuItem])
+  defaultSlot.assignedNodes = jest.fn().mockReturnValue(menuItems)
 
   jest.advanceTimersByTime(0)
   await page.waitForChanges()
@@ -45,13 +46,25 @@ const prepareAndGetMenuInTooltip = async (
     menuInTooltip.querySelectorAll<HTMLLdMenuitemElement>('ld-menuitem')
   )
 
-  ;[menuItem, menuItemsInTooltip[0], triggerButton].forEach((element) =>
+  console.log(menuItemsInTooltip.length)
+  const innerFocusableElements = [...menuItems, ...menuItemsInTooltip]
+
+  if (triggerLdButton) {
+    innerFocusableElements.push(triggerLdButton)
+  }
+
+  if (triggerButton) {
+    triggerButton.focus = jest.fn()
+  }
+
+  innerFocusableElements.forEach((element) =>
     Object.defineProperty(element, 'focusInner', {
       value: jest.fn(),
       configurable: true,
       writable: true,
     })
   )
+
   Object.defineProperty(tooltip, 'hideTooltip', {
     value: jest.fn(),
     configurable: true,
@@ -186,7 +199,7 @@ describe('ld-context-menu', () => {
     expect(firstMenuItemInTooltip.focusInner).toHaveBeenCalled()
   })
 
-  it('focuses the trigger button when closed', async () => {
+  it('focuses the trigger ld-button when closed', async () => {
     const page = await newSpecPage({
       components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
       template: () => (
@@ -220,6 +233,42 @@ describe('ld-context-menu', () => {
     page.body.dispatchEvent(event as unknown as Event)
 
     expect(triggerButton.focusInner).toHaveBeenCalled()
+  })
+
+  it('focuses the trigger button when closed', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu>
+          <button slot="trigger">Open</button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+    const tooltip = page.root.shadowRoot.querySelector('ld-tooltip')
+    const tooltipTriggerButton =
+      tooltip.shadowRoot.querySelector<HTMLLdButtonElement>(
+        '.ld-tooltip__trigger'
+      )
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('button')
+
+    await prepareAndGetMenuInTooltip(page, [triggerButton], [menu])
+
+    // clicking the button inside the tooltip shadow DOM because event bubbling
+    // doesn't work here, somehow.
+    tooltipTriggerButton.click()
+    await page.waitForChanges()
+
+    // trigger tooltip close
+    const event = {
+      type: 'touchend',
+      isTrusted: true,
+      composedPath: () => [page.body],
+    }
+    page.body.dispatchEvent(event as unknown as Event)
+
+    expect(triggerButton.focus).toHaveBeenCalled()
   })
 
   it('closes context menu on Escape key', async () => {
