@@ -380,8 +380,7 @@
     "wht-alpha-high": "hsl(0.00deg 0.00% 100.00% / 0.7)",
     "wht-alpha-medium": "hsl(0.00deg 0.00% 100.00% / 0.5)",
     "wht-alpha-low": "hsl(0.00deg 0.00% 100.00% / 0.2)",
-    "wht-alpha-lowest": "hsl(0.00deg 0.00% 100.00% / 0.1)",
-    "wht-alpha-none": "hsl(0.00deg 0.00% 100.00% / 0)"
+    "wht-alpha-lowest": "hsl(0.00deg 0.00% 100.00% / 0.1)"
   },
   "typography": {
     "xh1": {
