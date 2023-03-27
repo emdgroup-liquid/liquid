@@ -214,9 +214,11 @@ function parseColors(items, styles: { name: string; description: string }[]) {
 
       // to light
       const colorLightest = chroma({ r, g, b })
+        .set('hsl.h', color.get('hsl.h') - 15)
         .set('hsl.l', 0.9825)
         .set('hsl.s', isNeutral ? 0 : 1)
       const colorLight = chroma({ r, g, b })
+        .set('hsl.h', color.get('hsl.h') - 10)
         .set('hsl.l', 0.9425)
         .set('hsl.s', isNeutral ? 0 : 1)
       const colorsToLightest = [
@@ -235,7 +237,9 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       })
 
       // to dark
-      const colorDark = chroma({ r, g, b }).luminance(0.015)
+      const colorDark = chroma({ r, g, b })
+        .set('hsl.h', color.get('hsl.h') + 10)
+        .luminance(0.015)
       chroma
         .scale([color, colorDark])
         .mode('lab')
