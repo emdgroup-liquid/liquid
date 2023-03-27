@@ -214,8 +214,8 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const s = (color.get('hsl.s') * 100).toFixed(2)
       const l = (color.get('hsl.l') * 100).toFixed(2)
       const totalSteps = 11
-      const totalStepsToWhite = defaultStep
-      const totalStepsToBlack = totalSteps - defaultStep
+      const totalStepsToLight = defaultStep
+      const totalStepsToDark = totalSteps - defaultStep
 
       // default
       colors[
@@ -223,24 +223,31 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       ] = `hsl(${h}deg ${s}% ${l}%)`
 
       // to light
-      const colorLight = chroma({ r, g, b }).set('hsl.l', 0.98)
-      chroma
-        .scale([colorLight, color])
-        .colors(totalStepsToWhite + 1)
-        .forEach((color, step) => {
-          if (step === defaultStep) return
-          const [h, s, l] = chroma(color).hsl()
-          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
-            h || 0
-          ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
-        })
+      const colorLightest = chroma({ r, g, b })
+        .set('hsl.l', 0.985)
+        .set('hsl.s', 1)
+      const colorLight = chroma({ r, g, b }).set('hsl.l', 0.945).set('hsl.s', 1)
+      const colorsToLightest = [
+        colorLightest,
+        ...chroma
+          .scale([colorLight, color])
+          .correctLightness()
+          .colors(totalStepsToLight),
+      ]
+      colorsToLightest.forEach((color, step) => {
+        if (step === defaultStep) return
+        const [h, s, l] = chroma(color).hsl()
+        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
+          h || 0
+        ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
+      })
 
       // to dark
       const colorDark = chroma({ r, g, b }).set('hsl.s', 1).luminance(0.015)
       chroma
         .scale([color, colorDark])
-        .mode('lab')
-        .colors(totalStepsToBlack)
+        .correctLightness()
+        .colors(totalStepsToDark)
         .forEach((color, i) => {
           if (i === 0) return
           const step = defaultStep + i
