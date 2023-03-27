@@ -141,7 +141,7 @@
     "postcss-preset-env": "^8.0.1",
     "prettier": "^2.8.4",
     "puppeteer": "^19.7.1",
-    "semantic-release": "^20.1.0",
+    "semantic-release": "^21.0.0",
     "shx": "^0.3.4",
     "stylelint": "^15.1.0",
     "stylelint-config-standard": "^31.0.0",
