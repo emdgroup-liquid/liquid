@@ -235,9 +235,10 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       })
 
       // to dark
-      const colorDark = chroma({ r, g, b }).set('hsl.s', 1).luminance(0.015)
+      const colorDark = chroma({ r, g, b }).luminance(0.015)
       chroma
         .scale([color, colorDark])
+        .mode('lab')
         .correctLightness()
         .colors(totalStepsToDark)
         .forEach((color, i) => {
