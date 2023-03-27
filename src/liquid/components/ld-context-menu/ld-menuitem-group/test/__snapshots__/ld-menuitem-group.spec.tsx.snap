@@ -3,7 +3,7 @@
 exports[`ld-menuitem-group renders 1`] = `
 <ld-menuitem-group aria-label="Test label">
   <mock:shadow-root>
-    <li class="ld-menuitem-group" role="none">
+    <li class="ld-menuitem-group" part="listitem" role="none">
       <ul aria-label="Test label" class="ld-menuitem-group__list" role="group">
         <slot></slot>
       </ul>

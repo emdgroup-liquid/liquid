@@ -8,14 +8,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-
-const isElement = (node: Node): node is Element => 'querySelectorAll' in node
-
-const isMenuItem = (element: Element): element is HTMLLdMenuitemElement =>
-  element.tagName === 'LD-MENUITEM'
-
-const isSlot = (element: Element): element is HTMLSlotElement =>
-  element.tagName === 'SLOT'
+import { isElement, isMenuItem, isSlot } from '../../../utils/type-checking'
 
 const getMenuItemOrNestedMenuItems = (node: Node) => {
   if (!isElement(node)) {
@@ -45,6 +38,11 @@ const getMenuItemOrNestedMenuItems = (node: Node) => {
 const isPrintableCharacter = (key: string) =>
   key.length === 1 && key.match(/\S/)
 
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part list - `ul` element wrapping the default slot
+ */
 @Component({
   tag: 'ld-menu',
   styleUrl: 'ld-menu.css',
@@ -223,7 +221,7 @@ export class LdMenu {
     return (
       <Host onKeyDown={this.handleKeyDown}>
         <ul class="ld-menu" part="list" role="menu">
-          <slot></slot>
+          <slot />
         </ul>
       </Host>
     )

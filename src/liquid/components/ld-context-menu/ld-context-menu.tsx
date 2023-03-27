@@ -1,9 +1,13 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
+import { isHtmlElement } from 'src/liquid/utils/type-checking'
 import { isInnerFocusable } from '../../../liquid/utils/focus'
 
-const isHtmlElement = (element?: Element): element is HTMLElement =>
-  'focus' in element
-
+/**
+ * @virtualProp ref - reference to component
+ * @virtualProp {string | number} key - for tracking the node's identity when working with lists
+ * @part menu - `ld-menu` element wrapping the default slot
+ * @part tooltip - `ld-tooltip` element
+ */
 @Component({
   tag: 'ld-context-menu',
   styleUrl: 'ld-context-menu.shadow.css',
@@ -94,6 +98,7 @@ export class LdContextMenu {
         onLdtooltipclose={this.resetFocus}
         onLdtooltipopen={this.handleMenuOpen}
         ref={(element: HTMLLdTooltipElement) => (this.tooltipRef = element)}
+        part="tooltip"
         position={this.position}
         preventScreenreader
         tag="span"
@@ -105,7 +110,10 @@ export class LdContextMenu {
           ref={(element: HTMLSlotElement) => (this.triggerSlotRef = element)}
           slot="trigger"
         />
-        <ld-menu ref={(el) => (this.menuRef = el)}>
+        <ld-menu
+          part="menu"
+          ref={(el: HTMLLdMenuElement) => (this.menuRef = el)}
+        >
           <slot />
         </ld-menu>
       </ld-tooltip>

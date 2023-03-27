@@ -85,7 +85,7 @@ exports[`ld-sidenav aligns toggle outside to the right 1`] = `
               </svg>
             </slot>
           </span>
-          <span class="ld-tooltip__content">
+          <span class="ld-tooltip__content" part="content">
             <slot></slot>
           </span>
           <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -146,7 +146,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </svg>
             </slot>
           </span>
-          <span class="ld-tooltip__content">
+          <span class="ld-tooltip__content" part="content">
             <slot></slot>
           </span>
           <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-519" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -211,7 +211,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </svg>
               </slot>
             </span>
-            <span class="ld-tooltip__content">
+            <span class="ld-tooltip__content" part="content">
               <slot></slot>
             </span>
             <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-520" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -289,7 +289,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-522" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -369,7 +369,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-523" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -420,7 +420,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-524" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -471,7 +471,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-525" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -522,7 +522,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-526" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -570,7 +570,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-527" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -624,7 +624,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-528" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -675,7 +675,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-529" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -726,7 +726,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-530" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -777,7 +777,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-531" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -828,7 +828,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-532" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -884,7 +884,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-533" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -935,7 +935,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-534" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -986,7 +986,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-535" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1037,7 +1037,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-536" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1115,7 +1115,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-537" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1160,7 +1160,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-538" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1205,7 +1205,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-539" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1250,7 +1250,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-540" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1295,7 +1295,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-541" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1340,7 +1340,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-542" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1416,7 +1416,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-543" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1461,7 +1461,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-544" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1509,7 +1509,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-545" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1588,7 +1588,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-546" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1633,7 +1633,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-547" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1683,7 +1683,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-548" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1731,7 +1731,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-549" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1784,7 +1784,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-550" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1829,7 +1829,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-551" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1904,7 +1904,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <span class="ld-tooltip__content">
+                      <span class="ld-tooltip__content" part="content">
                         <slot></slot>
                       </span>
                       <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-589" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -1949,7 +1949,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <span class="ld-tooltip__content">
+                      <span class="ld-tooltip__content" part="content">
                         <slot></slot>
                       </span>
                       <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-590" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2026,7 +2026,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-552" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2071,7 +2071,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-553" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2116,7 +2116,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-554" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2192,7 +2192,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-555" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2237,7 +2237,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-556" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2313,7 +2313,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-557" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2358,7 +2358,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-558" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2403,7 +2403,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-559" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2479,7 +2479,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-560" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2524,7 +2524,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-561" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2569,7 +2569,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-562" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2645,7 +2645,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-563" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2690,7 +2690,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-564" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2735,7 +2735,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-565" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2811,7 +2811,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-566" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2856,7 +2856,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-567" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2901,7 +2901,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-568" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2946,7 +2946,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-569" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -2991,7 +2991,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-570" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3067,7 +3067,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-571" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3112,7 +3112,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-572" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3157,7 +3157,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-573" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3202,7 +3202,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-574" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3247,7 +3247,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-575" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3292,7 +3292,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-576" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3337,7 +3337,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-577" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3413,7 +3413,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-578" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3458,7 +3458,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-579" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3503,7 +3503,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-580" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3548,7 +3548,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-581" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3593,7 +3593,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-582" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3638,7 +3638,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-583" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3683,7 +3683,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-584" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3759,7 +3759,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-585" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3804,7 +3804,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-586" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3849,7 +3849,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-587" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3894,7 +3894,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-588" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -3944,7 +3944,7 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <span class="ld-tooltip__content">
+                <span class="ld-tooltip__content" part="content">
                   <slot></slot>
                 </span>
                 <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-521" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4060,7 +4060,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </svg>
             </slot>
           </span>
-          <span class="ld-tooltip__content">
+          <span class="ld-tooltip__content" part="content">
             <slot></slot>
           </span>
           <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1181" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4125,7 +4125,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </svg>
               </slot>
             </span>
-            <span class="ld-tooltip__content">
+            <span class="ld-tooltip__content" part="content">
               <slot></slot>
             </span>
             <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1182" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4203,7 +4203,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1184" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4324,7 +4324,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1186" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4371,7 +4371,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1187" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4416,7 +4416,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1188" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4461,7 +4461,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1189" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4506,7 +4506,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1190" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4551,7 +4551,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1191" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4596,7 +4596,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1192" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4686,7 +4686,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1193" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4733,7 +4733,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1194" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4778,7 +4778,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1195" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4827,7 +4827,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                       </svg>
                     </slot>
                   </span>
-                  <span class="ld-tooltip__content">
+                  <span class="ld-tooltip__content" part="content">
                     <slot></slot>
                   </span>
                   <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1185" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4920,7 +4920,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1196" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -4967,7 +4967,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1197" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5012,7 +5012,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1198" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5057,7 +5057,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1199" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5133,7 +5133,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1200" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5178,7 +5178,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                         </svg>
                       </slot>
                     </span>
-                    <span class="ld-tooltip__content">
+                    <span class="ld-tooltip__content" part="content">
                       <slot></slot>
                     </span>
                     <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1201" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5267,7 +5267,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <span class="ld-tooltip__content">
+                      <span class="ld-tooltip__content" part="content">
                         <slot></slot>
                       </span>
                       <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1202" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5355,7 +5355,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <span class="ld-tooltip__content">
+                        <span class="ld-tooltip__content" part="content">
                           <slot></slot>
                         </span>
                         <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1204" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5400,7 +5400,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <span class="ld-tooltip__content">
+                        <span class="ld-tooltip__content" part="content">
                           <slot></slot>
                         </span>
                         <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1205" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5445,7 +5445,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <span class="ld-tooltip__content">
+                        <span class="ld-tooltip__content" part="content">
                           <slot></slot>
                         </span>
                         <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1206" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5490,7 +5490,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                             </svg>
                           </slot>
                         </span>
-                        <span class="ld-tooltip__content">
+                        <span class="ld-tooltip__content" part="content">
                           <slot></slot>
                         </span>
                         <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1207" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5536,7 +5536,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                           </svg>
                         </slot>
                       </span>
-                      <span class="ld-tooltip__content">
+                      <span class="ld-tooltip__content" part="content">
                         <slot></slot>
                       </span>
                       <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1203" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>
@@ -5587,7 +5587,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </svg>
                   </slot>
                 </span>
-                <span class="ld-tooltip__content">
+                <span class="ld-tooltip__content" part="content">
                   <slot></slot>
                 </span>
                 <ld-tooltip-popper aria-hidden="true" arrow="" id="ld-tooltip-1183" part="popper" size="sm" triggertype="hover"></ld-tooltip-popper>

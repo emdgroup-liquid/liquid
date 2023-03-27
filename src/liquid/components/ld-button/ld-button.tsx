@@ -14,17 +14,17 @@ type Mode =
   | 'neutral-secondary'
   | 'neutral-ghost'
 
-const modeMap: Record<Mode, string> = {
-  danger: 'ld-button--danger',
-  ghost: 'ld-button--ghost',
-  highlight: 'ld-button--highlight',
-  neutral: 'ld-button--neutral',
-  secondary: 'ld-button--secondary',
-  'danger-ghost': 'ld-button--ghost ld-button--danger-ghost',
-  'danger-secondary': 'ld-button--secondary ld-button--danger-secondary',
-  'neutral-ghost': 'ld-button--ghost ld-button--neutral-ghost',
-  'neutral-secondary': 'ld-button--secondary ld-button--neutral-secondary',
-}
+const modeMap = new Map([
+  ['danger', 'ld-button--danger'],
+  ['ghost', 'ld-button--ghost'],
+  ['highlight', 'ld-button--highlight'],
+  ['neutral', 'ld-button--neutral'],
+  ['secondary', 'ld-button--secondary'],
+  ['danger-ghost', 'ld-button--ghost ld-button--danger-ghost'],
+  ['danger-secondary', 'ld-button--secondary ld-button--danger-secondary'],
+  ['neutral-ghost', 'ld-button--ghost ld-button--neutral-ghost'],
+  ['neutral-secondary', 'ld-button--secondary ld-button--neutral-secondary'],
+])
 
 /**
  * @virtualProp ref - reference to component
@@ -225,7 +225,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       this.brandColor && `ld-button--brand-color`,
       this.iconOnly && `ld-button--icon-only`,
       this.justifyContent && `ld-button--justify-${this.justifyContent}`,
-      this.mode && modeMap[this.mode],
+      this.mode && modeMap.get(this.mode),
       this.size && `ld-button--${this.size}`,
     ])
 
