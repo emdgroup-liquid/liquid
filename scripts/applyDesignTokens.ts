@@ -28,6 +28,13 @@ function pxToRem(px: string | number) {
   return val + 'rem'
 }
 
+function getHSLFromColor(color) {
+  const h = ((color.get('hsl.h') || 0) * 1).toFixed(2)
+  const s = (color.get('hsl.s') * 100).toFixed(2)
+  const l = (color.get('hsl.l') * 100).toFixed(2)
+  return { h, s, l }
+}
+
 function getColorTokenValue(variant, styles) {
   if (variant.styles?.fill) {
     const style = styles[variant.styles.fill]
@@ -46,47 +53,12 @@ function getColorTokenValue(variant, styles) {
         : '')
     return referenceName
   } else {
-    return relRGBToAbsHSL(variant.fills[0])
+    const { r, g, b, a } = variant.fills[0]
+    const color = chroma({ r, g, b, a })
+
+    const { h, s, l } = getHSLFromColor(color)
+    return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
   }
-}
-
-// TODO replace with lib function
-function relRGBToAbsHSL(fill) {
-  const { r, g, b } = fill.color
-  const cmin = Math.min(r, g, b)
-  const cmax = Math.max(r, g, b)
-  const delta = cmax - cmin
-  let h = 0
-  let s = 0
-  let l = 0
-  const a = Math.round((fill.opacity ?? 1) * 100) / 100
-
-  // Calculate hue
-  // No difference
-  if (delta == 0) h = 0
-  // Red is max
-  else if (cmax == r) h = ((g - b) / delta) % 6
-  // Green is max
-  else if (cmax == g) h = (b - r) / delta + 2
-  // Blue is max
-  else h = (r - g) / delta + 4
-
-  h = Math.round(h * 60)
-
-  // Make negative hues positive behind 360°
-  if (h < 0) h += 360
-
-  // Calculate lightness
-  l = (cmax + cmin) / 2
-
-  // Calculate saturation
-  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
-
-  // Multiply l and s by 100
-  s = +(s * 100).toFixed(1)
-  l = +(l * 100).toFixed(1)
-
-  return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
 }
 
 function parseThemes(items, styles) {
@@ -210,9 +182,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
       const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
       const color = chroma({ r, g, b })
-      const h = (color.get('hsl.h') * 1).toFixed(2)
-      const s = (color.get('hsl.s') * 100).toFixed(2)
-      const l = (color.get('hsl.l') * 100).toFixed(2)
+      const { h, s, l } = getHSLFromColor(color)
       const totalSteps = 11
       const totalStepsToLight = defaultStep
       const totalStepsToDark = totalSteps - defaultStep
@@ -236,10 +206,10 @@ function parseColors(items, styles: { name: string; description: string }[]) {
       ]
       colorsToLightest.forEach((color, step) => {
         if (step === defaultStep) return
-        const [h, s, l] = chroma(color).hsl()
-        colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
-          h || 0
-        ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
+        const { h, s, l } = getHSLFromColor(chroma(color))
+        colors[
+          `${colorShortName}-${getKeyFromStep(step)}`
+        ] = `hsl(${h}deg ${s}% ${l}%)`
       })
 
       // to dark
@@ -251,10 +221,10 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         .forEach((color, i) => {
           if (i === 0) return
           const step = defaultStep + i
-          const [h, s, l] = chroma(color).hsl()
-          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${(
+          const { h, s, l } = getHSLFromColor(chroma(color))
+          colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
             h || 0
-          ).toFixed(2)}deg ${(s * 100).toFixed(2)}% ${(l * 100).toFixed(2)}%)`
+          }deg ${s}% ${l}%)`
         })
 
       // TODO check if it is wiser to pick a color from the middle of the range
