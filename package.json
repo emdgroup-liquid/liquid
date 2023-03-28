@@ -109,7 +109,7 @@
     "axe-core": "^4.6.3",
     "cheerio": "^1.0.0-rc.12",
     "chokidar-cli": "^3.0.0",
-    "cssnano": "^5.1.15",
+    "cssnano": "^6.0.0",
     "dotenv-cli": "^7.0.0",
     "eleventy-plugin-toc": "^1.1.5",
     "eslint": "^8.34.0",
