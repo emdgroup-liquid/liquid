@@ -61,12 +61,10 @@ title: Introduction
       document.body.classList.add('sarari')
     }
 
-    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var storedThemePref = window.localStorage.getItem('docs-ui')
     var isDark = storedThemePref === 'dark' ? true : false
-    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
-    document.body.classList.remove(
-      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
-    )
+    document.documentElement.classList.toggle('ld-dark', isDark)
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'auto'
   </script>
   <docs-topbar></docs-topbar>
   <docs-layout id="docs-layout" style="visibility: hidden">
