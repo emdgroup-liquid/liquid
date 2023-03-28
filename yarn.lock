@@ -1377,7 +1377,7 @@ __metadata:
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
     "@stencil/react-output-target": ^0.4.0
-    "@stencil/vue-output-target": ^0.7.0
+    "@stencil/vue-output-target": ^0.8.0
     "@types/jest": ^27.5.2
     "@types/js-cookie": ^3.0.2
     "@types/node": ^18.13.0
@@ -2643,21 +2643,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/vue-output-target@npm:0.6.2":
-  version: 0.6.2
-  resolution: "@stencil/vue-output-target@npm:0.6.2"
+"@stencil/vue-output-target@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@stencil/vue-output-target@npm:0.8.0"
   peerDependencies:
-    "@stencil/core": ^2.9.0
-  checksum: bd25b6f88e93cce9450a90278d71b432f139d665446b77c841db7d09a644165075759c9e8dcd27e4b84fbbd0abaac8b39d11c28aaeb8cbe3156fef3e125080cc
-  languageName: node
-  linkType: hard
-
-"@stencil/vue-output-target@patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
-  version: 0.6.2
-  resolution: "@stencil/vue-output-target@patch:@stencil/vue-output-target@npm%3A0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch::version=0.6.2&hash=705ecb&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
-  peerDependencies:
-    "@stencil/core": ^2.9.0
-  checksum: d22423d6bff0042a0975582f0730016e97f7a34518651562d71fa3203ccb48e1fc97a7c310319ab24eb8233d57f1f5c1a1b3ec281db3fd46a7343c2d811fe008
+    "@stencil/core": ^2.9.0 || ^3.0.0
+  checksum: b384915a33e5cc78af6f657ba2976093b895502b370f24847602a7c36df7fdea650db0e7bfdf859cc0388d5840d05a227e3ca1e62c63953be90a1e1a2023d1b8
   languageName: node
   linkType: hard
 

@@ -97,7 +97,7 @@
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.4.0",
-    "@stencil/vue-output-target": "^0.7.0",
+    "@stencil/vue-output-target": "^0.8.0",
     "@types/jest": "^27.5.2",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "^18.13.0",
