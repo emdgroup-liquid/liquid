@@ -1,210 +1,3 @@
-@define-mixin docs-main-ui-light {
-  .docs-main {
-    hr {
-      background-color: var(--ld-col-neutral-100);
-    }
-
-    main {
-      > header {
-        ld-breadcrumbs {
-          filter: none;
-        }
-      }
-
-      > p,
-      > ol,
-      > ul,
-      > ld-notice,
-      > [id^='css-variables'] + table,
-      > [id^='properties'] + table,
-      > [id^='events'] + table,
-      > [id^='slots'] + table,
-      > [id^='methods'] ~ h3 {
-        code {
-          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-100);
-          background-color: var(--ld-col-neutral-010);
-        }
-      }
-
-      [id^='css-variables'] + table td,
-      [id^='properties'] + table td {
-        &:first-of-type,
-        &:nth-of-type(2),
-        &:nth-of-type(4) {
-          code {
-            &:not(:last-child) {
-              color: var(--ld-col-rb-010);
-              background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-800);
-            }
-          }
-        }
-      }
-
-      > p > a,
-      > ul a,
-      > ol a,
-      > table a {
-        color: var(--ld-col-vc-600);
-
-        @media (hover: hover) {
-          &:hover {
-            color: var(--ld-thm-secondary);
-          }
-        }
-
-        &:active,
-        &:active:focus-visible {
-          color: var(--ld-col-vc-700);
-        }
-      }
-
-      > blockquote {
-        color: var(--ld-col-neutral-900);
-        background-color: var(--ld-thm-warning-focus);
-        border-left: solid var(--ld-sp-6) var(--ld-thm-warning);
-        font: var(--ld-typo-body-m);
-
-        code {
-          background-color: var(--ld-thm-warning);
-        }
-      }
-
-      > pre {
-        border-color: var(--ld-col-neutral-100);
-
-        > docs-copy-to-cb {
-          filter: none;
-        }
-      }
-
-      > table {
-        thead tr {
-          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-300);
-        }
-        tbody tr {
-          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-100);
-        }
-      }
-    }
-  }
-}
-@define-mixin docs-main-ui-dark {
-  .docs-main {
-    hr {
-      background-color: var(--ld-col-neutral-600);
-    }
-
-    main {
-      > header {
-        ld-breadcrumbs {
-          filter: invert(1) hue-rotate(180deg);
-        }
-      }
-
-      > p,
-      > ol,
-      > ul,
-      > [id^='css-variables'] + table,
-      > [id^='properties'] + table,
-      > [id^='events'] + table,
-      > [id^='slots'] + table,
-      > [id^='methods'] ~ h3 {
-        code {
-          box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-400);
-          background-color: var(--ld-col-neutral-600);
-        }
-      }
-
-      [id^='properties'] + table td {
-        &:first-of-type,
-        &:nth-of-type(2),
-        &:nth-of-type(4) {
-          code {
-            &:not(:last-child) {
-              color: var(--ld-col-rb-010);
-              background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-400);
-            }
-          }
-        }
-      }
-
-      [id^='css-variables'] + table td {
-        &:first-of-type,
-        &:nth-of-type(3) {
-          code {
-            &:not(:last-child) {
-              color: var(--ld-col-rb-010);
-              background-color: var(--ld-thm-ocean-primary);
-              box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-400);
-            }
-          }
-        }
-      }
-
-      > p > a,
-      > ol a,
-      > ul a,
-      > table a {
-        color: var(--ld-col-vc-200);
-
-        @media (hover: hover) {
-          &:hover {
-            color: var(--ld-col-vc);
-          }
-        }
-
-        &:active,
-        &:active:focus-visible {
-          color: var(--ld-col-vc-600);
-        }
-      }
-
-      > blockquote {
-        color: var(--ld-col-neutral-900);
-        background-color: var(--ld-thm-warning);
-        border-left: solid var(--ld-sp-6) var(--ld-thm-warning-hover);
-
-        code {
-          background-color: var(--ld-thm-warning);
-        }
-      }
-
-      > pre {
-        border-color: var(--ld-col-neutral-900);
-
-        > docs-copy-to-cb {
-          filter: invert(1) hue-rotate(180deg);
-        }
-      }
-
-      > table {
-        thead tr {
-          border-bottom: solid var(--ld-sp-1) var(--ld-col-wht);
-        }
-        tbody tr {
-          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-700);
-        }
-      }
-    }
-  }
-}
-
-@mixin docs-main-ui-light;
-
-/*
-@media (prefers-color-scheme: dark) {
-  @mixin docs-main-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-main-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-main-ui-light;
-}
-*/
-
 .docs-main {
   --ld-typo-code-s: 0.875rem / 176% 'Source Code Pro', Consolas, Monaco,
     'Ubuntu Mono', monospace;
@@ -219,7 +12,59 @@
     --docs-main-padding-x: var(--ld-sp-24);
   }
 
+  hr {
+    background-color: var(--ld-col-neutral-300);
+  }
+
   main {
+    > p,
+    > ol,
+    > ul,
+    > ld-notice,
+    > [id^='css-variables'] + table,
+    > [id^='properties'] + table,
+    > [id^='events'] + table,
+    > [id^='slots'] + table,
+    > [id^='methods'] ~ h3 {
+      code {
+        box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-neutral-100);
+        background-color: var(--ld-col-neutral-010);
+      }
+    }
+
+    [id^='css-variables'] + table td,
+    [id^='properties'] + table td {
+      &:first-of-type,
+      &:nth-of-type(2),
+      &:nth-of-type(4) {
+        code {
+          &:not(:last-child) {
+            color: var(--ld-col-rb-010);
+            background-color: var(--ld-thm-ocean-primary);
+            box-shadow: inset 0 0 0 var(--ld-sp-1) var(--ld-col-rb-800);
+          }
+        }
+      }
+    }
+
+    > p > a,
+    > ul a,
+    > ol a,
+    > table a {
+      color: var(--ld-col-vc-600);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--ld-thm-secondary);
+        }
+      }
+
+      &:active,
+      &:active:focus-visible {
+        color: var(--ld-col-vc-700);
+      }
+    }
+
     > header,
     > footer {
       display: flex;
@@ -367,16 +212,15 @@
       display: block;
       padding-bottom: var(--ld-sp-24);
 
-      tr {
+      tbody tr {
+        border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-300);
         margin-top: var(--ld-sp-16);
-      }
-      tbody tr:nth-child(odd) {
-        background-color: var(--sensitive-grey-dark);
       }
 
       thead {
         tr {
           margin-top: 0;
+          border-bottom: solid var(--ld-sp-1) var(--ld-col-neutral-300);
         }
         th {
           padding-top: 0;
@@ -490,6 +334,10 @@
     }
 
     > blockquote {
+      color: var(--ld-col-neutral-900);
+      background-color: var(--ld-thm-warning-focus);
+      border-left: solid var(--ld-sp-6) var(--ld-thm-warning);
+      font: var(--ld-typo-body-m);
       padding: var(--ld-sp-8) var(--ld-sp-24) var(--ld-sp-12) var(--ld-sp-24);
 
       a {
@@ -497,12 +345,14 @@
       }
 
       code {
-        padding: 0 var(--ld-sp-4);
+        background-color: var(--ld-thm-warning);
         border-radius: var(--ld-br-m);
+        padding: 0 var(--ld-sp-4);
       }
     }
 
     > pre {
+      border-color: var(--ld-col-neutral-100);
       border-radius: var(--ld-br-l);
       border-style: solid;
       border-width: var(--ld-sp-1);

@@ -1,40 +1,8 @@
-@define-mixin docs-icon-ui-light {
-  .docs-icon {
-    color: var(--ld-col-neutral-900);
-
-    &__player {
-      filter: none;
-    }
-  }
-}
-@define-mixin docs-icon-ui-dark {
-  .docs-icon {
-    color: var(--ld-col-wht);
-
-    &__player {
-      filter: invert(1) hue-rotate(180deg);
-    }
-  }
-}
-
-@mixin docs-icon-ui-light;
-
-/*
-@media (prefers-color-scheme: dark) {
-  @mixin docs-icon-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-icon-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-icon-ui-light;
-}
-*/
-
 .docs-icon {
   align-items: center;
   border-radius: var(--ld-br-l);
   border: none;
+  color: var(--ld-col-neutral-900);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -70,6 +38,7 @@
   }
 
   &__player {
+    filter: none;
     flex: 0;
     margin: calc(var(--ld-sp-16) * -1) 0 calc(var(--ld-sp-8) * -1);
     width: 3rem;

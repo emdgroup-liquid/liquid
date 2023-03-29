@@ -35,34 +35,7 @@ export class DocsPageNav {
           'docs-page-nav--has-slot': this.hasSlot,
         }}
       >
-        <div class="docs-page-nav__container docs-page-nav__dark">
-          <div class="docs-page-nav__content">
-            {this.prevHref ? (
-              <ld-button
-                brand-color
-                class="docs-page-nav__pull"
-                mode="secondary"
-                href={this.prevHref}
-              >
-                {this.prevTitle}
-              </ld-button>
-            ) : (
-              ''
-            )}
-            {this.nextHref ? (
-              <ld-button
-                brand-color
-                class="docs-page-nav__push"
-                href={this.nextHref}
-              >
-                {this.nextTitle}
-              </ld-button>
-            ) : (
-              ''
-            )}
-          </div>
-        </div>
-        <div class="docs-page-nav__container docs-page-nav__light">
+        <div class="docs-page-nav__container">
           <div class="docs-page-nav__content">
             {this.prevHref ? (
               <ld-button

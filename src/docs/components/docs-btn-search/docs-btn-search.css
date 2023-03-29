@@ -1,34 +1,3 @@
-@define-mixin docs-btn-search-ui-light {
-  .docs-btn-search__magnifier {
-    stroke: var(--ld-col-neutral-900);
-  }
-  .docs-btn-search__shortcut {
-    fill: var(--ld-col-neutral-900);
-  }
-}
-@define-mixin docs-btn-search-ui-dark {
-  .docs-btn-search__magnifier {
-    stroke: var(--ld-col-wht);
-  }
-  .docs-btn-search__shortcut {
-    fill: var(--ld-col-wht);
-  }
-}
-
-@mixin docs-btn-search-ui-light;
-
-/*
-@media (prefers-color-scheme: dark) {
-  @mixin docs-btn-search-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-btn-search-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-btn-search-ui-light;
-}
-*/
-
 .docs-btn-search__btn {
   display: flex;
   align-items: center;
@@ -45,8 +14,10 @@
 
 .docs-btn-search__magnifier {
   margin-right: var(--ld-sp-6);
+  stroke: var(--ld-col-neutral-900);
 }
 
 .docs-btn-search__shortcut {
+  fill: var(--ld-col-neutral-900);
   margin-left: auto;
 }
