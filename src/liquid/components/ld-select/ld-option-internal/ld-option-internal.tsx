@@ -18,7 +18,7 @@ import { getClassNames } from '../../../utils/getClassNames'
   styleUrl: 'ld-option-internal.shadow.css',
   shadow: true,
 })
-export class LdOptionInternal {
+export class LdOptionInternal implements InnerFocusable {
   @Element() el: HTMLElement
 
   private optionRef: HTMLElement
@@ -51,18 +51,30 @@ export class LdOptionInternal {
    */
   @Prop() mode?: 'checkbox' | undefined
 
-  /** Size of the select trigger button for applying according paddings. */
+  /** Size of the option. */
   @Prop() size?: 'sm' | 'lg'
 
   /** Set to true on filtering via select input. */
   @Prop() filtered? = false
 
+  /** Tab index of the option. */
+  @Prop() ldTabindex? = -1
+
   /**
    * Sets focus internally.
    */
   @Method()
-  async focusOption() {
+  async focusInner() {
     this.optionRef.focus()
+  }
+
+  /**
+   * Sets focus internally.
+   * @deprecated
+   */
+  @Method()
+  async focusOption() {
+    await this.focusInner()
   }
 
   /**
@@ -141,7 +153,7 @@ export class LdOptionInternal {
           onBlur={() => (this.hasFocus = false)}
           onMouseOver={() => (this.hasHover = true)}
           onMouseOut={() => (this.hasHover = false)}
-          tabindex="-1"
+          tabindex={this.ldTabindex}
           part="option focusable"
         >
           {this.mode === 'checkbox' ? (
