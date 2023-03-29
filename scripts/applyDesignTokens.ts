@@ -248,6 +248,34 @@ function parseColors(
         `${colorShortName}-${getKeyFromStep(defaultStep)}/default`
       ] = `hsl(${h}deg ${s}% ${getLightness(l, isDark)}%)`
 
+      // scale
+      // chroma
+      //   .scale([
+      //     chroma({ r, g, b })
+      //       .set('hsl.h', color.get('hsl.h') - 10)
+      //       // .luminance(0.98),
+      //       // .set('hsl.s', 1)
+      //       .set('hsl.l', 0.9825),
+      //     chroma({ r, g, b })
+      //       .set('hsl.h', color.get('hsl.h') + 10)
+      //       // .luminance(0.015)
+      //       // .set('hsl.s', 1)
+      //       .set('hsl.l', 0.0175),
+      //   ])
+      //   .mode('lab')
+      //   .correctLightness()
+      //   .colors(totalSteps)
+      //   .forEach((color, step) => {
+      //     if (step === defaultStep) return
+      //     const { h, s, l } = getHSLFromColor(chroma(color))
+      //     colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
+      //       h || 0
+      //     }deg ${s}% ${l}%)`
+      //     colors[`${colorShortName}-${getKeyFromStep(step)}`] = `hsl(${
+      //       h || 0
+      //     }deg ${s}% ${getLightness(l, isDark)}%)`
+      //   })
+
       // to light
       const colorLightest = chroma({ r, g, b })
         .set('hsl.h', color.get('hsl.h') - 15)
