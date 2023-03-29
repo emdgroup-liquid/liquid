@@ -8,6 +8,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
+import { TypeAheadHandler } from 'src/liquid/utils/keyboard-navigation'
 import { isElement, isMenuItem, isSlot } from '../../../utils/type-checking'
 
 const getMenuItemOrNestedMenuItems = (node: Node) => {
@@ -35,9 +36,6 @@ const getMenuItemOrNestedMenuItems = (node: Node) => {
   return items
 }
 
-const isPrintableCharacter = (key: string) =>
-  key.length === 1 && key.match(/\S/)
-
 /**
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
@@ -55,6 +53,7 @@ export class LdMenu {
   @Prop() size?: 'sm' | 'lg'
 
   @State() initialized = false
+  @State() typeAheadHandler: TypeAheadHandler<HTMLLdMenuitemElement>
 
   private initMenuItems = (element: Node, initial = false) => {
     if (!isElement(element)) {
@@ -145,40 +144,9 @@ export class LdMenu {
     prev.focusInner()
   }
 
-  private focusByFirstCharacter = (event: KeyboardEvent) => {
-    if (!isPrintableCharacter(event.key)) {
-      return
-    }
-
-    const target = event.target as HTMLLdMenuitemElement
-    const allMenuItems = this.getAllMenuItems()
-    const currentIndex = allMenuItems.indexOf(target)
-    const itemMatchesKey = (item: HTMLLdMenuitemElement) =>
-      item.textContent.trim()[0].toLocaleLowerCase() ===
-      event.key.toLocaleLowerCase()
-    let matchingItem = allMenuItems.find((item, index) => {
-      if (index <= currentIndex) {
-        return
-      }
-
-      return itemMatchesKey(item)
-    })
-
-    if (!matchingItem) {
-      matchingItem = allMenuItems.find(itemMatchesKey)
-    }
-
-    if (!matchingItem || matchingItem === target) {
-      return
-    }
-
-    target.ldTabindex = -1
-    matchingItem.ldTabindex = 0
-    matchingItem.focusInner()
-  }
-
   private handleKeyDown = (event: KeyboardEvent) => {
     const target = event.target as HTMLLdMenuitemElement
+    let focusedElement: HTMLLdMenuitemElement
 
     switch (event.key) {
       case 'ArrowUp':
@@ -198,7 +166,12 @@ export class LdMenu {
         this.focusLast(target)
         break
       default:
-        this.focusByFirstCharacter(event)
+        focusedElement = this.typeAheadHandler.typeAhead(event.key)
+
+        if (focusedElement) {
+          target.ldTabindex = -1
+          focusedElement.ldTabindex = 0
+        }
     }
   }
 
@@ -215,6 +188,7 @@ export class LdMenu {
 
   componentWillLoad() {
     this.updateMenuItems(true)
+    this.typeAheadHandler = new TypeAheadHandler(this.getAllMenuItems())
   }
 
   render() {

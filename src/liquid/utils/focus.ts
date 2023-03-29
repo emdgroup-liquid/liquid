@@ -71,3 +71,11 @@ export const registerAutofocus = (autofocus: boolean) => {
     }
   }, 200)
 }
+
+export const focusInnerOrFocus = (element: HTMLElement) => {
+  if (isInnerFocusable(element)) {
+    element.focusInner()
+  } else {
+    element.focus()
+  }
+}

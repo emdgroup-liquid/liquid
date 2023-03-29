@@ -15,6 +15,7 @@ import Tether from 'tether'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
 import { closest } from '../../utils/closest'
+import { TypeAheadHandler } from 'src/liquid/utils/keyboard-navigation'
 
 type SelectOption = { value: string; text: string }
 
@@ -125,8 +126,7 @@ export class LdSelect implements InnerFocusable {
   @State() internalOptionsHTML: string
   @State() renderHiddenInput = false
   @State() theme: string
-  @State() typeAheadQuery: string
-  @State() typeAheadTimeout: NodeJS.Timeout | null
+  @State() typeAheadHandler: TypeAheadHandler<HTMLLdOptionInternalElement>
 
   /**
    * Emitted with an array of selected values
@@ -194,35 +194,6 @@ export class LdSelect implements InnerFocusable {
     )
     this.ldchange.emit(newValues)
     this.ldinput.emit(newValues)
-  }
-
-  @Watch('typeAheadQuery')
-  handleTypeAhead(newQuery?: string) {
-    if (!newQuery) return
-
-    const options = Array.from(
-      this.listboxRef.querySelectorAll('ld-option-internal')
-    )
-    const values = options.map((option) => option.value)
-    let index = values.findIndex(
-      (value) => value.toLowerCase().indexOf(newQuery.toLowerCase()) === 0
-    )
-    if (index > -1) {
-      options[index].focusOption()
-      return
-    }
-
-    index = 0
-    for (let i = 0; i < values.length; i++) {
-      if (newQuery.toLowerCase() < values[i].toLowerCase()) {
-        index = i + 1
-        break
-      }
-    }
-
-    if (index > 0) {
-      options[index - 1].focusOption()
-    }
   }
 
   // This method must be a function declaration for testing purposes;
@@ -438,6 +409,10 @@ export class LdSelect implements InnerFocusable {
       }
     })
 
+    if (this.listboxRef) {
+      this.typeAheadHandler.options =
+        this.listboxRef.querySelectorAll('ld-option-internal')
+    }
     this.updateTriggerMoreIndicator(true)
   }
 
@@ -657,36 +632,29 @@ export class LdSelect implements InnerFocusable {
     }
   }
 
-  private typeAhead = (key: string) => {
-    // Type a character: focus moves to the next item with a name that starts with the typed character.
-    // Type multiple characters in rapid succession: focus moves to the next item with a name that starts
-    // with the string of characters typed.
-    if (['Shift', 'Meta'].includes(key)) return
-    clearTimeout(this.typeAheadTimeout)
-    this.typeAheadQuery = (this.typeAheadQuery || '') + key
-    this.typeAheadTimeout = setTimeout(() => {
-      this.typeAheadQuery = ''
-    }, 500)
-  }
-
   private handleFilterChange = (ev: CustomEvent<string>) => {
     // Hide options which do not match the filter query.
-    const options = this.initialized
-      ? this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
-      : this.el.querySelectorAll('ld-option')
+    const options =
+      this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
     const query = ev.detail.trim().toLowerCase()
     let allFiltered = true
     let filterMatchesOption = false
-    options.forEach((ldOption) => {
+    const filteredOptions = Array.from(options).filter((ldOption) => {
       const optionTextLower = ldOption.textContent.toLowerCase()
-      ldOption.filtered = Boolean(query) && !optionTextLower.includes(query)
+      const filtered = Boolean(query) && !optionTextLower.includes(query)
+
+      ldOption.filtered = filtered
       if (optionTextLower === query) {
         filterMatchesOption = true
       }
       if (!ldOption.filtered) {
         allFiltered = false
       }
+
+      return !filtered
     })
+
+    this.typeAheadHandler.options = filteredOptions
     this.allOptionsFiltered = allFiltered
     this.filterMatchesOption = filterMatchesOption
 
@@ -908,7 +876,7 @@ export class LdSelect implements InnerFocusable {
         if (this.expanded) {
           ev.stopImmediatePropagation()
           ev.preventDefault()
-          this.typeAhead(ev.key)
+          this.typeAheadHandler.typeAhead(ev.key)
         }
     }
   }
@@ -953,10 +921,12 @@ export class LdSelect implements InnerFocusable {
     filterInput.value = ''
     const options =
       this.internalOptionsContainerRef.querySelectorAll('ld-option-internal')
+
     options.forEach((ldOption) => {
       ldOption.filtered = false
     })
 
+    this.typeAheadHandler.options = options
     this.listboxRef.resetFilter()
   }
 
@@ -1045,6 +1015,9 @@ export class LdSelect implements InnerFocusable {
   componentDidLoad() {
     setTimeout(() => {
       this.initObserver()
+      this.typeAheadHandler = new TypeAheadHandler(
+        this.listboxRef.querySelectorAll('ld-option-internal')
+      )
       this.initialized = true
     })
   }
@@ -1057,7 +1030,6 @@ export class LdSelect implements InnerFocusable {
 
   /* istanbul ignore next */
   disconnectedCallback() {
-    clearTimeout(this.typeAheadTimeout)
     this.popper?.destroy()
     this.observer?.disconnect()
     this.listboxRef?.remove()
