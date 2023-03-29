@@ -46,7 +46,6 @@ const prepareAndGetMenuInTooltip = async (
     menuInTooltip.querySelectorAll<HTMLLdMenuitemElement>('ld-menuitem')
   )
 
-  console.log(menuItemsInTooltip.length)
   const innerFocusableElements = [...menuItems, ...menuItemsInTooltip]
 
   if (triggerLdButton) {

@@ -982,7 +982,7 @@ export class LdSelect implements InnerFocusable {
 
     this.listboxRef
       .querySelector(`ld-option-internal[value='${optionValue}']`)
-      .dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
+      ?.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }))
   }
 
   componentWillLoad() {
@@ -1033,6 +1033,7 @@ export class LdSelect implements InnerFocusable {
     this.popper?.destroy()
     this.observer?.disconnect()
     this.listboxRef?.remove()
+    this.typeAheadHandler?.clearTimeout()
   }
 
   render() {
