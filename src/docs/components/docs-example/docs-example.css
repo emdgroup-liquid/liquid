@@ -1,61 +1,15 @@
-@define-mixin docs-example-ui-light {
-  .docs-example__code {
-    background-color: var(--ld-col-neutral-010);
-  }
-
-  .docs-example__tools-scroll-container {
-    background-color: var(--ld-layer-3);
-  }
-
-  .docs-example__tools {
-    stroke: var(--ld-col-neutral-900);
-  }
-
-  .docs-example__tool-buttons,
-  .docs-example__tool-switch,
-  .docs-example__copy-to-clipboard {
-    filter: none;
-  }
+.docs-example__tool-buttons,
+.docs-example__tool-switch,
+.docs-example__copy-to-clipboard {
+  filter: none;
 }
-@define-mixin docs-example-ui-dark {
-  .docs-example__code {
-    background-color: var(--ld-col-neutral-900);
-  }
-
-  .docs-example__tools-scroll-container {
-    background-color: var(--ld-col-neutral-700);
-  }
-
-  .docs-example__tools {
-    stroke: var(--ld-col-wht);
-  }
-
-  .docs-example__tool-buttons,
-  .docs-example__tool-switch,
-  .docs-example__copy-to-clipboard {
-    filter: invert(1) hue-rotate(180deg);
-  }
-}
-
-@mixin docs-example-ui-light;
-
-/*
-@media (prefers-color-scheme: dark) {
-  @mixin docs-example-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-example-ui-light;
-}
-.docs-ui-dark {
-  @mixin docs-example-ui-dark;
-}
-*/
 
 .docs-example {
   display: block;
 }
 
 .docs-example__code {
+  background-color: var(--ld-col-neutral-010);
   overflow: hidden;
   display: none;
   border-bottom-left-radius: var(--ld-br-l);
@@ -73,6 +27,7 @@
   overflow: auto;
   display: flex;
   width: 100%;
+  background-color: var(--ld-layer-3);
   border-bottom-left-radius: var(--ld-br-l);
   border-bottom-right-radius: var(--ld-br-l);
 }
@@ -84,6 +39,7 @@
   align-items: center;
   flex-grow: 1;
   line-height: 0; /* Firefox fix */
+  stroke: var(--ld-col-neutral-900);
 }
 
 .docs-example__tool-switch {

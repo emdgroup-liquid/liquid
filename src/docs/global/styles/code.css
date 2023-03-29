@@ -64,162 +64,53 @@ code .highlight-line::before {
 
 /* ------------------------------------- Colors ------------------------------------- */
 
-@define-mixin docs-code-ui-light {
-  code[class*='language-'],
-  pre[class*='language-'] {
-    color: var(--ld-col-neutral-900);
-  }
-  :not(pre) > code[class*='language-'],
-  pre[class*='language-'] {
-    background-color: var(--ld-col-neutral-010);
-  }
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata,
-  .token.punctuation {
-    color: var(--ld-col-neutral-600);
-  }
-  .token.property,
-  .token.tag,
-  .token.constant,
-  .token.symbol,
-  .token.boolean,
-  .token.deleted {
-    color: var(--ld-col-vm-600);
-  }
-  .token.number,
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted {
-    color: var(--ld-col-rg);
-  }
-  .token.atrule,
-  .token.attr-value,
-  .token.function,
-  .token.class-name {
-    color: var(--ld-col-vc-600);
-  }
-  .token.keyword,
-  .token.regex,
-  .token.important {
-    color: var(--ld-col-rp-600);
-  }
-  code .highlight-line::before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
-    color: var(--ld-col-neutral-300);
-  }
-  .highlight-line.highlight-line-active {
-    background-color: var(--ld-col-vy-100);
-  }
+code[class*='language-'],
+pre[class*='language-'] {
+  color: var(--ld-col-neutral-900);
 }
-
-@define-mixin docs-code-ui-dark {
-  code[class*='language-'],
-  pre[class*='language-'] {
-    color: var(--ld-col-wht);
-  }
-  :not(pre) > code[class*='language-'],
-  pre[class*='language-'] {
-    background: var(--ld-col-neutral-900);
-  }
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata,
-  .token.punctuation {
-    color: var(--ld-col-neutral-300);
-  }
-  .token.property,
-  .token.tag,
-  .token.constant,
-  .token.symbol,
-  .token.boolean,
-  .token.deleted {
-    color: var(--ld-col-vm);
-  }
-  .token.number,
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted {
-    color: var(--ld-col-vg);
-  }
-  .token.atrule,
-  .token.attr-value,
-  .token.function,
-  .token.class-name {
-    color: var(--ld-col-vc);
-  }
-  .token.keyword,
-  .token.regex,
-  .token.important {
-    color: var(--ld-col-rp-300);
-  }
-  code .highlight-line::before {
-    border-right: var(--ld-sp-1) solid var(--ld-col-neutral-800);
-    color: var(--ld-col-neutral-600);
-  }
-  .highlight-line.highlight-line-active {
-    background-color: var(--ld-col-vy-100);
-    color: var(--ld-col-neutral-900);
-
-    .token.comment,
-    .token.prolog,
-    .token.doctype,
-    .token.cdata,
-    .token.punctuation {
-      color: var(--ld-col-neutral-600);
-    }
-    .token.property,
-    .token.tag,
-    .token.constant,
-    .token.symbol,
-    .token.boolean,
-    .token.deleted {
-      color: var(--ld-col-vm-600);
-    }
-    .token.number,
-    .token.selector,
-    .token.attr-name,
-    .token.string,
-    .token.char,
-    .token.builtin,
-    .token.inserted {
-      color: var(--ld-col-rg);
-    }
-    .token.atrule,
-    .token.attr-value,
-    .token.function,
-    .token.class-name {
-      color: var(--ld-col-vc-600);
-    }
-    .token.keyword,
-    .token.regex,
-    .token.important {
-      color: var(--ld-col-rp-600);
-    }
-    code .highlight-line::before {
-      border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
-      color: var(--ld-col-neutral-300);
-    }
-  }
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background-color: var(--ld-col-neutral-010);
 }
-
-@mixin docs-code-ui-light;
-/*
-@media (prefers-color-scheme: dark) {
-  @mixin docs-code-ui-dark;
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation {
+  color: var(--ld-col-neutral-600);
 }
-.docs-ui-light {
-  @mixin docs-code-ui-light;
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.boolean,
+.token.deleted {
+  color: var(--ld-col-vm-600);
 }
-.docs-ui-dark {
-  @mixin docs-code-ui-dark;
+.token.number,
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--ld-col-rg);
 }
-*/
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: var(--ld-col-vc-600);
+}
+.token.keyword,
+.token.regex,
+.token.important {
+  color: var(--ld-col-rp-600);
+}
+code .highlight-line::before {
+  border-right: var(--ld-sp-1) solid var(--ld-col-neutral-100);
+  color: var(--ld-col-neutral-300);
+}
+.highlight-line.highlight-line-active {
+  background-color: var(--ld-col-vy-100);
+}
