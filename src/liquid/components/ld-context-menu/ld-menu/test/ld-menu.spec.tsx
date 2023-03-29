@@ -99,6 +99,7 @@ describe('ld-menu', () => {
       expect(item2.focusInner).not.toHaveBeenCalled()
       expect(item3.focusInner).toHaveBeenCalled()
 
+      jest.advanceTimersByTime(500)
       item3.dispatchEvent(
         new KeyboardEvent('keydown', {
           key: 'f',
@@ -109,6 +110,7 @@ describe('ld-menu', () => {
 
       expect(item4.focusInner).toHaveBeenCalled()
 
+      jest.advanceTimersByTime(500)
       item4.dispatchEvent(
         new KeyboardEvent('keydown', {
           key: 'f',
@@ -118,6 +120,34 @@ describe('ld-menu', () => {
       )
 
       expect(item1.focusInner).toHaveBeenCalled()
+
+      jest.advanceTimersByTime(500)
+      item4.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: 'f',
+          bubbles: true,
+          composed: true,
+        })
+      )
+      item4.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: 'i',
+          bubbles: true,
+          composed: true,
+        })
+      )
+      item4.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: 's',
+          bubbles: true,
+          composed: true,
+        })
+      )
+
+      expect(item1.focusInner).toHaveBeenCalledTimes(3)
+      expect(item2.focusInner).toHaveBeenCalledTimes(0)
+      expect(item3.focusInner).toHaveBeenCalledTimes(1)
+      expect(item4.focusInner).toHaveBeenCalledTimes(2)
     })
 
     it('focuses last item on End key', async () => {

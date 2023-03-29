@@ -166,7 +166,7 @@ export class LdMenu {
         this.focusLast(target)
         break
       default:
-        focusedElement = this.typeAheadHandler.typeAhead(event.key)
+        focusedElement = this.typeAheadHandler.typeAhead(event.key, target)
 
         if (focusedElement) {
           target.ldTabindex = -1
@@ -189,6 +189,10 @@ export class LdMenu {
   componentWillLoad() {
     this.updateMenuItems(true)
     this.typeAheadHandler = new TypeAheadHandler(this.getAllMenuItems())
+  }
+
+  disconnectedCallback() {
+    this.typeAheadHandler.clearTimeout()
   }
 
   render() {

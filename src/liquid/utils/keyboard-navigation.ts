@@ -4,6 +4,7 @@ const isPrintableCharacter = (key: string) =>
   key.length === 1 && key.match(/\S/)
 
 export class TypeAheadHandler<T extends HTMLElement> {
+  private currentIndex: number
   private typeAheadQuery = ''
   private typeAheadTimeout: NodeJS.Timeout
   private _options: T[]
@@ -12,29 +13,25 @@ export class TypeAheadHandler<T extends HTMLElement> {
     this.options = optionNodes
   }
 
-  disconnectedCallback() {
-    clearTimeout(this.typeAheadTimeout)
-  }
-
   set options(optionNodes: NodeListOf<T> | T[]) {
     this._options = Array.isArray(optionNodes)
       ? optionNodes
       : Array.from(optionNodes)
   }
 
-  private getElementByQuery = (currentElement?: T) => {
+  private getElementByQuery = () => {
     if (!this.typeAheadQuery) return
 
-    const currentIndex = this._options.indexOf(currentElement)
     const query = this.typeAheadQuery.toLowerCase()
     const values = this._options.map((option) =>
       option.textContent.trim().toLowerCase()
     )
     let index = values.findIndex(
-      (value, index) => index > currentIndex && value.indexOf(query) === 0
+      (value, index) => index > this.currentIndex && value.indexOf(query) === 0
     )
 
-    if (index === -1) {
+    // only search again from index 0, if you previously started from an index > 0
+    if (index === -1 && this.currentIndex > -1) {
       index = values.findIndex((value) => value.indexOf(query) === 0)
     }
 
@@ -50,6 +47,11 @@ export class TypeAheadHandler<T extends HTMLElement> {
     }
   }
 
+  /* Clear timeout */
+  clearTimeout() {
+    clearTimeout(this.typeAheadTimeout)
+  }
+
   /**
    * Type a character: focus moves to the next item with a name that starts
    * with the typed character. Type multiple characters in rapid succession:
@@ -63,15 +65,22 @@ export class TypeAheadHandler<T extends HTMLElement> {
       return
     }
 
+    // set the current index only once while adding to a typeahead query
+    if (!this.typeAheadQuery) {
+      this.currentIndex = currentElement
+        ? this._options.indexOf(currentElement)
+        : -1
+    }
+
     this.typeAheadQuery = this.typeAheadQuery + key
 
-    const focusableElement = this.getElementByQuery(currentElement)
+    const focusableElement = this.getElementByQuery()
 
     if (focusableElement) {
       focusInnerOrFocus(focusableElement)
     }
 
-    clearTimeout(this.typeAheadTimeout)
+    this.clearTimeout()
     this.typeAheadTimeout = setTimeout(() => {
       this.typeAheadQuery = ''
     }, 500)
