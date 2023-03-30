@@ -1,7 +1,7 @@
 .docs-nav__summary--introduction,
 .docs-nav__summary--introduction + ul .docs-nav__summary {
   .docs-nav__arrow {
-    background-image: url('dist/build/assets/chevron-introduction-dark.svg');
+    color: var(--ld-col-rb);
   }
   .docs-nav__summary-toggle {
     background-color: var(--ld-col-rb);
@@ -10,7 +10,7 @@
 .docs-nav__summary--guides,
 .docs-nav__summary--guides + ul .docs-nav__summary {
   .docs-nav__arrow {
-    background-image: url('dist/build/assets/chevron-guides-dark.svg');
+    color: var(--ld-col-vc);
   }
   .docs-nav__summary-toggle {
     background-color: var(--ld-col-vc-200);
@@ -19,7 +19,7 @@
 .docs-nav__summary--globals,
 .docs-nav__summary--globals + ul .docs-nav__summary {
   .docs-nav__arrow {
-    background-image: url('dist/build/assets/chevron-globals-dark.svg');
+    color: var(--ld-col-rp);
   }
   .docs-nav__summary-toggle {
     background-color: var(--ld-col-rp);
@@ -28,7 +28,7 @@
 .docs-nav__summary--components,
 .docs-nav__summary--components + ul .docs-nav__summary {
   .docs-nav__arrow {
-    background-image: url('dist/build/assets/chevron-components-dark.svg');
+    color: var(--ld-col-rg);
   }
   .docs-nav__summary-toggle {
     background-color: var(--ld-col-rg);
@@ -37,7 +37,7 @@
 .docs-nav__summary--data-visualization,
 .docs-nav__summary--data-visualization + ul .docs-nav__summary {
   .docs-nav__arrow {
-    background-image: url('dist/build/assets/chevron-data-visualization-dark.svg');
+    color: var(--ld-col-vm);
   }
   .docs-nav__summary-toggle {
     background-color: var(--ld-col-vm);
@@ -186,6 +186,7 @@
   top: calc(-1 * var(--ld-sp-1));
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
   width: 0.8rem;
   height: 1rem;
   align-items: center;

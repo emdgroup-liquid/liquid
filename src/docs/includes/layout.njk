@@ -76,7 +76,14 @@ title: Introduction
             {% if entry.children.length %}
               <details{% if ((entry.url == '/') and (('introduction/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
                 <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower | replace(" ", "-") }}">
-                  <a href="{{ env.base }}{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span><div class="docs-nav__arrow"></div></a>
+                  <a href="{{ env.base }}{{ entry.url | url }}">
+                    <span aria-label="{{ entry.title }}">{{ entry.title }}</span>
+                    <div class="docs-nav__arrow">
+                      <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 6L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </a>
                   <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>

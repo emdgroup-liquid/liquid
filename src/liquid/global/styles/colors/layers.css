@@ -5,6 +5,7 @@
   --ld-layer-3: var(--ld-col-neutral-050);
   --ld-layer-4: var(--ld-col-neutral-010);
   --ld-layer-5: var(--ld-col-wht);
+  --ld-layer-text: var(--ld-col-neutral-900);
 
   &.ld-dark {
     --ld-layer-0: var(--ld-col-neutral-010);
@@ -13,5 +14,6 @@
     --ld-layer-3: var(--ld-col-neutral-200);
     --ld-layer-4: var(--ld-col-neutral-300);
     --ld-layer-5: var(--ld-col-neutral-400);
+    --ld-layer-text: var(--ld-col-wht);
   }
 }

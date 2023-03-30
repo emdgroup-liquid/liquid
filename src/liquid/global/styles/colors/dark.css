@@ -1,8 +1,0 @@
-:root {
-  --ld-col-inv: 0;
-  color-scheme: light dark; /* stylelint-disable-line scale-unlimited/declaration-strict-value */
-
-  &.ld-dark {
-    --ld-col-inv: 1;
-  }
-}
