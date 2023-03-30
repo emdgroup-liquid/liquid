@@ -6,7 +6,7 @@ const isPrintableCharacter = (key: string) =>
 export class TypeAheadHandler<T extends HTMLElement> {
   private currentIndex: number
   private typeAheadQuery = ''
-  private typeAheadTimeout: NodeJS.Timeout
+  private typeAheadTimeout: number
   private _options: T[]
 
   constructor(optionNodes: NodeListOf<T> | T[]) {
@@ -47,9 +47,8 @@ export class TypeAheadHandler<T extends HTMLElement> {
     }
   }
 
-  /* Clear timeout */
   clearTimeout() {
-    clearTimeout(this.typeAheadTimeout)
+    window.clearTimeout(this.typeAheadTimeout)
   }
 
   /**
@@ -81,7 +80,7 @@ export class TypeAheadHandler<T extends HTMLElement> {
     }
 
     this.clearTimeout()
-    this.typeAheadTimeout = setTimeout(() => {
+    this.typeAheadTimeout = window.setTimeout(() => {
       this.typeAheadQuery = ''
     }, 500)
 

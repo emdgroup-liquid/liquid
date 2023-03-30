@@ -23,7 +23,7 @@ The `ld-menu` component is used internally for the `ld-context-menu`. It is the 
 
 {% example %}
 <ld-menu>
-  <ld-menuitem>Menum item 1</ld-menuitem>
+  <ld-menuitem>Menu item 1</ld-menuitem>
   <ld-menuitem>Menu item 2</ld-menuitem>
   <ld-menuitem>Menu item 3</ld-menuitem>
 </ld-menu>
