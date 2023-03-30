@@ -15,7 +15,7 @@ import Tether from 'tether'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
 import { closest } from '../../utils/closest'
-import { TypeAheadHandler } from 'src/liquid/utils/typeahead'
+import { TypeAheadHandler } from '../../utils/typeahead'
 
 type SelectOption = { value: string; text: string }
 

@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
-import { isHtmlElement } from 'src/liquid/utils/type-checking'
-import { isInnerFocusable } from '../../../liquid/utils/focus'
+import { isHtmlElement } from '../../utils/type-checking'
+import { isInnerFocusable } from '../../utils/focus'
 
 /**
  * @virtualProp ref - reference to component

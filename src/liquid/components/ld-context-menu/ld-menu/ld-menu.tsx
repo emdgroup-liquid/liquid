@@ -8,7 +8,7 @@ import {
   State,
   Watch,
 } from '@stencil/core'
-import { TypeAheadHandler } from 'src/liquid/utils/typeahead'
+import { TypeAheadHandler } from '../../../utils/typeahead'
 import { isElement, isMenuItem, isSlot } from '../../../utils/type-checking'
 
 const getMenuItemOrNestedMenuItems = (node: Node) => {

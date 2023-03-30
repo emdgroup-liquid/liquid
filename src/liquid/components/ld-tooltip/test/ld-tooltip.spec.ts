@@ -1,4 +1,4 @@
-jest.mock('../../../../liquid/utils/focus')
+jest.mock('../../../utils/focus')
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { newSpecPage } from '@stencil/core/testing'
