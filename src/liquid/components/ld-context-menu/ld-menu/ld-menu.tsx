@@ -151,11 +151,19 @@ export class LdMenu {
     switch (event.key) {
       case 'ArrowUp':
         event.preventDefault()
-        this.focusPrev(target)
+        if (event.metaKey) {
+          this.focusFirst(target)
+        } else {
+          this.focusPrev(target)
+        }
         break
       case 'ArrowDown':
         event.preventDefault()
-        this.focusNext(target)
+        if (event.metaKey) {
+          this.focusLast(target)
+        } else {
+          this.focusNext(target)
+        }
         break
       case 'Home':
         event.preventDefault()

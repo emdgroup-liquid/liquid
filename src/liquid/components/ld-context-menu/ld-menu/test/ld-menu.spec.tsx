@@ -174,6 +174,32 @@ describe('ld-menu', () => {
       expect(item1.focusInner).toHaveBeenCalled()
     })
 
+    it('focuses last item on ArrowDown + meta key', async () => {
+      item1.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: 'ArrowDown',
+          bubbles: true,
+          composed: true,
+          metaKey: true,
+        })
+      )
+
+      expect(item4.focusInner).toHaveBeenCalled()
+    })
+
+    it('focuses first item on ArrowUp + meta key', async () => {
+      item3.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          key: 'ArrowUp',
+          bubbles: true,
+          composed: true,
+          metaKey: true,
+        })
+      )
+
+      expect(item1.focusInner).toHaveBeenCalled()
+    })
+
     it('focuses next item on ArrowDown key', async () => {
       item1.dispatchEvent(
         new KeyboardEvent('keydown', {
