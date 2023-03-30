@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/emdgroup-liquid/liquid/compare/v4.7.10...v5.0.0) (2023-03-30)
+
+
+### Bug Fixes
+
+* **ld-select:** sorting in typeahead ([936bf2b](https://github.com/emdgroup-liquid/liquid/commit/936bf2bd97363ffa6b32a8aa69bd19392a3d853d))
+
+
+### Features
+
+* **ld-button:** add additional modes ([75da4a5](https://github.com/emdgroup-liquid/liquid/commit/75da4a5e45b7f15aa44f1cbb5fd8b6daf7c90357))
+* **ld-context-menu:** a11y improvements ([79154d0](https://github.com/emdgroup-liquid/liquid/commit/79154d0106c74fa5afd4e13e72138375156868a7))
+* **ld-context-menu:** add context menu component ([eeddd7d](https://github.com/emdgroup-liquid/liquid/commit/eeddd7d4fe5b83c7f22f69b371f77984b7077b56))
+* **ld-menu:** exclude current from typeahead ([1d12e21](https://github.com/emdgroup-liquid/liquid/commit/1d12e21c9ce5a617dc46156965d4f040c7f67e68))
+* **ld-menu:** meta + arrow to focus first/last ([beb402b](https://github.com/emdgroup-liquid/liquid/commit/beb402b52577196a8fb42d1caf057b4b98ba4901))
+* **ld-tooltip:** add unstyled mode ([6240637](https://github.com/emdgroup-liquid/liquid/commit/624063749305a21abd3707ba8023ab4d9c765dca))
+
+
+### BREAKING CHANGES
+
+* **ld-button:** danger-secondary now requires secondary class, too.
+
 ## [4.7.10](https://github.com/emdgroup-liquid/liquid/compare/v4.7.9...v4.7.10) (2023-03-16)
 
 
