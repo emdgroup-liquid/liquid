@@ -199,7 +199,7 @@
   "resolutions": {
     "@stencil/react-output-target@^0.4.0": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
     "@stencil/vue-output-target@^0.7.0": "patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch",
-    "tether@2.0.0": "patch:tether@npm:2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch"
+    "tether@^2.0.0": "patch:tether@npm:2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch"
   },
   "eslintConfig": {
     "extends": [
