@@ -16085,10 +16085,17 @@ send@latest:
   languageName: node
   linkType: hard
 
-"tether@npm:^2.0.0":
+"tether@npm:2.0.0":
   version: 2.0.0
   resolution: "tether@npm:2.0.0"
   checksum: 222f61dde68ba2a2903648fb13d58deb1f6eba020969973afb34495a27257a82c68f45c6960d70f4a6f2366fade4bdec36f184288f919b8e4417086ffac3be1b
+  languageName: node
+  linkType: hard
+
+"tether@patch:tether@npm:2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
+  version: 2.0.0
+  resolution: "tether@patch:tether@npm%3A2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch::version=2.0.0&hash=8e9381&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
+  checksum: 1fb438ed6fb9337ab1fb578680500b8599aed94497859cb98fcca5e51c9650ecd87b66068a41096dfd9c70af0e6d70a4cc83b1a611cb8f371decc4458d3eb75f
   languageName: node
   linkType: hard
 
