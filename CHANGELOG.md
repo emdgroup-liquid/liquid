@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/emdgroup-liquid/liquid/compare/v5.0.1...v5.0.2) (2023-04-03)
+
+
+### Bug Fixes
+
+* **tether:** fix tether patch ([b6e93bf](https://github.com/emdgroup-liquid/liquid/commit/b6e93bf3b23ac4564370b2e2c389f91b0a13b0cc))
+* **tether:** fix tether patch range ([2172975](https://github.com/emdgroup-liquid/liquid/commit/2172975be63f242b2d5029a6bf12941727198b46))
+
 ## [5.0.1](https://github.com/emdgroup-liquid/liquid/compare/v5.0.0...v5.0.1) (2023-04-03)
 
 
