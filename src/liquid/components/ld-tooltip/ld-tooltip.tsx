@@ -14,6 +14,7 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { focusableSelector, isInnerFocusable } from '../../utils/focus'
+import { isElement, isSlot } from '../../utils/type-checking'
 
 export type Position =
   | 'bottom center'
@@ -30,9 +31,6 @@ export type Position =
   | 'top right'
 
 let tooltipCount = 0
-const isElement = (node: Node): node is Element => 'classList' in node
-const isSlot = (element: Element): element is HTMLSlotElement =>
-  element && element.tagName === 'SLOT'
 
 const mapPositionToAttachment = (position: Position) => {
   return {
@@ -64,14 +62,14 @@ const mapPositionToTargetAttachment = (position: Position) => {
   )
 }
 
-const copySlottedNodes = (node: Element) => {
+const copySlottedNodes = (node: Node) => {
   // text node
-  if (!('querySelectorAll' in node)) {
+  if (!isElement(node)) {
     return
   }
 
   node.querySelectorAll('slot').forEach((slot) => {
-    slot.assignedNodes().forEach((childNode: Element) => {
+    slot.assignedNodes().forEach((childNode) => {
       copySlottedNodes(childNode)
       slot.parentElement.insertBefore(childNode, slot)
     })
@@ -162,7 +160,7 @@ export class LdTooltip {
   private syncContent = () => {
     const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
 
-    tooltipContent.forEach((node: Element) => {
+    tooltipContent.forEach((node) => {
       copySlottedNodes(node)
       const clonedNode = node.cloneNode(true)
       this.tooltipRef.appendChild(clonedNode)
@@ -331,9 +329,9 @@ export class LdTooltip {
   }
 
   private findFirstSlottedTrigger = () => {
-    let triggerInSlot: Element = this.el.querySelector('[slot="trigger"]')
+    let triggerInSlot = this.el.querySelector('[slot="trigger"]')
 
-    while (isSlot(triggerInSlot)) {
+    while (triggerInSlot && isSlot(triggerInSlot)) {
       triggerInSlot = triggerInSlot.assignedElements()[0]
     }
 
