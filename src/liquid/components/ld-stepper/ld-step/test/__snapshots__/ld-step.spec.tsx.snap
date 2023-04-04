@@ -180,7 +180,7 @@ exports[`ld-step renders with custom icon 1`] = `
       <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
-      <ld-icon class="ld-icon" role="presentation">
+      <ld-icon class="ld-icon" name="favorite" role="presentation">
         <mock:shadow-root>
           Not Found
         </mock:shadow-root>

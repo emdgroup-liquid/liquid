@@ -2,17 +2,17 @@
 
 exports[`ld-icon renders multiple 1`] = `
 <body>
-  <ld-icon class="ld-icon" role="presentation">
+  <ld-icon class="ld-icon" name="add" role="presentation">
     <mock:shadow-root>
       Not Found
     </mock:shadow-root>
   </ld-icon>
-  <ld-icon class="ld-icon" role="presentation">
+  <ld-icon class="ld-icon" name="education" role="presentation">
     <mock:shadow-root>
       Not Found
     </mock:shadow-root>
   </ld-icon>
-  <ld-icon class="ld-icon" role="presentation">
+  <ld-icon class="ld-icon" name="add" role="presentation">
     <mock:shadow-root>
       Not Found
     </mock:shadow-root>
@@ -21,7 +21,7 @@ exports[`ld-icon renders multiple 1`] = `
 `;
 
 exports[`ld-icon renders with name prop 1`] = `
-<ld-icon class="ld-icon" role="presentation">
+<ld-icon class="ld-icon" name="add" role="presentation">
   <mock:shadow-root>
     Not Found
   </mock:shadow-root>
@@ -29,7 +29,7 @@ exports[`ld-icon renders with name prop 1`] = `
 `;
 
 exports[`ld-icon renders with size prop 1`] = `
-<ld-icon class="ld-icon ld-icon--sm" role="presentation">
+<ld-icon class="ld-icon ld-icon--sm" name="atom" role="presentation">
   <mock:shadow-root>
     Not Found
   </mock:shadow-root>

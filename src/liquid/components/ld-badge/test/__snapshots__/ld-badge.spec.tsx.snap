@@ -3,7 +3,7 @@
 exports[`ld-badge renders 1`] = `
 <ld-badge class="ld-badge" icon="checkmark">
   <mock:shadow-root>
-    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+    <ld-icon class="ld-badge__icon ld-icon" name="checkmark" part="icon" role="presentation">
       <mock:shadow-root>
         Not Found
       </mock:shadow-root>
@@ -17,7 +17,7 @@ exports[`ld-badge renders 1`] = `
 exports[`ld-badge renders on brand color 1`] = `
 <ld-badge brand-color="" class="ld-badge ld-badge--brand-color" icon="checkmark">
   <mock:shadow-root>
-    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+    <ld-icon class="ld-badge__icon ld-icon" name="checkmark" part="icon" role="presentation">
       <mock:shadow-root>
         Not Found
       </mock:shadow-root>
@@ -48,7 +48,7 @@ exports[`ld-badge renders with custom icon 1`] = `
 exports[`ld-badge renders with size lg 1`] = `
 <ld-badge class="ld-badge ld-badge--lg" icon="checkmark" size="lg">
   <mock:shadow-root>
-    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+    <ld-icon class="ld-badge__icon ld-icon" name="checkmark" part="icon" role="presentation">
       <mock:shadow-root>
         Not Found
       </mock:shadow-root>
@@ -91,7 +91,7 @@ exports[`ld-badge updates after addition of an icon 1`] = `
 exports[`ld-badge updates after addition of text 1`] = `
 <ld-badge class="ld-badge ld-badge--with-text" icon="checkmark">
   <mock:shadow-root>
-    <ld-icon class="ld-badge__icon ld-icon" part="icon" role="presentation">
+    <ld-icon class="ld-badge__icon ld-icon" name="checkmark" part="icon" role="presentation">
       <mock:shadow-root>
         Not Found
       </mock:shadow-root>
