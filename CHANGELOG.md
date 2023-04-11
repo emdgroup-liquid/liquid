@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.4](https://github.com/emdgroup-liquid/liquid/compare/v5.0.3...v5.0.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* **upstream:** incorporate stencil fixes in release ([7f614dc](https://github.com/emdgroup-liquid/liquid/commit/7f614dc9cc8b25a95a4a0957832018b666d5e487))
+
 ## [5.0.3](https://github.com/emdgroup-liquid/liquid/compare/v5.0.2...v5.0.3) (2023-04-11)
 
 
