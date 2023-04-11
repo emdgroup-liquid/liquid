@@ -773,5 +773,63 @@ describe('ld-notification', () => {
       const svg = notifications[0].querySelector('svg')
       expect(svg).toBeTruthy()
     })
+
+    it('it sanitizes notifications with HTML content', async () => {
+      const page = await newSpecPage({
+        components: [LdNotification, LdIcon],
+        html: `<ld-notification></ld-notification>`,
+      })
+      page.win.dispatchEvent(
+        new CustomEvent('ldNotificationAdd', {
+          detail: {
+            content: '<img alt=1 src=1 href=1 onerror="javascript:alert(1)">',
+            type: 'info',
+          },
+        })
+      )
+      await page.waitForChanges()
+
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item:not(.ld-notification__item--dismissed)'
+      )
+      expect(notifications.length).toEqual(1)
+
+      const img = notifications[0].querySelector('img')
+      expect(img).toBeTruthy()
+
+      expect(img.hasAttribute('alt')).toBeTruthy()
+      expect(img.hasAttribute('src')).toBeTruthy()
+      expect(img.hasAttribute('href')).toBeTruthy()
+      expect(img.hasAttribute('onerror')).toBeFalsy()
+    })
+
+    it('it sanitizes notifications with HTML content and custom sanitization options', async () => {
+      const page = await newSpecPage({
+        components: [LdNotification, LdIcon],
+        html: `<ld-notification sanitize-config='{"FORBID_ATTR": ["href"]}'></ld-notification>`,
+      })
+      page.win.dispatchEvent(
+        new CustomEvent('ldNotificationAdd', {
+          detail: {
+            content: '<img alt=1 src=1 href=1 onerror="javascript:alert(1)">',
+            type: 'info',
+          },
+        })
+      )
+      await page.waitForChanges()
+
+      const notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item:not(.ld-notification__item--dismissed)'
+      )
+      expect(notifications.length).toEqual(1)
+
+      const img = notifications[0].querySelector('img')
+      expect(img).toBeTruthy()
+
+      expect(img.hasAttribute('alt')).toBeTruthy()
+      expect(img.hasAttribute('src')).toBeTruthy()
+      expect(img.hasAttribute('href')).toBeFalsy()
+      expect(img.hasAttribute('onerror')).toBeFalsy()
+    })
   })
 })

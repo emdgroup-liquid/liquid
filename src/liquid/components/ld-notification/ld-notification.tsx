@@ -1,10 +1,17 @@
 import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
+import { type Config as DOMPurifyConfig, sanitize } from 'dompurify'
 
 type Notification = {
   type: 'info' | 'warn' | 'alert'
   content: string
   timeout?: number
 }
+
+type SanitizeConfig =
+  | {
+      RETURN_DOM_FRAGMENT?: false | undefined
+      RETURN_DOM?: false | undefined
+    } & DOMPurifyConfig
 
 const DEFAULT_NOTIFICATION_TIMEOUT = 6000
 const FADE_TRANSITION_DURATION = 200
@@ -15,10 +22,22 @@ const FADE_TRANSITION_DURATION = 200
   shadow: true,
 })
 export class LdNotification {
+  private sanitizeConfigCustomElements = {
+    CUSTOM_ELEMENT_HANDLING: {
+      tagNameCheck: /^ld-/,
+    },
+  }
+
   /**
    * Notification placement within the screen.
    */
   @Prop() placement?: 'top' | 'bottom' = 'top'
+
+  /**
+   * Sanitize config passed to DOMPurify's sanitize method.
+   * See https://github.com/cure53/DOMPurify#can-i-configure-dompurify
+   */
+  @Prop() sanitizeConfig?: SanitizeConfig
 
   @State() queue: Notification[] = []
   @State() queueDismissed: Notification[] = []
@@ -127,7 +146,12 @@ export class LdNotification {
       >
         <div
           class="ld-notification__item-content"
-          innerHTML={notification.content}
+          innerHTML={sanitize(notification.content, {
+            ...this.sanitizeConfigCustomElements,
+            ...(typeof this.sanitizeConfig === 'string'
+              ? JSON.parse(this.sanitizeConfig)
+              : this.sanitizeConfig || {}),
+          } as SanitizeConfig)}
           role={notification.type === 'alert' ? 'alert' : 'status'}
           part="content"
         ></div>

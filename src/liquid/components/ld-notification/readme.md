@@ -95,6 +95,8 @@ dispatchEvent(new CustomEvent('ldNotificationAdd', {
 }))
 ```
 
+The `ld-notification` component will sanitize the HTML string before rendering it to prevent XSS attacks using the [DOMPurify](https://github.com/cure53/DOMPurify) package. You can change the config passed to DOMPurify according to your needs by providing your own config with the `sanitizeConfig` prop.
+
 ### Redundant notifications handling
 
 If a notification event is triggered containing the same content and type as another notification which already is queued for notification display, the event is ignored. If you still need to trigger another notification with the same content, you can append a zero-space character to your content.
@@ -404,9 +406,10 @@ return (
 
 ## Properties
 
-| Property    | Attribute   | Description                               | Type                | Default |
-| ----------- | ----------- | ----------------------------------------- | ------------------- | ------- |
-| `placement` | `placement` | Notification placement within the screen. | `"bottom" \| "top"` | `'top'` |
+| Property         | Attribute   | Description                                                                                                              | Type                                                            | Default     |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
+| `placement`      | `placement` | Notification placement within the screen.                                                                                | `"bottom" \| "top"`                                             | `'top'`     |
+| `sanitizeConfig` | --          | Sanitize config passed to DOMPurify's sanitize method. See https://github.com/cure53/DOMPurify#can-i-configure-dompurify | `{ RETURN_DOM_FRAGMENT?: false; RETURN_DOM?: false; } & Config` | `undefined` |
 
 
 ## Shadow Parts

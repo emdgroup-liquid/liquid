@@ -77,6 +77,7 @@
   },
   "dependencies": {
     "@stencil/core": "^3.2.1",
+    "dompurify": "^3.0.1",
     "js-cookie": "^3.0.1",
     "tether": "^2.0.0"
   },
@@ -98,6 +99,7 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.4.0",
     "@stencil/vue-output-target": "^0.7.0",
+    "@types/dompurify": "^3.0.1",
     "@types/jest": "^27.5.2",
     "@types/js-cookie": "^3.0.2",
     "@types/node": "^18.13.0",
