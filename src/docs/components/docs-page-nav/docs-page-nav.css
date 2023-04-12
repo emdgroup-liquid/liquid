@@ -68,7 +68,7 @@
   }
 
   & > :last-child {
-    @media (max-width: 51.2rem) {
+    @media (width <= 51.2rem) {
       display: none;
     }
   }

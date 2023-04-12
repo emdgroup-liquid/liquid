@@ -214,7 +214,7 @@
   top: 3.125rem;
   width: var(--docs-nav-width);
 
-  @media (max-width: 52rem) {
+  @media (width <= 52rem) {
     position: fixed;
     top: 0;
   }

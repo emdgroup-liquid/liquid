@@ -174,7 +174,7 @@
         linear;
     visibility: hidden;
 
-    @media (max-width: 32rem) {
+    @media (width <= 32rem) {
       /*
       The disclaimer mimics the animation behavior of the ld-modal component. */
       animation-name: ld-cookie-consent-out-mobile;

@@ -213,7 +213,7 @@
   max-width: 54rem;
   min-width: 20rem;
 
-  @media (max-width: 75rem) {
+  @media (width <= 75rem) {
     --docs-main-padding-x: var(--ld-sp-24);
   }
 
@@ -526,7 +526,7 @@
     font: var(--ld-typo-code-s);
   }
 
-  @media (max-width: 52rem) {
+  @media (width <= 52rem) {
     padding: var(--ld-sp-24) var(--ld-sp-24);
 
     main {
@@ -571,7 +571,7 @@
   position: absolute;
   text-align: right;
 
-  @media screen and (max-width: 52rem) {
+  @media screen and (width <= 52rem) {
     left: unset;
     position: relative;
     width: auto;
@@ -605,7 +605,7 @@
     visibility: inherit;
   }
 
-  @media screen and (max-width: 52rem) {
+  @media screen and (width <= 52rem) {
     visibility: inherit;
     padding-right: 0;
     opacity: 0.25;
