@@ -12,12 +12,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  @media (min-width: 70rem) {
+  @media (width >= 70rem) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (min-width: 32rem) and (max-width: 52rem),
-    (min-width: 60rem) and (max-width: 70rem) {
+  @media (width >= 32rem) and (width <= 52rem),
+    (width >= 60rem) and (width <= 70rem) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

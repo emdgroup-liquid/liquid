@@ -11,7 +11,7 @@ body {
   --docs-toc-top: 7.75rem;
   --docs-toc-width: 17rem;
 
-  @media (max-width: 75rem) {
+  @media (width <= 75rem) {
     --docs-toc-width: 13rem;
   }
 }
@@ -21,7 +21,7 @@ body {
   position: sticky;
   top: var(--docs-toc-top);
 
-  @media (max-width: 40rem) {
+  @media (width <= 40rem) {
     display: none;
   }
 }
@@ -54,7 +54,7 @@ body {
 .docs-nav {
   width: var(--docs-nav-width);
 
-  @media (max-width: 52rem) {
+  @media (width <= 52rem) {
     transition: transform 0.2s ease, visibility 0s 0.2s linear;
     visibility: hidden;
     transform: translateX(-100%);
@@ -64,7 +64,7 @@ body {
   }
 }
 
-@media (max-width: 52rem) {
+@media (width <= 52rem) {
   .docs-nav:target {
     visibility: visible;
     transform: translateX(0);

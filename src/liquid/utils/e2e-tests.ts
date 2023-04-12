@@ -202,7 +202,7 @@ expect.extend({
       (incomplete) => incomplete.nodes.length > 0
     )
 
-    if (filteredViolations.length > finalOptions.violationsThreshold) {
+    if (filteredViolations.length > Number(finalOptions.violationsThreshold)) {
       violations = [
         `Expected to have no more than ${finalOptions.violationsThreshold} violations. Detected ${filteredViolations.length} violations:\n`,
       ].concat(filteredViolations.map(getInvalidRuleInfo))
@@ -219,7 +219,7 @@ expect.extend({
 
     const message = [].concat(violations, incomplete).join('\n')
     const pass =
-      filteredViolations.length <= finalOptions.violationsThreshold &&
+      filteredViolations.length <= Number(finalOptions.violationsThreshold) &&
       (finalOptions.incompleteThreshold === false ||
         filteredIncomplete.length <= finalOptions.incompleteThreshold)
 

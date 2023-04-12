@@ -126,7 +126,7 @@
   .docs-example--has-padding & {
     padding: 0 var(--ld-sp-8) var(--ld-sp-24);
 
-    @media (max-width: 52rem) {
+    @media (width <= 52rem) {
       padding: 0 0 var(--ld-sp-24);
     }
 

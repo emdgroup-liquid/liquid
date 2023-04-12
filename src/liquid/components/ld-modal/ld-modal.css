@@ -84,7 +84,7 @@ dialog.ld-modal,
   transition: opacity var(--ld-modal-transition-duration) linear,
     transform var(--ld-modal-transition-duration) ease;
 
-  @media (max-width: 32rem) {
+  @media (width <= 32rem) {
     /*
     On mobile we place the dialog at the bottom of the screen
     so that it is easier for the user to interact with it. */
@@ -100,7 +100,7 @@ dialog.ld-modal,
       transform var(--ld-modal-transition-duration) ease;
     visibility: hidden;
 
-    @media (max-width: 32rem) {
+    @media (width <= 32rem) {
       /*
       On mobile, since the dialog is placed at the bottom of the screen,
       we transition it out slightly differently than on wide view ports. */
