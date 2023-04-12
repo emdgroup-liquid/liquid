@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/emdgroup-liquid/liquid/compare/v5.0.5...v5.1.0) (2023-04-12)
+
+
+### Features
+
+* **ld-notification:** allow setting timeout on type alert notifications ([49d1c10](https://github.com/emdgroup-liquid/liquid/commit/49d1c10d722e2ebe4415d0268aed643a13ddea90))
+
 ## [5.0.5](https://github.com/emdgroup-liquid/liquid/compare/v5.0.4...v5.0.5) (2023-04-12)
 
 
