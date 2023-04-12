@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Notification</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681223567307/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681223567307/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681223567307/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681223567307/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681223567307/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681284689502/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681284689502/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681284689502/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681284689502/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681284689502/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681223567307/">
+  <meta data-buildstamp="1681284689502/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681223567307/docs.css">
-  <link rel="stylesheet" href="/liquid/1681223567307/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681223567307/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681223567307/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681223567307/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681284689502/docs.css">
+  <link rel="stylesheet" href="/liquid/1681284689502/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681284689502/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681284689502/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681284689502/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3472,6 +3472,7 @@
 <h2 id="notification-content" tabindex="-1">Notification content <a class="header-anchor" href="components/ld-notification/#notification-content"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>The examples above used simple text as content for the notification. But you can also use an HTML string containing links and other components:</p>
 <pre class="language-js"><code class="language-js"><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">'ldNotificationAdd'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br> <span class="token literal-property property">detail</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>   <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token string">'&lt;ld-icon name="placeholder">&lt;/ld-icon> A notification with an icon.'</span><span class="token punctuation">,</span><br>   <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'info'</span><span class="token punctuation">,</span><br> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>The <code>ld-notification</code> component will sanitize the HTML string before rendering it to prevent XSS attacks using the <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">DOMPurify</a> package. You can change the config passed to DOMPurify according to your needs by providing your own config with the <code>sanitizeConfig</code> prop.</p>
 <h3 id="redundant-notifications-handling" tabindex="-1">Redundant notifications handling <a class="header-anchor" href="components/ld-notification/#redundant-notifications-handling"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>If a notification event is triggered containing the same content and type as another notification which already is queued for notification display, the event is ignored. If you still need to trigger another notification with the same content, you can append a zero-space character to your content.</p>
 <h2 id="dismissing-notificaitons" tabindex="-1">Dismissing notificaitons <a class="header-anchor" href="components/ld-notification/#dismissing-notificaitons"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
@@ -3621,6 +3622,13 @@ buttonClear.addEventListener('click', ev => {
 <td>Notification placement within the screen.</td>
 <td><code>&quot;bottom&quot; | &quot;top&quot;</code></td>
 <td><code>'top'</code></td>
+</tr>
+<tr>
+<td><code>sanitizeConfig</code></td>
+<td>--</td>
+<td>Sanitize config passed to DOMPurify's sanitize method. See <a href="https://github.com/cure53/DOMPurify#can-i-configure-dompurify" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">https://github.com/cure53/DOMPurify#can-i-configure-dompurify</a></td>
+<td><code>{ RETURN_DOM_FRAGMENT?: false; RETURN_DOM?: false; } &amp; Config</code></td>
+<td><code>undefined</code></td>
 </tr>
 </tbody>
 </table>

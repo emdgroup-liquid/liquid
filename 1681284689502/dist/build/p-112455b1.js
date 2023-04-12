@@ -1,0 +1,2 @@
+var e=typeof globalThis!=="undefined"?globalThis:typeof window!=="undefined"?window:typeof global!=="undefined"?global:typeof self!=="undefined"?self:{};function n(e,n,r){return r={path:n,exports:{},require:function(e,n){return o()}},e(r,r.exports),r.exports}function o(){throw new Error("Dynamic requires are not currently supported by @rollup/plugin-commonjs")}export{e as a,n as c};
+//# sourceMappingURL=p-112455b1.js.map
