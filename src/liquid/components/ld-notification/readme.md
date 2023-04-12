@@ -34,11 +34,13 @@ dispatchEvent(new CustomEvent('ldNotificationAdd', {
 
 Each notification item that appears on the screen has either the ARIA role `status` or `alert`, so that assistive technology should announce the notification content to the user.
 
-Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons etc. Thus, we recommend you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they
+Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons and the like. Thus, we recommend that you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they
 
 - Disappear automatically
 - Can’t be easily accessed with the keyboard
 - Might appear outside the proximity of the user’s current focus
+
+For more information on this topic, please read the [WCAG Understanding SC 4.1.3: Status Messages](https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html) docs.
 
 ### Notifications with interactive content
 
@@ -52,7 +54,7 @@ Notifications of type `'alert'` take precedence of notifications of type `'info'
 
 ## Notification timeout
 
-While notifications with type `'alert'` do not time out, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object: 
+While notifications with type `'alert'` do not time out by default, notifications of type `'info'` and `'warn'` have a default timeout of **six seconds** after which they disappear automatically. You can customize the timeout for each notification type by attaching a timeout value of your choice to the appropriate property on the event detail object:
 
 ```js
 dispatchEvent(new CustomEvent('ldNotificationAdd', {
