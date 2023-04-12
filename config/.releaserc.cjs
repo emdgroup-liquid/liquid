@@ -17,7 +17,14 @@ module.exports = {
       },
     ],
     '@semantic-release/npm',
-    '@semantic-release/github',
+    [
+      '@semantic-release/github',
+      // See https://github.com/semantic-release/semantic-release/issues/2204#issuecomment-1486299917
+      {
+        successComment: false,
+        failTitle: false,
+      },
+    ],
     [
       '@semantic-release/git',
       {
