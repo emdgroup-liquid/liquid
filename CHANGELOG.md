@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.5](https://github.com/emdgroup-liquid/liquid/compare/v5.0.4...v5.0.5) (2023-04-12)
+
+
+### Bug Fixes
+
+* **ld-notification:** sanitize html content passed to notification ([3f3a038](https://github.com/emdgroup-liquid/liquid/commit/3f3a03803dc0d389377b4d1d8186477d9b2f83d6))
+
 ## [5.0.4](https://github.com/emdgroup-liquid/liquid/compare/v5.0.3...v5.0.4) (2023-04-11)
 
 
