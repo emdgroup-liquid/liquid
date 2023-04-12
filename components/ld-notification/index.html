@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Notification</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681284689502/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681284689502/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681284689502/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681284689502/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681284689502/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681291535303/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681291535303/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681291535303/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681291535303/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681291535303/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681284689502/">
+  <meta data-buildstamp="1681291535303/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681284689502/docs.css">
-  <link rel="stylesheet" href="/liquid/1681284689502/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681284689502/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681284689502/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681284689502/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681291535303/docs.css">
+  <link rel="stylesheet" href="/liquid/1681291535303/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681291535303/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681291535303/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681291535303/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3450,19 +3450,20 @@
 </ld-notice>
 <h2 id="accessibility" tabindex="-1">Accessibility <a class="header-anchor" href="components/ld-notification/#accessibility"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Each notification item that appears on the screen has either the ARIA role <code>status</code> or <code>alert</code>, so that assistive technology should announce the notification content to the user.</p>
-<p>Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons etc. Thus, we recommend you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they</p>
+<p>Keep in mind that focus is not explicitly changed when a notification appears. This means that users with visual disabilities may have problems navigating to a notification. This is especially the case for notifications which time out. And even more for notifications containing interaction elements, such as confirmation buttons and the like. Thus, we recommend that you avoid using notifications for critical information that users need to act on immediately. In summary, notifications may be difficult for users with low vision or low dexterity to access because they</p>
 <ul>
 <li>Disappear automatically</li>
 <li>Can’t be easily accessed with the keyboard</li>
 <li>Might appear outside the proximity of the user’s current focus</li>
 </ul>
+<p>For more information on this topic, please read the <a href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">WCAG Understanding SC 4.1.3: Status Messages</a> docs.</p>
 <h3 id="notifications-with-interactive-content" tabindex="-1">Notifications with interactive content <a class="header-anchor" href="components/ld-notification/#notifications-with-interactive-content"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Make sure that users can accomplish the interaction in the notification another way, since an interaction element within a notification may be difficult to access for some users.</p>
 <p>If you really do want to include an interaction element within a notification, <a href="components/ld-notification/#preventing-a-timeout">make sure the notification doesn't time out</a> so that the user has enough time to navigate to and interact with the notification.</p>
 <h2 id="notification-hierarchy" tabindex="-1">Notification hierarchy <a class="header-anchor" href="components/ld-notification/#notification-hierarchy"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Notifications of type <code>'alert'</code> take precedence of notifications of type <code>'info'</code> and <code>'warn'</code>, which means that if a notification of type <code>'info'</code> or <code>'warn'</code> is fired after a notification of type <code>'alert'</code> and the notification of type <code>'alert'</code> has not been dismissed yet, the potentially less important notifications get placed behind the notification of type <code>'alert'</code>. Other than that most recent notifications take precedence of older notifications, pushing the older ones back in the queue and resetting and pausing their timeouts.</p>
 <h2 id="notification-timeout" tabindex="-1">Notification timeout <a class="header-anchor" href="components/ld-notification/#notification-timeout"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<p>While notifications with type <code>'alert'</code> do not time out, notifications of type <code>'info'</code> and <code>'warn'</code> have a default timeout of <strong>six seconds</strong> after which they disappear automatically. You can customize this timeout by attaching a timeout value of your choice to the appropriate property on the event detail object:</p>
+<p>While notifications with type <code>'alert'</code> do not time out by default, notifications of type <code>'info'</code> and <code>'warn'</code> have a default timeout of <strong>six seconds</strong> after which they disappear automatically. You can customize the timeout for each notification type by attaching a timeout value of your choice to the appropriate property on the event detail object:</p>
 <pre class="language-js"><code class="language-js"><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomEvent</span><span class="token punctuation">(</span><span class="token string">'ldNotificationAdd'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">detail</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token string">'Here is a message for you.'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'info'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">8000</span><span class="token punctuation">,</span> <span class="token comment">// in milliseconds</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h3 id="preventing-a-timeout" tabindex="-1">Preventing a timeout <a class="header-anchor" href="components/ld-notification/#preventing-a-timeout"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>If you want to prevent a notification of type <code>'info'</code> and <code>'warn'</code> from timing out, use the timeout value <code>0</code>:</p>
