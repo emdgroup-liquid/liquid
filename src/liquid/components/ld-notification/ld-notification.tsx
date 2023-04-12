@@ -53,7 +53,16 @@ export class LdNotification {
     clearTimeout(this.dismissTimeout)
 
     if (!this.currentNotification) return
-    if (this.currentNotification.type === 'alert') return
+
+    // Do not dismiss, if alert has no explicit timeout.
+    if (
+      this.currentNotification.type === 'alert' &&
+      !this.currentNotification.timeout
+    ) {
+      return
+    }
+
+    // Do not dismiss, if timeout is disabled explicitly.
     if (this.currentNotification.timeout === 0) return
 
     this.dismissTimeout = setTimeout(() => {

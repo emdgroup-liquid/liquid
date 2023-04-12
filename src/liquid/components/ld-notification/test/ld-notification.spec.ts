@@ -431,6 +431,37 @@ describe('ld-notification', () => {
       expect(notifications.length).toEqual(1)
     })
 
+    it('dismisses a notification of type "alert" after explicit timeout', async () => {
+      const page = await newSpecPage({
+        components: [LdNotification],
+        html: `<ld-notification></ld-notification>`,
+      })
+      page.win.dispatchEvent(
+        new CustomEvent('ldNotificationAdd', {
+          detail: {
+            content: 'Ooops.',
+            type: 'alert',
+            timeout: DEFAULT_NOTIFICATION_TIMEOUT,
+          },
+        })
+      )
+      await page.waitForChanges()
+
+      let notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item:not(.ld-notification__item--dismissed)'
+      )
+      expect(notifications.length).toEqual(1)
+
+      // Fast-forward until the timer has been executed.
+      jest.advanceTimersByTime(DEFAULT_NOTIFICATION_TIMEOUT)
+      await page.waitForChanges()
+
+      notifications = page.root.shadowRoot.querySelectorAll(
+        '.ld-notification__item:not(.ld-notification__item--dismissed)'
+      )
+      expect(notifications.length).toEqual(0)
+    })
+
     it('does not dismiss a notification of type "info" if it is in queue behind another notification', async () => {
       const page = await newSpecPage({
         components: [LdNotification],
