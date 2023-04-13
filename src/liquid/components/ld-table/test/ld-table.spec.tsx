@@ -606,6 +606,36 @@ describe('ld-table', () => {
       expect(checkboxes[0].indeterminate).toBeTruthy()
     })
 
+    it('does not throw updating select all checkbox on load if there is no table head', async () => {
+      const page = await newSpecPage({
+        components,
+        template: () => (
+          <ld-table>
+            <ld-table-body>
+              <ld-table-row selectable>
+                <ld-table-cell>1</ld-table-cell>
+              </ld-table-row>
+              <ld-table-row selectable selected>
+                <ld-table-cell>2</ld-table-cell>
+              </ld-table-row>
+              <ld-table-row selectable>
+                <ld-table-cell>3</ld-table-cell>
+              </ld-table-row>
+            </ld-table-body>
+          </ld-table>
+        ),
+      })
+
+      await page.waitForChanges()
+      const getCheckboxes = () =>
+        Array.from(page.root.querySelectorAll('ld-table-row')).map((row) =>
+          row.shadowRoot.querySelector('ld-checkbox')
+        )
+      const checkboxes = getCheckboxes()
+
+      expect(checkboxes.length).toEqual(3)
+    })
+
     it('disabled select all if at least one row has a disabled selection', async () => {
       const page = await newSpecPage({
         components,
