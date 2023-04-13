@@ -2449,9 +2449,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@puppeteer/browsers@npm:0.3.2"
+"@puppeteer/browsers@npm:0.4.1":
+  version: 0.4.1
+  resolution: "@puppeteer/browsers@npm:0.4.1"
   dependencies:
     debug: 4.3.4
     extract-zip: 2.0.1
@@ -2468,7 +2468,7 @@ __metadata:
       optional: true
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: 122f0444a605a004c4f2010034f6d4fa383c093c2fe90f71f4f1f2909d6c95796feb68987d90c109c1625a82e45b16af998b7a73a50f9ca63bc7d4a5474b6f2e
+  checksum: bd72815d0aaac66651ef775e2816703daaaceef0d94b39b5a6baf3d9f9c2242866f3e0691e9aae6409cdffd1d96f3e7e00bddb8f0c0b5b2b427e9298bcc3c8a2
   languageName: node
   linkType: hard
 
@@ -14356,10 +14356,11 @@ proxy-middleware@latest:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:19.8.3":
-  version: 19.8.3
-  resolution: "puppeteer-core@npm:19.8.3"
+"puppeteer-core@npm:19.9.0":
+  version: 19.9.0
+  resolution: "puppeteer-core@npm:19.9.0"
   dependencies:
+    "@puppeteer/browsers": 0.4.1
     chromium-bidi: 0.4.6
     cross-fetch: 3.1.5
     debug: 4.3.4
@@ -14375,21 +14376,21 @@ proxy-middleware@latest:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 97f706851c9d432eb31d19f8bf05060ee5ecfe43d816e5a67a8a761dc85ffb28324e4292163717e8520093ebc4b3a9afdb6d7f447c93a37158274d97bcb40201
+  checksum: 4e76523c91856f9d4977183cb19e9917fa38103f235872e8fabfa904c8842561c5a62a15e6c07d4d90a6c65683cc4e045d2c0e9c6c466cb1091b9a8fba71b124
   languageName: node
   linkType: hard
 
 "puppeteer@npm:^19.7.1":
-  version: 19.8.3
-  resolution: "puppeteer@npm:19.8.3"
+  version: 19.9.0
+  resolution: "puppeteer@npm:19.9.0"
   dependencies:
-    "@puppeteer/browsers": 0.3.2
+    "@puppeteer/browsers": 0.4.1
     cosmiconfig: 8.1.3
     https-proxy-agent: 5.0.1
     progress: 2.0.3
     proxy-from-env: 1.1.0
-    puppeteer-core: 19.8.3
-  checksum: ae19975f6448960093c8aba592e3b902896b4dd59c2abaef553d7e5bc9572e3824a0f48db7b904bb664f38aab93dcb16b60a94903cc04ab81e8c9a1f528ccb88
+    puppeteer-core: 19.9.0
+  checksum: 68821490a7be8fde13c668f95081df6657278182d3fdd47a4c99474a3e5d08a17ba4ca3cd5ee74ae45218c47d756e44b2641b071a3c83b60b4feae9387247af5
   languageName: node
   linkType: hard
 
