@@ -1,17 +1,11 @@
 import { Component, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
-import { type Config as DOMPurifyConfig, sanitize } from 'dompurify'
+import { sanitize } from '../../utils/sanitize'
 
 type Notification = {
   type: 'info' | 'warn' | 'alert'
   content: string
   timeout?: number
 }
-
-type SanitizeConfig =
-  | {
-      RETURN_DOM_FRAGMENT?: false | undefined
-      RETURN_DOM?: false | undefined
-    } & DOMPurifyConfig
 
 const DEFAULT_NOTIFICATION_TIMEOUT = 6000
 const FADE_TRANSITION_DURATION = 200
@@ -22,12 +16,6 @@ const FADE_TRANSITION_DURATION = 200
   shadow: true,
 })
 export class LdNotification {
-  private sanitizeConfigCustomElements = {
-    CUSTOM_ELEMENT_HANDLING: {
-      tagNameCheck: /^ld-/,
-    },
-  }
-
   /**
    * Notification placement within the screen.
    */
@@ -35,9 +23,10 @@ export class LdNotification {
 
   /**
    * Sanitize config passed to DOMPurify's sanitize method.
+   * If passed as string, the component will try to parse the string as JSON.
    * See https://github.com/cure53/DOMPurify#can-i-configure-dompurify
    */
-  @Prop() sanitizeConfig?: SanitizeConfig
+  @Prop() sanitizeConfig?: SanitizeConfig | string
 
   @State() queue: Notification[] = []
   @State() queueDismissed: Notification[] = []
@@ -155,12 +144,7 @@ export class LdNotification {
       >
         <div
           class="ld-notification__item-content"
-          innerHTML={sanitize(notification.content, {
-            ...this.sanitizeConfigCustomElements,
-            ...(typeof this.sanitizeConfig === 'string'
-              ? JSON.parse(this.sanitizeConfig)
-              : this.sanitizeConfig || {}),
-          } as SanitizeConfig)}
+          innerHTML={sanitize(notification.content, this.sanitizeConfig)}
           role={notification.type === 'alert' ? 'alert' : 'status'}
           part="content"
         ></div>

@@ -408,10 +408,10 @@ return (
 
 ## Properties
 
-| Property         | Attribute   | Description                                                                                                              | Type                                                            | Default     |
-| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
-| `placement`      | `placement` | Notification placement within the screen.                                                                                | `"bottom" \| "top"`                                             | `'top'`     |
-| `sanitizeConfig` | --          | Sanitize config passed to DOMPurify's sanitize method. See https://github.com/cure53/DOMPurify#can-i-configure-dompurify | `{ RETURN_DOM_FRAGMENT?: false; RETURN_DOM?: false; } & Config` | `undefined` |
+| Property         | Attribute         | Description                                                                                                                                                                                       | Type                       | Default     |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ----------- |
+| `placement`      | `placement`       | Notification placement within the screen.                                                                                                                                                         | `"bottom" \| "top"`        | `'top'`     |
+| `sanitizeConfig` | `sanitize-config` | Sanitize config passed to DOMPurify's sanitize method. If passed as string, the component will try to parse the string as JSON. See https://github.com/cure53/DOMPurify#can-i-configure-dompurify | `SanitizeConfig \| string` | `undefined` |
 
 
 ## Shadow Parts
