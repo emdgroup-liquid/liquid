@@ -405,7 +405,7 @@ export class LdSelect implements InnerFocusable {
     this.selected = selectedChildren.map((child) => {
       return {
         value: child.value,
-        text: child.textContent,
+        text: child.innerHTML,
       }
     })
 
@@ -1147,9 +1147,8 @@ export class LdSelect implements InnerFocusable {
                               class="ld-select__selection-label-text"
                               title={selection.text}
                               part="selection-label-text"
-                            >
-                              {selection.text}
-                            </span>
+                              innerHTML={selection.text}
+                            ></span>
 
                             <button
                               disabled={
@@ -1201,9 +1200,11 @@ export class LdSelect implements InnerFocusable {
                   title={triggerText}
                   part="trigger-text-wrapper"
                 >
-                  <span class="ld-select__btn-trigger-text" part="trigger-text">
-                    {triggerText}
-                  </span>
+                  <span
+                    class="ld-select__btn-trigger-text"
+                    part="trigger-text"
+                    innerHTML={triggerText}
+                  ></span>
                 </span>
               )}
 

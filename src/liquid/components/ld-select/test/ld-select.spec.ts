@@ -372,6 +372,60 @@ describe('ld-select', () => {
     })
   })
 
+  describe('HTML rendering', () => {
+    it('renders HTML in trigger button in single select mode', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select placeholder="Pick some colors" name="colors" mode="inline">
+            <ld-option value="red">
+              <span id="red" style="background: red; width: 0.75rem; height: 0.75rem; margin-right: 0.5rem; display: inline-flex"></span> 
+            </ld-option>
+            <ld-option value="blue" selected>
+              <span id="blue" style="background: blue; width: 0.75rem; height: 0.75rem; margin-right: 0.5rem; display: inline-flex"></span> 
+            </ld-option>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+
+      expect(btnTrigger.querySelector('#red')).toBeFalsy()
+      expect(btnTrigger.querySelector('#blue')).toBeTruthy()
+    })
+
+    it('renders HTML in trigger button in multiple select mode', async () => {
+      const page = await newSpecPage({
+        components,
+        html: `
+          <ld-select placeholder="Pick some colors" name="colors" mode="inline" multiple>
+            <ld-option value="red">
+              <span id="red" style="background: red; width: 0.75rem; height: 0.75rem; margin-right: 0.5rem; display: inline-flex"></span> 
+            </ld-option>
+            <ld-option value="blue" selected>
+              <span id="blue" style="background: blue; width: 0.75rem; height: 0.75rem; margin-right: 0.5rem; display: inline-flex"></span> 
+            </ld-option>
+            <ld-option value="green" selected>
+              <span id="green" style="background: green; width: 0.75rem; height: 0.75rem; margin-right: 0.5rem; display: inline-flex"></span> 
+            </ld-option>
+          </ld-select>
+        `,
+      })
+
+      const ldSelect = page.root
+      const btnTrigger = ldSelect.shadowRoot.querySelector<HTMLElement>(
+        '.ld-select__btn-trigger'
+      )
+
+      expect(btnTrigger.querySelector('#red')).toBeFalsy()
+      expect(btnTrigger.querySelector('#blue')).toBeTruthy()
+      expect(btnTrigger.querySelector('#green')).toBeTruthy()
+    })
+  })
+
   describe('css classes', () => {
     it('applies size prop', async () => {
       const page = await newSpecPage({
