@@ -32,11 +32,14 @@ export class LdIcon {
     const div = document.createElement('div')
     const iconString = await fetchIcon(this.name)
 
+    if (!iconString) return
+
     div.innerHTML = iconString.replace(
       '<svg',
       '<svg class="ld-icon__svg" part="icon"'
     )
     Array.from(this.el.shadowRoot.children).forEach((child) => {
+      /* istanbul ignore next */
       if (child.tagName !== 'STYLE') {
         this.el.shadowRoot.removeChild(child)
       }
