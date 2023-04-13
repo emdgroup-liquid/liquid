@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/emdgroup-liquid/liquid/compare/v5.1.0...v5.1.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* **ld-table:** selectable table without table head throws exception ([2368018](https://github.com/emdgroup-liquid/liquid/commit/23680186a06e2de8d89c4922c32e5f512f45ac2e))
+
 # [5.1.0](https://github.com/emdgroup-liquid/liquid/compare/v5.0.5...v5.1.0) (2023-04-12)
 
 
