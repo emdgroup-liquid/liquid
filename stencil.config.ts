@@ -5,7 +5,7 @@ import {
   ComponentModelConfig,
   vueOutputTarget,
 } from '@stencil/vue-output-target'
-import postcssConfig from './config/postcss.config.cjs'
+import * as postcssConfig from './config/postcss.config.cjs'
 
 const vueComponentModels: ComponentModelConfig[] = [
   {
