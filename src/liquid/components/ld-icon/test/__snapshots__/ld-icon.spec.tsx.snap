@@ -1,37 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ld-icon does not throw if icon is not found 1`] = `
+<ld-icon class="ld-icon" name="triangle" role="presentation">
+  <mock:shadow-root></mock:shadow-root>
+</ld-icon>
+`;
+
 exports[`ld-icon renders multiple 1`] = `
 <body>
-  <ld-icon class="ld-icon" name="add" role="presentation">
+  <ld-icon class="ld-icon" name="rect" role="presentation">
     <mock:shadow-root>
-      Not Found
+      <svg class="ld-icon__svg" fill="none" height="24" part="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="currentcolor" height="100" width="100"></rect>
+      </svg>
     </mock:shadow-root>
   </ld-icon>
-  <ld-icon class="ld-icon" name="education" role="presentation">
+  <ld-icon class="ld-icon" name="circle" role="presentation">
     <mock:shadow-root>
-      Not Found
+      <svg class="ld-icon__svg" fill="none" height="24" part="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" fill="currentcolor" r="50"></circle>
+      </svg>
     </mock:shadow-root>
   </ld-icon>
-  <ld-icon class="ld-icon" name="add" role="presentation">
+  <ld-icon class="ld-icon" name="rect" role="presentation">
     <mock:shadow-root>
-      Not Found
+      <svg class="ld-icon__svg" fill="none" height="24" part="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="currentcolor" height="100" width="100"></rect>
+      </svg>
     </mock:shadow-root>
   </ld-icon>
 </body>
 `;
 
 exports[`ld-icon renders with name prop 1`] = `
-<ld-icon class="ld-icon" name="add" role="presentation">
+<ld-icon class="ld-icon" name="rect" role="presentation">
   <mock:shadow-root>
-    Not Found
+    <svg class="ld-icon__svg" fill="none" height="24" part="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="currentcolor" height="100" width="100"></rect>
+    </svg>
   </mock:shadow-root>
 </ld-icon>
 `;
 
 exports[`ld-icon renders with size prop 1`] = `
-<ld-icon class="ld-icon ld-icon--sm" name="atom" role="presentation">
+<ld-icon class="ld-icon ld-icon--sm" name="rect" role="presentation">
   <mock:shadow-root>
-    Not Found
+    <svg class="ld-icon__svg" fill="none" height="24" part="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="currentcolor" height="100" width="100"></rect>
+    </svg>
   </mock:shadow-root>
 </ld-icon>
 `;
