@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/emdgroup-liquid/liquid/compare/v5.1.1...v5.2.0) (2023-04-13)
+
+
+### Features
+
+* **ld-select:** render option html content in trigger button ([c3c3058](https://github.com/emdgroup-liquid/liquid/commit/c3c3058b2cc7ff8da97fc2e2c096eb32a9dd6629))
+
 ## [5.1.1](https://github.com/emdgroup-liquid/liquid/compare/v5.1.0...v5.1.1) (2023-04-13)
 
 
