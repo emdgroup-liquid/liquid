@@ -104,6 +104,8 @@ export class LdTable {
       (tr) => !tr.selected
     )
     const ldTableHead = this.el.querySelector('ld-table-head')
+    if (!ldTableHead) return
+
     const firstRowInHead = ldTableHead.querySelector('ld-table-row')
     firstRowInHead.selected = allSelected
     firstRowInHead.indeterminate = !allSelected && !noneSelected
