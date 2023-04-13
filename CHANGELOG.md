@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/emdgroup-liquid/liquid/compare/v5.2.0...v5.2.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* **ld-icon:** icon component throws when hydrated in tests ([8b6e6ec](https://github.com/emdgroup-liquid/liquid/commit/8b6e6ec63ed5b098bc6e23378105c2445c48e8fe))
+
 # [5.2.0](https://github.com/emdgroup-liquid/liquid/compare/v5.1.1...v5.2.0) (2023-04-13)
 
 
