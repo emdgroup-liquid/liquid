@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const glob = require('glob')
+const { glob } = require('glob')
 const path = require('path')
 const { optimize } = require('svgo')
 const { readFile, writeFile } = require('fs').promises

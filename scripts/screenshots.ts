@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs').promises
-const glob = require('glob')
+const { glob } = require('glob')
 const yargs = require('yargs')
 
 async function deleteScreenshots(components?: string[]) {
