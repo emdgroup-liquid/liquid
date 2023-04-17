@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Server-side rendering</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681723709317/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681723709317/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681723709317/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681723709317/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681723709317/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681728250531/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681728250531/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681728250531/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681728250531/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681728250531/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681723709317/">
+  <meta data-buildstamp="1681728250531/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681723709317/docs.css">
-  <link rel="stylesheet" href="/liquid/1681723709317/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681723709317/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681723709317/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681723709317/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681728250531/docs.css">
+  <link rel="stylesheet" href="/liquid/1681728250531/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681728250531/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681728250531/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681728250531/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3436,11 +3436,9 @@
       <h1 id="server-side-rendering" tabindex="-1">Server-side rendering <a class="header-anchor" href="guides/server-side-rendering/#server-side-rendering"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Custom elements should be defined on client-side only. There are a couple of things you can do to ensure this.</p>
 <p>You can implement a condition which checks for the environment such as the following one:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><br><br><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButton<span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
-<p>You can also import the components you use on client side only, if you want to leverage code splitting and lazy loading:</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> setAssetPath <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components'</span><span class="token punctuation">)</span><br>  <span class="token keyword">const</span> modules <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-checkbox'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>  <span class="token punctuation">]</span><span class="token punctuation">)</span><br>  window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<br>  modules<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">module</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    module<span class="token punctuation">.</span><span class="token function">defineCustomElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
-<p>If you have lifecycle hooks to your disposal for running code on the client side only, you should use these. For instance, in React based applications you can use the <a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">effect hook</a> for this purpose:</p>
-<pre class="language-js"><code class="language-js"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>  window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>origin<br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> <span class="token string">'/'</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><br>    <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span><br>  <span class="token punctuation">)</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>You can also use lifecycle hooks, if available, for running code on the client side only. For instance, in React based applications you can use the <a href="https://reactjs.org/docs/hooks-effect.html" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">effect hook</a>:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span><br>  window<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> <span class="token string">'/'</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><br>    <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span><br>  <span class="token punctuation">)</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>For working examples check out our <a href="guides/sandbox-applications/">sandbox apps</a>.</p>
 <p><docs-page-nav prev-href="guides/type-checking-and-intellisense/" next-title="Event handling" next-href="guides/event-handling/"></docs-page-nav></p>
 
