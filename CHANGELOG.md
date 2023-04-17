@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/emdgroup-liquid/liquid/compare/v5.3.0...v5.3.1) (2023-04-17)
+
+
+### Bug Fixes
+
+* **vue-output-target:** patch range ([d7d3d39](https://github.com/emdgroup-liquid/liquid/commit/d7d3d391f51c371d99bfce83235a89f018869aff))
+
 # [5.3.0](https://github.com/emdgroup-liquid/liquid/compare/v5.2.1...v5.3.0) (2023-04-17)
 
 
