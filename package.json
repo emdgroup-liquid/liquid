@@ -147,7 +147,7 @@
     "semantic-release": "^21.0.0",
     "shx": "^0.3.4",
     "stylelint": "^15.4.0",
-    "stylelint-config-standard": "^32.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-declaration-strict-value": "^1.9.1",
     "stylelint-high-performance-animation": "^1.8.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
