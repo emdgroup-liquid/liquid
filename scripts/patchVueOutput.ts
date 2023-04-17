@@ -13,7 +13,7 @@ fs.readFile(filename, 'utf8', function (err, data) {
       "import type { JSX } from '../dist/types/components'"
     )
     .replace(
-      "import { defineCustomElements } from '../dist/components/dist/loader';",
+      "import { defineCustomElements } from '../dist/components/dist/loader/index.js';",
       "import { defineCustomElements } from '../dist/loader/index.js';"
     )
 
