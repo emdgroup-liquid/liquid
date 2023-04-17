@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Sandbox applications
   parent: Guides
-  order: 10
+  order: 11
 layout: layout.njk
 title: Sandbox applications
 permalink: guides/sandbox-applications/
@@ -24,4 +24,4 @@ In order to help you get started with Liquid we have implemented small sample ap
 - Liquid + **CDN** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-cdn), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn))
 - Liquid + **Vite + JavaScript** ([repository](https://github.com/emdgroup-liquid/liquid-sandbox-vite-vanilla), [code sandbox](https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-vite-vanilla))
 
-<docs-page-nav prev-href="guides/design-tokens/" next-title="Troubleshooting" next-href="guides/troubleshooting/"></docs-page-nav>
+<docs-page-nav prev-href="guides/testing/" next-title="Troubleshooting" next-href="guides/troubleshooting/"></docs-page-nav>

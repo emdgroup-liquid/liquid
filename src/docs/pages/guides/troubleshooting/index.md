@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: Troubleshooting
   parent: Guides
-  order: 11
+  order: 12
 layout: layout.njk
 title: Troubleshooting
 permalink: guides/troubleshooting/

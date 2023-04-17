@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: FAQ
   parent: Guides
-  order: 12
+  order: 13
 layout: layout.njk
 title: FAQ
 permalink: guides/faq/
