@@ -1914,17 +1914,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdn/browser-compat-data@npm:^3.3.14":
-  version: 3.3.14
-  resolution: "@mdn/browser-compat-data@npm:3.3.14"
-  checksum: 0363cc9cb3cef308b78b3ba82af0542ad928bacecc95ee1e849c134c3eb866f4771df9fb064fd4da42fdb28e2d6932e0abb6e47ed47fbc42a26a9b0a5aee1e9f
-  languageName: node
-  linkType: hard
-
 "@mdn/browser-compat-data@npm:^5.2.34":
   version: 5.2.35
   resolution: "@mdn/browser-compat-data@npm:5.2.35"
   checksum: d42d52106452e7fe482ea5d8a8c45d2c12d138b326f02334bf8c05860dca0fb2238a07804c3e6c905c14173608c649df5c597e57078cdf2483110a7900f4ee0e
+  languageName: node
+  linkType: hard
+
+"@mdn/browser-compat-data@npm:^5.2.47":
+  version: 5.2.50
+  resolution: "@mdn/browser-compat-data@npm:5.2.50"
+  checksum: 1a7e6a1059826129ff23230ced2eda42361a3d829286062cd9ed169107db33d5e87eb23a2be7e00bf6b1bb18bdbb3b627c2d3cfa608843f23f67404ec974de62
   languageName: node
   linkType: hard
 
@@ -2817,6 +2817,13 @@ __metadata:
   version: 1.0.1
   resolution: "@tsconfig/node14@npm:1.0.1"
   checksum: 976345e896c0f059867f94f8d0f6ddb8b1844fb62bf36b727de8a9a68f024857e5db97ed51d3325e23e0616a5e48c034ff51a8d595b3fe7e955f3587540489be
+  languageName: node
+  linkType: hard
+
+"@tsconfig/node14@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@tsconfig/node14@npm:1.0.3"
+  checksum: 19275fe80c4c8d0ad0abed6a96dbf00642e88b220b090418609c4376e1cef81bf16237bf170ad1b341452feddb8115d8dd2e5acdfdea1b27422071163dc9ba9d
   languageName: node
   linkType: hard
 
@@ -3995,12 +4002,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ast-metadata-inferer@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ast-metadata-inferer@npm:0.7.0"
+"ast-metadata-inferer@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "ast-metadata-inferer@npm:0.8.0"
   dependencies:
-    "@mdn/browser-compat-data": ^3.3.14
-  checksum: 9bb633b680d537cd6d5066e48ed6ae68d7ddae663a380bdba78d4f40b53d4c03845dc3a7307d55ecf1248b447ee28d62bb20ade8b880abc2df629cda9414e32e
+    "@mdn/browser-compat-data": ^5.2.34
+  checksum: 8b9f38b5c7d33e2fad80174bb2613fad962c6ef728175281dd7957548608c95d958190b5269b74f6e24d037f6e650b45eb39440c1e206e3f9799aedde27fa54a
   languageName: node
   linkType: hard
 
@@ -4672,17 +4679,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001451":
-  version: 1.0.30001456
-  resolution: "caniuse-lite@npm:1.0.30001456"
-  checksum: c2cc479962149abd09a25b64699ee7484d9c433db2bad0a489f7b51b09a463c991f6efd7b8e201bc1a1ccf3294263f88503a3adf0a57db9046939ee7e58b76a6
-  languageName: node
-  linkType: hard
-
 "caniuse-lite@npm:^1.0.30001464":
   version: 1.0.30001470
   resolution: "caniuse-lite@npm:1.0.30001470"
   checksum: 14ce3cf17c90960309b82256b991c546a53aa321efae973578954faf5256a88dec1eaebe6bea516cfca04ea146787a89664a09b254df72da5c3ec4a95b5f319f
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001473":
+  version: 1.0.30001480
+  resolution: "caniuse-lite@npm:1.0.30001480"
+  checksum: c0b40f02f45ee99c73f732a3118028b2ab1544962d473d84f2afcb898a5e3099bd4c45f316ebc466fb1dbda904e86b72695578ca531a0bfa9d6337e7aad1ee2a
   languageName: node
   linkType: hard
 
@@ -6682,19 +6689,20 @@ cors@latest:
   linkType: hard
 
 "eslint-plugin-compat@npm:^4.1.1":
-  version: 4.1.2
-  resolution: "eslint-plugin-compat@npm:4.1.2"
+  version: 4.1.4
+  resolution: "eslint-plugin-compat@npm:4.1.4"
   dependencies:
-    "@mdn/browser-compat-data": ^5.2.34
-    ast-metadata-inferer: ^0.7.0
+    "@mdn/browser-compat-data": ^5.2.47
+    "@tsconfig/node14": ^1.0.3
+    ast-metadata-inferer: ^0.8.0
     browserslist: ^4.21.5
-    caniuse-lite: ^1.0.30001451
+    caniuse-lite: ^1.0.30001473
     find-up: ^5.0.0
     lodash.memoize: 4.1.2
     semver: 7.3.8
   peerDependencies:
     eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 385c29d7392ce161cf24bb118fa98f45a817106fbb131919be03c4b332c0e2baa4609e57ee182cb1c26a788d6030569a08a1598561014fe0a2fa648c11502de2
+  checksum: 25df48509996fd540839abf59aeb5257df3fd7826792c94aabd045ab11b94f7dfbba77ccebcce52be18ae2048b91a6d8f3cf8864b70fd0d3f798c76027f51925
   languageName: node
   linkType: hard
 
