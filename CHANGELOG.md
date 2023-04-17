@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/emdgroup-liquid/liquid/compare/v5.2.1...v5.3.0) (2023-04-17)
+
+
+### Features
+
+* **fonts:** bundle additional global css without font faces ([51c0ca8](https://github.com/emdgroup-liquid/liquid/commit/51c0ca8e03d157e362301e71c16361922a6f57a0))
+
 ## [5.2.1](https://github.com/emdgroup-liquid/liquid/compare/v5.2.0...v5.2.1) (2023-04-13)
 
 
