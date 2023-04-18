@@ -6,11 +6,19 @@ eleventyNavigation:
 layout: layout.njk
 title: Testing
 permalink: guides/testing/
+tags:
+  - unit
+  - spec
+  - vitest
+  - jest
 ---
 
 # Testing
 
-If you want to __unit test__ code in your app, which depends on the functionality of Liquid Oxygen Web Components, without mocking their internals, then you must make sure all relevant components have _hydrated_ in your test setup, before you execute your test code. You can do so by running the `defineCustomElements()` method imported from `'@emdgroup-liquid/liquid/dist/loader'` before each test and a `await`ing a helper function, which makes sure all components involved in the test have hydrated.
+If you run __unit tests__ in your application, which depend on the functionality of Liquid Oxygen Web Components, and you do not want to mock that functionality, you must ensure that the components have been _hydrated_ before you execute your test code:
+
+1. Call `defineCustomElements()` imported from `'@emdgroup-liquid/liquid/dist/loader'` before each test.
+2. `await` all components to be hydrated. You can use a helper function similar to the one in the example test code below.
 
 The following example shows how to execute unit tests with hydrated Web Components with [vitest](https://vitest.dev/), React, and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 
