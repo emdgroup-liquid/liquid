@@ -55,15 +55,7 @@ pre {
   counter-reset: lineNumber;
 }
 code .highlight-line::before {
-  -webkit-user-select: none;
-  content: counter(lineNumber);
-  counter-increment: lineNumber;
-  display: inline-block;
-  font-variant-numeric: tabular-nums;
-  margin-right: 1.2em;
-  padding-right: 1.2em;
-  text-align: right;
-  width: 2.4em;
+  content: none !important;
 }
 .highlight-line.highlight-line-active {
   border-radius: var(--ld-br-m);
