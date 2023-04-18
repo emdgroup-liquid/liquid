@@ -20,7 +20,7 @@ If you run __unit tests__ in your application, which depend on the functionality
 1. Call `defineCustomElements()` imported from `'@emdgroup-liquid/liquid/dist/loader'` before each test.
 2. `await` all components to be hydrated. You can use a helper function similar to the one in the example test code below.
 
-The following example shows how to execute unit tests with hydrated Web Components with [vitest](https://vitest.dev/), React, and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+The following example shows how to execute unit tests with hydrated Web Components using [vitest](https://vitest.dev/), React, and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 
 Configure vitest to use a  [setup file](https://vitest.dev/config/#setupfiles):
 
