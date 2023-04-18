@@ -42,13 +42,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@11ty/eleventy-plugin-syntaxhighlight@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "@11ty/eleventy-plugin-syntaxhighlight@npm:4.2.0"
+"@11ty/eleventy-plugin-syntaxhighlight@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@11ty/eleventy-plugin-syntaxhighlight@npm:5.0.0"
   dependencies:
-    linkedom: ^0.14.19
     prismjs: ^1.29.0
-  checksum: 6109f5f68bed0286b1cec572808b1239c1442baf04d3db78de21e3bbdef920ef7985dd3643f28282a12db894bebed5207bf171823b7bb98f4b71fb66169e4fac
+  checksum: fb884f39e6cc1652b02e48d44e48b8fa169953056ee9078d4f56c4adcfd5f286a4dc2079c274b4dfa7758d260bfeda56e066098deda2b4460d87e48720374005
   languageName: node
   linkType: hard
 
@@ -1409,7 +1408,7 @@ __metadata:
   dependencies:
     "@11ty/eleventy": ^2.0.0
     "@11ty/eleventy-navigation": ^0.3.5
-    "@11ty/eleventy-plugin-syntaxhighlight": ^4.2.0
+    "@11ty/eleventy-plugin-syntaxhighlight": ^5.0.0
     "@commitlint/cli": ^17.4.3
     "@commitlint/config-conventional": ^17.4.3
     "@lottiefiles/lottie-player": ^1.7.1
@@ -5750,13 +5749,6 @@ cors@latest:
   languageName: node
   linkType: hard
 
-"cssom@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "cssom@npm:0.5.0"
-  checksum: 823471aa30091c59e0a305927c30e7768939b6af70405808f8d2ce1ca778cddcb24722717392438329d1691f9a87cb0183b64b8d779b56a961546d54854fde01
-  languageName: node
-  linkType: hard
-
 "cssom@npm:~0.3.6":
   version: 0.3.8
   resolution: "cssom@npm:0.3.8"
@@ -8202,13 +8194,6 @@ cors@latest:
   languageName: node
   linkType: hard
 
-"html-escaper@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "html-escaper@npm:3.0.3"
-  checksum: a2678be42c15d2ef6e629775dac0925a729f4615c6593db8358b9262c7565c4627134987c00f548eb4eb76cbc3b3392f78475cd02b022f8ae7aeb9a88280831b
-  languageName: node
-  linkType: hard
-
 "html-tags@npm:^3.2.0":
   version: 3.2.0
   resolution: "html-tags@npm:3.2.0"
@@ -10305,19 +10290,6 @@ cors@latest:
   version: 2.0.3
   resolution: "lines-and-columns@npm:2.0.3"
   checksum: 5955363dfd7d3d7c476d002eb47944dbe0310d57959e2112dce004c0dc76cecfd479cf8c098fd479ff344acdf04ee0e82b455462a26492231ac152f6c48d17a1
-  languageName: node
-  linkType: hard
-
-"linkedom@npm:^0.14.19":
-  version: 0.14.21
-  resolution: "linkedom@npm:0.14.21"
-  dependencies:
-    css-select: ^5.1.0
-    cssom: ^0.5.0
-    html-escaper: ^3.0.3
-    htmlparser2: ^8.0.1
-    uhyphen: ^0.1.0
-  checksum: c82f5532ab76d407a153d4da4168fde8c2aee12901ff26c3f677dbd69639c59901f40bf60529dba677881dff40885b247952e6c56a37c5cd4546768432b00d4c
   languageName: node
   linkType: hard
 
@@ -17069,13 +17041,6 @@ send@latest:
   bin:
     uglifyjs: bin/uglifyjs
   checksum: eef57b4fec031f687bef46182c33de5eff6bc40fec8d46152f3b92bb044602dd524a04e33ca5f7391f82db969b92ef6aded860f8a4ee5f4bf796d7420b030236
-  languageName: node
-  linkType: hard
-
-"uhyphen@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "uhyphen@npm:0.1.0"
-  checksum: 1df304800387900f76365ff8090ee3667534a944184b9330cd96dbf4b1ad3fb0d376969f92f8b03decfc2e701f0d2eabeda7d002c909f2d125062e5e064d23ef
   languageName: node
   linkType: hard
 
