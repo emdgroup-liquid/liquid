@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Event handling</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681812540878/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681812540878/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681812540878/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681812540878/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681812540878/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681814637974/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681814637974/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681814637974/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681814637974/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681814637974/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681812540878/">
+  <meta data-buildstamp="1681814637974/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681812540878/docs.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681812540878/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681812540878/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681814637974/docs.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681814637974/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681814637974/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3446,9 +3446,23 @@
 <h2 id="examples" tabindex="-1">Examples <a class="header-anchor" href="guides/event-handling/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>These examples show how to use the custom &quot;ld&quot;-prefixed events with Vanilla JS and React.</p>
 <h3 id="vanilla-js" tabindex="-1">Vanilla JS <a class="header-anchor" href="guides/event-handling/#vanilla-js"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br><span class="token keyword">const</span> <span class="token function-variable function">handleLdchange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'ldchange'</span><span class="token punctuation">,</span> handleLdchange<span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>example<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">const</span> <span class="token function-variable function">handleLdchange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'ldchange'</span><span class="token punctuation">,</span> handleLdchange<span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <h3 id="react" tabindex="-1">React <a class="header-anchor" href="guides/event-handling/#react"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
-<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">MyApp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> handleLdchange <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><br><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdInput</span></span> <span class="token attr-name">onLdchange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleLdchange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">MyApp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> handleLdchange <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'changed!'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdInput</span></span> <span class="token attr-name">onLdchange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>handleLdchange<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+<span class="token punctuation">}</span></code></pre>
 <ld-notice headline="Note" mode="warning">
   React usually triggers event handlers set with the <code>onChange</code> prop differently than browsers actually handle <code>change</code> events. Event handlers set with the <code>onChange</code> prop usually are invoked everytime the element's value changes in React, while by definition the <code>change</code> event is only dispatched after the element loses focus.<br/><br/>Liquid Oxygen components stick to that browser default behavior and only dispatch the <code>ldchange</code>/<code>change</code> events after an element loses focus. Thus, you cannot expect an event handler set neither via <code>onLdchange</code> nor <code>onChange</code> to be invoked everytime the value changes. If you want that, the <code>input</code> event is exactly what you're looking for, so please use the <code>onInput</code> prop in these cases, instead. (There is no custom <code>ldinput</code> event, as the <code>input</code> event is a composed native event that bubbles into the light DOM.)
 </ld-notice>

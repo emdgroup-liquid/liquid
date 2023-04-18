@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Introduction</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681812540878/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681812540878/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681812540878/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681812540878/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681812540878/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681814637974/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681814637974/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681814637974/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681814637974/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681814637974/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681812540878/">
+  <meta data-buildstamp="1681814637974/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681812540878/docs.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681812540878/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681812540878/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681814637974/docs.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681814637974/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681814637974/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3460,7 +3460,17 @@
 <h2 id="quick-start" tabindex="-1">Quick start <a class="header-anchor" href="#quick-start"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>You are curious and just want to try out Liquid Oxygen? Fastest way to get started with Liquid Oxygen is to use the jsdelivr CDN.<br>
 Just set the liquid asset path and import the stylesheet and the loader module.</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span><br>  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/css/liquid.css<span class="token punctuation">"</span></span><br><span class="token punctuation">/></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token comment">// Import the loader</span><br>  <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/loader/index.js'</span><br><br>  <span class="token comment">// Register the custom elements</span><br>  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span>
+  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/css/liquid.css<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// Import the loader</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid/dist/loader/index.js'</span>
+
+  <span class="token comment">// Register the custom elements</span>
+  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>Now you can use the Liquid Oxygen Web Components in your website.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span><span class="token punctuation">></span></span>Click me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span></code></pre>
 <p>See the full example in the <a href="https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-cdn" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Liquid + CDN Sandbox</a>.</p>

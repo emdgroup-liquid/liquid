@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Tailwind CSS integration</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681812540878/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681812540878/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681812540878/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1681812540878/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1681812540878/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681814637974/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681814637974/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1681814637974/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1681814637974/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1681814637974/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1681812540878/">
+  <meta data-buildstamp="1681814637974/">
 
   <script>
     __docsSearchIndex__ = [
@@ -2402,11 +2402,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1681812540878/docs.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1681812540878/css_components/ld-button.css">
-  <script type="module" src="/liquid/1681812540878/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1681812540878/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1681814637974/docs.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1681814637974/css_components/ld-button.css">
+  <script type="module" src="/liquid/1681814637974/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1681814637974/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3441,12 +3441,23 @@
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
       <h1 id="tailwind-css-integration" tabindex="-1">Tailwind CSS Integration <a class="header-anchor" href="guides/tailwindcss-integration/#tailwind-css-integration"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
 <p>Liquid bundles a <a href="https://tailwindcss.com/docs/presets" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Tailwind CSS preset</a> which you can use as a base for your own Tailwind CSS configuration:</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span><br><span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span>
+<span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="previewing-the-tailwind-config" tabindex="-1">Previewing the Tailwind config <a class="header-anchor" href="guides/tailwindcss-integration/#previewing-the-tailwind-config"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>After you have configured Tailwind with Liquid's preset, you may want to use the awesome <a href="https://www.npmjs.com/package/tailwind-config-viewer" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Tailwind Config Viewer</a> as a dev dependency in your project in order to learn which Tailwind utility classes are available to you.</p>
 <h2 id="disabling-tailwind%E2%80%99s-default-configuration" tabindex="-1">Disabling Tailwind’s default configuration <a class="header-anchor" href="guides/tailwindcss-integration/#disabling-tailwind%E2%80%99s-default-configuration"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>Liquid's Tailwind preset extends Tailwind's <a href="https://unpkg.com/browse/tailwindcss@%5E2/stubs/defaultConfig.stub.js" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">default configuration</a> by default. If you want Liquid's preset to <strong>not</strong> extend Tailwind's default configuration, include an empty <code>presets</code> key in the preset:</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span><br><span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span><br>liquidPreset<span class="token punctuation">.</span>presets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><br><br>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// tailwind.config.js</span>
+<span class="token keyword">const</span> liquidPreset <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@emdgroup-liquid/liquid/dist/css/tailwind-preset.js'</span><span class="token punctuation">)</span>
+liquidPreset<span class="token punctuation">.</span>presets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">presets</span><span class="token operator">:</span> <span class="token punctuation">[</span>liquidPreset<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 <ld-notice headline="Note" mode="warning">
   Not extending Tailwind's default configuration is the same as completely removing Tailwinds default CSS utility classes.
 </ld-notice>
