@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Animations</title>
+  <title>Liquid – Testing</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1681822075521/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1681822075521/assets/favicon-32x32.png">
@@ -2523,9 +2523,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--guides">
                   <a href="/liquid/guides/"><span aria-label="Guides">Guides</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2598,7 +2598,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/guides/testing/">Testing</a>
             
@@ -2655,9 +2655,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--globals">
                   <a href="/liquid/global/"><span aria-label="Globals">Globals</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2666,7 +2666,7 @@
                   
                     
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/global/animations/">Animations</a>
             
@@ -3456,33 +3456,95 @@
             
             
             
-              <ld-crumb href="/liquid/global/">Globals</ld-crumb>
+              <ld-crumb href="/liquid/guides/">Guides</ld-crumb>
             
-            <ld-crumb href="/liquid/global/animations/">Animations</ld-crumb>
+            <ld-crumb href="/liquid/guides/testing/">Testing</ld-crumb>
           </ld-breadcrumbs>
         
-        <docs-edit-on-github path="./src/docs/pages/global/animations.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/guides/testing.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <h1 id="animations" tabindex="-1">Animations <a class="header-anchor" href="global/animations/#animations"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>Liquid Oxygen comes with animations in form of <a href="https://airbnb.design/lottie/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Lottie</a> files. You can use them by integrating the <a href="https://github.com/LottieFiles/lottie-player" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external=""><code>lottie-player</code> Web Component</a> in your application and simply supplying the path to a self-hosted copy of the Lottie file (JSON format) to it. Just click on the animations below to download their Lottie files.</p>
-<docs-icon-group>
-  <docs-icon identifier="burger-cross" bounce is-animation name="Burger+Cross"></docs-icon>
-  <docs-icon identifier="comment" bounce is-animation name="Comment"></docs-icon>
-  <docs-icon identifier="download" is-animation name="Download"></docs-icon>
-  <docs-icon identifier="export" is-animation name="Export"></docs-icon>
-  <docs-icon identifier="eye" is-animation name="Eye"></docs-icon>
-  <docs-icon identifier="mute" bounce is-animation name="Mute"></docs-icon>
-  <docs-icon identifier="notification-number" is-animation name="Notification Number"></docs-icon>
-  <docs-icon identifier="notification" is-animation name="Notification"></docs-icon>
-  <docs-icon identifier="play" is-animation name="Play"></docs-icon>
-  <docs-icon identifier="refresh" is-animation name="Refresh"></docs-icon>
-  <docs-icon identifier="search" is-animation name="Search"></docs-icon>
-  <docs-icon identifier="test-tube" is-animation name="Test Tube"></docs-icon>
-  <docs-icon identifier="trash" is-animation name="Trash"></docs-icon>
-  <docs-icon identifier="upload" is-animation name="Upload"></docs-icon>
-  <docs-icon identifier="warning" is-animation name="Warning"></docs-icon>
-</docs-icon-group>
+      <h1 id="testing" tabindex="-1">Testing <a class="header-anchor" href="guides/testing/#testing"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>If you run <strong>unit tests</strong> in your application, which depend on the functionality of Liquid Oxygen Web Components, and you do not want to mock that functionality, you must ensure that the components have been <em>hydrated</em> before you execute your test code:</p>
+<ol>
+<li>Call <code>defineCustomElements()</code> imported from <code>'@emdgroup-liquid/liquid/dist/loader'</code> before each test.</li>
+<li><code>await</code> all components to be hydrated. You can use a helper function similar to the one in the example test code below.</li>
+</ol>
+<p>The following example shows how to execute unit tests with hydrated Web Components using <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">vitest</a>, React, and the <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">React Testing Library</a>.</p>
+<p>Configure vitest to use a  <a href="https://vitest.dev/config/#setupfiles" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">setup file</a>:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// vite.config.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vitest/config'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token literal-property property">setupFiles</span><span class="token operator">:</span> <span class="token string">'./src/setupTests.ts'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>The <code>setupTests.ts</code> file looks like this:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// src/setupTests.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span>
+<span class="token keyword">import</span> <span class="token string">'@testing-library/jest-dom'</span>
+<span class="token keyword">import</span> matchers <span class="token keyword">from</span> <span class="token string">'@testing-library/jest-dom/matchers'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> cleanup <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@testing-library/react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> vi <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vitest'</span>
+
+<span class="token comment">// Extend Vitest's expect method with methods from react-testing-library.</span>
+expect<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span>matchers<span class="token punctuation">)</span>
+
+<span class="token function">beforeAll</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// eslint-disable-next-line @typescript-eslint/ban-ts-comment</span>
+  <span class="token comment">// @ts-ignore</span>
+  global<span class="token punctuation">.</span>__LD_ASSET_PATH__ <span class="token operator">=</span> <span class="token string">'/'</span> <span class="token comment">// removes CDN warning</span>
+  <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  global<span class="token punctuation">.</span>fetch <span class="token operator">=</span> vi
+    <span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">mockReturnValue</span><span class="token punctuation">(</span>Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token function-variable function">text</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Run a cleanup after each test case.</span>
+<span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">cleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>In your test file, you can now wait for the Web Components to hydrate before executing your actual test code.</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// src/App.test.tsx</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> screen<span class="token punctuation">,</span> waitFor<span class="token punctuation">,</span> fireEvent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@testing-library/react'</span>
+<span class="token keyword">import</span> userEvent <span class="token keyword">from</span> <span class="token string">'@testing-library/user-event'</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">waitForLiquidToHydrate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> e<span class="token punctuation">.</span>tagName<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'LD-'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function">expect</span><span class="token punctuation">(</span>component<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveClass</span><span class="token punctuation">(</span><span class="token string">'hydrated'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'validates input'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">)</span>
+
+  <span class="token keyword">await</span> <span class="token function">waitForLiquidToHydrate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> ldInputName <span class="token operator">=</span> screen<span class="token punctuation">.</span><span class="token function">getByPlaceholderText</span><span class="token punctuation">(</span><span class="token string">'e.g. Jason Parse'</span><span class="token punctuation">)</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>ldInputName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> ldButtonSubmit <span class="token operator">=</span> screen<span class="token punctuation">.</span><span class="token function">getByText</span><span class="token punctuation">(</span><span class="token string">'Submit'</span><span class="token punctuation">)</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>ldButtonSubmit<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  userEvent<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span>ldButtonSubmit<span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> form <span class="token operator">=</span> <span class="token keyword">await</span> screen<span class="token punctuation">.</span><span class="token function">findByTestId</span><span class="token punctuation">(</span><span class="token string">'form'</span><span class="token punctuation">)</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeInTheDocument</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  fireEvent<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span>
+
+  <span class="token keyword">await</span> screen<span class="token punctuation">.</span><span class="token function">findByText</span><span class="token punctuation">(</span><span class="token string">'Your full name is required.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Check out our <a href="https://stackblitz.com/github/emdgroup-liquid/liquid-sandbox-react-tailwind?file=src%2FApp.test.tsx" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">React sandbox app</a> for a full working example.</p>
+<p><docs-page-nav prev-href="guides/design-tokens/" next-title="Sandbox applications" next-href="guides/sandbox-applications/"></docs-page-nav></p>
 
       
         <docs-contributors contributors='[]'></docs-contributors>
