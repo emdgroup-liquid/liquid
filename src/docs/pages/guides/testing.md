@@ -14,7 +14,7 @@ If you want to __unit test__ code in your app, which depends on the functionalit
 
 The following example shows how to execute unit tests with hydrated Web Components with [vitest](https://vitest.dev/), React, and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 
-First, [configure vitest to use a setup file](https://vitest.dev/config/#setupfiles):
+Configure vitest to use a  [setup file](https://vitest.dev/config/#setupfiles):
 
 ```js
 // vite.config.ts
