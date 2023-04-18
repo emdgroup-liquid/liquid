@@ -77,6 +77,7 @@ module.exports = {
         ignoreAtRules: ['/^define-mixin/', '/^mixin/'],
       },
     ],
+    'declaration-block-no-duplicate-properties': [true],
   },
   ignoreFiles: ['**/*.md', '**/*.tsx'],
 }

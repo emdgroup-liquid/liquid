@@ -324,7 +324,7 @@
 body:not(.safari) {
   .docs-nav__summary:focus:focus-visible {
     outline: auto;
-    outline: auto 5px -webkit-focus-ring-color;
+    outline: auto 5px -webkit-focus-ring-color; /* stylelint-disable-line declaration-block-no-duplicate-properties */
   }
 }
 

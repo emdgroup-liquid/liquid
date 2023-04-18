@@ -48,6 +48,7 @@
           );
           color: var(--ld-switch-item-col-active, var(--ld-col-wht));
           outline: var(--ld-switch-item-outline, auto);
+          /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
           outline: var(
             --ld-switch-item-outline,
             auto 5px -webkit-focus-ring-color
