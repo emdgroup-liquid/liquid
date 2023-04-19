@@ -28,13 +28,6 @@ function pxToRem(px: string | number) {
   return val + 'rem'
 }
 
-function getHSLFromColor(color) {
-  const h = ((color.get('hsl.h') || 0) * 1).toFixed(2)
-  const s = (color.get('hsl.s') * 100).toFixed(2)
-  const l = (color.get('hsl.l') * 100).toFixed(2)
-  return { h, s, l }
-}
-
 function getColorTokenValue(variant, styles) {
   if (variant.styles?.fill) {
     const style = styles[variant.styles.fill]
@@ -56,8 +49,9 @@ function getColorTokenValue(variant, styles) {
     const { r, g, b, a } = variant.fills[0]
     const color = chroma({ r, g, b, a })
 
-    const { h, s, l } = getHSLFromColor(color)
-    return `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+    return `hsl(${color.get('hsl.h')}deg ${color.get('hsl.s') * 100}% ${
+      color.get('hsl.l') * 100
+    }%${a === 1 ? '' : ' / ' + a})`
   }
 }
 
@@ -145,18 +139,6 @@ function parseShadows(items) {
 function parseColors(items, styles: { name: string; description: string }[]) {
   const colors = {}
 
-  function getKeyFromIndex(index) {
-    if (index === 0) return '010'
-    if (index === 1) return '050'
-    return index - 1 + '00'
-  }
-
-  function getIndexFromKey(colorKey) {
-    if (colorKey === '010') return 0
-    if (colorKey === '050') return 1
-    return (parseInt(colorKey) || 0) / 100
-  }
-
   for (const item of items) {
     if (item.name.startsWith('_')) {
       continue
@@ -186,19 +168,20 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         colorShortName = baseColorName.replace(/[a-z]/g, '').toLowerCase()
       }
 
-      const defaultIndex = getIndexFromKey(name.match(/\d+/g)?.at(0))
       const r = parseFloat((item.fills[0].color.r * 255).toFixed(2))
       const g = parseFloat((item.fills[0].color.g * 255).toFixed(2))
       const b = parseFloat((item.fills[0].color.b * 255).toFixed(2))
 
-      const color = chroma({ r, g, b })
-      const { h, s, l } = getHSLFromColor(color)
-      const totalSteps = 11
-      const totalStepsToLight = defaultIndex + 1
-      const totalStepsToDark = totalSteps - (defaultIndex + 1)
+      const defaultColor = chroma({ r, g, b })
+      const hslH = defaultColor.get('hsl.h') || 0
+      const hslS = defaultColor.get('hsl.s')
+      const hslL = defaultColor.get('hsl.l')
+      const oklchH = defaultColor.get('oklch.h') || 0
 
       if (isWhite) {
-        colors[colorShortName] = `hsl(${h}deg ${s}% ${l}%)`
+        colors[colorShortName] = `hsl(${hslH.toFixed(2)}deg ${(
+          hslS * 100
+        ).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
         const whiteGradients = [
           {
             modifier: 'alpha-highest',
@@ -224,67 +207,81 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         for (const gradient of whiteGradients) {
           colors[
             `${colorShortName}-${gradient.modifier}`
-          ] = `hsl(${h}deg ${s}% ${l}% / ${gradient.alpha})`
+          ] = `hsl(${hslH.toFixed(2)}deg ${(hslS * 100).toFixed(2)}% ${(
+            hslL * 100
+          ).toFixed(2)}% / ${gradient.alpha})`
         }
         continue
       }
 
-      // default
-      colors[
-        `${colorShortName}-${getKeyFromIndex(defaultIndex + 1)}/default`
-      ] = `hsl(${h}deg ${s}% ${l}%)`
-
-      // to light
-      const colorLightest = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') - 15)
-        .set('hsl.l', 0.9825)
-        .set('hsl.s', isNeutral ? 0 : 1)
-      const colorLight = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') - 10)
-        .set('hsl.l', 0.9425)
-        .set('hsl.s', isNeutral ? 0 : 1)
-      const colorsToLightest = [
-        colorLightest,
-        ...chroma
-          .scale([colorLight, color])
-          .correctLightness()
-          .colors(totalStepsToLight),
+      const scale = [
+        { key: '010', chroma: isNeutral ? 0.002 : 0.02, lightness: 0.98 },
+        { key: '050', chroma: isNeutral ? 0.005 : 0.04, lightness: 0.96 },
+        { key: '100', chroma: isNeutral ? 0.005 : 0.07, lightness: 0.91 },
+        { key: '200', chroma: isNeutral ? 0.01 : 0.14, lightness: 0.8 },
+        { key: '300', chroma: isNeutral ? 0.01 : 0.15, lightness: 0.74 },
+        { key: '400', chroma: isNeutral ? 0.01 : 0.14, lightness: 0.64 },
+        { key: '500', chroma: isNeutral ? 0.005 : 0.13, lightness: 0.55 },
+        { key: '600', chroma: isNeutral ? 0.01 : 0.11, lightness: 0.5 },
+        { key: '700', chroma: isNeutral ? 0.015 : 0.1, lightness: 0.4 },
+        { key: '800', chroma: isNeutral ? 0.02 : 0.08, lightness: 0.35 },
+        { key: '900', chroma: 0.06, lightness: 0.24 },
       ]
-      colorsToLightest.forEach((color, step) => {
-        if (step === defaultIndex + 1) return
-        const { h, s, l } = getHSLFromColor(chroma(color))
-        colors[
-          `${colorShortName}-${getKeyFromIndex(step)}`
-        ] = `hsl(${h}deg ${s}% ${l}%)`
+
+      scale.forEach((setting) => {
+        const color = chroma.oklch(setting.lightness, setting.chroma, oklchH)
+        colors[`${colorShortName}-${setting.key}`] = `hsl(${color
+          .get('hsl.h')
+          .toFixed(2)}deg ${(color.get('hsl.s') * 100).toFixed(2)}% ${(
+          color.get('hsl.l') * 100
+        ).toFixed(2)}%)`
       })
 
-      // to dark
-      const colorDark = chroma({ r, g, b })
-        .set('hsl.h', color.get('hsl.h') + 10)
-        .luminance(0.015)
-      chroma
-        .scale([color, colorDark])
-        .mode('lab')
-        .correctLightness()
-        .colors(totalStepsToDark)
-        .forEach((color, i) => {
-          if (i === 0) return
-          const index = defaultIndex + 1 + i
-          const { h, s, l } = getHSLFromColor(chroma(color))
-          colors[`${colorShortName}-${getKeyFromIndex(index)}`] = `hsl(${
-            h || 0
-          }deg ${s}% ${l}%)`
-          colors[`${colorShortName}-${getKeyFromIndex(index)}`] = `hsl(${
-            h || 0
-          }deg ${s}% ${l}%)`
-        })
+      // Find color in scale with smallest distance to the default color
+      // and replace it with the default color.
+      const defaultKey = scale.reduce((key, setting) => {
+        const settingColor = chroma.oklch(
+          setting.lightness,
+          setting.chroma,
+          oklchH
+        )
+        if (!key) {
+          return setting.key
+        }
+        const keyColorSetting = scale.find((setting) => setting.key === key)
+        const keyColor = chroma.oklch(
+          keyColorSetting.lightness,
+          keyColorSetting.chroma,
+          oklchH
+        )
+        const distanceToSettingColor = chroma.deltaE(
+          settingColor.hex(),
+          defaultColor.hex()
+        )
+        const distanceToKeyColor = chroma.deltaE(
+          keyColor.hex(),
+          defaultColor.hex()
+        )
+        if (distanceToSettingColor < distanceToKeyColor) {
+          return setting.key
+        }
+        return key
+      }, '')
+      colors[`${colorShortName}-${defaultKey}`] = `hsl(${hslH.toFixed(2)}deg ${(
+        hslS * 100
+      ).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
+      colors[`${colorShortName}-${defaultKey}/default`] = `hsl(${hslH.toFixed(
+        2
+      )}deg ${(hslS * 100).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
 
       // TODO check if it is wiser to pick a color from the middle of the range
       // alpha
-      colors[`${colorShortName}-alpha-low`] = `hsl(${h}deg ${s}% ${l}% / 0.2)`
-      colors[
-        `${colorShortName}-alpha-lowest`
-      ] = `hsl(${h}deg ${s}% ${l}% / 0.1)`
+      colors[`${colorShortName}-alpha-low`] = `hsl(${hslH.toFixed(2)}deg ${(
+        hslS * 100
+      ).toFixed(2)}% ${(hslL * 100).toFixed(2)}% / 0.2)`
+      colors[`${colorShortName}-alpha-lowest`] = `hsl(${hslH.toFixed(2)}deg ${(
+        hslS * 100
+      ).toFixed(2)}% ${(hslL * 100).toFixed(2)}% / 0.1)`
     }
   }
 
@@ -337,6 +334,8 @@ function parseSpacings(items) {
 function invertColors(colors) {
   const inverted = JSON.parse(
     JSON.stringify(colors)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       .replaceAll(/(-\d\d\d)/g, '$1_')
       .replaceAll('900_', '010')
       .replaceAll('800_', '050')
