@@ -10,7 +10,7 @@
   --ld-option-padding-left-lg: 0.875rem;
 
   /* colors */
-  --ld-option-bg-col: var(--ld-col-wht);
+  --ld-option-bg-col: var(--ld-layer-2);
   --ld-option-border-col: var(--ld-col-neutral-100);
   --ld-option-disabled-text-col: var(--ld-col-neutral-100);
   --ld-option-text-col: var(--ld-col-neutral-900);

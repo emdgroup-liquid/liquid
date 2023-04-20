@@ -68,7 +68,7 @@
   pointer-events: none;
 
   &::before {
-    background-color: var(--ld-layer-3);
+    background-color: var(--ld-layer-2);
     content: '';
     position: fixed;
     height: 100%;
@@ -94,7 +94,7 @@
 }
 
 .docs-nav__content {
-  background-color: var(--ld-layer-3);
+  background-color: var(--ld-layer-2);
   box-shadow: var(--ld-sp-1) 0 0 0 var(--ld-col-neutral-100);
   pointer-events: all;
   bottom: 0;

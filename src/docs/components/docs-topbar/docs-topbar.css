@@ -58,7 +58,7 @@
 }
 
 .docs-topbar__headline {
-  color: var(--ld-col-wht);
+  color: var(--ld-layer-2);
   font-family: var(--ld-font-body);
 
   b {

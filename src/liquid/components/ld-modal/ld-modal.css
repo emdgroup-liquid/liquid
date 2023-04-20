@@ -34,12 +34,12 @@
 
 dialog.ld-modal,
 :host {
-  --ld-modal-bg-col: var(--ld-col-wht);
+  --ld-modal-bg-col: var(--ld-layer-0);
   --ld-modal-fixed-padding-x: var(--ld-sp-16);
   --ld-modal-fixed-padding-y: var(--ld-sp-16);
   --ld-modal-padding-x: var(--ld-sp-16);
   --ld-modal-padding-y: var(--ld-sp-24);
-  --ld-modal-fixed-bg-col: var(--ld-col-neutral-010);
+  --ld-modal-fixed-bg-col: var(--ld-layer-1);
   --ld-modal-transition-duration: var(--ld-transition-duration-instant);
   --ld-modal-max-inline-size: 30rem;
   --ld-modal-max-block-size: 70rem;

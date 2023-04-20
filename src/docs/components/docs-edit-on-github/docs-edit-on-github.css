@@ -2,6 +2,14 @@
   display: block;
 
   .ld-button {
+    --ld-button-border-top-left-radius: calc(var(--ld-br-m) + var(--ld-sp-2));
+    --ld-button-border-top-right-radius: calc(var(--ld-br-m) + var(--ld-sp-2));
+    --ld-button-border-bottom-right-radius: calc(
+      var(--ld-br-m) + var(--ld-sp-2)
+    );
+    --ld-button-border-bottom-left-radius: calc(
+      var(--ld-br-m) + var(--ld-sp-2)
+    );
     background-color: var(--ld-layer-2);
     color: var(--ld-col-neutral-900);
     box-shadow: inset 0 0 0 2px var(--ld-layer-1);
