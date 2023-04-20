@@ -5,7 +5,7 @@
   --ld-radio-dot-size: 0.625rem;
 
   /* colors */
-  --ld-radio-bg-col: var(--ld-col-wht);
+  --ld-radio-bg-col: var(--ld-layer-2);
   --ld-radio-bg-col-hover: var(--ld-col-neutral-010);
   --ld-radio-bg-col-active: var(--ld-col-neutral-050);
   --ld-radio-disabled-col: var(--ld-col-neutral-300);
@@ -13,10 +13,10 @@
   --ld-radio-dark-bg-col: var(--ld-col-neutral-050);
   --ld-radio-dark-bg-col-hover: var(--ld-col-neutral-100);
   --ld-radio-dark-bg-col-active: var(--ld-col-neutral-300);
-  --ld-radio-checked-col: var(--ld-col-wht);
-  --ld-radio-checked-col-active: var(--ld-col-wht);
-  --ld-radio-invalid-checked-col: var(--ld-col-wht);
-  --ld-radio-invalid-checked-col-active: var(--ld-col-wht);
+  --ld-radio-checked-col: var(--ld-layer-2);
+  --ld-radio-checked-col-active: var(--ld-layer-2);
+  --ld-radio-invalid-checked-col: var(--ld-layer-2);
+  --ld-radio-invalid-checked-col-active: var(--ld-layer-2);
 
   /* themable colors */
   --ld-radio-col: var(--ld-thm-primary);

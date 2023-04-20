@@ -1,7 +1,7 @@
 :host,
 .ld-table {
   /* colors */
-  --ld-table-bg-col: var(--ld-col-wht);
+  --ld-table-bg-col: var(--ld-layer-2);
   --ld-table-border-col: var(--ld-col-neutral-200);
   --ld-table-toolbar-bg-col: var(--ld-col-neutral-050);
 

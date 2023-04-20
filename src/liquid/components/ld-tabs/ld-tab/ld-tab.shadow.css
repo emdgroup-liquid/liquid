@@ -11,7 +11,7 @@
   --ld-tab-bg-col-active: var(--ld-col-neutral-200);
   --ld-tab-bg-col-focus: var(--ld-col-neutral-600);
   --ld-tab-bg-col-hover: var(--ld-col-neutral-100);
-  --ld-tab-bg-col: var(--ld-col-neutral-010);
+  --ld-tab-bg-col: var(--ld-layer-2);
   --ld-tab-disabled-bg-col-focus: var(--ld-col-neutral-400);
   --ld-tab-disabled-text-col-focus: var(--ld-col-wht);
   --ld-tab-disabled-text-col: var(--ld-col-neutral-900);

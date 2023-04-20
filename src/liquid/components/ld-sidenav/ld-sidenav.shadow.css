@@ -48,9 +48,9 @@
     var(--ld-sidenav-transition-delay-collapse-expand) ease;
 
   /* colors */
-  --ld-sidenav-bg-color: var(--ld-col-wht);
+  --ld-sidenav-bg-color: var(--ld-layer-1);
   --ld-sidenav-separator-line-bg-col: var(--ld-col-neutral-100);
-  --ld-sidenav-subnav-bg-color: var(--ld-col-wht);
+  --ld-sidenav-subnav-bg-color: var(--ld-layer-1);
 
   &(.ld-sidenav--transitions) {
     @media (prefers-reduced-motion: no-preference) {

@@ -4,7 +4,7 @@
   --ld-checkbox-size: 1.25rem;
 
   /* colors */
-  --ld-checkbox-bg-col: var(--ld-col-wht);
+  --ld-checkbox-bg-col: var(--ld-layer-2);
   --ld-checkbox-bg-col-hover: var(--ld-col-neutral-010);
   --ld-checkbox-bg-col-active: var(--ld-col-neutral-050);
   --ld-checkbox-disabled-col: var(--ld-col-neutral-300);
@@ -12,8 +12,8 @@
   --ld-checkbox-dark-bg-col: var(--ld-col-neutral-050);
   --ld-checkbox-dark-bg-col-hover: var(--ld-col-neutral-100);
   --ld-checkbox-dark-bg-col-active: var(--ld-col-neutral-300);
-  --ld-checkbox-checked-col: var(--ld-col-wht);
-  --ld-checkbox-checked-col-active: var(--ld-col-wht);
+  --ld-checkbox-checked-col: var(--ld-layer-2);
+  --ld-checkbox-checked-col-active: var(--ld-layer-2);
 
   /* themable colors */
   --ld-checkbox-col: var(--ld-thm-primary);

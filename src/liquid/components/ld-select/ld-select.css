@@ -33,7 +33,7 @@
   --ld-select-col-disabled: var(--ld-col-neutral-100);
   --ld-select-col-border: var(--ld-col-neutral-100);
   --ld-select-col-border-hover: var(--ld-col-neutral-300);
-  --ld-select-bg-col: var(--ld-col-wht);
+  --ld-select-bg-col: var(--ld-layer-2);
   --ld-select-selection-col: var(--ld-col-wht);
 
   /* themable colors */

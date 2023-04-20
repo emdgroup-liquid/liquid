@@ -129,7 +129,7 @@
 .ld-cookie-consent__disclaimer {
   animation: ld-cookie-consent-in var(--ld-cookie-consent-transition-duration)
     ease-out forwards;
-  background-color: var(--ld-col-wht);
+  background-color: var(--ld-layer-0);
   border-radius: var(--ld-br-l);
   box-shadow: var(--ld-shadow-active);
   box-sizing: border-box;

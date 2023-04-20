@@ -13,7 +13,7 @@
   --ld-toggle-knob-border-radius: var(--ld-br-full);
 
   /* colors */
-  --ld-toggle-input-bg-col: var(--ld-col-neutral-600);
+  --ld-toggle-input-bg-col: var(--ld-layer-2);
   --ld-toggle-icon-start-col: var(--ld-col-wht);
   --ld-toggle-icon-end-col: var(--ld-col-neutral-900);
   --ld-toggle-knob-bg-col: var(--ld-col-wht);
