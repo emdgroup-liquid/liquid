@@ -1,6 +1,6 @@
 :host,
 .ld-card {
-  --ld-card-bg-col: var(--ld-layer-1);
+  --ld-card-bg-col: var(--ld-layer);
   --ld-card-border-radius: var(--ld-br-l);
   --ld-card-padding: var(--ld-sp-32);
   --ld-card-padding-sm: var(--ld-sp-16);

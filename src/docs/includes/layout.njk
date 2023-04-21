@@ -3,7 +3,7 @@ title: Introduction
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="ld-layer-1">
 <head>
   <base href="{{ env.base }}/">
   <meta charset="utf-8">
@@ -55,7 +55,7 @@ title: Introduction
   <script type="module" src="{{ env.base }}/{{ buildstamp }}dist/build/liquid.esm.js"></script>
   <script nomodule src="{{ env.base }}/{{ buildstamp }}dist/build/liquid.js"></script>
 </head>
-<body>
+<body class="ld-layer">
   <script>
     if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
       document.body.classList.add('sarari')

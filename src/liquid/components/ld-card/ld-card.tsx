@@ -34,6 +34,7 @@ export class LdCard {
   render() {
     const cl = getClassNames([
       'ld-card',
+      'ld-layer',
       this.size && `ld-card--${this.size}`,
       this.shadow && `ld-card--${this.shadow}`,
       this.shadowInteractive &&
