@@ -118,7 +118,7 @@ export class LdCookieConsent {
     backdropBlur: true,
     buttonAcceptAll: 'Accept all',
     buttonAcceptCookies: 'Accept cookies',
-    buttonAcceptNone: 'Reject all',
+    buttonAcceptNone: 'Accept only necessary',
     buttonAcceptSelected: 'Accept selected',
     buttonAcknowledge: 'Acknowledge',
     buttonDismiss: 'Dismiss',
@@ -468,7 +468,7 @@ export class LdCookieConsent {
         >
           {config.mode !== 'notice-only' && (
             <ld-button
-              class="ld-cookie-consent__disclaimer-btn-preferences"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--preferences"
               mode="secondary"
               onClick={() => {
                 this.showPreferences()
@@ -481,7 +481,7 @@ export class LdCookieConsent {
           )}
           {config.mode !== 'notice-only' && config.rejectable && (
             <ld-button
-              class="ld-cookie-consent__disclaimer-btn-accept-none"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-none"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -495,9 +495,10 @@ export class LdCookieConsent {
           )}
           <ld-button
             class={getClassNames([
+              'ld-cookie-consent__btn',
               config.mode === 'notice-only'
-                ? 'ld-cookie-consent__disclaimer-btn-acknowledge'
-                : 'ld-cookie-consent__disclaimer-btn-accept-all',
+                ? 'ld-cookie-consent__btn--acknowledge'
+                : 'ld-cookie-consent__btn--accept-all',
             ])}
             onClick={() => {
               this.hideDisclaimerAndPreferences()
@@ -572,7 +573,7 @@ export class LdCookieConsent {
         >
           {config.buttonAcceptNone && (
             <ld-button
-              class="ld-cookie-consent__btn--accept-none"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-none"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -586,7 +587,7 @@ export class LdCookieConsent {
           )}
           {config.buttonAcceptSelected && (
             <ld-button
-              class="ld-cookie-consent__btn--accept-selected"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-selected"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -600,7 +601,7 @@ export class LdCookieConsent {
           )}
           {config.buttonAcceptAll && (
             <ld-button
-              class="ld-cookie-consent__preferences-btn-accept-all"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-all"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
                 this.saveConsent('accept-all')
