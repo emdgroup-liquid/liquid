@@ -134,7 +134,7 @@ export class DocsExample {
       this.codeType === 'react' && 'docs-example--react-component',
     ]
 
-    let clShow = 'docs-example__show'
+    let clShow = 'docs-example__show ld-layer-0'
     if (this.themable && this.currentTheme) {
       clShow += ' ld-theme-' + this.currentTheme.toLowerCase()
     }

@@ -2,19 +2,19 @@
 @import 'code.css';
 
 @define-mixin docs-ui-light {
-  background-color: var(--ld-layer-1);
+  background-color: var(--ld-layer);
   color: var(--ld-col-neutral-900);
 
   body::before {
-    background-color: var(--ld-layer-1);
+    background-color: var(--ld-layer);
   }
 }
 @define-mixin docs-ui-dark {
-  background-color: var(--ld-layer-1);
+  background-color: var(--ld-layer);
   color: var(--ld-col-neutral-900);
 
   body::before {
-    background-color: var(--ld-layer-1);
+    background-color: var(--ld-layer);
   }
 }
 

@@ -623,7 +623,7 @@ You can nest an accordion inside another.
   <ld-accordion-section expanded>
     <ld-accordion-toggle>Fruits</ld-accordion-toggle>
     <ld-accordion-panel>
-      <ld-accordion tone="dark" style="margin: var(--ld-sp-24) var(--ld-accordion-padding-x)">
+      <ld-accordion style="margin: var(--ld-sp-24) var(--ld-accordion-padding-x)">
         <ld-accordion-section>
           <ld-accordion-toggle>Sweet</ld-accordion-toggle>
           <ld-accordion-panel>

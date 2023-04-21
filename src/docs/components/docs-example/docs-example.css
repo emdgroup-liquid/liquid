@@ -3,7 +3,7 @@
 }
 
 .docs-example__code {
-  background-color: var(--ld-layer-0);
+  background-color: var(--ld-layer);
   overflow: hidden;
   display: none;
   border-bottom-left-radius: var(--ld-br-l);
@@ -21,7 +21,7 @@
   overflow: auto;
   display: flex;
   width: 100%;
-  background-color: var(--ld-layer-2);
+  background-color: var(--ld-layer);
   border-bottom-left-radius: var(--ld-br-l);
   border-bottom-right-radius: var(--ld-br-l);
 }
@@ -54,7 +54,7 @@
 }
 
 .docs-example__show {
-  background-color: var(--ld-layer-0);
+  background-color: var(--ld-layer);
   color: var(--ld-col-neutral-900);
   border-top-left-radius: var(--ld-br-l);
   border-top-right-radius: var(--ld-br-l);
@@ -114,7 +114,7 @@
 }
 
 .docs-example__show--light {
-  background-color: var(--ld-layer-0);
+  background-color: var(--ld-layer);
 }
 
 .docs-example--code-visible {

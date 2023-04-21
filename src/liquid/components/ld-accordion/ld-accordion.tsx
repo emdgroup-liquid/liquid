@@ -186,7 +186,7 @@ export class LdAccordion {
 
   render() {
     const cl = getClassNames([
-      'ld-accordion',
+      'ld-accordion ld-layer',
       this.detached && 'ld-accordion--detached',
       this.brandColor && 'ld-accordion--brand-color',
       !this.brandColor && this.tone && `ld-accordion--${this.tone}`,

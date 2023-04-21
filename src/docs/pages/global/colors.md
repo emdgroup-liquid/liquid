@@ -19,8 +19,6 @@ All colors listed below are available as global CSS custom properties after [imp
 
 ## Layer colors
 
-### Light
-
 <docs-color var="--ld-layer-2"></docs-color>
 <docs-color var="--ld-layer-1"></docs-color>
 <docs-color var="--ld-layer-0"></docs-color>

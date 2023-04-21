@@ -7,7 +7,7 @@
   padding: var(--ld-sp-8) var(--ld-sp-24) var(--ld-sp-24) 0;
 
   &::before {
-    background-color: var(--ld-layer-0);
+    background-color: var(--ld-layer);
     content: '';
     position: absolute;
     left: 0;
