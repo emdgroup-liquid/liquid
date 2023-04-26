@@ -2,11 +2,14 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdButton } from '../ld-button'
 import '../../../utils/mutationObserver'
 
+let originalClickHiddenButton
 const mockClickHiddenButton = (
   form: HTMLFormElement,
   buttonType: 'submit' | 'reset'
 ) => {
-  // Mock clickHiddenButton (actual implementation tested in e2e test).
+  originalClickHiddenButton = (
+    LdButton.prototype as unknown as { clickHiddenButton: (ev) => void }
+  ).clickHiddenButton
   jest
     .spyOn(
       LdButton.prototype as unknown as { clickHiddenButton: () => void },
@@ -17,7 +20,19 @@ const mockClickHiddenButton = (
     })
 }
 
+const unmockClickHiddenButton = () => {
+  if (originalClickHiddenButton) {
+    ;(
+      LdButton.prototype as unknown as { clickHiddenButton: () => void }
+    ).clickHiddenButton = originalClickHiddenButton
+  }
+}
+
 describe('ld-button', () => {
+  afterEach(() => {
+    unmockClickHiddenButton()
+  })
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdButton],
@@ -106,7 +121,20 @@ describe('ld-button', () => {
         <ld-icon name="placeholder"></ld-icon>
       </ld-button>`,
     })
-    expect(page.root).toMatchSnapshot()
+    const button = page.root.shadowRoot.querySelector('button')
+    expect(button).toHaveClass('ld-button--icon-only')
+  })
+
+  it('icon only without icon only class using internal prop', async () => {
+    const page = await newSpecPage({
+      components: [LdButton],
+      html: `
+      <ld-button icon-only="false">
+        <ld-icon name="placeholder"></ld-icon>
+      </ld-button>`,
+    })
+    const button = page.root.shadowRoot.querySelector('button')
+    expect(button).not.toHaveClass('ld-button--icon-only')
   })
 
   it('size', async () => {
@@ -254,6 +282,11 @@ describe('ld-button', () => {
     expect(button.focus).toHaveBeenCalled()
   })
 
+  it('should not throw when calling focus inner before hydration', () => {
+    const ldButton = new LdButton()
+    ldButton.focusInner()
+  })
+
   describe('implicit form submission', () => {
     afterAll(() => {
       jest.restoreAllMocks()
@@ -334,7 +367,37 @@ describe('ld-button', () => {
       })
       const form = page.body.querySelector('form')
 
-      mockClickHiddenButton(form, page.rootInstance.type)
+      const ldButton = page.body.querySelector('ld-button')
+      let resetClickEvent
+      const clickHandler = (ev) => {
+        if (ev.target.nodeName === 'BUTTON') {
+          resetClickEvent = ev
+        }
+      }
+
+      form.addEventListener('click', clickHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+
+      jest.advanceTimersByTime(0)
+
+      expect(resetClickEvent).toBeTruthy()
+      expect(resetClickEvent.target.type).toEqual('reset')
+    })
+
+    it('resets a form via form prop', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `
+          <div>
+            <form id="yolo"></form>
+            <ld-button type="reset" form="yolo">Text</ld-button>
+          </div>`,
+      })
+      const form = page.body.querySelector('form')
+
+      mockClickHiddenButton(form, 'reset')
 
       const ldButton = page.body.querySelector('ld-button')
       const resetHandler = jest.fn()
@@ -343,10 +406,56 @@ describe('ld-button', () => {
       ldButton.dispatchEvent(
         new MouseEvent('click', { bubbles: true, cancelable: true })
       )
-
       jest.advanceTimersByTime(0)
 
       expect(resetHandler).toHaveBeenCalled()
+    })
+
+    it('applies form related props to form button', async () => {
+      const page = await newSpecPage({
+        components: [LdButton],
+        html: `
+          <form>
+            <ld-button
+              name="yolo"
+              form="foobar"
+              formaction="/do-stuff"
+              formenctype="multipart/form-data"
+              formmethod="post"
+              formnovalidate
+              formtarget="_self"
+              type="submit"
+              value="chacka">
+              Text
+            </ld-button>
+          </form>`,
+      })
+      const form = page.body.querySelector('form')
+
+      const ldButton = page.body.querySelector('ld-button')
+      let submitClickEvent
+      const clickHandler = (ev) => {
+        if (ev.target.nodeName === 'BUTTON') {
+          submitClickEvent = ev
+        }
+      }
+
+      form.addEventListener('click', clickHandler)
+      ldButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true })
+      )
+      jest.advanceTimersByTime(0)
+
+      expect(submitClickEvent).toBeTruthy()
+      expect(submitClickEvent.target.type).toEqual('submit')
+      expect(submitClickEvent.target.getAttribute('form')).toEqual('foobar')
+      expect(submitClickEvent.target.formAction).toEqual('/do-stuff')
+      expect(submitClickEvent.target.formMethod).toEqual('post')
+      expect(submitClickEvent.target.formNoValidate).toEqual('')
+      expect(submitClickEvent.target.formTarget).toEqual('_self')
+      expect(submitClickEvent.target.formEnctype).toEqual('multipart/form-data')
+      expect(submitClickEvent.target.name).toEqual('yolo')
+      expect(submitClickEvent.target.value).toEqual('chacka')
     })
   })
 
