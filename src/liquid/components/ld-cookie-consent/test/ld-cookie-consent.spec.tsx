@@ -1,13 +1,13 @@
 import Cookies from 'js-cookie'
 
-Cookies.get = jest.fn().mockImplementation(() => ({
+Cookies.get = jest.fn().mockReturnValue({
   'some-cookie': true,
   foo: true,
   bar: true,
   'some-other-cookie': true,
-}))
+})
 
-Cookies.remove = jest.fn().mockImplementation(jest.fn())
+Cookies.remove = jest.fn()
 
 import { h } from '@stencil/core'
 import { newSpecPage, SpecPage } from '@stencil/core/testing'
@@ -16,8 +16,9 @@ import '../../../utils/localStorage'
 import { LdModal } from '../../ld-modal/ld-modal'
 import { LdToggle } from '../../ld-toggle/ld-toggle'
 import '../../../utils/mutationObserver'
+import { LdCookieConsentConfig } from '../ld-cookie-consent.types'
 
-const categories = [
+const categories: LdCookieConsentConfig['categories'] = [
   {
     details: {
       description: 'Necessary description.',
@@ -854,7 +855,7 @@ describe('ld-cookie-consent', () => {
       expect(freshScripts[2].getAttribute('type')).toBeNull()
     })
 
-    it('does not load dormant scripts when all categories have been rejected', async () => {
+    it('does only load necessary dormant scripts when non-necessary categories have been rejected', async () => {
       const page = await newSpecPage({
         components: [LdCookieConsent, LdModal],
         template: () => (
@@ -883,7 +884,7 @@ describe('ld-cookie-consent', () => {
 
       const freshScripts = page.body.querySelectorAll('script')
 
-      expect(freshScripts[0].getAttribute('type')).toEqual('text/plain')
+      expect(freshScripts[0].getAttribute('type')).toBeNull()
       expect(freshScripts[1].getAttribute('type')).toEqual('text/plain')
       expect(freshScripts[2].getAttribute('type')).toEqual('text/plain')
     })
@@ -892,7 +893,7 @@ describe('ld-cookie-consent', () => {
   describe('clearing cookies automatically', () => {
     it('clears cookies in opt-out mode', async () => {
       const categoriesWithAutoclear = [...categories]
-      categoriesWithAutoclear[0]['autoclear'] = [
+      categoriesWithAutoclear[1].autoclear = [
         {
           name: 'foo',
           domain: 'example.com',
@@ -1022,7 +1023,7 @@ describe('ld-cookie-consent', () => {
       expect(rejected.has('functional')).toEqual(false)
     })
 
-    it('allows rejecting and re-selecting disabled categories', async () => {
+    it('prevents rejecting disabled categories', async () => {
       const page = await newSpecPage({
         components: [LdCookieConsent, LdModal, LdToggle],
         template: () => (
@@ -1045,33 +1046,16 @@ describe('ld-cookie-consent', () => {
       await acceptInPrefs(page, 'none')
 
       const ldCookieConsent = getLdCookieConsent(page)
-      let acceptedAndRejected =
+      const acceptedAndRejected =
         await ldCookieConsent.getAcceptedAndRejectedCategories()
-      let accepted = acceptedAndRejected.acceptedCategories
-      let rejected = acceptedAndRejected.rejectedCategories
-      expect(accepted.has('necessary')).toEqual(false)
-      expect(rejected.has('necessary')).toEqual(true)
-
-      await openPrefs(page)
-
-      const toggles = getToggles(page)
-
-      expect(toggles[0].ariaDisabled).toBeFalsy()
-
-      toggles[0].click()
-      await page.waitForChanges()
-
-      await acceptInPrefs(page, 'selected')
-
-      acceptedAndRejected =
-        await ldCookieConsent.getAcceptedAndRejectedCategories()
-      accepted = acceptedAndRejected.acceptedCategories
-      rejected = acceptedAndRejected.rejectedCategories
-
+      const accepted = acceptedAndRejected.acceptedCategories
+      const rejected = acceptedAndRejected.rejectedCategories
       expect(accepted.has('necessary')).toEqual(true)
       expect(rejected.has('necessary')).toEqual(false)
 
       await openPrefs(page)
+
+      const toggles = getToggles(page)
 
       expect(toggles[0].ariaDisabled).toBeTruthy()
     })
@@ -1142,7 +1126,7 @@ describe('ld-cookie-consent', () => {
   })
 
   describe('rejectable', () => {
-    it('allows rejecting all cookies from disclaimer', async () => {
+    it('allows rejecting non-necessary cookies from disclaimer', async () => {
       const page = await newSpecPage({
         components: [LdCookieConsent, LdModal],
         template: () => (
@@ -1166,8 +1150,8 @@ describe('ld-cookie-consent', () => {
       const accepted = acceptedAndRejected.acceptedCategories
       const rejected = acceptedAndRejected.rejectedCategories
 
-      expect(accepted.size).toEqual(0)
-      expect(rejected.size).toEqual(3)
+      expect(accepted.size).toEqual(1)
+      expect(rejected.size).toEqual(2)
 
       expect(localStorage.getItem('ld-cookie-consent')).toBeTruthy()
     })
