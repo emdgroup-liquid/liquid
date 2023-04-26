@@ -229,20 +229,22 @@ export class LdCookieConsent {
     this.ldCookieConsentAutoclearCookies.emit()
   }
 
-  private saveConsent(
-    consentType: 'accept-all' | 'accept-none' | 'accept-selected'
-  ) {
+  private saveConsent(consentType: 'all' | 'none' | 'selected') {
     let acceptedCategories: Set<string>
     switch (consentType) {
-      case 'accept-all':
+      case 'all':
         acceptedCategories = new Set(
           this.config.categories?.map((category) => category.toggle.value)
         )
         break
-      case 'accept-none':
-        acceptedCategories = new Set()
+      case 'none':
+        acceptedCategories = new Set(
+          this.config.categories
+            ?.filter(({ toggle }) => toggle.disabled && toggle.checked)
+            .map(({ toggle }) => toggle.value)
+        )
         break
-      case 'accept-selected':
+      case 'selected':
         acceptedCategories = this.selectedCategories
         break
     }
@@ -485,7 +487,7 @@ export class LdCookieConsent {
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
-                this.saveConsent('accept-none')
+                this.saveConsent('none')
               }}
               part="disclaimer-button-accept-none"
               size="sm"
@@ -502,7 +504,7 @@ export class LdCookieConsent {
             ])}
             onClick={() => {
               this.hideDisclaimerAndPreferences()
-              this.saveConsent('accept-all')
+              this.saveConsent('all')
             }}
             part="disclaimer-button-accept-all"
             size="sm"
@@ -577,7 +579,7 @@ export class LdCookieConsent {
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
-                this.saveConsent('accept-none')
+                this.saveConsent('none')
               }}
               part="preferences-button-accept-none"
               size="sm"
@@ -591,7 +593,7 @@ export class LdCookieConsent {
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
-                this.saveConsent('accept-selected')
+                this.saveConsent('selected')
               }}
               part="preferences-button-accept-selected"
               size="sm"
@@ -604,7 +606,7 @@ export class LdCookieConsent {
               class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-all"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
-                this.saveConsent('accept-all')
+                this.saveConsent('all')
               }}
               part="preferences-button-accept-all"
               size="sm"
@@ -709,20 +711,14 @@ export class LdCookieConsent {
           )}
         </ld-accordion-panel>
         <ld-toggle
-          aria-disabled={
-            category.toggle.disabled &&
-            !this.savedConsent?.rejectedCategories.has(category.toggle.value)
-              ? 'true'
-              : undefined
-          }
+          aria-disabled={category.toggle.disabled ? 'true' : undefined}
           class="ld-cookie-consent__preferences-category-toggle"
           checked={this.selectedCategories.has(category.toggle.value)}
           onClick={(ev) => {
             ev.stopImmediatePropagation()
           }}
           onLdchange={() => {
-            this.selectedCategories[
-              this.selectedCategories.has(category.toggle.value)
+            this.selectedCategories.has(category.toggle.value)
               ? this.selectedCategories.delete(category.toggle.value)
               : this.selectedCategories.add(category.toggle.value)
 
