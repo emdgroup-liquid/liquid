@@ -723,9 +723,10 @@ export class LdCookieConsent {
           onLdchange={() => {
             this.selectedCategories[
               this.selectedCategories.has(category.toggle.value)
-                ? 'delete'
-                : 'add'
-            ](category.toggle.value)
+              ? this.selectedCategories.delete(category.toggle.value)
+              : this.selectedCategories.add(category.toggle.value)
+
+            this.selectedCategories = new Set(this.selectedCategories)
           }}
           part="preferences-category-toggle"
           value={category.toggle.value}
