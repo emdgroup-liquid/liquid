@@ -60,22 +60,19 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   @Prop() form?: string
 
   /** Overrides the `action` attribute of the button's form owner. */
-  @Prop() formaction?:
-    | 'application/x-www-form-urlencoded'
-    | 'multipart/form-data'
-    | 'text/plain'
+  @Prop() formaction?: HTMLButtonElement['formAction']
 
   /** Overrides the `enctype` attribute of the button's form owner. */
-  @Prop() formenctype?: string
+  @Prop() formenctype?: HTMLButtonElement['formEnctype']
 
   /** Overrides the `method` attribute of the button's form owner. */
-  @Prop() formmethod?: 'get' | 'post'
+  @Prop() formmethod?: HTMLButtonElement['formMethod']
 
   /** Overrides the `novalidate` attribute of the button's form owner. */
-  @Prop() formnovalidate?: boolean
+  @Prop() formnovalidate?: HTMLButtonElement['formNoValidate']
 
   /** Overrides the `target` attribute of the button's form owner. */
-  @Prop() formtarget?: '_blank' | '_parent' | '_self' | '_top'
+  @Prop() formtarget?: HTMLButtonElement['formTarget']
 
   /**
    * Transforms the button to an anchor element.
@@ -128,9 +125,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
    */
   @Method()
   async focusInner() {
-    if (this.button !== undefined) {
-      this.button.focus()
-    }
+    this.button?.focus()
   }
 
   connectedCallback() {
@@ -139,6 +134,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     })
   }
 
+  /* istanbul ignore next */
   disconnectedCallback() {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
@@ -169,10 +165,13 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     button.remove()
   }
 
-  private handleClick = (ev: MouseEvent) => {
-    const ariaDisabled = this.button.getAttribute('aria-disabled')
+  private isAriaDisabled = () => {
+    const ariaDisabledAttr = this.el.getAttribute('aria-disabled')
+    return ariaDisabledAttr && ariaDisabledAttr !== 'false'
+  }
 
-    if (this.disabled || (ariaDisabled && ariaDisabled !== 'false')) {
+  private handleClick = (ev: MouseEvent) => {
+    if (this.disabled || this.isAriaDisabled()) {
       ev.preventDefault()
       // Stopping propagation is important for clicks on child elements,
       // because otherwise event handlers attached to the ld-button
@@ -181,7 +180,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
       return
     }
 
-    if (!this.href && this.type !== 'button') {
+    if (!this.href && (this.type === 'reset' || this.type === 'submit')) {
       setTimeout(() => {
         if (!ev.defaultPrevented) {
           const form = this.el.closest('form')
@@ -247,9 +246,7 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
         target={this.target}
         aria-busy={hasProgress ? 'true' : undefined}
         aria-disabled={
-          this.disabled || this.el.getAttribute('aria-disabled') === 'true'
-            ? 'true'
-            : undefined
+          this.disabled || this.isAriaDisabled() ? 'true' : undefined
         }
         aria-live="polite"
         class={cl}

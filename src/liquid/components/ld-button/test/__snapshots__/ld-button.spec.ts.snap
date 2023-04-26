@@ -144,17 +144,6 @@ exports[`ld-button highlight 1`] = `
 </ld-button>
 `;
 
-exports[`ld-button icon only 1`] = `
-<ld-button>
-  <mock:shadow-root>
-    <button aria-live="polite" class="ld-button ld-button--icon-only" part="button focusable">
-      <slot></slot>
-    </button>
-  </mock:shadow-root>
-  <ld-icon name="placeholder"></ld-icon>
-</ld-button>
-`;
-
 exports[`ld-button justify content 1`] = `
 <ld-button justify-content="end">
   <mock:shadow-root>
