@@ -345,17 +345,16 @@ describe('ld-context-menu', () => {
 
   it('allows to set inner focus on menu item', async () => {
     const page = await newSpecPage({
-      components: [LdMenuitem, LdButton],
+      components: [LdMenuitem],
       html: `<ld-menuitem />`,
     })
     const ldMenuitem = page.root
     const ldButton = ldMenuitem.shadowRoot.querySelector('ld-button')
-    const button = ldButton.shadowRoot.querySelector('button')
 
-    button.focus = jest.fn()
+    ldButton.focusInner = jest.fn()
     await ldMenuitem.focusInner()
 
-    expect(button.focus).toHaveBeenCalled()
+    expect(ldButton.focusInner).toHaveBeenCalled()
   })
 
   it('does not throw when trying to set inner focus before hydration', async () => {
