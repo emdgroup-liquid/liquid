@@ -119,7 +119,10 @@ export class LdModal {
   }
 
   disconnectedCallback() {
-    this.dialogRef.removeEventListener('cancel', this.handleCancel)
+    /* istanbul ignore if */
+    if (this.dialogRef) {
+      this.dialogRef.removeEventListener('cancel', this.handleCancel)
+    }
   }
 
   render() {
