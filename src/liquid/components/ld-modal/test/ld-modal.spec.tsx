@@ -242,4 +242,31 @@ describe('ld-modal', () => {
     expect(closingHandler).toHaveBeenCalledTimes(1)
     expect(closedHandler).toHaveBeenCalledTimes(1)
   })
+
+  it('does not prevent cancel by default', () => {
+    const ldModal = new LdModal()
+    const ev = new Event('cancel')
+    ldModal['handleCancel'](ev)
+    expect(ev.defaultPrevented).toBeFalsy()
+  })
+
+  it('prevents cancel if not cancelable', () => {
+    const ldModal = new LdModal()
+    ldModal.cancelable = false
+    const ev = new Event('cancel')
+    ldModal['handleCancel'](ev)
+    expect(ev.defaultPrevented).toBeTruthy()
+  })
+
+  it('closes on Esc key press', () => {
+    const ldModal = new LdModal()
+    ldModal.open = true
+    ldModal['handleClose']()
+    expect(ldModal.open).toBeFalsy()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdModal()
+    component.disconnectedCallback()
+  })
 })
