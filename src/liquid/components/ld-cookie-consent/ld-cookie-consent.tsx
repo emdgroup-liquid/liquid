@@ -227,9 +227,9 @@ export class LdCookieConsent {
     this.ldCookieConsentAutoclearCookies.emit()
   }
 
-  private saveConsent(consentType: 'all' | 'none' | 'selected') {
+  private saveConsent(acceptType: 'all' | 'none' | 'selected') {
     let acceptedCategories: Set<string>
-    switch (consentType) {
+    switch (acceptType) {
       case 'all':
         acceptedCategories = new Set(
           this.config.categories?.map((category) => category.toggle.value)
