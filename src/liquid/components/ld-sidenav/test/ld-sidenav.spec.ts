@@ -2134,4 +2134,9 @@ describe('ld-sidenav', () => {
       ldSidenavHeader.shadowRoot.querySelector('.ld-sidenav-header__toggle')
     ).not.toBeNull()
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdSidenav()
+    component.disconnectedCallback()
+  })
 })

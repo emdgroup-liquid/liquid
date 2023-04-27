@@ -118,6 +118,14 @@ describe('ld-step', () => {
       expect(page.root).toMatchSnapshot()
     })
 
+    it('vertical with description', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step vertical description="Yolo" />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
+
     it('as anchor', async () => {
       const page = await newSpecPage({
         components: [LdStep],
@@ -222,6 +230,14 @@ describe('ld-step', () => {
         page.root.shadowRoot.querySelector('button').getAttribute('aria-hidden')
       ).toBe('true')
     })
+
+    it('current optional', async () => {
+      const page = await newSpecPage({
+        components: [LdStep],
+        template: () => <ld-step current optional />,
+      })
+      expect(page.root).toMatchSnapshot()
+    })
   })
 
   it('initially emits ldstepselected event when current', async () => {
@@ -305,5 +321,15 @@ describe('ld-step', () => {
     await page.root.focusInner()
 
     expect(button.focus).toHaveBeenCalled()
+  })
+
+  it('does not throw when setting inner focus on nothing', async () => {
+    const component = new LdStep()
+    await component.focusInner()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdStep()
+    component.disconnectedCallback()
   })
 })

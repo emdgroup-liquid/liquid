@@ -479,4 +479,9 @@ describe('ld-radio', () => {
 
     expect(ldRadio.querySelector('input')).toHaveProperty('name', 'example')
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdRadio()
+    component.disconnectedCallback()
+  })
 })

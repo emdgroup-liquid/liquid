@@ -200,7 +200,7 @@ export class LdMenu {
   }
 
   disconnectedCallback() {
-    this.typeAheadHandler.clearTimeout()
+    this.typeAheadHandler?.clearTimeout()
   }
 
   render() {

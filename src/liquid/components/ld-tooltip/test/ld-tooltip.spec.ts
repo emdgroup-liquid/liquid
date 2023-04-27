@@ -629,4 +629,9 @@ describe('ld-tooltip', () => {
       'Changed content'
     )
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdTooltip()
+    component.disconnectedCallback()
+  })
 })

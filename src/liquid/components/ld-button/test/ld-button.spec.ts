@@ -466,4 +466,9 @@ describe('ld-button', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdButton()
+    component.disconnectedCallback()
+  })
 })

@@ -184,7 +184,6 @@ export class LdNotification {
     )
   }
 
-  /* istanbul ignore next */
   disconnectedCallback() {
     clearTimeout(this.dismissTimeout)
     this.fadeoutTimeouts.forEach(clearTimeout)

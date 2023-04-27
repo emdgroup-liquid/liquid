@@ -3251,4 +3251,9 @@ describe('ld-select', () => {
 
     expect(page.body.querySelector('ld-select-popper')).toBeFalsy()
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdSelect()
+    component.disconnectedCallback()
+  })
 })

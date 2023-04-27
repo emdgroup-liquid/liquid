@@ -97,7 +97,8 @@ export class LdAccordionPanel {
   }
 
   disconnectedCallback() {
-    this.resizeObserver?.unobserve(this.contentRef)
+    /* istanbul ignore if */
+    if (this.resizeObserver) this.resizeObserver.unobserve(this.contentRef)
   }
 
   render() {

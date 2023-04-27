@@ -442,4 +442,9 @@ describe('ld-pagination', () => {
       expect.objectContaining({ detail: -1 })
     )
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdPagination()
+    component.disconnectedCallback()
+  })
 })

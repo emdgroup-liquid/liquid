@@ -206,9 +206,9 @@ export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
     this.attributesObserver = cloneAttributes.call(this)
   }
 
-  // istanbul ignore next
   disconnectedCallback() {
-    this.attributesObserver?.disconnect()
+    // istanbul ignore if
+    if (this.attributesObserver) this.attributesObserver.disconnect()
   }
 
   render() {

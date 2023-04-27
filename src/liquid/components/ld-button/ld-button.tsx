@@ -134,12 +134,12 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     })
   }
 
-  /* istanbul ignore next */
   disconnectedCallback() {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
     })
-    this.attributesObserver?.disconnect()
+    /* istanbul ignore if */
+    if (this.attributesObserver) this.attributesObserver.disconnect()
   }
 
   private clickHiddenButton() {
