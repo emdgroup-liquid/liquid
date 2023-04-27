@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/emdgroup-liquid/liquid/compare/v5.3.1...v5.3.2) (2023-04-27)
+
+
+### Bug Fixes
+
+* **ld-button:** use this.el instead of this.button before hydration ([fa0b419](https://github.com/emdgroup-liquid/liquid/commit/fa0b419d865fac0d4ef9da7fa3c47c976e972056))
+* **ld-modal:** add guard to disconnected callback ([fbddded](https://github.com/emdgroup-liquid/liquid/commit/fbdddedc906654a548112fdc51f50c42a0c8f5d3))
+
 ## [5.3.1](https://github.com/emdgroup-liquid/liquid/compare/v5.3.0...v5.3.1) (2023-04-17)
 
 
