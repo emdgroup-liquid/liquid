@@ -209,21 +209,19 @@ export class LdCookieConsent {
 
   /** Tries to delete cookies as per configuration if consent is not yet expressed. */
   private autoclearCookies(rejectedCategories: Set<string>) {
-    const allCookieNames = Cookies.get()
+    const allCookieNames = Object.keys(Cookies.get())
     this.config.categories
       ?.filter(
         (category) =>
           category.autoclear && rejectedCategories.has(category.toggle.value)
       )
       .flatMap((category) => category.autoclear)
-      .forEach((autoclear) => {
-        for (const cookieName of Object.keys(allCookieNames)) {
-          if (cookieName === autoclear.name) {
-            Cookies.remove(cookieName, {
-              path: autoclear.path || '/',
-              domain: autoclear.domain || document.domain,
-            })
-          }
+      .forEach(({ domain, name, path }) => {
+        if (allCookieNames.includes(name)) {
+          Cookies.remove(name, {
+            path,
+            domain,
+          })
         }
       })
     this.ldCookieConsentAutoclearCookies.emit()
