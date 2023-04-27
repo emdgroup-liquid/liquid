@@ -10,6 +10,7 @@ describe('ld-typo', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
   it('renders with custom tag', async () => {
     const page = await newSpecPage({
       components: [LdTypo],
@@ -17,6 +18,7 @@ describe('ld-typo', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
   it('renders with brand variant and explicit aria-label', async () => {
     const page = await newSpecPage({
       components: [LdTypo],
@@ -24,11 +26,17 @@ describe('ld-typo', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
   it('renders with brand variant and implicit aria-label', async () => {
     const page = await newSpecPage({
       components: [LdTypo],
       html: `<ld-typo variant="b3" tag="h1">Text</ld-typo>`,
     })
     expect(page.root).toMatchSnapshot()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdTypo()
+    component.disconnectedCallback()
   })
 })

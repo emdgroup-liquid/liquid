@@ -63,7 +63,8 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
     this.el.removeEventListener('click', this.handleClick, {
       capture: true,
     })
-    this.attributesObserver?.disconnect()
+    /* istanbul ignore if */
+    if (this.attributesObserver) this.attributesObserver.disconnect()
   }
 
   private handleClick = (ev: MouseEvent) => {

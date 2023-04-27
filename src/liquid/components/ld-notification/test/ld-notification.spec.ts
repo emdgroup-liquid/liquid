@@ -863,4 +863,9 @@ describe('ld-notification', () => {
       expect(img.hasAttribute('onerror')).toBeFalsy()
     })
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdNotification()
+    component.disconnectedCallback()
+  })
 })

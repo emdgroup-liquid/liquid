@@ -342,4 +342,29 @@ describe('ld-context-menu', () => {
 
     expect(event.defaultPrevented).toBeTruthy()
   })
+
+  it('allows to set inner focus on menu item', async () => {
+    const page = await newSpecPage({
+      components: [LdMenuitem, LdButton],
+      html: `<ld-menuitem />`,
+    })
+    const ldMenuitem = page.root
+    const ldButton = ldMenuitem.shadowRoot.querySelector('ld-button')
+    const button = ldButton.shadowRoot.querySelector('button')
+
+    button.focus = jest.fn()
+    await ldMenuitem.focusInner()
+
+    expect(button.focus).toHaveBeenCalled()
+  })
+
+  it('does not throw when trying to set inner focus before hydration', async () => {
+    const component = new LdMenuitem()
+    await component.focusInner()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdMenuitem()
+    component.disconnectedCallback()
+  })
 })

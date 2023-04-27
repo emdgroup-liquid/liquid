@@ -668,4 +668,9 @@ describe('ld-tabs', () => {
       }
     })
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdTablist()
+    component.disconnectedCallback()
+  })
 })

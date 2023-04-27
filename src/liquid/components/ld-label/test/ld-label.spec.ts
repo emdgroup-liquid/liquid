@@ -21,6 +21,16 @@ describe('ld-label', () => {
     expect(root).toMatchSnapshot()
   })
 
+  it('sets allign message class', async () => {
+    const { root } = await newSpecPage({
+      components: [LdLabel],
+      html: `<ld-label align-message>Yada-yada</ld-label>`,
+    })
+    expect(root.shadowRoot.querySelector('label')).toHaveClass(
+      'ld-label--align-message'
+    )
+  })
+
   it('renders with position right', async () => {
     const { root } = await newSpecPage({
       components: [LdLabel],
@@ -125,5 +135,10 @@ describe('ld-label', () => {
     })
     await page.root.shadowRoot.querySelector('slot').click()
     // No need to assert anything here.
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdLabel()
+    component.disconnectedCallback()
   })
 })

@@ -39,6 +39,23 @@ describe('ld-switch', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('with icons and text', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `
+        <ld-switch legend="Dress" name="dress">
+          <ld-switch-item value="werewolf" checked>
+            Werewolf <ld-icon slot="icon-start" name="placeholder" aria-label="Werewolf"></ld-icon>
+          </ld-switch-item>
+          <ld-switch-item value="zombie">
+            <span>Zombie</span> <ld-icon slot="icon-start" name="placeholder" aria-label="Zombie"></ld-icon>
+          </ld-switch-item>
+        </ld-switch>
+      `,
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   describe('css classes', () => {
     it('brand-color', async () => {
       const page = await newSpecPage({
@@ -680,5 +697,10 @@ describe('ld-switch', () => {
     await page.waitForChanges()
 
     expect(ldSwitchItems[0].querySelectorAll('input').length).toEqual(0)
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdSwitchItem()
+    component.disconnectedCallback()
   })
 })

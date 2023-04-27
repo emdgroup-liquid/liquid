@@ -268,4 +268,16 @@ describe('ld-menu', () => {
       expect(item4.focusInner).toHaveBeenCalled()
     })
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdMenu()
+    component.disconnectedCallback()
+  })
+
+  it('does not throw when disconnecting after typeAheadHandler initialization', () => {
+    const component = new LdMenu()
+    component.componentWillLoad()
+    expect(component.typeAheadHandler).toBeTruthy()
+    component.disconnectedCallback()
+  })
 })

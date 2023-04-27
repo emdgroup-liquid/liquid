@@ -189,6 +189,61 @@ exports[`ld-switch uses hidden input field with referenced form 1`] = `
 </ld-switch>
 `;
 
+exports[`ld-switch with icons and text 1`] = `
+<ld-switch class="ld-switch" legend="Dress" name="dress" tabindex="0">
+  <mock:shadow-root>
+    <fieldset part="fieldset">
+      <legend part="legend">
+        Dress
+      </legend>
+      <slot></slot>
+    </fieldset>
+  </mock:shadow-root>
+  <ld-switch-item checked="" class="ld-switch-item ld-switch-item--has-label" value="werewolf">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input checked="" part="input focusable" type="radio" value="werewolf">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    Werewolf
+    <ld-icon aria-label="Werewolf" class="ld-icon" name="placeholder" role="presentation" slot="icon-start">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+    </ld-icon>
+  </ld-switch-item>
+  <ld-switch-item class="ld-switch-item ld-switch-item--has-label" value="zombie">
+    <mock:shadow-root>
+      <label part="label-element">
+        <input part="input focusable" tabindex="-1" type="radio" value="zombie">
+        <span class="ld-switch-item__content" part="content">
+          <slot name="icon-start"></slot>
+          <span class="ld-switch-item__label" part="label">
+            <slot></slot>
+          </span>
+          <slot name="icon-end"></slot>
+        </span>
+      </label>
+    </mock:shadow-root>
+    <span>
+      Zombie
+    </span>
+    <ld-icon aria-label="Zombie" class="ld-icon" name="placeholder" role="presentation" slot="icon-start">
+      <mock:shadow-root>
+        Not Found
+      </mock:shadow-root>
+    </ld-icon>
+  </ld-switch-item>
+</ld-switch>
+`;
+
 exports[`ld-switch with icons only 1`] = `
 <ld-switch class="ld-switch" legend="Dress" name="dress" tabindex="0">
   <mock:shadow-root>

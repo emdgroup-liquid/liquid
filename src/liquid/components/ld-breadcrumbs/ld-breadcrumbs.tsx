@@ -38,6 +38,7 @@ export class LdBreadcrumbs {
   }
 
   disconnectedCallback() {
+    /* istanbul ignore if */
     if (this.observer) this.observer.disconnect()
   }
 

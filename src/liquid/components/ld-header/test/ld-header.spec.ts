@@ -72,4 +72,9 @@ describe('ld-header', () => {
     })
     expect(page.root).toMatchSnapshot()
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdHeader()
+    component.disconnectedCallback()
+  })
 })

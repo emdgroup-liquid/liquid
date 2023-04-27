@@ -124,6 +124,24 @@ describe('ld-input', () => {
     expect(ldInput.files).toEqual(['foo', 'bar'])
   })
 
+  it('returns undefined if component is not of type file', async () => {
+    const page = await newSpecPage({
+      components: [LdInput],
+      html: `<ld-input />`,
+    })
+    const ldInput = page.root
+    const input = ldInput.shadowRoot.querySelector('input')
+
+    const ldchangeHandler = jest.fn()
+    ldInput.addEventListener('ldchange', ldchangeHandler)
+
+    input.dispatchEvent(new InputEvent('change', { bubbles: true }))
+    await page.waitForChanges()
+
+    expect(ldchangeHandler).toHaveBeenCalled()
+    expect(ldInput.files).toEqual(undefined)
+  })
+
   it('throws when trying to alter readonly files prop', async () => {
     const page = await newSpecPage({
       components: [LdInput],
@@ -713,5 +731,10 @@ describe('ld-input', () => {
 
     expect(referencedForm.requestSubmit).toHaveBeenCalled()
     expect(surroundingForm.requestSubmit).not.toHaveBeenCalled()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdInput()
+    component.disconnectedCallback()
   })
 })

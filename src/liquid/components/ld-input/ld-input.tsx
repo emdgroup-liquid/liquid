@@ -357,8 +357,8 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   }
 
   disconnectedCallback() {
-    /* istanbul ignore next */
-    this.attributesObserver?.disconnect()
+    /* istanbul ignore if */
+    if (this.attributesObserver) this.attributesObserver.disconnect()
   }
 
   render() {

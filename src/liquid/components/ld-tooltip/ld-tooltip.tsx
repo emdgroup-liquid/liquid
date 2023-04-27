@@ -362,9 +362,12 @@ export class LdTooltip {
   }
 
   disconnectedCallback() {
-    this.observer?.disconnect()
-    this.popper?.destroy()
-    this.tooltipRef?.remove()
+    /* istanbul ignore if */
+    if (this.observer) this.observer.disconnect()
+    /* istanbul ignore if */
+    if (this.popper) this.popper.destroy()
+    /* istanbul ignore if */
+    if (this.tooltipRef) this.tooltipRef.remove()
   }
 
   render() {

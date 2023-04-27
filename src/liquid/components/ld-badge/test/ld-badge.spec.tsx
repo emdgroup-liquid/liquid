@@ -76,4 +76,9 @@ describe('ld-badge', () => {
 
     expect(page.root).toMatchSnapshot()
   })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdBadge()
+    component.disconnectedCallback()
+  })
 })

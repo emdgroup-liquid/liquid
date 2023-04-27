@@ -250,10 +250,12 @@ export class LdTablist {
   }
 
   disconnectedCallback() {
-    /* istanbul ignore next */
-    this.resizeObserver?.unobserve(this.slotContainerRef)
-    /* istanbul ignore next */
-    this.mutationObserver?.disconnect()
+    /* istanbul ignore if */
+    if (this.resizeObserver) {
+      this.resizeObserver.unobserve(this.slotContainerRef)
+    }
+    /* istanbul ignore if */
+    if (this.mutationObserver) this.mutationObserver.disconnect()
   }
 
   render() {

@@ -137,6 +137,21 @@ exports[`ld-step renders as skipped 1`] = `
 </ld-step>
 `;
 
+exports[`ld-step renders current optional 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--current ld-step--optional" part="li" role="listitem">
+      <ld-sr-only>
+        Current (Optional):
+      </ld-sr-only>
+      <button aria-current="step" class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
 exports[`ld-step renders default 1`] = `
 <ld-step>
   <mock:shadow-root>
@@ -168,6 +183,21 @@ exports[`ld-step renders vertical 1`] = `
       <button class="ld-step__focusable-element" part="button focusable" type="button">
         <slot></slot>
       </button>
+    </li>
+  </mock:shadow-root>
+</ld-step>
+`;
+
+exports[`ld-step renders vertical with description 1`] = `
+<ld-step>
+  <mock:shadow-root>
+    <li class="ld-step ld-step--vertical" part="li" role="listitem">
+      <button class="ld-step__focusable-element" part="button focusable" type="button">
+        <slot></slot>
+      </button>
+      <span class="ld-step__description" part="description">
+        Yolo
+      </span>
     </li>
   </mock:shadow-root>
 </ld-step>

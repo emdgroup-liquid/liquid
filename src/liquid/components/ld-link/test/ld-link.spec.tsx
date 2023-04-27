@@ -28,6 +28,14 @@ describe('ld-link', () => {
     expect(page.root).toMatchSnapshot()
   })
 
+  it('renders with chevron', async () => {
+    const page = await newSpecPage({
+      components: [LdLink],
+      html: '<ld-link chevron="end" href="#">Link</ld-link>',
+    })
+    expect(page.root).toMatchSnapshot()
+  })
+
   it('renders with target _blank and rel', async () => {
     const page = await newSpecPage({
       components: [LdLink],
@@ -48,5 +56,26 @@ describe('ld-link', () => {
     await ldLink.focusInner()
 
     expect(anchor.focus).toHaveBeenCalled()
+  })
+
+  it('prevents default when disabled', () => {
+    const component = new LdLink()
+    component.disabled = true
+    const ev = new MouseEvent('click')
+    component['handleClick'](ev)
+    expect(ev.defaultPrevented).toBeTruthy()
+  })
+
+  it('prevents default when aria-disabled', () => {
+    const component = new LdLink()
+    component.el.ariaDisabled = 'true'
+    const ev = new MouseEvent('click')
+    component['handleClick'](ev)
+    expect(ev.defaultPrevented).toBeTruthy()
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdLink()
+    component.disconnectedCallback()
   })
 })

@@ -218,6 +218,14 @@ describe('ld-toggle', () => {
     expect(root.querySelector('input')).toHaveProperty('name', 'example')
   })
 
+  it('sets initial value on hidden input', async () => {
+    const { root } = await newSpecPage({
+      components: [LdToggle],
+      html: `<form><ld-toggle name="example" value="yolo" checked /></form>`,
+    })
+    expect(root.querySelector('input')).toHaveProperty('value', 'yolo')
+  })
+
   it('updates hidden input field', async () => {
     const { root, waitForChanges } = await newSpecPage({
       components: [LdToggle],
@@ -271,5 +279,10 @@ describe('ld-toggle', () => {
     await waitForChanges()
 
     expect(ldToggle.querySelector('input')).toHaveProperty('name', 'example')
+  })
+
+  it('does not throw when disconnecting before hydration', () => {
+    const component = new LdToggle()
+    component.disconnectedCallback()
   })
 })
