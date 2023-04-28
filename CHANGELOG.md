@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.3](https://github.com/emdgroup-liquid/liquid/compare/v5.3.2...v5.3.3) (2023-04-28)
+
+
+### Bug Fixes
+
+* aria-disabled is truethy when value is truethy and not "false" ([7805f55](https://github.com/emdgroup-liquid/liquid/commit/7805f5569c910d9371e3b1515e4ca912d3d5949a))
+
 ## [5.3.2](https://github.com/emdgroup-liquid/liquid/compare/v5.3.1...v5.3.2) (2023-04-27)
 
 
