@@ -197,12 +197,12 @@
     white-space: nowrap;
   }
 
-  &--accept-all {
-    flex-grow: 10;
+  &--grow {
+    flex-grow: 100;
   }
 
   &--acknowledge {
-    justify-self: flex-end;
+    flex-grow: 0;
     min-width: min(10rem, 50%);
   }
 }
@@ -214,6 +214,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--ld-sp-12);
+  justify-content: flex-end;
   padding: var(--ld-sp-16);
 }
 

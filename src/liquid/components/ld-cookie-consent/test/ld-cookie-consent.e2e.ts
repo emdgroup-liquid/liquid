@@ -2,8 +2,9 @@ import {
   analyzeAccessibility,
   getPageWithContent,
 } from '../../../utils/e2e-tests'
+import { LdCookieConsentConfig } from '../ld-cookie-consent.types'
 
-const categories = [
+const categories: LdCookieConsentConfig['categories'] = [
   {
     title: 'Necessary',
     details: {
@@ -121,7 +122,7 @@ describe('ld-cookie-consent', () => {
       })
 
       it('opt-in', async () => {
-        const settings = {
+        const settings: Partial<LdCookieConsentConfig> = {
           categories,
           mode: 'opt-in',
           privacyStatementURL: '#',
@@ -143,10 +144,32 @@ describe('ld-cookie-consent', () => {
       })
 
       it('opt-out', async () => {
-        const settings = {
+        const settings: Partial<LdCookieConsentConfig> = {
           categories,
           mode: 'opt-out',
           privacyStatementURL: '#',
+          showOnLoadDelay: 0,
+        }
+        const page = await getPageWithContent(
+          `${withCustomStyle ? customStyle : ''}<ld-cookie-consent
+          settings='${JSON.stringify(settings)}'>
+            ${withCustomStyle ? customLogo : ''}
+          </ld-cookie-consent>`,
+          {
+            disableAllTransitions: true,
+            reducedMotion: true,
+          }
+        )
+
+        const results = await page.compareScreenshot()
+        expect(results).toMatchScreenshot()
+      })
+
+      it('rejectable', async () => {
+        const settings: Partial<LdCookieConsentConfig> = {
+          categories,
+          privacyStatementURL: '#',
+          rejectable: true,
           showOnLoadDelay: 0,
         }
         const page = await getPageWithContent(
@@ -167,7 +190,7 @@ describe('ld-cookie-consent', () => {
 
     describe(`preferences${withCustomStyle ? ' custom' : ''}`, () => {
       it('opt-in', async () => {
-        const settings = {
+        const settings: Partial<LdCookieConsentConfig> = {
           categories,
           mode: 'opt-in',
           privacyStatementURL: '#',

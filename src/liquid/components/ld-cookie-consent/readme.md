@@ -1329,6 +1329,7 @@ return (
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                | Attribute  | Description                                                                               | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Default     |
@@ -1336,6 +1337,7 @@ return (
 | `key`                   | `key`      | for tracking the node's identity when working with lists                                  | `string \| number`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `undefined` |
 | `ref`                   | `ref`      | reference to component                                                                    | `any`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `undefined` |
 | `settings` _(required)_ | `settings` | Component settings object to be merged with the default options (optionally stringified). | `string \| { backdropBlur?: boolean; buttonAcceptAll?: string; buttonAcceptCookies?: string; buttonAcceptNone?: string; buttonAcceptSelected?: string; buttonAcknowledge?: string; buttonDismiss?: string; buttonPreferences?: string; categories?: { autoclear?: { name: string; domain?: string; path?: string; }[]; details: { description: string; cookieTable?: { headers?: string[]; rows: string[][]; }; }; title: string; toggle: { checked?: boolean; disabled?: boolean; value: string; }; }[]; disclaimerAlignement?: "center" \| "left" \| "right"; dismissable?: boolean; localStorageKey?: string; mode?: "notice-only" \| "opt-in" \| "opt-out"; privacyStatementURL?: string; rejectable?: boolean; revision?: number; scriptSelector?: string; showOnLoad?: boolean; showOnLoadDelay?: number; }` | `undefined` |
+
 
 ## Events
 
@@ -1349,6 +1351,7 @@ return (
 | `ldCookieConsentSave`             | Emitted after saving cookies preferences to local storage with accepted categories.                      | `CustomEvent<{ acceptedCategories: Set<string>; consentDate: Date; rejectedCategories: Set<string>; revision: number; }>` |
 | `ldCookieSavedConsentLoad`        | Emitted after loading saved consent from local storage.                                                  | `CustomEvent<{ acceptedCategories: Set<string>; consentDate: Date; rejectedCategories: Set<string>; revision: number; }>` |
 
+
 ## Methods
 
 ### `getAcceptedAndRejectedCategories() => Promise<{ acceptedCategories: Set<string>; rejectedCategories: Set<string>; }>`
@@ -1359,6 +1362,8 @@ Returns accepted categories.
 
 Type: `Promise<{ acceptedCategories: Set<string>; rejectedCategories: Set<string>; }>`
 
+
+
 ### `hideDisclaimerAndPreferences() => Promise<void>`
 
 Hides cookie consent disclaimer and preferences.
@@ -1366,6 +1371,8 @@ Hides cookie consent disclaimer and preferences.
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `isCategoryAccepted(cookieCategory: string) => Promise<boolean>`
 
@@ -1375,6 +1382,8 @@ Returns true if cookie category has been accepted.
 
 Type: `Promise<boolean>`
 
+
+
 ### `showDisclaimer(delay?: number) => Promise<void>`
 
 Shows cookie consent disclaimer.
@@ -1382,6 +1391,9 @@ Shows cookie consent disclaimer.
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## Slots
 
@@ -1394,6 +1406,7 @@ Type: `Promise<void>`
 | `"preferences-logo"`                  | Slot for logo in preferences modal layer.                  |
 | `"preferences-privacy-policy-notice"` | Slot for privacy policy notice in preferences modal layer. |
 | `"preferences-title"`                 | Slot for title in preferences modal layer.                 |
+
 
 ## Shadow Parts
 
@@ -1435,6 +1448,7 @@ Type: `Promise<void>`
 | `"preferences-privacy-policy-notice-container"` | container for privacy notice slot                         |
 | `"preferences-title"`                           | the preferences title displayed in the modal layer header |
 
+
 ## Dependencies
 
 ### Depends on
@@ -1451,7 +1465,6 @@ Type: `Promise<void>`
 - [ld-toggle](../ld-toggle)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ld-cookie-consent --> ld-icon
@@ -1468,6 +1481,6 @@ graph TD;
   style ld-cookie-consent fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
