@@ -481,7 +481,7 @@ export class LdCookieConsent {
           )}
           {config.mode !== 'notice-only' && config.rejectable && (
             <ld-button
-              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-none"
+              class="ld-cookie-consent__btn"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -496,9 +496,11 @@ export class LdCookieConsent {
           <ld-button
             class={getClassNames([
               'ld-cookie-consent__btn',
-              config.mode === 'notice-only'
-                ? 'ld-cookie-consent__btn--acknowledge'
-                : 'ld-cookie-consent__btn--accept-all',
+              config.mode === 'notice-only' &&
+                'ld-cookie-consent__btn--acknowledge',
+              config.mode !== 'notice-only' &&
+                config.rejectable &&
+                'ld-cookie-consent__btn--grow',
             ])}
             onClick={() => {
               this.hideDisclaimerAndPreferences()
@@ -573,7 +575,7 @@ export class LdCookieConsent {
         >
           {config.buttonAcceptNone && (
             <ld-button
-              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-none"
+              class="ld-cookie-consent__btn"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -587,7 +589,7 @@ export class LdCookieConsent {
           )}
           {config.buttonAcceptSelected && (
             <ld-button
-              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-selected"
+              class="ld-cookie-consent__btn"
               mode="secondary"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
@@ -601,7 +603,7 @@ export class LdCookieConsent {
           )}
           {config.buttonAcceptAll && (
             <ld-button
-              class="ld-cookie-consent__btn ld-cookie-consent__btn--accept-all"
+              class="ld-cookie-consent__btn ld-cookie-consent__btn--grow"
               onClick={() => {
                 this.hideDisclaimerAndPreferences()
                 this.saveConsent('all')

@@ -12096,7 +12096,7 @@
     },
     {
       "id": "3d455876",
-      "image": "5b450704fa5ce1ba379630649c5afab8.png",
+      "image": "32f7b651dfdb76936928bca7f8d13d88.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom notice only",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12109,7 +12109,7 @@
     },
     {
       "id": "e783dc8b",
-      "image": "e365669c34d87536952062addaa9574c.png",
+      "image": "e7b69852dd151193d96a142f143e0ae9.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom opt-in",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12122,9 +12122,22 @@
     },
     {
       "id": "d6a4d630",
-      "image": "4e4934635085408cb7023c253a56bb4f.png",
+      "image": "48acd138ad10802cab6da02e8b0da711.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom opt-out",
+      "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "7334fa2d",
+      "image": "667953d8967580bf00bb7931ec2690bb.png",
+      "userAgent": "default",
+      "desc": "ld-cookie-consent disclaimer custom rejectable",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
       "width": 600,
       "height": 600,
@@ -12148,7 +12161,7 @@
     },
     {
       "id": "b4eff9e5",
-      "image": "b1c77db4bebb8c87a9d56b12682c7417.png",
+      "image": "189c90378ae862522a5e7630610c675f.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer opt-in",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12161,7 +12174,7 @@
     },
     {
       "id": "5304ded9",
-      "image": "328aa85f33198a2b3bee7c0b9c570917.png",
+      "image": "340634cd4777bcee7add797a0d06febf.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer opt-out",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12173,8 +12186,21 @@
       "isMobile": false
     },
     {
+      "id": "a0402c18",
+      "image": "b70715df6a8b1c9c5e53e84f96ed8d37.png",
+      "userAgent": "default",
+      "desc": "ld-cookie-consent disclaimer rejectable",
+      "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "ded5bfa7",
-      "image": "0997dee422acd184890a412b2c0eab71.png",
+      "image": "61ea4cd89b106746ee7aad98969ae3f2.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences custom opt-in, first category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12187,7 +12213,7 @@
     },
     {
       "id": "57c9bfea",
-      "image": "1aa2215edc80debc8d91293fae54444f.png",
+      "image": "bc618d75abc69ef69c93639aa0385011.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences custom opt-in, third category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12200,7 +12226,7 @@
     },
     {
       "id": "715d62a3",
-      "image": "2699aeac27f3d9d4b70f6aaf0cf3dfce.png",
+      "image": "00eb9d79558fa297279f6df97259a50c.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences opt-in, first category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12213,7 +12239,7 @@
     },
     {
       "id": "24480fde",
-      "image": "5de7ed8ac3604a6ce69461846ab7accb.png",
+      "image": "a7262c93f6fda5faa0ec840437faabc4.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences opt-in, third category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
