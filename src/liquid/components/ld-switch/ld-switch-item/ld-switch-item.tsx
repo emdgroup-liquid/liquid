@@ -12,6 +12,7 @@ import {
 } from '@stencil/core'
 import { cloneAttributes } from '../../../utils/cloneAttributes'
 import { getClassNames } from '../../../utils/getClassNames'
+import { isAriaDisabled } from '../../../utils/ariaDisabled'
 
 /**
  * @virtualProp ref - reference to component
@@ -161,7 +162,12 @@ export class LdSwitchItem implements InnerFocusable, ClonesAttributes {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.checked || this.disabled || this.ariaDisabled || this.readonly) {
+    if (
+      this.checked ||
+      this.disabled ||
+      isAriaDisabled(this.ariaDisabled) ||
+      this.readonly
+    ) {
       ev.preventDefault()
       return
     }

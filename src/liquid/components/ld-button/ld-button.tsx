@@ -2,6 +2,7 @@ import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 type Mode =
   | 'highlight'
@@ -45,6 +46,9 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
 
   /** Align text. */
   @Prop({ mutable: true }) alignText?: 'left' | 'right'
+
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop({ reflect: true }) autofocus: boolean
@@ -165,13 +169,8 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
     button.remove()
   }
 
-  private isAriaDisabled = () => {
-    const ariaDisabledAttr = this.el.getAttribute('aria-disabled')
-    return ariaDisabledAttr && ariaDisabledAttr !== 'false'
-  }
-
   private handleClick = (ev: MouseEvent) => {
-    if (this.disabled || this.isAriaDisabled()) {
+    if (this.disabled || isAriaDisabled(this.el.ariaDisabled)) {
       ev.preventDefault()
       // Stopping propagation is important for clicks on child elements,
       // because otherwise event handlers attached to the ld-button
@@ -246,7 +245,9 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
         target={this.target}
         aria-busy={hasProgress ? 'true' : undefined}
         aria-disabled={
-          this.disabled || this.isAriaDisabled() ? 'true' : undefined
+          this.disabled || isAriaDisabled(this.el.ariaDisabled)
+            ? 'true'
+            : undefined
         }
         aria-live="polite"
         class={cl}

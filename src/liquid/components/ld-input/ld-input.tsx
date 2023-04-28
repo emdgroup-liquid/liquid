@@ -13,6 +13,7 @@ import {
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * The `ld-input` component. You can use it in conjunction with the `ld-label`
@@ -50,6 +51,9 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
 
   /** Hint for expected file type in file upload controls. */
   @Prop() accept?: string
+
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /** Hint for form autofill feature. */
   @Prop({ mutable: true, reflect: true }) autocomplete?: string
@@ -321,10 +325,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
     const target = (
       'composedPath' in ev ? ev.composedPath()[0] : ev['target']
     ) as HTMLElement
-    if (
-      this.el.hasAttribute('disabled') ||
-      this.el.getAttribute('aria-disabled') === 'true'
-    ) {
+    if (this.el.disabled || isAriaDisabled(this.el.ariaDisabled)) {
       ev.preventDefault()
       return
     }
@@ -347,7 +348,7 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
       : outerForm
 
     if (
-      this.el.getAttribute('aria-disabled') === 'true' &&
+      isAriaDisabled(this.el.ariaDisabled) &&
       !['ArrowLeft', 'ArrowRight', 'Tab'].includes(ev.key)
     ) {
       ev.preventDefault()

@@ -13,6 +13,7 @@ import {
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @virtualProp ref - reference to component
@@ -31,6 +32,9 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
 
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
+
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop({ reflect: true }) autofocus: boolean
@@ -149,7 +153,7 @@ export class LdCheckbox implements InnerFocusable, ClonesAttributes {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
+    if (this.disabled || isAriaDisabled(this.el.ariaDisabled)) {
       ev.preventDefault()
       return
     }

@@ -1,6 +1,7 @@
 import { Component, Element, h, Method, Prop, State } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @part anchor - the link anchor
@@ -68,7 +69,7 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
   }
 
   private handleClick = (ev: MouseEvent) => {
-    if (this.disabled || this.el.ariaDisabled) {
+    if (this.disabled || isAriaDisabled(this.el.ariaDisabled)) {
       ev.preventDefault()
       return
     }
@@ -87,7 +88,9 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
         onClick={this.handleClick}
         class={cl}
         aria-disabled={
-          this.disabled || this.el.ariaDisabled ? 'true' : undefined
+          this.disabled || isAriaDisabled(this.el.ariaDisabled)
+            ? 'true'
+            : undefined
         }
         ref={(ref) => (this.anchor = ref)}
         target={this.target}

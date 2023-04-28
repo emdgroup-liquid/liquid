@@ -12,6 +12,7 @@ import {
   Method,
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 const findClosest = (items: number[], currValue: number) =>
   items.length
@@ -136,7 +137,7 @@ export class LdSlider implements InnerFocusable {
   handleInput = (ev: Event, index: number) => {
     const target = ev.target as HTMLInputElement
 
-    if (this.ariaDisabled === 'true') {
+    if (isAriaDisabled(this.ariaDisabled)) {
       target.value = String(this.values[index])
       return
     }
@@ -166,7 +167,7 @@ export class LdSlider implements InnerFocusable {
   handleKeyDown = (ev: KeyboardEvent, index: number) => {
     const target = ev.target as HTMLInputElement
 
-    if (this.ariaDisabled === 'true') {
+    if (isAriaDisabled(this.ariaDisabled)) {
       target.value = String(this.values[index])
       return
     }
@@ -391,7 +392,7 @@ linear-gradient(
             </ld-sr-only>
             <input
               aria-disabled={
-                this.disabled || this.ariaDisabled === 'true'
+                this.disabled || isAriaDisabled(this.ariaDisabled)
                   ? 'true'
                   : undefined
               }

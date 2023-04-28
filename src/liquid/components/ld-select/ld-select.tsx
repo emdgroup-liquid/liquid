@@ -16,6 +16,7 @@ import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
 import { closest } from '../../utils/closest'
 import { TypeAheadHandler } from '../../utils/typeahead'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 type SelectOption = { value: string; text: string }
 
@@ -41,6 +42,9 @@ export class LdSelect implements InnerFocusable {
   private popper: Tether
   private observer: MutationObserver
   private isObserverEnabled = true
+
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /**
    * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
@@ -118,7 +122,6 @@ export class LdSelect implements InnerFocusable {
 
   @State() allOptionsFiltered = false
   @State() filterMatchesOption = false
-  @State() ariaDisabled = false
   @State() expanded = false
   @State() hasCustomIcon = false
   @State() hasMore = false
@@ -195,6 +198,8 @@ export class LdSelect implements InnerFocusable {
     this.ldchange.emit(newValues)
     this.ldinput.emit(newValues)
   }
+
+  private isDisabled = () => this.disabled || isAriaDisabled(this.ariaDisabled)
 
   // This method must be a function declaration for testing purposes;
   // otherwise Jest's mockImplementation won't work here.
@@ -534,7 +539,7 @@ export class LdSelect implements InnerFocusable {
 
   @Listen('resize', { target: 'window', passive: true })
   handleWindowResize() {
-    if (this.disabled || this.ariaDisabled) return // this is for a minor performance optimization only
+    if (this.isDisabled()) return // this is for a minor performance optimization only
 
     this.updatePopperWidth()
     this.updateTriggerMoreIndicator(true)
@@ -685,7 +690,7 @@ export class LdSelect implements InnerFocusable {
 
   @Listen('keydown', { passive: false, target: 'window' })
   handleKeyDown(ev: KeyboardEvent) {
-    if (this.disabled || this.ariaDisabled) return
+    if (this.isDisabled()) return
 
     // Ignore events if current instance has no focus.
     if (
@@ -949,7 +954,7 @@ export class LdSelect implements InnerFocusable {
   private handleTriggerClick = (ev: Event) => {
     ev.preventDefault()
 
-    if (this.disabled || this.ariaDisabled) return
+    if (this.isDisabled()) return
 
     if (!this.popper) this.initPopper()
 
@@ -964,7 +969,7 @@ export class LdSelect implements InnerFocusable {
     ev.preventDefault()
     ev.stopImmediatePropagation()
 
-    if (this.disabled || this.ariaDisabled) return
+    if (this.isDisabled()) return
 
     this.clearSelection()
     this.focusInner()
@@ -974,7 +979,7 @@ export class LdSelect implements InnerFocusable {
     ev.preventDefault()
     ev.stopImmediatePropagation()
 
-    if (this.disabled || this.ariaDisabled) return
+    if (this.isDisabled()) return
 
     this.selected = this.selected.filter(
       (selection) => selection.value !== optionValue
@@ -997,10 +1002,6 @@ export class LdSelect implements InnerFocusable {
 
     if (customIcon) {
       customIcon.setAttribute('size', this.size)
-    }
-
-    if (this.el.getAttribute('aria-disabled') === 'true') {
-      this.ariaDisabled = true
     }
 
     this.initOptions()
@@ -1081,7 +1082,7 @@ export class LdSelect implements InnerFocusable {
       <Host>
         <div
           class={getClassNames(cl)}
-          aria-disabled={this.disabled || this.ariaDisabled}
+          aria-disabled={this.isDisabled() ? 'true' : undefined}
           part="root"
           onBlur={this.handleFocusEvent}
           onFocusout={this.handleFocusEvent}
@@ -1107,13 +1108,11 @@ export class LdSelect implements InnerFocusable {
               role="button"
               part="btn-trigger focusable"
               tabindex={
-                this.disabled && !this.ariaDisabled
+                this.disabled && !isAriaDisabled(this.ariaDisabled)
                   ? undefined
                   : this.ldTabindex
               }
-              aria-disabled={
-                this.disabled || this.ariaDisabled ? 'true' : 'false'
-              }
+              aria-disabled={this.isDisabled() ? 'true' : undefined}
               aria-haspopup="listbox"
               aria-expanded={this.expanded ? 'true' : 'false'}
               aria-label={triggerText}
@@ -1154,11 +1153,7 @@ export class LdSelect implements InnerFocusable {
                             ></span>
 
                             <button
-                              disabled={
-                                this.disabled || this.ariaDisabled
-                                  ? true
-                                  : undefined
-                              }
+                              disabled={this.isDisabled() ? true : undefined}
                               class="ld-select__btn-clear-single"
                               part="btn-clear-single focusable"
                               onClick={(ev) => {
@@ -1214,9 +1209,7 @@ export class LdSelect implements InnerFocusable {
               {this.selected?.length && this.multiple ? (
                 <button
                   class="ld-select__btn-clear"
-                  disabled={
-                    this.disabled || this.ariaDisabled ? true : undefined
-                  }
+                  disabled={this.isDisabled() ? true : undefined}
                   onClick={this.handleClearClick}
                   ref={(el) => (this.btnClearRef = el)}
                   part="btn-clear focusable"

@@ -13,6 +13,7 @@ import {
 } from '@stencil/core'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @virtualProp ref - reference to component
@@ -116,7 +117,7 @@ export class LdSwitch implements InnerFocusable {
   updateSwitchItemProps() {
     const ldSwitchItems = this.el.querySelectorAll('ld-switch-item')
     ldSwitchItems.forEach((ldSwitchItem) => {
-      if (this.ariaDisabled) {
+      if (isAriaDisabled(this.ariaDisabled)) {
         ldSwitchItem.ariaDisabled = this.ariaDisabled
       }
       if (this.disabled) {
@@ -149,7 +150,7 @@ export class LdSwitch implements InnerFocusable {
         onFocus={this.handleFocus}
         onFocusout={this.handleFocusout}
         tabIndex={
-          this.disabled || this.ariaDisabled
+          this.disabled || isAriaDisabled(this.ariaDisabled)
             ? this.ldTabindex
             : this.hasFocus
             ? -1
