@@ -13,6 +13,7 @@ import {
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { getClassNames } from '../../utils/getClassNames'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @virtualProp ref - reference to component
@@ -32,11 +33,8 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   private input: HTMLInputElement
   private hiddenInput: HTMLInputElement
 
-  /**
-   * @internal
-   * States that this radio button or another radio button with the same name is checked.
-   */
-  @Prop() groupChecked? = false
+  /** Alternative disabled state that keeps element focusable */
+  @Prop() ariaDisabled: string
 
   /** Automatically focus the form control when the page is loaded. */
   @Prop({ reflect: true }) autofocus: boolean
@@ -49,6 +47,12 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
 
   /** Associates the control with a form element. */
   @Prop() form?: string
+
+  /**
+   * @internal
+   * States that this radio button or another radio button with the same name is checked.
+   */
+  @Prop() groupChecked? = false
 
   /** Set this property to `true` in order to mark the radio visually as invalid. */
   @Prop() invalid?: boolean
@@ -161,7 +165,7 @@ export class LdRadio implements InnerFocusable, ClonesAttributes {
   }
 
   private handleClick = (ev?: MouseEvent) => {
-    if (this.disabled || this.el.getAttribute('aria-disabled') === 'true') {
+    if (this.disabled || isAriaDisabled(this.el.ariaDisabled)) {
       ev?.preventDefault()
       return
     }

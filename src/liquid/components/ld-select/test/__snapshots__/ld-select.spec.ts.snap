@@ -8,7 +8,7 @@ exports[`ld-select hidden input fields creates hidden input field, after adding 
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -104,7 +104,7 @@ exports[`ld-select hidden input fields creates hidden input field, if form attri
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -200,7 +200,7 @@ exports[`ld-select hidden input fields creates hidden input field, if inside a f
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -279,7 +279,7 @@ exports[`ld-select hidden input fields does not update internal options if mutat
             <slot></slot>
           </div>
           <div class="ld-select__select" part="select">
-            <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+            <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
               <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
                 <span class="ld-select__btn-trigger-text" part="trigger-text">
                   Pick a fruit
@@ -382,7 +382,7 @@ exports[`ld-select hidden input fields observes slot content changes and updates
             <slot></slot>
           </div>
           <div class="ld-select__select" part="select">
-            <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Banana" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+            <div aria-expanded="false" aria-haspopup="listbox" aria-label="Banana" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
               <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Banana">
                 <span class="ld-select__btn-trigger-text" part="trigger-text">
                   Banana
@@ -480,7 +480,7 @@ exports[`ld-select hidden input fields removes hidden input field, after removin
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -575,7 +575,7 @@ exports[`ld-select hidden input fields removes hidden input field, after removin
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -670,7 +670,7 @@ exports[`ld-select hidden input fields renders initially selected options as int
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <div class="ld-select__selection-list-container" part="selection-list-container">
             <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
               <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
@@ -788,7 +788,7 @@ exports[`ld-select hidden input fields updates hidden input field on prop form c
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -884,7 +884,7 @@ exports[`ld-select hidden input fields updates hidden input field on prop name c
         <slot></slot>
       </div>
       <div class="ld-select__select" part="select">
-        <div aria-disabled="false" aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+        <div aria-expanded="false" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
           <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
             <span class="ld-select__btn-trigger-text" part="trigger-text">
               Pick a fruit
@@ -982,7 +982,7 @@ exports[`ld-select hidden input fields updates internal options in popper and hi
             <slot></slot>
           </div>
           <div class="ld-select__select ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left" part="select">
-            <div aria-disabled="false" aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+            <div aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
               <div class="ld-select__selection-list-container" part="selection-list-container">
                 <ul aria-label="Selected options" class="ld-select__selection-list" part="selection-list">
                   <li class="ld-select__selection-list-item" part="selection-list-item" style="order: 1;">
@@ -1130,7 +1130,7 @@ exports[`ld-select places the popper inside a given element 1`] = `
             <slot></slot>
           </div>
           <div class="ld-select__select ld-tether-element-attached-left ld-tether-element-attached-top ld-tether-enabled ld-tether-target ld-tether-target-attached-bottom ld-tether-target-attached-left" part="select">
-            <div aria-disabled="false" aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
+            <div aria-expanded="true" aria-haspopup="listbox" aria-label="Pick a fruit" class="ld-select__btn-trigger" part="btn-trigger focusable" role="button" tabindex="0">
               <span class="ld-select__btn-trigger-text-wrapper" part="trigger-text-wrapper" title="Pick a fruit">
                 <span class="ld-select__btn-trigger-text" part="trigger-text">
                   Pick a fruit

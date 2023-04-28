@@ -9,6 +9,7 @@ import {
 } from '@stencil/core'
 import { closest } from '../../../utils/closest'
 import { getClassNames } from '../../../utils/getClassNames'
+import { isAriaDisabled } from '../../../utils/ariaDisabled'
 
 /**
  * @part cell - the actual th element
@@ -82,7 +83,13 @@ export class LdTableHeader {
   onSortClick = (ev: Event, sortOrder: 'asc' | 'desc') => {
     ev.preventDefault()
     ev.stopPropagation()
-    if (closest('ld-button', ev.target as HTMLElement).ariaDisabled) return
+    if (
+      isAriaDisabled(
+        closest('ld-button', ev.target as HTMLElement).ariaDisabled
+      )
+    ) {
+      return
+    }
     this.handleSort(sortOrder)
   }
 

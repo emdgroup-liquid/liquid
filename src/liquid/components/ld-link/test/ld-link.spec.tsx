@@ -74,6 +74,30 @@ describe('ld-link', () => {
     expect(ev.defaultPrevented).toBeTruthy()
   })
 
+  it('prevents default when aria-disabled is truethy', () => {
+    const component = new LdLink()
+    component.el.ariaDisabled = 'yes'
+    const ev = new MouseEvent('click')
+    component['handleClick'](ev)
+    expect(ev.defaultPrevented).toBeTruthy()
+  })
+
+  it('does not prevents default when aria-disabled is false', () => {
+    const component = new LdLink()
+    component.el.ariaDisabled = 'false'
+    const ev = new MouseEvent('click')
+    component['handleClick'](ev)
+    expect(ev.defaultPrevented).toBeFalsy()
+  })
+
+  it('does not prevents default when aria-disabled is falsy', () => {
+    const component = new LdLink()
+    component.el.ariaDisabled = ''
+    const ev = new MouseEvent('click')
+    component['handleClick'](ev)
+    expect(ev.defaultPrevented).toBeFalsy()
+  })
+
   it('does not throw when disconnecting before hydration', () => {
     const component = new LdLink()
     component.disconnectedCallback()

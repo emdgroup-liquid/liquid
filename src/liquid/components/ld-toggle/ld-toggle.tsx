@@ -13,6 +13,7 @@ import {
 import { getClassNames } from '../../utils/getClassNames'
 import { cloneAttributes } from '../../utils/cloneAttributes'
 import { registerAutofocus } from '../../utils/focus'
+import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @virtualProp ref - reference to component
@@ -142,7 +143,7 @@ export class LdToggle implements InnerFocusable, ClonesAttributes {
   }
 
   private handleClick = (event: MouseEvent) => {
-    if (this.ariaDisabled) {
+    if (isAriaDisabled(this.ariaDisabled)) {
       event.preventDefault()
       return
     }
