@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "component-spec_test",
+      "command": "${workspaceFolder}/node_modules/.bin/stencil",
+      "args": [
+        "test",
+        "--spec",
+        "--coverage",
+        "--no-cache",
+        "--watch=all",
+        "--",
+        "${relativeFile}"
+      ],
+      "type": "shell",
+      "problemMatcher": [],
+      "presentation": {
+        "clear": true,
+        "close": true,
+        "focus": true
+      }
+    },
+    {
+      "label": "component-e2e_test",
+      "command": "${workspaceFolder}/node_modules/.bin/stencil",
+      "args": ["test", "--screenshot", "--e2e", "--", "${relativeFile}"],
+      "type": "shell",
+      "problemMatcher": [],
+      "presentation": {
+        "clear": true,
+        "close": true
+      }
+    },
+    {
+      "label": "component-e2e_test_and_cleanup",
+      "command": "${workspaceFolder}/node_modules/.bin/ts-node",
+      "args": ["scripts/screenshots.ts", "rm"],
+      "type": "shell",
+      "dependsOn": ["component-e2e_test"],
+      "problemMatcher": [],
+      "presentation": {
+        "clear": true,
+        "close": true
+      }
+    }
+  ]
+}

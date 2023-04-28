@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="component-e2e_test" type="NodeJSConfigurationType" application-parameters="test  --screenshot --e2e -- $FilePathRelativeToProjectRoot$" path-to-js-file="node_modules/.bin/stencil" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="component-e2e_test" type="NodeJSConfigurationType" application-parameters="test --screenshot --e2e -- $FilePathRelativeToProjectRoot$" path-to-js-file="node_modules/.bin/stencil" working-dir="$PROJECT_DIR$">
     <method v="2" />
   </configuration>
 </component>

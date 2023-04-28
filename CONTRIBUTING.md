@@ -58,7 +58,7 @@ This project consists of different parts and pieces, each with its own purpose. 
 ├── .github
 │   └── workflows/ci-cd.yml       # CI/CD pipeline config file.
 ├── .vscode
-│   └── launch.json               # Launch configurations for Visual Studio Code.
+│   └── task.json                 # Task configurations for Visual Studio Code.
 ├── .env                          # The .env file is not under version control. It contains sensitive
 │                                 # data, such as credentials used to authenticate oneself against
 │                                 # an API. We currenly do this for fetching design tokens from Figma.

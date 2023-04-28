@@ -21,7 +21,7 @@ log.txt
 !.idea/eslint.xml
 !.idea/liquid.iml
 .vscode/*
-!.vscode/launch.json
+!.vscode/tasks.json
 .sass-cache/
 .versions/
 .yarn/*
