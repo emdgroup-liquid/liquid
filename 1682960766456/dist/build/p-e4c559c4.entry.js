@@ -1,0 +1,2 @@
+import{r as t,h as a,H as l}from"./p-5c3033fa.js";const s=":host ::slotted(ld-pagination){flex-shrink:0;overflow-x:hidden;padding-bottom:var(--ld-sp-8);padding-top:var(--ld-sp-4);transform:translateY(var(--ld-sp-2))}:host ::slotted(ld-pagination:first-child){margin-left:calc(-1 * var(--ld-sp-8))}:host ::slotted(ld-pagination:last-child){margin-right:calc(-1 * var(--ld-sp-8))}";const o=class{constructor(a){t(this,a)}render(){return a(l,{class:"ld-table__toolbar"},a("slot",null))}};o.style=s;export{o as ld_table_toolbar};
+//# sourceMappingURL=p-e4c559c4.entry.js.map
