@@ -1,6 +1,6 @@
 {
   "name": "@emdgroup-liquid/liquid",
-  "version": "5.3.3",
+  "version": "5.4.0",
   "description": "Beautiful, accessible and versatile UI components",
   "publishConfig": {
     "access": "public"

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/emdgroup-liquid/liquid/compare/v5.3.3...v5.4.0) (2023-05-02)
+
+
+### Bug Fixes
+
+* **ld-cookie-consent:** autoclear in safari ([a330dcd](https://github.com/emdgroup-liquid/liquid/commit/a330dcd5d523e8461eb7ffe45eec7206139bedb4))
+* **ld-cookie-consent:** fix styling and update screenshots ([e3d92cb](https://github.com/emdgroup-liquid/liquid/commit/e3d92cbdac5f44fd94a4c5abc685f3b0b4ef299c))
+* **ld-cookie-consent:** toggles not re-rendering ([18938f3](https://github.com/emdgroup-liquid/liquid/commit/18938f33bfd82822d7a23b69b4cc21e3a4e5c494))
+
+
+### Features
+
+* **ld-cookie-consent:** only optional rejectable ([ef01ffb](https://github.com/emdgroup-liquid/liquid/commit/ef01ffbaa588115cd9c16c3a45a5404e76a77a0a))
+* **ld-cookie-consent:** rename "reject all" label ([5edb487](https://github.com/emdgroup-liquid/liquid/commit/5edb487ffafd7b49ded9be13a04c07f8783a7a59))
+
 ## [5.3.3](https://github.com/emdgroup-liquid/liquid/compare/v5.3.2...v5.3.3) (2023-04-28)
 
 
