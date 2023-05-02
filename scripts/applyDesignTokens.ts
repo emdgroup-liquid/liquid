@@ -67,29 +67,36 @@ function parseThemes(items, styles) {
       colorGroups.forEach((colorGroup) => {
         const groupName = colorGroup.name.toLowerCase().replace(/ /g, '-')
         const variants = colorGroup.children
-        if (variants) {
-          variants.forEach((variant) => {
-            const variantName = variant.name.toLowerCase().replace(/ /g, '-')
-            const subVariants = variant.children
+        variants?.forEach((variant) => {
+          const variantName = variant.name.toLowerCase().replace(/ /g, '-')
+          if (['active', 'hover', 'focus', 'highlight'].includes(variantName)) {
+            return
+          }
 
-            if (variant.children) {
-              if (subVariants) {
-                subVariants.forEach((subVariant) => {
-                  const subVariantName = subVariant.name
-                    .toLowerCase()
-                    .replace(/ /g, '-')
-                  const colorName = `${groupName}-${variantName}-${subVariantName}`
-                  theme[colorName] = getColorTokenValue(subVariant, styles)
-                })
-              }
-            } else {
-              const colorName = `${groupName}${
-                variantName === 'default' ? '' : `-${variantName}`
-              }`
-              theme[colorName] = getColorTokenValue(variant, styles)
+          const subVariants = variant.children
+
+          if (subVariants) {
+            subVariants.forEach((subVariant) => {
+              const subVariantName = subVariant.name
+                .toLowerCase()
+                .replace(/ /g, '-')
+              const colorName = `${groupName}-${variantName}-${subVariantName}`
+              theme[colorName] = getColorTokenValue(subVariant, styles)
+            })
+          } else {
+            const colorName = `${groupName}${
+              variantName === 'default' ? '' : `-${variantName}`
+            }`
+            theme[colorName] = getColorTokenValue(variant, styles)
+
+            // TODO: check if we should derive hover, focus etc. colors from the default color here.
+            if (variant.styles.fill) {
+              const style = styles[variant.styles.fill]
+              const defaultKey = style.name.match(/\d+/g)?.at(0)
+              console.info('defaultKey', defaultKey)
             }
-          })
-        }
+          }
+        })
       })
 
       if (Object.keys(themes).length === 0) {
@@ -237,7 +244,7 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         ).toFixed(2)}%)`
       })
 
-      // Find color in scale with smallest distance to the default color
+      // Find color in scale with the smallest distance to the default color
       // and replace it with the default color.
       const defaultKey = scale.reduce((key, setting) => {
         const settingColor = chroma.oklch(
@@ -267,12 +274,11 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         }
         return key
       }, '')
-      colors[`${colorShortName}-${defaultKey}`] = `hsl(${hslH.toFixed(2)}deg ${(
-        hslS * 100
-      ).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
-      colors[`${colorShortName}-${defaultKey}/default`] = `hsl(${hslH.toFixed(
+      const defaultColVal = `hsl(${hslH.toFixed(2)}deg ${(hslS * 100).toFixed(
         2
-      )}deg ${(hslS * 100).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
+      )}% ${(hslL * 100).toFixed(2)}%)`
+      colors[`${colorShortName}-${defaultKey}`] = defaultColVal
+      colors[`${colorShortName}-${defaultKey}/default`] = defaultColVal
 
       // TODO check if it is wiser to pick a color from the middle of the range
       // alpha
@@ -494,18 +500,12 @@ function generateColors(colors, isDark = false) {
   Object.keys(colors).forEach((key) => {
     const val = colors[key]
     if (key.includes('/default')) {
-      const colorKey = key.split('/default')[0]
       const colorBaseName = key
         .replace(/\d/g, '')
         .replace('/default', '')
         .replace(/-$/, '')
 
-      colorVariables.push(`  --ld-col-${colorKey}: ${val};`)
-
-      // prevents duplicate custom properties in cases like "sp/default"
-      if (colorBaseName !== colorKey) {
-        colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
-      }
+      colorVariables.push(`  --ld-col-${colorBaseName}: ${val};`)
     } else {
       colorVariables.push(`  --ld-col-${key}: ${val};`)
     }

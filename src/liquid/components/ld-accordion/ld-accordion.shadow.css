@@ -5,10 +5,10 @@
   --ld-accordion-col-hover: var(--ld-col-neutral-900);
   --ld-accordion-col-focus: var(--ld-col-neutral-900);
   --ld-accordion-bg-col: var(--ld-layer);
-  --ld-accordion-bg-col-active: var(--ld-col-wht);
+  --ld-accordion-bg-col-active: var(--ld-layer-active);
   --ld-accordion-bg-col-disabled: var(--ld-col-neutral-100);
   --ld-accordion-bg-col-focus: var(--ld-col-neutral-100);
-  --ld-accordion-bg-col-hover: var(--ld-col-neutral-050);
+  --ld-accordion-bg-col-hover: var(--ld-layer-hover);
   --ld-accordion-trigger-icon-col-disabled: var(--ld-col-neutral-100);
 
   /* themable colors */

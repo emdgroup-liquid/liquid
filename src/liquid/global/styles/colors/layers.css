@@ -4,6 +4,14 @@
   --ld-layer-2: var(--ld-col-wht);
   --ld-layer-text: var(--ld-col-neutral-900);
   --ld-layer: var(--ld-layer-0);
+  --ld-layer-hover-0: var(--ld-col-neutral-050);
+  --ld-layer-hover-1: var(--ld-col-neutral-100);
+  --ld-layer-hover-2: var(--ld-col-neutral-200);
+  --ld-layer-hover: var(--ld-layer-hover-0);
+  --ld-layer-active-0: var(--ld-thm-primary-active);
+  --ld-layer-active-1: var(--ld-thm-primary-active);
+  --ld-layer-active-2: var(--ld-thm-primary-active);
+  --ld-layer-active: var(--ld-layer-active-0);
 
   &.ld-dark {
     --ld-layer-0: var(--ld-col-neutral-010);
@@ -15,26 +23,38 @@
 
 .ld-layer:not(.ld-layer-0, .ld-layer-1) {
   --ld-layer: var(--ld-layer-1);
+  --ld-layer-hover: var(--ld-layer-hover-1);
+  --ld-layer-active: var(--ld-layer-active-1);
 
   .ld-layer:not(.ld-layer-0, .ld-layer-1) {
     --ld-layer: var(--ld-layer-2);
+    --ld-layer-hover: var(--ld-layer-hover-2);
+    --ld-layer-active: var(--ld-layer-active-2);
   }
 }
 
 .ld-layer-0 {
   --ld-layer: var(--ld-layer-0);
+  --ld-layer-hover: var(--ld-layer-hover-0);
+  --ld-layer-active: var(--ld-layer-active-0);
 
   .ld-layer:not(.ld-layer-0, .ld-layer-1, .ld-layer-1 .ld-layer-1) {
     --ld-layer: var(--ld-layer-1);
+    --ld-layer-hover: var(--ld-layer-hover-1);
+    --ld-layer-active: var(--ld-layer-active-1);
 
     .ld-layer:not(.ld-layer-0, .ld-layer-1, .ld-layer-1 .ld-layer-1) {
       --ld-layer: var(--ld-layer-2);
+      --ld-layer-hover: var(--ld-layer-hover-2);
+      --ld-layer-active: var(--ld-layer-active-2);
     }
   }
 }
 
 .ld-layer-1 {
   --ld-layer: var(--ld-layer-1);
+  --ld-layer-hover: var(--ld-layer-hover-1);
+  --ld-layer-active: var(--ld-layer-active-1);
 
   .ld-layer:not(
       .ld-layer-0,
@@ -43,9 +63,13 @@
       .ld-layer-1 .ld-layer-0
     ) {
     --ld-layer: var(--ld-layer-2);
+    --ld-layer-hover: var(--ld-layer-hover-2);
+    --ld-layer-active: var(--ld-layer-active-2);
   }
 }
 
 .ld-layer-2 {
   --ld-layer: var(--ld-layer-2);
+  --ld-layer-hover: var(--ld-layer-hover-2);
+  --ld-layer-active: var(--ld-layer-active-2);
 }
