@@ -2904,12 +2904,11 @@ __metadata:
   linkType: hard
 
 "@types/dompurify@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@types/dompurify@npm:3.0.1"
+  version: 3.0.2
+  resolution: "@types/dompurify@npm:3.0.2"
   dependencies:
-    "@types/jsdom": "*"
     "@types/trusted-types": "*"
-  checksum: d4bf881845ac1f4619622b62945f0fda876e6c09d4c958bc7f3a84c4307f7258b9a15e334ae08c7ac5ecfcd0656415328df29d3fb737e9bce2849feaf180c6ab
+  checksum: dc017e16a46bcc77086af7d4dc5d2bf4102f16bf1a11b2937e90380da50e77716a2a608ff52990b1293250fefc2ad7593a1378fe07e3a7e21f200d702f0a7878
   languageName: node
   linkType: hard
 
@@ -2961,17 +2960,6 @@ __metadata:
   version: 3.0.3
   resolution: "@types/js-cookie@npm:3.0.3"
   checksum: 927254ec37ce4fbe4d9d54f53a446b4351259799d9933db5808ddb7c430396aa2496bdd0a4e47e1b56048ffbec98645cbd4daa9e3ed9a6fff55e25eb640fcb15
-  languageName: node
-  linkType: hard
-
-"@types/jsdom@npm:*":
-  version: 21.1.1
-  resolution: "@types/jsdom@npm:21.1.1"
-  dependencies:
-    "@types/node": "*"
-    "@types/tough-cookie": "*"
-    parse5: ^7.0.0
-  checksum: 7450d6e23aa31b837a1682f0e59b06838aacca85c9d030035f40e21d559169c773aee5cee9244f23c3004b78f7064f0c540ceb808d2f187deb3140f2b0449dee
   languageName: node
   linkType: hard
 
@@ -3097,13 +3085,6 @@ __metadata:
   version: 1.4.6
   resolution: "@types/tether@npm:1.4.6"
   checksum: 5047559f502e43c10a61420dc5c7dd4ca5abb3b1b0c61fb62414acef93a1ecc207ae8111b4cd0f5d93c4ab4a09b7a30ebf33a523c5885488818c4f9b4852937a
-  languageName: node
-  linkType: hard
-
-"@types/tough-cookie@npm:*":
-  version: 4.0.2
-  resolution: "@types/tough-cookie@npm:4.0.2"
-  checksum: e055556ffdaa39ad85ede0af192c93f93f986f4bd9e9426efdc2948e3e2632db3a4a584d4937dbf6d7620527419bc99e6182d3daf2b08685e710f2eda5291905
   languageName: node
   linkType: hard
 
@@ -6244,9 +6225,9 @@ cors@latest:
   linkType: hard
 
 "dompurify@npm:^3.0.1":
-  version: 3.0.2
-  resolution: "dompurify@npm:3.0.2"
-  checksum: 768c3bb2f139ce1e1a53faf81aae6abe03e24d0b043e2fda0b70e91ef15bb1df854a35e82d8c519adfe5b81c24bfdad3e0b1085534bfbf427137cb742406c47f
+  version: 3.0.3
+  resolution: "dompurify@npm:3.0.3"
+  checksum: 02242f2fe6a5c078fd0cb04efc93079d73a2fe886bebb5e33100b7e52f4b9bfe5f2afb0b69cae39d9a13d7bbf54435df41494890c4abe7740429828b2dbb94d9
   languageName: node
   linkType: hard
 
