@@ -103,7 +103,7 @@
     "@types/dompurify": "^3.0.1",
     "@types/jest": "^27.5.2",
     "@types/js-cookie": "^3.0.2",
-    "@types/node": "^18.16.0",
+    "@types/node": "^20.1.0",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
     "@types/tether": "^1.4.6",
