@@ -44,6 +44,7 @@
 
   input {
     appearance: none;
+    border-radius: 100%; /* for focus outline */
     position: absolute;
     inset: 0;
     z-index: 1;

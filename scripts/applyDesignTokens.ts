@@ -28,23 +28,86 @@ function pxToRem(px: string | number) {
   return val + 'rem'
 }
 
-function getColorTokenValue(variant, styles) {
+function getShortName(baseColorName: string) {
+  return (
+    baseColorName === 'Neutral'
+      ? baseColorName
+      : baseColorName['replaceAll'](/[a-z]/g, '')
+  ).toLowerCase()
+}
+
+function getColorTokenValue(
+  variant,
+  styles,
+  modifier?: 'hover' | 'active' | 'focus',
+  isDark = false
+) {
+  function darken(colKey: string, times: 1 | 2 | -2) {
+    // const colNum = isDark ? 1100 - parseInt(colKey) : parseInt(colKey)
+    const colNum = parseInt(colKey)
+    if (isDark) {
+      if (colNum === 200) {
+        if (times === 2) return '050'
+      }
+      if (colNum === 100) {
+        if (times === 1) return '050'
+        if (times === 2) return '010'
+      }
+      if (times === -2) {
+        if (colNum === 10) return '100'
+        if (colNum === 50) return '200'
+      }
+      return String(colNum - times * 100)
+    }
+
+    if (colNum === 10) {
+      if (times === 1) return '050'
+      if (times === 2) return '100'
+    }
+    if (colNum === 50) {
+      if (times === 1) return '100'
+      if (times === 2) return '200'
+    }
+    if (times === -2) {
+      if (colNum === 100) return '010'
+      if (colNum === 200) return '050'
+    }
+    return String(colNum + times * 100)
+  }
+
   if (variant.styles?.fill) {
     const style = styles[variant.styles.fill]
     const { name, description } = style
     const variants = description.split(', ')
     const [baseColorName, ...rest] = name.split('/')[1].split('-')
+    const shortName = getShortName(baseColorName)
     const referenceName =
-      (baseColorName === 'Neutral'
-        ? baseColorName
-        : baseColorName.replaceAll(/[a-z]/g, '')
-      ).toLowerCase() +
+      shortName +
       (variants.includes('Default')
         ? ''
         : rest.length
         ? '-' + rest.join('-')
         : '')
-    return referenceName
+
+    switch (modifier) {
+      case 'hover':
+        return `${referenceName}-${darken(
+          getDefaultKeyFromCache(shortName),
+          1
+        )}`
+      case 'active':
+        return `${referenceName}-${darken(
+          getDefaultKeyFromCache(shortName),
+          2
+        )}`
+      case 'focus':
+        return `${referenceName}-${darken(
+          getDefaultKeyFromCache(shortName),
+          -2
+        )}`
+      default:
+        return referenceName
+    }
   } else {
     const { r, g, b, a } = variant.fills[0]
     const color = chroma({ r, g, b, a })
@@ -70,23 +133,66 @@ function parseThemes(items, styles) {
         if (variants) {
           variants.forEach((variant) => {
             const variantName = variant.name.toLowerCase().replace(/ /g, '-')
+
+            // Ignore hover, active, focus variants - we do not fetch these from Figma;
+            // instead we set them programmatically for light and dark mode based on the default variant.
+            if (['hover', 'active', 'focus'].includes(variantName)) {
+              return
+            }
+
             const subVariants = variant.children
 
-            if (variant.children) {
-              if (subVariants) {
-                subVariants.forEach((subVariant) => {
-                  const subVariantName = subVariant.name
-                    .toLowerCase()
-                    .replace(/ /g, '-')
-                  const colorName = `${groupName}-${variantName}-${subVariantName}`
-                  theme[colorName] = getColorTokenValue(subVariant, styles)
-                })
-              }
+            if (subVariants) {
+              subVariants.forEach((subVariant) => {
+                const subVariantName = subVariant.name
+                  .toLowerCase()
+                  .replace(/ /g, '-')
+                const colorName = `${groupName}-${variantName}-${subVariantName}`
+                theme[colorName] = getColorTokenValue(subVariant, styles)
+              })
             } else {
               const colorName = `${groupName}${
                 variantName === 'default' ? '' : `-${variantName}`
               }`
               theme[colorName] = getColorTokenValue(variant, styles)
+
+              if (variantName === 'default') {
+                // Derive hover, active, focus variants from default variant for light and dark mode.
+                theme[`${colorName}-hover`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'hover'
+                )
+                theme[`${colorName}-active`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'active'
+                )
+                theme[`${colorName}-focus`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'focus'
+                )
+
+                theme[`${colorName}-hover-dark`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'hover',
+                  true
+                )
+                theme[`${colorName}-active-dark`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'active',
+                  true
+                )
+                theme[`${colorName}-focus-dark`] = getColorTokenValue(
+                  variant,
+                  styles,
+                  'focus',
+                  true
+                )
+              }
             }
           })
         }
@@ -134,6 +240,49 @@ function parseShadows(items) {
   }
 
   return shadows
+}
+
+const defaultColorKeysCache = new Map<string, `${number}${number}${number}`>()
+function getDefaultKeyFromCache(colorShortName: string) {
+  return defaultColorKeysCache.get(colorShortName)
+}
+
+function getDefaultKey(
+  colorShortName: string,
+  defaultColor: { hex(mode?: 'auto' | 'rgb' | 'rgba'): string },
+  oklchH: number,
+  scale: {
+    key: `${number}${number}${number}`
+    chroma: number
+    lightness: number
+  }[]
+) {
+  const defaultKey = scale.reduce((key, setting) => {
+    const settingColor = chroma.oklch(setting.lightness, setting.chroma, oklchH)
+    if (!key) {
+      return setting.key
+    }
+    const keyColorSetting = scale.find((setting) => setting.key === key)
+    const keyColor = chroma.oklch(
+      keyColorSetting.lightness,
+      keyColorSetting.chroma,
+      oklchH
+    )
+    const distanceToSettingColor = chroma.deltaE(
+      settingColor.hex(),
+      defaultColor.hex()
+    )
+    const distanceToKeyColor = chroma.deltaE(keyColor.hex(), defaultColor.hex())
+    if (distanceToSettingColor < distanceToKeyColor) {
+      return setting.key
+    }
+    return key
+  }, '') as `${number}${number}${number}`
+
+  // HACK: intended side effect
+  defaultColorKeysCache.set(colorShortName, defaultKey)
+
+  return defaultKey
 }
 
 function parseColors(items, styles: { name: string; description: string }[]) {
@@ -226,7 +375,11 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         { key: '700', chroma: isNeutral ? 0.015 : 0.1, lightness: 0.4 },
         { key: '800', chroma: isNeutral ? 0.02 : 0.08, lightness: 0.35 },
         { key: '900', chroma: 0.06, lightness: 0.24 },
-      ]
+      ] as {
+        key: `${number}${number}${number}`
+        chroma: number
+        lightness: number
+      }[]
 
       scale.forEach((setting) => {
         const color = chroma.oklch(setting.lightness, setting.chroma, oklchH)
@@ -237,36 +390,16 @@ function parseColors(items, styles: { name: string; description: string }[]) {
         ).toFixed(2)}%)`
       })
 
-      // Find color in scale with smallest distance to the default color
-      // and replace it with the default color.
-      const defaultKey = scale.reduce((key, setting) => {
-        const settingColor = chroma.oklch(
-          setting.lightness,
-          setting.chroma,
-          oklchH
-        )
-        if (!key) {
-          return setting.key
-        }
-        const keyColorSetting = scale.find((setting) => setting.key === key)
-        const keyColor = chroma.oklch(
-          keyColorSetting.lightness,
-          keyColorSetting.chroma,
-          oklchH
-        )
-        const distanceToSettingColor = chroma.deltaE(
-          settingColor.hex(),
-          defaultColor.hex()
-        )
-        const distanceToKeyColor = chroma.deltaE(
-          keyColor.hex(),
-          defaultColor.hex()
-        )
-        if (distanceToSettingColor < distanceToKeyColor) {
-          return setting.key
-        }
-        return key
-      }, '')
+      // Find color in scale with the smallest distance to the default color
+      // and replace it with the default color. Note that interactivity variants,
+      // such as hover and focus, need to be assigned according to the new default
+      // color key.
+      const defaultKey = getDefaultKey(
+        getShortName(baseColorName),
+        defaultColor,
+        oklchH,
+        scale
+      )
       colors[`${colorShortName}-${defaultKey}`] = `hsl(${hslH.toFixed(2)}deg ${(
         hslS * 100
       ).toFixed(2)}% ${(hslL * 100).toFixed(2)}%)`
@@ -573,8 +706,18 @@ function generateTheming(themes) {
     })
 
     themeSelectors.push(`.ld-theme-${themeName} {`)
-    themeSelectors.push(...currentThemeColorVariables.sort())
-    themeSelectors.push(`}`)
+    themeSelectors.push(
+      ...currentThemeColorVariables.filter((v) => !v.includes('-dark:')).sort()
+    )
+    // themeSelectors.push('\n  &.ld-dark {')
+    // themeSelectors.push(
+    //   ...currentThemeColorVariables
+    //     .filter((v) => v.includes('-dark:'))
+    //     .map((v) => '  ' + v.replace('-dark:', ':'))
+    //     .sort()
+    // )
+    // themeSelectors.push('  }')
+    themeSelectors.push('}')
   })
 
   return ensureWriteFile(
@@ -582,8 +725,18 @@ function generateTheming(themes) {
     [
       '/* autogenerated */ /* prettier-ignore */',
       ':root {',
-      ...themeColorVariables.sort(),
-      ...defaultThemeColorVariables.sort(),
+      ...themeColorVariables.filter((v) => !v.includes('-dark:')).sort(),
+      ...defaultThemeColorVariables.filter((v) => !v.includes('-dark:')).sort(),
+      '\n  &.ld-dark {',
+      ...themeColorVariables
+        .filter((v) => v.includes('-dark:'))
+        .map((v) => '  ' + v.replace('-dark:', ':'))
+        .sort(),
+      ...defaultThemeColorVariables
+        .filter((v) => v.includes('-dark:'))
+        .map((v) => '  ' + v.replace('-dark:', ':'))
+        .sort(),
+      '  }',
       '}',
       ...themeSelectors,
       '',
