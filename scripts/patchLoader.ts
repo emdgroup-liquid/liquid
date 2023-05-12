@@ -3,7 +3,7 @@ const fs = require('fs')
 const packageJSON = require('../dist/loader/package.json')
 const patchedPackageJSON = {
   ...packageJSON,
-  main: packageJSON.main.replace('.cjs', ''),
+  main: packageJSON.main.replace('.cjs', '.es2017'),
   type: 'module',
 }
 fs.writeFileSync(

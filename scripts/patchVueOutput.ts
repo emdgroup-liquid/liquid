@@ -14,7 +14,7 @@ fs.readFile(filename, 'utf8', function (err, data) {
     )
     .replace(
       "import { defineCustomElements } from '../dist/components/dist/loader/index.js';",
-      "import { defineCustomElements } from '../dist/loader/index.js';"
+      "import { defineCustomElements } from '../dist/loader/index.es2017.js';"
     )
 
   fs.writeFile(filename, result, 'utf8', function (err) {
