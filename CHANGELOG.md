@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/emdgroup-liquid/liquid/compare/v5.4.0...v5.4.1) (2023-05-12)
+
+
+### Bug Fixes
+
+* **loader:** use ES2017 loader ([a079410](https://github.com/emdgroup-liquid/liquid/commit/a079410b1c8651b8b6bfbe95edfc87bcc4c7bfc9)), closes [#699](https://github.com/emdgroup-liquid/liquid/issues/699)
+
 # [5.4.0](https://github.com/emdgroup-liquid/liquid/compare/v5.3.3...v5.4.0) (2023-05-02)
 
 
