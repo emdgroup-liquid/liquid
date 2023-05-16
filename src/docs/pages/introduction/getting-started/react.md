@@ -63,7 +63,7 @@ import '@emdgroup-liquid/liquid/dist/css/liquid.global.css'
 
 When adding Liquid Oxygen components to a React project, it is crucial to use the React bindings. All components are imported from `@emdgroup-liquid/liquid/dist/react`. The bindings significantly improve JSX compatibility and your developer experience.
 
-Let's have a look at how to add a [LdButton](components/ld-button/) to your project. This examnple also includes a [LdIcon](components/ld-icon/) as it helps you to check if Liquid Oxygen assets are loaded correctly.
+Let's have a look at how to add a [LdButton](components/ld-button/) to your project. This example also includes a [LdIcon](components/ld-icon/) as it helps you to check if Liquid Oxygen assets are loaded correctly.
 
 ```tsx
 // SampleComponent.tsx
@@ -80,6 +80,47 @@ export function SampleComponent() {
 ```
 
 When you put this component on a page, you should see a blue button with the text "Click me!" and a lightning bolt icon.
+
+### Manually defining custom elements
+
+When you look at the example above you may notice that we didn't have to define any custom elements anywhere. This is because the React output target includes the define custom elements logic and all custom elements get registered with the Custom Elements Registry as soon as imported (the [Stencil `includeDefineCustomElements` option](https://stenciljs.com/docs/react#includedefinecustomelements) is set to `true`).
+
+In some cases this convenience feature is not desireable, such as when bundling Liquid Oxygen components within your own library, or when you want to have more control over when your custom elements get registered. For this reason Liquid Oxygen exposes a React output target entry which does __not__ include the `defineCustomElements` utility.
+
+Here is how you would implement the example above, using the React output target, that doesn not include the `defineCustomElements` helper method.
+
+```tsx
+// SampleComponent.tsx
+import { LdButton, LdIcon } from '@emdgroup-liquid/liquid/dist/react-define-excluded'
+
+export function SampleComponent() {
+  return (
+    <LdButton>
+      Click me!
+      <LdIcon name="energy" />
+    </LdButton>
+  )
+}
+```
+
+Now you can register the components manually in two ways.
+
+1. You can use the `defineCustomElements` utility.
+
+```tsx
+import { defineCustomElements } from '@emdgroup-liquid/liquid/dist/loader'
+defineCustomElements()
+```
+
+2. You can register each element individually.
+
+```tsx
+import { LdButton as LdButtonCE } from '@emdgroup-liquid/liquid/dist/components/ld-button'
+import { LdIcon as LdIconCE } from "@emdgroup-liquid/liquid/dist/components/ld-icon"
+
+customElements.get('ld-button') || customElements.define('ld-button', LdButtonCE)
+customElements.get('ld-icon') || customElements.define('ld-icon', LdIconCE)
+```
 
 ### Events
 
