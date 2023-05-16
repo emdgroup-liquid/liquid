@@ -4,7 +4,7 @@
     "declaration": true,
     "outDir": "../dist"
   },
-  "include": ["../out/vue.ts"],
+  "include": ["../out/vue.ts", "../out/vue-define-excluded.ts"],
   "exclude": [
     "../node_modules",
     "../bin",
