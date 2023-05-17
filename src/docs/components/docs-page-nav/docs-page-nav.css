@@ -1,32 +1,3 @@
-@define-mixin docs-page-nav-ui-light {
-  .docs-page-nav__dark {
-    display: none;
-  }
-  .docs-page-nav__light {
-    display: block;
-  }
-}
-@define-mixin docs-page-nav-ui-dark {
-  .docs-page-nav__dark {
-    display: block;
-  }
-  .docs-page-nav__light {
-    display: none;
-  }
-}
-
-@mixin docs-page-nav-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-page-nav-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-page-nav-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-page-nav-ui-light;
-}
-
 .docs-page-nav {
   display: flex;
   flex-wrap: wrap;

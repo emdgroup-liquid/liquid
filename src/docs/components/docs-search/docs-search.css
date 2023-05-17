@@ -1,5 +1,6 @@
 .docs-search {
   position: fixed;
+  color: var(--ld-layer-text);
   z-index: 2;
   top: 0;
   width: 100%;
@@ -29,7 +30,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: var(--ld-col-neutral-900);
+  background-color: var(--ld-layer);
   opacity: 0.8;
   z-index: -1;
 }

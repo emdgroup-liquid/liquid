@@ -5,7 +5,7 @@
   --ld-notice-warning-icon-col: var(--ld-thm-warning);
   --ld-notice-success-icon-col: var(--ld-thm-success);
 
-  background: var(--ld-col-wht);
+  background: var(--ld-layer-2);
   border-radius: var(--ld-br-l);
   box-shadow: var(--ld-shadow-stacked);
   color: var(--ld-col-neutral-800);

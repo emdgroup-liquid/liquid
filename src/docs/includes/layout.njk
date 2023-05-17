@@ -3,7 +3,7 @@ title: Introduction
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="ld-layer-1">
 <head>
   <base href="{{ env.base }}/">
   <meta charset="utf-8">
@@ -55,18 +55,16 @@ title: Introduction
   <script type="module" src="{{ env.base }}/{{ buildstamp }}dist/build/liquid.esm.js"></script>
   <script nomodule src="{{ env.base }}/{{ buildstamp }}dist/build/liquid.js"></script>
 </head>
-<body>
+<body class="ld-layer">
   <script>
     if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
       document.body.classList.add('sarari')
     }
 
-    var storedThemePref = window.localStorage.getItem('docs-theme')
+    var storedThemePref = window.localStorage.getItem('docs-ui')
     var isDark = storedThemePref === 'dark' ? true : false
-    document.body.classList.add(`docs-theme-${this.isDark ? 'dark' : 'light'}`)
-    document.body.classList.remove(
-      `docs-theme-${!this.isDark ? 'dark' : 'light'}`
-    )
+    document.documentElement.classList.toggle('ld-dark', isDark)
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'auto'
   </script>
   <docs-topbar></docs-topbar>
   <docs-layout id="docs-layout" style="visibility: hidden">
@@ -78,11 +76,18 @@ title: Introduction
             {% if entry.children.length %}
               <details{% if ((entry.url == '/') and (('introduction/' in page.url) or ('/' == page.url))) or (((entry.url != '/') and (entry.url in page.url))) %} open{% endif %}>
                 <summary class="docs-nav__summary docs-nav__summary--{{ entry.title | lower | replace(" ", "-") }}">
-                  <a href="{{ env.base }}{{ entry.url | url }}"><span aria-label="{{ entry.title }}">{{ entry.title }}</span><div class="docs-nav__arrow"></div></a>
+                  <a href="{{ env.base }}{{ entry.url | url }}">
+                    <span aria-label="{{ entry.title }}">{{ entry.title }}</span>
+                    <div class="docs-nav__arrow">
+                      <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 6L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </a>
                   <div class="docs-nav__summary-toggle"></div>
                 </summary>
                 <ul>
-                  {% if ("/components" in entry.url) or ("/globals" in entry.url) %}
+                  {% if ("/components" in entry.url) or ("/global" in entry.url) %}
                     {% for child in entry.children|sort(false, true, 'title') %}{{ renderNavListItem(child) }}{% endfor %}
                   {% else %}
                     {% for child in entry.children %}{{ renderNavListItem(child) }}{% endfor %}

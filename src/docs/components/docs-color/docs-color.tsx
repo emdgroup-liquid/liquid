@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element, State } from '@stencil/core'
+import chroma from 'chroma-js'
 
 /** @internal **/
 @Component({
@@ -9,6 +10,7 @@ import { Component, Prop, h, Host, Element, State } from '@stencil/core'
 export class MyComponent {
   @Element() el: HTMLElement
   private bgRef: HTMLSpanElement
+  private observer: MutationObserver
 
   /** CSS variable name */
   @Prop() var: string
@@ -19,26 +21,56 @@ export class MyComponent {
   @State() val: string
   @State() dark: boolean
 
+  private getAlpha(color) {
+    return parseFloat((color.rgba()[3] || 1).toFixed(2))
+  }
+
   private isDark(color) {
-    color = color.match(
-      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
+    const isDarkMode = document.documentElement.classList.contains('ld-dark')
+    const a = this.getAlpha(color)
+    const lightness = color.get('hsl.l')
+    const isDark = isDarkMode ? lightness <= 0.4 : lightness > 0.4
+    console.info('a === 1 ? !isDark : false', a === 1 ? !isDark : false)
+    return a === 1 ? !isDark : false
+  }
+
+  getHSLAFromColor(color) {
+    const h = parseFloat(((color.get('hsl.h') || 0) * 1).toFixed(2))
+    const s = parseFloat((color.get('hsl.s') * 100).toFixed(2))
+    const l = parseFloat((color.get('hsl.l') * 100).toFixed(2))
+    const a = this.getAlpha(color)
+    return { h, s, l, a }
+  }
+
+  updateState() {
+    if (!this.bgRef) return
+    const color = chroma(
+      getComputedStyle(this.bgRef).getPropertyValue('background-color')
     )
-    const r = color[1]
-    const g = color[2]
-    const b = color[3]
-    const a = color[4]
-    const hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
-    return hsp <= 127.5 * (a || 1)
+    const { h, s, l, a } = this.getHSLAFromColor(color)
+    this.val = `hsl(${h}deg ${s}% ${l}%${a === 1 ? '' : ' / ' + a})`
+    this.dark = this.isDark(color)
+  }
+
+  componentWillLoad() {
+    this.observer = new MutationObserver(this.updateState.bind(this))
+    this.observer.observe(document.documentElement, {
+      subtree: false,
+      childList: false,
+      attributes: true,
+    })
+
+    this.updateState()
   }
 
   componentDidLoad() {
-    const color = getComputedStyle(this.bgRef).getPropertyValue(
-      'background-color'
-    )
     setTimeout(() => {
-      this.val = color
-      this.dark = this.isDark(color)
+      this.updateState()
     })
+  }
+
+  disconnectedCallback() {
+    if (this.observer) this.observer.disconnect()
   }
 
   render() {

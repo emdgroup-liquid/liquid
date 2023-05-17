@@ -1,27 +1,5 @@
-@define-mixin docs-border-radius-ui-light {
-  .docs-border-radius {
-    border-color: var(--ld-col-neutral-100);
-  }
-}
-@define-mixin docs-border-radius-ui-dark {
-  .docs-border-radius {
-    border-color: var(--ld-col-neutral-600);
-  }
-}
-
-@mixin docs-border-radius-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-border-radius-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-border-radius-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-border-radius-ui-light;
-}
-
 .docs-border-radius {
+  border-color: var(--ld-col-neutral-100);
   display: flex;
   width: 100%;
   align-items: center;

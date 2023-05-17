@@ -1,36 +1,3 @@
-@define-mixin docs-switch-ui-light {
-  .docs-switch-dark-light__btn {
-    circle {
-      stroke: var(--ld-col-neutral-900);
-    }
-    path {
-      fill: var(--ld-col-neutral-900);
-    }
-  }
-}
-@define-mixin docs-switch-ui-dark {
-  .docs-switch-dark-light__btn {
-    circle {
-      stroke: var(--ld-col-wht);
-    }
-    path {
-      fill: var(--ld-col-wht);
-    }
-  }
-}
-
-@mixin docs-switch-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-switch-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-switch-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-switch-ui-light;
-}
-
 .docs-switch-dark-light__btn {
   display: flex;
   align-items: center;
@@ -45,5 +12,11 @@
 
   svg {
     margin-right: var(--ld-sp-6);
+  }
+  circle {
+    stroke: var(--ld-col-neutral-900);
+  }
+  path {
+    fill: var(--ld-col-neutral-900);
   }
 }

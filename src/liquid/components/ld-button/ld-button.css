@@ -34,14 +34,14 @@
 
   /* colors */
   --ld-button-bg-color: var(--ld-thm-primary);
-  --ld-button-text-color: var(--ld-col-wht);
+  --ld-button-text-color: var(--ld-interactive-text);
   --ld-button-progress-color: var(--ld-thm-secondary);
   --ld-button-bg-color-focus: var(--ld-thm-primary-focus);
   --ld-button-text-color-focus: var(--ld-thm-primary-active);
   --ld-button-bg-color-hover: var(--ld-thm-primary-hover);
-  --ld-button-text-color-hover: var(--ld-col-wht);
+  --ld-button-text-color-hover: var(--ld-interactive-text);
   --ld-button-bg-color-active: var(--ld-thm-primary-active);
-  --ld-button-text-color-active: var(--ld-col-wht);
+  --ld-button-text-color-active: var(--ld-interactive-text);
 
   /* brand */
   --ld-button-brand-bg-color: var(--ld-col-wht);
@@ -65,8 +65,8 @@
   );
 
   /* ghost */
-  --ld-button-ghost-bg-color-active: var(--ld-thm-primary-alpha-low);
-  --ld-button-ghost-bg-color-hover: var(--ld-thm-primary-alpha-lowest);
+  --ld-button-ghost-bg-color-active: var(--ld-interactive-bg-color-active);
+  --ld-button-ghost-bg-color-hover: var(--ld-interactive-bg-color-hover);
   --ld-button-ghost-progress-color: var(--ld-thm-primary);
   --ld-button-ghost-progress-color-active: var(--ld-thm-primary-active);
   --ld-button-ghost-progress-color-focus: var(--ld-thm-primary-focus);
@@ -89,7 +89,7 @@
 
   /* danger */
   --ld-button-danger-bg-color: var(--ld-thm-error);
-  --ld-button-danger-text-color: var(--ld-col-wht);
+  --ld-button-danger-text-color: var(--ld-interactive-text);
   --ld-button-danger-progress-color: var(--ld-thm-error-hover);
   --ld-button-danger-bg-color-focus: var(--ld-thm-error-focus);
   --ld-button-danger-progress-color-focus: var(--ld-thm-error-active);
@@ -98,16 +98,16 @@
     --ld-button-danger-color-focus,
     var(--ld-thm-error-active)
   );
-  --ld-button-danger-text-color-hover: var(--ld-col-wht);
+  --ld-button-danger-text-color-hover: var(--ld-interactive-text);
   --ld-button-danger-progress-color-hover: var(--ld-thm-error);
   --ld-button-danger-bg-color-active: var(--ld-thm-error-active);
-  --ld-button-danger-text-color-active: var(--ld-col-wht);
+  --ld-button-danger-text-color-active: var(--ld-interactive-text);
   --ld-button-danger-progress-color-active: var(--ld-thm-error);
 
   /* danger-ghost */
   --ld-button-danger-ghost-brand-bg-color: var(
     --ld-button-danger-secondary-bg-color,
-    var(--ld-col-wht)
+    var(--ld-interactive-text)
   );
   --ld-button-danger-ghost-bg-color-active: var(
     --ld-button-danger-secondary-bg-color-active,
@@ -159,10 +159,10 @@
   --ld-button-neutral-progress-color-active: var(--ld-col-neutral);
   --ld-button-neutral-progress-color-focus: var(--ld-col-neutral-900);
   --ld-button-neutral-progress-color-hover: var(--ld-col-neutral);
-  --ld-button-neutral-text-color: var(--ld-col-wht);
-  --ld-button-neutral-text-color-active: var(--ld-col-wht);
+  --ld-button-neutral-text-color: var(--ld-interactive-text);
+  --ld-button-neutral-text-color-active: var(--ld-interactive-text);
   --ld-button-neutral-text-color-focus: var(--ld-col-neutral-900);
-  --ld-button-neutral-text-color-hover: var(--ld-col-wht);
+  --ld-button-neutral-text-color-hover: var(--ld-interactive-text);
 
   /* neutral-ghost */
   --ld-button-neutral-ghost-brand-bg-color: var(--ld-col-wht);

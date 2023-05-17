@@ -1,5 +1,8 @@
 @import 'border-radius/border-radius.css';
 @import 'colors/colors.css';
+@import 'colors/colors-dark.css';
+@import 'colors/layers.css';
+@import 'colors/interactive.css';
 @import 'focus/focus.css';
 @import 'fonts/fonts.css';
 @import 'shadows/shadows.css';

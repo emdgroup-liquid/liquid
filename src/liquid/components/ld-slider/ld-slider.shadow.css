@@ -44,7 +44,7 @@
   );
 
   /* colors */
-  --ld-slider-thumb-col: var(--ld-col-wht);
+  --ld-slider-thumb-col: var(--ld-layer-2);
   --ld-slider-disabled-thumb-col: var(--ld-col-neutral-200);
   --ld-slider-selected-col: var(--ld-slider-selected-col-default);
   --ld-slider-selected-col-default: var(--ld-thm-primary);

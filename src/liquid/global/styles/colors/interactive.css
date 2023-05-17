@@ -1,0 +1,13 @@
+[class*='ld-theme-'],
+:root {
+  --ld-interactive-text: var(--ld-col-wht);
+  --ld-interactive-bg-color-hover: var(--ld-thm-primary-alpha-lowest);
+  --ld-interactive-bg-color-active: var(--ld-thm-primary-alpha-low);
+
+  &.ld-dark,
+  .ld-dark & {
+    --ld-interactive-text: var(--ld-thm-primary-highlight);
+    --ld-interactive-bg-color-hover: var(--ld-thm-primary-alpha-low);
+    --ld-interactive-bg-color-active: var(--ld-thm-primary-alpha-lowest);
+  }
+}

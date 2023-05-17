@@ -40,8 +40,7 @@ export class DocsSwitchDarkLight {
         window.localStorage.setItem('docs-ui', this.isDark ? 'dark' : 'light')
       })
 
-    document.body.classList.add(`docs-ui-${this.isDark ? 'dark' : 'light'}`)
-    document.body.classList.remove(`docs-ui-${!this.isDark ? 'dark' : 'light'}`)
+    document.documentElement.classList.toggle('ld-dark', this.isDark)
     document.documentElement.style.colorScheme = this.isDark ? 'dark' : 'auto'
   }
 
@@ -49,8 +48,7 @@ export class DocsSwitchDarkLight {
   handleClick() {
     this.isDark = !this.isDark
     window.localStorage.setItem('docs-ui', this.isDark ? 'dark' : 'light')
-    document.body.classList.add(`docs-ui-${this.isDark ? 'dark' : 'light'}`)
-    document.body.classList.remove(`docs-ui-${!this.isDark ? 'dark' : 'light'}`)
+    document.documentElement.classList.toggle('ld-dark', this.isDark)
     document.documentElement.style.colorScheme = this.isDark ? 'dark' : 'auto'
   }
 

@@ -1,5 +1,8 @@
-@define-mixin docs-view-on-figma-ui-light {
-  .docs-view-on-figma ld-button::part(button) {
+.docs-view-on-figma {
+  flex-shrink: 0;
+  display: block;
+
+  ld-button::part(button) {
     background-color: var(--ld-col-neutral-800);
     color: var(--ld-col-wht);
     box-shadow: inset 0 0 0 2px var(--ld-col-neutral-800);
@@ -24,49 +27,4 @@
       box-shadow: inset 0 0 0 2px var(--ld-col-neutral-300);
     }
   }
-}
-
-@define-mixin docs-view-on-figma-ui-dark {
-  .docs-view-on-figma ld-button::part(button) {
-    background-color: var(--ld-col-wht);
-    color: var(--ld-col-neutral-900);
-    box-shadow: inset 0 0 0 2px var(--ld-col-wht);
-
-    &:focus:focus-visible {
-      color: var(--ld-col-neutral-900);
-      background-color: var(--ld-col-neutral-050);
-      box-shadow: inset 0 0 0 2px var(--ld-col-neutral-050);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--ld-col-neutral-200);
-        box-shadow: inset 0 0 0 2px var(--ld-col-neutral-200);
-      }
-    }
-
-    &:active,
-    &:active:focus-visible {
-      background-color: var(--ld-col-neutral-800);
-      color: var(--ld-col-wht);
-      box-shadow: inset 0 0 0 2px var(--ld-col-neutral-800);
-    }
-  }
-}
-
-@mixin docs-view-on-figma-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-view-on-figma-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-view-on-figma-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-view-on-figma-ui-light;
-}
-
-.docs-view-on-figma {
-  flex-shrink: 0;
-  display: block;
 }

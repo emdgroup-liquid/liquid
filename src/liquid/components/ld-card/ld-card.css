@@ -1,6 +1,6 @@
 :host,
 .ld-card {
-  --ld-card-bg-col: var(--ld-col-wht);
+  --ld-card-bg-col: var(--ld-layer);
   --ld-card-border-radius: var(--ld-br-l);
   --ld-card-padding: var(--ld-sp-32);
   --ld-card-padding-sm: var(--ld-sp-16);
@@ -10,7 +10,7 @@
   box-sizing: border-box;
   background-color: var(--ld-card-bg-col);
   border-radius: var(--ld-card-border-radius);
-  color: inherit;
+  color: var(--ld-layer-text);
   display: inline-grid;
   justify-items: flex-start;
   list-style: none;

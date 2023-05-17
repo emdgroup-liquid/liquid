@@ -1,27 +1,5 @@
-@define-mixin docs-spacing-ui-light {
-  .docs-spacing {
-    border-color: var(--ld-col-neutral-100);
-  }
-}
-@define-mixin docs-spacing-ui-dark {
-  .docs-spacing {
-    border-color: var(--ld-col-neutral-600);
-  }
-}
-
-@mixin docs-spacing-ui-light;
-
-@media (prefers-color-scheme: dark) {
-  @mixin docs-spacing-ui-dark;
-}
-.docs-ui-dark {
-  @mixin docs-spacing-ui-dark;
-}
-.docs-ui-light {
-  @mixin docs-spacing-ui-light;
-}
-
 .docs-spacing {
+  border-color: var(--ld-col-neutral-100);
   display: flex;
   width: 100%;
   align-items: center;

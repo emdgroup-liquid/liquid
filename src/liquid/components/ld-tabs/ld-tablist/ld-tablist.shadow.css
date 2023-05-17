@@ -8,7 +8,7 @@
   --ld-tablist-border-height: 0.1875rem;
   --ld-tablist-btn-scroll-col: var(--ld-col-neutral-900);
   --ld-tablist-btn-scroll-col-active: var(--ld-col-neutral-900);
-  --ld-tablist-btn-scroll-bg-col: var(--ld-col-neutral-010);
+  --ld-tablist-btn-scroll-bg-col: var(--ld-layer-2);
   --ld-tablist-btn-scroll-bg-col-hover: var(--ld-col-neutral-100);
   --ld-tablist-btn-scroll-bg-col-active: var(--ld-col-neutral-300);
 

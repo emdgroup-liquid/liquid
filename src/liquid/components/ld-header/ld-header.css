@@ -6,7 +6,7 @@
     --ld-header-max-width: 90rem;
 
     /* colors */
-    --ld-header-col: var(--ld-col-wht);
+    --ld-header-col: var(--ld-layer-2);
     --ld-header-bg-col: var(--ld-thm-primary);
 
     /* misc */
