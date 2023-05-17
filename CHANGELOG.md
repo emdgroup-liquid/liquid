@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/emdgroup-liquid/liquid/compare/v5.4.1...v5.5.0) (2023-05-17)
+
+
+### Features
+
+* **output-target:** add output target entries which do not auto define custom elements ([6077647](https://github.com/emdgroup-liquid/liquid/commit/60776478f777ced53a2bec68461dc88849bb7a6e)), closes [#700](https://github.com/emdgroup-liquid/liquid/issues/700)
+
 ## [5.4.1](https://github.com/emdgroup-liquid/liquid/compare/v5.4.0...v5.4.1) (2023-05-12)
 
 
