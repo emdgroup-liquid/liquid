@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – React</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1684222961285/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1684222961285/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1684222961285/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1684222961285/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1684222961285/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1684309034303/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1684309034303/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1684309034303/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1684309034303/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1684309034303/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1684222961285/">
+  <meta data-buildstamp="1684309034303/">
 
   <script>
     __docsSearchIndex__ = [
@@ -644,7 +644,7 @@
               title: 'React',
               tags: '',
               url: '/liquid/introduction/getting-started/react/',
-              headings: 'Prerequisites  Install  Import stylesheet  Usage  Events  Cookbook  React Router  Sandboxes ',
+              headings: 'Prerequisites  Install  Import stylesheet  Usage  Manually defining custom elements  Events  Cookbook  React Router  Sandboxes ',
               breadcrumbs: [
                 
                 
@@ -669,7 +669,7 @@
               title: 'Vue',
               tags: '',
               url: '/liquid/introduction/getting-started/vue/',
-              headings: 'Prerequisites  Install  Import stylesheet  Usage  Events  Sandboxes ',
+              headings: 'Prerequisites  Install  Import stylesheet  Usage  Manually defining custom elements  Events  Sandboxes ',
               breadcrumbs: [
                 
                 
@@ -2425,11 +2425,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1684222961285/docs.css">
-  <link rel="stylesheet" href="/liquid/1684222961285/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1684222961285/css_components/ld-button.css">
-  <script type="module" src="/liquid/1684222961285/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1684222961285/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1684309034303/docs.css">
+  <link rel="stylesheet" href="/liquid/1684309034303/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1684309034303/css_components/ld-button.css">
+  <script type="module" src="/liquid/1684309034303/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1684309034303/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3450,7 +3450,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#install">Install</a><ol><li><a href="#import-stylesheet">Import stylesheet</a></li></ol></li><li><a href="#usage">Usage</a><ol><li><a href="#events">Events</a></li></ol></li><li><a href="#cookbook">Cookbook</a><ol><li><a href="#react-router">React Router</a></li></ol></li><li><a href="#sandboxes">Sandboxes</a></li></ol>
+        <ol><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#install">Install</a><ol><li><a href="#import-stylesheet">Import stylesheet</a></li></ol></li><li><a href="#usage">Usage</a><ol><li><a href="#manually-defining-custom-elements">Manually defining custom elements</a></li><li><a href="#events">Events</a></li></ol></li><li><a href="#cookbook">Cookbook</a><ol><li><a href="#react-router">React Router</a></li></ol></li><li><a href="#sandboxes">Sandboxes</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -3503,7 +3503,7 @@ defineCustomElements()
 <span class="token keyword">import</span> <span class="token string">'@emdgroup-liquid/liquid/dist/css/liquid.global.css'</span></code></pre>
 <h2 id="usage" tabindex="-1">Usage <a class="header-anchor" href="introduction/getting-started/react/#usage"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <p>When adding Liquid Oxygen components to a React project, it is crucial to use the React bindings. All components are imported from <code>@emdgroup-liquid/liquid/dist/react</code>. The bindings significantly improve JSX compatibility and your developer experience.</p>
-<p>Let's have a look at how to add a <a href="components/ld-button/">LdButton</a> to your project. This examnple also includes a <a href="components/ld-icon/">LdIcon</a> as it helps you to check if Liquid Oxygen assets are loaded correctly.</p>
+<p>Let's have a look at how to add a <a href="components/ld-button/">LdButton</a> to your project. This example also includes a <a href="components/ld-icon/">LdIcon</a> as it helps you to check if Liquid Oxygen assets are loaded correctly.</p>
 <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// SampleComponent.tsx</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton<span class="token punctuation">,</span> LdIcon <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/react'</span>
 
@@ -3516,6 +3516,35 @@ defineCustomElements()
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 <p>When you put this component on a page, you should see a blue button with the text &quot;Click me!&quot; and a lightning bolt icon.</p>
+<h3 id="manually-defining-custom-elements" tabindex="-1">Manually defining custom elements <a class="header-anchor" href="introduction/getting-started/react/#manually-defining-custom-elements"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>When you look at the example above you may notice that we didn't have to define any custom elements anywhere. This is because the React output target includes the define custom elements logic and all custom elements get registered with the Custom Elements Registry as soon as imported (the <a href="https://stenciljs.com/docs/react#includedefinecustomelements" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Stencil <code>includeDefineCustomElements</code> option</a> is set to <code>true</code>).</p>
+<p>In some cases this convenience feature is not desireable, such as when bundling Liquid Oxygen components within your own library, or when you want to have more control over when your custom elements get registered. For this reason Liquid Oxygen exposes a React output target entry which does <strong>not</strong> include the <code>defineCustomElements</code> utility.</p>
+<p>Here is how you would implement the example above, using the React output target, that doesn not include the <code>defineCustomElements</code> helper method.</p>
+<pre class="language-tsx"><code class="language-tsx"><span class="token comment">// SampleComponent.tsx</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton<span class="token punctuation">,</span> LdIcon <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/react-define-excluded'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">SampleComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      Click me!
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdIcon</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>energy<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Now you can register the components manually in two ways.</p>
+<ol>
+<li>You can use the <code>defineCustomElements</code> utility.</li>
+</ol>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/loader'</span>
+<span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<ol start="2">
+<li>You can register each element individually.</li>
+</ol>
+<pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> LdButton <span class="token keyword">as</span> LdButtonCE <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/dist/components/ld-button'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LdIcon <span class="token keyword">as</span> LdIconCE <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@emdgroup-liquid/liquid/dist/components/ld-icon"</span>
+
+customElements<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">)</span> <span class="token operator">||</span> customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-button'</span><span class="token punctuation">,</span> LdButtonCE<span class="token punctuation">)</span>
+customElements<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'ld-icon'</span><span class="token punctuation">)</span> <span class="token operator">||</span> customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'ld-icon'</span><span class="token punctuation">,</span> LdIconCE<span class="token punctuation">)</span></code></pre>
 <h3 id="events" tabindex="-1">Events <a class="header-anchor" href="introduction/getting-started/react/#events"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
 <p>Liquid Oxygen components aim to work similarly to native HTML elements as much as possible. In most cases, you can expect the same events and behavior from a Liquid Oxygen component and its native equivalent. Custom events are documented on the respective component pages.</p>
 <p>Let's take our button from above and add a click handler.</p>
@@ -3624,7 +3653,7 @@ defineCustomElements()
 <p><docs-page-nav prev-href="introduction/getting-started/" next-title="Guides" next-href="guides/"></docs-page-nav></p>
 
       
-        <docs-contributors contributors='["toastedtoast","borisdiakur"]'></docs-contributors>
+        <docs-contributors contributors='["borisdiakur","toastedtoast"]'></docs-contributors>
       
     </docs-main>
 
