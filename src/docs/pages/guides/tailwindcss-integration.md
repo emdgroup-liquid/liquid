@@ -15,7 +15,7 @@ Liquid bundles a [Tailwind CSS preset](https://tailwindcss.com/docs/presets) whi
 
 ```js
 // tailwind.config.js
-const liquidPreset = require('@emdgroup-liquid/liquid/dist/css/tailwind-preset.js')
+const liquidPreset = require('@emdgroup-liquid/liquid/dist/css/tailwind-preset.cjs')
 
 module.exports = {
   presets: [liquidPreset],
@@ -32,7 +32,7 @@ Liquid's Tailwind preset extends Tailwind's [default configuration](https://unpk
 
 ```js
 // tailwind.config.js
-const liquidPreset = require('@emdgroup-liquid/liquid/dist/css/tailwind-preset.js')
+const liquidPreset = require('@emdgroup-liquid/liquid/dist/css/tailwind-preset.cjs')
 liquidPreset.presets = []
 
 module.exports = {
