@@ -12,7 +12,7 @@ permalink: guides/troubleshooting/popped-out-element-is-rendered-in-wrong-contai
 
 ## Problem
 
-Some components have a popper element that needs to stay above every other element when popped out. The [ld-select](components/ld-select/) component and the [ld-tooltip](components/ld-tooltip/) component are two examples of such components. By default, this is achieved by rendering the popped-out element as a direct child of the `body` element.
+Some components have a popper element that needs to stay above every other element when popped out. The [ld-select](components/ld-select/) component, the [ld-context-menu](components/ld-context-menu/) component and the [ld-tooltip](components/ld-tooltip/) component are examples of such components. By default, this is achieved by rendering the popped-out element as a direct child of the `body` element.
 
 However, in some cases this default behavior can be problematic. For instance:
 
