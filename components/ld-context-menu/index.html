@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Context Menu</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1684772534960/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1684772534960/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1684772534960/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1684772534960/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1684772534960/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1685111230221/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1685111230221/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1685111230221/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1685111230221/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1685111230221/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1684772534960/">
+  <meta data-buildstamp="1685111230221/">
 
   <script>
     __docsSearchIndex__ = [
@@ -1155,7 +1155,7 @@
               title: 'Context Menu',
               tags: '',
               url: '/liquid/components/ld-context-menu/',
-              headings: 'Examples  Basic  Size  Item Groups  With custom width  Position  Properties  Shadow Parts  Dependencies  Depends on  Graph ',
+              headings: 'Examples  Basic  Size  Item Groups  With custom width  Position  Prevent auto-closing  Properties  Methods      Shadow Parts  Dependencies  Depends on  Graph ',
               breadcrumbs: [
                 
                 
@@ -2425,11 +2425,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1684772534960/docs.css">
-  <link rel="stylesheet" href="/liquid/1684772534960/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1684772534960/css_components/ld-button.css">
-  <script type="module" src="/liquid/1684772534960/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1684772534960/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1685111230221/docs.css">
+  <link rel="stylesheet" href="/liquid/1685111230221/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1685111230221/css_components/ld-button.css">
+  <script type="module" src="/liquid/1685111230221/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1685111230221/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3450,7 +3450,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#examples">Examples</a><ol><li><a href="#basic">Basic</a></li><li><a href="#size">Size</a></li><li><a href="#item-groups">Item Groups</a></li><li><a href="#with-custom-width">With custom width</a></li><li><a href="#position">Position</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
+        <ol><li><a href="#examples">Examples</a><ol><li><a href="#basic">Basic</a></li><li><a href="#size">Size</a></li><li><a href="#item-groups">Item Groups</a></li><li><a href="#with-custom-width">With custom width</a></li><li><a href="#position">Position</a></li><li><a href="#prevent-auto-closing">Prevent auto-closing</a></li></ol></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a><ol><li><a href="#hidecontextmenu()-%3D%3E-promise%3Cvoid%3E">hideContextMenu() =&gt; Promise&lt;void&gt;</a></li><li><a href="#showcontextmenu()-%3D%3E-promise%3Cvoid%3E">showContextMenu() =&gt; Promise&lt;void&gt;</a></li></ol></li><li><a href="#shadow-parts">Shadow Parts</a></li><li><a href="#dependencies">Dependencies</a><ol><li><a href="#depends-on">Depends on</a></li><li><a href="#graph">Graph</a></li></ol></li></ol>
       </nav>
       </docs-toc>
     
@@ -3471,6 +3471,10 @@
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
       <h1 id="ld-context-menu" tabindex="-1">ld-context-menu <a class="header-anchor" href="components/ld-context-menu/#ld-context-menu"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<p>The context menu is a pop-up menu that appears upon user interaction. It offers a limited set of choices that are available in the current state, or context.</p>
+<ld-notice headline="Note" mode="warning">
+  If your application is mounted to a different element than the <code>body</code> element, or you have <em>z-order</em> related issues, you may need to configure the <code>bodyElement</code> option using the <code>tetherOptions</code> property. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-in-wrong-container">related troubleshooting section</a>.
+</ld-notice>
 <h2 id="examples" tabindex="-1">Examples <a class="header-anchor" href="components/ld-context-menu/#examples"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <ld-notice mode="warning">
   The <code>ld-context-menu</code> is not available as CSS component, because of it's tooltip functionality. To see CSS components examples for the menu without tooltip functionality, please take a look at the <a href="components/ld-context-menu/ld-menu"><code>ld-menu</code>-documentation</a>.
@@ -3684,6 +3688,26 @@
 <ld-notice mode="warning">
   The <code>position</code> prop is identical to the one of the <code>ld-tooltip</code> component. Please refer to the <a href="components/ld-tooltip/#positioning"><code>ld-tooltip</code>-documentation</a> for a full example of all available positions.
 </ld-notice>
+<h3 id="prevent-auto-closing" tabindex="-1">Prevent auto-closing <a class="header-anchor" href="components/ld-context-menu/#prevent-auto-closing"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>You can prevent auto-closing of the context menu on click, by attaching the <code>prevent-close</code> attribute to the <code>ld-menuitem</code> component.</p>
+<docs-example code="%3Cld-context-menu%3E%0A%20%20%3Cld-button%20slot%3D%22trigger%22%3EOpen%20menu%3C%2Fld-button%3E%0A%20%20%3Cld-menuitem%3EWill%20close%3C%2Fld-menuitem%3E%0A%20%20%3Cld-menuitem%20prevent-close%3EWon%26apos%3Bt%20close%3C%2Fld-menuitem%3E%0A%3C%2Fld-context-menu%3E" code-react-component="%3CLdContextMenu%3E%0A%20%20%3CLdButton%20slot%3D%22trigger%22%3EOpen%20menu%3C%2FLdButton%3E%0A%20%20%3CLdMenuitem%3EWill%20close%3C%2FLdMenuitem%3E%0A%20%20%3CLdMenuitem%20preventClose%3EWon%26apos%3Bt%20close%3C%2FLdMenuitem%3E%0A%3C%2FLdContextMenu%3E"  themable has-border has-padding>
+<div slot="code">
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-context-menu</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>trigger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Open menu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-menuitem</span><span class="token punctuation">></span></span>Will close<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-menuitem</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ld-menuitem</span> <span class="token attr-name">prevent-close</span><span class="token punctuation">></span></span>Won<span class="token entity named-entity" title="&apos;">&amp;apos;</span>t close<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-menuitem</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ld-context-menu</span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="codeReactComponent">
+<pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdContextMenu</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>trigger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">Open menu</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdMenuitem</span></span><span class="token punctuation">></span></span><span class="token plain-text">Will close</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdMenuitem</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdMenuitem</span></span> <span class="token attr-name">preventClose</span><span class="token punctuation">></span></span><span class="token plain-text">Won&amp;apos;t close</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdMenuitem</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdContextMenu</span></span><span class="token punctuation">></span></span></code></pre>
+</div><div slot="show"><ld-context-menu>
+  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-menuitem>Will close</ld-menuitem>
+  <ld-menuitem prevent-close>Won&apos;t close</ld-menuitem>
+</ld-context-menu></div></docs-example>
 <!-- Auto Generated Below -->
 <h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-context-menu/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
@@ -3725,8 +3749,24 @@
 <td><code>&quot;lg&quot; | &quot;sm&quot;</code></td>
 <td><code>undefined</code></td>
 </tr>
+<tr>
+<td><code>tetherOptions</code></td>
+<td><code>tether-options</code></td>
+<td>Tether options object to be merged with the default options (optionally stringified).</td>
+<td><code>string | { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string | boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }</code></td>
+<td><code>undefined</code></td>
+</tr>
 </tbody>
 </table>
+<h2 id="methods" tabindex="-1">Methods <a class="header-anchor" href="components/ld-context-menu/#methods"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<h3 id="hidecontextmenu()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>hideContextMenu() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-context-menu/#hidecontextmenu()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>Hide context menu</p>
+<h4 id="returns" tabindex="-1">Returns <a class="header-anchor" href="components/ld-context-menu/#returns"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<p>Type: <code>Promise&lt;void&gt;</code></p>
+<h3 id="showcontextmenu()-%3D%3E-promise%3Cvoid%3E" tabindex="-1"><code>showContextMenu() =&gt; Promise&lt;void&gt;</code> <a class="header-anchor" href="components/ld-context-menu/#showcontextmenu()-%3D%3E-promise%3Cvoid%3E"><span aria-label="" class="header-anchor__symbol">#</span></a></h3>
+<p>Show context menu</p>
+<h4 id="returns-1" tabindex="-1">Returns <a class="header-anchor" href="components/ld-context-menu/#returns-1"><span aria-label="" class="header-anchor__symbol">#</span></a></h4>
+<p>Type: <code>Promise&lt;void&gt;</code></p>
 <h2 id="shadow-parts" tabindex="-1">Shadow Parts <a class="header-anchor" href="components/ld-context-menu/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
 <table>
 <thead>
