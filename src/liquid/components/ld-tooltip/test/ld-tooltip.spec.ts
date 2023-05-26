@@ -111,7 +111,7 @@ describe('ld-tooltip', () => {
       jest.advanceTimersByTime(0)
       await page.waitForChanges()
 
-      expect(component).toMatchSnapshot()
+      expect(page.body).toMatchSnapshot()
     })
   })
 

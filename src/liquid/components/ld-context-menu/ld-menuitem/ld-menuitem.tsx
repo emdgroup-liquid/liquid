@@ -1,4 +1,14 @@
-import { Component, Element, Host, h, Prop, State, Method } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Host,
+  h,
+  Prop,
+  State,
+  Method,
+  Event,
+  EventEmitter,
+} from '@stencil/core'
 import { cloneAttributes } from '../../../utils/cloneAttributes'
 
 type Mode = 'highlight' | 'danger' | 'neutral'
@@ -38,6 +48,9 @@ export class LdMenuitem implements InnerFocusable {
   /** Tab index of the menu item. */
   @Prop() ldTabindex?: number
 
+  /** Prevent closing of the context menu on click. */
+  @Prop() preventClose?: boolean
+
   /** Display mode. */
   @Prop() mode?: Mode = 'neutral'
 
@@ -60,6 +73,17 @@ export class LdMenuitem implements InnerFocusable {
   @Method()
   async focusInner() {
     this.buttonRef?.focusInner()
+  }
+
+  /**
+   * @internal
+   * Emitted on menu item click if preventClose prop is not truethy.
+   */
+  @Event() ldclosetooltip: EventEmitter
+
+  private handleClick = (ev: MouseEvent) => {
+    if (this.preventClose) return
+    this.ldclosetooltip.emit(ev)
   }
 
   componentWillLoad() {
@@ -88,6 +112,7 @@ export class LdMenuitem implements InnerFocusable {
             justifyContent="start"
             ldTabindex={this.ldTabindex}
             mode={modeMap.get(this.mode)}
+            onClick={this.handleClick}
             part="focusable button"
             ref={(element) => (this.buttonRef = element)}
             size={this.size}

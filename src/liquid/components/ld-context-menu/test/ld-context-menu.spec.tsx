@@ -357,6 +357,85 @@ describe('ld-context-menu', () => {
     expect(ldButton.focusInner).toHaveBeenCalled()
   })
 
+  it('allows to open and close menu via methods', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu>
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+
+    const contextMenu = page.root as HTMLLdContextMenuElement
+    const tooltip = contextMenu.shadowRoot.querySelector('ld-tooltip')
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('ld-button')
+    const tooltipTrigger = tooltip.shadowRoot.querySelector(
+      '.ld-tooltip__trigger'
+    )
+    const popper = tooltip.shadowRoot.querySelector('ld-tooltip-popper')
+
+    await prepareAndGetMenuInTooltip(page, [triggerButton], [menu])
+
+    expect(popper).toHaveAttribute('aria-hidden')
+
+    await contextMenu.showContextMenu()
+    await page.waitForChanges()
+
+    expect(tooltipTrigger).toHaveClass('ld-tether-enabled')
+    expect(popper).not.toHaveAttribute('aria-hidden')
+
+    await contextMenu.hideContextMenu()
+    await page.waitForChanges()
+
+    expect(tooltip.hideTooltip).toHaveBeenCalled()
+  })
+
+  it('prevents closing menu', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu>
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem prevent-close>Can not close</ld-menuitem>
+          <ld-menuitem>Can close</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+
+    const contextMenu = page.root as HTMLLdContextMenuElement
+    const tooltip = page.root.shadowRoot.querySelector('ld-tooltip')
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('ld-button')
+    const popper = tooltip.shadowRoot.querySelector('ld-tooltip-popper')
+
+    const menuInTooltip = await prepareAndGetMenuInTooltip(
+      page,
+      [triggerButton],
+      [menu]
+    )
+    const menuItemsInTooltip = Array.from(
+      menuInTooltip.querySelectorAll('ld-menuitem')
+    )
+
+    await contextMenu.showContextMenu()
+    await page.waitForChanges()
+
+    expect(popper).not.toHaveAttribute('aria-hidden')
+
+    menuItemsInTooltip[0].click()
+    await page.waitForChanges()
+
+    expect(tooltip.hideTooltip).not.toHaveBeenCalled()
+
+    menuItemsInTooltip[1].click()
+    await page.waitForChanges()
+
+    expect(tooltip.hideTooltip).not.toHaveBeenCalled()
+  })
+
   it('does not throw when trying to set inner focus before hydration', async () => {
     const component = new LdMenuitem()
     await component.focusInner()

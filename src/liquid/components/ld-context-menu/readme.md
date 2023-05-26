@@ -9,6 +9,12 @@ permalink: components/ld-context-menu/
 
 # ld-context-menu
 
+The context menu is a pop-up menu that appears upon user interaction. It offers a limited set of choices that are available in the current state, or context.
+
+<ld-notice headline="Note" mode="warning">
+  If your application is mounted to a different element than the <code>body</code> element, or you have <em>z-order</em> related issues, you may need to configure the <code>bodyElement</code> option using the <code>tetherOptions</code> property. For more details check out the <a href="guides/troubleshooting/#popped-out-element-is-rendered-in-wrong-container">related troubleshooting section</a>.
+</ld-notice>
+
 ## Examples
 
 <ld-notice mode="warning">
@@ -185,17 +191,61 @@ permalink: components/ld-context-menu/
   The <code>position</code> prop is identical to the one of the <code>ld-tooltip</code> component. Please refer to the <a href="components/ld-tooltip/#positioning"><code>ld-tooltip</code>-documentation</a> for a full example of all available positions.
 </ld-notice>
 
+### Prevent auto-closing
+
+You can prevent auto-closing of the context menu on click, by attaching the `prevent-close` attribute to the `ld-menuitem` component.
+
+{% example %}
+<ld-context-menu>
+  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-menuitem>Will close</ld-menuitem>
+  <ld-menuitem prevent-close>Won&apos;t close</ld-menuitem>
+</ld-context-menu>
+
+<!-- React component -->
+
+<LdContextMenu>
+  <LdButton slot="trigger">Open menu</LdButton>
+  <LdMenuitem>Will close</LdMenuitem>
+  <LdMenuitem preventClose>Won&apos;t close</LdMenuitem>
+</LdContextMenu>
+{% endexample %}
+
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description                                                   | Type                                                                                                                                                                                                 | Default         |
-| ---------- | ---------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `key`      | `key`      | for tracking the node's identity when working with lists      | `string \| number`                                                                                                                                                                                   | `undefined`     |
-| `position` | `position` | Position of the context menu relative to the trigger element. | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"` | `'bottom left'` |
-| `ref`      | `ref`      | reference to component                                        | `any`                                                                                                                                                                                                | `undefined`     |
-| `size`     | `size`     | Size of the context menu.                                     | `"lg" \| "sm"`                                                                                                                                                                                       | `undefined`     |
+| Property        | Attribute        | Description                                                                           | Type                                                                                                                                                                                                                                                                                                                                             | Default         |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
+| `key`           | `key`            | for tracking the node's identity when working with lists                              | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`     |
+| `position`      | `position`       | Position of the context menu relative to the trigger element.                         | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"`                                                                                                                                             | `'bottom left'` |
+| `ref`           | `ref`            | reference to component                                                                | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`     |
+| `size`          | `size`           | Size of the context menu.                                                             | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`     |
+| `tetherOptions` | `tether-options` | Tether options object to be merged with the default options (optionally stringified). | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`     |
+
+
+## Methods
+
+### `hideContextMenu() => Promise<void>`
+
+Hide context menu
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `showContextMenu() => Promise<void>`
+
+Show context menu
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Shadow Parts

@@ -1,4 +1,12 @@
-import { Component, Element, h, Prop, State, Watch } from '@stencil/core'
+import {
+  Component,
+  Element,
+  h,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core'
 import { isHtmlElement } from '../../utils/type-checking'
 import { isInnerFocusable } from '../../utils/focus'
 
@@ -24,6 +32,9 @@ export class LdContextMenu {
 
   /** Size of the context menu. */
   @Prop() size?: 'sm' | 'lg'
+
+  /** Tether options object to be merged with the default options (optionally stringified). */
+  @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
   @State() initialized = false
 
@@ -68,6 +79,18 @@ export class LdContextMenu {
     await firstMenuItem.focusInner()
   }
 
+  /** Show context menu */
+  @Method()
+  async showContextMenu() {
+    await this.tooltipRef.showTooltip()
+  }
+
+  /** Hide context menu */
+  @Method()
+  async hideContextMenu() {
+    await this.tooltipRef.hideTooltip()
+  }
+
   @Watch('size')
   private updateSize() {
     if (this.size) {
@@ -102,6 +125,7 @@ export class LdContextMenu {
         position={this.position}
         preventScreenreader
         tag="span"
+        tetherOptions={this.tetherOptions}
         triggerType="click"
         unstyled
       >

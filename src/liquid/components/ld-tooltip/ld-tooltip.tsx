@@ -162,8 +162,10 @@ export class LdTooltip {
 
     tooltipContent.forEach((node) => {
       copySlottedNodes(node)
-      const clonedNode = node.cloneNode(true)
-      this.tooltipRef.appendChild(clonedNode)
+      // We put original node will be put in the tooltipRef, because we cannot
+      // clone event listeners. The original event listeners must be
+      // present on the node that is located in the tooltipRef element.
+      this.tooltipRef.appendChild(node)
     })
   }
 
@@ -217,6 +219,11 @@ export class LdTooltip {
   @Method()
   async showTooltip() {
     if (this.disabled) return
+
+    if (!this.popper) {
+      await this.initTooltip()
+      return
+    }
 
     clearTimeout(this.delayTimeout)
     this.popper.enable()
@@ -288,7 +295,8 @@ export class LdTooltip {
       this.visible &&
       this.triggerType === 'click' &&
       ev.isTrusted &&
-      !ev.composedPath().includes(this.el)
+      !ev.composedPath().includes(this.el) &&
+      !ev.composedPath().includes(this.tooltipRef)
     ) {
       this.hideTooltip()
     }
@@ -303,6 +311,16 @@ export class LdTooltip {
   })
   handleTouchOutside(ev) {
     this.handleClickOutside(ev)
+  }
+
+  @Listen('ldclosetooltip', {
+    target: 'window',
+    passive: true,
+  })
+  handleCloseTooltip(ev) {
+    if (ev.composedPath().includes(this.tooltipRef)) {
+      this.hideTooltip()
+    }
   }
 
   private handleSlotChange = () => {
