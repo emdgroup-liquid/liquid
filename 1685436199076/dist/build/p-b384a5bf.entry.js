@@ -1,2 +1,0 @@
-import{r as t,h as s}from"./p-5c3033fa.js";const o=":host{display:contents}";const r=class{constructor(s){t(this,s)}render(){return s("tbody",{class:"ld-table-body",part:"tbody"},s("slot",null))}};r.style=o;export{r as ld_table_body};
-//# sourceMappingURL=p-b384a5bf.entry.js.map

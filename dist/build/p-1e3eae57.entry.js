@@ -1,0 +1,2 @@
+import{r as o,h as s}from"./p-fbb57a27.js";const t=":host{display:contents}";const r=class{constructor(s){o(this,s);this.span=undefined}render(){return s("colgroup",{class:"ld-table-colgroup",span:this.span,part:"colgroup"},s("slot",null))}};r.style=t;export{r as ld_table_colgroup};
+//# sourceMappingURL=p-1e3eae57.entry.js.map
