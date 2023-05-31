@@ -612,15 +612,22 @@ describe('ld-tooltip', () => {
     const trigger = component.shadowRoot.querySelector('.ld-tooltip__trigger')
 
     component.querySelector('p').textContent = 'Changed content'
-    const defaultSlot = component.shadowRoot.querySelector<HTMLSlotElement>(
-      '.ld-tooltip__content slot'
-    )
+
+    const assignedNodes = component.querySelectorAll('> *') as unknown as Node[]
 
     // TODO: remove as soon as https://github.com/ionic-team/stencil/issues/2830 is resolved
-    defaultSlot.assignedNodes = () =>
-      component.querySelectorAll('> *') as unknown as Node[]
+    const mockAssignedNodesOnDefaultSlot = () => {
+      component.shadowRoot.querySelector<HTMLSlotElement>(
+        '.ld-tooltip__content slot'
+      ).assignedNodes = () => assignedNodes
+    }
+    mockAssignedNodesOnDefaultSlot()
+
     trigger.dispatchEvent(new MouseEvent('mouseenter'))
     jest.advanceTimersByTime(0)
+
+    mockAssignedNodesOnDefaultSlot()
+
     await page.waitForChanges()
     getTriggerableMutationObserver().trigger([])
     await page.waitForChanges()
