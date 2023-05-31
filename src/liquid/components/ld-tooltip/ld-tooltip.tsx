@@ -100,6 +100,7 @@ export class LdTooltip {
   private popper?: Tether
   private tooltipRef!: HTMLElement
   private triggerRef!: HTMLSpanElement
+  private isObserverEnabled = true
 
   /** Show arrow */
   @Prop() arrow?: boolean
@@ -158,14 +159,33 @@ export class LdTooltip {
   }
 
   private syncContent = () => {
+    this.isObserverEnabled = false
+
+    // Grab the new content in the slot.
     const tooltipContent = this.contentRef.querySelector('slot').assignedNodes()
 
+    // Delete old content in popper element. Using textContent
+    // is faster than innerHTML as no HTML parsers needs to be
+    // invoked. Instead, this immediately replaces all children
+    // of the tooltip ref with a single #text node.
+    this.tooltipRef.textContent = ''
+
+    // Move original nodes to popper element,
+    // including all event listeners!
     tooltipContent.forEach((node) => {
       copySlottedNodes(node)
-      // We put original node will be put in the tooltipRef, because we cannot
-      // clone event listeners. The original event listeners must be
-      // present on the node that is located in the tooltipRef element.
       this.tooltipRef.appendChild(node)
+    })
+
+    // The timeout is required. Without the setTimeout,
+    // there is a possibility that the observer could be
+    // re-enabled immediately after the content synchronization
+    // code has been executed, but before the DOM modifications
+    // have been fully processed. This could result in the
+    // observer detecting incomplete or inconsistent changes,
+    // leading to unexpected behavior.
+    setTimeout(() => {
+      this.isObserverEnabled = true
     })
   }
 
@@ -324,6 +344,9 @@ export class LdTooltip {
   }
 
   private handleSlotChange = () => {
+    if (!this.isObserverEnabled) return
+
+    // Remove all content from the popper element except for the tether-element-marker.
     this.tooltipRef.childNodes.forEach((node) => {
       if (
         isElement(node) &&
@@ -334,6 +357,8 @@ export class LdTooltip {
 
       node.remove()
     })
+
+    // Put all content from the slot in the popper element.
     this.syncContent()
   }
 
@@ -342,7 +367,7 @@ export class LdTooltip {
     this.observer.observe(this.el, {
       subtree: true,
       childList: true,
-      attributes: true,
+      attributes: false,
     })
   }
 
