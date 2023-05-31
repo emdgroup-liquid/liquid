@@ -15,6 +15,12 @@ export class LdTooltipPopper {
   /** Show arrow */
   @Prop() arrow?: boolean
 
+  /**
+   * Use to right-click.
+   * @internal
+   */
+  @Prop() rightClick? = false
+
   /** The tooltip size (effects tooltip padding only) */
   @Prop() size?: 'sm'
 
@@ -42,7 +48,8 @@ export class LdTooltipPopper {
           this.hasDefaultTrigger && 'ld-tooltip--with-default-trigger',
           this.initialized && 'ld-tooltip--initialized',
           this.size && `ld-tooltip--${this.size}`,
-          this.triggerType === 'click' && 'ld-tooltip--interactive',
+          (this.rightClick || this.triggerType === 'click') &&
+            'ld-tooltip--interactive',
           this.unstyled && 'ld-tooltip--unstyled',
         ])}
         role="tooltip"
