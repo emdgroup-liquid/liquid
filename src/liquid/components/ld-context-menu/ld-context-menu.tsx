@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Method,
   Prop,
@@ -30,6 +32,9 @@ export class LdContextMenu {
   /** Position of the context menu relative to the trigger element. */
   @Prop() position?: HTMLLdTooltipElement['position'] = 'bottom left'
 
+  /** Use right-click. */
+  @Prop() rightClick? = false
+
   /** Size of the context menu. */
   @Prop() size?: 'sm' | 'lg'
 
@@ -51,6 +56,16 @@ export class LdContextMenu {
     }
   }
 
+  private focusFirstMenuitem = async (menuInTooltip: HTMLLdMenuElement) => {
+    const firstMenuItem = await menuInTooltip.getFirstMenuItem()
+
+    if (!firstMenuItem) {
+      return
+    }
+
+    await firstMenuItem.focusInner()
+  }
+
   private handleKeyDown = async (event: KeyboardEvent) => {
     switch (event.key) {
       case 'Escape':
@@ -70,14 +85,21 @@ export class LdContextMenu {
       menuInTooltip.addEventListener('keydown', this.handleKeyDown)
       this.initialized = true
     }
-    const firstMenuItem = await menuInTooltip.getFirstMenuItem()
 
-    if (!firstMenuItem) {
-      return
-    }
-
-    await firstMenuItem.focusInner()
+    this.focusFirstMenuitem(menuInTooltip)
+    this.ldcontextmenuopen.emit()
   }
+
+  private handleMenuClose = () => {
+    this.resetFocus()
+    this.ldcontextmenuclose.emit()
+  }
+
+  /** Emitted when the context menu is opened. */
+  @Event() ldcontextmenuopen: EventEmitter
+
+  /** Emitted when the context menu is closed. */
+  @Event() ldcontextmenuclose: EventEmitter
 
   /** Show context menu */
   @Method()
@@ -118,9 +140,10 @@ export class LdContextMenu {
   render() {
     return (
       <ld-tooltip
-        onLdtooltipclose={this.resetFocus}
+        onLdtooltipclose={this.handleMenuClose}
         onLdtooltipopen={this.handleMenuOpen}
         ref={(element: HTMLLdTooltipElement) => (this.tooltipRef = element)}
+        rightClick={this.rightClick}
         part="tooltip"
         position={this.position}
         preventScreenreader

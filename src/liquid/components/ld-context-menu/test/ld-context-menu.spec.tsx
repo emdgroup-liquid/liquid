@@ -436,6 +436,68 @@ describe('ld-context-menu', () => {
     expect(tooltip.hideTooltip).not.toHaveBeenCalled()
   })
 
+  it('opens on right-click', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu rightClick>
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+    const tooltip = page.root.shadowRoot.querySelector('ld-tooltip')
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('ld-button')
+
+    const menuInTooltip = await prepareAndGetMenuInTooltip(
+      page,
+      [triggerButton],
+      [menu]
+    )
+    const firstMenuItemInTooltip = menuInTooltip.querySelector('ld-menuitem')
+
+    tooltip.handleContextMenu(new Event('contextMenu'))
+    await page.waitForChanges()
+
+    expect(firstMenuItemInTooltip.focusInner).toHaveBeenCalled()
+  })
+
+  it('closes on right-click of other context menu', async () => {
+    const page = await newSpecPage({
+      components: [LdContextMenu, LdMenuitem, LdTooltip, LdMenu, LdButton],
+      template: () => (
+        <ld-context-menu rightClick>
+          <ld-button slot="trigger">Open</ld-button>
+          <ld-menuitem>Menu item</ld-menuitem>
+        </ld-context-menu>
+      ),
+    })
+    const tooltip = page.root.shadowRoot.querySelector('ld-tooltip')
+    const menu = page.root.shadowRoot.querySelector('ld-menu')
+    const triggerButton = page.root.querySelector('ld-button')
+
+    const menuInTooltip = await prepareAndGetMenuInTooltip(
+      page,
+      [triggerButton],
+      [menu]
+    )
+    const firstMenuItemInTooltip = menuInTooltip.querySelector('ld-menuitem')
+
+    tooltip.handleContextMenu(new Event('contextMenu'))
+    await page.waitForChanges()
+
+    expect(firstMenuItemInTooltip.focusInner).toHaveBeenCalled()
+
+    const closeSpy = jest.fn()
+    tooltip.addEventListener('ldtooltipclose', closeSpy)
+
+    page.body.dispatchEvent(new CustomEvent('ldtooltipopen', { bubbles: true }))
+    await page.waitForChanges()
+
+    expect(closeSpy).toHaveBeenCalled()
+  })
+
   it('does not throw when trying to set inner focus before hydration', async () => {
     const component = new LdMenuitem()
     await component.focusInner()

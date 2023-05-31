@@ -119,6 +119,12 @@ export class LdTooltip {
    */
   @Prop() preventScreenreader? = false
 
+  /**
+   * Use to right-click.
+   * @internal
+   */
+  @Prop() rightClick? = false
+
   /** Delay in ms until tooltip shows (only when trigger type is 'hover') */
   @Prop() showDelay? = 0
 
@@ -143,7 +149,7 @@ export class LdTooltip {
   /** Emitted when the tooltip is opened. */
   @Event() ldtooltipopen: EventEmitter
 
-  /** Emitted when the tooltip is opened. */
+  /** Emitted when the tooltip is closed. */
   @Event() ldtooltipclose: EventEmitter
 
   @State() hasDefaultTrigger = true
@@ -231,8 +237,18 @@ export class LdTooltip {
     this.ldtooltipopen.emit()
   }
 
+  /** @internal */
+  @Method()
+  async handleContextMenu(ev) {
+    if (this.disabled) return
+
+    ev.preventDefault()
+    this.toggleTooltip()
+  }
+
   private toggleTooltip = () => {
-    if (this.popper == undefined) {
+    if (!this.popper) {
+      this.initTooltip()
       return
     }
 
@@ -274,16 +290,12 @@ export class LdTooltip {
     }
   }
 
-  private handleToggleTrigger = () => {
-    if (this.triggerType === 'hover' || this.disabled) {
+  private handleClick = () => {
+    if (this.rightClick || this.triggerType === 'hover' || this.disabled) {
       return
     }
 
-    if (this.popper === undefined) {
-      this.initTooltip()
-    } else {
-      this.toggleTooltip()
-    }
+    this.toggleTooltip()
   }
 
   // TODO: maybe this should listen only, if the tooltip was opened by click.
@@ -295,6 +307,24 @@ export class LdTooltip {
       this.visible &&
       this.triggerType === 'click' &&
       ev.isTrusted &&
+      !ev.composedPath().includes(this.el) &&
+      !ev.composedPath().includes(this.tooltipRef)
+    ) {
+      this.hideTooltip()
+    }
+  }
+
+  // This listener is required for tooltips which open via right click.
+  // It makes sure that tooltips opened via right click get closed again
+  // if another tooltip gets open via right click. Since a right click
+  // is not a left click, the click outside handler, which otherwise would
+  // close the tooltip, is not sufficient.
+  @Listen('ldtooltipopen', {
+    target: 'window',
+  })
+  handleContextMenuOutside(ev: CustomEvent) {
+    if (
+      this.visible &&
       !ev.composedPath().includes(this.el) &&
       !ev.composedPath().includes(this.tooltipRef)
     ) {
@@ -401,7 +431,8 @@ export class LdTooltip {
             'ld-tooltip__trigger',
             this.triggerType === 'click' && 'ld-tooltip__trigger--clickable',
           ])}
-          onClick={this.handleToggleTrigger}
+          onClick={this.handleClick}
+          onContextMenu={this.handleContextMenu.bind(this)}
           onMouseEnter={this.handleShowTrigger}
           onMouseLeave={this.handleHideTrigger}
           part="trigger focusable"
@@ -452,6 +483,7 @@ export class LdTooltip {
           ref={(element: HTMLElement) => {
             this.tooltipRef = element
           }}
+          rightClick={this.rightClick}
           size={this.size}
           triggerType={this.triggerType}
         />

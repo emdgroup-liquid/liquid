@@ -438,7 +438,7 @@ Tooltips provide additional information, mostly short paragraphs, and can be pla
 
 | Event            | Description                         | Type               |
 | ---------------- | ----------------------------------- | ------------------ |
-| `ldtooltipclose` | Emitted when the tooltip is opened. | `CustomEvent<any>` |
+| `ldtooltipclose` | Emitted when the tooltip is closed. | `CustomEvent<any>` |
 | `ldtooltipopen`  | Emitted when the tooltip is opened. | `CustomEvent<any>` |
 
 

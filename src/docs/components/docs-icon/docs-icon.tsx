@@ -17,6 +17,9 @@ import '@lottiefiles/lottie-player'
   shadow: false,
 })
 export class DocsIcon {
+  private aRef: HTMLAnchorElement
+  private isDownload = false
+
   /** Play the animation back and forth */
   @Prop() bounce = false
 
@@ -33,9 +36,16 @@ export class DocsIcon {
   @Prop() name: string
 
   @State() confirm = false
+  @State() isMenuOpen = false
 
-  private copyIdentifier = async (event: MouseEvent) => {
-    event.preventDefault()
+  private handleMenuOpen = () => {
+    this.isMenuOpen = true
+  }
+  private handleMenuClose = () => {
+    this.isMenuOpen = false
+  }
+
+  private copyIdentifier = async () => {
     await copyToClipboard(this.identifier)
 
     this.confirm = true
@@ -43,6 +53,22 @@ export class DocsIcon {
     setTimeout(() => {
       this.confirm = false
     }, 2000)
+  }
+
+  private handleClick = (ev: MouseEvent) => {
+    if (!this.isDownload) {
+      ev.preventDefault()
+
+      if (!this.isAnimation) {
+        this.copyIdentifier()
+      }
+    }
+  }
+
+  private handleClickDownload = () => {
+    this.isDownload = true
+    this.aRef.click()
+    this.isDownload = false
   }
 
   async componentWillLoad(): Promise<void> {
@@ -57,55 +83,70 @@ export class DocsIcon {
 
   render() {
     return (
-      <a
-        class="docs-icon"
-        href={this.downloadUrl}
-        onContextMenu={this.isAnimation ? undefined : this.copyIdentifier}
-        slot="trigger"
-        download={this.identifier}
+      <ld-context-menu
+        onLdcontextmenuopen={this.handleMenuOpen}
+        onLdcontextmenuclose={this.handleMenuClose}
+        position="bottom center"
+        rightClick
+        size="sm"
       >
-        {this.isAnimation ? (
-          <lottie-player
-            class="docs-icon__player"
-            autoplay
-            loop
-            mode={this.bounce ? 'bounce' : undefined}
-            src={this.downloadUrl}
-          />
-        ) : (
-          <ld-icon name={this.identifier} size="lg" />
-        )}
-        <p class="docs-icon__name">{this.name}</p>
-        <p class="docs-icon__identifier">{this.identifier}</p>
-        <div class="docs-icon__action">
-          <ld-typo
-            class={getClassNames([
-              'docs-icon__instructions',
-              this.confirm && 'docs-icon__instructions--hidden',
-            ])}
-            variant="body-xs"
-          >
-            <span>Click</span> to download
-            {!this.isAnimation && (
-              <>
-                <br />
-                <span>Right-click</span> to copy name
-              </>
-            )}
-          </ld-typo>
-          {!this.isAnimation && (
+        <a
+          class={getClassNames([
+            'docs-icon',
+            this.isMenuOpen && 'docs-icon--active',
+          ])}
+          href={this.downloadUrl}
+          ref={(el) => (this.aRef = el)}
+          slot="trigger"
+          download={this.identifier}
+          onClick={this.handleClick}
+        >
+          {this.isAnimation ? (
+            <lottie-player
+              class="docs-icon__player"
+              autoplay
+              loop
+              mode={this.bounce ? 'bounce' : undefined}
+              src={this.downloadUrl}
+            />
+          ) : (
+            <ld-icon name={this.identifier} size="lg" />
+          )}
+          <p class="docs-icon__name">{this.name}</p>
+          <p class="docs-icon__identifier">{this.identifier}</p>
+          <div class="docs-icon__action">
             <ld-typo
               class={getClassNames([
-                'docs-icon__confirmation',
-                this.confirm && 'docs-icon__confirmation--visible',
+                'docs-icon__instructions',
+                this.confirm && 'docs-icon__instructions--hidden',
               ])}
-              variant="label-s"
+              variant="body-xs"
             >
-              Copied! <ld-icon name="checkmark" size="sm" />
+              {!this.isAnimation && (
+                <>
+                  <span>Click</span> to copy name
+                  <br />
+                </>
+              )}
+              <span>Right-click</span> to download
             </ld-typo>
-          )}
-        </div>
-      </a>
+            {!this.isAnimation && (
+              <ld-typo
+                class={getClassNames([
+                  'docs-icon__confirmation',
+                  this.confirm && 'docs-icon__confirmation--visible',
+                ])}
+                variant="label-s"
+              >
+                Copied! <ld-icon name="checkmark" size="sm" />
+              </ld-typo>
+            )}
+          </div>
+        </a>
+        <ld-menuitem onClick={this.handleClickDownload}>
+          <ld-icon name="download" /> Download
+        </ld-menuitem>
+      </ld-context-menu>
     )
   }
 }
