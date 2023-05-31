@@ -211,6 +211,26 @@ You can prevent auto-closing of the context menu on click, by attaching the `pre
 </LdContextMenu>
 {% endexample %}
 
+### Use right-click
+
+You can configure the context-menu to open on right-click instead of left-click by assigning the `rightClick` prop.
+
+{% example %}
+<ld-context-menu right-click>
+  <ld-button slot="trigger">Open menu</ld-button>
+  <ld-menuitem>Menu item 1</ld-menuitem>
+  <ld-menuitem>Menu item 2</ld-menuitem>
+</ld-context-menu>
+
+<!-- React component -->
+
+<LdContextMenu rightClick>
+  <LdButton slot="trigger">Open menu</LdButton>
+  <LdMenuitem>Menu item 1</LdMenuitem>
+  <LdMenuitem>Menu item 2</LdMenuitem>
+</LdContextMenu>
+{% endexample %}
+
 <!-- Auto Generated Below -->
 
 
@@ -221,8 +241,17 @@ You can prevent auto-closing of the context menu on click, by attaching the `pre
 | `key`           | `key`            | for tracking the node's identity when working with lists                              | `string \| number`                                                                                                                                                                                                                                                                                                                               | `undefined`     |
 | `position`      | `position`       | Position of the context menu relative to the trigger element.                         | `"bottom center" \| "bottom left" \| "bottom right" \| "left bottom" \| "left middle" \| "left top" \| "right bottom" \| "right middle" \| "right top" \| "top center" \| "top left" \| "top right"`                                                                                                                                             | `'bottom left'` |
 | `ref`           | `ref`            | reference to component                                                                | `any`                                                                                                                                                                                                                                                                                                                                            | `undefined`     |
+| `rightClick`    | `right-click`    | Use right-click.                                                                      | `boolean`                                                                                                                                                                                                                                                                                                                                        | `false`         |
 | `size`          | `size`           | Size of the context menu.                                                             | `"lg" \| "sm"`                                                                                                                                                                                                                                                                                                                                   | `undefined`     |
 | `tetherOptions` | `tether-options` | Tether options object to be merged with the default options (optionally stringified). | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined`     |
+
+
+## Events
+
+| Event                | Description                              | Type               |
+| -------------------- | ---------------------------------------- | ------------------ |
+| `ldcontextmenuclose` | Emitted when the context menu is closed. | `CustomEvent<any>` |
+| `ldcontextmenuopen`  | Emitted when the context menu is opened. | `CustomEvent<any>` |
 
 
 ## Methods

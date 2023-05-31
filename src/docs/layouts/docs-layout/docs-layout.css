@@ -3,13 +3,14 @@ html {
 }
 
 body {
-  overscroll-behavior: none;
-  -webkit-text-size-adjust: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
   --docs-header-height: 3.125rem;
   --docs-max-width: 90rem;
   --docs-nav-width: 19rem;
   --docs-toc-top: 7.75rem;
   --docs-toc-width: 17rem;
+  -webkit-text-size-adjust: none; /* stylelint-disable-line plugin/no-unsupported-browser-features */
+  overscroll-behavior: none;
+  overflow-x: hidden;
 
   @media (width <= 75rem) {
     --docs-toc-width: 13rem;
