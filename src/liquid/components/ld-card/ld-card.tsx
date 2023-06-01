@@ -26,7 +26,7 @@ export class LdCard {
   @Prop() size?: 'sm'
 
   componentWillLoad() {
-    if (this.el.parentElement.tagName === 'LD-CARD-STACK') {
+    if (this.el.parentElement?.tagName === 'LD-CARD-STACK') {
       this.el.setAttribute('role', 'listitem')
     }
   }
