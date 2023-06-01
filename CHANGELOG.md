@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/emdgroup-liquid/liquid/compare/v5.5.1...v5.6.0) (2023-06-01)
+
+
+### Bug Fixes
+
+* **ld-card:** throws if there is no parent element ([dbee889](https://github.com/emdgroup-liquid/liquid/commit/dbee88980169b8f607b8b1d14367a2c81533498b))
+* **ld-tooltip:** sync tooltip content on slot change ([116ab85](https://github.com/emdgroup-liquid/liquid/commit/116ab85b26bc0bf755a305e3bfd762d0c2b97d1b))
+
+
+### Features
+
+* **ld-context-menu:** add rightClick prop to trigger menu on right-click ([ef35bbe](https://github.com/emdgroup-liquid/liquid/commit/ef35bbe03a67f672e45e3ed8f6e51986ccf875f8))
+
 ## [5.5.1](https://github.com/emdgroup-liquid/liquid/compare/v5.5.0...v5.5.1) (2023-05-26)
 
 
