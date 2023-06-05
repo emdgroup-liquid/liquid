@@ -17,5 +17,6 @@ In this section we collect known issues and provide tips on how to solve them. I
 ## Available Solutions
 
 - [Popped-out element is rendered in wrong container](guides/troubleshooting/popped-out-element-is-rendered-in-wrong-container)
+- [Failed to execute `removeChild` on `Node`](guides/troubleshooting/failed-to-execute-removeChild-on-node)
 
 <docs-page-nav prev-href="guides/sandbox-applications/" next-title="FAQ" next-href="guides/faq/"></docs-page-nav>
