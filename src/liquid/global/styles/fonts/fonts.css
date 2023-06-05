@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 /* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -237,3 +239,5 @@
   font-weight: 400;
   font-display: swap;
 }
+
+/* stylelint-enable */
