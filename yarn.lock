@@ -1424,7 +1424,7 @@ __metadata:
     "@stencil/core": ^3.2.1
     "@stencil/eslint-plugin": ^0.4.0
     "@stencil/postcss": ^2.1.0
-    "@stencil/react-output-target": ^0.4.0
+    "@stencil/react-output-target": ^0.5.1
     "@stencil/vue-output-target": ^0.8.2
     "@types/dompurify": ^3.0.1
     "@types/jest": ^27.5.2
@@ -2621,21 +2621,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/react-output-target@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@stencil/react-output-target@npm:0.3.1"
+"@stencil/react-output-target@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@stencil/react-output-target@npm:0.5.1"
   peerDependencies:
-    "@stencil/core": ^2.9.0
-  checksum: fe311ba81f79119598524ceedf7125ff77bba22999b7394de774231262e5b7be28d5c46f6e05df1cde8947e24b03ccac797aa725738aa7bb6912536277b61d79
-  languageName: node
-  linkType: hard
-
-"@stencil/react-output-target@patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::locator=%40emdgroup-liquid%2Fliquid%40workspace%3A.":
-  version: 0.3.1
-  resolution: "@stencil/react-output-target@patch:@stencil/react-output-target@npm%3A0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch::version=0.3.1&hash=cb7447&locator=%40emdgroup-liquid%2Fliquid%40workspace%3A."
-  peerDependencies:
-    "@stencil/core": ^2.9.0
-  checksum: 538fa2a50443bdf5561b05dd0c8932a5a1fd8ec58b48ed2e446fd82c81029c3f4fd2b8f4401898c473cffd90f64fba89ca5136961ad823f88864985e9a53f202
+    "@stencil/core": ">=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0"
+  checksum: b289f77e162a17e6795836896f43d632a14f70bdea3c6249e95d5048b20dcf5e437a0690e6a7afbfede883d5c5cfa94e1c415d84ee1f7aed9cbb810052a95ee5
   languageName: node
   linkType: hard
 
