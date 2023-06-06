@@ -5,7 +5,7 @@
   <base href="/liquid/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liquid – Table Body</title>
+  <title>Liquid – Failed to execute removeChild on Node</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1686040779387/assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1686040779387/assets/favicon-32x32.png">
@@ -2548,9 +2548,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--guides">
                   <a href="/liquid/guides/"><span aria-label="Guides">Guides</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2639,9 +2639,9 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
-              <details>
+              <details open>
                 <summary class="docs-nav__summary docs-nav__summary--troubleshooting">
                   <a href="/liquid/guides/troubleshooting/"><span aria-label="Troubleshooting">Troubleshooting</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -2658,7 +2658,7 @@
         
       
         
-          <li class="docs-nav__li">
+          <li class="docs-nav__li docs-nav__li--active">
             
               <a href="/liquid/guides/troubleshooting/failed-to-execute-removeChild-on-node/">Failed to execute removeChild on Node</a>
             
@@ -2778,9 +2778,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--components">
                   <a href="/liquid/components/"><span aria-label="Components">Components</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -3269,9 +3269,9 @@
         
       
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
-              <details open>
+              <details>
                 <summary class="docs-nav__summary docs-nav__summary--table">
                   <a href="/liquid/components/ld-table/"><span aria-label="Table">Table</span><div class="docs-nav__arrow"></div></a>
                   <div class="docs-nav__summary-toggle"></div>
@@ -3280,7 +3280,7 @@
                   
                     
         
-          <li class="docs-nav__li docs-nav__li--active">
+          <li class="docs-nav__li">
             
               <a href="/liquid/components/ld-table/ld-table-body/">Table Body</a>
             
@@ -3483,7 +3483,7 @@
     
       <docs-toc style="order: 2;">
         <nav class="docs-toc__nav" >
-        <ol><li><a href="#properties">Properties</a></li><li><a href="#shadow-parts">Shadow Parts</a></li></ol>
+        <ol><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li></ol>
       </nav>
       </docs-toc>
     
@@ -3495,66 +3495,58 @@
             
             
             
-              <ld-crumb href="/liquid/components/">Components</ld-crumb>
+              <ld-crumb href="/liquid/guides/">Guides</ld-crumb>
             
-              <ld-crumb href="/liquid/components/ld-table/">Table</ld-crumb>
+              <ld-crumb href="/liquid/guides/troubleshooting/">Troubleshooting</ld-crumb>
             
-            <ld-crumb href="/liquid/components/ld-table/ld-table-body/">Table Body</ld-crumb>
+            <ld-crumb href="/liquid/guides/troubleshooting/failed-to-execute-removeChild-on-node/">Failed to execute removeChild on Node</ld-crumb>
           </ld-breadcrumbs>
         
-        <docs-edit-on-github path="./src/liquid/components/ld-table/ld-table-body/readme.md"></docs-edit-on-github>
+        <docs-edit-on-github path="./src/docs/pages/guides/troubleshooting/failed-to-execute-removeChild-on-node.md"></docs-edit-on-github>
       </header>
       <ld-sr-only id="external-link-description">(external link)</ld-sr-only>
-      <h1 id="ld-table-body" tabindex="-1">ld-table-body <a class="header-anchor" href="components/ld-table/ld-table-body/#ld-table-body"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
-<p>The <code>ld-table-body</code> component is a subcomponent for <code>ld-table</code>.</p>
-<p>Please refer to the <a href="components/ld-table/"><code>ld-table</code> documentation</a> for usage examples.</p>
-<hr>
-<!-- Auto Generated Below -->
-<h2 id="properties" tabindex="-1">Properties <a class="header-anchor" href="components/ld-table/ld-table-body/#properties"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>key</code></td>
-<td><code>key</code></td>
-<td>for tracking the node's identity when working with lists</td>
-<td><code>string | number</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>ref</code></td>
-<td><code>ref</code></td>
-<td>reference to component</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="shadow-parts" tabindex="-1">Shadow Parts <a class="header-anchor" href="components/ld-table/ld-table-body/#shadow-parts"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>Part</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&quot;tbody&quot;</code></td>
-<td>the actual tbody element</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">StencilJS</a></em></p>
+      <h1 id="failed-to-execute-removechild-on-node" tabindex="-1">Failed to execute removeChild on Node <a class="header-anchor" href="guides/troubleshooting/failed-to-execute-removeChild-on-node/#failed-to-execute-removechild-on-node"><span aria-label="" class="header-anchor__symbol">#</span></a></h1>
+<h2 id="problem" tabindex="-1">Problem <a class="header-anchor" href="guides/troubleshooting/failed-to-execute-removeChild-on-node/#problem"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>Some components have a popper element which displays the slotted elements in a portal (a different place in the DOM). The <a href="components/ld-context-menu/">ld-context-menu</a> component and the <a href="components/ld-tooltip/">ld-tooltip</a> component are examples of such components. In order to keep all event listeners attached and working, the components move the original element including all the attached event listeners to the popper element.</p>
+<p>In some cases this behavior can be problematic. For instance: If you are using a UI library which renders elements based on state (such as React or Vue) and have a conditionally rendered element as a direct child of a component that moves the <code>Node</code> to a different place in the DOM, you may run into the error:</p>
+<blockquote>
+<p><em>Uncaught DOMException: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.</em></p>
+</blockquote>
+<h2 id="solution" tabindex="-1">Solution <a class="header-anchor" href="guides/troubleshooting/failed-to-execute-removeChild-on-node/#solution"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>The current workaround is to wrap the conditionally rendered element in another element.</p>
+<p><ld-badge icon="attention" style="--ld-badge-bg-col: var(--ld-thm-error); margin: 0 var(--ld-sp-6) 0 var(--ld-sp-2); transform: scale(1.2)" size="lg"></ld-badge> <strong>Does not work:</strong></p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> tetherOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">bodyElement</span><span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>checked<span class="token punctuation">,</span> setChecked<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token function">setChecked</span><span class="token punctuation">(</span><span class="token operator">!</span>checked<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Toggle checked</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdTooltip</span></span> <span class="token attr-name">arrow</span> <span class="token attr-name">tetherOptions</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>tetherOptions <span class="token keyword">as</span> any<span class="token punctuation">}</span></span> <span class="token attr-name">triggerType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>click<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>checked <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token plain-text">🤓</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdTooltip</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><ld-badge icon="checkmark" style="--ld-badge-bg-col: var(--ld-thm-success); margin: 0 var(--ld-sp-6) 0 var(--ld-sp-2); transform: scale(1.2)" size="lg"></ld-badge> <strong>Works:</strong></p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> tetherOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">bodyElement</span><span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>checked<span class="token punctuation">,</span> setChecked<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdButton</span></span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token function">setChecked</span><span class="token punctuation">(</span><span class="token operator">!</span>checked<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Toggle checked</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdButton</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">LdTooltip</span></span> <span class="token attr-name">arrow</span> <span class="token attr-name">tetherOptions</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>tetherOptions <span class="token keyword">as</span> any<span class="token punctuation">}</span></span> <span class="token attr-name">triggerType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>click<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+          </span><span class="token punctuation">{</span>checked <span class="token operator">&amp;&amp;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token plain-text">🤓</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">}</span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">LdTooltip</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><docs-page-nav prev-href="guides/sandbox-applications/" next-title="FAQ" next-href="guides/faq/"></docs-page-nav></p>
 
       
         <docs-contributors contributors='["borisdiakur"]'></docs-contributors>
