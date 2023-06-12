@@ -1413,7 +1413,7 @@ __metadata:
     "@11ty/eleventy-plugin-syntaxhighlight": ^5.0.0
     "@commitlint/cli": ^17.4.3
     "@commitlint/config-conventional": ^17.4.3
-    "@lottiefiles/lottie-player": ^1.7.1
+    "@lottiefiles/lottie-player": ^2.0.2
     "@semantic-release/changelog": ^6.0.2
     "@semantic-release/commit-analyzer": ^10.0.1
     "@semantic-release/git": ^10.0.1
@@ -1912,16 +1912,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lottiefiles/lottie-player@npm:^1.7.1":
-  version: 1.7.1
-  resolution: "@lottiefiles/lottie-player@npm:1.7.1"
+"@lottiefiles/lottie-player@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@lottiefiles/lottie-player@npm:2.0.2"
   dependencies:
     "@types/pako": ^1.0.1
     lit: ^2.1.2
     lottie-web: ^5.10.0
     pako: ^2.0.4
     resize-observer-polyfill: ^1.5.1
-  checksum: 9615adaa787c15352d6b29905859b69ade20e6eab618d93b2224a2fc3457454f9effe331a803fd125b24f9230960160a6b70bae66b7d61102f21de5e443dc459
+  checksum: 62b8bc388ef4b0d5eef942ab25ec2db3abeb2b8ee2045759fb8b34ef592b66a3e0149e01767e876da363f3cfa0ad9d9670beadd4ee77a6b238e37e69ac855800
   languageName: node
   linkType: hard
 
