@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/emdgroup-liquid/liquid/compare/v5.6.0...v5.6.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* **ld-context-menu:** do not open on right click if not enabled ([e21b46c](https://github.com/emdgroup-liquid/liquid/commit/e21b46cf95bc1abf2f3f5dd4c58f526ac4dc7b03))
+
 # [5.6.0](https://github.com/emdgroup-liquid/liquid/compare/v5.5.1...v5.6.0) (2023-06-01)
 
 
