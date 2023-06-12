@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core'
 import { postcss } from '@stencil/postcss'
 import { reactOutputTarget } from '@stencil/react-output-target'
+import { WebTypesGenerator } from 'stenciljs-web-types-generator/web-types-generator'
 import {
   ComponentModelConfig,
   vueOutputTarget,
@@ -55,6 +56,16 @@ export const config: Config = {
     {
       type: 'docs-json',
       file: 'dist/web-components.json',
+    },
+    {
+      type: 'docs-custom',
+      generator: new WebTypesGenerator({
+        name: '@emdgroup-liquid/liquid',
+        version: 'latest',
+        defaultIconPath:
+          'https://liquid.merck.design/liquid/dist/build/assets/logo.svg',
+        outputPath: 'dist/web-types.json',
+      }).generateWebTypesJson,
     },
   ],
   plugins: [postcss(postcssConfig)],

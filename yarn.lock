@@ -1473,6 +1473,7 @@ __metadata:
     puppeteer: ^20.1.2
     semantic-release: ^21.0.0
     shx: ^0.3.4
+    stenciljs-web-types-generator: ^1.0.4
     stylelint: ^15.6.0
     stylelint-config-standard: ^33.0.0
     stylelint-declaration-strict-value: ^1.9.1
@@ -2639,7 +2640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^3.2.1":
+"@stencil/core@npm:^3.2.1, @stencil/core@npm:^3.3.1":
   version: 3.3.1
   resolution: "@stencil/core@npm:3.3.1"
   bin:
@@ -15973,6 +15974,15 @@ send@latest:
   version: 1.5.0
   resolution: "statuses@npm:1.5.0"
   checksum: c469b9519de16a4bb19600205cffb39ee471a5f17b82589757ca7bd40a8d92ebb6ed9f98b5a540c5d302ccbc78f15dc03cc0280dd6e00df1335568a5d5758a5c
+  languageName: node
+  linkType: hard
+
+"stenciljs-web-types-generator@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "stenciljs-web-types-generator@npm:1.0.4"
+  dependencies:
+    "@stencil/core": ^3.3.1
+  checksum: 9d77a6c62d2e0a3d8b9259e212a0dafda1012ab6a79d8276df6c24e2e4ea3aaeaf9d5910c8c61c8b1e6d12100f2869c2b3292767ecb8dc2b612dbc2ca055f4d9
   languageName: node
   linkType: hard
 
