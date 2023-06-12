@@ -89,7 +89,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@commitlint/cli": "^17.4.3",
     "@commitlint/config-conventional": "^17.4.3",
-    "@lottiefiles/lottie-player": "^1.7.1",
+    "@lottiefiles/lottie-player": "^2.0.2",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/commit-analyzer": "^10.0.1",
     "@semantic-release/git": "^10.0.1",
