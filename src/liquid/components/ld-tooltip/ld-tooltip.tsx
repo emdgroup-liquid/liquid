@@ -260,7 +260,7 @@ export class LdTooltip {
   /** @internal */
   @Method()
   async handleContextMenu(ev) {
-    if (this.disabled) return
+    if (!this.rightClick || this.disabled) return
 
     ev.preventDefault()
     this.toggleTooltip()
