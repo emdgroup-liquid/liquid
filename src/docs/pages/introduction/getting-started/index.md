@@ -147,7 +147,7 @@ Let's take our button from above and add an event listener.
 
 ```js
 // main.ts
-document.querySelector('#button').addEventListener('click', () => {
+document.getElementById('button').addEventListener('click', () => {
   console.log('Button clicked')
 })
 ```
