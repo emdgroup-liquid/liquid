@@ -98,7 +98,7 @@
     "@semantic-release/release-notes-generator": "^11.0.1",
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/postcss": "^2.1.0",
-    "@stencil/react-output-target": "^0.4.0",
+    "@stencil/react-output-target": "^0.5.3",
     "@stencil/vue-output-target": "^0.8.2",
     "@types/dompurify": "^3.0.1",
     "@types/jest": "^27.5.2",
@@ -200,7 +200,7 @@
   },
   "packageManager": "yarn@3.2.0",
   "resolutions": {
-    "@stencil/react-output-target@^0.4.0": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
+    "@stencil/react-output-target@^0.5.3": "patch:@stencil/react-output-target@npm:0.3.1#.yarn/patches/@stencil-react-output-target-npm-0.3.1-4da13663f2.patch",
     "@stencil/vue-output-target@^0.8.2": "patch:@stencil/vue-output-target@npm:0.6.2#.yarn/patches/@stencil-vue-output-target-npm-0.6.2-a9b3828cb9.patch",
     "tether@^2.0.0": "patch:tether@npm:2.0.0#.yarn/patches/tether-npm-2.0.0-f14e824ccf.patch"
   },
