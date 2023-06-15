@@ -1,14 +1,14 @@
 # Description
 
-Please include a summary of the change. 
-Please also include relevant motivation and context. 
-List any new dependencies or updates that are required for this change.
+<!-- Please include a summary of the change. -->
+<!-- Please also include relevant motivation and context. -->
+<!-- List any new dependencies or updates that are required for this change. -->
 
 Fixes #(issue)
 
 ## Type of change
 
-Please delete options that are not relevant.
+<!-- Please delete options that are not relevant. -->
 
 - [ ] Feature
 - [ ] Bugfix
@@ -20,13 +20,15 @@ Please delete options that are not relevant.
 
 ## Is it a breaking change?
 
+<!-- Please delete options that are not relevant. -->
+
 - [ ] Yes
 - [ ] No
 
 # How Has This Been Tested?
 
-Please describe the tests that you've added and run to verify your changes. 
-Provide instructions, so we can reproduce.
+<!-- Please describe the tests that you've added and run to verify your changes.
+Provide instructions, so we can reproduce. -->
 
 - [ ] unit tests
 - [ ] e2e tests
