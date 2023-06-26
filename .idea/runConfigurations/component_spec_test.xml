@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="component-spec_test" type="NodeJSConfigurationType" application-parameters="test --spec --coverage --no-cache --watch=all -- $FileDir$" path-to-js-file="node_modules/.bin/stencil" working-dir="$PROJECT_DIR$">
+  <configuration default="false" name="component-spec_test" type="NodeJSConfigurationType" application-parameters="test --spec --coverage --no-cache --watch=all -- $FileNameWithoutAllExtensions$" path-to-js-file="node_modules/.bin/stencil" working-dir="$PROJECT_DIR$">
     <method v="2" />
   </configuration>
 </component>

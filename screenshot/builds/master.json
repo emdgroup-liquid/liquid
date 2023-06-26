@@ -12096,7 +12096,7 @@
     },
     {
       "id": "3d455876",
-      "image": "32f7b651dfdb76936928bca7f8d13d88.png",
+      "image": "507fe1d3f11d2c9efbe174fca67c44ce.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom notice only",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12109,7 +12109,7 @@
     },
     {
       "id": "e783dc8b",
-      "image": "e7b69852dd151193d96a142f143e0ae9.png",
+      "image": "dd9d86dfb1b34d22f0a3793b64db518b.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom opt-in",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12122,7 +12122,7 @@
     },
     {
       "id": "d6a4d630",
-      "image": "48acd138ad10802cab6da02e8b0da711.png",
+      "image": "3a96c9bb9123d329db579b6c51361246.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom opt-out",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12135,7 +12135,7 @@
     },
     {
       "id": "7334fa2d",
-      "image": "667953d8967580bf00bb7931ec2690bb.png",
+      "image": "c5118dc6885775ba42dfd2531a76028a.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer custom rejectable",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12148,7 +12148,7 @@
     },
     {
       "id": "4b022e08",
-      "image": "cfe29a8fea2e5c3f30c0809ef07e3dce.png",
+      "image": "dfd3fa1f91b5f2e77470b92eed782bb9.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer notice only",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12161,7 +12161,7 @@
     },
     {
       "id": "b4eff9e5",
-      "image": "189c90378ae862522a5e7630610c675f.png",
+      "image": "74fb9568c1768a1c5d0ff11344c79df8.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer opt-in",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12174,7 +12174,7 @@
     },
     {
       "id": "5304ded9",
-      "image": "340634cd4777bcee7add797a0d06febf.png",
+      "image": "9929eaf4f1d13e04a50b392f4d7531d7.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer opt-out",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12187,7 +12187,7 @@
     },
     {
       "id": "a0402c18",
-      "image": "b70715df6a8b1c9c5e53e84f96ed8d37.png",
+      "image": "fe370ca0760cd784c427bdc503de28b8.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent disclaimer rejectable",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12200,7 +12200,7 @@
     },
     {
       "id": "ded5bfa7",
-      "image": "61ea4cd89b106746ee7aad98969ae3f2.png",
+      "image": "6edb1f26c7fb6853068cdac7b0811243.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences custom opt-in, first category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12213,7 +12213,7 @@
     },
     {
       "id": "57c9bfea",
-      "image": "bc618d75abc69ef69c93639aa0385011.png",
+      "image": "8f38628277cc6b2e0d1932f0f2633259.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences custom opt-in, third category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12226,7 +12226,7 @@
     },
     {
       "id": "715d62a3",
-      "image": "00eb9d79558fa297279f6df97259a50c.png",
+      "image": "fef90dbcc4d35c65def72bbe8e82ed9a.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences opt-in, first category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
@@ -12239,7 +12239,7 @@
     },
     {
       "id": "24480fde",
-      "image": "a7262c93f6fda5faa0ec840437faabc4.png",
+      "image": "cd7f4927241874e6e2db69ef049588fb.png",
       "userAgent": "default",
       "desc": "ld-cookie-consent preferences opt-in, third category expanded",
       "testPath": "./src/liquid/components/ld-cookie-consent/test/ld-cookie-consent.e2e.ts",
