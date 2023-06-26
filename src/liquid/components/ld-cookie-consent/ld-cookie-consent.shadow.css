@@ -31,7 +31,7 @@
   --ld-cookie-consent-logo-size: var(--ld-sp-32);
   --ld-cookie-consent-initial-m-size: 2.5rem;
   --ld-cookie-consent-max-inline-size: 38rem;
-  --ld-cookie-consent-max-block-size: 70rem;
+  --ld-cookie-consent-max-block-size: clamp(20rem, 50vh, 70rem);
   --ld-cookie-consent-min-inline-size: 18rem;
 
   /* Custom props below aren't meant for customization. */
