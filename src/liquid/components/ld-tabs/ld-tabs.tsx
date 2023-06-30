@@ -28,17 +28,12 @@ export class LdTabs {
 
   private idDescriber = `ld-tabs-${tabsCount++}`
 
-  private updateTabs(currentLdTab) {
+  private updateTabs() {
     // TODO: fix Stencils DOM implementation for unit testing and replace
     // this.el.querySelector('[selected]')?.removeAttribute('selected')
     Array.from(this.el.querySelectorAll('ld-tab'))
       .find((tab) => tab.hasAttribute('selected'))
       ?.removeAttribute('selected')
-    currentLdTab.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
-    })
   }
 
   private updateTabPanels(tabId: string) {
@@ -57,7 +52,7 @@ export class LdTabs {
   private handleLdtabselect = (ev: CustomEvent<undefined>) => {
     ev.stopImmediatePropagation()
     const currentLdTab = ev.target as HTMLLdTabElement
-    this.updateTabs(currentLdTab)
+    this.updateTabs()
     this.updateTabPanels(currentLdTab.id)
     this.ldtabchange.emit(currentLdTab.id)
   }

@@ -110,8 +110,10 @@ describe('ld-tabs', () => {
       const ldTabpanel2 = ldTabpanels[2]
       expect(ldTabpanel2).toHaveAttribute('hidden')
 
-      ldTabItems[2].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       tabBtn2.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -126,7 +128,7 @@ describe('ld-tabs', () => {
 
       expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
-      expect(spyScrollIntoView).toHaveBeenCalled()
+      expect(spyScrollTo).toHaveBeenCalled()
     })
 
     it('changes tab via click with no preselected tab', async () => {
@@ -164,8 +166,10 @@ describe('ld-tabs', () => {
       const ldTabpanel0 = ldTabpanels[0]
       const ldTabpanel2 = ldTabpanels[2]
 
-      ldTabItems[2].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       tabBtn2.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -180,7 +184,7 @@ describe('ld-tabs', () => {
 
       expect(ldTabpanel2).not.toHaveAttribute('hidden')
 
-      expect(spyScrollIntoView).toHaveBeenCalled()
+      expect(spyScrollTo).toHaveBeenCalled()
     })
 
     it('changes tab with no target tabpanel', async () => {
@@ -212,8 +216,10 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
 
-      ldTabItems[2].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       tabBtn2.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -224,7 +230,7 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
 
-      expect(spyScrollIntoView).toHaveBeenCalled()
+      expect(spyScrollTo).toHaveBeenCalled()
     })
 
     it('does not change tab via click on disabled tab', async () => {
@@ -272,8 +278,7 @@ describe('ld-tabs', () => {
       const ldTabpanel3 = ldTabpanels[3]
       expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      ldTabItems[3].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[3], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(ldTabItems[3], 'scrollIntoView')
 
       tabBtn3.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -288,7 +293,7 @@ describe('ld-tabs', () => {
 
       expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      expect(spyScrollIntoView).not.toHaveBeenCalled()
+      expect(spyScrollTo).not.toHaveBeenCalled()
     })
 
     it('does not change tab via click on already selected tab', async () => {
@@ -316,8 +321,7 @@ describe('ld-tabs', () => {
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
-      ldTabItems[0].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[0], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(ldTabItems[0], 'scrollIntoView')
 
       tabBtn0.dispatchEvent(new Event('click'))
       await page.waitForChanges()
@@ -325,7 +329,7 @@ describe('ld-tabs', () => {
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn0.getAttribute('tabindex')).toEqual(null)
 
-      expect(spyScrollIntoView).not.toHaveBeenCalled()
+      expect(spyScrollTo).not.toHaveBeenCalled()
     })
   })
 
@@ -390,14 +394,10 @@ describe('ld-tabs', () => {
       const ldTabpanel3 = ldTabpanels[3]
       expect(ldTabpanel3).toHaveAttribute('hidden')
 
-      ldTab0.scrollIntoView = jest.fn()
-      ldTab1.scrollIntoView = jest.fn()
-      ldTab2.scrollIntoView = jest.fn()
-      ldTab3.scrollIntoView = jest.fn()
-      const spyScrollIntoView0 = jest.spyOn(ldTab0, 'scrollIntoView')
-      const spyScrollIntoView1 = jest.spyOn(ldTab1, 'scrollIntoView')
-      const spyScrollIntoView2 = jest.spyOn(ldTab2, 'scrollIntoView')
-      const spyScrollIntoView3 = jest.spyOn(ldTab3, 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       tabBtn0.focus = jest.fn(focusManager.focus)
       tabBtn1.focus = jest.fn(focusManager.focus)
@@ -409,7 +409,7 @@ describe('ld-tabs', () => {
       )
       await page.waitForChanges()
 
-      expect(spyScrollIntoView1).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(1)
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual('true')
       expect(ldTabpanel0).not.toHaveAttribute('hidden')
@@ -421,12 +421,12 @@ describe('ld-tabs', () => {
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView2).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(2)
 
       tabBtn2.dispatchEvent(new Event('click'))
       await page.waitForChanges()
 
-      expect(spyScrollIntoView2).toHaveBeenCalledTimes(2)
+      expect(spyScrollTo).toHaveBeenCalledTimes(3)
 
       expect(tabBtn0.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn0.getAttribute('tabindex')).toEqual('-1')
@@ -444,7 +444,7 @@ describe('ld-tabs', () => {
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView3).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(4)
 
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
@@ -458,37 +458,37 @@ describe('ld-tabs', () => {
         new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView3).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(4)
 
       ldTab3.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView2).toHaveBeenCalledTimes(3)
+      expect(spyScrollTo).toHaveBeenCalledTimes(5)
 
       ldTab2.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView1).toHaveBeenCalledTimes(2)
+      expect(spyScrollTo).toHaveBeenCalledTimes(6)
 
       ldTab1.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(7)
 
       ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(7)
 
       ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true })
       )
       await page.waitForChanges()
-      expect(spyScrollIntoView0).toHaveBeenCalledTimes(1)
+      expect(spyScrollTo).toHaveBeenCalledTimes(7)
 
       ldTab0.dispatchEvent(
         new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })
@@ -520,7 +520,6 @@ describe('ld-tabs', () => {
       expect(ldTabItems.length).toEqual(2)
 
       const ldTabBtn1 = ldTabItems[1]
-      ldTabBtn1.scrollIntoView = jest.fn()
       const tabBtn1 = ldTabBtn1.shadowRoot.querySelector('button')
       const handleLdtabchange = jest.fn()
 
@@ -561,8 +560,10 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
 
-      ldTabItems[2].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       await ldTabs.switchTab(2)
       await page.waitForChanges()
@@ -573,7 +574,7 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
 
-      expect(spyScrollIntoView).toHaveBeenCalled()
+      expect(spyScrollTo).toHaveBeenCalled()
     })
 
     it('changes tab via method with preselected tab using id', async () => {
@@ -605,8 +606,10 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual(null)
       expect(tabBtn2.getAttribute('tabindex')).toEqual('-1')
 
-      ldTabItems[2].scrollIntoView = jest.fn()
-      const spyScrollIntoView = jest.spyOn(ldTabItems[2], 'scrollIntoView')
+      const spyScrollTo = jest.spyOn(
+        ldTablist.shadowRoot.querySelector('.ld-tablist__scroll-container'),
+        'scrollTo'
+      )
 
       await ldTabs.switchTab('ld-tabs-10-tab-2')
       await page.waitForChanges()
@@ -617,7 +620,7 @@ describe('ld-tabs', () => {
       expect(tabBtn2.getAttribute('aria-selected')).toEqual('true')
       expect(tabBtn2.getAttribute('tabindex')).toEqual(null)
 
-      expect(spyScrollIntoView).toHaveBeenCalled()
+      expect(spyScrollTo).toHaveBeenCalled()
     })
 
     it('throws if no tab is found when switching using index', async () => {
