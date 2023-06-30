@@ -64,16 +64,20 @@ export class LdTablist {
 
   private updateScrollable() {
     if (this.isFloating()) return
-    const scrollButtonsWidth =
-      2 * this.btnScrollLeftRef.getBoundingClientRect().width
-    const scrollContainerWidth =
+
+    // We must round all width values to prevent circular painting!
+    const scrollButtonsWidth = this.scrollable
+      ? Math.round(2 * this.btnScrollLeftRef.getBoundingClientRect().width)
+      : 0
+    const scrollContainerWidth = Math.round(
       this.slotContainerRef.getBoundingClientRect().width
-    const contentWidth = Array.from(this.el.children)
-      .map((child) => child.getBoundingClientRect().width)
-      .reduce((a, b) => a + b)
-    this.scrollable =
-      scrollContainerWidth + (this.scrollable ? scrollButtonsWidth : 0) <
-      contentWidth
+    )
+    const contentWidth = Math.round(
+      Array.from(this.el.children)
+        .map((child) => child.getBoundingClientRect().width)
+        .reduce((a, b) => a + b)
+    )
+    this.scrollable = scrollContainerWidth + scrollButtonsWidth < contentWidth
   }
 
   private updateScrollButtons() {
@@ -98,18 +102,14 @@ export class LdTablist {
     })
   }
 
-  private focusTab(prevLdTab: HTMLElement, dir: 'left' | 'right') {
+  private focusTab(prevLdTab: HTMLLdTabElement, dir: 'left' | 'right') {
     const currentTab =
       dir === 'left'
         ? prevLdTab.previousElementSibling
         : prevLdTab.nextElementSibling
     if (isInnerFocusable(currentTab)) {
       currentTab.focusInner()
-      currentTab.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      })
+      this.scrollTabIntoView(currentTab as HTMLLdTabElement)
       this.selectedIsFocused = currentTab === this.selectedTab
     }
   }
@@ -177,6 +177,25 @@ export class LdTablist {
     )
   }
 
+  private scrollTabIntoView(tab: HTMLLdTabElement) {
+    if (!tab || !this.slotContainerRef) {
+      return
+    }
+    const scrollContainerWidth =
+      this.slotContainerRef.getBoundingClientRect().width
+    const scrollButtonWidth = this.scrollable
+      ? this.btnScrollLeftRef.getBoundingClientRect().width
+      : 0
+    this.slotContainerRef.scrollTo({
+      left:
+        tab.offsetLeft +
+        tab.getBoundingClientRect().width / 2 -
+        scrollContainerWidth / 2 -
+        scrollButtonWidth,
+      behavior: 'smooth',
+    })
+  }
+
   @Listen('ldtabselect')
   handleTabSelect(ev) {
     this.selectedIsFocused = true
@@ -185,6 +204,9 @@ export class LdTablist {
 
   @Watch('selectedTab')
   private updateSelectedTabIndicator() {
+    // Scroll tab into view.
+    this.scrollTabIntoView(this.selectedTab)
+
     if (!this.selectedTabIndicatorRef) return
 
     const indicatorStyle = this.selectedTabIndicatorRef.style
@@ -195,8 +217,10 @@ export class LdTablist {
     }
 
     const selectedTabBcr = this.selectedTab.getBoundingClientRect()
-    const parentBcr = this.selectedTab.parentElement.getBoundingClientRect()
-    const offsetLeft = selectedTabBcr.left - parentBcr.left
+    const scrollContainerBcr = this.slotContainerRef.getBoundingClientRect()
+    const scrollContainerScrollLeft = this.slotContainerRef.scrollLeft
+    const offsetLeft =
+      selectedTabBcr.left - scrollContainerBcr.left + scrollContainerScrollLeft
     indicatorStyle.transform = `translateX(${offsetLeft - 8}px)`
     indicatorStyle.width = `${selectedTabBcr.width}px`
     indicatorStyle.opacity = '1'
