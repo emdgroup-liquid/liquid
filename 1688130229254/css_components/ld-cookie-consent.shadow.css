@@ -2,7 +2,7 @@
     --ld-thm-primary-alpha-lowest
   );--ld-cookie-consent-thm-primary-focus:var(--ld-thm-primary-focus);--ld-cookie-consent-thm-primary-highlight:var(--ld-thm-primary-highlight);--ld-cookie-consent-thm-primary-hover:var(--ld-thm-primary-hover);--ld-cookie-consent-thm-secondary:var(--ld-thm-secondary);--ld-cookie-consent-thm-secondary-active:var(--ld-thm-secondary-active);--ld-cookie-consent-thm-secondary-focus:var(--ld-thm-secondary-focus);--ld-cookie-consent-thm-secondary-highlight:var(
     --ld-thm-secondary-highlight
-  );--ld-cookie-consent-thm-secondary-hover:var(--ld-thm-secondary-hover);--ld-cookie-consent-logo-size:var(--ld-sp-32);--ld-cookie-consent-initial-m-size:2.5rem;--ld-cookie-consent-max-inline-size:38rem;--ld-cookie-consent-max-block-size:70rem;--ld-cookie-consent-min-inline-size:18rem;--ld-cookie-consent-transition-duration:var(
+  );--ld-cookie-consent-thm-secondary-hover:var(--ld-thm-secondary-hover);--ld-cookie-consent-logo-size:var(--ld-sp-32);--ld-cookie-consent-initial-m-size:2.5rem;--ld-cookie-consent-max-inline-size:38rem;--ld-cookie-consent-max-block-size:max(20rem,min(50vh,70rem));--ld-cookie-consent-min-inline-size:18rem;--ld-cookie-consent-transition-duration:var(
     --ld-transition-duration-instant
   );--ld-cookie-consent-disclaimer-transition-delay:0s}@media (prefers-reduced-motion:no-preference){:host{--ld-cookie-consent-transition-duration:var(
       --ld-transition-duration-normal
