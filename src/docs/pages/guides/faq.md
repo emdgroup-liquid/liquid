@@ -46,4 +46,4 @@ Yes, Web Components and CSS Components are both standards conform and can be use
 
 Absolutely! Liquid Oxygen is not only open for contributions and feedback but also prioritizes its backlog according to the input from the community. If you feel you need a specific component badly, you can either contribute to the project directly or create a feature request. If you'd like to get involved, check out our [contributing docs](https://github.com/emdgroup-liquid/liquid/blob/main/CONTRIBUTING.md).
 
-<docs-page-nav prev-href="guides/troubleshooting/"></docs-page-nav>
+<docs-page-nav prev-href="guides/troubleshooting/" next-title="Contributing" next-href="guides/contributing/"></docs-page-nav>

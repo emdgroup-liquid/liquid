@@ -1,14 +1,14 @@
 name: 🪳 Bug report
 description: Create a report to help us improve Liquid
-title: "bug: "
-labels: ["bug", "triage"]
+title: 'bug: '
+labels: ['bug', 'triage']
 body:
   - type: checkboxes
     attributes:
       label: Prerequisites
       description: Please ensure you have completed all of the following.
       options:
-        - label: I know [how to contribute a proper bug report](https://github.com/emdgroup-liquid/liquid/blob/main/CONTRIBUTING.md#reporting-bugs).
+        - label: I know [how to contribute a proper bug report](https://liquid.merck.design/liquid/guides/contributing/#reporting-bugs).
           required: true
         - label: I agree to follow the [Code of Conduct](https://github.com/emdgroup-liquid/liquid/blob/main/CODE_OF_CONDUCT.md).
           required: true
@@ -47,7 +47,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: Please explain the steps required to duplicate this issue.
-      placeholder: "1. ..."
+      placeholder: '1. ...'
     validations:
       required: true
   - type: input
