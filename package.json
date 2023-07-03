@@ -77,7 +77,7 @@
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'yarn build:styles:docs:components'"
   },
   "dependencies": {
-    "@stencil/core": "^3.2.1",
+    "@stencil/core": "^4.0.1",
     "dompurify": "^3.0.1",
     "js-cookie": "^3.0.1",
     "tether": "^2.0.0"
