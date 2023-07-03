@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.3](https://github.com/emdgroup-liquid/liquid/compare/v5.6.2...v5.6.3) (2023-07-03)
+
+
+### Bug Fixes
+
+* **ld-tabs:** replace scroll into view with scroll to ([2219a07](https://github.com/emdgroup-liquid/liquid/commit/2219a07baddaed8040e466352b8d17293aa28cc7)), closes [#792](https://github.com/emdgroup-liquid/liquid/issues/792)
+
 ## [5.6.2](https://github.com/emdgroup-liquid/liquid/compare/v5.6.1...v5.6.2) (2023-06-30)
 
 
