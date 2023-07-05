@@ -24,3 +24,5 @@ If you'd like to contribute to the project, please read our [code of conduct](CO
 ## License
 
 Liquid Oxygen is available under a [custom license](https://liquid.emd.design/liquid/legal/license/) which restricts its usage to applications created for or by Merck KGaA, Darmstadt, Germany as well as its vendors.
+
+:)
