@@ -951,6 +951,16 @@ export class LdSelect implements InnerFocusable {
     }
   }
 
+  private focusFilterAsSoonAsVisible = (filterInput: HTMLInputElement) => {
+    setTimeout(() => {
+      if (this.listboxRef.style.display === 'none') {
+        this.focusFilterAsSoonAsVisible(filterInput)
+      } else {
+        filterInput.focus()
+      }
+    })
+  }
+
   private handleTriggerClick = (ev: Event) => {
     ev.preventDefault()
 
@@ -960,9 +970,13 @@ export class LdSelect implements InnerFocusable {
 
     this.togglePopper()
 
-    setTimeout(() => {
-      this.getFilterInput()?.focus()
-    })
+    // At this point the popper element may still have display none
+    // (which happens quite rarely - but it does happen!), and we need
+    // to "wait" for it to be visible before setting focus.
+    const filterInput = this.getFilterInput()
+    if (filterInput) {
+      this.focusFilterAsSoonAsVisible(filterInput)
+    }
   }
 
   private handleClearClick = (ev: MouseEvent) => {
