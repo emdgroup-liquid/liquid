@@ -4,7 +4,10 @@ import { LdSelectPopper } from '../ld-select-popper/ld-select-popper'
 import { LdLabel } from '../../ld-label/ld-label'
 import { LdOption } from '../ld-option/ld-option'
 import { LdOptionInternal } from '../ld-option-internal/ld-option-internal'
-import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../utils/mutationObserver'
 import { LdIcon } from '../../ld-icon/ld-icon'
 
 const components = [
@@ -70,6 +73,7 @@ function getShadow(page: SpecPage) {
 describe('ld-select', () => {
   afterEach(() => {
     jest.advanceTimersToNextTimer()
+    clearTriggerableMutationObservers()
   })
 
   it('renders popper element with copies of slotted options', async () => {
@@ -1023,7 +1027,10 @@ describe('ld-select', () => {
         new KeyboardEvent('keydown', { key: 'ArrowDown', metaKey: true })
       )
       await page.waitForChanges()
-      jest.advanceTimersByTime(0)
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
 
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
       expect(internalOption2.focus).toHaveBeenCalledTimes(1)
@@ -1395,7 +1402,7 @@ describe('ld-select', () => {
 
       await triggerPopperWithClick(page)
 
-      const ldSelect = page.root
+      const ldSelect = page.root as HTMLLdSelectElement
       const { ldInternalOptions, internalOptions } = getInternalOptions(page)
       const [ldInternalOption1, ldInternalOption2] = ldInternalOptions
       const [, internalOption2] = internalOptions
@@ -1419,7 +1426,10 @@ describe('ld-select', () => {
 
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }))
       await page.waitForChanges()
-      jest.advanceTimersByTime(0)
+
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
 
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
       expect(internalOption2.focus).toHaveBeenCalledTimes(1)
@@ -2235,7 +2245,9 @@ describe('ld-select', () => {
 
       slottedOptions[2].setAttribute('selected', '')
       await page.waitForChanges()
-      getTriggerableMutationObserver().trigger([{ target: slottedOptions[2] }])
+      getTriggerableMutationObservers()[0].trigger([
+        { target: slottedOptions[2] },
+      ])
 
       await page.waitForChanges()
 
@@ -2265,7 +2277,7 @@ describe('ld-select', () => {
       ldIcon.setAttribute('name', 'bottle')
 
       await page.waitForChanges()
-      getTriggerableMutationObserver().trigger([{ target: ldIcon }])
+      getTriggerableMutationObservers()[0].trigger([{ target: ldIcon }])
 
       await page.waitForChanges()
 
@@ -2381,7 +2393,9 @@ describe('ld-select', () => {
       window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
       await page.waitForChanges()
 
-      jest.advanceTimersByTime(0)
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
 
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
       expect(filterInput.focus).toHaveBeenCalledTimes(1)
@@ -2504,7 +2518,9 @@ describe('ld-select', () => {
       await triggerPopperWithClick(page)
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      jest.advanceTimersByTime(0)
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
       expect(filterInput.focus).toHaveBeenCalledTimes(1)
 
       const { doc, shadowDoc, popperShadowDoc } = getShadow(page)
@@ -2620,7 +2636,9 @@ describe('ld-select', () => {
       await triggerPopperWithClick(page)
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      jest.advanceTimersByTime(0)
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
       expect(filterInput.focus).toHaveBeenCalledTimes(1)
 
       const { ldInternalOptions, internalOptions } = getInternalOptions(page)
@@ -2923,7 +2941,9 @@ describe('ld-select', () => {
       await triggerPopperWithClick(page)
       expect(btnTrigger.getAttribute('aria-expanded')).toEqual('true')
 
-      jest.advanceTimersByTime(0)
+      getTriggerableMutationObservers()[0].trigger([
+        { oldValue: 'display: none;' },
+      ])
       expect(filterInput.focus).toHaveBeenCalledTimes(1)
 
       const { ldInternalOptions } = getInternalOptions(page)
@@ -3091,7 +3111,7 @@ describe('ld-select', () => {
       ldSelect.prepend(option)
 
       await page.waitForChanges()
-      getTriggerableMutationObserver().trigger([{ target: option }])
+      getTriggerableMutationObservers()[1].trigger([{ target: option }])
       await page.waitForChanges()
 
       ldInternalOptions = getInternalOptions(page).ldInternalOptions

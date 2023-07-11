@@ -40,7 +40,8 @@ export class LdSelect implements InnerFocusable {
   private listboxRef!: HTMLLdSelectPopperElement
   private btnClearRef: HTMLButtonElement
   private popper: Tether
-  private observer: MutationObserver
+  private slotChangeObserver: MutationObserver
+  private popperObserver: MutationObserver
   private isObserverEnabled = true
 
   /** Alternative disabled state that keeps element focusable */
@@ -359,6 +360,9 @@ export class LdSelect implements InnerFocusable {
 
     this.popper = new Tether(tetherOptions)
 
+    // Observe popper in order to set focus as soon as it becomes visible.
+    this.initPopperObserver()
+
     this.listboxRef.classList.add('ld-select__popper--initialized')
   }
 
@@ -503,12 +507,57 @@ export class LdSelect implements InnerFocusable {
     this.emitEventsAndUpdateHidden(newValues, oldValues)
   }
 
-  private initObserver = () => {
-    this.observer = new MutationObserver(this.handleSlotChange)
-    this.observer.observe(this.el, {
+  private handlePopperChange = (mutationsList: MutationRecord[]) => {
+    if (
+      this.listboxRef.classList.contains('ld-tether-enabled') &&
+      mutationsList.some((mutation) =>
+        mutation.oldValue.includes('display: none;')
+      )
+    ) {
+      // Popper has just been expanded and is visible.
+
+      // If there is a selected option in single select mode, focus it.
+      let toFocus
+      if (!this.multiple) {
+        // Using find instead of ld-option-internal[selected] selector below
+        // in order to prevent "TypeError: e.getAttributeNode is not a function" in JSDom.
+        toFocus = Array.from(
+          this.listboxRef.querySelectorAll('ld-option-internal')
+        )
+          .find((ldOption) => ldOption.hasAttribute('selected'))
+          ?.shadowRoot.querySelector('[role="option"]')
+      }
+
+      // Otherwise, focus either the filter input (if available) or the trigger button.
+      if (!toFocus) {
+        if (this.filter) {
+          toFocus = this.getFilterInput()
+        } else {
+          toFocus = this.triggerRef
+        }
+      }
+
+      toFocus.focus()
+    }
+  }
+
+  private initSlotChangeObserver = () => {
+    this.slotChangeObserver = new MutationObserver(this.handleSlotChange)
+    this.slotChangeObserver.observe(this.el, {
       subtree: true,
       childList: true,
       attributes: true,
+    })
+  }
+
+  private initPopperObserver = () => {
+    this.popperObserver = new MutationObserver(this.handlePopperChange)
+    this.popperObserver.observe(this.listboxRef, {
+      subtree: false,
+      childList: false,
+      attributes: true,
+      attributeFilter: ['style'],
+      attributeOldValue: true,
     })
   }
 
@@ -518,6 +567,8 @@ export class LdSelect implements InnerFocusable {
     )
 
   private togglePopper = () => {
+    if (!this.popper) this.initPopper()
+
     this.expanded = !this.expanded
 
     if (this.expanded) {
@@ -569,32 +620,6 @@ export class LdSelect implements InnerFocusable {
       }
     }
     this.initOptions()
-  }
-
-  private expandAndFocus = () => {
-    if (!this.popper) this.initPopper()
-    this.togglePopper()
-    setTimeout(() => {
-      // If selected in single select mode, focus selected.
-      let toFocus
-      if (!this.multiple) {
-        // Using find instead of ld-option-internal[selected] selector below
-        // in order to prevent "TypeError: e.getAttributeNode is not a function" in JSDom.
-        toFocus = Array.from(
-          this.listboxRef.querySelectorAll('ld-option-internal')
-        )
-          .find((ldOption) => ldOption.hasAttribute('selected'))
-          ?.shadowRoot.querySelector('[role="option"]')
-      }
-      if (!toFocus) {
-        if (this.filter) {
-          toFocus = this.getFilterInput()
-        } else {
-          toFocus = this.triggerRef
-        }
-      }
-      toFocus.focus()
-    })
   }
 
   private handleHome = (ev) => {
@@ -740,7 +765,7 @@ export class LdSelect implements InnerFocusable {
         // increases the range of items selected (multiple mode only).
         ev.preventDefault()
         if (!this.expanded) {
-          this.expandAndFocus()
+          this.togglePopper()
           return
         }
 
@@ -789,7 +814,7 @@ export class LdSelect implements InnerFocusable {
         // increases the range of items selected (multiple mode only).
         ev.preventDefault()
         if (!this.expanded) {
-          this.expandAndFocus()
+          this.togglePopper()
           return
         }
 
@@ -845,7 +870,7 @@ export class LdSelect implements InnerFocusable {
         if (this.expanded) {
           this.togglePopper()
         } else {
-          this.expandAndFocus()
+          this.togglePopper()
         }
         break
       }
@@ -951,32 +976,12 @@ export class LdSelect implements InnerFocusable {
     }
   }
 
-  private focusFilterAsSoonAsVisible = (filterInput: HTMLInputElement) => {
-    setTimeout(() => {
-      if (this.listboxRef.style.display === 'none') {
-        this.focusFilterAsSoonAsVisible(filterInput)
-      } else {
-        filterInput.focus()
-      }
-    })
-  }
-
   private handleTriggerClick = (ev: Event) => {
     ev.preventDefault()
 
     if (this.isDisabled()) return
 
-    if (!this.popper) this.initPopper()
-
     this.togglePopper()
-
-    // At this point the popper element may still have display none
-    // (which happens quite rarely - but it does happen!), and we need
-    // to "wait" for it to be visible before setting focus.
-    const filterInput = this.getFilterInput()
-    if (filterInput) {
-      this.focusFilterAsSoonAsVisible(filterInput)
-    }
   }
 
   private handleClearClick = (ev: MouseEvent) => {
@@ -1029,7 +1034,7 @@ export class LdSelect implements InnerFocusable {
 
   componentDidLoad() {
     setTimeout(() => {
-      this.initObserver()
+      this.initSlotChangeObserver()
       this.typeAheadHandler = new TypeAheadHandler(
         this.listboxRef.querySelectorAll('ld-option-internal')
       )
@@ -1045,9 +1050,11 @@ export class LdSelect implements InnerFocusable {
 
   disconnectedCallback() {
     /* istanbul ignore if */
+    if (this.popperObserver) this.popperObserver.disconnect()
+    /* istanbul ignore if */
     if (this.popper) this.popper.destroy()
     /* istanbul ignore if */
-    if (this.observer) this.observer.disconnect()
+    if (this.slotChangeObserver) this.slotChangeObserver.disconnect()
     /* istanbul ignore if */
     if (this.listboxRef) this.listboxRef.remove()
     /* istanbul ignore if */

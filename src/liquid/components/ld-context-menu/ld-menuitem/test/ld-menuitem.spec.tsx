@@ -1,8 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdMenuitem } from '../ld-menuitem'
-import { getTriggerableMutationObserver } from '../../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../../utils/mutationObserver'
 
 describe('ld-menuitem', () => {
+  afterEach(clearTriggerableMutationObservers)
+
   it('renders default', async () => {
     const page = await newSpecPage({
       components: [LdMenuitem],
@@ -50,7 +55,7 @@ describe('ld-menuitem', () => {
     })
 
     page.root.setAttribute('data-attribute', 'test')
-    getTriggerableMutationObserver().trigger([
+    getTriggerableMutationObservers()[0].trigger([
       { attributeName: 'data-attribute' },
     ])
     await page.waitForChanges()

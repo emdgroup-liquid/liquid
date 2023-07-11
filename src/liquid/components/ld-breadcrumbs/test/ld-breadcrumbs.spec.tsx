@@ -1,9 +1,14 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdBreadcrumbs } from '../ld-breadcrumbs'
 import { LdCrumb } from '../ld-crumb/ld-crumb'
-import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../utils/mutationObserver'
 
 describe('ld-breadcrumbs', () => {
+  afterEach(clearTriggerableMutationObservers)
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdBreadcrumbs, LdCrumb],
@@ -35,7 +40,7 @@ describe('ld-breadcrumbs', () => {
     crumb.innerHTML = 'baz'
 
     page.root.appendChild(crumb)
-    getTriggerableMutationObserver().trigger([])
+    getTriggerableMutationObservers()[0].trigger([])
     await page.waitForChanges()
 
     expect(page.root).toMatchSnapshot()
@@ -53,7 +58,7 @@ describe('ld-breadcrumbs', () => {
     await page.waitForChanges()
 
     page.root.removeChild(page.root.querySelector('ld-crumb:last-of-type'))
-    getTriggerableMutationObserver().trigger([])
+    getTriggerableMutationObservers()[0].trigger([])
     await page.waitForChanges()
 
     expect(page.root).toMatchSnapshot()

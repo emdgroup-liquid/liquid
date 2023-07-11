@@ -1,9 +1,14 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdBadge } from '../ld-badge'
-import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../utils/mutationObserver'
 
 describe('ld-badge', () => {
+  afterEach(clearTriggerableMutationObservers)
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdBadge, LdIcon],
@@ -55,7 +60,7 @@ describe('ld-badge', () => {
     icon.setAttribute('name', 'placeholder')
 
     page.root.appendChild(icon)
-    getTriggerableMutationObserver().trigger([])
+    getTriggerableMutationObservers()[0].trigger([])
     await page.waitForChanges()
 
     expect(page.root).toMatchSnapshot()
@@ -71,7 +76,7 @@ describe('ld-badge', () => {
     span.innerHTML = 'Badge'
 
     page.root.appendChild(span)
-    getTriggerableMutationObserver().trigger([])
+    getTriggerableMutationObservers()[0].trigger([])
     await page.waitForChanges()
 
     expect(page.root).toMatchSnapshot()
