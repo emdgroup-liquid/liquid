@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.4](https://github.com/emdgroup-liquid/liquid/compare/v5.6.3...v5.6.4) (2023-07-11)
+
+
+### Bug Fixes
+
+* **ld-select:** wait for popper to be visible before focusing filter ([ce8419d](https://github.com/emdgroup-liquid/liquid/commit/ce8419d7c8dcfdb9a89c0020266deff607fd472d)), closes [#813](https://github.com/emdgroup-liquid/liquid/issues/813)
+
 ## [5.6.3](https://github.com/emdgroup-liquid/liquid/compare/v5.6.2...v5.6.3) (2023-07-03)
 
 
