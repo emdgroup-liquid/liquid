@@ -1,8 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { LdInput } from '../ld-input'
-import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../utils/mutationObserver'
 
 describe('ld-input', () => {
+  afterEach(clearTriggerableMutationObservers)
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [LdInput],
@@ -511,7 +516,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('name', 'test')
-    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
+    getTriggerableMutationObservers()[0].trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -531,7 +536,7 @@ describe('ld-input', () => {
     })
 
     root.setAttribute('form', 'test')
-    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
+    getTriggerableMutationObservers()[0].trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -604,7 +609,7 @@ describe('ld-input', () => {
     root.setAttribute('form', 'test')
     root.setAttribute('name', 'test')
     root.setAttribute('value', 'test')
-    getTriggerableMutationObserver().trigger([
+    getTriggerableMutationObservers()[0].trigger([
       { attributeName: 'dirname' },
       { attributeName: 'form' },
       { attributeName: 'name' },
@@ -627,7 +632,7 @@ describe('ld-input', () => {
     ldInput.removeAttribute('dirname')
     ldInput.removeAttribute('form')
     ldInput.removeAttribute('value')
-    getTriggerableMutationObserver().trigger([
+    getTriggerableMutationObservers()[0].trigger([
       { attributeName: 'dirname' },
       { attributeName: 'form' },
       { attributeName: 'value' },
@@ -645,7 +650,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('name')
-    getTriggerableMutationObserver().trigger([{ attributeName: 'name' }])
+    getTriggerableMutationObservers()[0].trigger([{ attributeName: 'name' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })
@@ -657,7 +662,7 @@ describe('ld-input', () => {
     })
 
     root.removeAttribute('form')
-    getTriggerableMutationObserver().trigger([{ attributeName: 'form' }])
+    getTriggerableMutationObservers()[0].trigger([{ attributeName: 'form' }])
     await waitForChanges()
     expect(root).toMatchSnapshot()
   })

@@ -2,7 +2,10 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdTablist } from '../ld-tablist'
 import { LdTab } from '../../ld-tab/ld-tab'
 import '../../../../utils/resizeObserver'
-import { getTriggerableMutationObserver } from '../../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../../utils/mutationObserver'
 import { LdIcon } from '../../../ld-icon/ld-icon'
 
 const components = [LdTablist, LdTab, LdIcon]
@@ -11,6 +14,7 @@ describe('ld-tablist', () => {
   beforeEach(() => {
     jest.clearAllTimers()
   })
+  afterEach(clearTriggerableMutationObservers)
 
   describe('modifiers', () => {
     it('size', async () => {
@@ -140,7 +144,7 @@ describe('ld-tablist', () => {
       expect((indicator as HTMLElement).style.opacity).toEqual('1')
 
       page.root.querySelectorAll('ld-tab')[0].remove()
-      getTriggerableMutationObserver().trigger([])
+      getTriggerableMutationObservers()[0].trigger([])
       page.waitForChanges()
       expect((indicator as HTMLElement).style.opacity).toEqual('0')
     })

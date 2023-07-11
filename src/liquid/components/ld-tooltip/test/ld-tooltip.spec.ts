@@ -5,7 +5,10 @@ import { newSpecPage } from '@stencil/core/testing'
 import { LdIcon } from '../../ld-icon/ld-icon'
 import { LdTooltip } from '../ld-tooltip'
 import { LdTooltipPopper } from '../ld-tooltip-popper/ld-tooltip-popper'
-import { getTriggerableMutationObserver } from '../../../utils/mutationObserver'
+import {
+  clearTriggerableMutationObservers,
+  getTriggerableMutationObservers,
+} from '../../../utils/mutationObserver'
 
 const positions = [
   'bottom center',
@@ -25,6 +28,7 @@ const positions = [
 describe('ld-tooltip', () => {
   afterEach(() => {
     jest.advanceTimersToNextTimer()
+    clearTriggerableMutationObservers()
   })
 
   it('renders default', async () => {
@@ -629,7 +633,7 @@ describe('ld-tooltip', () => {
     mockAssignedNodesOnDefaultSlot()
 
     await page.waitForChanges()
-    getTriggerableMutationObserver().trigger([])
+    getTriggerableMutationObservers()[0].trigger([])
     await page.waitForChanges()
 
     expect(page.body.querySelector('ld-tooltip-popper p').textContent).toBe(
