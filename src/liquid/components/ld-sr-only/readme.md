@@ -54,6 +54,7 @@ The CSS class `ld-sr-only` works the same way as its Web Component counterpart, 
  - [ld-step](../ld-stepper/ld-step)
  - [ld-stepper](../ld-stepper)
  - [ld-tooltip](../ld-tooltip)
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Graph
 ```mermaid
@@ -65,6 +66,7 @@ graph TD;
   ld-step --> ld-sr-only
   ld-stepper --> ld-sr-only
   ld-tooltip --> ld-sr-only
+  ld-upload-item --> ld-sr-only
   style ld-sr-only fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

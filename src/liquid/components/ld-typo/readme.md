@@ -591,6 +591,7 @@ Here are some examples on how you can apply different colors on headings:
  - [ld-sidenav-heading](../ld-sidenav/ld-sidenav-heading)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Graph
 ```mermaid
@@ -602,6 +603,7 @@ graph TD;
   ld-sidenav-heading --> ld-typo
   ld-sidenav-navitem --> ld-typo
   ld-sidenav-toggle-outside --> ld-typo
+  ld-upload-item --> ld-typo
   style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
