@@ -1,0 +1,14 @@
+:host {
+  display: inline-flex;
+}
+
+.ld-upload-progress {
+  background: var(--ld-col-wht);
+  border-radius: var(--ld-br-l);
+  box-shadow: var(--ld-shadow-stacked);
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: var(--ld-sp-12);
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-menuitem renders default 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28">
+  <mock:shadow-root>
+    <ld-card class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="placeholder"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.28 Bytes
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-sr-only id="progress-label">
+        Progress
+      </ld-sr-only>
+      <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
+      <slot></slot>
+    </ld-card>
+  </mock:shadow-root>
+</ld-upload-item>
+`;

@@ -684,19 +684,23 @@ Type: `Promise<void>`
 ### Used by
 
  - [ld-cookie-consent](../ld-cookie-consent)
+ - [ld-file-upload](../ld-file-upload)
  - [ld-menuitem](../ld-context-menu/ld-menuitem)
  - [ld-pagination](../ld-pagination)
  - ld-select-popper
  - [ld-table-header](../ld-table/ld-table-header)
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Graph
 ```mermaid
 graph TD;
   ld-cookie-consent --> ld-button
+  ld-file-upload --> ld-button
   ld-menuitem --> ld-button
   ld-pagination --> ld-button
   ld-select-popper --> ld-button
   ld-table-header --> ld-button
+  ld-upload-item --> ld-button
   style ld-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

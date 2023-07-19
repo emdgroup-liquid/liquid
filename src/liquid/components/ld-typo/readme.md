@@ -584,6 +584,7 @@ Here are some examples on how you can apply different colors on headings:
 
 ### Used by
 
+ - [ld-choose-file](../ld-file-upload/ld-choose-file)
  - [ld-cookie-consent](../ld-cookie-consent)
  - [ld-header](../ld-header)
  - [ld-notice](../ld-notice)
@@ -591,10 +592,12 @@ Here are some examples on how you can apply different colors on headings:
  - [ld-sidenav-heading](../ld-sidenav/ld-sidenav-heading)
  - [ld-sidenav-navitem](../ld-sidenav/ld-sidenav-navitem)
  - [ld-sidenav-toggle-outside](../ld-sidenav/ld-sidenav-toggle-outside)
+ - [ld-upload-item](../ld-file-upload/ld-upload-item)
 
 ### Graph
 ```mermaid
 graph TD;
+  ld-choose-file --> ld-typo
   ld-cookie-consent --> ld-typo
   ld-header --> ld-typo
   ld-notice --> ld-typo
@@ -602,6 +605,7 @@ graph TD;
   ld-sidenav-heading --> ld-typo
   ld-sidenav-navitem --> ld-typo
   ld-sidenav-toggle-outside --> ld-typo
+  ld-upload-item --> ld-typo
   style ld-typo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
