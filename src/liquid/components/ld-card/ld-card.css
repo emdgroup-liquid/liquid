@@ -3,7 +3,6 @@
   --ld-card-bg-col: var(--ld-col-wht);
   --ld-card-border-radius: var(--ld-br-l);
   --ld-card-padding: var(--ld-sp-32);
-  --ld-card-padding-sm: var(--ld-sp-16);
 
   appearance: none;
   border: none;
@@ -32,6 +31,10 @@
   &::after {
     opacity: 0;
   }
+}
+
+slot {
+  border-radius: inherit;
 }
 
 :host(.ld-card--sticky)::before,
@@ -73,6 +76,13 @@
 .ld-card--sm {
   :host(&),
   & {
-    padding: var(--ld-card-padding-sm);
+    --ld-card-padding: var(--ld-sp-16);
+  }
+}
+
+.ld-card--zero {
+  :host(&),
+  & {
+    --ld-card-padding: 0px;
   }
 }

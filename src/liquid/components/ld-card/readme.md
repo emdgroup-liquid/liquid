@@ -51,6 +51,14 @@ The `size` prop effects the card padding only.
   <ld-typo>Lorem ipsum dolor sit amet.</ld-typo>
 </ld-card>
 
+<ld-card size="zero">
+  <img
+    style="border-radius: inherit"
+    src="https://picsum.photos/id/152/180/80"
+    alt=""
+  />
+</ld-card>
+
 <!-- React component -->
 
 <LdCard>
@@ -61,6 +69,16 @@ The `size` prop effects the card padding only.
   <LdTypo>Lorem ipsum dolor sit amet.</LdTypo>
 </LdCard>
 
+<LdCard size="zero">
+  <img
+    style={ {
+      borderRadius: 'inherit'
+    } }
+    src="https://picsum.photos/id/152/180/80"
+    alt=""
+  />
+</LdCard>
+
 <!-- CSS component -->
 
 <div class="ld-card">
@@ -69,6 +87,14 @@ The `size` prop effects the card padding only.
 
 <div class="ld-card ld-card--sm">
   <p class="ld-typo ld-typo--body-m">Lorem ipsum dolor sit amet.</p>
+</div>
+
+<div class="ld-card ld-card--zero">
+  <img
+    style="border-radius: inherit"
+    src="https://picsum.photos/id/152/180/80"
+    alt=""
+  />
 </div>
 {% endexample %}
 
@@ -195,7 +221,7 @@ Use the `shadow-interactive` prop for a transition to a different shadow on hove
 | `ref`               | `ref`                | reference to component                                                                                             | `any`                                          | `undefined` |
 | `shadow`            | `shadow`             | Simulates card elevation by setting the size of the card box shadow.                                               | `"active" \| "hover" \| "stacked" \| "sticky"` | `'stacked'` |
 | `shadowInteractive` | `shadow-interactive` | Adds hover and focus-within states using an elevation transition from `shadow` (see above) to `shadowInteractive`. | `"active" \| "hover" \| "stacked" \| "sticky"` | `undefined` |
-| `size`              | `size`               | The size prop effects the card padding only.                                                                       | `"sm"`                                         | `undefined` |
+| `size`              | `size`               | The size prop effects the card padding only.                                                                       | `"sm" \| "zero"`                               | `undefined` |
 
 
 ----------------------------------------------

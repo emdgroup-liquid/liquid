@@ -83,6 +83,39 @@ describe('ld-card', () => {
       const results = await page.compareScreenshot()
       expect(results).toMatchScreenshot()
     })
+
+    it('zero-padding card Web Component', async () => {
+      const page = await getPageWithContent(
+        `<ld-card size="zero-padding">
+          <img
+            style="border-radius: inherit"
+            src="https://picsum.photos/id/152/180/80"
+            alt=""
+          />
+        </ld-card>`
+      )
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
+
+    it('zero-padding card CSS Component', async () => {
+      const page = await getPageWithContent(
+        `<div class="ld-card ld-card--zero">
+          <img
+            style="border-radius: inherit"
+            src="https://picsum.photos/id/152/180/80"
+            alt=""
+          />
+        </div>`,
+        {
+          components: [LdCard, LdTypo],
+        }
+      )
+
+      const results = await page.compareScreenshot()
+      expect(results).toMatchScreenshot()
+    })
   })
 
   describe('shadow', () => {

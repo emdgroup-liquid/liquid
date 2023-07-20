@@ -9664,6 +9664,32 @@
       "isMobile": false
     },
     {
+      "id": "abeef848",
+      "image": "e5f588e5ea2b00fdc592cda83d4fbb83.png",
+      "userAgent": "default",
+      "desc": "ld-card size zero-padding card CSS Component",
+      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "2b171cd2",
+      "image": "e5f588e5ea2b00fdc592cda83d4fbb83.png",
+      "userAgent": "default",
+      "desc": "ld-card size zero-padding card Web Component",
+      "testPath": "./src/liquid/components/ld-card/test/ld-card.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "ac3712f8",
       "image": "ff3ae1826f2d6a3182e7ccb109551233.png",
       "userAgent": "default",
