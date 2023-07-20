@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/emdgroup-liquid/liquid/compare/v5.6.4...v5.7.0) (2023-07-20)
+
+
+### Features
+
+* **ld-card:** zero-padding ([a090c00](https://github.com/emdgroup-liquid/liquid/commit/a090c003e89b5d0a82c979f4e84766bf867b3bcc)), closes [#810](https://github.com/emdgroup-liquid/liquid/issues/810)
+
 ## [5.6.4](https://github.com/emdgroup-liquid/liquid/compare/v5.6.3...v5.6.4) (2023-07-11)
 
 
