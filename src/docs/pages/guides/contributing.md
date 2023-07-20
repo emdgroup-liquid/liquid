@@ -134,6 +134,14 @@ yarn start
   As an alternative, you can start developing instantly within <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=344421806&machine=standardLinux32gb&location=WestEurope">GitHub Codespaces</a>. For more information on Codespaces head over to the <a href="https://github.com/features/codespaces">Codespaces docs on GitHub</a>.
 </ld-notice>
 
+#### Working on the documentation page
+
+If you wish to make code changes to the documentation page (by modifying code within the `src/docs` directory), you can utilize the following command, which will launch the development server, actively monitors documentation-related resources. Consequently, you will be able to observe your changes taking effect as you code.
+
+```sh
+yarn start:docs
+```
+
 ### Project structure
 
 This project consists of different parts and pieces, each with its own purpose. Familiarize yourself with these parts and pieces, so that you find your way quicker to the relevant spot where you would like to contribute.
