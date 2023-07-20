@@ -23,7 +23,7 @@ export class LdCard {
   @Prop() shadowInteractive?: 'active' | 'hover' | 'stacked' | 'sticky'
 
   /** The size prop effects the card padding only. */
-  @Prop() size?: 'sm'
+  @Prop() size?: 'sm' | 'zero'
 
   componentWillLoad() {
     if (this.el.parentElement?.tagName === 'LD-CARD-STACK') {
