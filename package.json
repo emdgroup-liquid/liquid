@@ -58,8 +58,8 @@
     "lint:styles:fix": "stylelint ./src/**/*css --fix",
     "lint:ts": "tsc --noemit -p config/tsconfig.docs.json",
     "prepare": "husky install",
-    "start": "run-p serve 'watch:eleventy' 'watch:stencil' 'watch:global_styles:liquid' 'watch:styles:components' start:info",
-    "start:docs": "run-p serve 'watch:eleventy' 'watch:stencil:docs' 'watch:global_styles:liquid' 'watch:global_styles:docs' 'watch:styles:components' start:info",
+    "start": "run-s start:watch",
+    "start:watch": "run-p serve 'build:styles:docs:*' 'watch:**' start:info",
     "start:info": "echo 'serving on http://localhost:8080'",
     "serve": "nc -z 127.0.0.1 8080 && exit 0 || live-server --port=8080 dist_docs --no-browser --no-css-inject --quiet",
     "test": "stencil test --config=stencil.config.ts --spec --coverage",
@@ -73,8 +73,7 @@
     "watch:eleventy": "dotenv -e .env -- node ./scripts/eleventy.cjs --incremental --watch",
     "watch:global_styles:liquid": "chokidar src/liquid/global/styles/**/*.css -c 'yarn build:styles:docs:liquid'",
     "watch:global_styles:docs": "chokidar src/docs/global/styles/**/*.css -c 'yarn build:styles:docs:docs'",
-    "watch:stencil": "stencil build --config=stencil.config.ts --docs --watch --dev --no-open",
-    "watch:stencil:docs": "stencil build --config=config/stencil.config.docs.ts --docs --watch --dev --no-open",
+    "watch:stencil": "stencil build --config=config/stencil.config.docs.ts --docs --watch --dev --no-open",
     "watch:styles:components": "chokidar src/liquid/components/**/*.css -i 'src/liquid/components/**/*.shadow.css' -c 'yarn build:styles:docs:components'"
   },
   "dependencies": {
