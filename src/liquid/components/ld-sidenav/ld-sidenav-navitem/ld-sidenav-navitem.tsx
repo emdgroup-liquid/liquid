@@ -199,9 +199,8 @@ export class LdSidenavNavitem implements InnerFocusable {
       .split(' ')
       .find((cl) => cl.startsWith('ld-theme-'))
 
-    this.secondaryIconHTML = this.el.querySelector(
-      '[slot="icon-secondary"]'
-    )?.outerHTML
+    this.secondaryIconHTML = this.el.querySelector('[slot="icon-secondary"]')
+      ?.outerHTML
   }
 
   componentWillLoad() {

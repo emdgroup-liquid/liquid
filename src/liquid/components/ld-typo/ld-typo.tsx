@@ -116,7 +116,7 @@ export class LdTypo implements ClonesAttributes {
       xh4: 'h4',
       xh5: 'h5',
       xh6: 'h6',
-    }[this.variant] ?? 'p')
+    })[this.variant] ?? 'p'
 
   componentWillLoad() {
     this.attributesObserver = cloneAttributes.call(this, ['tag', 'variant'])

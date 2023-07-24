@@ -124,12 +124,12 @@ const getCssStep = ({
 }">
   ${srLabel ? `<span class="ld-sr-only">${srLabel}: </span>` : ''}
   <${anchor ? 'a' : 'button'} class="ld-step__focusable-element"${
-  !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
-    ? ' href="#"'
-    : ''
-}${disabled ? ' aria-disabled="true"' : ''}${
-  ariaLabel ? ` aria-label="${ariaLabel}"` : ''
-}>${label ?? ''}</${anchor ? 'a' : 'button'}>
+    !anchor && (modifiers.includes('done') || modifiers.includes('skipped'))
+      ? ' href="#"'
+      : ''
+  }${disabled ? ' aria-disabled="true"' : ''}${
+    ariaLabel ? ` aria-label="${ariaLabel}"` : ''
+  }>${label ?? ''}</${anchor ? 'a' : 'button'}>
   ${
     modifiers.includes('done') && !modifiers.includes('custom-icon')
       ? '<svg class="ld-icon" role="presentation" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m12 4-6.592 6L2 6.6396" stroke="currentcolor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
