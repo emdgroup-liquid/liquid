@@ -32,10 +32,21 @@ module.exports = {
       {
         browsers: require('../package.json').browserslist,
         ignorePartialSupport: true,
+        // Most of the stuff below is QQ browser related.
         ignore: [
+          'css-backdrop-filter',
+          'css-container-query-units',
+          'css-focus-visible',
+          'css-marker-pseudo',
+          'css-math-functions',
+          'css-media-range-syntax',
+          'css-nesting',
+          'css-not-sel-list',
+          'css-scrollbar',
+          'css-touch-action',
           'pointer',
           'user-select-none',
-          'css-touch-action',
+          'viewport-unit-variants',
           'word-break',
         ],
       },
