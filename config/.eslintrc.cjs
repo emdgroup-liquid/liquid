@@ -1,4 +1,21 @@
-const commonTSConfig = {
+const commonConfig = {
+  extends: [
+    'eslint:recommended',
+    'plugin:compat/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'prettier', 'promise'],
+  rules: {
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/no-extra-semi': 0,
+    'prettier/prettier': 'error',
+    'react/jsx-no-bind': 0,
+  },
+}
+
+const stencilConfig = {
   extends: [
     'eslint:recommended',
     'plugin:compat/recommended',
@@ -8,6 +25,7 @@ const commonTSConfig = {
   ],
   plugins: ['@typescript-eslint', 'prettier', 'promise'],
   rules: {
+    ...commonConfig.rules,
     '@stencil/decorators-style': 0,
     '@stencil/decorators-context': 0,
     '@stencil/element-type': 0,
@@ -15,11 +33,6 @@ const commonTSConfig = {
     '@stencil/own-methods-must-be-private': 0,
     '@stencil/strict-boolean-conditions': 0,
     '@stencil/strict-mutable': 0,
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/explicit-module-boundary-types': 0,
-    '@typescript-eslint/no-extra-semi': 0,
-    'prettier/prettier': 'error',
-    'react/jsx-no-bind': 0,
   },
 }
 
@@ -34,18 +47,18 @@ module.exports = {
   },
   overrides: [
     {
-      ...commonTSConfig,
+      ...commonConfig,
       files: ['*.ts'],
     },
     {
-      ...commonTSConfig,
+      ...stencilConfig,
       files: ['src/liquid/**/*.ts', 'src/liquid/**/*.tsx'],
       parserOptions: {
         project: ['tsconfig.json'],
       },
     },
     {
-      ...commonTSConfig,
+      ...stencilConfig,
       files: [
         'src/docs/**/*.ts',
         'src/docs/**/*.tsx',

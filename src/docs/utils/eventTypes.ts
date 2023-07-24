@@ -1,3 +1,4 @@
+/* eslint-disable @stencil/ban-exported-const-enums */
 export enum NavEventType {
   open = 'NAV_OPEN',
   close = 'NAV_CLOSE',
