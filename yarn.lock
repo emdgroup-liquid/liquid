@@ -2652,20 +2652,20 @@ __metadata:
   linkType: hard
 
 "@stencil/core@npm:^3.3.1":
-  version: 3.4.1
-  resolution: "@stencil/core@npm:3.4.1"
+  version: 3.4.2
+  resolution: "@stencil/core@npm:3.4.2"
   bin:
     stencil: bin/stencil
-  checksum: 8f51a9cf47f4e6dd991b03f2f5fabb6d5e6c6ecf81cf6eb3f16334c40b5be13839310a20443670e78ffef7f6c35c39be6416e6d269771f43ab06b9166af8a938
+  checksum: b875ae9fd3f794323c8f55f2640ff134632d034db6c00b103d6f6604668aa0e218880a198e531842a81c7b4afaed7bf407e71b541c7425634ecdc17e8577b7b5
   languageName: node
   linkType: hard
 
 "@stencil/core@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@stencil/core@npm:4.0.1"
+  version: 4.0.2
+  resolution: "@stencil/core@npm:4.0.2"
   bin:
     stencil: bin/stencil
-  checksum: 68b3dc9d455c53e4c483d7be8964145835b103b63cf552a745072971cf9c6c08f72278427892d4871cfa508b287ed435c564be562dbdfc8438d0162d5595ff02
+  checksum: 0bdddf19713989704237d40d66c09cf2bc528e47f960fdadccd42ffea68703e34b14e548cfd56783a6f9abfd9b6307611651c190fd4e6e104850dfa75c257a5e
   languageName: node
   linkType: hard
 
