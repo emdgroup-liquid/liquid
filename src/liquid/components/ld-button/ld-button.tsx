@@ -60,6 +60,9 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Disabled state of the button. */
   @Prop() disabled?: boolean
 
+  /** Causes the browser to treat the linked URL as a download. */
+  @Prop() download?: boolean | string
+
   /** Associates the control with a form element. */
   @Prop() form?: string
 
@@ -85,6 +88,9 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
    */
   @Prop() href?: string
 
+  /** Hints at the human language of the linked URL. */
+  @Prop() hreflang?: string
+
   /** Justify content. */
   @Prop({ mutable: true }) justifyContent?: 'start' | 'end' | 'between'
 
@@ -97,8 +103,14 @@ export class LdButton implements InnerFocusable, ClonesAttributes {
   /** Used to specify the name of the control. */
   @Prop() name?: string
 
+  /** A space-separated list of URLs to ping on link follow. */
+  @Prop() ping?: string
+
   /** Displays a progress bar at the bottom of the button. */
   @Prop() progress?: 'pending' | number
+
+  /** A space-separated list of URLs to ping on link follow. */
+  @Prop() referrerpolicy?: string
 
   /** Size of the button. */
   @Prop() size?: 'sm' | 'lg'
