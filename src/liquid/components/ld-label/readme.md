@@ -486,6 +486,7 @@ HTML content describing the labeled element should be wrapped in a single HTML e
 | Property       | Attribute       | Description                                              | Type                | Default     |
 | -------------- | --------------- | -------------------------------------------------------- | ------------------- | ----------- |
 | `alignMessage` | `align-message` | Align input message with input position.                 | `boolean`           | `undefined` |
+| `for`          | `for`           | Align input message with input position.                 | `string`            | `undefined` |
 | `key`          | `key`           | for tracking the node's identity when working with lists | `string \| number`  | `undefined` |
 | `position`     | `position`      | Relative position to labeled element. Default is top.    | `"left" \| "right"` | `undefined` |
 | `ref`          | `ref`           | reference to component                                   | `any`               | `undefined` |

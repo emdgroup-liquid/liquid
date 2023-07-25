@@ -5,18 +5,16 @@ import { isAriaDisabled } from '../../utils/ariaDisabled'
 
 /**
  * @part anchor - the link anchor
- * @virtualProp href - the URL that the hyperlink points to
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  */
-
 @Component({
   tag: 'ld-link',
   styleUrl: 'ld-link.css',
   shadow: true,
 })
 export class LdLink implements ClonesAttributes, InnerFocusable {
-  @Element() el: HTMLElement
+  @Element() el: HTMLLdLinkElement
   private anchor: HTMLAnchorElement
   private attributesObserver: MutationObserver
 
@@ -29,8 +27,23 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
    */
   @Prop() disabled?: boolean
 
+  /** Causes the browser to treat the linked URL as a download. */
+  @Prop() download?: boolean | string
+
+  /** The URL that the hyperlink points to. */
+  @Prop() href?: string
+
+  /** Hints at the human language of the linked URL. */
+  @Prop() hreflang?: string
+
   /** Tab index of the input. */
   @Prop() ldTabindex?: number
+
+  /** A space-separated list of URLs to ping on link follow. */
+  @Prop() ping?: string
+
+  /** A space-separated list of URLs to ping on link follow. */
+  @Prop() referrerpolicy?: string
 
   /**
    * The `target` attributed can be used in conjunction with the `href` attribute.
