@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1](https://github.com/emdgroup-liquid/liquid/compare/v5.7.0...v5.7.1) (2023-07-25)
+
+
+### Bug Fixes
+
+* add missing types to ld-button, ld-link and ld-label ([e5c2ab0](https://github.com/emdgroup-liquid/liquid/commit/e5c2ab0dcacd144ca89ddae78b6cebc0f9297294))
+* **ld-input:** allow number type for maxlength and minlength ([5f5f1da](https://github.com/emdgroup-liquid/liquid/commit/5f5f1dac7cf7401e253a989aed3fce2fa48d61b9))
+
 # [5.7.0](https://github.com/emdgroup-liquid/liquid/compare/v5.6.4...v5.7.0) (2023-07-20)
 
 
