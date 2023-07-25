@@ -89,13 +89,13 @@ export class LdInput implements InnerFocusable, ClonesAttributes {
   @Prop() max?: string | number
 
   /** Maximum length (number of characters) of `value`. */
-  @Prop() maxlength?: string
+  @Prop() maxlength?: string | number
 
   /** Minimum value. */
   @Prop() min?: string | number
 
   /** Minimum length (number of characters) of `value`. */
-  @Prop() minlength?: string
+  @Prop() minlength?: string | number
 
   /**
    * Uses textarea instead of input internally. Setting this attribute to true
