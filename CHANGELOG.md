@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/emdgroup-liquid/liquid/compare/v5.7.1...v5.8.0) (2023-07-26)
+
+
+### Features
+
+* **ld-icon:** add icons ([dd0e812](https://github.com/emdgroup-liquid/liquid/commit/dd0e8124e746d9c8719b2f53d4a856c7f56b651b))
+
 ## [5.7.1](https://github.com/emdgroup-liquid/liquid/compare/v5.7.0...v5.7.1) (2023-07-25)
 
 
