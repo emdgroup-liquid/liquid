@@ -289,9 +289,13 @@ Right-click an icon below to download its SVG file. To download all icons at onc
 
 <docs-icon-group name="Modifiers">
   <docs-icon identifier="add" name="Add"></docs-icon>
+  <docs-icon identifier="remove" name="Remove"></docs-icon>
+  <docs-icon identifier="minus" name="Minus"></docs-icon>
+  <docs-icon identifier="plus" name="Plus"></docs-icon>
   <docs-icon identifier="magnifier" name="Magnifier"></docs-icon>
   <docs-icon identifier="cross" name="Cross"></docs-icon>
-  <docs-icon identifier="option" name="Option"></docs-icon>
+  <docs-icon identifier="option-h" name="Option Horizontal"></docs-icon>
+  <docs-icon identifier="option-v" name="Option Vertical"></docs-icon>
   <docs-icon identifier="attention" name="Attention"></docs-icon>
   <docs-icon identifier="list" name="List"></docs-icon>
   <docs-icon identifier="burger-menu" name="Burger Menu"></docs-icon>
@@ -310,6 +314,10 @@ Right-click an icon below to download its SVG file. To download all icons at onc
   <docs-icon identifier="fast-forward" name="Fast Forward"></docs-icon>
   <docs-icon identifier="audio" name="Audio"></docs-icon>
   <docs-icon identifier="mic" name="Mic"></docs-icon>
+  <docs-icon identifier="bottom-left" name="Bottom Left"></docs-icon>
+  <docs-icon identifier="bottom-right" name="Bottom Right"></docs-icon>
+  <docs-icon identifier="top-left" name="Top Left"></docs-icon>
+  <docs-icon identifier="top-right" name="Top Right"></docs-icon>
   <docs-icon identifier="arrow-down" name="Arrow Down"></docs-icon>
   <docs-icon identifier="arrow-up" name="Arrow Up"></docs-icon>
   <docs-icon identifier="arrow-left" name="Arrow Left"></docs-icon>
