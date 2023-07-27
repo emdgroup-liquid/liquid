@@ -1,5 +1,4 @@
 import { Build } from '@stencil/core'
-import { version } from '../../../package.json'
 
 let missingAssetPathWarningDisplayed = false
 
@@ -17,8 +16,9 @@ export const getAssetPath = (path: string) => {
   // Get asset path from window if available
   const windowLdAssetPath = window.__LD_ASSET_PATH__
   // Uses CDN as fallback if no asset path is set
+  const version = '5.8.1'
   const cdnAssetPath = `https://cdn.jsdelivr.net/npm/@emdgroup-liquid/liquid${
-    version ? '@' + version : ''
+    '@' + version
   }/dist/liquid/`
 
   const assetBasePath = Build.isTesting
