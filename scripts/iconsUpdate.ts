@@ -172,6 +172,22 @@ const exponentialBackoff = async (fn, depth = 1, retries = 7, base = 2) => {
     const iconsCollection = await getIconCollectionFromFigma()
     console.log(`Found ${iconsCollection.length} icons. Downloading...`)
     await loadAndWriteIcons(iconsCollection)
+
+    // ANSI escape codes for text colors
+    const textColor = {
+      reset: '\x1b[0m',
+      yellow: '\x1b[33m',
+    }
+
+    console.warn(
+      [
+        textColor.yellow,
+        '⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️',
+        'Please update hard coded version in src/liquid/utils/assetPath.ts for CND url.',
+        '⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️' +
+          textColor.reset,
+      ].join('\n')
+    )
   } catch (error) {
     console.error('error', error)
   }
