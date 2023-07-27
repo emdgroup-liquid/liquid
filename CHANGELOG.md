@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.1](https://github.com/emdgroup-liquid/liquid/compare/v5.8.0...v5.8.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* **ld-icon:** cdn url must contain the latest version ([9a8f2df](https://github.com/emdgroup-liquid/liquid/commit/9a8f2df9c07f71626b3feadea60ed84de7cbce88))
+
 # [5.8.0](https://github.com/emdgroup-liquid/liquid/compare/v5.7.1...v5.8.0) (2023-07-26)
 
 
