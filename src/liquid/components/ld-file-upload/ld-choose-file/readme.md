@@ -39,13 +39,12 @@ TODO: emit files chosen event with file list, that's it.
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                       | Type                                                                                                                            | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `key`         | `key`          | for tracking the node's identity when working with lists                                          | `string \| number`                                                                                                              | `undefined` |
-| `maxSize`     | `max-size`     | Max. file size in bytes                                                                           | `number`                                                                                                                        | `1572864`   |
-| `ref`         | `ref`          | reference to component                                                                            | `any`                                                                                                                           | `undefined` |
-| `startUpload` | `start-upload` | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`                                                                                                                       | `false`     |
-| `uploadFiles` | --             | Chosen Files                                                                                      | `{ state: "pending" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; progress: number; }[]` | `[]`        |
+| Property      | Attribute  | Description                                              | Type                                                                                                                            | Default     |
+| ------------- | ---------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `key`         | `key`      | for tracking the node's identity when working with lists | `string \| number`                                                                                                              | `undefined` |
+| `maxSize`     | `max-size` | Max. file size in bytes                                  | `number`                                                                                                                        | `1572864`   |
+| `ref`         | `ref`      | reference to component                                   | `any`                                                                                                                           | `undefined` |
+| `uploadFiles` | --         | Chosen Files                                             | `{ state: "pending" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; progress: number; }[]` | `[]`        |
 
 
 ## Events

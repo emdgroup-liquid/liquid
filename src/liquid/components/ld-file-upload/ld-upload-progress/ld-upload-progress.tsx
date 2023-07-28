@@ -1,17 +1,5 @@
-import {
-  Component,
-  Element,
-  h,
-  Host,
-  /* Method, */
-  Prop,
-  State,
-  /* Watch, */
-} from '@stencil/core'
+import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 import type { UploadItem } from '../ld-file-upload'
-/* import { TypeAheadHandler } from '../../../utils/typeahead'
-import { isElement, isMenuItem, isSlot } from '../../../utils/type-checking'
-import { LdUploadItem } from '../ld-upload-item/ld-upload-item' */
 
 /**
  * @virtualProp ref - reference to component
@@ -51,41 +39,18 @@ export class LdUploadProgress {
   ]
   // @State() uploadItems: unknown[] = [{ state: 'uploaded', fileName: 'yolo.png' }]
 
-  private renderListItems = () => {
-    const items = []
-
-    this.uploadItems.forEach((item) => {
-      items.push(
-        <li>
-          <ld-upload-item
-            key={item.fileName + '_' + item.fileSize + '_' + item.progress}
-            state={item.state}
-            file-name={item.fileName}
-            file-size={item.fileSize}
-            progress={item.progress}
-          ></ld-upload-item>
-        </li>
-      )
-    })
-
-    return items
-  }
-
-  /* updateUploadItemProps() {
-    const ldUploadItems =
-      this.el.querySelectorAll<HTMLLdUploadItemElement>('ld-upload-item')
-    ldUploadItems.forEach((ldUploadItem) => {
-      if (this.startUpload) {
-        ldUploadItem.state = 'uploading'
-      } else {
-        ldUploadItem.state = 'pending'
-      }
-    })
-  }
-
-  componentWillLoad() {
-    this.updateUploadItemProps()
-  } */
+  private renderListItems = () =>
+    this.uploadItems.map((item) => (
+      <li>
+        <ld-upload-item
+          key={item.fileName + '_' + item.fileSize + '_' + item.progress}
+          state={item.state}
+          fileName={item.fileName}
+          fileSize={item.fileSize}
+          progress={item.progress}
+        ></ld-upload-item>
+      </li>
+    ))
 
   render() {
     return (

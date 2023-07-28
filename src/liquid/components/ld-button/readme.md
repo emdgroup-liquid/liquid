@@ -680,6 +680,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [ld-cookie-consent](../ld-cookie-consent)
+ - [ld-file-upload](../ld-file-upload)
  - [ld-menuitem](../ld-context-menu/ld-menuitem)
  - [ld-pagination](../ld-pagination)
  - ld-select-popper
@@ -690,6 +691,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ld-cookie-consent --> ld-button
+  ld-file-upload --> ld-button
   ld-menuitem --> ld-button
   ld-pagination --> ld-button
   ld-select-popper --> ld-button

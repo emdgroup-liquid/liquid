@@ -25,9 +25,6 @@ export class LdChooseFile {
   @Element() el: HTMLLdChooseFileElement
   /* private uploadProgressRef: HTMLLdUploadProgressElement */
 
-  /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
-  @Prop() startUpload?: boolean = false
-
   /** Max. file size in bytes */
   @Prop() maxSize?: number = 1572864
 
@@ -43,69 +40,26 @@ export class LdChooseFile {
 
   @Event() ldchoosefiles: EventEmitter<FileList>
 
-  private updateProgress() {
-    // console.log(this.el.querySelector('ld-upload-progress').uploadItems)
-    // console.log(this.uploadProgressRef.uploadItems)
-    // this.el.querySelector('ld-upload-progress').uploadItems = this.uploadFiles
-    // this.uploadProgressRef.uploadItems = this.uploadFiles
-    if (this.uploadFiles && this.el.querySelector('ld-upload-progress')) {
-      console.log(this.el.querySelector('ld-upload-progress').uploadItems)
-      this.el.querySelector('ld-upload-progress').uploadItems = this.uploadFiles
-      /* this.el
-        .querySelector('ld-upload-progress')
-        .setAttribute('upload-items', this.uploadFiles) */
-    } /* else {
-      this.el
-        .querySelector('ld-upload-progress')
-        .removeAttribute('upload-items')
-    } */
-  }
-
   private getFile = async (ev) => {
     const files = (ev.target as HTMLLdInputElement).files
     if (!files || !files.length) return
 
     console.log(files)
 
-    this.readFile(files)
+    this.ldchoosefiles.emit(files)
+
+    // this.readFile(files)
   }
 
   // TODO: remove, I think we don't need this.
-  private readFile = async (files: FileList) => {
-    // Read the file on the client side.
-    const fileReader = new FileReader()
-    console.log(fileReader)
-    fileReader.readAsDataURL(files[0])
+  /* private readFile = async (files: FileList) => {
     const file = files[0]
-    if (file.size > this.maxSize) {
-      fileReader.abort()
-    }
     if (
+      file.size <= this.maxSize &&
       this.uploadFiles.some(
         (uploadedfile) => uploadedfile.fileName === file.name
       )
     ) {
-      fileReader.abort()
-    }
-    fileReader.onabort = () => {
-      this.uploadFiles.push({
-        state: 'upload failed',
-        fileName: file.name,
-        fileSize: file.size,
-        progress: 0,
-      })
-    }
-    fileReader.onerror = () => {
-      // Handle error...
-      this.uploadFiles.push({
-        state: 'upload failed',
-        fileName: file.name,
-        fileSize: file.size,
-        progress: 0,
-      })
-    }
-    fileReader.onloadend = () => {
-      // Use file data...
       this.uploadFiles.push({
         state: 'pending',
         fileName: file.name,
@@ -113,27 +67,8 @@ export class LdChooseFile {
         progress: 0,
       })
     }
-
     console.log(this.uploadFiles)
-    this.updateProgress()
-
-    // Or post the file to the server.
-    /* const data = new FormData()
-    data.append('userfile', files[0])
-    const requestOptions = {
-      method: 'POST',
-      body: data,
-    }
-    try {
-      await fetch('/api/user/profile/file', {
-        method: 'POST',
-        body: data,
-      })
-      // success!
-    } catch (err) {
-      // Handle error...
-    } */
-  }
+  } */
 
   private handleDragEnter = (ev: DragEvent) => {
     /* console.log(ev) */
@@ -175,37 +110,6 @@ export class LdChooseFile {
     this.ldchoosefiles.emit(fileList)
 
     // this.readFile(fileList)
-
-    /* const dt = ev.dataTransfer
-    let files = dt.files
-
-    files = [...files]
-    files.forEach(
-      (this.uploads = [
-        ...this.uploads,
-        <drop-element file={file}></drop-element>,
-      ])
-    ) */
-
-    /* if (ev.dataTransfer.items) {
-      // Use DataTransferItemList interface to access the file(s)
-      ;[...ev.dataTransfer.items].forEach((item, i) => {
-        // If dropped items aren't files, reject them
-        if (item.kind === 'file') {
-          const file = item.getAsFile()
-          console.log(`… file[${i}].name = ${file.name}`)
-        }
-      })
-    } else {
-      // Use DataTransfer interface to access the file(s)
-      ;[...ev.dataTransfer.files].forEach((file, i) => {
-        console.log(`… file[${i}].name = ${file.name}`)
-      })
-    } */
-  }
-
-  componentDidLoad() {
-    this.updateProgress()
   }
 
   render() {
@@ -239,12 +143,6 @@ export class LdChooseFile {
             onLdchange={this.getFile}
           ></ld-input>
         </div>
-        {/* <ld-upload-progress
-          start-upload="false"
-          ref={(el: HTMLLdUploadProgressElement) =>
-            (this.uploadProgressRef = el)
-          }
-        ></ld-upload-progress> */}
       </Host>
     )
   }
