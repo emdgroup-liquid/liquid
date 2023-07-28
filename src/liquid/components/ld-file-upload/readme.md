@@ -7,11 +7,6 @@ title: File Upload
 permalink: components/ld-file-upload/
 ---
 
-<link rel="stylesheet" href="css_components/ld-file-upload.css">
-<link rel="stylesheet" href="css_components/ld-choose-file.css">
-<link rel="stylesheet" href="css_components/ld-upload-progress.css">
-<link rel="stylesheet" href="css_components/ld-upload-item.css">
-
 # ld-file-upload
 
 File upload allows the user to upload files.
@@ -21,7 +16,7 @@ File upload allows the user to upload files.
 ### Default
 
 {% example '{ "opened": true }' %}
-<ld-upload-file></ld-upload-file>
+<ld-file-upload></ld-file-upload>
 
 <!-- React component -->
 
@@ -32,12 +27,55 @@ File upload allows the user to upload files.
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+TODO:
+  - listen for files chosen event (from ld-choose-file.tsx) with file list
+    -> update upload items accordingly
+    -> emit upload ready event (if startUpload prop is set to true)
+  - listen for click event of continue button and emit upload ready event (if startUpload prop is set to false)
+  - The upload ready event contains the file list as its payload
+  - Keep a state of files chosen and pass them as a prop (uploadItems) to ld-upload-progress.tsx
+  - Implement callback methods, which accept a file list (name, progress, state etc.) and update the upload items
+
 ## Properties
 
 | Property | Attribute | Description                                              | Type               | Default     |
 | -------- | --------- | -------------------------------------------------------- | ------------------ | ----------- |
 | `key`    | `key`     | for tracking the node's identity when working with lists | `string \| number` | `undefined` |
 | `ref`    | `ref`     | reference to component                                   | `any`              | `undefined` |
+
+
+## Events
+
+| Event           | Description | Type                    |
+| --------------- | ----------- | ----------------------- |
+| `ldchoosefiles` |             | `CustomEvent<FileList>` |
+
+
+## Methods
+
+### `updateUploadItem(uploadItem: UploadItem) => Promise<void>`
+
+Accepts a file from component consumer (name, progress, state etc.)
+and updates the upload item state.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `updateUploadItems(uploadItems: UploadItem[]) => Promise<void>`
+
+Accepts a file list from component consumer (name, progress, state etc.)
+and updates the upload items state.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Shadow Parts

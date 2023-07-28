@@ -1,8 +1,4 @@
 :host {
-  display: inline-flex;
-}
-
-.ld-file-upload {
   background: var(--ld-col-wht);
   border-radius: var(--ld-br-l);
   box-shadow: var(--ld-shadow-stacked);
@@ -10,8 +6,8 @@
   list-style: none;
   margin: 0;
   padding: var(--ld-sp-12);
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   grid-gap: var(--ld-sp-8);
   justify-items: center;

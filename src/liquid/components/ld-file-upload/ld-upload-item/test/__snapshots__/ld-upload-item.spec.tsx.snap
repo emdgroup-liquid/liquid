@@ -11,7 +11,7 @@ exports[`ld-menuitem renders default 1`] = `
             Liquid
           </ld-typo>
           <ld-typo>
-            1.28 Mb
+            1.28 Bytes
           </ld-typo>
         </div>
         <div class="ld-upload-item__buttons">

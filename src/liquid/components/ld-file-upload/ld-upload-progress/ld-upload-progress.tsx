@@ -8,6 +8,7 @@ import {
   State,
   /* Watch, */
 } from '@stencil/core'
+import type { UploadItem } from '../ld-file-upload'
 /* import { TypeAheadHandler } from '../../../utils/typeahead'
 import { isElement, isMenuItem, isSlot } from '../../../utils/type-checking'
 import { LdUploadItem } from '../ld-upload-item/ld-upload-item' */
@@ -34,12 +35,7 @@ export class LdUploadProgress {
   @State() initialized = false
 
   // TODO: remove mock data
-  @Prop() uploadItems: {
-    state: 'pending' | 'uploading' | 'uploaded' | 'upload failed'
-    fileName: string
-    fileSize: number
-    progress: number
-  }[] = [
+  @Prop() uploadItems: UploadItem[] = [
     {
       state: 'pending',
       fileName: 'file1.png',
@@ -62,6 +58,7 @@ export class LdUploadProgress {
       items.push(
         <li>
           <ld-upload-item
+            key={item.fileName + '_' + item.fileSize + '_' + item.progress}
             state={item.state}
             file-name={item.fileName}
             file-size={item.fileSize}

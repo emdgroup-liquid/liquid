@@ -10,4 +10,5 @@
   list-style: none;
   margin: 0;
   padding: var(--ld-sp-12);
+  width: 100%;
 }

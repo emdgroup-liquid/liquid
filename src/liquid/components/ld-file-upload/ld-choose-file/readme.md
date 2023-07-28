@@ -33,6 +33,10 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+TODO: emit files chosen event with file list, that's it.
+
 ## Properties
 
 | Property      | Attribute      | Description                                                                                       | Type                                                                                                                            | Default     |
@@ -46,9 +50,9 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `ldchoosefile` |             | `CustomEvent<any>` |
+| Event           | Description | Type                    |
+| --------------- | ----------- | ----------------------- |
+| `ldchoosefiles` |             | `CustomEvent<FileList>` |
 
 
 ## Shadow Parts
@@ -63,7 +67,6 @@ The `ld-choose-file` component is used internally for the `ld-file-upload`. It i
 ### Used by
 
  - [ld-file-upload](..)
- - [ld-upload](../ld-upload)
 
 ### Depends on
 
@@ -76,7 +79,6 @@ graph TD;
   ld-choose-file --> ld-typo
   ld-choose-file --> ld-input
   ld-file-upload --> ld-choose-file
-  ld-upload --> ld-choose-file
   style ld-choose-file fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

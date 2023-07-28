@@ -11,6 +11,7 @@ import {
 import { getClassNames } from '../../../utils/getClassNames'
 
 /**
+ * TODO: emit files chosen event with file list, that's it.
  * @virtualProp ref - reference to component
  * @virtualProp {string | number} key - for tracking the node's identity when working with lists
  * @part list - `ul` element wrapping the default slot
@@ -40,7 +41,7 @@ export class LdChooseFile {
 
   @State() highlighted? = false
 
-  @Event() ldchoosefile: EventEmitter
+  @Event() ldchoosefiles: EventEmitter<FileList>
 
   private updateProgress() {
     // console.log(this.el.querySelector('ld-upload-progress').uploadItems)
@@ -69,6 +70,7 @@ export class LdChooseFile {
     this.readFile(files)
   }
 
+  // TODO: remove, I think we don't need this.
   private readFile = async (files: FileList) => {
     // Read the file on the client side.
     const fileReader = new FileReader()
@@ -154,11 +156,11 @@ export class LdChooseFile {
     this.highlighted = false
   }
 
+  // TODO: we need to hande choose as well, not only drop.
   private handleDrop = (ev: DragEvent) => {
-    console.log(ev)
-    this.ldchoosefile.emit(ev)
     ev.preventDefault()
     ev.stopPropagation()
+    console.log(ev)
     this.highlighted = false
 
     /* noch Fehler abfangen falls kein File gedropped wurde? */
@@ -168,8 +170,11 @@ export class LdChooseFile {
     } */
 
     const fileList = ev.dataTransfer.files
+    console.info('fileList', fileList)
 
-    this.readFile(fileList)
+    this.ldchoosefiles.emit(fileList)
+
+    // this.readFile(fileList)
 
     /* const dt = ev.dataTransfer
     let files = dt.files
@@ -221,6 +226,13 @@ export class LdChooseFile {
             <ld-typo variant="h5">Drag your file(s) here or browse</ld-typo>
           )}
           <ld-typo>max. 1.5 mb file size</ld-typo>
+
+          {/*
+            TODO:
+              - move into drop area
+              - set drop area position relative
+              - set input position absolute, inset 0, opacity 0
+          */}
           <ld-input
             placeholder="Upload a file"
             type="file"

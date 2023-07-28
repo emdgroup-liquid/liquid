@@ -2,24 +2,25 @@
   display: block;
 }
 
-.ld-upload-item .ld-upload-item__card {
+.ld-upload-item__card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .ld-upload-item__container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   align-items: center;
-  grid-gap: 0.5rem;
+  gap: var(--ld-sp-24);
   justify-items: start;
+  width: 100%;
 }
 
 .ld-upload-item__file-details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex-grow: 1;
 }
 
 .ld-upload-item__buttons {
