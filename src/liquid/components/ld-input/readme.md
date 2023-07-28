@@ -988,6 +988,19 @@ Type: `Promise<void>`
 | `"placeholder"` | Placeholder rendered for input type "file" |
 
 
+## Dependencies
+
+### Used by
+
+ - [ld-choose-file](../ld-file-upload/ld-choose-file)
+
+### Graph
+```mermaid
+graph TD;
+  ld-choose-file --> ld-input
+  style ld-input fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

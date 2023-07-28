@@ -93,7 +93,7 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 | Property     | Attribute     | Description                                                             | Type                                                        | Default     |
 | ------------ | ------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
 | `fileName`   | `file-name`   | Name of the uploaded file.                                              | `string`                                                    | `undefined` |
-| `fileSize`   | `file-size`   | Size of the uploaded file in Mb.                                        | `number`                                                    | `undefined` |
+| `fileSize`   | `file-size`   | Size of the uploaded file in bytes.                                     | `number`                                                    | `undefined` |
 | `key`        | `key`         | for tracking the node's identity when working with lists                | `string \| number`                                          | `undefined` |
 | `ldTabindex` | `ld-tabindex` | Tab index of the progress item.                                         | `number`                                                    | `undefined` |
 | `mode`       | `mode`        | Display mode.                                                           | `"danger" \| "highlight" \| "neutral"`                      | `'neutral'` |

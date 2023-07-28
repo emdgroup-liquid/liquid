@@ -39,12 +39,13 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                       | Type               | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
-| `key`         | `key`          | for tracking the node's identity when working with lists                                          | `string \| number` | `undefined` |
-| `ref`         | `ref`          | reference to component                                                                            | `any`              | `undefined` |
-| `size`        | `size`         | Size of the context menu.                                                                         | `"lg" \| "sm"`     | `undefined` |
-| `startUpload` | `start-upload` | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`          | `false`     |
+| Property      | Attribute      | Description                                                                                       | Type                                                                                                                            | Default                                                                                                                                                                                                                             |
+| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `key`         | `key`          | for tracking the node's identity when working with lists                                          | `string \| number`                                                                                                              | `undefined`                                                                                                                                                                                                                         |
+| `ref`         | `ref`          | reference to component                                                                            | `any`                                                                                                                           | `undefined`                                                                                                                                                                                                                         |
+| `size`        | `size`         | Size of the context menu.                                                                         | `"lg" \| "sm"`                                                                                                                  | `undefined`                                                                                                                                                                                                                         |
+| `startUpload` | `start-upload` | startUpload defines whether upload starts immediately after choosing files or after confirmation. | `boolean`                                                                                                                       | `false`                                                                                                                                                                                                                             |
+| `uploadItems` | --             |                                                                                                   | `{ state: "pending" \| "uploading" \| "uploaded" \| "upload failed"; fileName: string; fileSize: number; progress: number; }[]` | `[     {       state: 'pending',       fileName: 'file1.png',       fileSize: 100000,       progress: 0,     },     {       state: 'uploading',       fileName: 'file2.png',       fileSize: 200000,       progress: 0,     },   ]` |
 
 
 ## Shadow Parts
@@ -55,6 +56,11 @@ The `ld-upload-progress` component is used internally for the `ld-file-upload`. 
 
 
 ## Dependencies
+
+### Used by
+
+ - [ld-file-upload](..)
+ - [ld-upload](../ld-upload)
 
 ### Depends on
 
@@ -70,6 +76,8 @@ graph TD;
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
+  ld-file-upload --> ld-upload-progress
+  ld-upload --> ld-upload-progress
   style ld-upload-progress fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

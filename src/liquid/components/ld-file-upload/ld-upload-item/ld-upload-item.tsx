@@ -35,7 +35,7 @@ export class LdUploadItem {
   /** Name of the uploaded file. */
   @Prop() fileName: string
 
-  /** Size of the uploaded file in Mb. */
+  /** Size of the uploaded file in bytes. */
   @Prop() fileSize: number
 
   /** Tab index of the progress item. */
@@ -93,6 +93,21 @@ export class LdUploadItem {
     this.lduploaditemdelete.emit(ev)
   }
 
+  private bytesToSize = (bytes: number) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+
+    let sizeIndex = 0
+
+    while (bytes >= 1024 && sizeIndex < sizes.length - 1) {
+      bytes /= 1024
+      sizeIndex++
+    }
+
+    const roundedSize = Number(bytes.toFixed(2))
+
+    return roundedSize + ' ' + sizes[sizeIndex]
+  }
+
   /** componentWillLoad() {
     if (
       this.el.parentElement?.tagName === 'LD-UPLOAD-PROGRESS' &&
@@ -112,7 +127,7 @@ export class LdUploadItem {
             <ld-icon class="ld-upload-item__icon" name="placeholder"></ld-icon>
             <div class="ld-upload-item__file-details">
               <ld-typo variant="h5">{this.fileName}</ld-typo>
-              <ld-typo>{this.fileSize} Mb</ld-typo>
+              <ld-typo>{this.bytesToSize(this.fileSize)}</ld-typo>
             </div>
             <div class="ld-upload-item__buttons">
               {this.state == 'uploading' ? (

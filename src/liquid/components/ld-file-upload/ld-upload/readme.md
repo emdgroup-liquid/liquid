@@ -1,27 +1,27 @@
 ---
 eleventyNavigation:
-  key: File Upload
-  parent: Components
+  key: Upload
+  parent: File Upload
 layout: layout.njk
-title: File Upload
-permalink: components/ld-file-upload/
+title: Upload
+permalink: components/ld-file-upload/ld-file-upload/
 ---
 
-<link rel="stylesheet" href="css_components/ld-file-upload.css">
+<link rel="stylesheet" href="css_components/ld-upload.css">
 <link rel="stylesheet" href="css_components/ld-choose-file.css">
 <link rel="stylesheet" href="css_components/ld-upload-progress.css">
 <link rel="stylesheet" href="css_components/ld-upload-item.css">
 
-# ld-file-upload
+# ld-upload
 
-File upload allows the user to upload files.
+The `ld-upload` component can be used to upload files.
 
 ## Examples
 
 ### Default
 
 {% example '{ "opened": true }' %}
-<ld-upload-file></ld-upload-file>
+<ld-upload></ld-upload>
 
 <!-- React component -->
 
@@ -51,14 +51,14 @@ File upload allows the user to upload files.
 
 ### Depends on
 
-- [ld-choose-file](ld-choose-file)
-- [ld-upload-progress](ld-upload-progress)
+- [ld-choose-file](../ld-choose-file)
+- [ld-upload-progress](../ld-upload-progress)
 
 ### Graph
 ```mermaid
 graph TD;
-  ld-file-upload --> ld-choose-file
-  ld-file-upload --> ld-upload-progress
+  ld-upload --> ld-choose-file
+  ld-upload --> ld-upload-progress
   ld-choose-file --> ld-typo
   ld-choose-file --> ld-input
   ld-upload-progress --> ld-upload-item
@@ -68,7 +68,7 @@ graph TD;
   ld-upload-item --> ld-button
   ld-upload-item --> ld-sr-only
   ld-upload-item --> ld-progress
-  style ld-file-upload fill:#f9f,stroke:#333,stroke-width:4px
+  style ld-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

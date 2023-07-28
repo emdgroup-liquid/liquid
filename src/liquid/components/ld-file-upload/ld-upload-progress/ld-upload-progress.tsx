@@ -34,7 +34,7 @@ export class LdUploadProgress {
   @State() initialized = false
 
   // TODO: remove mock data
-  @State() uploadItems: {
+  @Prop() uploadItems: {
     state: 'pending' | 'uploading' | 'uploaded' | 'upload failed'
     fileName: string
     fileSize: number
@@ -42,14 +42,14 @@ export class LdUploadProgress {
   }[] = [
     {
       state: 'pending',
-      fileName: 'yolo.png',
-      fileSize: 1.23,
+      fileName: 'file1.png',
+      fileSize: 100000,
       progress: 0,
     },
     {
-      state: 'pending',
-      fileName: 'yolo2.png',
-      fileSize: 4.56,
+      state: 'uploading',
+      fileName: 'file2.png',
+      fileSize: 200000,
       progress: 0,
     },
   ]
