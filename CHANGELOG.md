@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.8.2](https://github.com/emdgroup-liquid/liquid/compare/v5.8.1...v5.8.2) (2023-07-31)
+
+
+### Bug Fixes
+
+* add tailwind preset declaration file ([2154227](https://github.com/emdgroup-liquid/liquid/commit/2154227e8e69283f1f81d6ef2a42f7b67efbcb9c))
+
 ## [5.8.1](https://github.com/emdgroup-liquid/liquid/compare/v5.8.0...v5.8.1) (2023-07-27)
 
 
