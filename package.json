@@ -49,7 +49,7 @@
     "build:styles:docs:components": "postcss src/liquid/components/*/*.css src/liquid/components/*/*/*.css --config=config/postcss.config.docs.cjs -m -d dist_docs/css_components/",
     "build:styles:docs:liquid": "postcss src/liquid/global/styles/global.css --config=config/postcss.config.docs.cjs -m -o dist_docs/liquid.global.css",
     "build:styles:docs:docs": "postcss src/docs/global/styles/global.css --config=config/postcss.config.docs.cjs -m -o dist_docs/docs.css",
-    "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --skipLibCheck --moduleResolution node --target esnext --outfile dist/css/tailwind-preset.cjs",
+    "build:tailwind_preset": "tsc src/liquid/global/styles/tailwindPreset.ts --skipLibCheck --moduleResolution node --target esnext --declaration --outfile dist/css/tailwind-preset.cjs",
     "icons:optimise": "ts-node scripts/iconsOptimise.ts",
     "icons:update": "dotenv -e .env -- ts-node scripts/iconsUpdate.ts",
     "lint": "run-s lint:ts lint:eslint lint:styles",
