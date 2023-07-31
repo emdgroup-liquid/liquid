@@ -727,6 +727,11 @@ describe('ld-sidenav', () => {
       html: getSidenavWithSubnavigation(),
     })
     const ldSidenav = page.body.querySelector('ld-sidenav')
+    const changeHandler = jest.fn()
+    const changedHandler = jest.fn()
+    ldSidenav.addEventListener('ldSidenavSliderChange', changeHandler)
+    ldSidenav.addEventListener('ldSidenavSliderChanged', changedHandler)
+
     mockFocus(ldSidenav)
     await page.waitForChanges()
     expect(ldSidenav.classList.contains('ld-sidenav--has-active-subnav')).toBe(
@@ -741,6 +746,9 @@ describe('ld-sidenav', () => {
     expect(
       ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
     ).toBe(false)
+
+    expect(changeHandler).not.toHaveBeenCalled()
+    expect(changedHandler).not.toHaveBeenCalled()
 
     const ldSidenavNavitemArtInt =
       ldSidenav.querySelector<HTMLLdSidenavNavitemElement>(
@@ -757,10 +765,17 @@ describe('ld-sidenav', () => {
         .classList.contains('ld-sidenav-subnav--active')
     ).toBe(true)
 
+    expect(changeHandler).toHaveBeenCalledTimes(1)
+    expect(changedHandler).not.toHaveBeenCalled()
+
     expect(ldSidenavBack.textContent.trim()).toBe('Outline of Computer Science')
     expect(
       ldSidenavBackButton.classList.contains('ld-sidenav-back--is-back')
     ).toBe(true)
+
+    await transitionEnd(page, ldSidenav.querySelector('ld-sidenav-slider'))
+    expect(changeHandler).toHaveBeenCalledTimes(1)
+    expect(changedHandler).toHaveBeenCalledTimes(1)
   })
 
   it('expands on slide', async () => {

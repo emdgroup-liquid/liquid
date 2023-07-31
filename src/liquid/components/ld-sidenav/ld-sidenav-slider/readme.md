@@ -30,9 +30,10 @@ Please refer to the [`ld-sidenav` documentation](components/ld-sidenav/#ld-siden
 
 ## Events
 
-| Event                   | Description                                     | Type                                          |
-| ----------------------- | ----------------------------------------------- | --------------------------------------------- |
-| `ldSidenavSliderChange` | Emitted on navigation (before transition ends). | `CustomEvent<{ id: string; label: string; }>` |
+| Event                    | Description                                       | Type                                          |
+| ------------------------ | ------------------------------------------------- | --------------------------------------------- |
+| `ldSidenavSliderChange`  | Emitted on navigation (before transition ends).   | `CustomEvent<{ id: string; label: string; }>` |
+| `ldSidenavSliderChanged` | Emitted after navigation (after transition ends). | `CustomEvent<{ id: string; label: string; }>` |
 
 
 ## Methods
