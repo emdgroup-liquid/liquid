@@ -38,10 +38,13 @@ export class LdSidenavSlider {
   @State() activeSubnavs: HTMLLdSidenavSubnavElement[] = []
   @State() isFirstLevelHidden = false
 
-  /**
-   * Emitted on navigation (before transition ends).
-   */
+  /** Emitted on navigation (before transition ends). */
   @Event() ldSidenavSliderChange: EventEmitter<
+    { id: string; label: string } | undefined
+  >
+
+  /** Emitted after navigation (after transition ends). */
+  @Event() ldSidenavSliderChanged: EventEmitter<
     { id: string; label: string } | undefined
   >
 
@@ -141,17 +144,20 @@ export class LdSidenavSlider {
     }
   }
 
-  private emitChange() {
+  private emitChange(afterTransition = false) {
     const activeSubnav = this.activeSubnavs[this.activeSubnavs.length - 1]
+    const toEmit = afterTransition
+      ? this.ldSidenavSliderChanged
+      : this.ldSidenavSliderChange
     if (activeSubnav) {
       const parentSubnav =
         this.activeSubnavs[this.activeSubnavs.length - 2] || this.el
-      this.ldSidenavSliderChange.emit({
+      toEmit.emit({
         id: activeSubnav.id,
         label: parentSubnav.label,
       })
     } else if (!this.currentSubnav) {
-      this.ldSidenavSliderChange.emit()
+      toEmit.emit()
     }
   }
 
@@ -213,6 +219,7 @@ export class LdSidenavSlider {
     this.updateAncestor()
     this.updateFirstLevelHidden()
     this.scrollInactiveToTop()
+    this.emitChange(true)
   }
 
   private toggleVisibilityOnHidableContent = (visible: boolean) => {
