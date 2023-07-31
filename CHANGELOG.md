@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/emdgroup-liquid/liquid/compare/v5.8.2...v5.9.0) (2023-07-31)
+
+
+### Features
+
+* **ld-sidenav:** emit event after navigation (after transition ends) ([268ef24](https://github.com/emdgroup-liquid/liquid/commit/268ef24c5f00e71f536276ee1c64bd3faf61a0a6))
+
 ## [5.8.2](https://github.com/emdgroup-liquid/liquid/compare/v5.8.1...v5.8.2) (2023-07-31)
 
 
