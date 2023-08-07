@@ -115,7 +115,7 @@
     "dotenv-cli": "^7.0.0",
     "eleventy-plugin-toc": "^1.1.5",
     "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-compat": "^4.1.1",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.1",
