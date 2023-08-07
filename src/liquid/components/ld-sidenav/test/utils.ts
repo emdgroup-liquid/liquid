@@ -371,7 +371,10 @@ export function getSidenavWithAccordion(options?: {
         <ld-sidenav-accordion${preserveAccordionStateProp}>
           <ld-sidenav-navitem slot="toggle">Mathematical foundations</ld-sidenav-navitem>
           <ld-sidenav-navitem mode="secondary">Coding theory</ld-sidenav-navitem>
-          <ld-sidenav-navitem mode="secondary">Game theory</ld-sidenav-navitem>
+          <ld-sidenav-navitem mode="secondary">
+            Game theory
+            <ld-icon slot="icon-secondary" name="gamepad"></ld-icon>
+          </ld-sidenav-navitem>
           <ld-sidenav-navitem mode="secondary">Discrete Mathematics</ld-sidenav-navitem>
           <ld-sidenav-navitem mode="secondary">Graph theory</ld-sidenav-navitem>
           <ld-sidenav-navitem mode="secondary">Mathematical logic</ld-sidenav-navitem>
@@ -384,6 +387,7 @@ export function getSidenavWithAccordion(options?: {
         </ld-sidenav-accordion>
         <ld-sidenav-navitem to="artificial-intelligence">
           Artificial intelligence
+          <span slot="subline">Trending</span>
           <ld-icon slot="icon-secondary" name="arrow-right" size="sm" />
         </ld-sidenav-navitem>
         <ld-sidenav-accordion${preserveAccordionStateProp}>

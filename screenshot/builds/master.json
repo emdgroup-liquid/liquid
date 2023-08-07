@@ -19531,6 +19531,32 @@
       "isMobile": false
     },
     {
+      "id": "5c24307e",
+      "image": "7dddbe4308127a49670fb058b0c97412.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item has a subline",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
+      "id": "05730481",
+      "image": "ccbe2209cd62108f76c3fcd1a51c1039.png",
+      "userAgent": "default",
+      "desc": "ld-sidenav nav item has a subline with secondary icon",
+      "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",
+      "width": 600,
+      "height": 600,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "isLandscape": false,
+      "isMobile": false
+    },
+    {
       "id": "eb3477e0",
       "image": "cbe9a5a5994a6c8cff7511384690e44d.png",
       "userAgent": "default",
@@ -19714,7 +19740,7 @@
     },
     {
       "id": "3dc13b7e",
-      "image": "5027aa8bf38082edc87984d4147c8dca.png",
+      "image": "87185f249e035eb118e2939ae4a4670d.png",
       "userAgent": "default",
       "desc": "ld-sidenav with accordion supports nested accordions with custom horizontal padding",
       "testPath": "./src/liquid/components/ld-sidenav/test/ld-sidenav.e2e.ts",

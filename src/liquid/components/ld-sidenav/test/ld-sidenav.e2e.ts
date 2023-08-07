@@ -704,6 +704,63 @@ describe('ld-sidenav', () => {
       const result = await page.compareScreenshot()
       expect(result).toMatchScreenshot()
     })
+
+    it('has a subline', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
+
+    it('has a subline with secondary icon', async () => {
+      const page = await getPageWithContent(
+        `
+        <ld-sidenav open>
+          <ld-sidenav-slider label="Outline of CS">
+            <ld-sidenav-navitem>
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="secondary">
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+            <ld-sidenav-navitem mode="tertiary">
+              Liquid Oxygen UI library
+              <span slot="subline">Interoperable, accessible and compliant with the Liquid Design System</span>
+              <ld-icon slot="icon-secondary" name="bottle" size="sm" />
+            </ld-sidenav-navitem>
+          </ld-sidenav-slider>
+        </ld-sidenav>`,
+        { reducedMotion: true }
+      )
+      page.waitForChanges()
+
+      const result = await page.compareScreenshot()
+      expect(result).toMatchScreenshot()
+    })
   })
 
   describe('with accordion', () => {

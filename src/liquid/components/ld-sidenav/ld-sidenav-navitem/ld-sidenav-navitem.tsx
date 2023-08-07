@@ -31,7 +31,8 @@ export class LdSidenavNavitem implements InnerFocusable {
   private sidenav: HTMLLdSidenavElement
   private focusableElement: HTMLAnchorElement | HTMLButtonElement
   private tooltipRef: HTMLLdTooltipElement
-  private slotContainerRef: HTMLElement
+  private mainlineRef: HTMLElement
+  private sublineRef: HTMLElement
 
   /** Sets visual indicator to denote that the nav item is currently selected. */
   @Prop() selected? = false
@@ -75,7 +76,7 @@ export class LdSidenavNavitem implements InnerFocusable {
   /** Tooltip tether options object to be merged with the default options (optionally stringified). */
   @Prop() tetherOptions?: Partial<Tether.ITetherOptions> | string
 
-  /** Accepts an id of an ld-subnav component to navigate to it on click. */
+  /** Accepts an id of a ld-subnav component to navigate to it on click. */
   @Prop({ reflect: true }) to?: string
 
   /** Emitted on click if prop to is set. */
@@ -95,6 +96,8 @@ export class LdSidenavNavitem implements InnerFocusable {
   @State() secondaryIconHTML: string
   @State() closestTheme: string
   @State() themeClass: string
+  @State() hasSubline: boolean
+  @State() hasSecondaryIcon: boolean
 
   /**
    * Sets focus on the anchor or button
@@ -207,6 +210,10 @@ export class LdSidenavNavitem implements InnerFocusable {
     this.inAccordion = this.el.parentElement.tagName === 'LD-SIDENAV-ACCORDION'
     this.isAccordionToggle =
       this.inAccordion && this.el.getAttribute('slot') === 'toggle'
+    this.hasSubline = Boolean(this.el.querySelector('[slot="subline"]'))
+    this.hasSecondaryIcon = Boolean(
+      this.el.querySelector('[slot="icon-secondary"]')
+    )
     this.sidenav = closest('ld-sidenav', this.el)
     if (this.sidenav) {
       this.sidenavAlignement = this.sidenav.align
@@ -215,7 +222,7 @@ export class LdSidenavNavitem implements InnerFocusable {
       this.sidenavCollapsed = this.sidenav.collapsed
     }
     if (this.mode === 'primary') {
-      this.tooltipContent = this.el.textContent.trim()
+      this.tooltipContent = this.el.textContent.trim().split('\n')[0].trim()
 
       if (!this.el.querySelector('[slot="icon"]')) {
         this.abbreviation = this.getabbreviation()
@@ -233,10 +240,12 @@ export class LdSidenavNavitem implements InnerFocusable {
     //  case we use box-sizing and align-items which otherwhise do not
     //  effect the appearence of the element.
     setTimeout(() => {
-      this.slotContainerRef.style.boxSizing = 'border-box'
+      this.mainlineRef.style.boxSizing = 'border-box'
+      this.sublineRef.style.boxSizing = 'border-box'
     })
     setTimeout(() => {
-      this.slotContainerRef.style.alignItems = 'center'
+      this.mainlineRef.style.alignItems = 'center'
+      this.sublineRef.style.alignItems = 'center'
     }, 200)
 
     // The ldSidenavCollapsedChange event can be fired before this component is loaded.
@@ -251,6 +260,8 @@ export class LdSidenavNavitem implements InnerFocusable {
       'ld-sidenav-navitem',
       this.selected && 'ld-sidenav-navitem--selected',
       this.inAccordion && 'ld-sidenav-navitem--in-accordion',
+      this.hasSubline && 'ld-sidenav-navitem--subline',
+      this.hasSecondaryIcon && 'ld-sidenav-navitem--secondary-icon',
       this.rounded && 'ld-sidenav-navitem--rounded',
       this.mode !== 'primary' && `ld-sidenav-navitem--${this.mode}`,
       this.sidenavAlignement === 'right' && 'ld-sidenav-navitem--right-aligned',
@@ -336,12 +347,21 @@ export class LdSidenavNavitem implements InnerFocusable {
             </div>
           </ld-tooltip>
         </div>
-        <div
-          class="ld-sidenav-navitem__slot-container"
-          part="slot-container"
-          ref={(el) => (this.slotContainerRef = el)}
-        >
-          <slot></slot>
+        <div class="ld-sidenav-navitem__slot-container" part="slot-container">
+          <span
+            ref={(el) => (this.mainlineRef = el)}
+            class="ld-sidenav-navitem__mainline"
+            part="mainline"
+          >
+            <slot />
+          </span>
+          <span
+            ref={(el) => (this.sublineRef = el)}
+            class="ld-sidenav-navitem__subline"
+            part="subline"
+          >
+            <slot name="subline" />
+          </span>
         </div>
         <div class="ld-sidenav-navitem__slot-icon-secondary-container">
           {this.to ? (
