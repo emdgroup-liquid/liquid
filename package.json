@@ -142,7 +142,7 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^9.0.0",
     "prettier": "^3.0.0",
-    "puppeteer": "^20.1.2",
+    "puppeteer": "^21.0.1",
     "semantic-release": "^21.0.0",
     "shx": "^0.3.4",
     "stenciljs-web-types-generator": "^1.0.4",
