@@ -303,7 +303,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <slot name="icon-secondary"></slot>
@@ -384,7 +389,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -435,7 +445,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -486,7 +501,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -537,7 +557,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -585,7 +610,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -639,7 +669,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -690,7 +725,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -741,7 +781,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -792,7 +837,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -843,7 +893,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -899,7 +954,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -950,7 +1010,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -1001,7 +1066,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -1052,7 +1122,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -1127,7 +1202,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1172,7 +1252,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1217,7 +1302,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1262,7 +1352,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1307,7 +1402,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1352,7 +1452,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1428,7 +1533,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1473,7 +1583,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1524,7 +1639,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -1600,7 +1720,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1645,7 +1770,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1695,7 +1825,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1746,7 +1881,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -1796,7 +1936,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1841,7 +1986,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -1916,7 +2066,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip>
                 </div>
                 <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
+                  <span class="ld-sidenav-navitem__mainline" part="mainline">
+                    <slot></slot>
+                  </span>
+                  <span class="ld-sidenav-navitem__subline" part="subline">
+                    <slot name="subline"></slot>
+                  </span>
                 </div>
                 <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                   <slot name="icon-secondary"></slot>
@@ -1961,7 +2116,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                   </ld-tooltip>
                 </div>
                 <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
+                  <span class="ld-sidenav-navitem__mainline" part="mainline">
+                    <slot></slot>
+                  </span>
+                  <span class="ld-sidenav-navitem__subline" part="subline">
+                    <slot name="subline"></slot>
+                  </span>
                 </div>
                 <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                   <slot name="icon-secondary"></slot>
@@ -2038,7 +2198,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2083,7 +2248,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2128,7 +2298,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2204,7 +2379,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2249,7 +2429,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2325,7 +2510,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2370,7 +2560,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2415,7 +2610,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2491,7 +2691,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2536,7 +2741,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2581,7 +2791,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2657,7 +2872,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2702,7 +2922,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2747,7 +2972,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2823,7 +3053,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2868,7 +3103,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2913,7 +3153,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -2958,7 +3203,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3003,7 +3253,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3079,7 +3334,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3124,7 +3384,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3169,7 +3434,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3214,7 +3484,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3259,7 +3534,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3304,7 +3584,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3349,7 +3634,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3425,7 +3715,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3470,7 +3765,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3515,7 +3815,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3560,7 +3865,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3605,7 +3915,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3650,7 +3965,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3695,7 +4015,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3771,7 +4096,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3816,7 +4146,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3861,7 +4196,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3906,7 +4246,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -3958,7 +4303,12 @@ exports[`ld-sidenav collapses to narrow 1`] = `
             </ld-tooltip>
           </div>
           <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-            <slot></slot>
+            <span class="ld-sidenav-navitem__mainline" part="mainline">
+              <slot></slot>
+            </span>
+            <span class="ld-sidenav-navitem__subline" part="subline">
+              <slot name="subline"></slot>
+            </span>
           </div>
           <div class="ld-sidenav-navitem__slot-icon-secondary-container">
             <slot name="icon-secondary"></slot>
@@ -4217,7 +4567,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <slot name="icon-secondary"></slot>
@@ -4338,7 +4693,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4383,7 +4743,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4394,7 +4759,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
         </ld-sidenav-navitem>
         <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
-            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary" part="navitem focusable">
+            <button class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--in-accordion ld-sidenav-navitem--secondary ld-sidenav-navitem--secondary-icon" part="navitem focusable">
               <div class="ld-sidenav-navitem__bg" part="bg">
                 <div class="ld-sidenav-navitem__bg-left"></div>
                 <div class="ld-sidenav-navitem__bg-center"></div>
@@ -4428,7 +4793,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4436,6 +4806,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </button>
           </mock:shadow-root>
           Game theory
+          <ld-icon name="gamepad" slot="icon-secondary"></ld-icon>
         </ld-sidenav-navitem>
         <ld-sidenav-navitem mode="secondary" style="--ld-sidenav-navitem-move-up: -NaNpx;">
           <mock:shadow-root>
@@ -4473,7 +4844,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4518,7 +4894,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4563,7 +4944,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4608,7 +4994,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4700,7 +5091,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4745,7 +5141,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4790,7 +5191,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4802,7 +5208,7 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
       </ld-sidenav-accordion>
       <ld-sidenav-navitem to="artificial-intelligence" style="--ld-sidenav-navitem-move-up: -NaNpx;">
         <mock:shadow-root>
-          <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed" part="navitem focusable">
+          <button aria-haspopup="true" class="ld-sidenav-navitem ld-sidenav-navitem--collapsed ld-sidenav-navitem--secondary-icon ld-sidenav-navitem--subline" part="navitem focusable">
             <div class="ld-sidenav-navitem__bg" part="bg">
               <div class="ld-sidenav-navitem__bg-left"></div>
               <div class="ld-sidenav-navitem__bg-center"></div>
@@ -4842,7 +5248,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
               </ld-tooltip>
             </div>
             <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-              <slot></slot>
+              <span class="ld-sidenav-navitem__mainline" part="mainline">
+                <slot></slot>
+              </span>
+              <span class="ld-sidenav-navitem__subline" part="subline">
+                <slot name="subline"></slot>
+              </span>
             </div>
             <div class="ld-sidenav-navitem__slot-icon-secondary-container">
               <ld-icon class="ld-sidenav-navitem__icon-to" name="real-arrow"></ld-icon>
@@ -4850,6 +5261,9 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
           </button>
         </mock:shadow-root>
         Artificial intelligence
+        <span slot="subline">
+          Trending
+        </span>
         <ld-icon name="arrow-right" size="sm" slot="icon-secondary"></ld-icon>
       </ld-sidenav-navitem>
       <ld-sidenav-accordion class="ld-sidenav-accordion ld-sidenav-accordion--collapsed ld-sidenav-accordion--transitions-enabled" style="--ld-sidenav-navitem-move-up: -NaNpx;">
@@ -4934,7 +5348,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -4979,7 +5398,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -5024,7 +5448,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -5069,7 +5498,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -5145,7 +5579,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -5190,7 +5629,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                 </ld-tooltip>
               </div>
               <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                <slot></slot>
+                <span class="ld-sidenav-navitem__mainline" part="mainline">
+                  <slot></slot>
+                </span>
+                <span class="ld-sidenav-navitem__subline" part="subline">
+                  <slot name="subline"></slot>
+                </span>
               </div>
               <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                 <slot name="icon-secondary"></slot>
@@ -5281,7 +5725,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   </ld-tooltip>
                 </div>
                 <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
+                  <span class="ld-sidenav-navitem__mainline" part="mainline">
+                    <slot></slot>
+                  </span>
+                  <span class="ld-sidenav-navitem__subline" part="subline">
+                    <slot name="subline"></slot>
+                  </span>
                 </div>
                 <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                   <slot name="icon-secondary"></slot>
@@ -5367,7 +5816,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </ld-tooltip>
                   </div>
                   <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                    <slot></slot>
+                    <span class="ld-sidenav-navitem__mainline" part="mainline">
+                      <slot></slot>
+                    </span>
+                    <span class="ld-sidenav-navitem__subline" part="subline">
+                      <slot name="subline"></slot>
+                    </span>
                   </div>
                   <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                     <slot name="icon-secondary"></slot>
@@ -5412,7 +5866,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </ld-tooltip>
                   </div>
                   <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                    <slot></slot>
+                    <span class="ld-sidenav-navitem__mainline" part="mainline">
+                      <slot></slot>
+                    </span>
+                    <span class="ld-sidenav-navitem__subline" part="subline">
+                      <slot name="subline"></slot>
+                    </span>
                   </div>
                   <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                     <slot name="icon-secondary"></slot>
@@ -5457,7 +5916,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </ld-tooltip>
                   </div>
                   <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                    <slot></slot>
+                    <span class="ld-sidenav-navitem__mainline" part="mainline">
+                      <slot></slot>
+                    </span>
+                    <span class="ld-sidenav-navitem__subline" part="subline">
+                      <slot name="subline"></slot>
+                    </span>
                   </div>
                   <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                     <slot name="icon-secondary"></slot>
@@ -5502,7 +5966,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                     </ld-tooltip>
                   </div>
                   <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                    <slot></slot>
+                    <span class="ld-sidenav-navitem__mainline" part="mainline">
+                      <slot></slot>
+                    </span>
+                    <span class="ld-sidenav-navitem__subline" part="subline">
+                      <slot name="subline"></slot>
+                    </span>
                   </div>
                   <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                     <slot name="icon-secondary"></slot>
@@ -5548,7 +6017,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
                   </ld-tooltip>
                 </div>
                 <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-                  <slot></slot>
+                  <span class="ld-sidenav-navitem__mainline" part="mainline">
+                    <slot></slot>
+                  </span>
+                  <span class="ld-sidenav-navitem__subline" part="subline">
+                    <slot name="subline"></slot>
+                  </span>
                 </div>
                 <div class="ld-sidenav-navitem__slot-icon-secondary-container">
                   <slot name="icon-secondary"></slot>
@@ -5601,7 +6075,12 @@ exports[`ld-sidenav sidenav accordion accordion collapses to narrow 1`] = `
             </ld-tooltip>
           </div>
           <div class="ld-sidenav-navitem__slot-container" part="slot-container">
-            <slot></slot>
+            <span class="ld-sidenav-navitem__mainline" part="mainline">
+              <slot></slot>
+            </span>
+            <span class="ld-sidenav-navitem__subline" part="subline">
+              <slot name="subline"></slot>
+            </span>
           </div>
           <div class="ld-sidenav-navitem__slot-icon-secondary-container">
             <slot name="icon-secondary"></slot>

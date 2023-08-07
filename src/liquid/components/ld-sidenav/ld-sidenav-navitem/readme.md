@@ -269,25 +269,10 @@ body {
 
 ## Secondary icon
 
-{% example '{ "hasPadding": false, "styles": { "minHeight": "9.75rem", "position": "relative" } }' %}
+{% example '{ "hasPadding": false, "styles": { "minHeight": "4.625rem", "position": "relative" } }' %}
 <ld-sidenav open>
   <ld-sidenav-slider label="Outline of CS">
     <ld-sidenav-navitem>
-      <svg slot="icon" viewBox="0 0 32 32">
-        <g transform="scale(0.75) translate(5, 5)">
-          <path d="M8.40273 3.00317C16.3674 -1.08484 30.9212 8.31547 30.2215 17.1105C29.5219 25.9055 13.8966 33.1344 6.62487 28.4376C-0.650379 23.7238 0.431303 7.10139 8.40273 3.00317Z" fill="#2DBECD"/>
-          <path d="M4.69207 12.6056C6.77561 6.76982 18.5736 4.62074 22.3863 9.39108C26.199 14.1614 21.7368 25.211 15.842 26.2848C9.93739 27.3517 2.60995 18.4498 4.69207 12.6056Z" fill="#FFC832"/>
-          <path d="M11.2893 10.9795C13.2965 8.19935 19.898 8.87655 21.1887 11.9997C22.4793 15.1229 18.4039 20.3071 15.1055 19.9688C11.803 19.6253 9.28149 13.7644 11.2893 10.9795Z" fill="#0F69AF"/>
-        </g>
-      </svg>
-      Liquid Oxygen
-      <ld-icon slot="icon-secondary" name="bottle" size="sm" />
-    </ld-sidenav-navitem>
-    <ld-sidenav-navitem mode="secondary">
-      Liquid Oxygen
-      <ld-icon slot="icon-secondary" name="bottle" size="sm" />
-    </ld-sidenav-navitem>
-    <ld-sidenav-navitem mode="tertiary">
       Liquid Oxygen
       <ld-icon slot="icon-secondary" name="bottle" size="sm" />
     </ld-sidenav-navitem>
@@ -299,23 +284,32 @@ body {
 <LdSidenav open>
   <LdSidenavSlider label="Outline of CS">
     <LdSidenavNavitem>
-      <svg slot="icon" viewBox="0 0 32 32">
-        <g transform="scale(0.75) translate(5, 5)">
-          <path d="M8.40273 3.00317C16.3674 -1.08484 30.9212 8.31547 30.2215 17.1105C29.5219 25.9055 13.8966 33.1344 6.62487 28.4376C-0.650379 23.7238 0.431303 7.10139 8.40273 3.00317Z" fill="#2DBECD"/>
-          <path d="M4.69207 12.6056C6.77561 6.76982 18.5736 4.62074 22.3863 9.39108C26.199 14.1614 21.7368 25.211 15.842 26.2848C9.93739 27.3517 2.60995 18.4498 4.69207 12.6056Z" fill="#FFC832"/>
-          <path d="M11.2893 10.9795C13.2965 8.19935 19.898 8.87655 21.1887 11.9997C22.4793 15.1229 18.4039 20.3071 15.1055 19.9688C11.803 19.6253 9.28149 13.7644 11.2893 10.9795Z" fill="#0F69AF"/>
-        </g>
-      </svg>
       Liquid Oxygen
       <LdIcon slot="icon-secondary" name="bottle" size="sm" />
     </LdSidenavNavitem>
-    <LdSidenavNavitem mode="secondary">
+  </LdSidenavSlider>
+</LdSidenav>
+{% endexample %}
+
+## Secondary line
+
+{% example '{ "hasPadding": false, "styles": { "minHeight": "4.625rem", "position": "relative" } }' %}
+<ld-sidenav open>
+  <ld-sidenav-slider label="Outline of CS">
+    <ld-sidenav-navitem>
       Liquid Oxygen
-      <LdIcon slot="icon-secondary" name="bottle" size="sm" />
-    </LdSidenavNavitem>
-    <LdSidenavNavitem mode="tertiary">
+      <span slot="subline">The UI library</span>
+    </ld-sidenav-navitem>
+  </ld-sidenav-slider>
+</ld-sidenav>
+
+<!-- React component -->
+
+<LdSidenav open>
+  <LdSidenavSlider label="Outline of CS">
+    <LdSidenavNavitem>
       Liquid Oxygen
-      <LdIcon slot="icon-secondary" name="bottle" size="sm" />
+      <span slot="subline">The UI library</span>
     </LdSidenavNavitem>
   </LdSidenavSlider>
 </LdSidenav>
@@ -349,7 +343,7 @@ body {
 | `selected`      | `selected`        | Sets visual indicator to denote that the nav item is currently selected.                                                                                                                                                                                                                                                                                | `boolean`                                                                                                                                                                                                                                                                                                                                        | `false`     |
 | `target`        | `target`          | The `target` attributed can be used in conjunction with the `href` attribute. See [mdn docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target) for more information on the `target` attribute.                                                                                                                                   | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                                                                                                                                                                                                                                                                     | `undefined` |
 | `tetherOptions` | `tether-options`  | Tooltip tether options object to be merged with the default options (optionally stringified).                                                                                                                                                                                                                                                           | `string \| { attachment?: string; bodyElement?: HTMLElement; classes?: { [className: string]: string \| boolean; }; classPrefix?: string; constraints?: ITetherConstraint[]; element?: any; enabled?: boolean; offset?: string; optimizations?: any; target?: any; targetAttachment?: string; targetOffset?: string; targetModifier?: string; }` | `undefined` |
-| `to`            | `to`              | Accepts an id of an ld-subnav component to navigate to it on click.                                                                                                                                                                                                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined` |
+| `to`            | `to`              | Accepts an id of a ld-subnav component to navigate to it on click.                                                                                                                                                                                                                                                                                      | `string`                                                                                                                                                                                                                                                                                                                                         | `undefined` |
 
 
 ## Events

@@ -285,13 +285,14 @@ That's why we set z-index 0 on the following elements.
   align-self: center;
   flex-shrink: 0;
   display: none;
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+  transition:
+    opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
   .ld-sidenav-navitem--collapsed & {
-    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-        linear,
+    transition:
+      opacity var(--ld-sidenav-transition-duration-collapse-expand) linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
@@ -394,32 +395,53 @@ That's why we set z-index 0 on the following elements.
 }
 
 .ld-sidenav-navitem__slot-container {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
   margin-left: var(--ld-sp-12);
   margin-right: auto;
   max-height: var(--ld-sidenav-navitem-height); /* required in Safari */
-  text-overflow: ellipsis;
   line-height: var(--ld-sidenav-line-height);
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+  transition:
+    opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
-  overflow: hidden;
   padding-right: var(--ld-sp-4);
+
+  .ld-sidenav-navitem--secondary-icon & {
+    padding-right: var(--ld-sp-12);
+  }
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-        linear,
+    transition:
+      opacity var(--ld-sidenav-transition-duration-collapse-expand) linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
   }
 
   .ld-sidenav-navitem--secondary &,
   .ld-sidenav-navitem--tertiary & {
-    padding: 0;
+    padding-left: 0;
   }
+}
+
+.ld-sidenav-navitem__mainline,
+.ld-sidenav-navitem__subline {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ld-sidenav-navitem--subline .ld-sidenav-navitem__mainline,
+.ld-sidenav-navitem__subline {
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+}
+
+.ld-sidenav-navitem__subline {
+  font: var(--ld-typo-body-s);
+  line-height: var(--ld-sidenav-line-height);
+  color: var(--ld-col-neutral-700);
 }
 
 .ld-sidenav-navitem__slot-icon-secondary-container {
@@ -428,16 +450,21 @@ That's why we set z-index 0 on the following elements.
   flex-shrink: 0;
   margin-right: var(--ld-sp-12);
   color: var(--ld-sidenav-navitem-secondary-icon-color);
-  transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
+  transition:
+    opacity var(--ld-sidenav-transition-duration-collapse-expand)
       var(--ld-sidenav-transition-delay-collapse-expand) linear,
     transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
 
   .ld-sidenav-navitem--collapsed & {
     opacity: 0;
     transform: translateX(var(--ld-sidenav-translate-x-delta));
-    transition: opacity var(--ld-sidenav-transition-duration-collapse-expand)
-        linear,
+    transition:
+      opacity var(--ld-sidenav-transition-duration-collapse-expand) linear,
       transform var(--ld-sidenav-transition-duration-collapse-expand) ease;
+  }
+
+  .ld-sidenav-navitem--in-accordion & {
+    margin-right: var(--ld-sp-4);
   }
 }
 
