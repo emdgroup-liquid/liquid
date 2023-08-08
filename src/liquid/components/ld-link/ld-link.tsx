@@ -28,13 +28,13 @@ export class LdLink implements ClonesAttributes, InnerFocusable {
   @Prop() disabled?: boolean
 
   /** Causes the browser to treat the linked URL as a download. */
-  @Prop() download?: boolean | string
+  @Prop({ reflect: true }) download?: boolean | string
 
   /** The URL that the hyperlink points to. */
-  @Prop() href?: string
+  @Prop({ reflect: true }) href?: string
 
   /** Hints at the human language of the linked URL. */
-  @Prop() hreflang?: string
+  @Prop({ reflect: true }) hreflang?: string
 
   /** Tab index of the input. */
   @Prop() ldTabindex?: number
