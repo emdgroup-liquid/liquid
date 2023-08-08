@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.1](https://github.com/emdgroup-liquid/liquid/compare/v5.9.0...v5.9.1) (2023-08-08)
+
+
+### Bug Fixes
+
+* **ld-link:** reflect props for attributes cloning to work ([4c73e7a](https://github.com/emdgroup-liquid/liquid/commit/4c73e7acba77fdb17489e1fa7df2e94503ccf11a))
+
 # [5.9.0](https://github.com/emdgroup-liquid/liquid/compare/v5.8.2...v5.9.0) (2023-07-31)
 
 
