@@ -33,7 +33,9 @@ type LiquidElements<T> = {
 
 declare global {
   namespace JSX {
-    interface IntrinsicElements extends LiquidElements<LocalJSX.IntrinsicElements> {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface IntrinsicElements
+      extends LiquidElements<LocalJSX.IntrinsicElements> {}
   }
 
   // Required only when using __LD_ASSET_PATH__

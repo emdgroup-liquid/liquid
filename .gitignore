@@ -2,6 +2,7 @@ bin/
 !bin/.gitkeep
 dist/
 dist_docs/
+hydrate/
 
 *~
 *.sw[mnpcod]
