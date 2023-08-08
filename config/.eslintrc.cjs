@@ -77,6 +77,7 @@ module.exports = {
   ignorePatterns: [
     '**/bin/**/*',
     '**/dist/**/*',
+    '**/hydrate/**/*',
     '**/dist_docs/**/*',
     '**/coverage/**/*',
     '**/components.d.ts',

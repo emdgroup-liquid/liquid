@@ -58,7 +58,12 @@ export const config: Config = {
       file: 'dist/web-components.json',
     },
     {
+      type: 'dist-hydrate-script',
+    },
+    {
       type: 'docs-custom',
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       generator: new WebTypesGenerator({
         name: '@emdgroup-liquid/liquid',
         version: 'latest',
@@ -79,7 +84,7 @@ export const config: Config = {
         viewport: {
           width: 600,
           height: 600,
-          // A device scale factor of 2 would reduce issues with anti-aliasing.
+          // A device scale factor of 2 would reduce issues with antialiasing.
           // However, testing then takes longer and screenshot matching
           // tends to time out, especially when running all tests in one go.
           // That is why we do without the higher device scale factor, for now.
