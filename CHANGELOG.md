@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/emdgroup-liquid/liquid/compare/v5.9.1...v5.10.0) (2023-08-08)
+
+
+### Features
+
+* **ld-sidenav-navitem:** subline ([65256bb](https://github.com/emdgroup-liquid/liquid/commit/65256bb2d48b7655b8385294d403314a9e25f4c5))
+
 ## [5.9.1](https://github.com/emdgroup-liquid/liquid/compare/v5.9.0...v5.9.1) (2023-08-08)
 
 
