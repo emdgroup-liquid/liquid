@@ -6,8 +6,10 @@ import {
   Prop,
   Event,
   EventEmitter,
+  State,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
+import { LdUploadItemConfig } from './ld-upload-item.types'
 
 type Mode = 'highlight' | 'danger' | 'neutral'
 
@@ -38,6 +40,9 @@ export class LdUploadItem {
   /** Size of the uploaded file in bytes. */
   @Prop() fileSize: number
 
+  /** Type of the uploaded file. */
+  @Prop() fileType?: string
+
   /** Tab index of the progress item. */
   @Prop() ldTabindex?: number
 
@@ -53,6 +58,22 @@ export class LdUploadItem {
   /** Upload progress in percent. */
   @Prop() progress?: number = 0
 
+  /** Maps file types to icon path */
+  @Prop() icons?: Partial<LdUploadItemConfig> = {}
+  // @Prop() icon?: string = 'documents'
+
+  // icon prop hinzufügen, string type, nur einen Pfad damit es customizable ist
+  // generisches file icon als standard
+
+  @State() defaultIcons: Partial<LdUploadItemConfig> = {
+    pdf: 'pdf',
+    zip: 'zip',
+    jpeg: 'jpeg',
+    txt: 'documents',
+    png: 'documents',
+    rtf: 'documents',
+  }
+
   /**
    * @internal
    * Emitted on pause button click.
@@ -63,7 +84,7 @@ export class LdUploadItem {
    * @internal
    * Emitted on stop button click.
    */
-  @Event() lduploaditemstop: EventEmitter
+  @Event() lduploaditemremove: EventEmitter
 
   /**
    * @internal
@@ -77,20 +98,61 @@ export class LdUploadItem {
    */
   @Event() lduploaditemdelete: EventEmitter
 
-  private pauseClick = (ev: MouseEvent) => {
-    this.lduploaditempause.emit(ev)
+  private getFileType = () => {
+    const fileType = this.fileName.split('.').pop()?.toLowerCase()
+    // console.log(fileType)
+    return fileType
   }
 
-  private stopClick = (ev: MouseEvent) => {
-    this.lduploaditemstop.emit(ev)
+  private setIcon = () => {
+    const mergedIcons = { ...this.defaultIcons, ...this.icons }
+    // const fileType = this.getFileType()
+    const fileType = this.fileType.split('/').pop()?.toLowerCase()
+    if (fileType && mergedIcons[fileType]) {
+      return mergedIcons[fileType]
+    } else {
+      return 'documents'
+    }
   }
 
-  private downloadClick = (ev: MouseEvent) => {
-    this.lduploaditemdownload.emit(ev)
+  private pauseClick = () => {
+    this.lduploaditempause.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
   }
 
-  private deleteClick = (ev: MouseEvent) => {
-    this.lduploaditemdelete.emit(ev)
+  private removeClick = () => {
+    this.lduploaditemremove.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
+  }
+
+  private downloadClick = () => {
+    this.lduploaditemdownload.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
+  }
+
+  private deleteClick = () => {
+    this.lduploaditemdelete.emit({
+      state: this.state,
+      fileName: this.fileName,
+      fileSize: this.fileSize,
+      fileType: this.fileType,
+      progress: this.progress,
+    })
   }
 
   private bytesToSize = (bytes: number) => {
@@ -108,23 +170,19 @@ export class LdUploadItem {
     return roundedSize + ' ' + sizes[sizeIndex]
   }
 
-  /** componentWillLoad() {
-    if (
-      this.el.parentElement?.tagName === 'LD-UPLOAD-PROGRESS' &&
-      this.el.parentElement?.startUpload === false
-    ) {
-      this.el.setAttribute('state', 'uploading')
-    }
-  } */
+  componentWillLoad() {
+    // this.getFileType()
+  }
 
   render() {
     const cl = getClassNames(['ld-upload-item'])
+    const icon = this.setIcon()
 
     return (
       <Host class={cl}>
-        <ld-card class="ld-upload-item__card">
+        <div class="ld-upload-item__card">
           <div class="ld-upload-item__container">
-            <ld-icon class="ld-upload-item__icon" name="placeholder"></ld-icon>
+            <ld-icon class="ld-upload-item__icon" name={icon}></ld-icon>
             <div class="ld-upload-item__file-details">
               <ld-typo variant="h5">{this.fileName}</ld-typo>
               <ld-typo>{this.bytesToSize(this.fileSize)}</ld-typo>
@@ -138,7 +196,7 @@ export class LdUploadItem {
               {this.state == 'pending' ||
               this.state == 'uploading' ||
               this.state == 'upload failed' ? (
-                <ld-button mode="ghost" onClick={this.stopClick}>
+                <ld-button mode="ghost" onClick={this.removeClick}>
                   <ld-icon name="cross" aria-label="Text"></ld-icon>
                 </ld-button>
               ) : undefined}
@@ -171,7 +229,7 @@ export class LdUploadItem {
             <ld-typo>Error! Upload was unsuccessful</ld-typo>
           ) : undefined}
           <slot></slot>
-        </ld-card>
+        </div>
       </Host>
     )
   }

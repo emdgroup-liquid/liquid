@@ -1,11 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ld-menuitem renders default 1`] = `
-<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28">
+exports[`ld-upload-item changes size unit according to props changes to size KB 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="10000" state="pending">
   <mock:shadow-root>
-    <ld-card class="ld-upload-item__card">
+    <div class="ld-upload-item__card">
       <div class="ld-upload-item__container">
-        <ld-icon class="ld-upload-item__icon" name="placeholder"></ld-icon>
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            9.77 KB
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-sr-only id="progress-label">
+        Progress
+      </ld-sr-only>
+      <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item changes size unit according to props changes to size MB 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="2000000" state="pending">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.91 MB
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-sr-only id="progress-label">
+        Progress
+      </ld-sr-only>
+      <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item changes state according to props changes to state pending 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28" state="pending">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
         <div class="ld-upload-item__file-details">
           <ld-typo variant="h5">
             Liquid
@@ -25,7 +85,131 @@ exports[`ld-menuitem renders default 1`] = `
       </ld-sr-only>
       <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
       <slot></slot>
-    </ld-card>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item changes state according to props changes to state upload failed 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28" state="upload failed">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.28 Bytes
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-typo>
+        Error! Upload was unsuccessful
+      </ld-typo>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item changes state according to props changes to state uploaded 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28" state="uploaded">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.28 Bytes
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="download"></ld-icon>
+          </ld-button>
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="bin"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-typo>
+        Upload was successful!
+      </ld-typo>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item changes state according to props changes to state uploading 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28" state="uploading">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.28 Bytes
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="pause"></ld-icon>
+          </ld-button>
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-sr-only id="progress-label">
+        Progress
+      </ld-sr-only>
+      <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-upload-item>
+`;
+
+exports[`ld-upload-item renders default 1`] = `
+<ld-upload-item class="ld-upload-item" file-name="Liquid" file-size="1.28">
+  <mock:shadow-root>
+    <div class="ld-upload-item__card">
+      <div class="ld-upload-item__container">
+        <ld-icon class="ld-upload-item__icon" name="documents"></ld-icon>
+        <div class="ld-upload-item__file-details">
+          <ld-typo variant="h5">
+            Liquid
+          </ld-typo>
+          <ld-typo>
+            1.28 Bytes
+          </ld-typo>
+        </div>
+        <div class="ld-upload-item__buttons">
+          <ld-button mode="ghost">
+            <ld-icon aria-label="Text" name="cross"></ld-icon>
+          </ld-button>
+        </div>
+      </div>
+      <ld-sr-only id="progress-label">
+        Progress
+      </ld-sr-only>
+      <ld-progress aria-labeledby="progress-label" aria-valuenow="0" class="ld-upload-item__progress"></ld-progress>
+      <slot></slot>
+    </div>
   </mock:shadow-root>
 </ld-upload-item>
 `;

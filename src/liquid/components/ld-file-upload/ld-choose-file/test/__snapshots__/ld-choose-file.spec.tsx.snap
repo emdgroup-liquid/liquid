@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-choose-file renders default 1`] = `
+<ld-choose-file class="ld-choose-file">
+  <mock:shadow-root>
+    <div class="ld-choose-file__drag-area">
+      <ld-typo variant="h5">
+        Drag your file(s) here or browse
+      </ld-typo>
+      <ld-typo>
+        max. 1.5 mb file size
+      </ld-typo>
+      <slot></slot>
+    </div>
+  </mock:shadow-root>
+</ld-choose-file>
+`;

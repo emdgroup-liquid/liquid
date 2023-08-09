@@ -1,15 +1,24 @@
 :host {
   display: inline-flex;
-}
-
-.ld-choose-file {
   background: var(--ld-col-wht);
   border-radius: var(--ld-br-l);
-  box-shadow: var(--ld-shadow-stacked);
+  border: var(--ld-sp-2) dashed var(--ld-col-neutral-100);
   box-sizing: border-box;
   list-style: none;
   margin: 0;
-  padding: var(--ld-sp-12);
+  padding: var(--ld-sp-40);
+}
+
+/* :hover {
+  background: var(--ld-col-rb-050);
+} */
+
+/* :host[highlighted] {
+  background: var(--ld-col-rb-050);
+} */
+
+:host(.ld-choose-file--highlighted) {
+  background: var(--ld-col-rb-050);
 }
 
 .ld-choose-file__drag-area {
@@ -18,4 +27,17 @@
   align-items: center;
   grid-gap: var(--ld-sp-8);
   justify-items: center;
+  position: relative;
 }
+
+/* ::slotted(*) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+} */
+
+/* ::slotted(input) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+} */

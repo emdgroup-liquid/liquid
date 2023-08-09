@@ -1,5 +1,5 @@
 :host {
-  background: var(--ld-col-wht);
+  background: var(--ld-col-neutral-050);
   border-radius: var(--ld-br-l);
   box-shadow: var(--ld-shadow-stacked);
   box-sizing: border-box;
@@ -11,4 +11,16 @@
   align-items: center;
   grid-gap: var(--ld-sp-8);
   justify-items: center;
+}
+
+.ld-file-upload__progress {
+  width: 100%;
+}
+
+.ld-file-upload__continue-button {
+  width: 100%;
+}
+
+.ld-file-upload__delete-button {
+  width: 100%;
 }

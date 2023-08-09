@@ -7,11 +7,6 @@ title: Upload Item
 permalink: components/ld-file-upload/ld-upload-item/
 ---
 
-<link rel="stylesheet" href="css_components/ld-upload-item.css">
-<link rel="stylesheet" href="css_components/ld-card.css">
-<link rel="stylesheet" href="css_components/ld-icon.css">
-<link rel="stylesheet" href="css_components/ld-progress.css">
-
 # ld-upload-item
 
 The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-upload-progress` and is meant to be used in the slot of the [`ld-upload-progress`](../ld-upload-progress) component.
@@ -90,17 +85,19 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ## Properties
 
-| Property     | Attribute     | Description                                                             | Type                                                        | Default     |
-| ------------ | ------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
-| `fileName`   | `file-name`   | Name of the uploaded file.                                              | `string`                                                    | `undefined` |
-| `fileSize`   | `file-size`   | Size of the uploaded file in bytes.                                     | `number`                                                    | `undefined` |
-| `key`        | `key`         | for tracking the node's identity when working with lists                | `string \| number`                                          | `undefined` |
-| `ldTabindex` | `ld-tabindex` | Tab index of the progress item.                                         | `number`                                                    | `undefined` |
-| `mode`       | `mode`        | Display mode.                                                           | `"danger" \| "highlight" \| "neutral"`                      | `'neutral'` |
-| `previewUrl` | `preview-url` | URL of the uploaded image. Preview of image will be shown after upload. | `string`                                                    | `undefined` |
-| `progress`   | `progress`    | Upload progress in percent.                                             | `number`                                                    | `0`         |
-| `ref`        | `ref`         | reference to component                                                  | `any`                                                       | `undefined` |
-| `state`      | `state`       | State of the file.                                                      | `"pending" \| "upload failed" \| "uploaded" \| "uploading"` | `'pending'` |
+| Property     | Attribute     | Description                                                             | Type                                                                                       | Default     |
+| ------------ | ------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
+| `fileName`   | `file-name`   | Name of the uploaded file.                                              | `string`                                                                                   | `undefined` |
+| `fileSize`   | `file-size`   | Size of the uploaded file in bytes.                                     | `number`                                                                                   | `undefined` |
+| `fileType`   | `file-type`   | Type of the uploaded file.                                              | `string`                                                                                   | `undefined` |
+| `icons`      | --            | Maps file types to icon path                                            | `{ pdf?: string; zip?: string; jpeg?: string; txt?: string; png?: string; rtf?: string; }` | `{}`        |
+| `key`        | `key`         | for tracking the node's identity when working with lists                | `string \| number`                                                                         | `undefined` |
+| `ldTabindex` | `ld-tabindex` | Tab index of the progress item.                                         | `number`                                                                                   | `undefined` |
+| `mode`       | `mode`        | Display mode.                                                           | `"danger" \| "highlight" \| "neutral"`                                                     | `'neutral'` |
+| `previewUrl` | `preview-url` | URL of the uploaded image. Preview of image will be shown after upload. | `string`                                                                                   | `undefined` |
+| `progress`   | `progress`    | Upload progress in percent.                                             | `number`                                                                                   | `0`         |
+| `ref`        | `ref`         | reference to component                                                  | `any`                                                                                      | `undefined` |
+| `state`      | `state`       | State of the file.                                                      | `"pending" \| "upload failed" \| "uploaded" \| "uploading"`                                | `'pending'` |
 
 
 ## Shadow Parts
@@ -119,7 +116,6 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 
 ### Depends on
 
-- [ld-card](../../ld-card)
 - [ld-icon](../../ld-icon)
 - [ld-typo](../../ld-typo)
 - [ld-button](../../ld-button)
@@ -129,7 +125,6 @@ The `ld-upload-item` component is a subcomponent for `ld-file-upload` / `ld-uplo
 ### Graph
 ```mermaid
 graph TD;
-  ld-upload-item --> ld-card
   ld-upload-item --> ld-icon
   ld-upload-item --> ld-typo
   ld-upload-item --> ld-button

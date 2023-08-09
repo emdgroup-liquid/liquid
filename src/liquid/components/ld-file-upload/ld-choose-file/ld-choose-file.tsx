@@ -9,6 +9,7 @@ import {
   EventEmitter,
 } from '@stencil/core'
 import { getClassNames } from '../../../utils/getClassNames'
+import internal from 'stream'
 
 /**
  * TODO: emit files chosen event with file list, that's it.
@@ -33,6 +34,7 @@ export class LdChooseFile {
     state: 'pending' | 'uploading' | 'uploaded' | 'upload failed'
     fileName: string
     fileSize: number
+    fileType: string
     progress: number
   }[] = []
 
@@ -40,7 +42,10 @@ export class LdChooseFile {
 
   @Event() ldchoosefiles: EventEmitter<FileList>
 
-  private getFile = async (ev) => {
+  /** @internal */
+  @Event() lduploadclick: EventEmitter
+
+  /* private getFile = async (ev) => {
     const files = (ev.target as HTMLLdInputElement).files
     if (!files || !files.length) return
 
@@ -49,7 +54,7 @@ export class LdChooseFile {
     this.ldchoosefiles.emit(files)
 
     // this.readFile(files)
-  }
+  } */
 
   // TODO: remove, I think we don't need this.
   /* private readFile = async (files: FileList) => {
@@ -69,6 +74,10 @@ export class LdChooseFile {
     }
     console.log(this.uploadFiles)
   } */
+
+  private handleUploadClick = () => {
+    this.lduploadclick.emit()
+  }
 
   private handleDragEnter = (ev: DragEvent) => {
     /* console.log(ev) */
@@ -113,7 +122,10 @@ export class LdChooseFile {
   }
 
   render() {
-    const cl = getClassNames(['ld-choose-file'])
+    const cl = getClassNames([
+      'ld-choose-file',
+      this.highlighted && 'ld-choose-file--highlighted',
+    ])
 
     return (
       <Host class={cl}>
@@ -125,7 +137,7 @@ export class LdChooseFile {
           onDrop={this.handleDrop}
         >
           {this.highlighted ? (
-            <ld-typo variant="h5">Drop file(s)</ld-typo>
+            <ld-typo variant="h5">Drop your file(s) here or browse</ld-typo>
           ) : (
             <ld-typo variant="h5">Drag your file(s) here or browse</ld-typo>
           )}
@@ -137,11 +149,13 @@ export class LdChooseFile {
               - set drop area position relative
               - set input position absolute, inset 0, opacity 0
           */}
-          <ld-input
+          {/* <ld-input
             placeholder="Upload a file"
             type="file"
             onLdchange={this.getFile}
-          ></ld-input>
+        ></ld-input> */}
+          <slot></slot>
+          <ld-button onClick={this.handleUploadClick}>Upload a file</ld-button>
         </div>
       </Host>
     )

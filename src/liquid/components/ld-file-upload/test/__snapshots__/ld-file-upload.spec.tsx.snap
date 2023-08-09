@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ld-file-upload renders default 1`] = `
+<ld-file-upload class="ld-file-upload">
+  <mock:shadow-root>
+    <ld-choose-file>
+      <slot><pre>Upload button</pre>
+      </slot>
+    </ld-choose-file>
+    <ld-upload-progress class="ld-file-upload__progress" start-upload="false"></ld-upload-progress>
+    <ld-button class="ld-file-upload__continue-button">
+      Continue
+    </ld-button>
+    <ld-button class="ld-file-upload__delete-button" mode="secondary">
+      Delete all files
+    </ld-button>
+  </mock:shadow-root>
+  <input name="undefined" tabindex="-1" type="file" style="visibility: hidden; position: absolute; inset: 0; opacity: 0;">
+  <ld-button>
+    Upload a file
+  </ld-button>
+</ld-file-upload>
+`;

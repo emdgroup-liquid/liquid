@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 import type { UploadItem } from '../ld-file-upload'
+import { LdUploadItemConfig } from '../ld-upload-item/ld-upload-item.types'
 
 /**
  * @virtualProp ref - reference to component
@@ -20,6 +21,9 @@ export class LdUploadProgress {
   /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
 
+  /** Maps file types to icon path */
+  @Prop() icons?: Partial<LdUploadItemConfig>
+
   @State() initialized = false
 
   // TODO: remove mock data
@@ -28,16 +32,23 @@ export class LdUploadProgress {
       state: 'pending',
       fileName: 'file1.png',
       fileSize: 100000,
+      fileType: 'png',
       progress: 0,
     },
     {
       state: 'uploading',
       fileName: 'file2.png',
       fileSize: 200000,
+      fileType: 'png',
       progress: 0,
     },
   ]
   // @State() uploadItems: unknown[] = [{ state: 'uploaded', fileName: 'yolo.png' }]
+
+  @Prop() uploadItemTypes: {
+    fileName: string
+    fileType: string
+  }[] = []
 
   private renderListItems = () =>
     this.uploadItems.map((item) => (
@@ -47,7 +58,18 @@ export class LdUploadProgress {
           state={item.state}
           fileName={item.fileName}
           fileSize={item.fileSize}
+          fileType={item.fileType}
           progress={item.progress}
+          icons={this.icons}
+          /* fileType={
+            this.uploadItemTypes.find(
+              (typeItem) => item.fileName === typeItem.fileName
+            )
+              ? this.uploadItemTypes.find(
+                  (typeItem) => item.fileName === typeItem.fileName
+                ).fileType
+              : 'undefined'
+          } */
         ></ld-upload-item>
       </li>
     ))
