@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.11.1](https://github.com/emdgroup-liquid/liquid/compare/v5.11.0...v5.11.1) (2023-08-10)
+
+
+### Bug Fixes
+
+* **ssr:** add hydrate folder to bin_dist archive ([ebaeab7](https://github.com/emdgroup-liquid/liquid/commit/ebaeab7b10b1301059d2a9fba2431e78cca2c8ca))
+
 # [5.11.0](https://github.com/emdgroup-liquid/liquid/compare/v5.10.0...v5.11.0) (2023-08-10)
 
 
