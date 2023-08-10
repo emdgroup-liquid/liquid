@@ -70,6 +70,7 @@ jobs:
           path: |
             bin
             dist
+            hydrate
           retention-days: 1
 
       - name: Archive dist_docs artifacts
