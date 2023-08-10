@@ -16429,13 +16429,13 @@ send@latest:
   linkType: hard
 
 "stylelint-high-performance-animation@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "stylelint-high-performance-animation@npm:1.8.0"
+  version: 1.9.0
+  resolution: "stylelint-high-performance-animation@npm:1.9.0"
   dependencies:
     postcss-value-parser: ^4.2.0
   peerDependencies:
     stylelint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0
-  checksum: c082427c6dec7af167f9b6b16fd66b332628d7078683c50efe6417c9ea4c9ea29bf74f87e3f78ed57e31dbf17b80e0579a1a23cee043b8f52ee5085ef9049e19
+  checksum: 7435e75663ff82fa712cf8e21cf432f2cf1866b666a1ca0131e3f37a873b396e604cbecbfca1224f4d7350acee9a4b6e78443de760833c54010062e61e35da04
   languageName: node
   linkType: hard
 
