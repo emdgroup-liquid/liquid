@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/emdgroup-liquid/liquid/compare/v5.10.0...v5.11.0) (2023-08-10)
+
+
+### Features
+
+* **ssr:** add dist-hydrate-script output target ([f108956](https://github.com/emdgroup-liquid/liquid/commit/f1089569320ef5a0229f87d6be779efcd288aff2))
+
 # [5.10.0](https://github.com/emdgroup-liquid/liquid/compare/v5.9.1...v5.10.0) (2023-08-08)
 
 
