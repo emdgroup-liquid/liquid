@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liquid – Server-side rendering</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1691495601913/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1691495601913/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1691495601913/assets/favicon-16x16.png">
-  <link rel="manifest" href="/liquid/1691495601913/assets/site.webmanifest">
-  <link rel="mask-icon" href="/liquid/1691495601913/assets/safari-pinned-tab.svg" color="#eb3c96">
+  <link rel="apple-touch-icon" sizes="180x180" href="/liquid/1691676110712/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/liquid/1691676110712/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/liquid/1691676110712/assets/favicon-16x16.png">
+  <link rel="manifest" href="/liquid/1691676110712/assets/site.webmanifest">
+  <link rel="mask-icon" href="/liquid/1691676110712/assets/safari-pinned-tab.svg" color="#eb3c96">
   <meta name="msapplication-TileColor" content="#eb3c96">
   <meta name="theme-color" content="#ffffff">
-  <meta data-buildstamp="1691495601913/">
+  <meta data-buildstamp="1691676110712/">
 
   <script>
     __docsSearchIndex__ = [
@@ -496,9 +496,9 @@
           
             {
               title: 'Server-side rendering',
-              tags: '',
+              tags: 'SSR,RSC,Next.js',
               url: '/liquid/guides/server-side-rendering/',
-              headings: '',
+              headings: 'Hydrate App  React Server Components ',
               breadcrumbs: [
                 
                 
@@ -2473,11 +2473,11 @@
   </script>
 
   <meta data-ld-asset-path="/liquid/dist/build">
-  <link rel="stylesheet" href="/liquid/1691495601913/docs.css">
-  <link rel="stylesheet" href="/liquid/1691495601913/liquid.global.css">
-  <link rel="stylesheet" href="/liquid/1691495601913/css_components/ld-button.css">
-  <script type="module" src="/liquid/1691495601913/dist/build/liquid.esm.js"></script>
-  <script nomodule src="/liquid/1691495601913/dist/build/liquid.js"></script>
+  <link rel="stylesheet" href="/liquid/1691676110712/docs.css">
+  <link rel="stylesheet" href="/liquid/1691676110712/liquid.global.css">
+  <link rel="stylesheet" href="/liquid/1691676110712/css_components/ld-button.css">
+  <script type="module" src="/liquid/1691676110712/dist/build/liquid.esm.js"></script>
+  <script nomodule src="/liquid/1691676110712/dist/build/liquid.js"></script>
 </head>
 <body>
   <script>
@@ -3512,6 +3512,12 @@
     <docs-btn-toggle-nav></docs-btn-toggle-nav>
 
     
+      <docs-toc style="order: 2;">
+        <nav class="docs-toc__nav" >
+        <ol><li><a href="#hydrate-app">Hydrate App</a></li><li><a href="#react-server-components">React Server Components</a></li></ol>
+      </nav>
+      </docs-toc>
+    
 
     <docs-main>
       <header>
@@ -3547,6 +3553,18 @@
   <span class="token function">defineCustomElements</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>For working examples check out our <a href="guides/sandbox-applications/">sandbox apps</a>.</p>
+<h2 id="hydrate-app" tabindex="-1">Hydrate App <a class="header-anchor" href="guides/server-side-rendering/#hydrate-app"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p>The hydrate app is a Stencil output target which generates a module that can be used on a NodeJS server to hydrate HTML and implement server side rendering (SSR). You can import the hydrate app as follows:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> hydrateDocument <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@emdgroup-liquid/liquid/hydrate'</span></code></pre>
+<p>Please refer to the <a href="https://stenciljs.com/docs/hydrate-app" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Stencil Hydrate App documentation</a> and our <a href="https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Next.js sandbox app</a> for details on how to use the hydrate app.</p>
+<h2 id="react-server-components" tabindex="-1">React Server Components <a class="header-anchor" href="guides/server-side-rendering/#react-server-components"><span aria-label="" class="header-anchor__symbol">#</span></a></h2>
+<p><a href="introduction/getting-started/react/">Liquid Oxygen React bindings</a> use client side hooks and therefore cannot be used as React Server Components (RSC). There are three ways to work around this issue:</p>
+<ol>
+<li>You can make use of Liquid Oxygen CSS components.</li>
+<li>You can wrap Liquid Oxygen React components in client side components (which use the <code>&quot;use client&quot;</code> directive).</li>
+<li>You can use the non-wrapped Liquid Oxygen Web Components (without React bindings) in your RSC. In this case you may want to review our docs on <a href="guides/type-checking-and-intellisense/">type checking and intellisense</a>.</li>
+</ol>
+<p>Our <a href="https://github.com/emdgroup-liquid/liquid-sandbox-next-tailwind/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-description" data-link-external="">Next.js sandbox app</a> covers most of the options described above.</p>
 <p><docs-page-nav prev-href="guides/type-checking-and-intellisense/" next-title="Event handling" next-href="guides/event-handling/"></docs-page-nav></p>
 
       
