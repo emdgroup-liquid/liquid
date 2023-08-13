@@ -383,9 +383,11 @@ Type: `Promise<void>`
 | `"bg"`                  |             |
 | `"dot"`                 |             |
 | `"focusable"`           |             |
+| `"mainline"`            |             |
 | `"navitem"`             |             |
 | `"slot-container"`      |             |
 | `"slot-container-icon"` |             |
+| `"subline"`             |             |
 
 
 ## Dependencies
