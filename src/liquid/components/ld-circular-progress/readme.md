@@ -27,7 +27,7 @@ The `ld-circular-progress` component can be used to display measurements or cert
 
 {% example %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
-<ld-circular-progress aria-labeledby="progress-label" aria-valuenow="25">
+<ld-circular-progress aria-labelledby="progress-label" aria-valuenow="25">
   <ld-typo variant="b6">25%</ld-typo>
   <ld-typo variant="label-s">complete</ld-typo>
 </ld-circular-progress>
@@ -44,7 +44,7 @@ The `ld-circular-progress` component can be used to display measurements or cert
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
 <div class="ld-circular-progress"
-     aria-labeledby="progress-label-css"
+     aria-labelledby="progress-label-css"
      aria-valuenow="25"
      role="progressbar"
      style="--ld-circular-progress-valuenow: 25">
@@ -61,7 +61,7 @@ Interactive example:
 
 {% example '{ "stacked": true, "centered": true }' %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
-<ld-circular-progress aria-labeledby="progress-label" aria-valuenow="25">
+<ld-circular-progress aria-labelledby="progress-label" aria-valuenow="25">
   <ld-typo variant="b6">25%</ld-typo>
   <ld-typo variant="label-s">complete</ld-typo>
 </ld-circular-progress>
@@ -115,7 +115,7 @@ return (
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
 <div class="ld-circular-progress"
-     aria-labeledby="progress-label-css"
+     aria-labelledby="progress-label-css"
      aria-valuenow="25"
      role="progressbar"
      style="--ld-circular-progress-valuenow: 25">
@@ -332,25 +332,25 @@ You can change the size of the circular progress bar. However, with a smaller si
 </style>
 
 <div class="report">
-  <ld-circular-progress aria-valuenow="75" aria-labeledby="performance" style="--ld-circular-progress-bar-col: var(--ld-thm-warning)">
+  <ld-circular-progress aria-valuenow="75" aria-labelledby="performance" style="--ld-circular-progress-bar-col: var(--ld-thm-warning)">
     <ld-typo class="report-value" variant="b6">75</ld-typo>
   </ld-circular-progress>
   <ld-typo id="performance" variant="label-s">Performance</ld-typo>
 </div>
 <div class="report">
-  <ld-circular-progress aria-valuenow="75" aria-labeledby="accessibility" style="--ld-circular-progress-bar-col: var(--ld-thm-warning)">
+  <ld-circular-progress aria-valuenow="75" aria-labelledby="accessibility" style="--ld-circular-progress-bar-col: var(--ld-thm-warning)">
     <ld-typo class="report-value" variant="b6">75</ld-typo>
   </ld-circular-progress>
   <ld-typo id="accessibility" variant="label-s">Accessibility</ld-typo>
 </div>
 <div class="report">
-  <ld-circular-progress aria-valuenow="100" aria-labeledby="best-practices" style="--ld-circular-progress-bar-col: var(--ld-thm-ocean-success)">
+  <ld-circular-progress aria-valuenow="100" aria-labelledby="best-practices" style="--ld-circular-progress-bar-col: var(--ld-thm-ocean-success)">
     <ld-typo class="report-value" variant="b6" style="color: var(--ld-thm-success)">100</ld-typo>
   </ld-circular-progress>
   <ld-typo id="best-practices" variant="label-s">Best Practices</ld-typo>
 </div>
 <div class="report">
-  <ld-circular-progress aria-valuenow="98" aria-labeledby="seo" style="--ld-circular-progress-bar-col: var(--ld-thm-ocean-success)">
+  <ld-circular-progress aria-valuenow="98" aria-labelledby="seo" style="--ld-circular-progress-bar-col: var(--ld-thm-ocean-success)">
     <ld-typo class="report-value" variant="b6" style="color: var(--ld-thm-success)">98</ld-typo>
   </ld-circular-progress>
   <ld-typo id="seo" variant="label-s">SEO</ld-typo>
@@ -375,7 +375,7 @@ return (
     <div style={reportStyle}>
       <LdCircularProgress
         aria-valuenow={75}
-        aria-labeledby="performance"
+        aria-labelledby="performance"
         style={ {
           ...circularProgressStyle,
           '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)',
@@ -392,7 +392,7 @@ return (
     <div style={reportStyle}>
       <LdCircularProgress
         aria-valuenow={75}
-        aria-labeledby="accessibility"
+        aria-labelledby="accessibility"
         style={ {
           ...circularProgressStyle,
           '--ld-circular-progress-bar-col': 'var(--ld-thm-warning)'
@@ -409,7 +409,7 @@ return (
     <div style={reportStyle}>
       <LdCircularProgress
         aria-valuenow={100}
-        aria-labeledby="best-practices"
+        aria-labelledby="best-practices"
         style={ {
           ...circularProgressStyle,
           '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
@@ -432,7 +432,7 @@ return (
     <div style={reportStyle}>
       <LdCircularProgress
         aria-valuenow={98}
-        aria-labeledby="seo"
+        aria-labelledby="seo"
         style={ {
           ...circularProgressStyle,
           '--ld-circular-progress-bar-col': 'var(--ld-thm-ocean-success)',
@@ -473,7 +473,7 @@ return (
 
 <div class="report">
   <div class="ld-circular-progress"
-       aria-labeledby="performance-css"
+       aria-labelledby="performance-css"
        aria-valuenow="75"
        role="progressbar"
        style="--ld-circular-progress-bar-col: var(--ld-thm-warning); --ld-circular-progress-valuenow: 75">
@@ -487,7 +487,7 @@ return (
 </div>
 <div class="report">
   <div class="ld-circular-progress"
-       aria-labeledby="accessibility-css"
+       aria-labelledby="accessibility-css"
        aria-valuenow="75"
        role="progressbar"
        style="--ld-circular-progress-bar-col: var(--ld-thm-warning); --ld-circular-progress-valuenow: 75">
@@ -501,7 +501,7 @@ return (
 </div>
 <div class="report">
   <div class="ld-circular-progress"
-       aria-labeledby="best-practices-css"
+       aria-labelledby="best-practices-css"
        aria-valuenow="100"
        role="progressbar"
        style="--ld-circular-progress-bar-col: var(--ld-thm-success); --ld-circular-progress-valuenow: 100">
@@ -515,7 +515,7 @@ return (
 </div>
 <div class="report">
   <div class="ld-circular-progress"
-       aria-labeledby="seo-css"
+       aria-labelledby="seo-css"
        aria-valuenow="98"
        role="progressbar"
        style="--ld-circular-progress-bar-col: var(--ld-thm-success); --ld-circular-progress-valuenow: 98">

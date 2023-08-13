@@ -20,18 +20,18 @@ The `ld-progress` component can be used to displays the progress status for task
 
 {% example %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
-<ld-progress aria-labeledby="progress-label" aria-valuenow="25"></ld-progress>
+<ld-progress aria-labelledby="progress-label" aria-valuenow="25"></ld-progress>
 
 <!-- React component -->
 
 <LdSrOnly id="progress-label">Progress</LdSrOnly>
-<LdProgress aria-labeledby="progress-label" aria-valuenow={25} />
+<LdProgress aria-labelledby="progress-label" aria-valuenow={25} />
 
 <!-- CSS component -->
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
 <div class="ld-progress"
-     aria-labeledby="progress-label-css"
+     aria-labelledby="progress-label-css"
      aria-valuenow="25"
      role="progressbar"
      style="--ld-progress-valuenow: 25"></div>
@@ -41,7 +41,7 @@ Interactive example:
 
 {% example '{ "stacked": true, "centered": true }' %}
 <ld-sr-only id="progress-label">Progress</ld-sr-only>
-<ld-progress aria-labeledby="progress-label" aria-valuenow="25"></ld-progress>
+<ld-progress aria-labelledby="progress-label" aria-valuenow="25"></ld-progress>
 
 <ld-slider value="25" max="200" width="14rem"></ld-slider>
 
@@ -64,7 +64,7 @@ return (
   <>
     <LdSrOnly id="progress-label">Progress</LdSrOnly>
     <LdProgress
-      aria-labeledby="progress-label"
+      aria-labelledby="progress-label"
       aria-valuenow={25}
       ref={progressRef}
      />
@@ -84,7 +84,7 @@ return (
 
 <span class="ld-sr-only" id="progress-label-css">Progress</span>
 <div class="ld-progress"
-     aria-labeledby="progress-label-css"
+     aria-labelledby="progress-label-css"
      aria-valuenow="25"
      role="progressbar"
      style="--ld-progress-valuenow: 25"></div>
