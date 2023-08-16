@@ -43,8 +43,6 @@ export class LdFileUpload {
   @Element() el: HTMLLdFileUploadElement
 
   private fileInput?: HTMLInputElement
-  /* private fileButton?: HTMLLdButtonElement */
-  private input: HTMLInputElement
 
   /** startUpload defines whether upload starts immediately after choosing files or after confirmation. */
   @Prop() startUpload?: boolean = false
@@ -61,6 +59,7 @@ export class LdFileUpload {
   /** Associates the control with a form element. */
   @Prop() form?: string
 
+  // TODO: Do we need the name prop at all (for "native" form submission)?
   /** Used to specify the name of the control. */
   @Prop() name?: string
 
@@ -128,6 +127,7 @@ export class LdFileUpload {
 
   @Listen('lduploadclick')
   handleUploadClick() {
+    console.info('alalalala', this.el)
     if (this.fileInput) {
       this.fileInput.click()
     }
@@ -244,58 +244,6 @@ export class LdFileUpload {
     }
   }
 
-  @Watch('dirname')
-  @Watch('form')
-  @Watch('name')
-  @Watch('value')
-  updateFileInput() {
-    const outerForm = this.el.closest('form')
-    if (!this.fileInput && this.name && (outerForm || this.form)) {
-      this.createFileInput()
-    }
-
-    if (this.fileInput) {
-      if (this.dirname) {
-        this.fileInput.dirName = this.dirname
-      }
-
-      if (this.name) {
-        this.fileInput.name = this.name
-      } else if (this.fileInput.name) {
-        this.fileInput.remove()
-        this.fileInput = undefined
-        return
-      }
-
-      if (this.form) {
-        this.fileInput.setAttribute('form', this.form)
-      } else if (this.fileInput.getAttribute('form')) {
-        if (outerForm) {
-          this.fileInput.removeAttribute('form')
-        } else {
-          this.fileInput.remove()
-          this.fileInput = undefined
-          return
-        }
-      }
-
-      if (this.isInputTypeFile(this.input)) {
-        // Clone input field in shadow dom to hidden input field.
-        const clonedInput = this.input.cloneNode() as HTMLInputElement
-        clonedInput.style.display = 'none'
-        this.fileInput.replaceWith(clonedInput)
-        this.fileInput = clonedInput
-      } else {
-        // Update value.
-        if (this.value) {
-          this.fileInput.value = this.value
-        } else if (this.fileInput.value) {
-          this.fileInput.removeAttribute('value')
-        }
-      }
-    }
-  }
-
   private parsedIcons: Partial<LdUploadItemConfig>
 
   /* private addChosenFiles(chosenFiles: FileList) {
@@ -349,15 +297,6 @@ export class LdFileUpload {
     }
   }
 
-  /* private handleUploadClick = async () => {
-    // if (this.el.querySelector('input')) {
-      // this.el.querySelector('input').click()
-    // }
-    if (this.fileInput) {
-      this.fileInput.click()
-    }
-  } */
-
   private handleInputClick = async (ev) => {
     if (!ev.isTrusted) {
       // ev.preventDefault()
@@ -378,33 +317,6 @@ export class LdFileUpload {
     if (this.startUpload) {
       this.ldfileuploadready.emit(this.allChosenFiles)
     }
-  }
-
-  /* mehrere Input Felder vom Typ file erstellen, alle mit name=file[], wenn Files gedropped
-  werden soll ein neuer Input erstellt werden */
-  private createFileInput() {
-    this.fileInput = document.createElement('input')
-    this.fileInput.type = 'file'
-    this.fileInput.tabIndex = -1
-    this.fileInput.multiple = true
-    this.fileInput.style.visibility = 'hidden'
-    this.fileInput.style.position = 'absolute'
-    this.fileInput.style.inset = '0'
-    this.fileInput.style.opacity = '0'
-    this.fileInput.onclick = this.handleInputClick
-    this.fileInput.onchange = this.handleInputChange
-    // console.log('input')
-    this.el.appendChild(this.fileInput)
-    /* this.fileButton = document.createElement('ld-button')
-    this.fileButton.textContent = 'Upload a file'
-    this.fileButton.onclick = this.handleUploadClick
-    this.el.appendChild(this.fileButton) */
-  }
-
-  private isInputTypeFile = (
-    input: HTMLInputElement
-  ): input is HTMLInputElement => {
-    return (input as HTMLInputElement).type === 'file'
   }
 
   /** Emits filesChosen event to component consumer. */
@@ -488,13 +400,6 @@ export class LdFileUpload {
   }
 
   componentWillLoad() {
-    this.createFileInput()
-    this.fileInput.name = this.name
-
-    if (this.dirname) {
-      this.fileInput.dirName = this.dirname
-    }
-
     if (this.form) {
       this.fileInput.setAttribute('form', this.form)
     }
@@ -510,73 +415,65 @@ export class LdFileUpload {
   }
 
   render() {
-    if (this.renderOnlyChooseFile) {
-      const cl = getClassNames([
-        'ld-file-upload',
-        this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
-      ])
-      return (
-        <Host class={cl}>
-          <ld-choose-file
-            class="ld-file-upload__choose-file"
-            size="bg"
-            onLdchoosefiles={this.handleChooseFiles}
-          >
-            <slot>
-              <pre>Upload button</pre>
-            </slot>
-          </ld-choose-file>
-        </Host>
-      )
-    }
-
+    const cl = getClassNames([
+      'ld-file-upload',
+      this.renderOnlyChooseFile && 'ld-file-upload--only-choose-file',
+    ])
     return (
-      <Host class="ld-file-upload">
+      <Host class={cl}>
         <ld-choose-file
           class="ld-file-upload__choose-file"
-          size="sm"
+          size={this.renderOnlyChooseFile ? 'bg' : 'sm'}
           onLdchoosefiles={this.handleChooseFiles}
         >
           <slot>
             <pre>Upload button</pre>
           </slot>
         </ld-choose-file>
-        {/* <div class="ld-file-upload__error">
-          <ld-typo>
-            Error: File cannot be chosen since a file with the same name has
-            been chosen already. To upload this file please remove the file with
-            the same name.
-          </ld-typo>
-        </div> */}
-        {this.cannotBeChosen.length != 0 ? (
-          <ld-typo class="ld-file-upload__error">
-            Error: {this.cannotBeChosen.join(', ')} cannot be chosen since a
-            file with the same name has been chosen already. To upload this file
-            please remove the file with the same name.
-          </ld-typo>
-        ) : undefined}
-        <ld-upload-progress
-          class="ld-file-upload__progress"
-          uploadItems={this.uploadItems}
-          uploadItemTypes={this.uploadItemTypes}
-          start-upload="false"
-          icons={this.parsedIcons}
-        />
-        {!this.startUpload && (
-          <ld-button
-            class="ld-file-upload__continue-button"
-            onClick={this.handleContinueClick}
-          >
-            Continue
-          </ld-button>
+
+        {!this.renderOnlyChooseFile && (
+          <div>
+            {this.cannotBeChosen.length != 0 ? (
+              <ld-typo class="ld-file-upload__error">
+                Error: {this.cannotBeChosen.join(', ')} cannot be chosen since a
+                file with the same name has been chosen already. To upload this
+                file please remove the file with the same name.
+              </ld-typo>
+            ) : undefined}
+            <ld-upload-progress
+              class="ld-file-upload__progress"
+              uploadItems={this.uploadItems}
+              uploadItemTypes={this.uploadItemTypes}
+              start-upload="false"
+              icons={this.parsedIcons}
+            />
+            {!this.startUpload && (
+              <ld-button
+                class="ld-file-upload__continue-button"
+                onClick={this.handleContinueClick}
+              >
+                Continue
+              </ld-button>
+            )}
+            <ld-button
+              class="ld-file-upload__delete-button"
+              onClick={this.handleDeleteAllClick}
+              mode="secondary"
+            >
+              Delete all files
+            </ld-button>
+          </div>
         )}
-        <ld-button
-          class="ld-file-upload__delete-button"
-          onClick={this.handleDeleteAllClick}
-          mode="secondary"
-        >
-          Delete all files
-        </ld-button>
+
+        <input
+          ref={(el) => (this.fileInput = el)}
+          onClick={this.handleInputClick}
+          onChange={this.handleInputChange}
+          type="file"
+          multiple
+          tabIndex={-1}
+          class="ld-file-upload__input"
+        />
       </Host>
     )
   }

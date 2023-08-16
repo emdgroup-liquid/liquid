@@ -51,3 +51,11 @@
 .ld-file-upload__delete-button {
   width: 100%;
 }
+
+.ld-file-upload__input {
+  visibility: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+}
